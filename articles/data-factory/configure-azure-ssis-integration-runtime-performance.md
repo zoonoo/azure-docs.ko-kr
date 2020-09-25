@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276666"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -122,8 +122,7 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. Standard_D1_v2 노드의 경우 노드당 1-4개의 병렬 실행이 지원되며, 다른 모든 유형의 노드에 대해 1-최대 (2 x 코어 수, 8) 노드당 병렬 실행이 지원 됩니다. **AzureSSISMaxParallelExecutionsPerNode** 에서 지 원하는 최대값을 초과 하는 경우 지원 티켓을 열 수 있으며, 최대 값을 늘릴 수 있으며 Azure Powershell을 사용 하 여 **AzureSSISMaxParallelExecutionsPerNode**를 업데이트 해야 합니다.
-패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
+이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. 최대 값을 늘리려면 Azure PowerShell를 사용 하 여 **AzureSSISMaxParallelExecutionsPerNode**를 업데이트 해야 합니다. 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
 
 | 크기             | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

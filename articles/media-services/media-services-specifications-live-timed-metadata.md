@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336397"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터 
 
@@ -72,10 +72,10 @@ ms.locfileid: "87800282"
 | [Adobe-Primetime] | [Primetime Digital Program 삽입 신호 사양 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
 | [Adobe-플래시]  | [FLASH ActionScript 언어 참조](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
 | AMF0            | ["작업 메시지 형식 AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
-| [IOP]     | 대시 업계 포럼 Interop 지침 v 4.2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
-| [HLS-TMD]         | HTTP 라이브 스트리밍에 대 한 시간 제한 메타 데이터-[https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
+| [IOP]     | 대시 업계 포럼 Interop 지침 v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
+| [HLS-TMD]         | HTTP 라이브 스트리밍에 대 한 시간 제한 메타 데이터- [https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
 | [CMAF-ID3]        | [CMAF (Common Media Application Format)의 시간 제한 된 메타 데이터](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
-| [ID3v2]           | ID3 태그 버전 2.4.0[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
+| [ID3v2]           | ID3 태그 버전 2.4.0  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
 | [ISO-14496-12]    | ISO/IEC 14496-12:12 부 ISO 기본 미디어 파일 형식, FourthEdition 2012-07-15                                                                                                                                 |
 | [MPEGDASH]        | 정보 기술-HTTP를 통한 동적 적응 스트리밍 (대시)-1 부: 미디어 프레젠테이션 설명 및 세그먼트 형식 2014 년 5 월 게시할지. URL: https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | 정보 기술--멀티미디어 응용 프로그램 형식 (MPEG)--19 부: 분할 된 미디어에 대 한 CMAF (Common media application format)입니다. 2018 년 1 월 게시할지. URL: https://www.iso.org/standard/71975.html |
@@ -83,9 +83,9 @@ ms.locfileid: "87800282"
 | [MS-SSTR]         | ["Microsoft 부드러운 스트리밍 프로토콜", 2014 년 5 월 15 일](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
 | [MS-SSTR-수집]  | [Azure Media Services 조각화 된 MP4 라이브 수집 사양](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | 18. ...; 5. HTTP 라이브 스트리밍. 8 월 2017. 정보 제공용 메시지입니다. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
-| [RFC4648]         | Base16, Base32 및 Base64 데이터 인코딩-[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
+| [RFC4648]         | Base16, Base32 및 Base64 데이터 인코딩- [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
 | RTMP            | ["Adobe의 실시간 메시징 프로토콜", 2012 년 12 월 21 일](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
-| [SCTE-35-2019]    | SCTE 35:2019-케이블에 대 한 디지털 프로그램 삽입 케이블용 메시지-https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
+| [SCTE-35-2019]    | SCTE 35:2019-케이블에 대 한 디지털 프로그램 삽입 케이블용 메시지- https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
 | [SCTE-214-1]      | SCTE 214-1 2016 – IP 기반 케이블 서비스의 MPEG 파선 1: MPD 제약 조건 및 확장                                                                                                                 |
 | [SCTE-214-3]      | IP 기반 케이블 서비스에 대 한 SCTE 214-3 2015 MPEG 쇄선 3 부: 대시/FF 프로필                                                                                                                                  |
 | [SCTE-224]        | SCTE 224 2018r1 – 이벤트 일정 예약 및 알림 인터페이스                                                                                                                                                  |
@@ -208,7 +208,7 @@ RTMP 프로토콜을 사용 하 여 업스트림 인코더, IP 카메라, 드 �
 ```
 
 ### <a name="built-in-supported-scheme-id-uris"></a>기본 제공 지원 스키마 ID Uri
-| 스키마 ID URI                 | 설명                                                                                                                                                                                                                                          |
+| 스키마 ID URI                 | Description                                                                                                                                                                                                                                          |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | https: \/ /aomedia.org/emsg/ID3 | [ID3v2] 메타 데이터를 CMAF 호환 [MPEGCMAF] 조각화 된 MP4에서 timed metadata로 전달 하는 방법을 설명 합니다. 자세한 내용은 [CMAF (Common Media Application Format)의 시간 제한 된 메타 데이터](https://github.com/AOMediaCodec/id3-emsg) 를 참조 하세요. |
 
@@ -239,7 +239,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 
 | 필드 이름 | 필드 형식 | 필수 여부 | 설명                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | String     | 필수  | 이벤트 메시지입니다.  단순 모드 스플라이스를 지정하려면 "SpliceOut"이어야 합니다.                                                                                                                                                                                                         |
+| 형식       | String     | 필수  | 이벤트 메시지입니다.  단순 모드 스플라이스를 지정하려면 "SpliceOut"이어야 합니다.                                                                                                                                                                                                         |
 | id         | String     | 필수  | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.                                                                                                                                                                                       |
 | duration   | 번호     | 필수  | 스플라이스의 재생 시간입니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                                                           |
 | elapsed    | 번호     | 선택 사항  | 선국(tune in)을 지원하기 위해 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. 단순 모드를 사용하는 경우, 이 값은 스플라이스의 원래 재생 시간을 초과하지 않아야 합니다. |
@@ -268,7 +268,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 | 필드 이름 | 필드 형식 | 필수 여부 | 설명                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | cue        | String     | 필수  | 이벤트 메시지입니다.  [SCTE-35] 메시지의 경우 메시지를 HLS, Smooth 및 대시로 클라이언트에 보내려면이 메시지는 b a s e 64로 인코딩된 [RFC4648] 이진 splice_info_section () 이어야 합니다.                                                                                                                                                                                                                               |
-| type       | String     | 필수  | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우 **"scte35"** 로 서 메시지를 HLS, Smooth 및 대시로 클라이언트에 전송 하려면 [Adobe-Primetime]를 준수 **해야** 합니다. 필요에 따라 URN "urn: scte: scte35:2013: bin"을 사용 하 여 [SCTE-35] 메시지에 신호를 보낼 수도 있습니다.                                                                                                        |
+| 형식       | String     | 필수  | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우 **"scte35"** 로 서 메시지를 HLS, Smooth 및 대시로 클라이언트에 전송 하려면 [Adobe-Primetime]를 준수 **해야** 합니다. 필요에 따라 URN "urn: scte: scte35:2013: bin"을 사용 하 여 [SCTE-35] 메시지에 신호를 보낼 수도 있습니다.                                                                                                        |
 | id         | String     | 필수  | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.  동일한 의미 체계를 갖는 메시지의 값은 동일해야 합니다.                                                                                                                                                                                                                                                       |
 | duration   | 번호     | 필수  | 알려진 경우 이벤트 또는 광고 스플라이스 세그먼트의 재생 시간입니다. 알 수 없는 **경우 값은 0 이어야 합니다.**                                                                                                                                                                                                                                                                                                                    |
 | elapsed    | 번호     | 선택 사항  | 선국(tune in)하기 위해 [SCTE-35] 광고 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. [SCTE-35] 모드에서 이 값은 스플라이스 또는 세그먼트의 지정된 원래 재생 시간을 초과할 수 있습니다.                                                                                                                   |
@@ -297,7 +297,7 @@ See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | 이름은 '**scte35**'이 고,                                                                                                                                                                              |
 | time       | 타임 라인 중 비디오 파일에서 큐 지점이 발생 하는 시간 (초)입니다.                                                                                                                                           |
-| type       | 큐 지점의 유형은 "**event**"로 설정 해야 합니다.                                                                                                                                                                             |
+| 형식       | 큐 지점의 유형은 "**event**"로 설정 해야 합니다.                                                                                                                                                                             |
 | 매개 변수 | Id 및 기간을 포함 하 여 SCTE-35 메시지의 정보를 포함 하는 이름/값 쌍 문자열의 결합형 배열입니다. 이러한 값은 Azure Media Services에 의해 구문 분석 되 고 매니페스트 장식 태그에 포함 됩니다. |
 
 
@@ -306,7 +306,7 @@ See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash
 
 #### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>MPEG 대시 MPD, 단일 기간, Adobe Simple mode 신호의 예
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
@@ -357,14 +357,13 @@ See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash
         </AdaptationSet>
     </Period>
 </MPD>
-~~~
-
+```
 
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>HLS 재생 목록 예, Adobe Simple mode는 EXT--CUE 태그를 사용 하 여 신호를 보냅니다 (잘림 "..."). 간단 하 게
 
 다음 예에서는 Adobe "simple" 모드 신호 및 레거시 [Primetime] RTMP 태그를 사용 하 여 수집 스트림에 대 한 Media Services 동적 포장기의 출력을 보여 줍니다.  
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -401,8 +400,7 @@ Fragments(video=1583487999666666,format=m3u8-aapl-v8)
 #EXTINF:6.400000,no-desc
 Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 ...
-
-~~~
+```
 
 ### <a name="216-cancellation-and-updates"></a>2.1.6 취소 및 업데이트
 
@@ -506,7 +504,7 @@ MediaDataBox (' mdat ') 상자의 형식은 다음과 **같아야 합니다** .
 StreamIndex에는 "DATA"의 하위 형식이 **있어야** 하며 Customattributes에 Name = "Schema" 및 Value = "urn: scte: scte35:2013: bin"의 특성이 포함 **되어야** 합니다.
 
 #### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Base64 인코딩 [SCTE35] splice_info_section ()를 보여 주는 부드러운 클라이언트 매니페스트 예제
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
   LookAheadFragmentCount="2" DVRWindowLength="6000000000">
@@ -542,7 +540,7 @@ StreamIndex에는 "DATA"의 하위 형식이 **있어야** 하며 Customattribut
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
-~~~
+```
 
 ## <a name="32-apple-hls-manifest-decoration"></a>3.2 Apple HLS 매니페스트 장식
 
@@ -567,7 +565,7 @@ The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follo
 
 Media Services 동적 패키지 작성의 다음 예에서는 SCTE35 모드의 [Adobe-Primetime]에 대 한 EXT-큐 태그를 보여 줍니다. 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -719,7 +717,7 @@ Fragments(video=28513485,format=m3u8-aapl-v8)
 #EXTINF:1.501500,no-desc
 Fragments(video=28648620,format=m3u8-aapl-v8)
 
-~~~
+```
 
 
 <!---
@@ -930,7 +928,7 @@ Media Services (버전 2 및 3 API)는 [Adobe-Primetime] "SCTE-35 Mode"에 정�
 
 "레거시" EXT--CUE 태그는 아래와 같이 정의 되며 [Adobe-Primetime] 사양에서 표준 참조할 수도 있습니다. 이는 필요한 경우 레거시 SCTE35 신호에만 사용 해야 합니다. 그렇지 않으면 권장 태그는 [RFC8216]에서 EXT-DATERANGE로 정의 됩니다. 
 
-| **특성 이름** | **형식**                      | **필수 여부**                             | **설명**                                                                                                                                                                                                                                                                          |
+| **특성 이름** | **유형**                      | **필수 여부**                             | **설명**                                                                                                                                                                                                                                                                          |
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CUE                | 따옴표가 붙은 문자열                 | 필수                                  | [RFC4648]에 설명 된 대로 base64 인코딩 문자열로 인코딩된 메시지입니다. [SCTE-35] 메시지의 경우 b a s e 64로 인코딩된 splice_info_section ()입니다.                                                                                                                                      |
 | TYPE               | 따옴표가 붙은 문자열                 | 필수                                  | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우 형식은 특수 값 "scte35"을 사용 합니다.                                                                                                                                                                          |
@@ -949,7 +947,7 @@ HLS 플레이어 애플리케이션 계층에서는 TYPE을 사용하여 메시�
 --->
 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-PLAYLIST-TYPE:VOD
@@ -1008,7 +1006,7 @@ Fragments(video=4011692972,format=m3u8-aapl)
 #EXTINF:8.008000,no-desc
 Fragments(video=4011702982,format=m3u8-aapl)
 
-~~~
+```
 
 ### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>Adobe Primetime EXT-X-큐에 대 한 3.2.4 HLS 메시지 처리
 
@@ -1052,7 +1050,7 @@ Manifest (MPD) 이벤트의 데코레이션은 Period 요소 내에 표시 되�
 
 EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
-| **특성 이름** | **형식**                | **필수 여부** | **설명**                                                                                                                                                                                                                                                                                                                                                                         |
+| **특성 이름** | **유형**                | **필수 여부** | **설명**                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | scheme_id_uri      | 문자열                  | 필수      | 메시지의 구성표를 식별합니다. 이 구성표는 라이브 서버 매니페스트 상자에 있는 Scheme 특성의 값으로 설정됩니다. 이 값은 메시지 구성표를 식별 하는 URN 또는 URL 이어야 **합니다** . 지원 되는 출력 schemeId는 "urn: scte: scte35:2014: xml + bin" (MPD) 214-1 당 "urn: scte:: 2014: xml + bin" 이어야 합니다. |
 | 값              | 문자열                  | 옵션      | 메시지의 의미 체계를 사용자 지정하기 위해 구성표 소유자가 추가로 사용하는 문자열 값입니다. 동일한 스키마를 사용 하 여 여러 이벤트 스트림을 구분 하려면 값을 이벤트 스트림의 이름 ([RTMP] 수집에 대 한 [MS SSTR-수집] 또는 AMF 메시지 이름)으로 설정 **해야** 합니다.                                                                         |
@@ -1065,7 +1063,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
 다음 예제에서는 Adobe "simple" 모드 신호를 사용 하 여 RTMP 스트림에 대 한 Media Services 동적 패키지 작성의 발췌 한 EventStream를 보여 줍니다.
 
-~~~ xml
+```xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
     <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
         <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
@@ -1080,7 +1078,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
         <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
         <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
-~~~
+```
 
 
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 예 mpd 모드를 사용 하 35 여 RTMP 스트림의 매니페스트 신호
@@ -1089,7 +1087,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
 [SCTE-214-1] 당 xml + bin 스타일 신호를 사용 하는 예제 EventStream 요소
 
-~~~ xml
+```xml
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -1103,7 +1101,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
             </Signal>
         </Event>
       </EventStream>
-~~~
+```
 
 
 
@@ -1119,7 +1117,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 다음 예제에서는 Adobe "simple" 모드 ad 신호 메서드를 사용 하 여 원본 RTMP 스트림에 대 한 Media Services 동적 패키지 작성의 출력을 보여 줍니다. 출력은 "urn: com: adobe: dpi: simple: 2015" 및 value 속성을 "simplesignal"로 설정 하 여 EventStream를 표시 하는 단일 기간 매니페스트입니다.
 각 단순 신호는 @presentationTime @duration @id 들어오는 단순 신호에 따라, 및 속성이 채워진 이벤트 요소에 제공 됩니다.
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
@@ -1168,7 +1166,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
     </Period>
 </MPD>
 
-~~~
+```
 
 <!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
@@ -1322,10 +1320,10 @@ In this case, the output manifest is a multi-period DASH .mpd with an EventStrea
 
 
 #### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Adobe Simple 모드용 InBandEvenStream 엔터티 예제
-~~~ xml
+```xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
-~~~
+```
 
 ### <a name="335-dash-message-handling"></a>3.3.5 대시 메시지 처리
 

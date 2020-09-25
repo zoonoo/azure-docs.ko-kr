@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335537"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -135,12 +135,11 @@ az aks get-versions --location eastus --output table
 
 |  K8s 버전 | 업스트림 릴리스  | AKS 미리 보기  | AKS GA  | 수명 종료 |
 |--------------|-------------------|--------------|---------|-------------|
+| 1.16  | 9 월-19-19  | 1 월 2019   | 2020년 3월  | 1.19 GA | 
 | 1.17  | 12 월-09-19  | 1 월 2019   | 7 월 2020  | 1.20 GA | 
 | 1.18  | 3 월-23-20  | 2020년 5월   | 8 월 2020  | 1.21 GA | 
-| 1.19  | 8 월-04-20  | 8 월 2020   | 11 월 2020  | 1.22 GA | 
-| 1.20  | * 11 월 2020    | * Dec 2020   | * 1 월 2021  | 1.23 GA | 
-
-\* 보류 중인 업스트림 릴리스 날짜 확인입니다.
+| 1.19  | 8 월-04-20  | 9 월 2020   | 11 월 2020  | 1.22 GA | 
+| 1.20  | 12 월-08-20  | 1 월 2021   | 3 월 2021  | 1.23 GA | 
 
 ## <a name="faq"></a>FAQ
 
@@ -150,7 +149,7 @@ Kubernetes 1.19를 사용 하는 경우 [오픈 소스 커뮤니티는 1 년에 
 
 **사용자가 지원 되지 않는 부 버전으로 Kubernetes 클러스터를 업그레이드 하는 경우 어떻게 되나요?**
 
-이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 다음은 그 예입니다. 
+이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들면 다음과 같습니다.
 
 - 가장 오래 된 지원 되는 AKS 버전이 *1.15입니다. a* 와 *1.14* 에 있는 경우에는 지원 되지 않습니다.
 - *1.14* 에서 1.15로 업그레이드 하는 경우 *에는* 지원 정책 내에 다시 로그인 합니다.

@@ -10,18 +10,18 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ac1df12b10e32f35e8edbd52c3488b2d38db638a
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: df9447160fe6a0aa2a3ae001ad8a337c3ff488f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275946"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 
 이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들도록 선택할 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -83,7 +83,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 파일 변경에 의해 트리거되는 파이프라인이 시간 기반 일정 보다 효율적일 수 있습니다. 예를 들어 파일이 변경 될 때 또는 새 파일이 데이터 디렉터리에 추가 될 때 전처리 단계를 수행 하는 것이 좋습니다. 데이터 저장소에 대 한 변경 내용 또는 데이터 저장소 내의 특정 디렉터리 내 변경 내용을 모니터링할 수 있습니다. 특정 디렉터리를 모니터링 하는 경우 해당 디렉터리의 하위 디렉터리에 있는 변경 내용은 실행을 트리거하지 _않습니다_ .
 
-파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
+파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
 
 `polling_interval`인수를 사용 하면 데이터 저장소의 변경 내용이 확인 되는 빈도 (분)를 지정할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 71bffacb3f865ffe487ebdd4bee0c0c229be332d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84cb9860f247610621bff130aff155abf222f3c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274897"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux Virtual Machines에 대한 질문과 대답
 이 문서에서는 Azure에서 Resource Manager 배포 모델을 사용하여 만든 Linux 가상 머신에 대한 일반적인 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows Virtual Machines에 대한 질문과 대답](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -64,7 +64,7 @@ Secure Shell (SSH)를 사용 하 여 가상 머신에 로그온 하는 원격 �
 - `admin`
 - `admin1`
 - `admin2`
--`administrator`
+- `administrator`
 - `aspnet`
 - `backup`
 - `console`

@@ -11,19 +11,19 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27881d6271fbedfb5763b293d5145e2f87cd1c13
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309315"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
 > [!NOTE]
 > * 감정 분석 v3의 컨테이너가 이제 일반 공급 됩니다. 핵심 구 추출 및 언어 검색 컨테이너는 제어되지 않은 공개 미리 보기로 제공됩니다.
 > * 엔터티 링크 및 NER는 현재 컨테이너로 사용할 수 없습니다.
-> * 상태 컨테이너의 Text Analytics에 액세스 하려면 [요청 양식이](https://aka.ms/cognitivegate)필요 합니다. 현재 사용에 대 한 요금이 청구 되지 않습니다.
+> * 상태 컨테이너의 Text Analytics에 액세스 하려면 [요청 양식이](https://aka.ms/csgate)필요 합니다. 현재 사용에 대 한 요금이 청구 되지 않습니다.
 > * 컨테이너 이미지 위치가 최근에 변경 되었을 수 있습니다. 이 컨테이너의 업데이트 된 위치를 확인 하려면이 문서를 참조 하세요.
 
 컨테이너를 사용하면 사용자 환경에서 Text Analytic API를 실행할 수 있으며 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. Text Analytics 컨테이너는 원시 텍스트에 대 한 고급 자연어 처리를 제공 하며, 감정 분석, 핵심 구 추출 및 언어 감지 라는 세 가지 주요 함수를 포함 합니다. 

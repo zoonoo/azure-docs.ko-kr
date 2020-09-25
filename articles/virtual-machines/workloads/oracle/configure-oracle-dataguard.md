@@ -3,7 +3,7 @@ title: Azure Linux 가상 머신에서 Oracle Data Guard 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle Data Guard를 신속하게 가동하고 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.openlocfilehash: f8a40f87b8fdaa2adf445392bd598dd8133aae4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083381"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335904"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
@@ -282,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-플래시 백를 켜고 (복구를 훨씬 더 용이 하 게 함) 대기 \_ 파일 \_ 관리를 자동으로 설정 합니다. SQL * Plus를 종료 합니다.
+플래시 백 (복구를 훨씬 더 용이 하 게 함)를 켜고 대기 \_ 파일 \_ 관리를 자동으로 설정 합니다. 그런 다음 SQL * Plus를 종료 합니다.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;

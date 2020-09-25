@@ -1,6 +1,6 @@
 ---
 title: Azure 이미지 작성기 (미리 보기)를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
-description: Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전을 만듭니다.
+description: Linux에서 Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f233a6fc557d9dbb62585e8cca85f175b3bc3e26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142b4a85826b9e9a95b17dc631045aab603f3859
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307333"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>미리 보기: Linux에서 Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
 

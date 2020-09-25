@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: digital-twins
 ms.service: digital-twins
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289893"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287419"
 ---
 ### <a name="property-limits"></a>속성 제한
 
@@ -26,14 +26,13 @@ Azure Time Series Insights 속성 제한은 Gen1에서 800의 최대 캡에서 1
 | Gen1 (S1) | 600 속성 (열) |
 | Gen1 (S2) | 800 속성 (열) |
 
-### <a name="event-sources"></a>이벤트 원본
+### <a name="streaming-ingestion"></a>스트리밍 수집
 
-인스턴스당 최대 2 개의 이벤트 원본이 지원 됩니다.
+* 환경 마다 최대 두 개의 [이벤트 소스가](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md) 있습니다.
 
-* [이벤트 허브 원본을 추가](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)하는 방법에 대해 알아봅니다.
-* [IoT hub 원본을](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)구성 합니다.
+* 이벤트 원본에 대 한 모범 사례 및 일반적인 지침은 [여기](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) 에서 찾을 수 있습니다.
 
-기본적으로 Gen2 환경은 **환경 당 초당**최대 1mb의 [수신 속도를 지원](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) 합니다. 고객은 필요한 경우 최대 **16mb/s** 처리량까지 환경을 확장할 수 있습니다. 또한 **0.5 m b/s**의 파티션당 제한이 있습니다.
+* 기본적으로 Azure Time Series Insights Gen2는 **Azure Time Series Insights Gen2 환경 당 최대 1mbps (초당 메가바이트)** 의 속도로 들어오는 데이터를 수집할 수 있습니다. [허브 파티션](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits)마다 추가 제한이 있습니다. Azure Portal를 통해 지원 티켓을 제출 하 여 최대 8 MBps의 요금을 제공할 수 있습니다. 자세히 알아보려면 [스트리밍 수집 처리량 제한](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md)을 참조 하세요.
 
 ### <a name="api-limits"></a>API 제한
 

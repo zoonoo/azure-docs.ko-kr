@@ -1,26 +1,28 @@
 ---
 title: 소스 제어 및 개발 분기-LUIS
 description: 원본 제어에서 Language Understanding (LUIS) 앱을 유지 관리 하는 방법입니다. 개발 분기에서 작업 하는 동안 LUIS 앱에 업데이트를 적용 하는 방법입니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 2d060fefbd32ecea1f91e6b062da7606699a63c4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783779"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309509"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대 한 DevOps 방법
 
 LUIS (Language Understanding) 앱을 개발 하는 소프트웨어 엔지니어는 다음 지침에 따라 [소스 제어](luis-concept-devops-sourcecontrol.md), [자동화 된 빌드](luis-concept-devops-automation.md), [테스트](luis-concept-devops-testing.md)및 [릴리스 관리](luis-concept-devops-automation.md#release-management) 에 대 한 devops 사례를 적용할 수 있습니다.
 
-## <a name="source-control-and-branch-strategies-for-luis"></a>LUIS에 대 한 소스 제어 및 분기 전략
+## <a name="source-control-and-branch-strategies-for-luis"></a>LUIS에 대한 소스 제어 및 분기 전략
 
 DevOps의 성공에 따라 달라 지는 주요 요소 중 하나는 [원본 제어](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)에 있습니다. 개발자는 소스 제어 시스템을 사용 하 여 코드를 공동 작업 하 고 변경 내용을 추적할 수 있습니다. 분기를 사용 하면 개발자가 코드 베이스의 다른 버전 간에 전환 하 고 팀의 다른 멤버와 독립적으로 작업할 수 있습니다. 개발자가 한 분기에서 다른 분기의 업데이트를 제안 하기 위해 PR ( [끌어오기 요청](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) )을 발생 시킬 때 또는 변경 내용이 병합 된 경우 [자동](luis-concept-devops-automation.md) 빌드에서 코드를 작성 하 고 지속적으로 테스트 하는 트리거가 될 수 있습니다.
 
 이 문서에서 설명 하는 개념과 지침을 사용 하 여 소스 제어 시스템의 변경 내용을 추적 하는 동안 LUIS 앱을 개발 하 고 다음과 같은 소프트웨어 엔지니어링 모범 사례를 따를 수 있습니다.
 
-- **원본 제어**
+- **소스 제어**
   - LUIS 앱에 대 한 소스 코드는 사람이 읽을 수 있는 형식입니다.
   - 반복 가능한 방식으로 원본에서 모델을 빌드할 수 있습니다.
   - 소스 코드 리포지토리를 통해 소스 코드를 관리할 수 있습니다.
@@ -40,7 +42,7 @@ DevOps의 성공에 따라 달라 지는 주요 요소 중 하나는 [원본 제
 
 ## <a name="source-control"></a>원본 제어
 
-소스 코드 관리 시스템에서 LUIS 앱의 [앱 스키마 정의](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) 를 유지 하려면 앱의 [ludown 형식 ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) 을 사용 합니다. `.lu`형식에는 사람이 읽을 수 있으므로 형식을 지정 하는 것이 좋습니다 `.json` . 이렇게 하면 pr의 변경 내용을 보다 쉽게 만들고 검토할 수 있습니다.
+소스 코드 관리 시스템에서 LUIS 앱의 [앱 스키마 정의](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) 를 유지 하려면 앱의 [ludown 형식 ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  을 사용 합니다. `.lu` 형식에는 사람이 읽을 수 있으므로 형식을 지정 하는 것이 좋습니다 `.json` . 이렇게 하면 pr의 변경 내용을 보다 쉽게 만들고 검토할 수 있습니다.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>LUDown 형식을 사용 하 여 LUIS 앱 저장
 
@@ -52,7 +54,7 @@ LUIS 앱을 형식으로 저장 하 `.lu` 고 소스 제어에 추가 하려면 
 
 > [!TIP]
 > LUIS 앱의 JSON 내보내기로 작업 하는 경우 [BOTBUILDER LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS)를 사용 하 여 [이를 ludown으로 변환할](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) 수 있습니다. 옵션을 사용 하 여 `--sort` 의도 및 길이 발언 사전순으로 정렬 되도록 합니다.  
-> 에 유의 **하십시오. **LUIS 포털에 기본 제공 되는 LU 내보내기 기능은 이미 출력을 정렬 합니다.
+> 에 유의 **하십시오. ** LUIS 포털에 기본 제공 되는 LU 내보내기 기능은 이미 출력을 정렬 합니다.
 
 ### <a name="build-the-luis-app-from-source"></a>원본에서 LUIS 앱 빌드
 
@@ -66,7 +68,7 @@ LUIS 앱의 경우 *원본에서 빌드하려면* [ `.lu` 원본을 가져와 �
 
 LUIS 응용 프로그램에 대 한 다음 형식의 파일은 소스 제어에서 유지 관리 해야 합니다.
 
-- `.lu`LUIS 응용 프로그램의 파일입니다.
+- `.lu` LUIS 응용 프로그램의 파일입니다.
 
 - [단위 테스트 정의 파일](luis-concept-devops-testing.md#writing-tests) (길이 발언 및 예상 결과)
 
@@ -199,7 +201,7 @@ Master LUIS app 버전에 대해 숫자 버전 관리 체계를 사용 하는 �
 
 Master LUIS 앱의 최신 수정 버전에 대 한 버전 번호를 확인 한 후 새 앱 버전을 빌드 및 테스트 하 고, 품질 보증 또는 프로덕션과 같은 다양 한 빌드 환경에서 사용할 수 있는 끝점에 게시 해야 합니다. CI (연속 통합) 워크플로에서 이러한 모든 단계를 자동화 하는 것이 좋습니다.
 
-참조
+다음을 참조하세요.
 - LUIS 앱을 테스트 하 고 릴리스 하는 CI 워크플로를 구현 하는 방법에 대 한 자세한 내용은 [자동화 워크플로](luis-concept-devops-automation.md) 를 참조 하세요.
 - LUIS 앱을 배포 하는 방법에 대 한 자세한 내용은을 [Release Management](luis-concept-devops-automation.md#release-management) .
 

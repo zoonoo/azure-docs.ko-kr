@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336159"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -131,7 +131,7 @@ Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 .NET Core St
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
 
-응용 프로그램이 올바른 *.zip* 파일 형식으로 패키지 되었는지 확인 합니다. 올바르게 패키지 되지 않은 경우 프로세스가 중단 되거나 오류 메시지가 표시 됩니다.
+응용 프로그램이 올바른 *.zip* 파일 형식으로 패키지 되었는지 확인 합니다. 올바르게 패키지 되지 않은 경우 프로세스가 응답 하지 않거나 오류 메시지가 표시 됩니다.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

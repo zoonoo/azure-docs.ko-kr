@@ -7,14 +7,14 @@ titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data W
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: f664ffbfc9aa38dcf8eb7736b28613efb95bde63
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 431d7ff2631f9b4a0a20db82c40b512c41209b7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325371"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "89438180"
 > [!NOTE]
 > 이러한 설정이 적용 되 면 **즉시 적용** 되며 각 설정에 대 한 요구 사항을 충족 하지 않는 경우 클라이언트에 대 한 연결 손실이 발생할 수 있습니다.
 
-## <a name="deny-public-network-access"></a>공용 네트워크 액세스 거부
+## <a name="deny-public-network-access"></a>퍼블릭 네트워크 액세스 거부
 
 **공용 네트워크 액세스 거부** 설정을 **예**로 설정 하면 개인 끝점을 통한 연결만 허용 됩니다. 이 설정이 **아니요** (기본값)로 설정 된 경우 클라이언트는 [네트워크 액세스 개요](network-access-controls-overview.md)에 설명 된 대로 공용 끝점 (IP 기반 방화벽 규칙, VNET 기반 방화벽 규칙) 또는 개인 끝점 (개인 링크 사용) 중 하나를 사용 하 여 연결할 수 있습니다. 
 
@@ -76,7 +76,7 @@ To manage server or database level firewall rules, please enable the public netw
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
 ## <a name="change-public-network-access-via-cli"></a>CLI를 통해 공용 네트워크 액세스 변경

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335887"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Azure AD 역할에 대 한 검색 및 통찰력 (미리 보기) (이전의 보안 마법사)
 
@@ -29,9 +29,9 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
 조직에서 Privileged Identity Management 사용을 시작 하기 전에 모든 역할 할당이 영구적입니다. 사용자는 권한이 필요 하지 않은 경우에도 항상 할당 된 역할에 포함 됩니다. 이전 보안 마법사를 대체 하는 검색 및 정보 (미리 보기)는 권한 있는 역할 목록과 현재 이러한 역할에 있는 사용자 수를 보여 줍니다. 역할에 대 한 할당을 나열 하 여 할당 된 사용자 중 하나 이상이 익숙하지 않은 경우 해당 사용자에 대 한 자세한 정보를 확인할 수 있습니다.
 
-: heavy_check_mark: 로그인 할 때 다단계 인증을 요구 하지 않는 전역 관리자 역할에 영구적으로 할당 되는 2 개의 중단 된 계정을 유지 하는 것 **이 좋습니다** . 이는 모든 브레이크 유리 시나리오에서 사용할 수도 있고, 전역 관리자 역할로 상승 하지 못하는 경우에 사용할 수도 있습니다.
+: heavy_check_mark: 전역 관리자 역할에 영구적으로 할당 되는 두 개의 브레이크 유리 계정을 유지 하는 것 **이 좋습니다** . [AZURE AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)에 설명 된 대로 이러한 계정에는 일반 관리자 계정과 동일한 multi-factor authentication 메커니즘이 필요 하지 않은지 확인 하세요.
 
-또한 사용자에 게 Microsoft 계정 (즉, Skype 또는 Outlook.com와 같은 Microsoft 서비스에 로그인 하는 데 사용 하는 계정)가 있는 경우 역할 할당을 영구적으로 유지 합니다. 이러한 역할에서 multi-factor authentication을 활성화 해야 하는 경우 사용자가 잠깁니다.
+또한 사용자에 게 Microsoft 계정 (즉, Skype 또는 Outlook.com와 같은 Microsoft 서비스에 로그인 하는 데 사용 하는 계정)가 있는 경우 역할 할당을 영구적으로 유지 합니다. 역할 할당을 활성화 하는 Microsoft 계정 사용자에 대 한 multi-factor authentication이 필요한 경우 사용자가 잠깁니다.
 
 ## <a name="open-discovery-and-insights-preview"></a>검색 및 통찰력 열기 (미리 보기)
 
@@ -49,7 +49,7 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
 1. 전역 관리자 역할 할당의 목록을 검토 합니다.
 
-    ![전역 관리자 줄이기-모든 멤버를 표시 하는 역할 창](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![전역 관리자 줄이기-모든 전역 관리자를 표시 하는 역할 창](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. **다음** 을 선택 하 여 적합 한 사용자 또는 그룹을 선택 하 고 **적격 설정** 또는 **할당 제거**를 선택 합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: Zhchia
-ms.openlocfilehash: c889b2c7b11c5e649045e34cdac9e50a3a242b6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cf71246caef377fb607a9ca7a765ec9ca5999744
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88524456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285960"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 자동 사용자 게이트 구성
 
@@ -130,11 +130,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 자동 사용자 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://dialpad.com/scim` 있는 **테 넌 트 URL**에 입력 합니다. **비밀 토큰**의 저장 된 사용자 게이트에서 이전에 검색 하 고 저장 한 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가가 나 게이트에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 사용자 게이트 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

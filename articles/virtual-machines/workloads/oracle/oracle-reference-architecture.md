@@ -2,7 +2,7 @@
 title: Azure의 Oracle 데이터베이스에 대 한 참조 아키텍처 | Microsoft Docs
 description: Microsoft Azure Virtual Machines에서 Oracle Database Enterprise Edition 데이터베이스를 실행 하기 위한 아키텍처를 참조 합니다.
 services: virtual-machines-linux
-author: rgardler
+author: dbakevlar
 manager: ''
 tags: ''
 ms.service: virtual-machines
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: rogardle
+ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: 8feede515cf7ed861f3219fdf5f4642a33c9e83e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274439"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 

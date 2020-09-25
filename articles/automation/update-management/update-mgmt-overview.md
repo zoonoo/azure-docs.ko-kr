@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 314012467da532002529a3f561b192876602b46e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335435"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -59,7 +59,7 @@ Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다
 
 예약 배포를 만들어서 업데이트가 필요한 머신에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. 선택 사항으로 분류된 업데이트는 Windows 머신의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다.
 
-예약 배포는 특정 컴퓨터를 명시적으로 지정 하거나 지정 된 기준에 따라 동적으로 Azure Vm을 선택 하는 특정 컴퓨터 집합 (또는 [Azure query] logs.md)의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md) 을 선택 하 여이를 수행 합니다. 이 그룹은 업데이트 관리를 사용하도록 설정하기 위해 구성을 수신할 머신의 대상을 제어하는 데 사용되는 [범위 구성](../../azure-monitor/insights/solution-targeting.md)과는 다릅니다. 이 그룹은 업데이트 준수를 수행 및 보고하는 것을 방지하며, 승인된 필요한 업데이트를 설치합니다.
+예약 배포는 머신을 명시적으로 지정하거나 특정 머신 집합의 로그 검색을 기반으로 하는(또는 지정된 기준에 따라 Azure VM을 동적으로 선택하는 [Azure 쿼리](update-mgmt-query-logs.md)를 기반으로 하는) [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 선택하여 해당 업데이트를 받을 대상 머신을 정의합니다. 이 그룹은 업데이트 관리를 사용하도록 설정하기 위해 구성을 수신할 머신의 대상을 제어하는 데 사용되는 [범위 구성](../../azure-monitor/insights/solution-targeting.md)과는 다릅니다. 이 그룹은 업데이트 준수를 수행 및 보고하는 것을 방지하며, 승인된 필요한 업데이트를 설치합니다.
 
 배포를 정의할 때는 승인할 일정을 지정하고 업데이트가 설치될 수 있는 기간을 설정합니다. 이 기간을 유지 관리 기간이라고 합니다. 유지 관리 기간 중 20분은 재부팅이 필요하며 사용자가 적절한 재부팅 옵션을 선택했다고 가정한 상태로 재부팅을 위해 예약됩니다. 패치에 예상보다 시간이 오래 걸리고 유지 관리 기간이 20분 미만이라면 재부팅이 이루어지지 않습니다.
 

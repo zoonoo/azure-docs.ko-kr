@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b295c4f8380d59d8824049e8050605cb66fbae65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275288"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결 설정
 
@@ -79,7 +79,7 @@ api-key: [Search service admin key]
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | 설명 |
+| 필드   | Description |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
@@ -135,7 +135,15 @@ api-key: [admin key]
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](/rest/api/searchservice/create-indexer)를 확인하세요.
 
-인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서 일정 지정 방법](search-howto-schedule-indexers.md)을 참조하세요.
+인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서를 예약하는 방법](search-howto-schedule-indexers.md)을 참조하세요.
+
+## <a name="troubleshooting"></a>문제 해결
+
+Cosmos DB에서 데이터를 인덱싱할 수 없는 경우 다음 사항을 고려 하십시오.
+
+1. 최근 Cosmos DB 계정 키를 회전 한 경우 관리 id 연결 문자열이 작동 하는 데 최대 15 분이 걸립니다.
+
+1. Cosmos DB 계정의 액세스 권한이 네트워크 선택으로 제한 되어 있는지 확인 하세요. 이 경우 [Azure 네트워크 보안 기능을 사용 하 여 데이터 원본에 대 한 인덱서 액세스](search-indexer-securing-resources.md)를 참조 하세요.
 
 ## <a name="see-also"></a>참고 항목
 

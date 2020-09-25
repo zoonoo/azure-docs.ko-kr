@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306398"
 ---
 # <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
 AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사용자가 Microsoft 365 같은 SaaS 응용 프로그램에 액세스할 수 있도록 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
@@ -39,7 +39,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 > 
 
 ## <a name="what-is-in-the-report"></a>보고서에는 무엇이 있나요?
-실패 한 로그인 활동 클라이언트 IP 주소는 웹 응용 프로그램 프록시 서버를 통해 집계 됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. 제공되는 정보는 다음 과 같습니다. ![Azure AD Connect Health Portal 포털](./media/how-to-connect-health-adfs/report4a.png)
+실패 한 로그인 활동 클라이언트 IP 주소는 웹 응용 프로그램 프록시 서버를 통해 집계 됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. 다음 정보를 제공 합니다. ![ 열 머리글이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4a.png)
 
 | 보고서 항목 | Description |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 
 예를 들어 아래의 보고서 항목은 <i>104.2XX.2XX.9</i> IP 주소에서 2018년 2월 28일 오후 6 시부터 오후 7시까지 잘못된 암호 오류는 없지만 284개의 엑스트라넷 잠금 오류가 있었다고 나타냅니다. 조건 내에서 14명의 고유 사용자가 영향을 받았습니다. 활동 이벤트가 지정된 보고서 시간당 임계값을 초과했습니다. 
 
-![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report4b.png)
+![위험한 IP 보고서 항목의 예를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - 지정된 임계값을 초과하는 활동만 보고서 목록에 표시됩니다. 
@@ -60,7 +60,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 > - 이 경고 보고서에는 Exchange IP 주소 또는 개인 IP 주소가 표시되지 않습니다. 이러한 주소는 여전히 내보내기 목록에 포함되어 있습니다. 
 >
 
-![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report4c.png)
+!["다운로드", "알림 설정" 및 "임계값 설정"이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>목록에서 부하 분산 장치 IP 주소
 부하 분산 장치는 실패한 로그인 작업을 집계하여 경고 임계값에 도달합니다. 부하 분산 장치 IP 주소가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다. 포워드 클라이언트 IP 주소를 전달하도록 올바르게 부하 분산 장치를 구성하세요. 

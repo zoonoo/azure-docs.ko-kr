@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284485"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
 
@@ -23,17 +23,23 @@ ms.locfileid: "90900602"
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001549"></a>SQL 엔진 빌드 번호-15.0.2000.1549
+### <a name="sql-engine-build-number---15020001552"></a>SQL 엔진 빌드 번호-15.0.2000.1552
 
 ### <a name="whats-new"></a>새로운 기능
 1. Ubuntu 18.04 기반 컨테이너 이미지입니다. 
 2. 및 `IGNORE NULL` 함수로 및 `RESPECT NULL` 구문을 지원 `LAST_VALUE()` `FIRST_VALUE()` 합니다. 
 3. ONNX를 사용 하 여 예측 하기 위한 안정성 향상.
-4. 데이터 보존 정책 기반 정리에 대 한 지원.      
-   - 클러스터형 columnstore 인덱스에 대 한 최적화 된 정리를 지원 합니다.
+4. 데이터 보존 정책 기반 정리에 대 한 지원.
+   - 문제 해결을 위해 보존 정리 태스크에 대 한 링 버퍼 지원.
 5. 새 기능 지원 
    - 빠른 복구
    - 쿼리 자동 조정
+   - 병렬 실행 시나리오 사용
+6. 절전 모드의 절전 모드 향상
+7. 스트리밍 새 기능 지원 
+   - [스냅숏 창](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : 새 창 유형을 통해 정확히 동일한 시간에 도착 하는 이벤트를 그룹화 할 수 있습니다. 
+   - [Topone](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) 및 [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) as 분석 함수를 사용 하도록 설정 하면가 창의 일부가 될 필요 없이 선택한 열을 기준으로 정렬 된 레코드를 반환할 수 있습니다. 
+   - [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics)개선 
 
 ### <a name="fixes"></a>수정 프로그램
 1. TSQL 스트리밍 작업 문제 해결에 대 한 추가 오류 메시지 및 세부 정보입니다. 
@@ -41,9 +47,13 @@ ms.locfileid: "90900602"
 3. TSQL 스트리밍 엔진 수정: 
    - 중지 된 스트리밍 작업 정리 
    - 지역화 및 유니코드 처리 기능 향상을 위한 수정 사항
+   - Edge TSQL-스트리밍을 위한 자세한을 개선 하 여 사용자가 get_streaming_job에서 작업 실패 오류를 쿼리할 수 있습니다.
 4. 데이터 보존 정책 기반 정리
    - 보존 정책 만들기 및 정리 시나리오를 수정 합니다.
 5. 낮은 전원 모드의 전원 절약을 위해 백그라운드 타이머 작업을 수정 합니다.
+
+### <a name="known-issues"></a>알려진 문제 
+1. Date_Bucket T-sql 함수는 계산 열에서 사용할 수 없습니다.
 
 
 ## <a name="ctp-23"></a>CTP 2.3

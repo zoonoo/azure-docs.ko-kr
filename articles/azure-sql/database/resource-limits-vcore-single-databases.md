@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/21/2020
-ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e67675d0d3fb5f96b35eba0085003b00595d8214
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325279"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -3,7 +3,7 @@ title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.author: kegorman
+ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274710"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -49,11 +49,11 @@ ms.locfileid: "88510014"
 | **네트워킹** |LAN/WAN  |SDN(소프트웨어 방식 네트워킹)|
 | **보안 그룹** |IP/포트 제한 도구 |[NSG (네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
 | **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
-| **계획된 유지 보수** |패치/업그레이드|[가용성 집합](../../windows/infrastructure-example.md)(Azure에서 관리되는 패치/업그레이드) |
+| **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](../../windows/infrastructure-example.md)(Azure에서 관리되는 패치/업그레이드) |
 | **리소스** |전용  |다른 클라이언트와 공유|
 | **지역** |데이터 센터 |[지역 쌍](../../regions.md#region-pairs)|
 | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-| **크기 조정** |수직적 확장 |수평적 확장|
+| **규모** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항

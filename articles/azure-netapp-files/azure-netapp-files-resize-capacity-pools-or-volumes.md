@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/14/2019
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 7d1c54d05430600e9fffa2659dbaaf6db0b086b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325507"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>용량 풀 또는 볼륨 크기 조정
 필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 
@@ -40,3 +40,8 @@ ms.locfileid: "87512876"
 2. 상황에 맞는 메뉴를 표시하려면 크기를 조정하려는 볼륨 이름을 마우스 오른쪽 단추로 클릭하거나 볼륨의 행의 끝에 있는 "..." 아이콘을 클릭합니다.
 3. 상황에 맞는 메뉴 옵션을 사용하여 볼륨을 크기 조정하거나 삭제합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+- [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+- [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)
+- [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 

@@ -9,14 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275101"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>관리 id를 사용 하 여 데이터 원본에 대 한 인덱서 연결 설정
+
+> [!IMPORTANT] 
+> 관리 id를 사용 하 여 데이터 원본에 대 한 연결을 설정 하는 것은 무료 Azure Cognitive Search 계층에서 지원 되지 않습니다.
 
 Azure Cognitive Search의 [인덱서](search-indexer-overview.md)는 데이터 원본에서 Azure Cognitive Search로 데이터를 가져오는 방법을 제공하는 크롤러입니다. 인덱서는 사용자가 만든 데이터 원본 개체에서의 데이터 원본 연결을 획득합니다. 데이터 원본 개체는 일반적으로 대상 데이터 원본에 대한 자격 증명을 포함합니다. 예를 들어 Blob 스토리지 컨테이너에서 데이터를 인덱싱하는 경우 데이터 원본 개체에 Azure Storage 계정 키가 포함될 수 있습니다.
 

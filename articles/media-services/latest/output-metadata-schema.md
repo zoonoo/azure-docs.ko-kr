@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 출력 메타데이터 스키마 | Microsoft 문서
-description: 이 문서에서는 Azure Media Services 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Azure Media Services v3 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336414"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 
@@ -36,12 +36,12 @@ Media Services는 입력 자산을 미리 검색 하 여 메타 데이터를 생
 
 인코딩 작업에 대한 AssetFile 항목의 컬렉션입니다.  
 
-| Name | 설명 |
+| Name | Description |
 | --- | --- |
 | **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다.<br />예: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. <br />[비디오 트랙](#videotracks)을 참조 하세요. |
 | **AudioTracks**|각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다.<br /> 자세한 내용은 [오디오 트랙](#audiotracks)을 참조 하세요. |
-| **이름**<br />필수 |미디어 자산 파일 이름입니다. <br /><br />예: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
+| **Name**<br />필수 |미디어 자산 파일 이름입니다. <br /><br />예: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
 | **크기**<br />필수 |자산 파일의 크기(바이트)입니다. <br /><br />예: `"Size": 32414631`|
 | **기간**<br />필수 |콘텐츠 재생 시간입니다. 자세한 내용은 [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식을 참조 하십시오. <br /><br />예: `"Duration": "PT1M10.315S"`|
 

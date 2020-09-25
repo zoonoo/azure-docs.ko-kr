@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336652"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스-1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -67,7 +67,7 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 
    * HDInsight 클러스터를 만들 때 1 단계에서 만든 저장소 계정을 연결 합니다. 이 스토리지 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
    * 클러스터의 헤드 노드에 대한 원격 액세스를 사용하도록 설정합니다. 여기에서 지정한 원격 액세스 자격 증명을 기억할 수 있습니다 (클러스터를 만들 때 지정한 자격 증명과 다름). 다음 절차를 완료 합니다.
-3. [Azure Machine Learning Studio (클래식) 작업 영역 만들기](../studio/create-workspace.md):이 Azure Machine Learning 작업 영역은 HDInsight 클러스터에서 초기 데이터 탐색 및 다운 샘플링 후 Machine Learning 모델을 빌드하는 데 사용 됩니다.
+3. [Azure Machine Learning Studio (클래식) 작업 영역 만들기](../classic/create-workspace.md):이 Azure Machine Learning 작업 영역은 HDInsight 클러스터에서 초기 데이터 탐색 및 다운 샘플링 후 Machine Learning 모델을 빌드하는 데 사용 됩니다.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>공용 원본에서 데이터 가져오기 및 사용
 링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트에 액세스할 수 있습니다. 스냅숏은 다음과 같이 표시 됩니다.
@@ -98,7 +98,7 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 
 설정을 완료했으므로 이제 이 연습의 첫 번째 부분인 Hive를 사용하여 데이터 탐색 및 Azure Machine Learning용 데이터 준비를 시작할 수 있습니다.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Hive 데이터베이스 및 테이블 만들기
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Hive 데이터베이스 및 테이블 만들기
 Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드의 바탕 화면에서 ***Hadoop 명령줄***을 열고 명령을 입력하여 Hive 디렉터리를 입력합니다.
 
 ```console
@@ -525,7 +525,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 >
 >
 
-### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a>2 단계: 클릭/클릭 안 함을 예측 하는 Azure Machine Learning 실험 만들기
+### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> 2 단계: 클릭/클릭 안 함을 예측 하는 Azure Machine Learning 실험 만들기
 Azure Machine Learning Studio (클래식) 실험은 다음과 같습니다.
 
 ![기계 학습 실험](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -695,4 +695,3 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 Python 스크립트 JSON 프레임 워크에 대해 요청 된 두 테스트 예제의 경우 "점수가 매겨진 레이블, 점수가 매겨진 확률" 형식으로 답변을 다시 받게 됩니다. 이 경우에 미리 만든 코드에서 제공하는 기본값(모든 숫자 열의 경우 0, 모든 범주 열의 경우 문자열 "값")을 선택했습니다.
 
 결론에서는 Azure Machine Learning를 사용 하 여 대규모 데이터 집합을 처리 하는 방법을 보여 줍니다. 이제 테라바이트의 데이터를 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
-

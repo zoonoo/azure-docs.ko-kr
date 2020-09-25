@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석 �
 description: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석을 설정 합니다.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275594"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>머신 종속성 분석(에이전트 없음)
 
@@ -25,7 +25,7 @@ ms.locfileid: "89536441"
 
 - 종속성 분석 보기에서는 현재 그룹에서 서버를 추가 하거나 제거할 수 없습니다.
 - 서버 그룹에 대 한 종속성 맵을 현재 사용할 수 없습니다.
-- 400 서버에 대해 동시에 종속성 데이터 수집을 설정할 수 있습니다. 400의 일괄 처리로 시퀀싱 하 여 더 많은 수의 서버를 분석 수 있습니다.
+- 1000 서버에 대해 동시에 종속성 데이터 수집을 설정할 수 있습니다. 1000의 일괄 처리로 시퀀싱 하 여 더 많은 서버를 분석할 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -57,7 +57,7 @@ ms.locfileid: "89536441"
 
 ## <a name="start-dependency-discovery"></a>종속성 검색 시작
 
-종속성 검색을 사용 하도록 설정 하려는 컴퓨터를 선택 합니다.
+종속성 검색을 사용 하도록 설정 하려는 컴퓨터를 선택 합니다. 
 
 1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. **종속성 분석** 아이콘을 클릭 합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "89536441"
 
     ![종속성 검색 시작](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-종속성 검색을 시작한 후 6 시간에 대 한 종속성을 시각화할 수 있습니다.
+종속성 검색을 시작한 후 6 시간에 대 한 종속성을 시각화할 수 있습니다. 여러 컴퓨터를 사용 하도록 설정 하려는 경우 [PowerShell](#start-or-stop-dependency-discovery-using-powershell) 을 사용 하 여이 작업을 수행할 수 있습니다.
 
 ## <a name="visualize-dependencies"></a>종속성 시각화
 
@@ -125,7 +125,7 @@ Timeslot | 종속성이 관찰 된 timeslot입니다. <br/> 종속성 데이터�
 
 ## <a name="stop-dependency-discovery"></a>종속성 검색 중지
 
-종속성 검색을 중지 하려는 컴퓨터를 선택 합니다.
+종속성 검색을 중지 하려는 컴퓨터를 선택 합니다. 
 
 1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. **종속성 분석** 아이콘을 클릭 합니다.
@@ -133,6 +133,114 @@ Timeslot | 종속성이 관찰 된 timeslot입니다. <br/> 종속성 데이터�
 3. **서버 제거** 페이지에서 종속성 검색을 중지 하려는 vm을 검색 하는 **어플라이언스** 를 선택 합니다.
 4. 컴퓨터 목록에서 컴퓨터를 선택 합니다.
 5. **서버 제거**를 클릭 합니다.
+
+여러 컴퓨터에 대 한 종속성을 중지 하려는 경우 [PowerShell](#start-or-stop-dependency-discovery-using-powershell) 을 사용 하 여이 작업을 수행할 수 있습니다.
+
+
+### <a name="start-or-stop-dependency-discovery-using-powershell"></a>PowerShell을 사용 하 여 종속성 검색 시작 또는 중지
+
+GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) 리포지토리에서 PowerShell 모듈을 다운로드 합니다.
+
+
+#### <a name="log-in-to-azure"></a>Azure에 로그인
+
+1. AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+    Azure Government 사용 하는 경우 다음 명령을 사용 합니다.
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+2. Azure Migrate 프로젝트를 만든 구독을 선택 합니다. 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. 다운로드 한 AzMig_Dependencies PowerShell 모듈 가져오기
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+#### <a name="enable-or-disable-dependency-data-collection"></a>종속성 데이터 수집 사용 또는 사용 안 함
+
+1. 다음 명령을 사용 하 여 Azure Migrate 프로젝트에서 검색 된 VMware Vm 목록을 가져옵니다. 아래 예제에서 프로젝트 이름은 FabrikamDemoProject이 고, 속한 리소스 그룹은 FabrikamDemoRG입니다. 컴퓨터의 목록이 FabrikamDemo_VMs.csv에 저장 됩니다.
+
+    ```PowerShell
+    Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
+    ```
+
+    파일에서 VM 표시 이름, 종속성 컬렉션의 현재 상태 및 검색 된 모든 Vm의 ARM ID를 볼 수 있습니다. 
+
+2. 종속성을 사용 하거나 사용 하지 않도록 설정 하려면 입력 CSV 파일을 만듭니다. 이 파일에는 "ARM ID" 헤더의 열이 있어야 합니다. CSV 파일의 모든 추가 헤더는 무시 됩니다. 이전 단계에서 생성 된 파일을 사용 하 여 CSV를 만들 수 있습니다. 종속성을 사용 하거나 사용 하지 않도록 설정할 Vm을 유지 하는 파일의 복사본을 만듭니다. 
+
+    다음 예제에서는 입력 파일 FabrikamDemo_VMs_Enable.csv의 Vm 목록에서 종속성 분석을 사용 하도록 설정 합니다.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Enable.csv -Enable
+    ```
+
+    다음 예제에서는 입력 파일 FabrikamDemo_VMs_Disable.csv의 Vm 목록에서 종속성 분석을 사용 하지 않도록 설정 합니다.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Disable.csv -Disable
+    ```
+
+## <a name="visualize-network-connections-in-power-bi"></a>Power BI에서 네트워크 연결 시각화
+
+Azure Migrate는 여러 서버의 네트워크 연결을 한 번에 시각화 하 고 프로세스 및 서버를 기준으로 필터링 하는 데 사용할 수 있는 Power BI 템플릿을 제공 합니다. 시각화 하려면 아래 지침에 따라 종속성 데이터를 사용 하 여 Power BI를 로드 합니다.
+
+1. GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) 리포지토리에서 PowerShell 모듈 및 Power BI 템플릿을 다운로드 합니다.
+
+2. 아래 지침을 사용 하 여 Azure에 로그인 합니다. 
+- AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+
+- Azure Government 사용 하는 경우 다음 명령을 사용 합니다.
+
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+- Azure Migrate 프로젝트를 만든 구독을 선택 합니다. 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. 다운로드 한 AzMig_Dependencies PowerShell 모듈 가져오기
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+4. 다음 명령을 실행합니다. 이 명령은 CSV에 종속성 데이터를 다운로드 하 고 처리 하 여 Power BI에서 시각화에 사용할 수 있는 고유한 종속성 목록을 생성 합니다. 아래 예제에서 프로젝트 이름은 FabrikamDemoProject이 고, 속한 리소스 그룹은 FabrikamDemoRG입니다. FabrikamAppliance에서 검색 한 컴퓨터에 대 한 종속성이 다운로드 됩니다. 고유 종속성이에 저장 됩니다 FabrikamDemo_Dependencies.csv
+
+    ```PowerShell
+    Get-AzMigDependenciesAgentless -ResourceGroup FabrikamDemoRG -Appliance FabrikamAppliance -ProjectName FabrikamDemoProject -OutputCsvFile "FabrikamDemo_Dependencies.csv"
+    ```
+
+5. 다운로드 한 Power BI 템플릿 열기
+
+6. Power BI에서 다운로드 한 종속성 데이터를 로드 합니다.
+    - Power BI에서 템플릿을 엽니다.
+    - 도구 모음에서 **데이터 가져오기** 를 클릭 합니다. 
+    - 일반 데이터 원본에서 **Text/CSV** 를 선택 합니다.
+    - 다운로드 한 종속성 파일을 선택 합니다.
+    - **로드**를 클릭합니다.
+    - CSV 파일의 이름을 사용 하 여 테이블을 가져오게 됩니다. 오른쪽의 필드 모음에서 테이블을 볼 수 있습니다. AzMig_Dependencies로 이름을 바꿉니다.
+    - 도구 모음에서 새로 고침을 클릭 합니다.
+
+    네트워크 연결 차트와 원본 서버 이름, 대상 서버 이름, 원본 프로세스 이름, 대상 프로세스 이름 슬라이서는 가져온 데이터를 사용 합니다.
+
+7. 서버 및 프로세스 별로 필터링 하는 네트워크 연결의 맵을 시각화 합니다. 파일을 저장합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

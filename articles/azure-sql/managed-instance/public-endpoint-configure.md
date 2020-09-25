@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708649"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325065"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "84708649"
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Azure Portal에서 관리 되는 인스턴스에 대 한 공용 끝점 사용
 
-1. 에서 Azure Portal를 시작 합니다.<https://portal.azure.com/.>
+1. 에서 Azure Portal를 시작 합니다. <https://portal.azure.com/.>
 1. 관리 되는 인스턴스를 사용 하 여 리소스 그룹을 열고 공용 끝점을 구성 하려는 **SQL 관리 되는 인스턴스** 를 선택 합니다.
 1. **보안** 설정에서 **가상 네트워크** 탭을 선택 합니다.
 1. 가상 네트워크 구성 페이지에서 **사용** 을 선택 하 고 **저장** 아이콘을 선택 하 여 구성을 업데이트 합니다.
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>네트워크 보안 그룹에서 공용 끝점 트래픽 허용
 
-1. 관리 되는 인스턴스의 구성 페이지가 열려 있는 상태에서 **개요** 탭으로 이동 합니다. 그렇지 않은 경우에 **는 SQL 관리 되는 인스턴스** 리소스로 돌아갑니다. 가상 네트워크 **/서브넷** 링크를 선택 합니다. 그러면 가상 네트워크 구성 페이지로 이동 합니다.
+1. 관리 되는 인스턴스의 구성 페이지가 열려 있는 상태에서 **개요** 탭으로 이동 합니다. 그렇지 않으면 **SQL 관리 되는 인스턴스** 리소스로 돌아갑니다. 가상 네트워크 **/서브넷** 링크를 선택 합니다. 그러면 가상 네트워크 구성 페이지로 이동 합니다.
 
     ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
@@ -94,15 +94,15 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. **인바운드 보안 규칙** 탭을 선택 하 고 다음 설정을 사용 하 여 **deny_all_inbound** 규칙 보다 우선 순위가 높은 규칙을 **추가** 합니다. </br> </br>
 
-    |설정  |제안 값  |설명  |
+    |설정  |제안 값  |Description  |
     |---------|---------|---------|
-    |**소스**     |모든 IP 주소 또는 서비스 태그         |<ul><li>Power BI와 같은 Azure 서비스의 경우 Azure 클라우드 서비스 태그를 선택 합니다.</li> <li>컴퓨터 또는 Azure 가상 컴퓨터의 경우 NAT IP 주소를 사용 합니다.</li></ul> |
+    |**원본**     |모든 IP 주소 또는 서비스 태그         |<ul><li>Power BI와 같은 Azure 서비스의 경우 Azure 클라우드 서비스 태그를 선택 합니다.</li> <li>컴퓨터 또는 Azure 가상 컴퓨터의 경우 NAT IP 주소를 사용 합니다.</li></ul> |
     |**원본 포트 범위**     |* |원본 포트가 일반적으로 동적으로 할당 되 고 예측할 수 없기 때문에 * (모두)로 그대로 둡니다. |
     |**대상**     |모두         |관리 되는 인스턴스 서브넷으로의 트래픽을 허용 하는 대상으로 유지 |
     |**대상 포트 범위**     |3342         |대상 포트의 범위를 3342로,이는 관리 되는 인스턴스 공용 TDS 끝점입니다. |
     |**프로토콜**     |TCP         |SQL Managed Instance는 TDS 용 TCP 프로토콜을 사용 합니다. |
     |**동작**     |허용         |공용 끝점을 통해 관리 되는 인스턴스에 대 한 인바운드 트래픽 허용 |
-    |**Priority**     |1300         |이 규칙이 **deny_all_inbound** 규칙 보다 높은 우선 순위 인지 확인 합니다. |
+    |**우선 순위**     |1300         |이 규칙이 **deny_all_inbound** 규칙 보다 높은 우선 순위 인지 확인 합니다. |
 
     ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
 

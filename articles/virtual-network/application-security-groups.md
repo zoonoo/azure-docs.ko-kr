@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542ae2e94c2fa3d3e9d6100738b2aabded94d15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78274711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306670"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹
 
@@ -26,7 +26,7 @@ ms.locfileid: "78274711"
 
 ![애플리케이션 보안 그룹](./media/security-groups/application-security-groups.png)
 
-이전 그림에서 *NIC1* 및 *NIC2*는 *AsgWeb* 애플리케이션 보안 그룹의 멤버입니다. *NIC3*는 *AsgLogic* 애플리케이션 보안 그룹의 멤버입니다. *NIC4*는 *AsgDb* 애플리케이션 보안 그룹의 멤버입니다. 이 예제의 각 네트워크 인터페이스는 한 애플리케이션 보안 그룹의 멤버이긴 하지만, 네트워크 인터페이스는 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 내에서 여러 애플리케이션 보안 그룹의 멤버가 될 수 있습니다. 어떤 네트워크 인터페이스에도 네트워크 보안 그룹이 연결되지 않았습니다. *NSG1*은 두 서브넷에 연결되었으며 다음 규칙을 포함하고 있습니다.
+이전 그림에서 *NIC1* 및 *NIC2*는 *AsgWeb* 애플리케이션 보안 그룹의 멤버입니다. *NIC3*는 *AsgLogic* 애플리케이션 보안 그룹의 멤버입니다. *NIC4*는 *AsgDb* 애플리케이션 보안 그룹의 멤버입니다. 이 예제의 각 네트워크 인터페이스는 하나의 네트워크 보안 그룹의 구성원 이지만, 네트워크 인터페이스는 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)까지 여러 응용 프로그램 보안 그룹의 멤버일 수 있습니다. 어떤 네트워크 인터페이스에도 네트워크 보안 그룹이 연결되지 않았습니다. *NSG1*은 두 서브넷에 연결되었으며 다음 규칙을 포함하고 있습니다.
 
 ## <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 
@@ -34,7 +34,7 @@ ms.locfileid: "78274711"
 
 |우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
-| 100 | 인터넷 | * | AsgWeb | 80 | TCP | 허용 |
+| 100 | 인터넷 | * | AsgWeb | 80 | TCP | Allow |
 
 ## <a name="deny-database-all"></a>Deny-Database-All
 
@@ -50,7 +50,7 @@ ms.locfileid: "78274711"
 
 |우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | 허용 |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 원본 또는 대상으로 애플리케이션 보안 그룹을 지정하는 규칙은 애플리케이션 보안 그룹의 멤버인 네트워크 인터페이스에만 적용됩니다. 네트워크 인터페이스가 애플리케이션 보안 그룹의 멤버가 아닌 경우에는 네트워크 보안 그룹이 서브넷과 연결되어도 규칙이 네트워크 인터페이스에 적용되지 않습니다.
 

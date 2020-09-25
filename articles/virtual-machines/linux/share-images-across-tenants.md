@@ -10,12 +10,12 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0770cd9e7ec99765b8f201634e6a857b3cf02e4
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: f6ffa23818a223ef1c0d46823955668ad96292d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318068"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307214"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Azure 테 넌 트 간에 갤러리 VM 이미지 공유-Linux 예제
 
@@ -56,4 +56,4 @@ az vm create \
 
 ## <a name="next-steps"></a>다음 단계
 
-문제 발생 시에는 [공유 이미지 갤러리 문제 해결](troubleshooting-shared-images.md)을 수행할 수 있습니다.
+문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../troubleshooting-shared-images.md)을 수행할 수 있습니다.

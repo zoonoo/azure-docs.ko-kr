@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0e13d69b8d821267a993cd2ca9a3b6d0d686ccf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284553"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,10 +39,10 @@ Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 �
 
 권장 사항은 성능의 잠재적 영향 순으로 다음과 같은 카테고리에 정렬됩니다.
 
-| 영향 | 설명 |
+| 영향 | Description |
 |:--- |:--- |
-| 높음 |높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
-| 중간 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
+| 높은 |높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
+| 중형 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
 | 낮음 |낮은 영향 권장 사항은 없는 것보다 나은 성능을 제공하지만, 향상된 기능이 눈에 띄지는 않습니다. |
 
 > [!NOTE]
@@ -127,13 +127,13 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
-| Status | 설명 |
+| 상태 | Description |
 |:--- |:--- |
 | Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
-| 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
-| 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
+| Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
+| Error |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |
 
@@ -168,7 +168,7 @@ Azure SQL Database는 데이터베이스 성능을 향상 시키기 위한 권�
 * Azure SQL Database 성능 권장 사항에 대한 개요는 [성능 권장 사항](database-advisor-implement-performance-recommendations.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](query-performance-insight-use.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE  INDEX](https://msdn.microsoft.com/library/ms188783.aspx)

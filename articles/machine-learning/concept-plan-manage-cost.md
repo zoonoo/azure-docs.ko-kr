@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 21153d3c914864966106bf66edccb3c549398bc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 872775df82d609a640346ddef2f77381c2160fcf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276070"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -84,7 +84,7 @@ AmlCompute 클러스터는 워크 로드에 따라 동적으로 크기를 조정
 + 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다.
 + 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록 시간을 늘려야 할 수 있습니다.
 
-Amlcompute [SDK 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) [AMLCOMPUTE CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
+Amlcompute [SDK 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) [AMLCOMPUTE CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

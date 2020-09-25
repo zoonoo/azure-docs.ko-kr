@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sstein
+ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 70d21170bfc172f30b01c2af093bc82a54c80dd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84028374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325320"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "84028374"
 > [!NOTE]
 > 지역 복원 대신 지역 복제를 사용하여 가능한 가장 낮은 RPO 및 RTO를 통해 애플리케이션을 복구합니다.
 
-이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음 방법을 알아봅니다.
 > [!div class="checklist"]
 > 
 > * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그로 동기화합니다.
@@ -365,7 +365,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > 
 > * 테넌트 카탈로그를 사용하여 정기적으로 새로 고친 구성 정보를 보관하면 다른 지역에 미러 이미지 복구 환경을 만들 수 있습니다.

@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가의 Azure VM 평가
 description: Azure Migrate Server 평가의 평가에 대 한 자세한 정보
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261857"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275526"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>서버 평가 개요 (Azure Vm으로 마이그레이션)
 
@@ -80,7 +80,7 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
     - **Hyper-v vm**: 샘플 지점은 30 초 마다 수집 됩니다.
     - **물리적 서버**: 샘플 지점은 5 분 마다 수집 됩니다.
 
-1. 어플라이언스는 샘플 지점을 결합 하 여 10 분 마다 단일 데이터 요소를 만듭니다. 데이터 요소를 만들기 위해 어플라이언스는 모든 샘플에서 최고 값을 선택 합니다. 그런 다음 데이터 요소를 Azure로 보냅니다.
+1. 어플라이언스는 샘플 지점을 결합 하 여 VMware 및 Hyper-v 서버에 대해 10 분 마다 단일 데이터 요소를 만들며, 물리적 서버의 경우 5 분 마다 단일 데이터 요소를 만듭니다. 데이터 요소를 만들기 위해 어플라이언스는 모든 샘플에서 최고 값을 선택 합니다. 그런 다음 데이터 요소를 Azure로 보냅니다.
 1. 서버 평가는 지난 달의 모든 10 분 데이터 요소를 저장 합니다.
 1. 평가를 만들 때 서버 평가는 rightsizing 조정에 사용할 적절 한 데이터 요소를 식별 합니다. 식별은 *성능 기록* 및 *백분위 수 사용률*에 대 한 백분위 수 값을 기준으로 합니다.
 
