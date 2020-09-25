@@ -1,6 +1,6 @@
 ---
 title: Azure AD 앱 프록시 링크 및 URL 변환 | Microsoft Docs
-description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
+description: Azure AD 응용 프로그램 프록시로 게시 된 앱에 대 한 하드 코드 된 링크를 리디렉션하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327904"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시로 게시 된 앱에 대 한 하드 코드 된 링크 리디렉션
 
@@ -145,7 +145,7 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 
 이제 사용자가 이 애플리케이션에 액세스하면 프록시는 테넌트에서 애플리케이션 프록시를 통해 게시된 내부 URL을 자동으로 검사합니다.
 
-## <a name="send-feedback"></a>의견 보내기
+## <a name="send-feedback"></a>피드백 보내기
 
 이 기능이 모든 앱에서 작동하도록 하는 데 도움이 되도록 피드백을 보내 주세요. HTML 및 CSS에서 30개가 넘는 태그를 검색합니다. 생성된 링크 중 변환되지 않는 예가 있으면 [애플리케이션 프록시 피드백](mailto:aadapfeedback@microsoft.com)으로 코드 조각을 보내 주세요. 
 

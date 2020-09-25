@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356777"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 2. 중단점을 추가하려면 커서를 *New-Tenant `* 줄의 아무 위치에나 둡니다. 그런 후 F9 키를 누릅니다.
 
-   ![중단점](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![중단점을 추가 하기 위해 새 테 넌 트가 강조 표시 된 스크립트가 스크린샷으로 표시 됩니다.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. 스크립트를 실행하려면 F5 키를 누릅니다.
 

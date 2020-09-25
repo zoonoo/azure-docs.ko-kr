@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 6887371e50f5b7e8706cac0a0700873c42bdac06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321648"
+ms.locfileid: "91357789"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Azure SQL Database 탄력적 풀을 사용 하는 응용 프로그램에 대 한 재해 복구 전략
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Azure SQL Database는 심각한 인시던트가 발생할 때 응용 프로그�
 
 이 시나리오를 지원하려면 별도의 탄력적 풀에 배치하여 평가판 테넌트와 유료 테넌트를 분리합니다. 평가판 고객의 경우 테넌트당 eDTU 또는 vCore 수가 더 낮고 복구 시간이 더 긴 하위 수준의 SLA가 적용됩니다. 유료 고객은 테넌트당 eDTU 또는 vCore 수가 더 높고 상위 수준의 SLA가 적용된 풀을 사용하게 됩니다. 가장 짧은 복구 시간을 보장하기 위해 유료 고객의 테넌트 데이터베이스는 지역 복제됩니다. 이 구성은 다음 다이어그램에 나와 있습니다.
 
-![그림 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![다이어그램은 주 지역 및 관리 데이터베이스와 유료 고객 주 풀 간의 지역에서 복제를 사용 하 고 평가판 고객 풀에 대해 복제를 사용 하지 않는 보조 풀을 사용 하는 D R 지역을 보여 줍니다.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 첫 번째 시나리오와 마찬가지로 관리 데이터베이스는 매우 활동적이므로 이 경우 단일 지역 복제 데이터베이스를 사용합니다(1). 이렇게 하면 새 고객 구독, 프로필 업데이트 및 기타 관리 작업에 대한 성능을 예측할 수 있습니다. 주 관리 데이터베이스가 있는 지역이 주 지역이 되며 보조 관리 데이터베이스가 있는 지역이 DR 지역이 됩니다.
 
@@ -86,7 +86,7 @@ Azure SQL Database는 심각한 인시던트가 발생할 때 응용 프로그�
 
 주 지역에서 중단이 발생한 경우 애플리케이션을 온라인 상태로 복구하는 단계는 다음 다이어그램에 설명되어 있습니다.
 
-![그림 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![다이어그램은 기본 지역에 대 한 가동 중단, 관리 데이터베이스에 대 한 장애 조치 (failover), 유료 고객 보조 풀, 평가판 고객을 위한 생성 및 복원 등을 보여 줍니다.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * 관리 데이터베이스를 DR 지역으로 즉시 장애 조치합니다(3).
 * DR 지역을 가리키도록 애플리케이션의 연결 문자열을 변경합니다. 이제 모든 새 계정 및 테넌트 데이터베이스가 DR 지역에 생성됩니다. 기존 평가판 고객은 자신의 데이터를 임시로 사용할 수 없음을 확인하게 됩니다.
@@ -99,7 +99,7 @@ Azure SQL Database는 심각한 인시던트가 발생할 때 응용 프로그�
 
 DR 지역에서 애플리케이션을 복원한 *후* Azure에 의해 주 지역이 복구된 경우 해당 지역에서 애플리케이션을 계속 실행하거나 주 지역으로 장애 복구하도록 결정할 수 있습니다. 장애 조치 프로세스가 완료되기 *전에* 주 지역이 복구된 경우 바로 장애 복구를 고려합니다. 이 장애 복구에는 다음 다이어그램에 표시된 단계를 거칩니다.
 
-![그림 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![기본 지역을 복원한 후에 구현 하는 장애 복구 단계를 보여 주는 다이어그램입니다.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * 미해결된 모든 지역 복원 요청을 취소합니다.
 * 관리 데이터베이스를 장애 조치합니다(8). 지역의 복구 후 이전 주 데이터베이스는 자동으로 보조 데이터베이스가 됩니다. 이제 다시 주 항목이 됩니다.  
@@ -128,7 +128,7 @@ DR 지역에서 애플리케이션을 복원한 *후* Azure에 의해 주 지역
 
 중단 중에 가장 짧은 복구 시간을 보장하기 위해 유료 고객의 테넌트 데이터베이스를 두 지역 각각에서 주 데이터베이스의 50%로 지역 복제합니다. 마찬가지로 각 지역은 보조 데이터베이스의 50%를 포함합니다. 이러한 방식에서 지역이 오프라인 상태이면 유료 고객 데이터베이스의 50%만 영향을 받고 장애 조치해야 합니다. 다른 데이터베이스는 그대로 유지됩니다. 이 구성은 다음 다이어그램에서 설명됩니다.
 
-![그림 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![다이어그램에는 지역 A 및 지역 B 라는 주 지역이 표시 됩니다. 지역 B는 관리 데이터베이스와 유료 고객의 주 풀 및 보조 풀 간의 지역에서 복제를 사용 하 여 평가판 고객의 풀에 대 한 복제를 사용 하지 않습니다.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 이전 시나리오와 마찬가지로 관리 데이터베이스는 매우 활동적이므로 단일 지역 복제 데이터베이스로 구성합니다(1). 이렇게 하면 새 고객 구독, 프로필 업데이트 및 기타 관리 작업의 성능을 예측할 수 있습니다. 지역 A는 관리 데이터베이스에 대한 주 지역이고 지역 B는 관리 데이터베이스의 복구에 사용됩니다.
 
@@ -136,7 +136,7 @@ DR 지역에서 애플리케이션을 복원한 *후* Azure에 의해 주 지역
 
 다음 다이어그램은 지역 A에서 중단이 발생할 경우 수행할 복구 단계를 보여 줍니다.
 
-![그림 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![다이어그램에는 주 지역에 대 한 가동 중단, 관리 데이터베이스에 대 한 장애 조치 (failover), 유료 고객 보조 풀 및 평가판 고객이 지역 B로의 생성 및 복원이 포함 되어 있습니다.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * 관리 데이터베이스를 지역 B로 즉시 장애 조치합니다(3).
 * 지역 B에서 관리 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 변경합니다. 새 계정 및 테넌트 데이터베이스가 지역 B에 생성되고 기존 테넌트 데이터베이스도 이 지역에서 찾을 수 있도록 관리 데이터베이스를 수정합니다. 기존 평가판 고객은 자신의 데이터를 임시로 사용할 수 없음을 확인하게 됩니다.
@@ -152,7 +152,7 @@ DR 지역에서 애플리케이션을 복원한 *후* Azure에 의해 주 지역
 
 지역 A를 복구할 때 평가판 고객에 대해 지역 B를 사용할지 지역 A에서 평가판 고객 풀을 사용하도록 장애 복구할지 결정해야 합니다. 한 가지 조건은 복구 이후 수정된 평가판 테넌트 데이터베이스의 비율(%)일 수 있습니다. 결정에 관계 없이 두 개의 풀 사이 유료 테넌트는 균형을 재조정해야 합니다. 다음 다이어그램은 평가판 테넌트 데이터베이스가 A 영역으로 장애 복구할 때의 프로세스를 보여 줍니다.  
 
-![그림 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![이 다이어그램에서는 지역 A를 복원한 후에 구현 하는 장애 복구 단계를 보여 줍니다.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * 평가판 DR 풀에 대해 미해결된 모든 지역 복원 요청을 취소합니다.
 * 관리 데이터베이스를 장애 조치합니다(8). 지역의 복구 후 이전 주 데이터베이스는 자동으로 보조 데이터베이스가 되었습니다. 이제 다시 주 항목이 됩니다.  

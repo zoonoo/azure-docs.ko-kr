@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, 사양, 하드웨어, 진한, 기능, 깊이, 색, RGB, IMU, 배열, 깊이, 다중 동기화
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277060"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361163"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>여러 Azure Kinect 진한 장치 동기화
 
@@ -26,7 +26,7 @@ ms.locfileid: "85277060"
 
 - Occlusions를 입력 합니다. Azure Kinect 진한 데이터 변환은 단일 이미지를 생성 하지만 두 카메라 (깊이 및 RGB)는 실제로는 작은 거리입니다. 이 오프셋을 사용 하면 occlusions 가능 합니다. 폐색 전경 개체가 장치의 두 카메라 중 하나에 대 한 배경 개체의 일부 보기를 차단할 때 발생 합니다. 결과 색 이미지에서 전경 개체는 배경 개체의 그림자를 캐스트 하는 것 처럼 보입니다.  
    예를 들어 다음 다이어그램에서 왼쪽 카메라는 회색 픽셀 "P2"를 표시 합니다. 그러나 흰색 전경 개체는 오른쪽 카메라 IR 보를 차단 합니다. 오른쪽 카메라에는 "P2"에 대 한 데이터가 없습니다.  
-   ![폐색](./media/occlusion.png)  
+   ![다이어그램에는 두 카메라 중 하나가 차단 된 동일한 지점에서 전송 되는 두 카메라를 표시 합니다.](./media/occlusion.png)  
    추가 동기화 된 장치는 폐색 데이터를 제공할 수 있습니다.
 - 3 차원에서 개체를 검색 합니다.
 - 유효 프레임 속도를 FPS (초당 프레임 수) 보다 큰 값으로 늘립니다.

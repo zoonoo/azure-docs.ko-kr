@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361044"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -766,7 +766,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 AKS 투표 앱이 표시 됩니다. 이 예제에서는 방화벽 공용 IP가 `52.253.228.132` 입니다.
 
 
-![aks-투표](media/limit-egress-traffic/aks-vote.png)
+![스크린샷에는 고양이, 강아지, 재설정 및 합계에 대 한 단추가 있는 K S 투표 앱이 표시 됩니다.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### <a name="clean-up-resources"></a>리소스 정리

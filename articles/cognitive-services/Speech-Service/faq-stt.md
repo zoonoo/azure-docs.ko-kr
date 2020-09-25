@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357576"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -29,7 +29,7 @@ ms.locfileid: "88661523"
 
 **Q: 기준 모델을 사용하려면 무엇부터 시작해야 하나요?**
 
-**A**: 먼저 [구독 키](get-started.md)를 확보합니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](rest-apis.md)를 참조하세요. Websocket을 사용 하려면 [SDK를 다운로드](speech-sdk.md)합니다.
+**A**: 먼저 [구독 키](overview.md#try-the-speech-service-for-free)를 확보합니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](rest-apis.md)를 참조하세요. Websocket을 사용 하려면 [SDK를 다운로드](speech-sdk.md)합니다.
 
 **Q: 사용자 지정 음성 모델을 항상 작성해야 하나요?**
 

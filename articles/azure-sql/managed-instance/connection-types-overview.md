@@ -11,12 +11,12 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f1c4fe8268d24026609f55d76a102a5c9a4e8295
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356319"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Azure SQL Managed Instance 연결 형식
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,14 +27,14 @@ ms.locfileid: "89070720"
 
 Azure SQL Managed Instance는 다음과 같은 두 가지 연결 유형을 지원 합니다.
 
-- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 리디렉션을 사용 하 여 연결을 설정 하려면 포트 1433 및 11000-11999에 대 한 액세스를 허용 하도록 방화벽 및 NSG (네트워크 보안 그룹)를 열어야 합니다. 패킷은 데이터베이스로 직접 이동 하므로 프록시를 통한 리디렉션을 사용 하 여 대기 시간 및 처리량 성능이 향상 됩니다.
-- **프록시 (기본값):** 이 모드에서 모든 연결은 프록시 게이트웨이 구성 요소를 사용 합니다. 연결을 사용 하도록 설정 하려면 개인 네트워크의 경우 1433 포트와 공용 연결용 포트 3342만 열어야 합니다. 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 최고 처리량을 위해 프록시 연결 정책에 대 한 리디렉션 연결 정책을 적극 권장 합니다.
+- **리디렉션 (권장):** 클라이언트는 데이터베이스를 호스팅하는 노드에 대 한 연결을 직접 설정 합니다. 리디렉션을 사용하여 연결하려면 포트 1433 및 11000-11999에서 액세스할 수 있도록 방화벽 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 패킷은 데이터베이스로 직접 이동하므로 프록시를 통한 리디렉션을 사용하여 대기 시간 및 처리량 성능이 향상됩니다.
+- **프록시 (기본값):** 이 모드에서 모든 연결은 프록시 게이트웨이 구성 요소를 사용 합니다. 연결을 사용하도록 설정하려면 프라이빗 네트워크용 포트 1433과 공용 연결용 포트 3342만 열어야 합니다. 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 프록시 연결 정책을 통해 리디렉션 연결 정책을 사용하는 것이 좋습니다.
 
 ## <a name="redirect-connection-type"></a>리디렉션 연결 유형
 
 리디렉션 연결 형식에서 TCP 세션이 SQL 엔진에 설정 된 후 클라이언트 세션은 부하 분산 장치에서 가상 클러스터 노드의 대상 가상 IP를 가져옵니다. 이후 패킷은 게이트웨이를 우회 하 여 가상 클러스터 노드로 직접 전달 됩니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![다이어그램은 Azure virtual network의 게이트웨이에 연결 된 리디렉션-검색 db가 있는 온-프레미스 네트워크와 가상 네트워크의 데이터베이스 주 노드에 연결 된 리디렉션 쿼리를 보여 줍니다.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > 리디렉션 연결 유형은 현재 개인 끝점에 대해서만 작동 합니다. 연결 형식 설정에 관계 없이 공용 끝점을 통해 들어오는 연결은 프록시를 통해 발생 합니다.
@@ -43,7 +43,7 @@ Azure SQL Managed Instance는 다음과 같은 두 가지 연결 유형을 지�
 
 프록시 연결 형식에서는 게이트웨이를 사용 하 여 TCP 세션이 설정 되 고 모든 후속 패킷이이를 통과 합니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![다이어그램은 Azure virtual network의 게이트웨이에 연결 된 프록시가 있는 온-프레미스 네트워크를 보여 주며, 가상 네트워크의 데이터베이스 주 노드 옆에 연결 합니다.](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>연결 형식 변경
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 986e4fd8c7043f5c01868302ffc2b554e2ce76f7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f778e996eeda0f2b850864c9c90cd522c411b032
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328023"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -82,6 +82,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>변경 로그
 
+- 09/02/2020: hli에 [대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 에 hli 용 인증 된 새 sku를 추가 합니다. 
 - 09/08/2020: SLES의 [Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability.md) 을 변경 하 여 stonith 정의를 명확 하 게 합니다.
 - 09/03/2020: Ultra disk를 사용 하 여 1gb 용량의 최소 2 IOPS에 맞게 [Azure virtual machine storage 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경
 - 09/02/2020: [HLI에 대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 를 변경 하 여 HANA 인증의 sku에 대 한 추가 정보를 확인 하세요.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327734"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -65,7 +65,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 알림의 고유한 이름을 입력 합니다.
 
-    c. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
+    다. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 동작에 대 한 고유한 이름을 입력 합니다.
 
-    c. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    다. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
     
@@ -130,6 +130,8 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 
 ### <a name="email-azure-resource-manager-role"></a>메일 Azure Resource Manager 역할
 구독 역할의 멤버에게 이메일을 보냅니다. 이메일은 해당 역할의 **Azure AD 사용자** 멤버에게만 발송됩니다. Azure AD 그룹 또는 서비스 주체에게는 이메일이 전송되지 않습니다.
+
+알림 전자 메일은 *기본 전자 메일* 주소로만 전송 됩니다.
 
 작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 

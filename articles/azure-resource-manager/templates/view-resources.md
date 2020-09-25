@@ -3,12 +3,12 @@ title: 리소스 속성 검색
 description: 리소스 속성을 검색 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327751"
 ---
 # <a name="discover-resource-properties"></a>리소스 속성 검색
 
@@ -74,7 +74,7 @@ Azure Resource Manager 템플릿 참조는 템플릿 스키마를 위한 가장 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 검색 상자에 **리소스 탐색기**를 입력 한 다음 **리소스 탐색기**를 선택 합니다.
 
-    ![Azure Portal 리소스 탐색기](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Azure Portal에서 리소스 탐색기 검색을 보여 주는 스크린샷](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. 왼쪽에서 **구독**을 확장 한 다음 Azure 구독을 확장 합니다. **공급자** 또는 **resourcegroups**에서 저장소 계정을 찾을 수 있습니다.
 

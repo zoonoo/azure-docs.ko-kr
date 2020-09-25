@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357066"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -74,11 +74,11 @@ Office 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습니
 
 1. 다음 스크린샷에 표시 된 것 처럼 NSG에 대 한 HTTPS 아웃 바운드 보안 규칙을 만듭니다. 이 예제에서는 **대상 서비스 태그**를 사용 합니다. 즉, _저장소. eastus_ 및 **대상 포트 범위**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="스크린샷 저장소에 대 한 보안 규칙에 대 한 아웃 바운드 보안 규칙 추가 창을 보여 줍니다.":::
 
 1. 다음 스크린샷에 표시 된 것 처럼 NSG에 대 한 HTTPS 아웃 바운드 보안 규칙을 만듭니다. 이 예제에서는 **대상 서비스 태그**: _AzureActiveDirectory_ 및 **대상 포트 범위**: _443_을 사용 합니다.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Azure Active Directory에 대 한 보안 규칙에 대 한 아웃 바운드 보안 규칙 추가 창이 스크린샷으로 표시 됩니다.":::
 
 1. 위의 보안 규칙과 마찬가지로 대상 위치에 해당 하는 NSG에서 "CentralUS"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
 1. NSG에서 "AzureSiteRecovery"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 모든 지역에서 Site Recovery 서비스에 액세스할 수 있습니다.
@@ -108,7 +108,7 @@ Azure Site Recovery 서비스 끝점에 대 한 연결을 설정할 수 없습�
 
 #### <a name="resolution"></a>해결 방법
 
-Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세한 정보를 알아보세요](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과 하는 경우 Azure-Azure 복제가 실패 함 (151072)
 

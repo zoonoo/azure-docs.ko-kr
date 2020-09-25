@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 446517f56d1f5ba6fa32408489f07411ee1a3e02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356809"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "89442908"
 > - 분석 데이터베이스를 대상으로 쿼리하기.
 > - 데이터 시각화를 위해 Power BI를 사용하여 테넌트 데이터의 추세를 파악하고 개선을 위한 권장 사항 도출하기.
 
-![architectureOverView](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
+![다이어그램은이 문서에 사용 되는 아키텍처의 개요를 보여 줍니다.](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>오프라인 테넌트 분석 패턴
 
@@ -53,7 +53,7 @@ ms.locfileid: "89442908"
 
 중앙 테이블과 차원 테이블을 함께 사용하면 효율적인 분석 처리가 가능해집니다. 아래의 그림에서 이 자습서에서 사용하고 있는 스타 스키마를 볼 수 있습니다.
  
-![StarSchema](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
+![데이터베이스 다이어그램에는 중앙 데이터베이스 개체에 연결 된 4 개의 데이터베이스 개체가 표시 됩니다.](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
 마지막으로 스타 스키마 테이블을 대상으로 쿼리합니다. 쿼리 결과는 시각적으로 표시되어 테넌트 동작과 테넌트가 애플리케이션을 사용하는 방식을 확인할 수 있습니다. 스타 스키마를 이용하여 다음과 같은 정보를 파악하는 데 도움이 되는 쿼리를 실행할 수 있습니다.
 
@@ -64,9 +64,9 @@ ms.locfileid: "89442908"
 
 각 테넌트가 서비스를 얼마나 일관적으로 사용하는지 파악하면 각 테넌트에 맞는 최적의 서비스 요금제를 구성하는 데 도움이 됩니다. 이 자습서에서는 테넌트 데이터로부터 창출할 수 있는 기본적인 인사이트를 살펴볼 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
@@ -111,7 +111,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 - 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates**입니다.
 - 스타 스키마 테이블에 원시 데이터 테이블을 입력하는 데 **sp_ShredRawExtractedData** 저장 프로시저가 사용됩니다.
 
-![tenantAnalytics](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![테이블, 뷰 및 노드를 포함 하 여 분석 저장소 노드에 대 한 개체 탐색기 s M S를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>데이터 추출 
 
@@ -139,7 +139,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 4. **F5** 키를 눌러 스크립트를 실행합니다. 각 테넌트 데이터베이스에서 티켓 및 고객 데이터를 추출하는 작업이 생성되고 실행됩니다. 추출된 데이터는 분석 저장소에 저장됩니다.
 5. tenantanalytics 데이터베이스의 TicketsRawData 테이블을 쿼리하여 모든 테넌트의 티켓 정보가 테이블에 입력되었는지 확인합니다.
 
-![ticketExtracts](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
+![개체 탐색기에서 선택한 TicketsRawData d b o를 사용 하 여 ExtractTickets 데이터베이스를 보여 줍니다.](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
 위 단계를 반복합니다. 이번에는 2단계에서 **\ExtractTickets.sql** 대신 **\ExtractVenuesEvents.sql**을 사용합니다.
 
@@ -159,7 +159,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 4. 작업이 완료될 때까지 기다립니다.
     - jobs.jobs_execution 테이블의 **Lifecycle** 열에서 작업의 상태를 확인합니다. 작업의 상태가 **Succeeded**로 바뀌면 다음 단계로 넘어갑니다. 작업이 성공적으로 완료되면 데이터가 아래 그림과 같이 표시됩니다.
 
-![shreddingJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
+![Sp_ShredRawExtractedData 프로시저를 성공적으로 실행 한 결과를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>데이터 살펴보기
 
@@ -174,25 +174,25 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 3. **데이터 가져오기** 창에서 Azure SQL Database를 선택합니다.
 4. 데이터베이스 로그인 창에 서버 이름 ( \<User\> database.windows.net)을 입력 합니다. **데이터 연결 모드**에서 **가져오기**를 선택하고 확인을 클릭합니다. 
 
-    ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
+    ![서버와 데이터베이스를 입력할 수 있는 SQL Server 데이터베이스 대화 상자가 스크린샷으로 표시 됩니다.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P \@ ssword1*을 입력 합니다. **연결**을 클릭합니다.  
 
-    ![DatabaseSignIn](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
+    ![사용자 이름 및 암호를 입력할 수 있는 SQL Server 데이터베이스 대화 상자가 표시 됩니다.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(fact_Tickets, dim_Events, dim_Venues, dim_Customers, dim_Dates)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
 
-지금까지 Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
+축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에서 아래 그림과 같이 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. 티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.
  
-![TotalTicketsByVenues](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
+![스크린 샷에서는 Power B I 시각화 및 오른쪽의 데이터 시각화를 위한 컨트롤을 보여 줍니다.](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 위 차트를 통해 각 행사장에서 판매된 티켓의 수가 다르다는 사실을 알 수 있습니다. 티켓이 더 많이 판매된 행사장에서는 상대적으로 적게 판매된 행사장보다 서비스를 많이 이용하는 것입니다. 이에 따라 각 테넌트의 니즈에 맞게 리소스 할당량을 변경할 수 있습니다.
 
 데이터를 분석하여 시간 경과에 따른 티켓 판매량을 확인할 수도 있습니다. Power BI에서 아래 그림과 같이 옵션을 선택하여 60일 동안의 일일 티켓 판매량을 차트로 표시합니다.
  
-![SaleVersusDate](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
+![스크린샷은 티켓 판매 분포와 판매 일자 라는 Power B I 시각화를 보여 줍니다.](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 위 차트에서 일부 행사장의 티켓 판매량이 특정 날짜에 급증하는 것을 볼 수 있습니다. 이를 통해 해당 행사장에서 시스템 리소스를 불균형적으로 사용하고 있다고 가정할 수 있습니다. 아직까지 뚜렷한 판매량 급증 패턴은 볼 수 없습니다.
 
@@ -228,7 +228,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > - 사전 정의된 스타 스키마 테이블을 사용하여 테넌트 분석 데이터베이스 배포하기
@@ -237,7 +237,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 > - 분석 데이터베이스 쿼리하기 
 > - 데이터 시각화를 위해 Power BI를 사용하여 테넌트 데이터의 추세 관찰하기 
 
-지금까지
+축하합니다!
 
 ## <a name="additional-resources"></a>추가 자료
 

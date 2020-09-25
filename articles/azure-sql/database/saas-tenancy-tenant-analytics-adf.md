@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66f22fa2781fb4c0f4caa07323b3de8cac1ef9fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361112"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Azure SQL Database, Azure Synapse Analytics, Data Factory 및 Power BI를 사용 하 여 SaaS 분석 살펴보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,9 +64,9 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 이 자습서에서는 Wingtip Tickets 데이터로부터 창출할 수 있는 기본적인 인사이트를 제공합니다. 각 행사장이 서비스를 사용하는 방법을 이해하면 Wingtip Tickets 공급 업체가 예를 들어 다소 활동적인 행사장을 대상으로 다양한 서비스 계획을 고려하게 할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
@@ -111,7 +111,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
     1. 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates**입니다.
     1. 저장된 프로시저 **sp_transformExtractedData**는 데이터를 변환하여 스타 스키마 테이블에 로드하는 데 사용됩니다.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![다양 한 데이터베이스 개체를 표시 하도록 확장 된 테이블이 있는 개체 탐색기를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Blob Storage
 
@@ -167,7 +167,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
   
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 
-Azure Synapse (이전의 SQL Data Warehouse)는 분석 저장소로 테 넌 트 데이터에 대해 집계를 수행 하는 데 사용 됩니다. 이 샘플에서는 PolyBase를 사용 하 여 데이터 웨어하우스로 데이터를 로드 합니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG) 같은 부하 패턴을 보여줍니다.
+Azure Synapse (이전의 SQL Data Warehouse)는 분석 저장소로 테 넌 트 데이터에 대해 집계를 수행 하는 데 사용 됩니다. 이 샘플에서는 PolyBase를 사용 하 여 데이터 웨어하우스로 데이터를 로드 합니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 로드 패턴을 보여 줍니다. ![ 다이어그램은 데이터베이스 테이블의 로드 패턴을 보여 줍니다.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 CREATE TABLE 테이블의 경우 SELECT ... (CTAS) 문을 사용 하 여 기존에 수정 되거나 수정 되지 않은 행과 서로게이트 키를 포함 하는 임시 테이블을 만들 수 있습니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
 
@@ -181,14 +181,14 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
 1. ADF 사용자 인터페이스의 **작성자** 탭의 왼쪽 창에서 **SQLDBToDW** 파이프라인을 선택합니다.
 1. **트리거**를 클릭하고 끌어온 메뉴에서 **트리거 시작**을 클릭합니다. 이 작업은 파이프라인을 즉시 실행합니다. 프로덕션 시나리오에서 일정에 따라 데이터를 새로 고치려면 파이프라인을 실행하기 위한 시간표를 정의합니다.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![스크린샷-Q 옵션을 확장 하 고 지금 트리거를 선택 하 여 S Q L D B에서 D W로 명명 된 파이프라인에 대 한 팩터리 리소스를 보여 줍니다.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. **파이프라인 실행** 페이지에서 **마침**을 클릭합니다.
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
 1. ADF 사용자 인터페이스의 왼쪽 메뉴에서 **모니터** 탭으로 전환합니다.
 1. SQLDBToDW 파이프라인의 상태가 **성공**할 때까지 **새로 고침**을 클릭합니다.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![상태에 성공으로 표시 되는 S Q L D B에서 D W 파이프라인을 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. 이러한 테이블에 데이터가 로드되었는지 확인하려면 스타 스키마 테이블을 쿼리하고 SSMS로 데이터 웨어하우스에 연결합니다.
 
 파이프라인이 완료되면 팩트 테이블은 모든 행사장에 대한 티켓 판매량 데이터를 보유하고 차원 테이블은 해당 행사장, 이벤트 및 고객으로 채워집니다.
@@ -214,7 +214,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
 6. **탐색기** 창의 analytics 데이터베이스에서 별모양 스키마 테이블: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** 및 **dim_Dates**를 선택 합니다. 그런 다음 **로드**를 선택합니다.
 
-지금까지 Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
+축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에 있는 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. (티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.)
 
@@ -262,7 +262,7 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 >
@@ -272,7 +272,7 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 > - 분석 데이터 웨어하우스를 쿼리합니다.
 > - 데이터 시각화를 위해 Power BI를 사용하여 테넌트 데이터의 추세를 파악하고 개선을 위한 권장 사항 도출하기.
 
-지금까지
+축하합니다!
 
 ## <a name="additional-resources"></a>추가 자료
 

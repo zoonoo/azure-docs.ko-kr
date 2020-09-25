@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361095"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Azure VM 평가 만들기
 
@@ -43,9 +43,9 @@ Azure Migrate: 서버 평가를 사용 하 여 Azure VM 평가를 만드는 데 
 1. 평가를 만드는 방법에 대한 [모범 사례](best-practices-assessment.md)를 검토합니다.
 2. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가**를 클릭합니다.
 
-    ![평가](./media/how-to-create-assessment/assess.png)
+    ![평가 도구에서 평가를 선택한 Azure Migrate 서버가 스크린샷으로 표시 됩니다.](./media/how-to-create-assessment/assess.png)
 
-3. **서버 평가**에서 평가 유형을 "Azure VM"으로 선택 하 고, 검색 원본을 선택 하 고, 평가 이름을 지정 합니다.
+3. **서버 평가**에서 평가 유형을 "Azure VM"으로 선택하고, 검색 원본을 선택하고, 평가 이름을 지정합니다.
 
     ![평가 기본 사항](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
@@ -53,9 +53,9 @@ Azure Migrate: 서버 평가를 사용 하 여 Azure VM 평가를 만드는 데 
 
     ![평가 속성](./media/how-to-create-assessment//view-all.png)
 
-5. **다음** 을 클릭 하 여 **평가할 컴퓨터를 선택**합니다. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+5. **다음**을 클릭하여 **평가할 머신을 선택**합니다. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
 6. **그룹에 머신 추가**에서 그룹에 추가할 VM을 선택합니다.
-7. **다음** 을 클릭 하 여 평가 단계 **를 검토 하** 고 평가 세부 정보를 검토 합니다.
+7. **다음**에서 **검토 + 평가 만들기**를 클릭하여 평가 세부 정보를 검토합니다.
 8. **평가 만들기**를 클릭하여 그룹을 만들고, 평가를 실행합니다.
 
     ![평가 만들기](./media/how-to-create-assessment//assessment-create.png)
@@ -67,7 +67,7 @@ Azure Migrate: 서버 평가를 사용 하 여 Azure VM 평가를 만드는 데 
 
 ## <a name="review-an-azure-vm-assessment"></a>Azure VM 평가 검토
 
-Azure VM 평가는 다음을 설명 합니다.
+Azure VM 평가는 다음을 설명합니다.
 
 - **Azure 준비 상태**: VM이 Azure로 마이그레이션하는 데 적합한지 여부입니다.
 - **월간 예상 비용**: Azure에서 VM을 실행하는 데 들어가는 월간 예상 컴퓨팅 및 스토리지 비용입니다.

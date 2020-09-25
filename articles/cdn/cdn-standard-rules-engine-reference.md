@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661765"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327496"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진 참조
 
@@ -40,7 +40,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 각 Azure CDN 끝점에는 최대 25 개의 규칙이 있을 수 있습니다. 각 규칙에는 최대 10 개의 일치 조건 및 5 개의 작업이 있을 수 있습니다. 규칙 엔진의 가격은 다음 차원을 따릅니다. 
 - 규칙: 월별 규칙 $1 
-- 처리 된 요청 수: 백만 requets 당 $0.60
+- 처리 된 요청 수: 백만 개 요청당 $0.60
 - 처음 5 개의 규칙은 무료로 유지 됩니다.
 
 ## <a name="syntax"></a>구문

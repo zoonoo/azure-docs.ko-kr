@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
-ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed82adcc1432bde27042d5775c454bfabcdb96ca
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358137"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>국가/지역별 Azure CDN 콘텐츠 제한
 
@@ -38,7 +38,7 @@ ms.locfileid: "84887027"
 ### <a name="define-the-directory-path"></a>디렉터리 경로 정의
 지역 필터링 기능에 액세스하려면 포털 내에서 CDN 엔드포인트를 선택한 다음, 왼쪽 메뉴의 설정 아래에서 **지역 필터링**을 선택합니다. 
 
-![지역 필터링 표준](./media/cdn-filtering/cdn-geo-filtering-standard.png)
+![끝점의 메뉴에서 선택한 지역 필터링을 보여 주는 스크린샷](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
 **경로** 상자에서 사용자에게 액세스를 허용하거나 거부하는 위치에 대한 상대 경로를 지정합니다. 
 
@@ -67,7 +67,7 @@ ms.locfileid: "84887027"
 
 국가/지역 선택을 완료 한 후에는 **저장** 을 선택 하 여 새 지역 필터링 규칙을 활성화 합니다. 
 
-![지역 필터링 규칙](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+![국가 또는 지역을 차단 하거나 허용 하는 데 사용할 국가 코드를 보여 주는 스크린샷](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>리소스 정리
 규칙을 삭제하려면 **지역 필터링** 페이지의 목록에서 선택한 다음, **삭제**를 선택합니다.
@@ -79,7 +79,7 @@ ms.locfileid: "84887027"
 
 2. Verizon 포털에서 **HTTP Large**를 선택한 다음, **국가 필터링**을 선택합니다.
 
-    ![지역 필터링 표준](./media/cdn-filtering/cdn-geo-filtering-premium.png)
+    ![Azure C D N에서 국가 필터링을 선택 하는 방법을 보여 주는 스크린샷](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
 3. **국가 필터링 추가**를 선택합니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "84887027"
     
     **국가 필터링** 페이지의 테이블에 새 규칙이 표시됩니다.
 
-    ![지역 필터링 규칙](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
+    ![국가 필터링에서 규칙이 표시 되는 위치를 보여 주는 스크린샷](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>리소스 정리
 국가/지역 필터링 규칙 테이블에서 삭제할 규칙 옆에 있는 삭제 아이콘을 선택 하거나 편집 아이콘을 선택 하 여 수정 합니다.
