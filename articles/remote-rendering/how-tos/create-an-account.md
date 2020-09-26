@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318095"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Azure Remote Rendering 계정 만들기
 
@@ -83,7 +83,7 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 
  "역할 할당 추가" 타일에서 **추가** 단추를 클릭하여 첫 번째 역할을 추가합니다.
 
-![스토리지 계정 IAM](./media/azure-add-role-assignment.png)
+![저장소 계정 IAM 역할 할당 추가](./media/azure-add-role-assignment.png)
 
 * 할당할 첫 번째 역할은 위의 스크린샷에 표시된 것처럼 **소유자**입니다.
 * **액세스 할당** 드롭다운에서 **Remote Rendering 계정**을 선택합니다.
@@ -100,6 +100,8 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 첫 번째 단계에서 다른 드롭다운이 선택됩니다.
 
 세 역할을 모두 추가했으면 Azure Remote Rendering 계정이 시스템에서 할당한 관리 서비스 ID를 사용하여 스토리지 계정에 액세스할 수 있습니다.
+> [!IMPORTANT]
+> Azure 역할 할당은 Azure Storage에 의해 캐시 되므로 원격 렌더링 계정에 대 한 액세스 권한을 부여 하는 경우와 저장소 계정에 액세스 하는 데 사용할 수 있는 시간 사이에 최대 30 분의 지연이 발생할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어 설명서](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

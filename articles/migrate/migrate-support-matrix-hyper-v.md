@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 평가 지원
 description: Azure Migrate Server 평가를 통한 Hyper-v 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318180"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -46,7 +46,7 @@ Hyper-v VM 평가를 설정 하려면 Azure Migrate 프로젝트를 만들고 �
 | :----------------------------- | :------------------- |
 | **운영 체제** | 모든 운영 체제의 마이그레이션을 평가할 수 있습니다.  |
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
-
+| **스토리지** | 로컬 디스크, DAS, JBOD, 저장소 공간, CSV, SMB VHD/VHDX를 저장 하는 이러한 Hyper-v 호스트 저장소는 지원 됩니다. <br/> IDE 및 SCSI 가상 컨트롤러가 지원 됩니다.| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
 

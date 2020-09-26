@@ -23,7 +23,7 @@
       href: cognitive-services-apis-create-account-client-library.md
     - name: ARM 템플릿을 사용하여 새 리소스 만들기
       displayName: Resource Manager
-      href: resource-manager-template.md
+      href: create-account-resource-manager-template.md
     - name: 진단 로깅
       href: diagnostic-logging.md
 - name: 보안

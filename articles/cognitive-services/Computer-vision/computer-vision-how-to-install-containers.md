@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 310a7578fe9d3af8c4600968178cb677658feaa6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 326d3a4783b058855d86e17198cbe8d7492feba2
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254332"
+ms.locfileid: "91370643"
 ---
 # <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -172,11 +172,11 @@ Azure Storage를 사용 하 여 처리할 이미지를 저장 하는 경우 컨�
 
 # <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
 
-컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
+컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
 # <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
-컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
+컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
 
 ---
 

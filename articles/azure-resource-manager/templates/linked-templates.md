@@ -3,12 +3,12 @@ title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369317"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -369,7 +369,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 
 ## <a name="template-specs"></a>템플릿 사양
 
-액세스 가능한 끝점에서 연결 된 템플릿을 유지 관리 하는 대신, 배포할 수 있는 단일 엔터티로 주 템플릿과 연결 된 템플릿을 패키지 하는 [템플릿 사양을](template-specs.md) 만들 수 있습니다. 템플릿 사양은 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
+액세스 가능한 끝점에서 연결 된 템플릿을 유지 관리 하는 대신, 배포할 수 있는 단일 엔터티로 주 템플릿과 연결 된 템플릿을 패키지 하는 [템플릿 사양을](template-specs.md) 만들 수 있습니다. 템플릿 사양은 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -731,7 +731,7 @@ done
 현재 [Azure Storage 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정의 템플릿에 연결할 수 없습니다.
 
 > [!IMPORTANT]
-> SAS 토큰을 사용 하 여 연결 된 템플릿을 보호 하는 대신 [템플릿 사양을](template-specs.md)만드는 것이 좋습니다. 템플릿 사양에서는 주 템플릿과 연결 된 템플릿을 Azure 구독에 리소스로 안전 하 게 저장 합니다. RBAC를 사용 하 여 템플릿을 배포 해야 하는 사용자에 게 액세스 권한을 부여 합니다.
+> SAS 토큰을 사용 하 여 연결 된 템플릿을 보호 하는 대신 [템플릿 사양을](template-specs.md)만드는 것이 좋습니다. 템플릿 사양에서는 주 템플릿과 연결 된 템플릿을 Azure 구독에 리소스로 안전 하 게 저장 합니다. Azure RBAC를 사용 하 여 템플릿을 배포 해야 하는 사용자에 게 액세스 권한을 부여 합니다.
 
 다음 예제에서는 템플릿에 연결할 때 SAS 토큰을 전달하는 방법을 보여 줍니다.
 

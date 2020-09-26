@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/25/2020
+ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647557"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369011"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -168,6 +168,8 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 * [ISE 영역에 대 한 인바운드 및 아웃 바운드 주소를 Logic Apps 합니다.](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
+* [이 다운로드 파일에 있는 ISE 지역의 커넥터에 대 한 Azure IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)
+
 * 방화벽을 통해 이러한 서비스로 트래픽을 보낼 수 없기 때문에 Azure SQL, 저장소, Service Bus 및 이벤트 허브에 대 한 서비스 끝점을 사용 하도록 설정 해야 합니다.
 
 <a name="create-environment"></a>
@@ -282,6 +284,21 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    > [!IMPORTANT]
    > ISE를 만든 후 사용 가능한 관리형 ISE 커넥터는 Logic App 디자이너의 커넥터 선택기에 자동으로 나타나지 않습니다. ISE 커넥터를 사용하려면 먼저 [해당 커넥터를 ISE에 수동으로 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment)하여 Logic App 디자이너에 나타나도록 해야 합니다.
+
+   > [!IMPORTANT]
+   > 관리 되는 ISE 커넥터는 현재 [태그](../azure-resource-manager/management/tag-support.md)를 지원 하지 않습니다. 태그 지정을 적용 하는 정책을 설정 하는 경우 ISE 커넥터를 추가 하려고 합니다.  
+   > 는 다음과 같은 오류와 함께 실패할 수 있습니다. 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > ISE 커넥터를 추가 하려면 정책을 사용 하지 않도록 설정 하거나 제거 해야 합니다.
+   > 
 
 ## <a name="next-steps"></a>다음 단계
 

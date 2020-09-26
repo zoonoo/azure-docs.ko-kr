@@ -3,12 +3,12 @@ title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbe7257b577f0526e0d34c13e0102305e58cc656
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322464"
+ms.locfileid: "91369997"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -85,9 +85,6 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 ## <a name="install-azure-policy-add-on-for-aks"></a>AKS에 대한 Azure Policy 추가 기능 설치
 
 Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도록 설정하기 전에 해당 구독은 **Microsoft.ContainerService** 및 **Microsoft.PolicyInsights** 리소스 공급자를 사용하도록 설정해야 합니다.
-
-> [!IMPORTANT]
-> AKS의 Azure Policy에 대 한 GA (일반 공급)는 모든 지역에서 적극적으로 출시 되 고 있습니다. GA 릴리스의 예상 된 글로벌 완료는 9/29/2020입니다. GA 릴리스를 사용 하지 않는 지역에는 미리 보기 등록 단계가 필요 합니다. 그러나 지역에서 사용할 수 있는 경우이는 GA 릴리스로 자동 업데이트 됩니다.
 
 1. Azure CLI 버전 2.12.0 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 

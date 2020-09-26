@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317568"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
 
@@ -120,7 +120,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 온-프레미스 Active Directory 커넥터가 암호 해시 동기화에 사용하는 AD DS 계정에 적절한 사용 권한이 없으면 다음 오류가 반환됩니다.
 
-![잘못된 자격 증명](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![AD DS 계정에 잘못 된 사용자 이름 또는 암호가 있는 경우 반환 되는 오류를 보여 주는 스크린샷](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>잘못된 AD DS 계정 사용자 이름 또는 암호
 
@@ -227,7 +227,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
 
-3. `Import-Module ADSyncDiagnostics`을 실행합니다.
+3. `Import-Module ADSyncDiagnostics`를 실행합니다.
 
 4. 다음 cmdlet을 실행합니다.
 
@@ -235,7 +235,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -326,7 +326,7 @@ Azure AD와 연결되어 있나요?
 
     f. 원하는 사용자를 찾은 후 **속성**을 클릭하여 모든 특성을 확인합니다. 해당 사용자가 검색 결과에 없으면 [필터링 규칙](how-to-connect-sync-configure-filtering.md)을 확인하고 [변경 내용 적용 및 확인](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes)을 실행하여 사용자가 Connect에 표시되도록 합니다.
 
-    예: 지난주에 대한 개체의 암호 동기화 정보를 보려면 **로그**를 클릭합니다.  
+    g. 지난주에 대한 개체의 암호 동기화 정보를 보려면 **로그**를 클릭합니다.  
 
     ![개체 로그 정보](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
@@ -338,7 +338,7 @@ Azure AD와 연결되어 있나요?
 
     i. **메타버스 개체 속성**을 클릭하여 사용자 특성 목록을 표시합니다.  
 
-    ![메타버스 정보](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![메타 버스 개체 속성의 사용자 특성 목록을 보여 주는 스크린샷](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     **cloudFiltered** 특성이 없는지 확인합니다. 도메인 특성(domainFQDN 및 domainNetBios)이 예상 값을 갖는지 확인합니다.
 
@@ -354,16 +354,16 @@ Azure AD와 연결되어 있나요?
 
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | --- | --- |
-| 성공 |암호가 성공적으로 동기화되었습니다. |
+| Success |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |
 | NoTargetConnection |메타버스에 또는 Azure AD 커넥터 공간에 개체가 없습니다. |
 | SourceConnectorNotPresent |개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
 | TargetNotExportedToDirectory |Azure AD 커넥터 공간에 있는 개체가 아직 내보내지지 않았습니다. |
 | MigratedCheckDetailsForMoreInfo |로그 항목 1.0.9125.0 빌드 전에 만들어졌으며 레거시 상태로 표시됩니다. |
 | Error |서비스에 알 수 없는 오류가 반환되었습니다. |
-| 알 수 없음 |암호 해시의 배치를 처리하는 동안 오류가 발생했습니다.  |
+| Unknown |암호 해시의 배치를 처리하는 동안 오류가 발생했습니다.  |
 | MissingAttribute |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 사용할 수 없습니다. |
 | RetryRequestedByTarget |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 이전에 사용할 수 없었습니다. 사용자의 암호 해시를 다시 동기화하려고 합니다. |
 

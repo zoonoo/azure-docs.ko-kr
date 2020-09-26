@@ -4,13 +4,13 @@ description: JavaScript를 사용하여 함수를 개발하는 방법을 알아�
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js
+ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317179"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -204,8 +204,8 @@ module.exports = (context) => {
 | 속성 이름  | Type  | Description |
 |---------|---------|---------|
 | `invocationId` | String | 특정 함수 호출에 대 한 고유 식별자를 제공 합니다. |
-| `functionName` | 문자열 | 실행 중인 함수의 이름을 제공 합니다. |
-| `functionDirectory` | 문자열 | 함수 앱 디렉터리를 제공 합니다. |
+| `functionName` | String | 실행 중인 함수의 이름을 제공 합니다. |
+| `functionDirectory` | String | 함수 앱 디렉터리를 제공 합니다. |
 
 다음 예제에서는를 반환 하는 방법을 보여 줍니다 `invocationId` .
 

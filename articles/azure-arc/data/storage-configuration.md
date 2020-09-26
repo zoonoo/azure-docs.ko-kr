@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317330"
 ---
 # <a name="storage-configuration"></a>스토리지 구성
 
@@ -48,7 +48,7 @@ managed-premium     kubernetes.io/azure-disk   4d3h
 kubectl describe storageclass\<storage class name>
 ```
 
-예제:
+예:
 
 ``` terminal
 kubectl describe storageclass/azurefile
@@ -151,10 +151,11 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 - 데이터 내 구성을 보장 하기 위해 원격 공유 저장소 클래스를 사용 **해야** 하며 pod가 백업 될 때 pod 또는 노드가 영구 볼륨에 다시 연결할 수 있습니다.
 - 컨트롤러 SQL 인스턴스, 메트릭 DB 및 로그 DB에 기록 되는 데이터는 일반적으로 매우 낮은 볼륨 이며 대기 시간을 구분 하지 않으므로 ultra fast 성능 저장소는 중요 하지 않습니다. Grafana 및 Kibana 인터페이스를 자주 사용 하는 사용자가 있고 많은 수의 데이터베이스 인스턴스를 사용 하는 경우 사용자는 더 빠르게 수행 하는 저장소의 이점을 누릴 수 있습니다.
-- 필요한 저장소 용량은 각 데이터베이스 인스턴스에 대해 로그 및 메트릭이 수집 되기 때문에 배포 된 데이터베이스 인스턴스 수에 대 한 변수입니다. 데이터는 삭제 되기 전에 2 주 동안 로그 및 메트릭 DB에 보존 됩니다. TODO: DB 인스턴스당 필요한 저장소 크기는 얼마 인가요?
+- 필요한 저장소 용량은 각 데이터베이스 인스턴스에 대해 로그 및 메트릭이 수집 되기 때문에 배포 된 데이터베이스 인스턴스 수에 대 한 변수입니다. 데이터는 삭제 되기 전에 2 주 동안 로그 및 메트릭 DB에 보존 됩니다. 
 - 배포 후 저장소 클래스를 변경 하는 것은 문서화 되지 않고 매우 어렵고 지원 되지 않습니다. 배포 시 저장소 클래스를 올바르게 선택 해야 합니다.
 
-> **참고:** 저장소 클래스를 지정 하지 않으면 기본 저장소 클래스가 사용 됩니다. Kubernetes 클러스터당 기본 저장소 클래스는 하나만 있을 수 있습니다. [기본 저장소 클래스를 변경할](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)수 있습니다.
+> [!NOTE]
+> 저장소 클래스를 지정 하지 않으면 기본 저장소 클래스가 사용 됩니다. Kubernetes 클러스터당 기본 저장소 클래스는 하나만 있을 수 있습니다. [기본 저장소 클래스를 변경할](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)수 있습니다.
 
 ### <a name="database-instance-storage-configuration"></a>데이터베이스 인스턴스 저장소 구성
 
@@ -162,7 +163,8 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 또는 명령을 사용 하 여 인스턴스를 만들 때 `azdata arc sql mi create` `azdata arc postgres server create` 저장소 클래스를 설정 하는 데 사용할 수 있는 두 가지 매개 변수가 있습니다.
 
-> **참고:** 이러한 매개 변수 중 일부는 개발 중 이며 향후 릴리스에서 사용할 수 있게 될 예정 `azdata arc sql mi create` `azdata arc postgres server create` 입니다.
+> [!NOTE]
+> 이러한 매개 변수 중 일부는 개발 중 이며 향후 릴리스에서 사용할 수 있게 될 예정 `azdata arc sql mi create` `azdata arc postgres server create` 입니다.
 
 |매개 변수 이름, 짧은 이름|사용 목적|
 |---|---|

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317126"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -62,7 +62,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요인 | 설명 |
+| 요인 | Description |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -131,22 +131,31 @@ Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 �
 
 작업 영역에 전송되는 데이터의 볼륨 속도가 작업 영역에 구성된 임계값의 80%를 초과할 경우 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블에 이벤트가 계속 전송됩니다. 수집 볼륨 속도가 임계값을 초과할 경우 일부 데이터가 삭제되고, 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블로 이벤트가 전송됩니다. 수집 볼륨의 요금이 계속 해 서 임계값을 초과 하거나 곧 도착할 것으로 예상 되는 경우에는 지원 요청을 열어에서 증가 하도록 요청할 수 있습니다. 
 
-작업 영역에서 approching 또는 수집 볼륨의 용량 제한에 대 한 알림을 받으려면 다음 쿼리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다 .이 쿼리는 0 보다 큰 결과 수, 5 분의 평가 기간 및 5 분의 빈도를 기준으로 합니다.
+작업 영역의 대량 수집 볼륨 요금 제한에 대 한 알림을 받으려면 0 보다 큰 결과 수에 대 한 경고 논리 기반 및 5 분의 평가 기간 및 5 분의 빈도를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
 
-수집 볼륨 속도가 임계값의 80%에 도달했습니다.
+수집 볼륨 비율이 임계값을 초과 합니다.
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-수집 볼륨 속도가 임계값에 도달했습니다.
+수집 볼륨 비율이 임계값의 80%를 초과 했습니다.
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
 ```
 
+수집 볼륨 비율이 임계값의 70%를 초과 했습니다.
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
+```
 
 ## <a name="recommendations"></a>권장 사항
 

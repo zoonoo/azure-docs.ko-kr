@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 599d13daac2e062c8f71f5f7d7133646a1447123
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266591"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370490"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Azure PowerShell를 사용 하 여 전용 호스트에 Vm 배포
 
@@ -49,6 +49,14 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Zone 1
 ```
+
+
+`-SupportAutomaticPlacement true`호스트 그룹 내에서 vm 및 확장 집합 인스턴스가 호스트에 자동으로 배치 되도록 매개 변수를 추가 합니다. 자세한 내용은 [수동 및 자동 배치 ](../dedicated-hosts.md#manual-vs-automatic-placement)를 참조 하세요.
+
+> [!IMPORTANT]
+> 자동 배치는 현재 공개 미리 보기로 제공 됩니다.
+> 미리 보기에 참여 하려면에서 미리 보기 온 보 딩 설문 조사를 완료 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 합니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="create-a-host"></a>호스트 만들기
 
@@ -164,6 +172,32 @@ Name                   : myHost
 Location               : eastus
 Tags                   : {}
 ```
+
+## <a name="create-a-scale-set-preview"></a>크기 집합 만들기 (미리 보기)
+
+> [!IMPORTANT]
+> 전용 호스트의 Virtual Machine Scale Sets는 현재 공개 미리 보기로 제공 됩니다.
+> 미리 보기에 참여 하려면에서 미리 보기 온 보 딩 설문 조사를 완료 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 합니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+확장 집합을 배포 하는 경우 호스트 그룹을 지정 합니다.
+
+```azurepowershell-interactive
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+확장 집합을 배포할 호스트를 수동으로 선택 하려면 `--host` 및 호스트의 이름을 추가 합니다.
+
+
 
 ## <a name="add-an-existing-vm"></a>기존 VM 추가 
 

@@ -3,14 +3,14 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 개요
 description: 이 문서에서는 일정에 따라 VM을 시작 또는 중시하고 Azure Monitor 로그에서 선제적으로 모니터링하는 작업 시간 외 VM 시작/중지 기능에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317364"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -37,13 +37,15 @@ ms.locfileid: "87064464"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./manage-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
+- 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./manage-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
-작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 모듈 업데이트는 프로덕션 Automation 계정으로 가져오기 전에 테스트 Automation 계정에서 테스트해 보는 것이 좋습니다.
+- 연결 된 Automation 계정 및 Log Analytics 작업 영역은 동일한 리소스 그룹에 있어야 합니다.
+
+- 작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 모듈 업데이트는 프로덕션 Automation 계정으로 가져오기 전에 테스트 Automation 계정에서 테스트해 보는 것이 좋습니다.
 
 ## <a name="permissions"></a>사용 권한
 
-VM에서 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하려면 특정 권한이 있어야 합니다. 필요한 권한은 이 기능에서 미리 생성된 Automation 계정과 Log Analytics 작업 영역을 사용하는지 아니면 새 계정과 작업 영역을 사용하는지에 따라 달라집니다. 
+VM에서 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하려면 특정 권한이 있어야 합니다. 필요한 권한은 이 기능에서 미리 생성된 Automation 계정과 Log Analytics 작업 영역을 사용하는지 아니면 새 계정과 작업 영역을 사용하는지에 따라 달라집니다.
 
 구독의 기여자이고 Azure AD(Active Directory) 테넌트의 전역 관리자인 경우에는 권한을 구성할 필요가 없습니다. 이러한 권한이 없거나 사용자 지정 역할을 구성해야 하는 경우에는 다음과 같은 권한이 필요합니다.
 
@@ -107,7 +109,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |Runbook | 매개 변수 | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 AutoStop 시나리오에서 리소스 기준으로 경고를 만듭니다.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList`는 쉼표로 구분 된 Vm 목록 (공백 없음)입니다 (예:) `vm1,vm2,vm3` .<br> `WhatIf`는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList` 는 쉼표로 구분 된 Vm 목록 (공백 없음)입니다 (예:) `vm1,vm2,vm3` .<br> `WhatIf`는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
 |AutoStop_Disable | None | AutoStop 경고 및 기본 일정을 사용하지 않도록 설정합니다.|
 |AutoStop_VM_Child | WebHookData | 부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 클래식 VM을 중지합니다.|
 |AutoStop_VM_Child_ARM | WebHookData |부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 VM을 중지합니다.  |

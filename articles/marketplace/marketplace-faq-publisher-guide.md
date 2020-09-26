@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032115"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369725"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -229,7 +229,7 @@ Microsoft AppSource는 신용 카드 결제를 지원합니다. Azure Marketplac
 
 고객은 전 세계 141개의 상업용 마켓플레이스에서 솔루션을 구매할 수 있습니다.
 
-위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
+위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context)로 이동하세요.
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 지원되는 통화는 무엇인가요?
 
@@ -274,32 +274,32 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>상업용 마켓플레이스를 통해 판매 지급은 어느 빈도로 받나요?
 
-지급은 매월 처리됩니다. 지불 일정에 대 한 자세한 내용과 파트너 센터에서 예정 된 지급를 찾고 고객의 지불 하지 않는 방법에 대 한 자세한 내용은 [지급 정책 세부 정보](partner-center-portal/payout-policy-details.md)를 참조 하세요.
+지급은 매월 처리됩니다. 지불 일정에 대 한 자세한 내용과 파트너 센터에서 예정 된 지급를 찾고 고객의 지불 하지 않는 방법에 대 한 자세한 내용은 [지급 정책 세부 정보](/partner-center/payout-policy-details?context=/azure/marketplace/context/context)를 참조 하세요.
 
 - 고객이 기업계약를 사용 하는 트랜잭션의 경우 다음 지급 주기 30 일 후 고객 청구서에 지급이 발급 됩니다. 
 - 고객이 신용 카드를 사용 하는 트랜잭션의 경우 자금을 명확 하 게 하 고 지불 거절 또는 의심 스러운 사기 행위를 방지 하기 위해 지불을 받은 후 30 일의 추가 기간이 추가로 제공 됩니다.
 
 지급는 판매량이 최소 결합 값 $50.00에 도달한 경우에만 실행 됩니다.
 
-자세한 내용은 [최소 결제액, 결제 방법 및 기간](partner-center-portal/payment-thresholds-methods-timeframes.md)을 참조하세요.
+자세한 내용은 [최소 결제액, 결제 방법 및 기간](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context)을 참조하세요.
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>어떤 국가/지역에서 사용자 본인을 대신하여 세금이 관리되나요?
 
 고객은 전 세계의 상용 marketplace에서 솔루션을 찾을 수 있으며 여러 위치에서 세금을 관리 합니다. 
 
-전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
+전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context)로 이동하세요.
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 지급 보고는 어디에서 찾을 수 있나요?
 
 파트너 센터 내에서 ‘소유자’ 또는 ‘금융 기여자’ 권한이 있는 사용자는 지급 보고를 볼 수 있습니다.  해당 사용자는 청구서를 든 손을 나타내는 아이콘을 선택하여 오른쪽 상단의 보고서에 액세스할 수 있습니다.
 
-자세한 내용은 [지급 보고](partner-center-portal/payout-summary.md)를 참조하세요.
+자세한 내용은 [지급 문](/partner-center/payout-statement?context=/azure/marketplace/context/context)을 참조 하세요.
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>지급 방법 및 대상은 어떻게 구성하나요?
 
 파트너 센터에서 ‘소유자’ 권한이 있는 사용자는 지급 계정 및 세금 양식을 설정할 수 있습니다. 사용자는 오른쪽 상단의 **설정** 단추(톱니 바퀴 아이콘)를 선택하여 이 작업을 수행할 수 있습니다.
 
-자세한 내용은 [지급 계정 및 세금 양식](partner-center-portal/set-up-your-payout-account-tax-forms.md)을 참조하세요.
+자세한 내용은 [지급 계정 및 세금 양식 설정](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context)을 참조 하세요.
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 반환 및 환불이 지원되나요?
 
