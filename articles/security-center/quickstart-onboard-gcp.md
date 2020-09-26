@@ -3,16 +3,16 @@ title: Azure Security Center에 GCP 계정 연결
 description: Azure Security Center에서 GCP 리소스 모니터링
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f478c279eb4c07332d047935f7c5dab89fd4b7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4020bc5e96ff35fa2d04a872216e43abbba5323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940216"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328312"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결
 
@@ -66,7 +66,7 @@ GCP 계정을 Security Center에 등록 하 고 GCP 보안 명령과 Azure Secur
 [보안 명령 센터 API](https://cloud.google.com/security-command-center/docs/reference/rest/)에 대해 자세히 알아보세요.
 
 
-### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>3단계: 보안 구성 통합을 위한 전용 서비스 계정 만들기
+### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>3단계. 보안 구성 통합을 위한 전용 서비스 계정 만들기
 
 1. **Gcp 콘솔**에서 Security Center에 연결 하려는 프로젝트를 선택 합니다.
 1. **탐색 메뉴**의 **IAM & 관리** 옵션에서 **서비스 계정**을 선택 합니다.

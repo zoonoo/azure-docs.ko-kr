@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 746243336d74aefc55df48872fe9dd21e9cd99a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6ccb74fe58742974798732605b4a017a06777bcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328176"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화 된 장치에서 LVM 및 RAID 구성
 
@@ -459,4 +459,5 @@ df -h
 ```
 ## <a name="next-steps"></a>다음 단계
 
+- [Azure Disk Encryption로 암호화 된 논리 볼륨 관리 장치 크기 조정](how-to-resize-encrypted-lvm.md)
 - [Azure Disk Encryption 문제 해결](disk-encryption-troubleshooting.md)

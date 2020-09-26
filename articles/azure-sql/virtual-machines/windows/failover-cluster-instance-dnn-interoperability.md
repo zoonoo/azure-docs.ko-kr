@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f9c4f58c3318d9d030637f85f3c1597b98d458c7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965598"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272619"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI와의 기능 상호 운용성 & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,8 +75,8 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 
 | **복제 구성 요소 (DNN를 사용 하는 FCI)** | **원격 구성 요소** | **네트워크 별칭 맵** | **네트워크 맵이 있는 서버**| 
 |---------|---------|---------|-------- | 
-|Publisher | 배포자 | 게시자 VNN에서 게시자로 DNN| 배포자| 
-|배포자|구독자 |배포자 VNN에서 배포자로 DNN| 구독자 | 
+|게시자 | 배포자 | 게시자 VNN에서 게시자로 DNN| 배포자| 
+|배포자|가입자 |배포자 VNN에서 배포자로 DNN| 가입자 | 
 |배포자|게시자 | 배포자 VNN에서 배포자로 DNN | 게시자| 
 |가입자| 배포자| 구독자 VNN에서 구독자로 DNN | 배포자| 
 
@@ -147,7 +147,7 @@ GO
 
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 
 - DNN에서 지원 되는 SQL Server 버전은 무엇 인가요? 

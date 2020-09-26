@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328261"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Azure 보안 벤치 마크 소개
 
@@ -23,8 +23,8 @@ Microsoft는 *보안 벤치 마크* 를 사용 하 여 클라우드 배포를 �
 
 Azure 보안 벤치 마크에는 Azure에서 사용 하는 서비스를 보호 하는 데 사용할 수 있는 높은 영향을 주는 보안 권장 사항 컬렉션이 포함 되어 있습니다.
 
-- 보안 제어: 이러한 권장 사항은 일반적으로 Azure 테 넌 트 및 Azure 서비스 전체에 적용 됩니다. 각 권장 사항은 벤치 마크의 계획, 승인 또는 구현에 일반적으로 관련 된 관련자의 목록을 식별 합니다. 
-- 서비스 기준: 개별 Azure 서비스에 컨트롤을 적용 하 여 해당 서비스의 보안 구성에 대 한 권장 사항을 제공 합니다.
+- **보안 제어**: 이러한 권장 사항은 일반적으로 azure 테 넌 트 및 azure 서비스 전체에 적용 됩니다. 각 권장 사항은 벤치 마크의 계획, 승인 또는 구현에 일반적으로 관련 된 관련자의 목록을 식별 합니다. 
+- **서비스 기준**: 개별 Azure 서비스에 컨트롤을 적용 하 여 해당 서비스의 보안 구성에 대 한 권장 사항을 제공 합니다.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Azure 보안 벤치 마크 구현
 - 엔터프라이즈 컨트롤 및 서비스별 기준에 대 한 [설명서](overview.md) 를 검토 하 여 컨트롤 프레임 워크를 계획 하 고 Ci (컨트롤 v 7.1) 및 NIST (SP800) 프레임 워크와 같은 지침에 매핑하는 방법을 설명 하 여 Azure 보안 벤치 마크 구현을 **계획** 합니다.

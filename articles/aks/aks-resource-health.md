@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: d14ed7e714eac175dc7a17bbccd2150f9bb01ef9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358256"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>AKS 클러스터에 영향을 주는 Resource Health 이벤트 확인 (미리 보기)
 
@@ -33,7 +33,7 @@ AKS에서 컨테이너 워크 로드를 실행 하는 경우 작업의 가용성
 - 왼쪽 탐색에서 **Resource health** 를 선택 합니다.
 - 구독을 선택 하 고 리소스 종류를 Azure Kubernetes Service (AKS)로 설정 합니다.
 
-![리소스 상태-검사](./media/aks-resource-health/resource-health-check.png)
+![A K S 클러스터의 리소스 상태를 보여 주는 스크린샷](./media/aks-resource-health/resource-health-check.png)
 
 ## <a name="check-the-health-status"></a>상태 확인
 

@@ -1,30 +1,21 @@
 ---
 title: macOS에서 SMB를 통해 Azure 파일 공유 탑재 | Microsoft Docs
 description: Finder 또는 Terminal를 사용 하 여 macOS에서 SMB를 통해 Azure 파일 공유를 탑재 하는 방법에 대해 알아봅니다. Azure Files는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다.
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/19/2017
-ms.author: renash
+ms.date: 09/23/2020
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2cddf8a7d3dbc7abcc25fb76aba8a0af1790fe4d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326068"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS에서 SMB를 통해 Azure 파일 공유 탑재
-[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 macOS El Capitan 10.11+의 산업 표준 SMB 3 프로토콜을 사용하여 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.
-
-> [!Note]  
-> SMB를 통해 Azure 파일 공유를 탑재하기 전에 SMB 패킷 서명을 사용하지 않도록 설정하는 것이 좋습니다. 이렇게 하지 않으면 macOS에서 Azure 파일 공유에 액세스할 때 성능이 저하될 수 있습니다. SMB 연결이 암호화되므로 연결 보안에는 영향을 주지 않습니다. [SMB 패킷 서명 비활성화 대한 Apple 지원 문서](https://support.apple.com/HT205926)에서 설명한 대로 다음 명령은 터미널에서 SMB 패킷 서명을 사용하지 않도록 설정합니다.  
->    ```
->    sudo -s
->    echo "[default]" >> /etc/nsmb.conf
->    echo "signing_required=no" >> /etc/nsmb.conf
->    exit
->    ```
+[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 macOS High 시에라리온 10.13 +에서 업계 표준 SMB 3 프로토콜을 사용 하 여 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>macOS에 Azure 파일 공유를 탑재하기 위한 필수 구성 요소
 * **스토리지 계정 이름**: Azure 파일 공유를 탑재하려면 스토리지 계정의 이름이 필요합니다.
@@ -46,10 +37,10 @@ ms.locfileid: "88034450"
     ![탑재된 Azure 파일 공유의 스냅샷](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>터미널을 통해 Azure 파일 공유 탑재
-1.  `<storage-account-name>` 을 스토리지 계정 이름으로 바꿉니다. 메시지가 표시되면 Storage 계정 키를 암호로 제공합니다. 
+1.  `<storage-account-name>`, `<storage-account-key>` 및를 `<share-name>`   사용자 환경에 적합 한 값으로 바꿉니다.
 
     ```
-    mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
+    open smb://<storage-account-name>:<storage-account-key>@<storage-account-name>.file.core.windows.net/<share-name>
     ```
 
 2. **원하는 대로 Azure 파일 공유를 사용합니다**. Azure 파일 공유는 이전 명령으로 지정된 탑재 지점에 탑재됩니다.  
@@ -57,9 +48,4 @@ ms.locfileid: "88034450"
     ![탑재된 Azure 파일 공유의 스냅샷](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
-
-* [Apple 지원 문서 - Mac에서 파일 공유를 사용하여 연결하는 방법](https://support.apple.com/HT204445)
-* [FAQ](../storage-files-faq.md)
-* [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Linux에서 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)    
+* [공유 컴퓨터 및 서버에 Mac 연결-Apple 지원](https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/mac)

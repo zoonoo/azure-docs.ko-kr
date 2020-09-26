@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260158"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호
 
@@ -97,8 +97,8 @@ Synapse 작업 영역에서 파이프라인을 실행하고 시스템 작업을 
 
 - Azure 포털 열기
 - WS1으로 이동
-- **설정**에서 **SQL Active Directory 관리자** 클릭
-- **관리자 설정**을 클릭하고 WS1\_SQLAdmins 선택
+- **설정**에서 **SQL Active Directory 관리자** 를 선택 합니다.
+- **관리자 설정** 을 선택 하 고 WS1 sqladmins를 선택 합니다. \_
 
 ## <a name="step-6-maintain-access-control"></a>6 단계: 액세스 제어 유지 관리
 
@@ -112,7 +112,7 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 
 각 역할의 사용자는 다음 단계를 완료해야 합니다.
 
-| Number | 단계 | 작업 영역 관리자 | Spark 관리자 | SQL 관리자 |
+| 번호 | 단계 | 작업 영역 관리자 | Spark 관리자 | SQL 관리자 |
 | --- | --- | --- | --- | --- |
 | 1 | CNT1에 parquet 파일 업로드 | YES | YES | YES |
 | 2 | SQL 주문형을 사용하여 parquet 파일 읽기 | YES | 아니요 | YES |
@@ -123,8 +123,9 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 
 > [!NOTE]
 > [1] SQL 또는 Spark 풀을 만들려면 사용자에게 적어도 Synapse 작업 영역에 대한 기여자 역할이 있어야 합니다.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - 일부 단계는 역할에 따라 의도적으로 허용되지 않습니다.
 > - 보안이 완전히 구성되지 않으면 일부 작업이 실패할 수 있습니다. 다음 표에 이러한 작업이 나열되어 있습니다.
 

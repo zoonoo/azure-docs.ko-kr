@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326582"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -28,7 +28,7 @@ Azure Digital Twins는 현재 Logic Apps에 대해 인증 된 (미리 작성 된
 Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** 을 만듭니다.
 이 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다. 
 
-이 섹션의 나머지 부분에서는 다음 단계를 안내 합니다.
+또한 필수 구성 요소를 설치 하는 과정에서 다음 항목을 완료 해야 합니다. 이 섹션의 나머지 부분에서는 다음 단계를 안내 합니다.
 - Azure Digital Twins 인스턴스 설정
 - 앱 등록 클라이언트 암호 가져오기
 - 디지털 쌍 추가
@@ -37,9 +37,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 
 이 문서에서 Logic Apps 하기 위해 Azure Digital Twins 인스턴스를 연결 하려면 **Azure Digital Twins 인스턴스가** 이미 설정 되어 있어야 합니다. 
 
-지금 새 인스턴스를 설정 해야 하는 경우에는 자동화 된 배포 스크립트 샘플을 실행 하는 것이 가장 간단한 방법입니다. [*방법: 인스턴스 및 인증 (스크립팅된) 설정*](how-to-set-up-instance-scripted.md) 의 지침에 따라 새 인스턴스와 필요한 Azure AD 앱 등록을 설정 합니다. 지침에는 각 단계를 성공적으로 완료했으며 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
+먼저 Azure Digital Twins 인스턴스와 작업을 수행할 수 있는 필수 인증을 설정 합니다. 이렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따르세요. 선호 하는 환경에 따라 [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)또는 [자동화 된 Cloud Shell 배포 스크립트 샘플](how-to-set-up-instance-scripted.md)에 대 한 설치 문서가 제공 됩니다. 모든 버전의 지침에는 각 단계를 성공적으로 완료 하 고 새 인스턴스를 사용 하 여 이동할 준비가 되었는지 확인 하는 단계가 포함 되어 있습니다.
 
-이 자습서에서는 인스턴스를 설정할 때 다음 값이 필요합니다. 이러한 값을 다시 수집해야 하는 경우 설정 문서의 해당 섹션에 대한 아래 링크를 사용하여 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
+이 자습서에서는 인스턴스를 설정 하는 경우의 여러 값이 필요 합니다. 이러한 값을 다시 수집해야 하는 경우 설정 문서의 해당 섹션에 대한 아래 링크를 사용하여 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
 * Azure Digital Twins 인스턴스 **_호스트 이름_**([포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * Azure AD 앱 등록 **_애플리케이션(클라이언트) ID_**([포털에서 찾기](how-to-set-up-instance-portal.md#collect-important-values))
 * Azure AD 앱 등록 **_디렉터리(테넌트) ID_**([포털에서 찾기](how-to-set-up-instance-portal.md#collect-important-values))
@@ -160,13 +160,13 @@ Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_Re
 
 다음으로, 새 커넥터를 사용 하 여 Azure Digital Twins 업데이트를 자동화 하는 논리 앱을 만듭니다.
 
-Azure Portal에서 [논리 앱 (소비)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. *추가* 단추를 클릭 하 여 논리 앱을 만듭니다.
+[Azure Portal](https://portal.azure.com)포털 검색 창에서 *논리 앱* 을 검색 합니다. 선택 하면 *논리 앱* 페이지로 이동 합니다. *논리 앱 만들기* 단추를 눌러 새 논리 앱을 만듭니다.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Azure Portal의 ' Logic Apps (소비) ' 페이지입니다. ' 추가 ' 단추를 누릅니다.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Azure Portal의 ' Logic Apps ' 페이지입니다. ' 추가 ' 단추를 누릅니다.":::
 
-다음에 나오는 *논리 앱 (소비)* 페이지에서 구독, 리소스 그룹을 입력 합니다. 또한 논리 앱의 이름을 선택 하 고 위치를 선택 합니다.
+다음 *논리 앱* 페이지에서 구독 및 리소스 그룹을 입력 합니다. 또한 논리 앱의 이름을 선택 하 고 배포 위치를 선택 합니다.
 
-_검토 + 만들기_ 단추를 선택 합니다.
+_검토 + 만들기_ 단추를 누릅니다.
 
 그러면 정보를 검토 하 고 맨 아래에 있는 *만들기* 를 눌러 리소스를 만들 수 있는 *검토 + 만들기* 탭으로 이동 됩니다.
 

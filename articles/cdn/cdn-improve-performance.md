@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358290"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -53,12 +53,12 @@ ms.locfileid: "84887684"
     CDN 엔드포인트 페이지가 열립니다.
 2. **압축**을 선택합니다.
 
-    ![CDN 압축 선택](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![포털 메뉴에서 압축이 선택 된 끝점을 보여 주는 스크린샷](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     압축 페이지가 열립니다.
 3. **켜기**를 선택하여 압축을 켭니다.
 
-    ![CDN 파일 압축 옵션](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![압축 설정을 보여 주는 스크린샷](./media/cdn-file-compression/cdn-compress-standard.png)
 4. 기본 MIME 형식을 사용하거나, MIME 형식을 추가 또는 제거하여 목록을 수정합니다.
 
    > [!TIP]
@@ -149,7 +149,7 @@ ms.locfileid: "84887684"
 | 미압축 |캐시되지 않음 |미압축 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 메모 |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. |
 | Compressed |미압축 |Compressed |CDN이 압축 수행. |
@@ -165,6 +165,6 @@ Media Services CDN 스트리밍을 사용하도록 설정된 엔드포인트의 
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
 

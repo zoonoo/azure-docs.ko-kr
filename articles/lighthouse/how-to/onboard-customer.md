@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483799"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336550"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -19,7 +19,7 @@ ms.locfileid: "89483799"
 
 여러 고객에 대 한 온 보 딩 프로세스를 반복할 수 있습니다. 적절 한 권한이 있는 사용자가 관리 되는 테 넌 트에 로그인 하면 해당 사용자는 모든 개별 고객 테 넌 트에 로그인 하지 않고도 관리 작업을 수행 하기 위해 고객 테 넌 트 범위에서 권한을 부여할 수 있습니다.
 
-고객 계약에 미치는 영향을 추적하고 인지도를 얻으려면 MPN(Microsoft 파트너 네트워크) ID를 온보딩한 각 구독에 대해 액세스 권한이 있는 하나 이상의 사용자 계정과 연결합니다. 서비스 공급자 테 넌 트에서이 연결을 수행 해야 합니다. MPN ID와 연결 된 테 넌 트에 서비스 주체 계정을 만든 다음, 고객을 등록할 때마다 해당 서비스 주체를 포함 하는 것이 좋습니다. 자세한 내용은 [파트너 ID를 연결 하 여 위임 된 리소스에서 파트너 획득 크레딧을 사용 하도록 설정](partner-earned-credit.md)을 참조 하세요.
+고객 계약에 미치는 영향을 추적하고 인지도를 얻으려면 MPN(Microsoft 파트너 네트워크) ID를 온보딩한 각 구독에 대해 액세스 권한이 있는 하나 이상의 사용자 계정과 연결합니다. 서비스 공급자 테 넌 트에서이 연결을 수행 해야 합니다. MPN ID와 연결 된 테 넌 트에 서비스 주체 계정을 만든 다음, 고객을 등록할 때마다 해당 서비스 주체를 포함 하는 것이 좋습니다. 자세한 내용은 [파트너 ID를 연결 하 여 위임 된 리소스에서 파트너 획득 크레딧을 사용 하도록 설정을 참조 하세요.
 
 > [!NOTE]
 > 또한 고객은 [Azure Marketplace에 게시](publish-managed-services-offers.md)하는 관리 서비스 제품 (공용 또는 개인)을 구매할 때 Azure Lighthouse에 등록 수 있습니다. 여기에 설명 된 온 보 딩 프로세스를 사용 하 여 Azure Marketplace에 게시 된 제품을 함께 사용할 수도 있습니다.
@@ -33,9 +33,6 @@ ms.locfileid: "89483799"
 - 서비스 공급자 테넌트의 테넌트 ID(고객의 리소스를 관리하는 위치)
 - 고객 테넌트의 테넌트 ID(서비스 공급자가 관리하는 리소스 포함)
 - 서비스 공급자가 관리할(또는 서비스 공급자가 관리할 리소스 그룹을 포함하는) 고객 테넌트에 있는 각 특정 구독의 구독 ID
-
-> [!NOTE]
-> 구독 내에서 하나 이상의 리소스 그룹을 등록하려는 경우에도 구독 수준에서 배포를 수행해야 하므로 구독 ID가 필요합니다.
 
 이러한 ID 값을 아직 모르는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다. 배포에서 이러한 정확한 값을 사용해야 합니다.
 
@@ -128,6 +125,11 @@ az role definition list --name "<roleName>" | grep name
 
 온보딩 프로세스에는 [샘플 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/)에 제공되는 Azure Resource Manager 템플릿 및 구성과 일치하도록 수정하고 사용자의 권한 부여를 정의하는 해당 매개 변수 파일이 필요합니다.
 
+> [!IMPORTANT]
+> 여기에 설명 된 프로세스에는 동일한 고객 테 넌 트에 구독을 등록 하는 경우에도 등록 되는 각 구독에 대 한 별도의 배포가 필요 합니다. 동일한 고객 테넌트의 여러 다른 구독 내에서 여러 리소스 그룹을 온보딩하는 경우에도 별도의 배포가 필요합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
+>
+> 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
+
 선택하는 템플릿은 전체 구독, 리소스 그룹 또는 구독 내의 여러 리소스 그룹 중 어떤 항목을 온보딩할지에 따라 달라집니다. 또한 이러한 방식으로 구독을 온보딩하려는 경우, Azure Marketplace에 게시한 관리형 서비스 제품을 구매한 고객에게 사용할 수 있는 템플릿도 제공합니다.
 
 |온보딩할 대상  |사용하는 Azure Resource Manager 템플릿  |수정할 매개 변수 파일 |
@@ -137,10 +139,8 @@ az role definition list --name "<roleName>" | grep name
 |구독 내의 여러 리소스 그룹   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |구독(Azure Marketplace 게시된 제품을 사용하는 경우)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> 여기에 설명 된 프로세스에는 동일한 고객 테 넌 트에 구독을 등록 하는 경우에도 등록 되는 각 구독에 대 한 별도의 배포가 필요 합니다. 동일한 고객 테넌트의 여러 다른 구독 내에서 여러 리소스 그룹을 온보딩하는 경우에도 별도의 배포가 필요합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
->
-> 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
+> [!TIP]
+> 하나의 배포에서 전체 관리 그룹을 등록할 수 없는 경우 [관리 그룹 수준에서 정책을 배포할](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups)수 있습니다. 정책은 관리 그룹 내의 각 구독이 지정 된 관리 테 넌 트에 위임 되었는지 확인 하 고, 그렇지 않은 경우에는 사용자가 제공한 값을 기반으로 할당을 만듭니다.
 
 다음 예제에서는 구독을 온보딩하는 데 사용할 수 있는 수정된 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
 

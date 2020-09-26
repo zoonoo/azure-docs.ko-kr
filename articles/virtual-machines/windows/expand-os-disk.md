@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336006"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "89469262"
 - 더 큰 OS 드라이브가 있는 온-프레미스에서 실제 PC 또는 VM을 마이그레이션합니다.
 
 > [!IMPORTANT]
-> Azure Virtual Machine의 OS 디스크 크기를 조정하려면 가상 머신의 할당을 취소해야 합니다.
+> Azure 가상 컴퓨터의 OS 또는 데이터 디스크 크기를 조정 하려면 가상 컴퓨터의 할당을 취소 해야 합니다.
 >
 > 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
 > 

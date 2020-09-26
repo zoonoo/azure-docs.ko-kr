@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326544"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
 Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](concepts-twins-graph.md) 입니다. 쌍 그래프는 **관계**를 통해 연결 되는 개별 디지털 쌍으로 구성 됩니다.
 
-[Azure digital 쌍 인스턴스가](how-to-set-up-instance-scripted.md) 작동 하 고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins api**](how-to-use-apis-sdks.md) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
+[Azure digital 쌍 인스턴스가](how-to-set-up-instance-portal.md) 작동 하 고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins api**](how-to-use-apis-sdks.md) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
@@ -63,6 +63,14 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 ```
 
 도우미 클래스에 대 한 자세한 내용은 `BasicRelationship` [*방법: Azure Digital Twins Api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
+
+### <a name="create-multiple-relationships-between-twins"></a>쌍 간에 여러 관계 만들기
+
+두 쌍 간에 가질 수 있는 관계 수에 대 한 제한은 없습니다. 즉, 사용자가 원하는 대로 쌍 간에 관계를 가질 수 있습니다. 
+
+즉, 한 번에 두 쌍 간에 여러 유형의 관계를 표현할 수 있습니다. 예를 들어 쌍 *A는* 쌍으로 *저장* 된 관계와 *제조* 관계를 둘 다 가질 수 *있습니다.*
+
+원하는 경우 동일한 두 쌍 사이에 동일한 관계 유형의 인스턴스를 여러 개 만들 수도 있습니다. 이 예제에서 쌍 A에 *는* 쌍 *B*를 사용 하 여 *저장 된* 두 개의 고유 관계가 있을 수 있습니다.
 
 ## <a name="list-relationships"></a>관계 목록
 

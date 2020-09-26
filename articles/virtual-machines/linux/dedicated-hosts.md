@@ -1,17 +1,17 @@
 ---
 title: 가상 컴퓨터용 Azure 전용 호스트 개요
-description: 가상 컴퓨터를 배포 하는 데 Azure 전용 호스트를 사용 하는 방법에 대해 자세히 알아보세요.
+description: Linux 가상 머신을 배포 하는 데 Azure 전용 호스트를 사용 하는 방법에 대해 자세히 알아보세요.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: cynthn
-ms.openlocfilehash: 97e65528a7f049c213ec077c83da1b7672469d90
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: acf79448c0dcb81bbe644be822414a7e51b0ee36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328159"
 ---
 # <a name="azure-dedicated-hosts-for-virtual-machines"></a>가상 컴퓨터용 Azure 전용 호스트
 

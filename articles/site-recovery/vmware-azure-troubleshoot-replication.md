@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336208"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -169,7 +169,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
-해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
+**해결 방법**: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
 
 - VSS를 사용할 수 없는 경우
     - VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
@@ -192,6 +192,24 @@ VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는
         - VSS 서비스
         - Azure Site Recovery VSS 공급자
         - VDS 서비스
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>오류 ID 95001-권한이 없음
+
+이 오류는 복제를 사용 하도록 설정 하려고 하는데 응용 프로그램 폴더에 충분 한 권한이 없는 경우에 발생 합니다.
+
+**해결 방법**:이 문제를 해결 하려면 아래에 언급 된 모든 폴더에 대해 IUSR 사용자에 게 소유자 역할이 있는지 확인 합니다.
+
+- *C\ProgramData\Microsoft Azure Site Recovery\private*
+- 설치 디렉터리입니다. 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
+    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems*
+- 설치 디렉터리의 *\pushinstallsvc* 폴더 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
+    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems\pushinstallsvc*
+- 설치 디렉터리의 *\ay폴더* 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
+    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems\etc*
+- *배열은*
+- *C:\thirdparty\php5nts*
+- 아래 경로 아래의 모든 항목-
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>다음 단계
 

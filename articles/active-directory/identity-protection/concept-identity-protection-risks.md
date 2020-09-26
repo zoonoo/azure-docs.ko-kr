@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327921"
 ---
 # <a name="what-is-risk"></a>위험 이란?
 
@@ -30,7 +30,7 @@ Id 보호를 사용 하면 조직에서 강력한 리소스에 액세스 하 여
 
 두 가지 유형의 위험 **사용자** 와 **로그인** 및 두 가지 유형의 검색 또는 계산을 **실시간** 및 **오프 라인으로**설정 합니다.
 
-실시간 검색은 5 ~ 10 분 동안 보고에 표시 되지 않을 수 있습니다. 오프 라인 검색은 2 ~ 4 시간에 대 한 보고에 표시 되지 않을 수 있습니다.
+실시간 검색은 5 ~ 10 분 동안 보고에 표시 되지 않을 수 있습니다. 오프 라인 검색은 2 ~ 24 시간에 대 한 보고에 표시 되지 않을 수 있습니다.
 
 ### <a name="user-risk"></a>사용자 위험
 

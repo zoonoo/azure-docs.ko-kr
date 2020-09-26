@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327564"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,12 +65,12 @@ PITR (지정 시간 복원)에 대해 지원 되는 최대 백업 보존 기간�
 
 |                                              | 지역에서 복제 | 장애 조치(failover) 그룹  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **자동 장애 조치**                          |     아니요          |      예         |
-| **여러 데이터베이스를 동시에 장애 조치 (failover)**  |     아니요          |      예         |
-| **사용자가 장애 조치 (failover) 후 연결 문자열을 업데이트 해야 함**      |     예         |      아니요          |
-| **SQL Managed Instance 지원**                   |     아니요          |      예         |
-| **주 복제본과 동일한 지역에 있을 수 있습니다.**             |     예         |      아니요          |
-| **여러 복제본**                            |     예         |      아니요          |
+| **자동 장애 조치(Failover)**                          |     예          |      예         |
+| **여러 데이터베이스를 동시에 장애 조치(failover)**  |     예          |      예         |
+| **사용자가 장애 조치(failover) 후에 연결 문자열을 업데이트해야 함**      |     예         |      예          |
+| **SQL Managed Instance 지원**                   |     예          |      예         |
+| **주 복제본과 동일한 지역에 있을 수 있음**             |     예         |      예          |
+| **여러 복제본**                            |     예         |      예          |
 | **읽기 확장 지원**                          |     예         |      예         |
 
 

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358664"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙 마이그레이션
 
@@ -49,7 +49,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 1. **새 규칙으로 마이그레이션** 을 선택 하 여 마이그레이션 방문 페이지로 이동 합니다. 이 페이지에는 모든 구독의 목록과 마이그레이션 상태가 표시 됩니다.
 
-    ![마이그레이션-방문](media/alerts-migration/migration-landing.png "마이그레이션 규칙")
+    ![경고 규칙 마이그레이션 페이지를 보여 주는 스크린샷](media/alerts-migration/migration-landing.png "마이그레이션 규칙")
 
     이 도구를 사용 하 여 마이그레이션할 수 있는 모든 구독은 **마이그레이션 준비**로 표시 됩니다.
 
@@ -60,7 +60,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
     결과 페이지에는 한 번에 하나의 구독에 대해 마이그레이션되는 클래식 경고 규칙에 대 한 세부 정보가 표시 됩니다. **이 구독에 대 한 마이그레이션 세부 정보를 다운로드** 를 선택 하 여 세부 정보를 CSV 형식으로 가져올 수도 있습니다.
 
-    ![마이그레이션-미리 보기](media/alerts-migration/migration-preview.png "마이그레이션 미리 보기")
+    ![이 구독에 대 한 마이그레이션 세부 정보를 다운로드 하는 링크가 있는 경고 규칙 마이그레이션 페이지와 마이그레이션 알림에 대 한 전자 메일을 지정할 수 있는 스크린샷](media/alerts-migration/migration-preview.png "마이그레이션 미리 보기")
 
 1. 하나 이상의 전자 메일 주소를 지정 하 여 마이그레이션 상태를 알립니다. 마이그레이션이 완료 되 면 전자 메일을 받거나 사용자에 게 필요한 조치가 있는지 확인할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
     > [!IMPORTANT]
     > 구독에 대 한 마이그레이션을 시작한 후에는 해당 구독에 대 한 클래식 경고 규칙을 편집 하거나 만들 수 없습니다. 이러한 제한을 통해 새 규칙으로 마이그레이션하는 동안 기존 경고 규칙에 대 한 변경 내용이 손실 되지 않습니다. 기존 경고 규칙을 변경할 수는 없지만 마이그레이션할 때까지 계속 해 서 실행 하 고 경고를 제공 합니다. 구독에 대 한 마이그레이션이 완료 된 후에는 기존 경고 규칙을 더 이상 사용할 수 없습니다.
 
-    ![마이그레이션-확인](media/alerts-migration/migration-confirm.png "마이그레이션 시작 확인")
+    ![진행 하기 전에 자세한 내용을 볼 수 있는 링크와 함께 중요 한 정보를 포함 하 여 마이그레이션에 대 한 확인 메시지가 스크린샷에 표시 됩니다.](media/alerts-migration/migration-confirm.png "마이그레이션 시작 확인")
 
 1. 마이그레이션이 완료 되거나 사용자의 조치가 필요한 경우 앞에서 제공한 주소로 전자 메일을 받게 됩니다. 포털의 마이그레이션 방문 페이지에서 상태를 주기적으로 확인할 수도 있습니다.
 

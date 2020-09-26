@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325966"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
-Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 대 한 리더십 클래스 성능, MPI 확장성 및 비용 효율성을 제공 하도록 설계 되었습니다.
+Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 대 한 리더십 클래스 성능, 확장성 및 비용 효율성을 제공 하도록 설계 되었습니다.
 
 [HBv2 시리즈](hbv2-series.md) Vm은 유체 dynamics, 유한 요소 분석 및 저수지 시뮬레이션 등 메모리 대역폭을 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. HBv2 Vm 기능 120 AMD EPYC 7742 프로세서 코어, CPU 코어 당 4gb RAM 및 동시 다중 스레딩은 없습니다. 각 HBv2 VM은 최대 340 g b/초 메모리 대역폭을 제공 하 고 최대 4 테라플롭 FP64 compute를 제공 합니다.
 
@@ -31,22 +31,23 @@ HBv2 Vm 기능 200 g b/초 Mellanox HDR InfiniBand이 고, HB 및 HC 시리즈 V
 [H 시리즈](h-series.md) Vm은 높은 CPU 주파수 또는 핵심 요구 사항 당 대용량 메모리를 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. H 시리즈 Vm은 8 또는 16 Intel Xeon E5 2667 v3 프로세서 코어, 7 개 또는 14gb의 RAM 및 CPU 코어 당 RAM이 없으며 하이퍼스레딩을 갖지 않습니다. H 시리즈 기능은 일관 된 RDMA 성능을 위해 비 블로킹 된 fat 트리 구성에서 56 g b/초 Mellanox Mellanox DR InfiniBand을 제공 합니다. H 시리즈 Vm은 Intel MPI 5.x 및 MS MPI를 지원 합니다.
 
 > [!NOTE]
-> A8 ~ A11 VM은 2021년 3월에 사용 중지될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
+> [A8 – A11 vm](./sizes-previous-gen.md#a-series---compute-intensive-instances) 은 3/2021에서 사용 중지 될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
 
 ## <a name="rdma-capable-instances"></a>RDMA 지원 인스턴스
 
-대부분의 HPC VM 크기 (HBv2, HB, HC, H16r, H16mr, A8 및 A9)는 RDMA (원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 지원 합니다. ' R ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 및 NC24r)로 지정 된 [N 시리즈](./nc-series.md) 크기를 선택 하면 RDMA도 가능 합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스에 추가 됩니다.
+대부분의 HPC VM 크기 (HBv2, HB, HC, H16r, H16mr, A8 및 A9)는 RDMA (원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 지원 합니다. ' R ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 및 NC24r)로 지정 된 [N 시리즈](./nc-series.md) 크기를 선택 하면 RDMA도 가능 합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 이더넷 네트워크 인터페이스에 추가 됩니다.
 
 이 인터페이스를 사용 하면 RDMA 지원 인스턴스가 InfiniBand (IB) 네트워크를 통해 통신할 수 있으며, HBv2에 대 한 HDR 요금에서 작동 하 고, HB, HC, NDv2, H16r, H16mr 및 기타 RDMA 지원 N 시리즈 가상 컴퓨터에 대 한 EDR 요금 및 A8 및 A9 Vm에 대 한 QDR 요금을 확인할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다.
 
 > [!NOTE]
 > Azure HPC에는 InfiniBand에 대해 SR-IOV를 사용 하도록 설정 되었는지 여부에 따라 Vm의 두 가지 클래스가 있습니다. 현재 InfiniBand 사용 Vm에 대 한 SR-IOV는 HBv2, HB, HC, NCv3 및 NDv2입니다. InfiniBand 사용 Vm의 나머지는 현재 SR-IOV를 사용 하도록 설정 되어 있지 않습니다.
-> RDMA over IB는 모든 RDMA 지원 Vm에 대해 지원 됩니다.
+> RDMA는 InfiniBand (IB) 네트워크를 통해 사용 하도록 설정 되며 모든 RDMA 지원 Vm에 대해 지원 됩니다.
 > IP over IB는 SR-IOV 사용 Vm 에서만 지원 됩니다.
+> RDMA는 이더넷 네트워크를 통해 사용 하도록 설정 되지 않습니다.
 
 - **운영 체제** -LINUX는 HPC vm에 대해 매우 잘 지원 됩니다. CentOS, RHEL, Ubuntu, SUSE 등의 배포판은 일반적으로 사용 됩니다. Windows 지원과 관련 하 여 Windows Server 2016 이상 버전은 모든 HPC 시리즈 Vm에서 지원 됩니다. Windows Server 2012 R2, Windows Server 2012는 SR-IOV를 사용 하지 않는 Vm (H16r, H16mr, A8 및 A9) 에서도 지원 됩니다. [Windows Server 2012 r 2는 HBv2 및 64 (가상 또는 실제) 코어가 있는 다른 vm에서 지원 되지](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)않습니다. Marketplace에서 지원 되는 VM 이미지 목록과 적절 하 게 구성 하는 방법은 [Vm 이미지](./workloads/hpc/configure.md) 를 참조 하세요.
 
-- **InfiniBand 및 Rdma 드라이버** -InfiniBand 사용 VM에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 SR-IOV 및 sr-iov를 사용 하지 않는 Vm의 경우 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 바로 사용할 수 있는 VM Linux OS 이미지에 대 한 자세한 내용은 [LINUX os에 대 한 Vm 구성 및 최적화](./workloads/hpc/configure.md) 를 참조 하세요.
+- **InfiniBand 및 드라이버** -InfiniBand 사용 VM에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 SR-IOV 및 sr-iov를 사용 하지 않는 Vm의 경우 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 바로 사용할 수 있는 VM Linux OS 이미지에 대 한 자세한 내용은 [LINUX os에 대 한 Vm 구성 및 최적화](./workloads/hpc/configure.md) 를 참조 하세요.
 
    Linux에서는 [INFINIBANDDRIVERLINUX vm 확장](./extensions/hpc-compute-infiniband-linux.md) 을 사용 하 여 Mellanox OFED 드라이버를 설치 하 고 Sr-iov 사용 H-및 N 시리즈 Vm에서 InfiniBand를 사용 하도록 설정할 수 있습니다. [HPC 작업](./workloads/hpc/enable-infiniband.md)에서 RDMA 지원 vm에 대 한 InfiniBand 사용에 대해 자세히 알아보세요.
 

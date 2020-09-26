@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336448"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
 
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 모델링 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
    1. **비즈니스 이해**
-   2. **데이터 취득 및 이해**
+   2. **데이터 획득 및 이해**
    3. **모델링**
    4. **배포**
    5. **고객 승인**
@@ -53,7 +53,7 @@ ms.locfileid: "76720472"
 다양한 Azure 데이터 기술을 사용하는 경우 기능 엔지니어링에 대한 기술 지침은 [데이터 과학 프로세스의 기능 엔지니어링](create-features.md)을 참조하세요. 
 
 ### <a name="model-training"></a>모델 학습
-대답하려는 질문 유형에 따라 다양한 모델링 알고리즘을 사용할 수 있습니다. 알고리즘 선택에 대한 지침은 [Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법](../studio/algorithm-choice.md)을 참조하세요. 이 문서는 Azure Machine Learning을 사용하지만 제공되는 지침은 모든 Machine Learning 프로젝트에 유용합니다. 
+대답하려는 질문 유형에 따라 다양한 모델링 알고리즘을 사용할 수 있습니다. 알고리즘 선택에 대한 지침은 [Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법](../how-to-select-algorithms.md)을 참조하세요. 이 문서는 Azure Machine Learning을 사용하지만 제공되는 지침은 모든 Machine Learning 프로젝트에 유용합니다. 
 
 모델 학습 프로세스에는 다음 단계가 포함됩니다. 
 
@@ -83,7 +83,7 @@ ms.locfileid: "76720472"
 TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니다.
 
    1. [비즈니스 이해](lifecycle-business-understanding.md)
-   2. [데이터 취득 및 이해](lifecycle-data.md)
+   2. [데이터 획득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)

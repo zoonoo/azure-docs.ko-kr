@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 7e62e414182d95a445f37c1c97cdef8aff6a587a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272503"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "85965551"
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-- Microsoft Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
+- Microsoft Azure 구독. [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - Azure virtual machines의 Windows 도메인 또는 가상 네트워크 페어링을 사용 하 여 Azure로 확장 된 온-프레미스 데이터 센터.
 - Azure 가상 컴퓨터와 Active Directory에서 개체를 만들 수 있는 권한이 있는 계정입니다.
 - 다음 구성 요소를 위해 충분한 IP 주소 공간이 있는 Azure 가상 네트워크 및 서브넷:
@@ -105,7 +105,7 @@ Azure Marketplace의 SQL Server VM 이미지는 SQL VM 리소스 공급자에 �
 
 다음 표에서는 FCI 구성에 따라 열어야 할 수 있는 포트에 대해 자세히 설명 합니다. 
 
-   | 용도 | 포트 | 메모
+   | 목적 | 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다. </br> </br> **사용**: 모든 fci 구성. |
    | 상태 프로브 | TCP 59999 | 모든 공개 TCP 포트입니다. 이 포트를 사용 하도록 부하 분산 장치 [상태 프로브](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) 및 클러스터를 구성 합니다. </br> </br> **사용**: 부하 분산 장치를 사용 하는 fci |

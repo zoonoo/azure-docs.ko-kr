@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328108"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "87499435"
 > [!CAUTION]
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 됩니다. 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -37,7 +37,7 @@ PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용 하 여 특정 구독을 선택 합니다.
+여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용하여 특정 구독을 선택합니다.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -75,7 +75,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault,
 
 ## <a name="define-variables"></a>변수 정의
 
-여러 가지 정보를 반복 해 서 사용 하 게 됩니다. 정보를 저장할 변수를 만듭니다.
+여러 가지 정보를 반복해서 사용하게 됩니다. 정보를 저장할 변수를 만듭니다.
 
 ```azurepowershell-interactive
 # Destination image resource group name
@@ -103,7 +103,7 @@ Write-Output $subscriptionID
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
-다음 예에서는 `$imageResourceGroup` 변수에 지정 된 지역에 있는 변수의 이름을 기반으로 하 여 리소스 그룹을 만듭니다 `$location` . 이 리소스 그룹은 이미지 구성 템플릿 아티팩트와 이미지를 저장 하는 데 사용 됩니다.
+다음 예제에서는 `$location` 변수에 지정된 지역의 `$imageResourceGroup` 변수 이름을 기반으로 리소스 그룹을 만듭니다. 이 리소스 그룹은 이미지 구성 템플릿 아티팩트와 이미지를 저장 하는 데 사용 됩니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
@@ -271,7 +271,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupN
 
 이미지 구성 템플릿 전송 중에 서비스에서 오류를 보고 하면 다음을 수행 합니다.
 
-- [AZURE VM 이미지 빌드 (AIB) 오류 문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting)을 참조 하세요.
+- [AZURE VM 이미지 빌드 (AIB) 오류 문제 해결](../linux/image-builder-troubleshoot.md)을 참조 하세요.
 - 다음 예제를 사용 하 여 템플릿을 삭제 한 후 다시 시도 하십시오.
 
 ```azurepowershell-interactive
@@ -288,11 +288,11 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 이미지 빌드 프로세스가 완료 될 때까지 기다립니다. 이 단계는 최대 한 시간 정도 걸릴 수 있습니다.
 
-오류가 발생 하는 경우 [AZURE AIB (VM 이미지 빌드) 오류 문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting)을 검토 하세요.
+오류가 발생 하는 경우 [AZURE AIB (VM 이미지 빌드) 오류 문제 해결](../linux/image-builder-troubleshoot.md)을 검토 하세요.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-변수에 VM에 대 한 로그인 자격 증명을 저장 합니다. 암호는 복잡 해야 합니다.
+VM의 로그인 자격 증명을 변수에 저장합니다. 암호는 복잡해야 합니다.
 
 ```azurepowershell-interactive
 $Cred = Get-Credential
@@ -334,7 +334,7 @@ Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imag
 
 > [!CAUTION]
 > 다음 예제에서는 지정된 리소스 그룹과 해당 그룹에 포함된 모든 리소스를 삭제합니다.
-> 이 문서의 범위를 벗어난 리소스가 지정 된 리소스 그룹에 있는 경우에도 삭제 됩니다.
+> 지정된 리소스 그룹에 이 문서의 범위에 속하지 않는 리소스가 포함된 경우에도 해당 리소스가 삭제됩니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $imageResourceGroup

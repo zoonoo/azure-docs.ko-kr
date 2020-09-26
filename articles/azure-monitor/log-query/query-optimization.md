@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327717"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -98,18 +98,34 @@ SecurityEvent
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+경우에 따라 필터링이 필드에만 수행 되는 것이 아니라 쿼리 처리에서 계산 열이 암시적으로 생성 됩니다.
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>요약 및 조인에서 효과적인 집계 명령 및 차원 사용
 
@@ -279,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-위에서 하위 쿼리를 사용 하지 않도록 하는 것이 허용 되지 않는 경우 다른 방법은 [구체화 () 함수](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor)를 사용 하 여 각각의 원본 데이터를 사용 하는 쿼리 엔진에 대 한 힌트입니다. 이는 쿼리 내에서 여러 번 사용 되는 함수에서 원본 데이터를 가져오는 경우에 유용 합니다.
+위에서 하위 쿼리를 사용 하지 않도록 하는 것이 허용 되지 않는 경우 다른 방법은 [구체화 () 함수](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor)를 사용 하 여 각각의 원본 데이터를 사용 하는 쿼리 엔진에 대 한 힌트입니다. 이는 쿼리 내에서 여러 번 사용 되는 함수에서 원본 데이터를 가져오는 경우에 유용 합니다. 구체화는 하위 쿼리의 출력이 입력 보다 훨씬 작은 경우에 적용 됩니다. 쿼리 엔진은 모든 항목에서 출력을 캐시 하 고 다시 사용 합니다.
 
 
 
@@ -326,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예:
+이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들면 다음과 같습니다.
 
 ```Kusto
 Perf

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7f2db507176d65e7794607e83db8605b2f892c1c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c9277f510e71e4d6ecb6595aa2d67d16c2ac5695
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326031"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
@@ -65,7 +65,7 @@ ms.locfileid: "89646634"
 
 - [Azure 마이그레이션 지원](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): 마이그레이션 중에 기술 지원을 위한 전용 지원 팀입니다.
 
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): 적격 고객으로 마이그레이션하는 동안 기술 지원을 제공할 수 있는 팀입니다. 
+- [Microsoft Fast track](https://www.microsoft.com/fasttrack): fast track은이 마이그레이션의 & 실행 계획을 수립할 수 있는 적격 고객을 지원할 수 있습니다. [직접 추천](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0).  
 
-회사/조직이 Microsoft와 제휴 하거나 Microsoft 담당자 (예: CSAs (cloud solution 설계자) 또는 TAMs (기술 계정 관리자))와 함께 작동 하는 경우 마이그레이션에 대 한 추가 리소스에 대해 작업 해 보세요. 
+- 회사/조직이 Microsoft와 제휴 하거나 Microsoft 담당자 (예: CSAs (cloud solution 설계자) 또는 TAMs (기술 계정 관리자))와 함께 작동 하는 경우 마이그레이션에 대 한 추가 리소스에 대해 작업 해 보세요. 
 

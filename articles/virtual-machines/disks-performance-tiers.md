@@ -4,16 +4,16 @@ description: 관리 디스크의 성능 계층에 대해 알아보고 관리 디
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3d6b243ab517f3663f779d01569acf3d46ad8411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328125"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
 
@@ -21,7 +21,9 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 
 ## <a name="how-it-works"></a>작동 방식
 
-디스크를 처음 배포 하거나 프로 비전 할 때 해당 디스크의 기준 성능 계층은 프로 비전 된 디스크 크기에 따라 설정 됩니다. 높은 수요를 충족 하기 위해 더 높은 성능 계층을 선택할 수 있으며, 더 이상 필요 하지 않은 경우 초기 기준 성능 계층으로 돌아갈 수 있습니다. 예를 들어 P10 disk (128 GiB)를 프로 비전 하는 경우 기준 성능 계층은 P10 (500 IOPS 및 100 m b/s)로 설정 됩니다. 디스크 크기를 늘리고 더 높은 성능이 더 이상 필요 하지 않은 경우 P10로 돌아가서 P50 (7500 IOPS 및 250 MB/s)의 성능에 맞게 계층을 업데이트할 수 있습니다.
+디스크를 처음 배포 하거나 프로 비전 할 때 해당 디스크의 기준 성능 계층은 프로 비전 된 디스크 크기에 따라 설정 됩니다. 높은 수요를 충족 하기 위해 더 높은 성능 계층을 선택할 수 있으며, 더 이상 필요 하지 않은 경우 초기 기준 성능 계층으로 돌아갈 수 있습니다.
+
+계층이 변경 됨에 따라 청구는 변경 됩니다. 예를 들어 P10 disk (128 GiB)를 프로 비전 하는 경우 기준 성능 계층은 P10 (500 IOPS 및 100 MB/s)로 설정 되 고 P10 요금으로 청구 됩니다. 디스크 크기를 늘리지 않고 P50 (7500 IOPS 및 250 MB/s)의 성능과 일치 하도록 계층을 업데이트할 수 있습니다 .이 기간 동안에는 P50 요금으로 요금이 청구 됩니다. 더 높은 성능이 더 이상 필요 하지 않으면 P10 계층으로 돌아갈 수 있으며 디스크는 P10 속도로 다시 청구 됩니다.
 
 | 디스크 크기 | 기준 성능 계층 | 로 업그레이드할 수 있습니다. |
 |----------------|-----|-------------------------------------|
@@ -40,70 +42,63 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 16TiB | P70 | P80 |
 | 32TiB | P80 | 없음 |
 
+청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
+
 ## <a name="restrictions"></a>제한
 
 - 현재 premium Ssd 에서만 지원 됩니다.
 - 계층을 변경 하기 전에 실행 중인 VM에서 디스크를 분리 해야 합니다.
 - P60, P70 및 P80 성능 계층의 사용은 4096 GiB 이상 디스크로 제한 됩니다.
+- 디스크 성능 계층은 24 시간 마다 한 번만 변경할 수 있습니다.
 
 ## <a name="regional-availability"></a>국가별 가용성
 
 관리 디스크의 성능 계층 조정은 현재 다음 지역에서 premium Ssd에만 사용할 수 있습니다.
 
 - 미국 중서부 
-- 미국 동부 2 
-- 서유럽
-- 동부 오스트레일리아 
-- 오스트레일리아 동남부 
-- 인도 남부
 
-## <a name="createupdate-a-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>기준 계층 보다 높은 계층으로 데이터 디스크 만들기/업데이트
+## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>계층을 기준 계층 보다 높은 빈 데이터 디스크를 만듭니다.
 
-1. 기준 계층 보다 높은 계층을 사용 하 여 빈 데이터 디스크를 만들거나 [CreateUpdateDataDiskWithTier.js의](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json) 샘플 템플릿을 사용 하 여 기준 계층 보다 높은 디스크의 계층을 업데이트 합니다.
+```azurecli
+subscriptionId=<yourSubscriptionIDHere>
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+diskSize=<yourDiskSizeHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
 
-     ```cli
-     subscriptionId=<yourSubscriptionIDHere>
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     diskSize=<yourDiskSizeHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az login
-    
-     az account set --subscription $subscriptionId
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-     ```
+az login
 
-1. 디스크의 계층 확인
+az account set --subscription $subscriptionId
 
-    ```cli
-    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
+```
+## <a name="create-an-os-disk-with-a-tier-higher-than-the-baseline-tier-from-an-azure-marketplace-image"></a>Azure Marketplace 이미지에서 기준선 계층 보다 높은 계층의 OS 디스크 만들기
 
-## <a name="createupdate-an-os-disk-with-a-tier-higher-than-the-baseline-tier"></a>기준 계층 보다 높은 계층의 OS 디스크 만들기/업데이트
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
+image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
-1. Marketplace 이미지에서 OS 디스크를 만들거나 샘플 템플릿 [CreateUpdateOSDiskWithTier.js](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json) 사용 하 여 기준 계층 보다 높은 os 디스크의 계층을 업데이트 합니다.
+az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
+```
+     
+## <a name="update-the-tier-of-a-disk"></a>디스크의 계층 업데이트
 
-     ```cli
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
-     ```
- 
- 1. 디스크의 계층 확인
- 
-     ```cli
-     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+## <a name="show-the-tier-of-a-disk"></a>디스크의 계층 표시
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
+```
 
 ## <a name="next-steps"></a>다음 단계
 

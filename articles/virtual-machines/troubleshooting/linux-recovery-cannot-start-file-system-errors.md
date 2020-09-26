@@ -1,6 +1,6 @@
 ---
 title: 파일 시스템 오류로 인 한 Linux VM 시작 문제 해결 | Microsoft Docs
-description: Linux VM을 시작할 수 없는 이유와 문제를 해결 하는 방법을 설명 합니다.
+description: 파일 시스템 오류로 인 한 Linux VM 시작 문제를 해결 하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f12b88a0ddbc6ae31f40ab31b0126e4fd66b1a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325949"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
 
@@ -88,7 +88,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 2. 전원 아이콘 단추를 선택한 다음, VM 다시 시작을 선택 합니다. (직렬 콘솔이 사용 하도록 설정 되지 않았거나 연결 되지 않은 경우 단추가 표시 되지 않습니다.)
 
-   ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
+   ![이미지](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
 3. 에서 VM을 응급 모드로 부팅 합니다.
 
