@@ -1,19 +1,19 @@
 ---
 title: CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션
 titleSuffix: Azure Application Gateway
-description: Azure CLI를 사용 하 여 응용 프로그램 게이트웨이를 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
+description: Azure CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션을 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331032"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -223,13 +223,6 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
-
-> [!div class="checklist"]
-> * 자체 서명된 인증서 만들기
-> * 네트워크 설정
-> * 인증서가 있는 애플리케이션 게이트웨이 만들기
-> * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+- [Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기](redirect-internal-site-cli.md)
 
 

@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019592"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332732"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -155,7 +155,7 @@ Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/u
 
 **구성 요소** | **지원**
 --- | ---
-Azure VM 데이터 디스크 수 | 최대 32 디스크를 포함 하는 Azure Vm의 백업은 모든 지역에서 공개 미리 보기로 제공 됩니다.<br><br> 비관리 디스크 또는 클래식 VM을 사용하는 Azure VM의 백업은 최대 16개의 디스크에만 지원됩니다.
+Azure VM 데이터 디스크 수 | 최대 32 디스크를 포함 하는 Azure Vm의 백업 지원.<br><br> 비관리 디스크 또는 클래식 VM을 사용하는 Azure VM의 백업은 최대 16개의 디스크에만 지원됩니다.
 데이터 디스크 크기 | 개별 디스크 크기는 최대 32TB이며 VM의 모든 디스크에 대해 최대 256TB를 결합할 수 있습니다.
 스토리지 유형 | 표준 HDD, 표준 SSD 및 프리미엄 SSD
 관리 디스크 | 지원됩니다.

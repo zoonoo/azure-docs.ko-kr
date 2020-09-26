@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371637"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333259"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
 
@@ -30,7 +30,7 @@ Sdk 로드 실패 예외는 SDK 스크립트를 다운로드 하거나 초기화
 
 스택 정보에는 최종 사용자가 사용 하는 Url의 기본 정보가 포함 됩니다.
 
-| Name                      | 설명                                                                                                  |
+| Name                      | Description                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN &nbsp; 끝점&gt; | SDK를 다운로드 하는 데 사용 되거나 실패 한 URL입니다.                                                      |
 | &lt;도움말 &nbsp; 링크&gt;    | 문제 해결 설명서 (이 페이지)에 연결 되는 URL입니다.                                              |
@@ -115,7 +115,7 @@ SDK 스크립트에서 예외가 보고 되는 경우 (예: ai.2.min.js) SDK에 
 
 예외가 사라지면 형식이 일치 하지 않거나 예기치 않은 값으로 인해 발생할 수 있습니다. 구성 옵션을 하나씩 다시 추가 하 고 예외가 다시 발생 될 때까지 테스트를 시작 합니다. 그런 다음 문제의 원인이 되는 항목에 대 한 설명서를 확인 합니다. 설명서가 명확 하지 않거나 도움이 필요한 경우 [GitHub에서 문제를 해결](https://github.com/Microsoft/ApplicationInsights-JS/issues)하세요.
 
-이전에 구성을 배포 하 고 작업 했지만이 예외를 보고 하기 시작한 경우에는 새로 배포 된 버전에 문제가 있을 수 있습니다 .이 버전은 사용자/브라우저의 작은 집합에만 영향을 주고 [GitHub에서 문제](https://github.com/Microsoft/ApplicationInsights-JS/issues) 를 제출 하거나 [새 지원 티켓을 만들지](https://azure.microsoft.com/support/create-ticket/)여부를 확인 합니다.
+이전에 구성을 배포 하 고 작업 했지만이 예외를 보고 하기 시작한 경우에는 새로 배포 된 버전에 문제가 있을 수 있습니다 .이 버전은 사용자/브라우저의 작은 집합에만 영향을 주고 [GitHub에서 문제](https://github.com/Microsoft/ApplicationInsights-JS/issues) 를 제출 하거나  [새 지원 티켓을 만들지](https://azure.microsoft.com/support/create-ticket/)여부를 확인 합니다.
 
 ### <a name="enable-console-debugging"></a>콘솔 디버깅 사용
 

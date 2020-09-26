@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354822"
 ---
 # <a name="eventstore-overview"></a>EventStore 개요
 
@@ -26,7 +26,7 @@ EventStore는 클러스터에서 이벤트를 유지 관리하는 상태 저장 
 * 클러스터에 대해 수행하는 관리 작업이 제대로 처리되고 있는지 확인
 * Service Fabric이 특정 엔터티와 상호 작용하는 방법의 "스냅샷" 가져오기
 
-![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
+![노드 창의 이벤트 탭에는 노드 창의 이벤트 탭, NodeDown 이벤트를 비롯 한 여러 이벤트가 표시 됩니다.](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 EventStore에서 사용할 수 있는 전체 이벤트 목록은 [Service Fabric 이벤트](service-fabric-diagnostics-event-generation-operational.md)를 참조하세요.
 

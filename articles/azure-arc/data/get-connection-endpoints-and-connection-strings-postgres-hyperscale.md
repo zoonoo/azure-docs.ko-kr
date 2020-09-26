@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b0547ba25f6534593a0a016ebfa5cbe4d2be2e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331015"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>원호의 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 연결 끝점 및 폼 연결 문자열 가져오기
 
@@ -39,7 +39,7 @@ azdata login --endpoint https://<external IP address of host/data controller>:30
 ```
 
 #### <a name="2-show-the-connection-endpoints"></a>2. 연결 끝점 표시
-다음 명령 실행:
+다음 명령을 실행합니다.
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
@@ -64,7 +64,7 @@ azdata arc postgres endpoint list -n <server group name>
 - 연결 문자열을 구성 하 고 클라이언트 도구나 응용 프로그램에 연결 합니다.
 - 브라우저에서 Grafana 및 Kibana 대시보드 액세스
 
-예를 들어 _PostgreSQL Instance_ 라는 끝점을 사용 하 여 psql을 서버 그룹에 연결할 수 있습니다. 다음은 그 예입니다. 
+예를 들어 _PostgreSQL Instance_ 라는 끝점을 사용 하 여 psql을 서버 그룹에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
 ```console
 psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
@@ -77,7 +77,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - "_Postgresql Instance_ " 라는 끝점에 지정 된 _postgresql_ 사용자의 암호는 서버 그룹을 만들 때 선택한 암호입니다.
+> - "_PostgreSQL Instance_" 라는 끝점에 지정 된 _postgres_ 사용자의 암호는 서버 그룹을 배포할 때 선택한 암호입니다.
 > - Azdata 정보: 연결에 연결 된 임대는 약 10 시간 동안 지속 됩니다. 그런 다음 다시 연결 해야 합니다. 임대가 만료 된 경우 azdata (azdata login 제외)를 사용 하 여 명령을 실행 하려고 하면 다음과 같은 오류 메시지가 표시 됩니다. _오류: (401)_ 
 >  _이유: 권한이 없는_ 
 >  _HTTP 응답 헤더: HTTPHeaderDict ({' Date ': ' Sun, 06 년 9 월 2020 16:58:38 GMT ', ' content-length ': ' 0 ', ' WWW-인증 ': '_ 

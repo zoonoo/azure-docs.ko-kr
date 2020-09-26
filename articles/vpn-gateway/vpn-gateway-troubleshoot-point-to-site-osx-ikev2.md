@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359327"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "89442805"
 4. **로컬 ID**는 클라이언트 인증서의 **주체**와 동일해야 합니다.
 5. **인증 설정**을 클릭하여 인증 설정 페이지를 엽니다.
 
-   ![인증 설정](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![인증서가 선택 된 인증 설정 대화 상자를 보여 주는 스크린샷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. 드롭다운에서 **인증서**가 선택되었는지 확인합니다.
 7. **선택** 단추를 클릭하고 올바른 인증서가 선택되었는지 확인합니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "89442805"
 4. **로컬 ID**는 공백일 수 있습니다.
 5. **인증 설정** 단추를 클릭하고 드롭다운에서 “사용자 이름”이 선택되었는지 확인합니다.
 
-   ![인증 설정](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![스크린샷 선택한 사용자 이름으로 인증 설정 대화 상자를 표시 합니다.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. 올바른 자격 증명 정보가 입력되었는지 확인합니다.
 
 ## <a name="additional-steps"></a><a name="additional"></a>추가 단계

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 96dd5c617eb643ce8db5058bca238f5c3a83e756
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aa875877d4017409b961eedda2af281622c45cf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546888"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312345"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>자습서: Juno Journey에 자동 사용자 프로비저닝 구성
 
@@ -77,11 +77,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션에서 이전에 **테넌트 URL**에서 검색된 테넌트 URL 값을 입력합니다. **비밀 토큰**에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트**를 클릭하여 Azure AD가 Juno Journey에 연결할 수 있는지 확인합니다. 연결이 실패하면 Juno Journey 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 

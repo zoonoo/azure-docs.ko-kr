@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 17a3d0364f3085e4baf4e0faa40f117d9fbbb04f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268165"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -229,4 +229,4 @@ REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure 컴퓨터에서 실행 되는 응용 프로그램의 허용 목록을 정의 하는 방법을 배웠습니다. Security Center의 다른 클라우드 워크 로드 보호 기능에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [JIT (just-in-time) VM 액세스 이해](just-in-time-explained.md)
-* [Azure Kubernetes 클러스터 보안 설정](azure-kubernetes-service-integration.md)
+* [Azure Kubernetes 클러스터 보안 설정](defender-for-kubernetes-introduction.md)

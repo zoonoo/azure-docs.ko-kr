@@ -1,15 +1,15 @@
 ---
 title: 지역 간 안전 배포-Azure 배포 관리자
-description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다. 모든 지역에 롤아웃하기 전에 배포의 안정성을 확인하는 안전한 배포 사례를 보여 줍니다.
+description: Azure 배포 관리자을 사용 하 여 여러 지역에 걸쳐 서비스를 배포 하는 방법과 안전 배포 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333208"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
@@ -32,7 +32,7 @@ Azure 배포 관리자 미리 보기 상태입니다. [피드백](https://aka.ms
 
 - [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/).
 - [자습서: 리소스 관리자 템플릿과 함께 Azure 배포 관리자를 사용](./deployment-manager-tutorial.md)합니다.
-- [자습서: Azure 배포 관리자에서 상태 검사를 사용](./deployment-manager-tutorial-health-check.md)합니다.
+- [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
 - [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>ID 및 액세스

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525615"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312909"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Box 구성
 
@@ -93,17 +93,17 @@ Azure Portal의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스
 
 4. **프로비전 모드**를 **자동**으로 설정합니다. 
 
-    ![프로비전](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Box에 대 한 프로 비전 탭의 스크린샷 Azure Portal입니다. 프로 비전 모드는 자동으로 설정 되 고 권한 부여는 관리자 자격 증명에 강조 표시 됩니다.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 **권한 부여**를 클릭하여 새 브라우저 창에서 Box 로그인 대화 상자를 엽니다.
 
 6. **Box에 대한 액세스 권한 부여를 위한 로그인** 페이지에서 필요한 자격 증명을 제공한 다음 **권한 부여**를 클릭합니다. 
    
-    ![자동 사용자 프로비전 사용](./media/box-userprovisioning-tutorial/IC769546.png "자동 사용자 프로비전 사용")
+    ![Box 화면에 대 한 액세스를 허용 하는 로그인의 스크린샷, 메일 및 암호에 대 한 항목 및 권한 부여 단추를 표시 합니다.](./media/box-userprovisioning-tutorial/IC769546.png "자동 사용자 프로비전 사용")
 
 7. **Box에 액세스 허용**을 클릭하여 이 작업에 권한을 부여하고 Azure Portal로 돌아옵니다. 
    
-    ![자동 사용자 프로비전 사용](./media/box-userprovisioning-tutorial/IC769549.png "자동 사용자 프로비전 사용")
+    ![설명 메시지 및 Box에 대 한 액세스 권한 부여 단추를 표시 하는 Box의 액세스 권한 부여 화면 스크린샷](./media/box-userprovisioning-tutorial/IC769549.png "자동 사용자 프로비전 사용")
 
 8. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Box 앱에 연결되었는지 확인합니다. 연결에 실패하면 Box 계정에 팀 관리자 권한이 있는지 확인하고 **"권한 부여"** 단계를 다시 시도합니다.
 
