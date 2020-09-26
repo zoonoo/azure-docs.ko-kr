@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330454"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 
@@ -55,7 +55,7 @@ ms.locfileid: "90086990"
 
 ## <a name="common-error-status-codes"></a>일반적인 오류 상태 코드 <a id="error-codes"></a>
 
-| 상태 코드 | 설명 | 
+| 상태 코드 | Description | 
 |----------|-------------|
 | 400 | 잘못 된 요청 (오류 메시지에 따라 다름)| 
 | 401 | [권한 없음](troubleshoot-unauthorized.md) | 
@@ -109,6 +109,8 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 
     > [!NOTE]
     > 성능을 향상시키려면 Windows 64 비트 호스트 처리를 권장합니다. SQL SDK에는 로컬에서 쿼리를 구문 분석하고 최적화하는 네이티브 ServiceInterop.dll이 포함되어 있습니다. ServiceInterop.dll은 Windows x64 플랫폼에서만 지원됩니다. ServiceInterop.dll을 사용할 수 없는 Linux 및 기타 지원되지 않는 플랫폼의 경우 게이트웨이에 대한 네트워크 호출을 추가로 수행하여 최적화된 쿼리를 가져옵니다.
+
+다음 오류가 발생 하 `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` 는 경우 및에서 windows를 사용 하 고 있는 경우 최신 windows 버전으로 업그레이드 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

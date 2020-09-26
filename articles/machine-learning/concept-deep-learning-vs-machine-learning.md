@@ -1,24 +1,27 @@
 ---
 title: 심층 학습 및 기계 학습
-titleSuffix: Azure
-description: 딥 러닝이 기계 학습 및 인공 지능과 어떻게 관련이 있는지 알아보세요. 심층 학습은 사기 감지, 음성 & 얼굴 인식, 감정 분석 및 시계열 예측과 같은 시나리오에서 사용 됩니다.
+titleSuffix: Azure Machine Learning
+description: 딥 러닝이 기계 학습 및 AI와 어떻게 관련이 있는지 알아보세요. Azure Machine Learning에서는 사기 감지, 개체 검색 등을 위해 심층 학습 모델을 사용 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330131"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
-이 문서는 심층 학습 및 기계 학습을 비교 하는 데 도움이 됩니다. 두 개념을 비교 하는 방법 및 이러한 개념을 더 광범위 한 인공 지능 범주에 맞추는 방법에 대해 알아봅니다. 이 문서에서는 사기 감지, 음성 및 얼굴 인식, 감정 분석, 시계열 예측 등의 실제 시나리오에 딥 러닝을 적용할 수 있는 방법도 설명 합니다.
+이 문서에서는 심층 학습 vs machine learning과 이러한 기능이 더 광범위 한 인공 지능 범주에 어떻게 부합 하는지 설명 합니다. 사기 감지, 음성 및 얼굴 인식, 감정 분석 및 시계열 예측과 같은 Azure Machine Learning에서 빌드할 수 있는 심층 학습 솔루션에 대해 알아봅니다.
+
+솔루션에 대 한 알고리즘을 선택 하는 방법에 대 한 지침은 [Machine Learning Algorithm 참고 자료 시트](algorithm-cheat-sheet.md)를 참조 하세요.
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>심층 학습, 기계 학습 및 AI
 
@@ -37,7 +40,7 @@ ms.locfileid: "90905125"
 
 - <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>AI(인공 지능)<ept i="1000001">&lt;b}</ept>는 컴퓨터가 인간 지능을 모방할 수 있도록 하는 기술입니다. 여기에는 기계 학습이 포함됩니다. 
  
-AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요 합니다. 기계 학습은 인공 지능을 구현 하는 방법입니다. 기계 학습 및 심층 학습 기술을 사용 하 여 사용자 인텔리전스와 일반적으로 관련 된 작업을 수행 하는 컴퓨터 시스템과 응용 프로그램을 빌드할 수 있습니다. 이러한 작업에는 이미지 인식, 음성 인식 및 언어 번역이 포함 됩니다.
+기계 학습 및 심층 학습 기술을 사용 하 여 사용자 인텔리전스와 일반적으로 관련 된 작업을 수행 하는 컴퓨터 시스템과 응용 프로그램을 빌드할 수 있습니다. 이러한 작업에는 이미지 인식, 음성 인식 및 언어 번역이 포함 됩니다.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습 기술 
 
@@ -58,7 +61,7 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 
 인위적인 신경망 구조 때문에 심층 학습은 이미지, 사운드, 비디오 및 텍스트와 같은 구조화 되지 않은 데이터의 패턴을 식별 하는 데 뛰어나지만 합니다. 이러한 이유로 심층 학습은 의료, 에너지, 재무 및 교통를 비롯 한 많은 산업을 신속 하 게 변환 하 고 있습니다. 이러한 산업은 이제 기존 비즈니스 프로세스를 재고 합니다. 
 
-심층 학습을 위한 가장 일반적인 응용 프로그램 중 일부는 다음 단락에 설명 되어 있습니다.
+심층 학습을 위한 가장 일반적인 응용 프로그램 중 일부는 다음 단락에 설명 되어 있습니다. Azure Machine Learning에서는 오픈 소스 프레임 워크에서 작성 한 모델을 사용 하거나 제공 된 도구를 사용 하 여 모델을 빌드할 수 있습니다.
 
 ### <a name="named-entity-recognition"></a>명명 된 엔터티 인식
 
@@ -69,6 +72,8 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 심층 학습은 많은 개체 검색 사용 사례에 적용 되었습니다. 개체 검색은 이미지 분류 및 이미지 지역화의 두 부분으로 이루어져 있습니다. 이미지 _분류_ 는 자동차 또는 사람과 같은 이미지의 개체를 식별 합니다. 이미지 _지역화_ 는 이러한 개체의 특정 위치를 제공 합니다. 
 
 개체 검색은 게임, 소매, 관광 및 자동 운전 자동차와 같은 업계에서 이미 사용 되 고 있습니다.
+
+Azure Machine Learning의 오픈 소스 프레임 워크에서 이미지 분류 모델을 사용 하는 방법에 대해 알아봅니다. [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>이미지 캡션 생성
 
@@ -87,6 +92,8 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 심층 학습 방법을 기반으로 하는 텍스트 분석에서는 많은 양의 텍스트 데이터 (예: 의료 문서 또는 경비 영수증)를 분석 하 고 패턴을 인식 하 고 구성 된 정보 및 간결한 정보를 만듭니다.
 
 회사는 심층 학습을 통해 텍스트 분석을 수행 하 여 insider 거래 및 정부 규정 준수를 감지 합니다. 또 다른 일반적인 예는 보험 사기 행위입니다. 텍스트 분석은 종종 많은 양의 문서를 분석 하 여 보험 청구의 사기 가능성을 인식 하는 데 사용 됩니다. 
+
+Azure Machine Learning에서 TensorFlow 모델을 사용 하는 방법에 대해 알아봅니다. [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>인공 신경망
 
@@ -110,14 +117,8 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
-
-- [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)에서 오픈 소스 심층 학습 모델을 사용 하기 위한 추가 옵션을 보여 줍니다.
 
 - [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-또한 [Machine Learning Algorithm 참고 자료 시트](algorithm-cheat-sheet.md) 를 사용 하 여 모델에 대 한 알고리즘을 선택 합니다.
