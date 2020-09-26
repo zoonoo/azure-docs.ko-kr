@@ -2,15 +2,15 @@
 title: ARM 템플릿 faq (질문과 대답)
 description: Azure Resource Manager 템플릿에 대 한 FAQ (질문과 대답)입니다.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333123"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
 
@@ -88,7 +88,7 @@ ms.locfileid: "87327262"
 
 * **새 템플릿 언어로 작업 하 고 있습니다. 이에 대 한 자세한 내용은 어디서 확인할 수 있나요?**
 
-  새 템플릿 언어에 대해 알아보려면 [알림에 등록](https://aka.ms/armLangUpdates)합니다.
+  새 언어를 미리 보려면 [Project Bicep 리포지토리](https://github.com/Azure/bicep)를 참조 하세요. 새 언어에 대 한 정보를 유지 하려면 [알림을 등록](https://aka.ms/armLangUpdates)합니다.
 
 * **YAML에서 템플릿 만들기를 지원 하기 위한 계획이 있나요?**
 
@@ -118,7 +118,7 @@ ms.locfileid: "87327262"
 
 * **구독에서 템플릿 사양을 공유할 수 있나요?**
 
-  예, 사용자가 템플릿 사양에 대 한 읽기 권한이 있는 한 구독에서 사용할 수 있습니다. 템플릿 사양은 테 넌 트 간에 사용할 수 없습니다.
+  예, 사용자가 템플릿 사양에 대 한 읽기 권한이 있는 한 구독에서 사용할 수 있습니다. 테 넌 트 간에는 템플릿 사양을 사용할 수 없습니다.
 
 ## <a name="scripts-in-templates"></a>템플릿의 스크립트
 
@@ -154,7 +154,7 @@ ms.locfileid: "87327262"
 
 * **-If를 사용 하는 경우 내 템플릿에 없는 속성의 변경 내용이 표시 됩니다. 이 "노이즈"가 필요 한가요?**
 
-  What은 미리 보기 상태입니다. 노이즈를 줄이기 위해 노력 하 고 있습니다. GitHub 리포지토리에서 문제를 제출 하 여 개선 하는 데 도움을 주세요.https://aka.ms/WhatIfIssues
+  What은 미리 보기 상태입니다. 노이즈를 줄이기 위해 노력 하 고 있습니다. GitHub 리포지토리에서 문제를 제출 하 여 개선 하는 데 도움을 주세요. https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>템플릿 시각화 도우미
 
@@ -174,7 +174,7 @@ ms.locfileid: "87327262"
 
 * **배포 기록에서 800 배포로 제한 되는 것에 대 한 오류가 발생 했습니다. 제가 뭘 해야 하나요?**
 
-  리소스 그룹에 대 한 배포 기록이 유지 되는 방식을 변경 하는 중입니다. 이전에이 오류를 방지 하려면이 기록에서 배포를 수동으로 삭제 해야 했습니다. 6 월 2020부터 제한에 도달 하면 자동으로 기록에서 배포를 삭제 합니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조 하세요.
+  리소스 그룹에 대 한 배포 기록이 유지 되는 방식을 변경 하는 중입니다. 이전에이 오류를 방지 하려면이 기록에서 배포를 수동으로 삭제 해야 했습니다. 6 월 2020부터 제한에 도달 하면 자동으로 기록에서 배포를 삭제 합니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
 
   기록에서 배포를 삭제 해도 배포 된 리소스에는 영향을 주지 않습니다.
 

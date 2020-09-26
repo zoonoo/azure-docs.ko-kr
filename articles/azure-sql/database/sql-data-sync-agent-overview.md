@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333021"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>SQL 데이터 동기화에 대 한 데이터 동기화 에이전트
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Azure에서 SQL 데이터 동기화 데이터 동기화 에이전트를 설치 �
 
 - `LocalSystem` **SERVICEACCOUNT**의 값으로를 지정 하는 경우 SQL Server에 연결 하도록 에이전트를 구성할 때 SQL Server 인증을 사용 합니다.
 
-- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예들 들어 `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`입니다.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -96,7 +96,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 - [로컬 동기화 에이전트 앱을 로컬 동기화 서비스에 연결할 수 없음](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>클라이언트 에이전트 설치, 제거 또는 복구 실패
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> 클라이언트 에이전트 설치, 제거 또는 복구 실패
 
 - **원인**. 대부분의 시나리오에서 이 오류가 발생할 수 있습니다. 이 오류에 대한 특정 원인을 확인하려면 로그를 검토합니다.
 
@@ -118,7 +118,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
     -   services.msc를 사용하여 클라이언트 에이전트에 대한 자격 증명을 다시 입력합니다.
     -   이 클라이언트 에이전트를 제거하고 새로 설치합니다. 최신 클라이언트 에이전트를 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=27693)에서 다운로드하여 설치합니다.
 
-### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a>데이터베이스는 에이전트 목록에 나열 되지 않습니다.
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a> 데이터베이스는 에이전트 목록에 나열 되지 않습니다.
 
 동기화 그룹에 기존 SQL Server 데이터베이스를 추가하려고 할 때 데이터베이스가 에이전트 목록에 나타나지 않습니다.
 
@@ -208,7 +208,7 @@ SQL 데이터 동기화 클라이언트 에이전트에 등록된 로컬 엔드�
 > [!NOTE]
 > “강제 삭제” 후 동기화 메타데이터 테이블이 남아 있는 경우, `deprovisioningutil.exe`를 사용하여 정리합니다.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>로컬 동기화 에이전트 앱을 로컬 동기화 서비스에 연결할 수 없습니다.
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> 로컬 동기화 에이전트 앱을 로컬 동기화 서비스에 연결할 수 없습니다.
 
 - **해결**. 다음 단계를 수행합니다.
 
@@ -268,13 +268,13 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>데이터베이스 등록
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -301,13 +301,13 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>자격 증명 업데이트
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true

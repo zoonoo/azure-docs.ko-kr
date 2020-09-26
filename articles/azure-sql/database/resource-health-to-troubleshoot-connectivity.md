@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8be537fd28adce45b7fc106cc3798688ee4c54ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321580"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Resource Health를 사용 하 여 Azure SQL Database 및 Azure SQL에 대 한 연결 문제를 해결 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ### <a name="degraded"></a>성능 저하됨
 
-**저하** 됨 상태는 Resource Health에서 대부분의 성공한 로그인을 검색 했지만 일부 오류가 발생 했음을 의미 합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인해 발생 하는 연결 문제로 인 한 영향을 줄이려면 코드에서 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) 를 구현 합니다.
+**성능 저하됨** 상태는 Resource Health가 대부분의 성공적인 로그인을 감지했지만 일부 오류도 감지했음을 의미합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인해 발생 하는 연결 문제로 인 한 영향을 줄이려면 코드에서 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) 를 구현 합니다.
 
 ![성능 저하됨](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
@@ -47,13 +47,13 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 **사용할 수 없음** 상태는 Resource Health가 SQL 리소스에 대한 일관된 로그인 실패를 감지했음을 의미 합니다. 리소스가 오랜 시간 동안이 상태를 유지 하는 경우 지원 담당자에 게 문의 하세요.
 
-![사용할 수 없음](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
+![Unavailable](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>알 수 없음
+### <a name="unknown"></a>Unknown
 
 **알 수 없음** 상태는 Resource Health에서 이 리소스에 대한 정보를 10분 넘게 수신하지 못했음을 나타냅니다. 이 상태는 리소스 상태에 대한 결정적인 표시는 아니지만 문제 해결 프로세스의 중요한 데이터 요소입니다. 리소스가 예상한 대로 실행 중이면 몇 분 후 리소스 상태가 사용 가능으로 변경됩니다. 리소스에 문제가 발생하는 경우 상태가 알 수 없음이면, 플랫폼의 이벤트가 리소스에 영향을 미치고 있다는 것을 의미할 수 있습니다.
 
-![알 수 없음](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
+![Unknown](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>기록 정보
 

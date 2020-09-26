@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206295"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354975"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
@@ -106,6 +106,20 @@ ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리�
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Azure 미국 정부 테 넌 트에서 B2B 공동 작업 게스트 사용자를 초대할 수 없습니다.
 
 Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에만 지원 됩니다. Azure US 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 사용자를 초대 하는 경우 오류가 발생 합니다. 세부 정보 및 제한 사항은 [Azure Active Directory Premium P1 및 P2 변형](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
+
+## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Azure AD에서 내 테 넌 트의 aad-확장 앱을 찾을 수 없다는 오류가 표시 됩니다.
+
+사용자 지정 사용자 특성 또는 사용자 흐름과 같은 셀프 서비스 등록 기능을 사용 하는 경우 이라는 앱 `aad-extensions-app. Do not modify. Used by AAD for storing user data.` 이 자동으로 만들어집니다. Azure AD 외부 Id에서 등록 된 사용자 및 사용자 지정 특성에 대 한 정보를 저장 하는 데 사용 됩니다.
+
+을 실수로 삭제 한 경우에는 `aad-extensions-app` 30 일 동안 복구할 수 있습니다. Azure AD PowerShell 모듈을 사용 하 여 앱을 복원할 수 있습니다.
+
+1. Azure AD PowerShell 모듈을 시작 하 고를 실행 `Connect-AzureAD` 합니다.
+1. 삭제 된 앱을 복구 하려는 Azure AD 테 넌 트의 전역 관리자로 로그인 합니다.
+1. PowerShell 명령을 실행 `Get-AzureADDeletedApplication` 합니다.
+1. 목록에서 표시 이름이로 시작 하는 응용 프로그램을 찾아 `aad-extensions-app` 해당 속성 값을 복사 합니다 `ObjectId` .
+1. PowerShell 명령을 실행 `Restore-AzureADDeletedApplication -ObjectId {id}` 합니다. `{id}`명령의 부분을 `ObjectId` 이전 단계의로 바꿉니다.
+
+이제 Azure Portal에 복원 된 앱이 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

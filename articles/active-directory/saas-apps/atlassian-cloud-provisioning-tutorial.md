@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 14418d4d280f4da629aecd5a95b5a49e6856e2c1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ca2284e3e2f581d1935a8978d26fd674154d581b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333520"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전에 대해 Atlassian Cloud 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "88549391"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [Atlassian 클라우드 테 넌 트](https://www.atlassian.com/licensing/cloud)
 * 관리자 권한이 있는 Atlassian Cloud의 사용자 계정
@@ -49,11 +49,12 @@ ms.locfileid: "88549391"
 
 1. [Atlassian 조직 관리자](https://admin.atlassian.com) **> 조직 > 디렉터리를 선택**합니다.
 
-    ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+    ![디렉터리 옵션을 호출한 관리 페이지의 스크린샷](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
 2. **사용자 프로 비전** 을 클릭 하 고 **디렉터리 만들기**를 클릭 합니다. Azure AD 포털에서 Atlassian 클라우드 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 url** 및 **암호 토큰** 필드에 입력 될 **디렉터리 기준 url** 및 **전달자 토큰** 을 각각 복사 합니다.
 
-    ![Atlassian 클라우드 프로 비전 Atlassian 클라우드 프로 비전 ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![ ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![ Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+    ![사용자 프로비저닝 옵션이 out ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) 인 관리 페이지의 스크린샷 ![토큰 만들기 페이지의 스크린샷](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
+    ![데모 시간 디렉터리 토큰 페이지의 스크린샷](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 
 ## <a name="step-3-add-atlassian-cloud-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Atlassian Cloud 추가
@@ -85,11 +86,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 Atlassian 클라우드 계정에서 이전에 검색 한 **테 넌 트 URL** 및 **비밀 토큰** 을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Atlassian 클라우드에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Atlassian 클라우드 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

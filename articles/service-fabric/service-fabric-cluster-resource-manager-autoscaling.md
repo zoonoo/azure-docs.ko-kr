@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354805"
 ---
 # <a name="introduction-to-auto-scaling"></a>자동 크기 조정 소개
 자동 크기 조정은 서비스가 보고하는 로드 또는 리소스의 사용량에 따라 서비스를 동적으로 조정하는 Service Fabric의 추가 기능입니다. 자동 크기 조정 기능은 뛰어난 탄력성을 제공하며 필요에 따라 서비스의 인스턴스 또는 파티션을 추가로 프로비전할 수 있습니다. 전체 자동 크기 조정 프로세스는 자동화되고 투명합니다. 서비스에 정책을 설정하면 서비스 수준에서 수동으로 크기 조정 작업을 수행할 필요가 없습니다. 자동 크기 조정은 서비스 생성 시 또는 서비스를 업데이트하여 언제든지 설정할 수 있습니다.
@@ -51,7 +51,7 @@ ms.locfileid: "89005516"
 * _최대 인스턴스 수_는 크기 조정의 상한을 정의합니다. 파티션의 인스턴스 수가 이 한계에 도달하면 로드에 관계없이 서비스가 규모 확장되지 않습니다. 값 -1을 지정하여 이 제한을 생략할 수 있으며, 이 경우 서비스는 가능한 최대로 규모 확장됩니다(한계는 클러스터에서 사용 가능한 노드 수).
 * _최소 인스턴스 수_ 는 크기 조정의 하한값을 정의 합니다. 파티션의 인스턴스 수가 이 한계에 도달하면 로드에 관계없이 서비스가 규모 감축되지 않습니다.
 
-## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
+## <a name="setting-auto-scaling-policy-for-instance-based-scaling"></a>인스턴스 기반 크기 조정에 대 한 자동 크기 조정 정책 설정
 
 ### <a name="using-application-manifest"></a>애플리케이션 매니페스트 사용
 ``` xml
@@ -133,7 +133,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 > [!WARNING] 
 > AddRemoveIncrementalNamedPartitionScalingMechanism을 상태 저장 서비스와 함께 사용하면 Service Fabric이 **알림 또는 경고 없이** 파티션을 추가 또는 제거합니다. 크기 조정 메커니즘이 트리거되면 데이터의 다시 분할이 수행되지 않습니다. 규모 확장 작업의 경우 새 파티션이 비어 있게 되 고, 크기 조정 작업의 경우 **파티션은 포함 된 모든 데이터와 함께 삭제**됩니다.
 
-## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
+## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>파티션 기반 크기 조정에 대 한 자동 크기 조정 정책 설정
 
 ### <a name="using-application-manifest"></a>애플리케이션 매니페스트 사용
 ``` xml

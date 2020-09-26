@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 457be5ac014fda6b4984ed7af3dcc89780b16379
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 5f5122b5fa7c20bc0717ef1605e41bb5f2700be2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309101"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -34,7 +34,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 1 |
+| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 2 |
 |-----------------------------------------------------------------|--------|----------|
 | 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X        |
 | 여러 범주에서 확장 된 엔터티 인식           | X      | X        |
@@ -47,7 +47,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 명명 된 엔터티 인식 v3은 여러 형식에서 확장 된 검색을 제공 합니다. 현재 NER v 3.0은 [일반 엔터티 범주의](../named-entity-types.md)엔터티를 인식할 수 있습니다.
 
-명명 된 엔터티 인식 v 3.1-preview. 1은 v 3.0의 검색 기능과 `PII` 끝점을 사용 하 여 개인 정보 ()를 검색 하는 기능을 포함 합니다. `v3.1-preview.1/entities/recognition/pii` 선택적 매개 변수를 사용 `domain=phi` 하 여 기밀 상태 정보 ()를 검색할 수 있습니다 `PHI` . 자세한 내용은 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요.
+명명 된 엔터티 인식 v 3.1-preview. 2에는 v 3.0의 검색 기능 및 `PII` 끝점을 사용 하 여 개인 정보 ()를 검색 하는 기능이 포함 되어 있습니다. `v3.1-preview.2/entities/recognition/pii` 선택적 매개 변수를 사용 `domain=phi` 하 여 기밀 상태 정보 ()를 검색할 수 있습니다 `PHI` . 자세한 내용은 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요.
 
 
 ## <a name="sending-a-rest-api-request"></a>REST API 요청 보내기
@@ -66,7 +66,7 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
 
-### <a name="request-endpoints"></a>요청 끝점
+### <a name="request-endpoints"></a>요청 엔드포인트
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -75,24 +75,36 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 엔터티 연결
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
+[에 대 한 명명 된 엔터티 인식 버전 3.0 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-#### <a name="version-31-preview1"></a>[버전 3.1-미리 보기. 1](#tab/version-3-preview)
+[에 대 한 명명 된 엔터티 인식 버전 3.0 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-명명 된 엔터티 인식은 `v3.1-preview.1` NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
+#### <a name="version-31-preview2"></a>[버전 3.1-미리 보기. 2](#tab/version-3-preview)
+
+명명 된 엔터티 인식은 `v3.1-preview.2` NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
 엔터티 연결
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
 
 NER
-* 일반 엔터티-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
+* 일반 엔터티- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
 
-* 개인 ( `PII` ) 정보-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+
+* 개인 ( `PII` ) 정보- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 선택적 `domain=phi` 매개 변수를 사용 하 여 텍스트에서 상태 ( `PHI` ) 정보를 검색할 수도 있습니다. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+
+`redactedText`응답 JSON에 속성을 추가 하면 검색 된 PII 엔터티가 엔터티의 각 문자에 대해 *로 대체 되는 수정 된 입력 텍스트가 포함 됩니다.
+
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
 
 ---
 
@@ -125,13 +137,13 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 모든 POST 요청에서는 Id와 검색 된 엔터티 속성을 사용 하 여 JSON 형식의 응답을 반환 합니다.
 
-출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다. 다국어 지원으로 인해 응답에는 텍스트 오프셋이 포함 될 수 있습니다. 자세한 내용은 [텍스트 오프셋을 처리 하는 방법을](../concepts/text-offsets.md) 참조 하세요.
+출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [텍스트 오프셋을 처리 하는 방법을](../concepts/text-offsets.md) 참조 하세요.
 
-### <a name="example-v3-responses"></a>V3 응답 예
+### <a name="example-responses"></a>예제 응답
 
 버전 3은 NER 및 엔터티 링크에 대 한 별도의 끝점을 제공 합니다. 두 작업 모두에 대 한 응답은 아래와 같습니다. 
 
-#### <a name="example-ner-response"></a>NER 응답 예제
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 ```json
 {
@@ -184,9 +196,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
   "modelVersion": "2020-04-01"
 }
 ```
-
-
-#### <a name="example-entity-linking-response"></a>엔터티 연결 응답 예제
+#### <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-preview)
 
 ```json
 {
@@ -195,6 +205,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
       "id": "1",
       "entities": [
         {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
           "name": "Space Needle",
           "matches": [
             {
@@ -210,6 +221,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
           "dataSource": "Wikipedia"
         },
         {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
           "name": "Seattle",
           "matches": [
             {
@@ -232,6 +244,8 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
   "modelVersion": "2020-02-01"
 }
 ```
+
+---
 
 
 ## <a name="summary"></a>요약

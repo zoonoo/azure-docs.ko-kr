@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 36c2a6700c1657d1fa3cef4ede64e6076bc93eab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332953"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database 및 SQL Server에서 데이터베이스 간 SQL 데이터 동기화 설정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
-   | Setting                        | 설명 |
+   | 설정                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
@@ -83,7 +83,7 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
-  | Setting                       | 설명 |
+  | 설정                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |

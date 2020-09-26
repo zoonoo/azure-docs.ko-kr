@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332715"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -39,6 +39,7 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 **자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](./backup-azure-move-recovery-services-vault.md)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
+**ZRS(영역 중복 스토리지)** | UKS (영국 남부) 및 남부 동아시아 (바다) 지역에서 사용할 수 있습니다.
 
 ## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원
 
@@ -150,9 +151,9 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위�
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | 예.   4TB 미만의 디스크를 사용하는 암호화된 VM 및 VM 지원됨 | 모든 Azure 공용 지역 및 소 버린 클라우드.  |
-| SQL/SAP HANA | 예                                                          | 모든 Azure 공용 지역 및 소 버린 클라우드.             |
+| SQL/SAP HANA | 예                                                          | 미국 서 부 2 (WUS2), 미국 서 부 중부 (WCUS), 캐나다 중부 (CNC), 캐나다 동부 (CNE), 미국 동부 (EUS), 미국 서 부 (WUS), 일본 동부 (JPE), 일본 동부 (JPE) |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
-| AFS                    | 예                                                           | 해당 없음               |
+| AFS (Azure 파일 공유)                 | 예                                                           | 해당 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

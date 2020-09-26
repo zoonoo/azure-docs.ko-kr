@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333429"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD 통과 인증 에이전트: 버전 릴리스 기록 
  
@@ -56,15 +56,10 @@ ms.locfileid: "85356307"
 ### <a name="release-status"></a>릴리스 상태 
 1/31/2018: 다운로드를 위해 릴리스 됨  
 ### <a name="fixed-issues"></a>해결된 문제 
-
 - 에이전트에서 약간의 메모리 누수를 일으킨 버그를 수정 했습니다. 
 - 커넥터 시간 제한 문제에 대 한 버그 수정을 포함 하는 Azure Service Bus 버전이 업데이트 되었습니다. 
- 
-## <a name="154050"></a>1.5.405.0 
-### <a name="release-status"></a>릴리스 상태 
-11/26/2017: 다운로드를 위해 릴리스 됨  
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능 
-- 연결 복원 력을 개선 하기 위해 에이전트와 Azure AD 서비스 간의 websocket 기반 연결에 대 한 지원이 추가 됨 
+- 연결 복원 력을 개선 하기 위해 에이전트와 Azure AD 서비스 간의 websocket 기반 연결에 대 한 지원이 추가 됨
 
 ## <a name="154020"></a>1.5.402.0이 
 ### <a name="release-status"></a>릴리스 상태 

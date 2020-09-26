@@ -2,14 +2,14 @@
 title: Azure 애플리케이션 Insights IP 주소 컬렉션 | Microsoft Docs
 description: Azure 애플리케이션 정보를 사용 하 여 IP 주소 및 지리적 위치를 처리 하는 방법 이해
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b702494347874a1b4977179ba882490223bdf924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.date: 09/23/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032829"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333310"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -62,9 +62,7 @@ IP 컬렉션과 저장소를 사용 하도록 설정 하려면 `DisableIpMasking
 
 단일 Application Insights 리소스에 대 한 동작만 수정 해야 하는 경우 Azure Portal를 사용 합니다. 
 
-1. Application Insights 리소스 > **설정**  >  **템플릿 내보내기** 로 이동 합니다. 
-
-    ![템플릿 내보내기](media/ip-collection/export-template.png)
+1. Application Insights 리소스 > **Automation**  >  **내보내기 템플릿** 을 참조 하세요. 
 
 2. **배포** 선택
 

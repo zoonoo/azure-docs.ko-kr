@@ -3,18 +3,18 @@ title: Azure IoT Edge용 모듈 개발 및 디버그 | Microsoft Docs
 description: Visual Studio Code에서 C#, Python, Node.js, Java 또는 C를 사용하여 Azure IoT Edge용 모듈 개발, 빌드 및 디버그
 services: iot-edge
 keywords: ''
-author: shizn
-ms.author: xshi
+author: kgremban
+ms.author: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 848f617aaf74960aeecd856016321ac7607eca00
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422898"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296912"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -29,7 +29,7 @@ Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅
 >[!NOTE]
 >Linux ARM64 장치에 대 한 개발 및 디버깅 지원은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용할 수 있습니다. Windows 컴퓨터에서는 Windows 또는 Linux 모듈을 개발할 수 있습니다. Windows 모듈을 개발 하려면 1809/build 17763 이상 버전을 실행 하는 Windows 컴퓨터를 사용 합니다. Linux 모듈을 개발 하려면 [Docker Desktop에 대 한 요구 사항을](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)충족 하는 Windows 컴퓨터를 사용 합니다.
 
@@ -110,7 +110,7 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
   > [!NOTE]
   > 환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다.
 
-- 파일 **에deployment.template.js** 는 테스트에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 **SimulatedTemperatureSensor** 모듈과 함께 새 모듈을 나열 합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
+- 파일 ** 에deployment.template.js** 는 테스트에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 **SimulatedTemperatureSensor** 모듈과 함께 새 모듈을 나열 합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
 
 시뮬레이션 된 온도 모듈의 작동 방식을 확인 하려면 [SimulatedTemperatureSensor 소스 코드](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor)를 확인 합니다.
 

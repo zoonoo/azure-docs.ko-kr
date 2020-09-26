@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040591"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333191"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -119,7 +119,7 @@ Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log 
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Azure Monitor 로그 작업 영역에 대 한 자세한 내용은 [Azure Monitor 로그 배포 디자인](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment) 을 참조 하세요.
+Azure Monitor Log Analytics 작업 영역에 대 한 자세한 내용은 [Azure Monitor 로그 배포 디자인](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment) 을 참조 하세요.
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>이벤트 허브 대상 감사
 
@@ -150,7 +150,7 @@ Azure Monitor 로그에 감사 로그를 기록 하도록 선택한 경우:
     ![Log Analytics 보안 정보](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - 또는 Log Analytics 블레이드에서 감사 로그에 액세스할 수도 있습니다. Log Analytics 작업 영역을 열고 **일반** 섹션 아래에서 **로그**를 클릭합니다. *"SQLSecurityAuditEvents" 검색*과 같은 간단한 쿼리를 시작하여 감사 로그를 볼 수 있습니다.
-    여기에서 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md) 를 사용 하 여 감사 로그 데이터에 대 한 고급 검색을 실행할 수도 있습니다. Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+    여기에서 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)  를 사용 하 여 감사 로그 데이터에 대 한 고급 검색을 실행할 수도 있습니다. Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
 
 이벤트 허브에 감사 로그를 작성하도록 선택한 경우:
 

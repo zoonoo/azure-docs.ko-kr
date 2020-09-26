@@ -1,5 +1,5 @@
 ---
-title: 리소스 크기 조정
+title: 리소스 스케일링
 description: 이 문서에서는 할당 된 리소스를 추가 하거나 제거 하 여 Azure SQL Database 및 SQL Managed Instance에서 데이터베이스의 크기를 조정 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-db-mi
@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 180fca9ae40bc07be762665a3d16270e905d2e02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 026c2b7b57929d31fbbf776d81ee41eb73b73d44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984161"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321519"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

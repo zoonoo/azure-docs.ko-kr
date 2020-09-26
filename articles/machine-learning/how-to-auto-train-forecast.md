@@ -10,27 +10,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296776"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
 
 이 문서에서는 [PYTHON SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
 
+이렇게 하려면 다음을 수행합니다. 
+
+> [!div class="checklist"]
+> * 시계열 모델링을 위한 데이터를 준비 합니다.
+> * 개체의 특정 시계열 매개 변수를 구성 [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 합니다.
+> * 시계열 데이터를 사용 하 여 예측을 실행 합니다.
+
 최소한의 코드를 사용하는 환경의 경우 [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)을 통해 [Azure Machine Learning Studio](https://ml.azure.com/)에서 자동화된 기계 학습을 사용하는 시계열 예측 예제를 참조하세요.
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어, 판매를 예측하는 경우 판매 결과에 기록 추세의 상호 작용, 환율 및 가격이 모두 함께 영향을 미칩니다. 
-
-다음 예제에서는 이 방법을 보여 줍니다.
-
-* 시계열 모델링에 대한 데이터 준비
-* [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에서 특정 시계열 매개 변수 구성
-* 시계열 데이터를 사용하여 예측 실행
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -118,52 +119,20 @@ automl_config = AutoMLConfig(task='forecasting',
 AutoML이 교차 유효성 검사를 적용 하 여 [오버 맞춤 모델을 방지](concept-manage-ml-pitfalls.md#prevent-over-fitting)하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="configure-experiment"></a>실험 구성
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델의 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 기능화 단계 및 구성 옵션은 특히 시계열 데이터를 위한 것입니다. 
 
-### <a name="featurization-steps"></a>기능화 단계
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델에 대 한 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 모델, 구성 옵션 및 기능화 단계는 특히 시계열 데이터를 위해 존재 합니다. 
 
-자동화 된 모든 기계 학습 실험에서 자동 크기 조정 및 정규화 기술이 기본적으로 데이터에 적용 됩니다. 이러한 기술은 다양 한 규모의 기능에 중요 한 *특정* 알고리즘을 지 원하는 **기능화** 의 유형입니다. [AutoML에서 기능화](how-to-configure-auto-features.md#automatic-featurization) 의 기본 기능화 단계에 대 한 자세한 정보
+### <a name="supported-models"></a>지원되는 모델
+자동화 된 machine learning은 모델 생성 및 조정 프로세스의 일부로 다른 모델 및 알고리즘을 자동으로 시도 합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. 예측 실험의 경우 기본 시계열 및 심층 학습 모델은 모두 권장 사항 시스템의 일부입니다. 다음 표에서는 이러한 모델의 하위 집합을 요약 합니다. 
 
-그러나 다음 단계는 작업 형식에 대해서만 수행 됩니다 `forecasting` .
+>[!Tip]
+> 기존 회귀 모델은 예측 실험에 대 한 권장 사항 시스템의 일부로도 테스트 됩니다. 모델의 전체 목록은 [지원 되는 모델 표](how-to-configure-auto-train.md#supported-models) 를 참조 하세요. 
 
-* 시계열 샘플 빈도(예: 매시간, 매일, 매주)를 검색하고 없는 시간 요소의 새 레코드를 만들어 계열이 연속되도록 합니다.
-* 누락된 값을 대상(전방 채우기를 통해) 및 기능 열(중앙값 열 값 사용)에 귀속
-* 시계열 식별자를 기반으로 하는 기능을 만들어 여러 계열에 걸쳐 고정 효과 사용
-* 계절적 패턴을 학습하는 데 도움이 되는 시간 기반 기능 만들기
-* 범주 변수를 숫자 수량으로 인코딩
-
-이러한 단계의 결과로 생성 되는 기능에 대 한 요약 정보는 [기능화 투명도](how-to-configure-auto-features.md#featurization-transparency) 를 참조 하세요.
-
-> [!NOTE]
-> 자동화된 Machine Learning 기능화 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 기능화 단계가 입력 데이터에 자동으로 적용됩니다.
-
-#### <a name="customize-featurization"></a>기능화 사용자 지정
-
-또한 ML 모델을 학습 하는 데 사용 되는 데이터 및 기능으로 인해 관련 예측이 발생 하도록 기능화 설정을 사용자 지정 하는 옵션도 있습니다. 
-
-작업에 대해 지원 되는 사용자 지정은 `forecasting` 다음과 같습니다.
-
-|사용자 지정|정의|
-|--|--|
-|**열 용도 업데이트**|지정 된 열에 대해 자동 검색 된 기능 유형을 재정의 합니다.|
-|**변환기 매개 변수 업데이트** |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 fill_value 및 중앙값 *을 지원 합니다* .|
-|**삭제 열** |기능화에서 삭제할 열을 지정 합니다.|
-
-SDK를 사용 하 여 featurizations를 사용자 지정 하려면 `"featurization": FeaturizationConfig` 개체에를 지정 `AutoMLConfig` 합니다. [사용자 지정 featurizations](how-to-configure-auto-features.md#customize-featurization)에 대해 자세히 알아보세요.
-
-```python
-featurization_config = FeaturizationConfig()
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
-```
-
-실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [studio에서 기능화을 사용자 지정 하는 방법](how-to-use-automated-ml-for-ml-models.md#customize-featurization)을 참조 하세요.
+모델| Description | 이점
+----|----|---
+Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
+Auto-ARIMA(미리 보기)|자동 회귀 통합 이동 평균 (ARIMA)은 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어, 동전을 던질 때 앞면이 나올 확률은 오늘 던지든, 내일 던지든 또는 내년에 던지든 항상 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
+ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
 
 ### <a name="configuration-settings"></a>구성 설정
 
@@ -221,6 +190,51 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="featurization-steps"></a>기능화 단계
+
+자동화 된 모든 기계 학습 실험에서 자동 크기 조정 및 정규화 기술이 기본적으로 데이터에 적용 됩니다. 이러한 기술은 다양 한 규모의 기능에 중요 한 *특정* 알고리즘을 지 원하는 **기능화** 의 유형입니다. [AutoML에서 기능화](how-to-configure-auto-features.md#automatic-featurization) 의 기본 기능화 단계에 대 한 자세한 정보
+
+그러나 다음 단계는 작업 형식에 대해서만 수행 됩니다 `forecasting` .
+
+* 시계열 샘플 빈도(예: 매시간, 매일, 매주)를 검색하고 없는 시간 요소의 새 레코드를 만들어 계열이 연속되도록 합니다.
+* 누락된 값을 대상(전방 채우기를 통해) 및 기능 열(중앙값 열 값 사용)에 귀속
+* 시계열 식별자를 기반으로 하는 기능을 만들어 여러 계열에 걸쳐 고정 효과 사용
+* 계절적 패턴을 학습하는 데 도움이 되는 시간 기반 기능 만들기
+* 범주 변수를 숫자 수량으로 인코딩
+
+이러한 단계의 결과로 생성 되는 기능에 대 한 요약 정보는 [기능화 투명도](how-to-configure-auto-features.md#featurization-transparency) 를 참조 하세요.
+
+> [!NOTE]
+> 자동화된 Machine Learning 기능화 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 기능화 단계가 입력 데이터에 자동으로 적용됩니다.
+
+#### <a name="customize-featurization"></a>기능화 사용자 지정
+
+또한 ML 모델을 학습 하는 데 사용 되는 데이터 및 기능으로 인해 관련 예측이 발생 하도록 기능화 설정을 사용자 지정 하는 옵션도 있습니다. 
+
+작업에 대해 지원 되는 사용자 지정은 `forecasting` 다음과 같습니다.
+
+|사용자 지정|정의|
+|--|--|
+|**열 용도 업데이트**|지정 된 열에 대해 자동 검색 된 기능 유형을 재정의 합니다.|
+|**변환기 매개 변수 업데이트** |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 fill_value 및 중앙값 *을 지원 합니다* .|
+|**삭제 열** |기능화에서 삭제할 열을 지정 합니다.|
+
+SDK를 사용 하 여 featurizations를 사용자 지정 하려면 `"featurization": FeaturizationConfig` 개체에를 지정 `AutoMLConfig` 합니다. [사용자 지정 featurizations](how-to-configure-auto-features.md#customize-featurization)에 대해 자세히 알아보세요.
+
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
+실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [studio에서 기능화을 사용자 지정 하는 방법](how-to-use-automated-ml-for-ml-models.md#customize-featurization)을 참조 하세요.
+
 ## <a name="optional-configurations"></a>선택적 구성
 
 심층 학습을 사용 하도록 설정 하 고 대상 롤링 창 집계를 지정 하는 등의 예측 태스크에 대 한 추가 옵션 구성을 사용할 수 있습니다. 
@@ -250,17 +264,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Azure Machine Learning studio에서 만든 AutoML 실험에 대해 DNN를 사용 하도록 설정 하려면 [studio 방법에서 작업 형식 설정](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)을 참조 하세요.
 
-
-자동화된 ML은 네이티브 시계열 및 딥 러닝 모델을 권장 사항 시스템의 일부로 제공합니다. 
-
-모델| Description | 이점
-----|----|---
-Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
-Auto-ARIMA(미리 보기)|자동 회귀 통합 이동 평균 (ARIMA)은 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어, 동전을 던질 때 앞면이 나올 확률은 오늘 던지든, 내일 던지든 또는 내년에 던지든 항상 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
-ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
-
 DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 참조하세요.
-
 
 ### <a name="target-rolling-window-aggregation"></a>대상 이동 기간 집계
 종종 예측자가 보유할 수 있는 최상의 정보는 대상의 최신 값입니다.  대상 롤링 창 집계를 사용 하면 데이터 값의 롤링 집계를 기능으로 추가할 수 있습니다. 이러한 추가 기능을 생성하고 추가 컨텍스트 데이터로 사용하면 학습 모델의 정확도를 높이는 데 도움이 됩니다.
@@ -283,7 +287,7 @@ experiment = Experiment(ws, "forecasting_example")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
-
+ 
 ## <a name="forecasting-with-best-model"></a>최적 모델로 예측
 
 최상의 모델 반복을 사용하여 테스트 데이터 세트의 값을 예측합니다.

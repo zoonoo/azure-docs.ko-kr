@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332967"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
 
@@ -68,7 +68,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 - **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. BULK INSERT는 기본적으로 트리거를 실행 하지 않습니다. FIRE_TRIGGERS 지정 하지 않으면 삽입 트리거가 실행 되지 않습니다. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
 - **데이터 동기화:** 데이터 동기화는 허브 및 스포크 모델에서 설계 되었습니다. 허브는 각 멤버와 개별적으로 동기화 됩니다. 허브의 변경 내용이 구성원에 다운로드 된 다음 멤버의 변경 내용이 허브로 업로드 됩니다.
@@ -83,7 +83,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 | **장점** | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 <br/>-Azure SQL Managed Instance 지원 |
 | **단점** | - 5분 이상의 대기 시간<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
 
-## <a name="get-started"></a>시작하기 
+## <a name="get-started"></a>시작 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Azure Portal에서 데이터 동기화 설정
 

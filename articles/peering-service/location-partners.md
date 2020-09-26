@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/29/2020
+ms.date: 09/24/2020
 ms.author: derekol
-ms.openlocfilehash: 012468ea16a9d1125bbcc93333eb8dad586aa502
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b034c2657cd1bddd696b40738d51c8a3e6c9798
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871423"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355255"
 ---
 # <a name="peering-service-partners"></a>피어 링 서비스 파트너
 
@@ -33,8 +33,8 @@ Microsoft는 Isp (인터넷 서비스 공급자), IXPs (internet exchange 공급
 | [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |미국|
 | [BBIX](https://www.bbix.net/en/service/) |일본 |
 | [CCL](https://concepts.co.nz/news/general-news/) |오세아니아 |
-| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|유럽|
-| [DE-CIX](https://www.de-cix.net/microsoft)|유럽, 북아메리카 |
+| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|유럽, 아시아|
+| [DE-CIX](https://www.de-cix.net/microsoft)|유럽 |
 | [IIJ](https://www.iij.ad.jp/en/) | 일본 |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|유럽  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |오세아니아  |

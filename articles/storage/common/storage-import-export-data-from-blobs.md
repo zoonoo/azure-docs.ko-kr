@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275214"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
@@ -32,7 +32,7 @@ ms.locfileid: "85513506"
   - 내보내기 작업의 추적 번호를 생성합니다.
   - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
   - 운송업체 계정이 없는 경우, 다음으로 이동합니다.
-    - [FedEX 계정 만들기](https://www.fedex.com/en-us/create-account.html) 또는
+    - [FedEx 계정을 만들거나](https://www.fedex.com/en-us/create-account.html)
     - [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>1단계: 내보내기 작업 만들기
@@ -83,9 +83,9 @@ ms.locfileid: "85513506"
 
 6. **반송 정보**에서:
 
-    - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com` 사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
+    - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com`  사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
     - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 내보내기 작업이 완료 되 면 Microsoft는이 계정을 사용 하 여 드라이브를 사용자에 게 다시 제공 합니다.
-    - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
+    - 완전 하 고 유효한 연락처 이름, 전화 번호, 전자 메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공 합니다.
 
         > [!TIP]
         > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
@@ -119,7 +119,7 @@ ms.locfileid: "85513506"
 1. 내보낸 데이터가 있는 드라이브를 받은 후에는 BitLocker 키를 가져와서 드라이브의 잠금을 해제해야 합니다. Azure Portal에서 내보내기 작업으로 이동합니다. **가져오기/내보내기** 탭을 클릭합니다.
 2. 목록에서 내보내기 작업을 선택하고 클릭합니다. **암호화** 로 이동 하 여 키를 복사 합니다.
 
-   ![내보내기 작업의 BitLocker 키 보기](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![내보내기 작업의 BitLocker 키 보기](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
 
 3. BitLocker 키를 사용하여 디스크의 잠금을 해제합니다.
 
@@ -127,15 +127,13 @@ ms.locfileid: "85513506"
 
 ## <a name="step-5-unlock-the-disks"></a>5 단계: 디스크 잠금 해제
 
-WAImportExport 도구의 버전 1.4.0.300을 사용 하는 경우 다음 명령을 사용 하 여 드라이브 잠금을 해제 합니다.
+다음 명령을 사용 하 여 드라이브 잠금을 해제 합니다.
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 다음은 샘플 입력의 예입니다.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-이전 버전의 도구를 사용 하는 경우 BitLocker 대화 상자를 사용 하 여 드라이브 잠금을 해제 합니다.
 
 지금은 작업을 삭제 하거나 그대로 둘 수 있습니다. 작업은 90 일 후 자동으로 삭제 됩니다.
 
@@ -144,7 +142,7 @@ WAImportExport 도구의 버전 1.4.0.300을 사용 하는 경우 다음 명령�
 이 *선택적인* 단계는 내보내기 작업에 필요한 드라이브 수를 결정하는 데 도움이 됩니다. [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템에서 이 단계를 수행합니다.
 
 1. Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다.
-2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
+2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
 3. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
 
    `cd C:\WaImportExportV1`
@@ -155,7 +153,7 @@ WAImportExport 도구의 버전 1.4.0.300을 사용 하는 경우 다음 명령�
 
     다음 표에는 매개 변수가 나와 있습니다.
 
-    |명령줄 매개 변수|설명|  
+    |명령줄 매개 변수|Description|  
     |--------------------------|-----------------|  
     |**/logdir**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
     |**/sn**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
@@ -209,7 +207,7 @@ Number of drives needed:        3
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | 설명 |
+   | 선택기 | Blob 경로 | Description |
    | --- | --- | --- |
    | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

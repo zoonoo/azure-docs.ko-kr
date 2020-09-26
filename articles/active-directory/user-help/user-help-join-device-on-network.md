@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799488"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333412"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "88799488"
 
     디바이스는 이제 조직의 네트워크에 가입되었습니다.
 
-## <a name="to-make-sure-youre-joined"></a>가입되었는지 확인하려면
+## <a name="to-make-sure-youre-joined-new-device"></a>조인 되었는지 확인 하려면 (새 장치)
 설정을 통해 가입되었는지 확인할 수 있습니다.
 
 1. **설정**을 열고 **계정**을 선택합니다.

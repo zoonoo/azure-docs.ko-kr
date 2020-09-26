@@ -3,12 +3,12 @@ title: Microsoft Azure Backup Server의 새로운 기능
 description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332766"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>MABS (Microsoft Azure Backup Server)의 새로운 기능
 
@@ -23,7 +23,7 @@ MABS (Microsoft Azure Backup 서버) 버전 3 UR1은 최신 업데이트 이며 
 
 MABS V2는 저장소 사용률 및 성능을 개선 하는 [Modern Backup Storage](backup-mabs-add-storage.md) (mb)를 도입 했습니다. MBS는 ReFS를 기본 파일 시스템으로 사용하며 계층형 스토리지와 같은 하이브리드 스토리지를 사용하도록 설계되었습니다.
 
-MB로 크기 조정 및 성능을 얻으려면 MABS V3 UR1를 사용 하는 플래시 저장소 (SSD)의 작은 백분율 (전체 저장소의 4%)을 DPM HDD 저장소와 함께 계층화 된 볼륨으로 사용 하는 것이 좋습니다. 계층화 된 저장소를 사용 하는 MABS V3 UR1는 50-70% 더 빠른 백업을 제공 합니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 [TIERED STORAGE](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) DPM 문서를 참조 하세요.
+MB로 크기 조정 및 성능을 얻으려면 MABS V3 UR1를 사용 하는 플래시 저장소 (SSD)의 작은 백분율 (전체 저장소의 4%)을 DPM HDD 저장소와 함께 계층화 된 볼륨으로 사용 하는 것이 좋습니다. 계층화 된 저장소를 사용 하는 MABS V3 UR1는 50-70% 더 빠른 백업을 제공 합니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 [TIERED STORAGE](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) DPM 문서를 참조 하세요.
 
 ### <a name="support-for-refs-volumes"></a>ReFS 볼륨에 대한 지원
 

@@ -4,13 +4,13 @@ description: Azure Monitor Application Insights 클래식 리소스를 새 작�
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333344"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
@@ -34,12 +34,11 @@ ms.locfileid: "90938277"
 
 작업 영역 기반 리소스로 마이그레이션하면 클래식 리소스의 저장소에서 새 작업 영역 기반 저장소로 데이터가 전송 되지 않습니다. 마이그레이션을 선택 하면 기존 리소스 데이터에 대 한 액세스를 유지 하면서 새 데이터가 Log Analytics 작업 영역에 기록 되는 위치가 변경 됩니다. 
 
-클래식 리소스 데이터는 유지 되 고 수집 때 보존 설정이 적용 됩니다. 모든 새 데이터 수집 사후 마이그레이션에는 연결 된 Log Analytics 작업 영역의 보존 설정이 적용 됩니다. 
-
+클래식 리소스 데이터는 유지 되 고 클래식 Application Insights 리소스의 보존 설정이 적용 됩니다. 모든 새 데이터 수집 사후 마이그레이션에는 연결 된 Log Analytics 작업 영역의 [보존 설정이](../platform/manage-cost-storage.md#change-the-data-retention-period) 적용 됩니다 .이 설정은 [데이터 형식에 따라 다른 보존 설정](../platform/manage-cost-storage.md#retention-by-data-type)도 지원 합니다.
 마이그레이션 프로세스는 **영구적 이며 되돌릴 수 없습니다**. 리소스를 작업 영역 기반 Application Insights로 마이그레이션하면 항상 작업 영역 기반 리소스가 됩니다. 그러나 마이그레이션한 후에는 필요에 따라 대상 작업 영역을 자주 변경할 수 있습니다. 
 
 > [!NOTE]
-> 작업 영역 기반 Application Insights 리소스에 대한 데이터 수집 및 보존 비용은 데이터가 있는 Log Analytics 작업 영역을 통해 청구됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights). 마이그레이션 이전의 클래식 Application Insights 리소스 데이터는 데이터가 유지 되는 기간 동안 Application Insights 보존/가격 책정에 계속 적용 됩니다.) 
+> 작업 영역 기반 Application Insights 리소스에 대 한 데이터 수집 및 보존은 데이터가 있는 [Log Analytics 작업 영역을 통해 청구](../platform/manage-cost-storage.md) 됩니다. 마이그레이션 전에 데이터 수집에서 클래식 Application Insights 리소스로 데이터 보존을 90 일 이상 선택한 경우에는 해당 Application Insights 리소스를 통해 데이터 보존 비용이 계속 청구 됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
 
 기존 리소스를 마이그레이션할 필요가 없으며 대신 새 작업 영역 기반 Application Insights 리소스를 만들려는 경우 [작업 영역 기반 리소스 생성 가이드](create-workspace-resource.md)를 사용 합니다.
 
@@ -64,7 +63,7 @@ ms.locfileid: "90938277"
 
     ![빨간색 상자에 강조 표시 된 속성](./media/convert-classic-resource/properties.png)
 
-2. **`Migrate to Workspace-based`** 를 선택합니다.
+2. **`Migrate to Workspace-based`** 을 선택합니다.
     
      ![리소스 마이그레이션 단추](./media/convert-classic-resource/migrate.png)
 

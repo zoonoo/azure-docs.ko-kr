@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332919"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Azure Portal를 사용 하 여 SQL Server에서 Windows 가상 컴퓨터를 프로 비전 하는 방법
 
@@ -115,7 +115,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 * 새 **가상 네트워크** 를 만들거나 기존 가상 네트워크를 사용 하 여 SQL Server VM 합니다. **서브넷**도 지정합니다. 
 
-* **NIC 네트워크 보안 그룹**에서 기본 보안 그룹 또는 고급 보안 그룹을 선택 합니다. 기본 옵션을 선택 하면 **기본** 탭에서 구성 된 값과 동일한 SQL Server VM에 대 한 인바운드 포트를 선택할 수 있습니다. 고급 옵션을 선택 하면 기존 네트워크 보안 그룹을 선택 하거나 새 그룹을 만들 수 있습니다. 
+* **NIC 네트워크 보안 그룹**에서 기본 보안 그룹 또는 고급 보안 그룹을 선택 합니다. 기본 옵션을 선택 하면 **기본** 탭에서 구성 된 것과 동일한 값을 SQL Server VM에 대 한 인바운드 포트를 선택할 수 있습니다. 고급 옵션을 선택 하면 기존 네트워크 보안 그룹을 선택 하거나 새 그룹을 만들 수 있습니다. 
 
 * 네트웨크 설정을 변경해도 되고 기본 값을 그대로 유지해도 됩니다.
 

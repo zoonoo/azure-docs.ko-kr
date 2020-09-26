@@ -1,34 +1,34 @@
 ---
-title: Azure Blob storage 콘텐츠를 검색 합니다.
+title: Blob 인덱서 구성
 titleSuffix: Azure Cognitive Search
-description: Azure Blob Storage에서 문서를 인덱싱하고 Azure Cognitive Search를 사용 하 여 문서에서 텍스트를 추출 하는 방법을 알아봅니다.
+description: Azure Cognitive Search에서 전체 텍스트 검색 작업에 대 한 blob 콘텐츠 인덱싱을 자동화 하도록 Azure Blob 인덱서를 설정 합니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 9fccd731cee5044b36de9a0dba4a408a9a5b9a49
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328295"
+ms.locfileid: "91355281"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하 여 Azure Blob Storage에서 문서를 인덱싱하는 방법
+# <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 blob 인덱서를 구성 하는 방법
 
-이 문서에서는 azure Cognitive Search를 사용 하 여 Azure Blob storage에 저장 된 문서 (예: Pdf, Microsoft Office 문서 및 다른 몇 가지 일반적인 형식)를 인덱싱하는 방법을 보여 줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
+이 문서에서는 azure Cognitive Search를 사용 하 여 Azure Blob storage에 저장 된 텍스트 기반 문서 (예: Pdf, Microsoft Office 문서 및 다른 몇 가지 일반적인 형식)를 인덱싱하는 방법을 보여 줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
 
 <a name="SupportedFormats"></a>
 
-## <a name="supported-document-formats"></a>지원되는 문서 형식
+## <a name="supported-formats"></a>지원되는 형식
+
 BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>BLOB 인덱싱 설정
+## <a name="set-up-blob-indexing"></a>Blob 인덱싱 설정
 다음을 사용하여 Azure Blob Storage 인덱서를 설정할 수 있습니다.
 
 * [Azure Portal](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Azure Cognitive Search 인덱스 blob 방법
+## <a name="how-blobs-are-indexed"></a>Blob을 인덱싱하는 방법
 
 [인덱서 구성](#PartsOfBlobToIndex)에 따라, Blob 인덱서는 스토리지 메타데이터만 인덱싱하거나(메타데이터만 필요하고 Blob 콘텐츠를 인덱싱할 필요가 없는 경우에 유용함), 스토리지 및 콘텐츠 메타데이터를 인덱싱하거나, 메타데이터와 텍스트 콘텐츠 모두를 인덱싱할 수 있습니다. 기본적으로 인덱서는 메타데이터와 콘텐츠를 둘 다 추출합니다.
 
@@ -170,7 +170,7 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
 
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
-* **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8)를 사용할 수 있습니다.
+* **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](/dotnet/api/system.web.httpserverutility.urltokenencode)를 사용할 수 있습니다.
 * **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](/rest/api/searchservice/naming-rules)`/` 문자가 분명히 포함됩니다.  위와 같이 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 키를 인코딩하는 옵션이 제공됩니다.
 * 위의 옵션이 작동하지 않는 경우 BLOB에 사용자 지정 메타데이터 속성을 추가할 수 있습니다. 그러나 이 옵션에는 해당 메타데이터 속성을 모든 BLOB에 추가하는 BLOB 업로드 프로세스가 필요합니다. 키는 필수 속성이므로 해당 속성이 없는 모든 BLOB는 인덱싱에 실패합니다.
 
@@ -231,10 +231,12 @@ Metadata_storage_path와 같은 인코딩된 버전의 필드를 키로 사용 �
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>인덱싱할 Blob 제어
+## <a name="index-by-file-type"></a>파일 유형별 인덱스
+
 인덱싱할 Blob과 건너뛸 Blob을 제어할 수 있습니다.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>특정 파일 확장명을 가진 Blob만 인덱싱
+### <a name="include-blobs-having-specific-file-extensions"></a>특정 파일 확장명을 포함 하는 blob 포함
+
 `indexedFileNameExtensions` 인덱서 구성 매개 변수를 사용하여 지정한 파일 이름 확장명을 가진 Blob만 인덱싱할 수 있습니다. 값은 파일 확장명의 쉼표로 구분된 목록을 포함하는 문자열입니다(선행 점 포함). 예를 들어 .PDF 및 .DOCX Blob만을 인덱싱하려면 다음을 수행합니다.
 
 ```http
@@ -248,7 +250,8 @@ Metadata_storage_path와 같은 인코딩된 버전의 필드를 키로 사용 �
     }
 ```
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>특정 파일 확장명으로 Blob 제외
+### <a name="exclude-blobs-having-specific-file-extensions"></a>특정 파일 확장명을 가진 blob 제외
+
 `excludedFileNameExtensions` 구성 매개 변수를 사용하여 인덱싱에서 특정 파일 이름 확장명으로 Blob를 제외할 수 있습니다. 값은 파일 확장명의 쉼표로 구분된 목록을 포함하는 문자열입니다(선행 점 포함). 예를 들어 .PNG 및 .JPEG 확장명을 가진 Blob을 제외한 모든 Blob을 인덱싱하려면 다음을 수행합니다.
 
 ```http
@@ -265,7 +268,7 @@ Metadata_storage_path와 같은 인코딩된 버전의 필드를 키로 사용 �
 `indexedFileNameExtensions`및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure Cognitive Search는 먼저를 확인 `indexedFileNameExtensions` 한 다음에서를 찾습니다 `excludedFileNameExtensions` . 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Blob에서 인덱싱할 부분 제어
+## <a name="index-parts-of-a-blob"></a>Blob의 인덱스 부분
 
 `dataToExtract` 구성 매개 변수를 사용하여 Blob에서 인덱싱할 부분을 제어할 수 있습니다. 사용되는 값은 다음과 같습니다.
 
@@ -296,7 +299,8 @@ Metadata_storage_path와 같은 인코딩된 버전의 필드를 키로 사용 �
 | AzureSearch_SkipContent |"true" |특정 Blob으로 범위가 지정된 [위에](#PartsOfBlobToIndex) 설명된 `"dataToExtract" : "allMetadata"` 설정과 동일합니다. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>오류 처리
+
+## <a name="handle-errors"></a>오류 처리
 
 기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. 물론 `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 하지만, 있을 수 있는 모든 콘텐츠 형식을 미리 알지 못하는 상태에서 Blob을 인덱싱해야 하는 경우도 있습니다. 지원되지 않는 콘텐츠 형식이 발견될 때 인덱싱을 계속하려면 `failOnUnsupportedContentType` 구성 매개 변수를 `false`로 설정합니다.
 
@@ -466,7 +470,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 ## <a name="content-type-specific-metadata-properties"></a>콘텐츠 형식별 메타데이터 속성
 다음 표에서는 각 문서 형식에 대 한 처리 작업을 요약 하 고 Azure Cognitive Search에서 추출 된 메타 데이터 속성을 설명 합니다.
 
-| 문서 형식/콘텐츠 형식 | 콘텐츠 형식별 메타데이터 속성 | 처리 세부 정보 |
+| 문서 형식/콘텐츠 형식 | 추출 된 메타 데이터 | 처리 세부 정보 |
 | --- | --- | --- |
 | HTML (텍스트/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML 태그를 제거하고 텍스트 추출 |
 | PDF (응용 프로그램/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출(이미지 제외) |

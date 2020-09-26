@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355077"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK 란 무엇 인가요?
 
@@ -33,7 +33,7 @@ Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 오디오�
 
 음성 장치 SDK를 사용 하면 [음성 도우미](https://aka.ms/bots/speech/va), 드라이브 및 주문 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
-## <a name="get-the-speech-devices-sdk"></a>Speech Devices SDK 가져오기
+## <a name="get-the-speech-devices-sdk"></a>음성 디바이스 SDK 가져오기
 
 ### <a name="android"></a>Android
 
@@ -60,4 +60,4 @@ Linux의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로�
 > [!div class="nextstepaction"]
 > [음성 장치 선택](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [평가판 Speech Service 구독 키 받기](get-started.md)
+> [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)

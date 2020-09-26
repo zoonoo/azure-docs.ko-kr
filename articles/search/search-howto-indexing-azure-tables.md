@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275186"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 Azure 테이블 저장소에서 테이블을 인덱싱하는 방법
 
@@ -69,6 +69,7 @@ ms.locfileid: "88929570"
 
 테이블에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다. 
 
+- **관리 id 연결 문자열**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 이 연결 문자열은 계정 키를 요구 하지 않지만 [관리 되는 id를 사용 하 여 Azure Storage 계정에](search-howto-managed-identities-storage.md)대 한 연결을 설정 하기 위한 지침을 따라야 합니다.
 - **전체 액세스 저장소 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` **저장소 계정 블레이드**  >  **설정**  >  **키** (클래식 저장소 계정) 또는 **설정**  >  **액세스 키** (Azure Resource Manager 저장소 계정)로 이동 하 여 Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 - **저장소 계정 공유 액세스 서명 연결 문자열**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` 공유 액세스 서명에 컨테이너 (이 경우 테이블) 및 개체 (테이블 행)에 대 한 읽기 권한 및 목록이 있어야 합니다.
 -  **테이블 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` 공유 액세스 서명에는 테이블에 대 한 쿼리 (읽기) 권한이 있어야 합니다.
