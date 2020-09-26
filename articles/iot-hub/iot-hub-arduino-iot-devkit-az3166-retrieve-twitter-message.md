@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356070"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
 
@@ -61,7 +61,7 @@ ms.locfileid: "89004326"
 
 VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프로비전하는 과정을 안내합니다.
 
-![클라우드 프로비전](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
+![스크린샷 Visual Studio Code 터미널 대화형 명령줄을 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
 > Azure에 로그인하려고 시도하면 페이지가 로딩 상태에서 중지되는 경우 [IoT DevKit FAQ의 "로그인 페이지가 중지됨" 단계](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure)를 참조하세요.
@@ -80,7 +80,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 `Ctrl+P`(macOS: `Cmd+P`)를 사용하여 `task cloud-deploy` 명령을 실행하고 Azure Functions 코드 배포를 시작합니다.
 
-![클라우드 배포](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
+![스크린샷 Azure Functions 코드를 배포 하기 위해 작업 클라우드-배포를 실행할 수 있는 Visual Studio Code 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
 > 경우에 따라 Azure 함수가 제대로 작동하지 않을 수 있습니다. 문제가 발생하는 경우 이를 해결하려면 [IoT DevKit FAQ의 "컴파일 오류" 섹션](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function)을 확인합니다.
@@ -115,7 +115,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 1. VS Code가 Arduino 스케치를 확인하고 DevKit에 업로드하기 시작합니다.
 
-   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
+   ![Arduino 스케치를 확인 하 고 업로드 하 Visual Studio Code를 보여 주는 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
 2. DevKit이 다시 부팅되고 코드 실행이 시작됩니다.
 
@@ -152,9 +152,9 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 - 다시 A 단추를 누른 후 흔들어서 새 트윗을 검색합니다.
 - B 단추를 눌러 나머지 트윗을 스크롤합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
-![다이어그램](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
+![다이어그램은 azure 함수 앱을 트리거하여 앱으로 다시 전송 되 고 허브 및 모바일 장치로 전달 되는 azure 함수 앱을 트리거하여 azure I o T Hub에 이벤트를 보내는 모바일 장치를 표시 합니다. 트 윗를 요청 합니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
 Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트는 Azure Functions 앱을 트리거합니다. Azure Functions 앱은 Twitter의 API에 연결하여 트윗을 검색하는 논리를 포함하고 있습니다. 그런 후 트윗 텍스트를 C2D(클라우드-디바이스) 메시지에 래핑하고 다시 디바이스로 보냅니다.
 
@@ -170,7 +170,7 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 4. [Azure Portal](https://portal.azure.com/){:target="_blank"}에서 **리소스 그룹**으로 이동하여 "Shake, Shake" 프로젝트의 Azure 함수(유형: 앱 서비스)를 찾습니다. 이름에는 항상 'Shake...' 문자열이 포함됩니다.
 
-   ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
+   ![프로젝트에 대 한 app service를 보여 주는 Azure Portal의 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. **함수 > shakeshake-cs** 내에서 `run.csx`의 코드를 사용자의 토큰으로 업데이트합니다.
 
@@ -178,7 +178,7 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
    string authHeader = "Bearer " + "[your own token]";
    ```
   
-   ![트위터 토큰](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+   ![스크린 샷에서는 토큰을 입력할 수 있는 함수에 대 한 c # 코드를 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. 파일을 저장하고 **실행**을 클릭합니다.
 
@@ -196,7 +196,7 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 2. [Azure Portal](https://portal.azure.com/)에서 사용자가 만든 Azure Functions 앱을 찾아 다시 시작합니다.
 
-   ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
+   ![Azure Functions 앱 및 다시 시작 단추를 사용 하 여 Azure Portal를 보여 주는 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 다른 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 사용하여 문의해주세요.
 

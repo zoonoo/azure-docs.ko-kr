@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355825"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 ThousandEyes 구성
 
@@ -63,11 +63,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![ThousandEyes 프로비전](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![프로 비전 모드에서 자동으로 선택 된 ThousandEyes의 프로 비전 탭을 보여 주는 스크린샷](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. **관리자 자격 증명** 섹션 아래에 ThousandEyes 계정에서 생성한 **OAuth 전달자 토큰**을 입력합니다(이 토큰은 ThousandEyes 계정의 **Profile**(프로필) 섹션 아래에서 찾거나 생성할 수 있음).
 
-    ![ThousandEyes 프로비전](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![현재 계정 그룹에 대 한 계정 설정 링크를 찾을 수 있는 위치를 보여 주는 스크린샷](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 ThousandEyes 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ThousandEyes 계정에 관리자 권한이 있는지 확인하고 5단계를 다시 시도합니다.
 

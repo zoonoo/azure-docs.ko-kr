@@ -3,12 +3,12 @@ title: VMware HCX 설치
 description: Azure VMware 솔루션 사설 클라우드에 대해 VMware HCX 솔루션 설정
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263204"
+ms.locfileid: "91356556"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Azure VMware 솔루션용 HCX 설치
 
@@ -40,7 +40,7 @@ HCX Advanced, 기본 설치는 최대 3 개의 사이트 연결 (온-프레미�
 
 Azure VMware 솔루션 사설 클라우드 HCX 솔루션을 사용 하기 위해 준비 하는 경우 계산 및 저장소 리소스에 대 한 워크 로드의 크기를 조정 하는 것이 필수 계획 단계입니다. 초기 사설 클라우드 환경 계획의 일부로 크기 조정 단계를 처리 합니다. 
 
-또한 Azure Migrate 포털에서 [Azure VMware 솔루션 평가](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) 를 완료 하 여 워크 로드 크기를 지정할 수 있습니다.
+또한 Azure Migrate 포털에서 [Azure VMware 솔루션 평가](../migrate/how-to-create-azure-vmware-solution-assessment.md) 를 완료 하 여 워크 로드 크기를 지정할 수 있습니다.
 
 ## <a name="software-version-requirements"></a>소프트웨어 버전 요구 사항
 

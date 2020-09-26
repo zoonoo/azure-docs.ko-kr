@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: faf5b1108e28b352a0b8622feed8bdd99264ff16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327581"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Azure Automation를 사용 하 여 Azure SQL Database에서 데이터베이스 관리
 

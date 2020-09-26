@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333871"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 집합에서 데이터 드리프트 (미리 보기) 검색
 
@@ -77,7 +77,7 @@ Azure Machine Learning 데이터 집합 모니터를 사용 하 여 데이터 �
 
 개념적으로 Azure Machine Learning 데이터 집합 모니터를 설정 하는 세 가지 기본 시나리오가 있습니다.
 
-시나리오 | 설명
+시나리오 | Description
 ---|---
 학습 데이터에서 드리프트에 대 한 모델의 처리 데이터 모니터링 | 이 시나리오의 결과는 서비스 하는 데이터가 학습 데이터에서 상태가 때 모델 정확성이 저하 되므로 모델 정확도에 대 한 프록시 모니터링으로 해석 될 수 있습니다.
 이전 기간에서 드리프트에 대 한 시계열 데이터 집합을 모니터링 합니다. | 이 시나리오는 보다 일반적 이며, 업스트림 또는 모델 빌드 다운스트림과 관련 된 데이터 집합을 모니터링 하는 데 사용할 수 있습니다.  대상 데이터 집합에는 타임 스탬프 열이 있어야 합니다. 기준 데이터 집합은 대상 데이터 집합에 공통 된 기능이 포함 된 모든 테이블 형식 데이터 집합이 될 수 있습니다.
@@ -85,7 +85,7 @@ Azure Machine Learning 데이터 집합 모니터를 사용 하 여 데이터 �
 
 데이터 집합 모니터는 다음 Azure 서비스에 따라 달라 집니다.
 
-|Azure 서비스  |설명  |
+|Azure 서비스  |Description  |
 |---------|---------|
 | *데이터 세트* | 드리프트는 Machine Learning 데이터 집합을 사용 하 여 학습 데이터를 검색 하 고 모델 학습을 위해 데이터를 비교 합니다.  데이터의 프로필 생성은 최소, 최대, 고유 값, 고유 값 수와 같은 보고 된 메트릭 중 일부를 생성 하는 데 사용 됩니다. |
 | *Azureml 파이프라인 및 계산* | 드리프트 계산 작업은 azureml 파이프라인에서 호스팅됩니다.  작업은 요청 시 또는 드리프트 모니터 생성 시간에 구성 된 계산에서 실행 되도록 일정에 따라 트리거됩니다.
@@ -102,7 +102,7 @@ Azure Machine Learning 데이터 집합 모니터를 사용 하 여 데이터 �
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Python SDK
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)클래스 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 메서드는 데이터 집합에 대 한 타임 스탬프 열을 정의 합니다.
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)클래스 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 메서드는 데이터 집합에 대 한 타임 스탬프 열을 정의 합니다.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -129,7 +129,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-데이터 집합의 특성 사용에 대 한 전체 예제는 `timeseries` [예제 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) 또는 [데이터 집합 SDK 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)를 참조 하세요.
+데이터 집합의 특성 사용에 대 한 전체 예제는 `timeseries` [예제 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) 또는 [데이터 집합 SDK 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)를 참조 하세요.
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
@@ -221,14 +221,14 @@ monitor = monitor.enable_schedule()
 
 * **모니터 설정**  이러한 설정은 예약 된 데이터 집합 모니터 파이프라인에 대 한 것으로, 생성 됩니다. 
 
-    | 설정 | 설명 | 팁 | 변경 가능 | 
+    | 설정 | Description | 팁 | 변경 가능 | 
     | ------- | ----------- | ---- | ------- |
-    | 이름 | 데이터 집합 모니터의 이름입니다. | | 예 |
+    | Name | 데이터 집합 모니터의 이름입니다. | | 예 |
     | 기능 | 시간에 따른 데이터 드리프트를 분석 하는 기능 목록입니다. | 개념 드리프트를 측정 하는 모델의 출력 기능으로 설정 합니다. 시간이 지남에 따라 자연스럽 게 드리프트 하는 기능 (월, 연도, 인덱스 등)은 포함 되지 않습니다. 기능 목록을 조정한 후에는 백필 및 기존 데이터 드리프트 모니터를 사용할 수 있습니다. | 예 | 
     | 컴퓨팅 대상 | 계산 대상을 Azure Machine Learning 하 여 데이터 집합 모니터 작업을 실행 합니다. | | 예 | 
     | 사용 | 데이터 집합 모니터 파이프라인에서 일정을 사용 하거나 사용 하지 않도록 설정 | 백필 설정을 사용 하 여 기록 데이터를 분석 하는 일정을 사용 하지 않도록 설정 합니다. 데이터 집합 모니터를 만든 후에 사용할 수 있습니다. | 예 | 
     | 빈도 | 백필을 실행 하는 경우 파이프라인 작업을 예약 하 고 기록 데이터를 분석 하는 데 사용 되는 빈도입니다. 옵션에는 매일, 매주 또는 매월이 포함 됩니다. | 각 실행은 빈도에 따라 대상 데이터 집합의 데이터를 비교 합니다. <li>매일: 대상 데이터 집합의 최근 완료 날짜를 기준선과 비교 합니다. <li>매주: 대상 데이터 집합에서 기준선과 가장 최근의 전체 주 (월요일-일요일) 비교 <li>월간: 대상 데이터 집합에서 가장 최근의 전체 월을 기준선과 비교 | 예 | 
-    | 대기 시간 | 데이터 집합에 데이터가 도착할 때까지 걸리는 시간입니다. 예를 들어 데이터 집합이 캡슐화 하는 SQL DB에 데이터가 도착할 때까지 3 일이 걸리면 대기 시간을 72으로 설정 합니다. | 데이터 집합 모니터를 만든 후에는 변경할 수 없습니다. | 아니요 | 
+    | 대기 시간 | 데이터 집합에 데이터가 도착할 때까지 걸리는 시간입니다. 예를 들어 데이터 집합이 캡슐화 하는 SQL DB에 데이터가 도착할 때까지 3 일이 걸리면 대기 시간을 72으로 설정 합니다. | 데이터 집합 모니터를 만든 후에는 변경할 수 없습니다. | 예 | 
     | 이메일 주소 | 데이터 드리프트 백분율 임계값 위반을 기준으로 경고에 대 한 전자 메일 주소입니다. | 전자 메일은 Azure Monitor를 통해 전송 됩니다. | 예 | 
     | 임계값 | 전자 메일 경고에 대 한 데이터 드리프트 백분율 임계값입니다. | 작업 영역에 연결 된 Application Insights 리소스의 다른 여러 메트릭에 대해 추가 경고 및 이벤트를 설정할 수 있습니다. | 예 |
 
@@ -243,7 +243,7 @@ monitor = monitor.enable_schedule()
 :::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="드리프트 개요":::
 
 
-| 메트릭 | 설명 | 
+| 메트릭 | Description | 
 | ------ | ----------- | 
 | 데이터 드리프트 크기 | 시간에 따른 기준선 및 대상 데이터 집합 간의 드리프트 비율입니다. 0에서 100 사이의 범위에서 0은 동일한 데이터 집합을 나타내고 100은 Azure Machine Learning 데이터 드리프트 모델이 두 데이터 집합을 완전히 구분할 수 있음을 나타냅니다. 이 크기를 생성 하는 데 사용 되는 기계 학습 기술로 인해 측정 된 정확한 비율의 노이즈가 예상 됩니다. | 
 | Top 유동 기능 | 데이터베이스가 드리프트 가장 많이 영향을 주는 데이터 집합의 기능을 보여 줍니다. 따라서 최대 드리프트 크기 메트릭에 영향을 줍니다. Shift 키로 인해 기능의 기본 분포는 상대적으로 높은 기능 중요도를 갖도록 변경 해야 하는 것은 아닙니다. |
@@ -277,7 +277,7 @@ Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당
 
 * 숫자 기능
 
-    | 메트릭 | 설명 |  
+    | 메트릭 | Description |  
     | ------ | ----------- |  
     | Wasserstein 거리 | 기준 배포를 대상 배포로 변환 하기 위한 최소 작업 양입니다. |
     | 평균값 | 기능의 평균 값입니다. |
@@ -286,7 +286,7 @@ Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당
 
 * 범주 기능
     
-    | 메트릭 | 설명 |  
+    | 메트릭 | Description |  
     | ------ | ----------- |  
     | 유클리드 기하학과 거리     |  범주 열에 대해 계산 됩니다.유클리드 distance는 두 데이터 집합에서 동일한 범주 열의 경험적 배포에서 생성 된 두 벡터에 대해 계산 됩니다.0은 경험적 분포의 차이가 없음을 나타냅니다.더 많은 것이 0에서 데이터베이스가 드리프트이 열에는 더 많은 열이 있습니다.이 메트릭의 시계열 그림에서 추세를 관찰 하 여 유동 기능을 발견할 수 있습니다.  |
     | 고유한 값 | 기능의 고유 값 (카디널리티) 수입니다. |

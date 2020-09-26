@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 562766ada8fb9a2620fa83875dc98d02ab752d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323110"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 필수 서브넷 크기 & 범위 확인
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ GP = 범용 BC = 업무상 중요 합니다. VC = 가상 클러스터
 | 5세대 | GP | 5 | 6 | 3 | 14 |
 | 5세대 | BC | 5 | 6 | 5 | 16 |
 
-  \*열 합계는 한 인스턴스가 서브넷에 배포 될 때 수행할 수 있는 주소 수를 표시 합니다. 서브넷의 각 추가 인스턴스는 인스턴스 사용 열로 표시 되는 주소 수를 추가 합니다. Azure 사용 열로 표시 된 주소는 여러 가상 클러스터에서 공유 되는 반면, VC 사용 열로 표시 된 주소는 해당 가상 클러스터에 배치 된 인스턴스 간에 공유 됩니다.
+  \* 열 합계는 한 인스턴스가 서브넷에 배포 될 때 수행할 수 있는 주소 수를 표시 합니다. 서브넷의 각 추가 인스턴스는 인스턴스 사용 열로 표시 되는 주소 수를 추가 합니다. Azure 사용 열로 표시 된 주소는 여러 가상 클러스터에서 공유 되는 반면, VC 사용 열로 표시 된 주소는 해당 가상 클러스터에 배치 된 인스턴스 간에 공유 됩니다.
 
 업데이트 작업에는 일반적으로 가상 클러스터 크기 조정이 필요 합니다. 업데이트 작업을 수행 하려면 가상 클러스터를 만들어야 하는 경우도 있습니다. 자세한 내용은 [관리 작업 확인 문서](sql-managed-instance-paas-overview.md#management-operations)를 참조 하세요. 가상 클러스터를 만들 경우 필요한 추가 주소 수는 해당 가상 클러스터 (인스턴스 사용 열)에 배치 된 인스턴스에 필요한 주소와 함께 VC 사용 열에서 나타내는 주소 수와 같습니다.
 
@@ -88,7 +88,7 @@ GP = 범용 BC = 업무상 중요 합니다. VC = 가상 클러스터
 | 5세대 | BC | 저장소 크기 조정 | 5 |
 | 5세대 | BC | GP로 전환 | 3 |
 
-  \*Gen4 하드웨어가 단계적으로 진행 되 고 있으며 새 배포에 더 이상 사용할 수 없습니다. Gen4에서 Gen5로 하드웨어 생성을 업데이트 하 여 Gen5 하드웨어 생성과 관련 된 기능을 활용 합니다.
+  \* Gen4 하드웨어가 단계적으로 진행 되 고 있으며 새 배포에 더 이상 사용할 수 없습니다. Gen4에서 Gen5로 하드웨어 생성을 업데이트 하 여 Gen5 하드웨어 생성과 관련 된 기능을 활용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

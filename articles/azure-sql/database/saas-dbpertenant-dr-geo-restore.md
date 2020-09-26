@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325320"
+ms.locfileid: "91356896"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. [지역 복원](recovery-using-backups.md)을 사용하여 카탈로그 및 테넌트 데이터베이스를 자동으로 유지 관리되는 지역 중복 백업에서 대체 복구 지역으로 복구합니다. 가동 중단이 해결되면 [지역 복제](active-geo-replication-overview.md)를 사용하여 변경된 데이터베이스를 원래 지역으로 송환합니다.
 
-![지역 복원 아키텍처](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![다이어그램에는 원본 및 복구 지역이 표시 됩니다. 여기에는 앱, 카탈로그, 서버 및 풀의 원본 또는 미러 이미지, 저장소에 대 한 자동 백업, 백업에 대 한 지역에서 복제를 수락 하 고 새 테 넌 트에 대해 서버 및 풀을 포함 하는 복구 지역이 포함 됩니다.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 지역 복원은 Azure SQL Database에 대한 가장 저렴한 재해 복구 솔루션입니다. 그러나 지역 중복 백업에서의 복원은 최대 1시간의 데이터가 손실될 수 있습니다. 각 데이터베이스의 크기에 따라 시간이 오래 걸릴 수 있습니다. 
 

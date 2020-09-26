@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544454"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299700"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GoToMeeting 구성
 
@@ -60,7 +60,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **프로 비전** 모드를 **자동**으로 설정 합니다. 
 
-    ![프로비전](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 GoToMeeting에 대 한 프로 비전 탭의 스크린샷 프로 비전 모드를 자동으로 설정 하 고, 관리자 사용자 이름으로 설정 하 고, 암호 및 연결 테스트를 강조 표시 합니다.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. 관리자 자격 증명 섹션에서 다음 단계를 수행합니다.
    

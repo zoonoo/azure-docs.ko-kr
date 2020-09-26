@@ -34,12 +34,14 @@
         - name: Azure Defender 개요
           href: azure-defender.md
         - name: 서버용 Azure Defender
+          displayName: VM
           href: defender-for-servers-introduction.md
         - name: App Service용 Azure Defender
           href: defender-for-app-service-introduction.md
         - name: 스토리지용 Azure Defender
           href: defender-for-storage-introduction.md
         - name: SQL용 Azure Defender
+          displayName: database
           href: defender-for-sql-introduction.md
         - name: IoT용 Azure Defender
           href: defender-for-iot-introduction.md
@@ -55,6 +57,7 @@
         - name: 추가 위협 방지
           href: other-threat-protections.md
     - name: Security Center의 컨테이너 보안 기능
+      displayName: 'kubernetes, aks, acr, registries'
       href: container-security.md
     - name: 가격 책정
       href: security-center-pricing.md
@@ -134,6 +137,7 @@
         - name: 보안 권장 사항 관리
           items:
             - name: 권장 사항에 대한 응답 자동화
+              displayName: workflow
               href: workflow-automation.md
             - name: 권장 사항 내보내기
               href: continuous-export.md
@@ -222,6 +226,7 @@
         - name: 경고 구성 유효성 검사(EICAR 테스트 파일)
           href: security-center-alert-validation.md
         - name: 경고에 대한 응답 자동화
+          displayName: workflow
           href: workflow-automation.md
         - name: 경고 내보내기
           displayName: continuous

@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267740"
 ---
 # <a name="scenario-any-to-any"></a>시나리오: 임의의 위치
 
@@ -24,7 +24,7 @@ ms.locfileid: "89400078"
 
 가상 WAN 시나리오에서 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 여기서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타냅니다. 이 시나리오의 연결 행렬은 간단 하지만 다른 시나리오와 일치 하기 위해 포함 되었습니다.
 
-| 시작 |   대상 |  *Vnet* | *분기* |
+| 보낸 사람 |   대상 |  *Vnet* | *분기* |
 | -------------- | -------- | ---------- | ---|
 | VNet     | &#8594;|      X     |     X    |
 | 분기   | &#8594;|    X     |     X    |

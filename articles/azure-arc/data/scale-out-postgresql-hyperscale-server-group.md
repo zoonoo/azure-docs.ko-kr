@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e267a30d6f73b48f825c4b61b3bc1106133b8cdf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285386"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>작업자 노드를 더 추가 하 여 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 확장
 이 문서에서는 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹을 확장 하는 방법을 설명 합니다. 시나리오를 통해이를 수행 합니다. **시나리오를 실행 하지 않고 규모를 확장 하는 방법에 대 한 자세한 내용을 보려면 단락 [규모 확장](#scale-out)으로 이동**하세요.
@@ -46,7 +46,7 @@ Azure Arc의 크기 조정 모델에 이미 익숙한 경우 PostgreSQL Hypersca
 ```console
 azdata arc postgres endpoint list -n <server name>
 ```
-예를 들어:
+예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres endpoint list -n postgres01
 ```
@@ -151,12 +151,16 @@ SELECT COUNT(*) FROM github_events;
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-예를 들어 다음 명령을 실행 하 여 작업자 노드 수를 2에서 4로 늘립니다.
+> [!CAUTION]
+> 미리 보기 릴리스에서는 크기 조정을 지원 하지 않습니다. 예를 들어 아직 작업자 노드 수를 줄일 수는 없습니다. 이 작업을 수행 해야 하는 경우 데이터를 추출/백업 하 고, 서버 그룹을 삭제 하 고, 작업자 노드가 더 적고 새 서버 그룹을 만든 후 데이터를 가져와야 합니다.
+
+이 예제에서는 다음 명령을 실행 하 여 작업자 노드 수를 2에서 4로 늘립니다.
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
 
-노드를 추가할 때 서버 그룹에 대 한 보류 중 상태가 표시 됩니다. 예를 들어:
+노드를 추가할 때 서버 그룹에 대 한 보류 중 상태가 표시 됩니다. 예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres server list
 ```
@@ -178,7 +182,7 @@ postgres01  Pending 4/5    4
 azdata arc postgres server list
 ```
 
-네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들어:
+네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
 ```console
 Name        State    Workers
 ----------  -------  ---------
@@ -191,12 +195,13 @@ postgres01  Ready    4
 kubectl get postgresql-12
 ```
 
-네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들어:
+네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **참고:** 12 대신 버전 11 PostgreSQL의 서버 그룹을 만든 경우 다음 명령을 대신 실행 합니다. _kubectl get PostgreSQL-11_
+> [!NOTE]
+> 12 대신 버전 11 PostgreSQL의 서버 그룹을 만든 경우 다음 명령을 대신 실행 합니다. _kubectl get PostgreSQL-11_
 
 #### <a name="with-a-sql-query"></a>SQL 쿼리 사용:
 선택한 클라이언트 도구를 사용 하 여 서버 그룹에 연결 하 고 다음 쿼리를 실행 합니다.
@@ -230,7 +235,6 @@ SELECT COUNT(*) FROM github_events;
 >* [Citus (Azure PostgreSQL Hyperscale)를 사용 하는 고성능 HTAP](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Python을 사용 하 여 HTAP 응용 프로그램 빌드 & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> 미리 보기 릴리스에서는 크기 조정을 지원 하지 않습니다. 예를 들어 아직 작업자 노드 수를 줄일 수는 없습니다. 이 작업을 수행 해야 하는 경우 데이터를 추출/백업 하 고, 서버 그룹을 삭제 하 고, 작업자 노드가 더 적고 새 서버 그룹을 만든 후 데이터를 가져와야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

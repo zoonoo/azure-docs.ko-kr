@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90995953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289772"
 ---
 # <a name="configure-azure-defender-for-storage"></a>저장소에 대 한 Azure Defender 구성
 
@@ -23,11 +23,11 @@ Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하
 
 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합 되며, 의심 스러운 활동 및 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 구독 관리자에 게 전자 메일을 통해 전송 됩니다.
 
-Service 수집는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청 및 위협 검색을 위한 Azure Files (미리 보기)에 대 한 리소스 로그를 기록 합니다. Azure Defender에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
+Service 수집는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청을 기록 하 고 위협 검색을 Azure Files 합니다. Azure Defender에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
 
 ## <a name="availability"></a>가용성
 
-Storage 용 Azure Defender는 현재 Blob storage, Azure Files (미리 보기) 및 Azure Data Lake Storage Gen2 (미리 보기)에 사용할 수 있습니다. Azure Defender를 지 원하는 계정 유형은 범용 v2, 블록 blob 및 Blob storage 계정을 포함 합니다. Storage 용 Azure Defender는 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure Government 클라우드 지역에서는 사용할 수 없습니다.
+Storage 용 Azure Defender는 현재 Blob storage, Azure Files 및 Azure Data Lake Storage Gen2에서 사용할 수 있습니다. Azure Defender를 지 원하는 계정 유형은 범용 v2, 블록 blob 및 Blob storage 계정을 포함 합니다. Storage 용 Azure Defender는 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure Government 클라우드 지역에서는 사용할 수 없습니다.
 
 Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 설정 된 계정은 Azure Blob 저장소 Api와 Data Lake Storage Api를 모두 사용 하 여 트랜잭션을 지원 합니다. Azure 파일 공유는 SMB를 통한 트랜잭션을 지원 합니다.
 
@@ -37,8 +37,8 @@ Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 �
 
 - 릴리스 상태:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (미리 보기는 SMB 및 REST 트랜잭션을 지원)
-  - Azure Data Lake Storage Gen2(미리 보기)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (일반 공급)
+  - Azure Data Lake Storage Gen2 (일반 공급)
 - 클라우드:<br>
     ✔ 상용 클라우드<br>
     ✔ US Gov<br>

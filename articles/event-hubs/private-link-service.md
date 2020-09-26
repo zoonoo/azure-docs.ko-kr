@@ -1,14 +1,14 @@
 ---
 title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716794"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334245"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>개인 끝점을 통해 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트**를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -24,7 +24,6 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 > 
 > 다음은 개인 끝점을 사용 하는 경우 Event Hubs 리소스에 액세스할 수 없는 서비스의 일부입니다. 목록은 완전 **하지 않습니다** .
 >
-> - Azure Stream Analytics
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
 > - Azure Event Grid

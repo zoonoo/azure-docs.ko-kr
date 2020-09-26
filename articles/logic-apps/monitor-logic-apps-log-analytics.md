@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333956"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집
 
@@ -19,9 +19,9 @@ ms.locfileid: "86520735"
 
 논리 앱에 대 한 로깅을 설정 하려면 [논리 앱을 만들 때 Log Analytics를 사용 하도록](#logging-for-new-logic-apps)설정 하거나 기존 논리 앱에 대 한 Log Analytics 작업 영역에 [Logic Apps 관리 솔루션을 설치할](#install-management-solution) 수 있습니다. 이 솔루션은 논리 앱 실행에 대 한 집계 된 정보를 제공 하며 상태, 실행 시간, 다시 전송 상태 및 상관 관계 Id와 같은 특정 세부 정보를 포함 합니다. 그런 다음이 정보에 대 한 로깅을 사용 하도록 설정 하 고 쿼리를 만들려면 [Azure Monitor 로그를 설정](#set-up-resource-logs)합니다.
 
-이 문서에서는 논리 앱을 만들 때 Log Analytics를 사용 하도록 설정 하는 방법, Logic Apps 관리 솔루션을 설치 및 설정 하는 방법 및 Azure Monitor 로그에 대 한 쿼리를 설정 하 고 만드는 방법을 보여 줍니다.
+이 문서에서는 새 논리 앱과 기존 논리 앱에 대 한 Log Analytics를 사용 하도록 설정 하는 방법, Logic Apps 관리 솔루션을 설치 및 설정 하는 방법, Azure Monitor 로그에 대 한 쿼리를 설정 하 고 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 [Log Analytics 작업 영역이](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)필요 합니다. 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)에 대해 알아봅니다.
 
@@ -89,6 +89,9 @@ ms.locfileid: "86520735"
 
 런타임 이벤트 및 데이터에 대 한 정보를 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)에 저장 하는 경우이 정보를 찾고 검토 하는 데 도움이 되는 [로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 를 만들 수 있습니다.
 
+> [!NOTE]
+> 진단 설정을 사용 하도록 설정 하면 Log Analytics, event hubs 또는 storage 계정과 같은 지정 된 대상의 로그에 대해 최대 30 분 동안 진단 데이터가 전달 되지 않을 수 있습니다. 이 지연 시간은이 기간의 진단 데이터가 사용자가 검토할 수 없음을 의미 합니다. 완료 된 이벤트 및 [추적 된 속성](#extend-data) 은 Log Analytics 작업 영역에서 10-15 분 동안 표시 되지 않을 수 있습니다.
+
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾고 선택합니다.
 
 1. 논리 앱 메뉴의 **모니터링**아래에서 **진단 설정**  >  **진단 설정 추가**를 선택 합니다.
@@ -140,13 +143,12 @@ ms.locfileid: "86520735"
 
    ![논리 앱 실행 및 상태 보기](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > 현재이 페이지의 다시 **전송** 기능을 사용할 수 없습니다.
+
    [추적 속성을 설정](#extend-data)하는 작업의 경우 **추적 된 속성** 열에서 **보기** 를 선택 하 여 해당 속성을 볼 수도 있습니다. 추적된 속성을 검색하려면 열 필터를 사용합니다.
 
    ![논리 앱에 대해 추적된 속성 보기](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Log Analytics 작업 영역에 표시 되기 전에 추적 된 속성 또는 완료 된 이벤트에서 10-15 분의 지연이 발생할 수 있습니다.
-   > 또한이 페이지의 다시 **전송** 기능을 현재 사용할 수 없습니다.
 
 1. 결과를 필터링 하기 위해 클라이언트 쪽 및 서버 쪽 필터링을 모두 수행할 수 있습니다.
 

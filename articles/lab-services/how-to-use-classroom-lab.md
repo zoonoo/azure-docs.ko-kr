@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 클래스룸 랩에 액세스하는 방법 | Microsoft Docs
-description: 이 자습서에서는 교육자가 설정한 클래스룸 랩의 가상 머신에 액세스합니다.
+description: 교실 랩에 등록 하 고, 액세스할 수 있는 모든 랩을 보고, 랩에서 VM을 시작/중지 하 고, VM에 연결 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 34b61be1ca3fc938032b75358842f2067e5c011c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd06bfc2dff27f1ef1bc84f01b001b8dbd282cf4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334058"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 등록하고, 액세스할 수 있는 모든 랩을 살펴보고, 랩에서 VM을 시작/중지하고, VM에 연결하는 방법을 설명합니다. 

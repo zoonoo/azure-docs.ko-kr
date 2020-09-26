@@ -1,6 +1,6 @@
 ---
 title: 셀프 서비스 가입 사용자 흐름 추가 - Azure AD
-description: Facebook과 페더레이션하여 외부 사용자(게스트)가 자신의 Facebook 계정을 사용하여 Azure AD 앱에 로그인할 수 있도록 합니다.
+description: 조직에서 빌드한 앱에 대 한 사용자 흐름을 만듭니다. 그러면 해당 앱을 방문 하는 사용자가 사용자 흐름에 구성 된 옵션을 사용 하 여 게스트 계정을 얻을 수 있습니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909020"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287052"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>앱에 셀프 서비스 가입 사용자 흐름 추가(미리 보기)
 > [!NOTE]

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9f5a18cc51aa92b53a5391404b1e9d3fc800bb47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356624"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 개인 모델 사용자 지정
 
@@ -29,7 +29,7 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
 2. 페이지의 오른쪽 위 모서리에서 콘텐츠 모델 사용자 지정 단추를 선택 합니다.
 
-    ![콘텐츠 모델 사용자 지정](./media/customize-face-model/content-model-customization.png)
+    ![콘텐츠 모델 사용자 지정 단추를 선택 하 여 Video Indexer을 보여 주는 스크린샷](./media/customize-face-model/content-model-customization.png)
 
 3. 사용자 탭을 선택 합니다.
 
@@ -37,23 +37,23 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
     다른 사람 모델을 만든 경우이 페이지에도 나열 됩니다.
 
-    ![콘텐츠 모델 사용자 지정](./media/customize-face-model/content-model-customization-people-tab.png)
+    ![콘텐츠 모델 사용자 지정 대화 상자를 보여 주는 스크린샷](./media/customize-face-model/content-model-customization-people-tab.png)
 
 ## <a name="create-a-new-person-model"></a>새 개인 모델 만들기
 
 1. **+ 모델 추가** 단추를 선택 합니다.
 
-    ![새 사용자 모델 추가](./media/customize-face-model/add-new-person.png)
+    ![사용자 탭이 선택 된 콘텐츠 모델 사용자 지정 대화 상자를 보여 주는 스크린샷](./media/customize-face-model/add-new-person.png)
 
 2. 모델 이름을 입력 하 고 이름 옆에 있는 확인 단추를 선택 합니다.
 
-    ![새 사용자 모델 추가](./media/customize-face-model/add-new-person2.png)
+    ![스크린샷에는 모델에 대해 이름이 입력 된 콘텐츠 모델 사용자 지정 대화 상자가 표시 됩니다.](./media/customize-face-model/add-new-person2.png)
 
     새 사람 모델을 만들었습니다. 이제 새 사람 모델에 얼굴을 추가할 수 있습니다.
 
 3. 목록 메뉴 단추를 선택 하 고 **+ 사용자 추가**를 선택 합니다.
 
-    ![새 사용자 모델 추가](./media/customize-face-model/add-new-person3.png)
+    ![사용자를 추가 하는 옵션을 사용 하 여 새 모델에 대 한 상황에 맞는 메뉴가 있는 콘텐츠 모델 사용자 지정 대화 상자를 보여 주는 스크린샷](./media/customize-face-model/add-new-person3.png)
 
 ## <a name="add-a-new-person-to-a-person-model"></a>Person 모델에 새 사용자 추가
 
@@ -64,11 +64,11 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
 1. 메뉴에서 **+ 사용자 추가** 를 선택 합니다.
 
-    ![사용자에 게 새 얼굴 추가](./media/customize-face-model/add-new-face.png)
+    ![스크린 샷에서는 상황에 맞는 메뉴를 사용 하 여 사용자를 추가할 준비가 된 콘텐츠 모델 사용자 지정 대화 상자를 보여 줍니다.](./media/customize-face-model/add-new-face.png)
 
     팝업에 사용자의 세부 정보를 입력 하 라는 메시지가 표시 됩니다. 사용자의 이름을 입력 하 고 확인 단추를 선택 합니다.
 
-    ![사용자에 게 새 얼굴 추가](./media/customize-face-model/add-new-face2.png)
+    ![사용자의 세부 정보를 보여 주는 스크린샷](./media/customize-face-model/add-new-face2.png)
 
     그런 다음 파일 탐색기에서 선택 하거나 얼굴 이미지를 끌어서 놓을 수 있습니다. Video Indexer는 모든 표준 이미지 파일 형식 (예: JPG, PNG 등)을 가져옵니다.
 
@@ -81,11 +81,11 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 1. 이름을 바꿀 Person 모델 옆의 목록 메뉴 단추를 선택 합니다.
 2. 메뉴에서 **이름 바꾸기**를 선택합니다.
 
-    ![개인 모델 이름 바꾸기](./media/customize-face-model/rename-person.png)
+    ![사용자 모델의 이름을 바꿀 수 있는 옵션을 포함 하는 상황에 맞는 메뉴가 있는 콘텐츠 모델 사용자 지정 대화 상자를 보여 주는 스크린샷 ](./media/customize-face-model/rename-person.png)
 
 3. 모델의 현재 이름을 선택 하 고 새 이름을 입력 합니다.
 
-    ![개인 모델 이름 바꾸기](./media/customize-face-model/rename-person2.png)
+    ![이름이 바뀐 person 모델을 보여 주는 스크린샷](./media/customize-face-model/rename-person2.png)
 
 4. 이름을 바꿀 모델의 확인 단추를 선택 합니다.
 
@@ -95,11 +95,11 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
 1. 메뉴에서 **삭제**를 선택합니다.
 
-    ![사용자 모델 삭제](./media/customize-face-model/delete-person.png)
+    ![사용자 모델을 삭제 하는 옵션을 사용 하는 상황에 맞는 메뉴가 있는 콘텐츠 모델 사용자 지정 대화 상자를 보여 주는 스크린샷](./media/customize-face-model/delete-person.png)
 
     팝업이 표시 되 고이 작업에서 개인 모델과 여기에 포함 된 모든 사용자 및 파일을 삭제 한다는 알림이 표시 됩니다. 이 작업은 실행 취소할 수 없습니다.
 
-    ![사용자 모델 삭제](./media/customize-face-model/delete-person2.png)
+    ![스크린샷 사용자 모델을 삭제 하는 확인 대화 상자를 표시 합니다.](./media/customize-face-model/delete-person2.png)
 
 1. 잘 모르겠으면 삭제를 다시 선택 합니다.
 
@@ -110,7 +110,7 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
 사용자 모델의 콘텐츠를 보려면 Person 모델 이름 옆의 화살표를 선택 합니다. 드롭다운은 해당 특정 사용자 모델의 모든 사용자를 표시 합니다. 각 사람들 옆의 목록 메뉴 단추를 선택 하면 관리, 이름 바꾸기 및 삭제 옵션이 표시 됩니다.  
 
-![사용자에 게 새 얼굴 추가](./media/customize-face-model/manage-people.png)
+![스크린샷 관리, 이름 바꾸기 및 삭제 옵션을 사용 하는 상황에 맞는 메뉴를 보여 줍니다.](./media/customize-face-model/manage-people.png)
 
 ### <a name="rename-a-person"></a>개인 이름 바꾸기
 
@@ -151,16 +151,16 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
 1. 페이지 맨 위에서 **업로드** 단추를 선택 합니다.
 
-    ![사용자 모델 업로드](./media/customize-face-model/upload.png)
+    ![스크린샷 업로드 단추를 표시 합니다.](./media/customize-face-model/upload.png)
 
 1. 원형에서 비디오 파일을 삭제 하거나 파일을 찾습니다.
 1. **고급 옵션** 화살표를 선택 합니다.
 
-    ![사용자 모델 업로드](./media/customize-face-model/upload2.png)
+    ![스크린샷 미디어 파일 업로드 대화 상자를 표시 합니다.](./media/customize-face-model/upload2.png)
 
 1. 드롭다운을 선택 하 고 만든 Person 모델을 선택 합니다.
 
-    ![사용자 모델 업로드](./media/customize-face-model/upload3.png)
+    ![고급 옵션에서 사용자 모델에 대해 기본적으로 선택 된 미디어 파일 업로드 대화 상자가 표시 됩니다.](./media/customize-face-model/upload3.png)
 
 1. 페이지 맨 아래에서 **업로드** 옵션을 선택 하면 사용자 모델을 사용 하 여 새 비디오가 인덱싱됩니다.
 
@@ -174,12 +174,12 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 
 1. 비디오를 재 인덱싱 하는 옵션을 선택 합니다.
 
-    ![Person 모델을 사용 하 여 비디오 인덱스를 만듭니다.](./media/customize-face-model/reindex.png)
+    ![스크린샷 비디오를 인덱싱 하는 옵션 및 계정 비디오를 보여줍니다.](./media/customize-face-model/reindex.png)
 
     이제를 사용 하 여 비디오를 인덱스를 만들 사람 모델을 선택할 수 있습니다.
 1. 드롭다운을 선택 하 고 사용 하려는 개인 모델을 선택 합니다.
 
-    ![Person 모델을 사용 하 여 비디오 인덱스를 만듭니다.](./media/customize-face-model/reindex2.png)
+    ![사용자 모델 선택을 포함 하 여 비디오에 대 한 옵션을 보여 주는 스크린샷](./media/customize-face-model/reindex2.png)
 
 1. **재 인덱싱** 단추를 선택 하면 사용자 모델을 사용 하 여 비디오가 인덱싱해야 됩니다.
 
@@ -204,14 +204,14 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 대로 비�
 1. 계정에서 보고 편집하려는 비디오를 검색합니다.
 1. 비디오에서 얼굴을 편집 하려면 Insights 탭으로 이동 하 고 창의 오른쪽 위 모퉁이에 있는 연필 아이콘을 선택 합니다.
 
-    ![비디오에서 얼굴 편집](./media/customize-face-model/edit-face.png)
+    ![스크린샷을 선택할 수 없는 얼굴이 있는 비디오를 보여줍니다.](./media/customize-face-model/edit-face.png)
 
 1. 검색 된 얼굴 중 하나를 선택 하 고 "알 수 없는 #X" (또는 이전에 면에 할당 된 이름)에서 이름을 변경 합니다.
 1. 새 이름을 입력 한 후 새 이름 옆의 확인 아이콘을 선택 합니다. 이 작업은 새 이름을 저장 하 고 다른 현재 비디오 및 업로드 하는 이후 비디오에서이 얼굴의 모든 항목을 인식 하 고 이름을 표시 합니다. 다른 현재 비디오의 얼굴 인식은 배치 프로세스이므로 적용되는 데 다소 시간이 걸릴 수 있습니다.
 
 비디오에서 사용 하 고 있는 개인 모델에서 기존 사람의 이름으로 얼굴 이름을로 하는 경우 해당 사용자의 비디오에서 검색 된 얼굴 이미지가 모델에 이미 있는 항목과 병합 됩니다. 새 이름으로 얼굴 이름을로 하는 경우 비디오에서 사용 하는 개인 모델에 새 사용자 항목이 생성 됩니다.
 
-![비디오에서 얼굴 편집](./media/customize-face-model/edit-face2.png)
+![이름이 추가 된 얼굴을 보여 주는 스크린샷](./media/customize-face-model/edit-face2.png)
 
 ### <a name="delete-a-face"></a>얼굴 삭제
 

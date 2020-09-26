@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317533"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299751"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -32,9 +32,9 @@ Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부�
 ## <a name="how-single-sign-on-with-kcd-works"></a>KCD를 사용하는 Single Sign-On 작동 방식
 이 다이어그램은 사용자가 IWA를 사용 하는 온-프레미스 응용 프로그램에 액세스 하려고 할 때의 흐름을 설명 합니다.
 
-![Microsoft AAD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft AAD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
-1. 사용자는 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 액세스할 수 있는 URL을 입력 합니다.
+1. 사용자가 URL을 입력하여 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 액세스합니다.
 2. 애플리케이션 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
 3. 사용자는 토큰을 애플리케이션 프록시로 전달합니다.
 4. 응용 프로그램 프록시는 토큰의 유효성을 검사 하 고 해당 토큰에서 upn (사용자 계정 이름)을 가져온 다음, 커넥터는 upn 및 SPN (서비스 사용자 이름)을 이중 인증 된 보안 채널을 통해 가져옵니다.
@@ -62,7 +62,7 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 5. **모든 인증 프로토콜 사용**을 선택합니다.
 6. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 애플리케이션 서버의 SPN ID 값을 추가합니다. 그러면 애플리케이션 프록시 커넥터가 목록에 정의된 애플리케이션에 대해 AD에서 사용자를 가장할 수 있습니다.
 
-   ![커넥터 SVR 속성 창 스크린샷](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![커넥터 SVR 속성 창 스크린샷](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>다른 도메인 내의 커넥터와 애플리케이션 서버
 1. 도메인에 걸쳐 KCD로 작업하기 위한 필수 구성 요소 목록은 [도메인 간의 Kerberos 제한 위임](https://technet.microsoft.com/library/hh831477.aspx)을 참조하세요.
@@ -97,7 +97,6 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 
    ![고급 애플리케이션 구성](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## <a name="sso-for-non-windows-apps"></a>비 Windows 앱에 대한 SSO
 
 클라우드에서 Azure AD가 사용자를 인증할 때 Azure AD 애플리케이션 프록시에서 Kerberos 위임 흐름이 시작됩니다. 요청이 온-프레미스에 도착하면 Azure AD 애플리케이션 프록시 커넥터는 로컬 Active Directory와 상호 작용하여 사용자 대신 Kerberos 티켓을 발급합니다. 해당 과정은 Kerberos 제한 위임(KCD)이라고 합니다. 
@@ -106,7 +105,7 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 
 이러한 요청에서 Kerberos 티켓을 보내는 방법을 정의 하는 몇 가지 메커니즘이 있습니다. 대부분의 비 Windows 서버는 SPNEGO 토큰의 형태로 수신 될 것으로 간주 합니다. 이 메커니즘은 Azure AD 응용 프로그램 프록시에서 지원 되지만 기본적으로 사용 하지 않도록 설정 되어 있습니다. SPNEGO 또는 standard Kerberos 토큰에 대해 커넥터를 구성할 수 있지만 둘 다 사용할 수는 없습니다.
 
-SPNEGO에 대한 커넥터 컴퓨터를 구성하는 경우 해당 커넥터 그룹의 다른 모든 커넥터가 SPNEGO를 사용하여 구성되는지 확인합니다. 표준 Kerberos 토큰을 필요로 하는 응용 프로그램은 SPNEGO에 대해 구성 되지 않은 다른 커넥터를 통해 라우팅해야 합니다.
+SPNEGO에 대한 커넥터 컴퓨터를 구성하는 경우 해당 커넥터 그룹의 다른 모든 커넥터가 SPNEGO를 사용하여 구성되는지 확인합니다. 표준 Kerberos 토큰을 필요로 하는 응용 프로그램은 SPNEGO에 대해 구성 되지 않은 다른 커넥터를 통해 라우팅해야 합니다. 일부 웹 응용 프로그램은 구성 변경을 요구 하지 않고 두 형식을 모두 허용 합니다. 
  
 
 SPNEGO를 사용하도록 설정하려면
@@ -136,6 +135,8 @@ SPNEGO를 사용하도록 설정하려면
 ![위임된 로그인 ID 매개 변수 스크린샷](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 위임된 로그인 ID가 사용되는 경우 값은 조직 내의 모든 도메인 또는 포리스트에 대해 고유하지 않을 수도 있습니다. 다른 두 가지 커넥터 그룹을 사용하여 이러한 애플리케이션을 두 번 게시함으로써 이 문제를 방지할 수 있습니다. 각 애플리케이션에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
+
+**온-프레미스 SAM 계정 이름이** 로그온 id에 사용 되는 경우 커넥터를 호스트 하는 컴퓨터를 해당 사용자 계정이 있는 도메인에 추가 해야 합니다.
 
 ### <a name="configure-sso-for-different-identities"></a>다른 ID에 대한 SSO 구성
 1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 스토리지로 Azure AD를 사용하는 Office 365, Windows 10 디바이스 및 다른 애플리케이션에 로그인하는 방법을 결정합니다.  

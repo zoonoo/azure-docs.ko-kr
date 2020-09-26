@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333854"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -56,8 +56,7 @@ ms.locfileid: "90897528"
 
 ## <a name="access-data-using-the-studio"></a>Studio를 사용 하 여 데이터 액세스
 
-데이터가 가상 네트워크에 저장 되어 있는 경우 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 데이터에 액세스할 수 있도록 저장소 계정을 구성 해야 합니다.
-
+[Azure storage 계정을 가상 네트워크에 추가한](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)후 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 저장소 계정에 데이터에 대 한 액세스 권한을 부여 하도록 구성 해야 합니다. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하도록 구성 된 저장소 계정을 지원 합니다. 저장소 계정은 기본적으로 서비스 끝점을 사용 합니다. 저장소에 대 한 개인 끝점을 사용 하도록 설정 하려면 [Azure Storage 전용 끝점 사용](../storage/common/storage-private-endpoints.md) 을 참조 하세요.
 
 관리 되는 id를 사용 하지 않는 경우이 오류가 표시 되 고, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 다음과 같은 작업을 사용할 수 없게 됩니다.
 
@@ -72,7 +71,6 @@ ms.locfileid: "90897528"
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>관리 id를 사용 하도록 데이터 저장소 구성
 

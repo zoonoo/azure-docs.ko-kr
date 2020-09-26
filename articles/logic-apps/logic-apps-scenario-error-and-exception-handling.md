@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76902693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322430"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -103,15 +103,15 @@ Dynamics CRM Online 포털에서 환자 기록의 원본(요청)을 로깅해야
 
    **로그 항목 삽입**
 
-   ![로그 항목 삽입](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![InsertLogEntry에 대 한 구성 설정을 보여 주는 논리 앱 디자이너의 스크린샷](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **오류 항목 삽입**
 
-   ![로그 항목 삽입](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![CreateErrorRecord에 대 한 구성 설정을 보여 주는 논리 앱 디자이너의 스크린샷](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **기록 만들기 실패에 대한 확인**
 
-   ![조건](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![오류 항목을 만들기 위한 필드를 표시 하는 논리 앱 디자이너의 CreateErrorRecord 화면 스크린샷](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>논리 앱 소스 코드
 

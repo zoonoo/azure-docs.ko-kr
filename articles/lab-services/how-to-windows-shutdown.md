@@ -3,12 +3,12 @@ title: Azure Lab Services에서 Windows 종료 동작을 제어 하기 위한 �
 description: 유휴 Windows 가상 머신을 자동으로 종료 하 고 Windows 종료 명령을 제거 하는 단계입니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c20bc2bb79faf53c4f3fbd113c18c5c6d923e59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334024"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Windows 종료 동작 제어 가이드
 
@@ -61,7 +61,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Se
 
 1. **컴퓨터 구성 > 관리 템플릿 > Windows 구성 요소 > 원격 데스크톱 서비스 > 원격 데스크톱 세션 호스트 세션 시간 제한**으로 이동 합니다.  
 
-    ![로컬 그룹 정책 편집기](./media/how-to-windows-shutdown/group-policy-idle.png)
+    !["세션 시간 제한"이 선택 된 "로컬 그룹 정책 편집기"를 보여 주는 스크린샷](./media/how-to-windows-shutdown/group-policy-idle.png)
    
 1. **활성 상태 이지만 유휴 상태 원격 데스크톱 서비스 세션에 대 한 시간 제한 설정**을 마우스 오른쪽 단추로 클릭 하 고 **편집**을 클릭 합니다.
 

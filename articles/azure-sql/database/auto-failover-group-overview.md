@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277736"
+ms.locfileid: "91357712"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,7 +153,7 @@ ms.locfileid: "91277736"
 
 자동 장애 조치 (failover) 그룹은 주 서버에 구성 되어야 하 고 다른 Azure 지역의 보조 서버에 연결 됩니다. 그룹에는 이러한 서버에 있는 데이터베이스가 모두 또는 일부 포함될 수 있습니다. 다음 다이어그램은 여러 데이터베이스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
 
-![자동 장애 조치(failover)](./media/auto-failover-group-overview/auto-failover-group.png)
+![다이어그램은 여러 데이터베이스 및 자동 장애 조치 (failover) 그룹을 사용 하는 지역 중복 클라우드 응용 프로그램의 일반적인 구성을 보여 줍니다.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > 장애 조치 그룹에 SQL Database 데이터베이스를 추가 하는 단계별 자습서는 [장애 조치 (failover) 그룹에 SQL Database 추가](failover-group-add-single-database-tutorial.md) 를 참조 하세요.

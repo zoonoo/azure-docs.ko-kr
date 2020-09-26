@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 675d9c76841ba1a4b94b666c7ff4ac4287fc5264
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286117"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SmartFile 구성
 
@@ -58,9 +58,9 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SmartFile을 구�
 
 2. 전달자 토큰을 생성 하려면 **제품 키** 와 **제품 암호**를 복사 합니다. 그 사이에 콜론을 사용 하 여 메모장에 붙여 넣습니다.
     
-     ![SmartFile SCIM 추가](media/smartfile-provisioning-tutorial/auth.png)
+     ![제품 키와 제품 암호 텍스트 상자를 호출한 제품 키 섹션의 스크린샷](media/smartfile-provisioning-tutorial/auth.png)
 
-    ![SmartFile SCIM 추가](media/smartfile-provisioning-tutorial/key.png)
+    ![콜론으로 구분 된 제품 키 및 제품 암호를 보여 주는 일반 텍스트의 스크린샷](media/smartfile-provisioning-tutorial/key.png)
 
 ## <a name="add-smartfile-from-the-gallery"></a>갤러리에서 SmartFile 추가
 
@@ -103,11 +103,11 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 SmartFile�
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5.  **관리자 자격 증명** 섹션 아래에 `https://<SmartFile sitename>.smartfile.com/ftp/scim` 있는 **테 넌 트 URL**에 입력 합니다. 예를 들면와 같습니다 `https://demo1test.smartfile.com/ftp/scim` . 이전에 **비밀 토큰**에서 검색 한 **전달자 토큰** 값 (ProductKey: 제품 암호)을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 smartfile에 연결할 수 있는지 확인 합니다. 연결에 실패 하는 경우 SmartFile 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
