@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 64f2abd2a42fb15b994803a48b97679ee8927233
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362715"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 백 엔드를 허용 하는 인증서 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "89594427"
 - 백 엔드 인증서에서 인증 인증서 내보내기 (v1 SKU의 경우)
 - 백 엔드 인증서에서 신뢰할 수 있는 루트 인증서 내보내기 (v2 SKU 용)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Application Gateway를 사용 하 여 백 엔드 인스턴스를 허용 하는 데 필요한 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 생성 하려면 기존 백엔드 인증서가 필요 합니다. 백 엔드 인증서는 TLS/SSL 인증서와 동일 하거나 보안을 강화 하는 데 사용할 수 있습니다. Application Gateway는 TLS/SSL 인증서를 만들거나 구입 하는 메커니즘을 제공 하지 않습니다. 테스트를 위해 자체 서명 된 인증서를 만들 수 있지만 프로덕션 워크 로드에는 사용 하지 않아야 합니다. 
 
@@ -37,7 +37,7 @@ TLS/SSL 인증서에서 공개 키 .cer 파일 (개인 키 아님)을 내보냅�
 
 1. 인증서에서 .cer 파일을 가져오려면 **사용자 인증서 관리**를 엽니다. 일반적으로 ' 인증서-현재 User\Personal\Certificates '에서 인증서를 찾아 마우스 오른쪽 단추로 클릭 합니다. **모든 태스크**를 클릭한 다음 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다. Current User\Personal\Certificates에서 인증서를 찾을 수 없는 경우 “인증서 -현재 사용자” 대신 실수로 “인증서 - 로컬 컴퓨터”를 열었을 수 있습니다. PowerShell을 사용하여 현재 사용자 범위에서 인증서 관리자를 열려는 경우 콘솔 창에 *certmgr*을 입력합니다.
 
-   ![내보내기](./media/certificates-for-backend-authentication/export.png)
+   ![스크린샷 선택한 인증서를 사용 하는 인증서 관리자와 모든 작업을 포함 하는 상황에 맞는 메뉴를 보여 줍니다.](./media/certificates-for-backend-authentication/export.png)
 
 2. 마법사에서 **다음**을 클릭합니다.
 
@@ -53,19 +53,19 @@ TLS/SSL 인증서에서 공개 키 .cer 파일 (개인 키 아님)을 내보냅�
 
 5. **내보낼 파일**에서 인증서를 내보내려는 위치를 **찾습니다**. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
 
-   ![찾아보기](./media/certificates-for-backend-authentication/browse.png)
+   ![내보낼 파일을 지정 하는 인증서 내보내기 마법사가 스크린샷 화면에 표시 됩니다.](./media/certificates-for-backend-authentication/browse.png)
 
 6. **마침**을 클릭하여 인증서를 내보냅니다.
 
-   ![Finish](./media/certificates-for-backend-authentication/finish.png)
+   ![파일 내보내기를 완료 한 후 스크린샷에서 인증서 내보내기 마법사를 보여 줍니다.](./media/certificates-for-backend-authentication/finish.png)
 
 7. 인증서가 성공적으로 내보내졌습니다.
 
-   ![Success](./media/certificates-for-backend-authentication/success.png)
+   ![성공 메시지와 함께 인증서 내보내기 마법사를 보여 주는 스크린샷](./media/certificates-for-backend-authentication/success.png)
 
    내보낸 인증서는 다음과 비슷합니다.
 
-   ![내보냄](./media/certificates-for-backend-authentication/exported.png)
+   ![스크린샷 인증서 기호를 표시 합니다.](./media/certificates-for-backend-authentication/exported.png)
 
 8. 메모장을 사용하여 내보낸 인증서를 열면 이 예제와 비슷한 내용이 표시됩니다. 파란색의 섹션에는 application gateway에 업로드 되는 정보가 포함 되어 있습니다. 메모장을 사용 하 여 인증서를 열 때 이와 유사 하지 않은 것은 일반적으로 64로 인코딩된 Base-x.509 ()를 사용 하 여 내보내지 않는 것입니다. CER) 형식을 지정 합니다. 또한 다른 텍스트 편집기를 사용하려면 일부 편집자가 백그라운드에서 의도하지 않은 형식을 도입할 수도 있음을 이해해야 합니다. 이 경우 인증서의 텍스트를 Azure로 업로드할 때 문제가 발생할 수 있습니다.
 

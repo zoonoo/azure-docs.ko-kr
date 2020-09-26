@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362540"
 ---
 # <a name="configure-rules"></a>규칙 구성
 
@@ -33,7 +33,7 @@ IoT Central 규칙은 연결된 디바이스에서 능동적으로 모니터링�
 
 다음 스크린샷에서 조건은 온도가 70&deg;F보다 크고 습도가 10보다 작은지를 확인합니다. 두 문이 모두 참이면 규칙이 참으로 평가되고 작업이 트리거됩니다.
 
-![조건](media/howto-configure-rules/conditions.png)
+![온도 및 습도에 대해 지정 된 조건을 포함 하는 냉동 모니터를 보여 주는 스크린샷](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>값 필드에 클라우드 속성 사용
 

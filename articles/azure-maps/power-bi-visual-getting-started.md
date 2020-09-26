@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362674"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체 시작
 
-<Token>**적용 대상:** ![ 예 ](media/power-bi-visual/yes.png) Power BI 서비스 ***소비자*** 에 대 한 예 ![ ](media/power-bi-visual/yes.png) Power BI 서비스 디자이너 & 개발자 ![ 예 Power BI Desktop 아니요에는 ](media/power-bi-visual/yes.png) ![ ](media/power-bi-visual/no.png) Pro 또는 프리미엄 라이선스가 필요 합니다.</Token>
+<Token>**적용 대상:** ![ 녹색 확인 표시입니다. ](media/power-bi-visual/yes.png) ***소비자*** ![ 녹색 확인 표시에 대 한 Power BI 서비스입니다. ](media/power-bi-visual/yes.png) 디자이너 & 개발자 ![ 녹색 확인 표시를 Power BI 서비스 합니다. ](media/power-bi-visual/yes.png) ![아니요를 나타내는 X Power BI Desktop입니다. ](media/power-bi-visual/no.png) Pro 또는 프리미엄 라이선스가 필요 합니다. </Token>
 
 이 문서에서는 Power BI에 대 한 Microsoft Azure Maps 시각적 개체를 사용 하는 방법을 보여 줍니다.
 
@@ -118,7 +118,7 @@ Azure Maps 시각적 개체를 로드 하려면 다음 단계를 수행 합니�
 
 | 설정          | Description   |
 |------------------|---------------|
-| Zoom             | 지도의 기본 확대/축소 수준입니다. 0에서 22 사이의 숫자가 될 수 있습니다. |
+| 확대/축소             | 지도의 기본 확대/축소 수준입니다. 0에서 22 사이의 숫자가 될 수 있습니다. |
 | 중심 위도  | 지도의 가운데에 있는 기본 위도입니다. |
 | 가운데 경도 | 지도의 가운데에 있는 기본 경도입니다. |
 | 제목          | 지도의 기본 방향 (도)입니다. 여기서 0은 북부, 90은 동부, 180는 남부, 270는 서 부입니다. 0에서 360 사이의 숫자가 될 수 있습니다. |
@@ -133,7 +133,7 @@ Azure Maps 시각적 개체는 다음 서비스 및 응용 프로그램에서 �
 | Power BI Desktop                         | 예          |
 | Power BI 서비스(app.powerbi.com)       | 예          |
 | Power BI 모바일 애플리케이션             | 예          |
-| Power BI 웹에 게시                  | 예           |
+| Power BI 웹에 게시                  | 아니요           |
 | Power BI Embedded                        | 아니요           |
 | Power BI 서비스 포함(PowerBI.com) | 예          |
 
