@@ -1,17 +1,17 @@
 ---
 title: 저속 쿼리 로그 구성-Azure Portal Azure Database for MySQL 유연한 서버
-description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL 유연한 서버에서 저속 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL 유연한 서버에서 느리게 쿼리 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1416efaa325ced623b5c7514f2f9953dc0bd2781
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315034"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 느리게 쿼리 로그 구성 및 액세스
 
@@ -45,6 +45,9 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 ## <a name="set-up-diagnostics"></a>진단 설정
 
+> [!NOTE]
+> 로그에 액세스 하는 Azure Monitor 진단 설정과의 통합은 배포 중 이며 곧 전체 기능을 사용할 수 있습니다.
+
 저속 쿼리 로그는 로그를 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 파이프 하는 데 사용할 수 있는 Azure Monitor 진단 설정에 통합 됩니다.
 
 1. 사이드바의 **모니터링** 섹션에서 **진단 설정**  >  **진단 설정 추가**를 선택 합니다.
@@ -63,7 +66,7 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 1. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
 
-감사 로그를 Azure Monitor 로그 (Log Analytics)로 파이프 하는 경우 분석에 사용할 수 있는 몇 가지 [샘플 쿼리](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) 를 참조 하세요. 
+로그를 Azure Monitor 로그 (Log Analytics)로 파이프 하는 경우 분석에 사용할 수 있는 몇 가지 [샘플 쿼리](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) 를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

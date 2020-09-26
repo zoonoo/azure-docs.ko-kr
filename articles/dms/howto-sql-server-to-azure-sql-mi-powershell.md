@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 37d61a5c199b59a13b54344f5ffaf69d7b369a1b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c82acb66266fd36e5b7155adbfa5bd5ade1b765c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078064"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291990"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Managed Instance로 SQL Server 마이그레이션 Azure Database Migration Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "89078064"
 
 이 문서에는 온라인 및 오프 라인 마이그레이션을 모두 수행 하는 방법에 대 한 세부 정보가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -416,7 +416,7 @@ $command = Invoke-AzDmsCommand -CommandType CompleteSqlMiSync `
 Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 추가 마이그레이션 시나리오 (원본/대상 쌍)에 대 한 자세한 내용은 Microsoft [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하십시오.
 

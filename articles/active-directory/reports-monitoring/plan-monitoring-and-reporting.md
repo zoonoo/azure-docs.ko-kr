@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331202"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -91,7 +91,7 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 ## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Azure AD 보고 및 모니터링 배포 계획
 
-보고 및 모니터링은 비즈니스 요구 사항을 충족 하 고, 사용 패턴에 대 한 통찰력을 얻고, 조직 보안 상태를 높이는 데 사용 됩니다.
+보고 및 모니터링은 비즈니스 요구 사항을 충족 하 고, 사용 패턴에 대 한 통찰력을 확보 하 고, 조직의 보안 상태를 늘리는 데 사용 됩니다.
 
 ### <a name="business-use-cases"></a>비즈니스 사용 사례
 

@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor의 로그 경고 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 Azure Monitor에서 메모리 및 CPU 사용률에 대 한 사용자 지정 로그 경고를 만드는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973724"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294549"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 로그 경고를 만드는 방법
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
 
-이 섹션에서는 컨테이너에 Azure Monitor의 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다. 이전에 제공 된 로그 검색 쿼리 중 하나를 사용 하 여 시작 합니다. ARM 템플릿을 사용 하 여 만들려면 [Azure 리소스 템플릿을 사용 하 여 샘플 로그 경고 만들기](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template)를 참조 하세요.
+이 섹션에서는 컨테이너에 Azure Monitor의 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다. 이전에 제공 된 로그 검색 쿼리 중 하나를 사용 하 여 시작 합니다. ARM 템플릿을 사용 하 여 만들려면 [Azure 리소스 템플릿을 사용 하 여 로그 경고 생성 샘플](../platform/alerts-log-create-templates.md)을 참조 하세요.
 
 >[!NOTE]
 >컨테이너 리소스 사용률에 대 한 경고 규칙을 만들기 위해 다음 절차에서는 [로그 경고에 대 한 api 기본 설정 전환](../platform/alerts-log-api-switch.md)에 설명 된 대로 새 로그 경고 API로 전환 해야 합니다.

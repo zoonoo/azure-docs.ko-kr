@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/16/2020
-ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890010"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315578"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
 
@@ -35,13 +35,17 @@ ms.locfileid: "90890010"
 
 ParallelRunStep 작업의 분산 특성으로 인해 여러 원본의 로그가 있습니다. 그러나 다음과 같이 높은 수준의 정보를 제공하는 두 통합 파일이 생성됩니다.
 
-- `~/logs/overview.txt`: 이 파일은 지금까지 생성된 미니 일괄 처리(작업)의 수와 지금까지 처리된 미니 일괄 처리 수에 대한 높은 수준의 정보를 제공합니다. 이 끝에서는 작업의 결과를 보여 줍니다. 작업이 실패할 경우 오류 메시지와, 문제 해결을 시작할 지점이 표시됩니다.
+- `~/logs/job_progress_overview.txt`: 이 파일은 지금까지 생성된 미니 일괄 처리(작업)의 수와 지금까지 처리된 미니 일괄 처리 수에 대한 높은 수준의 정보를 제공합니다. 이 끝에서는 작업의 결과를 보여 줍니다. 작업이 실패할 경우 오류 메시지와, 문제 해결을 시작할 지점이 표시됩니다.
 
-- `~/logs/sys/master.txt`:이 파일은 실행 중인 작업의 주 노드 (orchestrator 라고도 함)를 제공 합니다. 작업 만들기, 진행률 모니터링, 실행 결과가 포함됩니다.
+- `~/logs/sys/master_role.txt`:이 파일은 실행 중인 작업의 주 노드 (orchestrator 라고도 함)를 제공 합니다. 작업 만들기, 진행률 모니터링, 실행 결과가 포함됩니다.
 
 EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 생성된 로그는 다음 파일에 있습니다.
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: 이러한 파일은 EntryScript 도우미를 사용 하 여 entry_script에서 작성 한 로그입니다. Entry_script의 print 문(stdout)도 포함합니다.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: 이러한 파일은 EntryScript 도우미를 사용 하 여 entry_script에서 작성 한 로그입니다.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: 이러한 파일은 entry_script의 stdout (예: print 문)의 로그입니다.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: 이러한 파일은 stderr의 entry_script에 대 한 로그입니다.
 
 스크립트의 오류에 대한 간략한 해석은 다음과 같습니다.
 
@@ -49,17 +53,17 @@ EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 �
 
 스크립트의 오류에 대한 자세한 내용은 다음과 같습니다.
 
-- `~/logs/user/error/`: Throw된 모든 오류 및 노드에서 구성된 전체 스택 추적을 포함합니다.
+- `~/logs/user/error/`: 항목 스크립트를 로드 하 고 실행 하는 동안 throw 된 예외에 대 한 전체 스택 추적을 포함 합니다.
 
 각 노드가 점수 스크립트를 실행하는 방법을 완전히 해석하려면 각 노드에 대한 개별 프로세스 로그를 확인합니다. 프로세스 로그는 작업자 노드에서 그룹화한 `sys/node` 폴더에 있습니다.
 
-- `~/logs/sys/node/<node_name>.txt`:이 파일은 작업자에서 선택 하거나 완료할 때 각 미니 일괄 처리에 대 한 자세한 정보를 제공 합니다. 각 미니 일괄 처리에 대해 이 파일에는 다음이 포함됩니다.
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`:이 파일은 작업자에서 선택 하거나 완료할 때 각 미니 일괄 처리에 대 한 자세한 정보를 제공 합니다. 각 미니 일괄 처리에 대해 이 파일에는 다음이 포함됩니다.
 
     - 작업자 프로세스의 IP 주소 및 PID 
     - 전체 항목 수, 성공적으로 처리된 항목 수, 실패한 항목 수
     - 시작 시간, 기간, 처리 시간 및 실행 메서드 시간.
 
-각 작업자에 대한 프로세스의 리소스 사용 정보도 확인할 수 있습니다. 이 정보는 CSV 형식이며 `~/logs/sys/perf/overview.csv`에 있습니다. 각 프로세스에 대 한 정보는에서 확인할 수 있습니다 `~logs/sys/processes.csv` .
+각 작업자에 대한 프로세스의 리소스 사용 정보도 확인할 수 있습니다. 이 정보는 CSV 형식이며 `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`에 있습니다. 각 프로세스에 대 한 정보는에서 확인할 수 있습니다 `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>원격 컨텍스트의 내 사용자 스크립트는 어떻게 기록하나요?
 ParallelRunStep는 process_count_per_node 기반으로 한 노드에서 여러 프로세스를 실행할 수 있습니다. 노드의 각 프로세스에서 로그를 구성 하 고 print 및 log 문을 결합 하려면 아래와 같이 ParallelRunStep로 거를 사용 하는 것이 좋습니다. EntryScript에서로 거를 가져오고 로그가 포털의 **로그/사용자** 폴더에 표시 되도록 합니다.
@@ -112,6 +116,28 @@ parser.add_argument('--labels_dir', dest="labels_dir", required=True)
 args, _ = parser.parse_known_args()
 
 labels_path = args.labels_dir
+```
+
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>서비스 주체 인증과 함께 입력 데이터 집합을 사용 하는 방법
+
+사용자는 작업 영역에서 사용 되는 서비스 주체 인증으로 입력 데이터 집합을 전달할 수 있습니다. ParallelRunStep에서 이러한 데이터 집합을 사용 하려면 ParallelRunStep 구성을 생성 하기 위해 해당 데이터 집합을 등록 해야 합니다.
+
+```python
+service_principal = ServicePrincipalAuthentication(
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
+ 
+ws = Workspace(
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
+    auth=service_principal
+    )
+ 
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>다음 단계

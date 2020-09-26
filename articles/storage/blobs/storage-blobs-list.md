@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280099"
 ---
 # <a name="list-blobs-with-net"></a>.NET을 사용하여 Blob 나열
 
@@ -59,7 +59,7 @@ ms.locfileid: "89009545"
 
 ### <a name="filter-results-with-a-prefix"></a>접두사를 사용하여 결과 필터링
 
-컨테이너 목록을 필터링하려면 `prefix` 매개 변수에 대한 문자열을 지정합니다. 접두사 문자열은 하나 이상의 문자를 포함할 수 있습니다. 그러면 Azure Storage는 이름이 해당 접두사로 시작하는 Blob만 반환합니다.
+Blob 목록을 필터링 하려면 매개 변수에 대 한 문자열을 지정 `prefix` 합니다. 접두사 문자열은 하나 이상의 문자를 포함할 수 있습니다. 그러면 Azure Storage는 이름이 해당 접두사로 시작하는 Blob만 반환합니다.
 
 ### <a name="return-metadata"></a>메타데이터 반환
 
