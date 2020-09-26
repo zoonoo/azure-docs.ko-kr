@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e33a62891f9503a4f2ff907585316c3737c876e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250473"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "90882720"
 
 <hr width=100%>
 
-## <a name="september-22-2020"></a>2020 년 9 월 22 일
+## <a name="september-22-2020"></a>2020년 9월 22일
 
 모듈의 9 월 2020 새로 고침에 대 한이 릴리스 태그는 다음과 같습니다.
 
@@ -36,7 +36,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### <a name="module-updates"></a>모듈 업데이트
 
-* 새 그래프 확장 노드인 [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) 는 Cognitive Services에서 [공간 분석 모듈](spatial-analysis-tutorial.md)(미리 보기)과 통합 하는 데 사용할 수 있습니다.
+* 새 그래프 확장 노드인 [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md) 는 Cognitive Services에서 [공간 분석](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview)(미리 보기) 모듈과 통합할 수 있습니다.
 * Linux ARM64 장치에 대 한 지원이 추가 됨-이러한 장치에 배포 하는 데 [수동 단계](deploy-iot-edge-device.md) 를 사용 합니다.
 
 ### <a name="documentation-updates"></a>설명서 업데이트

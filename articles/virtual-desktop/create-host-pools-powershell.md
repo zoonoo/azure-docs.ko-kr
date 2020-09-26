@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287290"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
 
@@ -140,7 +140,7 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
      - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
      - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
 
-6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [WIndows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
+6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
 
 
 ## <a name="next-steps"></a>다음 단계

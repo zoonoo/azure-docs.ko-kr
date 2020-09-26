@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: ac0f885a370269a87e45b5e31ec1de6ac397080a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d538625785020b2d3ab39b88c3c7a0ddcf18bfc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017216"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249606"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "90017216"
 
 [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API 참조](/java/api/overview/azure/storage-file-datalake-readme)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -252,7 +252,7 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 
     File file = new File("C:\\mytestfile.txt");
 
-    InputStream targetStream = new FileInputStream(file);
+    InputStream targetStream = new BufferedInputStream(new FileInputStream(file));
 
     long fileSize = file.length();
 

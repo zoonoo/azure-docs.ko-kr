@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360976"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
@@ -63,7 +63,7 @@ ms.locfileid: "86505539"
 
 6. 편집을 클릭합니다. 자동 크기 조정 설정의 '프로필' 요소를 다음 구성으로 **대체**합니다.
 
-    ![프로필](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![스크린샷에는 profiles 요소가 표시 됩니다.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

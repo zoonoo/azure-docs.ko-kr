@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360806"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "86081297"
 > [!TIP]
 > SAP BW에서 데이터를 복사 하는 방법에 대 한 일반적인 내용은 SAP BW Open Hub 통합 및 델타 추출 흐름을 참조 하세요. [Azure Data Factory를 사용 하 여 개방형 허브를 통해 SAP Business Warehouse에서 데이터 복사](connector-sap-business-warehouse-open-hub.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **Azure Data Factory**: 없는 경우 [데이터 팩터리를 만드는](quickstart-create-data-factory-portal.md#create-a-data-factory)단계를 수행 합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "86081297"
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>SAP BW 열려 있는 허브에서 전체 복사본을 만듭니다.
 
-Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니터** 를 선택 하 여 별도의 탭에서 Data Factory UI를 엽니다.
+Azure Portal에서 Data Factory로 이동합니다. **작성자 & 모니터** 를 선택 하 여 별도의 탭에서 Data Factory UI를 엽니다.
 
 1. **시작** 하기 페이지에서 **데이터 복사** 를 선택 하 여 데이터 복사 도구를 엽니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
    3. **연결 테스트** 를 선택 하 여 설정의 유효성을 검사 한 다음 **마침**을 선택 합니다.
 
-   4. 새 연결이 생성 됩니다. **새로 만들기**를 선택합니다.
+   4. 새 연결이 생성 됩니다. **다음**을 선택합니다.
 
 5. 열려 있는 **허브 대상 선택** 페이지에서 SAP BW에서 사용할 수 있는 열려 있는 허브 대상을 검색 합니다. 데이터를 복사할 OHD를 선택 하 고 **다음**을 선택 합니다.
 
@@ -77,7 +77,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
 6. 필요한 경우 필터를 지정 합니다. OHD에 단일 요청 ID를 사용 하는 단일 DTP (데이터 전송 프로세스) 실행의 데이터만 포함 하거나 DTP이 완료 되 고 데이터를 복사 하려면 **마지막 요청 제외** 확인란의 선택을 취소 합니다.
 
-   이러한 설정에 대 한 자세한 내용은이 문서의 [SAP BW 열린 허브 대상 구성](#sap-bw-open-hub-destination-configurations) 섹션을 참조 하세요. **유효성 검사** 를 선택 하 여 반환할 데이터를 두 번 선택 합니다. **다음**을 선택합니다.
+   이러한 설정에 대 한 자세한 내용은이 문서의 [SAP BW 열린 허브 대상 구성](#sap-bw-open-hub-destination-configurations) 섹션을 참조 하세요. **유효성 검사** 를 선택 하 여 반환할 데이터를 두 번 선택 합니다. 그런 후 **다음**을 선택합니다.
 
    ![SAP BW 열린 허브 필터 구성](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -88,9 +88,9 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
    ![ADLS Gen2 연결 된 서비스 페이지 만들기](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. **이름** 드롭다운 목록에서 Data Lake Storage Gen2 사용할 수 있는 계정을 선택 합니다.
-   2. **마침**을 선택하여 연결을 만듭니다. **다음**을 선택합니다.
+   2. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
 
-9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfromopenhub** 을 입력 합니다. **다음**을 선택합니다.
+9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfromopenhub** 을 입력 합니다. 그런 후 **다음**을 선택합니다.
 
    ![출력 폴더 선택 페이지](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +98,11 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
     ![싱크 형식 지정 페이지](media/load-sap-bw-data/specify-sink-format.png)
 
-11. **설정** 페이지에서 **성능 설정**을 확장 합니다. 5와 같은 **복사 병렬 처리 수준** 에 대 한 값을 입력 하 여 동시에 SAP BW에서 로드 합니다. **다음**을 선택합니다.
+11. **설정** 페이지에서 **성능 설정**을 확장 합니다. 5와 같은 **복사 병렬 처리 수준** 에 대 한 값을 입력 하 여 동시에 SAP BW에서 로드 합니다. 그런 후 **다음**을 선택합니다.
 
     ![복사 설정 구성](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. **요약** 페이지에서 설정을 검토합니다. **다음**을 선택합니다.
+12. **요약** 페이지에서 설정을 검토합니다. 그런 후 **다음**을 선택합니다.
 
 13. **배포** 페이지에서 **모니터** 를 선택 하 여 파이프라인을 모니터링 합니다.
 
@@ -217,7 +217,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
    DTP에 대해 실행 중인 병렬 SAP 작업 프로세스의 수를 늘릴 수 있습니다.
 
-   ![만들기-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![스크린샷은 D T P의 병렬 프로세스 수를 선택할 수 있는 병렬 처리 설정을 보여 줍니다.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. 프로세스 체인에서 DTP를 예약 합니다.
 

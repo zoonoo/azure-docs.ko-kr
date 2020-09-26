@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d80a1ba515aa137eba57051f080b4a2b4f311072
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259139"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt 구성에 대 한 자습서
 
-이 샘플 자습서에서는 AD (Azure Active Directory) B2C를 [Saviynt](https://saviynt.com/)와 통합 하는 방법에 대 한 지침을 제공 합니다. Saviynt의 Security Manager 플랫폼은 단일 통합 플랫폼에서 오늘날의 비즈니스 요구에 대 한 가시성, 보안 및 거 버 넌 스를 제공 합니다. Saviynt는 응용 프로그램 위험과 거 버 넌 스, 인프라 관리, 권한 있는 계정 관리 및 고객 위험 분석을 통합 합니다.
+이 샘플 자습서에서는 AD (Azure Active Directory) B2C를 [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/)와 통합 하는 방법에 대 한 지침을 제공 합니다. Saviynt의 Security Manager 플랫폼은 단일 통합 플랫폼에서 오늘날의 비즈니스 요구에 대 한 가시성, 보안 및 거 버 넌 스를 제공 합니다. Saviynt는 응용 프로그램 위험과 거 버 넌 스, 인프라 관리, 권한 있는 계정 관리 및 고객 위험 분석을 통합 합니다.
 
 이 샘플 자습서에서는 Saviynt를 설정 하 여 Azure AD B2C 사용자에 게 위임 된 관리에 대 한 세분화 된 액세스 제어를 제공 합니다. Saviynt 사용자가 Azure AD B2C를 관리할 수 있는 권한이 있는지 확인 하려면 다음을 확인 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "90708770"
 
 - 사용자가 특정 사용자에 대해 특정 작업을 수행할 수 있는지 여부를 확인 하는 데이터 수준 보안 예를 들어 영국 지역의 지원 센터 관리자는 영국 사용자만 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -46,7 +46,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 - [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) – 고객이 등록 하 고 로그인 하 여 프로필을 관리 하는 방법에 대 한 사용자 지정 제어를 지 원하는 b2b (기업 간 id)입니다.
 
-- [Saviynt](https://saviynt.com/) – 사용자 수명 주기 관리에 대 한 세분화 된 위임 된 관리 및 Azure AD B2C 사용자의 액세스 관리를 제공 하는 id 거 버 넌 스 플랫폼입니다.  
+- [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – 사용자 수명 주기 관리에 대 한 세분화 된 위임 된 관리 및 Azure AD B2C 사용자의 액세스 관리를 제공 하는 id 거 버 넌 스 플랫폼입니다.  
 
 - [MICROSOFT GRAPH api](https://docs.microsoft.com/graph/use-the-api) –이 api는 Azure AD B2C에서 Azure AD B2C 사용자 및 해당 액세스를 관리 하기 위해 Saviynt에 대 한 인터페이스를 제공 합니다.
 
@@ -73,7 +73,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Saviynt를 사용 하 여 Azure AD B2C 구성
 
-### <a name="creating-an-azure-ad-application-for-saviynt"></a>Saviynt에 대 한 Azure AD 응용 프로그램 만들기
+### <a name="create-an-azure-ad-application-for-saviynt"></a>Saviynt에 대 한 Azure AD 응용 프로그램 만들기
 
 1. [Azure Portal](https://portal.azure.com/#home)에 로그인합니다.
 
@@ -108,7 +108,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 15. Saviynt에서 설정을 완료 하려면 테 넌 트 ID, 클라이언트 ID 및 클라이언트 암호가 필요 합니다.
 
-### <a name="enabling-saviynt-to-delete-users"></a>Saviynt에서 사용자를 삭제 하도록 설정
+### <a name="enable-saviynt-to-delete-users"></a>Saviynt를 사용 하 여 사용자 삭제
 
 아래 단계에서는 Saviynt를 사용 하 여 Azure AD B2C에서 사용자 삭제 작업을 수행 하는 방법을 설명 합니다.
 

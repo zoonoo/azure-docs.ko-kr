@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: a6f400db2a068953080e734148e024b575e3e1e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325252"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +35,7 @@ Azure SQL Managed Instance의 관리 되는 인스턴스를 장애 조치 (failo
   > - 장애 조치 (failover) 그룹에 참여 하는 관리 되는 인스턴스에는 [Azure express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로 또는 두 개의 연결 된 VPN 게이트웨이가 필요 합니다 전역 VNet 피어링은 지원되지 않습니다. 이 자습서에서는 VPN 게이트웨이를 만들고 연결 하는 단계를 제공 합니다. 이미 Express 경로를 구성한 경우에는이 단계를 건너뜁니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
@@ -762,7 +762,7 @@ Azure Portal를 사용 하 여 기본 관리 되는 인스턴스의 가상 네�
     | **필드** | 값 |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **이름** | 과 같은 가상 네트워크 게이트웨이의 이름 `primary-mi-gateway` 입니다. | 
+    | **Name** | 과 같은 가상 네트워크 게이트웨이의 이름 `primary-mi-gateway` 입니다. | 
     | **지역** | 기본 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반**을 선택합니다. |
@@ -843,7 +843,7 @@ Azure Portal를 사용 하 여 이전 섹션의 단계를 반복 하 여 보조 
    | **필드** | 값 |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **이름** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. | 
+   | **Name** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. | 
    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반**을 선택합니다. |

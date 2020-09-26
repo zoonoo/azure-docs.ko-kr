@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325711"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -255,7 +255,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.   
 
-        `default`를 볼륨 이름으로 사용할 수 없습니다.
+        `default`또는를 `bin` 볼륨 이름으로 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정합니다.
@@ -264,6 +264,11 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
 
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.  
+
+    * **처리량 (MiB/S)**   
+        볼륨이 수동 QoS 용량 풀에 생성 되 면 볼륨에 대해 원하는 처리량을 지정 합니다.   
+
+        볼륨이 자동 QoS 용량 풀에 생성 되는 경우이 필드에 표시 되는 값은 (할당량 x 서비스 수준 처리량)입니다.   
 
     * **가상 네트워크**  
         볼륨에 액세스하려는 Microsoft Azure Virtual Network(VNet)를 지정합니다.  

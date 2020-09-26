@@ -1,6 +1,6 @@
 ---
 title: Windows server/System Center VMM 2012 r 2를 Windows Server 2016로 업그레이드-Azure Site Recovery
-description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
+description: Azure Site Recovery를 사용 하 여 구성 된 SCVMM 2012 R2 & Windows Server 2012 R2 호스트를 Windows Server 2016 & SCVMM 2016로 업그레이드 하는 방법에 대해 알아봅니다.
 services: site-recovery
 author: Sharmistha-Rai
 manager: gaggupta
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
-ms.openlocfilehash: 82e178d37074b22cd170d6b2478525dd2ea7ddf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250071"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Windows server Server/System Center 2012 R2 VMM을 Windows Server/VMM 2016로 업그레이드 
 

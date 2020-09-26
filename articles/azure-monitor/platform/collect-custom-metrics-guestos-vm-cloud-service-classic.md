@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f539786de589dbab3a191a5343ba315349533447
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360993"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -26,7 +26,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 이 문서에서 설명하는 프로세스는 Azure Cloud Services의 성능 카운터에서만 작동합니다. 다른 사용자 지정 메트릭에서는 작동하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
@@ -173,7 +173,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Azure Portal로 이동합니다. 
 
-   ![Azure Portal의 메트릭](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   ![스크린 샷에서는 모니터와 Azure Portal를 표시 한 다음 메트릭을 선택 합니다.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
 2. 왼쪽 메뉴에서 모니터를 선택 **합니다.**
 
@@ -187,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 차원 필터링 및 분할 기능을 사용하여 특정 역할 또는 역할 인스턴스에서 사용하는 총 메모리를 볼 수 있습니다. 
 
- ![Azure Portal의 메트릭](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ ![메트릭 데이터를 보여 주는 스크린샷](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
 ## <a name="next-steps"></a>다음 단계
 

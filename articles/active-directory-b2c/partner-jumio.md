@@ -11,24 +11,24 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 36a402669f8af465a1cedbf1585e16c972b18015
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259274"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Jumio 구성에 대 한 자습서
 
 이 샘플 자습서에서는 [Jumio](https://www.jumio.com/)와 Azure Active Directory B2C (Azure AD B2C)를 통합 하는 방법에 대 한 지침을 제공 합니다. Jumio는 고객 데이터를 보호 하는 데 도움이 되는 실시간 자동 ID 확인을 가능 하 게 하는 ID 확인 서비스입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://review.docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -104,7 +104,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 [Azure App Service에서 응용 프로그램 설정을 구성할](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)수 있습니다. 이 방법을 사용 하면 리포지토리에 체크 인하지 않고 설정을 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |JumioSettings: AuthUsername | Jumio 계정 구성 |     |
 |JumioSettings: AuthPassword | Jumio 계정 구성 |     |

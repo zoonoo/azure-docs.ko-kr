@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 92f1b722e39083463fd7fa57fdf8508c2c4084cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326646"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 
 ## <a name="helpful-content"></a>유용한 내용
 
-| Content | 링크 |
+| 콘텐츠 | 링크 |
 |---|---|
 |**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API 설명서** | [Java API 참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
@@ -66,131 +66,10 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 | **지원되는 최소 런타임**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
 | **Azure Cosmos DB 워크샵 및 랩** |[Cosmos DB 워크샵 홈페이지](https://aka.ms/cosmosworkshop)
 
-## <a name="release-history"></a>릴리스 기록
-
-### <a name="450-beta1-unreleased"></a>4.5.0-베타. 1 (릴리스되지 않음)
-
-### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 종속성을 사용 하도록 설정할 때 RequestTimeoutException `netty-tcnative-boringssl` 을 수정 했습니다.
-* 모드의 작업에서 메모리 누수 문제를 수정 `Delete` `GATEWAY` 했습니다.
-* `CosmosClient`끝점 uri가 잘못 된 경우 인스턴스화의 누수 문제를 수정 했습니다.
-* 진단이 개선 `CPU History` 되었습니다.
-
-### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* `GROUP BY`한 페이지만 반환 하는 쿼리와 관련 된 문제가 해결 되었습니다.
-* 중앙 SDK 지침을 준수 하기 위한 고정 사용자 에이전트 문자열 형식입니다.
-* 쿼리 계획 진단을 포함 하도록 향상 된 진단 정보입니다.
-
-### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
-#### <a name="new-features"></a>새 기능
-* 재 행위자-핵심 라이브러리 버전을 (으)로 업데이트 했습니다 `3.3.8.RELEASE` . 
-* Reactor-netty 라이브러리 버전이로 업데이트 되었습니다 `0.9.10.RELEASE` . 
-* Netty 라이브러리 버전을로 업데이트 했습니다 `4.1.51.Final` . 
-* 를 사용 하 여에 대 한 새 오버 로드 Api를 추가 했습니다 `upsertItem` `partitionKey` . 
-* 개방형 원격 분석 추적 지원을 추가 했습니다. 
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 게이트웨이 모드에서 요청을 취소 하는 경우 SSLException이 throw 되는 문제를 해결 했습니다.
-* 저장 프로시저 실행에 대 한 리소스 제한 재시도 정책을 수정 했습니다.
-* SDK가 로그 수준 디버그 모드에서 중단 되는 문제를 해결 했습니다. 
-* 직접 모드의 대기 시간에 대 한 주기적인 급증을 수정 했습니다. 
-* 높은 클라이언트 초기화 시간 문제를 수정 했습니다. 
-* 직접 모드와 게이트웨이 모드를 사용 하 여 클라이언트를 사용자 지정할 때 http 프록시 버그가 수정 되었습니다. 
-* 사용자의 잠재적 NPE이 null 옵션을 전달 하는 문제를 수정 했습니다. 
-* 진단 문자열에 timeUnit를 추가 했습니다 `requestLatency` .
-* 진단 문자열에서 중복 된 uri 문자열을 제거 했습니다. 
-* 시점 작업을 위한 적절 한 JSON 형식의 진단 문자열을 수정 했습니다.
-* `.single()`찾을 수 없는 예외가 발생 하는 경우 원자로 체인이 중단 되도록 하는 연산자 문제를 해결 했습니다. 
-
-### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
-#### <a name="new-features"></a>새 기능
-* 스크립트 로깅 사용 API를에 추가 했습니다 `CosmosStoredProcedureRequestOptions` .
-* 기본값을 1 시간로 업데이트 하 `DirectConnectionConfig` `idleEndpointTimeout` 고 기본값 `connectTimeout` 을 5 초로 업데이트 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 가를 재정의 하는 문제를 해결 `GatewayConnectionConfig` `idleConnectionTimeout` 했습니다 `DirectConnectionConfig` `idleConnectionTimeout` .
-* `responseContinuationTokenLimitInKb`의 get 및 Set api를 수정 `CosmosQueryRequestOptions` 했습니다.
-* 동일한 이름을 가진 컬렉션을 다시 만들 때 쿼리 및 변경 피드의 문제를 해결 했습니다.
-* ClassCastException을 throw 하는 상위 쿼리와 관련 된 문제가 해결 되었습니다.
-* NullPointerException을 throw 하는 order by 쿼리와 관련 된 문제를 해결 했습니다.
-* 직접 모드에서 취소 된 요청을 처리 하는 동안 발생 하는 문제를 해결 `onErrorDropped` 했습니다. 
-
-### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
-#### <a name="new-features"></a>새 기능
-* 쿼리에 대 한 지원이 추가 되었습니다 `GROUP BY` .
-* DirectConnectionConfig에서 maxConnectionsPerEndpoint의 기본값을 130로 늘립니다.
-* DirectConnectionConfig에서 maxRequestsPerConnection의 기본값을 30으로 늘렸습니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 연속 토큰을 사용 하 여 다시 시작할 때 중복 결과를 반환 하는 order by 쿼리와 관련 된 문제가 해결 되었습니다. 
-* 중첩 된 개체에 대해 null 값을 반환 하는 값 쿼리와 관련 된 문제가 해결 되었습니다.
-* RntbdClientChannelPool의 요청 관리자에서 null 포인터 예외가 수정 되었습니다.
-
-### <a name="401-2020-06-10"></a>4.0.1 (2020-06-10)
-#### <a name="new-features"></a>새 기능
-* `QueryRequestOptions`의 이름이 `CosmosQueryRequestOptions`로 바뀌었습니다.
-* `ChangeFeedProcessorBuilder`작성기 패턴으로 업데이트 되었습니다.
-* `CosmosPermissionProperties`새 컨테이너 이름 및 자식 리소스 api로 업데이트 되었습니다.
-* 보강 docs & 추가 샘플이 추가 되었습니다 `CosmosClientBuilder` . 
-* `CosmosDatabase`  &  `CosmosContainer` 자동 크기 조정/autopilot 지원에 대해 throughputProperties를 사용 하 여 api를 업데이트 했습니다. 
-* `CosmosClientException`의 이름이 `CosmosException`로 바뀌었습니다. 
-* `AccessCondition`  &  `AccessConditionType` Api로 대체 `ifMatchETag()`  &  `ifNoneMatchETag()` 되었습니다. 
-* 모든 `Cosmos*AsyncResponse`  &  `CosmosResponse` 형식을 단일 형식으로 병합 `CosmosResponse` 했습니다.
-* `CosmosResponseDiagnostics`의 이름이 `CosmosDiagnostics`로 바뀌었습니다.  
-* `FeedResponseDiagnostics`에 래핑됩니다 `CosmosDiagnostics` . 
-* Azure-core를 기반 `jackson` 으로 cosmos &에서 종속성을 제거 했습니다. 
-* `CosmosKeyCredential`형식으로 대체 `AzureKeyCredential` 되었습니다. 
-* `ProxyOptions`에 api를 추가 했습니다 `GatewayConnectionConfig` . 
-* 대신 형식을 사용 하도록 SDK를 업데이트 했습니다 `Instant` `OffsetDateTime` . 
-* 새 열거형 형식이 추가 되었습니다 `OperationKind` . 
-* `FeedOptions`의 이름이 `QueryRequestOptions`로 바뀌었습니다. 
-* `getETag()`  &  `getTimestamp()` 형식에 api를 추가 했습니다 `Cosmos*Properties` . 
-* `userAgent`에 정보가 추가 되었습니다 `CosmosException`  &  `CosmosDiagnostics` . 
-* 의 줄 바꿈 문자 `Diagnostics` 를 시스템 줄 바꿈 문자로 업데이트 했습니다. 
-* `readAll*`Api를 제거 하 고 쿼리를 사용 하 여 대신 모든 api를 선택 합니다.
-* `ChangeFeedProcessor`예상 지연 API를 추가 했습니다.   
-* SDK에 자동 크기 조정/autopilot 처리량 프로 비전 지원이 추가 되었습니다.  
-* `ConnectionPolicy`새 connection configs로 대체 되었습니다. `DirectConnectionConfig`  &  `GatewayConnectionConfig` `CosmosClientBuilder` 직접 & 게이트웨이 모드 연결 구성에 대 한 api를 통해 제공 됩니다.
-* `JsonSerializable`  &  `Resource` 구현 패키지로 이동 했습니다. 
-* `contentResponseOnWriteEnabled`쓰기 작업에서 전체 응답 콘텐츠를 사용 하지 않도록 설정 하는 API를 CosmosClientBuilder에 추가 했습니다.
-* `getETag()`응답 형식에 대 한 api를 노출 합니다.
-* `CosmosAuthorizationTokenResolver`구현으로 이동 되었습니다. 
-* `preferredLocations`  &  `multipleWriteLocations` API 이름이로 바뀌었습니다 `preferredRegions`  &  `multipleWriteRegions` . 
-* 3.3.5로 업데이트 되었습니다. `reactor-core` `reactor-netty` 0.9.7 & `netty` 4.1.49 버전으로 업데이트 되었습니다. 
-* SDK에 대 한 지원이 추가 되었습니다 `analyticalStoreTimeToLive` .     
-* `CosmosClientException``AzureException`를 확장 합니다. 
-* 에서 api를 `maxItemCount`  &  `requestContinuationToken` `FeedOptions` 사용 하는 대신에서 api `byPage()` `CosmosPagedFlux`  &  `CosmosPagedIterable` 를 제거 했습니다.
-* `CosmosPermissionProperties`Api에 대 한 공개 화면에서 도입 `Permission` 되었습니다.
-* 제거 `SqlParameterList` 된 형식 &을 (를)로 바꿨습니다. `List`
-* 직접 TCP 클라이언트에서 여러 메모리 누수 문제를 수정 했습니다. 
-* 쿼리에 대 한 지원이 추가 되었습니다 `DISTINCT` . 
-* 에서 외부 종속성을 제거 했습니다 `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text` .  
-* `CosmosPagedFlux`  &  `CosmosPagedIterable` 패키지로 이동 `utils` 했습니다. 
-* Netty를 4.1.45로 업데이트 했습니다 & project 원자로를 3.3.3 버전으로 업데이트 했습니다.
-* 공용 rest 계약을 클래스에 업데이트 했습니다 `Final` .
-* 시점 운영에 대 한 고급 진단에 대 한 지원이 추가 되었습니다.
-* 업데이트 된 패키지 `com.azure.cosmos`
-* `models`모델/rest 계약에 대 한 패키지 추가
-* `utils`형식에 대 한 패키지를 추가 했습니다 `CosmosPagedFlux`  &  `CosmosPagedIterable` . 
-* SDK 전체에서 사용할 공용 Api를 업데이트 했습니다 `Duration` .
-* 패키지에 모든 rest 계약을 추가 했습니다 `models` .
-* `RetryOptions`의 이름이 `ThrottlingRetryOptions`으로 바뀌었습니다.
-* `CosmosPagedFlux`  &  `CosmosPagedIterable` 쿼리 api에 대 한 페이지 매김 형식이 추가 되었습니다. 
-* 에서 새 API를 사용 하 여 CosmosClients의 여러 인스턴스에서 지 수 클라이언트를 공유 하기 위한 지원이 추가 되었습니다. `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
-* 이중 직렬화/deserialization을 제거 하 여 쿼리를 최적화 합니다. 
-* 불필요 한 복사를 앞뒤로 제거 하 여 응답 헤더를 최적화 합니다. 
-* `ByteBuffer`중간 문자열 인스턴스화를 제거 하 여 serialization/deserialization을 최적화 했습니다.
-
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* ConnectionPolicy `toString()` Null 포인터 예외가 수정 되었습니다.
-* 쿼리 결과 값이 쿼리의 경우 쿼리 결과의 구문 분석과 관련 된 문제를 해결 했습니다. 
-* 직접 TCP 클라이언트의 소켓 유출 문제를 수정 했습니다.
-* `orderByQuery`연속 토큰 버그를 사용 하 여 수정 되었습니다.
-* `ChangeFeedProcessor` 파티션을 찾을 수 없을 때 & 파티션 분할 처리를 위한 버그 수정
-* `ChangeFeedProcessor` 여러 스레드 간에 임대 업데이트를 동기화 할 때의 버그 수정
-* StoreReader에서 예외가 발생 하는 경합 상태를 수정 했습니다. `ArrayIndexOutOfBound`
+[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
 
 ## <a name="faq"></a>FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)] 
 
 ## <a name="next-steps"></a>다음 단계
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

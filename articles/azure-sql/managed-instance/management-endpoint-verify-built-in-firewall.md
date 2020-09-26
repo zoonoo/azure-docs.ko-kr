@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 1d2fffabba3615394bdf96ed487177bf21f3ecec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da9f3e2b6b8936c74e20a226b606082fb3e0d3ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263167"
 ---
 # <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Azure SQL Managed Instance 기본 제공 방화벽 확인
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

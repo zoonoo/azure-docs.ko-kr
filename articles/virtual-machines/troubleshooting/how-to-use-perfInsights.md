@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361350"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Azure에서 PerfInsights를 사용 하는 방법
 
@@ -259,8 +259,8 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 **검색 결과** 탭을 선택합니다.
 
-![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/pi-finding-tab.png)
-![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/pi-findings.png)
+![PerfInsights 보고서 ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ 의 개요 탭 스크린샷 PerfInsights 보고서의 저장소 탭 스크린샷](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > 높음으로 분류된 검색 결과는 성능 문제를 일으킬 수 있는 알려진 문제입니다. 보통으로 분류된 검색 결과는 반드시 성능 문제를 일으키지는 않지만 최적이 아닌 구성을 나타냅니다. 낮음으로 분류되는 검색 결과는 정보만 제공합니다.

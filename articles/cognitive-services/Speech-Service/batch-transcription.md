@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360755"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -43,7 +43,7 @@ ms.locfileid: "89050185"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
+Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.md#try-the-speech-service-for-free)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
 
 >[!NOTE]
 > 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 무료 구독 키 (F0)가 작동 하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 하세요.
@@ -63,7 +63,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 스테레오 오디오 스트림의 경우 기록 중 왼쪽 채널과 오른쪽 채널이 분할 됩니다. 각 채널에 대해 JSON 결과 파일이 생성 되 고 있습니다.
 정렬 된 최종 성적 증명서를 만들려면 utterance 생성 된 타임 스탬프를 사용 합니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 구성 매개 변수는 JSON (하나 이상의 개별 파일)으로 제공 됩니다.
 
@@ -173,7 +173,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
       Azure에서 쓰기 가능한 컨테이너에 [서비스 임시 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다. 저장 된 액세스 정책을 사용 하는 SAS는 지원 **되지 않습니다** . 지정 하지 않으면 microsoft에서 관리 하는 저장소 컨테이너에 결과를 저장 합니다. [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)호출 하 여 기록을 삭제 하면 결과 데이터도 삭제 됩니다.
 :::row-end:::
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 일괄 처리는 공개 된 인터넷 URI에서 오디오를 읽을 수 있으며, [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)에서 SAS URI를 사용 하 여 오디오를 읽거나 비디오를 작성할 수 있습니다.
 

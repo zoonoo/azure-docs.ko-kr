@@ -3,13 +3,13 @@ title: Azure Relay Node API 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스의 Node.js API에 대 한 개요를 제공 합니다. 또한 hyco-ws-ws 노드 패키지를 사용 하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 67d818a95d63b3097f81f799a287fb4c48a1cfb7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263490"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
@@ -142,7 +142,7 @@ function(socket)
 새로운 WebSocket 연결이 수락되면 보내집니다. 개체는 기본 패키지와 동일한 형식 `ws.WebSocket`입니다.
 
 
-##### <a name="error"></a>오류
+##### <a name="error"></a>error
 
 ```JavaScript
 function(error)

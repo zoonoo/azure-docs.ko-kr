@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458923"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325592"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -62,7 +62,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
         볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.   
 
-        를 `default` 볼륨 이름으로 사용할 수 없습니다.
+        `default`또는를 `bin` 볼륨 이름으로 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정합니다.
@@ -71,6 +71,11 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
         볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
 
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.  
+
+    * **처리량 (MiB/S)**   
+        볼륨이 수동 QoS 용량 풀에 생성 되 면 볼륨에 대해 원하는 처리량을 지정 합니다.   
+
+        볼륨이 자동 QoS 용량 풀에 생성 되는 경우이 필드에 표시 되는 값은 (할당량 x 서비스 수준 처리량)입니다.   
 
     * **가상 네트워크**  
         볼륨에 액세스하려는 Microsoft Azure Virtual Network(VNet)를 지정합니다.  

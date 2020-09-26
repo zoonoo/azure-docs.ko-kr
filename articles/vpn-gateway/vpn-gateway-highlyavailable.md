@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 3f5fd8433f8de4dab39a73e889a71c4b262dc924
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 48756b43e64576a5dd38467bb1dd97e91c168a06
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394502"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360857"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>항상 사용 가능한 크로스-프레미스 및 VNet 간 연결
 이 문서에서는 Azure VPN Gateway를 사용하여 크로스-프레미스 및 VNet 간 연결에 대해 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "89394502"
 ## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Azure VPN Gateway 중복 정보
 모든 Azure VPN Gateway는 활성-대기 구성 상태에 있는 두 인스턴스로 구성됩니다. 활성 인스턴스에 계획된 유지 관리 또는 계획되지 않은 중단이 발생한 경우 대기 인스턴스가 자동으로 발생(장애 조치)하여 S2S VPN 또는 VNet 간 연결을 다시 시작합니다. 전환하면 짧게 중단이 발생합니다. 계획된 유지 관리의 경우 10-15초 내에 연결을 복원해야 합니다. 계획되지 않은 문제의 경우 연결 복구가 1분에서 최악의 경우 1분 30초로 길어집니다. 게이트웨이에 대한 P2S VPN 클라이언트 연결의 경우 P2S 연결의 연결이 끊어지고 사용자가 클라이언트 컴퓨터에서 다시 연결해야 합니다.
 
-![활성-대기](./media/vpn-gateway-highlyavailable/active-standby.png)
+![다이어그램은 Azure에서 호스트 되는 서브넷에 연결 하기 위해 활성 Azure V p 서브넷과 온-프레미스 V P N이 연결 된 온-프레미스 사이트와 대기 게이트웨이를 사용할 수 있는 온-프레미스 사이트를 표시 합니다.](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## <a name="highly-available-cross-premises-connectivity"></a>항상 사용 가능한 크로스-프레미스 연결
 크로스 프레미스 연결에 더 나은 가용성을 제공하려면 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "89394502"
 ### <a name="active-active-azure-vpn-gateway"></a>활성-활성 Azure VPN Gateway
 이제 활성-활성 구성에서 Azure VPN gateway를 만들 수 있습니다. 여기서 게이트웨이 VM의 두 인스턴스는 다음 다이어그램에 표시된 대로 온-프레미스 VPN 디바이스에 S2S VPN 터널을 설정합니다.
 
-![활성-활성](./media/vpn-gateway-highlyavailable/active-active.png)
+![다이어그램은 Azure에서 호스트 되는 서브넷에 연결 하기 위해 두 개의 활성 Azure V p N 게이트웨이에 연결 된 개인 I P 서브넷 및 온-프레미스 V P N을 사용 하 여 온-프레미스 사이트를 표시 합니다.](./media/vpn-gateway-highlyavailable/active-active.png)
 
 이 구성에서 각 Azure 게이트웨이 인스턴스는 고유한 공용 IP 주소를 가지며 각 로컬 네트워크 게이트웨이 및 연결에 지정된 온-프레미스 VPN 디바이스에 IPsec/IKE S2S VPN 터널을 설정합니다. VPN 터널은 모두 동일한 연결의 일부입니다. 온-프레미스 VPN 디바이스를 구성하여 해당 Azure VPN Gateway 공용 IP 주소에 두 개의 S2S VPN 터널을 허용하거나 설정해야 합니다.
 
@@ -71,7 +71,7 @@ Azure 게이트웨이 인스턴스가 활성-활성 구성이기 때문에 온-�
 ## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Azure VPN Gateways를 통해 항상 사용 가능한 VNet 간 연결
 또한 동일한 활성-활성 구성은 Azure VNet 간 연결에 적용할 수 있습니다. 두 가상 네트워크에 대한 활성-활성 VPN Gateways를 만들고 이들을 서로 연결하여 아래 다이어그램에 표시된 대로 두 VNet 간에 4개 터널의 동일한 전체 메시 연결을 형성할 수 있습니다.
 
-![VNet 간](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![다이어그램에는 두 개의 가상 사이트가 연결 되는 개인 I P 서브넷 및 두 개의 Azure V P N 게이트웨이를 호스트 하는 두 개의 Azure 지역이 표시 됩니다.](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 이렇게 하면 더 나은 가용성을 제공하여 계획된 유지 관리 이벤트에 대한 두 개의 가상 네트워크 간에 몇 개의 터널을 유지하게 됩니다. 크로스-프레미스 연결에 대한 동일한 토폴로지가 두 개의 연결을 필요로 하더라도 위에 표시된 VNet 간 토폴로지는 각 게이트웨이에 하나의 연결만을 필요로 합니다. 또한 VNet 간 연결을 통한 전송 라우팅이 필요한 경우가 아니면 BGP는 선택 사항입니다.
 
