@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334680"
+ms.locfileid: "91371680"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행 
 
@@ -44,7 +44,7 @@ ms.locfileid: "91334680"
 | 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.7.0 |
 | 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.7.0 |
 | 음성 언어 감지 | 오디오 파일에서 언어를 음성으로 검색 합니다. | 1.0 |
-| 신경망 음성 변환 | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. | 1.1.0 |
+| 신경망 음성 변환 | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. | 1.2.0 |
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
@@ -245,7 +245,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 다음 태그는 해당 형식의 예입니다.
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 지원 되는 모든 로캘과 **신경망의 신경망** 컨테이너에 해당 하는 음성에 대 한 자세한 내용은 [신경망 이미지 태그](../containers/container-image-tags.md#neural-text-to-speech)를 참조 하세요.

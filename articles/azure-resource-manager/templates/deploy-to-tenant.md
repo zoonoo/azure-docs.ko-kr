@@ -3,12 +3,12 @@ title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284762"
+ms.locfileid: "91372394"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테넌트 수준에서 리소스 만들기
 
@@ -24,7 +24,7 @@ Azure 정책의 경우 다음을 사용 합니다.
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-역할 기반 액세스 제어를 사용 하려면 다음을 사용 합니다.
+Azure RBAC (역할 기반 액세스 제어)의 경우 다음을 사용 합니다.
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 

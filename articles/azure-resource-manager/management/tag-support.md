@@ -3,12 +3,12 @@ title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dd991167e703ad9faa7803bcecbbb6dc7eff94e7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284961"
+ms.locfileid: "91371544"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/group-filter.md) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -1537,11 +1537,8 @@ ms.locfileid: "91284961"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | workspaces | 예 | 예 |
-> | 작업 영역/codeJobs | 예 | 예 |
 > | workspaces / computes | 예 | 예 |
 > | workspace/eventGridFilters | 예 | 예 |
-> | 작업 영역/inferenceEndpoints | 예 | 예 |
-> | 작업 영역/inferenceEndpoints/배포 | 예 | 예 |
 > | 작업 영역/Linkedservices.json 및 datasets.json | 예 | 예 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance

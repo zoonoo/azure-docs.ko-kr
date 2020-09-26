@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ecaf7a7df80cbb62bcb27373c47e26c70108d1e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9111a16a4264c4b225eaf0888fc09bd1bba07ef4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372122"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 리소스 관리
 
@@ -137,7 +137,7 @@ az lock delete --ids $lockId
 
 ## <a name="manage-access-to-resources"></a>리소스에 대 한 액세스 관리
 
-Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure CLI](../../role-based-access-control/role-assignments-cli.md)을 참조 하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

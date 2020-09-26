@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4b196818ade1e703e24ed1ced6ebac1b44d0b083
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372071"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Azure Cache for Redis로 마이그레이션
 이 문서에서는 온-프레미스 또는 다른 클라우드 서비스에서 실행 되는 기존 Redis cache를 Redis 용 Azure Cache로 마이그레이션하는 다양 한 방법을 설명 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "88009582"
    | ------------ | ---------- | ------------- |
    | 새 캐시 만들기 | 구현 하는 것이 가장 간단 합니다. | 데이터를 새 캐시로 다시 채워야 하므로 많은 응용 프로그램에서 작동 하지 않을 수 있습니다. |
    | RDB 파일을 통해 데이터 내보내기 및 가져오기 | 일반적으로 모든 Redis 캐시와 호환 됩니다. | RDB 파일이 생성 된 후 기존 캐시에 기록 되 면 일부 데이터가 손실 될 수 있습니다. | 
-   | 두 개의 캐시로 데이터 이중 쓰기 | 데이터 손실이 나 downtown 없습니다. 기존 캐시의 중단 없는 작업 새 캐시를 쉽게 테스트할 수 있습니다. | 오랜 시간 동안 두 개의 캐시가 필요 합니다. | 
+   | 두 개의 캐시로 데이터 이중 쓰기 | 데이터 손실 또는 가동 중지 시간 없음 기존 캐시의 중단 없는 작업 새 캐시를 쉽게 테스트할 수 있습니다. | 오랜 시간 동안 두 개의 캐시가 필요 합니다. | 
    | 프로그래밍 방식으로 데이터 마이그레이션 | 데이터 이동 방법에 대 한 모든 권한 | 사용자 지정 코드가 필요 합니다. | 
 
 ### <a name="create-a-new-azure-cache-for-redis"></a>Redis에 대 한 새 Azure 캐시 만들기

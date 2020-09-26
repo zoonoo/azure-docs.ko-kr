@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 098c0a85dc6c0fac8b78f344c4c8559b168b9114
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371340"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight에서 관리 되는 id
 
@@ -27,7 +27,7 @@ ms.locfileid: "88749847"
 
 Azure HDInsight에서 관리 되는 id는 HDInsight 서비스에서 내부 구성 요소에 대해서만 사용할 수 있습니다. 현재 외부 서비스에 액세스 하기 위해 HDInsight 클러스터 노드에 설치 된 관리 되는 id를 사용 하 여 액세스 토큰을 생성 하는 데 지원 되는 방법은 없습니다. 계산 Vm과 같은 일부 Azure 서비스의 경우 관리 되는 id는 액세스 토큰을 획득 하는 데 사용할 수 있는 끝점을 사용 하 여 구현 됩니다. 이 끝점은 현재 HDInsight 노드에서 사용할 수 없습니다.
 
-분석 작업 (예: SCALA 작업)에 비밀/암호를 넣지 않도록 응용 프로그램을 부트스트랩 해야 하는 경우 스크립트 작업을 사용 하 여 클러스터 노드에 자신의 인증서를 distrubte 다음 해당 인증서를 사용 하 여 액세스 토큰을 가져오기가 수 있습니다 (예: Azure KeyVault 액세스).
+분석 작업 (예: SCALA 작업)에 비밀/암호를 넣지 않도록 응용 프로그램을 부트스트랩 해야 하는 경우 스크립트 작업을 사용 하 여 클러스터 노드에 자신의 인증서를 배포한 다음 해당 인증서를 사용 하 여 액세스 토큰을 획득할 수 있습니다 (예: Azure KeyVault 액세스).
 
 ## <a name="create-a-managed-identity"></a>관리 ID 만들기
 
@@ -47,6 +47,15 @@ Azure HDInsight에서 관리 되는 id는 HDInsight 서비스에서 내부 구�
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [고객 관리형 키 디스크 암호화](disk-encryption.md)
+
+HDInsight는 이러한 시나리오에 사용 하는 관리 되는 id에 대 한 인증서를 자동으로 갱신 합니다. 그러나 장기 실행 클러스터에 여러 관리 되는 id를 사용 하는 경우에는 제한 사항이 있지만 모든 관리 id에 대해 인증서 갱신이 예상 대로 작동 하지 않을 수 있습니다. 이러한 제한으로 인해 장기 실행 클러스터 (예: 60 일 넘게)를 사용 하려는 경우 위의 모든 시나리오에 대해 동일한 관리 id를 사용 하는 것이 좋습니다. 
+
+여러 다른 관리 id를 사용 하 여 장기 실행 클러스터를 이미 만들고 다음 문제 중 하나로 실행 하는 경우:
+ * ESP 클러스터에서 클러스터 서비스는 장애 조치 (failover)를 시작 하 고 다른 작업은 인증 오류로 인해 실패 합니다.
+ * ESP 클러스터에서 AAD-DS LDAPS 인증서를 변경 하면 LDAPS 인증서가 자동으로 업데이트 되지 않으므로 LDAP 동기화 및 scale ups가 실패 합니다.
+ * ADLS Gen2에 대 한 MSI 액세스를 시작 하지 못했습니다.
+ * CMK 시나리오에서는 암호화 키를 회전할 수 없습니다.
+그런 다음 클러스터에서 사용 되는 모든 관리 되는 id에 위의 시나리오에 필요한 역할 및 권한을 할당 해야 합니다. 예를 들어 ADLS Gen2 및 ESP 클러스터에 대해 서로 다른 관리 되는 id를 사용 하는 경우 이러한 문제를 방지 하기 위해 둘 다 "저장소 blob 데이터 소유자" 및 "HDInsight Domain Services 참여자" 역할을 할당 해야 합니다.
 
 ## <a name="faq"></a>FAQ
 

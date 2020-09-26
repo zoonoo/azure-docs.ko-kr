@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371510"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -105,6 +105,13 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 - **조각난 디스크:** 디스크 변경이 연속으로 수행 되는 경우 백업 작업이 더 빠릅니다. 변경 내용이 디스크 전체에 분산되고 조각화되면 백업이 더 느려집니다.
 - **디스크 변동:** 증분 백업에 사용 되는 보호 된 디스크의 일일 변동 수가 200 GB 보다 많은 경우 백업을 완료 하는 데 시간이 오래 걸릴 수 있습니다 (8 시간 초과).
 - **백업 버전:** 최신 버전의 백업 (인스턴트 복원 버전 이라고 함)에서는 변경 내용을 식별 하기 위한 체크섬 비교 보다 최적화 된 프로세스를 사용 합니다. 하지만 인스턴트 복원을 사용 중이 고 백업 스냅숏을 삭제 한 경우 백업은 체크섬 비교로 전환 됩니다. 이 경우 백업 작업은 24 시간 (또는 실패)을 초과 합니다.
+
+### <a name="restore-performance"></a>복원 성능
+
+이러한 일반적인 시나리오는 총 복원 시간에 영향을 줄 수 있습니다.
+
+- 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다.
+- 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 

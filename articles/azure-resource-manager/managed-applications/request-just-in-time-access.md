@@ -3,18 +3,18 @@ title: Just-In-Time 액세스 요청
 description: 게시자 Azure Managed Applications 관리 되는 응용 프로그램에 just-in-time 액세스를 요청 하는 방법을 설명 합니다.
 author: MSEvanhi
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371571"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청
 
-관리 되는 응용 프로그램의 소비자는 관리 되는 리소스 그룹에 영구적으로 액세스할 수 있는 권한을 꺼려할 수 있습니다. 관리자 응용 프로그램의 게시자는 관리 되는 리소스에 액세스 해야 하는 경우 소비자에 게 정확 하 게 알리는 것이 좋습니다. 소비자에 게 관리 되는 리소스에 대 한 액세스 권한을 부여 하는 것을 보다 강력 하 게 제어 하기 위해 Azure Managed Applications는 현재 미리 보기로 제공 되는 JIT (just-in-time) 액세스 라는 기능을 제공 합니다.
+관리 되는 응용 프로그램의 소비자는 관리 되는 리소스 그룹에 영구적으로 액세스할 수 있는 권한을 꺼려할 수 있습니다. 관리자 응용 프로그램의 게시자는 관리 되는 리소스에 액세스 해야 하는 경우 소비자에 게 정확 하 게 알리는 것이 좋습니다. 소비자에 게 관리 되는 리소스에 대 한 액세스 권한을 부여 하는 것을 더 잘 제어할 수 있도록 Azure Managed Applications JIT (just-in-time) 액세스 라는 기능을 제공 합니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다.
 
@@ -34,9 +34,7 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 
 ## <a name="add-jit-access-step-to-ui"></a>UI에 JIT 액세스 단계 추가
 
-파일에 대 한 CreateUiDefinition.js은 사용자가 JIT 액세스를 사용할 수 있도록 하는 단계를 포함 하는 것을 제외 하 고 영구적으로 액세스 하기 위해 만든 UI 파일과 똑같습니다. Azure Marketplace에서 관리 되는 첫 번째 응용 프로그램 제품을 게시 하는 방법에 대 한 자세한 내용은 [Marketplace의 Azure Managed Applications](publish-marketplace-app.md)를 참조 하세요.
-
-제품에 대 한 JIT 기능을 지원 하려면 파일의 CreateUiDefinition.js에 다음 콘텐츠를 추가 합니다.
+파일의 CreateUiDefinition.js에는 소비자가 JIT 액세스를 사용할 수 있도록 하는 단계를 포함 합니다. 제품에 대 한 JIT 기능을 지원 하려면 파일의 CreateUiDefinition.js에 다음 콘텐츠를 추가 합니다.
 
 "단계":
 
@@ -58,7 +56,7 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
     ]
 }
 ```
- 
+
 "출력":
 
 ```json
@@ -70,15 +68,17 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 
 ## <a name="enable-jit-access"></a>JIT 액세스 사용
 
-Marketplace에서 제품을 정의 하는 경우 JIT 액세스를 사용 하도록 설정 해야 합니다.
+파트너 센터에서 제품을 만들 때 JIT 액세스를 사용 하도록 설정 했는지 확인 합니다.
 
-1. [클라우드 파트너 게시 포털](https://cloudpartner.azure.com)에 로그인 합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에서 상용 Marketplace 포털에 로그인 합니다.
 
-1. Marketplace에 관리 되는 응용 프로그램을 게시 하는 값을 제공 합니다. **JIT 액세스 사용** 에 대해 **예** 를 선택 합니다.
+1. 새 관리 되는 응용 프로그램을 만드는 방법에 대 한 지침은 [Azure 응용 프로그램 제품 만들기](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)의 단계를 따르세요.
 
-   ![Just-In-Time VM 액세스 사용](./media/request-just-in-time-access/marketplace-enable.png)
+1. **기술 구성** 페이지에서 **JIT (Just-in-time) 액세스 사용** 확인란을 선택 합니다.
 
-JIT 구성 단계를 UI에 추가 하 고 marketplace 제품에서 JIT 액세스를 사용 하도록 설정 했습니다. 소비자는 관리 되는 응용 프로그램을 배포할 때 [해당 인스턴스에 대 한 JIT 액세스를 켤](approve-just-in-time-access.md#enable-during-deployment)수 있습니다.
+   :::image type="content" source="./media/request-just-in-time-access/enable-just-in-time-access.png" alt-text="Just-In-Time VM 액세스 사용":::
+
+UI에 JIT 구성 단계를 추가 하 고 상용 marketplace 제품에서 JIT 액세스를 사용 하도록 설정 했습니다. 소비자는 관리 되는 응용 프로그램을 배포할 때 [해당 인스턴스에 대 한 JIT 액세스를 켤](approve-just-in-time-access.md#enable-during-deployment)수 있습니다.
 
 ## <a name="request-access"></a>액세스 요청
 
