@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321983"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 myPolicies 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "90604464"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -97,11 +97,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 myPolicies를 구
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로 비전 탭 Automatica](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래의 `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **테 넌 트 URL** 에 입력 `<myPoliciesCustomDomain>` 합니다. 여기서은 myPolicies 사용자 지정 도메인입니다. URL에서 myPolicies customer 도메인을 검색할 수 있습니다.
 예: `<demo0-qa>` . mypolicies.com.

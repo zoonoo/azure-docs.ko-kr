@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8917343175dd5ed8f82c1929683de98034323163
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321920"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 PureCloud를 사용 하 여 구성
 
@@ -80,11 +80,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 PureCloud by를 입력 하 여 **테 넌 트 Url** 및 **비밀 토큰** 필드에 Oauth 토큰을 입력 합니다. API URL은 `{{API Url}}/api/v2/scim/v2` [PureCloud 개발자 센터](https://developer.mypurecloud.com/api/rest/index.html)에서 PureCloud 지역에 대 한 api url을 사용 하 여 구성 됩니다. **연결 테스트** 를 클릭 하 여 Azure AD가 PureCloud에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Genesys 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

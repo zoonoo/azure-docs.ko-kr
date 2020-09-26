@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286556"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 다시 구성
 이 자습서에서는 Azure AD에서 SAP SuccessFactors Employee Central으로 특성을 다시 작성 하는 단계를 보여 줍니다. 
@@ -125,68 +125,97 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 ## <a name="preparing-for-successfactors-writeback"></a>SuccessFactors 쓰기 저장 준비
 
-SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 특정 *코드* 값을 사용 하 여 Employee Central에서 전자 메일 및 전화 번호를 설정 합니다. 이러한 *코드* 값은 특성 매핑 테이블에서 상수 값으로 설정 되며 각 SuccessFactors 인스턴스에 대해 다릅니다. 이 섹션에서는 [Postman](https://www.postman.com/downloads/) 을 사용 하 여 코드 값을 가져옵니다. [말아](https://curl.haxx.se/) [Fiddler](https://www.telerik.com/fiddler) 또는 기타 유사한 도구를 사용 하 여 HTTP 요청을 보낼 수 있습니다. 
+SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 특정 *코드* 값을 사용 하 여 Employee Central에서 전자 메일 및 전화 번호를 설정 합니다. 이러한 *코드* 값은 특성 매핑 테이블에서 상수 값으로 설정 되며 각 SuccessFactors 인스턴스에 대해 다릅니다. 이 섹션에서는 이러한 *코드* 값을 캡처하는 단계를 제공 합니다.
 
-### <a name="download-and-configure-postman-with-your-successfactors-tenant"></a>SuccessFactors 테 넌 트를 사용 하 여 Postman 다운로드 및 구성
+   > [!NOTE]
+   > SuccessFactors Admin을 포함 하 여이 섹션의 단계를 완료 하세요. 
 
-1. [Postman](https://www.postman.com/downloads/) 다운로드
-1. Postman 앱에서 "새 컬렉션"을 만듭니다. "SuccessFactors" 라고 합니다. 
+### <a name="identify-email-and-phone-number-picklist-names"></a>전자 메일 및 전화 번호 선택 목록 이름 식별 
+
+SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵션의 구성 가능한 *집합입니다.* 여러 유형의 전자 메일 및 전화 번호 (예: 비즈니스, 개인, 기타)는 선택 목록을 사용 하 여 표시 됩니다. 이 단계에서는 전자 메일 및 전화 번호 값을 저장 하는 SuccessFactors 테 넌 트에 구성 된 선택 목록을 식별 합니다. 
+ 
+1. SuccessFactors 관리 센터에서 *비즈니스 구성 관리*를 검색 합니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![새 Postman 컬렉션](./media/sap-successfactors-inbound-provisioning/new-postman-collection.png)
+   > ![비즈니스 구성 관리](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. "권한 부여" 탭에서 이전 섹션에서 구성한 API 사용자의 자격 증명을 입력 합니다. 유형을 "기본 인증"으로 구성 합니다. 
+1. **Hris 요소**아래에서 **emailinfo** 를 선택 하 고 **전자 메일 형식** 필드에 대 한 *세부 정보* 를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman 권한 부여](./media/sap-successfactors-inbound-provisioning/postman-authorization.png)
+   > ![전자 메일 정보 가져오기](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. 구성을 저장합니다. 
+1. **전자 메일 유형** 세부 정보 페이지에서이 필드와 연결 된 선택 목록의 이름을 적어 둡니다. 기본적으로 **Ecemailtype**입니다. 그러나 테 넌 트에서 다를 수 있습니다. 
+
+   > [!div class="mx-imgBorder"]
+   > ![전자 메일 선택 목록 식별](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
+
+1. **Hris 요소**아래에서 **phoneInfo** 을 선택 하 고 **전화 형식** 필드에 대 한 *세부 정보* 를 클릭 합니다.
+
+   > [!div class="mx-imgBorder"]
+   > ![휴대폰 정보 가져오기](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
+
+1. **전화 유형** 세부 정보 페이지에서이 필드와 연결 된 선택 목록의 이름을 적어 둡니다. 기본적으로 **ecPhoneType**입니다. 그러나 테 넌 트에서 다를 수 있습니다. 
+
+   > [!div class="mx-imgBorder"]
+   > ![전화 선택 목록 확인](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### <a name="retrieve-constant-value-for-emailtype"></a>EmailType의 상수 값을 검색 합니다.
 
-1. Postman에서 SuccessFactors 컬렉션과 연결 된 줄임표 (...)를 클릭 하 고 아래와 같이 "새 요청"을 "전자 메일 유형 가져오기" 라고 추가 합니다. 
+1. SuccessFactors 관리 센터에서 *선택 목록 센터*를 검색 하 여 엽니다. 
+1. 이전 섹션에서 캡처된 메일 선택 목록 (예: ecEmailType)의 이름을 사용 하 여 전자 메일 선택 목록을 찾습니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman 전자 메일 요청 ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![전자 메일 유형 선택 목록 찾기](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
 
-1. "전자 메일 유형 가져오기" 요청 패널을 엽니다. 
-1. URL 가져오기에서 다음 URL을 추가 합니다 `successFactorsAPITenantName` .를 SuccessFactors 인스턴스의 API 테 넌 트로 바꿉니다. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecEmailType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. 활성 전자 메일 선택 목록을 엽니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman 이메일 유형 가져오기](./media/sap-successfactors-inbound-provisioning/postman-get-email-type.png)
+   > ![활성 전자 메일 유형 선택 목록 열기](./media/sap-successfactors-inbound-provisioning/open-active-email-type-picklist.png)
 
-1. "권한 부여" 탭은 컬렉션에 대해 구성 된 인증을 상속 합니다. 
-1. "송신"을 클릭 하 여 API 호출을 호출 합니다. 
-1. 응답 본문에서 JSON 결과 집합을 확인 하 고에 해당 하는 ID를 찾습니다 `externalCode = B` . 
+1. 전자 메일 유형 선택 목록 페이지에서 *비즈니스* 전자 메일 유형을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman 전자 메일 유형 응답](./media/sap-successfactors-inbound-provisioning/postman-email-type-response.png)
+   > ![비즈니스 전자 메일 유형 선택](./media/sap-successfactors-inbound-provisioning/select-business-email-type.png)
 
-1. 특성 매핑 테이블에서 *Emailtype* 에 사용할 상수로이 값을 적어 둡니다.
+1. *비즈니스* 전자 메일과 연결 된 **옵션 ID** 를 적어 둡니다. 이 코드는 특성 매핑 테이블에서 *Emailtype* 과 함께 사용할 코드입니다.
+
+   > [!div class="mx-imgBorder"]
+   > ![전자 메일 형식 코드 가져오기](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
+
+   > [!NOTE]
+   > 값을 복사할 때 쉼표 문자를 삭제 합니다. 예를 들어 **옵션 ID** 값이 *8448*인 경우 Azure AD의 *emailtype* 을 상수 번호 *8448* (쉼표 문자 제외)로 설정 합니다. 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>PhoneType에 대 한 상수 값 검색
 
-1. Postman에서 SuccessFactors 컬렉션과 연결 된 줄임표 (...)를 클릭 하 고 아래와 같이 "새 요청"을 "휴대폰 유형 가져오기" 라고 추가 합니다. 
+1. SuccessFactors 관리 센터에서 *선택 목록 센터*를 검색 하 여 엽니다. 
+1. 이전 섹션에서 캡처한 휴대폰 선택 목록 이름을 사용 하 여 전화 선택 목록을 찾습니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman 휴대폰 요청](./media/sap-successfactors-inbound-provisioning/postman-phone-request.png)
+   > ![휴대폰 유형 선택 목록 찾기](./media/sap-successfactors-inbound-provisioning/find-phone-type-picklist.png)
 
-1. "휴대폰 유형 가져오기" 요청 패널을 엽니다. 
-1. URL 가져오기에서 다음 URL을 추가 합니다 `successFactorsAPITenantName` .를 SuccessFactors 인스턴스의 API 테 넌 트로 바꿉니다. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecPhoneType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. 활성 전화 선택 목록을 엽니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman 휴대폰 유형 가져오기](./media/sap-successfactors-inbound-provisioning/postman-get-phone-type.png)
+   > ![활성 휴대폰 유형 선택 목록 열기](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. "권한 부여" 탭은 컬렉션에 대해 구성 된 인증을 상속 합니다. 
-1. "송신"을 클릭 하 여 API 호출을 호출 합니다. 
-1. 응답 본문에서 JSON 결과 집합을 보고 및에 해당 하는 *ID* 를 찾습니다 `externalCode = B` `externalCode = C` . 
+1. 휴대폰 유형 선택 목록 페이지에서 **선택 목록 값**에 나열 된 다양 한 전화 유형을 검토 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman-휴대폰](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
+   > ![전화 유형 검토](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
 
-1. 특성 매핑 테이블에서 *businessPhoneType* 및 *cellPhoneType* 와 함께 사용할 상수로 이러한 값을 적어 둡니다.
+1. *회사* 전화와 연결 된 **옵션 ID** 를 적어 둡니다. 이 코드는 특성 매핑 테이블에서 *businessPhoneType* 와 함께 사용할 코드입니다.
+
+   > [!div class="mx-imgBorder"]
+   > ![회사 전화 코드 가져오기](./media/sap-successfactors-inbound-provisioning/get-business-phone-code.png)
+
+1. *휴대폰에* 연결 된 **옵션 ID** 를 적어둡니다. 이 코드는 특성 매핑 테이블에서 *cellPhoneType* 와 함께 사용할 코드입니다.
+
+   > [!div class="mx-imgBorder"]
+   > ![휴대폰 코드 가져오기](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
+
+   > [!NOTE]
+   > 값을 복사할 때 쉼표 문자를 삭제 합니다. 예를 들어 **옵션 ID** 값이 *10606*인 경우 Azure AD의 *cellPhoneType* 을 상수 번호 *10606* (쉼표 문자 제외)로 설정 합니다. 
+
 
 ## <a name="configuring-successfactors-writeback-app"></a>SuccessFactors 쓰기 저장 앱 구성
 

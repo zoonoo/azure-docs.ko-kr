@@ -3,13 +3,13 @@ title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-js, devx-track-dotnet
+ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321818"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 

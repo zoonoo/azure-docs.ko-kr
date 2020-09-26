@@ -3,12 +3,12 @@ title: Azure Migrate Server 마이그레이션에 대 한 일반적인 질문
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: b0ae28fc387125b198bed202d857c3b9ecdd44bb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050661"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275543"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -18,6 +18,28 @@ ms.locfileid: "89050661"
 - [Azure Migrate 어플라이언스](common-questions-appliance.md) 에 대 한 질문
 - [검색, 평가 및 종속성 시각화](common-questions-discovery-assessment.md) 에 대 한 질문
 - [Azure Migrate 포럼](https://aka.ms/AzureMigrateForum) 에서 질문에 대 한 답변 받기
+
+## <a name="does-azure-migrate-convert-uefi-based-machines-to-bios-based-machines-and-migrate-them-to-azure-as-azure-generation-1-vms"></a>UEFI 기반 컴퓨터를 BIOS 기반 컴퓨터로 변환 Azure Migrate 하 고 Azure에 Azure 1 세대 Vm으로 마이그레이션해야 하나요?
+Azure Migrate: 서버 마이그레이션 도구는 모든 UEFI 기반 컴퓨터를 azure 2 세대 Vm으로 Azure로 마이그레이션합니다. UEFI 기반 Vm을 BIOS 기반 Vm으로 변환 하는 것은 더 이상 지원 되지 않습니다. 모든 BIOS 기반 컴퓨터는 Azure 1 세대 Vm 으로만 Azure로 마이그레이션됩니다.
+
+## <a name="how-can-i-migrate-uefi-based-machines-to-azure-as-azure-generation-1-vms"></a>UEFI 기반 컴퓨터를 azure 1 세대 Vm으로 Azure로 마이그레이션하려면 어떻게 하나요?
+Azure Migrate: 서버 마이그레이션 도구는 UEFI 기반 컴퓨터를 azure 2 세대 Vm으로 Azure로 마이그레이션합니다. Azure 1 세대 Vm으로 마이그레이션하려면 복제를 시작 하기 전에 부팅 유형을 BIOS로 변환 하 고 Azure Migrate: 서버 마이그레이션 도구를 사용 하 여 Azure로 마이그레이션합니다.
+ 
+## <a name="which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure"></a>UEFI 기반 컴퓨터를 Azure로 마이그레이션할 때 지원 되는 운영 체제는 무엇 인가요?
+
+| **UEFI 기반 컴퓨터에 대해 지원 되는 운영 체제** | **에이전트 없는 VMware에서 Azure로**                                                                                                             | **에이전트 없는 Hyper-v에서 Azure로** | **Azure에 대 한 에이전트 기반 VMware, 물리적 및 기타 클라우드** |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
+| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 4.x를 [수동으로 준비](https://go.microsoft.com/fwlink/?linkid=2143939) 해야 합니다._   | Y                              | Y                                                          |
+| 센트 OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_운영 체제를 [수동으로 준비](https://go.microsoft.com/fwlink/?linkid=2143939) 해야 합니다._ | Y                              | Y                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+
+## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>재해 복구 시나리오에 Azure Migrate 하 여 만든 recovery services 자격 증명 모음을 사용할 수 있나요?
+재해 복구 시나리오의 Azure Migrate에서 만든 recovery services 자격 증명 모음은 사용 하지 않는 것이 좋습니다. 이렇게 하면 Azure Migrate에서 복제 시작이 실패할 수 있습니다. 
 
 ## <a name="where-should-i-install-the-replication-appliance-for-agent-based-migrations"></a>에이전트 기반 마이그레이션의 복제 어플라이언스를 설치 해야 하는 위치는 어디 인가요?
 
@@ -30,7 +52,7 @@ AWS EC2 인스턴스를 검색 하 고, 평가 하 고, Azure로 마이그레이
 ## <a name="can-i-migrate-aws-vms-running-amazon-linux-operating-system"></a>Amazon Linux 운영 체제를 실행 하는 AWS Vm을 마이그레이션할 수 있나요?
 
 Amazon linux OS는 AWS 에서만 지원 되므로 Amazon Linux를 실행 하는 Vm은 있는 그대로 마이그레이션할 수 없습니다.
-Amazon Linux에서 실행 되는 워크 로드를 마이그레이션하려면 Azure에서 CentOS/RHEL VM을 실행 하 고 관련 워크 로드 마이그레이션 방법을 사용 하 여 AWS Linux 컴퓨터에서 실행 되는 워크 로드를 마이그레이션할 수 있습니다. 예를 들어 워크 로드에 따라 웹 서버에 대 한 데이터베이스 또는 배포 도구 등의 마이그레이션에 도움이 되는 워크 로드 별 도구가 있을 수 있습니다.
+Amazon Linux에서 실행되는 워크로드를 마이그레이션하려면 Azure에서 CentOS/RHEL VM을 실행하고 관련 워크로드 마이그레이션 방법을 사용하여 AWS Linux 머신에서 실행되는 워크로드를 마이그레이션할 수 있습니다. 예를 들어 워크로드에 따라 웹 서버에 대한 데이터베이스 또는 배포 도구 등의 마이그레이션에 도움이 되는 워크로드별 도구가 있을 수 있습니다.
 
 ## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Azure Migrate로 마이그레이션에 대해 지원 되는 지역은 무엇 인가요?
 
@@ -200,11 +222,6 @@ Azure Migrate 서버 마이그레이션 기능은 현재와 같은 마이그레�
 
 에이전트 없는 복제는 VMware vCenter Server 및 VMware ESXi 호스트에 몇 가지 성능 영향을 줍니다. 에이전트 없는 복제는 스냅숏을 사용 하므로 저장소에서 IOPS를 사용 하므로 일부 IOPS 저장소 대역폭이 필요 합니다. 사용자 환경에서 저장소 또는 IOPs에 대 한 제약 조건이 있는 경우 에이전트 없는 복제를 사용 하지 않는 것이 좋습니다.
 
-## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Azure Gen 2로 UEFI Vm의 에이전트 없는 마이그레이션을 수행할 수 있나요?
-
-아니요. [VMware 에이전트 기반 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [hyper-v 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines)또는 [물리적 서버 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) 옵션을 사용 하 여 이러한 vm을 Gen 2 Azure vm으로 마이그레이션할 수 있습니다.
-
-***참고:*** Azure에서 2 세대 UEFI를 지 원하는 적절 한 VM 크기를 선택 했는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286013"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Smartsheet 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "88546698"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [Smartsheet 테 넌 트](https://www.smartsheet.com/pricing)입니다.
 * 시스템 관리자 권한이 있는 Smartsheet Enterprise 또는 Enterprise 프리미어 계획의 사용자 계정
@@ -69,15 +69,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Smartsheet�
 
 5. **앱 및 통합**으로 이동 하 여 Azure AD로 자동 사용자 프로 비전을 구성 하는 데 필요한 **비밀 토큰** 을 생성 합니다.
 
-    ![Smartsheet 설치](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+    ![사용자 아바타와 앱 & 통합 옵션이 out 인 Smartsheet 관리 페이지의 스크린샷](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. **API 액세스**를 선택 합니다. **새 액세스 토큰 생성**을 클릭 합니다.
 
-    ![Smartsheet 설치](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+    ![API 액세스 및 새 액세스 토큰 생성 옵션이 포함 된 개인 설정 대화 상자의 스크린샷.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. API 액세스 토큰의 이름을 정의 합니다. **확인**을 클릭합니다.
 
-    ![Smartsheet 설치](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+    ![확인 옵션을 호출 하 여 API 액세스 토큰을 생성 하는 2 단계의 스크린샷.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. API 액세스 토큰을 복사 하 고이를 볼 수 있는 유일한 시간으로 저장 합니다. Azure AD의 **비밀 토큰** 필드에 필요 합니다.
 
@@ -117,11 +117,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 먼저 검색 된 **scim 2.0 기준 Url 및 액세스 토큰** 값을 검색 합니다. **Tenant URL** **Secret Token** **연결 테스트** 를 클릭 하 여 Azure AD가 smartsheet에 연결할 수 있는지 확인 합니다. 연결에 실패 하는 경우 Smartsheet 계정에 SysAdmin 권한이 있는지 확인 한 후 다시 시도 하십시오.
 
@@ -150,7 +150,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |externalId|String|
    |역할 [primary eq "True"]. display|String|
    |역할 [primary eq "True"]. 형식|String|
-   |역할 [primary eq "True"]. 값|String|
+   |roles[primary eq "True"].value|String|
    |역할|String|
    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|

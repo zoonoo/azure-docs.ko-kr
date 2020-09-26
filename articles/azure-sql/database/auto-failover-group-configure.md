@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277974"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -381,7 +381,7 @@ Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만
     | **필드** | 값 |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **이름** | 가상 네트워크 게이트웨이의 이름입니다. |
+    | **Name** | 가상 네트워크 게이트웨이의 이름입니다. |
     | **지역** | 기본 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
@@ -443,7 +443,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 보조 가상 네트워크 게�
    | **필드** | 값 |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **이름** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. |
+   | **Name** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. |
    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |

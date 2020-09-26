@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 083bb7549bb555cbbefaf680d401696ecd64b9c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b4a5e76ec8dad66bf300cc3e1d55471383f83ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285833"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Symantec WSS (Web Security Service) 구성
 
@@ -62,11 +62,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Symantec WSS (Web
 
 3.  **타사 사용자 & 그룹 동기화**를 선택 합니다. 
 
-    ![Symantec Web Security Service](media/symantec-web-security-service/third-party-users.png)
+    ![타사 사용자 & 그룹 동기화 옵션의 스크린샷](media/symantec-web-security-service/third-party-users.png)
 
 4.  **Scim URL** 및 **토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 Symantec WSS (Web Security Service) 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다.
 
-    ![Symantec Web Security Service](media/symantec-web-security-service/scim.png)
+    ![S C I M U R L 및 토큰 텍스트 상자를 호출 하는 새 통합 대화 상자의 스크린샷](media/symantec-web-security-service/scim.png)
 
 ## <a name="add-symantec-web-security-service-wss-from-the-gallery"></a>갤러리에서 Symantec WSS (Web Security Service) 추가
 
@@ -109,11 +109,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Symantec WSS (Web
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 url** 및 **암호 토큰** 에서 검색 된 **scim url** 및 **토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Symantec 웹 보안 서비스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Symantec WSS (Web Security Service) 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -127,19 +127,19 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Symantec WSS (Web
 
 8. **매핑** 섹션 아래에서 **Symantec WSS (Web Security Service)에 Azure Active Directory 사용자 동기화를**선택 합니다.
 
-    ![Symantec WSS (Web Security Service) 사용자 매핑](media/symantec-web-security-service/usermapping.png)
+    ![사용자 Azure Active Directory Symantec 웹 보안 서비스에 사용자 동기화 옵션을 사용 하는 매핑 섹션의 스크린샷 (이라고 함)](media/symantec-web-security-service/usermapping.png)
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Symantec WSS (Web Security Service)로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Symantec WSS (Web Security Service)의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Symantec WSS (Web Security Service) 사용자 매핑](media/symantec-web-security-service/userattribute.png)
+    ![16 개의 일치 하는 속성을 보여 주는 특성 매핑 섹션의 스크린샷](media/symantec-web-security-service/userattribute.png)
 
 10. **매핑** 섹션에서 **Symantec 웹 보안 서비스에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
-    ![Symantec WSS (Web Security Service) 사용자 매핑](media/symantec-web-security-service/groupmapping.png)
+    ![Azure Active Directory 그룹을 Symantec 웹 보안 서비스에 동기화 하는 중 옵션을 호출 하는 매핑 섹션의 스크린샷.](media/symantec-web-security-service/groupmapping.png)
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Symantec WSS (Web Security Service)로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Symantec WSS (Web Security Service)의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Symantec WSS (Web Security Service) 사용자 매핑](media/symantec-web-security-service/groupattribute.png)
+    ![세 개의 일치 하는 속성을 보여 주는 특성 매핑 섹션의 스크린샷](media/symantec-web-security-service/groupattribute.png)
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

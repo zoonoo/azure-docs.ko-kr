@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278178"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
@@ -89,19 +89,19 @@ Azure Portal를 사용 하 여 SQL Managed Instance Azure AD 읽기 권한을 �
 
 3. Azure AD 통합에 사용할 SQL Managed Instance로 이동 합니다.
 
-   ![aad](./media/authentication-aad-configure/aad.png)
+   ![선택한 SQL 관리 되는 인스턴스에 대해 열려 있는 Active Directory 관리 페이지를 보여 주는 Azure Portal의 스크린샷](./media/authentication-aad-configure/aad.png)
 
 4. Active Directory 관리자 페이지 위쪽에서 배너를 선택하고 현재 사용자에게 권한을 부여합니다.
 
-    ![권한 부여-포털](./media/authentication-aad-configure/grant-permissions.png)
+    ![Active Directory에 액세스 하기 위해 SQL 관리 되는 인스턴스에 대 한 사용 권한을 부여 하는 대화 상자의 스크린샷 권한 부여 단추가 선택 됩니다.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. 작업이 성공 하면 오른쪽 위 모서리에 다음과 같은 알림이 표시 됩니다.
 
-    ![성공](./media/authentication-aad-configure/success.png)
+    ![관리 되는 인스턴스에 대 한 active directory 읽기 권한이 성공적으로 업데이트 되었음을 확인 하는 알림의 스크린샷](./media/authentication-aad-configure/success.png)
 
 6. 이제 SQL Managed Instance에 대 한 Azure AD 관리자를 선택할 수 있습니다. 이에 대해 Active Directory 관리자 페이지에서 **관리자 설정** 명령을 선택합니다.
 
-    ![set-admin](./media/authentication-aad-configure/set-admin.png)
+    ![선택한 SQL 관리 되는 인스턴스의 Active Directory 관리 페이지에 강조 표시 된 관리 설정 명령을 보여 주는 스크린샷](./media/authentication-aad-configure/set-admin.png)
 
 7. Azure AD 관리자 페이지에서 사용자를 검색 하 고 관리자가 될 사용자 또는 그룹을 선택한 후 **선택**을 선택 합니다.
 
@@ -111,7 +111,7 @@ Azure Portal를 사용 하 여 SQL Managed Instance Azure AD 읽기 권한을 �
 
 8. Active Directory 관리자 페이지의 위쪽에서 **저장**을 선택합니다.
 
-    ![저장](./media/authentication-aad-configure/save.png)
+    ![관리자 설정 및 관리 제거 단추 옆의 위쪽 행에 있는 저장 단추가 있는 Active Directory 관리 페이지의 스크린샷](./media/authentication-aad-configure/save.png)
 
     관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 Active Directory 관리자 상자에 표시됩니다.
 
@@ -285,7 +285,7 @@ SQL Database 및 Azure Synapse에 대 한 Azure AD 관리자를 프로 비전 �
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 제거 합니다.|
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대해 현재 구성 된 Azure Active Directory 관리자에 대 한 정보를 반환 합니다. |
 
-PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 예: `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
+PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 예들 들어 `get-help Set-AzSqlServerActiveDirectoryAdministrator`입니다.
 
 다음 스크립트는 **DBA_Group** `40b79501-b343-44ed-9ce7-da4c8cc7353f` **그룹-23**이라는 리소스 그룹의 **demo_server** 서버에 대 한 DBA_GROUP (개체 ID) 이라는 Azure AD 관리자 그룹을 프로 비전 합니다.
 
