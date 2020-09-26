@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322090"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -104,7 +104,7 @@ Site Recovery는 다음과 같이 스냅샷을 생성합니다.
 
 **설명** | **세부 정보** | **권장**
 --- | --- | ---
-앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) 스냅샷이 시작되면 VSS는 볼륨에 COW(기록 중 복사) 작업을 수행합니다.<br/><br/>   2) COW를 수행하기 전에 VSS는 머신의 모든 앱에 해당 메모리 상주 데이터를 디스크에 플러시해야 함을 알립니다.<br/><br/>   3) 그런 다음, VSS는 백업/재해 복구 앱(이 경우 Site Recovery)에서 스냅샷 데이터를 읽고 진행하도록 허용합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
+앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) Azure Site Recovery Microsoft SQL의 트랜잭션 로그 백업 시간 및 시퀀스 번호를 변경 하지 않는 복사 전용 백업 (VSS_BT_COPY) 방법을 사용 합니다. </br></br> 2) 스냅숏이 시작 될 때 VSS는 볼륨에서 쓰기 (소) 작업을 수행 합니다.<br/><br/>   3) 소를 수행 하기 전에 VSS는 메모리 상주 데이터를 디스크에 플러시하는 데 필요한 모든 앱을 컴퓨터에 알립니다.<br/><br/>   4) VSS는 백업/재해 복구 앱 (이 경우 Site Recovery)에서 스냅숏 데이터를 읽고 계속 진행할 수 있도록 합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
 
 ## <a name="replication-process"></a>복제 프로세스
 
@@ -128,7 +128,7 @@ Azure VM에 대해 복제를 활성화하면 다음 상황이 발생합니다.
 
 VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL을 허용합니다.
 
-| **이름**                  | **상용**                               | **정부**                                 | **설명** |
+| **이름**                  | **상업용**                               | **정부**                                 | **설명** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
@@ -144,7 +144,7 @@ IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면
 
 #### <a name="source-region-rules"></a>원본 지역 규칙
 
-**규칙** |  **세부 정보** | **서비스 태그**
+**규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
 HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<region-name>
 HTTPS 아웃바운드 허용: 포트 443 | Azure Active Directory에 해당 하는 범위 허용 (Azure AD)  | AzureActiveDirectory
@@ -155,7 +155,7 @@ HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해�
 
 #### <a name="target-region-rules"></a>대상 지역 규칙
 
-**규칙** |  **세부 정보** | **서비스 태그**
+**규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
 HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 저장소 계정에 해당 하는 범위 허용 | 저장할.\<region-name>
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당 하는 범위 허용  | AzureActiveDirectory

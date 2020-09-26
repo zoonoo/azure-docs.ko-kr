@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, has-adal-ref, devx-track-js
+ms.openlocfilehash: 0650b1c6364a187447ea3a378675df9d76eef4d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275730"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
@@ -77,7 +77,7 @@ SP (서비스 주체) 인증을 사용 하려면 먼저 SP를 만들고 작업 �
 >
 > 최소한의 액세스 권한을 부여 하는 이유는 서비스 사용자가 암호를 사용 하 여 인증 하 고 암호가 자동화 스크립트의 일부로 저장 될 수 있기 때문입니다. 암호가 유출 되는 경우 특정 작업에 필요한 최소한의 액세스 권한이 있으면 SP의 악성 사용이 최소화 됩니다.
 
-SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가장 쉬운 방법은 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하는 것입니다. 서비스 사용자를 만들고 작업 영역에 대 한 액세스 권한을 부여 하려면 다음 단계를 사용 합니다.
+SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가장 쉬운 방법은 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 사용 하는 것입니다. 서비스 사용자를 만들고 작업 영역에 대 한 액세스 권한을 부여 하려면 다음 단계를 사용 합니다.
 
 > [!NOTE]
 > 이러한 모든 단계를 수행 하려면 구독에 대 한 관리자 여야 합니다.
@@ -92,7 +92,7 @@ SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가�
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    다른 인증 방법은 [Azure CLI로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
+    다른 인증 방법은 [Azure CLI로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조하세요.
 
 1. Azure Machine Learning 확장을 설치 합니다.
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Azure CLI에서 서비스 주체를 사용 합니다.
 
-Azure CLI 명령에 대해 서비스 주체를 사용할 수 있습니다. 자세한 내용은 [서비스 주체를 사용 하 여 로그인](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal)을 참조 하세요.
+Azure CLI 명령에 대해 서비스 주체를 사용할 수 있습니다. 자세한 내용은 [서비스 주체를 사용 하 여 로그인](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal)을 참조 하세요.
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>REST API에서 서비스 주체 사용 (미리 보기)
 

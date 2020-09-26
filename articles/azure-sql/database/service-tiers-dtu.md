@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321359"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |**IO 처리량(근사치)** |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |**IO 대기 시간(근사치)**|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |**Columnstore 인덱싱** |해당 없음|S3 이상|지원됨|
-|**메모리 내 OLTP**|N/A|해당 없음|지원됨|
+|**메모리 내 OLTP**|해당 없음|해당 없음|지원됨|
 
 > [!IMPORTANT]
 > 기본, 표준 S0, S1 및 S2 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
@@ -105,11 +105,11 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 데이터베이스는 "배율"을 기준으로 크기를 조정합니다. 배율(약어: SF)은 확장 및 증가 테이블의 카디널리티를 결정합니다. 아래의 사용자 및 속도 섹션에 설명된 대로 데이터베이스 크기, 사용자 수, 최대 성능은 모두 서로에 비례하여 확장됩니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
-| 트랜잭션 유형 | 설명 |
+| 트랜잭션 유형 | Description |
 | --- | --- |
 | 적은 읽기 작업 |SELECT, 메모리 내, 읽기 전용 |
 | 중간 읽기 작업 |SELECT, 대부분 메모리 내, 읽기 전용 |
@@ -118,7 +118,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |UPDATE, 대부분 메모리 외, 읽기-쓰기 |
 | 적은 삽입 작업 |INSERT, 메모리 내, 읽기-쓰기 |
 | 많은 삽입 작업 |INSERT, 대부분 메모리 외, 읽기-쓰기 |
-| DELETE |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
+| 삭제 |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
 | 많은 CPU 사용 |SELECT, 메모리 내, 상대적으로 많은 CPU 부하, 읽기 전용 |
 
 ### <a name="workload-mix"></a>워크로드 혼합
@@ -134,7 +134,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |3 |
 | 적은 삽입 작업 |3 |
 | 많은 삽입 작업 |2 |
-| DELETE |2 |
+| 삭제 |2 |
 | 많은 CPU 사용 |10 |
 
 ### <a name="users-and-pacing"></a>사용자 및 속도
@@ -147,7 +147,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
    - 선택한 트랜잭션을 수행하고 응답 시간을 측정합니다.
    - 속도 지연을 기다립니다.
 3. 데이터베이스 연결을 종료합니다.
-4. 끝내기를 클릭합니다.
+4. 종료합니다.
 
 (2c 단계에서) 무작위이지만 평균 1.0초의 분포가 있는 속도 지연을 선택합니다. 따라서 각 사용자는 평균적으로 1초당 최대 1개의 트랜잭션을 생성할 수 있습니다.
 

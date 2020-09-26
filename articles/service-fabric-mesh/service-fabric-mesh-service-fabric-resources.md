@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354873"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric 리소스 모델 소개
 
@@ -66,14 +66,14 @@ Mesh 애플리케이션이 둘 이상의 서비스로 구성되면 동일한 노
 
 컨테이너는 종종 임시 디스크를 제공합니다. 그러나 임시 디스크는 사용 후 삭제되므로 컨테이너가 충돌하면 새 임시 디스크를 가져와 정보를 잃게 됩니다. 임시 디스크에 대한 정보를 다른 컨테이너와 공유하는 것도 어렵습니다. 볼륨은 상태를 유지하는 데 사용할 수 있는 컨테이너 인스턴스 내에 탑재된 디렉터리입니다. 볼륨은 범용 파일 스토리지를 제공하며 이를 통해 일반 디스크 I/O 파일 API를 사용하여 파일을 읽고 쓸 수 있습니다. 볼륨 리소스는 디렉터리를 탑재하는 방법 및 이에 대한 지원 스토리지를 설명하는 선언적 방법입니다(Azure Files 볼륨 또는 Service Fabric 신뢰할 수 있는 볼륨).  자세한 내용은 [상태 저장](service-fabric-mesh-storing-state.md#volumes)을 참조하세요.
 
-![볼륨][Image3]
+![다이어그램은 디스크 볼륨으로 이동 하는 서비스를 보여 줍니다 .이는 Service Fabric 신뢰할 수 있는 볼륨, 복제 된 로컬 디스크, Azure Files 볼륨, 네트워크 저장소로 차례로 이동 합니다.][Image3]
 
 ## <a name="programming-models"></a>프로그래밍 모델
 서비스 리소스는 컨테이너 이미지를 실행해야 합니다. 이것은 리소스와 연결된 코드 패키지에서 참조됩니다. Service Fabric Mesh 특정 API를 이해하거나 사용하지 않고도 컨테이너 내에서 프레임워크를 사용하여 모든 언어로 작성된 코드를 실행할 수 있습니다. 
 
 애플리케이션 코드가 Service Fabric Mesh 외부에서도 이동 가능한 상태를 유지하고 애플리케이션 배포가 서비스를 구현하는 데 사용되는 언어 또는 프레임워크에 관계 없이 일관성을 유지합니다. 애플리케이션이 ASP.NET Core, Go 또는 프로세스 및 스크립트 집합인지에 관계 없이 Service Fabric Mesh 리소스 배포 모델은 동일하게 유지됩니다. 
 
-## <a name="packaging-and-deployment"></a>패키징 및 배포
+## <a name="packaging-and-deployment"></a>패키지 및 배포
 
 리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Azure Service Fabric 메시에 메시 응용 프로그램을 배포 하는 경우 응용 프로그램을 설명 하는 데 사용 되는 JSON은 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  Service Fabric 클러스터 (독립 실행형 또는 Azure 호스팅)에 메시 응용 프로그램을 배포 하는 경우 응용 프로그램을 설명 하는 데 사용 되는 JSON은 Azure Resource Manager 템플릿과 비슷한 형식입니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
 

@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332681"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -27,7 +27,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 백업 옵션은 에이전트가 설치 된 위치에 따라 달라 집니다. 자세한 내용은 [MARS 에이전트를 사용 하는 Azure Backup 아키텍처](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)를 참조 하세요. MABS 및 DPM 백업 아키텍처에 대 한 자세한 내용은 [dpm 또는 MABS에 백업](backup-architecture.md#architecture-back-up-to-dpmmabs)을 참조 하세요. 백업 아키텍처에 대 한 [요구](backup-support-matrix-mabs-dpm.md) 사항도 참조 하세요.
 
-**설치** | **설명**
+**설치** | **세부 정보**
 --- | ---
 최신 MARS 에이전트 다운로드 | 자격 증명 모음에서 최신 버전의 에이전트를 다운로드하거나 [직접 다운로드](https://aka.ms/azurebackup_agent)할 수 있습니다.
 머신에 직접 설치 | 온-프레미스 Windows server 또는 [지원 되는 운영 체제](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)중 하나를 실행 하는 windows VM에 MARS 에이전트를 직접 설치할 수 있습니다.
@@ -41,7 +41,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전트는 데이터의 스냅숏을 만들고 데이터를 Azure에 전송 하기 전에 로컬 캐시 폴더에 저장 합니다. 캐시 (스크래치) 폴더에는 다음과 같은 몇 가지 요구 사항이 있습니다.
 
-**캐시** | **세부 정보**
+**Cache** | **세부 정보**
 --- | ---
 크기 |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5 ~ 10% 이상 이어야 합니다.
 위치 | 캐시 폴더는 백업 중인 컴퓨터에 로컬로 저장 되어 있어야 하며 온라인 상태 여야 합니다. 캐시 폴더는 네트워크 공유, 이동식 미디어 또는 오프 라인 볼륨에 있지 않아야 합니다.
@@ -67,6 +67,15 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 위에 나열 된 모든 Url 및 IP 주소에 대 한 액세스는 포트 443에서 HTTPS 프로토콜을 사용 합니다.
 
+MARS 에이전트를 사용 하 여 Azure Vm에서 파일 및 폴더를 백업 하는 경우 Azure virtual network도 액세스를 허용 하도록 구성 해야 합니다. NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD (*AzureActiveDirectory*) 및 Azure Storage (*저장소*)에 대해 유사한 [nsg 규칙](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) 을 만들어 인증 및 데이터 전송에 대 한 연결을 허용 해야 합니다. 다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
+
+1. **모든 서비스**에서 **네트워크 보안 그룹**으로 이동하여 네트워크 보안 그룹을 선택합니다.
+2. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
+3. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
+4. **추가** 를 선택 하 여 새로 만든 아웃 바운드 보안 규칙을 저장 합니다.
+
+마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)를 참조하세요.
+
 ### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 
 공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링에 대 한 백업은 지원 되지 않습니다.
@@ -81,11 +90,11 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.
 
+- Azure Backup (Recovery Services 자격 증명 모음의 위치에 따라)
 - Azure Active Directory(12076:5060)
-- Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
 - Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
-자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조 하세요.
+자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md#bgp)을 참조 하세요.
 
 >[!NOTE]
 >공용 피어 링은 새 회로에서 사용 되지 않습니다.
@@ -121,13 +130,13 @@ MARS 에이전트를 사용 하 여에서 실행 되는 아래 나열 된 운영
 
 **운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
 --- | --- | --- | ---
-Windows 10(Enterprise, Pro, Home) | 예 | 아니요 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8.1(Enterprise, Pro)| 예 |아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8(Enterprise, Pro) | 예 | 아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 10(Enterprise, Pro, Home) | 예 | 예 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8.1(Enterprise, Pro)| 예 |예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8(Enterprise, Pro) | 예 | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니요 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
@@ -142,9 +151,9 @@ Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <b
 
 | **운영 체제**                                       | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 아니요                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 예                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
 | Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | 예               | 예                | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 아니요                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 예                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Backup 제한
 
@@ -166,32 +175,32 @@ Windows 7| 1,700GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 
-**형식** | **지원**
+**유형** | **지원**
 --- | ---
 됨<sup>*</sup>| 지원됨.
 Compressed | 지원됨.
 스파스 | 지원됨.
 압축 및 스파스 |지원됨.
-하드 링크| 지원 안 됨 건너뜁니다.
-재분석 지점| 지원 안 됨 건너뜁니다.
-암호화 및 스파스 |지원 안 됨 건너뜁니다.
-압축된 스트림| 지원 안 됨 건너뜁니다.
-스파스 스트림| 지원 안 됨 건너뜁니다.
-OneDrive (동기화 된 파일이 스파스 스트림)| 지원 안 됨
-DFS 복제 사용 하도록 설정 된 폴더 | 지원 안 됨
+하드 링크| 지원되지 않습니다. 건너뜁니다.
+재분석 지점| 지원되지 않습니다. 건너뜁니다.
+암호화 및 스파스 |지원되지 않습니다. 건너뜁니다.
+압축된 스트림| 지원되지 않습니다. 건너뜁니다.
+스파스 스트림| 지원되지 않습니다. 건너뜁니다.
+OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니다.
+DFS 복제 사용 하도록 설정 된 폴더 | 지원되지 않습니다.
 
-\*MARS 에이전트가 암호화 된 파일에 액세스 하는 데 필요한 인증서에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 파일은 건너뜁니다.
+\* MARS 에이전트가 암호화 된 파일에 액세스 하는 데 필요한 인증서에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 파일은 건너뜁니다.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>백업에 지원 되는 드라이브 또는 볼륨
 
 **드라이브/볼륨** | **지원** | **세부 정보**
 --- | --- | ---
-읽기 전용 볼륨| 지원 안 함 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
-오프라인 볼륨| 지원 안 함 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
-네트워크 공유| 지원 안 함 |볼륨은 서버에서 로컬 이어야 합니다.
-BitLocker 잠김 볼륨| 지원 안 함 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
-파일 시스템 id| 지원 안 함 |NTFS만 지원 됩니다.
-이동식 미디어| 지원 안 함 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
+읽기 전용 볼륨| 지원되지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
+오프라인 볼륨| 지원되지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
+네트워크 공유| 지원되지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
+BitLocker 잠김 볼륨| 지원되지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
+파일 시스템 id| 지원되지 않음 |NTFS만 지원 됩니다.
+이동식 미디어| 지원되지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
 중복 제거된 드라이브 | 지원됨 | Azure Backup에서 중복 제거된 데이터를 일반 데이터로 변환합니다. 이는 데이터를 최적화, 암호화, 저장 및 자격 증명 모음으로 전송 합니다.
 
 ## <a name="support-for-initial-offline-backup"></a>오프라인 초기 백업 지원

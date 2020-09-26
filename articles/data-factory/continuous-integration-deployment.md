@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320982"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -212,13 +212,17 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 * 자동화 CI/CD를 사용하고 Resource Manager 배포 중에 일부 속성을 변경하려고 하지만 속성은 기본적으로 매개 변수화되지 않습니다.
 * 팩터리가 너무 커서 허용되는 최대 매개 변수(256)를 초과했기 때문에 기본 Resource Manager 템플릿이 유효하지 않습니다.
 
-기본 매개 변수화 템플릿을 재정의하려면 Git 분기의 루트 폴더에 **arm-template-parameters-definition.json**으로 이름을 지정하여 파일을 만듭니다. 정확한 파일 이름을 사용해야 합니다.
+기본 매개 변수화 템플릿을 재정의 하려면 관리 허브로 이동 하 여 소스 제어 섹션에서 **매개 변수화 템플릿** 을 선택 합니다. **템플릿 편집** 을 선택 하 여 매개 변수화 템플릿 코드 편집기를 엽니다. 
 
-   ![사용자 지정 매개 변수 파일](media/continuous-integration-deployment/custom-parameters.png)
+![사용자 지정 매개 변수 관리](media/author-management-hub/management-hub-custom-parameters.png)
+
+사용자 지정 매개 변수화 템플릿을 만들면 git 분기의 루트 폴더에 **arm-template-parameters-definition.json** 이라는 파일이 만들어집니다. 정확한 파일 이름을 사용해야 합니다.
+
+![사용자 지정 매개 변수 파일](media/continuous-integration-deployment/custom-parameters.png)
 
 협업 분기에서 게시하는 경우 Data Factory가 이 파일을 읽고 해당 구성을 사용하여 매개 변수화된 속성을 생성합니다. 파일이 없는 경우 기본 템플릿이 사용됩니다.
 
-Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 아니라 현재 작업 중인 모든 분기에서 이 파일을 읽습니다. 프라이빗 분기에서 파일을 만들거나 편집할 수 있습니다. 여기서 UI의 **ARM 템플릿 내보내기**를 선택하여 변경 내용을 테스트할 수 있습니다. 그런 다음 협업 분기에 파일을 병합할 수 있습니다.
+리소스 관리자 템플릿을 내보낼 때 Data Factory는 공동 작업 분기가 아닌 현재 작업 중인 분기에서이 파일을 읽습니다. 프라이빗 분기에서 파일을 만들거나 편집할 수 있습니다. 여기서 UI의 **ARM 템플릿 내보내기**를 선택하여 변경 내용을 테스트할 수 있습니다. 그런 다음 협업 분기에 파일을 병합할 수 있습니다.
 
 > [!NOTE]
 > 사용자 지정 매개 변수화 템플릿에서 ARM 템플릿 매개 변수 제한(256)을 변경하지 않습니다. 이를 통해 매개 변수화된 속성의 개수를 선택하고 줄일 수 있습니다.

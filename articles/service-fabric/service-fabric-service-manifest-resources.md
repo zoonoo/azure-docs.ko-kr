@@ -3,12 +3,12 @@ title: Service Fabric 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267808"
+ms.locfileid: "91354762"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
@@ -227,9 +227,9 @@ ServiceManifest에서 다음을 지정했습니다.
 이 문서에서는 Service Fabric의 서비스 매니페스트에서 끝점을 정의 하는 방법을 설명 했습니다. 자세한 예제는 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [애플리케이션 및 서비스 매니페스트 예제](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+> [애플리케이션 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)
 
 Service Fabric 클러스터에서 기존 응용 프로그램을 패키지 하 고 배포 하는 연습을 보려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [기존 실행 파일을 Service Fabric으로 패키징 및 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
+> [기존 실행 파일을 Service Fabric으로 패키징 및 배포](service-fabric-deploy-existing-app.md)

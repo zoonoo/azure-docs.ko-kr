@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322158"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 자동 응답 만들기
 
@@ -67,14 +67,12 @@ ms.locfileid: "90904647"
 
     논리 앱 디자이너에서 Security Center 커넥터의 다음 트리거가 지원 됩니다.
 
-    * **Azure Security Center 권장 사항이 만들어지거나 트리거되는 경우**
-    * **Azure Security Center 경고가 만들어지거나 트리거되는 경우** 
-    
-    > [!TIP]
-    > 관심이 있는 심각도 수준의 경고에만 관련 되도록 트리거를 사용자 지정할 수 있습니다.
+    * **Azure Security Center 권장 사항이 만들어지거나 트리거되** 는 경우-논리 앱이 사용 되지 않거나 대체 되는 권장 사항을 사용 하는 경우 automation의 작동이 중지 되 고 트리거를 업데이트 해야 합니다. 권장 사항에 대 한 변경 내용을 추적 하려면 [Azure Security Center 릴리스 정보](release-notes.md)를 참조 하세요.
+
+    * **Azure Security Center 경고가 만들어지거나 트리거될 때** 관심 있는 심각도 수준의 경고에만 관련 되도록 트리거를 사용자 지정할 수 있습니다.
     
     > [!NOTE]
-    > "Azure Security Center 경고에 대 한 응답이 트리거될 때" 레거시 트리거를 사용 하는 경우 Logic Apps 워크플로 자동화 기능을 통해 시작 되지 않습니다. 대신 위에서 언급 한 트리거 중 하나를 사용 합니다. 
+    > "Azure Security Center 경고에 대 한 응답이 트리거될 때" 레거시 트리거를 사용 하는 경우 논리 앱은 워크플로 자동화 기능을 통해 시작 되지 않습니다. 대신 위에서 언급 한 트리거 중 하나를 사용 합니다. 
 
     [![샘플 논리 앱](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 

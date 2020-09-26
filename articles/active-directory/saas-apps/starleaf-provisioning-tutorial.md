@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 68484d2047e09dc82d44e15e86b13c4c54c49b03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bf75c4fe2053483b94c5f645816422909645854a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285979"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 StarLeaf 구성
 
@@ -52,15 +52,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 StarLeaf를 
 
 1. [Starleaf 관리 콘솔](https://portal.starleaf.com/#page=login)에 로그인 합니다. **통합**  >  **통합 추가**로 이동 합니다.
 
-    ![StarLeaf 추가 SCIM](media/starleaf-provisioning-tutorial/image00.png)
+    ![통합 및 추가 통합 옵션을 포함 하는 StarLeaf 관리 콘솔의 스크린샷](media/starleaf-provisioning-tutorial/image00.png)
 
 2. Microsoft Azure Active Directory **형식을** 선택 합니다. **이름**에 적절 한 이름을 입력 합니다. **적용**을 클릭합니다.
 
-    ![StarLeaf 추가 SCIM](media/starleaf-provisioning-tutorial/image01.png)
+    ![형식 및 이름 텍스트 상자가 out 인 통합 추가 대화 상자의 스크린샷](media/starleaf-provisioning-tutorial/image01.png)
 
 3.  그러면 **Scim 기준 URL** 및 **액세스 토큰** 값이 표시 됩니다. 이러한 값은 Azure Portal에서 StarLeaf 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다. 
 
-    ![StarLeaf 토큰 만들기](media/starleaf-provisioning-tutorial/image02.png)
+    ![형식, 이름 및 SCIM 기준 URL 텍스트 상자를 호출 하는 통합 편집 대화 상자의 스크린샷](media/starleaf-provisioning-tutorial/image02.png)
 
 ## <a name="add-starleaf-from-the-gallery"></a>갤러리에서 StarLeaf 추가
 
@@ -97,11 +97,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 url** 및 **암호 토큰** 에서 검색 된 **Scim 기준 url** 및 **액세스 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 starleaf에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 StarLeaf 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
@@ -115,11 +115,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
 8. **매핑** 섹션에서 **사용자 Azure Active Directory Starleaf에 동기화를**선택 합니다.
 
-    ![StarLeaf 토큰 만들기](media/starleaf-provisioning-tutorial/usermapping.png)
+    ![StarLeaf에 Azure Active Directory 사용자 동기화 옵션을 보여 주는 매핑 섹션의 스크린샷](media/starleaf-provisioning-tutorial/usermapping.png)
 
 9. **특성 매핑** 섹션에서 Azure AD에서 starleaf로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 starleaf의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![StarLeaf 토큰 만들기](media/starleaf-provisioning-tutorial/userattribute.png)
+    ![9 개의 매핑을 표시 하는 특성 매핑 섹션의 스크린샷](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.

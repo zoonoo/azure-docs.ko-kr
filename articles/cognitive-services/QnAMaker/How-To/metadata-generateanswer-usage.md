@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d1258786ec6f611bea5f73f3cb1c176738733acd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919066"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321002"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -269,7 +269,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 쌍에 �
 
 |코드|설명|
 |:--|--|
-|2xx|성공|
+|2xx|Success|
 |400|요청 매개 변수가 잘못되었습니다. 필수 매개 변수가 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |400|요청 본문이 잘못되었습니다. JSON이 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |401|잘못된 키|

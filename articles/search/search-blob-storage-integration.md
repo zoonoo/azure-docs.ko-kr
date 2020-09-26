@@ -1,39 +1,42 @@
 ---
-title: Azure Blob Storage에 전체 텍스트 검색 추가
+title: Azure Blob storage 콘텐츠를 검색 합니다.
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 전체 텍스트 검색 인덱스를 빌드할 때 콘텐츠를 추출하고 Azure Blob에 구조를 추가합니다.
+description: Azure blob에서 텍스트를 추출 하 고 Azure Cognitive Search 인덱스에서 전체 텍스트를 검색할 수 있도록 하는 방법에 대해 알아봅니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 72d00b70cf3568466715668aa441ee295614c740
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/23/2020
+ms.openlocfilehash: f61bf635cc61a2153a7bb016ef4b4711d7ba7391
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355298"
 ---
-# <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Azure Cognitive Search를 사용하여 Azure Blob 데이터에 전체 텍스트 검색 추가
+# <a name="search-over-azure-blob-storage-content"></a>Azure Blob storage 콘텐츠를 검색 합니다.
 
-Azure Blob Storage에 저장된 다양한 콘텐츠 형식에서 검색하면 어려운 문제를 해결할 수 있습니다. 그러나 [Azure Cognitive Search](search-what-is-azure-search.md)를 사용하면 단 몇 번의 클릭으로 Blob의 콘텐츠에 인덱스를 만들고 검색할 수 있습니다. Azure Cognitive Search에는 인덱싱에 데이터 원본 인식 기능을 추가하는 [‘Blob 인덱서’](search-howto-indexing-azure-blob-storage.md)를 통한 Blob Storage의 인덱싱을 위한 기본 제공 통합이 있습니다.
+Azure Blob Storage에 저장된 다양한 콘텐츠 형식에서 검색하면 어려운 문제를 해결할 수 있습니다. 이 문서에서는 blob에서 콘텐츠 및 메타 데이터를 추출 하 여 Azure Cognitive Search의 검색 인덱스에 보내는 기본 워크플로를 검토 합니다. 전체 텍스트 검색을 사용 하 여 결과 인덱스를 쿼리할 수 있습니다.
+
+> [!NOTE]
+> 워크플로 및 컴퍼지션을 이미 잘 알고 있나요? [Blob 인덱서를 구성 하는 방법은](search-howto-indexing-azure-blob-storage.md) 다음 단계입니다.
 
 ## <a name="what-it-means-to-add-full-text-search-to-blob-data"></a>Blob 데이터에 대한 전체 텍스트 검색 추가의 의미
 
-Azure Cognitive Search는 클라우드 검색 서비스이며 사용자의 검색 서비스에서 호스트되는 사용자 정의 인덱스를 통해 작동하는 인덱싱 및 쿼리 엔진을 제공합니다. 사용자가 검색 쿼리에서 기대하는 속도로 결과를 반환하는 성능을 위해서는 검색 가능한 콘텐츠를 클라우드의 쿼리 엔진과 함께 공동 배치해야 합니다.
+Azure Cognitive Search는 클라우드에서 호스트 되는 원격 검색 가능 콘텐츠를 포함 하는 사용자 정의 인덱스에 대해 인덱싱 및 쿼리 작업을 지 원하는 검색 서비스입니다. 쿼리 엔진을 사용 하 여 검색 가능한 콘텐츠를 공동 배치 하는 것이 성능에 필요 하며, 사용자가 검색 쿼리에서 제공 하는 속도에 따라 결과를 반환 합니다.
 
-Azure Cognitive Search는 인덱싱 계층에서 Azure Blob Storage와 통합하여 ‘반전된 인덱스’에 인덱싱된 검색 문서와 자유 형식 텍스트 쿼리 및 필터 식을 지원하는 기타 쿼리 구조체로 Blob 콘텐츠를 가져옵니다. Blob 콘텐츠는 검색 인덱스로 인덱싱되므로 Blob 콘텐츠에 대한 액세스는 Azure Cognitive Search의 전체 쿼리 기능을 활용할 수 있습니다.
+Cognitive Search는 인덱싱 계층에서 Azure Blob storage와 통합 하 여 *반전 된 인덱스* 에 인덱싱된 검색 문서와 자유 형식 텍스트 쿼리 및 필터 식을 지 원하는 기타 쿼리 구조로 blob 콘텐츠를 가져옵니다. Blob 콘텐츠는 검색 인덱스에 인덱싱되어 있으므로 Azure Cognitive Search의 전체 쿼리 기능을 사용 하 여 blob 콘텐츠에서 정보를 찾을 수 있습니다.
 
-인덱스를 만들고 채운 후에는 Blob 컨테이너와 독립적으로 존재하지만 인덱싱 작업을 다시 실행하여 기본 컨테이너에 대한 변경 내용으로 인덱스를 새로 고칠 수 있습니다. 개별 Blob에 대한 타임스탬프 정보는 변경 검색에 사용됩니다. 예약된 실행 또는 요청 시 인덱싱을 새로 고침 메커니즘으로 선택할 수 있습니다.
-
-입력은 Azure Blob Storage의 단일 컨테이너에 있는 Blob입니다. Blob은 거의 모든 종류의 텍스트 데이터가 될 수 있습니다. Blob에 이미지가 포함되어 있는 경우 [Blob 인덱싱에 대한 AI 보강](search-blob-ai-integration.md)을 추가하여 이미지에서 텍스트를 만들고 추출할 수 있습니다.
+입력은 Azure Blob Storage의 단일 컨테이너에 있는 Blob입니다. Blob은 거의 모든 종류의 텍스트 데이터가 될 수 있습니다. Blob에 이미지가 포함 되어 있는 경우에는 [AI 보강을 blob 인덱싱에](search-blob-ai-integration.md) 추가 하 여 이미지에서 텍스트를 만들고 추출할 수 있습니다.
 
 출력은 항상 빠른 텍스트 검색, 검색 및 클라이언트 애플리케이션 탐색에 사용되는 Azure Cognitive Search 인덱스입니다. 입력과 출력 사이에는 인덱싱 파이프라인 아키텍처 자체가 있습니다. 파이프라인은 이 문서에서 자세히 설명할 ‘인덱서’ 기능을 기반으로 합니다.
 
-## <a name="start-with-services"></a>서비스 시작
+인덱스를 만들고 채우면 blob 컨테이너와 독립적으로 존재 하지만 변경 된 문서에 따라 인덱스를 새로 고치는 인덱싱 작업을 다시 실행할 수 있습니다. 개별 Blob에 대한 타임스탬프 정보는 변경 검색에 사용됩니다. 예약된 실행 또는 요청 시 인덱싱을 새로 고침 메커니즘으로 선택할 수 있습니다.
 
-Azure Cognitive Search 및 Azure Blob Storage가 필요합니다. Blob Storage 내에서 원본 콘텐츠를 제공하는 컨테이너가 필요합니다.
+## <a name="required-resources"></a>필요한 리소스
+
+Azure Cognitive Search와 Azure Blob storage가 모두 필요 합니다. Blob Storage 내에서 원본 콘텐츠를 제공하는 컨테이너가 필요합니다.
 
 스토리지 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service**에서 **Azure Cognitive Search 추가**를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
 
@@ -41,7 +44,7 @@ Azure Cognitive Search를 스토리지 계정에 추가한 후에는 표준 프�
 
 ## <a name="use-a-blob-indexer"></a>Blob 인덱서 사용
 
-‘인덱서’는 데이터를 샘플링하고, 메타데이터를 읽고, 데이터를 검색하며, 후속 가져오기를 위해 네이티브 형식의 데이터를 JSON 문서로 직렬화하기 위한 내부 논리를 포함하는 데이터 원본 인식 하위 서비스입니다. 
+*인덱서* 는 데이터를 샘플링 하 고, 메타 데이터 데이터를 읽고, 데이터를 검색 하 고, 후속 가져오기를 위해 네이티브 형식에서 JSON 문서로 데이터를 직렬화 하는 내부 논리를 포함 하는 Cognitive Search의 데이터 소스 인식 하위 서비스입니다. 
 
 Azure Storage의 Blob은 [Azure Cognitive Search Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용하여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 .NET SDK를 사용하여 이 인덱서를 호출할 수 있습니다. 코드에서는 형식을 설정하고 Blob 컨테이너와 함께 Azure Storage 계정을 포함하는 연결 정보를 제공하여 이 인덱서를 사용합니다. 만든 후에 매개 변수로 전달할 수 있는 가상 디렉터리를 만들거나 파일 형식 확장에서 필터링하여 Blob의 하위 집합을 지정할 수 있습니다.
 
@@ -65,11 +68,12 @@ Blob 인덱서는 구성 매개 변수와 함께 제공되며 기본 데이터�
 > Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스를 사용하여 Azure Blob Storage에서 데이터 관리 및 찾기](../storage/blobs/storage-manage-find-blobs.md)를 참조하세요.
 
 ### <a name="indexing-json-blobs"></a>JSON Blob 인덱싱
+
 JSON이 포함된 Blob에 있는 구조화된 콘텐츠를 추출하도록 인덱서를 구성할 수 있습니다. 인덱서는 JSON Blob을 읽고, 구조화된 콘텐츠를 검색 문서의 적절한 필드로 구문 분석합니다. 인덱서는 또한 JSON 개체의 배열을 포함하는 Blob을 처리하고 각 요소를 개별 검색 문서에 매핑할 수 있습니다. 구문 분석 모드를 설정하여 인덱서에서 만든 JSON 개체의 형식에 영향을 줄 수 있습니다.
 
 ## <a name="search-blob-content-in-a-search-index"></a>검색 인덱스에서 Blob 콘텐츠 검색 
 
-인덱싱의 출력은 클라이언트 앱에서 자유 텍스트 및 필터링된 쿼리를 사용하여 대화형 탐색에 사용되는 검색 인덱스입니다. 콘텐츠를 처음 살펴보고 확인하려면 포털에서 [검색 탐색기](search-explorer.md)로 시작하여 문서 구조를 검토하는 것이 좋습니다. 검색 탐색기에서 [간단한 쿼리 구문](query-simple-syntax.md), [전체 쿼리 구문](query-lucene-syntax.md) 및 [필터 식 구문](query-odata-filter-orderby-syntax.md)을 사용할 수 있습니다.
+인덱서의 출력은 클라이언트 앱에서 자유 텍스트 및 필터링 된 쿼리를 사용 하 여 대화형 탐색에 사용 되는 검색 인덱스입니다. 콘텐츠를 처음 살펴보고 확인하려면 포털에서 [검색 탐색기](search-explorer.md)로 시작하여 문서 구조를 검토하는 것이 좋습니다. 검색 탐색기에서 [간단한 쿼리 구문](query-simple-syntax.md), [전체 쿼리 구문](query-lucene-syntax.md) 및 [필터 식 구문](query-odata-filter-orderby-syntax.md)을 사용할 수 있습니다.
 
 더 영구적인 솔루션은 클라이언트 애플리케이션에서 쿼리 입력을 수집하고 검색 결과로 응답을 제공하는 것입니다. 검색 애플리케이션을 빌드하는 방법은 [Azure Cognitive Search에서 첫 번째 애플리케이션 만들기](tutorial-csharp-create-first-app.md) C# 자습서에 설명되어 있습니다.
 

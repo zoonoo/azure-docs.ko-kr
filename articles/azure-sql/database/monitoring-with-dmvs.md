@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333056"
 ---
-# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용 하 여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
+# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 동적 관리 뷰의 하위 집합을 사용 하 여 성능 문제를 진단할 수 있습니다 .이는 차단 된 쿼리, 장기 실행 쿼리, 리소스 병목 현상, 잘못 된 쿼리 계획 등으로 인해 발생할 수 있습니다. 이 항목에서는 동적 관리 뷰를 사용하여 일반적인 성능 문제를 감지하는 방법을 설명합니다.
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Azure SQL Database 및 Azure SQL Managed Instance 소개](sql-database-paas-overview.md)

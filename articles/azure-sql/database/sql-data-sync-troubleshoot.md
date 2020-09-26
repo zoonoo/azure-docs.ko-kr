@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a251d7a1ff4063178a6c03d71fedc5adfca423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332868"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL 데이터 동기화 문제 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -89,7 +89,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 
 - **해결**. 테이블이 데이터베이스의 서로 다른 스키마에 속해 있는 경우에도 동기화에 포함된 테이블의 이름이 서로 다르게 되어 있는지 확인합니다.
 
-### <a name="i-see-inconsistent-primary-key-data-after-a-successful-sync"></a><a name="sync-pkdata"></a>동기화에 성공한 후 일관성 없는 기본 키 데이터가 표시 됨
+### <a name="i-see-inconsistent-primary-key-data-after-a-successful-sync"></a><a name="sync-pkdata"></a> 동기화에 성공한 후 일관성 없는 기본 키 데이터가 표시 됨
 
 동기화가 성공한 것으로 보고된 후 로그에 실패했거나 건너뛴 행이 없다고 표시되었는데, 기본 키 데이터가 동기화 그룹의 데이터베이스 간에 일치하지 않는 것으로 표시됩니다.
 
@@ -105,7 +105,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 
 - **해결**. 최선의 해결책은 예방입니다. 동기화 그룹에 순환 참조가 포함되지 않은지 확인합니다. 하나의 동기화 그룹에 의해 동기화되는 행은 다른 동기화 그룹에서 동기화할 수 없습니다.
 
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>다음 메시지가 표시 됩니다. "열에 NULL 값을 삽입할 수 없습니다 \<column> . 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a> 다음 메시지가 표시 됩니다. "열에 NULL 값을 삽입할 수 없습니다 \<column> . 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
 이 오류 메시지는 다음 두 가지 문제 중 하나가 발생했음을 나타냅니다.
 -  테이블에 기본 키가 없습니다. 이 문제를 해결하려면 동기화하는 모든 테이블에 기본 키를 추가합니다.
 -  CREATE INDEX 문에 WHERE 절이 있습니다. 데이터 동기화는 이러한 상황을 처리하지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 
@@ -135,7 +135,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 
 - [손실 되거나 손상 된 데이터베이스를 복원 하면 어떻게 되나요?](#setup-restore)
 
-### <a name="i-get-a-disk-out-of-space-message"></a><a name="setup-space"></a>"디스크 공간 부족" 메시지를 가져옵니다.
+### <a name="i-get-a-disk-out-of-space-message"></a><a name="setup-space"></a> "디스크 공간 부족" 메시지를 가져옵니다.
 
 - **원인**. "디스크 공간 부족" 메시지는 남은 파일을 삭제해야 하는 경우에 나타날 수 있습니다. 이 문제는 바이러스 백신 소프트웨어에 의해 발생할 수도 있고, 파일이 열려 있는 상태에서 삭제 작업을 시도할 때도 발생할 수 있습니다.
 
@@ -166,7 +166,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 
 - **해결**. 프로비전 또는 동기화 프로세스가 완료될 때까지 기다린 후 동기화 그룹 삭제를 다시 시도합니다.
 
-### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>SQL Server 데이터베이스를 등록 취소할 수 없습니다.
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a> SQL Server 데이터베이스를 등록 취소할 수 없습니다.
 
 - **원인**. 대개 이미 삭제된 데이터베이스를 등록 취소하려고 시도하는 경우입니다.
 
@@ -181,12 +181,12 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
     d. **SQL 데이터 동기화** 서비스를 마우스 오른쪽 단추로 클릭합니다.  
     e. 서비스가 실행 중인 경우 중지합니다.  
     f. 서비스를 마우스 오른쪽 단추로 클릭한 다음 **시작**을 선택합니다.  
-    예: 데이터베이스가 여전히 등록된 상태인지 여부를 확인합니다. 더 이상 등록되지 않은 경우 완료된 것입니다. 그렇지 않은 경우 다음 단계를 진행합니다.
+    g. 데이터베이스가 여전히 등록된 상태인지 여부를 확인합니다. 더 이상 등록되지 않은 경우 완료된 것입니다. 그렇지 않은 경우 다음 단계를 진행합니다.
   1. 클라이언트 에이전트 앱(SqlAzureDataSyncAgent)을 엽니다.
   1. **자격 증명 편집**을 선택한 다음 데이터베이스에 대한 자격 증명을 입력합니다.
   1. 등록 취소를 진행합니다.
 
-### <a name="i-dont-have-sufficient-privileges-to-start-system-services"></a><a name="setup-perms"></a>시스템 서비스를 시작할 수 있는 권한이 없습니다.
+### <a name="i-dont-have-sufficient-privileges-to-start-system-services"></a><a name="setup-perms"></a> 시스템 서비스를 시작할 수 있는 권한이 없습니다.
 
 - **원인**. 이 오류는 두 가지 상황에서 발생합니다.
   -   사용자 이름 및/또는 암호가 올바르지 않는 경우
@@ -200,7 +200,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
   1. **적용** 및 **확인**을 차례로 선택합니다.
   1. 모든 창을 닫습니다.
 
-### <a name="a-database-has-an-out-of-date-status"></a><a name="setup-date"></a>데이터베이스의 "날짜가 오래 됨" 상태
+### <a name="a-database-has-an-out-of-date-status"></a><a name="setup-date"></a> 데이터베이스의 "날짜가 오래 됨" 상태
 
 - **원인**. SQL 데이터 동기화는 45일 이상(데이터베이스가 오프라인 상태가 된 시점부터 계산) 오프라인 상태인 데이터베이스를 서비스에서 제거합니다. 데이터베이스가 45일 이상 오프라인 상태였다가 다시 온라인 상태가 된 경우 상태는 **만료**입니다.
 

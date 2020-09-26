@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333106"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Azure SQL Edge 배포 문제 해결 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 이제 컨테이너 내부 터미널에서 실행하는 것처럼 명령을 실행할 수 있습니다. 완료되면 `exit`을 입력합니다. 대화형 명령 세션이 종료되지만 컨테이너는 계속 실행됩니다.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>데이터 스트리밍 문제 해결
-
-기본적으로 Azure SQL Edge 스트리밍 엔진 로그는/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000 디렉터리에 있는 라는 파일에 기록 됩니다 `current` . **/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000** 매핑된 볼륨이 나 데이터 볼륨 컨테이너를 통해 직접 액세스 하거나 SQL Edge 컨테이너에 대화형 명령 프롬프트 세션을 시작 하 여 파일에 액세스할 수 있습니다. 
-
-또한 클라이언트 도구를 사용 하 여 SQL Edge 인스턴스에 연결할 수 있는 경우 다음 T-sql 명령을 사용 하 여 현재 스트리밍 엔진 로그에 액세스할 수 있습니다. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>자세한 정보 로깅 사용
 
 스트리밍 엔진의 기본 로그 수준에서 충분 한 정보를 제공 하지 않는 경우에는 SQL Edge에서 스트리밍 엔진에 대 한 디버그 로깅을 사용 하도록 설정할 수 있습니다. 디버그 로깅을 사용 하도록 설정 하려면 `RuntimeLogLevel=debug` SQL Edge 배포에 환경 변수를 추가 합니다. 디버그 로깅을 사용 하도록 설정한 후 문제를 재현 하 고 로그에서 관련 메시지 또는 예외를 확인 합니다. 
 
+> [!NOTE]
+> 자세한 정보 로깅 옵션은 일반적인 프로덕션 워크 로드에 대 한 문제 해결에만 사용 해야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

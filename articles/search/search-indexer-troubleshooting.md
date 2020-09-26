@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 05d0cba2a3751ac010dc26f68137a31dd04c62ce
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355128"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Azure Cognitive Search의 일반적인 인덱서 문제 해결
 
@@ -91,7 +91,7 @@ api-key: [admin key]
 Blob 인덱서는 [컨테이너의 blob에서 텍스트를 찾아서 추출합니다](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). 텍스트 추출에 대한 몇 가지 문제는 다음과 같습니다.
 
 * 문서에는 스캔된 이미지만 포함됩니다. 스캔된 이미지(JPG)와 같은 텍스트가 아닌 콘텐츠를 포함한 PDF Blob은 표준 Blob 인덱싱 파이프라인에서 결과를 생성하지 않습니다. 텍스트 요소가 있는 이미지 내용이 있는 경우 [인지 검색](cognitive-search-concept-image-scenarios.md) 을 사용 하 여 텍스트를 찾고 추출할 수 있습니다.
-* Blob 인덱서는 메타데이터를 인덱스하도록 구성됩니다. 콘텐츠를 추출하려면 [콘텐츠 및 메타데이터를 모두 추출](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)하도록 Blob 인덱서를 구성해야 합니다.
+* Blob 인덱서는 메타데이터를 인덱스하도록 구성됩니다. 콘텐츠를 추출하려면 [콘텐츠 및 메타데이터를 모두 추출](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex)하도록 Blob 인덱서를 구성해야 합니다.
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30

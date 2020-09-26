@@ -4,12 +4,12 @@ description: Service Fabric의 DNS 서비스를 사용하여 클러스터 내부
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268046"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -18,7 +18,7 @@ DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위
 
 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 서비스 이름은 명명 서비스를 통해 확인되어 서비스 엔드포인트가 반환됩니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 다음 다이어그램은 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
-![서비스 엔드포인트](./media/service-fabric-dnsservice/stateless-dns.png)
+![Dns 이름이 상태 비저장 서비스에 대 한 DNS 서비스에서 서비스 이름에 매핑되는 방법을 보여 주는 다이어그램입니다.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정 체계를 포함하도록 Service Fabric DNS 프로토콜이 확장되었습니다. 이러한 확장을 통해 상태 저장 서비스 DNS 이름과 파티션 이름을 조합하여 특정 파티션 IP 주소를 확인할 수 있습니다. 세 가지 파티션 구성표가 모두 지원됩니다.
 
@@ -28,7 +28,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 
 다음 다이어그램은 분할된 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
-![상태 저장 서비스 엔드포인트](./media/service-fabric-dnsservice/stateful-dns.png)
+![Dns 이름이 분할 된 상태 비저장 서비스에 대해 DNS 서비스에서 서비스 이름에 매핑되는 방법을 보여 주는 다이어그램입니다.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 동적 포트는 DNS 서비스에서 지원되지 않습니다. 동적 포트에서 노출되는 서비스를 확인하려면 [역방향 프록시 서비스](./service-fabric-reverseproxy.md)를 사용합니다.
 
@@ -171,7 +171,7 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-여기서 다음이 적용됩니다.
+위치:
 
 - *First-Label-Of-Partitioned-Service-DNSName*은 서비스 DNS 이름의 첫 번째 부분입니다.
 - *PartitionPrefix*는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 "--"입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
