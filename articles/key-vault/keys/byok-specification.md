@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84198790"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315782"
 ---
 # <a name="bring-your-own-key-specification"></a>사용자 고유 키 사양 가져오기
 
@@ -31,11 +31,11 @@ Key Vault 고객은 Azure 외부의 온-프레미스 HSM에서 HSM 지원 Azure 
 
 ## <a name="terminology"></a>용어
 
-|키 이름|키 유형|원본|설명|
+|키 이름|키 유형|원본|Description|
 |---|---|---|---|
-|키 교환 키 (KEK)|RSA|Azure Key Vault HSM|Azure Key Vault에서 생성 된 HSM 지원 RSA 키 쌍
-키 래핑|AES|공급 업체 HSM|HSM에서 생성 된 [임시] AES 키-프레미스
-대상 키|RSA, EC, AES|공급 업체 HSM|Azure Key Vault HSM으로 전송할 키입니다.
+|KEK(키 교환 키)|RSA|Azure Key Vault HSM|Azure Key Vault에서 생성 된 HSM 지원 RSA 키 쌍
+키 래핑|AES|공급업체 HSM|HSM에서 생성 된 [임시] AES 키-프레미스
+대상 키|RSA, EC, AES|공급업체 HSM|Azure Key Vault HSM으로 전송할 키
 
 **키 교환 키**: 고객이 byok 키를 가져올 주요 자격 증명 모음에 생성 하는 HSM 지원 키입니다. 이 KEK에는 다음과 같은 속성이 있어야 합니다.
 
@@ -119,7 +119,7 @@ CKM_RSA_AES_KEY_WRAP_PAD를 사용 하는 경우 전송 blob의 JSON 직렬화�
 
 ```
 
-* kid = KEK의 키 식별자입니다. Key Vault 키의 경우 다음과 같습니다.https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
+* kid = KEK의 키 식별자입니다. Key Vault 키의 경우 다음과 같습니다. https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
 * alg = 알고리즘. 
 * dir = Direct 모드입니다. 즉, 참조 되는 kid는의 정확한 표현인 텍스트 텍스트를 직접 보호 하는 데 사용 CKM_RSA_AES_KEY_WRAP
 * 생성기 = BYOK 도구와 원본 HSM 제조업체 및 모델의 이름 및 버전을 나타내는 정보를 제공 하는 필드입니다. 이 정보는 문제 해결 및 지원에 사용 하기 위한 것입니다.
@@ -159,19 +159,7 @@ PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-versi
 "key_hsm" 값은 Base64 형식으로 인코딩된 KeyContosoFirstHSMkey의 전체 내용입니다.
 
 ## <a name="references"></a>참조
-
-### <a name="azure-key-vault-rest-api"></a>Azure Key Vault REST API
-
-* [키 만들기](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [키 가져오기 (키 특성 및 공개 키만 해당)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
-* [키 가져오기](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
-
-
-### <a name="azure-cli-commands"></a>Azure CLI 명령
-* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [az keyvault key 다운로드](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [az keyvault key import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
-
+- [Key Vault 개발자 가이드](../general/developers-guide.md)
 
 ## <a name="next-steps"></a>다음 단계
 * 단계별 BYOK 지침: [HSM 보호 된 키를 Key Vault으로 가져오기 (BYOK)](hsm-protected-keys-byok.md)

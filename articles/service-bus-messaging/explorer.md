@@ -3,12 +3,12 @@ title: Azure Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에
 description: 이 문서에서는 포털 기반 Azure Service Bus 탐색기를 사용하여 Azure Service Bus 데이터에 액세스하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295603"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 
@@ -104,7 +104,7 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
 수신 작업이 성공적으로 완료되면 아래와 같이 메시지 정보가 표에 표시됩니다. 표에서 메시지를 선택하여 세부 정보를 표시할 수 있습니다.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="큐에서 선택한 활성 메시지에 대 한 메시지 정보가 표시 된 Azure Service Bus 탐색기의 큐 창 스크린샷":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>큐에서 메시지 피킹
@@ -156,7 +156,7 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
 수신 작업이 성공적으로 완료되면 아래와 같이 수신된 메시지가 표에 표시됩니다. 메시지 세부 정보를 보려면 메시지를 클릭합니다.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="받은 활성 메시지에 대 한 메시지 정보가 표시 된 Azure Service Bus 탐색기의 수신 탭 스크린샷":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>구독에서 메시지 선택
 

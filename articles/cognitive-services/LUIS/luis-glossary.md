@@ -1,14 +1,16 @@
 ---
 title: 용어집-LUIS
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309492"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 LUIS (Language Understanding) 용어집에서는 LUIS 서비스에서 작업할 때 발생할 수 있는 용어에 대해 설명 합니다.
@@ -67,7 +69,7 @@ LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-
 
 일괄 테스트에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
-### <a name="precision"></a>전체 자릿수
+### <a name="precision"></a>자릿수
 일괄 테스트에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발언 중에 관련된 발언의 일부입니다.
 
 동물 일괄 처리 테스트에 대 한 예는 총 동물 수 (양 및 하 한가)로 나누어 예측 된 양입니다.
@@ -284,7 +286,7 @@ LUIS [list 엔터티](reference-entity-list.md)에서 정규화 된 값을 만�
 |Nomalized 값| 동의어|
 |--|--|
 |작음| 작은 1, 8 온스|
-|중간| 일반, 12 온스|
+|중형| 일반, 12 온스|
 |큼| 큼, 16 온스|
 |Xtra 큼| 가장 큰 1, 24 온스|
 
@@ -309,7 +311,7 @@ LUIS 앱을 [테스트](luis-concept-test.md) 하면 모델 예측을 볼 것입
 |--|--|--|
 |`Dog`|1|문장 부호가 나 공백이 없는 단일 단어입니다.|
 |`RMT33W`|1|레코드 로케이터 번호입니다. 숫자와 문자를 포함할 수 있지만 문장 부호는 없습니다.|
-|`425-555-5555`|5|전화 번호입니다. 각 문장 부호는 단일 토큰 이므로 `425-555-5555` 5 개의 토큰입니다.<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`425-555-5555`|5|전화 번호입니다. 각 문장 부호는 단일 토큰 이므로  `425-555-5555` 5 개의 토큰입니다.<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## <a name="train"></a>학습

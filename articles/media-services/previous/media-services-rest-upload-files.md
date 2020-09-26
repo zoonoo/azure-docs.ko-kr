@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs
-description: 자산을 만들고 업로드하여 Media Services에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다.
+description: REST를 사용 하 여 자산을 만들고 업로드 하 여 미디어 콘텐츠를 Media Services으로 가져오는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 68968cdbc512df527b70d0a314c90ce45ebaf7e2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281068"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 
@@ -43,7 +43,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 > * 업로드 URL을 사용하여 Blob Storage에 파일 업로드
 > * 자산에 업로드한 미디어 파일에 대한 메타데이터 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
@@ -176,7 +176,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 ### <a name="overview"></a>개요
 
-이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Storage REST API 사용](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Blob 배치](/rest/api/storageservices/put-blob)

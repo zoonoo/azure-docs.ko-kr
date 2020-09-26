@@ -4,17 +4,17 @@ description: Azure Security 벤치 마크 V2 자산 관리
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ba010c0dd3384af895c68d980fcae788c2d6d45a
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318027"
 ---
-# <a name="security-control-asset-management"></a>보안 제어: 자산 관리
+# <a name="security-control-v2-asset-management"></a>보안 제어 V2: 자산 관리
 
 자산 관리는 Azure 리소스에 대 한 보안 표시 및 관리를 보장 하는 컨트롤을 포함 합니다. 여기에는 보안 담당자, 자산 인벤토리에 대 한 보안 액세스, 서비스 및 리소스에 대 한 승인 관리 (인벤토리, 추적, 수정)에 대 한 권장 사항이 포함 됩니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "90059269"
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| 오전-1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | CM-7, CM-8, CM-11, PM-5 |
+| 오전-1 | 1.1, 1.2 | CM-8, PM-5 |
 
 Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있도록 Azure 테 넌 트 및 구독에서 보안 팀에 보안 읽기 권한자 권한이 부여 되었는지 확인 합니다. 
 
@@ -38,7 +38,7 @@ Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -48,7 +48,7 @@ Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| 오전-2 | 1.5 | CM-8, PM-5 |
+| 오전-2 | 1.1, 1.2, 1.4, 1.5, 9.1, 12.1 | CM-8, PM-5 |
 
 보안 팀이 Azure에서 지속적으로 업데이트 되는 자산의 인벤토리에 액세스할 수 있는지 확인 합니다. 보안 팀은 조직의 잠재적인 노출을 새로운 위험에 대해 평가 하 고 지속적으로 향상 된 보안 기능에 대 한 입력으로이 인벤토리를 필요로 하는 경우가 많습니다. 
 
@@ -64,7 +64,7 @@ Azure의 다른 메타 데이터 (이름, 설명 및 범주)를 사용 하 여 �
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -86,7 +86,7 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -106,7 +106,7 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -126,7 +126,7 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -136,7 +136,7 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| 오전-6 | 2.6 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| 오전-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 권한 있는 소프트웨어만 실행 되 고 모든 권한이 없는 소프트웨어는 Azure Virtual Machines에서 실행 되지 않도록 차단 합니다.
 
@@ -156,7 +156,7 @@ Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

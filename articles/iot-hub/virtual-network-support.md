@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281253"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -236,7 +236,7 @@ IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토
 
 4. IoT Hub의 리소스 페이지에서 **파일 업로드** 탭으로 이동합니다.
 
-5. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정**, **SAS TTL**, **기본 TTL** 및 **최대 전달 횟수**를 원하는 대로 구성합니다. **Id 기반** 을 저장소 끝점에 대 한 **인증 형식** 으로 선택 합니다. **만들기** 단추를 클릭합니다.
+5. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정**, **SAS TTL**, **기본 TTL** 및 **최대 전달 횟수**를 원하는 대로 구성합니다. **Id 기반** 을 저장소 끝점에 대 한 **인증 형식** 으로 선택 합니다. **만들기** 단추를 클릭합니다. 이 단계에서 오류가 발생 하면 **모든 네트워크**에서 액세스할 수 있도록 저장소 계정을 임시로 설정 하 고 다시 시도 합니다. 파일 업로드 구성이 완료 되 면 저장소 계정에서 방화벽을 구성할 수 있습니다.
 
 이제 파일 업로드를 위한 스토리지 엔드포인트가 허브의 시스템 할당 ID를 사용하도록 설정되었고 방화벽 제한에도 불구하고 스토리지 리소스에 액세스할 권한을 갖게 되었습니다.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295739"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자 만들기
 
@@ -28,7 +28,7 @@ PostgreSQL 엔진은 [역할](https://www.postgresql.org/docs/current/sql-create
 * `postgres`
 * `citus`
 
-Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용자 역할을 사용 하 여 로그인 할 수 있습니다 `postgres` . 제한 된 관리 액세스의 경우 Hyperscale은 역할을 제공 합니다 `citus` .
+Citus (Hyperscale)는 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용자 역할을 사용 하 여 로그인 할 수 있습니다 `postgres` . 제한 된 관리 액세스의 경우 Citus (Hyperscale)는 역할을 제공 합니다 `citus` .
 
 역할에 대 한 사용 권한 `citus` :
 
@@ -46,7 +46,7 @@ Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용�
 
 앞서 언급 했 듯이 `citus` 관리자 계정에는 추가 사용자를 만들 수 있는 권한이 없습니다. 사용자를 추가 하려면 Azure Portal 인터페이스를 사용 합니다.
 
-1. 하이퍼 확장 서버 그룹에 대 한 **역할** 페이지로 이동 하 고 **+ 추가**를 클릭 합니다.
+1. Citus (Hyperscale) 서버 그룹에 대 한 **역할** 페이지로 이동 하 고 **+ 추가**를 클릭 합니다.
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="역할 페이지":::
 
@@ -75,7 +75,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>사용자 역할을 삭제 하거나 암호를 변경 하는 방법
 
-사용자를 업데이트 하려면 하이퍼 확장 서버 그룹에 대 한 **역할** 페이지를 방문 하 여 사용자 옆에 **있는 줄임표 (...)** 를 클릭 합니다. 줄임표는 사용자를 삭제 하거나 암호를 다시 설정 하는 메뉴를 엽니다.
+사용자를 업데이트 하려면 Citus (Hyperscale) 서버 그룹에 대 한 **역할** 페이지를 방문 하 여 사용자 옆에 **있는 줄임표 (...)** 를 클릭 합니다. 줄임표는 사용자를 삭제 하거나 암호를 다시 설정 하는 메뉴를 엽니다.
 
    :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="역할 편집":::
 

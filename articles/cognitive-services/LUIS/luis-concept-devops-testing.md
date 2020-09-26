@@ -1,14 +1,16 @@
 ---
 title: LUIS apps에 대 한 DevOps 테스트
 description: DevOps 환경에서 Language Understanding (LUIS) 앱을 테스트 하는 방법입니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 2556d2e904aff720bc02e4c7d58bf5a72af4d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538074"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316548"
 ---
 # <a name="testing-for-luis-devops"></a>LUIS DevOps 테스트
 
@@ -101,7 +103,7 @@ LUIS 포털의 대화형 테스트 기능이 유용 하지만 DevOps의 경우 C
 * 테스트 도구는 끝점에 대해 테스트 그룹을 실행 하 고 실제 결과에 대해 예상 결과를 자동으로 확인할 수 있어야 합니다.
 * 테스트가 실패 하면 테스트 도구는 상태 코드를 반환 하 여 워크플로를 중지 하 고 "빌드 실패"를 수행 해야 합니다.
 
-LUIS는 이러한 기능을 제공 하는 명령줄 도구나 고급 API를 제공 하지 않습니다. Nlu를 사용 하는 것이 좋습니다 [. ](https://github.com/microsoft/NLU.DevOps)테스트를 실행 하 고 명령줄에서 및 CI/CD 워크플로 내에서 자동화 된 테스트를 수행 하 여 결과를 확인 하는 DevOps 도구입니다.
+LUIS는 이러한 기능을 제공 하는 명령줄 도구나 고급 API를 제공 하지 않습니다. Nlu를 사용 하는 것이 좋습니다 [. ](https://github.com/microsoft/NLU.DevOps) 테스트를 실행 하 고 명령줄에서 및 CI/CD 워크플로 내에서 자동화 된 테스트를 수행 하 여 결과를 확인 하는 DevOps 도구입니다.
 
 LUIS 포털에서 사용할 수 있는 테스트 기능은 게시 된 끝점이 필요 하지 않으며 LUIS 제작 기능의 일부입니다. 자동화 된 빌드 워크플로에서 테스트를 구현 하는 경우에는 NLU와 같은 테스트 도구를 위해 끝점에 테스트할 LUIS app 버전을 게시 해야 합니다. DevOps는 테스트의 일부로 예측 요청을 보낼 수 있습니다.
 
@@ -111,7 +113,7 @@ LUIS 포털에서 사용할 수 있는 테스트 기능은 게시 된 끝점이 
 
 #### <a name="running-unit-tests-at-the-command-line-and-in-cicd-workflows"></a>명령줄 및 CI/CD 워크플로에서 단위 테스트 실행
 
-Nlu를 사용할 수 있습니다 [. ](https://github.com/microsoft/NLU.DevOps)명령줄에서 테스트를 실행할 DevOps 패키지:
+Nlu를 사용할 수 있습니다 [. ](https://github.com/microsoft/NLU.DevOps) 명령줄에서 테스트를 실행할 DevOps 패키지:
 
 * NLU를 사용 합니다. DevOps [테스트 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) 통해 테스트 파일에서 끝점으로 테스트를 제출 하 고 실제 예측 결과를 파일에 캡처합니다.
 * NLU를 사용 합니다. DevOps [compare 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) 사용 하 여 실제 결과를 입력 테스트 파일에 정의 된 예상 결과와 비교할 수 있습니다. `compare`명령은 NUnit 테스트 출력을 생성 하 고 플래그를 사용 하 여 [단위 테스트 모드](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#unit-test-mode) 에서 사용 될 경우 `--unit-test` 모든 테스트가 통과 한다는 것을 어설션 합니다.

@@ -1,23 +1,23 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 03/22/2020-Azure
-description: Threat Modeling Tool 릴리스 정보 문서화
+description: 위협 모델링 도구 릴리스 7.3.00316.1에 대 한 릴리스 정보를 문서화 합니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 6fea4d48b62d6ea429d37924ffd15855db6294cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39963e9dadca0ee0be7bb8ad0ebf824c287bfee0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80146863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317908"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool 업데이트 릴리스 7.3.00316.1-03/22/2020
 
 TMT (Microsoft Threat Modeling Tool 버전 7.3.00316.1)는 3 월 22 2020 일에 출시 되었으며 다음과 같은 변경 내용이 포함 되어 있습니다.
 
-- 내게 필요한 옵션 기능 향
+- 향상된 접근성 기능
 - 버그 수정
 - New DiagramReader 기능
 

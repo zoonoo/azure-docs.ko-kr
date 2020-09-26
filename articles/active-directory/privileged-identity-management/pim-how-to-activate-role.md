@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317541"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업
 
 # <a name="new-version"></a>[새 버전](#tab/new)
 
-## <a name="activate-a-role"></a>역할 활성화
+## <a name="activate-a-role-for-new-version"></a>새 버전에 대 한 역할 활성화
 
 Azure AD 역할을 가정해 야 하는 경우 Privileged Identity Management에서 **내 역할** 을 열어 활성화를 요청할 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure AD 역할을 가정해 야 하는 경우 Privileged Identity Management에
 
     ![활성화 요청이 승인 보류 중입니다.](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>요청 상태 보기
+## <a name="view-the-status-of-your-requests-for-new-version"></a>새 버전에 대 한 요청 상태 보기
 
 보류 중인 요청의 상태를 보고 활성화할 수 있습니다.
 
@@ -92,7 +92,7 @@ Azure AD 역할을 가정해 야 하는 경우 Privileged Identity Management에
 
 1. 오른쪽으로 스크롤하여 **요청 상태** 열을 봅니다.
 
-## <a name="cancel-a-pending-request"></a>보류 중인 요청 취소
+## <a name="cancel-a-pending-request-for-new-version"></a>새 버전에 대 한 보류 중인 요청 취소
 
 승인이 필요한 역할을 활성화할 필요가 없으면 언제든지 보류 중인 요청을 취소할 수 있습니다.
 
@@ -106,7 +106,7 @@ Azure AD 역할을 가정해 야 하는 경우 Privileged Identity Management에
 
    ![취소 작업이 강조 표시 된 내 요청 목록](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>문제 해결
+## <a name="troubleshoot-for-new-version"></a>새 버전에 대 한 문제 해결
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 

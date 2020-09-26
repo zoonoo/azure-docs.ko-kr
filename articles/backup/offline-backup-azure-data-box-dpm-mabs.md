@@ -3,12 +3,12 @@ title: DPM 및 MABS에 대 한 Azure Data Box를 사용 하 여 오프 라인 �
 description: Azure Data Box를 사용 하 여 DPM 및 MABS에서 초기 백업 데이터를 오프 라인으로 초기값으로 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271497"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>DPM 및 MABS (미리 보기)에 대 한 Azure Data Box를 사용 하 여 오프 라인 시드
 
@@ -26,7 +26,7 @@ Azure Data Box 기반의 오프라인 백업은 [Azure Import/Export 서비스 �
 
 - Azure Backup(MARS 에이전트)에서 Azure Data Box의 지원되는 SKU에 백업 데이터를 직접 쓸 수 있습니다. 이 기능을 사용하면 초기 백업 데이터에 사용할 스테이징 위치를 프로비저닝하지 않아도 됩니다. 디스크를 포맷하고 해당 데이터를 디스크에 복사하는 유틸리티도 필요하지 않습니다.
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 지원되는 플랫폼은 다음과 같습니다.
 
@@ -110,7 +110,7 @@ DPM/MABS 서버는 시스템 컨텍스트에서 작동 하므로 Azure Data Box 
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Azure Data Box 장치에 초기 백업 데이터 전송
 
-1. DPM/MABS 서버에서 [새 보호 그룹을 만드는](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019)단계를 수행 합니다. 기존 보호 그룹에 온라인 보호를 추가 하는 경우 기존 보호 그룹을 마우스 오른쪽 단추로 클릭 하 고 **온라인 보호 추가** 를 선택 하 고 **8 단계**에서 시작 합니다.
+1. DPM/MABS 서버에서 [새 보호 그룹을 만드는](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)단계를 수행 합니다. 기존 보호 그룹에 온라인 보호를 추가 하는 경우 기존 보호 그룹을 마우스 오른쪽 단추로 클릭 하 고 **온라인 보호 추가** 를 선택 하 고 **8 단계**에서 시작 합니다.
 2. **그룹 구성원 선택** 페이지에서 백업하려는 컴퓨터 및 원본을 지정합니다.
 3. **데이터 보호 방법 선택** 페이지에서 단기 및 장기 백업을 처리하는 방법을 지정합니다. **온라인 보호 사용**을 선택해야 합니다.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b4e74d5db2d1454360370c05d75cdf826875143
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317432"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 DocuSign 구성
 
@@ -65,7 +65,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
-    ![프로비전](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 DocuSign에 대 한 프로 비전 탭의 스크린샷 프로 비전 모드를 자동으로 설정 하 고, 관리자 사용자 이름으로 설정 하 고, 암호 및 연결 테스트를 강조 표시 합니다.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
    

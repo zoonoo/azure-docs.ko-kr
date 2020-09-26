@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317449"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
 
@@ -96,7 +96,7 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 9. **프로비전 모드**를 **자동**으로 설정합니다. 
  
-    ![프로비전](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 Concur에 대 한 프로 비전 탭의 스크린샷 프로 비전 모드를 자동으로 설정 하 고 연결 테스트 단추를 강조 표시 합니다.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. **관리자 자격 증명** 섹션에서 Concur 관리자의 **사용자 이름** 및 **암호**를 입력합니다.
 

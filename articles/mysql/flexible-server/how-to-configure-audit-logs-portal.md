@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1d0687e6cdcc8208218183cb873f9620a5525d37
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b8fe32a079358fda48c6f5ee0c7eec9894a543a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295909"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 감사 로그 구성 및 액세스
 
@@ -50,6 +50,9 @@ Azure Portal에서 Azure Database for MySQL 유연한 서버 [감사 로그](con
     <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::-->
 
 ## <a name="set-up-diagnostics"></a>진단 설정
+
+> [!NOTE]
+> 로그에 액세스 하는 Azure Monitor 진단 설정과의 통합은 배포 중 이며 곧 전체 기능을 사용할 수 있습니다.
 
 감사 로그는 로그를 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 파이프 하는 데 사용할 수 있도록 Azure Monitor 진단 설정과 통합 됩니다.
 

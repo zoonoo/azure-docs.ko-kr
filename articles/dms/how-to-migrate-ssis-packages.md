@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 483f60138dcaa6252999b9d15e846fbd1c68e9a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5f9ba7ea4afd81d62cba7b970693f603b53ef9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316089"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 SSIS 패키지를 Azure SQL Database 다시 배포
 
@@ -78,7 +78,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database로 마이그레이션하려면
 
     ![배포 마법사 원본 선택 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  
-8. **새로 만들기**를 선택합니다.
+8. **다음**을 선택합니다.
 9. **대상 선택** 페이지에서 프로젝트에 대한 대상을 지정합니다.
 
     a. 서버 이름 텍스트 상자에 정규화 된 서버 이름 (<server_name> database.windows.net)을 입력 합니다.
@@ -96,7 +96,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database로 마이그레이션하려면
 
     ![배포 마법사 유효성 검사 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-validate-page.png)
 
-11. **새로 만들기**를 선택합니다.
+11. **다음**을 선택합니다.
 
 12. **검토** 페이지에서 배포 설정을 검토합니다.
 

@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccd732c644cf0a5641099a9731f65dd7b03bf374
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73486689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316412"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 
 테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다. 
 
-LUIS를 대화형으로 테스트 하거나, 한 번에 한 utterance 길이 발언를 제공할 수 있습니다. 테스트 하는 동안 현재 활성 모델의 예측 응답을 게시 된 모델의 예측 응답과 비교할 수 있습니다. 
+LUIS를 대화형으로 테스트 하거나 한 번에 하나의 utterance을 제공 하거나 길이 발언 집합을 제공할 수 있습니다. 테스트 하는 동안 현재 활성 모델의 예측 응답을 게시 된 모델의 예측 응답과 비교할 수 있습니다. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>

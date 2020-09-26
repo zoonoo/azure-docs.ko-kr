@@ -1,14 +1,16 @@
 ---
 title: 사용자 utterance 검토-LUIS
 description: 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82f228d5e6f801539c549e16faea371782ad4b59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80546861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316446"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
 활성 학습은 예측 정확도를 향상시키는 세 가지 전략 중 하나이며 구현하기에 가장 쉽습니다. 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
@@ -35,7 +37,7 @@ ms.locfileid: "80546861"
 
 ## <a name="enable-active-learning"></a>활성 학습 사용
 
-활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 기록해 야 합니다. 이렇게 하려면 `log=true` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) 를 호출 합니다.
+활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 기록해 야 합니다. 이렇게 하려면 querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) 를 호출 `log=true` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

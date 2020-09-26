@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: aa11cd9dedc2446b3952378e53b1f7248abbfa47
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317526"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 작업 팀 구성
 
@@ -54,15 +54,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 회사 팀�
 
 1. [근무 팀](https://app.workte.am/account/signin)에 로그인 합니다. **조직 설정**  >  **설정**을 클릭 합니다.
 
-    ![Workteam](media/workteam-provisioning-tutorial/settings.png)
+    ![조직 설정 및 설정 옵션이 있는 근무 팀 U I의 스크린샷](media/workteam-provisioning-tutorial/settings.png)
 
 2. 아래쪽으로 스크롤하고 근무 팀의 프로 비전 기능을 사용 하도록 설정 합니다.
 
-    ![Workteam](media/workteam-provisioning-tutorial/icon.png)
+    ![S C I M 사용자 프로 비전 기어 아이콘이 out 인 설정 섹션 아래쪽의 스크린샷](media/workteam-provisioning-tutorial/icon.png)
 
 3. **기준 Url** 및 **전달자 토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 근무 팀 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL**및 **비밀 토큰** 필드에 입력 됩니다.
 
-    ![Workteam](media/workteam-provisioning-tutorial/scim.png)
+    ![기본 U R L 및 전달자 토큰 입력란이 out 인 S C I M 설정 대화 상자의 스크린샷](media/workteam-provisioning-tutorial/scim.png)
 
 
 ## <a name="add-workteam--from-the-gallery"></a>갤러리에서 근무 팀 추가
@@ -106,11 +106,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에서 **테 넌 트 url** 및 **암호 토큰** 에서 각각 검색 된 **기준 url** 및 **전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 근무 팀에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 업무 팀 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

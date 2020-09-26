@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318268"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -58,7 +58,7 @@ if spec is None:
 > 파이프라인에 사전 설치 된 목록에 없는 패키지를 필요로 하는 여러 개의 Python 스크립트 실행 모듈이 포함 되어 있는 경우 각 모듈에 패키지를 설치 합니다.
 
 ## <a name="upload-files"></a>파일 업로드
-Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
+Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
 
 다음 예제에서는 Python 스크립트 실행 모듈에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 

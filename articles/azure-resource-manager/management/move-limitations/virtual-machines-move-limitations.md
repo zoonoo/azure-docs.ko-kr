@@ -2,13 +2,13 @@
 title: 새 구독 또는 리소스 그룹으로 Azure Vm 이동
 description: Azure Resource Manager를 사용 하 여 가상 컴퓨터를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/21/2020
+ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317109"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>가상 컴퓨터에 대 한 이동 지침
 
@@ -50,7 +50,7 @@ Azure Backup를 사용 하 여 구성 된 가상 컴퓨터를 이동 하려면 �
    1. 가상 컴퓨터의 위치를 찾습니다.
    2. 다음 명명 패턴을 사용 하 여 리소스 그룹을 `AzureBackupRG_<VM location>_1` 찾습니다. 예를 들어 이름은 *AzureBackupRG_westus2_1*형식입니다.
    3. Azure Portal에서 **숨겨진 형식 표시**를 선택 합니다.
-   4. 이름 지정 패턴이 있는 **restorePointCollections/** 형식의 리소스를 찾습니다 `AzureBackup_<name of your VM that you're trying to move>_###########` .
+   4. 이름 지정 패턴이 있는 **restorePointCollections/** 형식의 리소스를 찾습니다 `AzureBackup_<VM name>_###########` .
    5. 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
    6. 삭제 작업을 완료 한 후 가상 컴퓨터를 이동할 수 있습니다.
 
@@ -63,16 +63,31 @@ Azure Backup를 사용 하 여 구성 된 가상 컴퓨터를 이동 하려면 �
 
 1. 이름 지정 패턴이 포함 된 리소스 그룹을 찾습니다 `AzureBackupRG_<VM location>_1` . 예를 들어 이름은 일 수 있습니다 `AzureBackupRG_westus2_1` .
 
-1. 다음 명령을 사용 하 여 복원 지점 컬렉션을 가져옵니다.
+1. 가상 컴퓨터를 하나만 이동 하는 경우 해당 가상 컴퓨터에 대 한 복원 지점 컬렉션을 가져옵니다.
 
-   ```azurepowershell
-   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -name AzureBackup_<VM name>* -ResourceType Microsoft.Compute/restorePointCollections
    ```
 
-1. 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
+   이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
 
-   ```azurepowershell
-   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```azurepowershell-interactive
+   Remove-AzResource -ResourceId $restorePointCollection.ResourceId -Force
+   ```
+
+1. 이 위치에서 백업을 포함 하는 모든 가상 컴퓨터를 이동 하는 경우 해당 가상 컴퓨터에 대 한 복원 지점 컬렉션을 가져옵니다.
+
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+   각 리소스를 삭제 합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
+
+   ```azurepowershell-interactive
+   foreach ($restorePoint in $restorePointCollection)
+   {
+     Remove-AzResource -ResourceId $restorePoint.ResourceId -Force
+   }
    ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -81,18 +96,28 @@ Azure Backup를 사용 하 여 구성 된 가상 컴퓨터를 이동 하려면 �
 
 1. 이름 지정 패턴이 포함 된 리소스 그룹을 찾습니다 `AzureBackupRG_<VM location>_1` . 예를 들어 이름은 일 수 있습니다 `AzureBackupRG_westus2_1` .
 
-1. 다음 명령을 사용 하 여 복원 지점 컬렉션을 가져옵니다.
+1. 가상 컴퓨터를 하나만 이동 하는 경우 해당 가상 컴퓨터에 대 한 복원 지점 컬렉션을 가져옵니다.
 
-   ```azurecli
-   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections --query "[?starts_with(name, 'AzureBackup_<VM name>')].id" --output tsv)
    ```
 
-1. 명명 패턴을 사용 하 여 리소스에 대 한 리소스 ID를 찾습니다. `AzureBackup_<VM name>_###########`
+   이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
 
-1. 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
 
-   ```azurecli
-   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+1. 이 위치에서 백업을 포함 하는 모든 가상 컴퓨터를 이동 하는 경우 해당 가상 컴퓨터에 대 한 복원 지점 컬렉션을 가져옵니다.
+
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections)
+   ```
+
+   각 리소스를 삭제 합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
+
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
    ```
 
 ## <a name="next-steps"></a>다음 단계

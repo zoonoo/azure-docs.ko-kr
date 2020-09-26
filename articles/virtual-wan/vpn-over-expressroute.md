@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317636"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
@@ -87,7 +87,7 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
    * **Border Gateway Protocol**: 온-프레미스 네트워크에서 BGP를 사용 하는 경우 "사용"을 선택 합니다.
    * **개인 주소 공간**: 온-프레미스 사이트에 있는 IP 주소 공간을 입력 합니다. 이 주소 공간으로 향하는 트래픽은 VPN gateway를 통해 온-프레미스 네트워크로 라우팅됩니다.
    * **허브**:이 VPN 사이트를 연결 하려면 허브를 하나 이상 선택 하세요. 선택한 허브에는 이미 만들어져 있는 VPN 게이트웨이가 있어야 합니다.
-1. 다음: VPN 링크 설정에 대 한 **>링크** 를 선택 합니다.
+1. 다음: VPN 링크 설정에 대 한 **>링크 ** 를 선택 합니다.
    * **링크 이름**:이 연결을 참조 하는 데 사용할 이름입니다.
    * **공급자 이름**:이 사이트에 대 한 인터넷 서비스 공급자의 이름입니다. Express 경로 온-프레미스 네트워크의 경우 Express 경로 서비스 공급자의 이름입니다.
    * **속도**: 인터넷 서비스 링크 또는 express 경로 회로의 속도입니다.
@@ -222,7 +222,7 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 ## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. 가상 WAN 보기
 
 1. 가상 WAN으로 이동 합니다.
-1. **개요** 페이지에서 지도의 각 점은 허브를 나타냅니다.
+1. **개요** 페이지의 맵에 있는 각 점은 허브를 나타냅니다.
 1. 허브 **및 연결** 섹션에서 허브, 사이트, 지역 및 VPN 연결 상태를 볼 수 있습니다. 바이트 및 출력을 볼 수도 있습니다.
 
 ## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. 연결 모니터링

@@ -1,17 +1,22 @@
 ---
-title: Azure Event Hubs-예외
+title: Azure Event Hubs-예외 (레거시)
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b3a7023dc44d7280284fec1eccf00a3dbe88b7ec
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908381"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318486"
 ---
-# <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs 메시징 예외-.NET
+# <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs 메시징 예외-.NET (레거시)
 이 섹션에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
+
+> [!IMPORTANT]
+> 이 문서에 나열 된 일부 예외는 레거시 Event Hubs .NET 라이브러리에만 적용 됩니다. 예: ServiceBus. * 예외.
+> 
+> 새 .NET 라이브러리에서 발생 하는 EventHubsException에 대 한 자세한 내용은 [EventHubsException-.net](exceptions-dotnet.md) 을 참조 하십시오.
 
 ## <a name="exception-categories"></a>예외 범주
 

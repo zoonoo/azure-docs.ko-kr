@@ -1,16 +1,18 @@
 ---
 title: 모델을 사용 하 여 디자인-LUIS
 description: 언어 이해는 여러 유형의 모델을 제공 합니다. 일부 모델은 여러 가지 방법으로 사용할 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683923"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316514"
 ---
-# <a name="design-with-intent-and-entity-models"></a>의도 및 엔터티 모델로 디자인
+# <a name="design-with-intent-and-entity-models"></a>의도 및 엔터티 모델을 사용하여 설계
 
 언어 이해에서는 앱 스키마를 정의 하는 데 사용할 수 있는 두 가지 유형의 모델을 제공 합니다. 앱 스키마는 새 사용자 utterance의 예측에서 수신 하는 정보를 결정 합니다.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308115"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>IoT 업계의 X.509 CA 인증서에 대한 개념적 이해
 
@@ -87,7 +87,7 @@ X.509 CA 인증서 업로드 프로세스는 CA 인증서를 IoT Hub에 업로�
 
 ### <a name="proof-of-possession-of-the-certificate"></a>인증서의 소유 증명
 
-X.509 CA 인증서는 디지털 인증서와 마찬가지로 도청의 위험이 있는 공개 정보입니다. 따라서 도청자가 인증서를 가로채서 인증서를 자신의 것으로 업로드하려고 시도할 수 있습니다. 이 예에서 IoT Hub는 Company-X가 업로드하는 CA 인증서가 Company-X에 실제 속하는지 확인하려고 합니다. 이를 위해 [PoP(소유 증명) 흐름](https://tools.ietf.org/html/rfc5280#section-3.1)을 통해서 Company-X가 인증서를 실제로 소유한다는 것을 증명하도록 Company-X에 요구합니다. 소유 증명 흐름에는 IoT Hub에서 Company-X가 자체 프라이빗 키를 사용하여 서명할 난수를 생성하는 단계가 수반됩니다. Company-X가 PKI 모범 사례에 따라 프라이빗 키를 보호한 경우 소유 증명 챌린지에 올바르게 응답할 수 있는 상태가 됩니다. 소유 증명 챌린지에 대한 응답이 성공하면 IoT Hub는 X.509 CA 인증서 등록을 진행합니다.
+X.509 CA 인증서는 디지털 인증서와 마찬가지로 도청의 위험이 있는 공개 정보입니다. 따라서 도청자가 인증서를 가로채서 인증서를 자신의 것으로 업로드하려고 시도할 수 있습니다. 이 예에서 IoT Hub는 Company-X가 업로드하는 CA 인증서가 Company-X에 실제 속하는지 확인하려고 합니다. 이를 위해 회사-X가 실제로 사용자가 [PoP (증명 소유) 흐름](https://tools.ietf.org/html/rfc5280#section-3.1)을 통해 인증서를 소유 하 고 있음을 증명 합니다. 소유 증명 흐름에는 IoT Hub에서 Company-X가 자체 프라이빗 키를 사용하여 서명할 난수를 생성하는 단계가 수반됩니다. Company-X가 PKI 모범 사례에 따라 프라이빗 키를 보호한 경우 소유 증명 챌린지에 올바르게 응답할 수 있는 상태가 됩니다. 소유 증명 챌린지에 대한 응답이 성공하면 IoT Hub는 X.509 CA 인증서 등록을 진행합니다.
 
 IoT Hub의 소유 증명 챌린지에 대한 응답이 성공하면 X.509 CA 등록이 완료됩니다.
 

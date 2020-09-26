@@ -4,17 +4,17 @@ description: Azure 보안 벤치 마크 V2 Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bcd88f9f21c68f7f6cdda7299ac97d67e97dc009
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: a007b8e85440faab6f3d9f35c49ee207ee1597ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295501"
 ---
-# <a name="security-control-identity-management"></a>보안 제어: Id 관리
+# <a name="security-control-v2-identity-management"></a>보안 제어 V2: Id 관리
 
 Id 관리는 Azure Active Directory를 사용 하 여 보안 id 및 액세스 제어를 설정 하는 컨트롤을 포함 합니다. 여기에는 응용 프로그램, 조건부 액세스 및 계정 변칙 모니터링에 대 한 Single Sign-On, 강력한 인증, 관리 되는 id (및 서비스 원칙)의 사용이 포함 됩니다.
 
@@ -45,9 +45,9 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [ID 및 키](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
+- [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -77,9 +77,9 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [ID 및 키](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -97,11 +97,11 @@ Azure AD Single Sign-On (SSO)를 사용 하 여 온-프레미스 및 클라우�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [ID 및 키](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -132,11 +132,11 @@ Azure AD 인증에 레거시 암호 기반 인증을 여전히 사용 하는 경
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [ID 및 키](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -179,7 +179,7 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -201,9 +201,9 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [ID 및 키](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -217,13 +217,17 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 |--|--|--|--|
 | ID-7 | 18.1, 18.7 | IA-5 |
 
-자격 증명 스캐너를 구현 하 여 코드 내에서 자격 증명을 식별 합니다. 또한 자격 증명 스캐너는 검색 된 자격 증명을 Azure Key Vault와 같은 보다 안전한 위치로 이동 하는 것을 권장 합니다.
+Azure DevOps 자격 증명 스캐너를 구현 하 여 코드 내에서 자격 증명을 식별 합니다. 또한 자격 증명 스캐너는 검색 된 자격 증명을 Azure Key Vault와 같은 보다 안전한 위치로 이동 하는 것을 권장 합니다.
+
+GitHub의 경우 네이티브 암호 검색 기능을 사용 하 여 코드 내에서 자격 증명 또는 다른 형식의 암호를 식별할 수 있습니다.
 
 - [자격 증명 스캐너를 설정하는 방법](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
+- [GitHub 암호 검색](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -247,7 +251,7 @@ Azure AD 응용 프로그램 프록시를 사용 하면 Azure AD 조건부 액�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
