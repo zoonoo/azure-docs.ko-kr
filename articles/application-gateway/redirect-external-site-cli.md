@@ -1,18 +1,18 @@
 ---
 title: CLI Azure 애플리케이션 게이트웨이를 사용 하는 외부 트래픽 리디렉션
-description: Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리디렉션하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
+description: Azure CLI를 사용 하 여 외부 웹 트래픽을 적절 한 풀로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331049"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 애플리케이션 게이트웨이 만들기
 
@@ -131,8 +131,4 @@ az network application-gateway rule create \
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
-
-> * 네트워크 설정
-> * 수신기 및 리디렉션 규칙 만들기
-> * 애플리케이션 게이트웨이 만들기
+- [Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기](redirect-internal-site-cli.md)

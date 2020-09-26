@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362149"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -83,7 +83,7 @@ Azure AD 애플리케이션 프록시에 의해 게시된 애플리케이션의 
 
 #### <a name="azure-ddos-protection-service"></a>Azure DDoS 보호 서비스
 
-애플리케이션 프록시를 통해 게시된 애플리케이션은 DDoS(서비스 분산 거부) 공격으로부터 보호됩니다. **Azure DDoS 보호**는 Azure 리소스를 서비스 거부 공격으로부터 보호하기 위해 Azure 플랫폼과 함께 제공되는 서비스입니다. **기본** 서비스 계층이 자동으로 활성화되어 일반적인 네트워크 수준 공격에 대한 실시간 완화 및 상시 트래픽 모니터링 기능을 제공합니다. Azure Virtual Network 리소스에 맞게 특별히 조정된 추가 완화 기능을 제공하는 **표준** 계층도 사용할 수 있습니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)를 참조하세요.
+애플리케이션 프록시를 통해 게시된 애플리케이션은 DDoS(서비스 분산 거부) 공격으로부터 보호됩니다. **Azure DDoS 보호**는 Azure 리소스를 서비스 거부 공격으로부터 보호하기 위해 Azure 플랫폼과 함께 제공되는 서비스입니다. **기본** 서비스 계층이 자동으로 활성화되어 일반적인 네트워크 수준 공격에 대한 실시간 완화 및 상시 트래픽 모니터링 기능을 제공합니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)를 참조하세요.
 
 ## <a name="under-the-hood"></a>기본적인 이해
 

@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362183"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Synapse SQL 풀의 연결 문제 해결
 
@@ -34,13 +34,14 @@ SQL 풀의 상태는 여기에 표시됩니다. 서비스가 **사용 가능**�
 
 리소스 상태에서 SQL 풀 인스턴스가 일시 중지 또는 크기 조정되는 것으로 표시되는 경우에는 지침에 따라 인스턴스를 다시 시작합니다.
 
-![서비스 일시 중지](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png): Resource Health에 대한 추가 정보는 여기에서 찾을 수 있습니다.
+![일시 중지 하거나 크기를 조정 하는 SQL data warehouse의 인스턴스를 보여 주는 스크린샷](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Resource Health에 대 한 추가 정보는 여기에서 찾을 수 있습니다.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>일시 중지 또는 크기 조정 작업 확인
 
 포털을 확인하여 SQL 풀 인스턴스가 일시 중지되었거나 크기 조정되었는지 확인합니다.
 
-![서비스가 일시 중지됨](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![스크린샷은 데이터 웨어하우스가 일시 중지 되었는지 여부를 확인 하는 방법을 보여 줍니다.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 서비스를 일시 중지하거나 크기를 조정하는 것이 확인되는 경우 유지 관리 일정 중이 아닌지 확인합니다. SQL 풀 *개요*의 포털에서 선택한 유지 관리 일정이 표시됩니다.
 

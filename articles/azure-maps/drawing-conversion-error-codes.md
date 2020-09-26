@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361537"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>그리기 변환 오류 및 경고
 
@@ -35,9 +35,9 @@ Conversion 서비스는 잘못된 엔터티에서 맵 기능을 만들 수 없�
 
 * 아래 두 이미지에서는 자체 교차 다각형의 예를 보여 줍니다.
 
-     ![자체 교차 다각형의 예](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![자기 교차 다각형의 예: 예 1.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![자체 교차 다각형의 예](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![자기 교차 다각형의 예입니다 (예: 2).](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * 다음은 닫히지 않은 폴리라인을 보여주는 이미지입니다. 레이어에서 닫힌 기하 도형만 지원한다고 가정합니다.
 

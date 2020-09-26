@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3f2dcefa8ed2f4b80ec66851cdc67ee2283a6ac7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
-ms.translationtype: HT
+ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322825"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362047"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Azure Cosmos DB SQL API 및 변경 피드 프로세서를 사용하는 Java 애플리케이션을 만드는 방법
 
@@ -110,11 +110,11 @@ mvn clean package
 
 1. 이제 Data Explorer에서 **InventoryContainer-pktype > 항목**으로 이동합니다. 이것은 구체화된 뷰이며, 이 컨테이너의 항목은 피드 변경에 의해 프로그래밍 방식으로 삽입되었기 때문에 **InventoryContainer**를 미러링합니다. 파티션 키(```type```)에 유의합니다. 이 구체화된 뷰는 ```type```에 대한 쿼리 필터링에 최적화되어 있는데, ```id```으로 분할되어 있기 때문에 **InventoryContainer**에는 비효율적입니다.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="구체화된 뷰":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="항목을 선택한 Azure Cosmos D B 계정에 대 한 데이터 탐색기 페이지가 스크린샷에 표시 됩니다.":::
 
 1. 단일 ```upsertItem()``` 호출을 사용하여 **InventoryContainer**와 **InventoryContainer-pktype**에서 문서를 삭제하겠습니다. 먼저 Azure Portal Data Explorer를 살펴봅니다. ```/type == "plums"```인 문서를 삭제하겠습니다. 아래에 빨간색으로 둘러싸여 있습니다
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="구체화된 뷰":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="스크린샷 선택한 특정 항목을 포함 하는 Azure Cosmos D B 계정에 대 한 데이터 탐색기 페이지를 표시 합니다.":::
 
     Enter 키를 다시 눌러서 예제 코드에서 ```deleteDocument()``` 함수를 호출합니다. 아래에 표시된 이 함수는 문서 TTL(Time to Live)을 5초로 설정하는 ```/ttl == 5```를 사용하여 새 버전의 문서를 upsert합니다. 
     

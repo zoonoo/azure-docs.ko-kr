@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361418"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -82,11 +82,11 @@ NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 
 
 1. 아래 스크린샷에 표시된 것처럼 NSG에서 "Storage.EastUS"에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![저장소에 대 한 네트워크 보안 그룹에 대 한 아웃 바운드 보안 규칙 추가는 동아시아 U S로 표시 됩니다.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. 아래 스크린샷에 표시된 것처럼 NSG에서 “AzureActiveDirectory”에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Azure A D에 대 한 네트워크 보안 그룹에 대 한 아웃 바운드 보안 규칙 추가가 스크린샷에 표시 됩니다.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. 위의 보안 규칙과 마찬가지로 대상 위치에 해당 하는 NSG에서 "CentralUS"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
 

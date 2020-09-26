@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362217"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -80,10 +80,20 @@ ms.locfileid: "90893185"
 ### <a name="limitations"></a>제한 사항
 
 가상 네트워크 내에서 작업 영역 및 연결 된 리소스를 보호 하는 경우 다음과 같은 제한 사항이 있습니다.
-- 작업 영역 개인 링크는 다음 지역 에서만 사용할 수 있습니다. eastus, westus2, southcentralus
-    - 연결 된 리소스에는이 제한이 적용 되지 않습니다. 예를 들어 모든 Azure Machine Learning 지역에서 저장소에 대해 VNet을 사용 하도록 설정할 수 있습니다.
+- 작업 영역 개인 링크는 다음 지역 에서만 사용할 수 있습니다.
+    - **미국 동부**
+    - **미국 중남부**
+    - **미국 서부**
+    - **미국 서부 2**
+    - **캐나다 중부**
+    - **동남 아시아**
+    - **일본 동부**
+    - **북유럽**
+    - **동부 오스트레일리아**
+    - **영국 남부**
+    
+    연결 된 리소스에는이 제한이 적용 되지 않습니다. 예를 들어 모든 Azure Machine Learning 지역에서 저장소에 대해 VNet을 사용 하도록 설정할 수 있습니다.
 - 모든 리소스는 동일한 VNet 뒤에 있어야 합니다. 그러나 동일한 VNet 내의 서브넷은 허용 됩니다.
-- 디자이너, AutoML, 레이블 지정 및 데이터 프로 파일링과 같은 일부 studio 기능은 개인 끝점을 사용 하도록 구성 된 저장소 계정에서 사용할 수 없습니다. 이러한 스튜디오 기능을 사용 해야 하는 경우 서비스 끝점을 대신 사용 합니다.
 
 ## <a name="secure-the-training-environment"></a>교육 환경 보안
 
@@ -150,7 +160,7 @@ ms.locfileid: "90893185"
 * AutoML 실험을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
 
-저장소 서비스 끝점을 사용 하는 동안 전체 기능을 사용 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#access-data-using-the-studio)을 참조 하세요. 현재 스튜디오에서는 저장소 전용 끝점을 지원 하지 않습니다.
+저장소 서비스 끝점을 사용 하는 동안 전체 기능을 사용 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#access-data-using-the-studio)을 참조 하세요. 스튜디오는 저장소 계정에 대 한 서비스 끝점과 개인 끝점을 모두 지원 합니다.
 
 ### <a name="limitations"></a>제한 사항
 - 스튜디오는 개인 끝점을 사용 하도록 구성 된 저장소 계정의 데이터에 액세스할 수 없습니다. 모든 기능을 사용 하려면 저장소에 대해 서비스 끝점을 사용 하 고 관리 되는 id를 사용 해야 합니다.

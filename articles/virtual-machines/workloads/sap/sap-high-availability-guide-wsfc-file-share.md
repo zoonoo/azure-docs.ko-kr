@@ -16,23 +16,23 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361333"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows 로고.][Logo_Windows] Windows
 >
 
 Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가용성 SAP ASCS/SCS를 설치하고 DBMS를 사용하기 위한 기반이 됩니다.
 
 장애 조치 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서 설명하는 작업을 시작하기 전에 먼저 다음 문서를 검토하세요.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
@@ -137,7 +137,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 * 스토리지 공간 다이렉트 디스크 동기화에 필요한 VM 간의 양호한 네트워크 성능을 보장하려면 “높음” 네트워크 대역폭 이상의 VM 유형을 사용해야 합니다.
     자세한 내용은 [DSv2-시리즈][dv2-series] 및 [DS-시리즈][ds-series] 사양을 참조하세요.
 * 스토리지 풀에 할당되지 않은 용량을 일부 남겨 두는 것이 좋습니다. 스토리지 풀에 할당되지 않은 용량을 남겨 두면 드라이브에 장애가 발생하는 경우 “원본 위치”에서 복구하는 데 필요한 볼륨 용량이 확보됩니다. 이렇게 하면 데이터 안전성과 성능이 향상됩니다.  자세한 내용은 [볼륨 크기 선택][choosing-the-size-of-volumes-s2d]을 참조하세요.
-* 의 경우와 같이 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다 \<SAP global host\> . 이 작업은 \<ASCS/SCS virtual host name\> SAP ASCS/SCS 인스턴스 또는 DBMS에 대해 수행 됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\>모든 클러스터 노드에 대해 로컬 IP 주소를 사용 합니다.
+* 의 경우와 같이 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다 \<SAP global host\> . 이 작업은 \<ASCS/SCS virtual host name\> SAP ASCS/SCS 인스턴스 또는 DBMS에 대해 수행 됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\> 모든 클러스터 노드에 대해 로컬 IP 주소를 사용 합니다.
 
 
 > [!IMPORTANT]
