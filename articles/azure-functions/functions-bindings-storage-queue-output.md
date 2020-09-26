@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 06d9ea895607332c8de25176376d52987ceed7a1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317228"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
 
@@ -301,7 +301,7 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | 설명 |
+| 속성    | Description |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -365,7 +365,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 # <a name="python"></a>[Python](#tab/python)
 
-함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
+함수에서 큐 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
 
 - **반환 값**:function.js의 `name` 속성을 *function.json* 로 설정 `$return` 합니다. 이 구성을 사용 하면 함수의 반환 값이 큐 저장소 메시지로 유지 됩니다.
 
@@ -373,11 +373,11 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Queueoutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용 하 여 함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션이 있습니다.
+[Queueoutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용 하 여 함수에서 큐 메시지를 출력 하는 두 가지 옵션이 있습니다.
 
-- **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 이벤트 허브 메시지로 유지 됩니다.
+- **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 큐 메시지로 유지 됩니다.
 
-- **명령적**: 메시지 값을 명시적으로 설정 하려면 형식의 특정 매개 변수에 주석을 적용 합니다 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) `T` . 여기서은 Pojo 또는 네이티브 Java 유형입니다. 이 구성을 사용 하 여 메서드에 값을 전달 하면 `setValue` 값이 이벤트 허브 메시지로 유지 됩니다.
+- **명령적**: 메시지 값을 명시적으로 설정 하려면 형식의 특정 매개 변수에 주석을 적용 합니다 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) `T` . 여기서은 Pojo 또는 네이티브 Java 유형입니다. 이 구성을 사용 하 여 메서드에 값을 전달 하면 `setValue` 값이 큐 메시지로 유지 됩니다.
 
 ---
 

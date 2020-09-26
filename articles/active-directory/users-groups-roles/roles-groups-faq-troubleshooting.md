@@ -1,6 +1,6 @@
 ---
 title: 클라우드 그룹에 할당 된 역할 문제 해결 FAQ-Azure Active Directory | Microsoft Docs
-description: Azure Portal, PowerShell 또는 Graph API의 역할 할당 가능 그룹에 Azure AD 역할을 할당 합니다.
+description: Azure Active Directory에서 그룹에 역할을 할당 하는 방법에 대 한 몇 가지 일반적인 질문과 문제 해결 팁을 알아보세요.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7acbb9aa443cde8df7016d3f2a38d58002b98dcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798298"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317398"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당된 역할 문제 해결
 
