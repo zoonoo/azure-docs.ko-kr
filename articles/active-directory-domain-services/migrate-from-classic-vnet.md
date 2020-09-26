@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 09/24/2020
 ms.author: iainfou
-ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266907"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
 
@@ -139,17 +139,25 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 가상 네트워크 요구 사항에 대 한 자세한 내용은 [가상 네트워크 디자인 고려 사항 및 구성 옵션][network-considerations]을 참조 하세요.
 
+또한 관리 되는 도메인에 대 한 가상 네트워크의 트래픽을 제한 하는 네트워크 보안 그룹을 만들어야 합니다. 이러한 규칙을 적용 해야 하는 마이그레이션 프로세스 중에 Azure 표준 부하 분산 장치를 만듭니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
+
+필요한 규칙에 대 한 자세한 내용은 [Azure AD DS 네트워크 보안 그룹 및 필요한 포트](network-considerations.md#network-security-groups-and-required-ports)를 참조 하세요.
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>LDAPS 및 TLS/SSL 인증서 만료
+
+관리 되는 도메인이 LDAPS로 구성 된 경우 현재 TLS/SSL 인증서가 30 일 넘게 유효한 지 확인 합니다. 다음 30 일 내에 만료 되는 인증서는 마이그레이션 프로세스가 실패 하는 원인이 됩니다. 필요한 경우 인증서를 갱신 하 고 관리 되는 도메인에 적용 한 다음 마이그레이션 프로세스를 시작 합니다.
+
 ## <a name="migration-steps"></a>마이그레이션 단계
 
 리소스 관리자 배포 모델 및 가상 네트워크로의 마이그레이션은 5 가지 주요 단계로 분할 됩니다.
 
 | 단계    | 수행한  | 예상 시간  | 가동 중지 시간  | 롤백/복원 할까요? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | N/A |
+| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2 단계-마이그레이션에 대 한 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
 | [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
 | [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
-| [5 단계-선택적 구성 단계](#optional-post-migration-configuration-steps) | Azure Portal 및 Vm | N/A | 가동 중지 시간 없음 | N/A |
+| [5 단계-선택적 구성 단계](#optional-post-migration-configuration-steps) | Azure Portal 및 Vm | 해당 없음 | 가동 중지 시간 없음 | 해당 없음 |
 
 > [!IMPORTANT]
 > 추가 가동 중지 시간을 방지 하려면 마이그레이션 프로세스를 시작 하기 전에이 마이그레이션 문서와 지침을 모두 읽으십시오. 마이그레이션 프로세스는 일정 시간 동안 Azure AD DS 도메인 컨트롤러의 가용성에 영향을 줍니다. 사용자, 서비스 및 응용 프로그램은 마이그레이션 프로세스 중에 관리 되는 도메인에 대해 인증할 수 없습니다.
@@ -166,7 +174,9 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
     네트워크 설정이 Azure AD DS에 필요한 포트를 차단 하지 않는지 확인 합니다. 포트는 클래식 가상 네트워크와 리소스 관리자 가상 네트워크에서 모두 열어야 합니다. 이러한 설정에는 경로 테이블을 사용 하지 않는 것이 좋지만 경로 테이블은 사용 하지 않는 것이 좋지만 네트워크 보안 그룹도 있습니다.
 
-    필요한 포트를 보려면 [네트워크 보안 그룹 및 필요한 포트][network-ports]를 참조 하세요. 네트워크 통신 문제를 최소화 하려면 마이그레이션이 성공적으로 완료 된 후에 네트워크 보안 그룹 또는 경로 테이블을 대기 하 고 리소스 관리자 가상 네트워크에 적용 하는 것이 좋습니다.
+    Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 들어오는 모든 트래픽을 차단 하는 네트워크 보안 그룹이 필요 합니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층으로 작동 합니다. 필요한 포트를 보려면 [네트워크 보안 그룹 및 필요한 포트][network-ports]를 참조 하세요.
+
+    보안 LDAP를 사용 하는 경우 *TCP* 포트 *636*에 들어오는 트래픽을 허용 하도록 네트워크 보안 그룹에 규칙을 추가 합니다. 자세한 내용은 [인터넷을 통한 보안 LDAP 액세스 잠금](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) 을 참조 하세요.
 
     이 대상 리소스 그룹, 대상 가상 네트워크 및 대상 가상 네트워크 서브넷을 기록해 둡니다. 이러한 리소스 이름은 마이그레이션 프로세스 중에 사용 됩니다.
 
@@ -265,9 +275,9 @@ PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스�
 
 이제 가상 네트워크 연결 및 이름 확인을 테스트 합니다. 리소스 관리자 가상 네트워크에 연결 된 VM 또는 피어 링 VM에서 다음 네트워크 통신 테스트를 시도 합니다.
 
-1. 도메인 컨트롤러 중 하나의 IP 주소를 ping 할 수 있는지 확인 합니다 (예:).`ping 10.1.0.4`
+1. 도메인 컨트롤러 중 하나의 IP 주소를 ping 할 수 있는지 확인 합니다 (예:). `ping 10.1.0.4`
     * 도메인 컨트롤러의 IP 주소는 Azure Portal의 관리 되는 도메인에 대 한 **속성** 페이지에 표시 됩니다.
-1. 관리 되는 도메인의 이름 확인을 확인 합니다 (예:).`nslookup aaddscontoso.com`
+1. 관리 되는 도메인의 이름 확인을 확인 합니다 (예:). `nslookup aaddscontoso.com`
     * DNS 설정이 올바른지 확인 하 고 확인 하려면 자체 관리 되는 도메인의 DNS 이름을 지정 합니다.
 
 두 번째 도메인 컨트롤러는 마이그레이션 cmdlet이 완료 된 후 1-2 시간 후에 사용할 수 있어야 합니다. 두 번째 도메인 컨트롤러를 사용할 수 있는지 확인 하려면 Azure Portal에서 관리 되는 도메인에 대 한 **속성** 페이지를 확인 합니다. 두 개의 IP 주소가 표시 되 면 두 번째 도메인 컨트롤러가 준비 된 것입니다.
@@ -295,13 +305,6 @@ Azure AD DS는 도메인 컨트롤러에서 문제를 해결 하 고 이벤트�
 1. VM이 인터넷에 노출 되는 경우 로그인을 많이 시도 하는 *관리자*, *사용자*또는 *게스트* 와 같은 일반 계정 이름을 검토 합니다. 가능 하면 보다 일반적으로 명명 된 계정을 사용 하도록 해당 Vm을 업데이트 합니다.
 1. VM의 네트워크 추적을 사용 하 여 공격의 원인을 찾고 해당 IP 주소에서 로그인을 시도할 수 없도록 차단 합니다.
 1. 잠금 문제가 최소화 되 면 세분화 된 암호 정책을 필요한 만큼 제한적으로 업데이트 합니다.
-
-### <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
-
-Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 들어오는 모든 트래픽을 차단 하는 네트워크 보안 그룹이 필요 합니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층 역할을 하며 자동으로 생성 되지 않습니다. 네트워크 보안 그룹을 만들고 필요한 포트를 열려면 다음 단계를 검토 합니다.
-
-1. Azure Portal에서 Azure AD DS 리소스를 선택 합니다. 개요 페이지에는 Azure AD Domain Services와 연결 되어 있지 않은 경우 네트워크 보안 그룹을 만드는 단추가 표시 됩니다.
-1. 보안 LDAP를 사용 하는 경우 *TCP* 포트 *636*에 들어오는 트래픽을 허용 하도록 네트워크 보안 그룹에 규칙을 추가 합니다. 자세한 내용은 [보안 LDAP 구성][secure-ldap]을 참조 하세요.
 
 ## <a name="roll-back-and-restore-from-migration"></a>마이그레이션에서 롤백 및 복원
 

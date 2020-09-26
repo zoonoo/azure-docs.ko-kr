@@ -1,6 +1,6 @@
 ---
 title: Workday 특성 참조
-description: SuccessFactors-HR 기반 프로비저닝에서 지원하는 SuccessFactors의 특성 알아보기
+description: XPATH 쿼리를 사용 하 여 Workday에서 인출할 수 있는 특성에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266567"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278671"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
@@ -29,6 +29,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azur
 
 | 질문 | Answer |
 | -------- | ------ |
+| WatchOS 7에서 Apple Watch 하는 데 문제가 있는 이유는 무엇 인가요? | WatchOS 7에 대 한 알림을 승인 하는 데 문제가 있습니다 .이 문제를 해결 하기 위해 Apple에서 작업 하 고 있습니다. 그 동안에는 Microsoft Authenticator watchOS 앱이 필요한 모든 알림을 휴대폰에서 승인 해야 합니다.  |
 | 디바이스를 등록하면 회사 또는 서비스에서 디바이스에 액세스하도록 허용하게 되나요? | 디바이스를 등록하면 디바이스에서 조직의 서비스에 액세스할 수 있으며 조직에서는 디바이스에 액세스할 수 없습니다. |
 | 앱 잠금의 정의 및이를 사용 하 여 더 안전 하 게 보호 하는 방법 | 앱 잠금은 일회성 암호, 앱 정보 및 앱 설정을 보다 안전 하 게 유지 하는 데 도움이 됩니다. 앱 잠금이 설정 된 경우 인증자를 열 때마다 장치 PIN 또는 생체 인식을 사용 하 여 인증 하 라는 메시지가 표시 됩니다. 앱 잠금은 로그인 알림을 승인할 때마다 PIN 또는 생체 인식 메시지를 표시 하 여 알림을 승인할 수 있는 유일한 사용자 인지 확인 하는 데도 도움이 됩니다. 인증자 설정 페이지에서 앱 잠금을 설정 하거나 해제할 수 있습니다. 기본적으로 장치에서 PIN 또는 생체 인식을 설정 하면 앱 잠금이 켜 집니다.<br><br>아쉽게도 앱 잠금으로 인해 누군가가 인증자에 액세스 하지 못하도록 할 수 있는 것은 아닙니다. 장치 등록은 Android 계정 설정 또는 회사 포털 앱 등 인증자 외부의 다른 위치에서 발생할 수 있기 때문입니다. |
 | Windows Mobile 장치를 사용 하는 경우 windows mobile의 Microsoft Authenticator는 사용 되지 않습니다. 앱을 사용 하 여 계속 인증할 수 있나요? | Windows Mobile에서 Microsoft Authenticator를 사용 하는 모든 인증은 2020 년 7 월 15 일 후에 사용이 중지 됩니다. 계정에서 잠기는 것을 방지 하려면 대체 인증 방법을 사용 하는 것이 좋습니다.<br>엔터프라이즈 사용자를 위한 대체 옵션은 다음과 같습니다.<br><ul><li>[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 또는 [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458)에 대 한 Microsoft Authenticator 설정</li><li>확인 코드를 수신 하도록 [SMS 설정](multi-factor-authentication-setup-phone-number.md)</li><li>전화 통화를 수신 하는 전화 번호를 설정 [하 여 id를 확인](multi-factor-authentication-setup-office-phone.md)합니다.</li></ul><br>개인 Microsoft 계정 사용자를 위한 대체 옵션은 다음과 같습니다.<br><ul><li>[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 또는 [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458)에 대 한 Microsoft Authenticator 설정</li><li>[Microsoft 계정 보안 페이지](https://account.microsoft.com/security/)에서 보안 정보를 업데이트 하 여 대체 로그인 방법 (SMS 또는 전자 메일)을 설정 합니다.</li></ul> |

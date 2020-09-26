@@ -5,15 +5,15 @@ description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 340b184ac56d4734431b154ec647e5e7af19ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267247"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사이트별 WAF 정책 구성
 
@@ -25,14 +25,13 @@ Application Gateway와 연결된 경우 정책과 모든 설정은 전역적으�
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 네트워크 설정
-> * WAF 정책 만들기
-> * WAF를 사용하는 애플리케이션 게이트웨이 만들기
-> * WAF 정책을 전역적, 사이트별 및 URI 별 (미리 보기) 적용
-> * 가상 머신 확장 집합 만들기
-> * 스토리지 계정 만들기 및 진단 구성
-> * 애플리케이션 게이트웨이 테스트
+* 네트워크 설정
+* WAF 정책 만들기
+* WAF를 사용하는 애플리케이션 게이트웨이 만들기
+* WAF 정책을 전역적, 사이트별 및 URI 별 (미리 보기) 적용
+* 가상 머신 확장 집합 만들기
+* 스토리지 계정 만들기 및 진단 구성
+* 애플리케이션 게이트웨이 테스트
 
 ![웹 애플리케이션 방화벽 예제](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266703"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -316,6 +316,7 @@ phoneNumbers 및 emails와 같은 특정 특성은 다양한 유형의 전화 �
 - Azure AD 프로비저닝 서비스는 null 값 프로비저닝을 지원하지 않습니다.
 - 기본 키(일반적으로 "ID")는 특성 매핑에서 대상 특성으로 포함되어서는 안 됩니다. 
 - 일반적으로 역할 특성은 직접 매핑보다는 식을 사용하여 매핑해야 합니다. 역할 매핑에 대한 자세한 내용은 위의 섹션을 참조하세요. 
+- 매핑에서 그룹을 사용 하지 않도록 설정할 수 있지만 사용자를 사용 하지 않도록 설정 하는 것은 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

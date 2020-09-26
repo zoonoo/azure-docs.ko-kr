@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278620"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Key Vault에 대 한 Azure Monitor를 사용 하 여 주요 자격 증명 모음 서비스 모니터링
 Key Vault Azure Monitor는 Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다.
@@ -25,21 +25,6 @@ Key Vault Azure Monitor는 Key Vault 요청, 성능, 실패 및 대기 시간에
 -    **사용자 지정이 가능**하므로 표시할 메트릭을 변경하고, 제한에 맞도록 임계값을 수정 또는 설정하고, 사용자 고유의 통합 문서를 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.
 
 Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. 모든 사용자가 메트릭 기반 모니터링 데이터에 액세스할 수 있지만, 로그 기반 시각화를 포함하려면 사용자가 [Azure Key Vault 로깅을 사용하도록 설정](../../key-vault/general/logging.md)해야 할 수도 있습니다.
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>모니터링할 키 자격 증명 모음 구성
-
-> [!NOTE]
-> 로그 사용은 추가 모니터링 기능을 제공하는 유료 서비스입니다.
-
-1. [작업 및 대기 시간] 탭은 어떤 키 자격 증명 모음을 몇 개나 사용할 것인지 결정하는 데 도움이 됩니다. 수집을 시작하려면 **사용** 단추를 선택합니다. 그러면 진단 로그를 사용하도록 설정해야 하는 키 자격 증명 모음을 나열하는 별도의 통합 문서가 열립니다.
-
-    ![파란색 [사용] 단추가 표시된 [작업 및 대기 시간] 탭의 스크린샷](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. 진단 로그를 사용하도록 설정하려면 작업 열 아래에서 **사용** 링크를 클릭하고, Log Analytics 작업 영역으로 로그를 보내는 새 진단 설정을 만듭니다. 모든 로그를 동일한 작업 영역으로 보내는 것이 좋습니다.
-
-3. 진단 설정이 저장되면 Key Vault 인사이트 아래에서 모든 로그 기반 차트와 시각화를 볼 수 있습니다. 로그 채우기가 시작될 때까지 몇 분에서 몇 시간이 걸릴 수 있습니다.
-
-4. Key Vault 서비스에 진단 로그를 사용하도록 설정하는 방법에 대한 추가 지원은 [전체 가이드](../../key-vault/general/logging.md)를 참조하세요.
 
 ## <a name="view-from-azure-monitor"></a>Azure Monitor에서 보기
 
@@ -165,10 +150,6 @@ Key Vault Azure Monitor에서 식별 하는 주요 자격 증명 모음 관련 �
 선택한 구독 필터에서 선택한 구독이 포함된 구독만 표시됩니다. 구독 필터는 Azure Portal 헤더의 "디렉터리 + 구독"에서 선택합니다.
 
 ![구독 필터의 스크린샷](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>"쿼리가 허용 되는 최대 작업 영역/영역을 초과 했습니다." 라는 오류 메시지가 표시 됩니다.
-
-현재 25개 지역과 200개 작업 영역으로 제한되어 있으므로, 데이터를 보려면 구독 및/또는 리소스 그룹의 수를 줄여야 합니다.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Key Vault 정보를 변경 하거나 시각화를 추가 하려면 어떻게 해야 하나요?
 

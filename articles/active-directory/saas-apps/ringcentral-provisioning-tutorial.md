@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: dc83ea424aca1166d2b9c45b45255fbca865a7d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069665"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278756"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 RingCentral 구성
 
@@ -88,15 +88,15 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://platform.ringcentral.com/scim/v2` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **비밀 토큰**에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 RingCentral에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 RingCentral 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
-    ![프로비저닝 탭](./media/ringcentral-provisioning-tutorial/provisioning.png)
+    ![연결 테스트 옵션이 포함 된 테 넌 트 URL 및 암호 토큰 텍스트 필드의 스크린샷](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 

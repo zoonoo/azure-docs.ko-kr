@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306551"
+ms.locfileid: "91367855"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>사용자 VPN OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 준비
 
@@ -76,7 +76,7 @@ Azure AD 테 넌 트가 있는지 확인 합니다. Azure AD 테 넌 트가 없�
 
 4. 메시지가 표시되면 **수락**을 선택합니다.
 
-    ![수락](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![사용자의 조직에 대 한 동의를 요청한 메시지 권한이 있는 대화 상자와 추가 정보를 보여 주는 스크린샷](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. Azure AD의 **엔터프라이즈 응용 프로그램**에는 이제 **azure VPN** 이 나열 되어 있습니다.
 

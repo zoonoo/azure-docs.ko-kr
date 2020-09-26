@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278790"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "88706002"
 
 기본적으로 디렉터리에 있는 모든 사용자와 게스트는 관리자 역할에 할당되지 않은 경우에도 게스트를 초대할 수 있습니다. 외부 협업 설정을 사용하여 조직에서 다양한 유형의 사용자에 대해 게스트 초대를 설정하거나 해제할 수 있습니다. 또한 게스트 초대를 허용하는 역할을 할당하여 개별 사용자에게 초대를 위임할 수도 있습니다.
 
-Azure AD를 사용 하면 외부 게스트 사용자가 Azure AD 디렉터리에서 볼 수 있는 항목을 제한할 수 있습니다. 기본적으로 게스트 사용자는 제한 된 권한 수준으로 설정 되므로 사용자, 그룹 또는 기타 디렉터리 리소스를 열거 하는 것을 차단 하지 않지만 숨겨진 그룹의 멤버 자격을 볼 수 있습니다. 새 미리 보기 설정을 사용 하 여 게스트 액세스를 추가로 제한할 수 있으므로 게스트가 자신의 프로필 정보만 볼 수 있습니다. 
+Azure AD를 사용 하면 외부 게스트 사용자가 Azure AD 디렉터리에서 볼 수 있는 항목을 제한할 수 있습니다. 기본적으로 게스트 사용자는 제한 된 권한 수준으로 설정 되므로 사용자, 그룹 또는 기타 디렉터리 리소스를 열거 하는 것을 차단 하지 않지만 숨겨진 그룹의 멤버 자격을 볼 수 있습니다. 새 미리 보기 설정을 사용 하 여 게스트 액세스를 추가로 제한할 수 있으므로 게스트가 자신의 프로필 정보만 볼 수 있습니다. 자세한 내용은 [게스트 액세스 권한 제한 (미리 보기)](../users-groups-roles/users-restrict-guest-permissions.md)을 참조 하세요.
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>B2B 외부 협업 설정 구성
 
@@ -44,9 +44,6 @@ Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책�
 3. **외부 ID** > **외부 협업 설정**을 선택합니다.
 
 4. **게스트 사용자 액세스 제한 (미리 보기)** 아래에서 게스트 사용자에 게 부여할 액세스 수준을 선택 합니다.
-
-   > [!IMPORTANT]
-   > 짧은 시간 동안 게스트 사용자 권한에 대 한 이러한 새로운 포털 컨트롤은 URL을 사용 하는 경우에만 표시 됩니다 [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . 자세한 내용은 [게스트 액세스 권한 제한 (미리 보기)](https://aka.ms/exid-users-restrict-guest-permissions)을 참조 하세요.
 
    - **게스트 사용자는 구성원 (가장 포함)과 동일한 액세스 권한을 가집니다**.이 옵션을 사용 하면 게스트가 Azure AD 리소스 및 디렉터리 데이터에 대 한 액세스를 구성원 사용자로 동일 하 게 할 수 있습니다.
 

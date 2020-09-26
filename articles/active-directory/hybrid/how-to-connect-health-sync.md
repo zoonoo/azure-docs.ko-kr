@@ -16,17 +16,17 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: efb332cf8d5e34a435010a39a12b38f87cff5875
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313368"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 [AD DS에서 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
 
-![동기화에 대한 Azure AD Connect Health](./media/how-to-connect-health-sync/syncsnapshot.png)
+![동기화에 대 한 Azure AD Connect Health 페이지의 스크린샷](./media/how-to-connect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>동기화에 대한 Azure AD Connect Health에 대한 경고
 동기화에 대한 Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다. 활성 또는 해결된 경고를 선택하면 추가 정보는 물론, 경고를 해결하기 위해 수행할 수 있는 단계와 추가 설명서 링크가 포함된 새 블레이드가 표시됩니다. 과거에 해결된 경고에 대한 기록 데이터도 볼 수 있습니다.
@@ -40,11 +40,11 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 
 이로 인해 서비스의 경고 평가가 제한됩니다. Azure Portal에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시됩니다.
 
-![동기화에 대한 Azure AD Connect Health](./media/how-to-connect-health-sync/banner.png)
+![경고 평가가 제한 된 경고 배너의 스크린샷 모든 경고를 사용 하도록 설정을 업데이트 합니다.](./media/how-to-connect-health-sync/banner.png)
 
 "설정"을 클릭하고 Azure AD Connect Health 에이전트가 모든 오류 로그를 업로드할 수 있도록 허용하여 이를 변경할 수 있습니다.
 
-![동기화에 대한 Azure AD Connect Health](./media/how-to-connect-health-sync/banner2.png)
+![설정 옵션에 대 한 스크린샷 및 저장 옵션이 포함 된 설정 섹션 및 out 옵션이 out으로 호출 되었습니다.](./media/how-to-connect-health-sync/banner2.png)
 
 ## <a name="sync-insight"></a>동기화 정보
 관리자는 Azure AD에 대한 동기화 변경에 걸리는 시간과 변화의 양에 대해 자주 알아보려고 합니다. 이 기능은 아래 그래프를 사용하여 시각화하는 간편한 방법을 제공합니다.   
@@ -55,14 +55,14 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ### <a name="sync-latency"></a>동기화 대기 시간
 이 기능은 커넥터에 대한 동기화 작업(가져오기, 내보내기, 등)의 대기 시간을 그래픽 추세로 표시니다.  작업의 대기 시간(변경 사항이 대규모인 경우 적합)뿐만 아니라 대기 시간에 좀 더 조사가 필요한 이상을 감지하는 방법을 빠르고 쉽게 이해하는 방법을 제공합니다.
 
-![동기화 대기 시간](./media/how-to-connect-health-sync/synclatency02.png)
+![지난 3 일 동안 프로필 실행 대기 시간 그래프의 스크린샷](./media/how-to-connect-health-sync/synclatency02.png)
 
 기본적으로 Azure AD 커넥터에 대한 '내보내기' 작업의 대기 시간만 표시됩니다.  커넥터에 대한 더 많은 작업 또는 다른 커넥터에서 작업을 보려면 차트를 마우스 오른쪽 단추로 클릭하고, 차트 편집을 선택하거나 "대기 시간 차트 편집" 버튼을 클릭하고 특정 작업 및 커넥터를 선택합니다.
 
 ### <a name="sync-object-changes"></a>동기화 개체 변경 사항
 이 기능은 평가되어 Azure AD로 내보내진 변경 횟수를 그래픽 추세로 표시합니다.  요즘 동기화 로그에서 이러한 정보를 수집하는 것은 어려운 일입니다.  차트를 통해 사용자의 환경에서 발생하는 변경 횟수를 보다 간단하게 모니터링하는 방법뿐만 아니라 발생하는 오류를 시각적으로 볼 수 있습니다.
 
-![동기화 대기 시간](./media/how-to-connect-health-sync/syncobjectchanges02.png)
+![지난 3 일 동안 Azure AD에 대 한 통계 내보내기 그래프의 스크린샷](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
 ## <a name="object-level-synchronization-error-report"></a>개체 수준 동기화 오류 보고서
 이 기능은 Azure AD Connect를 사용하여 Windows Server AD와 Azure AD 간의 ID 데이터를 동기화할 때 발생할 수 있는 동기화 오류에 대한 보고서를 제공합니다.
@@ -81,7 +81,7 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ### <a name="categorization-of-errors"></a>오류 분류
 보고서에서는 기존 동기화 오류를 다음과 같은 범주로 분류합니다.
 
-| 범주 | 설명 |
+| Category | Description |
 | --- | --- |
 | 중복 특성 |proxyAddresses, UserPrincipalName 같은 테넌트 내에서 고유해야 하는 Azure AD에서 하나 이상의 특성의 값이 중복된 개체를 만들거나 업데이트하려고 시도할 때의 오류 |
 | 데이터 불일치 |소프트 일치가 동기화 오류가 발생하는 개체와 일치하도록 하는 데 실패할 경우발생하는 오류 |

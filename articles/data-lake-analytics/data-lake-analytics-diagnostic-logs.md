@@ -5,12 +5,12 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331933"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -26,7 +26,7 @@ ms.locfileid: "87132605"
 
 2. Data Lake Analytics 계정을 열고 __모니터링__ 섹션에서 **진단 로그**를 선택합니다. 다음으로, __진단 상태 켜기__를 선택합니다.
 
-    ![진단을 켜서 감사 및 요청 로그 수집](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    !["진단 로그" 작업을 선택 하 고 "진단 기능을 사용 하 여 다음 로그를 수집" 하는 것을 보여 주는 스크린샷 강조 표시 됩니다.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. __진단 설정__에서 이 로깅 구성에 __이름__을 입력하고 로깅 옵션을 선택합니다.
 
@@ -126,7 +126,7 @@ ms.locfileid: "87132605"
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| 이름 | 유형 | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -135,12 +135,12 @@ ms.locfileid: "87132605"
 | resultType |String |작업의 상태, 예를 들어 200 |
 | callerIpAddress |String |요청한 클라이언트의 IP 주소 |
 | correlationId |String |로그의 식별자입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
-| identity |Object |로그를 생성하는 ID |
+| identity |개체 |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음 섹션(요청 로그 속성 스키마)을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| 이름 | 유형 | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -176,7 +176,7 @@ ms.locfileid: "87132605"
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| 이름 | 유형 | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -184,7 +184,7 @@ ms.locfileid: "87132605"
 | operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |String |작업 상태(operationName)에 대한 하위 상태입니다. |
 | resultSignature |String |작업 상태(operationName)에 추가 세부 정보입니다. |
-| identity |String |작업을 요청한 사용자입니다. 예: susan@contoso.com. |
+| identity |String |작업을 요청한 사용자입니다. 예들 들어 susan@contoso.com입니다. |
 | properties |JSON |자세한 내용은 다음 섹션(감사 로그 속성 스키마)을 참조하세요. |
 
 > [!NOTE]
@@ -194,7 +194,7 @@ ms.locfileid: "87132605"
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| 이름 | 유형 | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | JobId |String |작업에 할당된 ID |
 | JobName |String |작업에 대해 제공된 이름 |

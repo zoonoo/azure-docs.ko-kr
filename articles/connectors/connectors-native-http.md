@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292458"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -104,7 +104,7 @@ ms.locfileid: "90526752"
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -247,7 +247,7 @@ HTTP 요청에는 [제한 시간 제한이](../logic-apps/logic-apps-limits-and-
 
 HTTP 트리거 또는 작업에 이러한 헤더가 포함 된 경우 Logic Apps는 경고 또는 오류를 표시 하지 않고 생성 된 요청 메시지에서 이러한 헤더를 제거 합니다.
 
-* `Accept-*`
+* `Accept-*` 다음을 제외한 헤더 `Accept-version`
 * `Allow`
 * `Content-Disposition`, `Content-Encoding` 및 `Content-Type`과 같은 예외가 있는 `Content-*`
 * `Cookie`

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f9578fadfbe057b723af63e338bf8bda63cf6f21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330913"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>VM용 Azure Monitor를 사용하여 성능을 차트로 표시하는 방법
 
@@ -21,7 +21,7 @@ VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확
 다음은 VM용 Azure Monitor를 사용하는 성능 컬렉션의 제한 사항입니다.
 
 - **사용 가능한 메모리**는 RHEL(Red Hat Linux) 6을 실행하는 가상 머신에 사용할 수 없습니다. 이 메트릭은 [커널 버전 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html)에서 도입된 **MemAvailable**에서 계산됩니다.
-- 메트릭은 EXT 시스템 제품군(EXT2, EXT3, EXT4)을 사용하는 Linux 가상 머신의 데이터 디스크에만 사용할 수 있습니다.
+- 메트릭은 XFS 파일 시스템 또는 EXT 파일 시스템 패밀리 (EXT2, EXT3, EXT4)를 사용 하 여 Linux 가상 컴퓨터의 데이터 디스크에 대해서만 사용할 수 있습니다.
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Azure Monitor의 다중 VM 관점
 
