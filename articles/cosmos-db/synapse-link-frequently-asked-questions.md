@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b52c493a700cd258e1458b0127aa19cebc714822
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b5bf29969f8b6d54215e2b2f1a2d0b1587faad6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332188"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -82,7 +82,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>트랜잭션 저장소에서 분석 저장소로 자동 동기화 복제는 비동기식인가요? 동기식인가요? 대기 시간은 얼마나 되나요?
 
-복제는 비동기식이며 현재 예상 대기 시간은 2분 정도입니다.
+자동 동기화 대기 시간은 일반적으로 2 분 이내입니다. 컨테이너가 많은 공유 처리량 데이터베이스의 경우 개별 컨테이너의 자동 동기화 대기 시간이 더 높아질 수 있으며 최대 5 분이 걸릴 수 있습니다. 이 대기 시간이 시나리오에 얼마나 적합 한지 자세히 알아보세요. 이를 위해 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 연락 하세요.
 
 ### <a name="are-there-any-scenarios-where-the-items-from-the-transactional-store-are-not-automatically-propagated-to-the-analytical-store"></a>트랜잭션 저장소의 항목이 분석 저장소로 자동 전파되지 못하는 시나리오가 있나요?
 

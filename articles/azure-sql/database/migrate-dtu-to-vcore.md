@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333157"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 Azure SQL Database 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -167,14 +167,14 @@ DTU 기반 모델에서 vCore 기반 구매 모델로 마이그레이션하는 �
 
 |현재 서비스 계층|대상 서비스 계층|마이그레이션 유형|사용자 작업|
 |---|---|---|---|
-|표준|범용 가상 컴퓨터|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
+|Standard|범용 가상 컴퓨터|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
 |Premium|중요 비즈니스용|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
-|표준|중요 비즈니스용|Upgrade|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
-|중요 비즈니스용|표준|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
+|Standard|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
+|중요 비즈니스용|Standard|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
 |Premium|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|범용 가상 컴퓨터|Premium|Upgrade|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
+|범용 가상 컴퓨터|Premium|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 |중요 비즈니스용|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|범용 가상 컴퓨터|중요 비즈니스용|Upgrade|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
+|범용 가상 컴퓨터|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 ||||
 
 ## <a name="migrate-failover-groups"></a>장애 조치 (failover) 그룹 마이그레이션

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c588e1db7cbf35d2a5192805674f88905599e8e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333327"
 ---
 # <a name="read-and-write-spatial-data"></a>공간 데이터 읽기 및 쓰기
 
@@ -41,7 +41,7 @@ Zip 또는 KMZ 압축 된 파일을 읽을 때 압축을 푼 후 첫 번째 유�
 
 Read 함수의 결과는 `SpatialDataSet` 개체입니다. 이 개체는 GeoJSON FeatureCollection 클래스를 확장 합니다. 이를 그대로에 쉽게 전달 `DataSource` 하 여 지도에 기능을 렌더링할 수 있습니다. 는 `SpatialDataSet` 기능 정보를 포함할 뿐만 아니라 다음 표에 설명 된 대로 KML 그라운드 오버레이, 처리 메트릭 및 기타 세부 정보를 포함할 수도 있습니다.
 
-| 속성 이름 | Type | 설명 | 
+| 속성 이름 | Type | Description | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | 데이터 집합에 있는 모든 데이터의 경계 상자입니다. |
 | `features` | `Feature[]` | 데이터 집합 내의 기능을 GeoJSON 합니다. |
@@ -160,38 +160,31 @@ GML은 다른 XML 사양에 대 한 확장으로 자주 사용 되는 공간 XML
 - EPSG: 4269, EPSG: 4283, EPSG: 4258, epsg: 4308, EPSG: 4230, epsg: 4272, epsg: 4271, epsg: 4267, epsg: 4608, EPSG: 4674 가능한 경우 작은 오류 여백이 있을 수 있습니다.
 - EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
-## <a name="next-steps"></a>다음 단계
+## <a name="more-resources"></a>추가 리소스
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [atlas.io 정적 함수](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io 정적 함수](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-> [!div class="nextstepaction"]
-> [atlas. ogc. WKT 함수](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[atlas. ogc. WKT 함수](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+
+[WFS 서비스에 연결](spatial-io-connect-wfs-service.md)
+
+[핵심 작업 활용](spatial-io-core-operations.md)
+
+[지원되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
+
+
+## <a name="next-steps"></a>다음 단계
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [OGC 지도 계층 추가](spatial-io-add-ogc-map-layer.md)
-
-> [!div class="nextstepaction"]
-> [WFS 서비스에 연결](spatial-io-connect-wfs-service.md)
-
-> [!div class="nextstepaction"]
-> [핵심 작업 활용](spatial-io-core-operations.md)
-
-> [!div class="nextstepaction"]
-> [지원되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
+[OGC 지도 계층 추가](spatial-io-add-ogc-map-layer.md)

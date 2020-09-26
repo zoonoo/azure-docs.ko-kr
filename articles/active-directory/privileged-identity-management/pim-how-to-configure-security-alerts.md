@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331307"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 보안 경고 구성
 
@@ -82,7 +82,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 | | |
 | --- | --- |
-| **심각도** | 중간 |
+| **심각도** | 중형 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
@@ -108,8 +108,8 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **해결 방법** | 목록에서 사용자를 검토 하 고 전역 관리자 역할이 절대적으로 필요 하지 않은 모든 사용자를 제거 합니다. </br>대신 이러한 사용자에 게 더 낮은 권한 있는 역할을 할당 합니다. |
 | **방지** | 사용자에게 필요한 최소한의 권한 있는 역할을 할당합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
-| **트리거** | 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성할 수 있을 때 트리거됩니다. 먼저 전역 관리자의 특정 임계값에 도달 해야 합니다. 둘째, 전체 역할 할당의 특정 백분율이 전역 관리자 여야 합니다. 이런 측정값의 하나만 충족된다면 경고가 표시되지 않습니다. |
-| **최소 글로벌 관리자 수** | 이 설정은 Azure AD 조직에 대해 너무 적은 것으로 간주 되는 2에서 100 까지의 전역 관리자 수를 지정 합니다. |
+| **트리거** | 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성할 수 있을 때 트리거됩니다. 먼저 전역 관리자 역할 할당의 특정 임계값에 도달 해야 합니다. 둘째, 전체 역할 할당의 특정 백분율이 전역 관리자 여야 합니다. 이런 측정값의 하나만 충족된다면 경고가 표시되지 않습니다. |
+| **최소 글로벌 관리자 수** | 이 설정은 Azure AD 조직에 대해 너무 적은 것으로 간주 되는 2에서 100 까지의 전역 관리자 역할 할당 수를 지정 합니다. |
 | **글로벌 관리자 백분율** | 이 설정은 0%에서 100%까지 전역 관리자 인 관리자의 최소 비율을 지정 하며,이는 Azure AD 조직에서 dip를 사용할 수 없게 합니다. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>역할이 너무 자주 활성화됨
@@ -125,21 +125,21 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 사용자가 선택한 기간 내에 통지를 받으려는 2에서 100 까지의 정품 인증 수를 지정 합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |
 
-## <a name="configure-security-alert-settings"></a>보안 경고 설정 구성
+## <a name="customize-security-alert-settings"></a>보안 경고 설정 사용자 지정
 
-경고 페이지에서 **설정**으로 이동합니다.
+**경고** 페이지에서 **설정**을 선택 합니다.
 
 ![설정이 강조 표시 된 경고 페이지](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 환경 및 보안 목표로 작업하는 다양한 경고에서 설정을 사용자 지정합니다.
 
-![설정을 사용 하도록 설정 하 고 구성 하는 경고에 대 한 페이지 설정](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![설정을 사용 하도록 설정 하 고 구성 하는 경고에 대 한 페이지 설정](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[이전 버전](#tab/previous)
 
-![Azure AD 역할-경고 및 심각도를 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD 역할-경고 창 목록 경고 및 심각도](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>보안 경고
+## <a name="security-alert-details"></a>보안 경고 세부 정보
 
 이 섹션에는 Azure AD 역할에 대 한 모든 보안 경고와 해결 방법 및 방지 방법이 나와 있습니다. 심각도의 의미는 다음과 같습니다.
 
@@ -181,12 +181,12 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 | | |
 | --- | --- |
-| **심각도** | 중간 |
+| **심각도** | 중형 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
-| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세한 내용](https://aka.ms/breakglass) |
+| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세한 정보](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>역할이 Privileged Identity Management 외부에서 할당 됨
 

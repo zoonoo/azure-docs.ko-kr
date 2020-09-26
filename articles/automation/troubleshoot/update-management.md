@@ -2,15 +2,15 @@
 title: Azure Automation 업데이트 관리 문제 해결
 description: 이 문서에서는 Azure Automation 업데이트 관리와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003357"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359242"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -65,9 +65,9 @@ Error details: Failed to enable the Update solution
 
 1. Automation 계정에서 **업데이트 관리**를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/update-mgmt-view-update-assessments.md)를 참조하세요.
 
-2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다. 
+2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다.
 
-3. 업데이트에 대해 문의 사항이 없으면 업데이트를 거부됨으로 표시합니다. 
+3. 업데이트에 대해 문의 사항이 없으면 업데이트를 거부됨으로 표시합니다.
 
 4. **컴퓨터**를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/update-mgmt-manage-updates-for-vm.md)를 참조 하세요.
 
@@ -112,9 +112,9 @@ Error details: Failed to enable the Update solution
    | summarize by Computer, Solutions
    ```
 
-4. 쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다. 
+4. 쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
 
-5. 머신이 쿼리 결과에 표시되면 범위 구성에 문제가 있는지 확인합니다. [범위 구성](../update-management/update-mgmt-scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 
+5. 머신이 쿼리 결과에 표시되면 범위 구성에 문제가 있는지 확인합니다. [범위 구성](../update-management/update-mgmt-scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다.
 
 6. 머신이 작업 영역에 표시되지만 업데이트 관리에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 지정해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [작업 영역에서 머신 사용](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
 
@@ -180,7 +180,7 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 1. [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)에서 Azure 서비스 목록에 액세스합니다.
 
-2. **모든 서비스**를 선택한 후 일반 서비스 그룹에서 **구독**을 선택합니다. 
+2. **모든 서비스**를 선택한 후 일반 서비스 그룹에서 **구독**을 선택합니다.
 
 3. 배포 범위에서 정의된 구독을 찾습니다.
 
@@ -251,7 +251,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
     | project id, location, name, tags
     ```
 
-2. 검색 중인 머신이 쿼리 결과에 나열되는지 확인합니다. 
+2. 검색 중인 머신이 쿼리 결과에 나열되는지 확인합니다.
 
 3. 머신이 나열되지 않는 경우 동적 그룹에서 선택된 필터에 이슈가 있을 수 있습니다. 필요에 따라 그룹 구성을 조정합니다.
 
@@ -325,7 +325,7 @@ VM의 이름을 변경하여 환경에서 고유한 이름을 유지하도록 �
 
 3. `Restart-Service HealthService`를 실행하여 상태 서비스를 다시 시작합니다. 이 작업을 수행하면 키가 다시 만들어지고 새 UUID가 생성됩니다.
 
-4. 이 방법이 작동하지 않으면 먼저 이미지에서 sysprep을 실행한 다음, MMA를 설치합니다.
+4. 이 방법이 작동 하지 않으면 먼저 이미지에서 sysprep을 실행 한 다음 Windows 용 Log Analytics 에이전트를 설치 합니다.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>시나리오: 다른 Azure 테넌트에 있는 머신의 업데이트 배포를 만들 때 연결된 구독 오류가 발생합니다.
 
@@ -343,7 +343,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="resolution"></a>해결 방법
 
-다음 해결 방법을 사용하여 이러한 항목을 예약합니다. `ForUpdateConfiguration` 매개 변수에서 [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만들 수 있습니다. 그런 다음, [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet을 사용하여 다른 테넌트의 머신을 `NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+다음 해결 방법을 사용하여 이러한 항목을 예약합니다. `ForUpdateConfiguration` 매개 변수에서 [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) cmdlet을 사용하여 일정을 만들 수 있습니다. 그런 다음, [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet을 사용하여 다른 테넌트의 머신을 `NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +386,15 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 * 머신이 더 이상 존재하지 않습니다.
 * 머신이 꺼져 있고 연결할 수 없습니다.
 * 머신에 네트워크 연결 이슈가 있으므로 머신의 Hybrid Worker에 연결할 수 없습니다.
-* 원본 컴퓨터 ID를 변경한 MMA가 업데이트되었습니다.
+* 원본 컴퓨터 ID를 변경한 Log Analytics 에이전트에 대 한 업데이트가 있습니다.
 * Automation 계정에서 200의 동시 작업 제한에 도달 하는 경우 업데이트 실행이 제한 되었습니다. 각 배포는 하나의 작업으로 간주되며, 업데이트 배포의 각 머신은 하나의 작업으로 계산됩니다. Automation 계정에서 현재 실행되고 있는 다른 모든 Automation 작업 또는 업데이트 배포는 동시 작업 제한으로 계산됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
 해당하는 경우 업데이트 배포에 [동적 그룹](../update-management/update-mgmt-groups.md)을 사용합니다. 또한 다음 단계를 수행할 수 있습니다.
 
-1. 머신이 존재하고 연결할 수 있는지 확인합니다. 
-2. 머신이 존재하지 않는 경우 배포를 편집하고 머신을 제거합니다.
-3. 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../update-management/update-mgmt-overview.md#ports) 섹션을 참조하고 머신이 이러한 요구 사항을 충족하는지 확인합니다.
-4. Hybrid Runbook Worker 에이전트 문제 해결사를 사용하여 Hybrid Runbook Worker에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
-5. Log Analytics에서 다음 쿼리를 실행하여 환경에서 원본 컴퓨터 ID가 변경된 머신을 찾을 수 있습니다. `Computer` 값이 같지만 `SourceComputerId` 값이 다른 컴퓨터를 찾습니다.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. 영향을 받는 머신을 찾은 후에는 해당 머신을 대상으로 하는 업데이트 배포를 편집한 다음, `SourceComputerId`가 올바른 값을 반영하도록 머신을 제거했다가 다시 추가합니다.
+1. 컴퓨터 또는 서버에서 [요구 사항을](../update-management/update-mgmt-overview.md#client-requirements)충족 하는지 확인 합니다.
+2. Hybrid Runbook Worker 에이전트 문제 해결사를 사용하여 Hybrid Runbook Worker에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>시나리오: 배포 없이 업데이트가 설치됨
 
@@ -466,7 +457,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>원인
 
-네트워크 통신을 차단하는 프록시, 게이트웨이 또는 방화벽이 있을 수 있습니다. 
+네트워크 통신을 차단하는 프록시, 게이트웨이 또는 방화벽이 있을 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 

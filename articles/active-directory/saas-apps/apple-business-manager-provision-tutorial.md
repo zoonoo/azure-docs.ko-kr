@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: c4ac4a17e577ea69f4359e1e9b321e5fcc839697
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: 7d946c2b1d6e13897667fd58b784575e6f44aa1d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333529"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Apple Business Manager 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "90761540"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * 관리자 또는 사람 관리자 역할을 하는 Apple Business Manager 계정
 
@@ -158,7 +158,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [Apple Business Manager에 표시 되는 Azure AD 계정 삭제](URL=https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
 * [Apple Business Manager에서 SCIM 활동 보기](URL=https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
 * [Apple Business Manager에서 기존 SCIM 토큰 및 연결 관리](URL=https://support.apple.com/guide/apple-business-manager/apdc9a823611)
-* [Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61) *  에서 Scim 연결 끊기 [Apple Business Manager에서 기존 SCIM 토큰 및 연결 관리](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
+* [Apple Business Manager에서 SCIM 연결 끊기](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61)
+* [Apple Business Manager에서 기존 SCIM 토큰 및 연결 관리](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
 * [Apple Business Manager에서 SCIM 연결 문제 해결](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>다음 단계
