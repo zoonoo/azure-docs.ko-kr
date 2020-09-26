@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357457"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -41,7 +41,7 @@ ms.locfileid: "89401183"
 
 * SSML (speech 합성 Markup Language)-음성 텍스트 출력을 사용자 지정 하는 데 사용 되는 XML 기반 태그 언어입니다. SSML를 사용 하면 피치를 조정 하 고, 일시 중지를 추가 하 고, 발음을 높이고, 속도를 높이 거 나 낮출 수 있으며, 볼륨을 늘리거나 줄일 수 있으며, 여러 음성 특성을 단일 문서로 사용할 수 있습니다. [SSML](speech-synthesis-markup.md)을 참조 하십시오.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 텍스트 음성 변환 시작을 위한 [빠른](get-started-text-to-speech.md) 시작을 참조 하세요. 텍스트 음성 변환 서비스는 [음성 SDK](speech-sdk.md), [REST API](rest-text-to-speech.md)및 [음성 CLI](spx-overview.md) 를 통해 사용할 수 있습니다.
 
@@ -77,5 +77,5 @@ ms.locfileid: "89401183"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [무료 음성 서비스 구독 가져오기](get-started.md)
+- [무료 음성 서비스 구독 가져오기](overview.md#try-the-speech-service-for-free)
 - [Speech SDK 가져오기](speech-sdk.md)

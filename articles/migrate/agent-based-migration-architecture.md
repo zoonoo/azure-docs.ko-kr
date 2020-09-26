@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
-ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357168"
 ---
 # <a name="agent-based-migration-architecture"></a>에이전트 기반 마이그레이션 아키텍처
 
@@ -34,7 +34,7 @@ VMware Vm에 대 한 마이그레이션 방법 [선택 및 비교](server-migrat
 
 이 다이어그램에서는 에이전트 기반 마이그레이션과 관련 된 구성 요소를 보여 줍니다.
 
-![Architecture](./media/agent-based-replication-architecture/architecture.png)
+![다이어그램은 테이블에서 설명 하는 에이전트 기반 마이그레이션의 구성 요소를 보여 줍니다.](./media/agent-based-replication-architecture/architecture.png)
 
 이 표에는 에이전트 기반 마이그레이션에 사용 되는 구성 요소가 요약 되어 있습니다.
 

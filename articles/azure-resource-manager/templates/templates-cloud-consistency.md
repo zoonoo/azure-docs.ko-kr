@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356888"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 ARM 템플릿 개발
 
@@ -487,7 +487,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -590,7 +590,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들어:
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -655,7 +655,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 다음 이미지는 IDE(통합 개발 환경)를 사용하는 팀의 일반적인 개발 프로세스 예를 보여 줍니다. 타임라인의 단계마다 다른 테스트 유형이 실행됩니다. 여기서는 두 개발자가 동일한 솔루션에서 작업 중이지만, 이 시나리오는 단일 개발자 또는 대규모 팀에도 똑같이 적용됩니다. 일반적으로 각 개발자가 중앙 리포지토리의 로컬 복사본을 만들어, 동일한 파일에서 작업하는 다른 사용자에게 영향을 주지 않고 로컬 복사본에서 작업할 수 있습니다.
 
-![워크플로](./media/templates-cloud-consistency/workflow.png)
+![다이어그램에는 C I D E에서 동시에 두 개의 단위 테스트 및 통합 테스트 집합이 표시 됩니다 .이는 C I/C D 개발 흐름에서 단위 테스트, 통합 테스트, 테스트 배포, 배포 테스트로 병합 됩니다.](./media/templates-cloud-consistency/workflow.png)
 
 테스트 및 자동화에 대한 다음 팁에 유의하세요.
 

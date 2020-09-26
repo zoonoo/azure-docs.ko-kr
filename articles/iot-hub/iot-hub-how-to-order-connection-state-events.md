@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356199"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -227,11 +227,11 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 5. **새 매개 변수 추가**를 선택합니다. 표시되는 드롭다운에서 **파티션 키** 및 **저장 프로시저 매개 변수** 옆의 상자를 선택한 다음 화면에서 다른 위치를 클릭합니다. 그러면 파티션 키 값에 대한 필드와 저장 프로시저 매개 변수에 대한 필드가 추가됩니다.
 
-   ![논리 앱 작업 채우기](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![새 매개 변수 추가가 선택 된 상태에서 저장 프로시저 실행 항목이 스크린샷에 표시 됩니다.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. 이제 파티션 키 값과 매개 변수를 아래와 같이 입력합니다. 표시된 것처럼 대괄호와 큰따옴표를 입력해야 합니다. 여기에서 사용할 수 있는 유효한 값을 얻으려면 **동적 콘텐츠 추가**를 클릭해야 할 수도 있습니다.
 
-   ![논리 앱 작업 채우기](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![매개 변수를 입력 하 여 저장 프로시저 실행 항목을 보여 주는 스크린샷](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. **For Each**로 표시된 창의 위쪽에서 **이전 단계의 출력 선택** 아래에 **본문**이 선택되어 있는지 확인합니다.
 

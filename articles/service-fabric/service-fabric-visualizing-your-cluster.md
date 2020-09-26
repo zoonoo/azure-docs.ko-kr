@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357219"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -80,7 +80,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
 예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업**  >  **응용 프로그램 삭제**를 선택 합니다.
@@ -106,7 +106,7 @@ Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및
 ## <a name="event-store"></a>EventStore
 EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅샷 보기를 볼 수 있습니다. 또한 EventStore에 대한 자세한 내용은 [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 참조할 수 있습니다.   
 
-![EventStore][sfx-eventstore]
+![이벤트가 선택 된 노드 창을 보여 주는 스크린샷][sfx-eventstore]
 
 >[!NOTE]
 >Service Fabric 버전 6.4부터 EventStore는 기본적으로 사용하도록 설정되지 않으므로 Resource Manager 템플릿에서 사용하도록 설정해야 합니다.

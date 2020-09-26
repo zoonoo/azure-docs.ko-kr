@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용 하 여 Azure VMware 솔루션 Vm 백업
 description: Azure Backup Server를 사용 하 여 가상 컴퓨터를 백업 하도록 Azure VMware 솔루션 환경을 구성 합니다.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b37f909fc8199975eb399fe5ca28ebb53ab2789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cba224de3d8b223ebcc1ac4d2d8d569275b4e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272250"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Azure Backup Server를 사용 하 여 Azure VMware 솔루션 Vm 백업
 
@@ -105,9 +105,9 @@ VMware 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다
 
 1. TLS를 마우스 오른쪽 단추로 클릭 합니다. REG 파일을 선택 하 고 **병합** 또는 **열기** 를 선택 하 여 설정을 레지스트리에 추가 합니다.
 
-## <a name="add-the-provisioning-ip-address-for-azure-vmware-solution-esxi-hosts-on-azure-backup-server"></a>Azure Backup Server에서 Azure VMware Solution ESXi 호스트의 프로 비전 IP 주소를 추가 합니다.
+## <a name="add-the-provisioning-ip-address"></a>프로 비전 IP 주소 추가 
 
-미리 보기 중에 Azure VMware 솔루션은 가상 네트워크에 배포 된 가상 컴퓨터에서 ESX 호스트를 확인 하지 않습니다. Azure Backup Server 가상 컴퓨터에 호스트 파일 항목을 추가 하려면 추가 단계를 수행 해야 합니다.
+Azure VMware 솔루션은 가상 네트워크에 배포 된 VM에서 ESX 호스트를 확인 하지 않습니다. Azure Backup Server VM에 호스트 파일 항목을 추가 하는 추가 단계를 수행 해야 합니다.
 
 ### <a name="identify-the-ip-address-for-esxi-hosts"></a>ESXi 호스트의 IP 주소를 확인 합니다.
 
@@ -144,7 +144,7 @@ VMware 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다
 
 1. **자격 증명 관리** 대화 상자에서 **추가**를 선택 합니다.
 
-   ![Azure Backup Server 자격 증명 관리 대화 상자](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   ![자격 증명 관리 대화 상자에서 추가를 선택 합니다.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 1. **자격 증명 추가** 대화 상자에서 새 자격 증명에 대한 이름 및 설명을 입력합니다. VMware 서버에서 정의한 사용자 이름 및 암호를 지정 합니다.
 
@@ -155,7 +155,7 @@ VMware 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다
 
 1. **추가** 를 선택 하 여 새 자격 증명을 추가 합니다.
 
-   ![Azure Backup Server 자격 증명 관리 대화 상자](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![스크린샷 새 자격 증명을 표시 하는 Azure Backup Server 자격 증명 관리 대화 상자를 표시 합니다.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Azure Backup Server에 vCenter 서버 추가
 
@@ -192,7 +192,10 @@ VMware 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다
 
    ![마침 페이지](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   **VMware** 서버 및 **에이전트 상태** 와 함께 **프로덕션 서버** 아래에 나열 된 vCenter 서버가 **확인**으로 표시 됩니다. **에이전트 상태가** **알 수 없음**으로 표시 되 면 **새로 고침**을 선택 합니다.
+   **VMware** 서버 및 **에이전트 상태** 와 함께 **프로덕션 서버** 아래에 나열 된 vCenter 서버가 **확인**으로 표시 됩니다. 
+
+   >[!TIP]
+   >**에이전트 상태가** **알 수 없음**으로 표시 되 면 **새로 고침**을 선택 합니다.
 
 ## <a name="configure-a-protection-group"></a>보호 그룹 구성
 
@@ -300,7 +303,7 @@ Azure Backup Server 관리자 콘솔에는 복구 가능한 데이터를 찾는 
 
 1. Azure Backup Server 관리자 콘솔에서 **복구** 보기를 선택 합니다. 
 
-1. **찾아보기** 창에서 찾아보기 또는 필터를 사용하여 복구할 VM을 찾습니다. VM 또는 폴더를 선택한 후 **에는 복구 지점은** 사용 가능한 복구 지점이 표시 됩니다.
+1. **찾아보기** 창에서 찾아보거나 필터를 선택 하 여 복구할 VM을 찾습니다. VM 또는 폴더를 선택 하면 사용 가능한 복구 지점이 표시 됩니다.
 
    ![사용 가능한 복구 위치](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -317,12 +320,13 @@ Azure Backup Server 관리자 콘솔에는 복구 가능한 데이터를 찾는 
 
    ![복구 마법사, 복구 선택 사항 확인 페이지](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. **다음** 을 선택 하 여 **복구 옵션 지정** 화면으로 이동 합니다. **다음** 을 다시 선택 하 여 **복구 유형 선택** 화면으로 이동 합니다. 
+1. **다음** 을 선택 하 여 **복구 옵션 지정** 화면으로 이동 합니다. 
+1. **다음** 을 다시 선택 하 여 **복구 유형 선택** 화면으로 이동 합니다. 
 
    > [!NOTE]
    > VMware 워크 로드는 네트워크 대역폭 제한 사용을 지원 하지 않습니다.
 
-1. **복구 유형 선택** 페이지에서 원본 인스턴스 또는 새 위치로 복구할 지 여부를 선택한 후 **다음**을 선택 합니다.
+1. **복구 유형 선택** 페이지에서 원본 인스턴스 또는 새 위치에 복구를 선택 하 고 **다음**을 선택 합니다.
 
    - **원본 인스턴스에 복구**를 선택하면 마법사에서 추가 항목을 선택할 필요가 없습니다. 원본 인스턴스에 대한 데이터가 사용됩니다.
    - **임의의 호스트에 가상 머신으로 복구**를 선택한 경우 **대상 지정** 화면에서 **ESXi 호스트**, **리소스 풀**, **폴더** 및 **경로**에 대한 정보를 제공합니다.
@@ -342,7 +346,7 @@ Azure Backup Server 관리자 콘솔에는 복구 가능한 데이터를 찾는 
 
 1. Azure Backup Server 관리자 콘솔에서 **복구** 보기를 선택 합니다.
 
-1. **찾아보기** 창에서 찾아보기 또는 필터를 사용하여 복구할 VM을 찾습니다. VM 또는 폴더를 선택한 후 **에는 복구 지점은** 사용 가능한 복구 지점이 표시 됩니다.
+1. **찾아보기** 창에서 찾아보거나 필터를 선택 하 여 복구할 VM을 찾습니다. VM 또는 폴더를 선택 하면 사용 가능한 복구 지점이 표시 됩니다.
 
    ![사용할 수 있는 복구 위치](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 

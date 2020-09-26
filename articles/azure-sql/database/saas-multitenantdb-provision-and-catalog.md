@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4413a987af7a4802366556fb86c0c55e7b401776
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356800"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>분할 된 다중 테 넌 트 Azure SQL Database를 사용 하 여 SaaS 응용 프로그램에서 새 테 넌 트 프로 비전 및 카탈로그
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,7 +123,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 > * 다중 테넌트 및 단일 테넌트 데이터베이스에 테넌트 일괄 처리 프로 비전
 > * 카탈로그에 데이터베이스 및 테넌트 매핑 등록
 
-#### <a name="prerequisites"></a>사전 준비 사항
+#### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
@@ -169,7 +169,7 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
 
 4. 스크립트 실행이 중단점에서 중지된 후 **F11**을 눌러 한 단계씩 코드를 실행합니다.
 
-   ![debug](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![스크린 샷에서는 디버그 메뉴가 열려 있고 한 단계씩 코드 실행이 선택 된 Windows PowerShell ISE를 보여 줍니다.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. **디버그** 메뉴 옵션(**F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
 
@@ -237,7 +237,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 - 테넌트 이름이 테넌트 테이블에 저장됩니다.
 - 데이터베이스 이름은 분할 관리 테이블에 저장됩니다.
 
-1. SSMS (SQL Server Management Studio)에서 Login = **developer**, Password = **P \@ ssword1** 를 사용 하 여 database.windows.net에서 테 넌 트 서버에 연결 ** \<USER\> 합니다.**
+1. SSMS (SQL Server Management Studio)에서 카탈로그-mt .에서 테 넌 트 서버에 연결 ** \<USER\> 합니다. database.windows.net**, Login = **Developer**, Password = **P \@ ssword1**
 
     ![SSMS 연결 대화 상자](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

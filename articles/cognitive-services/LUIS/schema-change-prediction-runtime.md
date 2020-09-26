@@ -1,14 +1,16 @@
 ---
 title: 런타임에 앱 확장-LUIS
 description: ''
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: c0f9d71f5d89d73d9cdce2a2f646859d8eba3adc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2608fb01ece81f555aae2f3d4a2e4a05cfc90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322804"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>예측 런타임에서 앱 확장
 
@@ -34,7 +36,7 @@ ms.locfileid: "81538655"
 
 ### <a name="entity-already-exists-in-app"></a>엔터티가 앱에 이미 있습니다.
 
-끝점 요청 게시 `entityName` 본문에 전달 되는 외부 엔터티의 값은 요청 시 학습 된 앱 및 게시 된 앱에 이미 있어야 합니다. 엔터티 형식이 중요 하지 않습니다. 모든 형식이 지원 됩니다.
+`entityName`끝점 요청 게시 본문에 전달 되는 외부 엔터티의 값은 요청 시 학습 된 앱 및 게시 된 앱에 이미 있어야 합니다. 엔터티 형식이 중요 하지 않습니다. 모든 형식이 지원 됩니다.
 
 ### <a name="first-turn-in-conversation"></a>대화를 먼저 전환
 
@@ -42,7 +44,7 @@ ms.locfileid: "81538655"
 
 `Send Hazem a new message`
 
-채팅 봇에서 LUIS로의 요청은 게시 본문의 정보를 전달 하 여 사용자 `Hazem` 의 연락처 중 하 나와 직접 일치 하도록 할 수 있습니다.
+채팅 봇에서 LUIS로의 요청은 게시 본문의 정보를 전달 하 여 `Hazem` 사용자의 연락처 중 하 나와 직접 일치 하도록 할 수 있습니다.
 
 ```json
     "externalEntities": [
@@ -66,7 +68,7 @@ ms.locfileid: "81538655"
 
 `Send him a calendar reminder for the party.`
 
-이 대화의 utterance에서는에 대 한 참조 `him` 로를 `Hazem`사용 합니다. 게시물 본문의 대화형 채팅 봇은 첫 번째 utterance에서 추출 `him` 된 엔터티 값에 매핑될 수 있습니다 `Hazem`.
+이 대화의 utterance에서는 `him` 에 대 한 참조로를 사용 합니다 `Hazem` . 게시물 본문의 대화형 채팅 봇은 `him` 첫 번째 utterance에서 추출 된 엔터티 값에 매핑될 수 있습니다 `Hazem` .
 
 ```json
     "externalEntities": [
@@ -86,9 +88,9 @@ ms.locfileid: "81538655"
 
 ### <a name="override-existing-model-predictions"></a>기존 모델 예측 재정의
 
-Options `preferExternalEntities` 속성은 사용자가 동일한 이름의 예측 된 엔터티와 겹치는 외부 엔터티를 보내는 경우 LUIS에서 전달 된 엔터티 또는 모델에 있는 기존 엔터티를 선택 하도록 지정 합니다.
+`preferExternalEntities`Options 속성은 사용자가 동일한 이름의 예측 된 엔터티와 겹치는 외부 엔터티를 보내는 경우 LUIS에서 전달 된 엔터티 또는 모델에 있는 기존 엔터티를 선택 하도록 지정 합니다.
 
-예를 들어 `today I'm free` 쿼리를 고려할 수 있습니다. LUIS는 `today` 다음 응답으로 datetimeV2로 검색 됩니다.
+예를 들어 `today I'm free` 쿼리를 고려할 수 있습니다. LUIS `today` 는 다음 응답으로 datetimeV2로 검색 됩니다.
 
 ```JSON
 "datetimeV2": [
@@ -117,7 +119,7 @@ Options `preferExternalEntities` 속성은 사용자가 동일한 이름의 예�
 }
 ```
 
-`preferExternalEntities` 가로 `false`설정 된 경우 LUIS는 외부 엔터티가 전송 되지 않은 것 처럼 응답을 반환 합니다.
+`preferExternalEntities`가로 설정 된 경우 `false` LUIS는 외부 엔터티가 전송 되지 않은 것 처럼 응답을 반환 합니다.
 
 ```JSON
 "datetimeV2": [
@@ -133,7 +135,7 @@ Options `preferExternalEntities` 속성은 사용자가 동일한 이름의 예�
 ]
 ```
 
-`preferExternalEntities` 가로 `true`설정 된 경우 LUIS는 다음과 같은 응답을 반환 합니다.
+`preferExternalEntities`가로 설정 된 경우 `true` LUIS는 다음과 같은 응답을 반환 합니다.
 
 ```JSON
 "datetimeV2": [
@@ -151,7 +153,7 @@ _선택적_ `resolution` 속성은 예측 응답에서를 반환 하 여 외부 
 
 기본 목적은 미리 작성 된 엔터티를 확장 하는 것 이지만 해당 엔터티 형식으로 제한 되지 않습니다.
 
-속성 `resolution` 은 숫자, 문자열, 개체 또는 배열일 수 있습니다.
+`resolution`속성은 숫자, 문자열, 개체 또는 배열일 수 있습니다.
 
 * 달라스
 * {"text": "value"}
@@ -173,7 +175,7 @@ LUIS 앱에서 목록 엔터티는 비어 있을 수 있지만 존재 해야 합
 
 ### <a name="dynamic-list-json-request-body"></a>동적 목록 JSON 요청 본문
 
-다음 JSON 본문으로 보내서 동의어를 사용 하 여 새 하위 목록을 목록에 추가 하 고 `LUIS` `POST` 쿼리 예측 요청을 사용 하 여 텍스트에 대 한 목록 엔터티를 예측할 수 있습니다.
+다음 JSON 본문으로 보내서 동의어를 사용 하 여 새 하위 목록을 목록에 추가 하 고 쿼리 예측 요청을 사용 하 여 텍스트에 대 한 목록 엔터티를 예측할 수 `LUIS` `POST` 있습니다.
 
 ```JSON
 {

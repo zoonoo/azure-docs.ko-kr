@@ -8,18 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271905"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>로그 디스크를 울트라 디스크로 마이그레이션
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ VM에서 ultradisk compatibility를 사용 하도록 설정 하면 가상 머신
 
 ### <a name="attach-disk"></a>디스크 연결
 
-Azure Portal를 사용 하 여 가상 머신에 울트라 디스크를 연결 합니다. 자세한 내용은 [ultra Disk 연결](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal) 을 참조 하세요.
+Azure Portal를 사용 하 여 가상 머신에 울트라 디스크를 연결 합니다. 자세한 내용은 [ultra Disk 연결](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk)을 참조 하세요.
 
 디스크가 연결 되 면 Azure Portal를 사용 하 여 VM을 한 번 더 시작 합니다. 
 

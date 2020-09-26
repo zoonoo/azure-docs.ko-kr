@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357015"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,13 +91,13 @@ Azure Portal 복원 하려는 데이터베이스의 개요 블레이드에서 �
 
 Azure Portal를 사용 하 여 특정 시점으로 데이터베이스를 복구 하려면 데이터베이스 개요 페이지를 열고 도구 모음에서 **복원** 을 선택 합니다. 백업 원본을 선택 하 고 새 데이터베이스를 만들 지정 시간 백업 지점을 선택 합니다.
 
-  ![데이터베이스 복원 옵션의 스크린샷](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![SQL Database에 대 한 데이터베이스 복원 옵션의 스크린샷](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
 Azure Portal를 사용 하 여 관리 되는 인스턴스 데이터베이스를 특정 시점으로 복구 하려면 데이터베이스 개요 페이지를 열고 도구 모음에서 **복원** 을 선택 합니다. 새 데이터베이스를 만들 지정 시간 백업 지점을 선택 합니다.
 
-  ![데이터베이스 복원 옵션의 스크린샷](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![SQL 관리 되는 인스턴스에 대 한 데이터베이스 복원 옵션의 스크린샷](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > 백업에서 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식으로 복구 수행](recovery-using-backups.md)을 참조 하세요.
@@ -140,7 +140,7 @@ Azure SQL Database에서 삭제 된 데이터베이스를 복원 하는 방법�
 > [!TIP]
 > 삭제 된 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식으로 복구 수행](recovery-using-backups.md)을 참조 하세요.
 
-## <a name="geo-restore"></a>지리적 복원
+## <a name="geo-restore"></a>지역 복원
 
 > [!IMPORTANT]
 > 지역에서 복원은 지역 중복 (GRS) 백업 저장소 유형으로 구성 된 관리 되는 인스턴스에서만 사용할 수 있습니다. 로컬 중복 또는 영역 중복 백업 저장소 유형을 사용 하 여 구성 된 관리 되는 인스턴스는 지역에서 복원을 지원 하지 않습니다.
@@ -216,7 +216,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 독립 실행형 또는 풀링된 데이터베이스를 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)을 참조 하세요.
 
-  | cmdlet | 설명 |
+  | cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -230,7 +230,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 관리 되는 인스턴스 데이터베이스를 복원 하려면 [AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)을 참조 하세요.
 
-  | cmdlet | 설명 |
+  | cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
   | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |

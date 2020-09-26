@@ -4,18 +4,18 @@ description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271650"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 
 이 문서에서는 System Center 2012 R2 Data Protection Manager(DPM) 서버를 구성하여 Azure Backup에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
 
-## <a name="updates"></a>업데이트
+## <a name="updates"></a>Updates
 
 Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 System Center 2012 R2 DPM 및 Azure Backup 에이전트의 최신 버전에 대한 최신 업데이트 롤업을 설치해야 합니다. [Microsoft 카탈로그](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager)에서 최신 업데이트 롤업을 가져옵니다.
 
@@ -24,7 +24,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
@@ -38,8 +38,8 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 
 Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단계를 수행합니다.
 
-1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019)을 참조하세요.
-2. DPM 관리자 콘솔에서 **관리 > 에이전트 > 설치** 를 선택 하 여 Exchange 서버에 에이전트를 설치 합니다. 자세한 단계는 [DPM 보호 에이전트 설치](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) 를 참조하세요.
+1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](/system-center/dpm/configure-firewall-settings-for-dpm)을 참조하세요.
+2. DPM 관리자 콘솔에서 **관리 > 에이전트 > 설치** 를 선택 하 여 Exchange 서버에 에이전트를 설치 합니다. 자세한 단계는 [DPM 보호 에이전트 설치](/system-center/dpm/deploy-dpm-protection-agent) 를 참조하세요.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Exchange 서버에 보호 그룹 만들기
 
@@ -83,10 +83,10 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 11. 사용 가능한 디스크 공간을 검토 하 고 **다음**을 선택 합니다.
 12. DPM 서버에서 초기 복제를 만들 시간을 선택 하 고 **다음**을 선택 합니다.
 13. 일관성 확인 옵션을 선택한 후 **다음**을 선택 합니다.
-14. Azure에 백업 하려는 데이터베이스를 선택 하 고 **다음**을 선택 합니다. 다음은 그 예입니다. 
+14. Azure에 백업 하려는 데이터베이스를 선택 하 고 **다음**을 선택 합니다. 예를 들면 다음과 같습니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**일정을 정의한 후 **다음**을 선택 합니다. 다음은 그 예입니다. 
+15. **Azure Backup**일정을 정의한 후 **다음**을 선택 합니다. 예를 들면 다음과 같습니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

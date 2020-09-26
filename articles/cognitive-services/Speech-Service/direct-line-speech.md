@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357644"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
@@ -27,7 +27,7 @@ ms.locfileid: "81402385"
 
 ## <a name="getting-started-with-direct-line-speech"></a>직접 선 음성 시작
 
-직접 줄 음성을 사용 하 여 음성 도우미를 만드는 첫 번째 단계는 [음성 구독 키를 가져오고](get-started.md)해당 구독과 연결 된 새 봇을 만든 다음 직접 선 음성 채널에 봇을 연결 하는 것입니다.
+직접 줄 음성을 사용 하 여 음성 도우미를 만드는 첫 번째 단계는 [음성 구독 키를 가져오고](overview.md#try-the-speech-service-for-free)해당 구독과 연결 된 새 봇을 만든 다음 직접 선 음성 채널에 봇을 연결 하는 것입니다.
 
    ![직접 라인 음성 오케스트레이션 서비스 흐름의 개념적 다이어그램](media/voice-assistants/overview-directlinespeech.png "음성 채널 흐름")
 
@@ -64,7 +64,7 @@ Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)
 * [기본 봇 만들기 및 배포](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [가상 길잡이 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)
