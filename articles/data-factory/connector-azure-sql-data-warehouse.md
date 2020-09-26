@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 01e2a2db3757e8d13749faf53b47300c8188915e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 09/23/2020
+ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332154"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터 복사 및 변환
 
@@ -144,7 +144,7 @@ Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행하거나 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)서 추가 옵션을 참조합니다. PolyBase를 사용하여 데이터를 로드하려는 경우 [필요한 데이터베이스 권한](#required-database-permission)을 알아보세요.
+4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행하거나 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)서 추가 옵션을 참조합니다. PolyBase를 사용하여 데이터를 로드하려는 경우 [필요한 데이터베이스 권한](#required-database-permission)을 알아보세요.
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -190,7 +190,7 @@ Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. SQL 사용자 및 다른 사용자에 대해 일반적으로 수행하는 것처럼 **Data Factory 관리 ID에 필요한 권한을 부여**합니다. 다음 코드를 실행하거나 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)서 추가 옵션을 참조합니다. PolyBase를 사용하여 데이터를 로드하려는 경우 [필요한 데이터베이스 권한](#required-database-permission)을 알아보세요.
+3. SQL 사용자 및 다른 사용자에 대해 일반적으로 수행하는 것처럼 **Data Factory 관리 ID에 필요한 권한을 부여**합니다. 다음 코드를 실행하거나 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)서 추가 옵션을 참조합니다. PolyBase를 사용하여 데이터를 로드하려는 경우 [필요한 데이터베이스 권한](#required-database-permission)을 알아보세요.
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -269,7 +269,7 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
 | storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예       |
 | isolationLevel | SQL 원본에 대한 트랜잭션 잠금 동작을 지정합니다. 허용 되는 값은 **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**입니다. 지정 하지 않으면 데이터베이스의 기본 격리 수준이 사용 됩니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel)를 참조하세요. | 예 |
 | partitionOptions | Azure Synapse Analytics에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable**및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Azure Synapse Analytics에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
-| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
+| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 예 |
 | ***에서 `partitionSettings` 다음을 수행 합니다.*** | | |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용 되는 **정수 또는 날짜/시간 형식으로** 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfDynamicRangePartitionCondition ` WHERE 절에 후크 합니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 파티션 범위 분할에 대 한 파티션 열의 최대값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.  <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
@@ -372,7 +372,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 세 
 - [COPY 문 사용(미리 보기)](#use-copy-statement)
 - 대량 삽입 사용
 
-데이터를 로드하는 가장 빠르고 확장성 있는 방법은 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 또는 [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)(미리 보기)를 통하는 것입니다.
+데이터를 로드하는 가장 빠르고 확장성 있는 방법은 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 또는 [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql)(미리 보기)를 통하는 것입니다.
 
 Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크 형식을 **SqlDWSink**로 설정 합니다. 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
@@ -381,7 +381,7 @@ Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크
 | type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | 예                                           |
 | allowPolyBase     | PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다.     |
 | polyBaseSettings  | `allowPolybase` 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다. |
-| allowCopyCommand | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (미리 보기)을 사용 하 여 Azure Synapse Analytics로 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-copy-statement) 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br>COPY를 사용하는 경우 적용합니다. |
+| allowCopyCommand | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (미리 보기)을 사용 하 여 Azure Synapse Analytics로 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-copy-statement) 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br>COPY를 사용하는 경우 적용합니다. |
 | copyCommandSettings | `allowCopyCommand` 속성이 TRUE로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니요.<br/>COPY를 사용하는 경우 적용합니다. |
 | writeBatchSize    | **일괄 처리당** SQL 테이블에 삽입할 행 수입니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. | 아니요.<br/>대량 삽입을 사용하는 경우 적용합니다.     |
 | writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예제: "00:30:00"(30분). | 아니요.<br/>대량 삽입을 사용하는 경우 적용합니다.        |
@@ -417,9 +417,10 @@ Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 실제 파티션이 있는 초대형 테이블에서 전체 로드        | **파티션 옵션**: 테이블의 실제 파티션입니다. <br><br/>실행 중에는 Data Factory에서 실제 파티션을 자동으로 검색 하 고 파티션으로 데이터를 복사 합니다. |
+| 실제 파티션이 있는 초대형 테이블에서 전체 로드        | **파티션 옵션**: 테이블의 실제 파티션입니다. <br><br/>실행 중에는 Data Factory에서 실제 파티션을 자동으로 검색 하 고 파티션으로 데이터를 복사 합니다. <br><br/>테이블에 실제 파티션이 있는지 확인 하려면 [이 쿼리](#sample-query-to-check-physical-partition)를 참조할 수 있습니다. |
 | 데이터 분할을 위한 정수 또는 datetime 열을 포함 하는 동시에 실제 파티션이 없는 많은 테이블에서 전체 로드 | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열** (선택 사항): 데이터를 분할 하는 데 사용 되는 열을 지정 합니다. 지정 하지 않으면 인덱스 또는 기본 키 열이 사용 됩니다.<br/>**파티션 상한** 및 **파티션** 하 한 (선택 사항): 파티션 스트라이드를 확인할 지 여부를 지정 합니다. 테이블의 행을 필터링 하는 것이 아니라 테이블의 모든 행이 분할 및 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br><br>예를 들어 파티션 열 "ID"의 값이 1에서 100 사이의 값을 가지 며, 상한 값을 20으로 설정 하 고 상한을 80로 설정 하 고, Data Factory에서 4 개의 파티션 (범위 <= 20, [21, 50], [51, 80] 및 >= 81)을 통해 데이터를 검색 합니다. |
-| 실제 파티션이 없는 사용자 지정 쿼리를 사용 하 여 많은 양의 데이터를 로드 하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용 합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션** 하 한 (선택 사항): 파티션 스트라이드를 확인할 지 여부를 지정 합니다. 테이블에서 행을 필터링 하는 것이 아니라 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br><br>실행 중 Data Factory는 `?AdfRangePartitionColumnName` 각 파티션의 실제 열 이름 및 값 범위로 바뀌고 Azure Synapse Analytics로 전송 됩니다. <br>예를 들어 파티션 열 "ID"의 값이 1에서 100 사이의 값을 가지 며, 상한 값을 20으로 설정 하 고 상한을 80로 설정 하 고, Data Factory에서 4 개의 파티션 (범위 <= 20, [21, 50], [51, 80] 및 >= 81)을 통해 데이터를 검색 합니다. |
+| 실제 파티션이 없는 사용자 지정 쿼리를 사용 하 여 많은 양의 데이터를 로드 하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용 합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션** 하 한 (선택 사항): 파티션 스트라이드를 확인할 지 여부를 지정 합니다. 테이블에서 행을 필터링 하는 것이 아니라 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br><br>실행 중 Data Factory는 `?AdfRangePartitionColumnName` 각 파티션의 실제 열 이름 및 값 범위로 바뀌고 Azure Synapse Analytics로 전송 됩니다. <br>예를 들어 파티션 열 "ID"의 값이 1에서 100 사이의 값을 가지 며, 상한 값을 20으로 설정 하 고 상한을 80로 설정 하 고, Data Factory에서 4 개의 파티션 (범위 <= 20, [21, 50], [51, 80] 및 >= 81)을 통해 데이터를 검색 합니다. <br><br>다음은 다양 한 시나리오에 대 한 샘플 쿼리입니다.<br> 1. 전체 테이블을 쿼리 합니다. <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. 열 선택이 포함 된 테이블에서 쿼리 및 추가 where 절 필터: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. 하위 쿼리를 사용 하 여 쿼리: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. 하위 쿼리에 파티션이 있는 쿼리: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+|
 
 파티션 옵션을 사용 하 여 데이터를 로드 하는 모범 사례:
 
@@ -452,6 +453,22 @@ Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크
     }
 }
 ```
+
+### <a name="sample-query-to-check-physical-partition"></a>실제 파티션을 확인 하는 예제 쿼리
+
+```sql
+SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, c.name AS ColumnName, CASE WHEN c.name IS NULL THEN 'no' ELSE 'yes' END AS HasPartition
+FROM sys.tables AS t
+LEFT JOIN sys.objects AS o ON t.object_id = o.object_id
+LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
+LEFT JOIN sys.indexes AS i ON t.object_id = i.object_id
+LEFT JOIN sys.index_columns AS ic ON ic.partition_ordinal > 0 AND ic.index_id = i.index_id AND ic.object_id = t.object_id
+LEFT JOIN sys.columns AS c ON c.object_id = ic.object_id AND c.column_id = ic.column_id
+LEFT JOIN sys.types AS y ON c.system_type_id = y.system_type_id
+WHERE s.name='[your schema]' AND t.name = '[your table name]'
+```
+
+테이블에 실제 파티션이 있는 경우 "HasPartition"이 "예"로 표시 됩니다.
 
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드
 
@@ -507,7 +524,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
 4. `wildcardFolderPath` ,,,, `wildcardFilename` `modifiedDateTimeStart` `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` 및 `additionalColumns` 가 지정 되지 않은 경우
 
 >[!NOTE]
->원본이 폴더인 경우 PolyBase는 폴더와 모든 하위 폴더에서 파일을 검색하며, [여기 - LOCATION 인수](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2)에 설명된 대로 파일 이름이 밑줄(_) 또는 마침표(.)로 시작하는 파일에서 데이터를 검색하지 않습니다.
+>원본이 폴더인 경우 PolyBase는 폴더와 모든 하위 폴더에서 파일을 검색하며, [여기 - LOCATION 인수](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql#arguments-2)에 설명된 대로 파일 이름이 밑줄(_) 또는 마침표(.)로 시작하는 파일에서 데이터를 검색하지 않습니다.
 
 ```json
 "activities":[
@@ -545,12 +562,12 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
 
 ### <a name="staged-copy-by-using-polybase"></a>PolyBase를 사용한 준비된 복사
 
-원본 데이터가 PolyBase와 기본적으로 호환되지 않는 경우 중간 준비 Azure Blob Storage 인스턴스(Azure Premium Storage일 수 없음)를 통해 데이터 복사를 사용하도록 설정합니다. 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance-features.md#staged-copy)를 참조하세요.
+원본 데이터가 PolyBase와 기본적으로 호환 되지 않는 경우 임시 스테이징 Azure Blob 또는 Azure Data Lake Storage Gen2을 통해 데이터 복사를 사용 하도록 설정 합니다 (Azure Premium Storage 일 수 없음). 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. 마지막으로 저장소에서 임시 데이터를 정리 합니다. 스테이징을 통해 데이터를 복사 하는 방법에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 참조 하세요.
 
-이 기능을 사용하려면 중간 Blob Storage가 있는 Azure Storage 계정을 참조하는 [Azure Blob Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 만듭니다. 그런 다음, 복사 작업의 `enableStaging` 및 `stagingSettings` 속성을 다음 코드에 표시된 대로 지정합니다.
+이 기능을 사용 하려면 임시 저장소를 사용 하 여 Azure storage 계정을 참조 하는 [Azure Blob Storage 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2 연결 된 서비스](connector-azure-data-lake-storage.md#linked-service-properties) 를 만듭니다. 그런 다음, 복사 작업의 `enableStaging` 및 `stagingSettings` 속성을 다음 코드에 표시된 대로 지정합니다.
 
 >[!IMPORTANT]
->준비 Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조하세요. [Azure Blob - 관리 ID 인증](connector-azure-blob-storage.md#managed-identity)에서 Data Factory에 필요한 구성을 알아봅니다.
+>준비 Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조하세요. [Azure Blob 관리 id 인증](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2 관리 id 인증](connector-azure-data-lake-storage.md#managed-identity)에서 Data Factory에 필요한 구성을 알아봅니다.
 
 ```json
 "activities":[
@@ -580,7 +597,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 }
             }
@@ -619,8 +636,7 @@ PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR(MA
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-이 솔루션은 복사 작업 싱크 -> PolyBase 설정에서 "**형식 기본값 사용**" 옵션(false로 설정)을 선택 취소하는 것입니다. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)"는 PolyBase 네이티브 구성으로, PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.
+이 솔루션은 복사 작업 싱크 -> PolyBase 설정에서 "**형식 기본값 사용**" 옵션(false로 설정)을 선택 취소하는 것입니다. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql#arguments)"는 PolyBase 네이티브 구성으로, PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.
 
 **`tableName`Azure Synapse Analytics에서**
 
@@ -651,7 +667,7 @@ NULL 값은 특별한 형태의 기본값입니다. 열이 Null을 허용하는 
 
 ## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics-preview"></a><a name="use-copy-statement"></a> COPY 문을 사용 하 여 Azure Synapse Analytics (미리 보기)에 데이터 로드
 
-Azure Synapse Analytics [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview)은 azure Blob에서 데이터 로드 **및 Azure Data Lake Storage Gen2**을 직접 지원 합니다. 원본 데이터가이 섹션에 설명 된 조건을 충족 하는 경우 ADF에서 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하도록 선택할 수 있습니다. Azure Data Factory는 설정을 확인하고 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
+Azure Synapse Analytics [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (preview)은 azure Blob에서 데이터 로드 **및 Azure Data Lake Storage Gen2**을 직접 지원 합니다. 원본 데이터가이 섹션에 설명 된 조건을 충족 하는 경우 ADF에서 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하도록 선택할 수 있습니다. Azure Data Factory는 설정을 확인하고 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
 
 >[!NOTE]
 >현재 Data Factory는 아래에 설명된 COPY 문 호환 원본의 복사만 지원합니다.
@@ -691,7 +707,7 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Azure Synapse Analytics의 각 대상 열에 대 한 기본값을 지정 합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 ID 열에는 기본값을 사용할 수 없습니다. | 예 |
-| additionalOptions | [Copy 문의](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)"With" 절에서 직접 Azure SYNAPSE Analytics 복사 문에 전달 되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
+| additionalOptions | [Copy 문의](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql)"With" 절에서 직접 Azure SYNAPSE Analytics 복사 문에 전달 되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
 
 ```json
 "activities":[
@@ -779,7 +795,7 @@ Azure Synapse Analytics에 특정한 설정은 싱크 변환의 **설정** 탭�
 - 다시 만들기: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.
 - 자르기: 대상 테이블의 모든 행이 제거됩니다.
 
-**준비 사용:** Azure Synapse Analytics에 쓸 때 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)를 사용할지 여부를 결정합니다.
+**준비 사용:** Azure Synapse Analytics에 쓸 때 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용할지 여부를 결정합니다.
 
 **일괄 처리 크기**: 각 버킷에 작성되는 행 수를 제어합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다.
 

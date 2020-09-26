@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fad7ca60e98dcaabc5f6fc106e0d2c1b77085d67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369079"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure Resource Manager 템플릿 사양 (미리 보기)
 
-템플릿 사양은 나중에 배포할 수 있도록 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿)을 저장 하기 위한 새로운 리소스 형식입니다. 이 리소스 종류를 사용 하 여 ARM 템플릿을 조직의 다른 사용자와 공유할 수 있습니다. 다른 Azure 리소스와 마찬가지로 RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양을 공유할 수 있습니다.
+템플릿 사양은 나중에 배포할 수 있도록 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿)을 저장 하기 위한 새로운 리소스 형식입니다. 이 리소스 종류를 사용 하 여 ARM 템플릿을 조직의 다른 사용자와 공유할 수 있습니다. 다른 Azure 리소스와 마찬가지로 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양을 공유할 수 있습니다.
 
 **TemplateSpecs/** 는 템플릿 사양에 대 한 새 리소스 형식입니다. 주 템플릿과 연결 된 템플릿 수에 관계 없이 구성 됩니다. Azure는 리소스 그룹에 템플릿 사양을 안전 하 게 저장 합니다. 템플릿 사양에서 [버전 관리](#versioning)를 지원 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "89227885"
 
 현재 GitHub 리포지토리 또는 저장소 계정에 템플릿이 있는 경우 템플릿을 공유 하 고 사용 하려고 할 때 몇 가지 문제가 발생 합니다. 사용자가 배포 하려면 템플릿이 로컬 이거나 템플릿에 대 한 URL을 공개적으로 액세스할 수 있어야 합니다. 이러한 제한을 해결 하기 위해 템플릿 복사본을 배포 해야 하는 사용자 또는 리포지토리 또는 저장소 계정에 대 한 액세스를 열어야 할 수 있습니다. 사용자가 템플릿의 로컬 복사본을 소유 하는 경우 이러한 복사본은 결국 원래 템플릿에서 분기할 수 있습니다. 리포지토리 또는 저장소 계정을 공개적으로 액세스할 수 있도록 설정 하면 의도 하지 않은 사용자가 템플릿에 액세스 하도록 허용할 수 있습니다.
 
-템플릿 사양을 사용 하는 경우의 장점으로 정식 템플릿을 만들고 조직의 팀과 공유할 수 있습니다. 템플릿 사양은 배포에 Azure Resource Manager 사용할 수 있지만 RBAC 권한이 없는 사용자는 액세스할 수 없기 때문에 안전 합니다. 사용자는 템플릿을 배포 하기 위한 템플릿 사양에 대 한 읽기 권한만 필요 하므로 다른 사용자가 수정할 수 없도록 템플릿을 공유할 수 있습니다.
+템플릿 사양을 사용 하는 경우의 장점으로 정식 템플릿을 만들고 조직의 팀과 공유할 수 있습니다. 템플릿 사양은 배포에 Azure Resource Manager 사용할 수 있지만 Azure RBAC 권한이 없는 사용자는 액세스할 수 없기 때문에 안전 합니다. 사용자는 템플릿을 배포 하기 위한 템플릿 사양에 대 한 읽기 권한만 필요 하므로 다른 사용자가 수정할 수 없도록 템플릿을 공유할 수 있습니다.
 
 조직의 요구 사항과 지침을 따르려면 조직의 관리자가 템플릿 사양에 포함 하는 템플릿을 확인 해야 합니다.
 

@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/23/2020
+ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332103"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,7 +61,7 @@ Dynamics 버전 및 제품에 대해 지원 되는 인증 유형 및 구성의 �
 >[!TIP]
 >Dynamics 365 재무 및 작업에서 데이터를 복사 하려면 [DYNAMICS AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
 
@@ -77,11 +77,11 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM online
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics online의 경우이 값은 "Online" 이어야 합니다. | 예 |
-| serviceUri | Dynamics 인스턴스의 서비스 URL입니다. 예제는 https://www.crmdynamics.com입니다. | 예 |
+| serviceUri | 브라우저에서 액세스 하는 것과 동일한 Dynamics 인스턴스의 서비스 URL입니다. 예를 들면 "https:// \<organization-name> [x] .com.com"입니다. | 예 |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. 유효한 값은 "AADServicePrincipal" 및 "Office365"입니다. | 예 |
 | servicePrincipalId | Azure AD 응용 프로그램의 클라이언트 ID입니다. | 인증이 "AADServicePrincipal" 인 경우 예 |
 | servicePrincipalCredentialType | 서비스 사용자 인증에 사용할 자격 증명 형식입니다. 유효한 값은 "ServicePrincipalKey" 및 "ServicePrincipalCert"입니다. | 인증이 "AADServicePrincipal" 인 경우 예 |
@@ -102,7 +102,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -174,7 +174,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포트**입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예. |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용 하는 Dynamics 온-프레미스의 경우이 값은 "OnPremisesWithIfd" 이어야 합니다.| 예. |
@@ -220,7 +220,7 @@ Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포
 
 Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 "DynamicsEntity", "DynamicsCrmEntity" 또는 "CommonDataServiceForAppsEntity"로 설정 해야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 작업 원본이 "query"로 지정 되 고 싱크에 대해 예로 지정 된 경우 원본에 대해 아니요 |
@@ -252,7 +252,7 @@ Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원
 
 Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션은 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 "DynamicsSource", "DynamicsCrmSource" 또는 "CommonDataServiceForAppsSource"로 설정 해야 합니다. | 예 |
 | Query | FetchXML은 Dynamics online 및 온-프레미스에서 사용 되는 전용 쿼리 언어입니다. 다음 예제를 참조하세요. 자세히 알아보려면 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조 하세요. | `entityName`데이터 집합에서이 지정 되지 않은 경우 |
@@ -320,7 +320,7 @@ Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션
 
 Dynamics에 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션은 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 "DynamicsSink", "DynamicsCrmSink" 또는 "CommonDataServiceForAppsSink"로 설정 해야 합니다. | 예. |
 | writeBehavior | 작업의 쓰기 동작입니다. 값은 "Upsert" 이어야 합니다. | 예 |
@@ -377,8 +377,8 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 
 | Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.BigInt | long | ✓ | ✓ |
+| AttributeTypeCode.Boolean | 부울 | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
@@ -386,7 +386,7 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.ManagedProperty | 부울 | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |

@@ -1,14 +1,16 @@
 ---
 title: Personalizer 구성
 description: 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 4c0cbf35a37f6b3eb134992b34b23fd9d7be47ed
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9b7347cb98bcbf2e1d92f115d404197083acef4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292611"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Personalizer learning 루프 구성
 
@@ -67,7 +69,7 @@ Personalizer 리소스에 대 한 Azure Portal **구성** 페이지에서 학습
 
 **모델 업데이트 빈도** 는 모델을 학습 하는 빈도를 설정 합니다.
 
-|빈도 설정|용도|
+|빈도 설정|목적|
 |--|--|
 |1분|1 분 업데이트 빈도는 Personalizer를 사용 하 여 응용 프로그램 코드를 **디버깅** 하거나, 데모를 수행 하거나, 기계 학습 측면을 대화형으로 테스트할 때 유용 합니다.|
 |15분|높은 모델 업데이트 빈도는 사용자 동작의 **변경 내용을 면밀** 하 게 추적 하려는 경우에 유용 합니다. 라이브 뉴스, 바이럴 콘텐츠 또는 라이브 상품 입찰에서 실행하는 사이트를 예로 들 수 있습니다. 이러한 시나리오에서 15분 빈도를 사용할 수 있습니다. |
