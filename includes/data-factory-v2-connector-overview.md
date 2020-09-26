@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 08/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 83d230badb69fd970476cb39bf54e48d36866d53
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 13ca9ea43f1f89f835ee7dd95a3265f229247df0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376899"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../articles/data-factory/copy-activity-overview.md)(원본/싱크) | [매핑 데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md)(원본/싱크) | [조회 작업](../articles/data-factory/control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../articles/data-factory/control-flow-get-metadata-activity.md)/[유효성 검사 작업](../articles/data-factory/control-flow-validation-activity.md) | [활동 삭제](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -62,7 +62,7 @@ ms.locfileid: "89181983"
 | &nbsp;                | [파일 시스템](../articles/data-factory/connector-file-system.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [FTP](../articles/data-factory/connector-ftp.md)             | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
-| &nbsp;                | [HDFS](../articles/data-factory/connector-hdfs.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [HDFS](../articles/data-factory/connector-hdfs.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              | ✓                                                             |
 | &nbsp;                | [SFTP](../articles/data-factory/connector-sftp.md)           | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | **일반 프로토콜**  | [일반 HTTP](../articles/data-factory/connector-http.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [일반 OData](../articles/data-factory/connector-odata.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

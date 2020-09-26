@@ -1,24 +1,24 @@
 ---
 title: Azure HDInsight에서 Jupyter 노트북을 만들 수 없습니다.
-description: Azure HDInsight 클러스터와 상호 작용 하는 경우 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+description: Azure HDInsight 클러스터와 상호 작용 하는 경우 문제 해결 단계 및 가능한 해결 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f4fcfa52733ec8f1f0ceedc669b8307efabf3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77186792"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324011"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Azure HDInsight에서 Jupyter 노트북을 만들 수 없습니다.
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 Jupyter 노트북을 시작 하면 다음을 포함 하는 오류 메시지가 표시 됩니다.
 

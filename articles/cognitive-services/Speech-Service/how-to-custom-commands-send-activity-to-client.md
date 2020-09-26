@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027616"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360109"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>사용자 지정 명령 작업을 클라이언트 응용 프로그램으로 보내기
 
@@ -29,7 +29,7 @@ ms.locfileid: "86027616"
 ## <a name="prerequisites"></a>사전 요구 사항
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드에서는 Visual Studio 2019을 사용 합니다.
-> * 음성 서비스에 대 한 Azure 구독 키: [무료로 하나 얻기](get-started.md) 또는 [Azure Portal](https://portal.azure.com) 에 만들기
+> * Speech Service에 대한 Azure 구독 키: [Azure Portal](https://portal.azure.com)에서 [체험 계정을 가져오거나](overview.md#try-the-speech-service-for-free) 새로 만듭니다.
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 > * 음성 SDK 사용 클라이언트 앱: [방법: 음성 sdk를 사용 하 여 클라이언트 응용 프로그램과 통합](./how-to-custom-commands-setup-speech-sdk.md)
 
@@ -51,7 +51,7 @@ ms.locfileid: "86027616"
    > [!div class="mx-imgBorder"]
    > ![작업 완료 규칙 보내기](media/custom-commands/send-activity-to-client-completion-rules.png)
 
-## <a name="integrate-with-client-application"></a>클라이언트 응용 프로그램과 통합
+## <a name="integrate-with-client-application"></a>클라이언트 애플리케이션과 통합
 
 [방법: 음성 sdk (미리 보기)를 사용 하 여 클라이언트 응용 프로그램을 설치](./how-to-custom-commands-setup-speech-sdk.md)하는 경우,와 같은 명령을 처리 하는 speech sdk를 사용 하 여 UWP 클라이언트 응용 프로그램을 만들었습니다 `turn on the tv` `turn off the fan` . 일부 시각적 개체를 추가 하면 해당 명령의 결과를 볼 수 있습니다.
 
@@ -149,9 +149,9 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## <a name="try-it-out"></a>기능 직접 사용해 보기
 
 1. 애플리케이션 시작
-1. 마이크 사용을 선택 합니다.
-1. 대화 단추를 선택 합니다.
-1. 한다는`turn on the tv`
+1. [마이크 사용]을 선택합니다.
+1. [대화] 단추를 선택합니다.
+1. `turn on the tv`이라고 말합니다.
 1. Tv의 시각적 상태가 "켜기"로 변경 됩니다.
    > [!div class="mx-imgBorder"]
    > ![전송 작업 페이로드](media/custom-commands/send-activity-to-client-turn-on-tv.png)

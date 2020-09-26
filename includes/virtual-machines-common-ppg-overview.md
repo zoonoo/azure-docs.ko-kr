@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376575"
 ---
 Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 줄어듭니다. 단일 가용성 영역에 배치 하는 경우에도 물리적으로 긴밀 하 게 통합 됩니다. 그러나 Azure 공간이 증가 함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며이로 인해 응용 프로그램에 영향을 주는 네트워크 대기 시간이 발생할 수 있습니다. 
 
@@ -47,6 +47,39 @@ Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 
 -   VM 인스턴스를 추가 하 고 제거 하는 탄력적 작업의 경우 배포에 근접 배치 그룹 제약 조건을 적용 하면 요청을 충족 하지 못하여 **AllocationFailure** 오류가 발생할 수 있습니다. 
 - 필요에 따라 Vm을 중지 (할당 취소) 하 고 시작 하는 것은 탄력성를 달성할 수 있는 또 다른 방법입니다. VM을 중지 (할당 취소) 한 후에는 용량을 유지 하지 않으므로 다시 시작 하면 **AllocationFailure** 오류가 발생할 수 있습니다.
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>계획 된 유지 관리 및 근접 배치 그룹
+
+Azure 데이터 센터에서 하드웨어 서비스 해제와 같은 계획 된 유지 관리 이벤트는 근접 배치 그룹의 리소스 맞춤에 잠재적으로 영향을 줄 수 있습니다. 리소스를 다른 데이터 센터로 이동 하 여 근접 배치 그룹과 관련 된 위치 및 대기 시간 기대치를 방해할 수 있습니다.
+
+### <a name="check-the-alignment-status"></a>맞춤 상태를 확인 합니다.
+
+다음을 수행 하 여 근접 배치 그룹의 맞춤 상태를 확인할 수 있습니다.
+
+
+- 근접 배치 그룹 공동 배치 상태는 포털, CLI 및 PowerShell을 사용 하 여 볼 수 있습니다.
+
+    -   PowerShell을 사용 하는 경우 선택적 매개 변수 '-colocationstatus '를 포함 하 여 AzProximityPlacementGroup cmdlet을 사용 하 여 공동 배치 상태를 가져올 수 있습니다.
+
+    -   CLI를 사용 하는 경우 `az ppg show` 선택적 매개 변수 '--include-i n e t-상태 '를 포함 하 여 공동 위치 상태를 가져올 수 있습니다.
+
+- 각 근접 배치 그룹에 대해 **공동 배치 status** 속성은 그룹화 된 리소스의 현재 맞춤 상태 요약 정보를 제공 합니다. 
+
+    - **정렬**됨: 리소스가 근접 배치 그룹의 동일한 대기 시간 봉투 내에 있습니다.
+
+    - **알 수 없음**: 하나 이상의 VM 리소스 할당이 취소 됩니다. 성공적으로 다시 시작 되 면 상태는 다시 **정렬**됨으로 돌아갑니다.
+
+    - **정렬 되지 않음**: 하나 이상의 VM 리소스가 근접 배치 그룹에 정렬 되어 있지 않습니다. 또한 정렬 되지 않은 특정 리소스는 멤버 자격 섹션에서 별도로 호출 됩니다.
+
+- 가용성 집합의 경우 가용성 집합 개요 페이지에서 개별 Vm의 맞춤에 대 한 정보를 볼 수 있습니다.
+
+- 크기 집합의 경우 개별 인스턴스의 맞춤에 대 한 정보는 확장 집합에 대 한 **개요** 페이지의 **인스턴스** 탭에서 볼 수 있습니다. 
+
+
+### <a name="re-align-resources"></a>리소스 다시 정렬 
+
+근접 배치 그룹이 인 경우 중지 하 `Not Aligned` 고 영향을 받는 리소스를 다시 시작할 수 있습니다. VM이 가용성 집합 또는 확장 집합에 있는 경우 가용성 집합 또는 확장 집합의 모든 Vm을 먼저 stopped\deallocated 한 후에 다시 시작 해야 합니다.
+
+배포 제약 조건으로 인해 할당 오류가 발생 한 경우에는 영향을 받는 근접 배치 그룹 (정렬 된 리소스 포함)의 모든 리소스를 중지 하 고 정렬을 복원 하려면 다시 시작 해야 할 수 있습니다.
 
 ## <a name="best-practices"></a>모범 사례 
 - 대기 시간이 가장 짧은 경우 근접 배치 그룹을 가속 네트워킹과 함께 사용 합니다. 자세한 내용은 [가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [가속화 된 네트워킹을 사용 하 여 Windows 가상 머신](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)만들기를 참조 하세요.

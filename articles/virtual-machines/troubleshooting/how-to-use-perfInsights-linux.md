@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360534"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -61,7 +61,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>PerfInsights에서 수집 되는 정보의 종류
 
-Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, 구성 및 다양 한 로그에 대 한 정보가 수집 됩니다. 다음은 자세한 내용입니다.
+Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, 구성 및 다양 한 로그에 대 한 정보가 수집 됩니다. 자세한 내용은 다음과 같습니다.
 
 - 운영 체제
   - Linux 배포 및 버전
@@ -218,8 +218,8 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 **개요** 탭에서는 기본 실행 세부 정보 및 가상 컴퓨터 정보를 제공 합니다. 검색 **결과** 탭에는 PerfInsights 보고서의 모든 다른 섹션에 있는 권장 사항에 대 한 요약이 표시 됩니다.
 
-![PerfInsights 보고서의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![PerfInsights 보고서의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![PerfInsights 보고서의 개요 탭 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![PerfInsights 보고서의 Linux 탭 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > 높음으로 분류된 검색 결과는 성능 문제를 일으킬 수 있는 알려진 문제입니다. 보통으로 분류된 검색 결과는 반드시 성능 문제를 일으키지는 않지만 최적이 아닌 구성을 나타냅니다. 낮음으로 분류되는 검색 결과는 정보만 제공합니다.

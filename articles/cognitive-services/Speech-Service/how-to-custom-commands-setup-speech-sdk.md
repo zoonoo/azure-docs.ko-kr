@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360126"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용 하 여 클라이언트 응용 프로그램과 통합
 
@@ -25,7 +25,7 @@ ms.locfileid: "88918828"
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 만들지 않은 경우 빠른 시작을 수행 하 여 다음을 수행할 수 있습니다.
 > [!div class = "checklist"]
@@ -34,7 +34,7 @@ ms.locfileid: "88918828"
 다음도 필요 합니다.
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드는 Visual Studio 2019을 기반으로 합니다.
-> * Speech Service에 대한 Azure 구독 키. [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+> * Speech Service에 대한 Azure 구독 키. [무료로 다운로드](overview.md#try-the-speech-service-for-free) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
 > * [디바이스를 개발에 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>1 단계: 사용자 지정 명령 응용 프로그램 게시

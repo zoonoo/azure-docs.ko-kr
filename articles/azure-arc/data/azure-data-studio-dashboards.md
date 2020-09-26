@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273226"
 ---
 # <a name="azure-data-studio-dashboards"></a>대시보드 Azure Data Studio
 
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-LoadBalancer 유형을 사용 하는 경우 외부 IP 주소와 포트 번호 300080을 복사 하는 것이 좋습니다.  NodePort를 사용 하는 경우 Kubernetes API 서버의 IP 주소와 포트 열 아래에 나열 된 포트 번호를 사용 합니다.
+LoadBalancer 유형을 사용 하는 경우 외부 IP 주소와 포트 번호를 복사 합니다. NodePort를 사용 하는 경우 Kubernetes API 서버의 IP 주소와 포트 열 아래에 나열 된 포트 번호를 사용 합니다.
 
 이제 다음과 같이이 정보를 결합 하 여 끝점에 대 한 URL을 생성 합니다.
 

@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c0213b050745712a5c77d4861b9cfba4fc953dfd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376513"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- 배포 된 통신 서비스 리소스입니다. [통신 서비스 리소스를 만듭니다](../../create-communication-resource.md).
+- 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - `User Access Token`호출 클라이언트를 사용 하도록 설정 하는입니다. 을 [ `User Access Token` 다운로드 하는 방법](../../access-tokens.md) 에 대 한 자세한 내용은
 - 선택 사항: [응용 프로그램에 대 한 호출 추가를 시작](../getting-started-with-calling.md) 하기 위한 빠른 시작을 완료 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "90940073"
 ### <a name="install-the-package"></a>패키지 설치
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
-프로젝트 수준 gradle를 찾고 `mavenCentral()` 및의 저장소 목록에 추가 해야 합니다. `buildscript``allprojects`
+프로젝트 수준 build.gradle을 찾고, `mavenCentral()`을 `buildscript` 및 `allprojects` 아래의 리포지토리 목록에 추가해야 합니다.
 ```groovy
 buildscript {
     repositories {
@@ -56,13 +56,13 @@ dependencies {
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스와 인터페이스는 클라이언트 라이브러리를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
+Azure Communication Services 통화 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient는 호출 하는 클라이언트 라이브러리에 대 한 주 진입점입니다.|
-| CallAgent | CallAgent는 호출을 시작 하 고 관리 하는 데 사용 됩니다. |
-| CommunicationUserCredential | CommunicationUserCredential는 CallAgent를 인스턴스화하는 토큰 자격 증명으로 사용 됩니다.|
+| CallClient| CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.|
+| CallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
+| CommunicationUserCredential | CommunicationUserCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.|
 
 ## <a name="initialize-the-callclient-create-a-callagent-and-access-the-devicemanager"></a>CallClient를 초기화 하 고, Callclient를 만들고, DeviceManager에 액세스 합니다.
 
@@ -81,8 +81,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>나가는 호출을 수행 하 고 그룹 호출을 조인 합니다.
 
-호출을 만들고 시작 하려면 메서드를 호출 하 고 호출 `CallClient.call()` 수신자의를 제공 해야 `Identifier` 합니다.
-그룹 호출을 조인 하려면 메서드를 호출 하 `CallClient.join()` 고 groupId를 제공 해야 합니다. 그룹 Id는 GUID 또는 UUID 형식 이어야 합니다.
+호출을 만들고 시작 하려면 메서드를 호출 하 고 호출 `CallAgent.call()` 수신자의를 제공 해야 `Identifier` 합니다.
+그룹 호출을 조인 하려면 메서드를 호출 하 `CallAgent.join()` 고 groupId를 제공 해야 합니다. 그룹 Id는 GUID 또는 UUID 형식 이어야 합니다.
 
 호출 생성 및 시작은 동기식입니다. 호출 인스턴스를 사용 하면 호출에 대 한 모든 이벤트를 구독할 수 있습니다.
 
@@ -106,7 +106,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-with-video-camera"></a>비디오 카메라를 사용 하 여 1:1 호출
@@ -266,7 +266,7 @@ catch(Exception e) {
 
 ### <a name="unregister-push-notification"></a>푸시 알림 등록 취소
 
-- 응용 프로그램은 언제 든 지 푸시 알림을 등록 취소할 수 있습니다. CallAgent에서 메서드를 호출 하기만 하면 됩니다 `unregisterPushNotification()` .
+- 응용 프로그램은 언제 든 지 푸시 알림을 등록 취소할 수 있습니다. `unregisterPushNotification()`CallAgent에서 메서드를 호출 하 여 등록을 취소 합니다.
 
 ```java
 try {
@@ -281,7 +281,7 @@ catch(Exception e) {
 통화 속성에 액세스 하 고 비디오 및 오디오와 관련 된 설정을 관리 하는 호출 중에 다양 한 작업을 수행할 수 있습니다.
 
 ### <a name="call-properties"></a>호출 속성
-* 이 호출의 고유 Id를 가져옵니다.
+* 이 호출의 고유 ID를 가져옵니다.
 ```java
 String callId = call.getCallId();
 ```
@@ -300,12 +300,12 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-호출의 현재 상태를 reprensting 하는 문자열을 반환 합니다.
+호출의 현재 상태를 나타내는 문자열을 반환 합니다.
 * ' None '-초기 호출 상태
 * ' 들어오는 '-호출이 수신 됨을 나타내며,이를 수락 하거나 거부 해야 합니다.
 * ' 연결 중 '-호출이 배치 되거나 수락 되 면 초기 전환 상태입니다.
 * ' 울림 '-나가는 호출의 경우, 원격 참가자에 대 한 호출이 신호를 받는 중임을 나타냅니다.
-* ' EarlyMedia '-호출이 연결 되기 전에 공지가 재생 되는 상태를 나타냅니다.
+* ' EarlyMedia '-호출이 연결 되기 전에 알림이 재생 되는 상태를 나타냅니다.
 * ' Connected '-호출이 연결 되어 있습니다.
 * ' 보유 '-호출이 대기 중 이며, 로컬 끝점과 원격 참가자 간에 미디어가 전달 되지 않습니다.
 * ' 연결 끊기 '-호출 전의 전환 상태를 ' Disconnected ' 상태로 전환 합니다.
@@ -354,7 +354,7 @@ Future startVideoFuture = call.startVideo(currentVideoStream);
 startVideoFuture.get();
 ```
 
-비디오 전송을 시작 하면 `LocalVideoStream` 인스턴스는 `localVideoStreams` 호출 인스턴스의 컬렉션에 추가 됩니다.
+비디오 전송을 성공적으로 시작 하면 인스턴스는 `LocalVideoStream` 호출 인스턴스의 컬렉션에 추가 됩니다 `localVideoStreams` .
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
@@ -385,7 +385,7 @@ List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants(); // [r
 * 이 원격 참가자에 대 한 식별자를 가져옵니다.
 Id는 ' Identifier ' 형식 중 하나입니다.
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * 이 원격 참가자의 상태를 가져옵니다.
@@ -397,7 +397,7 @@ ParticipantState state = remoteParticipant.getState();
 * 참가자가 호출에 연결 하는 동안 ' 연결 중 '-전환 상태
 * ' 연결 됨 '-참가자가 호출에 연결 되었습니다.
 * ' 보유 '-참가자가 보류 중입니다.
-* ' EarlyMedia '-참가자가 호출에 연결 되기 전에 해당 상태를 재생 합니다.
+* ' EarlyMedia '-참가자가 호출에 연결 되기 전에 알림이 재생 됩니다.
 * ' Disconnected '-최종 상태-참가자가 호출에서 연결이 끊겼습니다.
 
 
@@ -476,7 +476,7 @@ void onRemoteParticipantVideoStreamsUpdated(RemoteParticipant participant, Remot
 ### <a name="remote-video-stream-properties"></a>원격 비디오 스트림 속성
 원격 비디오 스트림에 몇 가지 속성이 있습니다.
 
-* `Id` -원격 비디오 스트림의 Id
+* `Id` -원격 비디오 스트림의 ID
 ```java
 int id = remoteVideoStream.getId();
 ```

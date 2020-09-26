@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273677"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 
@@ -302,7 +302,7 @@ Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Sea
 
 5. **Single Sign-On 사용** 페이지에서 도메인 관리자 계정의 자격 증명을 입력하고, **다음**을 선택합니다.
 
-   ![Single Sign-On 사용 페이지의 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![도메인 관리자 계정 자격 증명을 입력할 수 있는 Single Sign-On 사용 페이지의 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Seamless SSO를 사용하도록 설정하려면 도메인 관리자 계정 자격 증명이 필요합니다. 이 프로세스에서 다음 작업을 수행하는 데 이러한 관리자 권한이 필요합니다. 도메인 관리자 계정 자격 증명은 Azure AD Connect 또는 Azure AD에 저장되지 않습니다. 도메인 관리자 계정 자격 증명은 기능을 설정하는 데만 사용됩니다. 프로세스가 성공적으로 완료되면 자격 증명이 삭제됩니다.
@@ -324,7 +324,7 @@ Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Sea
    * **Seamless Single Sign-On**이 **사용**으로 설정되어 있습니다.
    * **암호 동기화**가 **사용**으로 설정되어 있습니다.<br /> 
 
-   ![사용자 로그인 섹션의 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Azure AD 포털의 사용자 로그인 섹션에서 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 [테스트 및 다음 단계](#testing-and-next-steps)로 건너뜁니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 00e5f750c1acfa49aea2caadbc95fd75cef0b24b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d37034057f7d1bc39c065110b20a8a2cdce13b62
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256049"
+ms.locfileid: "91360500"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Mixpanel 구성
 
@@ -88,9 +88,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션 아래에서 Mixpanel **테 넌 트 URL** 및 **암호 토큰**을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Mixpanel에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Mixpanel 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
-    ![프로비전](./media/mixpanel-provisioning-tutorial/provisioning.png)
+    ![스크린샷 U R L 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자가 표시 됩니다.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
-6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 

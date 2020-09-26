@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940061"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377442"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- 배포 된 통신 서비스 리소스입니다. [통신 서비스 리소스를 만듭니다](../../create-communication-resource.md).
+- 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - `User Access Token`호출 클라이언트를 사용 하도록 설정 하는입니다. 을 [ `User Access Token` 다운로드 하는 방법](../../access-tokens.md) 에 대 한 자세한 내용은
 - 선택 사항: [응용 프로그램에 대 한 호출 추가를 시작](../getting-started-with-calling.md) 하기 위한 빠른 시작을 완료 합니다.
 
@@ -22,32 +22,32 @@ ms.locfileid: "90940061"
 
 ### <a name="creating-the-xcode-project"></a>Xcode 프로젝트 만들기
 
-Xcode에서 새 iOS 프로젝트를 만들고 **단일 뷰 앱** 템플릿을 선택 합니다. 이 빠른 시작에서는 [SwiftUI 프레임 워크](https://developer.apple.com/xcode/swiftui/)를 사용 하므로 **언어** 를 **Swift** 로 설정 하 고 **사용자 인터페이스** 를 **SwiftUI**로 설정 해야 합니다. 이 빠른 시작 중에는 단위 테스트 또는 UI 테스트를 만들지 않습니다. **단위 테스트 포함** 을 선택 취소 하 고 **UI 테스트 포함**의 선택을 취소할 수 있습니다.
+Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을 선택합니다. 이 빠른 시작에서는 [SwiftUI 프레임 워크](https://developer.apple.com/xcode/swiftui/)를 사용 하므로 **언어** 를 **Swift** 로 설정 하 고 **사용자 인터페이스** 를 **SwiftUI**로 설정 해야 합니다. 이 빠른 시작 중에는 단위 테스트 또는 UI 테스트를 만들지 않습니다. **단위 테스트 포함** 을 선택 취소 하 고 **UI 테스트 포함**의 선택을 취소할 수 있습니다.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Xcode 내에 새 새 프로젝트 만들기 창을 보여 주는 스크린샷":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Xcode 내에서 새 프로젝트 만들기 창을 보여주는 스크린샷":::
 
 ### <a name="install-the-package"></a>패키지 설치
 
-클라이언트 라이브러리와 해당 종속성 (AzureCore 및 AzureCommunication 프레임 워크)을 호출 하는 Azure 통신 서비스를 프로젝트에 추가 합니다.
+Azure Communication Services 통화 클라이언트 라이브러리 및 해당 종속성(AzureCore.framework 및 AzureCommunication.framework)을 프로젝트에 추가합니다.
 
 > [!NOTE]
-> AzureCommunicationCalling SDK 릴리스를 통해 bash 스크립트를 찾을 수 있습니다 `BuildAzurePackages.sh` . 이 스크립트를 실행 하면 `sh ./BuildAzurePackages.sh` 다음 단계에서 샘플 앱에서 가져와야 하는 생성 된 프레임 워크 패키지의 경로가 제공 됩니다. Xcode 명령줄 도구를 설정 해야 합니다. 스크립트를 실행 하기 전에 Xcode를 시작 하 고 "기본 설정-> 위치"를 선택 합니다. 명령줄 도구에 대 한 Xcode 버전을 선택 합니다.
+> AzureCommunicationCalling SDK 릴리스를 사용하면 bash 스크립트 `BuildAzurePackages.sh`를 찾을 수 있습니다. `sh ./BuildAzurePackages.sh`를 실행할 때 스크립트는 생성된 프레임워크 패키지의 경로를 제공하며, 다음 단계에서 이 경로를 샘플 앱으로 가져와야 합니다. Xcode 명령줄 도구를 설정하지 않은 경우 스크립트를 실행하기 전에 설정해야 합니다. Xcode를 시작하고 "기본 설정-> 위치"를 선택합니다. 명령줄 도구에 대한 Xcode 버전을 선택합니다. **BuildAzurePackages.sh 스크립트는 Xcode 11.5 이상 에서만 작동 합니다.**
 
-1. IOS 용 클라이언트 라이브러리를 호출 하는 Azure 통신 서비스를 다운로드 합니다.
-2. Xcode에서 프로젝트 파일을 클릭 하 고 빌드 대상을 선택 하 여 프로젝트 설정 편집기를 엽니다.
-3. **일반** 탭에서 **프레임 워크, 라이브러리 및 포함 된 콘텐츠** 섹션으로 스크롤하고 **"+"** 아이콘을 클릭 합니다.
-4. 대화 상자 왼쪽 아래에서 **파일 추가**를 선택 하 고 압축 되지 않은 클라이언트 라이브러리 패키지의 **AzureCommunicationCalling** 디렉터리로 이동 합니다.
-    1. **AzureCore** 및 **azurecommunication. 프레임 워크**를 추가 하는 마지막 단계를 반복 합니다.
-5. 프로젝트 설정 편집기의 **빌드 설정** 탭을 열고 **검색 경로** 섹션으로 스크롤합니다. **AzureCommunicationCalling**이 포함 된 디렉터리에 대 한 새 **프레임 워크 검색 경로** 항목을 추가 합니다.
-    1. 종속성이 포함 된 폴더를 가리키는 다른 프레임 워크 검색 경로 항목을 추가 합니다.
+1. iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 다운로드합니다.
+2. Xcode에서 프로젝트 파일을 클릭하고 빌드 대상을 선택하여 프로젝트 설정 편집기를 엽니다.
+3. **일반** 탭에서 **Frameworks, Libraries, and Embedded Content**(프레임워크, 라이브러리 및 포함된 콘텐츠) 섹션으로 스크롤하여 **"+"** 아이콘을 클릭합니다.
+4. 대화 상자 왼쪽 아래에서 **파일 추가**를 선택하고 압축을 푼 클라이언트 라이브러리 패키지의 **AzureCommunicationCalling.framework** 디렉터리로 이동합니다.
+    1. 마지막 단계를 반복하여 **AzureCore.framework** 및 **AzureCommunication.framework**를 추가합니다.
+5. 프로젝트 설정 편집기의 **빌드 설정** 탭을 열고 **검색 경로** 섹션으로 스크롤합니다. **AzureCommunicationCalling.framework**가 포함된 디렉터리에 대한 새 **프레임워크 검색 경로** 항목을 추가합니다.
+    1. 종속성이 포함된 폴더를 가리키는 다른 프레임워크 검색 경로 항목을 추가합니다.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="XCode 내에서 프레임 워크 검색 경로를 업데이트 하는 것을 보여 주는 스크린샷":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="XCode 내에서 프레임워크 검색 경로 업데이트를 보여주는 스크린샷":::
 
-### <a name="request-access-to-the-microphone"></a>마이크에 대 한 액세스 요청
+### <a name="request-access-to-the-microphone"></a>마이크에 대한 액세스 요청
 
-장치의 마이크에 액세스 하려면 앱의 정보 속성 목록을로 업데이트 해야 `NSMicrophoneUsageDescription` 합니다. 연결 된 값을 `string` 시스템에서 사용자의 요청 액세스를 요청 하는 데 사용 하는 대화 상자에 포함 될로 설정 합니다.
+디바이스의 마이크에 액세스하려면 앱의 정보 속성 목록을 `NSMicrophoneUsageDescription`으로 업데이트해야 합니다. 연결된 값을 시스템이 사용자의 액세스 요청을 요청하는 데 사용하는 대화 상자에 포함될 `string`으로 설정합니다.
 
-프로젝트 트리의 항목을 마우스 오른쪽 단추로 클릭 `Info.plist` 하 고 **Open As**  >  **소스 코드로**열기를 선택 합니다. 최상위 섹션에 다음 줄을 추가한 `<dict>` 다음 파일을 저장 합니다.
+프로젝트 트리의 `Info.plist` 항목을 마우스 오른쪽 단추로 클릭하고 **다음 형식으로 열기** > **소스 코드**를 선택합니다. 최상위 `<dict>` 섹션에 다음 줄을 추가한 다음, 파일을 저장합니다.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -56,7 +56,7 @@ Xcode에서 새 iOS 프로젝트를 만들고 **단일 뷰 앱** 템플릿을 �
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 
-프로젝트의 **contentview** 파일을 열고 `import` 파일의 맨 위에 선언을 추가 하 여를 가져옵니다 `AzureCommunicationCalling library` . 또한 가져오기 `AVFoundation` , 코드에서 오디오 권한 요청에 필요 합니다.
+프로젝트의 **ContentView.swift** 파일을 열고 파일 맨 위에 `import` 선언을 추가하여 `AzureCommunicationCalling library`를 가져옵니다. 또한 가져오기 `AVFoundation` , 코드에서 오디오 권한 요청에 필요 합니다.
 
 ```swift
 import AzureCommunicationCalling
@@ -68,12 +68,12 @@ import AVFoundation
 다음 클래스와 인터페이스는 iOS 용 클라이언트 라이브러리를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
 
-| 이름                                  | 설명                                                  |
+| Name                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | ACSCallClient는 호출 하는 클라이언트 라이브러리에 대 한 주 진입점입니다.|
 | ACSCallAgent | ACSCallAgent는 호출을 시작 하 고 관리 하는 데 사용 됩니다. |
-| CommunicationUserCredential | CommunicationUserCredential는 CallAgent를 인스턴스화하는 토큰 자격 증명으로 사용 됩니다.| 
-| CommunicationIndentifier | CommunicationIndentifier는 다음 중 하나일 수 있는 사용자의 id를 나타내는 데 사용 됩니다. CommunicationUser/PhoneNumber/CallingApplication. |
+| CommunicationUserCredential | CommunicationUserCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.| 
+| CommunicationIndentifier | CommunicationIndentifier는 사용자의 ID를 나타내는 데 사용되며 다음 중 하나일 수 있습니다. CommunicationUser/PhoneNumber/CallingApplication. |
 
 > [!NOTE]
 > 이벤트 대리자를 구현할 때 응용 프로그램은 이벤트 구독을 필요로 하는 개체에 대 한 강력한 참조를 보유 해야 합니다. 예를 들어 메서드를 `ACSRemoteParticipant` 호출 하 여 개체가 반환 되 `call.addParticipant` 고 응용 프로그램이에서 수신 대기 하도록 대리자를 설정 하는 경우 `ACSRemoteParticipantDelegate` 응용 프로그램은 개체에 대 한 강력한 참조를 보유 해야 합니다 `ACSRemoteParticipant` . 그렇지 않으면이 개체가 수집 될 경우 호출 SDK에서 개체를 호출 하려고 할 때 대리자는 심각한 예외를 throw 합니다.

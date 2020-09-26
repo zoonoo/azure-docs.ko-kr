@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360653"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터를 위한 음성 서비스
 
@@ -50,7 +50,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 [음성 텍스트](speech-to-text.md) 는 모든 콜 센터 솔루션에서 가장 많이 검색 된 기능입니다. 많은 다운스트림 분석 프로세스에서 transcribed 텍스트를 사용 하므로_WER_(단어 오류 요금)는 매우 중요 합니다. 콜 센터 전사의 핵심 과제 중 하나는 콜 센터에서 흔히 발생하는 소음(예 - 배경에서 말하는 다른 상담원), 매우 다양한 언어 로캘과 방언 및 실제 전화 신호의 낮은 품질입니다. WER은 지정 된 로캘에 대해 음향 및 언어 모델이 얼마나 잘 학습 되는지와 밀접 하 게 연관 되어 있으므로 로캘에 맞게 모델을 사용자 지정 하는 기능이 중요 합니다. 당사의 최신 통합 버전 4.x 모델은 전사 정확도와 대기 시간 둘 다에 대한 솔루션입니다. 수십 시간 동안의 어쿠스틱 데이터와 수십억 개의 어휘 정보를 사용 하 여 학습 하 고, 통합 모델은 콜 센터 데이터를 높여줄 시장에서 가장 정확한 모델입니다.
 
-### <a name="sentiment"></a>감정
+### <a name="sentiment"></a>데이터
 
 고객의 환경이 좋은지 여부를 측정하는 것은 콜 센터 영역에 적용할 때 음성 분석의 매우 중요한 영역 중 하나입니다. 당사의 [일괄 처리 전사 API](batch-transcription.md)는 발화별로 감정 분석을 제공합니다. 통화 음성 텍스트의 일부로 얻은 값 세트를 집계하여 상담원과 고객 모두에 대한 통화의 감정을 결정할 수 있습니다.
 
@@ -121,7 +121,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
  음성 서비스는 기본 제공 모델에서 잘 작동 합니다. 그러나 제품 또는 환경에 대 한 환경을 추가로 사용자 지정 하 고 조정할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성 한 후에는 실시간 또는 일괄 처리 모드에서 음성 서비스 기능에 사용할 수 있습니다.
 
-| Speech Service | 모델 | 설명 |
+| Speech Service | 모델 | Description |
 | -------------- | ----- | ----------- |
 | 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 |                | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
@@ -147,4 +147,4 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [평가판 Speech Service 구독 키 받기](get-started.md)
+> [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
