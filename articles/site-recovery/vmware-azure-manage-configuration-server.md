@@ -6,14 +6,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361486"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구를 위한 구성 서버 관리
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버를 재해 복구하기 위한 구성 서버 관리
 
 Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 구성 서버를 설정합니다. 구성 서버는 온-프레미스 VMware 및 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다. 이 문서에서는 배포된 후에 구성 서버를 관리하기 위한 일반 태스크를 요약합니다.
 
@@ -71,7 +71,7 @@ CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
 1. [로그인](#access-configuration-server)한 후 **가상 머신 자격 증명 관리**를 선택 합니다.
 2. **가상 머신 자격 증명 추가**를 클릭하세요.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![가상 컴퓨터 자격 증명 추가 링크를 사용 하 여 가상 컴퓨터 자격 증명 관리 창을 보여 주는 스크린샷](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. 새 자격 증명을 입력하고 **추가**를 클릭하세요.
 
 CSPSConfigtool.exe를 통해 자격 증명을 추가할 수도 있습니다.
@@ -212,7 +212,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | 설명| 값|
+|매개 변수 이름| 형식 | Description| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|

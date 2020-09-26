@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290690"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 연결된 팩터리 솔루션 가속기는 가상 회사의 Contoso에 대한 시뮬레이트된 대시보드를 보여 줍니다. 이 회사는 전 세계 여러 위치에 팩터리를 보유합니다.
 
@@ -262,10 +265,10 @@ ms.locfileid: "73820125"
 
 ### <a name="visual-appearance"></a>시각적 모양
 
-이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
+이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 예제는 다음과 같습니다.
 
-* 이름
-* 설명
+* Name
+* Description
 * 이미지
 * 위치
 * 단위
@@ -291,7 +294,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 연결된 팩터리는 간단한 최소/최대 임계값 기반 경고 생성 메커니즘을 지원합니다. 해당 경고에 대한 응답으로 구성할 수 있는 미리 정의된 작업에는 여러 가지가 있습니다. 다음 속성은 이 메커니즘을 제어합니다.
 
 * 최대
-* 최소값
+* 최소
 * MaximumAlertActions
 * MinimumAlertActions
 

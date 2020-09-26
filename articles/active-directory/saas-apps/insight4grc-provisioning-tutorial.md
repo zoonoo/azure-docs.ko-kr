@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 86927a525fbfcb6a252d8e3d214733a0f1e83ed1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 60bf2034f1e6404f3f09bf25a66c497dbbaf4d05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361656"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Insight4GRC 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "88550380"
 > * Insight4GRC에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Insight4GRC에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -80,17 +80,17 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 **테 넌 트 URL**에 scim 끝점 url을 입력 합니다. 끝점 URL은 형식 이어야 합니다 `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` . 여기서 **Insight4GRC 도메인 Name** 은 이전 단계에서 검색 한 값입니다. 이전에 **비밀 토큰**에서 검색 된 전달자 토큰 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Insight4GRC에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Insight4GRC 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
-    ![프로비전](./media/insight4grc-provisioning-tutorial/provisioning.png)
+    ![스크린샷 U R L 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자가 표시 됩니다.](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
-6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 

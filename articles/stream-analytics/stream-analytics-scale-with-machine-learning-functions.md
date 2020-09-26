@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300312"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Azure Machine Learning Studio(클래식) 함수를 사용하여 Stream Analytics 작업의 크기 조정
 
@@ -25,7 +25,7 @@ ms.locfileid: "86037412"
 
 Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 Azure Machine Learning 웹 서비스 요청입니다.
 
-하나의 웹 서비스 API 호출에서 여러 행을 ‘일괄 처리’하여 Machine Learning 웹 서비스 요청의 처리량을 개선할 수 있습니다. 이러한 그룹화를 미니 매치라고 합니다. 자세한 내용은 [Azure Machine Learning Studio(클래식) 웹 서비스](../machine-learning/studio/consume-web-services.md)를 참조하세요. Stream Analytics의 Azure Machine Learning Studio(클래식) 지원은 현재 미리 보기 단계에 있습니다.
+하나의 웹 서비스 API 호출에서 여러 행을 ‘일괄 처리’하여 Machine Learning 웹 서비스 요청의 처리량을 개선할 수 있습니다. 이러한 그룹화를 미니 매치라고 합니다. 자세한 내용은 [Azure Machine Learning Studio(클래식) 웹 서비스](../machine-learning/classic/consume-web-services.md)를 참조하세요. Stream Analytics의 Azure Machine Learning Studio(클래식) 지원은 현재 미리 보기 단계에 있습니다.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Machine Learning 함수를 사용하여 Stream Analytics 작업 구성
 
@@ -58,7 +58,7 @@ SU 6개마다 Machine Learning 웹 서비스에 대한 20개의 동시 연결을
 
 Machine Learning 웹 서비스에서 ‘최대 동시 호출’을 구성할 수도 있습니다. 이 매개 변수는 최댓값(현재 200)으로 설정하는 것이 좋습니다.
 
-이 설정에 대한 자세한 내용은 [Machine Learning 웹 서비스와 관련된 크기 조정 문서](../machine-learning/studio/create-endpoint.md)를 참조하세요.
+이 설정에 대한 자세한 내용은 [Machine Learning 웹 서비스와 관련된 크기 조정 문서](../machine-learning/classic/create-endpoint.md)를 참조하세요.
 
 ## <a name="example--sentiment-analysis"></a>예 – 정서 분석
 다음 예제는 [Stream Analytics Machine Learning 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)에 설명된 대로 정서 분석 Machine Learning 함수를 사용하는 Stream Analytics 작업을 포함하고 있습니다.

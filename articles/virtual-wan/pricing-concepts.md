@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 2d2234ec333746c6f1da59346bdb74247deb616c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327960"
 ---
 # <a name="about-virtual-wan-pricing"></a>가상 WAN 가격 정보
 
@@ -30,7 +30,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 ### <a name="what-is-a-scale-unit"></a><a name="scale-unit"></a>배율 단위 란 무엇 인가요?
 
-**배율 단위** 는 가상 허브에서 S2S (사이트 간), 지점 및 사이트 간 (P2S) 및 express 경로 (ER)의 용량을 집계 하는 단위를 제공 합니다. 예를 들어:
+**배율 단위** 는 가상 허브에서 S2S (사이트 간), 지점 및 사이트 간 (P2S) 및 express 경로 (ER)의 용량을 집계 하는 단위를 제공 합니다. 예를 들면 다음과 같습니다.
 
 * **1 S2S vpn 배율 단위** 는 가상 허브 비용 $0.361/시간에 500 Mbps vpn 게이트웨이의 총 용량을 의미 합니다 (이중 인스턴스는 복원 력을 위해 배포 됨).
 * **1 ER 배율 단위** 는 가상 허브 비용 $0.42/hr에서 총 2 Gbps ER 게이트웨이를 의미 합니다.
@@ -38,7 +38,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>연결 단위 란 무엇 인가요?
 
-**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우 원격 사용자를 의미 합니다. Express 경로의 경우이는 Express 경로 회로 연결을 의미 합니다.<br>예를 들어:
+**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우 원격 사용자를 의미 합니다. Express 경로의 경우이는 Express 경로 회로 연결을 의미 합니다.<br>예를 들면 다음과 같습니다.
 
 * 가상 허브에서 Azure VPN에 연결 하는 단일 분기 연결 비용은 $0.05/hr입니다. 따라서 100 Azure 가상 허브에 연결 하는 분기 연결의 비용은 $0.05 * 100/시간입니다.
 

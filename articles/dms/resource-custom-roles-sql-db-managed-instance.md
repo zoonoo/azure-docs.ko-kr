@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291506"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Azure SQL Managed Instance 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할
 

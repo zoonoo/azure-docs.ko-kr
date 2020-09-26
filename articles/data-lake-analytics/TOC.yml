@@ -68,7 +68,7 @@
             - name: 기본 사항
               href: data-lake-analytics-u-sql-get-started.md
             - name: 언어 참조
-              href: 'https://msdn.microsoft.com/library/azure/mt591959'
+              href: 'https://docs.microsoft.com/u-sql/'
             - name: 카탈로그
               href: data-lake-analytics-u-sql-catalog.md
             - name: 사용자 정의 연산자
@@ -153,7 +153,7 @@
       href: 'https://www.npmjs.com/package/azure-arm-datalake-analytics'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/datalakeanalytics/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.datalakeanalytics/allversions

@@ -72,5 +72,3 @@
       href: release-notes.md
     - name: 알려진 문제
       href: reference-known-issues.md
-    - name: 사용 중단 알림
-      href: reference-deprecation.md

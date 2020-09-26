@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7f7bc16658733a7200d29fae22d96a2157b73065
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292135"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>SQL Server Integration Services 패키지를 Azure SQL Managed Instance로 마이그레이션
 SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스트 하는 원본 SSISDB의 SSIS 프로젝트/패키지를 Azure SQL Managed Instance에서 호스트 되는 대상 SSISDB로 마이그레이션하려는 경우 Azure Database Migration Service를 사용할 수 있습니다.

@@ -2,15 +2,15 @@
 title: 코드에 TLS/SSL 인증서 사용
 description: 코드에서 클라이언트 인증서를 사용 하는 방법을 알아봅니다. 클라이언트 인증서를 사용 하 여 원격 리소스를 사용 하 여 인증 하거나 암호화 작업을 사용 하 여 실행 합니다.
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311821"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service의 코드에서 TLS/SSL 인증서 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "88962131"
 
 TLS/SSL 인증서를 App Service 관리 하도록 허용 하는 경우 인증서와 응용 프로그램 코드를 별도로 유지 관리 하 고 중요 한 데이터를 보호할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -107,29 +107,6 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 
 지원 하지 않거나 Windows 인증서 저장소에 대 한 충분 한 지원을 제공 하지 않는 언어의 경우 [파일에서 인증서 로드](#load-certificate-from-file)를 참조 하세요.
 
-## <a name="load-certificate-in-linux-apps"></a>Linux 앱에서 인증서 로드
-
-`WEBSITE_LOAD_CERTIFICATES`앱 설정은 Linux에서 호스팅된 앱 (사용자 지정 컨테이너 앱 포함)에서 지정 된 인증서에 액세스할 수 있도록 합니다. 파일은 다음 디렉터리에 있습니다.
-
-- 개인 인증서- `/var/ssl/private` ( `.p12` 파일)
-- 공용 인증서- `/var/ssl/certs` ( `.der` 파일)
-
-인증서 파일 이름은 인증서 지문입니다. 다음 c # 코드는 Linux 앱에서 공용 인증서를 로드 하는 방법을 보여 줍니다.
-
-```csharp
-using System;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-
-...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
-
-// Use the loaded certificate
-```
-
-Node.js, PHP, Python, Java 또는 Ruby의 파일에서 TLS/SSL 인증서를 로드 하는 방법을 보려면 해당 언어 또는 웹 플랫폼에 대 한 설명서를 참조 하세요.
-
 ## <a name="load-certificate-from-file"></a>파일에서 인증서 로드
 
 수동으로 업로드 하는 인증서 파일을 로드 해야 하는 경우 [Git](deploy-local-git.md)대신 [FTPS](deploy-ftp.md) 를 사용 하 여 인증서를 업로드 하는 것이 좋습니다 (예:). 원본 제어에서 벗어난 개인 인증서와 같은 중요 한 데이터를 유지 해야 합니다.
@@ -152,6 +129,39 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+Node.js, PHP, Python, Java 또는 Ruby의 파일에서 TLS/SSL 인증서를 로드 하는 방법을 보려면 해당 언어 또는 웹 플랫폼에 대 한 설명서를 참조 하세요.
+
+## <a name="load-certificate-in-linuxwindows-containers"></a>Linux/Windows 컨테이너에서 인증서 로드
+
+`WEBSITE_LOAD_CERTIFICATES`앱 설정을 사용 하면 지정 된 인증서를 Windows 또는 linux 컨테이너 앱 (기본 제공 linux 컨테이너 포함)에서 파일로 액세스할 수 있습니다. 파일은 다음 디렉터리에 있습니다.
+
+| 컨테이너 플랫폼 | 공용 인증서 | 프라이빗 인증서 |
+| - | - | - |
+| Windows 컨테이너 | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
+| Linux 컨테이너 | `/var/ssl/certs` | `/var/ssl/private` |
+
+인증서 파일 이름은 인증서 지문입니다. 
+
+> [!NOTE]
+> Windows 컨테이너에 인증서 경로를 삽입 App Service 다음 환경 변수,, `WEBSITE_PRIVATE_CERTS_PATH` `WEBSITE_INTERMEDIATE_CERTS_PATH` `WEBSITE_PUBLIC_CERTS_PATH` 및 `WEBSITE_ROOT_CERTS_PATH` 입니다. 나중에 인증서 경로가 변경 되는 경우 인증서 경로를 하드 코딩 하는 대신 환경 변수를 사용 하 여 인증서 경로를 참조 하는 것이 좋습니다.
+>
+
+또한 [Windows Server Core 컨테이너](configure-custom-container.md#supported-parent-images) 는 **LocalMachine\My**에서 인증서를 인증서 저장소에 자동으로 로드 합니다. 인증서를 로드 하려면 [Windows 앱에서 인증서를 로드](#load-certificate-in-windows-apps)하는 것과 동일한 패턴을 따릅니다. Windows Nano 기반 컨테이너의 경우 위에 제공 된 파일 경로를 사용 하 여 [파일에서 직접 인증서를 로드](#load-certificate-from-file)합니다.
+
+다음 c # 코드는 Linux 앱에서 공용 인증서를 로드 하는 방법을 보여 줍니다.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783217"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301451"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
 
@@ -70,7 +70,6 @@ Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니�
 보안 정책에 사용하도록 설정된 권장 사항만 여기에 표시됩니다.
 
 
-
 ## <a name="what-triggers-a-security-alert"></a>보안 경고를 트리거하는 것은 무엇인가요?
 Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그램과 방화벽 같은 파트너 솔루션에서 자동으로 로그 데이터를 수집, 분석 및 결합합니다. 위협이 감지되었을 때 보안 경고가 생성됩니다. 감지되는 사항의 예:
 
@@ -78,10 +77,6 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * Windows 오류 보고를 사용 하여 감지된 고급 맬웨어
 * 가상 머신에 대한 무작위 공격
 * 맬웨어 방지 프로그램 또는 웹 애플리케이션 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
-
-
-## <a name="why-did-secure-score-values-change"></a>보안 점수 값이 변경 되는 이유는 무엇 인가요? <a name="secure-score-faq"></a>
-2019 년 2 월 Security Center에는 심각도를 보다 잘 맞추기 위해 몇 가지 권장 사항의 점수를 조정 했습니다. 이러한 조정의 결과로 전체 보안 점수 값이 변경 될 수 있습니다.  보안 점수에 대 한 자세한 내용은 [Azure Security Center 향상 된 보안 점수](secure-score-security-controls.md)를 참조 하세요.
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?

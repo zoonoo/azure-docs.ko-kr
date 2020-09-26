@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cb35cdf217d497b612dee12aedb869b0583e464
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 556177b0f3eb156f5b128995cb81555aa77bc8d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289908"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -288,7 +288,7 @@ Security Center는 Microsoft의 무료 id 보안 보호를 위해 [보안 기본
 
 이제 Security Center는 보안 기본값을 사용 하지 않고 Azure 구독을 식별할 때마다 보안 권장 사항을 제공 합니다. 지금 까지는 Azure Active Directory (AD) premium 라이선스의 일부인 조건부 액세스를 사용 하 여 multi-factor authentication을 사용 하도록 권장 Security Center. Azure AD free를 사용 하는 고객의 경우 이제 보안 기본값을 사용 하는 것이 좋습니다. 
 
-Microsoft의 목표는 더 많은 고객이 MFA를 사용 하 여 클라우드 환경을 보호 하 고 [보안 점수](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)를 가장 많이 사용 하는 위험 중 하나를 완화 하는 것입니다.
+Microsoft의 목표는 더 많은 고객이 MFA를 사용 하 여 클라우드 환경을 보호 하 고 [보안 점수](secure-score-security-controls.md)를 가장 많이 사용 하는 위험 중 하나를 완화 하는 것입니다.
 
 [보안 기본값](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)에 대해 자세히 알아보세요.
 
@@ -429,7 +429,7 @@ Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는
 
 [보안 권장 사항 참조 페이지](recommendations-reference.md)에서 각각에 대해 자세히 알아보세요.
 
-[Azure Security Center에서 위협 방지](https://docs.microsoft.com/azure/security-center/threat-protection)에 대해 자세히 알아보세요.
+[Azure Security Center에서 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.
 
 
 
@@ -442,13 +442,13 @@ Azure Security Center의 컨테이너 보안 기능과 관련 된 명확 성과 
 
 다음 문서에서 Security Center의 컨테이너 보안에 대해 자세히 알아보세요.
 
-- [Security Center 컨테이너 보안 기능 개요](https://docs.microsoft.com/azure/security-center/container-security)
-- [Azure Container Registry와의 통합에 대 한 세부 정보](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
-- [Azure Kubernetes Service와의 통합에 대 한 세부 정보](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
-- [방법-레지스트리 검색 및 Docker 호스트 강화](https://docs.microsoft.com/azure/security-center/monitor-container-security)
-- [Azure Kubernetes Service 클러스터에 대 한 위협 방지 기능의 보안 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
-- [Azure Kubernetes 서비스 호스트에 대 한 위협 방지 기능의 보안 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
-- [컨테이너에 대 한 보안 권장 사항](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+- [Security Center 컨테이너 보안 기능 개요](container-security.md)
+- [Azure Container Registry와의 통합에 대 한 세부 정보](defender-for-container-registries-introduction.md)
+- [Azure Kubernetes Service와의 통합에 대 한 세부 정보](defender-for-kubernetes-introduction.md)
+- [방법-레지스트리 검색 및 Docker 호스트 강화](container-security.md)
+- [Azure Kubernetes Service 클러스터에 대 한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-akscluster)
+- [Azure Kubernetes 서비스 호스트에 대 한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-containerhost)
+- [컨테이너에 대 한 보안 권장 사항](recommendations-reference.md#recs-containers)
 
 
 
@@ -537,10 +537,9 @@ Azure Arc 컴퓨터에 [Log Analytics 에이전트](https://docs.microsoft.com/a
 
 이러한 두 가지 새로운 권장 사항에 대 한 자세한 내용은 [계산 및 앱 권장 사항](recommendations-reference.md#recs-computeapp) 테이블을 확인 하세요.
 
-Azure Security Center에서 에이전트를 사용 하는 방법에 대 한 자세한 내용은 [Log Analytics 에이전트?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent)를 사용 하십시오.
+Azure Security Center에서 에이전트를 사용 하는 방법에 대 한 자세한 내용은 [Log Analytics 에이전트?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)를 사용 하십시오.
 
-[Azure Arc 컴퓨터용 확장](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal)에 대해 자세히 알아보세요.
-
+[Azure Arc 컴퓨터용 확장](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal)에 대해 자세히 알아보세요.
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>대규모 연속 내보내기 및 워크플로 자동화 구성을 만드는 새 정책
@@ -597,7 +596,7 @@ Azure policy에서 정책을 찾을 수 있습니다.
 | [Virtual Machines에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
 |                                                                                                                                                                                                                                                                       |                                      |
 
-[Azure Security Center에서 위협 방지](https://docs.microsoft.com/azure/security-center/threat-protection)에 대해 자세히 알아보세요.
+[Azure Security Center에서 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.
 
 
 
@@ -721,7 +720,7 @@ Azure 정책에서 사용자 지정 이니셔티브를 만들고, 여기에 정�
 
 ### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>파일리스 공격 탐지로 마이그레이션하는 크래시 덤프 분석 기능 
 
-Microsoft는 CDA(Windows 크래시 덤프 분석) 탐지 기능을 [파일리스 공격 탐지](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless)에 통합하고 있습니다. 파일리스 공격 탐지 분석은 Windows 컴퓨터에 대해 다음과 같은 보안 경고의 향상된 버전을 제공합니다. 코드 주입 검색됨, 모조 Windows 모듈 탐지됨, Shellcode 검색됨 및 의심스러운 코드 세그먼트 탐지됨.
+Microsoft는 CDA(Windows 크래시 덤프 분석) 탐지 기능을 [파일리스 공격 탐지](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers)에 통합하고 있습니다. 파일리스 공격 탐지 분석은 Windows 컴퓨터에 대해 다음과 같은 보안 경고의 향상된 버전을 제공합니다. 코드 주입 검색됨, 모조 Windows 모듈 탐지됨, Shellcode 검색됨 및 의심스러운 코드 세그먼트 탐지됨.
 
 이러한 전환의 이점 중 일부는 다음과 같습니다.
 

@@ -9,14 +9,17 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67080494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290725"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조하세요.
 
@@ -71,7 +74,7 @@ ms.locfileid: "67080494"
 
 ## <a name="deploy-the-changes"></a>변경 내용 배포
 
-파일 **의ContosoTopologyDescription.js** 를 변경한 후에는 연결 된 팩터리 솔루션을 Azure 계정에 다시 배포 해야 합니다.
+파일 ** 의ContosoTopologyDescription.js** 를 변경한 후에는 연결 된 팩터리 솔루션을 Azure 계정에 다시 배포 해야 합니다.
 
 **azure-iot-connected-factory** 리포지토리에는 솔루션을 다시 빌드하고 배포하는 데 사용할 수 있는 **build.ps1** PowerShell 스크립트가 포함되어 있습니다.
 

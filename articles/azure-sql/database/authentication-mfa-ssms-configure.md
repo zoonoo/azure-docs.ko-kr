@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f72b9e9dfc2aa35960f9f81219a4c8973e2fe5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442652"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277923"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -40,22 +40,22 @@ ms.locfileid: "89442652"
 
 1. 유니버설 인증을 사용 하 여 연결 하려면 SSMS (SQL Server Management Studio)의 **서버에 연결** 대화 상자에서 **MFA를 지 원하는 Active Directory-유니버설**을 선택 합니다. **Active Directory 유니버설 인증**이 표시되면 최신 SSMS이 아닌 것입니다.
 
-   ![1mfa-universal-connect](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![S M S의 서버에 연결 대화 상자에 있는 연결 속성 탭의 스크린샷. 데이터베이스에 연결 드롭다운에서 "MyDatabase"를 선택 합니다.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Azure Active Directory 자격 증명을 사용하여 **사용자 이름** 상자를 `user_name@domain.com` 형식으로 입력합니다.
 
-   ![1mfa-universal-connect-user](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
+   ![서버 유형, 서버 이름, 인증 및 사용자 이름에 대 한 서버에 연결 대화 상자 설정의 스크린샷](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
 3. 게스트 사용자로 연결 하는 경우 SSMS 4.x 이상에서 자동으로 인식 하기 때문에 게스트 사용자에 대 한 AD 도메인 이름 또는 테 넌 트 ID 필드를 더 이상 완료할 필요가 없습니다. 자세한 내용은 [SQL Database, SQL Managed Instance 및 Azure Synapse를 사용 하는 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요.
 
-   ![mfa-테 넌 트 없음-ssms](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
+   ![S M S의 서버에 연결 대화 상자에 있는 연결 속성 탭의 스크린샷. 데이터베이스에 연결 드롭다운에서 "MyDatabase"를 선택 합니다.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
 
    그러나 SSMS 17.x 이상을 사용 하 여 게스트 사용자로 연결 하는 경우에는 **옵션**을 클릭 하 고 **연결 속성** 대화 상자에서 **AD 도메인 이름 또는 테 넌 트 ID** 상자를 완료 해야 합니다.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
+   ![S M S의 서버에 연결 대화 상자에서 연결 속성 탭의 스크린샷. AD 도메인 이름 또는 테 넌 트 ID 속성 옵션은 입력 되어 있습니다.](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
 4. 옵션 **을 선택 하** 고 **옵션** 대화 상자에서 데이터베이스를 지정 합니다. 연결 된 사용자가 게스트 사용자 (예:) 인 경우 joe@outlook.com 상자를 선택 하 고 옵션의 일부로 현재 AD 도메인 이름 또는 테 넌 트 ID를 추가 해야 합니다. [SQL Database 및 Azure Synapse Analytics를 통한 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요. 그런 다음 **연결**을 클릭합니다.  
 5. **사용자 계정 로그인** 대화 상자가 나타나면 Azure Active Directory ID의 계정 및 암호를 제공합니다. 사용자가 Azure AD와 페더레이션된 도메인에 속할 경우 암호가 필요하지 않습니다.
 
-   ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
+   ![Azure SQL Database 및 데이터 웨어하우스의 계정에 로그인 대화 상자에 대 한 스크린샷 계정 및 암호가 채워집니다.](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
 
    > [!NOTE]
    > MFA가 필요하지 않은 계정을 사용하는 유니버설 인증의 경우 이 시점에서 연결합니다. MFA가 필요한 사용자는 다음 단계를 계속 진행합니다.
@@ -63,14 +63,14 @@ ms.locfileid: "89442652"
 
 6. 두 개의 MFA 설치 대화 상자가 나타날 수 있습니다. 이 일회성 작업은 MFA 관리자 설정에 따라 다르므로 선택적일 수 있습니다. MFA 사용 도메인의 경우 이 단계는 경우에 따라 미리 정의됩니다(예를 들어 도메인은 사용자에게 스마트 카드와 핀을 사용하도록 요구함).
 
-   ![3mfa-setup](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
+   ![추가 보안 확인을 설정 하 라는 메시지가 표시 된 Azure SQL Database 및 데이터 웨어하우스의 계정에 로그인 대화 상자 스크린샷](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
   
 7. 두 번째 가능한 일회성 대화 상자를 사용하여 인증 방법의 세부 정보를 선택할 수 있습니다. 가능한 옵션은 관리자가 구성합니다.
 
-   ![4mfa-verify-1](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
+   ![인증 방법을 선택 하 고 구성 하는 옵션을 포함 하는 추가 보안 확인 대화 상자의 스크린샷](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
 8. Azure Active Directory는 사용자에게 확인 정보를 보냅니다. 확인 코드를 받게되면 **확인 코드 입력** 상자에 해당 코드를 입력하고 **로그인**을 클릭합니다.
 
-   ![5mfa-verify-2](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
+   ![확인 코드를 입력 하 라는 메시지가 표시 된 Azure SQL Database 및 데이터 웨어하우스의 계정에 로그인 대화 상자에 대 한 스크린샷](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
 확인이 완료되면 SSMS는 일반적으로 가정된 유효한 자격 증명 및 방화벽 액세스를 연결합니다.
 

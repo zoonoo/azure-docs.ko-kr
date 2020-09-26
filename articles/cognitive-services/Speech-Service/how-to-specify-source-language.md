@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 820e0b78b986a8836e173513e1508641ac450333
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1b134fd3d09eeda340e7323638a36b68336242c2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282932"
+ms.locfileid: "91362030"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>음성 텍스트에 대 한 소스 언어 지정
 
@@ -27,20 +27,20 @@ ms.locfileid: "91282932"
 
 ## <a name="how-to-specify-source-language-in-c"></a>C에서 원본 언어를 지정 하는 방법 #
 
-이 예제에서 소스 언어는 생성자를 사용 하 여 매개 변수로 명시적으로 제공 됩니다 `SpeechRecognizer` .
+다음 예제에서는 소스 언어가 생성자를 사용 하 여 명시적으로 매개 변수로 제공 됩니다 `SpeechRecognizer` .
 
 ```csharp
 var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-이 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
 var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-이 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -57,20 +57,20 @@ var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioC
 
 ## <a name="how-to-specify-source-language-in-c"></a>C + +에서 소스 언어를 지정 하는 방법
 
-이 예제에서 소스 언어는 메서드를 사용 하 여 매개 변수로 명시적으로 제공 됩니다 `FromConfig` .
+다음 예제에서는 메서드를 사용 하 여 소스 언어를 명시적으로 매개 변수로 제공 합니다 `FromConfig` .
 
 ```C++
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "de-DE", audioConfig);
 ```
 
-이 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음를 `sourceLanguageConfig` 만들 때가 매개 변수로 전달 됩니다 `FromConfig` `recognizer` .
+다음 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음를 `sourceLanguageConfig` 만들 때가 매개 변수로 전달 됩니다 `FromConfig` `recognizer` .
 
 ```C++
 auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE");
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-이 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 는를 `sourceLanguageConfig` 만들 때 매개 변수로 전달 됩니다 `FromConfig` `recognizer` .
+다음 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 는를 `sourceLanguageConfig` 만들 때 매개 변수로 전달 됩니다 `FromConfig` `recognizer` .
 
 ```C++
 auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -86,20 +86,20 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 
 ## <a name="how-to-specify-source-language-in-java"></a>Java에서 원본 언어를 지정 하는 방법
 
-이 예제에서 소스 언어는 새를 만들 때 명시적으로 제공 됩니다 `SpeechRecognizer` .
+다음 예제에서는 새를 만들 때 소스 언어가 명시적으로 제공 됩니다 `SpeechRecognizer` .
 
 ```Java
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-이 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 새을 만들 때가 매개 변수로 전달 됩니다 `SpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 새을 만들 때가 매개 변수로 전달 됩니다 `SpeechRecognizer` .
 
 ```Java
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE");
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-이 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 새을 만들 때가 매개 변수로 전달 됩니다 `SpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 그런 다음 `sourceLanguageConfig` 새을 만들 때가 매개 변수로 전달 됩니다 `SpeechRecognizer` .
 
 ```Java
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -115,14 +115,14 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 
 ## <a name="how-to-specify-source-language-in-python"></a>Python에서 원본 언어를 지정 하는 방법
 
-이 예제에서 소스 언어는 생성자를 사용 하 여 매개 변수로 명시적으로 제공 됩니다 `SpeechRecognizer` .
+다음 예제에서는 소스 언어가 생성자를 사용 하 여 명시적으로 매개 변수로 제공 됩니다 `SpeechRecognizer` .
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, language="de-DE", audio_config=audio_config)
 ```
 
-이 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음 `SourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SourceLanguageConfig` . 그런 다음 `SourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE")
@@ -130,7 +130,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
 
-이 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 그런 다음 `SourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SourceLanguageConfig` . 그런 다음 `SourceLanguageConfig` 가 생성할 매개 변수로 전달 됩니다 `SpeechRecognizer` .
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE", "The Endpoint ID for your custom model.")
@@ -139,7 +139,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 ```
 
 >[!Note]
-> `speech_recognition_language` 및 `endpoint_id` 속성은 Python의 클래스에서 더 이상 사용 되지 않습니다 `SpeechConfig` . 이러한 속성을 사용 하는 것은 권장 되지 않으며을 생성할 때 사용 하지 않아야 `SpeechRecognizer` 합니다.
+> `speech_recognition_language` 및 `endpoint_id` 속성은 Python의 클래스에서 더 이상 사용 되지 않습니다 `SpeechConfig` . 이러한 속성은 사용 하지 않는 것이 좋습니다 .을 생성할 때 이러한 속성을 사용 하면 안 됩니다 `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -167,14 +167,14 @@ speechConfig.endpointId = "The Endpoint ID for your custom model.";
 
 ## <a name="how-to-specify-source-language-in-objective-c"></a>목표에서 원본 언어를 지정 하는 방법-C
 
-이 예제에서 소스 언어는 생성자를 사용 하 여 매개 변수로 명시적으로 제공 됩니다 `SPXSpeechRecognizer` .
+다음 예제에서는 소스 언어가 생성자를 사용 하 여 명시적으로 매개 변수로 제공 됩니다 `SPXSpeechRecognizer` .
 
 ```Objective-C
 SPXSpeechRecognizer* speechRecognizer = \
     [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"de-DE" audioConfiguration:audioConfig];
 ```
 
-이 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SPXSourceLanguageConfiguration` . 그런 다음 `SPXSourceLanguageConfiguration` 가 생성할 매개 변수로 전달 됩니다 `SPXSpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어를 제공 합니다 `SPXSourceLanguageConfiguration` . 그런 다음 `SPXSourceLanguageConfiguration` 가 생성할 매개 변수로 전달 됩니다 `SPXSpeechRecognizer` .
 
 ```Objective-C
 SPXSourceLanguageConfiguration* sourceLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"de-DE"];
@@ -183,7 +183,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
                                                                               audioConfiguration:audioConfig];
 ```
 
-이 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SPXSourceLanguageConfiguration` . 그런 다음 `SPXSourceLanguageConfiguration` 가 생성할 매개 변수로 전달 됩니다 `SPXSpeechRecognizer` .
+다음 예제에서는를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다 `SPXSourceLanguageConfiguration` . 그런 다음 `SPXSourceLanguageConfiguration` 가 생성할 매개 변수로 전달 됩니다 `SPXSpeechRecognizer` .
 
 ```Objective-C
 SPXSourceLanguageConfiguration* sourceLanguageConfig = \
@@ -195,7 +195,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 ```
 
 >[!Note]
-> `speechRecognitionLanguage` 및 `endpointId` 속성은 `SPXSpeechConfiguration` 목표-C의 클래스에서 더 이상 사용 되지 않습니다. 이러한 속성을 사용 하는 것은 권장 되지 않으며을 생성할 때 사용 하지 않아야 `SPXSpeechRecognizer` 합니다.
+> `speechRecognitionLanguage` 및 `endpointId` 속성은 `SPXSpeechConfiguration` 목표-C의 클래스에서 더 이상 사용 되지 않습니다. 이러한 속성은 사용 하지 않는 것이 좋습니다 .을 생성할 때 이러한 속성을 사용 하면 안 됩니다 `SPXSpeechRecognizer` .
 
 ::: zone-end
 

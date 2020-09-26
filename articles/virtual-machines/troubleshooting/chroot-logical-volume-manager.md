@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361469"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -88,7 +88,7 @@ lsblk
 
 /(루트) 파티션을 포함 하는 논리 볼륨을 탑재 하는 경로를 찾습니다. /Etc/default/grub와 같은 구성 파일이 있습니다.
 
-이 예제에서는 이전 **lsblk** 명령 **rootvg-rootlv** 의 출력을 탑재 하는 데 올바른 **루트** LV를 사용 하 고 다음 명령에서 사용할 수 있습니다.
+이 예제에서는 이전 **lsblk** 명령  **rootvg-rootlv** 의 출력을 탑재 하는 데 올바른 **루트** LV를 사용 하 고 다음 명령에서 사용할 수 있습니다.
 
 다음 명령의 출력은 **루트** LV에 대해 탑재할 경로를 표시 합니다.
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 명령을 사용 하 여 소프트웨어를 설치, 제거 및 업데이트할 수 있습니다. 오류를 해결 하기 위해 Vm 문제를 해결 합니다.
 
 
-Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![ chrooted 팅](./media/chroot-logical-volume-manager/chrooted.png)
+Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![ 스크린 샷에서는 l s blk 명령과 해당 출력 트리가 있는 콘솔 창을 보여 줍니다.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>수정 수행
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *살펴보았습니다*
 
 **Grep** 명령은 grub에서 인식 하는 커널을 나열 합니다 **.**
-![커널](./media/chroot-logical-volume-manager/kernels.png)
+![스크린샷에서는 커널 용 grep 검색의 결과를 표시 하는 콘솔 창을 보여 줍니다.](./media/chroot-logical-volume-manager/kernels.png)
 
 grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는 **editenv 목록** ![](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는
 
 **Chroot** 환경을 종료 하 고 필요한 **LV** 를 탑재 합니다.
 
-![고급](./media/chroot-logical-volume-manager/advanced.png)
+![스크린샷 l v s 명령이 있는 콘솔 창을 표시 한 다음 L V를 탑재 합니다.](./media/chroot-logical-volume-manager/advanced.png)
 
 이제를 실행 하 여 **chroot** 환경에 다시 액세스 합니다.
 

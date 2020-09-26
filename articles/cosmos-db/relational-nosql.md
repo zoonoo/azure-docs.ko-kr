@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361769"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>NoSQL 및 관계형 데이터베이스의 차이점 이해
 
@@ -49,7 +49,7 @@ Ironically의 이름을 지정 하면 관계형 데이터베이스는 심층적�
 
 데이터베이스에 복잡 한 관계 네트워크를 유지 관리 하는 경우이 데이터를 관리 하기 위한 [Azure Cosmos DB GREMLIN API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) 와 같은 그래프 데이터베이스를 고려해 야 할 수 있습니다.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="그래프":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="데이터베이스 다이어그램은 서로 연결 된 여러 직원과 부서를 보여 줍니다.":::
 
 Azure Cosmos DB은 모든 주요 NoSQL 모델 형식에 대 한 API 프로젝션을 제공 하는 다중 모델 데이터베이스 서비스입니다. 열 패밀리, 문서, 그래프 및 키-값입니다. [Gremlin (그래프)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) 및 SQL (Core) 문서 API 계층은 완전히 상호 운용 가능 합니다. 여기에는 프로그래밍 기능 수준에서 서로 다른 모델 간을 전환할 때의 이점이 있습니다. 그래프 저장소는 복잡 한 네트워크 순회와 동일한 저장소의 문서 레코드로 모델링 된 트랜잭션의 측면에서 쿼리할 수 있습니다.
 

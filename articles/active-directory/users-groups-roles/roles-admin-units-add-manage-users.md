@@ -1,5 +1,5 @@
 ---
-title: 관리 단위 (미리 보기)에서 사용자 추가, 제거 및 나열-Azure Active Directory | Microsoft Docs
+title: 관리 단위에서 사용자 추가, 제거 및 나열-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 관리 단위에서 사용자 및 해당 역할 권한 관리
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 37e1ac36df35fabb9709cfecadcfb0e7330df5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265133"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
 
@@ -35,11 +35,11 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 1. 개별 할당
 
-    1. 포털에서 Azure AD로 이동 하 여 사용자를 선택 하 고 관리 단위에 할당할 사용자를 선택할 수 있습니다. 그런 다음 왼쪽 패널에서 관리 단위를 선택할 수 있습니다. 관리 단위에 할당을 클릭 하 고 사용자를 할당할 관리 단위를 선택 하 여 하나 이상의 관리 단위에 사용자를 할당할 수 있습니다.
+    1. 포털에서 Azure AD로 이동 하 여 사용자를 선택 하 고 관리 단위에 할당할 사용자를 선택할 수 있습니다. 그런 다음 왼쪽 패널에서 관리 단위를 선택할 수 있습니다. * * 관리 단위에 할당을 클릭 하 고 사용자를 할당할 관리 단위를 선택 하 여 하나 이상의 관리 단위에 사용자를 할당할 수 있습니다.
 
        ![추가를 선택 하 고 관리 단위의 이름을 입력 합니다.](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. 포털에서 Azure AD로 이동 하 여 왼쪽 창에서 관리 단위를 선택 하 고 사용자를 할당할 관리 단위를 선택할 수 있습니다. 왼쪽 창에서 모든 사용자를 선택한 후 구성원 추가를 선택 합니다. 그런 다음 오른쪽 창에서 관리 단위에 할당할 사용자를 하나 이상 선택할 수 있습니다.
+    1. 포털에서 Azure AD로 이동 하 여 왼쪽 창에서 관리 단위를 선택 하 고 사용자를 할당할 관리 단위를 선택할 수 있습니다. **모든 사용자** 를 선택한 후 **구성원 추가**를 선택 합니다. 그런 다음 오른쪽 창에서 관리 단위에 할당할 사용자를 하나 이상 선택할 수 있습니다.
 
         ![관리 단위를 선택한 다음, 구성원 추가](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -82,13 +82,15 @@ Request body
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal에서 Azure AD > 사용자로 이동 하 여 사용자의 프로필을 열 수 있습니다. 사용자를 클릭 하 여 사용자의 프로필을 엽니다.
+Azure Portal에서 다음을 수행 하 여 사용자의 프로필을 열 수 있습니다.
 
-![Azure Active Directory에서 사용자 프로필을 엽니다.](./media/roles-admin-units-add-manage-users/user-profile-admin-units.png)
+1. **Azure AD**  >  **사용자**를 엽니다.
 
-왼쪽 패널에서 **관리 단위** 를 선택 하 여 사용자가 할당 된 관리 단위 목록을 표시 합니다.
+1. 사용자를 선택 하 여 사용자의 프로필을 엽니다.
 
-![사용자의 관리 단위 나열](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
+1. **관리 단위** 를 선택 하 여 사용자가 할당 된 관리 단위 목록을 표시 합니다.
+
+   ![사용자의 관리 단위 나열](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

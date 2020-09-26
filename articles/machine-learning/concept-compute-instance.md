@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
-ms.openlocfilehash: ec7fc5cec7d8ba63d9a628c3ede978818a2c3012
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 14229af9766f6604e71713f835935d43f6c7fcc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330148"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -69,7 +69,7 @@ Azure Machine Learning 컴퓨팅 인스턴스를 사용하면 작업 영역의 �
 |Anaconda Python||
 |Jupyter 및 확장||
 |Jupyterlab 및 확장||
-[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>PyPI에서|대부분의 azureml 추가 패키지가 포함됩니다.  전체 목록을 보려면 [컴퓨팅 인스턴스에서 터미널 창을 열고](how-to-run-jupyter-notebooks.md#terminal) 다음을 실행합니다. <br/> `conda list -n azureml_py36 azureml*` |
+[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>PyPI에서|대부분의 azureml 추가 패키지가 포함됩니다.  전체 목록을 보려면 [컴퓨팅 인스턴스에서 터미널 창을 열고](how-to-run-jupyter-notebooks.md#terminal) 다음을 실행합니다. <br/> `conda list -n azureml_py36 azureml*` |
 |기타 PyPI 패키지|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda 패키지|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |딥 러닝 패키지|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -91,6 +91,30 @@ Jupyter Notebook 또는 RStudio에 직접 패키지를 설치할 수 있습니�
 * Jupyter Lab:  시작 관리자 탭의 **기타** 제목 아래에 있는 **터미널** 타일을 선택합니다.
 * Jupyter:  파일 탭에서 오른쪽 위에 있는 **새로 만들기 > 터미널**을 선택합니다.
 * SSH를 컴퓨터에 실행합니다.  그런 다음, Python 패키지를 **Python 3.6 - AzureML** 환경에 설치합니다.  **R** 환경에 R 패키지를 설치합니다.
+
+### <a name="add-new-kernels"></a>새 커널 추가
+
+새 Jupyter 커널을 계산 인스턴스에 추가 하려면 다음을 수행 합니다.
+
+1. Jupyter, JupyterLab 또는 노트북 창에서 또는 SSH에서 계산 인스턴스로 새 터미널 만들기
+2. 터미널 창을 사용하여 새 환경을 만듭니다.  예를 들어 아래 코드는를 만듭니다 `newenv` .
+    ```shell
+    conda create --name newenv
+    ```
+3. 환경을 활성화합니다.  예를 들어 `newenv`를 만든 후에는 다음을 수행합니다.
+
+    ```shell
+    conda activate newenv
+    ```
+4. 새 환경에 pip 및 ipykernel 패키지를 설치 하 고 해당 conda env의 커널 만들기
+
+    ```shell
+    conda install pip
+    conda install ipykernel
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+[사용할 수 있는 Jupyter 커널](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)을 설치할 수 있습니다.
 
 ## <a name="accessing-files"></a>파일에 액세스
 
@@ -136,7 +160,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 
 * *MachineLearningServices/작업 영역/계산/중지/작업*
 * *MachineLearningServices/작업 영역/계산/다시 시작/작업*
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>계산 인스턴스 만들기
+### <a name="create-a-compute-instance"></a><a name="create"></a>컴퓨팅 인스턴스 만들기
 
 Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 실행할 준비가 되 면 **계산** 섹션 또는 **노트북** 섹션에서 [새 계산 인스턴스를 만듭니다](how-to-create-attach-compute-studio.md#compute-instance) . 
 
@@ -153,7 +177,7 @@ VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생�
 ### <a name="create-on-behalf-of-preview"></a>(미리 보기)를 대신 하 여 만들기
 
 관리자는 데이터 과학자를 대신 하 여 계산 인스턴스를 만들고 다음을 사용 하 여 인스턴스를 할당할 수 있습니다.
-* [Azure Resource Manager 템플릿입니다](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
+* [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
 * REST API
 
 계산 인스턴스를 만드는 데이터 과학자에는 다음 RBAC 권한이 필요 합니다. 
