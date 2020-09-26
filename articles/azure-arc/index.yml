@@ -10,12 +10,12 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 09/23/2020
-  ms.openlocfilehash: ea57cbb94a45339c6de58ba1abdaa864ddc43186
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: 2ebc8329466df4fba7963a2838c19e2b7a1c539f
+  ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91317245"
+  ms.locfileid: "91357831"
 highlightedContent:
   items:
   - title: Azure Arc 정보
@@ -32,7 +32,7 @@ highlightedContent:
     url: ./data/overview.md
   - title: Azure Arc 지원 SQL Server(미리 보기)
     itemType: overview
-    url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    url: /sql/sql-server/azure-arc/overview
 productDirectory:
   title: Azure Arc 지원 서비스
   summary: 어디서나 서비스를 실행하는 방법을 참조하세요.
@@ -48,7 +48,7 @@ productDirectory:
       text: PowerShell DSC를 사용하여 Azure에 머신 연결
     - url: ./servers/index.yml
       text: 자세히 보기...
-  - title: Azure Arc를 지원하는 Kubernetes
+  - title: Azure Arc 사용 Kubernetes(미리 보기)
     imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
@@ -71,9 +71,9 @@ productDirectory:
   - title: Azure Arc 지원 SQL Server(미리 보기)
     imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
     links:
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+    - url: /sql/sql-server/azure-arc/assess
       text: SQL 인스턴스 평가
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    - url: /sql/sql-server/azure-arc/overview
       text: 자세히 보기...
 conceptualContent:
   title: 시작

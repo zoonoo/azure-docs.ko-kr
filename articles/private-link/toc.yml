@@ -24,6 +24,10 @@
     - name: Private Link 서비스 만들기 - ARM 템플릿
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: 자습서
+  items:
+    - name: 스토리지 계정에 연결
+      href: tutorial-private-endpoint-storage-portal.md
 - name: 개념
   items:
     - name: Private Endpoint
@@ -38,8 +42,6 @@
           href: security-baseline.md
 - name: 방법
   items:
-    - name: 스토리지 계정에 비공개로 연결
-      href: create-private-endpoint-storage-portal.md
     - name: Cosmos DB 계정에 비공개로 연결
       href: create-private-endpoint-cosmosdb-portal.md
     - name: 웹앱에 비공개로 연결
@@ -72,7 +74,7 @@
       href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtualnetwork/privateendpoints
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

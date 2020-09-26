@@ -15,7 +15,7 @@
       items:
         - name: Service Bus 큐 만들기
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -90,6 +90,8 @@
       href: service-bus-throttling.md
     - name: 보안
       items:
+        - name: 보안 기준
+          href: security-baseline.md
         - name: 인증 및 권한 부여
           href: service-bus-authentication-and-authorization.md
           items:
