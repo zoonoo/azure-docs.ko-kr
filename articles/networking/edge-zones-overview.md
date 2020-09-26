@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329579"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Azure Edge 영역 미리 보기 정보
 
@@ -74,7 +74,7 @@ Azure Edge 영역은 다음 metro 영역에서 제공 됩니다.
 
 Edge 영역은 다음 연산자와 파트너 관계에서 제공 됩니다.
 
-- AT&T (애틀랜타, 달라스 및 로스앤젤레스) 
+- AT&T (애틀랜타, 달라스 및 로스앤젤레스)
 
 5G 네트워크에 연결 된 최적화 되 고 확장 가능한 응용 프로그램에서 작동 하는 Isv는 이제 매우 짧은 대기 시간 플랫폼, 모바일 및 연결 된 시나리오를 빌드하고 시험해 볼 때&T에서 Azure Edge 영역의 새로운 로스앤젤레스 미리 보기 위치를 사용할 수 있습니다. 초기 등록 프로그램에 등록 하 여 안전한 고대역폭 연결을 활용 하세요.
 
@@ -86,9 +86,9 @@ Edge 영역은 다음 연산자와 파트너 관계에서 제공 됩니다.
 
 Azure 개인에 지 영역은 온-프레미스에 배치 되는 Azure의 작은 공간 확장입니다. Azure 개인에 지 영역은 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) 플랫폼을 기반으로 합니다. 이를 통해 온-프레미스에 배포 된 컴퓨팅 및 저장소 서비스에 짧은 대기 시간 액세스를 사용할 수 있습니다. 또한 개인에 지 영역을 사용 하면 가상 컴퓨터 및 컨테이너 온-프레미스와 함께 Isv 및 가상화 된 네트워크 기능 (VNFs)에서 [Azure 관리 되는 응용](https://azure.microsoft.com/services/managed-applications/) 프로그램으로 응용 프로그램을 배포할 수 있습니다. 이러한 VNFs는 모바일 패킷 코어, 라우터, 방화벽 및 SD WAN 어플라이언스를 포함할 수 있습니다. Azure 개인에 지 영역에는 Azure Portal에서 VNFs 및 응용 프로그램의 수명 주기를 관리할 수 있는 클라우드 기본 오케스트레이션 솔루션이 제공 됩니다.
 
-Azure Private Edge 영역을 사용 하면 Azure에서 응용 프로그램을 빌드하고 배포 하는 데 사용 하는 것과 동일한 익숙한 도구를 사용 하 여 온-프레미스 응용 프로그램을 개발 하 고 배포할 수 있습니다 
+Azure Private Edge 영역을 사용 하면 Azure에서 응용 프로그램을 빌드하고 배포 하는 데 사용 하는 것과 동일한 익숙한 도구를 사용 하 여 온-프레미스 응용 프로그램을 개발 하 고 배포할 수 있습니다
 
-또한 다음과 같은 작업을 수행할 수 있습니다. 
+또한 다음과 같은 작업을 수행할 수 있습니다.
 
 - 사설 모바일 네트워크 (사설 LTE, 개인 5G)를 실행 합니다.
 - 방화벽과 같은 보안 기능을 구현 합니다.
@@ -113,6 +113,7 @@ Azure Private Edge 영역을 사용 하면 Azure에서 응용 프로그램을 �
 ##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>모바일 네트워크용 vEPC (가상화 된 패킷 코어)
 
 - [Affirmed 네트워크](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [드루 이드 소프트웨어](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -121,12 +122,15 @@ Azure Private Edge 영역을 사용 하면 Azure에서 응용 프로그램을 �
 
 ##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>모바일 라디오 파트너
 
+- [Celona](https://www.celona.io/azure-edge)
 - [주석 범위 Ruckus](https://support.ruckuswireless.com/)
 
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>SD-WAN 공급 업체
 
+- [128 Technology](https://www.128technology.com/)
 - [NetFoundry](https://netfoundry.io/)
 - [Nokia에서 네트워크 Nuage](https://www.nuagenetworks.net/)
+- [네트워크 반대로](https://www.versa-networks.com/)
 - [VMware SD-Velocloud 별 WAN](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a><a name="router-vendors"></a>라우터 공급 업체
@@ -139,7 +143,7 @@ Azure Private Edge 영역을 사용 하면 Azure에서 응용 프로그램을 �
 
 ##### <a name="managed-solutions-providers-mobile-operators-and-global-system-integrators-gsis"></a><a name="msp-mobile"></a>관리 솔루션 공급자: 모바일 운영자 및 GSIs (Global System 통합자)
 
-| GSIs 및 연산자 | 모바일 운영자 |
+| GSIs 및 연산자 | 통신사 |
 | --- | --- |
 | Amdocs                       | Etisalat             |
 | 아메리카 타워               | NTT 통신   |
@@ -158,10 +162,10 @@ Azure Private Edge 영역을 사용 하면 Azure에서 응용 프로그램을 �
 
 ![개인에 지 영역의 개인 모바일 네트워크](./media/edge-zones-overview/mobile-networks.png "개인에 지 영역의 개인 모바일 네트워크")
 
-이제 개인에 지 영역에 개인 모바일 네트워크를 배포할 수 있습니다. 개인 모바일 네트워크를 사용 하면 매우 낮은 대기 시간, 높은 용량 및 업무상 중요 한 응용 프로그램에 필요한 안정적인 보안 무선 네트워크를 사용할 수 있습니다. 
+이제 개인에 지 영역에 개인 모바일 네트워크를 배포할 수 있습니다. 개인 모바일 네트워크를 사용 하면 매우 낮은 대기 시간, 높은 용량 및 업무상 중요 한 응용 프로그램에 필요한 안정적인 보안 무선 네트워크를 사용할 수 있습니다.
 
-개인 모바일 네트워크는 다음과 같은 시나리오를 사용할 수 있습니다. 
-- 웨어하우스에서 AGVs (자동 안내 차량)의 명령 및 제어 
+개인 모바일 네트워크는 다음과 같은 시나리오를 사용할 수 있습니다.
+- 웨어하우스에서 AGVs (자동 안내 차량)의 명령 및 제어
 - 스마트 팩터리의 로봇 간의 실시간 통신.
 - 확대 현실 및 가상 현실 edge 응용 프로그램.
 
@@ -174,7 +178,7 @@ Microsoft는이 프로세스의 모든 측면에서 도움이 될 수 있는 파
 #### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-개인에 지 영역의 WAN
 
 ![SD-개인에 지 영역의 WAN](./media/edge-zones-overview/sd-wan.png "SD-개인에 지 영역의 WAN")
- 
+
 SD를 사용 하면 다음과 같은 이점을 제공 하는 엔터프라이즈급 wan (광역 네트워크)을 만들 수 있습니다.
 
 - 증가 된 대역폭
@@ -183,7 +187,7 @@ SD를 사용 하면 다음과 같은 이점을 제공 하는 엔터프라이즈�
 - 안정성
 - 정책 관리
 - 광범위 한 네트워크 표시 유형
-    
+
 SD-WAN은 낮은 소유 비용으로 중복 된 중앙 컨트롤러에서 오케스트레이션 원활한 지점 연결을 제공 합니다.
 SD-개인에 지 영역에서 WAN을 사용 하면 capex 중심 모델에서 SaaS (software as a service) 모델로 이동 하 여 IT 예산을 절감할 수 있습니다. 사용자가 선택한 SD WAN 파트너, orchestrator 또는 controller를 사용 하 여 새 서비스를 사용 하도록 설정 하 고 전체 네트워크에서 즉시 전파할 수 있습니다.
 

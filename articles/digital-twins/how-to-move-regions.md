@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328499"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
 
@@ -30,7 +30,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 연결 합니다.
 4. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 고 다시 만들어야 하는 모든 부분을 명확 하 게 파악 하는 것이 좋습니다.
 
@@ -42,7 +42,7 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
 * 내 인스턴스에 있는 **경로** 는 무엇입니까? 필터가 있나요?
 * 내 인스턴스가 **다른 Azure 서비스에 연결**하는 위치 몇 가지 일반적인 통합 요소에는 다음이 포함 됩니다.
     - Event Grid, Event Hub 또는 Service Bus
-    - Azure 기능
+    - Azure Functions
     - Logic Apps
     - Time Series Insights
     - Azure Maps
@@ -113,7 +113,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 ### <a name="create-a-new-instance"></a>새 인스턴스 만들기
 
-먼저 **대상 지역에 Azure Digital Twins의 새 인스턴스를 만듭니다**. 이렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계에 따라 다음 포인터를 염두에 두어야 합니다.
+먼저 **대상 지역에 Azure Digital Twins의 새 인스턴스를 만듭니다**. 이렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계에 따라 다음 포인터를 염두에 두어야 합니다.
 * 다른 리소스 그룹에 있는 **경우** 새 인스턴스와 동일한 이름을 유지할 수 있습니다. 원래 인스턴스를 포함 하는 것과 동일한 리소스 그룹을 사용 해야 하는 경우에는 새 인스턴스에 고유한 이름이 필요 합니다.
 * 위치를 묻는 메시지가 표시 되 면 대상 새 지역을 입력 합니다.
 * 앱 등록을 다시 만들 **필요는 없습니다** . 새 인스턴스는 이미 있는 것과 동일한 앱 등록을 다시 사용할 수 있습니다.

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358902"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
 
@@ -31,7 +31,7 @@ Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 A
 * 감사 로그: [감사 로그 작업 보고서](concept-audit-logs.md) 는 테 넌 트에서 수행 된 모든 작업의 기록에 대 한 액세스를 제공 합니다.
 * 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 사용 하 여 감사 로그에 보고 되는 태스크를 수행한 사용자를 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 로그 분석 보기를 사용하려면 다음이 필요합니다.
 
@@ -56,7 +56,7 @@ Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 A
 
 3. 이러한 보기 중 하나를 선택하여 개별 보고서로 이동합니다. 모든 보고서 매개 변수에 대해 경고를 설정할 수도 있습니다. 예를 들어 로그인 오류가 발생할 때마다 알려주는 경고를 설정해 보겠습니다. 이렇게 하려면 먼저 **로그인 이벤트** 보기를 선택하고, **시간 경과별 로그인 오류** 보고서를 선택한 다음, **분석**을 선택하여 보고서를 지지하는 실제 쿼리가 포함된 세부 정보 페이지를 엽니다. 
 
-    ![세부 정보](./media/howto-install-use-log-analytics-views/details.png)
+    ![보고서에 대 한 쿼리가 있는 분석 세부 정보 페이지를 보여 주는 스크린샷](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. **경고 설정**을 선택한 다음, **경고 조건** 섹션 아래에서 **사용자 지정 로그 검색이 &lt;논리 정의 안 됨&gt;일 때마다**를 선택합니다. 로그인 오류가 발생할 때마다 경고하려고 하므로 기본 경고 논리의 **임계값**을 **1**로 설정한 다음, **완료**를 선택합니다. 

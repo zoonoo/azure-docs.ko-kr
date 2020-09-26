@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a543fabadcc0d4e1766af1bc5c65aac0dadebe
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358928"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>데이터 과학 프로젝트의 진행률 추적
 
@@ -46,7 +46,7 @@ Azure DevOps에서 대시보드 및 위젯을 만들고 사용자 지정 하는 
 
 - **Burnup 차트** 는 완료 된 작업을 스 프린트의 총 작업량에 비해 보여 줍니다.
 
-![대시보드](./media/track-progress/dashboard.png)
+![Azure DevOps 대시보드 예제를 보여 주는 스크린샷](./media/track-progress/dashboard.png)
 
 ## <a name="next-steps"></a>다음 단계
 

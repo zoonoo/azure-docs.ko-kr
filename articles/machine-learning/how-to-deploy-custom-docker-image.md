@@ -5,31 +5,28 @@ description: Azure Machine Learning 모델을 배포할 때 사용자 지정 Doc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
+ms.author: sagopal
+author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ea8b100e8a690cf4f400dda02f2a58b6500d5f31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328448"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
-
 Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법을 알아봅니다.
 
-웹 서비스 또는 IoT Edge 장치에 학습 된 모델을 배포할 때 들어오는 요청을 처리할 웹 서버를 포함 하는 패키지가 생성 됩니다.
+지정 되지 않은 경우 기본 Docker 이미지를 사용 Azure Machine Learning 합니다. 에서 사용 되는 특정 Docker 이미지를 찾을 수 있습니다 `azureml.core.runconfig.DEFAULT_CPU_IMAGE` . Azure Machine Learning __환경을__ 사용 하 여 특정 기본 이미지를 선택 하거나 사용자가 제공 하는 사용자 지정 이미지를 사용할 수도 있습니다.
 
-Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만들 때 걱정할 필요가 없습니다. Azure Machine Learning __환경을__ 사용 하 여 특정 기본 이미지를 선택 하거나 사용자가 제공 하는 사용자 지정 이미지를 사용할 수도 있습니다.
+기본 이미지는 배포에 대해 이미지를 만들 때 시작 지점으로 사용 됩니다. 기본 운영 체제 및 구성 요소를 제공 합니다. 그러면 배포 프로세스에서 모델, conda 환경 및 기타 자산과 같은 추가 구성 요소를 이미지에 추가 합니다.
 
-기본 이미지는 배포에 대해 이미지를 만들 때 시작 지점으로 사용 됩니다. 기본 운영 체제 및 구성 요소를 제공 합니다. 그런 다음 배포 프로세스에서 모델, conda 환경 및 기타 자산과 같은 추가 구성 요소를 배포 하기 전에 이미지에 추가 합니다.
-
-일반적으로 Docker를 사용 하 여 종속성을 관리 하거나, 구성 요소 버전에 대 한 완전 한 제어를 유지 관리 하거나, 배포 하는 동안 시간을 절약 하려는 경우 사용자 지정 기본 이미지를 만듭니다. 예를 들어 특정 버전의 Python, Conda 또는 기타 구성 요소를 표준화 하려고 할 수 있습니다. 모델에 필요한 소프트웨어를 설치 하 여 설치 프로세스에 오랜 시간이 걸릴 수도 있습니다. 기본 이미지를 만들 때 소프트웨어를 설치 하면 각 배포에 대해 설치 하지 않아도 됩니다.
+일반적으로 Docker를 사용 하 여 종속성을 관리 하거나, 구성 요소 버전에 대 한 완전 한 제어를 유지 관리 하거나, 배포 하는 동안 시간을 절약 하려는 경우 사용자 지정 기본 이미지를 만듭니다. 모델에 필요한 소프트웨어를 설치 하 여 설치 프로세스에 오랜 시간이 걸릴 수도 있습니다. 기본 이미지를 만들 때 소프트웨어를 설치 하면 각 배포에 대해 설치 하지 않아도 됩니다.
 
 > [!IMPORTANT]
 > 모델을 배포할 때는 웹 서버 또는 IoT Edge 구성 요소와 같은 핵심 구성 요소를 재정의할 수 없습니다. 이러한 구성 요소는 Microsoft에서 테스트 하 고 지 원하는 알려진 작업 환경을 제공 합니다.
@@ -46,7 +43,7 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
 * 인터넷에서 액세스할 수 있는 [Azure Container Registry](/azure/container-registry) 또는 기타 Docker 레지스트리
 * 이 문서의 단계에서는 모델 배포의 일부로 __유추 구성__ 개체를 만들고 사용 하는 방법을 잘 알고 있다고 가정 합니다. 자세한 내용은 [배포할 위치 및 방법](how-to-deploy-and-where.md)을 참조 하세요.
@@ -62,8 +59,6 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
     > [!WARNING]
     > 작업 영역에 대 한 Azure Container Registry는 처음으로 작업 영역을 사용 하 여 __모델을 학습 하거나 배포할 때 생성__ 됩니다. 새 작업 영역을 만들었지만 모델을 학습 하거나 만들지 않은 경우 작업 영역에 대 한 Azure Container Registry 없습니다.
 
-    작업 영역에 대 한 Azure Container Registry의 이름을 검색 하는 방법에 대 한 자세한 내용은이 문서의 [컨테이너 레지스트리 이름 가져오기](#getname) 섹션을 참조 하세요.
-
     __독립 실행형 컨테이너 레지스트리에__저장 된 이미지를 사용 하는 경우 최소한 읽기 액세스 권한이 있는 서비스 주체를 구성 해야 합니다. 그런 다음 레지스트리의 이미지를 사용 하는 모든 사용자에 게 서비스 주체 ID (사용자 이름) 및 암호를 제공 합니다. 컨테이너 레지스트리를 공개적으로 액세스할 수 있도록 설정 하는 경우는 예외입니다.
 
     개인 Azure Container Registry을 만드는 방법에 대 한 자세한 내용은 [개인 컨테이너 레지스트리 만들기](/azure/container-registry/container-registry-get-started-azure-cli)를 참조 하세요.
@@ -72,12 +67,29 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 
 * Azure Container Registry 및 이미지 정보: 이미지 이름을 사용 해야 하는 모든 사용자에 게 제공 합니다. 예를 들어 라는 레지스트리에 저장 된 이라는 이미지는 `myimage` `myregistry` `myregistry.azurecr.io/myimage` 모델 배포에 이미지를 사용 하는 경우로 참조 됩니다.
 
-* 이미지 요구 사항: Azure Machine Learning는 다음과 같은 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
+### <a name="image-requirements"></a>이미지 요구 사항
 
-    * Ubuntu 16.04 이상.
-    * Conda 4.5. # 이상
-    * Python 3.5. #, 3.6. # 또는 3.7. #.
+Azure Machine Learning는 다음 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
+* Ubuntu 16.04 이상.
+* Conda 4.5. # 이상
+* Python 3.5 이상
 
+데이터 집합을 사용 하려면 해당 패키지를 설치 하세요. 또한 필요할 수 있는 모든 사용자 공간 패키지를 설치 해야 합니다.
+
+Azure ML은 사용자 지정 이미지를 만드는 대신 선택적으로 활용 하거나 참조할 수 있는 Microsoft Container Registry 게시 한 CPU 및 GPU 기본 이미지 집합을 유지 관리 합니다. 이러한 이미지에 대 한 Dockerfiles을 보려면 [Azure/AzureML-컨테이너](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조 하세요.
+
+GPU 이미지의 경우 Azure ML은 현재 cuda9 및 cuda10 기본 이미지를 모두 제공 합니다. 이러한 기본 이미지에 설치 되는 주요 종속성은 다음과 같습니다.
+
+| 종속성 | IntelMPI CPU | OpenMPI CPU | IntelMPI GPU | OpenMPI GPU |
+| --- | --- | --- | --- | --- |
+| miniconda | = = 4.5.11 | = = 4.5.11 | = = 4.5.11 | = = 4.5.11 |
+| mpi | intelmpi = = 2018.3.222 |openmpi = = 3.1.2 |intelmpi = = 2018.3.222| openmpi = = 3.1.2 |
+| cuda | - | - | 9.0/10.0 | 9.0/10.0/10.1 |
+| cudnn | - | - | 7.4/7.5 | 7.4/7.5 |
+| nccl | - | - | 2.4 | 2.4 |
+| git | 2.7.4 | 2.7.4 | 2.7.4 | 2.7.4 |
+
+CPU 이미지는 ubuntu 16.04에서 빌드됩니다. Cuda9에 대 한 GPU 이미지는 nvidia/hoda: 9.0-cudnn7-ubuntu 16.04에서 빌드됩니다. Cuda10에 대 한 GPU 이미지는 nvidia/hoda: 10.0-cudnn7-devel 16.04에서 빌드됩니다.
 <a id="getname"></a>
 
 ### <a name="get-container-registry-information"></a>컨테이너 레지스트리 정보 가져오기
@@ -117,7 +129,7 @@ Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배�
 
 ### <a name="build-a-custom-base-image"></a>사용자 지정 기본 이미지 빌드
 
-이 섹션의 단계에서는 Azure Container Registry에서 사용자 지정 Docker 이미지를 만드는 과정을 안내 합니다.
+이 섹션의 단계에서는 Azure Container Registry에서 사용자 지정 Docker 이미지를 만드는 과정을 안내 합니다. 샘플 dockerfiles은 [Azure/AzureML-컨테이너](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조 하세요.
 
 1. 이라는 새 텍스트 파일을 만들고 `Dockerfile` 내용으로 다음 텍스트를 사용 합니다.
 
@@ -131,11 +143,12 @@ Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배�
 
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
+    ENV DEBIAN_FRONTEND=noninteractive
 
     RUN apt-get update --fix-missing && \
         apt-get install -y wget bzip2 && \
-        apt-get install -y fuse \
-        apt-get clean && \
+        apt-get install -y fuse && \
+        apt-get clean -y && \
         rm -rf /var/lib/apt/lists/*
 
     RUN useradd --create-home dockeruser
@@ -191,7 +204,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. `myregistry.azureecr.io`)을 입력합니다.
+    * 레지스트리 __주소__입니다. 예들 들어 `myregistry.azureecr.io`입니다.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.
@@ -206,7 +219,7 @@ Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 d
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | CPU 추론에 대 한 ONNX 런타임을 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | GPU에 대 한 ONNX 런타임 및 UDA를 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | ONNX Runtime 및 GPU 용 TensorRT을 포함 합니다. |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | <sup></sup>Movidius<sup>TM</sup> myriadx VPUs을 기반으로 하는 Intel 비전 가속기 디자인에 대 한 onnx 런타임 및 OpenVINO를 포함 합니다. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm` | <sup></sup>Movidius<sup>TM</sup> myriadx VPUs을 기반으로 하는 Intel 비전 가속기 디자인에 대 한 onnx 런타임 및 OpenVINO를 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Intel <sup></sup> Movidius<sup>TM</sup> USB 스틱 용 onnx Runtime 및 OpenVINO 포함 |
 
 ONNX 런타임 기본 이미지에 대 한 자세한 내용은 GitHub 리포지토리의 [Onnx 런타임 dockerfile 섹션](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) 을 참조 하십시오.
@@ -338,4 +351,4 @@ ML CLI를 사용 하 여 모델을 배포 하는 방법에 대 한 자세한 내
 ## <a name="next-steps"></a>다음 단계
 
 * [배포 위치 및 방법](how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
-* [Azure Pipelines를 사용 하 여 기계 학습 모델을 학습 하 고 배포](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)하는 방법을 알아봅니다.
+* [Azure Pipelines를 사용 하 여 기계 학습 모델을 학습 하 고 배포](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true)하는 방법을 알아봅니다.

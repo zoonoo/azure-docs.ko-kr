@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c0d36ec5020f595d8a61899ddc8f8b9c282bad19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905664"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328414"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기존 모델 배포
 
@@ -25,16 +25,16 @@ ms.locfileid: "90905664"
 
 이 문서의 개념 및 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
-  + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다. 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING SDK 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=trueworkspace)를 참조 하세요.
+  + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다. 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING SDK 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace)를 참조 하세요.
   
   + CLI 예제에서는 및의 자리 표시자 `myworkspace` `myresourcegroup` 를 사용 합니다 .이 자리 표시자는 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꾸어야 합니다.
 
 * [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)입니다.  
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 * 학습된 모델. 모델은 개발 환경에서 하나 이상의 파일에 유지 되어야 합니다. <br><br>학습 된 모델 등록을 보여 주기 위해이 문서의 예제 코드에서는 [Paolo Ripamonti의 Twitter 감정 분석 프로젝트](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)의 모델을 사용 합니다.
 
@@ -52,7 +52,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-자세한 내용은 [Model. register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) 참조를 참조 하세요.
+자세한 내용은 [Model. register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) 참조를 참조 하세요.
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > 또한 `tags` `properties` 등록 된 모델에 추가 및 사전 개체를 설정할 수 있습니다. 이러한 값은 나중에 특정 모델을 식별 하는 데 사용할 수 있습니다. 예를 들어 프레임 워크, 학습 매개 변수 등이 사용 됩니다.
 
-자세한 내용은 [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference를 참조 하세요.
+자세한 내용은 [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-register) reference를 참조 하세요.
 
 
 일반적인 모델 등록에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
@@ -100,7 +100,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 + [환경을 사용 하는 방법](how-to-use-environments.md)
 + [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) 참조입니다.
@@ -220,7 +220,7 @@ def predict(text, include_neutral=True):
 
 ## <a name="define-deployment"></a>배포 정의
 
-[웹 서비스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py&preserve-view=true) 패키지에는 배포에 사용 되는 클래스가 포함 되어 있습니다. 모델을 배포 하는 위치를 결정 하는 데 사용 하는 클래스입니다. 예를 들어 Azure Kubernetes Service에서 웹 서비스로 배포 하려면 [Deploy_configuration AksWebService ()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) 를 사용 하 여 배포 구성을 만듭니다.
+[웹 서비스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py&preserve-view=true) 패키지에는 배포에 사용 되는 클래스가 포함 되어 있습니다. 모델을 배포 하는 위치를 결정 하는 데 사용 하는 클래스입니다. 예를 들어 Azure Kubernetes Service에서 웹 서비스로 배포 하려면 [Deploy_configuration AksWebService ()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) 를 사용 하 여 배포 구성을 만듭니다.
 
 다음 Python 코드는 로컬 배포에 대 한 배포 구성을 정의 합니다. 이 구성은 모델을 로컬 컴퓨터에 웹 서비스로 배포 합니다.
 
@@ -233,7 +233,7 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-자세한 내용은 [Localwebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-port-none-) 참조를 참조 하세요.
+자세한 내용은 [Localwebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-port-none-) 참조를 참조 하세요.
 
 CLI는 YAML 파일에서 배포 구성을 로드 합니다.
 
@@ -260,7 +260,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-자세한 내용은 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 참조를 참조 하세요.
+자세한 내용은 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 참조를 참조 하세요.
 
 CLI에서 모델을 배포 하려면 다음 명령을 사용 합니다. 이 명령은 `sentiment:1` 및 파일에 저장 된 유추 및 배포 구성을 사용 하 여 등록 된 모델 ()의 버전 1을 배포 합니다 `inferenceConfig.json` `deploymentConfig.json` .
 
@@ -268,7 +268,7 @@ CLI에서 모델을 배포 하려면 다음 명령을 사용 합니다. 이 명�
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
 
 배포에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 

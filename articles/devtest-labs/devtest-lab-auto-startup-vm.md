@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 VM에 대 한 자동 시작 설정 구성 Micros
 description: 랩에서 Vm에 대 한 자동 시작 설정을 구성 하는 방법에 대해 알아봅니다. 이 설정을 사용 하면 랩의 Vm이 일정에 따라 자동으로 시작 됩니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328483"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>자동 시작 랩 가상 컴퓨터  
 Azure DevTest Labs를 사용 하 여 랩의 가상 컴퓨터가 일정에 따라 자동으로 시작 및 종료 되도록 구성할 수 있습니다. 자동 종료 설정을 구성 하는 방법에 대 한 자세한 내용은 [Azure DevTest Labs 랩에 대 한 자동 종료 정책 관리](devtest-lab-auto-shutdown.md)를 참조 하세요. 
@@ -21,7 +21,7 @@ Azure DevTest Labs를 사용 하 여 랩의 가상 컴퓨터가 일정에 따라
 1. 랩의 홈 페이지로 이동 합니다. 
 2. 왼쪽 메뉴에서 **구성 및 정책** 을 선택 합니다. 
 
-    ![구성 및 정책 메뉴](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![DevTest Lab의 "구성 및 정책" 메뉴를 보여 주는 스크린샷](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. **구성 및 정책** 페이지에서 다음 단계를 수행 합니다.
     
     1. 이 랩에서 자동 시작 기능을 사용 하도록 설정 하려면 **가상 컴퓨터의 자동 시작 예약 허용** 에 대해 **켜기** 를 선택 합니다. 

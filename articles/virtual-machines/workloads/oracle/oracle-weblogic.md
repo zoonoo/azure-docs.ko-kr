@@ -1,6 +1,6 @@
 ---
-title: Azure 솔루션의 Oracle WebLogic 서버
-description: Microsoft Azure에서 Oracle WebLogic Server를 실행하는 방법을 알아봅니다.
+title: Azure Virtual Machines에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
+description: Microsoft Azure Virtual Machines에서 Oracle WebLogic 서버를 실행 하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rezar
@@ -11,16 +11,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2020
+ms.date: 09/23/2020
 ms.author: rezar
-ms.openlocfilehash: e408f9e245fb78b475a194bc0db6f1edfdf85b41
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274370"
 ---
-# <a name="solutions-for-running-oracle-weblogic-server-on-azure"></a>Azure에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 
 이 페이지에서는 Azure virtual machines에서 Oracle WebLogic 서버 (WLS)를 실행 하기 위한 솔루션에 대해 설명 합니다. 이러한 솔루션은 Oracle 및 Microsoft에서 공동으로 개발 됩니다.
 

@@ -1,127 +1,86 @@
 ---
-title: FPGA 정의-배포 하는 방법
+title: FPGAs ML 모델 배포
 titleSuffix: Azure Machine Learning
-description: 매우 낮은 대기 시간 유추를 위해 Azure Machine Learning를 사용 하 여 FPGA에서 실행 되는 모델을 사용 하 여 웹 서비스를 배포 하는 방법을 알아봅니다.
+description: 필드 프로그래밍 가능 게이트 배열에 대해 알아봅니다. 매우 낮은 대기 시간 유추를 위해 Azure Machine Learning를 사용 하 여 FPGA에 웹 서비스를 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 06/03/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 7637cc911ea2fbb950a18c2c8d91f5c3eaf02c23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, contperfq2, devx-track-python
+ms.openlocfilehash: 5d7956b5538b272454f3f55bcda84188c946e978
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328431"
 ---
-# <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
+# <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 ML 모델을 필드 프로그래밍 가능 게이트 배열 (FPGAs)에 배포 
 
+이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)에서 [하드웨어 가속 모델 Python 패키지](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) 를 사용 하 여 Azure FPGA에 ML 모델을 배포 하는 방법 및 문서에 대해 알아봅니다.
 
-
-이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 [Azure Machine Learning](overview-what-is-azure-ml.md) 를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
-
-## <a name="what-are-fpgas"></a>FPGAs
-
+## <a name="what-are-fpgas"></a>FPGAs 무엇 인가요?
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다. 
+
+FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧은 대기 시간을 달성할 수 있도록 합니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. 신경망을 구현 하려면 일괄 처리를 수행 하지 않아도 됩니다. 따라서 CPU 및 GPU 프로세서에 비해 대기 시간이 더 낮을 수 있습니다.
+
+여러 형식의 기계 학습 모델에 대해 FPGA를 다시 구성할 수 있습니다. 이러한 유연성 덕분에 사용되는 최적의 숫자 정밀도 및 메모리 모델에 따라 애플리케이션을 가속화할 수 있습니다. FPGA는 다시 구성할 수 있으므로 빠르게 변화하는 AI 알고리즘의 요구 사항에 맞게 최신 상태를 유지할 수 있습니다.
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서| 약어 |설명|
+|프로세서| 약어 |Description|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
 |그래픽 처리 장치|GPU|GPU는 AI 계산에 널리 사용되며, CPU보다 이미지 렌더링 속도가 빠른 병렬 처리 기능을 제공합니다.|
 |중앙 처리 장치|CPU|범용 프로세서이며, 성능이 그래픽 및 비디오 처리에 적합하지 않습니다.|
 
+## <a name="fpga-support-in-azure"></a>Azure의 FPGA 지원
 
-FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧은 대기 시간을 달성할 수 있도록 합니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. 신경망을 구현 하려면 일괄 처리를 수행 하지 않아도 됩니다. 따라서 CPU 및 GPU 프로세서에 비해 대기 시간이 더 낮을 수 있습니다.
-
-여러 형식의 기계 학습 모델에 대해 FPGA를 다시 구성할 수 있습니다. 이러한 유연성 덕분에 사용되는 최적의 숫자 정밀도 및 메모리 모델에 따라 애플리케이션을 가속화할 수 있습니다. FPGA는 다시 구성할 수 있으므로 빠르게 변화하는 AI 알고리즘의 요구 사항에 맞게 최신 상태를 유지할 수 있습니다.
-
-### <a name="fpga-support-in-azure"></a>Azure의 FPGA 지원
-
-Microsoft Azure는 FPGA 부문에서 세계 최대의 클라우드 투자 규모를 자랑합니다. Microsoft에서는 DNN 평가, Bing 검색 순위, SDN(소프트웨어 정의 네트워킹) 가속화에 FPGA를 사용하여 대기 시간을 줄이는 한편, CPU 리소스를 회수하여 다른 작업에 사용합니다.
+Microsoft Azure는 FPGA 부문에서 세계 최대의 클라우드 투자 규모를 자랑합니다. Microsoft에서는 DNN (심층 신경망) 평가, Bing 검색 순위 및 SDN (소프트웨어 정의 네트워킹) 가속화를 위해 FPGAs를 사용 하 여 대기 시간을 줄이고 다른 작업에 대해 Cpu를 해제 합니다.
 
 Azure의 FPGAs는 데이터 과학자와 개발자가 실시간 AI 계산을 가속화 하기 위해 사용 하는 Intel의 FPGA 장치를 기반으로 합니다. 이 FPGA 지원 아키텍처는 강력한 성능, 유연성 및 확장성을 제공하며 Azure에서 사용할 수 있습니다.
 
-Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전 학습 된 DNN (심층 신경망)를 병렬화 하 여 서비스를 확장할 수 있습니다. DNN은 전송 학습을 위한 심층 기능 기능화기로 미리 학습하거나 업데이트된 가중치를 사용하여 미세 조정할 수 있습니다.
+Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전 학습 된 DNN를 병렬화 하 여 서비스를 확장할 수 있습니다. DNN은 전송 학습을 위한 심층 기능 기능화기로 미리 학습하거나 업데이트된 가중치를 사용하여 미세 조정할 수 있습니다.
 
-Azure의 FPGAs는 다음을 지원 합니다.
-
-+ 이미지 분류 및 인식 시나리오
-+ TensorFlow 배포 (Tensorflow 1.x 필요)
-+ Intel FPGA 하드웨어
-
-이러한 DNN 모델을 현재 사용할 수 있습니다.
-
-  - ResNet 50
-  - ResNet 152
-  - DenseNet-121
-  - VGG-16
-  - SSD-VGG
-
-  
-FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
-  - 미국 동부
-  - 동남 아시아
-  - 서유럽
-  - 미국 서부 2
+|Azure의 시나리오 & 구성|지원 되는 DNN 모델|지역 지원|
+|--------------------------|--------------------|----------------|
+|+ 이미지 분류 및 인식 시나리오<br/>+ TensorFlow 배포 (Tensorflow 1.x 필요)<br/>+ Intel FPGA 하드웨어|-ResNet 50<br/>-ResNet 152<br/>-DenseNet-121<br/>-VGG-16<br/>-SSD-VGG|-미국 동부<br/>-동남 아시아<br/> - 서유럽<br/>-미국 서 부 2|
 
 대기 시간 및 처리량을 최적화 하기 위해 FPGA 모델에 데이터를 보내는 클라이언트는 위의 영역 중 하나 (모델을 배포한 항목)에 있어야 합니다.
 
-**Azure vm의 PBS 패밀리** 에는 Intel Arria 10 fpgas 포함 됩니다. Azure 할당량 할당을 확인 하는 경우 "표준 PBS 제품군 vCPUs"로 표시 됩니다. PB6 VM에는 6 개의 vCPUs와 하나의 FPGA가 있으며, FPGA에 모델을 배포 하는 과정에서 Azure ML에 의해 자동으로 프로 비전 됩니다. Azure ML 에서만 사용 되며 임의의 bitstreams을 실행할 수 없습니다. 예를 들어 bitstreams을 사용 하 여 FPGA을 플래시 하 여 암호화, 인코딩 등을 수행할 수 없습니다.
-
+**Azure vm의 PBS 패밀리** 에는 Intel Arria 10 fpgas 포함 됩니다. Azure 할당량 할당을 확인 하는 경우 "표준 PBS 제품군 vCPUs"로 표시 됩니다. PB6 VM에는 6 개의 vCPUs와 하나의 FPGA가 있습니다. PB6 VM은 모델을 FPGA에 배포 하는 동안 Azure Machine Learning에 의해 자동으로 프로 비전 됩니다. Azure ML 에서만 사용 되며 임의의 bitstreams을 실행할 수 없습니다. 예를 들어 bitstreams을 사용 하 여 FPGA을 플래시 하 여 암호화, 인코딩 등을 수행할 수 없습니다.
 
 ## <a name="deploy-models-on-fpgas"></a>FPGA에 모델 배포
 
-[Azure Machine Learning 하드웨어 가속 모델](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
+[Azure Machine Learning 하드웨어 가속 모델](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 
 
-FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
-
-1. TensorFlow 모델 정의
-1. 모델을 ONNX로 변환
-1. 클라우드 또는에 지 장치에 모델 배포
-1. 배포된 모델 사용
-
-이 샘플에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 다음, ImageNet 데이터 집합에 대해 학습 한 분류자를 통해 기능을 실행 합니다. 그런 다음 AKS 클러스터에 모델을 배포 합니다.
+이 예제에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 다음, ImageNet 데이터 집합에 대해 학습 한 분류자를 통해 기능을 실행 합니다. 그런 다음 AKS 클러스터에 모델을 배포 합니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 계정이 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만들어야 합니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- FPGA 할당량입니다. Azure CLI를 사용 하 여 할당량이 있는지 여부를 확인 합니다.
+- Azure 구독 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만듭니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
+
+- [작업 영역 만들기](how-to-manage-workspace.md)에 설명 된 대로 Azure Machine Learning 작업 영역 및 Python 용 Azure Machine Learning SDK가 설치 되어 있습니다.
+ 
+- 하드웨어 가속 모델 패키지:  `pip install --upgrade azureml-accel-models[cpu]`    
+    
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+
+- FPGA 할당량입니다. [할당량에 대 한 요청](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u)을 제출 하거나이 CLI 명령을 실행 하 여 할당량을 확인 합니다. 
 
     ```azurecli-interactive
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
+   반환 된 __Currentvalue__ 아래에 6 개 이상의 vcpus가 있는지 확인 합니다.  
 
-    명령은 다음과 유사한 텍스트를 반환 합니다.
+### <a name="define-the-tensorflow-model"></a>TensorFlow 모델 정의
 
-    ```text
-    CurrentValue    Limit    LocalName
-    --------------  -------  -------------------------
-    0               6        Standard PBS Family vCPUs
-    ```
-
-    __Currentvalue__아래에 6 개 이상의 vcpus가 있는지 확인 합니다.
-
-    할당량이 없는 경우에서 요청을 제출 [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI) 합니다.
-
-- Azure Machine Learning 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
- 
-- 하드웨어 가속 모델용 Python SDK:
-
-    ```bash
-    pip install --upgrade azureml-accel-models[cpu]
-    ```
-### <a name="1-define-the-tensorflow-model"></a>1. TensorFlow 모델을 정의 합니다.
-
-[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
+먼저 [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 를 사용 하 여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 정의와 그래프를 ZIP 파일로 압축 하 고 ZIP을 Azure Blob storage에 업로드 합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
 
 1. Azure Machine Learning 작업 영역 로드
 
@@ -147,7 +106,7 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
    print(image_tensors.shape)
    ```
 
-1. Load featurizer. 모델을 초기화하고 기능화기로 사용할 ResNet50의 양자화 버전에 대한 TensorFlow 검사점을 다운로드합니다.  다른 심층 신경망을 가져오면 아래 코드 조각에서 "QuantizedResnet50"를으로 바꿀 수 있습니다.
+1. Load featurizer. 모델을 초기화하고 기능화기로 사용할 ResNet50의 양자화 버전에 대한 TensorFlow 검사점을 다운로드합니다.  다른 심층 신경망을 가져오기 위해 코드 조각에서 "QuantizedResnet50"를 바꿉니다.
 
    - QuantizedResnet152
    - QuantizedVgg16
@@ -163,7 +122,7 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
    print(feature_tensor.shape)
    ```
 
-1. 분류자를 추가 합니다. 이 분류자는 ImageNet 데이터 집합을 기반으로 학습되었습니다.  사용자 지정 가중치에 대 한 전송 학습 및 학습 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks)집합에서 사용할 수 있습니다.
+1. 분류자를 추가 합니다. 이 분류자는 ImageNet 데이터 집합에 대해 학습 되었습니다.
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -184,7 +143,7 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
                                   outputs={'output_alias': classifier_output})
    ```
 
-1. 입력 및 출력 tensors을 저장 합니다. 전처리 및 분류자 단계 중에 만들어진 입력 및 출력 tensors 모델 변환 및 유추에 필요 합니다.
+1. 입력 및 출력 tensors **은 모델 변환 및 유추 요청에 사용할 수 있도록**저장 합니다. 
 
    ```python
    input_tensors = in_images.name
@@ -194,10 +153,7 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
    print(output_tensors)
    ```
 
-   > [!IMPORTANT]
-   > 모델 변환 및 유추 요청에 필요 하므로 입력 및 출력 tensors을 저장 합니다.
-
-   사용 가능한 모델 및 해당 기본 분류자 출력 tensors은 아래와 같습니다. 기본 분류자를 사용 하는 경우 유추에 사용 합니다.
+   기본 분류자를 사용 하는 경우 유추를 위한 분류자 출력 tensors와 함께 사용할 수 있는 모델은 다음과 같습니다.
 
    + Resnet50, QuantizedResnet50
      ```python
@@ -220,9 +176,9 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
      output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
      ```
 
-### <a name="2-convert-the-model"></a>2. 모델 변환
+### <a name="convert-the-model-to-the-open-neural-network-exchange-format-onnx"></a>모델을 ONNX (Open 신경망 Exchange) 형식으로 변환 합니다.
 
-FPGAs에 모델을 배포 하기 전에이를 ONNX 형식으로 변환 해야 합니다.
+FPGAs에를 배포 하기 전에 모델을 [Onnx](https://onnx.ai/) 형식으로 변환 합니다.
 
 1. SDK를 사용 하 여 Azure Blob storage에서 ZIP 파일을 사용 하 여 모델을 [등록](concept-model-management-and-deployment.md) 합니다. 모델에 대 한 태그 및 기타 메타 데이터를 추가 하면 학습 된 모델을 추적 하는 데 도움이 됩니다.
 
@@ -248,7 +204,7 @@ FPGAs에 모델을 배포 하기 전에이를 ONNX 형식으로 변환 해야 �
          registered_model.version, sep='\t')
    ```
 
-1. TensorFlow graph를[Onnx](https://onnx.ai/)(Open 신경망 Exchange format)로 변환 합니다.  입력 및 출력 tensors의 이름을 제공 해야 하며,이 이름은 웹 서비스를 사용할 때 클라이언트에서 사용 됩니다.
+1. TensorFlow graph를 ONNX 형식으로 변환 합니다.  클라이언트에서 웹 서비스를 사용할 때 사용할 수 있도록 입력 및 출력 tensors의 이름을 제공 해야 합니다.
 
    ```python
    from azureml.accel import AccelOnnxConverter
@@ -265,9 +221,9 @@ FPGAs에 모델을 배포 하기 전에이를 ONNX 형식으로 변환 해야 �
          converted_model.id, converted_model.created_time, '\n')
    ```
 
-### <a name="3-containerize-and-deploy-the-model"></a>3. 모델 컨테이너 화 및 배포
+### <a name="containerize-and-deploy-the-model"></a>모델 컨테이너 화 및 배포
 
-변환 된 모델 및 모든 종속성에서 Docker 이미지를 만듭니다.  그런 다음이 Docker 이미지를 배포 하 고 인스턴스화할 수 있습니다.  지원 되는 배포 대상에는 클라우드 또는 [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)와 같은에 지 장치에 있는 AKS 포함 됩니다.  등록 된 Docker 이미지에 대 한 태그 및 설명을 추가할 수도 있습니다.
+그런 다음 변환 된 모델 및 모든 종속성에서 Docker 이미지를 만듭니다.  그런 다음이 Docker 이미지를 배포 하 고 인스턴스화할 수 있습니다.  지원 되는 배포 대상은 클라우드의 AKS (Azure Kubernetes Service) 또는 [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)와 같은에 지 장치를 포함 합니다.  등록 된 Docker 이미지에 대 한 태그 및 설명을 추가할 수도 있습니다.
 
    ```python
    from azureml.core.image import Image
@@ -292,9 +248,9 @@ FPGAs에 모델을 배포 하기 전에이를 ONNX 형식으로 변환 해야 �
            i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
    ```
 
-#### <a name="deploy-to-aks-cluster"></a>AKS 클러스터에 배포
+#### <a name="deploy-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 배포
 
-1. 모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
+1. 모델을 대규모 프로덕션 웹 서비스로 배포 하려면 AKS를 사용 합니다. Azure Machine Learning SDK, CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
@@ -344,13 +300,15 @@ FPGAs에 모델을 배포 하기 전에이를 ONNX 형식으로 변환 해야 �
 모든 [Azure Data Box Edge 장치](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
 ) 에는 모델을 실행 하기 위한 FPGA이 포함 되어 있습니다.  한 번에 하나의 모델만 FPGA에서 실행할 수 있습니다.  다른 모델을 실행 하려면 새 컨테이너를 배포 하기만 하면 됩니다. 지침 및 샘플 코드는 [이 Azure 샘플](https://github.com/Azure-Samples/aml-hardware-accelerated-models)에서 찾을 수 있습니다.
 
-### <a name="4-consume-the-deployed-model"></a>4. 배포 된 모델 사용
+### <a name="consume-the-deployed-model"></a>배포된 모델 사용
 
-Docker 이미지는 gRPC와 "predict" API를 제공 하는 TensorFlow을 지원 합니다.  샘플 클라이언트를 사용 하 여 Docker 이미지를 호출 하 여 모델에서 예측을 가져옵니다.  샘플 클라이언트 코드를 사용할 수 있습니다.
+마지막으로, 샘플 클라이언트를 사용 하 여 Docker 이미지를 호출 하 여 모델에서 예측을 가져옵니다.  샘플 클라이언트 코드를 사용할 수 있습니다.
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
 - [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
-TensorFlow 서비스를 사용 하려는 경우 [샘플 클라이언트를 다운로드할](https://www.tensorflow.org/serving/setup)수 있습니다.
+Docker 이미지는 gRPC와 "predict" API를 제공 하는 TensorFlow을 지원 합니다.
+
+TensorFlow 서비스를 제공 하기 위해 샘플 클라이언트를 다운로드할 수도 있습니다.
 
 ```python
 # Using the grpc client in Azure ML Accelerated Models SDK package
@@ -389,9 +347,9 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>리소스 정리
+### <a name="clean-up-resources"></a>리소스 정리
 
-웹 서비스, 이미지 및 모델을 삭제 합니다 (종속성이 있으므로이 순서 대로 수행 해야 함).
+불필요 한 비용을 방지 하려면 다음 **순서로**리소스를 정리 합니다. 웹 서비스, 이미지, 모델
 
 ```python
 aks_service.delete()
@@ -403,12 +361,12 @@ converted_model.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 노트북, 비디오 및 블로그를 확인 하세요.
++ [웹 서비스](how-to-secure-web-service.md) 문서를 보호 하는 방법을 알아봅니다.
 
-+ 여러 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models)
-+ FPGA 웹 서비스를 보호 하려면 [보안 웹 서비스](how-to-secure-web-service.md) 문서를 참조 하세요.
 + [하이퍼 크기 조정 하드웨어: Azure + FPGA의 맨 위에 있는 ML: 빌드 2018 (비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
-+ [Microsoft FPGA 기반 구성 가능 클라우드 살펴보기(비디오)](https://channel9.msdn.com/Events/Build/2017/B8063)
-+ [실시간 AI용 Project Brainwave: 프로젝트 홈페이지](https://www.microsoft.com/research/project/project-brainwave/)
+
++ [Microsoft FPGA 기반 구성 가능 클라우드 (비디오)](https://channel9.msdn.com/Events/Build/2017/B8063)
+
++ [실시간 AI에 대 한 Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/)
+
 + [자동 광학 검사 시스템](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
-+ [육지 커버 매핑](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)

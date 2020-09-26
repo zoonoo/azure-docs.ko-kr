@@ -39,7 +39,7 @@
           href: media-services-dotnet-get-started.md
         - name: Java
           href: media-services-java-how-to-use.md
-        - name: REST (영문)
+        - name: REST
           href: media-services-rest-get-started.md
     - name: 라이브 스트리밍 수행
       items:
@@ -115,8 +115,6 @@
     - name: 콘텐츠 인코딩
       href: media-services-encode-asset.md
       items:
-        - name: 인코더 비교
-          href: media-services-compare-encoders.md
         - name: 인코딩 속도 및 동시성 관리
           href: media-services-manage-encoding-speed.md
         - name: MES(Media Encoder Standard)
@@ -205,20 +203,6 @@
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
                 - name: Android용 H264 단일 비트 전송률 저품질 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
-        - name: 미디어 인코더 Premium 워크플로
-          items:
-            - name: 미디어 인코더 Premium 워크플로 형식 및 코덱
-              href: media-services-premium-workflow-encoder-formats.md
-            - name: 미디어 인코더 Premium 워크플로를 사용하여 인코딩
-              items:
-                - name: 미디어 인코더 Premium 워크플로
-                  href: media-services-encode-with-premium-workflow.md
-                - name: 미디어 인코더 Premium 워크플로 자습서
-                  href: media-services-media-encoder-premium-workflow-tutorials.md
-                - name: 워크플로 디자이너와 고급 Encoding 워크플로 만들기
-                  href: media-services-workflow-designer.md
-                - name: 다중 입력 프리미엄 워크플로
-                  href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
         - name: fMP4 청크를 생성하는 작업 만들기
           href: media-services-generate-fmp4-chunks.md
         - name: 미디어 프로세서

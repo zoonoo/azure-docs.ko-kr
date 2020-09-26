@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843388"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358785"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 
@@ -76,7 +76,7 @@ ms.locfileid: "87843388"
 
 1. "Azure Monitor-메트릭 경고 처리기" 템플릿을 사용 합니다. 이 템플릿에는 적절 한 스키마가 정의 된 **HTTP 요청** 트리거가 있습니다.
 
-    ![논리-앱-템플릿](media/alerts-migration/logic-app-template.png "메트릭 경고 템플릿")
+    ![빈 논리 앱 및 Azure Monitor-메트릭 경고 처리기의 두 단추를 보여 주는 스크린샷](media/alerts-migration/logic-app-template.png "메트릭 경고 템플릿")
 
 1. 처리 논리를 호스트 하는 작업을 추가 합니다.
 
