@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: ad7c7fb5111ce700a5725336b7c9db788e178c4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313776"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)의 네트워크 가상 어플라이언스 정보
 
@@ -72,7 +72,7 @@ Azure VPN Gateway 구성과 달리 **사이트** 리소스, **사이트 간 연�
 
 가상 WAN 허브를 Azure 가상 네트워크에 연결 하려면 허브-VNet 연결을 만들어야 합니다.
 
-## <a name="supported-regions"></a><a name="regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a><a name="regions"></a>지원되는 지역
 
 가상 허브의 NVA는 다음 지역에서 미리 보기로 제공 됩니다.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360874"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -22,7 +22,7 @@ ms.locfileid: "89055044"
 1. VM이 주 지역으로 복제를 시작하도록 보조 지역의 VM을 다시 보호합니다.
 1. 다시 보호가 완료 되 고 Vm이 복제 되 면 보조 지역에서 주 지역으로 장애 조치 (failover) 할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 주 지역에서 보조 지역으로 VM 장애 조치(failover)를 커밋해야 합니다.
 - 주 대상 사이트가 사용 가능하고 해당 지역에서 리소스를 만들거나 액세스할 수 있어야 합니다.
@@ -31,9 +31,9 @@ ms.locfileid: "89055044"
 
 1. **자격 증명 모음**  >  **복제 된 항목**에서 장애 조치 (failover) 된 VM을 마우스 오른쪽 단추로 클릭 하 고 **다시 보호**를 선택 합니다. 다시 보호 방향이 보조에서 주로 표시됩니다.
 
-   ![다시 보호](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![다시 보호를 선택 하는 상황에 맞는 메뉴가 있는 가상 컴퓨터가 스크린샷으로 표시 됩니다.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-1. 리소스 그룹, 네트워크, 스토리지 및 가용성 집합을 검토합니다. 그런 다음 **확인**을 클릭합니다. 새 것으로 표시 된 리소스가 있는 경우 다시 보호 프로세스의 일부로 생성 됩니다.
+1. 리소스 그룹, 네트워크, 스토리지 및 가용성 집합을 검토합니다. 그런 후 **OK**를 클릭합니다. 새 것으로 표시 된 리소스가 있는 경우 다시 보호 프로세스의 일부로 생성 됩니다.
 1. 다시 보호 작업은 최신 데이터로 대상 사이트를 시드합니다. 작업이 완료 되 면 델타 복제가 수행 됩니다. 그런 다음 주 사이트로 다시 장애 조치(failover)할 수 있습니다. 사용자 지정 옵션을 사용하여 다시 보호 중에 사용할 네트워크나 스토리지 계정을 선택할 수 있습니다.
 
    ![옵션 사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
@@ -44,7 +44,7 @@ ms.locfileid: "89055044"
 
 ![사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|속성 |참고  |
+|속성 |메모  |
 |---------|---------|
 |대상 리소스 그룹 | VM이 만들어진 대상 리소스 그룹을 수정합니다. 다시 보호의 일부로 대상 VM이 삭제됩니다. 장애 조치(failover) 후 VM을 만들 새 리소스 그룹을 선택할 수 있습니다. |
 |대상 가상 네트워크 | 다시 보호 작업 동안 대상 네트워크를 변경할 수 없습니다. 네트워크를 변경하려면 네트워크 매핑을 다시 실행합니다. |

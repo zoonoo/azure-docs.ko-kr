@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292968"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -303,16 +303,16 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 - `download.microsoft.com`
 - 복구 서비스 Url (지역 이름은 Recovery Services 자격 증명 모음이 있는 지역을 나타냄)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Azure 공용 지역의 경우)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Azure 미국 정부의 경우)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Azure 독일의 경우)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Azure 공용 지역의 경우)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us`(Azure 미국 정부의 경우)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de`(Azure 독일의 경우)
 - 아웃바운드 포트 53(DNS), 443, 3260
 
 > [!NOTE]
 >
-> - 다운로드한 스크립트 파일 이름의 URL이 **지역 이름**으로 채워집니다. 예: 다운로드 한 스크립트 이름은 \' \' \_ \' ContosoVM_wcus_12345678와 같은 VMname geoname \' _ \' GUID \' *ContosoVM_wcus_12345678* 로 시작 합니다.
-> - URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>"입니다.
+> [위의](#mount-the-volume-and-copy-files) 5 단계에서 다운로드 한 스크립트 파일은 파일 이름에 **지역 이름이** 있습니다. 해당 **지역 이름을** 사용 하 여 URL을 입력 합니다. 다운로드 한 스크립트 이름은 \' VMname \' \_ \' geoname \' _ \' GUID \' 로 시작 됩니다.<br><br>
+> 예를 들어 스크립트 파일 이름이 *ContosoVM_wcus_12345678*인 경우 **지역 이름은** *wcus* 이 고 URL은 다음과 같습니다.<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 스크립트가 실행되는 컴퓨터에 구성 요소가 없으면 스크립트에서는 구성 요소를 설치할 권한을 요청합니다. 동의하여 필요한 구성 요소를 설치 합니다.

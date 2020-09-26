@@ -4,17 +4,17 @@ description: Azure Security 벤치 마크 V2 데이터 보호
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e377c6669b1db96f549958173aded4f29bae6713
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059254"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314320"
 ---
-# <a name="security-control-data-protection"></a>보안 제어: 데이터 보호
+# <a name="security-control-v2-data-protection"></a>보안 제어 V2: 데이터 보호
 
 데이터 보호는 미사용 데이터 보호, 전송 중 및 권한이 부여 된 액세스 메커니즘을 통한 제어를 포함 합니다. 여기에는 Azure에서 액세스 제어, 암호화 및 로깅을 사용 하 여 중요 한 데이터 자산을 검색, 분류, 보호 및 모니터링 하는 작업이 포함 됩니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "90059254"
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| DP-1 | 14.5, 14.7 | SI-4, SC-28 |
+| DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
 중요 한 정보가 조직의 기술 시스템에서 안전 하 게 저장, 처리 및 전송 되도록 적절 한 컨트롤을 디자인 하기 위해 중요 한 데이터를 검색, 분류 및 레이블을 지정할 수 있습니다. 
 
@@ -36,7 +36,7 @@ Azure sql Information Protection를 사용 하 여 Azure SQL Database에 저장 
 
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -62,7 +62,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -90,9 +90,9 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [SOC(보안 운영 센터)](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -118,7 +118,7 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -148,7 +148,7 @@ Azure는 기본적으로 미사용 데이터에 대 한 암호화를 제공 합�
 
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

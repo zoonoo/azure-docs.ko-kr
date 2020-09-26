@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 20ca7f1d9c8322fe9a4d5dd784768bdaaf7cd0d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 12725c28c3e128317301bc51f9ce93f76021cc2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291370"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance 온라인으로 RDS SQL Server 마이그레이션
 
@@ -250,7 +250,7 @@ DMA를 사용 하 여 스키마를 마이그레이션합니다.
 
 4. 다음 **고급 온라인 마이그레이션 설정**을 지정한 후 **저장**을 선택합니다.
 
-    | Setting | 설명 |
+    | 설정 | Description |
     | ------------- | ------------- |
     | **동시에 로드할 수 있는 최대 테이블 수** | 마이그레이션하는 동안 DMS가 병렬로 실행하는 테이블 수를 지정합니다. 기본값은 5이며, POC 마이그레이션에 따라 특정 마이그레이션 요구 사항에 맞는 최적의 값으로 설정할 수 있습니다. |
     | **원본 테이블이 잘리는 경우** | 마이그레이션하는 동안 DMS가 대상 테이블을 자를지 여부를 지정합니다. 하나 이상의 테이블이 마이그레이션 프로세스의 일환으로 잘리는 경우 이 설정이 도움이 될 수 있습니다. |

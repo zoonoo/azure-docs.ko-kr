@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 31c426ffa85d4eb78a8420d56cce93132b4b7539
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f06374e67d1aad689662c77084fa593bb09c8ef
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343646"
+ms.locfileid: "91362472"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>배포 된 Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 끝점 만들기
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 > [!NOTE]

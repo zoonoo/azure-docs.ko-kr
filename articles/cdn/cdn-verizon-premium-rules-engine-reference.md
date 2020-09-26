@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362583"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Verizon Premium의 Azure CDN 규칙 엔진 참조
 
@@ -41,7 +41,7 @@ ASE는 다음으로 구성됩니다.
 - CDN이 위의 요청을 처리하는 방법을 정의하는 기능 집합
 이러한 요소는 다음 그림에서 확인할 수 있습니다.
 
-![정책 배포 워크플로](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![레이블이 있는 스크린 샷에서는 조건 식, 일치 항목 및 규칙 기능을 보여 줍니다.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### <a name="policy"></a>정책
 읽기 전용 규칙 집합으로 구성되는 정책은 다음을 수행하는 방법을 제공합니다.
