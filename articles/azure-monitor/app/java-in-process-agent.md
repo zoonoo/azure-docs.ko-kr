@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor A
 description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: e1442d1b1fb1bf8fbef82354b8aa1d2354640aa9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370037"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
 
@@ -20,15 +20,17 @@ Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입�
 
 응용 프로그램에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다. 3.0 에이전트는이를 추적 하 고 자동 수집 된 모든 원격 분석과 함께 상호 연결 합니다.
 
+3.0 에이전트는 Java 8 이상을 지원 합니다.
+
 ## <a name="quickstart"></a>빠른 시작
 
 **1. 에이전트를 다운로드 합니다.**
 
-[Applicationinsights-agent-3.0.0-PREVIEW. 5. j m a를](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar) 다운로드 합니다.
+[Applicationinsights-agent-3.0.0-PREVIEW. 7 jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar) 다운로드
 
 **2. JVM을 에이전트로 가리키기**
 
-`-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
+`-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
 
 일반적인 JVM 인수에는 및가 포함 됩니다 `-Xmx512m` `-XX:+UseG1GC` . 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
 
@@ -44,7 +46,7 @@ Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가�
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-또는 이라는 구성 파일을 만들고와 `ApplicationInsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0-PREVIEW.5.jar` 다음과 같은 내용을 포함 합니다.
+또는 이라는 구성 파일을 만들고와 `ApplicationInsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0-PREVIEW.7.jar` 다음과 같은 내용을 포함 합니다.
 
 ```json
 {
@@ -138,7 +140,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 | **예외**      |            |  예                |  예    |
 | **페이지 보기**      |            |                     |  예    |
 | **요청**        |            |                     |  예    |
-| **아니라**          |            |  예                |  예    |
+| **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
 
@@ -225,6 +227,8 @@ telemetryClient.trackEvent("WinGame");
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Application Insights Java SDK 2.x에서 업그레이드
 
 응용 프로그램에서 Java SDK 2.x Application Insights 이미 사용 중인 경우에는 제거할 필요가 없습니다. Java 3.0 에이전트는이를 검색 하 고, java SDK 2.x를 통해 전송 하는 모든 사용자 지정 원격 분석을 캡처하고 상관 관계를 지정 하 고, Java SDK 2.x에서 수행 되는 autocollection을 억제 하 여 중복 캡처를 방지 합니다.
+
+Application Insights 2.x 에이전트를 사용 하는 경우 2.x `-javaagent:` 에이전트를 가리키는 JVM 인수를 제거 해야 합니다.
 
 > [!NOTE]
 > 참고: 3.0 에이전트를 사용 하는 경우 Java SDK 2.x TelemetryInitializers 및 TelemetryProcessors는 실행 되지 않습니다.

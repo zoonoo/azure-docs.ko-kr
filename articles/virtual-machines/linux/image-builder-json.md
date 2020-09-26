@@ -4,16 +4,16 @@ description: Azure Image Builder에서 사용할 템플릿을 만드는 방법�
 author: danielsollondon
 ms.author: danis
 ms.date: 08/13/2020
-ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.topic: reference
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307282"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -96,7 +96,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 ```
 
 ## <a name="vnetconfig"></a>vnetConfig
-VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP 및 NSG를 만듭니다. 공용 IP는 서비스에서 빌드 VM과 통신하는 서비스에 사용됩니다. 그러나 공용 IP를 사용하지 않거나 Image Builder에 구성 서버(DSC, Chef, Puppet, Ansible), 파일 공유 등의 기존 VNET 리소스에 대한 액세스 권한을 부여하려는 경우 VNET을 지정할 수 있습니다. 자세한 내용은 [네트워킹 설명서](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder)를 검토하세요. 이 구성 요소는 선택 사항입니다.
+VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP 및 NSG를 만듭니다. 공용 IP는 서비스에서 빌드 VM과 통신하는 서비스에 사용됩니다. 그러나 공용 IP를 사용하지 않거나 Image Builder에 구성 서버(DSC, Chef, Puppet, Ansible), 파일 공유 등의 기존 VNET 리소스에 대한 액세스 권한을 부여하려는 경우 VNET을 지정할 수 있습니다. 자세한 내용은 [네트워킹 설명서](image-builder-networking.md)를 검토하세요. 이 구성 요소는 선택 사항입니다.
 
 ```json
     "vnetConfig": {
@@ -120,7 +120,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ## <a name="identity"></a>ID
 
-필수-이미지 작성기에서 이미지를 읽고 쓸 수 있는 권한이 있어야 합니다. Azure Storage의 스크립트에서 읽기는 개별 리소스에 대 한 권한이 있는 Azure 사용자 할당 Id를 만들어야 합니다. 이미지 작성기 권한이 작동 하는 방법 및 관련 단계에 대 한 자세한 내용은 [설명서](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)를 참조 하세요.
+필수-이미지 작성기에서 이미지를 읽고 쓸 수 있는 권한이 있어야 합니다. Azure Storage의 스크립트에서 읽기는 개별 리소스에 대 한 권한이 있는 Azure 사용자 할당 Id를 만들어야 합니다. 이미지 작성기 권한이 작동 하는 방법 및 관련 단계에 대 한 자세한 내용은 [설명서](image-builder-user-assigned-identity.md)를 참조 하세요.
 
 
 ```json
@@ -233,7 +233,7 @@ Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-buildTimeoutInMinutes 값을 지정하지 않거나 0으로 설정하면 기본값이 사용됩니다. 최대 960분(16시간)까지 값을 늘리거나 줄일 수 있습니다. Windows의 경우 60분 미만으로 설정하지 않는 것이 좋습니다. 시간 제한에 도달하면 [로그](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)를 검토하여 사용자 지정 단계가 사용자 입력 등을 대기 중인지 확인합니다. 
+buildTimeoutInMinutes 값을 지정하지 않거나 0으로 설정하면 기본값이 사용됩니다. 최대 960분(16시간)까지 값을 늘리거나 줄일 수 있습니다. Windows의 경우 60분 미만으로 설정하지 않는 것이 좋습니다. 시간 제한에 도달하면 [로그](image-builder-troubleshoot.md#customization-log)를 검토하여 사용자 지정 단계가 사용자 입력 등을 대기 중인지 확인합니다. 
 
 사용자 지정을 완료하는 데 시간이 더 필요한 것으로 판단되는 경우 약간의 오버헤드를 고려하여 필요한 값을 설정합니다. 그러나 오류가 발생하기 전에 시간이 초과될 때까지 기다려야 할 수도 있으므로 너무 높게 설정하지 마세요. 
 
@@ -481,7 +481,7 @@ Write-Output '>>> Sysprep complete ...'
 * Windows: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
 
-Image Builder는 이러한 명령을 읽어 AIB 로그 ‘customization.log’에 기록합니다. 로그를 수집하는 방법은 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs)을 참조하세요.
+Image Builder는 이러한 명령을 읽어 AIB 로그 ‘customization.log’에 기록합니다. 로그를 수집하는 방법은 [문제 해결](image-builder-troubleshoot.md#customization-log)을 참조하세요.
  
 ## <a name="properties-distribute"></a>속성: distribute
 
@@ -658,7 +658,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>이미지 빌드 취소
 잘못 된 것으로 생각 되는 이미지 빌드를 실행 하 고 사용자 입력을 기다리거나 성공적으로 완료 되지 않을 경우 빌드를 취소할 수 있습니다.
 
-언제 든 지 빌드를 취소할 수 있습니다. 배포 단계가 시작 된 경우에도 취소할 수 있지만 완료 하지 못할 수 있는 이미지를 모두 정리 해야 합니다. 취소 명령이 취소를 완료할 때까지 기다리지 않습니다 `lastrunstatus.runstate` . 다음 상태 [명령을](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status)사용 하 여 진행률 취소를 모니터링 하세요.
+언제 든 지 빌드를 취소할 수 있습니다. 배포 단계가 시작 된 경우에도 취소할 수 있지만 완료 하지 못할 수 있는 이미지를 모두 정리 해야 합니다. 취소 명령이 취소를 완료할 때까지 기다리지 않습니다 `lastrunstatus.runstate` . 다음 상태 [명령을](image-builder-troubleshoot.md#customization-log)사용 하 여 진행률 취소를 모니터링 하세요.
 
 
 명령의 예는 `cancel` 다음과 같습니다.

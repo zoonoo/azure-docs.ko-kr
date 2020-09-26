@@ -4,19 +4,19 @@ description: Log Analytics 경고 REST API를 사용 하 여 Log Analytics의 �
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: eec7aeab32aa071ce9d4476b15740c89210f0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dce340db90c1528c46c1be0bc172751a04feaf31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294078"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리 
 
-Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
-
 > [!IMPORTANT]
-> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)했 듯이 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 azure ScheduledQueryRules [REST API](/rest/api/monitor/scheduledqueryrules/), [azure Resource Mananger 템플릿](./alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](./alerts-log.md#managing-log-alerts-using-powershell) **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능, 규칙에서 lookback 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등의 많은 [새로운 이점을](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 누릴 수 있습니다.
+> [발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)된 대로 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules/)를 사용 하 여 경고 규칙을 관리 합니다. 고객은 Azure Monitor scheduledQueryRules [혜택](./alerts-log-api-switch.md#benefits)을 활용 하기 위해 이전 작업 영역에서 [현재 API로 전환](./alerts-log-api-switch.md) 하는 것이 좋습니다. 이 문서에서는 레거시 API를 사용 하 여 경고 규칙을 관리 하는 방법을 설명 합니다.
+
+Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 
 Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
@@ -27,7 +27,7 @@ Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API�
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
 일정은 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 간격 |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
 | QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
@@ -95,7 +95,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 
 모든 작업은 다음 표의 속성을 가집니다.  서로 다른 유형의 경고는 아래에 설명하는 서로 다른 추가 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
 | `Name` |경고에 대한 표시 이름입니다. |
@@ -149,7 +149,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 
 임계값은 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Operator` |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
 | `Value` |임계값에 대한 값입니다. |

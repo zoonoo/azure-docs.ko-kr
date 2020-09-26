@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ef879806555634598d5de999bcd9fc01c050d60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314558"
 ---
 # <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
@@ -40,7 +40,7 @@ ms.locfileid: "90904848"
 
 ![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 다음은 그 예입니다. 
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예를 들면 다음과 같습니다.
 
 **Jeff(워크로드 소유자)**
 
@@ -117,21 +117,21 @@ Security Center의 RBAC을 사용하여 액세스 제어를 계획하는 경우,
 보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Security Center에서 Azure 구독에 대한 정책을 정의할 수 있습니다. 이를 워크로드의 유형 또는 데이터의 민감도에 맞게 조정할 수 있습니다.
 
 Security Center 정책에는 다음 구성 요소가 포함되어 있습니다.
-- [데이터 컬렉션](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): 에이전트 프로비전 및 데이터 컬렉션 설정입니다.
-- [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies): Security Center에서 모니터링 및 권장 하는 컨트롤을 결정 하는 [Azure Policy](../governance/policy/overview.md) 또는 Azure Policy를 사용 하 여 새 정의를 만들고, 추가 정책을 정의 하 고, 관리 그룹 간에 정책을 할당 합니다.
-- [전자 메일 알림](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): 보안 연락처 및 알림 설정입니다.
-- [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing): Azure Defender를 사용 하거나 사용 하지 않고 범위 내의 리소스에 사용할 수 있는 Security Center 기능을 결정 합니다 (구독, 리소스 그룹 및 작업 영역에 대해 지정할 수 있음).
+- [데이터 컬렉션](security-center-enable-data-collection.md): 에이전트 프로비전 및 데이터 컬렉션 설정입니다.
+- [보안 정책](tutorial-security-policy.md): Security Center에서 모니터링 및 권장 하는 컨트롤을 결정 하는 [Azure Policy](../governance/policy/overview.md) 또는 Azure Policy를 사용 하 여 새 정의를 만들고, 추가 정책을 정의 하 고, 관리 그룹 간에 정책을 할당 합니다.
+- [전자 메일 알림](security-center-provide-security-contact-details.md): 보안 연락처 및 알림 설정입니다.
+- [가격 책정 계층](security-center-pricing.md): Azure Defender를 사용 하거나 사용 하지 않고 범위 내의 리소스에 사용할 수 있는 Security Center 기능을 결정 합니다 (구독, 리소스 그룹 및 작업 영역에 대해 지정할 수 있음).
 
 > [!NOTE]
-> 보안 계약을 지정하면 보안 인시던트가 발생하는 경우 Azure가 조직에서 적합한 사람에게 연결할 수 있게 됩니다. 이 권장 사항을 사용하는 방법에 대한 자세한 내용은 [Azure Security Center에 보안 연락처 세부 정보 제공](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) 을 참고하세요.
+> 보안 계약을 지정하면 보안 인시던트가 발생하는 경우 Azure가 조직에서 적합한 사람에게 연결할 수 있게 됩니다. 이 권장 사항을 사용하는 방법에 대한 자세한 내용은 [Azure Security Center에 보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md) 을 참고하세요.
 
 ### <a name="security-policies-definitions-and-recommendations"></a>보안 정책 정의 및 권장 사항
 Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으로 만듭니다. Security Center에서 정책을 편집하거나 Azure 정책을 사용하여 새 정의 만들고, 추가 정책을 정의하고, (전체 조직, 조직 내 비즈니스 단위를 나타낼 수 있는) 관리 그룹에 정책을 할당하고, 이러한 범위에서 이러한 정책에 대한 규정 준수를 모니터링할 수 있습니다.
 
-보안 정책을 구성하기 전에 각각의 [보안 권장 사항](https://docs.microsoft.com/azure/security-center/security-center-recommendations)을 검토하여 이들 정책이 다양한 구독 및 리소스 그룹에 적합한지 판단합니다. 보안 권장 사항을 확인하기 위해 취해야 하는 조치 및 조직에서 새 권장 사항을 모니터링하고 필요한 단계를 수행하는 담당자를 알아야 합니다.
+보안 정책을 구성하기 전에 각각의 [보안 권장 사항](security-center-recommendations.md)을 검토하여 이들 정책이 다양한 구독 및 리소스 그룹에 적합한지 판단합니다. 보안 권장 사항을 확인하기 위해 취해야 하는 조치 및 조직에서 새 권장 사항을 모니터링하고 필요한 단계를 수행하는 담당자를 알아야 합니다.
 
 ## <a name="data-collection-and-storage"></a>데이터 수집 및 스토리지
-Azure Security Center Log Analytics 에이전트를 사용 합니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트로, 가상 머신에서 보안 데이터를 수집 하는 데 사용 됩니다. 이 에이전트에서 [수집된 데이터](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)는 Log Analytics 작업 영역에 저장됩니다.
+Azure Security Center Log Analytics 에이전트를 사용 합니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트로, 가상 머신에서 보안 데이터를 수집 하는 데 사용 됩니다. 이 에이전트에서 [수집된 데이터](security-center-enable-data-collection.md)는 Log Analytics 작업 영역에 저장됩니다.
 
 ### <a name="agent"></a>에이전트
 
@@ -189,9 +189,9 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 ### <a name="hardening-access-and-applications"></a>액세스 및 애플리케이션 강화
 
-또한 보안 작업의 일환으로 VM에 대한 액세스 권한을 제한하는 예방 조치를 채택하고 VM에서 실행되는 애플리케이션을 제어해야 합니다. Azure VM에 인바운드 트래픽을 잠금으로써 공격에 대한 노출을 줄이고 동시에 필요할 때 VM에 쉽게 연결할 수 있는 액세스 권한을 제공합니다. Vm에 대 한 액세스를 강화 하려면 [JUST-IN-TIME vm](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 액세스 기능을 사용 합니다.
+또한 보안 작업의 일환으로 VM에 대한 액세스 권한을 제한하는 예방 조치를 채택하고 VM에서 실행되는 애플리케이션을 제어해야 합니다. Azure VM에 인바운드 트래픽을 잠금으로써 공격에 대한 노출을 줄이고 동시에 필요할 때 VM에 쉽게 연결할 수 있는 액세스 권한을 제공합니다. Vm에 대 한 액세스를 강화 하려면 [JUST-IN-TIME vm 액세스](security-center-just-in-time.md) 액세스 기능을 사용 합니다.
 
-[적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) 을 사용 하 여 Azure에 있는 vm에서 실행할 수 있는 응용 프로그램을 제한할 수 있습니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Machine learning을 사용 하 여 VM에서 실행 되는 프로세스를 분석 하 여 허용 목록 규칙을 만드는 데 도움을 Security Center.
+[적응 응용 프로그램 컨트롤](security-center-adaptive-application.md) 을 사용 하 여 Azure에 있는 vm에서 실행할 수 있는 응용 프로그램을 제한할 수 있습니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Machine learning을 사용 하 여 VM에서 실행 되는 프로세스를 분석 하 여 허용 목록 규칙을 만드는 데 도움을 Security Center.
 
 
 ## <a name="incident-response"></a>사고 대응

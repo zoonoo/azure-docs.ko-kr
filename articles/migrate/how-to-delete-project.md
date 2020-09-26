@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 프로젝트 삭제
-description: Azure Migrate 프로젝트를 만들고 평가/마이그레이션 도구를 추가 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Migrate 프로젝트를 삭제 하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 4fd6285c3d22c8e0bdddbbe47366e6ae9428e7d8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c58081e7cf88ac4820aa7d4f367b7344f3340a77
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307877"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Azure Migrate 프로젝트 삭제
 
@@ -51,7 +51,7 @@ ms.locfileid: "86109878"
 
 ### <a name="vmwarephysical-server"></a>VMware/물리적 서버
 
-**리소스** | **Type**
+**리소스** | **유형**
 --- | ---
 "Appliancename" kv | 주요 자격 증명 모음
 "Appliancename" 사이트 | Microsoft. OffAzure/VMwareSites
@@ -67,7 +67,7 @@ migrateapplisbns16041 | Service Bus 네임스페이스
 
 ### <a name="hyper-v-vm"></a>Hyper-V VM 
 
-**리소스** | **Type**
+**리소스** | **유형**
 --- | ---
 이름 | Microsoft. 마이그레이션/migrateprojects
 "ProjectName" 프로젝트 | Microsoft. 마이그레이션/assessmentProjects

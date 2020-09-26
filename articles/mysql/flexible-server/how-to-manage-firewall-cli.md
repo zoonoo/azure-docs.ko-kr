@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4279da10de92bc8bf9cd564eaae02db2fef76a64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307809"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버 방화벽 규칙 만들기 및 관리
 
@@ -33,17 +33,17 @@ Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가�
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, **Enter**를 선택하여 실행합니다.
 
-CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정의 **구독 id** 를 참조 하는 **id** 속성을 기록해 둡니다.
+[az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정의 **구독 id** 를 참조 하는 **id** 속성을 기록해 둡니다.
 
 ```azurecli-interactive
 az login
 ```
 
-[az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수 값으로 사용 하려면 **az Login** output에서 **ID** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)를 사용합니다.
+[az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수 값으로 사용 하려면 **az Login** output에서 **ID** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list)를 사용합니다.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 
 명령을 사용 하 여 `az mysql flexible-server --public access` *공용 액세스 (허용 된 IP 주소)* 로 유연한 서버를 만들고 유연한 서버를 만들 때 방화벽 규칙을 구성할 수 있습니다. **--Public 액세스** 스위치를 사용 하 여 서버에 연결할 수 있는 허용 된 IP 주소를 제공할 수 있습니다. 허용 되는 IP 주소 목록에 포함할 단일 또는 IP 주소 범위를 제공할 수 있습니다. IP 주소 범위는 대시로 구분 해야 하며 공백을 포함 하지 않습니다. 아래 예제와 같이 CLI를 사용 하 여 유연한 서버를 만드는 다양 한 옵션이 있습니다.
 
-Azure CLI 참조 설명서를 참조 하세요. <!--FIXME --> 구성 가능한 CLI 매개 변수의 전체 목록을 참조하세요. 예를 들어 아래 명령에서 필요에 따라 리소스 그룹을 지정할 수 있습니다.
+구성 가능한 CLI 매개 변수의 전체 목록은 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server) 를 참조 하세요. 예를 들어 아래 명령에서 필요에 따라 리소스 그룹을 지정할 수 있습니다.
 
 - 공용 액세스를 사용 하 여 유연한 서버를 만들고 클라이언트 IP 주소를 추가 하 여 서버에 액세스할 수 있도록 합니다.
     ```azurecli-interactive
@@ -95,7 +95,7 @@ Azure CLI 참조 설명서를 참조 하세요. <!--FIXME --> 구성 가능한 C
 - **표시**: 유연한 서버 방화벽 규칙의 세부 정보를 표시 합니다.
 - **삭제**: 유연한 서버 방화벽 규칙을 삭제 합니다.
 
-Azure CLI 참조 설명서를 참조 하세요. <!--FIXME --> 구성 가능한 CLI 매개 변수의 전체 목록을 참조하세요. 예를 들어 아래 명령에서 필요에 따라 리소스 그룹을 지정할 수 있습니다.
+구성 가능한 CLI 매개 변수의 전체 목록은 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server) 를 참조 하세요. 예를 들어 아래 명령에서 필요에 따라 리소스 그룹을 지정할 수 있습니다.
 
 ### <a name="create-a-firewall-rule"></a>방화벽 규칙을 만들기
 명령을 사용 `az mysql flexible-server firewall-rule create` 하 여 서버에서 새 방화벽 규칙을 만듭니다.

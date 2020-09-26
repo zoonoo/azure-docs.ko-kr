@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5d2ff25762f28c19b6d389a779fb455de3c84f3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253771"
+ms.locfileid: "91369487"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Azure Cognitive Services 컨테이너 이미지 태그
 
@@ -1131,22 +1131,22 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 | 이미지 태그                                  | 메모                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-AriaNeural` 입니다.      |
-| `1.1.0-amd64-de-de-katjaneural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `de-DE` `de-DE-KatjaNeural` 입니다.     |
-| `1.1.0-amd64-en-au-natashaneural-preview`   | 로캘과 음성이 포함 된 컨테이너 이미지 `en-AU` `en-AU-NatashaNeural` 입니다.   |
-| `1.1.0-amd64-en-ca-claraneural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `en-CA` `en-CA-ClaraNeural` 입니다.     |
-| `1.1.0-amd64-en-gb-libbyneural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `en-GB` `en-GB-LibbyNeural` 입니다.     |
-| `1.1.0-amd64-en-gb-mianeural-preview`       | 로캘과 음성이 포함 된 컨테이너 이미지 `en-GB` `en-GB-MiaNeural` 입니다.       |
-| `1.1.0-amd64-en-us-arianeural-preview`      | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-AriaNeural` 입니다.      |
-| `1.1.0-amd64-en-us-guyneural-preview`       | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-GuyNeural` 입니다.       |
-| `1.1.0-amd64-es-es-elviraneural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `es-ES` `es-ES-ElviraNeural` 입니다.    |
-| `1.1.0-amd64-es-mx-dalianeural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `es-MX` `es-MX-DaliaNeural` 입니다.     |
-| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `fr-CA` `fr-CA-SylvieNeural` 입니다.    |
-| `1.1.0-amd64-fr-fr-deniseneural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `fr-FR` `fr-FR-DeniseNeural` 입니다.    |
-| `1.1.0-amd64-it-it-elsaneural-preview`      | 로캘과 음성이 포함 된 컨테이너 이미지 `it-IT` `it-IT-ElsaNeural` 입니다.      |
-| `1.1.0-amd64-ja-jp-nanamineural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `ja-JP` `ja-JP-NanamiNeural` 입니다.    |
-| `1.1.0-amd64-ko-kr-sunhineural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `ko-KR` `ko-KR-SunHiNeural` 입니다.     |
-| `1.1.0-amd64-pt-br-franciscaneural-preview` | 로캘과 음성이 포함 된 컨테이너 이미지 `pt-BR` `pt-BR-FranciscaNeural` 입니다. |
-| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | 로캘과 음성이 포함 된 컨테이너 이미지 `zh-CN` `zh-CN-XiaoxiaoNeural` 입니다.  |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `de-DE` `de-DE-KatjaNeural` 입니다.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | 로캘과 음성이 포함 된 컨테이너 이미지 `en-AU` `en-AU-NatashaNeural` 입니다.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `en-CA` `en-CA-ClaraNeural` 입니다.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `en-GB` `en-GB-LibbyNeural` 입니다.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | 로캘과 음성이 포함 된 컨테이너 이미지 `en-GB` `en-GB-MiaNeural` 입니다.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-AriaNeural` 입니다.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | 로캘과 음성이 포함 된 컨테이너 이미지 `en-US` `en-US-GuyNeural` 입니다.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `es-ES` `es-ES-ElviraNeural` 입니다.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `es-MX` `es-MX-DaliaNeural` 입니다.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `fr-CA` `fr-CA-SylvieNeural` 입니다.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `fr-FR` `fr-FR-DeniseNeural` 입니다.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | 로캘과 음성이 포함 된 컨테이너 이미지 `it-IT` `it-IT-ElsaNeural` 입니다.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | 로캘과 음성이 포함 된 컨테이너 이미지 `ja-JP` `ja-JP-NanamiNeural` 입니다.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | 로캘과 음성이 포함 된 컨테이너 이미지 `ko-KR` `ko-KR-SunHiNeural` 입니다.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | 로캘과 음성이 포함 된 컨테이너 이미지 `pt-BR` `pt-BR-FranciscaNeural` 입니다. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | 로캘과 음성이 포함 된 컨테이너 이미지 `zh-CN` `zh-CN-XiaoxiaoNeural` 입니다.  |
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 

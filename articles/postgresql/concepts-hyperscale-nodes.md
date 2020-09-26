@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/28/2019
-ms.openlocfilehash: a02583825f4a1ef15992aa2307e7f666d5abeaba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b3eda2c8de8319552f32938f20ff98af0e0a49fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314830"
 ---
 # <a name="nodes-and-tables-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL의 노드 및 테이블-Hyperscale (Citus)
 
@@ -24,7 +24,7 @@ Citus (Hyperscale) 호스팅 형식을 사용 하면 Azure Database for PostgreS
 
 모든 서버 그룹에는 코디네이터 노드와 여러 작업자가 있습니다. 응용 프로그램은 해당 쿼리를 코디네이터 노드에 전송 하 여 관련 작업자에 게 릴레이 하 고 결과를 누적 합니다. 응용 프로그램은 작업자에 직접 연결할 수 없습니다.
 
-Citus (hyperscale)를 사용 하면 데이터베이스 관리자가 테이블을 *배포* 하 여 다른 작업자 노드에 다른 행을 저장할 수 있습니다. 분산 테이블은 성능의 규모를 조정 하는 핵심입니다. 테이블 배포에 실패 하면 해당 테이블은 완전히 코디네이터 노드에 그대로 남아 있으므로 크로스 시스템 병렬 처리를 사용할 수 없습니다.
+Citus (hyperscale)를 사용 하면 데이터베이스 관리자가 테이블을 *배포* 하 여 다른 작업자 노드에 다른 행을 저장할 수 있습니다. 분산 테이블은 Citus (Hyperscale) 성능의 핵심입니다. 테이블 배포에 실패 하면 해당 테이블은 완전히 코디네이터 노드에 그대로 남아 있으므로 크로스 시스템 병렬 처리를 사용할 수 없습니다.
 
 코디네이터는 분산 된 테이블에 대 한 각 쿼리에 대해이를 단일 작업자 노드로 라우트 하거나, 필요한 데이터가 단일 노드에 있는지 또는 여러 데이터가 아니라에 따라 몇 가지에 걸쳐 있습니다. 코디네이터는 컨설팅 메타 데이터 테이블에서 수행할 작업을 결정 합니다. 이러한 테이블은 작업자 노드의 DNS 이름 및 상태와 노드 간 데이터 배포를 추적 합니다.
 
