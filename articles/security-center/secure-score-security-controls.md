@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268267"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -179,7 +179,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
     <td class="tg-lboi"; width=55%>- SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.<br>- App Services의 진단 로그를 사용하도록 설정해야 합니다.<br>- Azure Data Lake Store의 진단 로그를 사용하도록 설정해야 합니다.<br>- Azure Stream Analytics의 진단 로그를 사용하도록 설정해야 합니다.<br>- Batch 계정의 진단 로그를 사용하도록 설정해야 합니다.<br>- Data Lake Analytics의 진단 로그를 사용하도록 설정해야 합니다.<br>- Event Hub의 진단 로그를 사용하도록 설정해야 합니다.<br>- IoT Hub의 진단 로그를 사용하도록 설정해야 합니다.<br>- Key Vault의 진단 로그를 사용하도록 설정해야 합니다.<br>- Logic Apps의 진단 로그를 사용하도록 설정해야 합니다.<br>- Search Service의 진단 로그를 사용하도록 설정해야 합니다.<br>- Service Bus의 진단 로그를 사용하도록 설정해야 합니다.<br>- Virtual Machine Scale Sets의 진단 로그를 사용하도록 설정해야 합니다.<br>- Batch 계정에서 메트릭 경고 규칙을 구성해야 합니다.<br>- SQL 감사 설정에는 중요한 작업을 캡처하도록 구성된 작업 그룹이 있어야 합니다.<br>- 감사 보존 기간(일)을 90일보다 큰 값으로 설정하여 SQL 서버를 구성해야 합니다.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Advanced threat protection 사용 (최대 점수 0)</p></strong>Azure Security Center의 위협 방지는 사용자 환경에 대 한 포괄적인 방어 기능을 제공 합니다. Security Center는 사용자 환경의 모든 영역에서 위협을 탐지하면 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.<br>각 위협 방지 번들은이 보안 제어에서 관련 권장 사항을 사용 하 여 설정할 수 있는 별도의 선택적 제공입니다.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Security Center에서 위협 방지에 대해 자세히 알아보세요</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Advanced threat protection 사용 (최대 점수 0)</p></strong>Azure Security Center은 사용자 환경에 대 한 포괄적인 방어 기능을 제공 합니다. Security Center는 사용자 환경의 모든 영역에서 위협을 탐지하면 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.<br>각 Azure Defender 요금제는이 보안 제어에서 관련 권장 사항을 사용 하 여 설정할 수 있는 별도의 선택적 제공입니다.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Security Center에서 위협 방지에 대해 자세히 알아보세요</a>.</td>
     <td class="tg-lboi"; width=55%>- Azure SQL Database 서버에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- 컴퓨터의 SQL server에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- Virtual Machines에서 Advanced threat protection을 사용 하도록 설정 해야 합니다.<br>- Azure App Service 요금제에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>- Azure Storage 계정에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>- Azure Kubernetes Service 클러스터에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>- Azure Container Registry 레지스트리에서 Advanced threat protection을 사용 하도록 설정 해야 합니다.<br>- Azure Key Vault 자격 증명 모음에서 Advanced threat protection을 사용 하도록 설정 해야 함</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 
 ## <a name="secure-score-faq"></a>보안 점수 FAQ
 
-### <a name="why-has-my-secure-score-gone-down"></a>보안 점수가 중단된 이유는 무엇인가요?
-점수가 계산 되는 방식에 대 한 변경 내용을 포함 하는 향상 된 보안 점수로 전환 된 Security Center. 이제 리소스가 포인트를 받으려면 모든 권장 사항을 해결해야 합니다. 점수도 0-10 크기로 변경되었습니다.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>보안 컨트롤의 4가지 권장 사항 중 3가지를 해결하는 경우 보안 점수가 변경되나요?
 아니요. 단일 리소스에 대한 모든 권장 사항을 수정할 때까지 변경되지 않습니다. 컨트롤에 대해 최대 점수를 얻으려면 모든 리소스에 대해 모든 권장 사항을 수정해야 합니다.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>이전 보안 점수 환경을 계속 사용할 수 있나요? 
-아니요. 에 대해 나란히 실행 되는 동안에는 쉽게 전환할 수 있습니다. 이전 모델은 이제 사용 되지 않습니다. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>권장 사항이 나에게 적용되지 않는 경우 정책에서 사용하지 않도록 설정해도 보안 컨트롤이 이행되고 보안 점수가 업데이트되나요?
 예. 사용자 환경에 적용할 수 없는 경우 권장 사항을 사용하지 않도록 설정하는 것이 좋습니다. 특정 권장 사항을 사용하지 않도록 설정하는 방법에 대한 지침은 [보안 정책 사용 안 함](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies)을 참조하세요.

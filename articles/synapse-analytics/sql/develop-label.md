@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289075"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Synapse SQL에서 쿼리 레이블 사용
 이 문서에는 Synapse SQL에서 쿼리 레이블을 사용 하기 위한 필수 팁이 포함 되어 있습니다.
@@ -34,7 +34,7 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-마지막 줄은 쿼리에 문자열 '내 쿼리 레이블' 태그를 추가합니다. 레이블은 DMV를 통해 쿼리가 가능하므로 이 태그는 특히 유용합니다. 레이블 쿼리는 문제 쿼리를 찾고 ELT 실행을 통해 진행률을 식별 하는 데 도움이 되는 메커니즘을 제공 합니다.
+마지막 줄은 쿼리에 문자열 '내 쿼리 레이블' 태그를 추가합니다. 이 태그는 해당 레이블이 Dmv를 통해 쿼리 가능 하므로 유용 합니다. 레이블 쿼리는 문제 쿼리를 찾고 ELT 실행을 통해 진행률을 식별 하는 데 도움이 되는 메커니즘을 제공 합니다.
 
 좋은 명명 규칙이 가장 유용 합니다. 예를 들어 프로젝트, 프로시저, 문 또는 주석을 사용 하 여 레이블을 시작 하면 소스 제어의 모든 코드에서 쿼리를 고유 하 게 식별 합니다.
 

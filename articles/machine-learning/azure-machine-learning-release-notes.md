@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 022040f4fa7f70dd5fc7677ce969ee9acbe7bcbb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886419"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290520"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -291,7 +291,7 @@ ms.locfileid: "90886419"
   + **azureml-train-automl-runtime**
     + BERT를 사용 하 여 멀티-noded 바인딩된 다중 gpu distributed 기능화의 제한 된 가용성을 추가 했습니다.
     + ADB 기반 자동화 된 machine learning 실행에서 호환 되지 않는 패키지에 대 한 오류 처리를 추가 했습니다.
-  + **azureml-widgets**
+  + **azureml 위젯**
     + Azureml 위젯에 대 한 문서 업데이트입니다.
 
   
@@ -640,7 +640,7 @@ ms.locfileid: "90886419"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     설명  |
+| 웹 기반 도구  |     Description  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1152,7 +1152,7 @@ ms.locfileid: "90886419"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | 설명 | 
+| 웹 기반 도구 | Description | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 
@@ -1259,7 +1259,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + 에서 `azureml-contrib-datadrift` 로 이동 `azureml-datadrift`
     + 드리프트 및 기타 통계 측정값에 대 한 시계열 데이터 집합 모니터링에 대 한 지원이 추가 됨
-    + `create_from_model()` `create_from_dataset()` 클래스에 대 한 새 [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) 메서드 `create()`메서드는 더 이상 사용 되지 않습니다.
+    + `create_from_model()` `create_from_dataset()` 클래스에 대 한 새 [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) 메서드 `create()`메서드는 더 이상 사용 되지 않습니다.
     + Azure Machine Learning studio에서 Python 및 UI의 시각화를 조정 합니다.
     + 데이터 집합 모니터의 일별 뿐만 아니라 주별 및 월별 모니터 일정을 지원 합니다.
     + 데이터 집합 모니터의 기록 데이터를 분석 하는 데이터 모니터 메트릭의 백필을 지원 합니다.
@@ -1340,13 +1340,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
 
         ```py
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
+        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
 
         ```py
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -1355,7 +1355,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
+        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
 
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
@@ -1364,7 +1364,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 모델 배포 및 서비스 업데이트를 위한 환경 사용을 지원 합니다.
   + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
     + [Datadriftdetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) 클래스의 show 특성은 선택적 인수 ' with_details '을 (를) 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
-    + DataDriftDetector 함수 [get_output] https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) 동작 변경 내용:
+    + DataDriftDetector 함수 [get_output] python/api/azureml-datadrift/datadrift. datadriftdetector. datadriftdetector # get---------------id
       + 입력 매개 변수 start_time end_time는 필수 항목이 아닌 선택적 요소입니다.
       + 동일한 호출에서 특정 run_id를 사용 하는 입력 특정 start_time 및/또는 end_time는 함께 사용할 수 없으므로 값 오류 예외가 발생 합니다.
       + 입력 특정 start_time 및/또는 end_time를 통해 예약 된 실행 결과만 반환 됩니다.
@@ -1458,7 +1458,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 데이터 입력 형식으로 지원 되는 training_data, validation_data, label_column_name, weight_column_name
     + Explain_model () 및 retrieve_model_explanations에 대 한 사용 중단 메시지 추가 ()
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
-    + [모듈](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion 및 [modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep)를 설명 하는 [노트북](https://aka.ms/pl-modulestep) 을 추가 했습니다.
+    + [모듈](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion 및 [modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep)를 설명 하는 [노트북](https://aka.ms/pl-modulestep) 을 추가 했습니다.
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + AML 파이프라인을 통해 R 스크립트 실행을 지 원하는 [Rscriptstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) 을 추가 했습니다.
     + "매개 변수 SubscriptionId에 대 한 할당이 지정 되지 않았습니다." 라는 오류 메시지를 발생 시킨 [AzureBatchStep]에서 메타 데이터 매개 변수가 구문 분석 되었습니다.

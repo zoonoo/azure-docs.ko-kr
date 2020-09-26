@@ -7,12 +7,12 @@ ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ca7708b24d2e75381290b80adeb671e2b49822
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74130337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362698"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
 
@@ -28,7 +28,7 @@ Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네�
 
 WebSocket 연결을 설정 하기 위해 특정 HTTP 기반 핸드셰이크는 클라이언트와 서버 간에 교환 됩니다. 성공하면 애플리케이션 계층 프로토콜이 이전에 설정된 TCP 연결을 사용하여 HTTP에서 WebSocket으로 "업그레이드"됩니다. 이렇게 되면 HTTP는 완전히 제외됩니다. 데이터는 WebSocket 연결을 종료할 때까지 양쪽 엔드포인트에서 WebSocket 프로토콜을 사용하여 보내거나 받을 수 있습니다. 
 
-![서버당](./media/application-gateway-websocket/websocket.png)
+![다이어그램은 웹 서버와 상호 작용 하는 클라이언트를 두 번 연결 하 여 두 번 연결 하 고, WebSocket 상호 작용을 통해 클라이언트가 한 번 서버에 연결 하 여 여러 회신을 가져옵니다.](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>수신기 구성 요소
 

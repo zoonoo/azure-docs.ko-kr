@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369912"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -28,7 +28,7 @@ Cloud 파트너 포털 파트너 센터로 전환 되었습니다. 파트너 센
 | 제공 게시 및 제공 관리 환경 | 제품 데이터를 Cloud 파트너 포털에서 파트너 센터로 이동 했습니다. 이제 향상 된 사용자 환경 및 직관적인 인터페이스를 제공 하는 파트너 센터에서 귀하의 제품에 액세스 합니다. [상업적 marketplace에서 기존 제품을 업데이트](partner-center-portal/update-existing-offer.md)하는 방법을 알아봅니다. |
 | 상업적 marketplace에서 제품의 가용성 | 변경 내용이 없습니다. 제품이 상업적 marketplace에 살고 있으면 계속 라이브 됩니다. |
 | 새로운 구매 및 배포 | 변경 내용이 없습니다. 고객은 중단 없이 제품을 계속 구매 하 고 배포할 수 있습니다. |
-| 지급 | 모든 구매 및 배포는 정상적으로 계속 청구 됩니다. [상업적 marketplace에서 지불 하는](partner-center-portal/get-paid.md)방법에 대해 자세히 알아보세요. |
+| 지급 | 모든 구매 및 배포는 정상적으로 계속 청구 됩니다. [상업적 marketplace에서 지불 하는](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context)방법에 대해 자세히 알아보세요. |
 | 기존 [Cloud 파트너 포털 API와 API 통합](cloud-partner-portal-api-overview.md) | 기존 Cloud 파트너 포털 Api는 계속 지원 되 고 기존 통합은 계속 작동 합니다. 자세한 내용은 [CLOUD 파트너 포털 REST Api가 지원 되나요?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | 분석 | 파트너 센터에서 분석을 확인 하 여 상업적 marketplace에서 판매를 지속적으로 모니터링 하 고, 성능을 평가 하 고, 제품을 최적화할 수 있습니다. CPP와 파트너 센터에서 분석 보고서가 표시 되는 방식에는 차이가 있습니다. 예를 들어, CPP의 **판매자 Insights** 에는 사용 빈도 기반 제품 및 사용 불가능 기반 제안의 데이터를 표시 하는 **주문 & 사용** 탭이 있습니다. 반면 파트너 센터의 **주문** 페이지에는 SaaS 제품에 대 한 별도의 탭이 있습니다. [파트너 센터의 상업 marketplace에 대 한 액세스 분석 보고서](partner-center-portal/analytics.md)에서 자세히 알아보세요. |
 |||
@@ -162,7 +162,9 @@ Cloud 파트너 포털와 파트너 센터 간의 차이점은 다음과 같습�
 - 플랜 설정 페이지
 - 플랜 목록 페이지
 - 플랜 가용성 페이지
-- 다음과 같이 기술 구성 페이지를 계획 하세요. ![ ! [ 파트너 센터 기술 구성 페이지를 보여 주는 스크린샷 (media/cpp-pc-faq/technical-configuration.png "파트너 센터 기술 구성 페이지 표시")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- 다음과 같이 기술 구성 페이지를 계획 합니다.
+
+![! [스크린샷 파트너 센터 기술 구성 페이지를 표시 합니다.] (media/cpp-pc-faq/technical-configuration.png "파트너 센터 기술 구성 페이지 표시")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 제품 ID는 이제 제품의 왼쪽 탐색 모음에 표시 됩니다.
 

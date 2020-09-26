@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361394"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 
@@ -41,11 +41,11 @@ ms.locfileid: "85846573"
 2. 프로세스 서버가 등록 된 구성 서버를 클릭 합니다.
 3. 트래픽 부하를 분산 하려는 프로세스 서버를 클릭 합니다.
 
-    ![부하 분산](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![스크린샷에는 트래픽 부하를 분산할 수 있는 프로세스 서버가 표시 됩니다.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. **부하 분산**을 클릭 하 고 컴퓨터를 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![대상 프로세스 서버 선택이 선택 된 부하 분산 창이 스크린샷으로 표시 됩니다.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. **컴퓨터 선택**을 클릭 하 고 현재에서 대상 프로세스 서버로 이동 하려는 컴퓨터를 선택 합니다. 평균 데이터 변경의 세부 정보는 각 가상 머신에 대해 표시됩니다. 그런 후 **OK**를 클릭합니다. 
 3. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업**을 모니터링 합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "85846573"
 3. 작업을 전환 하려는 프로세스 서버를 클릭 합니다.
 4. **스위치**를 클릭 하 고 작업을 이동 하려는 대상 프로세스 서버를 선택 합니다. 그런 다음 **확인을** 클릭 합니다.
 
-    ![스위치](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![대상 프로세스 서버 선택 창을 보여 주는 스크린샷](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업**을 모니터링 합니다.
 

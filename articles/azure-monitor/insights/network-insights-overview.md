@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 88e69ac4156bb2bdfb217a4fc83ac2d798d08211
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330967"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>네트워크에 대 한 Azure Monitor (미리 보기)
 네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 [상태](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) 및 [메트릭의](../platform/metrics-supported.md) 포괄적인 보기를 제공 합니다.  또한 [연결 모니터](../../network-watcher/connection-monitor-preview.md), [nsgs (네트워크 보안 그룹)에 대 한 흐름 로깅](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [트래픽 분석](../../network-watcher/traffic-analytics.md)및 기타 네트워크 [진단](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) 기능과 같은 모든 네트워크 모니터링 기능에 대 한 액세스를 제공 합니다.

@@ -2,14 +2,14 @@
 title: 풀의 VM 크기 선택
 description: Azure Batch 풀에서 컴퓨팅 노드에 사용할 수 있는 VM 크기를 선택하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271310"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -37,11 +37,11 @@ Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtua
 | Dv3, Dsv3 | 모든 크기 |
 | Dav4<sup>1</sup> | 모든 크기 |
 | Dasv4<sup>1</sup> | 모든 크기 |
-| Ddv4, Ddsv4 |  없음 - 아직 사용할 수 없습니다. |
-| Ev3, Esv3 | E64is_v3 및 E64i_v3를 제외한 모든 크기 |
+| Ddv4, Ddsv4 |  모든 크기 |
+| Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
 | Eav4<sup>1</sup> | 모든 크기 |
 | Easv4<sup>1</sup> | 모든 크기 |
-| Edv4, Edsv4 |  없음 - 아직 사용할 수 없습니다. |
+| Edv4, Edsv4 |  모든 크기 |
 | F, Fs | 모든 크기 |
 | Fsv2 | 모든 크기 |
 | G, Gs | 모든 크기 |
@@ -52,7 +52,7 @@ Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtua
 | Ls | 모든 크기 |
 | Lsv2<sup>1</sup> | 모든 크기 |
 | M<sup>1</sup> | 모든 크기 |
-| Mv2 | 없음 - 아직 사용할 수 없습니다. |
+| Mv2<sup>1, 2</sup> | 모든 크기 |
 | NC | 모든 크기 |
 | NCv2<sup>1</sup> | 모든 크기 |
 | NCv3<sup>1</sup> | 모든 크기 |
@@ -60,10 +60,15 @@ Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtua
 | NDv2<sup>1</sup> | 없음 - 아직 사용할 수 없습니다. |
 | NV | 모든 크기 |
 | NVv3<sup>1</sup> | 모든 크기 |
-| NVv4 | None |
+| NVv4 | 없음 - 아직 사용할 수 없습니다. |
 | SAP HANA | None |
 
-<sup>1</sup> 이러한 VM 크기는 가상 머신 구성의 Batch 풀에 할당할 수 있지만 새 Batch 계정을 만들고 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청해야 합니다. VM 시리즈당 vCPU 할당량이 Batch 계정에 대해 완전히 지원되면 이 제한이 제거됩니다.
+<sup>1</sup> 이 VM 시리즈는 가상 머신 구성의 batch 풀에서 할당 될 수 있지만 새 batch 계정을 만들고 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청 해야 합니다. VM 시리즈당 vCPU 할당량이 Batch 계정에 대해 완전히 지원되면 이 제한이 제거됩니다.
+
+<sup>2</sup> 이 vm 시리즈는 2 세대 vm 이미지에만 사용할 수 있습니다.
+
+### <a name="using-generation-2-vm-images"></a>2 세대 VM 이미지 사용
+[Mv2](../virtual-machines/mv2-series.md)와 같은 일부 vm 시리즈는 [2 세대 vm 이미지](../virtual-machines/generation-2.md)에만 사용할 수 있습니다. 2 세대 VM 이미지는 [' imageReference '](/rest/api/batchservice/pool/add#imagereference) 구성의 ' sku ' 속성을 사용 하 여 vm 이미지와 같이 지정 됩니다. ' sku ' 문자열에는 "-g2" 또는 "-gen2"와 같은 접미사가 있습니다. 2 세대 이미지를 포함 하 여 Batch에서 지원 되는 VM 이미지 목록을 가져오려면 [' 지원 되는 이미지 나열 '](/rest/api/batchservice/account/listsupportedimages) API, [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage)또는 [Azure CLI](/cli/azure/batch/pool/supported-images)를 사용 합니다.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀
 

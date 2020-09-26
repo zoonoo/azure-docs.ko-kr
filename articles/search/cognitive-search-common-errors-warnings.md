@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378358"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362817"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -32,7 +32,7 @@ ms.locfileid: "89378358"
 
 API 버전부터 `2019-05-06` 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
 
-| 속성 | 설명 | 예제 |
+| 속성 | Description | 예제 |
 | --- | --- | --- |
 | key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e. n a m e. myIndexName myOutputFieldName |
@@ -59,9 +59,9 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| blob이 크기 제한을 초과 합니다. | 문서는 `'150441598'` 바이트 이며 `'134217728'` 현재 서비스 계층의 문서 추출에 대 한 최대 크기 바이트를 초과 합니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob의 콘텐츠 형식이 지원 되지 않습니다. | 문서에 지원 되지 않는 콘텐츠 형식이 있습니다. `'image/png'` | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob이 암호화 되어 있습니다. | 문서를 처리할 수 없습니다. 암호화 또는 암호로 보호할 수 있습니다. | Blob [설정을](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)사용 하 여 blob를 건너뛸 수 있습니다. |
+| blob이 크기 제한을 초과 합니다. | 문서는 `'150441598'` 바이트 이며 `'134217728'` 현재 서비스 계층의 문서 추출에 대 한 최대 크기 바이트를 초과 합니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| blob의 콘텐츠 형식이 지원 되지 않습니다. | 문서에 지원 되지 않는 콘텐츠 형식이 있습니다. `'image/png'` | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| blob이 암호화 되어 있습니다. | 문서를 처리할 수 없습니다. 암호화 또는 암호로 보호할 수 있습니다. | Blob [설정을](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex)사용 하 여 blob를 건너뛸 수 있습니다. |
 | 일시적인 문제 | "Blob을 처리 하는 동안 오류가 발생 했습니다. 요청이 중단 되었습니다. 요청이 취소 되었습니다." "처리 하는 동안 문서 시간이 초과 되었습니다." | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>오류: 테이블에 복합 기본 키가 있으므로 통합 변경 내용 추적 정책을 사용할 수 없습니다.
 
-이는 SQL 테이블에 적용 되며, 일반적으로 키가 복합 키로 정의 되거나 테이블이 Azure Search 인덱스가 아닌 SQL 인덱스에서와 같이 고유 클러스터형 인덱스를 정의한 경우에 발생 합니다. 주된 이유는 키 특성이 [고유 클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)의 경우 복합 기본 키로 수정 되기 때문입니다. 이 경우에는 SQL 테이블이 고유 클러스터형 인덱스를 포함 하지 않는지 확인 하거나 키 필드를 중복 값이 없는 필드에 매핑해야 합니다.
+이는 SQL 테이블에 적용 되며, 일반적으로 키가 복합 키로 정의 되거나 테이블이 Azure Search 인덱스가 아닌 SQL 인덱스에서와 같이 고유 클러스터형 인덱스를 정의한 경우에 발생 합니다. 주된 이유는 키 특성이 [고유 클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)의 경우 복합 기본 키로 수정 되기 때문입니다. 이 경우에는 SQL 테이블이 고유 클러스터형 인덱스를 포함 하지 않는지 확인 하거나 키 필드를 중복 값이 없는 필드에 매핑해야 합니다.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 

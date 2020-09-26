@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 00bca2d0c7e267bef8cd4a917463c5e7db159792
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304300"
 ---
 # <a name="camera-placement-guide"></a>카메라 배치 가이드
 
@@ -56,7 +56,7 @@ ms.locfileid: "90937412"
 
 ## <a name="camera-to-focal-point-distance"></a>카메라-중심 지점 거리
 
-_카메라-초점면 거리_ 는 카메라에 대 한 초점면 (또는 관심 지점의 중심점)에서의 선형 거리입니다.
+_카메라-초점면 거리_ 는 접지 지점 (또는 카메라 이미지의 중심)에서 카메라까지 측정 된 카메라 까지의 선형 거리입니다.
 
 ![카메라-중심 점-거리](./media/spatial-analysis/camera-focal-point.png)
 

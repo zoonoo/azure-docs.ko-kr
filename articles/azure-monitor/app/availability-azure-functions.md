@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c7aba1c1f091efa0ddd4417ef0a03f3f4ca4d36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361010"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -32,7 +32,7 @@ ms.locfileid: "87320632"
 
             ![기존 Application Insights 리소스 선택](media/availability-azure-functions/app-insights-resource.png)
 
-        - **검토 + 만들기** 선택
+        - **검토 + 만들기**를 선택합니다.
 - 타이머 트리거 함수에 대해 아직 Application Insights 리소스가 생성 되지 않은 경우:
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
     - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](../../azure-functions/functions-create-scheduled-function.md) 방법에 대 한 지침을 따르세요 (정리 전 중지).
@@ -183,7 +183,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 >![가용성 결과](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![종속성](media/availability-azure-functions/dependencies.png)
+>![50로 제한 된 종속성이 있는 새 쿼리 탭을 보여 주는 스크린샷](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>다음 단계
 

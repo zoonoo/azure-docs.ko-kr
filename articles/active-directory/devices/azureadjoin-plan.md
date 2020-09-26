@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370180"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -24,7 +24,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](./overview.md)를 잘 알고 있다고 가정합니다.
 
@@ -184,7 +184,7 @@ Azure AD 조인 디바이스는 머신 인증에 의존하는 온-프레미스 �
 
 Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
 
-Windows 10 2004 업데이트를 시작 하면 사용자가 Azure AD에 등록 된 Windows 10 장치에서 원격 데스크톱을 Azure AD 조인 장치에 사용할 수 있습니다. 
+Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 된 Windows 10 장치에서 Azure AD 조인 된 장치로 원격 데스크톱을 사용할 수도 있습니다. 
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
 
