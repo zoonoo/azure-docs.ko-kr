@@ -3,13 +3,13 @@ title: Azure 애플리케이션 Insights 기본 SDK 끝점 재정의
 description: Azure Government 같은 영역에 대 한 기본 Azure Monitor Application Insights SDK 끝점을 수정 합니다.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions, devx-track-javascript
-ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: references_regions, devx-track-js
+ms.openlocfilehash: d6cea9044cd4898480fcc30532a05e6c8a407012
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333293"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 Azure Functions 이제 함수의 응용 프로그램 설정에 설정 된 [연결 문자열](./sdk-connection-string.md?tabs=net) 을 사용 하는 것이 좋습니다. 함수 창 내에서 함수에 대 한 응용 프로그램 설정에 액세스 하려면 **설정**  >  **구성**  >  **응용 프로그램 설정**을 선택 합니다. 
 
-이름: `APPLICATIONINSIGHTS_CONNECTION_STRING` 값:`Connection String Value`
+이름: `APPLICATIONINSIGHTS_CONNECTION_STRING` 값: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

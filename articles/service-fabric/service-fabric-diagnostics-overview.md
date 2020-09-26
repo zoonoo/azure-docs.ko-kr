@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357134"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -39,7 +39,7 @@ Service Fabric은 구입 즉시 포괄적인 이벤트 집합을 제공합니다
 
 * EventStore - EventStore는 REST API를 통해 그리고 Service Fabric Explorer 에서 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 플랫폼에서 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅샷 보기를 볼 수 있습니다. [Eventstore 개요](service-fabric-diagnostics-eventstore.md)에서 eventstore에 대해 자세히 알아볼 수도 있습니다.    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![노드 창의 이벤트 탭에는 노드 창의 이벤트 탭, NodeDown 이벤트를 비롯 한 여러 이벤트가 표시 됩니다.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 제공되는 진단은 기본적으로 포괄적인 이벤트 세트 형식으로 되어 있습니다. 이러한 [Service Fabric 이벤트](service-fabric-diagnostics-events.md) 는 노드, 응용 프로그램, 서비스, 파티션 등의 여러 엔터티에 대해 플랫폼에서 수행 하는 작업을 보여 줍니다. 위의 마지막 시나리오에서 노드가 다운 된 경우 플랫폼에서 이벤트를 내보내고 `NodeDown` 모니터링 도구에서 즉시 알릴 수 있습니다. 다른 일반적인 예로 장애 조치(failover) 동안의 `ApplicationUpgradeRollbackStarted` 또는 `PartitionReconfigured`가 있습니다. **동일한 이벤트를 Windows 및 Linux 클러스터 둘 다에서 사용할 수 있습니다.**
 

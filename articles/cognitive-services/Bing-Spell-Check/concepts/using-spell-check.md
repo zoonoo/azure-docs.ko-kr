@@ -1,7 +1,7 @@
 ---
 title: Bing Spell Check API 사용
 titleSuffix: Azure Cognitive Services
-description: Bing Spell Check 모드, 설정 및 API와 관련된 기타 정보에 대해 알아봅니다.
+description: API와 관련 된 Bing Spell Check 모드, 설정 및 기타 정보에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: c5c9ad8be8bd4cd834b01a0c67e0bbc81b8cdd4a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a17ed0f13e352fb185d20d9dc2d7bfffa74ac957
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334772"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Bing Spell Check API 사용
 

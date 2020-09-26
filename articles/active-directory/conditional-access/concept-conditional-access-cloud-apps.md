@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258747"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>조건부 액세스: 클라우드 앱 또는 작업
 
@@ -31,9 +31,9 @@ ms.locfileid: "90602067"
 
 기존 Microsoft 클라우드 애플리케이션 중 상당수는 선택할 수 있는 애플리케이션 목록에 포함되어 있습니다. 
 
-관리자들은 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다. Office 365(미리 보기) 및 Microsoft Azure 관리와 같은 일부 앱은 관련된 여러 자식 앱 또는 서비스를 포함합니다. 다음 목록은 전체 목록이 아니며 변경될 수 있습니다.
+관리자들은 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다. Office 365 및 Microsoft Azure 관리와 같은 일부 앱은 관련 된 여러 자식 앱 또는 서비스를 포함 합니다. 다음 목록은 전체 목록이 아니며 변경될 수 있습니다.
 
-- [Office 365(미리 보기)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
 - [Azure SQL Database 및 Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
@@ -67,15 +67,15 @@ ms.locfileid: "90602067"
 - VPN(가상 사설망)
 - Windows Defender ATP
 
-### <a name="office-365-preview"></a>Office 365(미리 보기)
+### <a name="office-365"></a>Office 365
 
 Microsoft 365은 Exchange, SharePoint 및 Microsoft 팀과 같은 클라우드 기반 생산성 및 공동 작업 서비스를 제공 합니다. Microsoft 365 클라우드 서비스는 원활한 공동 작업 환경을 보장 하기 위해 긴밀 하 게 통합 됩니다. Microsoft 팀과 같은 일부 앱이 SharePoint 또는 Exchange와 같은 다른 앱에 종속되어 있기 때문에 이러한 통합은 정책을 만들 때 혼동을 일으킬 수 있습니다.
 
-Office 365(미리 보기) 앱을 사용하면 이러한 서비스를 한 번에 모두 대상으로 지정할 수 있습니다. [서비스 종속성](service-dependencies.md)과 관련된 문제들을 방지하려면 개별 클라우드 앱을 대상으로 지정하는 대신, 새 Office 365(미리 보기) 앱을 사용하는 것이 좋습니다. 이 애플리케이션 그룹을 대상으로 지정하면 일관되지 않은 정책 및 종속성으로 인해 발생할 수 있는 문제들을 방지하는 데 도움이 됩니다.
+Office 365 앱을 사용 하면 이러한 서비스를 한 번에 모두 대상으로 지정할 수 있습니다. [서비스 종속성](service-dependencies.md)문제를 방지 하기 위해 개별 클라우드 앱을 대상으로 지정 하는 대신 새 Office 365 앱을 사용 하는 것이 좋습니다. 이 애플리케이션 그룹을 대상으로 지정하면 일관되지 않은 정책 및 종속성으로 인해 발생할 수 있는 문제들을 방지하는 데 도움이 됩니다.
 
-관리자는 Office 365(미리 보기) 앱을 포함하고 정책에서 선택한 특정 앱을 제외하여 원한다면 정책에서 특정 앱을 제외하도록 선택할 수 있습니다.
+관리자는 Office 365 앱을 포함 하 고 정책에서 선택한 특정 앱을 제외 하 여 정책에서 특정 앱을 제외 하도록 선택할 수 있습니다.
 
-Office 365(미리 보기) 클라이언트 앱에 포함된 주요 애플리케이션:
+Office 365 클라이언트 앱에 포함 된 주요 응용 프로그램:
 
    - Microsoft Flow
    - Microsoft Forms

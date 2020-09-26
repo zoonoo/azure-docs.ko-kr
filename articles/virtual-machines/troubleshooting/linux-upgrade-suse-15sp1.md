@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359514"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>SLES 12에서 SLES 15 SP1로 Azure VM 업그레이드
 
@@ -66,11 +66,11 @@ SLES 15 SP1로 진행하려면 현재 SLES 버전이 SLES 12 SP4 또는 12 SP5�
 
 6. [Azure Portal](https://portal.azure.com)로 이동하고, VM을 선택한 다음, **직렬 콘솔**을 선택합니다. "다시 부팅: 시스템을 다시 시작하는 중"에서 시스템이 멈춥니다. 이 프로세스에는 15 ~ 45분 정도 소요됩니다. 2세대 VM의 경우 "다시 부팅: 시스템을 다시 시작하는 중" 화면에서 멈출 수 있습니다. 이 경우 45분 정도 기다립니다. 그래도 더 이상 진행되지 않으면 Azure Portal에서 VM의 **개요** 페이지로 이동하고 VM을 중지했다가 다시 시작합니다.
 
-     ![직렬 콘솔의 메시지에 대한 스크린샷](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![직렬 콘솔의 메시지에 대 한 스크린샷](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. 새 커널로 시스템이 다시 시작되면 다음과 같은 메시지가 나타납니다.
 
-     ![직렬 콘솔의 메시지에 대한 스크린샷](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![새 커널을 사용 하 여 시스템을 다시 시작한 후 직렬 콘솔의 메시지에 대 한 스크린샷](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. 커널 및 OS 버전을 확인하여 시스템이 성공적으로 업그레이드되었는지 점검합니다.
 
     ```

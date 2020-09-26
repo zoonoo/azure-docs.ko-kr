@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js
+ms.openlocfilehash: f339ae4ff1ea90929ce7811efe002f5860f7b47d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658163"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269338"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
 
@@ -33,7 +33,7 @@ ms.locfileid: "89658163"
 
 ![예제 개요](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -129,11 +129,11 @@ ms.locfileid: "89658163"
 
 이 테이블에는 다음 하위 속성에 대 한 자세한 내용이 포함 되어 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 |----------|------|-------|
 | `actions` | 개체 컬렉션 | 코드 조각이 실행 되기 전에 실행 되는 작업의 결과 개체입니다. 각 개체에는 키가 동작 이름인 *키-값* 쌍이 있으며이 값은를 사용 하 여 [actions () 함수](../logic-apps/workflow-definition-language-functions-reference.md#actions) 를 호출 하는 것과 같습니다 `@actions('<action-name>')` . 작업 이름은 기본 워크플로 정의에 사용 되는 것과 동일한 동작 이름을 사용 합니다 .이 이름은 작업 이름의 공백 ("")을 밑줄 (_)로 대체 합니다. 이 개체는 현재 워크플로 인스턴스 실행에서 작업 속성 값에 대 한 액세스를 제공 합니다. |
-| `trigger` | Object | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
-| `workflow` | Object | 워크플로 개체 이며 [workflow () 함수](../logic-apps/workflow-definition-language-functions-reference.md#workflow)를 호출 하는 것과 동일 합니다. 이 개체를 사용 하면 현재 워크플로 인스턴스가 실행 되는 워크플로 이름, 실행 ID 등의 워크플로 속성 값에 액세스할 수 있습니다. |
+| `trigger` | 개체 | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
+| `workflow` | 개체 | 워크플로 개체 이며 [workflow () 함수](../logic-apps/workflow-definition-language-functions-reference.md#workflow)를 호출 하는 것과 동일 합니다. 이 개체를 사용 하면 현재 워크플로 인스턴스가 실행 되는 워크플로 이름, 실행 ID 등의 워크플로 속성 값에 액세스할 수 있습니다. |
 |||
 
 이 항목의 예제에서 개체에는 `workflowContext` 코드에서 액세스할 수 있는 다음과 같은 속성이 있습니다.

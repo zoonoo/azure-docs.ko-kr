@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71203660"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281918"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>OPC 자격 증명 모음 인증서 서비스 관리
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 이 문서에서는 Azure의 OPC 자격 증명 모음 인증서 관리 서비스에 대 한 관리 작업을 설명 합니다. 발급자 CA 인증서를 갱신 하는 방법, CRL (인증서 해지 목록)을 갱신 하는 방법 및 사용자 액세스 권한을 부여 하 고 취소 하는 방법에 대 한 정보가 포함 되어 있습니다.
 
@@ -72,7 +75,7 @@ Azure AD Enterprise 응용 프로그램에서 OPC 자격 증명 모음 마이크
 5. **사용자 추가**를 선택 합니다.
 6. 특정 역할에 대 한 할당을 위해 사용자를 선택 하거나 초대 합니다.
 7. 사용자에 대 한 역할을 선택 합니다.
-8. **할당**을 선택 합니다.
+8. **할당**을 선택합니다.
 9. 관리자 또는 승인자 역할의 사용자에 대해 Azure Key Vault 액세스 정책 추가를 계속 합니다.
 
 ### <a name="remove-user"></a>사용자 제거

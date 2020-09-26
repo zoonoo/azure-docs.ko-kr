@@ -1,6 +1,6 @@
 ---
 title: StorSimple 가상 배열에 업데이트 0.6 설치 | Microsoft Docs
-description: StorSimple 가상 배열 웹 UI를 사용하여 Azure Portal 및 핫픽스 방법을 사용하는 업데이트를 적용하는 방법을 설명합니다.
+description: StorSimple 가상 배열 웹 UI를 사용 하 여 Azure Portal 및 hot fix 메서드를 사용 하 여 업데이트 0.6을 적용 하는 방법을 설명 합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 917af7ea1789394ddba5d349d631018e2b620216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295688"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.6 설치
 

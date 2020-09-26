@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: 37dd6881876df010b548a8bb48ca88bb72dab764
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321342"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Azure SQL Database에는 추가 서비스 계층이 있습니다.
 | **컴퓨팅 크기**| SQL Database | vCore 1~80개 | 1 ~ 80 vCores | vCore 1~80개 |
 | | SQL Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 없음 | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | | SQL Managed Instance 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 없음 | 해당 없음 |
-| **저장소 유형** | 모두 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **스토리지 유형** | 모두 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **데이터베이스 크기** | SQL Database | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **스토리지 크기** | SQL Database | 5GB~4TB | 최대 100TB | 5GB~4TB |

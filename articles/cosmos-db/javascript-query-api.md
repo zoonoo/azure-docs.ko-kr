@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 56fbcc3950a739c4c9fc3df86468301e2e2ff4d8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421130"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334398"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 
@@ -21,7 +21,7 @@ Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에�
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 
-| **함수** | **설명** |
+| **Function** | **설명** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|value()로 종료되어야 하는 연결된 호출을 시작합니다.|
 |`filter(predicateFunction [, options] [, callback])`|출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 기능은 SQL의 WHERE 절과 유사하게 작동합니다.|

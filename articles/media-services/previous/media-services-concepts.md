@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258030"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333786"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 
@@ -103,12 +103,11 @@ Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 �
 
 [동적 패키징](media-services-dynamic-packaging-overview.md)을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩해야 하며 하나 이상의 표준 또는 프리미엄 스트리밍 엔드포인트가 시작된 상태여야 합니다.
 
-Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
+Media Services은이 문서에서 설명 하는 다음과 같은 주문형 인코더를 지원 합니다.
 
 * [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
-* [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-지원되는 인코더에 대한 자세한 내용은 [인코더](media-services-encode-asset.md)를 참조하세요
+이 지원 되는 인코더에 대 한 자세한 내용은 [인코더](media-services-encode-asset.md)를 참조 하세요.
 
 ## <a name="live-streaming"></a>라이브 스트리밍
 Azure Media Services에서 채널은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
@@ -133,7 +132,7 @@ Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 
 
 채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 * [Azure Media Services에서 Live Encoding을 수행할 수 있도록 설정 된 채널 사용](media-services-manage-live-encoder-enabled-channels.md)
 * [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림 받는 채널 작업](media-services-live-streaming-with-onprem-encoders.md)
@@ -156,7 +155,7 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 
 토큰 제한 정책을 구성하는 경우 기본 확인 키, 발급자 및 대상 매개 변수를 지정해야 합니다. 기본 확인 키는 토큰이 서명된 키를 포함하며 발급자는 토큰을 발행하는 보안 토큰 서비스입니다. 청중(범위) 라고도 함)은 토큰의 의도 또는 토큰이 접근을 인증하는 대상 리소스를 설명합니다. Media Services 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 - [콘텐츠 보호 개요](media-services-content-protection-overview.md)
 - [AES-128로 보호](media-services-protect-with-aes128.md)
 - [PlayReady/Widevine으로 보호](media-services-protect-with-playready-widevine.md)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280303"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>컨테이너에 대해 일시 삭제 사용 및 관리 (미리 보기)
 
@@ -93,7 +93,7 @@ Azure Portal에서 일시 삭제 된 컨테이너를 보려면 다음 단계를 
 보존 기간 내에 일시 삭제 된 컨테이너 및 해당 콘텐츠를 복원할 수 있습니다. Azure Portal에서 일시 삭제 된 컨테이너를 복원 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal의 저장소 계정으로 이동 하 여 컨테이너의 목록을 확인 합니다.
-1. 삭제 하려는 컨테이너의 상황에 맞는 메뉴를 표시 하 고 메뉴에서 삭제 **취소** 를 선택 합니다.
+1. 복원 하고자 하는 컨테이너에 대 한 상황에 맞는 메뉴를 표시 하 고 메뉴에서 **삭제 취소** 를 선택 합니다.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Azure Portal에서 일시 삭제 된 컨테이너를 복원 하는 방법을 보여 주는 스크린샷":::
 

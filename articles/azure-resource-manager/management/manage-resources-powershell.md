@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 10f8c2a17c161d7e5622636b08b524932defe451
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d97390861200a0a7f3b04d951e0ca2a17796835d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372504"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 리소스 관리
 
@@ -133,7 +133,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="manage-access-to-resources"></a>리소스에 대 한 액세스 관리
 
-Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

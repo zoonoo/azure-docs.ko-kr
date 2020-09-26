@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401217"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359803"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -36,7 +36,7 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 * 여러 대상 언어로의 변환을 지원 합니다.
 * 중간 인식 및 번역 결과.
 
-## <a name="get-started"></a>시작하기 
+## <a name="get-started"></a>시작 
 
 음성 번역을 시작 하려면 [빠른](get-started-speech-translation.md) 시작을 참조 하세요. 음성 번역 서비스는 [음성 SDK](speech-sdk.md) 및 [음성 CLI](spx-overview.md)를 통해 사용할 수 있습니다.
 
@@ -63,5 +63,5 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 ## <a name="next-steps"></a>다음 단계
 
 * 음성 번역 [빠른](get-started-speech-translation.md) 시작 완료
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)

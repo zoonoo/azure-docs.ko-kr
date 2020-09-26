@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294532"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 컴퓨터에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -102,10 +102,10 @@ Linux 용 Log Analytics 에이전트는 여러 패키지로 구성 됩니다. �
 
 **패키지** | **Version** | **설명**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Linux 용 Log Analytics 에이전트
+omsagent | 1.13.9 | Linux 용 Log Analytics 에이전트
 omsconfig | 1.1.1 | Log Analytics 에이전트에 대 한 구성 에이전트
-omi | 1.6.3 | OMI (Open Management Infrastructure) – 경량 CIM 서버입니다. *OMI에는 서비스의 작동에 필요한 cron 작업을 실행 하는 데 필요한 루트 액세스가 필요 합니다.*
-scx | 1.6.3 | 운영 체제 성능 메트릭용 OMI CIM 공급자
+omi | 1.6.4 | OMI (Open Management Infrastructure) – 경량 CIM 서버입니다. *OMI에는 서비스의 작동에 필요한 cron 작업을 실행 하는 데 필요한 루트 액세스가 필요 합니다.*
+scx | 1.6.4 | 운영 체제 성능 메트릭용 OMI CIM 공급자
 apache-cimprov | 1.0.1 | OMI용 Apache HTTP 서버 성능 모니터링 공급자. Apache HTTP 서버가 감지되는 경우에만 설치됨.
 mysql-cimprov | 1.0.1 | OMI용 MySQL 서버 성능 모니터링 공급자. MySQL/MariaDB 서버가 감지되는 경우에만 설치됨.
 docker-cimprov | 1.0.0 | OMI용 Docker 공급자. Docker가 감지되는 경우에만 설치됨.
@@ -184,7 +184,7 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들면 다음과 같습니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

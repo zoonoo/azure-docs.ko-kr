@@ -3,12 +3,12 @@ title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336601"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
@@ -46,7 +46,7 @@ ms.locfileid: "89567608"
 
 - 다른 자동화에 사용 되는 기존 서비스 사용자에 게이 역할을 할당 하는 대신이 기능에만 사용할 [새 서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md) .
 - 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
-- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
+- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
 - 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322073"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요-Azure 파일 공유에 대 한 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
 
@@ -24,7 +24,7 @@ Azure 파일 공유를 처음 접하는 경우 다음 일련의 문서를 읽기
 
 - Azure Files 온-프레미스 AD DS 인증에 사용 되는 AD DS Id를 Azure AD에 동기화 해야 합니다. 암호 해시 동기화는 선택 사항입니다. 
 - Azure File Sync에서 관리 하는 Azure 파일 공유를 지원 합니다.
-- 는 RC4-HMAC 및 AES 256 암호화를 사용 하 여 AD에서 Kerberos 인증을 지원 합니다. AES 128 Kerberos 암호화는 아직 지원 되지 않습니다.
+- 는 RC4-HMAC 및 [AES 256 암호화](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 사용 하 여 AD에서 Kerberos 인증을 지원 합니다. AES 128 Kerberos 암호화는 아직 지원 되지 않습니다.
 - Single Sign-On 환경을 지원 합니다.
 - Windows 7 또는 Windows Server 2008 r 2 보다 최신 버전의 OS에서 실행 되는 클라이언트 에서만 지원 됩니다.
 - 저장소 계정이 등록 된 AD 포리스트에 대해서만 지원 됩니다. 기본적으로 단일 포리스트의 AD DS 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 다른 포리스트에서 Azure 파일 공유에 액세스 해야 하는 경우 적절 한 포리스트 트러스트를 구성 했는지 확인 하세요. 자세한 내용은 [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) 를 참조 하세요.
@@ -38,7 +38,7 @@ SMB를 통해 Azure 파일 공유에 대 한 AD DS를 사용 하도록 설정 �
 > - [온-프레미스 파일 서버를 Azure Files로 바꾸기 (파일 및 AD 인증을 위한 개인 링크의 설정 포함)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
 > - [Windows 가상 데스크톱에 대 한 프로필 컨테이너로 Azure Files 사용 (AD 인증 및 FsLogix 구성의 설정 포함)](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다. 
 

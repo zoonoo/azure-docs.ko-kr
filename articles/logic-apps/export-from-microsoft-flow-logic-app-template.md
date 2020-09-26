@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269559"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "87078746"
 >
 > * 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "87078746"
 
    1. 템플릿에 대 한 입력 매개 변수 값을 선택 하거나 지정 합니다.
 
-      | 속성 | 설명 |
+      | 속성 | Description |
       |----------|-------------|
       | **구독** | 청구에 사용할 Azure 구독입니다. |
       | **리소스 그룹** | 논리 앱에 사용할 Azure 리소스 그룹입니다. 기존 그룹을 사용 하거나 새 그룹을 만들 수 있습니다. |
@@ -96,7 +96,7 @@ ms.locfileid: "87078746"
 
    1. 권한 있는 연결이 필요한 각 단계에 대해 해당 단계를 확장 하 고 **새로 추가**를 선택 합니다.
 
-      ![새 연결을 추가합니다.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Outlook "연결" 창에서 선택한 "새로 추가" 단추를 보여 주는 스크린샷](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. 각 서비스에 로그인 하거나 연결 권한을 부여 하는 데 필요한 자격 증명을 제공 합니다.
 
@@ -120,13 +120,13 @@ ms.locfileid: "87078746"
 
    ![Azure 리소스 그룹 프로젝트 만들기](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. 솔루션이 만들어진 후 솔루션 탐색기에서 파일이 아직 열려 있지 않은 경우 파일 **에서LogicApp.js** 를 엽니다.
+1. 솔루션이 만들어진 후 솔루션 탐색기에서 파일이 아직 열려 있지 않은 경우 파일 ** 에서LogicApp.js** 를 엽니다.
 
 1. 내보낸 템플릿에서 콘텐츠를 복사 하 고 파일 **LogicApp.js** 의 내용을 덮어씁니다.
 
 1. 논리 앱을 배포 하기 전에 다음 단계를 수행 하 여 새 연결에 대 한 권한을 부여 합니다.
 
-   1. 바로 가기 메뉴 **에서LogicApp.js** 를 연 다음 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다.
+   1. 바로 가기 메뉴 ** 에서LogicApp.js** 를 연 다음 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다.
 
       ![논리 앱 디자이너를 사용 하 여 템플릿 열기](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 

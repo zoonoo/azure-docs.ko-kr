@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601829"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258715"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -116,6 +116,9 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
+> [!NOTE]
+> Edge 85 이상에서는 장치 id를 올바르게 전달 하기 위해 사용자에 게 브라우저에 로그인 해야 합니다. 그렇지 않으면 계정 확장이 없는 Chrome 처럼 동작 합니다. 이 로그인은 하이브리드 Azure AD 조인 시나리오에서 자동으로 발생 하지 않을 수 있습니다. 
+
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>브라우저에 인증서 프롬프트가 표시 되는 이유는 무엇 인가요?
 
 Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 때 프로 비전 되는 클라이언트 인증서를 사용 하 여 장치를 식별 합니다.  사용자가 브라우저를 통해 처음으로 로그인 하면 사용자에 게 인증서를 선택 하 라는 메시지가 표시 됩니다. 사용자는 브라우저를 사용 하기 전에이 인증서를 선택 해야 합니다.
@@ -174,7 +177,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요**를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)

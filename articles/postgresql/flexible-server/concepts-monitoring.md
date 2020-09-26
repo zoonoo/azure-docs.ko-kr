@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314677"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>메트릭 Azure Database for PostgreSQL 모니터링-유연한 서버
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 메트릭 모니터링
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
@@ -27,8 +27,9 @@ Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 
 PostgreSQL 유연한 서버에 사용할 수 있는 메트릭은 다음과 같습니다.
 
 
-|메트릭|메트릭 표시 이름|단위|설명|
+|메트릭|메트릭 표시 이름|단위|Description|
 |---|---|---|---|
+| active_connections | 활성 연결 수 | 개수 | 서버에 대 한 연결 수입니다. | 
 | backup_storage_used | 사용된 백업 스토리지 | 바이트 | 사용 된 백업 저장소의 양입니다. 이 메트릭은 서버에 대해 설정 된 백업 보존 기간에 따라 유지 되는 모든 전체 데이터베이스 백업, 차등 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 백업 빈도는 서비스에서 관리 됩니다. 지역 중복 저장소의 경우 백업 저장소 사용량이 로컬 중복 저장소의 두 배가 됩니다. |
 | connections_failed | 실패한 연결 | 개수 | 실패 한 연결입니다. |
 | connections_succeeded | 성공한 연결 | 개수 | 성공한 연결입니다. |

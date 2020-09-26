@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/25/2020
+ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270263"
+ms.locfileid: "91370983"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 또는 상태 비저장 워크플로 만들기
 
@@ -72,11 +72,11 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 * *상태 비저장*
 
-  이전 이벤트의 데이터를 저장 하거나 검토 하거나 참조 하지 않아도 되는 경우 상태 비저장 논리 앱을 만듭니다. 이러한 논리 앱은이 정보를 외부 저장소에 전송 하는 대신 각 작업 및 해당 워크플로 상태에 대 한 입력 및 출력을 메모리에만 유지 합니다. 그 결과, 상태 비저장 논리 앱은 일반적으로 5 분 보다 더 짧은 실행, 더 빠른 응답 시간으로 더 빠른 성능, 더 높은 처리량 및 실행 비용 절감, 실행 세부 정보 및 기록이 외부 저장소에 유지 되지 않기 때문입니다. 그러나 중단이 발생 하면 중단 된 실행이 자동으로 복원 되지 않으므로 호출자는 중단 된 실행을 수동으로 다시 전송 해야 합니다. 디버깅을 용이 하 게 하기 위해 상태 비저장 논리 앱에 대 한 [실행 기록을 사용 하도록 설정할](#run-history) 수 있습니다.
+  이후 검토를 위해 외부 저장소에서 이전 이벤트의 데이터를 저장, 검토 또는 참조할 필요가 없는 경우 상태 비저장 논리 앱을 만듭니다. 이러한 논리 앱은이 정보를 외부 저장소에 전송 하는 대신 각 작업 및 해당 워크플로 상태에 대 한 입력 및 출력을 메모리에만 유지 합니다. 그 결과, 상태 비저장 논리 앱은 일반적으로 5 분 보다 더 짧은 실행, 더 빠른 응답 시간으로 더 빠른 성능, 더 높은 처리량 및 실행 비용 절감, 실행 세부 정보 및 기록이 외부 저장소에 유지 되지 않기 때문입니다. 그러나 중단이 발생 하면 중단 된 실행이 자동으로 복원 되지 않으므로 호출자는 중단 된 실행을 수동으로 다시 전송 해야 합니다. 이러한 논리 앱은 동기적 으로만 실행할 수 있으며 디버깅을 용이 하 게 하기 위해 성능에 약간의 영향을 주는 [실행 기록을 사용 하도록 설정할](#run-history)수 있습니다.
 
   상태 비저장 워크플로는 현재 instead of [관리 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대 한 동작만 지원 합니다. 워크플로를 시작 하려면 [기본 제공 요청, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md#built-ins)를 선택 합니다. 지원 되지 않는 트리거, 동작 및 커넥터에 대 한 자세한 내용은 [지원 되지 않는 기능](#unsupported)을 참조 하세요.
 
-상태 저장 및 상태 비저장 논리 앱 간에 중첩 된 논리 앱이 작동 하는 방식에 대 한 차이점은 [상태 저장 및 상태 비저장 논리 앱 간의 중첩 동작 차이점](#nested-behavior)을 참조 하세요.
+상태 저장 및 상태 비저장 논리 앱 간에 중첩 된 논리 앱이 다르게 동작 하는 방법에 대 한 자세한 내용은 [상태 저장 및 상태 비저장 논리 앱 간의 중첩 된 동작 차이점](#nested-behavior)을 참조 하세요.
 
 <a name="pricing-model"></a>
 
@@ -918,7 +918,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>상태 저장 논리 앱과 상태 비저장 논리 앱의 중첩 된 동작 차이점
 
-[ApiConnectionWehook 형식을](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) 사용 하 고 HTTPS 요청을 받을 수 있는 [요청](../connectors/connectors-native-reqres.md) 트리거, [HTTP Webhook](../connectors/connectors-native-webhook.md) 트리거 또는 관리 되는 커넥터 트리거를 사용 하 여 다른 논리 앱 워크플로에서 호출할 수 있는 [논리 앱 워크플로를 만들](../logic-apps/logic-apps-http-endpoint.md) 수 있습니다.
+[ApiConnectionWehook 형식을](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) 사용 하 고 HTTPS 요청을 받을 수 있는 [요청](../connectors/connectors-native-reqres.md) 트리거, [HTTP Webhook](../connectors/connectors-native-webhook.md) 트리거 또는 관리 되는 커넥터 트리거를 사용 하 여 동일한 **논리 앱 (미리 보기)** 리소스에 있는 다른 논리 앱 워크플로에서 호출할 수 있는 [논리 앱 워크플로를 만들](../logic-apps/logic-apps-http-endpoint.md) 수 있습니다.
 
 부모 워크플로를 통해 자식 워크플로를 호출한 후 중첩 된 논리 앱 워크플로에서 수행할 수 있는 동작 패턴은 다음과 같습니다.
 
@@ -930,7 +930,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
   자식은 즉시 응답을 반환 하 여 호출을 승인 `202 ACCEPTED` 하 고 부모는 자식의 결과를 기다리지 않고 다음 작업을 계속 합니다. 대신, 부모는 자식의 실행이 완료 될 때 결과를 받습니다. 응답 동작을 포함 하지 않는 자식 상태 저장 워크플로는 항상 동기 패턴을 따릅니다. 자식 상태 저장 워크플로의 경우 실행 기록을 검토할 수 있습니다.
 
-  이 동작을 사용 하도록 설정 하려면 워크플로의 JSON 정의에서 `OperationOptions` 속성을로 설정 합니다 `DisableAsyncPattern` . 자세한 내용은 [트리거 및 작업 형식-작업 옵션](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)을 참조 하세요.
+  이 동작을 사용 하도록 설정 하려면 워크플로의 JSON 정의에서 `operationOptions` 속성을로 설정 합니다 `DisableAsyncPattern` . 자세한 내용은 [트리거 및 작업 형식-작업 옵션](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)을 참조 하세요.
 
 * 트리거 및 대기
 
@@ -966,7 +966,9 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
 * 새 **논리 앱 (미리 보기)** 리소스 만들기는 현재 macos에서 사용할 수 없습니다.
 
-* 사용자 지정 커넥터, webhook 기반 트리거 및 슬라이딩 윈도우 트리거는이 미리 보기에서 지원 되지 않습니다. 상태 비저장 논리 앱 워크플로의 경우 트리거가 아닌 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대해서만 작업을 추가할 수 있습니다. 워크플로를 시작 하려면 [기본 제공 요청, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md#built-ins)를 사용 합니다.
+* 워크플로를 시작 하려면 [Request, HTTP, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 현재, [엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors), [온-프레미스 데이터 게이트웨이 트리거](../connectors/apis-list.md#on-premises-connectors), Webhook 기반 트리거, 슬라이딩 윈도우 트리거, [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors), 통합 계정, 해당 아티팩트 및 [커넥터는](../connectors/apis-list.md#integration-account-connectors) 이 미리 보기에서 지원 되지 않습니다. "Azure 함수 호출" 기능을 사용할 수 없으므로 지금은 HTTP *작업* 을 사용 하 여 azure function에 대 한 요청 URL을 호출 합니다.
+
+  상태 비저장 논리 앱 워크플로는 트리거가 아니라 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대해서만 작업을 사용할 수 있습니다. 이전에 지정한 트리거를 제외 하 고, 상태 저장 워크플로는 관리 되는 커넥터에 대해 트리거와 작업을 모두 사용할 수 있습니다.
 
 * 새 **논리 앱 (미리 보기)** 리소스 유형은 [Azure의 프리미엄 또는 App Service 호스팅 계획](#publish-azure) 에만 배포 하거나 [ISEs (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)이 아닌 [Docker 컨테이너](#deploy-docker)에 배포할 수 있습니다. **소비** 호스팅 계획은이 리소스 종류를 배포 하는 데 지원 되지 않으며 사용할 수 없습니다.
 

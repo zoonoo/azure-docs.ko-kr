@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335503"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -34,15 +34,15 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 ### <a name="general"></a><a name="open-api-general"> </a>일반
 
 -   경로와 쿼리 간에 필수 매개 변수 이름은 고유해야 합니다. OpenAPI에서는 매개 변수 이름이 경로, 쿼리, 헤더 등의 특정 위치 내에서만 고유하면 됩니다. 하지만 API Management에서는 경로 및 쿼리 매개 변수를 기준으로 작업을 구분할 수 있습니다. OpenAPI에서는 이러한 구분이 지원되지 않습니다. 따라서 전체 URL 템플릿 내에서 매개 변수 이름이 고유해야 합니다.
--   `\$ref`포인터는 외부 파일을 참조할 수 없습니다.
--   `x-ms-paths`및 `x-servers` 는 유일 하 게 지원 되는 확장입니다.
+-   `\$ref` 포인터는 외부 파일을 참조할 수 없습니다.
+-   `x-ms-paths` 및 `x-servers` 는 유일 하 게 지원 되는 확장입니다.
 -   사용자 지정 확장명은 가져오기 시 무시되며 내보내기용으로 저장되거나 보존되지 않습니다.
--   `Recursion`-API Management는 자신을 참조 하는 스키마와 같이 재귀적으로 정의 된 정의를 지원 하지 않습니다.
+-   `Recursion` -API Management는 자신을 참조 하는 스키마와 같이 재귀적으로 정의 된 정의를 지원 하지 않습니다.
 -   이 경우에는 원본 파일 URL(사용 가능한 경우)이 상대 서버 URL에 적용됩니다.
 -   보안 정의는 무시 됩니다.
 -   API 작업에 대 한 인라인 스키마 정의는 지원 되지 않습니다. 스키마 정의는 API 범위에서 정의 되며 API 작업 요청 또는 응답 범위에서 참조할 수 있습니다.
 -   정의 된 URL 매개 변수는 URL 템플릿의 일부 여야 합니다.
--   `Produces`API에서 반환 하는 MIME 형식을 설명 하는 키워드는 지원 되지 않습니다. 
+-   `Produces` API에서 반환 하는 MIME 형식을 설명 하는 키워드는 지원 되지 않습니다. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI 버전 2
 
@@ -51,13 +51,17 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>OpenAPI 버전 3
 
 -   여러 개 `servers` 를 지정 하면 API Management에서 첫 번째 HTTPS URL을 선택 하려고 시도 합니다. HTTPs URL이 없으면 첫 번째 HTTP URL이 선택됩니다. HTTP URL도 없으면 서버 URL은 비어 있게 됩니다.
--   `Examples`는 지원 되지 않지만 `example` 는입니다.
+-   `Examples` 는 지원 되지 않지만 `example` 는입니다.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI 가져오기, 업데이트 및 내보내기 메커니즘
 
+### <a name="general"></a><a name="open-import-export-general"> </a>일반
+
+-   API Management 서비스에서 내보낸 API 정의는 주로 API Management 서비스에서 호스트 되는 API를 호출 해야 하는 API Management 서비스 외부에 있는 응용 프로그램을 위한 것입니다. 내보낸 API 정의는 동일 하거나 다른 API Management 서비스로 다시 가져올 수 없습니다. 다른 서비스/envionments에서 API defiitions의 구성 관리에 대 한 자세한 내용은 Git에서 API Management Service 사용에 대 한 설명서를 참조 하세요. 
+
 ### <a name="add-new-api-via-openapi-import"></a>OpenAPI 가져오기를 통해 새 API 추가
 
-OpenAPI 문서에 있는 각 작업에 대해 Azure 리소스 이름 및 표시 이름을 각각 및로 설정 하 여 새 작업이 생성 `operationId` 됩니다 `summary` . `operationId`값은 아래에 설명 된 규칙에 따라 정규화 됩니다. `summary`값은 있는 그대로 가져오고 길이는 300 자로 제한 됩니다.
+OpenAPI 문서에 있는 각 작업에 대해 Azure 리소스 이름 및 표시 이름을 각각 및로 설정 하 여 새 작업이 생성 `operationId` 됩니다 `summary` . `operationId` 값은 아래에 설명 된 규칙에 따라 정규화 됩니다. `summary` 값은 있는 그대로 가져오고 길이는 300 자로 제한 됩니다.
 
 가 지정 되지 않은 경우 (즉, `operationId` 존재 하지 않거나, 비어 있지 않은 경우 `null` ), HTTP 메서드와 경로 템플릿을 결합 하 여 Azure 리소스 이름 값이 생성 됩니다 (예:) `get-foo` .
 
@@ -86,7 +90,7 @@ OperationId의 정규화 규칙
 
 - 소문자로 변환합니다.
 - 영숫자가 아닌 문자의 각 시퀀스를 단일 대시로 바꿉니다. 예를 들어 `GET-/foo/{bar}?buzz={quix}` 는로 변환 됩니다 `get-foo-bar-buzz-quix-` .
-- 예를 들어 양쪽에서 대시를 트리밍하 `get-foo-bar-buzz-quix-` 는 경우`get-foo-bar-buzz-quix`
+- 예를 들어 양쪽에서 대시를 트리밍하 `get-foo-bar-buzz-quix-` 는 경우 `get-foo-bar-buzz-quix`
 - 크기를 조정 하면 76 문자, 4 자는 리소스 이름에 대 한 최대 한도 미만으로 잘립니다.
 - 필요한 경우 중복 제거 접미사에 대해 나머지 네 문자를 형식으로 사용 `-1, -2, ..., -999` 합니다.
 

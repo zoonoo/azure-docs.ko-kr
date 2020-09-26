@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73824109"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282105"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>로컬 개발을 위한 종속성 배포
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 이 문서에서는 로컬 개발 및 디버깅을 수행 하는 데 필요한 Azure Platform 서비스만 배포 하는 방법을 설명 합니다.   마지막으로 로컬 개발 및 디버깅에 필요한 모든 것을 포함 하는 리소스 그룹이 배포 됩니다.
 
@@ -32,7 +35,7 @@ ms.locfileid: "73824109"
    deploy -type local
    ```
 
-2. 프롬프트에 따라 배포에 대 한 리소스 그룹에 이름을 할당 합니다.  이 스크립트는 Azure 구독의이 리소스 그룹에 대 한 종속성만 배포 하지만 마이크로 서비스는 배포 하지 않습니다.  또한 스크립트는 Azure Active Directory에 응용 프로그램을 등록 합니다.  이는 OAUTH 기반 인증을 지 원하는 데 필요 합니다.  배포에는 몇 분 정도 걸릴 수 있습니다.
+2. 프롬프트에 따라 배포에 대 한 리소스 그룹에 이름을 할당 합니다.  이 스크립트는 Azure 구독의이 리소스 그룹에 대 한 종속성만 배포 하지만 마이크로 서비스는 배포 하지 않습니다.  또한이 스크립트는 Azure AD에 응용 프로그램을 등록 합니다.  이는 OAUTH 기반 인증을 지 원하는 데 필요 합니다.  배포에는 몇 분 정도 걸릴 수 있습니다.
 
 3. 스크립트가 완료 되 면를 선택 하 여 env 파일을 저장할 수 있습니다.  Env 환경 파일은 개발 컴퓨터에서 실행 하려는 모든 서비스 및 도구의 구성 파일입니다.  
 
@@ -42,12 +45,12 @@ ms.locfileid: "73824109"
 
 짧고 간단한 리소스 그룹 이름을 사용 해야 합니다.  이름은 리소스 명명 요구 사항을 준수 해야 하는 경우에도 리소스의 이름을 지정 하는 데 사용 됩니다.  
 
-### <a name="azure-active-directory-aad-registration"></a>AAD (Azure Active Directory) 등록
+### <a name="azure-active-directory-ad-registration"></a>AD (Azure Active Directory) 등록
 
-배포 스크립트는 Azure Active Directory에서 AAD 응용 프로그램을 등록 하려고 시도 합니다.  선택한 AAD 테 넌 트에 대 한 권한에 따라이 작업이 실패할 수 있습니다.   세 개의 옵션이 있습니다.
+배포 스크립트는 Azure AD에서 Azure AD 응용 프로그램을 등록 하려고 합니다.  선택한 Azure AD 테 넌 트에 대 한 권한에 따라이 작업이 실패할 수 있습니다. 세 개의 옵션이 있습니다.
 
-1. 테 넌 트 목록에서 AAD 테 넌 트를 선택한 경우 스크립트를 다시 시작 하 고 목록에서 다른 항목을 선택 합니다.
-2. 또는 개인 AAD 테 넌 트를 배포 하 고 스크립트를 다시 시작 하 고 사용 하도록 선택 합니다.
+1. 테 넌 트 목록에서 Azure AD 테 넌 트를 선택한 경우 스크립트를 다시 시작 하 고 목록에서 다른 항목을 선택 합니다.
+2. 또는 개인 Azure AD 테 넌 트를 배포 하 고 스크립트를 다시 시작 하 고 사용 하도록 선택 합니다.
 3. 인증 없이 계속 합니다.  마이크로 서비스를 로컬로 실행 하 고 있으므로이는 허용 되지만 프로덕션 환경을 모방 하지는 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계

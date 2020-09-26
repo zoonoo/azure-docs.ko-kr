@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 463f5d5360e19fdd7f49139aea4c6dc65baf903c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357474"
 ---
-# <a name="cicd-for-custom-speech"></a>Custom Speech 용 CI/CD
+# <a name="cicd-for-custom-speech"></a>Custom Speech용 CI/CD
 
 학습 및 테스트 데이터에 업데이트를 적용할 때 Custom Speech 모델을 지속적으로 향상 시킬 수 있도록 자동화 된 학습, 테스트 및 릴리스 관리를 구현 합니다. CI/CD 워크플로를 효과적으로 구현 하 여 가장 적합 한 Custom Speech 모델에 대 한 끝점을 항상 사용할 수 있는지 확인할 수 있습니다.
 
@@ -74,7 +74,7 @@ CI/CD 워크플로의 주요 목적은 학습 데이터를 사용 하 여 새 �
 Custom Speech에 대 한 CI/CD 자동화 워크플로에 대 한 다음 도구를 사용 합니다.
 
 - Azure 서비스 주체 인증을 만들고 azure 구독을 쿼리 하 고 테스트 결과를 Azure Blob에 저장 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 합니다.
-- 명령줄 또는 자동화 된 워크플로에서 음성 서비스와 상호 작용 하는 [Azure SPEECH CLI](https://github.com/msimecek/Azure-Speech-CLI) .
+- 명령줄 또는 자동화 된 워크플로에서 음성 서비스와 상호 작용 하는 [Azure SPEECH CLI](spx-overview.md) .
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>GitHub 작업을 사용 하 Custom Speech에 대 한 DevOps 솔루션
 

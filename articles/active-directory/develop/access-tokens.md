@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 9aa5eb54d79d98627697c51ee7dcb16a44fccb60
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258524"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -266,9 +266,17 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 관리자가 [PowerShell을 통해](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) 사용자에 대한 모든 새로 고침 토큰 해지 | 해지됨 | 해지됨 |해지됨 | 해지됨 | 해지됨 |
 | 웹의 SSO(Single Sign-Out)([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out) ) | 해지됨 | 활성 상태 | 해지됨 | 활성 상태 | 활성 상태 |
 
+#### <a name="non-password-based"></a>암호 기반이 아닌
+
+*암호 기반* 로그인은 사용자가 암호를 입력 하지 않은 로그인입니다. 암호 기반이 아닌 로그인의 예는 다음과 같습니다.
+
+- Windows Hello에서 얼굴 사용
+- FIDO2 키
+- SMS
+- 음성
+- PIN 
+
 > [!NOTE]
-> "비 암호 기반" 로그인은 사용자가 가져오도록 암호를 입력하지 않은 위치입니다. 예를 들어 Windows Hello 얼굴, FIDO2 키 또는 PIN을 사용합니다.
->
 > Windows 10의 PRT(기본 새로 고침 토큰)는 자격 증명에 따라 분리됩니다. 예를 들어 Windows Hello 및 암호에는 서로 격리된 각각의 PRT가 있습니다. 사용자가 Hello 자격 증명(PIN 또는 생체 인식)으로 로그인한 다음, 암호를 변경하는 경우 이전에 획득된 암호 기반 PRT는 철회됩니다. 암호를 사용하여 다시 로그인하면 이전 PRT가 무효화되고 새 PRT가 요청됩니다.
 >
 > 새로 고침 토큰은 새 액세스 토큰과 새로 고침 토큰을 가져오는 데 사용하면 무효화되거나 취소되지 않습니다.  그러나 새 토큰에는 새로운 만료 시간이 있으므로 앱에서 사용하는 즉시 이전 항목을 삭제하고 새 토큰으로 대체해야 합니다. 

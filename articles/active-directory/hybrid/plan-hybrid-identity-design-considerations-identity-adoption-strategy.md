@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294871"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -55,7 +55,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 전략 | 장점 | 단점 |
 | --- | --- | --- |
 | **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br>  암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
-| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
+| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 정책에 따라 디렉터리를 클라우드로 동기화 하는 것을 꺼려할 수 있습니다. |
 | **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다 <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
 
 ### <a name="client-experience"></a>클라이언트 환경
@@ -68,7 +68,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 웹 브라우저 |양식 기반 인증 |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
-| 비즈니스용 OneDrive |자격 증명 확인 |Single Sign-On |
+| OneDrive for Business |자격 증명 확인 |Single Sign-On |
 | Office Pro Plus 구독 |자격 증명 확인 |Single Sign-On |
 
 **외부 또는 신뢰할 수 없는 원본**:
@@ -185,17 +185,17 @@ Multi-Factor 설계 옵션:
 | Microsoft 앱 |예 |예 |
 | 앱 갤러리의 SaaS 앱 |예 |예 |
 | Azure AD 앱 프록시를 통해 IIS 애플리케이션 게시됨 |예 |예 |
-| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |no |예 |
-| VPN 및 RDG와 같은 원격 액세스 |no |예 |
+| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |아니요 |예 |
+| VPN 및 RDG와 같은 원격 액세스 |아니요 |예 |
 
 전략에 대한 솔루션에 적응했더라도 여전히 사용자가 있는 위치의 위쪽에서 평가를 사용해야 합니다.  솔루션을 변경할 수 있습니다.  아래 테이블을 사용하여 다음을 결정하는 데 도움이 됩니다.
 
 | 사용자 위치 | 선호하는 설계 옵션 |
 | --- | --- |
 | Azure Active Directory |클라우드에서의 Multi-Factor Authentication |
-| Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |모두 |
-| 암호 동기화 없이 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |모두 |
-| 암호 동기화와 함께 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |모두 |
+| Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |Both |
+| 암호 동기화 없이 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |Both |
+| 암호 동기화와 함께 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |Both |
 | 온-프레미스 AD |Multi-Factor Authentication 서버 |
 
 > [!NOTE]

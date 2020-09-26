@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362162"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358545"
 ---
 # <a name="what-is-custom-commands"></a>사용자 지정 명령이란?
 
@@ -52,7 +52,7 @@ ms.locfileid: "85362162"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [샘플에 대 한 GitHub의 음성 도우미 리포지토리 보기](https://aka.ms/speech/cc-samples)
 * [Speech Studio로 이동 하 여 사용자 지정 명령 사용해 보기](https://speech.microsoft.com/customcommands)
 * [Speech SDK 가져오기](speech-sdk.md)

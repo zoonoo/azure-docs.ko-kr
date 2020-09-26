@@ -4,12 +4,12 @@ description: Azure Site Recovery로 Vm/물리적 서버를 Azure로 장애 조�
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317891"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 실행
 
@@ -46,7 +46,7 @@ ms.locfileid: "90563984"
 1. Site Recovery 자격 증명 모음에서 **복구 계획**  >  *recoveryplan_name*을 선택 합니다.
 2. **장애 조치**를 클릭합니다.
 
-    ![자세히 메뉴에서 장애 조치 (Failover)가 선택 된 ADRP 창이 표시 됩니다.](./media/site-recovery-failover/Failover.png)
+    ![추가 메뉴에서 장애 조치 (Failover)가 선택 된 ADRP 창을 보여 주는 Azure Site Recovery의 스크린샷](./media/site-recovery-failover/Failover.png)
 
 3. 장애 조치 ( **failover**  >  **) 방향**에서 Azure에 복제 하는 경우 기본값을 그대로 둡니다.
 4. **장애 조치 (Failover)** 에서 장애 조치 (failover) 할 **복구 지점을** 선택 합니다.
@@ -81,7 +81,7 @@ Hyper-v Vm에 대해 계획 된 장애 조치 (failover)를 실행할 수 있습
 
 장애 조치 (failover)와 관련 된 여러 작업이 있습니다.
 
-![장애 조치](./media/site-recovery-failover/FailoverJob.png)
+![이름 열에서 그룹 1: Start (1)가 확장 된 작업 목록을 보여 주는 작업 페이지의 스크린샷 SQLServer 작업의 줄이 강조 표시 됩니다.](./media/site-recovery-failover/FailoverJob.png)
 
 - **필수 조건 확인**: 장애 조치 (failover)에 필요한 모든 조건이 충족 되는지 확인 합니다.
 - **장애 조치 (Failover)**: 데이터를 처리 하 여 Azure VM을 만들 수 있도록 합니다. **최신** 복구 지점을 선택한 경우 서비스로 전송 된 데이터에서 복구 지점이 생성 됩니다.

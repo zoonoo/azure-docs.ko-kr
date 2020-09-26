@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: ec4103251d27114b8fe40101c0e78c259106a440
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1cc94519525d5f87a14769b0109e425171265c6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258322"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Java 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -101,7 +101,7 @@ Java 용 MSAL에는 ADAL4j을 사용 하 여 얻은 새로 고침 토큰을 Clie
 다음 코드 조각에서는 기밀 클라이언트 응용 프로그램의 일부 마이그레이션 코드를 보여 줍니다.
 
 ```java
-String rt = GetCachedRefreshTokenForSIgnedInUser(); // Get refresh token from where you have them stored
+String rt = GetCachedRefreshTokenForSignedInUser(); // Get refresh token from where you have them stored
 Set<String> scopes = Collections.singleton("SCOPE_FOR_REFRESH_TOKEN");
 
 RefreshTokenParameters parameters = RefreshTokenParameters.builder(scopes, rt).build();

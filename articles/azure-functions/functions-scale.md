@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372666"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -34,7 +34,7 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 이 서버리스 계획은 자동으로 크기를 조정하며, 함수를 실행하는 경우에만 컴퓨팅 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
-청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, 함수 앱 내의 모든 함수에 대한 청구가 집계됩니다. 자세한 내용은 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.
+청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, 사용은 함수 앱 내의 모든 함수에 대해 집계 됩니다. 자세한 내용은 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.
 
 소비 계획은 기본 호스팅 계획이며 다음과 같은 이점을 제공합니다.
 
@@ -58,7 +58,7 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 프리미엄 계획에서 함수 앱을 만드는 방법에 대 한 자세한 내용은 [Azure Functions 프리미엄 요금제](functions-premium-plan.md)를 참조 하세요.
 
-실행 당 청구 및 사용 되는 메모리 대신 프리미엄 요금제에 대 한 청구는 필요한 코어 초와 준비 인스턴스 수에 사용 되는 메모리에 따라 결정 됩니다. 하나 이상의 인스턴스가 계획 당 항상 웜 되어야 합니다. 즉, 실행 수에 관계 없이 활성 계획 당 최소 월별 비용이 발생 합니다. 프리미엄 계획의 모든 함수 앱은 준비 및 활성 인스턴스를 공유 한다는 점에 유의 하세요.
+실행 당 청구 및 사용 되는 메모리 대신 프리미엄 요금제에 대 한 청구는 코어 초 수와 여러 인스턴스에 할당 된 메모리를 기준으로 합니다.  프리미엄 요금제를 사용 하 여 실행 요금이 부과 되지 않습니다. 하나 이상의 인스턴스는 계획 당 항상 할당 되어야 합니다. 이로 인해 함수가 활성 또는 유휴 상태 인지에 관계 없이 활성 계획 당 최소 월별 비용이 발생 합니다. 프리미엄 계획의 모든 함수 앱은 할당 된 인스턴스를 공유 한다는 점에 유의 하세요.
 
 다음과 같은 경우 Azure Functions 프리미엄 계획을 고려 합니다.
 
@@ -79,12 +79,12 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 웹 앱과 같은 다른 App Service 리소스의 경우와 마찬가지로 App Service 계획에서 함수 앱에 대해 동일한 비용을 지불 합니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/overview-hosting-plans.md)를 참조하세요.
 
-App Service 계획을 사용 하면 더 많은 VM 인스턴스를 추가 하 여 수동으로 확장할 수 있습니다. 자동 크기 조정을 사용 하도록 설정할 수도 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요. 다른 App Service 계획을 선택하여 확장할 수도 있습니다. 자세한 내용은 [Azure에서 앱 확장](../app-service/manage-scale-up.md)을 참조하세요. 
+App Service 계획을 사용 하면 더 많은 VM 인스턴스를 추가 하 여 수동으로 확장할 수 있습니다. 자동 크기 조정을 사용 하도록 설정할 수도 있습니다 .이 경우 자동 크기 조정은 프리미엄 계획의 탄력적 확장 보다 느립니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요. 다른 App Service 계획을 선택하여 확장할 수도 있습니다. 자세한 내용은 [Azure에서 앱 확장](../app-service/manage-scale-up.md)을 참조하세요. 
 
 App Service 계획에서 JavaScript 함수를 실행 중인 경우 vCPU 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [단일 코어 App Service 계획 선택](functions-reference-node.md#choose-single-vcpu-app-service-plans)을 참조 하세요. 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-ASE ( [App Service Environment](../app-service/environment/intro.md) )에서 실행 하면 함수를 완전히 격리 하 고 높은 규모의 이점을 활용할 수 있습니다.
+ASE ( [App Service Environment](../app-service/environment/intro.md) )에서를 실행 하면 함수를 완전히 격리 하 고 App Service 계획 보다 많은 인스턴스를 활용할 수 있습니다.
 
 ### <a name="always-on"></a><a name="always-on"></a> Always On
 
@@ -121,6 +121,12 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 저장소 계정 유형에 대 한 자세한 내용은 [Azure Storage Services 소개](../storage/common/storage-introduction.md#core-storage-services)를 참조 하세요.
+
+### <a name="in-region-data-residency"></a>지역 데이터 상주
+
+모든 고객 데이터가 단일 지역 내에 유지 되는 경우에는 함수 앱과 연결 된 저장소 계정이 [지역 중복성에서](../storage/common/storage-redundancy.md)하나 여야 합니다.  지역 중복 저장소 계정은 Durable Functions에 대해 [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) 에도 사용 해야 합니다.
+
+다른 플랫폼 관리 고객 데이터는 내부 Load Balancer App Service Environment (ILB ASE)에서 호스팅할 때만 지역 내에 저장 됩니다.  세부 정보는 [ASE 영역 중복성](../app-service/environment/zone-redundancy.md#in-region-data-residency)에서 찾을 수 있습니다.
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>소비 및 프리미엄 플랜의 작동 방식
 
@@ -185,7 +191,7 @@ Python 및 Node.js의 크기 조정에 대 한 자세한 내용은 [Azure Functi
 |**[소비 계획](#consumption-plan)**| 자동으로 크기를 조정 하 고 함수를 실행 하는 경우 계산 리소스에 대해서만 비용을 지불 합니다. 소비 계획에서 함수 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다.<br/> 기본 호스팅 계획을 ✔ 합니다.<br/>함수를 실행 하는 경우에만 ✔ 요금을 지불 합니다.<br/>부하가 높은 기간 동안에도 자동으로 확장 ✔ 합니다.|  
 |**[프리미엄 플랜](#premium-plan)**|수요에 따라 자동으로 크기를 조정 하는 동안에는 사전 준비 작업자를 사용 하 여 유휴 상태에서 지연 없이 응용 프로그램을 실행 하 고, 더 강력한 인스턴스를 실행 하 고, Vnet에 연결 합니다. App Service 계획의 모든 기능 외에도 다음과 같은 경우에 Azure Functions 프리미엄 계획을 고려해 야 합니다. <br/>함수 앱이 계속 해 서 또는 거의 계속 실행 ✔.<br/>적은 수의 작은 실행을 사용 하 고 실행 청구서가 많고 소비 계획에 낮은 GB의 두 번째 청구서가 있는 ✔.<br/>✔ 소비 계획에서 제공 하는 것 보다 더 많은 CPU 또는 메모리 옵션이 필요 합니다.<br/>소비 계획에서 허용 되는 최대 실행 시간 보다 오래 실행 되어야 하는 코드를 ✔ 합니다.<br/>✔ 가상 네트워크 연결과 같이 프리미엄 요금제 에서만 사용할 수 있는 기능이 필요 합니다.|  
 |**[전용 요금제](#app-service-plan)**<sup>1</sup>|정기적 App Service 요금제 속도로 App Service 계획 내에서 함수를 실행 합니다. 장기 실행 작업 뿐만 아니라 더 많은 예측 크기 조정 및 비용이 필요한 경우에 적합 합니다. 다음과 같은 경우 App Service 계획을 고려해 야 합니다.<br/>다른 App Service 인스턴스를 이미 실행 중인 기존의 미달 사용 Vm이 있는 ✔ 합니다.<br/>함수를 실행 하는 데 사용할 사용자 지정 이미지를 제공할 ✔ 합니다.|  
-|**[ASE](#app-service-plan)**<sup>1</sup>|ASE (App Service Environment)는 App Service 앱을 매우 대규모로 안전 하 게 실행 하기 위해 완전히 격리 된 전용 환경을 제공 하는 App Service 기능입니다. Ase는 다음이 필요한 응용 프로그램 작업에 적합 합니다. <br/>✔ 매우 높습니다.<br/>격리 및 보안 네트워크 액세스를 ✔ 합니다.<br/>높은 메모리 사용률을 ✔ 합니다.|  
+|**[ASE](#app-service-plan)**<sup>1</sup>|ASE (App Service Environment)는 App Service 앱을 매우 대규모로 안전 하 게 실행 하기 위해 완전히 격리 된 전용 환경을 제공 하는 App Service 기능입니다. Ase는 다음이 필요한 응용 프로그램 작업에 적합 합니다. <br/>✔ 매우 높습니다.<br/>전체 계산 격리 및 보안 네트워크 액세스를 ✔ 합니다.<br/>높은 메모리 사용률을 ✔ 합니다.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes는 Kubernetes 플랫폼을 기반으로 실행 되는 완전히 격리 된 전용 환경을 제공 합니다.  Kubernetes는 다음이 필요한 응용 프로그램 작업에 적합 합니다. <br/>사용자 지정 하드웨어 요구 사항을 ✔ 합니다.<br/>격리 및 보안 네트워크 액세스를 ✔ 합니다.<br/>하이브리드 또는 다중 클라우드 환경에서 실행할 수 있는 ✔.<br/>✔ 기존 Kubernetes 응용 프로그램 및 서비스와 함께 실행 됩니다.|  
 
 <sup>1</sup> 다양 한 App Service 계획 옵션에 대 한 특정 한도는 [App Service 계획 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)을 참조 하세요.

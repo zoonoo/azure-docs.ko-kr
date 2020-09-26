@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294252"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -59,7 +59,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
    ![CPU 기준 크기 조정][8]
 1. **저장**을 클릭합니다.
 
-지금까지 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
+축하합니다! 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
 
 > [!NOTE]
 > 가상 머신 확장 집합 또는 Cloud Service 역할의 크기 조정을 시작하려는 경우에도 동일한 단계를 적용할 수 있습니다.
@@ -119,7 +119,7 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 ### <a name="health-check-path"></a>상태 검사 경로
 
-200에서 299 (포함) 사이의 상태 코드를 사용 하 여 2 분 이내에 경로를 응답 해야 합니다. 경로가 2 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 시스템은 이러한 microsoft.powershell.secuity 기능을 사용 하는 경우에도 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에서 HTTP**S** 를 사용 하도록 설정한 경우 healthcheck는 먼저 http 끝점에 도달 하 고 HTTPS 끝점에 307 http 리디렉션을 적용 합니다.
+200에서 299 (포함) 사이의 상태 코드를 사용 하 여 2 분 이내에 경로를 응답 해야 합니다. 경로가 2 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 시스템은 이러한 microsoft.powershell.secuity 기능을 사용 하는 경우에도 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에 HTTP**s**만 사용 하도록 설정 된 경우 http**s**를 통해 healthcheck 요청이 전송 됩니다.
 
 상태 검사 경로는 응용 프로그램의 중요 한 구성 요소를 확인 해야 합니다. 예를 들어 응용 프로그램이 데이터베이스 및 메시징 시스템에 종속 된 경우 상태 검사 끝점은 해당 구성 요소에 연결 해야 합니다. 응용 프로그램에서 중요 한 구성 요소에 연결할 수 없는 경우이 경로는 앱이 비정상 상태임을 나타내기 위해 500 수준 응답 코드를 반환 해야 합니다.
 

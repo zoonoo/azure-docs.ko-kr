@@ -3,12 +3,12 @@ title: Azure Service Bus 지리적 재해 복구 | Microsoft Docs
 description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Service Bus에서 재해 복구를 수행하는 방법
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372526"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus 지역 재해 복구
 
@@ -149,7 +149,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 > [!NOTE]
 > 프라이빗 엔드포인트가 있는 기본 네임스페이스를 보조 네임스페이스와 페어링하려고 시도하면 유효성 검사 프로세스에서는 보조 네임스페이스에 프라이빗 엔드포인트가 있는지만 검사합니다. 엔드포인트가 장애 조치(failover) 후 작동하는지 또는 작동할지는 검사하지 않습니다. 장애 조치(failover) 후 프라이빗 엔드포인트가 있는 보조 네임스페이스가 예상대로 작동하는지 검사하는 것은 사용자의 책임입니다.
 >
-> 프라이빗 엔드포인트 구성이 동일한지 테스트하려면 가상 네트워크 외부에서 보조 네임스페이스로 [큐 가져오기](/rest/api/servicebus/queues/get) 요청을 보내고 서비스에서 오류 메시지를 수신하는지 확인합니다.
+> 프라이빗 엔드포인트 구성이 동일한지 테스트하려면 가상 네트워크 외부에서 보조 네임스페이스로 [큐 가져오기](/rest/api/servicebus/stable/queues/get) 요청을 보내고 서비스에서 오류 메시지를 수신하는지 확인합니다.
 
 ### <a name="existing-pairings"></a>기존 페어링
 기본 네임스페이스와 보조 네임스페이스 간의 페어링이 이미 있는 경우에는 기본 네임스페이스에서 프라이빗 엔드포인트 만들기가 실패합니다. 이 문제를 해결하려면 먼저 보조 네임스페이스에 프라이빗 엔드포인트를 만든 다음, 기본 네임스페이스에 프라이빗 엔드포인트를 만듭니다.
@@ -179,7 +179,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 
 ## <a name="next-steps"></a>다음 단계
 
-- 지리적 재해 복구를 참조합니다[REST API 참조](/rest/api/servicebus/disasterrecoveryconfigs).
+- 지리적 재해 복구를 참조합니다[REST API 참조](/rest/api/servicebus/stable/disasterrecoveryconfigs).
 - 지리적 재해 복구를 실행합니다[GitHub의 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 - 지리적 재해 복구를 참조합니다[별칭으로 메시지를 전송하는 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 

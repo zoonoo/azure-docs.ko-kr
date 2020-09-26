@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281959"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 사용
 
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+
 이 문서에서는 응용 프로그램을 등록 하는 방법과 OPC UA 장치에 대해 서명 된 응용 프로그램 인증서를 발급 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="deploy-the-certificate-management-service"></a>인증서 관리 서비스 배포
 
