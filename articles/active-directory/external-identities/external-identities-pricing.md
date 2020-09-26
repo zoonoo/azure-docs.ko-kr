@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265795"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD 외부 Id에 대 한 청구 모델
 
@@ -37,17 +37,17 @@ MAU 청구 기능을 활용 하려면 Azure AD 테 넌 트가 Azure 구독에 �
 
 ## <a name="about-monthly-active-users-mau-billing"></a>MAU (월간 활성 사용자) 청구
 
-Azure AD 테 넌 트에서 게스트 사용자 공동 작업 사용은 일정 월 내에 인증 활동을 사용 하는 고유 게스트 사용자 수를 기준으로 요금이 청구 됩니다. 이 모델은 테 넌 트의 각 Azure AD Premium 라이선스에 대해 최대 5 명의 게스트 사용자를 허용 하는 1:5 비율 청구 모델을 대체 합니다. 테 넌 트가 구독에 연결 되어 있고 외부 Id 기능을 사용 하 여 게스트 사용자와 공동 작업 하는 경우 MAU 기반 청구 모델을 사용 하 여 자동으로 청구 됩니다.
+Azure AD 테 넌 트에서 게스트 사용자 공동 작업 사용은 일정 월 내에 인증 활동을 사용 하는 고유 게스트 사용자 수를 기준으로 요금이 청구 됩니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다.
   
 게스트 사용자에 게 적용 되는 가격 책정 계층은 Azure AD 테 넌 트에 할당 된 최고 가격 책정 계층을 기반으로 합니다. 예를 들어 테 넌 트의 최고 가격 책정 계층이 p 1을 Azure AD Premium 하는 경우 프리미엄 P1 가격 책정 계층도 게스트 사용자에 게 적용 됩니다. 가장 높은 가격은 Azure AD Free 경우 게스트 사용자에 게 프리미엄 기능을 사용 하려고 할 때 프리미엄 가격 책정 계층으로 업그레이드 하 라는 메시지가 표시 됩니다.
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>구독에 Azure AD 테 넌 트 연결
 
-Azure AD 테 넌 트는 적절 한 청구 및 기능에 대 한 액세스를 위해 Azure 구독에 연결 되어야 합니다.
+Azure AD 테 넌 트는 적절 한 청구 및 기능에 대 한 액세스를 위해 Azure 구독에 연결 되어야 합니다. 디렉터리에 연결할 수 있는 구독이 아직 없는 경우이 프로세스 중 하나를 추가할 수 있습니다.
 
 1. 구독 내에서 적어도 [참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 역할이 할당 된 Azure 계정 또는 구독 내의 리소스 그룹을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
-2. 구독을 포함 하는 디렉터리를 선택 합니다. Azure Portal 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 구독을 포함 하는 디렉터리를 선택 합니다.
+2. 연결할 디렉터리를 선택 합니다. Azure Portal 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음 디렉터리를 선택 합니다.
 
     ![디렉터리 + 구독 아이콘을 선택 합니다.](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Azure AD 테 넌 트는 적절 한 청구 및 기능에 대 한 액세스를 위
     ![테 넌 트를 선택 하 고 구독 연결](media/external-identities-pricing/linked-subscriptions.png)
 
 7. 구독 링크 창에서 **구독** 및 **리소스 그룹**을 선택 합니다. 그런 다음, **적용**을 선택합니다.
+
+   > [!NOTE]
+   > 구독이 나열 되지 않은 경우 [구독을 테 넌 트에 연결할](../fundamentals/active-directory-how-subscriptions-associated-directory.md)수 있습니다. 또는 **아직 구독을 만들**수 없는 경우 링크를 선택 하 여 새 구독을 추가할 수 있습니다.
 
     ![구독 및 리소스 그룹 선택](media/external-identities-pricing/link-subscription-resource.png)
 

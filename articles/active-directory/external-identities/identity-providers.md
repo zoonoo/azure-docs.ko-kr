@@ -1,6 +1,6 @@
 ---
 title: 외부 ID용 ID 공급자 - Azure AD
-description: Azure Active Directory B2B 협업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
+description: 외부 사용자와 공유 하기 위한 기본 id 공급자로 Azure AD를 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2284d015b451872753dd0855cac42e6f1926545c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265717"
 ---
 # <a name="identity-providers-for-external-identities"></a>외부 ID용 ID 공급자
 

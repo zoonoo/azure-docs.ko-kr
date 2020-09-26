@@ -3,12 +3,12 @@ title: 서명된 이미지 관리
 description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다. 콘텐츠 신뢰는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253482"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -40,7 +40,7 @@ Azure Container Registry는 Docker의 [콘텐츠 신뢰][docker-content-trust] �
 
 레지스트리에 콘텐츠 신뢰를 사용하려면 먼저 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰** > **사용** > **저장**을 선택합니다. Azure CLI에서 [az acr config content-trust update][az-acr-config-content-trust-update] 명령을 사용할 수도 있습니다.
 
-![Azure Portal에서 레지스트리에 콘텐츠 신뢰를 사용하도록 설정][content-trust-01-portal]
+![Azure Portal에서 레지스트리에 대 한 콘텐츠 신뢰 사용을 보여 주는 스크린샷][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>클라이언트 콘텐츠 신뢰 사용
 
