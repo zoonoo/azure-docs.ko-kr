@@ -4,21 +4,21 @@ description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: da3194559ef5ec4c325f7dc15591f57c0d9c38c9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705557"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368290"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
-Microsoft 상용 marketplace에 게시 했 고 이제 제품의 성공적인를 확인 하려고 합니다. Microsoft에서는 제품의 성장을 가속화하는 데 필요한 영업, 기술, 마케팅 등의 혜택을 제공해 드립니다.
+Microsoft 상용 marketplace에 게시 했 고 이제 제품의 성공적인를 확인 하려고 합니다. 제품의 성장을 가속화 하는 데 필요한 판매, 기술 및 마케팅 혜택을 제공 합니다.
 
-제품이 Microsoft AppSource 또는 Azure Marketplace에 살고 있으면 [파트너 센터](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) 로 이동 하 여 적격 마케팅, 영업 및 기술 혜택을 액세스 하 고 활성화 합니다. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
+제품이 Microsoft AppSource 또는 Azure Marketplace에 살고 있으면 [파트너 센터](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) 로 이동 하 여 적격 마케팅, 영업 및 기술 혜택을 액세스 하 고 활성화 합니다. Marketplace 보상 [데모 비디오](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) 에서 marketplace 보상에 등록 하 고 파트너 센터에서 혜택을 활성화 하는 방법에 대 한 개요를 확인 하세요. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
 
 ## <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -44,13 +44,12 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 2. 파트너 센터의 [Marketplace 보상](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) 으로 이동 하 고 **marketplace 보상 프로그램에서 등록**을 선택 합니다.
 3. 판매 및 마케팅 혜택을 활성화 하려면 회사 마케팅 연락처를 할당 합니다. 이 담당자는 Marketplace Rewards에 대한 추가 연락을 받게 됩니다.
 4. 마케팅 담당자 정보를 추가하거나 업데이트하려면 Marketplace Rewards 페이지의 영업 및 마케팅 혜택 탭 맨 위로 이동한 다음 **추가, 업데이트 또는 변경**을 선택합니다.  다음으로, 아래 작업을 수행합니다.
-
     1. 목록에서 사용자를 선택합니다. 할당하려는 사용자가 목록에 없는 경우 **계정 설정**에서 새 사용자를 추가할 수 있습니다.
     1. 회사의 파트너 센터 계정과 연결된 전자 메일 주소와 다른 사용자의 전자 메일 주소를 제공합니다. 지정된 마케팅 담당자의 전자 메일 주소로 Marketplace Rewards 혜택의 사용 지침에 대한 전자 메일을 보내 드립니다.
     1. 이 마케팅 담당자에 대한 담당자 전화 번화 및 기본 설정 언어를 제공합니다. 이 정보를 입력한 후 **사용자 할당**을 선택합니다.
     1. 마케팅 담당자를 업데이트했으면 사용하려는 혜택에 대해 **활성화**를 선택합니다. 혜택을 활성화하면 1주일 내에 Rewards 팀의 구성원이 마케팅 담당자께 연락을 드립니다.
 
-**기술 혜택**
+### <a name="technical-benefits"></a>기술 혜택
 
 1. 기술 혜택을 사용 하 여 클라우드 및 하이브리드 솔루션의 예약 판매, 디자인, 배포 및 앱 개발 단계 중에 기술 지원을 요청할 수 있습니다. 지원을 요청하려면 요청 양식을 입력한 다음 **요청 제출**을 선택합니다.
 2. Azure 스폰서쉽 혜택을 활용하는 방법은 이러한 혜택의 누릴 수 있을 때 전자 메일을 통해 공유됩니다.
@@ -79,7 +78,7 @@ Microsoft AppSource 또는 Azure Marketplace에서 불가능 제품을 사용 �
 
 이러한 혜택은 마케팅, 영업 및 기술 활동을 지원하도록 설계되었으므로, 더 많은 방문자를 확보하고 더 많은 잠재 고객을 얻으며 더 많은 비즈니스를 전환하는 데 도움을 받을 수 있습니다.
 
-Live 제품을 보유 한 모든 파트너는 전담 참여 관리자와 협력 하 여 상업적 marketplace 제품 포트폴리오에 대 한 최고 가치 활동을 선택 합니다. 이 참여 활동은 제품별로 상시 제공되므로 회사의 광범위한 마케팅/영업 전략 시기에 맞춰 해당하는 활동과 활동의 시기를 선택할 수 있습니다. 
+Live 제품을 보유 한 모든 파트너는 전담 참여 관리자와 협력 하 여 상업적 marketplace 제품 포트폴리오에 대 한 최고 가치 활동을 선택 합니다. 이 참여 활동은 제품별로 상시 제공되므로 회사의 광범위한 마케팅/영업 전략 시기에 맞춰 해당하는 활동과 활동의 시기를 선택할 수 있습니다.
 
 ![마케팅 혜택](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -97,23 +96,23 @@ Rewards 혜택 외에도, Microsoft AppSource에 게시된 Dynamics 제품을 �
 
 ### <a name="publisher-agreement"></a>게시자 계약
 
-이 페이지에 설명된 모든 활동은 [Marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 적용을 받으며 상업용 혜택 프로그램 추록에 따릅니다.
+이 페이지에서 설명 하는 모든 작업은 Microsoft [게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560) 에 포함 되어 있으며 상용 혜택 프로그램 추 록에 기반 합니다.
 
 ### <a name="cancellation-policy"></a>취소 정책
 
-[목록 및 평가판](determine-your-listing-type.md) 게시자는 제품 게시별 활동을 옵트인하거나 옵트아웃할 수 있습니다. 파트너는 언제든지 참여를 옵트아웃할 수 있습니다. 
+[목록 및 평가판](determine-your-listing-type.md) 게시자는 제품 게시별 활동을 옵트인하거나 옵트아웃할 수 있습니다. 파트너는 언제든지 참여를 옵트아웃할 수 있습니다.
 
-Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards 혜택을 철회 및 종료할 수 있는 권리를 보유합니다. 
+Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards 혜택을 철회 및 종료할 수 있는 권리를 보유합니다.
 
 * Marketplace 목록을 사용 하 여 잘못 된 활동을 참여 시킵니다.
 * 사기성 또는 사기성으로 알려진 구매를 수신 합니다.
-* 는 상업적 marketplace에서 나열 되지 않습니다. 
+* 는 상업적 marketplace에서 나열 되지 않습니다.
 * 제품을 사용 하 여 저작권 또는 상표 법률을 위반 하는 마케팅 또는 기타 콘텐츠를 표시 합니다.
 * 자체 내부 작업 또는 Bitcoin 마이닝에 대 한 Azure 후원 자금 사용을 포함 하 여 [azure 후원 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반 합니다.
 
 Microsoft는 다음과 같은 경우 Marketplace 보상을 철회 하 고 종료할 수 있는 권리를 보유 합니다.
 
-* 구매한 고객이 실수로 구매를 취소 하려고 했습니다. 
+* 구매한 고객이 실수로 구매를 취소 하려고 했습니다.
 * 파트너의 제품을 사용 하기 전에 고객이 취소 합니다.
 
 ### <a name="offer-availability"></a>제품 가용성
@@ -124,10 +123,7 @@ Microsoft는 다음과 같은 경우 Marketplace 보상을 철회 하 고 종료
 
 ## <a name="next-steps"></a>다음 단계
 
-[파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 에 로그인 하 여 제품을 만들거나 구성 합니다.
-
-[파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)의 Marketplace 혜택을 활성화 합니다.
-
-[제공되는 셀프 서비스 리소스](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)를 검토합니다.
-
-[Microsoft AppSource 및 Azure Marketplace 커뮤니티 포럼](https://aka.ms/MarketplaceCommunity)에 등록하고 관련 항목에 대해 알아보거나 토론에 참여하세요.
+- [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 에 로그인 하 여 제품을 만들거나 구성 합니다.
+- [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)의 Marketplace 혜택을 활성화 합니다.
+- [제공되는 셀프 서비스 리소스](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)를 검토합니다.
+- [Microsoft AppSource 및 Azure Marketplace 커뮤니티 포럼](https://aka.ms/MarketplaceCommunity)에 등록하고 관련 항목에 대해 알아보거나 토론에 참여하세요.

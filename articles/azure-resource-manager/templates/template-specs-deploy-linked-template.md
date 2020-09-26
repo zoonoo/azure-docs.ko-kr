@@ -3,18 +3,18 @@ title: 템플릿 사양을 연결 된 템플릿으로 배포
 description: 연결 된 배포에 기존 템플릿 사양을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 799dac2bb553983b16f734d1d1abc2ad9281fb58
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369113"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결 된 템플릿으로 배포 (미리 보기)
 
 [연결 된 배포](linked-templates.md#linked-template)를 사용 하 여 기존 [템플릿 사양을](template-specs.md) 배포 하는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 템플릿 사양을 만든 후 Azure PowerShell 또는 Azure CLI를 사용 하 여 템플릿 사양을 배포할 수 있습니다. 연결 된 템플릿을 사용 하 여 솔루션의 일부로 템플릿 사양을 배포할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -120,7 +120,7 @@ ARM 템플릿에서 템플릿 사양을 배포 하려면 [배포 리소스](/azu
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Versions.Id
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -130,7 +130,7 @@ id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName -
 ```
 
 > [!NOTE]
-> 템플릿 사양 ID를 가져오고 Windows PowerShell에서 변수에 할당 하는 것과 관련 된 알려진 문제가 있습니다.
+> 템플릿 사양 ID를 가져와서 Windows PowerShell의 변수에 할당하는 것과 관련된 알려진 문제가 있습니다.
 
 ---
 

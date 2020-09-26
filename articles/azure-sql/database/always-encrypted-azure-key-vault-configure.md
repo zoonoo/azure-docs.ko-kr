@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362634"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Always Encrypted 구성 
 
@@ -183,7 +183,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 설정이 모두 정확한 것을 확인하고 **마침** 을 클릭하여 상시 암호화에 대한 설정을 완료합니다.
 
-![요약](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![스크린샷으로 표시 된 작업이 포함 된 결과 페이지를 보여 주는 스크린샷](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>마법사의 작업 확인
 
@@ -266,7 +266,7 @@ static void InitializeAzureKeyVaultProvider() {
 - 암호화된 열에 데이터 삽입.
 - 암호화된 열에서 특정 값에 필터링하여 레코드 선택.
 
-*Program.cs* 의 내용을 다음 코드로 바꿉니다. Main 메서드 바로 위의 줄에서 전역 connectionString 변수에 대한 연결 문자열을 Azure 포털에서 유효한 연결 문자열로 바꿉니다. 이 코드에 대한 유일한 변경 내용입니다.
+*Program.cs*의 내용을 다음 코드로 바꿉니다. Main 메서드 바로 위의 줄에서 전역 connectionString 변수에 대한 연결 문자열을 Azure 포털에서 유효한 연결 문자열로 바꿉니다. 이 코드에 대한 유일한 변경 내용입니다.
 
 작업에서 상시 암호화를 확인하려면 앱을 실행합니다.
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: edbe202350b0912372aad822c8530c5f79c76384
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254829"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363208"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
 이 아티클에서는 Azure AD(Azure Active Directory)의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여줍니다. 또한 이 가이드에서는 사용자를 포함하는 외부 그룹을 추가하여 Azure AD 사용자 그룹을 관리하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md)를 참조하세요.
@@ -34,7 +34,7 @@ ms.locfileid: "86254829"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD를 사용하여 개발자 계정에 권한 부여
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 선택 ![화살표](./media/api-management-howto-aad/arrow.png).
+2. 선택 ![화살표 아이콘입니다.](./media/api-management-howto-aad/arrow.png).
 3. 검색 상자에 **api**를 입력합니다.
 4. **API Management 서비스**를 선택 합니다.
 5. API Management 서비스 인스턴스를 선택합니다.
@@ -103,7 +103,7 @@ Azure AD 테 넌 트의 사용자에 대 한 액세스를 사용 하도록 설�
  
 이제 구성된 Azure AD 인스턴스의 사용자는 개발자 포털에 로그인할 수 있습니다. 표시 유형을 갖고 있는 모든 그룹을 확인하고 여기에 가입할 수 있습니다.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>개발자 포털-Azure AD 계정 인증 추가
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> 개발자 포털-Azure AD 계정 인증 추가
 
 개발자 포털에서는 **로그인 단추: OAuth** 위젯을 사용 하 여 AAD로 로그인 할 수 있습니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함 되어 있습니다.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 460b592924a19449d77ce8d45f470f3e3129f4a6
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 4a814d575e0879daec64ebfdabc1539219bea250
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357950"
+ms.locfileid: "91368943"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>AKS (Azure Kubernetes Service) 클러스터 (미리 보기)를 중지 하 고 시작 합니다.
 
@@ -28,6 +28,7 @@ ms.locfileid: "91357950"
 Cluster start/stop 기능을 사용 하는 경우 다음 제한 사항이 적용 됩니다.
 
 - 이 기능은 Virtual Machine Scale Sets 지원 되는 클러스터에 대해서만 지원 됩니다.
+- 미리 보기 중에는이 기능이 개인 클러스터에 대해 지원 되지 않습니다.
 - 중지 된 AKS 클러스터의 클러스터 상태는 최대 12 개월 동안 보존 됩니다. 클러스터가 12 개월 넘게 중지 된 경우 클러스터 상태를 복구할 수 없습니다. 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조 하세요.
 - 중지 된 AKS 클러스터를 시작 하거나 삭제할 수만 있습니다. 크기 조정 또는 업그레이드와 같은 작업을 수행 하려면 먼저 클러스터를 시작 합니다.
 

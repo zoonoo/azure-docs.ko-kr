@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369096"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀에 데이터 로드
 
@@ -58,14 +58,14 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 1. 다음 정보를 사용 하 여 **프로젝트 세부 정보** 섹션을 작성 합니다.
 
-   | 설정 | 예제 | 설명 |
+   | 설정 | 예제 | Description |
    | ------- | --------------- | ----------- |
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
 
 1. **Sql 풀 정보**에서 sql 풀의 이름을 제공 합니다. 그런 다음 드롭다운에서 기존 서버를 선택 하거나 **서버** 설정 아래에서 **새로 만들기** 를 선택 하 여 새 서버를 만듭니다. 다음 정보로 양식을 작성합니다.
 
-    | Setting | 제안 값 | Description |
+    | 설정 | 제안 값 | Description |
     | ------- | --------------- | ----------- |
     |**SQL 풀 이름**|SampleDW| 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요. |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
@@ -83,7 +83,7 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 1. **검토 + 만들기** 를 선택 하 여 설정을 검토 한 후 **만들기** 를 선택 하 여 데이터 웨어하우스를 만듭니다. **알림** 메뉴에서 **진행 중인 배포** 페이지를 열어 진행 상황을 모니터링할 수 있습니다.
 
-     ![알림](./media/load-data-wideworldimportersdw/notification.png)
+     ![배포가 진행 중인 알림을 보여 주는 스크린샷](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
