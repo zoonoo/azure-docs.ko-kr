@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311073"
+ms.locfileid: "91355859"
 ---
 # <a name="secure-a-daemon-application"></a>디먼 응용 프로그램 보안
 
@@ -122,7 +122,7 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
 2. **역할** 할당 탭에서 역할 할당을 **추가** 합니다. 
 
     > [!div class="mx-imgBorder"]
-    > ![역할 할당 추가](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![추가가 선택 된 롤 할당을 보여 주는 스크린샷](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. 다음 **에 대 한 액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 또는 관리 id **사용자 할당 관리 id**  /  **시스템 할당 관리 id**를 선택 합니다. 보안 주체를 선택 합니다. 그런 다음 **저장**을 선택합니다.
 

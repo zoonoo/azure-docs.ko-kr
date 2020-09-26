@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b166348031e9f72e8005e866a198855db9c01a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273203"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 보안 구성
 
@@ -117,7 +117,7 @@ select * from mysecrets;
 - 사용자 이름: 나
 - USERpassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 `mysecrets` 고, 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있으면 사용자 이름이 반환 됩니다. 다음은 그 예입니다. 
+응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 `mysecrets` 고, 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있으면 사용자 이름이 반환 됩니다. 예를 들면 다음과 같습니다.
 
 - 잘못 된 암호를 전달 합니다.
    ```console
@@ -156,14 +156,66 @@ select * from mysecrets;
 Azure Arc enabled PostgreSQL Hyperscale에는 서버 그룹을 만들 때 암호를 설정 하는 표준 Postgres 관리 사용자 _Postgres_ 가 제공 됩니다.
 암호를 변경 하는 명령의 일반적인 형식은 다음과 같습니다.
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-암호는 AZDATA_PASSWORD **세션**의 환경 변수 값 (있는 경우)으로 설정 됩니다. 그렇지 않으면 사용자에 게 값을 입력 하 라는 메시지가 표시 됩니다.
-AZDATA_PASSWORD 세션의 환경 변수가 있는지 확인 하 고 설정 된 값을 확인 하려면 다음을 실행 합니다.
-```console
-printenv AZDATA_PASSWORD
-```
-새 암호를 입력 하 라는 메시지가 표시 되는 것을 선호 하는 경우 해당 값을 삭제할 수 있습니다.
+
+여기서--admin-password는 AZDATA_PASSWORD **세션**의 환경 변수에 값이 존재 하는 것과 관련 된 부울입니다.
+AZDATA_PASSWORD **세션**의 환경 변수가 존재 하 고 값을 포함 하는 경우 위의 명령을 실행 하면 postgres 사용자의 암호가이 환경 변수의 값으로 설정 됩니다.
+
+AZDATA_PASSWORD **세션**의 환경 변수가 존재 하지만 값이 없거나 AZDATA_PASSWORD **세션**의 환경 변수가 없는 경우 위의 명령을 실행 하면 사용자에 게 암호를 대화형으로 입력 하 라는 메시지가 표시 됩니다.
+
+#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>대화형 방식으로 postgres 관리 사용자의 암호 변경:
+1. AZDATA_PASSWORD **세션**의 환경 변수를 삭제 하거나 해당 값을 삭제 합니다.
+2. 명령 실행:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   예를 들면 다음과 같습니다.
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   암호를 입력 하 고 확인 하 라는 메시지가 표시 됩니다.
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   암호를 업데이트 하는 동안 명령의 출력에 다음이 표시 됩니다.
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>AZDATA_PASSWORD **세션**의 환경 변수를 사용 하 여 postgres 관리 사용자의 암호 변경:
+1. AZDATA_PASSWORD **세션**의 환경 변수 값을 암호를 원하는 값으로 설정 합니다.
+2. 다음 명령을 실행 합니다.
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   예를 들면 다음과 같습니다.
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   암호를 업데이트 하는 동안 명령의 출력에 다음이 표시 됩니다.
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> AZDATA_PASSWORD 세션의 환경 변수가 있는지 확인 하려면 다음을 실행 합니다.
+> - Linux 클라이언트에서 다음을 수행 합니다.
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - PowerShell을 사용 하는 Windows 클라이언트:
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## <a name="next-steps"></a>다음 단계

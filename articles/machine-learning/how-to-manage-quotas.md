@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322379"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 리소스에 대한 할당량 관리 및 늘리기
 
@@ -136,6 +136,29 @@ Virtual Machines, Storage, Network 등의 다양한 다른 Azure 리소스에 �
 
 > [!NOTE]
 > [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)은 제한하거나 할당량을 증가할 수 없습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 평가판을 종량제로 업그레이드](../billing/billing-upgrade-azure-subscription.md) 및 [평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)를 참조하세요.
+
+## <a name="private-endpoint-and-private-dns-quota-increases"></a>개인 끝점 및 개인 DNS 할당량 향상
+
+구독에서 만들 수 있는 개인 끝점 및 개인 DNS 영역 수에 대 한 제한 사항이 있습니다. (고객) 구독에서 리소스를 만드는 Azure Machine Learning는 동안 Microsoft 소유의 구독에서 리소스를 만드는 몇 가지 시나리오가 있습니다. 다음 시나리오에서는 Microsoft 소유의 구독에서 할당량을 요청 해야 할 수 있습니다.
+
+* __CMK (고객이 관리 하는 키)가 있는 개인 링크 사용 작업 영역__
+* __가상 네트워크 뒤의 작업 영역에 대 한 Azure Container Registry__
+* __개인 링크를 사용 하도록 설정 된 Azure Kubernetes Service 클러스터를 작업 영역에 연결__합니다.
+
+이러한 시나리오에 대 한 허용을 요청 하려면 다음 단계를 사용 합니다.
+
+1. [Azure 지원 요청을 만들고](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
+
+    | 필드 | 선택 영역 |
+    | ----- | ----- |
+    | 문제 유형 | 기술적 |
+    | 서비스 | 내 서비스. 드롭다운 목록에서 __Machine Learning__ 을 선택 합니다. |
+    | 문제 유형 | 작업 영역 설치, SDK 및 CLI |
+    | 문제 하위 유형 | 작업 영역 프로비저닝 또는 관리 문제 |
+
+2. __세부 정보__ 섹션에서 __설명__ 필드를 사용 하 여 사용 하려는 Azure 지역 및 사용할 시나리오를 제공 합니다. 여러 구독에 대 한 할당량 증가가 요청 해야 하는 경우이 필드에 구독 Id를 나열 합니다.
+
+3. __만들기__ 를 사용 하 여 요청을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

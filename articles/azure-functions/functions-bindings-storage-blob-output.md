@@ -1,17 +1,17 @@
 ---
 title: Azure Functions에 대 한 Azure Blob storage 출력 바인딩
-description: Azure Function에 Azure Blob storage 데이터를 제공 하는 방법을 알아봅니다.
+description: Azure Function에 Azure Blob storage 출력 바인딩 데이터를 제공 하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285369"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 출력 바인딩
 

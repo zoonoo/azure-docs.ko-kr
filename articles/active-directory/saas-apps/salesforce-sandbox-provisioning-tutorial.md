@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Salesforce Sandbox 구성 | Microsoft Docs'
-description: Azure Active Directory와 Salesforce Sandbox 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+description: 사용자 계정을 Azure AD에서 Salesforce Sandbox로 자동으로 프로 비전 및 프로 비전 해제 하도록 Salesforce Sandbox 및 Azure AD에서 수행 해야 하는 단계를 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273316"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce Sandbox 구성
 

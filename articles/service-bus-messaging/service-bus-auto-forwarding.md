@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 �
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af1c8a8e043ae964c4917a58ea67275e8379817f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333684"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 
@@ -29,11 +29,11 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 자동 전달을 사용하여 개별 토픽을 확장할 수도 있습니다. Service Bus는 [지정된 토픽에 대한 구독 수](service-bus-quotas.md)를 2,000으로 제한합니다. 두 번째 수준의 토픽을 만들면 구독의 수를 늘릴 수 있습니다. Service Bus의 구독 수 제한에 묶여 있는 경우가 아니라도, 두 번째 수준의 토픽을 추가하면 토픽의 전체적인 처리량을 늘릴 수 있습니다.
 
-![자동 전달 시나리오][0]
+![세 번째 수준의 주문 항목 중 하나로 분기할 수 있는 orders 토픽을 통해 처리 되는 메시지를 보여 주는 자동 전달 시나리오의 다이어그램입니다.][0]
 
 자동 전달을 사용하여 메시지 보낸 사람과 받는 사람을 분리할 수도 있습니다. 주문 처리, 재고 관리 및 고객 관계 관리라는 세 모듈로 구성된 ERP 시스템을 예로 들어 보겠습니다. 이러한 각 모듈은 해당 토픽의 큐에 저장되는 메시지를 생성합니다. Alice와 Bob은 고객에 관련된 모든 메시지에 관심이 있는 영업 담당자입니다. Alice와 Bob이 이러한 메시지를 받으려면 각 ERP 토픽에 개인 큐와 구독을 만들어 모든 메시지가 자신의 큐로 자동으로 전달되도록 해야 합니다.
 
-![자동 전달 시나리오][1]
+![3 개의 해당 항목을 통해 메시지를 두 개의 개별 큐로 보내는 3 개의 처리 모듈을 보여 주는 자동 전달 시나리오 다이어그램][1]
 
 Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집니다. 이러한 경우 영업 담당자가 메시지를 확인하지 못하기 때문에 어떤 ERP 토픽도 할당량에 도달하지 못합니다.
 

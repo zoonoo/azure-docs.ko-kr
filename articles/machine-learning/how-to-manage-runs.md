@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fc9dee3d4ace5f70c4238cdce5c57696b131bfa9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5a38aa5200ac8d498d2bc296a46b4b98357ab0b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322294"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -47,13 +47,13 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     print(azureml.core.VERSION)
     ```
 
-* [Azure Machine Learning에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 및 CLI 확장입니다.
+* [Azure Machine Learning에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) 및 CLI 확장입니다.
 
 ## <a name="start-a-run-and-its-logging-process"></a>실행 및 해당 로깅 프로세스를 시작 합니다.
 
 ### <a name="using-the-sdk"></a>SDK 사용
 
-[Azureml](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) 패키지에서 [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)및 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 가져와서 실험을 설정 합니다.
+[Azureml](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) 패키지에서 [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)및 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 가져와서 실험을 설정 합니다.
 
 ```python
 import azureml.core
@@ -64,7 +64,7 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 ```
 
-메서드를 사용 하 여 실행 및 해당 로깅 프로세스를 시작 [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) 합니다.
+메서드를 사용 하 여 실행 및 해당 로깅 프로세스를 시작 [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) 합니다.
 
 ```python
 notebook_run = exp.start_logging()
@@ -91,7 +91,7 @@ notebook_run.log(name="message", value="Hello from run!")
 
     이 명령은 예제 runconfig 및 conda 환경 파일을 포함하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신하는 데 사용되는 `config.json` 파일을 포함합니다.
 
-    자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
+    자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
 
 2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용하는 경우 -c 매개 변수 가까이에 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
 
@@ -102,11 +102,11 @@ notebook_run.log(name="message", value="Hello from run!")
     > [!TIP]
     > `az ml folder attach`명령은 `.azureml` .runconfig 파일의 두 예제를 포함 하는 하위 디렉터리를 만들었습니다.
     >
-    > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-)를 사용하여 runconfig 파일로 저장합니다.
+    > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-)를 사용하여 runconfig 파일로 저장합니다.
     >
     > .Runconfig 파일 예제에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
 
-    자세한 내용은 [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
+    자세한 내용은 [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
 
 ### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
 
@@ -122,19 +122,19 @@ notebook_run.log(name="message", value="Hello from run!")
 
 ### <a name="using-the-sdk"></a>SDK 사용
 
-메서드를 사용 하 여 실행의 상태를 가져옵니다 [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=trueget-status--) .
+메서드를 사용 하 여 실행의 상태를 가져옵니다 [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) .
 
 ```python
 print(notebook_run.get_status())
 ```
 
-실행 ID, 실행 시간 및 실행에 대 한 추가 세부 정보를 가져오려면 메서드를 사용 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueget-details--) 합니다.
+실행 ID, 실행 시간 및 실행에 대 한 추가 세부 정보를 가져오려면 메서드를 사용 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) 합니다.
 
 ```python
 print(notebook_run.get_details())
 ```
 
-실행이 성공적으로 완료 되 면 메서드를 사용 하 여 완료 된 것 [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) 으로 표시 합니다.
+실행이 성공적으로 완료 되 면 메서드를 사용 하 여 완료 된 것 [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) 으로 표시 합니다.
 
 ```python
 notebook_run.complete()
@@ -161,7 +161,7 @@ print(notebook_run.get_status())
 
     이 명령은이 실험의 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
 
-    자세한 내용은 [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
+    자세한 내용은 [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
 
 2. 특정 실행에 대 한 정보를 보려면 다음 명령을 사용 합니다. 을 `runid` 실행 ID로 바꿉니다.
 
@@ -171,7 +171,7 @@ print(notebook_run.get_status())
 
     이 명령은 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
 
-    자세한 내용은 [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
+    자세한 내용은 [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
 
 
 ### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
@@ -195,23 +195,23 @@ print(notebook_run.get_status())
 
 ### <a name="using-the-sdk"></a>SDK 사용
 
-SDK를 사용 하 여 실행을 취소 하려면 메서드를 사용 합니다 [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecancel--) .
+SDK를 사용 하 여 실행을 취소 하려면 메서드를 사용 합니다 [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecancel--) .
 
 ```python
-run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
-local_script_run = exp.submit(run_config)
-print(local_script_run.get_status())
+src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
+local_run = exp.submit(src)
+print(local_run.get_status())
 
-local_script_run.cancel()
-print(local_script_run.get_status())
+local_run.cancel()
+print(local_run.get_status())
 ```
 
-실행이 완료 되었지만 오류가 포함 된 경우 (예: 잘못 된 학습 스크립트를 사용한 경우) 메서드를 사용 [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) 하 여 실패로 표시할 수 있습니다.
+실행이 완료 되었지만 오류가 포함 된 경우 (예: 잘못 된 학습 스크립트를 사용한 경우) 메서드를 사용 [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#fail-error-details-none--error-code-none---set-status-true-) 하 여 실패로 표시할 수 있습니다.
 
 ```python
-local_script_run = exp.submit(run_config)
-local_script_run.fail()
-print(local_script_run.get_status())
+local_run = exp.submit(src)
+local_run.fail()
+print(local_run.get_status())
 ```
 
 ### <a name="using-the-cli"></a>CLI 사용
@@ -222,7 +222,7 @@ CLI를 사용 하 여 실행을 취소 하려면 다음 명령을 사용 합니�
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-자세한 내용은 [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel)을 참조 하십시오.
+자세한 내용은 [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-cancel)을 참조 하십시오.
 
 ### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
 
@@ -242,15 +242,15 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 > [!NOTE]
 > 자식 실행은 SDK를 사용 해야만 만들 수 있습니다.
 
-이 코드 예제에서는 스크립트를 사용 하 여 `hello_with_children.py` 메서드를 사용 하 여 제출 된 실행 내에서 5 개의 자식 실행 일괄 처리를 만듭니다 [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truechild-run-name-none--run-id-none--outputs-none-) .
+이 코드 예제에서는 스크립트를 사용 하 여 `hello_with_children.py` 메서드를 사용 하 여 제출 된 실행 내에서 5 개의 자식 실행 일괄 처리를 만듭니다 [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truechild-run-name-none--run-id-none--outputs-none-) .
 
 ```python
 !more hello_with_children.py
-run_config = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
+src = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
 
-local_script_run = exp.submit(run_config)
-local_script_run.wait_for_completion(show_output=True)
-print(local_script_run.get_status())
+local_run = exp.submit(src)
+local_run.wait_for_completion(show_output=True)
+print(local_run.get_status())
 
 with exp.start_logging() as parent_run:
     for c,count in enumerate(range(5)):
@@ -261,15 +261,15 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > 범위 밖으로 이동 하면 자식 실행이 자동으로 완료로 표시 됩니다.
 
-많은 자식 실행을 효율적으로 만들려면 메서드를 사용 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) 합니다. 각 생성에서 네트워크 호출이 발생 하므로, 실행 일괄 처리를 만드는 작업은 하나를 하나씩 만드는 것 보다 효율적입니다.
+많은 자식 실행을 효율적으로 만들려면 메서드를 사용 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) 합니다. 각 생성에서 네트워크 호출이 발생 하므로, 실행 일괄 처리를 만드는 작업은 하나를 하나씩 만드는 것 보다 효율적입니다.
 
 ### <a name="submit-child-runs"></a>자식 실행 제출
 
 자식 실행은 부모 실행에서 제출할 수도 있습니다. 이렇게 하면 부모 및 자식 실행의 계층 구조를 만들 수 있습니다. 
 
-부모 실행과 다른 실행 구성을 사용 하 여 자녀의 실행을 원할 수 있습니다. 예를 들어, 부모에 대해 더 강력 하 고 CPU 기반 구성을 사용할 수 있으며, 자식에 대 한 GPU 기반 구성을 사용할 수 있습니다. 또 다른 일반적인 방법은 서로 다른 인수 및 데이터를 전달 하는 것입니다. 자식 실행을 사용자 지정 하려면 `RunConfiguration` 자식의 생성자에 개체를 전달 `ScriptRunConfig` 합니다. 이 코드 예제는 부모 개체의 스크립트에 포함 됩니다 `ScriptRunConfig` .
+부모 실행과 다른 실행 구성을 사용 하 여 자녀의 실행을 원할 수 있습니다. 예를 들어, 부모에 대해 더 강력 하 고 CPU 기반 구성을 사용할 수 있으며, 자식에 대 한 GPU 기반 구성을 사용할 수 있습니다. 또 다른 일반적인 방법은 서로 다른 인수 및 데이터를 전달 하는 것입니다. 자식 실행을 사용자 지정 하려면 `ScriptRunConfig` 자식 실행에 대 한 개체를 만듭니다. 아래 코드에서는 다음을 수행 합니다.
 
-- 명명 된 `RunConfiguration` 계산 리소스를 검색 하는을 만듭니다. `"gpu-compute"`
+- 작업 영역에서 라는 계산 리소스를 검색 `"gpu-cluster"` 합니다. `ws`
 - 자식 개체에 전달 될 다른 인수 값을 반복 합니다. `ScriptRunConfig`
 - 사용자 지정 계산 리소스 및 인수를 사용 하 여 새 자식 실행을 만들고 제출 합니다.
 - 모든 자식 실행이 완료 될 때까지 차단 합니다.
@@ -277,18 +277,16 @@ with exp.start_logging() as parent_run:
 ```python
 # parent.py
 # This script controls the launching of child scripts
-from azureml.core import Run, ScriptRunConfig, RunConfiguration
+from azureml.core import Run, ScriptRunConfig
 
-run_config_for_aml_compute = RunConfiguration()
-run_config_for_aml_compute.target = "gpu-compute"
-run_config_for_aml_compute.environment.docker.enabled = True 
+compute_target = ws.compute_targets["gpu-cluster"]
 
 run = Run.get_context()
 
 child_args = ['Apple', 'Banana', 'Orange']
 for arg in child_args: 
     run.log('Status', f'Launching {arg}')
-    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], compute_target=compute_target)
     # Starts the run asynchronously
     run.submit_child(child_config)
 
@@ -299,7 +297,7 @@ for child in run.get_children():
     child.wait_for_completion()
 ```
 
-동일한 구성, 인수 및 입력을 사용 하 여 여러 자식 실행을 효율적으로 만들려면 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) 메서드를 사용 합니다. 각 생성에서 네트워크 호출이 발생 하므로, 실행 일괄 처리를 만드는 작업은 하나를 하나씩 만드는 것 보다 효율적입니다.
+동일한 구성, 인수 및 입력을 사용 하 여 여러 자식 실행을 효율적으로 만들려면 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) 메서드를 사용 합니다. 각 생성에서 네트워크 호출이 발생 하므로, 실행 일괄 처리를 만드는 작업은 하나를 하나씩 만드는 것 보다 효율적입니다.
 
 자식 실행 내에서 부모 실행 ID를 볼 수 있습니다.
 
@@ -311,7 +309,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>자식 쿼리 실행
 
-특정 부모의 자식 실행을 쿼리하려면 메서드를 사용 합니다 [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=trueget-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) . ``recursive = True``인수를 사용 하면 자식 및 손자의 중첩 트리를 쿼리할 수 있습니다.
+특정 부모의 자식 실행을 쿼리하려면 메서드를 사용 합니다 [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) . ``recursive = True``인수를 사용 하면 자식 및 손자의 중첩 트리를 쿼리할 수 있습니다.
 
 ```python
 print(parent_run.get_children())
@@ -325,37 +323,37 @@ Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정�
 
 #### <a name="using-the-sdk"></a>SDK 사용
 
-실행에 검색할 수 있는 메타 데이터를 추가 하려면 [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=trueadd-properties-properties-) 메서드를 사용 합니다. 예를 들어 다음 코드는 `"author"` 실행에 속성을 추가 합니다.
+실행에 검색할 수 있는 메타 데이터를 추가 하려면 [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) 메서드를 사용 합니다. 예를 들어 다음 코드는 `"author"` 실행에 속성을 추가 합니다.
 
 ```Python
-local_script_run.add_properties({"author":"azureml-user"})
-print(local_script_run.get_properties())
+local_run.add_properties({"author":"azureml-user"})
+print(local_run.get_properties())
 ```
 
 속성은 변경할 수 없으므로 감사를 위해 영구 레코드를 만듭니다. 다음 코드 예제에서는 `"azureml-user"` `"author"` 이전 코드에서 속성 값으로 이미를 추가 했으므로 오류가 발생 합니다.
 
 ```Python
 try:
-    local_script_run.add_properties({"author":"different-user"})
+    local_run.add_properties({"author":"different-user"})
 except Exception as e:
     print(e)
 ```
 
-속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 메서드를 사용 [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truetag-key--value-none-) 합니다.
+속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 메서드를 사용 [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) 합니다.
 
 ```Python
-local_script_run.tag("quality", "great run")
-print(local_script_run.get_tags())
+local_run.tag("quality", "great run")
+print(local_run.get_tags())
 
-local_script_run.tag("quality", "fantastic run")
-print(local_script_run.get_tags())
+local_run.tag("quality", "fantastic run")
+print(local_run.get_tags())
 ```
 
 간단한 문자열 태그를 추가할 수도 있습니다. 이러한 태그가 태그 사전에 키로 표시 되는 경우 값은 `None` 입니다.
 
 ```Python
-local_script_run.tag("worth another look")
-print(local_script_run.get_tags())
+local_run.tag("worth another look")
+print(local_run.get_tags())
 ```
 
 #### <a name="using-the-cli"></a>CLI 사용
@@ -369,7 +367,7 @@ print(local_script_run.get_tags())
 az ml run update -r runid --add-tag quality='fantastic run'
 ```
 
-자세한 내용은 [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
+자세한 내용은 [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
 
 ### <a name="query-properties-and-tags"></a>쿼리 속성 및 태그
 
@@ -395,7 +393,7 @@ az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'wort
 az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
 ```
 
-Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 참조 하세요.
+Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조 하세요.
 
 ### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
 

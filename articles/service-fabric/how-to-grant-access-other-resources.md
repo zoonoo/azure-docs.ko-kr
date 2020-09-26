@@ -3,14 +3,14 @@ title: 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한
 description: 이 문서에서는 Azure Active Directory 기반 인증을 지 원하는 다른 Azure 리소스에 대 한 관리 id 사용 Service Fabric 응용 프로그램 액세스 권한을 부여 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333633"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Azure 리소스에 대 한 Service Fabric 응용 프로그램의 관리 되는 id 액세스 권한 부여 (미리 보기)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Azure 리소스에 대 한 Service Fabric 응용 프로그램의 관리 되는 id 액세스 권한 부여
 
 응용 프로그램에서 관리 되는 id를 사용 하 여 다른 리소스에 액세스 하려면 액세스 하는 보호 된 Azure 리소스에서 해당 id에 대 한 권한을 부여 해야 합니다. 사용 권한을 부여 하는 작업은 일반적으로 해당 하는 역할 기반 액세스 검사를 적용 하는 Azure Resource Manager를 통해 라우팅되는 보호 된 리소스를 소유 하는 Azure 서비스의 ' 제어 평면 ' 관리 작업입니다.
 

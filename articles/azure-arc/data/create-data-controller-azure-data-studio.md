@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273146"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Azure Data Studio에서 데이터 컨트롤러 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "90940000"
 9. 데이터 컨트롤러의 이름과 데이터 컨트롤러가 생성 될 네임 스페이스의 이름을 입력 합니다.  
 
 > [!NOTE]
-> 네임 스페이스가 이미 있는 경우 네임 스페이스에 다른 Kubernetes 개체 (pod 등)가 아직 없는 경우 사용 됩니다.  네임 스페이스가 없는 경우에는 네임 스페이스를 만들려고 시도 합니다.  Kubernetes 클러스터에 네임 스페이스를 만들려면 Kubernetes cluster administrator 권한이 필요 합니다.  Kubernetes 클러스터 관리자 권한이 없는 경우 Kubernetes 클러스터 관리자에 게이 마법사를 완료 하기 전에 Kubernetes 관리자가 수행 해야 하는 [Kubernetes를 사용 하 여 데이터 컨트롤러 만들기](./create-data-controller-using-k8s-native-tools.md) 문서에서 처음 몇 단계를 수행 하도록 요청 합니다.
+> 네임 스페이스가 이미 있는 경우 네임 스페이스에 다른 Kubernetes 개체 (pod 등)가 아직 없는 경우 사용 됩니다.  네임 스페이스가 없는 경우에는 네임 스페이스를 만들려고 시도 합니다.  Kubernetes 클러스터에 네임 스페이스를 만들려면 Kubernetes cluster administrator 권한이 필요 합니다.  Kubernetes 클러스터 관리자 권한이 없는 경우 Kubernetes 클러스터 관리자에 게이 마법사를 완료 하기 전에 Kubernetes 관리자가 수행 해야 하는 [Kubernetes를 사용 하 여 데이터 컨트롤러 만들기](./create-data-controller-using-kubernetes-native-tools.md) 문서에서 처음 몇 단계를 수행 하도록 요청 합니다.
 
 > [!NOTE]
 > 참고: 데이터 컨트롤러와 네임 스페이스 이름은 Kubernetes 클러스터에 사용자 지정 리소스를 만드는 데 사용 되므로 [Kubernetes 명명 규칙](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)을 준수 해야 합니다.

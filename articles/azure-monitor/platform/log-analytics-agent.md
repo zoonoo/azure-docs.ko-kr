@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310002"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드 및 온-프레미스 컴퓨터의 Windows 및 Linux 가상 컴퓨터 및 [System Center Operations Manager](/system-center/scom/) 에서 모니터링 하는 원격 분석을 수집 하 고 Azure Monitor의 Log Analytics 작업 영역에 수집 된 데이터를 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항 및 배포 방법에 대 한 자세한 개요를 제공 합니다.
@@ -59,7 +59,7 @@ Operations Manager 관리 그룹에 에이전트를 연결 하는 방법에 대 
 
 * Windows 에이전트는 System Center Operations Manager 관리 그룹에 연결 되어 있는 경우에도 최대 4 개의 작업 영역에 연결할 수 있습니다.
 * Linux 에이전트는 멀티 호 밍을 지원 하지 않으며 단일 작업 영역 또는 관리 그룹에만 연결할 수 있습니다.
-  
+
 
 ## <a name="security-limitations"></a>보안 제한 사항
 
@@ -69,6 +69,8 @@ Operations Manager 관리 그룹에 에이전트를 연결 하는 방법에 대 
 ## <a name="installation-options"></a>설치 옵션
 
 요구 사항에 따라 Log Analytics 에이전트를 설치하고 머신을 Azure Monitor에 연결하는 방법에는 여러 가지가 있습니다. 다음 섹션에는 다양 한 유형의 가상 컴퓨터에 대 한 가능한 방법이 나와 있습니다.
+> [!NOTE]
+> Log Analytics 에이전트는 이미 구성 된 상태에서 컴퓨터를 복제 하는 것은 지원 되지 않습니다. 에이전트가 작업 영역에 이미 연결 되어 있는 경우에는 ' 골든 이미지 '에 대해 작동 하지 않습니다.
 
 ### <a name="azure-virtual-machine"></a>Azure 가상 머신
 

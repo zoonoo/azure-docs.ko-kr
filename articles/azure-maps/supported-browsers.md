@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 73d875e32f4fcf22551cf6b0946e49c2f826e523
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 5b186901551e421ba365b97a6de6a55ff791e5e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310189"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
 
@@ -76,8 +76,6 @@ CodePen에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps 
 
 Azure Maps 웹 SDK에 대해 자세히 알아보세요.
 
-> [!div class="nextstepaction"]
-> [지도 컨트롤](how-to-use-map-control.md)
+[지도 컨트롤](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [서비스 모듈](how-to-use-services-module.md)
+[서비스 모듈](how-to-use-services-module.md)

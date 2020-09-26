@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 359c2a27099ca298076edc255b8c30e226af0a18
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 07f5fef0103e674af1c5f73b3f09bdf759e592cb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355978"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -108,11 +108,24 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 만들기 프로세스가 완료되면 가상 네트워크 뒤에서 AKS 클러스터에 유추 또는 모델 채점을 수행할 수 있습니다. 자세한 내용은 [AKS에 배포하는 방법](how-to-deploy-and-where.md)을 참조하세요.
 
-## <a name="private-aks-cluster"></a>개인 AKS 클러스터
+## <a name="secure-vnet-traffic"></a>VNet 트래픽 보안
+
+AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법에는 두 가지가 있습니다.
+
+* __PRIVATE AKS cluster__:이 방법은 Azure 개인 링크를 사용 하 여 VNet 내에서 AKS 클러스터에 대 한 개인 끝점을 만듭니다.
+* __내부 AKS 부하 분산 장치__:이 접근 방식은 VNet에서 내부 IP 주소를 사용 하도록 클러스터에 대 한 부하 분산 장치를 구성 합니다.
+
+> [!WARNING]
+> 두 구성은 모두 동일한 목표를 달성 하는 다양 한 방법 (VNet 내의 AKS 클러스터에 대 한 트래픽 보안)입니다. **둘 중 하나 또는 둘 중 하나만 사용**합니다.
+
+### <a name="private-aks-cluster"></a>개인 AKS 클러스터
 
 기본적으로 AKS 클러스터에는 공용 IP 주소를 사용 하는 제어 평면 또는 API 서버가 있습니다. 개인 AKS 클러스터를 만들어 개인 제어 평면을 사용 하도록 AKS를 구성할 수 있습니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조 하세요.
 
 개인 AKS 클러스터를 만든 후에는 [클러스터를 가상 네트워크에 연결](how-to-create-attach-kubernetes.md) 하 여 Azure Machine Learning에 사용 합니다.
+
+> [!IMPORTANT]
+> Azure Machine Learning에서 개인 링크 사용 AKS 클러스터를 사용 하려면 먼저 지원 인시던트를 열어이 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
 ## <a name="internal-aks-load-balancer"></a>내부 AKS 부하 분산 장치
 
@@ -120,7 +133,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 _내부 부하 분산_장치를 사용 하도록 AKS를 구성 하 여 전용 부하 분산 장치를 사용 하도록 설정 합니다. 
 
-### <a name="network-contributor-role"></a>네트워크 참가자 역할
+#### <a name="network-contributor-role"></a>네트워크 참가자 역할
 
 > [!IMPORTANT]
 > 이전에 만든 가상 네트워크를 제공 하 여 AKS 클러스터를 만들거나 연결 하는 경우 AKS 클러스터에 대 한 SP (서비스 사용자) 또는 관리 _id를 가상_ 네트워크를 포함 하는 리소스 그룹에 부여 해야 합니다. 내부 부하 분산 장치를 개인 IP로 변경 하기 전에이 작업을 수행 해야 합니다.
@@ -152,16 +165,17 @@ _내부 부하 분산_장치를 사용 하도록 AKS를 구성 하 여 전용 �
     ```
 AKS에서 내부 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service에서 내부 부하 분산 장치 사용](/azure/aks/internal-lb)을 참조하세요.
 
-### <a name="enable-private-load-balancer"></a>전용 부하 분산 장치 사용
+#### <a name="enable-private-load-balancer"></a>전용 부하 분산 장치 사용
 
 > [!IMPORTANT]
-> Azure Kubernetes 서비스 클러스터를 만들 때는 개인 IP를 사용하도록 설정할 수 없습니다. 기존 클러스터에 대한 업데이트로 활성화해야 합니다.
+> Azure Machine Learning studio에서 Azure Kubernetes 서비스 클러스터를 만들 때 개인 IP를 사용 하도록 설정할 수 없습니다. 기계 학습을 위해 Python SDK 또는 Azure CLI 확장을 사용 하는 경우 내부 부하 분산 장치를 사용 하 여 하나를 만들 수 있습니다.
 
-다음 코드 조각은 __새 AKS 클러스터를 만든__ 다음, 개인 IP/내부 부하 분산 장치를 사용하도록 업데이트하는 방법을 보여줍니다.
+다음 예제에서는 SDK 및 CLI를 사용 하 여 __개인 IP/내부 부하 분산 장치를 사용 하 여 새 AKS 클러스터를 만드는__ 방법을 보여 줍니다.
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Verify that cluster does not exist already
@@ -175,7 +189,7 @@ except:
     # Subnet to use for AKS
     subnet_name = "default"
     # Create AKS configuration
-    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    prov_config=AksCompute.provisioning_configuration(load_balancer_type="InternalLoadBalancer")
     # Set info for existing virtual network to create the cluster in
     prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
     prov_config.vnet_name = "myvnetname"
@@ -188,44 +202,21 @@ except:
     aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
-    
-    # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-    aks_target.update(update_config)
-    # Wait for the operation to complete
-    aks_target.wait_for_completion(show_output = True)
 ```
 
-__Azure CLI__
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
+```azurecli
+az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-명령에 참조된 `body.json` 파일의 내용은 다음 JSON 문서와 유사합니다.
+자세한 내용은 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
 
-```json
-{ 
-    "location": "<region>", 
-    "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
-        "computeType": "AKS", 
-        "provisioningState": "Succeeded", 
-        "properties": { 
-            "loadBalancerType": "InternalLoadBalancer", 
-            "agentCount": <agent-count>, 
-            "agentVmSize": "vm-size", 
-            "clusterFqdn": "<cluster-fqdn>" 
-        } 
-    } 
-} 
-```
+---
 
-__기존 클러스터__ 를 작업 영역에 연결 하는 경우 연결 작업 후에 부하 분산 장치를 구성할 때까지 기다려야 합니다.
+__기존 클러스터__ 를 작업 영역에 연결 하는 경우 연결 작업 후에 부하 분산 장치를 구성할 때까지 기다려야 합니다. 클러스터를 연결 하는 방법에 대 한 자세한 내용은 [기존 AKS 클러스터 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
 
-클러스터를 연결 하는 방법에 대 한 자세한 내용은 [기존 AKS 클러스터 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
-
-기존 클러스터를 연결한 후에는 개인 IP를 사용 하도록 클러스터를 업데이트할 수 있습니다.
+기존 클러스터를 연결한 후에는 내부 부하 분산 장치/개인 IP를 사용 하도록 클러스터를 업데이트할 수 있습니다.
 
 ```python
 import azureml.core
@@ -260,7 +251,7 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
     > [!IMPORTANT]
     > 위임을 사용하도록 설정하는 경우 `Microsoft.ContainerInstance/containerGroups`을 __서비스에 서브넷 위임__ 값으로 사용합니다.
 
-2. [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true)을 사용하여 모델을 배포하고 `vnet_name` 및 `subnet_name` 매개 변수를 사용합니다. 이 매개 변수를 위임을 사용하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정합니다.
+2. [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true)을 사용하여 모델을 배포하고 `vnet_name` 및 `subnet_name` 매개 변수를 사용합니다. 이 매개 변수를 위임을 사용하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

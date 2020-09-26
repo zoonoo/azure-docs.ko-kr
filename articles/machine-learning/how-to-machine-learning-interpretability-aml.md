@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333837"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
@@ -42,10 +42,9 @@ ms.locfileid: "90897462"
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인용 컴퓨터에서 기능 중요도 값 생성 
 다음 예제에서는 Azure 서비스에 연결 하지 않고 개인 컴퓨터에서 interpretability 패키지를 사용 하는 방법을 보여 줍니다.
 
-1. `azureml-interpret`및 패키지를 설치 `azureml-contrib-interpret` 합니다.
+1. `azureml-interpret` 패키지를 설치합니다.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. 로컬 Jupyter 노트북에서 샘플 모델을 학습 합니다.
@@ -239,15 +238,14 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 * `ExplanationClient`원격 실행에서를 사용 하 여 interpretability 컨텍스트를 업로드 합니다.
 * 로컬 환경에서 나중에 컨텍스트를 다운로드 합니다.
 
-1. `azureml-interpret`및 패키지를 설치 `azureml-contrib-interpret` 합니다.
+1. `azureml-interpret` 패키지를 설치합니다.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. `train_explain.py`)을 입력합니다.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예들 들어 `train_explain.py`입니다.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -280,7 +278,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 1. 로컬 Jupyter 노트북에서 설명을 다운로드 합니다.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -304,7 +302,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체 보기를 제공 합니다.
 
-|그림|설명|
+|그림|Description|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시 합니다.|
 |글로벌 중요도|개별 datapoints의 기능 중요도 값을 집계 하 여 모델의 전체 상위 K (구성 가능 K) 중요 기능을 표시 합니다. 기본 모델의 전반적인 동작을 이해 하는 데 도움이 됩니다.|
@@ -318,7 +316,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 전체 플롯에서 개별 데이터 요소 중 하나를 클릭 하 여 모든 데이터 요소에 대 한 개별 기능 중요도 그림을 로드할 수 있습니다.
 
-|그림|설명|
+|그림|Description|
 |----|-----------|
 |로컬 중요도|개별 예측에 대 한 최상위 K (구성 가능 K) 중요 기능을 보여 줍니다. 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 보여 줍니다.|
 |Perturbation 탐색 (what-if 분석)|선택한 데이터 요소의 기능 값에 대 한 변경 내용을 허용 하 고 그 결과 예측 값에 대 한 변경 내용을 관찰 합니다.|
@@ -332,29 +330,12 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 [![시각화 대시보드 ICE 플롯](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Jupyter 커널을 시작 하기 전에 시각화 대시보드에 대 한 위젯 확장을 사용 하도록 설정 해야 합니다.
-
-* Jupyter Notebook
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 시각화 대시보드를 로드 하려면 다음 코드를 사용 합니다.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Azure Machine Learning studio의 시각화
@@ -370,7 +351,7 @@ Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 int
   1. 특정 실험을 선택 하 여 해당 실험의 모든 실행을 볼 수 있습니다.
   1. 실행을 선택한 다음 설명 시각화 대시보드에 **설명 탭을 선택 합니다.**
 
-   [![시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![실험의 AzureML 스튜디오에서 시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **모델** 창
   1. [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.

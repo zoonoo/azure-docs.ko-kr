@@ -6,17 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 5a310dca40b8f5fea074c0cd3c75751d62ccb8f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997271"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297898"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 
 Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성하도록 선택하거나 컨테이너를 설정한 후 항목 수준에서 재정의할 수 있습니다. Azure Portal 또는 언어별 SDK를 사용하여 컨테이너에 대해 TTL을 구성할 수 있습니다. SDK를 사용하여 항목 수준 TTL 재정의를 구성할 수 있습니다.
+
+> 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse 링크](https://docs.microsoft.com/azure/cosmos-db/synapse-link)를 통해 NOETL HTAP 시나리오를 사용 하도록 설정 하는 ANALITYCAL 저장소 TTL을 찾고 있는 경우 [여기](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl)를 클릭 하세요.
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Azure Portal을 사용하여 컨테이너에서 TTL(Time to Live)을 사용하도록 설정
 

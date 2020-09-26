@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 7fbf7743eb1c037a364e1004fc3be30db6777bb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285820"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 눈송이 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "88546645"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [눈송이 테 넌 트](https://www.Snowflake.com/pricing/).
 * 관리 권한이 있는 눈송이의 사용자 계정
@@ -58,11 +58,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 눈송이를
 
 2.  눈송이 테 넌 트에 대해 SCIM 액세스 토큰이 생성 됩니다. 검색 하려면 아래에 강조 표시 된 링크를 클릭 합니다.
 
-    ![눈송이 SCIM 추가](media/Snowflake-provisioning-tutorial/image01.png)
+    ![S C I M 액세스 토큰이 호출 된 눈송이 U I의 워크시트 스크린샷](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. 생성 된 토큰 값을 복사 하 고 **완료**를 클릭 합니다. 이 값은 Azure Portal의 눈송이 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다.
 
-    ![눈송이 SCIM 추가](media/Snowflake-provisioning-tutorial/image02.png)
+    ![텍스트 필드에 복사 된 토큰과 Done 옵션을 모두 표시 하는 세부 정보 섹션의 스크린샷](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 눈송이 추가
 
@@ -93,11 +93,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 url** 및 **비밀 토큰** 필드에서 검색 된 **Scim 2.0 기준 url 및 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 눈송이에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 눈송이 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
@@ -160,7 +160,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * 눈송이 생성 SCIM 토큰은 6 개월 후에 만료 됩니다. 프로 비전 동기화가 계속 작동 하도록 허용 하기 위해 만료 되기 전에 새로 고쳐야 합니다. 
 
-## <a name="change-log"></a>로그 변경
+## <a name="change-log"></a>변경 로그
 
 * 07/21/2020-활성 특성을 통해 모든 사용자에 대해 일시 삭제를 사용 합니다.
 

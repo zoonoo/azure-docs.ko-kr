@@ -6,21 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b733d1e5eae9cae01233fda4be078bd188e07c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334364"
 ---
-# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하 여 Azure Stack Edge Pro 업데이트 
+# <a name="update-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU 업데이트 
 
-이 문서에서는 로컬 웹 UI를 통해 Azure Portal를 통해 GPU를 사용 하 여 Azure Stack Edge Pro에 업데이트를 설치 하는 데 필요한 단계를 설명 합니다. Azure Stack Edge Pro 장치와 연결 된 Kubernetes cluaster를 장치에 최신 상태로 유지 하기 위해 소프트웨어 업데이트나 핫픽스를 적용 합니다. 
+이 문서에서는 로컬 웹 UI를 통해 Azure Portal를 통해 GPU를 사용 하 여 Azure Stack Edge Pro에 업데이트를 설치 하는 데 필요한 단계를 설명 합니다. 장치에 Azure Stack Edge Pro 장치와 연결 된 Kubernetes 클러스터를 최신 상태로 유지 하기 위해 소프트웨어 업데이트나 핫픽스를 적용 합니다. 
+
+이 문서에서 설명 하는 절차는 다른 버전의 소프트웨어를 사용 하 여 수행 되었지만 프로세스는 현재 소프트웨어 버전에 대해서도 동일 하 게 유지 됩니다.
 
 > [!IMPORTANT]
-> - 업데이트 **2008** 은 장치의 **2.1.1328.1904** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2008-release-notes.md)를 참조 하세요.
+> - 업데이트 **2009** 은 장치의 **2.1.1358.2075** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2009-release-notes.md)를 참조 하세요.
 >
 > - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트를 적용 하려면 두 업데이트를 순차적으로 적용 해야 합니다. 먼저 장치 소프트웨어 업데이트를 적용 한 다음 업데이트를 Kubernetes 합니다. Azure Stack Edge Pro가 단일 노드 장치인 경우 처리 중인 모든 i/o가 중단 되 고 장치 소프트웨어 업데이트에 대해 최대 30 분의 가동 중지 시간이 발생 합니다.
 

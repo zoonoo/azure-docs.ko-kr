@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 복제에서 디스크 제외
 description: Azure Site Recovery를 사용하여 Azure로 복제할 때 디스크를 제외하는 방법.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333667"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 원본 VM의 페이징 파일 설정은 다음과 같습니다.
 
-![원본 가상 컴퓨터의 페이징 파일 설정](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![3000-7000의 페이징 파일 크기 (MB)를 보여 주는 D: 드라이브 [페이지 파일 볼륨] 선이 강조 표시 된 가상 메모리 대화의 스크린샷](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. VM에 대한 복제를 활성화합니다.
 2. DB-Disk1을 복제에서 제외합니다.
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 Azure VM의 페이징 파일 설정은 다음과 같습니다.
 
-![Azure Virtual Machine의 페이징 파일 설정](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+!["시스템 관리"의 페이징 파일 크기 설정을 보여 주는 C: 드라이브 회선이 강조 표시 된 가상 메모리 대화 상자 스크린샷](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>다음 단계

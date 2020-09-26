@@ -1,31 +1,31 @@
 ---
 title: 스토리지 계정 만들기
 titleSuffix: Azure Storage
-description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다. Azure 저장소 계정은 데이터를 저장 하 고 액세스 하는 Microsoft Azure의 고유한 네임 스페이스를 제공 합니다.
+description: Blob, 파일, 큐 및 테이블을 저장할 저장소 계정을 만드는 방법에 대해 알아봅니다. Azure 저장소 계정은 데이터를 읽고 쓰기 위해 Microsoft Azure의 고유한 네임 스페이스를 제공 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069837"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333582"
 ---
-# <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
+# <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 HTTP 또는 HTTPS를 통해 전 세계 어디에서 나 액세스할 수 있는 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는 지속적이 고 항상 사용 가능 하며 안전 하며 대규모 확장 가능 합니다.
 
-이 방법 문서에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)또는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/management/overview.md)사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다.  
+이 방법 문서에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure)또는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/management/overview.md)사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -64,7 +64,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
-Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법 문서에서는 Azure CLI 버전 2.0.4 이상을 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 문서의 예제에는 Azure CLI 버전 2.0.4 이상을 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 # <a name="template"></a>[템플릿](#tab/template)
 
@@ -98,17 +98,15 @@ az login
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-이제 저장소 계정을 만들 준비가 되었습니다.
-
 모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여 줍니다.
 
-**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 여기에 설명 된 단계에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.
+**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 여기에 설명 된 단계에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다. 스토리지 계정 유형 및 기타 스토리지 계정 설정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 `--enable-hierarchical-namespace true` 이 매개 변수 목록에를 포함 합니다. 
+> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 `--enable-hierarchical-namespace true` 이 매개 변수 목록에를 포함 합니다.
 
 다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 **sku** 매개 변수를 원하는 값으로 대체 합니다.
 
@@ -230,8 +228,6 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 - [추가 스토리지 계정 템플릿 샘플](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ---
-
-사용 가능한 복제 옵션에 대한 자세한 내용은 [스토리지 복제 옵션](storage-redundancy.md)을 참조하세요.
 
 ## <a name="delete-a-storage-account"></a>스토리지 계정 삭제
 
@@ -287,26 +283,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 문서에서는 범용 v2 standard storage 계정을 만들었습니다. 저장소 계정에서 blob을 업로드 하 고 다운로드 하는 방법을 알아보려면 Blob storage 빠른 시작 중 하나를 계속 진행 하세요.
-
-# <a name="portal"></a>[포털](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Azure Portal을 통한 Blob 사용](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [PowerShell을 통한 Blob 사용](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Azure CLI를 통한 Blob 사용](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[템플릿](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Azure Portal을 통한 Blob 사용](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Storage 계정 개요](storage-account-overview.md)
+- [범용 v2 스토리지 계정으로 업그레이드](storage-account-upgrade.md)
+- [Azure Storage 계정을 다른 지역으로 이동](storage-account-move.md)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297949"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -38,7 +38,8 @@ ms.locfileid: "88816374"
 
 
 **v 2.0** 에는 다음 업데이트가 포함 됩니다.
--   NET, Python, Java 및 JavaScript 용 [클라이언트 라이브러리](quickstarts/client-library.md) 는 일반 공급으로 전환 되었습니다. 
+
+- NET, Python, Java 및 JavaScript 용 [클라이언트 라이브러리](quickstarts/client-library.md) 는 일반 공급으로 전환 되었습니다. 
 
 
 **새 샘플** 은 GitHub에서 사용할 수 있습니다. 
@@ -148,7 +149,7 @@ ms.locfileid: "88816374"
   * **TIFF 파일 지원** 이제 TIFF 문서에서 데이터를 학습 하 고 추출할 수 있습니다.
   * **추출 정확도 향상**
 
-* **미리 작성된 영수증 모델**
+* **미리 작성 한 수신 모델**
   * **팁 금액** 이제 팁 양과 기타 필기 값을 추출할 수 있습니다.
   * **줄 항목 추출** 수신 확인에서 품목 값을 추출할 수 있습니다.
   * **신뢰도 값** 추출 된 각 값에 대 한 모델의 신뢰도를 볼 수 있습니다.
@@ -176,4 +177,8 @@ ms.locfileid: "88816374"
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작](quickstarts/curl-train-extract.md)을 수행하여 [Form Recognizer API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)를 시작합니다.
+[클라이언트 라이브러리 빠른](quickstarts/client-library.md) 시작을 완료 하 여 선택한 언어로 양식 인식기로 양식 처리 앱을 작성 하기 시작 합니다.
+
+## <a name="see-also"></a>참조
+
+* [Form Recognizer란?](./overview.md)

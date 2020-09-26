@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 Azure로 Azure Stack VM 복제 | Micr
 description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333718"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -56,7 +56,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 7. 컴퓨터를 복제하는 작업은 복제 관리를 위해 구성 서버와 통신합니다(포트 HTTPS 443 인바운드). 컴퓨터는 복제 데이터를 프로세스 서버로 전달합니다(포트 HTTPS 9443 인바운드 - 수정 가능).
 8. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute 공용 피어링을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 시나리오 설정을 위해 필요한 사항은 다음과 같습니다.
 
@@ -164,13 +164,13 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 1. **인프라 준비** > **원본**을 클릭합니다.
 2. **원본 준비**에서 **+구성 서버**를 클릭합니다.
 
-    ![원본 설정](./media/azure-stack-site-recovery/plus-config-srv.png)
+    !["설치 하려면 위의 명령 모음에서 + 구성 서버를 클릭 하십시오." 라는 메시지가 포함 된 + 구성 서버 대화 상자의 스크린샷.](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
 5. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
 6. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치 프로그램을 실행하는 경우 등록 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
-    ![원본 설정](./media/azure-stack-site-recovery/set-source2.png)
+    ![서버 유형이 구성 서버로 설정 된 서버 추가 대화 상자의 스크린샷 및 자격 증명 모음 등록 키 다운로드 단추가 강조 표시 됩니다.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Azure Site Recovery 통합 설치 프로그램 실행

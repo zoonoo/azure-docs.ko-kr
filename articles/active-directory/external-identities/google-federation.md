@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273996"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -78,10 +78,10 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
 11. **응용 프로그램 종류**아래에서 **웹 응용 프로그램** 을 선택 하 고 응용 프로그램에 적합 한 이름을 지정 하 고 (예: "Azure AD B2B"), **권한 있는 리디렉션 uri**아래에 다음 uri를 입력 합니다.
     - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(여기서 `<directory id>`는 디렉터리 ID입니다.)
+    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(여기서 `<tenant id>` 은 테 넌 트 ID)
    
     > [!NOTE]
-    > 디렉터리 ID를 찾으려면 https://portal.azure.com 으로 이동하고, **Azure Active Directory**에서 **속성**을 선택하고 **디렉터리 ID**를 복사합니다.
+    > 테 넌 트 ID를 찾으려면로 이동 하 여 https://portal.azure.com **Azure Active Directory**에서 **속성** 을 선택 하 고 **테 넌 트 id**를 복사 합니다.
 
     ![권한 있는 리디렉션 URI 섹션을 보여주는 스크린샷](media/google-federation/google-create-oauth-client-id.png)
 

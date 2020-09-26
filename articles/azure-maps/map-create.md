@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 8f07ad7ff598445c598ff1d86637856cfd6c8f12
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 62aa8f966126d95af003478e7f43d3ccea2b48cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310410"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -130,7 +130,7 @@ map.setCamera({
 
 ## <a name="request-transforms"></a>변환 요청
 
-때로는 맵 컨트롤에서 만든 HTTP 요청을 수정할 수 있는 것이 유용할 수 있습니다. 예를 들어:
+때로는 맵 컨트롤에서 만든 HTTP 요청을 수정할 수 있는 것이 유용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 타일 요청에 헤더를 추가 합니다. 이 작업은 암호로 보호 된 서비스에 대해 수행 되는 경우가 많습니다.
 - 프록시 서비스를 통해 요청을 실행 하는 Url을 수정 합니다.

@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273603"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -115,7 +115,7 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 
 다음은 사용자 지정 설치 마법사 페이지, 수집되는 자격 증명 및 용도를 요약한 것입니다.
 
-![기본 설치](./media/reference-connect-accounts-permissions/customize.png)
+![사용자 지정 설치 마법사 페이지를 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/customize.png)
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 #### <a name="virtual-service-account"></a>가상 서비스 계정
 가상 서비스 계정은 암호가 없고 Windows에 의해 관리되는 특수한 유형의 계정입니다.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![VSA (가상 서비스 계정)를 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우 대신 그룹 관리 서비스 계정을 사용하는 것이 좋습니다.
 
@@ -241,7 +241,7 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 ### <a name="azure-ad-connector-account"></a>Azure AD Connect 계정
 Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계정은 표시 이름으로 식별할 수 있습니다.
 
-![AD 계정](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Azure AD 계정을 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 DC1입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
 
