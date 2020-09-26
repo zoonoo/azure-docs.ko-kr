@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281017"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요
 
@@ -36,12 +36,11 @@ Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 �
 
 Media Services 계정이 만들어지면 **기본** 스트리밍 끝점이 **중지** 됨 상태에서 계정에 추가 됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 스트리밍 끝점에 대 한 요금은 끝점이 **실행 중** 상태일 때마다 발생 합니다.
 
-Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
+Media Services는 다음과 같은 주문형 인코더를 지원 합니다.
 
 * [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
-* [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-이 문서에서는 주문형 미디어 인코더에 대한 간략한 개요와 보다 자세한 정보를 제공하는 문서에 대한 링크를 제공합니다. 또한 항목에서는 인코더에 대한 비교를 제공합니다.
+이 문서에서는 주문형 미디어 인코더에 대 한 간략 한 개요와 자세한 정보를 제공 하는 문서에 대 한 링크를 제공 합니다.
 
 기본적으로 각 Media Services 계정은 한번에 하나의 인코딩 작업을 활성화할 수 있습니다. 구입한 각 인코딩 예약 단위에 대해 하나씩, 여러 인코딩 작업을 동시에 실행할 수 있는 인코딩 단위를 예약할 수 있습니다. 자세한 내용은 [인코딩 단위 크기 조정](media-services-scale-media-processing-overview.md)을 참조하세요.
 
@@ -72,15 +71,6 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 
 ### <a name="see-also"></a>참고 항목
 [Media Services 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
-
-## <a name="media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로
-### <a name="overview"></a>개요
-[Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
-
-### <a name="how-to-use"></a>사용 방법
-미디어 인코더 Premium 워크플로는 복잡한 워크플로를 사용하여 구성됩니다. 워크플로 파일은 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 만들고 업데이트할 수 있습니다.
-
-[Azure Media Services의 프리미엄 Encoding 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>알려진 문제
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.

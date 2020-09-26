@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259056"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314881"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 PostgreSQL 확장
 
@@ -31,7 +31,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 > | [큐브](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
@@ -46,7 +46,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/current/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [dict \_ xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 확장 된 동의어 처리를 위한 텍스트 검색 사전 템플릿입니다. |
@@ -55,7 +55,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="functions-extensions"></a>함수 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 자동 증가 필드를 위한 함수입니다. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
@@ -74,10 +74,10 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | 시간 이동 구현을 위한 함수입니다. |
 > | [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html) | UUID(범용 고유 식별자)를 생성합니다. |
 
-### <a name="hyperscale-extensions"></a>Hyperscale 확장
+### <a name="hyperscale-citus-extensions"></a>Citus (hyperscale) 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. |
 > | 분할 \_ 재 분산 | 노드 추가 또는 제거의 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
@@ -85,7 +85,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [블 룸](https://www.postgresql.org/docs/current/bloom.html) | 블 룸 access 메서드 서명 파일 기반 인덱스입니다. |
 > | [btree\_gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | 특정 데이터 형식에 대 한 B-트리 형식의 동작을 구현 하는 샘플 GIN 연산자 클래스를 제공 합니다. |
@@ -94,14 +94,14 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대 한 관리 기능. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인 하는 함수입니다. |
@@ -127,7 +127,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361237"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정
 
@@ -42,7 +42,7 @@ Bing 브랜드 데이터베이스의 브랜드를 검색할지를 여부를 설�
 
 3. 브랜드를 편집하려면 **브랜드** 탭을 선택합니다.
 
-    ![Video Indexer에서 브랜드 모델 사용자 지정](./media/customize-brand-model/customize-brand-model.png)
+    ![스크린샷 콘텐츠 모델 사용자 지정 대화 상자의 브랜드 탭을 표시 합니다.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Bing에서 제안 하는 브랜드를 검색 Video Indexer 하려면 **bing에서 제안 하는 브랜드 표시** 옵션을 선택 합니다. 그렇지 않은 경우에는이 옵션을 선택 하지 않은 상태로 둡니다.
 
@@ -54,7 +54,7 @@ Bing 브랜드 데이터베이스의 브랜드를 검색할지를 여부를 설�
 
 1. **+ 브랜드 추가**를 선택 합니다.
 
-    ![Video Indexer에서 브랜드 모델 사용자 지정](./media/customize-brand-model/add-brand.png)
+    ![브랜드를 추가할 수 있는 브랜드 포함 대화 상자를 보여 주는 스크린샷](./media/customize-brand-model/add-brand.png)
 
     이름(필수), 범주(선택), 설명(선택) 및 참조 URL(선택)을 제공합니다.
     범주 필드는 브랜드에 태그를 지정하는 데 도움을 주기 위한 것입니다. 이 필드는 Video Indexer API를 사용할 때 브랜드의 *태그*로 표시됩니다. 예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.

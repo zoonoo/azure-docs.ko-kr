@@ -1,22 +1,22 @@
 ---
 title: 배포 열 선택-Hyperscale (Citus)-Azure Database for PostgreSQL
-description: Azure Database for PostgreSQL의 일반적인 하이퍼 확장 시나리오에서 배포 열을 선택 하는 방법에 대해 알아봅니다.
+description: Azure Database for PostgreSQL-Hyperscale (Citus)의 일반적인 시나리오에서 배포 열을 선택 하는 방법에 대해 알아봅니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975672"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314915"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 배포 열 선택
 
-각 테이블의 배포 열을 선택 하는 것은 가장 중요 한 모델링 결정 중 하나입니다. Azure Database for PostgreSQL – Hyperscale (Citus)은 행의 분포 열 값을 기준으로 분할에 행을 저장 합니다.
+각 테이블의 배포 열을 선택하는 것이 가장 중요한 모델링 결정 중 하나입니다. Azure Database for PostgreSQL – Hyperscale (Citus)은 행의 분포 열 값을 기준으로 분할에 행을 저장 합니다.
 
 적절 한 선택은 같은 실제 노드에서 관련 데이터를 함께 그룹화 하 여 쿼리를 빠르게 수행 하 고 모든 SQL 기능에 대 한 지원을 추가 합니다. 잘못 된 항목을 선택 하면 시스템이 느리게 실행 되 고 노드에서 모든 SQL 기능을 지원 하지 않습니다.
 

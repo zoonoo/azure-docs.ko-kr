@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 09/23/2020
+ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317092"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -174,8 +174,8 @@ ms.locfileid: "88235981"
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
-> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 
 > [!NOTE]
 > Azure Virtual Machines에는 리소스 이름과 호스트 이름이라는 두 가지 고유한 이름이 있습니다. 포털에서 가상 머신을 만들 때 두 이름에 동일한 값이 사용됩니다. 위의 표에 나와 있는 제한은 호스트 이름에 대한 것입니다. 실제 리소스 이름은 최대 64자까지 가능합니다.

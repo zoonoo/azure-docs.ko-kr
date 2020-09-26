@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317058"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,7 +49,7 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 
 식별 된 database performance 저하는 다음 속성으로 구성 된 지능형 항목을 사용 하 여 SQLInsights 로그에 기록 됩니다.
 
-| 속성 | 설명 |
+| 속성 | 세부 정보 |
 | :------------------- | ------------------- |
 | 데이터베이스 정보 | 리소스 URI와 같이 정보가 검색된 데이터베이스에 대한 메타데이터 |
 | 관찰된 시간 범위 | 검색된 정보 기간에 대한 시작 및 종료 시간 |

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: b386c058a2795402cc60fddf6c187b57aec2185e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 133c885f29ceff0b8c4764507a80df5ee24cf4a1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328397"
+ms.locfileid: "91361730"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 
@@ -120,7 +120,7 @@ print(blob.location)
 
 ## <a name="deploy-image-as-a-web-app"></a>이미지를 웹 앱으로 배포
 
-1. 다음 명령을 사용 하 여 이미지를 포함 하는 Azure Container Registry에 대 한 로그인 자격 증명을 가져옵니다. `<myacr>`을 이전에에서 반환 된 값으로 바꿉니다 `package.location` . 
+1. 다음 명령을 사용 하 여 이미지를 포함 하는 Azure Container Registry에 대 한 로그인 자격 증명을 가져옵니다. `<myacr>`을 이전에에서 반환 된 값으로 바꿉니다 `blob.location` . 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>

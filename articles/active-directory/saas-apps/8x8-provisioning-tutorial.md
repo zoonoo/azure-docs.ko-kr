@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 41ffd7606cb4c01cd8c2da56898b67cf177c358e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 850db53cbf88968a413d72527d76463e17aa8f5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329179"
+ms.locfileid: "91361707"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 8x8 구성
 
@@ -104,7 +104,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션에서 Configuration Manager의 **8x8 URL**을 **테넌트 URL**로 복사합니다. Configuration Manager의 **8x8 API 토큰**을 **비밀 토큰**으로 복사합니다. **연결 테스트**를 클릭하여 Azure AD가 8x8에 연결할 수 있는지 확인합니다. 연결이 실패하면 8x8 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 
-    ![프로비전](./media/8x8-provisioning-tutorial/provisioning.png)
+    ![스크린샷 U R L 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자가 표시 됩니다.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280983"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -291,12 +291,12 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Moduleerrors (이름이 지정 된 모듈 없음)**: Azure ML에서 실험을 제출 하는 동안 moduleerrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 해야 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하 고 나면 Azure ML은 학습 실행에 사용 되는 환경에 패키지를 설치 합니다. 
 
-    [추정](concept-azure-machine-learning-architecture.md#estimators) 를 사용 하 여 실험을 제출 하는 경우 `pip_packages` 패키지를 설치 하려는 `conda_packages` 원본에 기반 하 여 평가기에서 또는 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. 를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 `conda_dependencies_file` 하거나 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다 `pip_requirements_file` . 평가기에서 사용 하는 기본 이미지를 재정의 하려는 고유한 Azure ML Environment 개체가 있는 경우 `environment` 평가기 생성자의 매개 변수를 통해 해당 환경을 지정할 수 있습니다.
+    추정를 사용 하 여 실험을 제출 하는 경우 `pip_packages` `conda_packages` 패키지를 설치 하려는 원본에 기반 하 여 평가기에서 또는 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. 를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 `conda_dependencies_file` 하거나 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다 `pip_requirements_file` . 평가기에서 사용 하는 기본 이미지를 재정의 하려는 고유한 Azure ML Environment 개체가 있는 경우 `environment` 평가기 생성자의 매개 변수를 통해 해당 환경을 지정할 수 있습니다.
 
     또한 Azure ML은 TensorFlow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하 여 학습에 사용 되는 환경에서 핵심 프레임 워크 종속성을 대신 설치 하도록 합니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
  
     Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
-    프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks)에 나열 되어 있습니다.
+    프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks)에 나열 되어 있습니다.
 
     > [!Note]
     > 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
@@ -305,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod 종료**됨: 대부분의 경우 "AbortedError: Horovod가 종료 되었습니다."이 예외는 Horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs` 입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름의 접미사가 지정 됩니다 `_rank` . Horovod가 종료 되는 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 `Traceback` driver_log 파일의 끝에 있는을 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
 
-* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
+* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
 
     개별 실험 또는 실행을 영구적으로 삭제 하는 것은 현재 지원 되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
 
@@ -320,7 +320,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
-* 최신 **버전에 대 한 AutoML 종속성의 최근 업그레이드는 compatibilitity를 중단 합니다**. SDK 버전 1.13.0에서 이전 패키지에 고정 된 이전 버전의 비 호환성으로 인해 이전 sdk에 모델이 로드 되지 않고 현재 고정 된 최신 버전입니다. 다음과 같은 오류가 표시 됩니다.
+* 최신 **버전에 대 한 AutoML 종속성의 최근 업그레이드는 호환성이 중단**됩니다. SDK 버전 1.13.0 이전 패키지에 고정 된 이전 버전의 비 호환성으로 인해 이전 sdk에서 모델이 로드 되지 않으며 지금 고정 하는 최신 버전입니다. 다음과 같은 오류가 표시 됩니다.
   * 모듈을 찾을 수 없음: 예. `No module named 'sklearn.decomposition._truncated_svd` ,
   * 가져오기 오류: 예: `ImportError: cannot import name 'RollingOriginValidator'` ,
   * 특성 오류: 예. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -340,7 +340,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **예측 R2 점수는 항상 0입니다**. 제공 된 학습 데이터에 마지막 `n_cv_splits`  +  데이터 요소에 대해 동일한 값을 포함 하는 시계열이 있는 경우이 문제가 발생 `forecasting_horizon` 합니다. 시계열에이 패턴이 필요한 경우 기본 메트릭을 정규화 된 평균 제곱 오차로 전환할 수 있습니다.
+* **예측 R2 점수는 항상 0입니다**. 제공 된 학습 데이터에 마지막 `n_cv_splits`  +  데이터 요소에 대해 동일한 값을 포함 하는 시계열이 있는 경우이 문제가 발생 `forecasting_horizon` 합니다. 시계열에서이 패턴이 예상 되는 경우 기본 메트릭을 정규화 된 근본 제곱 오차로 전환할 수 있습니다.
  
 * **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. TensorFlow를 설치 하 고 자동 ML 실험에서 사용 하려면 TensorFlow = = 1.12.0 via CondaDependecies를 설치 합니다. 
  
@@ -366,7 +366,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     * 명령을 실행 하 여 32 비트가 아닌 conda 64 비트를 설치 했는지 확인 `conda info` 합니다. 는 `platform` `win-64` Windows 또는 Mac 용 이어야 합니다 `osx-64` .
     * Conda 4.4.10 이상이 설치 되어 있는지 확인 합니다. 명령을 사용 하 여 버전을 확인할 수 있습니다 `conda -V` . 이전 버전이 설치 되어 있는 경우 명령을 사용 하 여 업데이트할 수 있습니다 `conda update conda` .
     * 용 `gcc: error trying to exec 'cc1plus'`
-      *  `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`오류가 발생 하면 해당 명령을 사용 하 여 build essentials를 설치 `sudo apt-get install build-essential` 합니다.
+      *  `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`오류가 발생 하면 명령을 사용 하 여 build essentials를 설치 `sudo apt-get install build-essential` 합니다.
       * 새 이름을 automl_setup에 대 한 첫 번째 매개 변수로 전달 하 여 새 conda 환경을 만듭니다. 를 사용 하 여 기존 conda 환경을 보고 `conda env list` 제거 `conda env remove -n <environmentname>` 합니다.
       
 * **automl_setup_linux sh 실패**: automl_setup_linus. sh가 오류가 발생 한 Ubuntu Linux에서 실패 합니다. `unable to execute 'gcc': No such file or directory`-
@@ -376,7 +376,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   4. `automl_setup_linux.sh`다시 실행
 
 * **구성. ipynb 실패**:
-  * 로컬 conda의 경우 먼저 automl_setup susccessfully를 실행 했는지 확인 합니다.
+  * 로컬 conda의 경우 먼저 automl_setup 성공적으로 실행 되었는지 확인 합니다.
   * Subscription_id 올바른지 확인 하십시오. 모든 서비스를 선택 하 고 구독을 선택 하 여 Azure Portal에서 subscription_id를 찾습니다. 문자 "<" 및 ">"는 subscription_id 값에 포함 되지 않아야 합니다. 예를 들어에는 `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 유효한 형식이 있습니다.
   * 구독에 대 한 참가자 또는 소유자의 액세스 권한이 있는지 확인 합니다.
   * 지역이 지원 되는 지역,,,,,,, 중 하나 인지 확인 `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` 합니다.
@@ -390,15 +390,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   3. 새 구독, 리소스 그룹, 작업 영역 또는 지역이 사용 중인 경우에는 다시 노트북을 실행 해야 `configuration.ipynb` 합니다. 지정 된 구독에서 지정 된 리소스 그룹에 작업 영역이 이미 있는 경우에만 config.js의 변경 내용이 적용 됩니다.
   4. 지역을 변경 하려면 작업 영역, 리소스 그룹 또는 구독을 변경 하세요. `Workspace.create` 는 이미 있는 경우 작업 영역을 만들거나 업데이트 하지 않습니다. 지정 된 지역이 다른 경우에도 마찬가지입니다.
   
-* **샘플 노트북 실패**: 샘플 노트북에 오류가 발생 하면 preperty, method 또는 library가 존재 하지 않습니다.
-  * Correctcorrect 커널이 jupyter 노트북에서 선택 되었는지 확인 합니다. 커널은 노트북 페이지의 오른쪽 위에 표시 됩니다. 기본값은 azure_automl입니다. 커널은 노트북의 일부로 저장 됩니다. 따라서 새 conda 환경으로 전환 하는 경우 노트북에서 새 커널을 선택 해야 합니다.
+* **샘플 노트북 실패**: 예제 노트북에서 속성, 메서드 또는 라이브러리가 없다는 오류가 발생 하 여 실패 하는 경우:
+  * Jupyter 노트북에서 올바른 커널이 선택 되었는지 확인 합니다. 커널은 노트북 페이지의 오른쪽 위에 표시 됩니다. 기본값은 azure_automl입니다. 커널은 노트북의 일부로 저장 됩니다. 따라서 새 conda 환경으로 전환 하는 경우 노트북에서 새 커널을 선택 해야 합니다.
       * Azure Notebooks의 경우 Python 3.6 이어야 합니다. 
-      * 로컬 conda 환경의 경우에는 automl_setup에서 지정한 conda envioronment 이름 이어야 합니다.
+      * 로컬 conda 환경의 경우에는 automl_setup에서 지정한 conda 환경 이름 이어야 합니다.
   * 사용 중인 SDK 버전에 대 한 노트북이 있는지 확인 합니다. Jupyter 노트북 셀에서를 실행 하 여 SDK 버전을 확인할 수 있습니다 `azureml.core.VERSION` . 단추를 클릭 하 `Branch` `Tags` 고 탭을 선택한 다음 버전을 선택 하 여 GitHub에서 이전 버전의 샘플 노트북을 다운로드할 수 있습니다.
 
 * **Windows에서 Numpy 가져오기 실패**: 일부 windows 환경에서는 최신 Python 버전 3.6.8를 사용 하 여 Numpy를 로드 하는 동안 오류가 발생 합니다. 이 문제가 표시 되는 경우 Python 버전 3.6.7으로 시도 하세요.
 
-* **Numpy 가져오기 실패**: 자동화 된 ml conda 환경에서 tensorflow 버전을 확인 합니다. 지원 되는 버전은 < 1.13입니다. 버전이 >= 1.13 인 경우 환경에서 tensorflow를 제거 합니다. tensorflow의 버전을 확인 하 고 다음과 같이 제거할 수 있습니다.
+* **Numpy 가져오기 실패**: 자동화 된 ml conda 환경에서 TensorFlow 버전을 확인 합니다. 지원 되는 버전은 < 1.13입니다. 버전이 >= 1.13 인 경우 환경에서 TensorFlow를 제거 합니다. TensorFlow의 버전을 확인 하 고 다음과 같이 제거할 수 있습니다.
   1. 명령 셸을 시작 하 고 자동 ml 패키지가 설치 된 conda 환경을 활성화 합니다.
   2. 을 입력 `pip freeze` 하 고 검색 `tensorflow` 하는 경우 나열 된 버전 < 1.13 이어야 합니다.
   3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall tensorflow` 명령 셸에서 y를 입력 하 여 확인 합니다.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ef87a1c7163825fcee8f4a27408719839d8a6d43
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361577"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Sales Navigator 구성
 
@@ -71,12 +71,12 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     > [!NOTE]
     > 자동 할당 라이선스가 활성화되지 않으면 사용자 데이터만 동기화된 것입니다.
 
-    ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+    ![스크린샷은 LinkedIn 계정 센터 전역 설정을 보여 줍니다.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
     > [!NOTE]
     > 자동 라이선스 할당을 사용하는 경우 애플리케이션 인스턴스 및 라이선스 유형을 메모해 두어야 합니다. 라이선스는 모든 라이선스가 취득될 때까지 선착순으로 할당됩니다.
 
-    ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![S C I M 설정 페이지를 보여 주는 스크린샷](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
 5. **토큰 생성**을 클릭합니다. **액세스 토큰** 필드 아래에 액세스 토큰이 표시됩니다.
 
@@ -90,7 +90,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 10. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+    ![LinkedIn 상승 프로 비전 페이지를 보여 주는 스크린샷](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
 11. **관리자 자격 증명** 아래에서 다음 필드를 입력합니다.
 
@@ -106,7 +106,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 14. **특성 매핑** 섹션에서 Azure AD에서 LinkedIn Sales Navigator로 동기화할 사용자 및 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 LinkedIn Sales Navigator에서 사용자 계정 또는 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+    ![특성 매핑을 포함 한 매핑을 보여 주는 스크린샷](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. LinkedIn Sales Navigator에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 

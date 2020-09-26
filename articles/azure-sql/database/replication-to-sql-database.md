@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362132"
 ---
 # <a name="replication-to-azure-sql-database"></a>Azure SQL Database로 복제
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,10 +56,10 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 | :----| :------------- | :--------------- |
 | [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 | 
 | [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
-| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
-| [**피어-투-피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
+| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 예 | 예|
+| [**피어 투 피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 예 | 예|
 | [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 예 | 예|
-| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 아니요|
+| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 예 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -78,7 +78,7 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 
 ## <a name="replication-architecture"></a>복제 아키텍처  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![다이어그램은 서로 다른 지역의 여러 구독자 클러스터를 포함 하는 Azure SQL Database 포함 된 복제 아키텍처와, 원격 클러스터에 연결 되는 게시자, Logread 실행 파일 및 배포자 실행 파일을 포함 하는 온-프레미스 Azure 가상 컴퓨터를 보여 줍니다.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>시나리오  
 

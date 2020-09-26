@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361367"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -124,7 +124,7 @@ SAP LaMa Azure 커넥터 구성에서 ' 관리 되는 Id 사용 '을 선택 하 
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>SAP LaMa에서 새 커넥터 만들기
 
-SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. Cloud Managers(클라우드 관리자) 탭으로 이동하여 Add(추가)를 클릭합니다. Microsoft Azure 클라우드 어댑터를 선택하고 다음을 클릭합니다. 다음 정보를 입력합니다.
+SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. Cloud Managers(클라우드 관리자) 탭으로 이동하여 Add(추가)를 클릭합니다. Microsoft Azure 클라우드 어댑터를 선택하고 다음을 클릭합니다. 다음 정보를 입력 합니다.
 
 * Label(레이블): 커넥터 인스턴스의 이름 선택
 * 사용자 이름: 가상 머신의 사용자 할당 id id 또는 서비스 주체 응용 프로그램 ID입니다. 자세한 내용은 [시스템 또는 사용자 할당 Id 사용]을 참조 하세요.
@@ -260,14 +260,14 @@ SAP LaMa는 SQL Server 자체를 재배치할 수 없습니다. 따라서 데이
 
 SAP SWPM(Software Provisioning Manager)을 시작하기 전에 ASCS의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
 
-![Linux][Logo_Linux] Linux
+![Linux 로고.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows 로고.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -276,7 +276,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 SWPM을 실행하고 *ASCS 인스턴스 호스트 이름*에 *ah1-ascs*를 사용합니다.
 
-![Linux][Logo_Linux] Linux  
+![Linux 로고.][Logo_Linux] Linux  
 다음 프로필 매개 변수를 /usr/sap/hostctrl/exe/host_profile에 있는 SAP Host Agent 프로필에 추가합니다. 자세한 내용은 SAP Note [2628497]를 참조하세요.
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -387,14 +387,14 @@ HANA 가상 머신이 아닌 애플리케이션 서버 가상 머신에서 SWPM�
 
 SAP SWPM(Software Provisioning Manager)을 시작하기 전에 애플리케이션 서버의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
 
-![Linux][Logo_Linux] Linux
+![Linux 로고.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows 로고.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

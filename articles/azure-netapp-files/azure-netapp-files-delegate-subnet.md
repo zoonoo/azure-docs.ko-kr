@@ -14,28 +14,30 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 9bb3e93b99ce8d5a61501d417a71e5e38753f5ff
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361027"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
 Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 때는 위임된 서브넷을 지정해야 합니다.
 
 ## <a name="considerations"></a>고려 사항
+
 * 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 11 개의 사용 가능한 IP 주소를 제공 하는/28 네트워크 마스크를 사용 하면 서비스에 충분 합니다.
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
    Azure를 통해 VNet에서 여러 개의 위임 된 서브넷을 만들 수 있습니다.  그러나 두 개 이상의 위임 된 서브넷을 사용 하는 경우 새 볼륨을 만들려는 모든 시도가 실패 합니다.  
    VNet에는 위임 된 서브넷이 하나만 있을 수 있습니다. NetApp 계정은 각각 고유한 위임 된 서브넷이 있는 여러 Vnet에 볼륨을 배포할 수 있습니다.  
 * 위임된 서브넷에서 네트워크 보안 그룹 또는 서비스 엔드포인트를 지정할 수 없습니다. 이렇게 하면 서브넷 위임이 실패합니다.
 * 전역적으로 피어 링 가상 네트워크의 볼륨에 대 한 액세스는 현재 지원 되지 않습니다.
-* 주소 접두사 (대상)가 Azure NetApp Files에 위임 된 서브넷에 대 한 [사용자 정의 사용자 지정 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) 를 만드는 것은 지원 되지 않습니다. 이렇게 하면 VM 연결에 영향을 줍니다.
+* 주소 접두사 (대상)가 Azure NetApp Files에 위임 된 서브넷에 대 한 [사용자 정의 사용자 지정 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) 를 만드는 것은 지원 되지 않습니다. 이렇게 하면 VM 연결에 영향을 줍니다. Azure NetApp Files 위임 된 서브넷에 대 한 시스템 경로를 만듭니다. 경로는 문제를 해결 하는 데 필요한 경우 경로 테이블의 **유효 경로** 에 표시 됩니다.
 
-## <a name="steps"></a>단계 
-1.  Azure Portal에서 **가상 네트워크** 블레이드로 이동하여 Azure NetApp Files에 사용할 가상 네트워크를 선택합니다.    
+## <a name="steps"></a>단계
+
+1.  Azure Portal의 **가상 네트워크** 블레이드로 이동 하 여 Azure NetApp Files에 사용 하려는 가상 네트워크를 선택 합니다.    
 
 1. 가상 네트워크 블레이드에서 **서브넷**을 선택하고 **+서브넷** 단추를 클릭합니다. 
 
@@ -48,7 +50,8 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 �
     
 [Azure NetApp Files용 볼륨을 만들](azure-netapp-files-create-volumes.md) 때 서브넷을 만들고 위임할 수도 있습니다. 
 
-## <a name="next-steps"></a>다음 단계  
+## <a name="next-steps"></a>다음 단계
+
 * [Azure NetApp Files에 대한 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

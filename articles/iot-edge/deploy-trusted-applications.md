@@ -5,14 +5,14 @@ author: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/25/2020
 ms.author: kgremban
-ms.openlocfilehash: 3a43d7e3e406e4a248e0ac2c27fb74a2f1b036cf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d81cc6c94c04c683362fd12cd6777c304a4b0a84
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940900"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361979"
 ---
 # <a name="confidential-computing-at-the-edge"></a>에 지에서 기밀 컴퓨팅
 
@@ -42,8 +42,8 @@ Open Enclave는 여러 하드웨어 플랫폼을 지원 합니다. 현재 enclav
 
 Open Enclave 리포지토리에는 개발자가 시작 하는 데 도움이 되는 샘플도 포함 되어 있습니다. 자세한 내용을 보려면 다음 소개 문서 중 하나를 선택 하세요.
 
-* [Linux에서 Open Enclave SDK 샘플 빌드](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
-* [Windows에서 Open Enclave SDK 샘플 빌드](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md)
+* [Linux에서 Open Enclave SDK 샘플 빌드](https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md)
+* [Windows에서 Open Enclave SDK 샘플 빌드](https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesWindows.md)
 
 ## <a name="hardware"></a>하드웨어
 

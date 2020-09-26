@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361758"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 1. **개체 탐색기**에서 **contosoconcethall** > **보기**를 확장합니다.
 
-   ![뷰](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![스크린샷 4 가지 유형의 장소를 포함 하는 뷰 노드의 내용을 표시 합니다.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. **dbo.Venues**를 마우스 오른쪽 단추로 클릭합니다.
 3. **Script View as**  >  **CREATE To**  >  **새 쿼리 편집기 창** 으로 뷰 스크립팅을 선택 합니다.

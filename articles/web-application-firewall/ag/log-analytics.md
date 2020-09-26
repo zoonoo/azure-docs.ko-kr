@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 22273cf23e48de62d99a8c149ae3e2b1c05db3af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 733a9af589718e9abe8736491023003744428cd6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361057"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Log Analytics를 사용 하 Application Gateway WAF (웹 응용 프로그램 방화벽) 로그를 검사 합니다.
 
-Application Gateway WAF가 작동 하 고 나면 로그를 사용 하 여 각 요청에서 발생 하는 상황을 검사할 수 있습니다. 방화벽 로그는 WAF가 평가, 일치 및 차단 하는 항목에 대 한 통찰력을 제공 합니다. Azure Monitor Log Analytics를 사용 하 여 방화벽 로그 내의 데이터를 검사 하 여 훨씬 더 많은 정보를 제공할 수 있습니다. Log Analytics 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. 로그 쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+Application Gateway WAF가 작동 하 고 나면 로그를 사용 하 여 각 요청에서 발생 하는 상황을 검사할 수 있습니다. 방화벽 로그는 WAF가 평가, 일치 및 차단 하는 항목에 대 한 통찰력을 제공 합니다. Azure Monitor Log Analytics를 사용 하 여 방화벽 로그 내의 데이터를 검사 하 여 훨씬 더 많은 정보를 제공할 수 있습니다. Log Analytics 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. 로그 쿼리에 대한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ## <a name="import-waf-logs"></a>WAF 로그 가져오기
 
@@ -79,7 +79,7 @@ AzureDiagnostics
 
 쿼리를 만든 후 대시보드에 추가할 수 있습니다.  Log analytics 작업 영역의 오른쪽 위에서 **대시보드에 고정을** 선택 합니다. 예제 대시보드에 고정 된 이전 4 개의 쿼리를 사용 하 여이 데이터를 한눈에 볼 수 있습니다.
 
-![대시보드](../media/log-analytics/dashboard.png)
+![쿼리를 추가할 수 있는 Azure 대시보드가 스크린샷에 표시 됩니다.](../media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>다음 단계
 

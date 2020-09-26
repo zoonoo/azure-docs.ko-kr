@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernetes Service에서 직접 끌어오기 요청에 대 한 변경 내용을 검토 하 고 테스트 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5e3417f16791b71d53a0eec9263532219c779440
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js
+ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316106"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
 
@@ -28,7 +28,7 @@ Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병�
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli-installed]
@@ -51,7 +51,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>인증을 위한 서비스 주체 만들기
 
-[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예를 들어:
+[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -149,7 +149,7 @@ git push origin bike-images
 
 푸시가 완료 되 면 GitHub의 분기 리포지토리로 이동 하 여 분기 리포지토리에서 *마스터* 분기를 *자전거 이미지* 분기와 비교 하 여 기본 분기로 사용 하 여 끌어오기 요청을 만듭니다.
 
-끌어오기 요청이 열리면 *작업* 탭으로 이동 합니다. 새 작업이 시작 되었으며 *자전거* 서비스를 빌드하고 있는지 확인 합니다.
+끌어오기 요청이 열리면 *작업* 탭으로 이동 합니다. 새 작업이 시작 되었으며 *자전거* 서비스를 구축 하 고 있는지 확인 합니다.
 
 ## <a name="view-the-child-space-with-your-changes"></a>변경 내용으로 자식 공간 보기
 
@@ -170,7 +170,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](../how-dev-spaces-works.md)
