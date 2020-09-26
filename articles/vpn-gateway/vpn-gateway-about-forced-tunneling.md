@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: 강제 터널링-사이트 간 연결 구성: 클래식'
-description: 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 '강제 적용'하는 방법입니다.
+description: 클래식 배포 모델을 사용 하 여 만든 가상 네트워크에 대해 강제 터널링을 구성 하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313538"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
 

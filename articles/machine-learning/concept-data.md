@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359684"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -48,7 +48,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 다음 다이어그램에서는이 권장 워크플로의 시각적 데모를 제공 합니다.
 
-![데이터 개념-다이어그램](./media/concept-data/data-concept-diagram.svg)
+![다이어그램은 데이터 집합으로 흐르는 데이터 저장소로 이동 하는 Azure Storage 서비스를 보여 줍니다. 데이터 집합은 데이터 드리프트로 흐르는 모델 학습으로 이동 하 여 데이터 집합으로 다시 흐릅니다.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>데이터 저장소
 

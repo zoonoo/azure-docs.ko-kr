@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 953be98de855162127fd8b8b8273fe9817668db7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ff3e9db4dcfe0bedc348323dbbddd1e66124fc5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360160"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway 사용자 지정 오류 페이지 만들기
 
@@ -48,7 +48,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 1. 포털에서 Application Gateway를 탐색하고 애플리케이션 게이트웨이를 선택하세요.
 
-    ![ag-overview](media/custom-error/ag-overview.png)
+    ![Application gateway에 대 한 개요 페이지를 보여 주는 스크린샷](media/custom-error/ag-overview.png)
 2. **수신기**를 클릭하고 오류 페이지를 지정할 특정 수신기로 이동하세요.
 
     ![Application Gateway 수신기](media/custom-error/ag-listener.png)

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984389"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280473"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 blob 데이터에 지정 시간 복원 수행
 
@@ -54,9 +54,7 @@ Azure Portal를 사용 하 여 지정 시간 복원을 구성 하려면 다음 �
 
 PowerShell을 사용 하 여 지정 시간 복원을 구성 하려면 먼저 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 2.6.0 이상을 설치 합니다. 그런 다음 AzStorageBlobRestorePolicy 명령을 호출 하 여 저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 합니다.
 
-다음 예제는 일시 삭제를 사용하도록 설정하고, 일시 삭제 보존 기간을 설정하고, 변경 피드를 사용하도록 설정하고, 특정 시점 복원을 사용하도록 설정합니다. 예제를 실행하기 전에 Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 Blob 버전 관리도 사용하도록 설정합니다.
-
-예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
+다음 예에서는 일시 삭제를 사용 하도록 설정 하 고 일시 삭제 보존 기간을 설정 하 고, 변경 피드 및 버전 관리를 사용 하도록 설정 하 고, 특정 시점 복원을 사용 하도록 설정 합니다.    예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 # Sign in to your Azure account.
@@ -71,10 +69,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least

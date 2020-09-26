@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
-ms.date: 7/31/2020
-ms.openlocfilehash: d8055c89af8adcb88a2055e617e27c030e05d5ae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: sstein
+ms.date: 09/16/2020
+ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504384"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330709"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,12 +44,12 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](elastic
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기 변경의 대기 시간
 
-단일 데이터베이스 또는 탄력적 풀의 서비스 계층을 변경 하거나 계산 크기를 조정 하는 데 예상 되는 대기 시간은 다음과 같이 매개 변수화 됩니다.
+서비스 계층을 변경 하거나, 단일 데이터베이스 또는 탄력적 풀의 계산 크기를 조정 하거나, 탄력적 풀에서 데이터베이스를 이동 하거나, 탄력적 풀 간에 데이터베이스를 이동 하는 데 예상 되는 대기 시간은 다음과 같습니다.
 
 |서비스 계층|기본 단일 데이터베이스,</br>Standard (S0-S1)|기본 탄력적 풀</br>Standard (S2-S 12), </br>범용 단일 데이터베이스 또는 탄력적 풀|프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀|하이퍼스케일
 |:---|:---|:---|:---|:---|
 |**기본 단일 데이터베이스, </br> 표준 (S0-S1)**|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
-|**기본 탄력적 풀, </br> 표준 (S2-s 12), 범용 </br> 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
+|**기본 탄력적 풀, </br> 표준 (S2-s 12), 범용 </br> 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;단일 데이터베이스의 경우 사용 되는 공간과 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 단일 데이터베이스의 경우 5 분 미만</br>&bull;&nbsp;탄력적 풀의 경우 데이터베이스 수에 비례|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**하이퍼스케일**|해당 없음|해당 없음|해당 없음|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 2 분 미만|
 
@@ -57,7 +57,7 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](elastic
 >
 > - 탄력적 풀에 대 한 서비스 계층 또는 크기 조정 계산을 변경 하는 경우에는 풀의 모든 데이터베이스에서 사용 되는 공간의 합계를 사용 하 여 예상 값을 계산 해야 합니다.
 > - 탄력적 풀에서 데이터베이스를 이동 하는 경우 데이터베이스에 사용 되는 공간만 탄력적 풀에서 사용 하는 공간이 아니라 대기 시간에 영향을 줍니다.
-> - 표준 및 범용 탄력적 풀의 경우 탄력적 풀 또는 탄력적 풀 간에 데이터베이스 이동의 대기 시간은 탄력적 풀에서[PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)(프리미엄 파일 공유) 저장소를 사용 하는 경우 데이터베이스 크기에 비례 합니다. 풀에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 풀에 있는 모든 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 이면 `PremiumFileStorage` 풀에서 PFS 저장소를 사용 합니다.
+> - 표준 및 범용 탄력적 풀의 경우 탄력적 풀 또는 탄력적 풀 간에 데이터베이스 이동의 대기 시간은 탄력적 풀에서[PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)(프리미엄 파일 공유) 저장소를 사용 하는 경우 데이터베이스 크기에 비례 합니다. 풀에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 풀에 있는 모든 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 또는 인 경우 `PremiumFileStorage` 풀은 `PremiumFileStorage-ZRS` PFS 저장소를 사용 합니다.
 
 ```sql
 SELECT s.file_id,

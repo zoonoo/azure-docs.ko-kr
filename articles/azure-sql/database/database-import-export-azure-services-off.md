@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7d36984e7117305b22381e4266575e998c080ae5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360194"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Azure 서비스가 서버에 액세스할 수 있도록 허용 하지 않고 Azure SQL Database 가져오기 또는 내보내기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "87543761"
 이 템플릿을 사용 하면 패치가 적용 된 최신 버전을 사용 하 여 Windows 버전에 대 한 몇 가지 다른 옵션을 사용 하 여 간단한 Windows 가상 머신을 배포할 수 있습니다. 그러면 리소스 그룹 위치에 A2 크기의 VM이 배포 되 고 VM의 정규화 된 도메인 이름이 반환 됩니다.
 <br><br>
 
-[!["Azure에 배포" 라는 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
+[!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 자세한 내용은 [WINDOWS VM의 매우 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)를 참조 하세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "87543761"
 
 1. 배포가 완료되면 가상 머신 리소스로 이동합니다.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![스크린샷에 연결 단추가 있는 가상 머신 개요 페이지가 표시 됩니다.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. **연결**을 선택합니다.
 
@@ -145,7 +145,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 최상의 성능을 얻으려면 Azure Files를 사용 합니다. SqlPackage는 Azure Files에 직접 액세스할 수 있도록 파일 시스템에서 작동 합니다.
 
-비용을 절감 하려면 Azure Blob을 사용 합니다 .이는 프리미엄 Azure 파일 공유 보다 비용이 저렴 합니다. 그러나를 복사 해야 합니다 [. ](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac)가져오기 또는 내보내기 작업을 수행 하기 전에 blob와 로컬 파일 시스템 간의 BACPAC 파일 따라서 프로세스는 더 오래 걸립니다.
+비용을 절감 하려면 Azure Blob을 사용 합니다 .이는 프리미엄 Azure 파일 공유 보다 비용이 저렴 합니다. 그러나를 복사 해야 합니다 [. ](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 가져오기 또는 내보내기 작업을 수행 하기 전에 blob와 로컬 파일 시스템 간의 BACPAC 파일 따라서 프로세스는 더 오래 걸립니다.
 
 업로드 하거나 다운로드 합니다. BACPAC 파일 [은 AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../../storage/common/storage-use-azcopy-blobs.md)및 [AzCopy 및 file storage를 사용 하 여 데이터 전송](../../storage/common/storage-use-azcopy-files.md)을 참조 하세요.
 

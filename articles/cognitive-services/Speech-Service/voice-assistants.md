@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 18a9de8a2eaa2364e89e831db8dab5cbbb061c10
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360942"
 ---
 # <a name="what-is-a-voice-assistant"></a>음성 도우미란?
 
@@ -27,7 +27,7 @@ ms.locfileid: "85299248"
 
 음성 도우미를 만드는 첫 번째 단계는 수행할 작업을 결정 하는 것입니다. Speech service는 길잡이 상호 작용을 작성 하기 위한 여러 보충 솔루션을 제공 합니다. [직접 라인 음성](direct-line-speech.md) 채널을 사용 하 여 Azure Bot Service를 사용 하 여 작성 된 유연 하 고 다양 한 봇에 음성 및 음성 출력 기능을 추가 하거나 간단한 음성 명령 시나리오에 대 한 간단한 [사용자 지정 명령](custom-commands.md) 앱 제작을 활용할 수 있습니다.
 
-| 원하는 경우... | 다음을 고려 하십시오. | 예를 들어... |
+| 원하는 경우... | 다음을 고려 하십시오. | 예... |
 |-------------------|------------------|----------------|
 |강력한 기술 통합 및 전체 배포 제어를 포함 하는 오픈 대화 종료 | [직접 선 음성](direct-line-speech.md) 채널을 사용 하는 Azure Bot Service 봇 | <ul><li>"시애틀로 이동 해야 합니다."</li><li>"주문할 수 있는 피자 종류는 무엇 인가요?"</li></ul>
 |제작 및 호스팅을 간소화 하는 음성 명령 또는 간단한 작업 기반 대화 | [사용자 지정 명령](custom-commands.md) | <ul><li>"오버 헤드 조명 켜기"</li><li>"핫을 5도로 설정"</li><li>여기에서 [사용할 수 있는](https://speech.microsoft.com/customcommands) 기타 샘플</li></ul>
@@ -50,7 +50,7 @@ ms.locfileid: "85299248"
 | Category | 기능 |
 |----------|----------|
 |[사용자 지정 키워드](speech-devices-sdk-create-kws.md) | 사용자는 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 도우미와 대화를 시작할 수 있습니다. 앱은 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)사용자 지정 키워드를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 키워드 엔진을 사용 하 여이를 수행 합니다. 음성 도우미는 서비스 측 키워드 확인을 사용 하 여 키워드 활성화의 정확도를 향상 시킬 수 있습니다 (장치에 대해서만).
-|[음성 텍스트](speech-to-text.md) | 음성 도우미는 음성 서비스의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
+|[음성 텍스트 변환](speech-to-text.md) | 음성 도우미는 음성 서비스의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
 |[텍스트 음성 변환](text-to-speech.md) | 길잡이의 텍스트 응답은 음성 서비스에서 [텍스트 음성 변환](text-to-speech.md) 을 사용 하 여 합성 됩니다. 이러한 합성은 클라이언트 응용 프로그램에서 오디오 스트림으로 사용할 수 있게 됩니다. Microsoft는 브랜드에 음성을 제공 하는 사용자 지정 고품질 신경망을 빌드하는 기능을 제공 합니다. 자세히 알아보려면 [microsoft에 문의](mailto:mstts@microsoft.com)하세요.
 
 ## <a name="getting-started-with-voice-assistants"></a>음성 도우미 시작
@@ -81,7 +81,7 @@ Azure Speech services를 사용 하 여 빌드된 음성 도우미는 전체 사
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [사용자 지정 명령에 대 한 자세한 정보](custom-commands.md)
 * [직접 라인 음성에 대 한 자세한 정보](direct-line-speech.md)
 * [Speech SDK 가져오기](speech-sdk.md)

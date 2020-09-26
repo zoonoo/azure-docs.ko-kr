@@ -3,12 +3,12 @@ title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 34b2476b8194b8ad6f8e7e86e2644a1c0d0bbb4b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330828"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -28,7 +28,7 @@ ms.locfileid: "89484004"
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Azure 증명 서비스 |
-| Microsoft 인증<sup>1</sup> | [Azure 리소스 관리자](../index.yml) |
+| Microsoft 인증<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | AutonomousSystems | [자치 시스템](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware 솔루션](../../azure-vmware/index.yml) |
@@ -90,7 +90,7 @@ ms.locfileid: "89484004"
 | Microsoft.EnterpriseKnowledgeGraph | 엔터프라이즈 지식 그래프 |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft 기능<sup>1</sup> | [Azure 리소스 관리자](../index.yml) |
+| Microsoft 기능<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [Azure의 SAP HANA(대규모 인스턴스)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
@@ -98,7 +98,7 @@ ms.locfileid: "89484004"
 | Microsoft.HealthcareApis | [FHIR용 Azure API](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
-| HybridNetwork  | 스택 가장자리 지원 |
+| HybridNetwork  | [개인에 지 영역](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Azure Import/Export](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
@@ -188,4 +188,4 @@ ms.locfileid: "89484004"
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스 공급자를 등록 하는 방법을 비롯 하 여 리소스 공급자에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](resource-providers-and-types.md) 을 참조 하세요.
+리소스 공급자를 등록 하는 방법을 비롯 하 여 리소스 공급자에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](resource-providers-and-types.md)을 참조 하세요.
