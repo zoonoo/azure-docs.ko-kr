@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333446"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 확대/축소 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "88545984"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * [확대/축소 테 넌 트](https://zoom.us/pricing).
 * 관리자 권한으로 확대/축소의 사용자 계정
@@ -52,19 +52,19 @@ ms.locfileid: "88545984"
 
 2. 페이지의 오른쪽 위 모서리에서 **관리** 로 이동 합니다. 
 
-    ![확대/축소 설치](media/zoom-provisioning-tutorial/zoom02.png)
+    ![관리 옵션이 호출 된 확대/축소 앱 Marketplace의 스크린샷](media/zoom-provisioning-tutorial/zoom02.png)
 
 3. 만든 Azure AD 앱으로 이동 합니다. 
     
-    ![앱 확대/축소](media/zoom-provisioning-tutorial/zoom03.png)
+    ![Azure A D 앱이 호출 된 앱 섹션의 스크린샷](media/zoom-provisioning-tutorial/zoom03.png)
 
 4. 왼쪽 탐색 창에서 **앱 자격 증명** 을 선택 합니다.
 
-    ![앱 확대/축소](media/zoom-provisioning-tutorial/zoom04.png)
+    ![앱 자격 증명 옵션이 강조 표시 된 왼쪽 탐색 창의 스크린샷](media/zoom-provisioning-tutorial/zoom04.png)
 
 5. **JWT 토큰**을 복사 하 고 저장 합니다. 이 값은 Azure Portal 확대/축소 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다. 새 만료 되지 않는 토큰이 필요한 경우 새 토큰을 자동으로 생성 하는 만료 시간을 다시 구성 해야 합니다. 
 
-    ![확대/축소 설치](media/zoom-provisioning-tutorial/zoom05.png)
+    ![앱 자격 증명 페이지의 스크린샷](media/zoom-provisioning-tutorial/zoom05.png)
 
 ## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 확대/축소 추가
 
@@ -95,11 +95,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://api.zoom.us/scim` **테 넌 트 URL**을 입력 합니다. **비밀 토큰**에서 이전에 검색 한 **JWT 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Zoom에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 확대/축소 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 

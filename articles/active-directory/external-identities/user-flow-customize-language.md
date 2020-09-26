@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abd6423ebbdba11cd1b0e0c2d00cfd36aa745e72
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 93b2b5538df894e17449e173baa3e402d6c59654
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354992"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 언어 지정(미리 보기)
 
@@ -150,56 +150,56 @@ Azure AD에는 다음 언어에 대한 지원이 포함되어 있습니다. 사�
 
 | 언어              | 언어 코드 | 사용자 흐름         | MFA 알림  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| 아랍어                | ar            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 불가리아어             | bg            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 벵골어                | bn            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 카탈로니아어               | ca            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 체코어                 | cs            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 덴마크어                | da            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 독일어                | de            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 그리스어                 | el            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 영어               | en            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 스페인어               | es            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 에스토니아어              | et            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 바스크어                | eu            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 핀란드어               | fi            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 프랑스어                | fr            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 갈리시아어              | gl            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 구자라트어              | gu            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 히브리어                | he            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 힌디어                 | hi            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 크로아티아어              | hr            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 헝가리어             | hu            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 인도네시아어            | id            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 이탈리아어               | it            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 일본어              | ja            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 카자흐어                | kk            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 칸나다어               | kn            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 한국어                | ko            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 리투아니아어            | lt            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 라트비아어               | lv            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 말라얄람어             | ml            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 마라티어               | mr            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 말레이어                 | ms            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 노르웨이어 복말      | nb            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 네덜란드어                 | nl            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 노르웨이어             | 아니요            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 펀잡어               | pa            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 폴란드어                | pl            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 포르투갈어 - 브라질   | pt-br         | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 포르투갈어 - 포르투갈 | pt-pt         | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 루마니아어              | ro            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 러시아어               | ru            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 슬로바키아어                | sk            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 슬로베니아어             | sl            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 세르비아어 - 키릴 자모    | sr-cryl-cs    | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 세르비아어 - 라틴 문자       | sr-latn-cs    | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 스웨덴어               | sv            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 타밀어                 | ta            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 텔루구어                | te            | ![예](./media/user-flow-customize-language/yes.png) | ![아니요](./media/user-flow-customize-language/no.png) |
-| 태국어                  | th            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 터키어               | tr            | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 우크라이나어             | uk            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 베트남어            | vi            | ![아니요](./media/user-flow-customize-language/no.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 중국어 - 간체  | zh-hans       | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
-| 중국어 - 번체 | zh-hant       | ![예](./media/user-flow-customize-language/yes.png) | ![예](./media/user-flow-customize-language/yes.png) |
+| 아랍어                | ar            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 불가리아어             | bg            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 벵골어                | bn            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 카탈로니아어               | ca            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 체코어                 | cs            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 덴마크어                | da            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 독일어                | de            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 그리스어                 | el            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 영어               | en            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 스페인어               | es            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 에스토니아어              | et            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 바스크어                | eu            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 핀란드어               | fi            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 프랑스어                | fr            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 갈리시아어              | gl            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 구자라트어              | gu            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 히브리어                | he            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 힌디어                 | hi            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 크로아티아어              | hr            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 헝가리어             | hu            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 인도네시아어            | id            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 이탈리아어               | it            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 일본어              | ja            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 카자흐어                | kk            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 칸나다어               | kn            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 한국어                | ko            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 리투아니아어            | lt            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 라트비아어               | lv            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 말라얄람어             | ml            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 마라티어               | mr            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 말레이어                 | ms            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 노르웨이어 복말      | nb            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 네덜란드어                 | nl            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 노르웨이어             | 아니요            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 펀잡어               | pa            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 폴란드어                | pl            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 포르투갈어 - 브라질   | pt-br         | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 포르투갈어 - 포르투갈 | pt-pt         | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 루마니아어              | ro            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 러시아어               | ru            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 슬로바키아어                | sk            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 슬로베니아어             | sl            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 세르비아어 - 키릴 자모    | sr-cryl-cs    | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 세르비아어 - 라틴 문자       | sr-latn-cs    | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 스웨덴어               | sv            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 타밀어                 | ta            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 텔루구어                | te            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
+| 태국어                  | th            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 터키어               | tr            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 우크라이나어             | uk            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 베트남어            | vi            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 중국어 - 간체  | zh-hans       | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 중국어 - 번체 | zh-hant       | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |

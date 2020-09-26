@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308421"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
@@ -94,11 +94,11 @@ __참고__: 계속 하기 전에 Spark 클러스터의 저장소 계정을 HBase
     |속성 | 값 |
     |---|---|
     |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
-    |노드 유형|Azure 지역|
+    |노드 유형|지역|
     |매개 변수|`-s SECONDARYS_STORAGE_URL`|
     |지속됨|예|
 
-    * `SECONDARYS_STORAGE_URL`Spark 쪽 기본 저장소의 url입니다. 매개 변수 예:`-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+    * `SECONDARYS_STORAGE_URL` Spark 쪽 기본 저장소의 url입니다. 매개 변수 예: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
 
 2.  다음 고려 사항에 따라 Spark 클러스터에서 스크립트 작업을 사용 하 여 변경 내용을 적용 합니다.
@@ -107,7 +107,7 @@ __참고__: 계속 하기 전에 Spark 클러스터의 저장소 계정을 HBase
     |---|---|
     |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |노드 유형|헤드, 작업자, 사육 사|
-    |매개 변수|`-s "SPARK-CRON-SCHEDULE"`(선택 사항) `-h "HBASE-CRON-SCHEDULE"` 필드|
+    |매개 변수|`-s "SPARK-CRON-SCHEDULE"` (선택 사항) `-h "HBASE-CRON-SCHEDULE"` 필드|
     |지속됨|예|
 
 
@@ -162,8 +162,8 @@ __참고:__ 이러한 단계는 클러스터 중 하나가 크기 조정 작업�
 
     |Spark 버전| HDI HBase 버전  | SHC 버전    |  명령  |
     | :-----------:| :----------: | :-----------: |:----------- |
-    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2 11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.1-2.1-s_2 11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
 2. 이 Spark 셸 인스턴스를 열어 두고 [카탈로그와 쿼리](#define-a-catalog-and-query)를 계속 정의 합니다. SHC Core 리포지토리의 버전에 해당 하는 jar를 찾지 못하면 계속 읽습니다. 
 

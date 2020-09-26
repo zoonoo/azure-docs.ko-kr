@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: ninarn, carlrab
+ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330790"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>탄력적 풀은 Azure SQL Database에서 여러 데이터베이스를 관리 하 고 크기를 조정 하는 데 도움이 됩니다.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

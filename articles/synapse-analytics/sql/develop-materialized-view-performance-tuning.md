@@ -1,6 +1,6 @@
 ---
 title: 구체화된 뷰를 사용한 성능 조정
-description: 쿼리 성능 개선을 위해 구체화된 뷰를 사용할 때 알아야 할 권장 사항 및 고려 사항입니다.
+description: 쿼리 성능을 향상 시키기 위해 구체화 된 뷰에 대 한 권장 사항 및 고려 사항입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289041"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
@@ -29,7 +29,7 @@ SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다.  둘 다 SELEC
 
 구체화된 뷰는 테이블과 마찬가지로 SQL 풀에서 데이터를 미리 계산하고 저장하고 유지 관리합니다.  구체화된 뷰가 사용될 때마다 다시 계산할 필요는 없습니다.  따라서 구체화된 뷰의 데이터 전체 또는 일부를 사용하는 쿼리가 더 빠른 성능을 얻을 수 있습니다.  그뿐 아니라 쿼리에서는 구체화된 뷰를 직접 참조하지 않고 사용할 수 있으므로 애플리케이션 코드를 변경할 필요가 없습니다.  
 
-표준 뷰의 대부분의 요구 사항은 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+표준 뷰의 대부분의 요구 사항은 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 | 비교                     | 보기                                         | 구체화된 뷰
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다.  둘 다 SELEC
 다른 데이터 웨어하우스 공급자와 비교할 때 SQL 풀에서 구현된 구체화된 뷰는 다음과 같은 추가 이점도 제공합니다.
 
 - 기본 테이블의 데이터 변경 내용으로 자동 및 동기식 데이터 새로 고침 추가적인 조치가 필요하지 않습니다.
-- 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
-- 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
+- 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
+- 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오  
 
@@ -143,13 +143,17 @@ GROUP BY A, C
 
 **구체화된 보기 모니터링**
 
-구체화된 뷰는 CCI(클러스터형 columnstore 인덱스)가 있는 테이블과 마찬가지로 데이터 웨어하우스에 저장됩니다.  구체화된 뷰에서 데이터를 읽으면 인덱스가 검색되고 델타 저장소의 변경 내용이 적용됩니다.  델타 저장소의 행 수가 너무 많으면 구체화된 뷰에서 쿼리를 확인하는 것이 기본 테이블을 직접 쿼리하는 것보다 더 오래 걸릴 수 있습니다.  쿼리 성능 저하를 방지하려면 [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 실행하여 뷰의 overhead_ratio(total_rows / base_view_row)를 모니터링하는 것이 좋습니다.  overhead_ratio가 너무 높으면 델타 저장소의 모든 행이 columnstore 인덱스로 이동되도록 구체화된 뷰를 다시 작성하는 것이 좋습니다.  
+구체화된 뷰는 CCI(클러스터형 columnstore 인덱스)가 있는 테이블과 마찬가지로 데이터 웨어하우스에 저장됩니다.  구체화된 뷰에서 데이터를 읽으면 인덱스가 검색되고 델타 저장소의 변경 내용이 적용됩니다.  델타 저장소의 행 수가 너무 많으면 구체화된 뷰에서 쿼리를 확인하는 것이 기본 테이블을 직접 쿼리하는 것보다 더 오래 걸릴 수 있습니다.  
+
+쿼리 성능 저하를 방지하려면 [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 실행하여 뷰의 overhead_ratio(total_rows / base_view_row)를 모니터링하는 것이 좋습니다.  overhead_ratio가 너무 높으면 델타 저장소의 모든 행이 columnstore 인덱스로 이동되도록 구체화된 뷰를 다시 작성하는 것이 좋습니다.  
 
 **구체화된 뷰 및 결과 세트 캐싱**
 
 이러한 두 기능은 쿼리 성능 조정을 위해 거의 동시에 SQL 풀에서 도입되었습니다. 결과 세트 캐싱은 정적 데이터에 대한 반복 쿼리에서 높은 동시성 및 빠른 응답 시간을 얻는 데 사용됩니다.  
 
-캐시된 결과를 사용하려면 쿼리를 요청하는 캐시의 형식이 캐시를 생성한 쿼리와 일치해야 합니다.  또한 캐시된 결과가 전체 쿼리에 적용되어야 합니다.  구체화된 뷰를 사용하면 기본 테이블의 데이터를 변경할 수 있습니다.  구체화된 뷰의 데이터는 쿼리 부분에 적용될 수 있습니다.  이 지원을 통해 더 빠른 성능을 위해 일부 계산을 공유하는 여러 쿼리에서 동일한 구체화된 뷰를 사용할 수 있습니다.
+캐시된 결과를 사용하려면 쿼리를 요청하는 캐시의 형식이 캐시를 생성한 쿼리와 일치해야 합니다.  또한 캐시된 결과가 전체 쿼리에 적용되어야 합니다.  
+
+구체화된 뷰를 사용하면 기본 테이블의 데이터를 변경할 수 있습니다.  구체화된 뷰의 데이터는 쿼리 부분에 적용될 수 있습니다.  이 지원을 통해 더 빠른 성능을 위해 일부 계산을 공유하는 여러 쿼리에서 동일한 구체화된 뷰를 사용할 수 있습니다.
 
 ## <a name="example"></a>예제
 
@@ -352,7 +356,7 @@ GROUP BY c_customer_id
 
 ```
 
-원래 쿼리의 실행 플랜을 다시 확인합니다.  이제 조인 수가 17에서 5로 변경되고 더 이상의 순서 섞기가 발생하지 않습니다.  플랜에서 필터 작업 아이콘을 클릭합니다. 그러면 해당 출력 목록에 기본 테이블 대신 구체화된 뷰에서 데이터를 읽어온 것으로 표시됩니다.  
+원래 쿼리의 실행 플랜을 다시 확인합니다.  이제 조인 수가 17에서 5로 변경되고 더 이상의 순서 섞기가 발생하지 않습니다.  계획에서 필터 작업 아이콘을 선택 합니다. 그러면 해당 출력 목록에 기본 테이블 대신 구체화된 뷰에서 데이터를 읽어온 것으로 표시됩니다.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 

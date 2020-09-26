@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 07/31/2020
-ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: ''
+ms.date: 09/16/2020
+ms.openlocfilehash: 41760eb91d2a8406d4deb52cd8e247731239e2b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309866"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
 이 문서에서는 프로 비전 된 계산 계층에서 Azure SQL Database 사용할 수 있는 계산 및 저장소 리소스의 크기를 조정 하는 방법을 설명 합니다. 또는 서버를 사용 하지 않는 [계산 계층이](serverless-tier-overview.md) 사용 된 계산에 대 한 계산 자동 크기 조정 및 초당 요금을 제공 합니다.
 
-VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](single-database-manage.md#the-azure-portal), [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 실제 환경에 따라 단일 데이터베이스를 동적으로 확장 또는 축소할 수 있습니다.
+VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](single-database-manage.md#the-azure-portal), [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 실제 환경에 따라 단일 데이터베이스를 동적으로 확장 또는 축소할 수 있습니다.
 
 다음 비디오에서는 서비스 계층 및 컴퓨팅 크기를 동적으로 변경하여 단일 데이터베이스에 대해 사용 가능한 DTU를 늘리는 방법을 보여줍니다.
 
@@ -53,14 +53,14 @@ VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](single-data
 |서비스 계층|기본 단일 데이터베이스,</br>Standard (S0-S1)|기본 탄력적 풀</br>Standard (S2-S 12), </br>범용 단일 데이터베이스 또는 탄력적 풀|프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀|하이퍼스케일
 |:---|:---|:---|:---|:---|
 |**기본 단일 데이터베이스, </br> 표준 (S0-S1)**|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
-|**기본 탄력적 풀, </br> 표준 (S2-s 12), 범용 </br> 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
+|**기본 탄력적 풀, </br> 표준 (S2-s 12), 범용 </br> 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;단일 데이터베이스의 경우 사용 되는 공간과 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 단일 데이터베이스의 경우 5 분 미만</br>&bull;&nbsp;탄력적 풀의 경우 데이터베이스 수에 비례|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**하이퍼스케일**|해당 없음|해당 없음|해당 없음|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 2 분 미만|
 
 > [!NOTE]
 > 또한 Standard (S2-S 12) 및 범용 데이터베이스의 경우 데이터베이스에서[PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)(Premium File Share) 저장소를 사용 하는 경우 탄력적 풀에서 또는 탄력적 풀 간에 데이터베이스를 이동 하는 데 대 한 대기 시간이 데이터베이스 크기에 비례 합니다.
 >
-> 데이터베이스에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 이면 `PremiumFileStorage` 데이터베이스에서 PFS 저장소를 사용 합니다.
+> 데이터베이스에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 또는 인 경우 `PremiumFileStorage` `PremiumFileStorage-ZRS` 데이터베이스에서 PFS 저장소를 사용 합니다.
  
 ```sql
 SELECT s.file_id,
@@ -122,9 +122,9 @@ else {
 ### <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
 - 저장소는 1gb 증분을 사용 하 여 데이터 저장소 최대 크기 제한까지 프로 비전 할 수 있습니다. 구성 가능한 최소 데이터 저장소는 1gb입니다. 각 서비스 목표에서 [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md) 에 대 한 리소스 제한 문서 페이지에서 데이터 저장소 최대 크기 제한을 참조 하세요.
-- 단일 데이터베이스에 대 한 데이터 저장소는 [Azure Portal](https://portal.azure.com), [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 최대 크기를 늘리거나 줄여서 프로 비전 할 수 있습니다. 최대 크기 값을 바이트로 지정 하면 1gb (1073741824 바이트)의 배수 여야 합니다.
+- 단일 데이터베이스에 대 한 데이터 저장소는 [Azure Portal](https://portal.azure.com), [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 최대 크기를 늘리거나 줄여서 프로 비전 할 수 있습니다. 최대 크기 값을 바이트로 지정 하면 1gb (1073741824 바이트)의 배수 여야 합니다.
 - 데이터베이스의 데이터 파일에 저장할 수 있는 데이터의 양은 구성 된 데이터 저장소 최대 크기에 의해 제한 됩니다. 이 저장소 외에도 Azure SQL Database는 트랜잭션 로그에 사용할 30% 더 많은 저장소를 자동으로 할당 합니다.
-- Azure SQL Database는 데이터베이스에 대해 vCore 당 32 GB를 자동으로 할당 `tempdb` 합니다. `tempdb`는 모든 서비스 계층의 로컬 SSD 저장소에 있습니다.
+- Azure SQL Database는 데이터베이스에 대해 vCore 당 32 GB를 자동으로 할당 `tempdb` 합니다. `tempdb` 는 모든 서비스 계층의 로컬 SSD 저장소에 있습니다.
 - 단일 데이터베이스 또는 탄력적 풀에 대 한 저장소 가격은 데이터 저장소 및 트랜잭션 로그 저장소의 합계와 서비스 계층의 저장소 단가를 곱한 값입니다. 비용은 `tempdb` 가격에 포함 됩니다. 저장소 가격에 대 한 자세한 내용은 [Azure SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조 하세요.
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ else {
 ### <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
 - 단일 데이터베이스에 대한 DTU 가격에는 특정 크기의 스토리지가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 스토리지는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 스토리지 크기 및 최대 크기 제한에 대한 자세한 내용은 [단일 데이터베이스: 스토리지 크기 및 컴퓨팅 크기](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)를 참조하세요.
-- 단일 데이터베이스에 대 한 추가 저장소는 Azure Portal, [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 최대 크기를 늘려서 프로 비전 할 수 있습니다.
+- 단일 데이터베이스에 대 한 추가 저장소는 Azure Portal, [transact-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용 하 여 최대 크기를 늘려서 프로 비전 할 수 있습니다.
 - 단일 데이터베이스에 대한 추가 스토리지 가격은 추가 스토리지 용량에 해당 서비스 계층의 추가 스토리지 단가를 곱한 것입니다. 추가 저장소 가격에 대 한 자세한 내용은 [Azure SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조 하세요.
 
 > [!IMPORTANT]

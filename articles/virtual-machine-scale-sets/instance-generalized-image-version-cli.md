@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용 하 여 일반화 된 이미지에서 확장 집합 만들기
-description: 공유 이미지 갤러리에서 일반화 된 이미지를 사용 하 여 확장 집합을 만듭니다.
+description: Azure CLI를 사용 하 여 공유 이미지 갤러리에서 일반화 된 이미지를 사용 하 여 확장 집합을 만듭니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 841247c03d9f3b151a0c75430715c03b009d831a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287069"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Azure CLI를 사용 하 여 일반화 된 이미지에서 확장 집합 만들기
 
@@ -63,4 +63,4 @@ az vmss create \
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-공유 이미지 갤러리에 대한 자세한 내용은 [개요](shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](troubleshooting-shared-images.md)을 참조하세요.
+공유 이미지 갤러리에 대한 자세한 내용은 [개요](shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../virtual-machines/troubleshooting-shared-images.md)을 참조하세요.
