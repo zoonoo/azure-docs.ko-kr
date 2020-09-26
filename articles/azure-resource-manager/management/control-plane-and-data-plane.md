@@ -3,12 +3,12 @@ title: 컨트롤 평면 및 데이터 평면 작업
 description: 제어 평면과 데이터 평면 작업의 차이점을 설명 합니다. 제어 평면 작업은 Azure Resource Manager에 의해 처리 됩니다. 데이터 평면 작업은 서비스에 의해 처리 됩니다.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: a0575c37c80417d9859ef36366dc9f26cdb4dbe4
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371272"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Azure 제어 평면 및 데이터 평면
 
@@ -16,7 +16,7 @@ Azure 작업은 제어 평면과 데이터 평면 이라는 두 가지 범주로
 
 제어 평면을 사용 하 여 구독에서 리소스를 관리 합니다. 데이터 평면을 사용 하 여 리소스 형식 인스턴스에서 노출 되는 기능을 사용 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 * 제어 평면을 통해 가상 머신을 만듭니다. 가상 컴퓨터를 만든 후에는 RDP (원격 데스크톱 프로토콜)와 같은 데이터 평면 작업을 통해 가상 컴퓨터와 상호 작용 합니다.
 
@@ -41,7 +41,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Azure Resource Manager는 모든 제어 평면 요청을 처리 합니다. 다음과 같이 리소스를 관리 하기 위해 구현한 Azure 기능을 자동으로 적용 합니다.
 
-* [Azure 역할 기반 Access Control (RBAC)](../../role-based-access-control/overview.md)
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [관리 잠금](lock-resources.md)
 * [활동 로그](view-activity-logs.md)

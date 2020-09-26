@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315493"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>실행 중인 팀 데이터 과학 프로세스: Azure Synapse Analytics 사용
 이 자습서에서는 [NYC Taxi 여행](https://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용 하 여 공개적으로 사용 가능한 데이터 집합에 대해 Azure Synapse Analytics를 사용 하 여 기계 학습 모델을 빌드하고 배포 하는 과정을 안내 합니다. 생성 된 이진 분류 모델은 여행에 대해 팁이 지불 되었는지 여부를 예측 합니다.  모델에는 다중 클래스 분류 (팁이 있는지 여부) 및 회귀 (tip 금액의 분포)가 포함 됩니다.
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)에 요약된 단계를 수행합니다.
+**Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure Machine Learning 작업 영역 만들기](../classic/create-workspace.md)에 요약된 단계를 수행합니다.
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Azure Synapse Analytics에 데이터 로드
 Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실행 하 여 GitHub에서 사용자와 공유 하는 예제 SQL 스크립트 파일을 사용자가 매개 변수 *-destdir*을 사용 하 여 지정한 로컬 디렉터리에 다운로드 합니다. 매개 변수 *-DestDir* 의 값을 로컬 디렉터리로 변경할 수 있습니다. *-DestDir* 이 존재하지 않는 경우 PowerShell 스크립트를 통해 생성됩니다.
@@ -941,9 +941,9 @@ pd.read_sql(query,conn)
 2. **다중 클래스 분류**: 이전에 정의 된 클래스에 따라 지불 된 팁의 범위를 예측 합니다.
 3. **회귀 작업**: 여행에 대해 지불 된 팁의 금액을 예측 합니다.
 
-모델링 연습을 시작 하려면 **Azure Machine Learning (클래식)** 작업 영역에 로그인 합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning Studio (클래식) 작업 영역 만들기](../studio/create-workspace.md)를 참조 하세요.
+모델링 연습을 시작 하려면 **Azure Machine Learning (클래식)** 작업 영역에 로그인 합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning Studio (클래식) 작업 영역 만들기](../classic/create-workspace.md)를 참조 하세요.
 
-1. Azure Machine Learning를 시작 하려면 [Azure Machine Learning Studio (클래식) 이란?](../studio/what-is-ml-studio.md) 을 참조 하세요.
+1. Azure Machine Learning를 시작 하려면 [Azure Machine Learning Studio (클래식) 이란?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 을 참조 하세요.
 2. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net)에 로그인 합니다.
 3. Machine Learning Studio (클래식) 홈 페이지에서는 다양 한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공 합니다. Azure Machine Learning에 대 한 자세한 내용은 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조 하세요.
 
@@ -983,7 +983,7 @@ Azure Synapse Analytics 데이터베이스에서 직접 데이터를 읽는 이�
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Azure 기계 학습에서 모델 배포
-모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure ML 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요.
+모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure ML 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../classic/deploy-a-machine-learning-web-service.md)를 참조하세요.
 
 새 웹 서비스를 배포하려면 다음을 수행해야 합니다.
 

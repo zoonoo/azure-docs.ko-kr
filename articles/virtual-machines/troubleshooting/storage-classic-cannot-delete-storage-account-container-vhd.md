@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361860"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
 이 문서에서는 Azure 클래식 Storage 계정, 컨테이너 또는 *.vhd 페이지 Blob 파일을 삭제하려고 할 때 다음 오류 중 하나가 발생할 경우의 문제 해결 지침을 제공합니다. 
@@ -36,7 +36,7 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/ma
 
 1. 클래식 가상 머신을 삭제합니다.
 2. "디스크" 확인란을 선택한 경우 페이지 Blob *.vhd와 연결된 **디스크 임대**(위의 그림에 표시)가 중단됩니다. 실제 페이지 Blob *.vhd 파일은 스토리지 계정에 여전히 존재합니다.
-![가상 머신(클래식) "삭제" 오류 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+![스크린샷에는 가상 컴퓨터의 삭제를 확인 하는 대화 상자가 표시 됩니다.](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. 디스크 임대가 중단되면 페이지 Blob 자체를 삭제할 수 있습니다. 스토리지 계정 또는 컨테이너는 포함된 모든 "디스크" 리소스가 삭제되면 삭제할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/ma
 
 디스크가 가상 머신에 “연결된”된 경우
 
-![가상 머신(클래식) "삭제" 오류 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![스크린샷은 저장소 계정을 삭제할 수 없는 이유를 설명 하는 메시지를 보여 줍니다.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
 디스크가 가상 머신에 “연결되지 않은” 경우
@@ -93,12 +93,12 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 포털에서 삭제용으로 선택한 blob 목록에 따라 두 가지 환경이 있을 수 있습니다.
 
 1. "임대한" blob만 선택하면 삭제 단추가 표시되지 않습니다.
-![컨테이너 blob "목록" 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+![컨테이너 blob 목록 창이 열려 있고 임대 된 blob만 선택 된 포털의 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
 2. "임대" 및 "사용 가능" blob을 혼합해서 선택하면 "삭제" 단추가 표시됩니다. 하지만 "삭제" 작업을 수행한 후에 디스크 임대가 있는 페이지 blob이 남아 있습니다. 
-![컨테이너 blob "목록" 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
-![선택한 blob “삭제” 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![컨테이너 blob 목록 창이 열려 있고 임대 된 blob 및 사용 가능한 blob이 모두 선택 ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+ ![ 된 포털의 스크린샷 선택한 blob "삭제" 창이 열려 있는 포털의 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 사용자가 PowerShell을 사용하여 삭제하도록 선택하면 다음 오류가 발생합니다. 
@@ -114,10 +114,10 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 Azure Portal에서 다음 단계를 따릅니다.
 1.  [Azure Portal](https://portal.azure.com)로 이동합니다.
 2.  디스크(클래식)로 이동합니다. 
-3.  디스크 탭을 클릭 합니다. ![ 컨테이너 blob "목록" 창이 열려 있는 포털의 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  디스크 탭을 클릭 합니다. ![ 디스크 (클래식)가 선택 된 Azure Portal와 클래식 디스크 이름 및 저장소 계정이 표시 됩니다.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
- ![컨테이너 blob "목록" 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![데이터 디스크가 선택 된 상태에서 디스크 (클래식)가 선택 된 Azure Portal와 삭제할 옵션이 표시 됩니다.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
 5.  이전에 실패한 삭제 작업을 다시 시도하세요.
 6.  단일 디스크를 포함하는 경우 스토리지 계정 또는 컨테이너를 삭제할 수 없습니다.

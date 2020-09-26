@@ -3,12 +3,12 @@ title: Visual Studio 리소스 그룹 프로젝트 만들기 및 배포
 description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372649"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -370,7 +370,7 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
 
    ![사용자 지정 대시보드](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-RBAC 그룹을 사용하여 대시보드에 대한 액세스를 관리할 수 있습니다. 또한 배포 후 대시보드의 모양을 사용자 지정할 수 있습니다. 그러나 리소스 그룹을 다시 배포하는 경우 대시보드는 템플릿에서 기본 상태로 다시 설정됩니다. 대시보드 만들기에 대한 자세한 내용은 [Azure 대시보드를 프로그래밍 방식으로 만들기](../../azure-portal/azure-portal-dashboards-create-programmatically.md)를 참조하세요.
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 대시보드에 대 한 액세스를 관리할 수 있습니다. 또한 배포 후 대시보드의 모양을 사용자 지정할 수 있습니다. 그러나 리소스 그룹을 다시 배포하는 경우 대시보드는 템플릿에서 기본 상태로 다시 설정됩니다. 대시보드 만들기에 대한 자세한 내용은 [Azure 대시보드를 프로그래밍 방식으로 만들기](../../azure-portal/azure-portal-dashboards-create-programmatically.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

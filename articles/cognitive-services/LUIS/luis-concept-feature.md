@@ -1,14 +1,16 @@
 ---
 title: LUIS를 사용 하는 기계 학습 기능
 description: 언어 모델에 기능을 추가하여 레이블을 지정하거나 분류하려는 입력을 인식하는 방법에 대한 힌트를 제공합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372026"
 ---
 # <a name="machine-learning-features"></a>기계 학습 기능
 
@@ -20,12 +22,10 @@ ms.locfileid: "87075174"
 
 ## <a name="types-of-features"></a>기능 유형
 
-LUIS는 구 목록과 모델을 모두 기능으로 지원 합니다.
+기능은 스키마 디자인의 필수 요소입니다. LUIS는 구 목록과 모델을 모두 기능으로 지원 합니다.
 
-* 구 목록 기능 
+* 구 목록 기능
 * 기능으로 서의 모델 (의도 또는 엔터티)
-
-기능은 스키마 디자인의 필수 부분으로 간주 되어야 합니다.
 
 ## <a name="find-features-in-your-example-utterances"></a>예제 길이 발언의 기능 찾기
 
@@ -43,32 +43,6 @@ LUIS는 언어 기반 응용 프로그램 이므로 텍스트 기반 기능입�
 * 정확한 단어 또는 구와 일치: 정규식 엔터티 또는 목록 엔터티를 엔터티 또는 의도의 기능으로 추가 하는 것이 좋습니다.
 * 날짜, 시간 또는 사람 이름과 같은 잘 알려진 개념 일치: 미리 작성 된 엔터티를 엔터티 또는 의도에 대 한 기능으로 사용 합니다.
 * 시간에 따른 새로운 예제 배우기: 엔터티 또는 의도에 대 한 기능으로 서 개념의 일부 예에 대 한 문구 목록을 사용 합니다.
-
-## <a name="combine-features"></a>기능 결합
-
-여러 기능을 사용 하 여 특성 또는 개념을 설명할 수 있습니다. 일반적인 페어링은 구 목록 기능과 자주 사용 되는 엔터티 형식을 사용 하는 것입니다.
-
- * 미리 작성 한 엔터티
- * regular expression 엔터티
- * 목록 엔터티
-
-### <a name="ticket-booking-entity-example"></a>티켓 예약 엔터티 예
-
-첫 번째 예로 비행 예약 의도 및 티켓 예약 엔터티를 사용 하 여 비행을 예약 하는 앱을 고려 합니다.
-
-티켓 예약 엔터티는 비행 대상에 대 한 기계 학습 엔터티입니다. 위치를 추출 하는 데 도움이 되도록 다음 두 가지 기능을 사용 합니다.
-
-* , **평면**, **비행**, **예약**또는 **티켓과** 같은 관련 단어의 구 목록
-* 엔터티에 대 한 기능으로 서 미리 작성 된 **geographyV2** 엔터티
-
-### <a name="pizza-entity-example"></a>피자 엔터티 예제
-
-또 다른 예로, 피자 주문 의도가 있는 피자와 피자 엔터티를 포함 하는 피자를 정렬 하는 앱을 생각해 보세요.
-
-피자 엔터티는 피자 세부 정보에 대 한 기계 학습 엔터티입니다. 세부 정보를 추출 하기 위해 다음 두 가지 기능을 사용 하 여 도움을 줍니다.
-
-* 관련 단어의 구 목록 (예: **치즈**, **crust**, **pepperoni**또는 **p apple** )
-* 엔터티에 대 한 기능으로 서 미리 작성 된 **숫자** 엔터티입니다.
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>개념에 대 한 구 목록 만들기
 
@@ -176,12 +150,12 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 배송 주소 (컴퓨터에서 배운 엔터티)
 
- * 번 지 수 (subentity) 
- * 주소 (subentity) 
- * 주소 이름 (하위 엔터티) 
- * City (subentity) 
- * 시/도 (하위 엔터티) 
- * 국가/지역 (하위 엔터티) 
+ * 번 지 수 (subentity)
+ * 주소 (subentity)
+ * 주소 이름 (하위 엔터티)
+ * City (subentity)
+ * 시/도 (하위 엔터티)
+ * 국가/지역 (하위 엔터티)
  * 우편 번호 (subentity)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>미리 작성 한 엔터티를 사용 하는 필수 기능
@@ -200,7 +174,7 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 |정식 이름|동의어|
 |--|--|
-|미국|미국<br>U. S .A<br>US<br>USA<br>0|
+|미국|미국<br>U. S .A<br>US<br>미국<br>0|
 
 채팅 봇과 같은 클라이언트 응용 프로그램은 추가 작업에 도움을 요청할 수 있습니다. 이를 통해 고객은 국가/지역 선택이 제한 되어 *필요한*지를 이해할 수 있습니다.
 
@@ -217,6 +191,59 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 전역 기능을 사용 하는 가장 일반적인 방법은 앱에 어휘를 더 추가 하는 것입니다. 예를 들어 고객이 주 언어를 사용 하지만 동일한 utterance 내에서 다른 언어를 사용할 수 있는 경우 보조 언어의 단어를 포함 하는 기능을 추가할 수 있습니다.
 
 사용자가 의도 또는 엔터티에 대해 보조 언어를 사용 하는 것으로 예상 되므로 보조 언어의 단어를 구 목록에 추가 합니다. 구 목록을 전역 기능으로 구성 합니다.
+
+## <a name="combine-features-for-added-benefit"></a>추가 된 혜택을 위해 기능 결합
+
+여러 기능을 사용 하 여 특성 또는 개념을 설명할 수 있습니다. 일반적인 페어링은 다음을 사용 하는 것입니다.
+
+* 구 목록 기능: 여러 구 목록을 동일한 모델에 대 한 기능으로 사용할 수 있습니다.
+* 기능인 미리 작성 된 [엔터티](luis-reference-prebuilt-entities.md), [정규식 엔터티](reference-entity-regular-expression.md), [목록 엔터티](reference-entity-list.md)등의 모델입니다. 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>예: 여행 앱에 대 한 티켓 예약 엔터티 기능  
+
+기본적인 예로 비행 예약 _의도_ 및 티켓 예약 _엔터티_를 사용 하 여 비행을 예약 하는 앱을 생각해 보세요. 티켓 예약 엔터티는 예약 시스템에서 비행기 티켓을 책으로 보낼 정보를 캡처합니다. 
+
+티켓에 대 한 machine learning 엔터티는 원본 및 대상을 캡처하기 위한 두 개의 하위 엔터티를 포함 합니다. 최상위 엔터티가 아닌 각 하위 엔터티에 기능을 추가 해야 합니다.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Ticketbooking entity 스키마":::
+
+티켓 예약 엔터티는 _원본_ 및 _대상을_포함 하는 하위 엔터티를 포함 하는 기계 학습 엔터티입니다. 이러한 하위 엔터티는 모두 지리적 위치를 표시 합니다. 위치를 추출 하 고 _원본과_ _대상을_구분 하는 데 도움이 되도록 각 하위 엔터티에는 기능이 있어야 합니다.
+
+|형식|원본 하위 엔터티 |대상 하위 엔터티|
+|--|--|--|
+|기능으로 서의 모델|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 미리 작성 한 엔터티|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 미리 작성 한 엔터티|
+|구문 목록|**원본 단어**: `start at` , `begin from` , `leave`|**대상 단어**: `to` , `arrive` , `land at` , `go` , `going` , `stay` , `heading`|
+|구문 목록|공항 코드-원본 및 대상 모두에 대 한 동일한 목록|공항 코드-원본 및 대상 모두에 대 한 동일한 목록|
+|구문 목록|공항 이름-원본 및 대상 모두에 대 한 동일한 목록|공항 코드-원본 및 대상 모두에 대 한 동일한 목록|
+
+사용자가 공항 코드 및 공항 이름을 사용 하는 것으로 예상 되는 경우 LUIS에는 두 가지 문구 유형을 모두 사용 하는 구 목록이 있어야 합니다. 공항 이름은 음성 사용이 가능한 것과 같은 음성 대화에 보다 일반적으로 사용 되는 반면, 공항 코드는가 나 봇에 입력 된 텍스트에 더 일반적 일 수 있습니다.
+
+기능에 대 한 일치 세부 정보는 모델에 대해서만 반환 되며, 예측 JSON에서는 모델만 반환 되기 때문에 구문이 아닙니다.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>티켓 예약의 용도에 대 한 레이블 지정
+
+기계 학습 엔터티를 만든 후에는 길이 발언 예를 의도에 추가 하 고 부모 엔터티와 모든 하위 엔터티에 레이블을 추가 해야 합니다.
+
+티켓 예약 예제에서는 `TicketBooking` 엔터티 및 텍스트의 하위 엔터티를 사용 하 여 길이 발언 예제에 레이블을 사용 합니다.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="예제 발화의 레이블 지정":::
+
+### <a name="example-pizza-ordering-app"></a>예: 피자 주문 앱
+
+두 번째 예제에서는 특정인의 주문에 대 한 세부 정보를 포함 하 여 피자 주문을 받는 피자 식당의 앱을 고려 합니다. 주문 처리를 완료 하기 위해 가능한 경우 피자의 각 세부 정보를 추출 해야 합니다.
+
+이 예제의 기계 학습 엔터티는 중첩 된 하위 엔터티, 구 목록, 미리 작성 된 엔터티 및 사용자 지정 엔터티를 사용 하 여 더 복잡 합니다.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="피자 주문 엔터티 스키마":::
+
+이 예제에서는 하위 엔터티 수준 및 하위 엔터티 수준의 자식에 있는 기능을 사용 합니다. 엔터티 디자인의 중요 한 부분인 기능으로 서 어떤 수준으로 구성 된 구 목록 또는 모델이 어떤 수준 입니까?
+
+하위 엔터티에는 엔터티를 검색 하는 데 도움이 되는 기능으로 많은 문구 목록이 포함 될 수 있지만 각 하위 엔터티에는 하나의 모델만 있습니다. 이 [피자 앱](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)에서 이러한 모델은 주로 나열 됩니다.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="레이블이 지정 된 예제 길이 발언를 사용 하 여 피자 주문 의도":::
+
+올바른 레이블이 지정 된 예 길이 발언는 엔터티가 중첩 되는 방식을 표시 하는 방법으로 표시 됩니다. 
+
 
 ## <a name="best-practices"></a>모범 사례
 

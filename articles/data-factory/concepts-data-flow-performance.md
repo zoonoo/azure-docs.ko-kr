@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434234"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370881"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -53,7 +53,7 @@ ADF UX에서 데이터 흐름을 디자인 하 고 테스트 하는 경우 디�
 
 **최적화** 탭에는 Spark 클러스터의 파티션 구성표를 구성 하는 설정이 포함 되어 있습니다. 이 탭은 데이터 흐름의 모든 변환에 존재 하며 변환이 완료 된 **후** 데이터를 다시 분할할 것인지 여부를 지정 합니다. 분할을 조정 하면 전체 데이터 흐름 성능에 긍정적인 영향을 미칠 수 있는 계산 노드 및 데이터 위치 최적화에서 데이터 배포를 제어할 수 있습니다.
 
-![Optimize](media/data-flow/optimize.png "최적화")
+![스크린샷에는 파티션 옵션, 파티션 유형 및 파티션 수를 포함 하는 최적화 탭이 표시 됩니다.](media/data-flow/optimize.png)
 
 기본적으로 현재 *분할 사용* 은 변환의 현재 출력 분할을 유지 Azure Data Factory 지시 하는 선택입니다. 데이터를 다시 분할 하는 데 시간이 걸리므로 대부분의 시나리오에서 *현재 분할을 사용* 하는 것이 좋습니다. 데이터를 다시 분할할 수 있는 시나리오에는 데이터를 상당히 왜곡 하는 집계 및 조인과 SQL DB에서 원본 분할을 사용 하는 경우가 포함 됩니다.
 
@@ -109,7 +109,7 @@ Spark 클러스터 분리의 유형에 사용할 수 있는 세 가지 옵션이
 
 기본 클러스터 크기는 4 개의 드라이버 노드와 4 개의 작업자 노드입니다.  더 많은 데이터를 처리 하는 경우 더 큰 클러스터를 권장 합니다. 가능한 크기 조정 옵션은 다음과 같습니다.
 
-| 작업자 코어 | 드라이버 코어 | 총 코어 | 참고 |
+| 작업자 코어 | 드라이버 코어 | 총 코어 | 메모 |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | 계산에 최적화 된 경우 사용할 수 없음 |
 | 8 | 8 | 16 | |

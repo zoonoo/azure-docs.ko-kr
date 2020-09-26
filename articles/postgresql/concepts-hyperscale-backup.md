@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314933"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 백업 및 복원
 
@@ -35,7 +35,7 @@ Azure Database for PostgreSQL – Hyperscale (Citus)은 각 노드의 백업을 
 Azure Database for PostgreSQL에서 Citus (Hyperscale) 클러스터를 복원 하면 원래 노드의 백업에서 새 클러스터가 만들어집니다. 
 
 > [!IMPORTANT]
->동일한 구독 및 리소스 그룹 내에서 다른 클러스터 이름으로 대규모 클러스터를 복원할 수 있습니다.
+>동일한 구독 및 리소스 그룹 내에서 다른 클러스터 이름으로 Hyperscale (Citus) 클러스터를 복원할 수 있습니다.
 
 
 > [!IMPORTANT]

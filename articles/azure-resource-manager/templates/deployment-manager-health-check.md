@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278069"
+ms.locfileid: "91372377"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure 배포 관리자에 상태 통합 출시 소개 (공개 미리 보기)
 
@@ -41,7 +41,7 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
     1. 인증 정보입니다. 현재는 API 키 스타일 인증만 지원 됩니다. Azure Monitor의 경우 Azure 배포 관리자 롤아웃에 사용 되는 사용자 할당 관리 id가 Azure Monitor으로 확장 되므로 인증 유형을 – "RolloutIdentity"로 설정 해야 합니다.
     1. 정상 응답을 정의 하는 [HTTP 상태 코드](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) 또는 정규식 모든 응답이 정상으로 간주 되려면 일치 해야 하는 정규식을 제공 하거나, 응답이 정상으로 간주 되려면 모든가 일치 해야 하는 식을 제공할 수 있습니다. 두 가지 방법이 모두 지원 됩니다.
 
-    다음 Json은 RolloutIdentity를 활용 하 고 경고가 없는 경우 출시가 진행 되는 상태 검사를 설정 하는 Azure 배포 관리자와 Azure Monitor를 통합 하는 예제입니다. 유일 하 게 지원 되는 Azure Monitor API: [경고 – 모두 가져오기](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    다음 Json은 RolloutIdentity를 활용 하 고 경고가 없는 경우 출시가 진행 되는 상태 검사를 설정 하는 Azure 배포 관리자와 Azure Monitor를 통합 하는 예제입니다. 유일 하 게 지원 되는 Azure Monitor API: [경고 – 모두 가져오기](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

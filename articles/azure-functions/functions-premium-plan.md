@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145755"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372224"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -122,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어|메모리|Storage|
+|SKU|코어|메모리|스토리지|
 |--|--|--|--|
 |EP1|1|3.5 g b|250GB|
 |E P 2|2|7GB|250GB|
@@ -141,13 +141,15 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 |지역| Windows | Linux |
 |--| -- | -- |
-|오스트레일리아 중부| 20 | 사용할 수 없음 |
-|오스트레일리아 중부 2| 20 | 사용할 수 없음 |
+|오스트레일리아 중부| 100 | 사용할 수 없음 |
+|오스트레일리아 중부 2| 100 | 사용할 수 없음 |
 |오스트레일리아 동부| 100 | 20 |
 |오스트레일리아 남동부 | 100 | 20 |
-|브라질 남부| 60 | 20 |
+|브라질 남부| 100 | 20 |
 |캐나다 중부| 100 | 20 |
 |미국 중부| 100 | 20 |
+|중국 동부 2| 100 | 20 |
+|중국 북부 2| 100 | 20 |
 |동아시아| 100 | 20 |
 |미국 동부 | 100 | 20 |
 |미국 동부 2| 100 | 20 |
@@ -156,17 +158,24 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 |일본 동부| 100 | 20 |
 |일본 서부| 100 | 20 |
 |한국 중부| 100 | 20 |
+|한국 남부| 사용할 수 없음 | 20 |
 |미국 중북부| 100 | 20 |
 |북유럽| 100 | 20 |
-|노르웨이 동부| 20 | 20 |
+|노르웨이 동부| 100 | 20 |
 |미국 중남부| 100 | 20 |
 |인도 남부 | 100 | 사용할 수 없음 |
 |동남 아시아| 100 | 20 |
+|스위스 북부| 100 | 사용할 수 없음 |
+|스위스 서부| 100 | 사용할 수 없음 |
 |영국 남부| 100 | 20 |
 |영국 서부| 100 | 20 |
+|USGov 애리조나| 100 | 20 |
+|USGov 버지니아| 100 | 20 |
+|USNat 동부| 100 | 사용할 수 없음 |
+|USNat 서 부| 100 | 사용할 수 없음 |
 |서유럽| 100 | 20 |
 |인도 서부| 100 | 20 |
-|미국 중서부| 20 | 20 |
+|미국 중서부| 100 | 20 |
 |미국 서부| 100 | 20 |
 |미국 서부 2| 100 | 20 |
 

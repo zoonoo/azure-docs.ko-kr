@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372598"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
@@ -56,7 +56,7 @@ ms.locfileid: "90907931"
 
 1. **데이터 원본**을 선택 하 고 데이터 원본 유형을 선택 합니다. HTTP 또는 데이터 저장소 일 수 있습니다.
 
-    데이터 저장소를 선택 하는 경우 이미 Azure Machine Learning 작업 영역에 등록 된 기존 데이터 저장소를 선택 하거나 새 데이터 저장소를 만들 수 있습니다. 그런 다음 데이터 저장소에서 가져올 데이터의 경로를 정의 합니다. **찾아보기 경로** ![ 가져오기-데이터-경로를 클릭 하 여 경로를 쉽게 찾아볼 수 있습니다.](media/module/import-data-path.png)
+    데이터 저장소를 선택 하는 경우 이미 Azure Machine Learning 작업 영역에 등록 된 기존 데이터 저장소를 선택 하거나 새 데이터 저장소를 만들 수 있습니다. 그런 다음 데이터 저장소에서 가져올 데이터의 경로를 정의 합니다. **찾아보기 경로** 스크린샷을 클릭 하 여 경로를 쉽게 찾아볼 수 있습니다 ![ . 경로 선택 대화 상자를 여는 경로 찾아보기 링크를 표시 합니다.](media/module/import-data-path.png)
 
 1. 미리 보기 스키마를 선택 하 여 포함 하려는 열을 필터링 합니다. 구문 분석 옵션에서 구분 기호와 같은 고급 설정을 정의할 수도 있습니다.
 

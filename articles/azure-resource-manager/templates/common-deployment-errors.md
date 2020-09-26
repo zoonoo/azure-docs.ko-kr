@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372241"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -34,6 +34,7 @@ ms.locfileid: "89650956"
 | DeploymentNameLengthLimitExceeded | 배포 이름은 64 자로 제한 됩니다.  | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
 | DeploymentQuotaExceeded | 리소스 그룹당 800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. | [배포 수가 800를 초과 하는 경우 오류 해결](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 입력 하십시오. | |
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ ms.locfileid: "89650956"
 | InvalidSubscriptionRegistrationState | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](error-register-resource-provider.md) |
 | InvalidTemplate | 템플릿 구문에 오류가 있는지 확인합니다. | [잘못된 템플릿 오류 해결](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded 됨 | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | 계정이 배포 하는 리소스 그룹과 동일한 테 넌 트에 속하는지 확인 합니다. | |
 | LinkedInvalidPropertyId | 리소스에 대한 리소스 ID가 올바르게 해석되지 않습니다. 구독 ID, 리소스 그룹 이름, 리소스 종류, 부모 리소스 이름(필요한 경우) 및 리소스 이름을 포함하여 리소스 ID에 필요한 모든 값을 제공했는지 확인합니다. | |
 | LocationRequired | 리소스의 위치를 제공 합니다. | [위치 설정](resource-location.md) |

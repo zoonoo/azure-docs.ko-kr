@@ -1,14 +1,16 @@
 ---
 title: 좋은 예 길이 발언-LUIS
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685278"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316395"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
@@ -20,7 +22,7 @@ ms.locfileid: "83685278"
 * 단어 길이 및 문구 길이
 * 단어 배치 - 발언의 시작, 중간 및 끝에 있는 엔터티
 * 문법
-* 복수화
+* 복수형
 * 형태소 분석
 * 명사 및 동사 선택
 * [문장 부호](luis-reference-application-settings.md#punctuation-normalization) -정확 하 고 잘못 된 문법 및 문법을 사용 하지 않는 다양 한 기능을 사용 합니다.

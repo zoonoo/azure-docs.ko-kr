@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80117151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376862"
 ---
 ## <a name="use-custom-page-content"></a>사용자 지정 페이지 내용 사용
 
 페이지 UI 사용자 지정 기능을 사용하면 사용자 지정 정책의 모양과 느낌을 사용자 지정할 수 있습니다. 또한 애플리케이션과 Azure AD B2C 간에 브랜드와 시각적 개체 일관성을 유지할 수 있습니다.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)를 사용 하 여 고객의 브라우저에서 코드를 실행 합니다. 런타임에 사용자 흐름이 나 사용자 지정 정책에 지정 하는 URL에서 콘텐츠가 로드 됩니다. 사용자 환경의 각 페이지는 해당 페이지에 대해 지정한 URL에서 해당 콘텐츠를 로드 합니다. URL에서 콘텐츠를 로드 한 후에는 Azure AD B2C에 의해 삽입 된 HTML 조각과 병합 되 고,이 페이지는 고객에 게 표시 됩니다.
 
@@ -46,7 +46,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 
 다음 표에서는 Azure AD B2C에서 제공 하는 기본 페이지 콘텐츠를 나열 합니다. 파일을 다운로드 하 여 고유한 사용자 지정 페이지를 만들기 위한 시작 지점으로 사용 합니다.
 
-| 기본 페이지 | 설명 | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
+| 기본 페이지 | Description | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **자체 어설션된 페이지**. 이 파일은 소셜 계정 등록 페이지, 로컬 계정 등록 페이지, 로컬 계정 로그인 페이지, 암호 다시 설정 등의 사용자 지정 페이지 콘텐츠로 사용 합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. | api. *localaccountsignin*, *localaccountsignup*, *localaccountpasswordreset*, *selfasserted* |
@@ -154,7 +154,7 @@ Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 �
 다음 단계를 수행 하 여 원본 간 리소스 공유에 대 한 Blob 저장소를 구성 합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com`. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
+1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예들 들어 `https://fabrikam.b2clogin.com`입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
 1. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 1. **허용된 헤더**에 별표(*)를 입력합니다.
 1. **노출된 헤더**에 별표(*)를 입력합니다.
@@ -167,7 +167,7 @@ Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 �
 
 1. CORS 구성 단계를 반복 합니다. **허용 되는 원본**에 대해 다음을 입력 합니다.`https://www.test-cors.org`
 1. [Www.test-cors.org](https://www.test-cors.org/) 로 이동 합니다. 
-1. **원격 url** 상자에 HTML 파일의 url을 붙여넣습니다. 예를 들면 `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`과 같습니다.
+1. **원격 url** 상자에 HTML 파일의 url을 붙여넣습니다. 예를 들어 `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. **요청 보내기**를 선택 합니다.
     결과는 여야 `XHR status: 200` 합니다. 
     오류가 발생하는 경우 CORS 설정이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
