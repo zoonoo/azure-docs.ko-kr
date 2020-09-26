@@ -13,8 +13,6 @@
       href: deploy-service-catalog-quickstart.md
 - name: 자습서
   items:
-    - name: 마켓플레이스 애플리케이션 게시
-      href: publish-marketplace-app.md
     - name: 사용자 지정 공급자를 사용하여 관리되는 애플리케이션 만들기
       href: tutorial-create-managed-app-with-custom-provider.md
 - name: 샘플
@@ -41,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: 포털 인터페이스 테스트
           href: test-createuidefinition.md
+        - name: Azure 애플리케이션 제품 만들기
+          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Just-In-Time 액세스 요청
           href: request-just-in-time-access.md
         - name: 기존 가상 네트워크 사용

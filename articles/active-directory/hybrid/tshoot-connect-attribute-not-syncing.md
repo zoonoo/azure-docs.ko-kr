@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317490"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Azure AD Connect에서 동기화되지 않는 특성 문제 해결
 
@@ -67,7 +67,7 @@ ms.locfileid: "89276034"
 
 * **Active Directory 커넥터**를 두 번 클릭하여 **커넥터 공간** 특성을 봅니다. **미리 보기** 단추를 클릭하고, 다음 대화 상자에서 **미리 보기 생성** 단추를 클릭합니다.
 
-  ![커넥터 공간 특성](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![미리 보기 단추가 강조 표시 된 커넥터 공간 개체 속성 화면을 보여 주는 스크린샷](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * **가져오기 특성 흐름**을 클릭하면 **Active Directory 커넥터 공간**에서 **메타버스**로의 특성 흐름이 표시됩니다. **동기화 규칙** 열에는 해당 특성에 적용되는 **동기화 규칙**이 표시됩니다. **데이터 원본** 열에는 **커넥터 공간**의 특성이 표시됩니다. **메타버스 특성** 열에는 **메타버스**의 특성이 표시됩니다. 여기서 동기화되지 않는 특성을 찾을 수 있습니다. 여기서 특성을 찾지 못하면 매핑되지 않은 것이며, 특성을 매핑하는 새 사용자 지정 **동기화 규칙**을 만들어야 합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "89276034"
 
 * 왼쪽 창에서 **내보내기 특성 흐름**을 클릭하여 **아웃바운드 동기화 규칙**을 통해 **메타버스**에서 **Active Directory 커넥터 공간**으로 돌아하는 특성 흐름을 봅니다.
 
-  ![커넥터 공간 특성](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![아웃 바운드 동기화 규칙을 사용 하 여 메타 버스에서 Active Directory 커넥터 공간으로 다시의 특성 흐름을 보여 주는 스크린샷](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * 마찬가지로, **Azure Active Directory 커넥터 공간** 개체를 볼 수 있으며, **메타버스**에서 **커넥터 공간**으로 그리고 그 반대로 흐르는 특성 흐름을 보는 **미리 보기**를 만들 수 있습니다. 이러한 방식으로 특성이 동기화되지 않는 이유를 조사할 수 있습니다.
 

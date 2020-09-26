@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296453"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>가상 컴퓨터 인증 중의 문제 및 해결 방법 
 
@@ -29,10 +29,13 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 
 이 오류는 다른 게시자에 속하는 기본 이미지를 사용 하 여 이미지를 업데이트 한 경우에 발생 합니다. 이 경우 이미지를 게시할 수 없습니다.
 
-이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Linux 이미지](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows 이미지](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 첫 번째 파티션을 2048 KB로 오프셋할 수 있습니다. 이렇게 하면 포맷 되지 않은 공간을 새 청구 정보를 추가 하는 데 사용할 수 있으며 Azure에서 Marketplace에 VM을 게시 하도록 할 수 있습니다.  
 
 ## <a name="vm-extension-failure"></a>VM 확장 오류
 
@@ -63,7 +66,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|솔루션|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -207,7 +210,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
-||18.10|4.18.0-1023|
+||18.10 |4.18.0-1023|
 ||19.04 |5.0.0-1010|
 ||19.04 |5.3.0-1004|
 |RHEL 및 운영 체제|6.10|2.6.32 커널을-754.15.3|
@@ -261,7 +264,7 @@ VM에서 테스트 사례를 실행 하는 동안 액세스 거부 문제가 발
     
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드할 때 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|솔루션|
 |---|---|---|---|
 |1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -270,9 +273,12 @@ SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드
 |6|HTTP 조건부 헤더|SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |7|잘못 된 VHD 이름|백분율 기호 (%)와 같은 특수 문자를 확인 합니다. 또는 따옴표 (")가 VHD 이름에 있습니다.|특수 문자를 제거 하 여 VHD 파일의 이름을 바꿉니다.|
 
-## <a name="first-1-mb-partition"></a>첫 1mb 파티션
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>첫 번째 MB (2048 KB) 파티션 (Linux에만 해당)
 
-VHD를 제출할 때 VHD의 첫 1mb 파티션이 비어 있는지 확인 합니다. 그렇지 않으면 요청이 실패 합니다.
+VHD를 제출할 때 VHD의 첫 2048 KB가 비어 있는지 확인 합니다. 그렇지 않으면 요청이 실패 하 고 *가 발생 합니다.
+
+>[!NOTE]
+>* Azure Marketplace에서 가져온 Azure Windows 기본 이미지를 기반으로 하는 특정 이미지의 경우 청구 태그를 확인 하 고 청구 태그가 있고 내부 사용 가능한 값과 일치 하는 경우 MB 파티션을 무시 합니다.
 
 ## <a name="default-credentials"></a>기본 자격 증명
 
@@ -304,7 +310,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|솔루션|
+|Error|이유|솔루션|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 전송 될 때 LUN (논리 단위 번호)에 잘못 된 숫자가 지정 된 경우에 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 지정 된 SAS URL에서 데이터 디스크를 찾을 수 없기 때문에 발생할 수 있습니다.|데이터 디스크가 요청에 지정 된 SAS URL에 있는지 확인 합니다.|

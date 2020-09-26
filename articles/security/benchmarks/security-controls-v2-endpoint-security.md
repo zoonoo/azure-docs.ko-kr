@@ -4,17 +4,17 @@ description: Azure Security 벤치 마크 V2 끝점 보안
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059259"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280625"
 ---
-# <a name="security-control-endpoint-security"></a>보안 제어: 끝점 보안
+# <a name="security-control-v2-endpoint-security"></a>보안 제어 V2: 끝점 보안
 
 끝점 보안은 끝점 검색 및 응답의 컨트롤을 포함 합니다. 여기에는 Azure 환경에서 끝점에 대해 EDR (끝점 검색 및 응답) 및 맬웨어 방지 서비스를 사용 하는 작업이 포함 됩니다.
 
@@ -36,7 +36,7 @@ Microsoft Defender Advanced Threat Protection은 엔터프라이즈 끝점 보�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ Azure Cloud Services에 대 한 Microsoft 맬웨어 방지 프로그램은 Windo
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Azure Security Center "계산 앱"의 권장 사항을 따라 &amp; 모든 끝�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 

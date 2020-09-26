@@ -3,18 +3,18 @@ title: VMware HCX 설치
 description: Azure VMware 솔루션 사설 클라우드에 대해 VMware HCX 솔루션 설정
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: cdeffa41db5aac597d8dfcf3a735cbeb7f0d8a8e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356556"
+ms.locfileid: "91370847"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Azure VMware 솔루션용 HCX 설치
 
 이 문서에서는 Azure VMWare 솔루션 사설 클라우드에 대해 VMWare HCX 솔루션을 설정 하는 절차를 안내 합니다. HCX를 사용 하면 VMware 워크 로드를 클라우드로, 다른 연결 된 사이트를 다양 한 기본 제공 HCX 지원 마이그레이션 유형을 통해 마이그레이션할 수 있습니다.
 
-HCX Advanced, 기본 설치는 최대 3 개의 사이트 연결 (온-프레미스 또는 클라우드-클라우드)을 지원 합니다. 3 개 이상의 사이트 연결이 필요한 경우 고객은 현재 미리 보기로 제공 되는 지원을 통해 HCX Enterprise 추가 기능을 사용 하도록 설정할 수 있습니다. HCX Enterprise는 GA(일반 공급) 후 [추가 기능](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)도 제공합니다. 단, 고객에게 추가 요금이 발생합니다.
+HCX Advanced, 기본 설치는 최대 3 개의 사이트 연결 (온-프레미스 또는 클라우드-클라우드)을 지원 합니다. 3 개 이상의 사이트 연결 또는 HCX [enterprise 기능이](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 필요한 경우 고객은 현재 미리 보기로 제공 되는 지원을 통해 hcx enterprise 추가 기능을 사용 하도록 설정할 수 있습니다. HCX EE는 미리 보기 기능/서비스로 AVS에서 사용할 수 있습니다. HCX EE for AVS는 미리 보기 상태 이지만 무료 함수/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. HCX EE 서비스가 GA 되 면 요금이 청구 되는 30 일의 알림이 표시 됩니다. 또한 서비스를 끄거나 옵트아웃 (opt out) 할 수 있는 옵션도 있습니다.
 
 
 [시작하기 전에](#before-you-begin), [소프트웨어 버전 요구 사항](#software-version-requirements) 및 [필수 구성 요소](#prerequisites)를 철저하게 검토합니다. 
@@ -63,17 +63,15 @@ Azure VMware 솔루션 사설 클라우드 HCX 솔루션을 사용 하기 위해
 
 * 온-프레미스 HCX IX 및 NE 어플라이언스는 vCenter 및 ESXi 인프라에 도달할 수 있어야 합니다.
 
-* WAN 상호 연결 어플라이언스를 배포하려면 Azure Portal에서 SDDC 배포에 사용되는 /22 CIDR 네트워크 주소 블록 외에도 HCX에는 /29 블록이 필요합니다. 이러한 요구 사항을 네트워크 계획에 맞게 지정 해야 합니다.
+* WAN 연결 어플라이언스를 배포 하기 위해 특정 CIDR 범위는 고객이 사설 클라우드를 만들기 위해 제공한 \ 22에 이미 할당 되어 있습니다.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>VMware HCX OVA 온-프레미스 배포
 
 1. `https://x.x.x.9` **Cloudadmin** 사용자 자격 증명을 사용 하 여 포트 443의 Azure VMware Solution hcx Manager에 로그인 하 고 **지원**으로 이동 합니다.
 
-1. VMware HCX OVA 파일의 다운로드 링크를 선택 합니다. 
+1. VCenter에 배포할 VMware HCX OVA 파일의 다운로드 링크를 선택 합니다.
 
-1. Azure VMware 솔루션 SDDC vCenter에 로그인 하 고 **Hcx**를 선택 합니다.
-   
-1. 온-프레미스 vCenter로 이동 하 고, 온-프레미스 vCenter에 배포할 파일 템플릿을 선택 합니다.  
+1. 온-프레미스 vCenter로 이동 하 고 새로 다운로드 한 파일 템플릿을 선택 하 여 온-프레미스 vCenter에 배포 합니다.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="그런 다음 온-프레미스 vCenter로 이동 하 여 온-프레미스 vCenter에 배포할 위치 템플릿을 선택 합니다.":::
 

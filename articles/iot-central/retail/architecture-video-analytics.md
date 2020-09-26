@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372207"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>비디오 분석-개체 및 동작 검색 응용 프로그램 아키텍처
 
 **비디오 분석-개체 및 동작 검색** 응용 프로그램 템플릿을 사용 하 여 IoT 솔루션을 빌드할 수 있습니다. 라이브 비디오 분석 기능을 포함 합니다.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="아키텍처":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="비디오 분석 개체 및 동작 검색 구성 요소 개요의 다이어그램입니다.":::
 
 비디오 분석 솔루션의 주요 구성 요소는 다음과 같습니다.
 
 ## <a name="live-video-analytics-lva"></a>LVA (라이브 비디오 분석)
 
-LVA는 edge 및 클라우드를 포괄 하는 지능적인 비디오 응용 프로그램을 빌드할 수 있는 플랫폼을 제공 합니다. 플랫폼을 사용 하 여에 지 및 클라우드에 걸친 인텔리전트 비디오 응용 프로그램을 빌드할 수 있습니다. 플랫폼은 라이브 비디오를 캡처, 기록 및 분석 하 고, 비디오 또는 비디오 분석과 같은 결과를 Azure 서비스에 게시 하는 기능을 제공 합니다. Azure 서비스는 클라우드 또는에 지에서 실행할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다.
+LVA는 edge 및 클라우드를 포괄 하는 지능적인 비디오 응용 프로그램을 빌드할 수 있는 플랫폼을 제공 합니다. 플랫폼을 사용 하 여에 지 및 클라우드에 걸친 인텔리전트 비디오 응용 프로그램을 빌드할 수 있습니다. 이 플랫폼은 라이브 비디오를 캡처, 녹화 및 분석하는 기능과 비디오 또는 비디오 분석일 수 있는 결과를 Azure 서비스에 게시하는 기능을 제공합니다. Azure 서비스는 클라우드 또는 에지에서 실행할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다.
 
 자세한 내용은 GitHub의 [Live Video Analytics](https://github.com/Azure/live-video-analytics) 를 참조 하세요.
 

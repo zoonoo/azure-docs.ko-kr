@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업의 �
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271599"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 만들기
 
@@ -23,7 +23,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>요청 만들기
 
-*PUT* 요청을 만들려면 `{subscription-id}` 매개 변수는 필수입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. 리소스에 대해 `{resourceGroupName}` 및 `{vaultName}`과 함께 `api-version` 매개 변수를 정의합니다. 이 문서에서는 `api-version=2016-06-01`을 사용합니다.
+*PUT* 요청을 만들려면 `{subscription-id}` 매개 변수는 필수입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조합니다. 리소스에 대해 `{resourceGroupName}` 및 `{vaultName}`과 함께 `api-version` 매개 변수를 정의합니다. 이 문서에서는 `api-version=2016-06-01`을 사용합니다.
 
 다음과 같은 헤더가 필요합니다.
 
@@ -38,13 +38,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-|Name  |필수  |Type  |설명  |
+|Name  |필수  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   문자열      |  선택적 eTag       |
-|위치     |  true       |문자열         |   리소스 위치      |
+|eTag     |         |   String      |  선택적 eTag       |
+|위치     |  true       |String         |   리소스 위치      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    각 Azure 리소스에 대한 고유한 시스템 식별자를 식별합니다.     |
-|tags     |         | Object        |     리소스 태그    |
+|tags     |         | 개체        |     리소스 태그    |
 
 자격 증명 모음 이름 및 리소스 그룹 이름은 PUT URI에 제공되어 있습니다. 요청 본문은 위치를 정의합니다.
 
@@ -66,7 +66,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Recovery Services 자격 증명 모음을 만들거나 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-|Name  |Type  |설명  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |   [Vault](/rest/api/recoveryservices/vaults/createorupdate#vault)      | 정상        |
 |201 생성됨     | [Vault](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   생성일      |

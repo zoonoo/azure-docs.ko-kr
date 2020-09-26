@@ -10,16 +10,40 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271174"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+
+## <a name="september-2020"></a>2020년 9월
+
+### <a name="general-api-updates"></a>일반 API 업데이트
+
+* 다음 명명 된 엔터티 인식 v3 끝점에 대 한 업데이트를 지원 하기 위해 Text Analytics v 3.1 공개 미리 보기에 대 한 새 URL을 해제 합니다. 
+    * `/pii` 이제 끝점 `redactedText` 은 입력 텍스트에서 검색 된 PII 엔터티가 `*` 해당 엔터티의 각 문자에 대해로 대체 되는 응답 JSON에 새로운 속성을 포함 합니다.
+    * `/linking` 이제 끝점은 `bingID` 연결 된 엔터티에 대 한 응답 JSON에 속성을 포함 합니다.
+* 다음 Text Analytics preview API 끝점은 2020 년 9 월 4 일에 사용이 중지 되었습니다.
+    * v 2.1-미리 보기
+    * v3.0-미리 보기
+    * v. 3.0-preview. 1
+    
+> [!div class="nextstepaction"]
+> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+
+### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
+
+다음 업데이트는 상태 컨테이너에 대 한 Text Analytics 9 월 릴리스에만 적용 됩니다.
+* 새 모델 버전의 태그가 포함 된 새 컨테이너 이미지가 `1.1.013530001-amd64-preview` `2020-09-03` containerpreview 리포지토리로 릴리스 되었습니다. 
+* 이 모델 버전은 엔터티 인식, 약어 검색 및 대기 시간 향상의 향상 된 기능을 제공 합니다.
+
+> [!div class="nextstepaction"]
+> [상태 Text Analytics에 대 한 자세한 정보](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -31,7 +55,7 @@ ms.locfileid: "88930913"
 * 이제 게시 된 [데이터 제한을](concepts/data-limits.md)초과 하는 v3 API 요청에 대해 HTTP 400 오류가 반환 됩니다. 
 * 이제 오프셋을 반환 하는 끝점은 선택적 `stringIndexType` 매개 변수를 지원 하며,이 매개 변수는 반환 된 `offset` 및 `length` 값을 지원 되는 [문자열 인덱스 체계](concepts/text-offsets.md)와 일치 하도록 조정 합니다.
 
-### <a name="text-analytics-for-health-container-august-updates"></a>상태 컨테이너 Text Analytics 8 월 업데이트
+### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
 
 다음 업데이트는 상태 컨테이너에 대해서만 Text Analytics의 8 월 릴리스와 관련 됩니다.
 
@@ -141,13 +165,13 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 * 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
     * PersonType
-    * 제품
+    * Product
     * 이벤트
     * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
     * 기술
 
 * 다음 개인 정보 엔터티 형식 인식 (영어만 해당):
-    * Person
+    * 사람
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
@@ -191,7 +215,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [텍스트 분석 API 이란?](overview.md)  
+* [텍스트 분석 API란?](overview.md)  
 * [사용자 시나리오 예](text-analytics-user-scenarios.md)
 * [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [언어 감지](how-tos/text-analytics-how-to-language-detection.md)

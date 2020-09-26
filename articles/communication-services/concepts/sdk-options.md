@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f39aa76e4bd2ce3d298e555f56b09d0218ef0862
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318826"
 ---
-# <a name="client-libraries-and-rest-apis"></a>클라이언트 라이브러리 및 REST Api
+# <a name="client-libraries-and-rest-apis"></a>클라이언트 라이브러리 및 REST API
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -26,11 +26,11 @@ Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성
 
 | 어셈블리               | 프로토콜             |소스 및 닫힌 소스 열기| 네임스페이스                          | 기능                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST (영문) | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
-| 일반                 | REST (영문) | 열기               | Azure. 통신 Common          | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
-| 관리         | REST (영문) |                | Azure. 통신 관리  | 사용자, 액세스 토큰 및 전화 번호를 관리 하 고, 표준 규격 STUN을 할당 하 고, 서버를 설정 합니다. |
+| Azure Resource Manager | REST | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
+| 일반                 | REST | 열기               | Azure. 통신 Common          | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
+| 관리         | REST | 열기               | Azure. 통신 관리  | 사용자, 액세스 토큰 및 전화 번호를 관리 하 고, 표준 규격 STUN을 할당 하 고, 서버를 설정 합니다. |
 | 채팅                   | 소유 신호 있는 REST | 닫힌 소스 신호 패키지를 사용 하 여 열기    | Azure. 통신 채팅            | 응용 프로그램에 실시간 텍스트 기반 채팅 추가  |
-| SMS                    | REST (영문) | 열기              | Azure. 통신 SMS             | SMS 메시지 보내기 및 받기 |
+| SMS                    | REST | 열기              | Azure. 통신 SMS             | SMS 메시지 보내기 및 받기 |
 | 호출                | 소유 전송 | 폐쇄형 |Azure. 통신. 호출         | 음성, 비디오, 화면 공유 및 기타 실시간 데이터 통신 기능 활용          |
 
 ### <a name="client-library-language-support"></a>클라이언트 라이브러리 언어 지원

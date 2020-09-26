@@ -3,12 +3,12 @@ title: Azure Event Hubs 방화벽 규칙 | Microsoft Docs
 description: 특정 IP 주소에서 Azure Event Hubs로 연결을 차단하도록 방화벽 규칙을 사용합니다.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab7f835187a33b5e4d95c160831337172a5ed74e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318537"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>특정 IP 주소 또는 범위에서 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Event Hubs 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
@@ -43,7 +43,7 @@ IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 
 
     **모든 네트워크** 옵션을 선택 하는 경우 이벤트 허브는 모든 IP 주소에서 연결을 수락 합니다 (액세스 키 사용). 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
-    ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    !["모든 네트워크" 옵션이 선택 된 "방화벽 및 가상 네트워크" 페이지를 보여 주는 스크린샷](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. 특정 IP 주소에 대 한 액세스를 제한 하려면 **선택한 네트워크** 옵션이 선택 되어 있는지 확인 합니다. **방화벽** 섹션에서 다음 단계를 수행합니다.
     1. **클라이언트 IP 주소 추가** 옵션을 선택하여 현재 클라이언트 IP에 네임스페이스에 대한 액세스 권한을 부여합니다. 
     2. **주소 범위**에 CIDR 표기법으로 특정 IPv4 주소 또는 IPv4 주소 범위를 입력합니다. 

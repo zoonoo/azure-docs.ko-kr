@@ -2,13 +2,13 @@
 title: Azure Event Grid의 시스템 항목
 description: Azure Event Grid의 시스템 항목에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297286"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure Event Grid의 시스템 항목
 Event Grid의 시스템 항목은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시 하는 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 blob 이벤트** 를 나타내거나 **특정 저장소 계정**에 대해 게시 된 **blob 및 blob** **삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 blob을 저장소 계정에 업로드 하면 Azure Storage 서비스는 **blob created** 이벤트를 Event Grid의 system 토픽에 게시 합니다. 그러면 이벤트를 수신 하 고 처리 하는 토픽의 [구독자](event-handlers.md) 에 게 이벤트를 전달 합니다. 
@@ -22,6 +22,7 @@ Event Grid의 시스템 항목은 Azure Storage 및 Azure Event Hubs와 같은 A
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360551"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>사전에 GRUB 및 sysrq에 액세스할 수 있게 하면 가동 중지 시간을 상당히 단축할 수 있습니다.
 
@@ -210,11 +210,11 @@ GRUB을 통해 Ubuntu에서 추가 복구 및 정리 옵션을 사용할 수 있
 
 Ubuntu의 고급 옵션을 선택하고 Enter 키를 누릅니다.
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![선택 된 Ubuntu에 대 한 고급 옵션을 포함 하는 직렬 콘솔를 보여 주는 스크린샷](./media/virtual-machines-serial-console/ubunturec1.png)
 
 *(recovery mode)* 가 표시된 줄을 선택합니다. Enter 키가 아닌 “e” 키를 누릅니다.
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![스크린샷 선택한 복구 모드 버전의 직렬 콘솔을 보여 줍니다.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 커널을 로드할 줄을 찾고 마지막 매개 변수 **nomodeset**를 **console=ttyS0**인 대상으로 대체합니다.
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![변경 된 값이 있는 직렬 콘솔를 보여 주는 스크린샷](./media/virtual-machines-serial-console/ubunturec3.png)
 
 **Ctrl+x**를 눌러 커널을 시작하고 로드합니다.
 모두 제대로 작동하는 경우 다른 복구 옵션을 수행하는 데 도움이 될 수 있는 추가 옵션이 표시됩니다.
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![스크린샷 추가 복구 옵션을 제공 하는 복구 메뉴의 직렬 콘솔을 보여 줍니다.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Red Hat GRUB 구성
@@ -337,11 +337,11 @@ terminal --timeout=5 serial console
 
 마지막 줄 *terminal –-timeout=5 serial console*은 **아무 키나 눌러 계속합니다.** 를 표시하는 5초 프롬프트를 추가하여 **GRUB** 시간 제한을 추가로 늘립니다.
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![출력이 있는 콘솔을 보여 주는 스크린샷](./media/virtual-machines-serial-console/rh6-1.png)
 
 Esc 키를 누르지 않아도 구성된 시간 제한=15 동안 GRUB 메뉴가 화면에 표시됩니다. 브라우저에서 콘솔을 클릭하여 메뉴를 활성화하고 필요한 커널을 선택해야 합니다.
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![스크린샷 두 개의 Linux 옵션이 있는 콘솔을 보여 줍니다.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>SuSE
 
@@ -405,18 +405,18 @@ kernel /boot/vmlinuz-3.0.101-108.74-default root=/dev/disk/by-uuid/ab6b62bb--
 GRUB에 액세스할 수 있으면 초기화 프로세스를 중단할 수 있습니다. 이 상호 작용은 많은 복구 절차에 유용합니다.
 루트 암호가 없고 단일 사용자가 루트 암호를 사용해야 하는 경우 커널을 부팅하여 init 프로그램을 bash 프롬프트로 바꿀 수 있습니다. 커널 부팅 줄에 init=/bin/bash를 추가하면 이 작업이 중단됩니다.
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![스크린샷 업데이트 된 부팅 회선이 있는 콘솔을 보여 줍니다.](./media/virtual-machines-serial-console/bash1.png)
 
 명령을 사용하여 /(루트) 파일 시스템 RW를 다시 탑재합니다.
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![다시 탑재 작업을 사용 하는 콘솔을 보여 주는 스크린샷](./media/virtual-machines-serial-console/bash2.png)
 
 
 이제 루트 암호 변경 또는 많은 다른 Linux 구성 변경을 수행할 수 있습니다.
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![루트 암호 및 기타 구성을 변경할 수 있는 콘솔을 보여 주는 스크린샷](./media/virtual-machines-serial-console/bash3.png)
 
 다음으로 VM을 다시 시작합니다. 
 

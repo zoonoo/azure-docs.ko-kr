@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 진단 문제 - Azure
 description: Windows Virtual Desktop 진단 기능을 사용하여 문제를 진단하는 방법.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279861"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Windows 가상 데스크톱 문제 식별 및 진단
 
@@ -24,10 +24,10 @@ Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제�
 
 ## <a name="common-error-scenarios"></a>일반적인 오류 시나리오
 
-오류 시나리오는 서비스 내부 오류와 Windows Virtual Desktop 외부 오류로 분류됩니다.
+WVDErrors 테이블은 모든 활동 형식에서 오류를 추적 합니다. "ServiceError" 열에는 "True" 또는 "False"로 표시 되는 추가 플래그가 제공 됩니다. 이 플래그는 오류가 서비스와 관련 되어 있는지 여부를 알려 줍니다.
 
-* 내부 문제: 고객이 완화할 수 없고 지원 문제를 해결 해야 하는 시나리오를 지정 합니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 통해 피드백을 제공할 때 문제가 발생 했을 때의 상관 관계 ID와 대략적인 시간 프레임을 포함 합니다.
-* 외부 문제: 고객이 완화할 수 있는 시나리오와 관련이 있습니다. 이러한 문제는 Windows Virtual Desktop 외부적인 오류입니다.
+* 값이 "True" 이면 서비스 팀에서이 문제를 이미 조사 했을 수 있습니다. 사용자 환경에 영향을 주며 많은 횟수로 표시 되는 경우 Windows 가상 데스크톱에 대 한 지원 티켓을 제출 하는 것이 좋습니다.
+* 값이 "False" 이면 사용자가 수정할 수 있는 잘못 된 구성 일 수 있습니다. 오류 메시지는 시작할 위치에 대 한 단서를 제공할 수 있습니다.
 
 다음 표에는 관리자가 직면할 수 있는 일반적인 오류가 나와 있습니다.
 
@@ -46,7 +46,7 @@ Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제�
 |응용 프로그램 그룹에서 사용자의 할당을 취소 하지 못했습니다.|사용자에 대 한 앱 그룹의 게시를 취소할 수 없습니다. Azure AD에서 사용자를 사용할 수 있는지 확인 합니다. 사용자가 앱 그룹이 게시 된 사용자 그룹에 속해 있는지 확인 하십시오. |
 |사용 가능한 위치를 검색 하는 동안 오류가 발생 했습니다. |호스트 풀 만들기 마법사에서 사용 되는 VM의 위치를 확인 합니다. 해당 위치에서 이미지를 사용할 수 없는 경우 해당 위치에 이미지를 추가 하거나 다른 VM 위치를 선택 합니다. |
 
-### <a name="external-connection-error-codes"></a>외부 연결 오류 코드
+### <a name="connection-error-codes"></a>연결 오류 코드
 
 |숫자 코드|오류 코드|추천 솔루션|
 |---|---|---|

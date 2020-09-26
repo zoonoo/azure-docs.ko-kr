@@ -4,12 +4,12 @@ description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371306"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -49,7 +49,18 @@ ms.locfileid: "90056101"
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="연결 문자열 Application Insights":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 환경 변수를 사용 하 여 연결 문자열을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+
+연결 문자열을 설정 하지 않으면 Java 에이전트가 사용 되지 않습니다.
 
 ## <a name="cloud-role-name"></a>클라우드 역할 이름
 
@@ -93,7 +104,7 @@ ms.locfileid: "90056101"
 
 Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해 응용 프로그램 로깅을 자동으로 캡처합니다.
 
-기본적으로 수준 이상에서 수행 되는 모든 로깅을 캡처합니다 `WARN` .
+기본적으로 수준 이상에서 수행 되는 모든 로깅을 캡처합니다 `INFO` .
 
 이 임계값을 변경 하려면 다음을 수행 합니다.
 
@@ -103,13 +114,15 @@ Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+환경 변수를 사용 하 여 로깅 임계값을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
 
 이러한 `threshold` 값은 파일에 지정할 수 있는 유효한 값 `ApplicationInsights.json` 이며, 여러 로깅 프레임 워크에서 로깅 수준에 해당 하는 방법입니다.
 
@@ -136,9 +149,9 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -150,6 +163,10 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
   }
 }
 ```
+
+환경 변수를 사용 하 여 JMX 메트릭을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_JMX_METRICS` .
+
+이 환경 변수 콘텐츠는 위의 구조와 일치 하는 json 데이터 여야 합니다 (예:). `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>마이크로 측정기 (스프링 부트 발동기의 메트릭 포함)
 
@@ -214,6 +231,8 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
   }
 }
 ```
+
+환경 변수를 사용 하 여 샘플링 비율을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
 
 ## <a name="http-proxy"></a>HTTP 프록시
 

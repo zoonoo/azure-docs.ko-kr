@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281884"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>OPC 자격 증명 모음 인증서 관리 서비스를 안전 하 게 실행
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 이 문서에서는 Azure에서 OPC 자격 증명 모음 인증서 관리 서비스를 안전 하 게 실행 하는 방법과 고려할 다른 보안 지침을 검토 하는 방법을 설명 합니다.
 

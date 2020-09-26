@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371221"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 온-프레미스 Api에 안전 하 게 액세스
 
@@ -43,7 +43,7 @@ Azure AD 응용 프로그램 프록시 인증 및 권한 부여는 Azure AD를 �
 이 연습을 수행 하려면 다음이 필요 합니다.
 
 - 앱을 만들고 등록할 수 있는 계정을 사용 하 여 Azure 디렉터리에 대 한 관리자 권한
-- 의 샘플 웹 API 및 native client 앱[https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
+- 의 샘플 웹 API 및 native client 앱 [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
 
 ## <a name="publish-the-api-through-application-proxy"></a>응용 프로그램 프록시를 통해 API 게시
 
@@ -185,7 +185,7 @@ Azure Active Directory에 연결 하 고 API 앱 프록시를 호출 하도록 �
 
 매개 변수를 구성한 후 네이티브 앱을 빌드하고 실행 합니다. **로그인** 단추를 선택 하면 앱에서 로그인 한 다음 성공 화면을 표시 하 여 SecretAPI에 성공적으로 연결 되었는지 확인할 수 있습니다.
 
-![성공](./media/application-proxy-secure-api-access/success.png)
+![스크린 샷에서는 성공한 메시지 암호와 확인 단추를 표시 합니다.](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>다음 단계
 

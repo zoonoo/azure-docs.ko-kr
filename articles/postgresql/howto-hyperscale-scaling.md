@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
-ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295717"
 ---
 # <a name="server-group-size"></a>서버 그룹 크기
 
@@ -26,13 +26,13 @@ Citus (Hyperscale) 배포 옵션은 협동 데이터베이스 서버를 사용 �
 
 기존 단일 노드 PostgreSQL 데이터베이스 인스턴스에서 Citus (Hyperscale)로 마이그레이션하는 경우 작업자 vCores 수와 총 RAM이 원본 인스턴스의 수와 같은 클러스터를 선택 하는 것이 좋습니다. 이러한 시나리오에서는 분할 리소스 사용률을 향상 시키고 더 작은 인덱스를 허용 하기 때문에 2 ~ 3 배 성능이 개선 되었습니다.
 
-코디네이터 노드에 필요한 vCores 수는 기존 작업 (쓰기/읽기 처리량)에 따라 달라 집니다. 코디네이터 노드에는 작업자 노드 만큼 RAM이 필요 하지 않지만, RAM 할당은 하이퍼 [확장 구성 옵션](concepts-hyperscale-configuration-options.md)에 설명 된 대로 vcore 수를 기준으로 결정 되므로 vcore 수는 본질적으로 실제 결정입니다.
+코디네이터 노드에 필요한 vCores 수는 기존 작업 (쓰기/읽기 처리량)에 따라 달라 집니다. 코디네이터 노드에는 작업자 노드 만큼 RAM이 필요 하지 않지만, RAM 할당은 vcore 수 ( [Citus) 구성 옵션](concepts-hyperscale-configuration-options.md)에 설명 된 대로 vcore 수를 기준으로 결정 되므로 vcore 수는 본질적으로 실제 결정입니다.
 
 ### <a name="real-time-analytics-use-case"></a>실시간 분석 사용 사례
 
 총 vCores: 작업 데이터가 RAM에 적합 한 경우 작업자 코어 수에 비례하여 Citus (Hyperscale)의 선형 성능 향상을 예측할 수 있습니다. 요구 사항에 적합 한 vCores 수를 결정 하려면 단일 노드 데이터베이스의 쿼리에 대 한 현재 대기 시간 및 Hyperscale의 필요한 대기 시간 (Citus)을 고려 하세요. 현재 대기 시간을 원하는 대기 시간으로 나누고 결과를 반올림합니다.
 
-작업자 RAM: 최상의 사례는 대부분의 작업 집합이 메모리에 맞는 충분한 메모리를 제공하는 것입니다. 응용 프로그램에서 사용 하는 쿼리 형식은 메모리 요구 사항에 영향을 줍니다. 쿼리에 대해 설명 하는 분석을 실행 하 여 필요한 메모리 양을 확인할 수 있습니다. VCores 및 RAM은 [Hyperscale 구성 옵션](concepts-hyperscale-configuration-options.md) 문서에 설명 된 대로 함께 확장 됩니다.
+작업자 RAM: 최상의 사례는 대부분의 작업 집합이 메모리에 맞는 충분한 메모리를 제공하는 것입니다. 응용 프로그램에서 사용 하는 쿼리 형식은 메모리 요구 사항에 영향을 줍니다. 쿼리에 대해 설명 하는 분석을 실행 하 여 필요한 메모리 양을 확인할 수 있습니다. VCores 및 RAM은 [Citus (Hyperscale) 구성 옵션](concepts-hyperscale-configuration-options.md) 문서에 설명 된 대로 함께 확장 됩니다.
 
 ## <a name="scale-a-hyperscale-citus-server-group"></a>Citus (Hyperscale) 서버 그룹 크기 조정
 
