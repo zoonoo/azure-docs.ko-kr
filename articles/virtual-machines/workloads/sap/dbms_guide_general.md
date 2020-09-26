@@ -4,23 +4,23 @@ description: SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 �
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, DBMS, 저장소, Ultra disk, Premium storage
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/04/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331355"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -46,9 +46,8 @@ ms.locfileid: "88650618"
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 가이드는 Microsoft Azure에서의 SAP 소프트웨어 구현 및 배포하는 방법에 대한 설명서의 일부입니다. 이 가이드를 읽기 전에 [계획 및 구현 가이드][planning-guide]를 참조하세요. 이 문서에서는 Azure IaaS(서비스 제공 인프라) 기능을 사용하여 Microsoft Azure VM(Virtual Machines)에서 SAP 관련 DBMS 시스템의 일반적인 배포 측면에 대해 설명합니다.
+이 가이드는 Microsoft Azure에서의 SAP 소프트웨어 구현 및 배포하는 방법에 대한 설명서의 일부입니다. 이 가이드를 읽기 전에 계획 [및 구현 가이드][planning-guide] 와 계획 가이드에서 안내 하는 문서를 참조 하세요. 이 문서에서는 Azure IaaS(서비스 제공 인프라) 기능을 사용하여 Microsoft Azure VM(Virtual Machines)에서 SAP 관련 DBMS 시스템의 일반적인 배포 측면에 대해 설명합니다.
 
 이 문서는 지정된 플랫폼에서 SAP 소프트웨어 설치 및 배포에 대한 기본 리소스를 나타내는 SAP 설치 설명서 및 SAP 정보를 보완합니다.
 
@@ -109,49 +108,62 @@ Microsoft Azure 아키텍처 및 Microsoft Azure Virtual Machines 배포와 작�
 
 
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>RDBMS 배포를 위한 VM의 스토리지 구조
-이 챕터를 수행하려면 [배포 가이드][deployment-guide]의 [이 챕터][deployment-guide-3]에 제공된 정보를 읽고 이해합니다. 이 챕터를 읽기 전에 다양한 VM 시리즈와 Standard 및 Premium Storage 간의 차이점을 이해하고 파악해야 합니다. 
+이 장을 따르려면에 제공 된 정보를 읽고 이해 하세요.
 
-Azure Vm에 대 한 Azure Storage에 대해 알아보려면 [Azure vm 용 managed Disks 소개](../../managed-disks-overview.md)를 참조 하세요.
+- [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](./planning-guide.md)
+- [SAP 워크로드에 대한 Azure Storage 형식](./planning-guide-storage.md)
+- [Azure 배포를 지원하는 SAP 소프트웨어](./sap-supported-product-on-azure.md)
+- [Azure 가상 머신의 SAP 워크로드 지원 시나리오](./sap-planning-supported-configurations.md) 
 
-기본 구성에서는 일반적으로 운영 체제, DBMS 및 최종 SAP 이진 파일이 데이터베이스 파일과 분리된 배포 구조를 사용하는 것이 좋습니다. Azure Virtual Machines에서 실행되는 SAP 시스템에 운영 체제, 데이터베이스 관리 시스템 실행 파일 및 SAP 실행 파일과 함께 기본 VHD(또는 디스크)를 설치하는 것이 좋습니다. 
+이 챕터를 읽기 전에 다양한 VM 시리즈와 Standard 및 Premium Storage 간의 차이점을 이해하고 파악해야 합니다. 
 
-DBMS 데이터 및 로그 파일은 Standard Storage 또는 Premium Storage에 저장됩니다. 이러한 이미지는 별도의 디스크에 저장되며 원래 Azure 운영 체제 이미지 VM에 논리 디스크로 연결됩니다. Linux 배포의 경우 특히 SAP HANA에 대한 다양한 권장 사항이 문서화되어 있습니다.
+Azure 블록 저장소의 경우 Azure managed disks를 사용 하는 것이 좋습니다. Azure managed disks에 대 한 자세한 내용은 [Azure vm 용 managed Disks 소개](../../managed-disks-overview.md)문서를 참조 하세요.
+
+기본 구성에서는 일반적으로 운영 체제, DBMS 및 최종 SAP 이진 파일이 데이터베이스 파일과 분리된 배포 구조를 사용하는 것이 좋습니다. 이전 권장 사항을 변경 하는 경우 다음을 위해 별도의 Azure 디스크를 구성 하는 것이 좋습니다
+
+- 운영 체제 (기본 VHD 또는 OS VHD)
+- 데이터베이스 관리 시스템 실행 파일
+- /Usr/sap와 같은 SAP 실행 파일
+
+이러한 구성 요소를 서로 다른 세 개의 Azure 디스크로 분리 하는 구성은 DBMS 또는 SAP 실행 파일의 과도 한 로그 또는 덤프 쓰기가 OS 디스크의 디스크 할당량을 방해 하지 않기 때문에 더 높은 복원 력이 발생할 수 있습니다. 
+
+DBMS 데이터 및 트랜잭션/다시 실행 로그 파일은 Azure 지원 블록 저장소 또는 Azure NetApp Files에 저장 됩니다. 이러한 이미지는 별도의 디스크에 저장되며 원래 Azure 운영 체제 이미지 VM에 논리 디스크로 연결됩니다. Linux 배포의 경우 특히 SAP HANA에 대한 다양한 권장 사항이 문서화되어 있습니다. 시나리오에 대 한 다양 한 저장소 형식 지원 및 기능에 대 한 [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 문서를 참조 하세요. 
 
 디스크 레이아웃을 계획할 때 다음 항목에 가장 잘 맞는 레이아웃을 찾습니다.
 
 * 데이터 파일 수
 * 파일에 포함된 디스크 수
-* 단일 디스크당 IOPS 할당량
-* 디스크당 데이터 처리량
+* 단일 디스크 또는 NFS 공유의 IOPS 할당량입니다.
+* 디스크 또는 NFS 공유 당 데이터 처리량입니다.
 * VM 크기당 가능한 추가 데이터 디스크 수
-* VM에서 제공할 수 있는 전체 스토리지 처리량
+* VM이 제공할 수 있는 전체 저장소 또는 네트워크 처리량입니다.
 * 다양한 Azure Storage 유형에서 제공할 수 있는 대기 시간
 * VM SLA
 
-Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당량은 디스크가 Standard Storage에서 호스트되는지 또는 Premium Storage에서 호스트되는지에 따라 달라집니다. 또한 I/O 대기 시간도 두 스토리지 유형 간에 다릅니다. Premium Storage는 더 나은 I/O 대기 시간을 제공합니다. 
+Azure는 데이터 디스크 또는 NFS 공유 당 IOPS 할당량을 적용 합니다. 이러한 할당량은 다양 한 Azure 블록 저장소 솔루션 또는 공유에서 호스트 되는 디스크에 대해 다릅니다. I/o 대기 시간도 이와 다른 저장소 형식 간에도 다릅니다. 
 
-각 VM 유형에는 연결할 수 있는 데이터 디스크 수가 제한되어 있습니다. 또한 특정 VM 유형만 Premium Storage를 사용할 수 있습니다. 일반적으로 CPU 및 메모리 요구 사항을 기반으로 특정 VM 유형을 사용하기로 결정합니다. 또한 일반적으로 디스크 수 또는 Premium Storage 디스크 유형에 따라 크기를 조정하는 IOPS, 대기 시간 및 디스크 처리량 요구 사항을 고려할 수 있습니다. 각 디스크에서 수행할 IOPS 및 처리량에 따라 디스크 크기가 결정될 수 있습니다(특히 Premium Storage의 경우).
-
-> [!NOTE]
-> DBMS 배포의 경우 모든 데이터, 트랜잭션 로그 또는 다시 실행 파일에 Premium Storage를 사용하는 것이 좋습니다. 프로덕션 또는 비프로덕션 시스템을 배포할지는 중요하지 않습니다.
+각 VM 유형에는 연결할 수 있는 데이터 디스크 수가 제한되어 있습니다. 또 다른 제한 사항은 특정 VM 유형 (예: premium storage)만 사용할 수 있다는 것입니다. 일반적으로 CPU 및 메모리 요구 사항을 기반으로 특정 VM 유형을 사용하기로 결정합니다. 또한 일반적으로 디스크 수 또는 Premium Storage 디스크 유형에 따라 크기를 조정하는 IOPS, 대기 시간 및 디스크 처리량 요구 사항을 고려할 수 있습니다. 각 디스크에서 수행할 IOPS 및 처리량에 따라 디스크 크기가 결정될 수 있습니다(특히 Premium Storage의 경우).
 
 > [!NOTE]
-> Azure의 고유한 [단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 활용하려면 연결된 모든 디스크가 기본 VHD를 포함하는 Premium Storage 유형이어야 합니다.
+> DBMS 배포의 경우 데이터, 트랜잭션 로그 또는 다시 실행 파일에 대해 Azure premium storage, Ultra disk 또는 Azure NetApp Files 기반 NFS 공유 (SAP HANA 전용)를 사용 하는 것이 좋습니다. 프로덕션 또는 비프로덕션 시스템을 배포할지는 중요하지 않습니다.
 
 > [!NOTE]
-> Azure 데이터 센터 근처에 공동 배치된 타사 데이터 센터에 있는 스토리지 하드웨어에서 SAP 데이터베이스의 기본 데이터베이스 파일(예: 데이터 및 로그 파일)을 호스트할 수는 없습니다. SAP 워크로드의 경우에는 기본 Azure 서비스로 표시되는 스토리지에서만 SAP 데이터베이스의 데이터 및 트랜잭션 로그 파일을 호스트할 수 있습니다.
+> Azure의 [단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 활용 하기 위해, 연결 된 모든 디스크는 기본 VHD (azure premium storage)를 포함 하는 azure premium Storage 또는 azure Ultra disk 유형 이어야 합니다.
 
-데이터베이스 파일 및 로그/다시 실행 파일의 배치와 사용하는 Azure Storage 유형은 IOPS, 대기 시간 및 처리량 요구 사항에 따라 정의됩니다. IOPS가 충분하려면 여러 디스크를 사용하거나 더 큰 Premium Storage 디스크를 사용해야 할 수도 있습니다. 여러 디스크를 사용하는 경우 데이터 파일 또는 로그 및 다시 실행 파일을 포함하는 디스크에서 소프트웨어 스트라이프를 작성합니다. 이러한 경우 기본 Premium Storage 디스크의 IOPS 및 디스크 처리량 SLA 또는 Standard Storage 디스크의 달성 가능한 최대 IOPS가 결과 스트라이프 세트에 누적됩니다.
+> [!NOTE]
+> Azure 데이터 센터 근처에 공동 배치된 타사 데이터 센터에 있는 스토리지 하드웨어에서 SAP 데이터베이스의 기본 데이터베이스 파일(예: 데이터 및 로그 파일)을 호스트할 수는 없습니다. Azure Vm에서 호스트 되는 소프트웨어 어플라이언스를 통해 제공 되는 저장소도이 사용 사례에 대해 지원 되지 않습니다. SAP DBMS 워크 로드의 경우 기본 Azure 서비스로 표시 되는 저장소만 SAP 데이터베이스의 데이터 및 트랜잭션 로그 파일에 대해 일반적으로 지원 됩니다. DBMS 마다 다른 Azure storage 유형을 지원할 수 있습니다. 자세한 내용은 [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 문서를 참조 하세요.
 
-이미 설명한 대로 단일 VHD에서 제공할 수 있는 IOPS 요구 사항을 초과하는 경우 여러 VHD에서 데이터베이스 파일에 필요한 IOPS 수의 균형을 조정합니다. IOPS 부하를 디스크에 분산시키는 가장 쉬운 방법은 서로 여러 디스크에 소프트웨어 스트라이프를 빌드하는 것입니다. 그런 다음, SAP DBMS의 여러 데이터 파일을 소프트웨어 스트라이프에서 얻은 LUN에 배치합니다. 스트라이프의 디스크 수는 IOPS, 디스크 처리량 및 볼륨 요구 사항에 따라 결정됩니다.
+데이터베이스 파일 및 로그 및 다시 실행 파일의 위치와 사용 하는 Azure Storage 형식은 IOPS, 대기 시간 및 처리량 요구 사항에 따라 정의 됩니다. 특히 Azure premium storage에서 충분 한 IOPS를 얻기 위해 여러 디스크를 사용 하거나 더 큰 premium storage 디스크를 사용 해야 할 수 있습니다. 여러 디스크를 사용하는 경우 데이터 파일 또는 로그 및 다시 실행 파일을 포함하는 디스크에서 소프트웨어 스트라이프를 작성합니다. 이러한 경우 기본 Premium Storage 디스크의 IOPS 및 디스크 처리량 SLA 또는 Standard Storage 디스크의 달성 가능한 최대 IOPS가 결과 스트라이프 세트에 누적됩니다.
+
+IOPS 요구 사항이 단일 VHD가 제공할 수 있는 작업을 초과 하는 경우 여러 Vhd에서 데이터베이스 파일에 필요한 IOPS 수의 균형을 유지 합니다. IOPS 부하를 디스크에 분산시키는 가장 쉬운 방법은 서로 여러 디스크에 소프트웨어 스트라이프를 빌드하는 것입니다. 그런 다음, SAP DBMS의 여러 데이터 파일을 소프트웨어 스트라이프에서 얻은 LUN에 배치합니다. 스트라이프의 디스크 수는 IOPS 요구, 디스크 처리량 요구 및 볼륨 요구 사항에 따라 결정 됩니다.
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows 저장소 스트라이프][Logo_Windows] Windows
 >
 > Windows 스토리지 공간을 사용하여 여러 Azure VHD에 스트라이프 세트를 만드는 것이 좋습니다. 최소 Windows Server 2012 R2 또는 Windows Server 2016을 사용합니다.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux 저장소 스트라이프][Logo_Linux] Linux
 >
 > Linux에서 소프트웨어 RAID를 빌드하는 경우 MDADM 및 LVM(논리 볼륨 관리자)만 지원됩니다. 자세한 내용은 다음을 참조하세요.
 >
@@ -162,6 +174,9 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 
 ---
 
+Azure Ultra disk의 경우 디스크 크기와는 독립적으로 IOPS 및 디스크 처리량을 정의할 수 있으므로 스트라이프를 사용할 필요가 없습니다.
+
+
 > [!NOTE]
 > Azure Storage는 VHD의 이미지 3개를 유지하므로 스트라이핑할 때 중복성을 구성하는 것은 적합하지 않습니다. I/O가 서로 다른 VHD를 통해 분산되도록 스트라이핑을 구성하기만 하면 됩니다.
 >
@@ -171,7 +186,7 @@ Azure Storage 계정은 관리 구성 요소일뿐 아니라 제한의 대상이
 
 Standard Storage의 경우 스토리지 계정당 IOPS에 제한이 있다는 점에 주의하세요. [Azure Storage 확장성 및 성능 목표](../../../storage/common/scalability-targets-standard-account.md) 문서에서 **총 요청 비율**이 포함된 행을 참조하세요. Azure 구독당 스토리지 계정 수의 초기 제한도 있습니다. 이러한 스토리지 계정의 제한에 도달하지 않도록 다른 스토리지 계정에서 더 큰 SAP 환경에 맞게 VHD의 균형을 조정합니다. 이는 1,000개가 넘는 VHD가 있는 수백 개의 가상 머신에 대해 설명하는 것은 지루한 작업입니다.
 
-SAP 워크로드와 함께 DBMS 배포에 Standard Storage를 사용하지 않는 것이 좋으므로 Standard Storage에 대한 참조 및 권장 사항은 이 간략한 [문서](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)로 제한됩니다.
+SAP 워크 로드와 함께 DBMS 배포에 standard storage를 사용 하는 것은 권장 되지 않습니다. 따라서 표준 저장소에 대 한 참조와 권장 사항은이 짧은 [문서로](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance) 제한 됩니다.
 
 Microsoft는 2017년에 서로 다른 Azure Storage 계정에서 VHD를 계획하고 배포하는 관리 작업을 방지하기 위해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 도입했습니다. 관리 디스크는 Standard Storage 및 Premium Storage에 사용할 수 있습니다. 관리 디스크의 주요 이점은 다음과 같은 관리되지 않는 디스크 목록과 비교됩니다.
 
@@ -180,7 +195,7 @@ Microsoft는 2017년에 서로 다른 Azure Storage 계정에서 VHD를 계획�
 
 
 > [!IMPORTANT]
-> Azure Managed Disks의 이점을 고려할 때 일반적으로 DBMS 배포 및 SAP 배포에 Azure Managed Disks를 사용하는 것이 좋습니다.
+> Azure Managed Disks의 이점을 고려 하 여 일반적으로 DBMS 배포 및 SAP 배포에 Azure Managed Disks를 사용 하는 것이 좋습니다.
 >
 
 관리되지 않는 디스크에서 관리 디스크로 변환하려면:
@@ -190,7 +205,7 @@ Microsoft는 2017년에 서로 다른 Azure Storage 계정에서 VHD를 계획�
 
 
 ### <a name="caching-for-vms-and-data-disks"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>VM 및 데이터 디스크에 대한 캐싱
-VM에 디스크를 탑재할 때 VM과 Azure Storage에 있는 디스크 간의 I/O 트래픽을 캐시할지 여부를 선택할 수 있습니다. Standard 및 Premium Storage에서는 이 유형의 캐시에 대해 두 가지 기술을 사용합니다.
+VM에 디스크를 탑재할 때 VM과 Azure Storage에 있는 디스크 간의 I/O 트래픽을 캐시할지 여부를 선택할 수 있습니다.
 
 다음 권장 사항은 표준 DBMS에 대한 이러한 I/O 특성을 가정합니다.
 
@@ -208,7 +223,7 @@ Standard Storage의 경우 가능한 캐시 유형은 다음과 같습니다.
 
 일관성 있고 결정적 성능을 얻으려면 DBMS 관련 데이터 파일, 로그 및 다시 실행 파일, 테이블 공간을 포함하는 모든 디스크에 대한 캐시를 표준 스토리지에서 **없음**으로 설정합니다. 기본 VHD의 캐싱은 기본값으로 유지할 수 있습니다.
 
-Premium Storage의 경우 캐싱 옵션은 다음과 같습니다.
+Azure premium storage의 경우 다음과 같은 캐싱 옵션이 있습니다.
 
 * None
 * 읽기
@@ -220,6 +235,8 @@ Premium Storage의 경우 SAP 데이터베이스의 **데이터 파일 읽기 �
 
 M 시리즈 배포의 경우 DBMS 배포에 Azure Write Accelerator를 사용하는 것이 좋습니다. Azure Write Accelerator에 대한 세부 정보, 제한 및 배포는 [Write Accelerator 사용](../../how-to-enable-write-accelerator.md)을 참조하세요.
 
+Ultra disk 및 Azure NetApp Files의 경우 캐싱 옵션이 제공 되지 않습니다.
+
 
 ### <a name="azure-nonpersistent-disks"></a>Azure 비영구 디스크
 VM이 배포되면 Azure VM에서 비영구 디스크를 제공합니다. VM을 다시 부팅하면 해당 드라이브의 모든 콘텐츠가 초기화됩니다. 데이터베이스의 데이터 파일과 로그/다시 실행 파일은 어떤 경우에도 이러한 비영구 드라이브에 배치하면 안 됩니다. 이러한 비영구 드라이브가 tempdb 및 temp 테이블 공간에 적합할 수 있는 일부 데이터베이스에는 예외가 있을 수 있습니다. 이러한 비영구 드라이브는 해당 VM 제품군의 처리량으로 제한되므로 A 시리즈 VM에는 해당 드라이브를 사용하지 마세요. 
@@ -227,11 +244,11 @@ VM이 배포되면 Azure VM에서 비영구 디스크를 제공합니다. VM을 
 자세한 내용은 [Azure의 Windows VM에서 임시 드라이브 이해](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)를 참조하세요.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows 비지속형 디스크][Logo_Windows] Windows
 >
 > Azure VM의 드라이브 D는 Azure 컴퓨팅 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이므로 D 드라이브의 콘텐츠에 대한 변경 내용은 VM을 재부팅하면 손실됩니다. 변경 내용에는 저장된 파일, 생성된 디렉터리, 설치된 애플리케이션이 포함됩니다.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linuxnonpersisted 디스크][Logo_Linux] Linux
 >
 > Linux Azure VM은 Azure 컴퓨팅 노드의 로컬 디스크에서 지원하는 비지속형 드라이브의 /mnt/resource에 자동으로 탑재됩니다. 비지속형이므로 /mnt/resource의 콘텐츠에 대한 변경 내용은 VM을 재부팅하면 손실됩니다. 변경 내용에는 저장된 파일, 생성된 디렉터리, 설치된 애플리케이션이 포함됩니다.
 >
@@ -247,7 +264,7 @@ Microsoft Azure Storage는 최소 3개의 별도 스토리지 노드에 기본 V
 다른 중복 방법이 있습니다. 자세한 내용은 [Azure Storage 복제](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요.
 
 > [!NOTE]
->Premium Storage는 데이터베이스, 로그 및 다시 실행 파일을 저장하는 디스크 및 DBMS VM에 권장되는 스토리지 유형입니다. Premium Storage에 사용할 수 있는 중복 방법은 LRS뿐입니다. 따라서 데이터베이스 데이터 복제를 다른 Azure 지역 또는 가용성 영역으로 설정하도록 데이터베이스 메서드를 구성해야 합니다. 데이터베이스 메서드에는 SQL Server Always On, Oracle Data Guard 및 HANA 시스템 복제가 포함됩니다.
+> Azure premium storage, Ultra disk 및 Azure NetApp Files (SAP HANA에만 해당)는 데이터베이스와 로그 및 다시 실행 파일을 저장 하는 DBMS Vm 및 디스크에 권장 되는 저장소 유형입니다. 이러한 저장소 형식에 사용할 수 있는 중복성 방법은 LRS 뿐입니다. 따라서 데이터베이스 데이터 복제를 다른 Azure 지역 또는 가용성 영역으로 설정하도록 데이터베이스 메서드를 구성해야 합니다. 데이터베이스 메서드에는 SQL Server Always On, Oracle Data Guard 및 HANA 시스템 복제가 포함됩니다.
 
 
 > [!NOTE]
@@ -256,7 +273,7 @@ Microsoft Azure Storage는 최소 3개의 별도 스토리지 노드에 기본 V
 
 
 ## <a name="vm-node-resiliency"></a>VM 노드 복원력
-Azure는 VM에 대해 여러 가지 SLA를 제공합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)의 최신 릴리스를 참조하세요. DBMS 계층은 일반적으로 SAP 시스템의 가용성에 매우 중요하므로 가용성 집합, 가용성 영역 및 유지 관리 이벤트를 이해해야 합니다. 이러한 모든 개념에 대한 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리](../../windows/manage-availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../linux/manage-availability.md)를 참조하세요.
+Azure는 VM에 대해 여러 가지 SLA를 제공합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)의 최신 릴리스를 참조하세요. DBMS 계층은 SAP 시스템의 가용성에 중요 하므로 가용성 집합, 가용성 영역 및 유지 관리 이벤트를 이해 해야 합니다. 이러한 모든 개념에 대한 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리](../../windows/manage-availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../linux/manage-availability.md)를 참조하세요.
 
 SAP 워크로드를 사용하는 프로덕션 DBMS 시나리오에 대한 최소 권장 사항은 다음과 같습니다.
 
@@ -276,7 +293,7 @@ Azure 가용성 집합을 설정하는 방법에 대한 자세한 내용은 [이
 다음 모범 사례는 수백 명의 고객 배포에 대한 결과입니다.
 
 - SAP 애플리케이션이 배포된 가상 네트워크는 인터넷에 액세스할 수 없습니다.
-- 데이터베이스 VM은 애플리케이션 계층과 동일한 가상 네트워크에서 실행됩니다.
+- 데이터베이스 Vm은 응용 프로그램 계층과 동일한 가상 네트워크에서 실행 되 고 SAP 응용 프로그램 계층과는 다른 서브넷에 구분 됩니다.
 - 가상 네트워크 내의 VM에는 개인 IP 주소의 정적 할당이 있습니다. 자세한 내용은 [Azure에서 IP 주소 형식 및 할당 메서드](../../../virtual-network/public-ip-addresses.md)를 참조하세요.
 - DBMS VM 간의 라우팅 제한은 로컬 DBMS VM에 설치된 방화벽으로 설정되지 *않습니다*. 대신 트래픽 라우팅은 [NSG(네트워크 보안 그룹)](../../../virtual-network/security-overview.md)로 정의됩니다.
 - 트래픽을 DBMS VM으로 분리하고 격리하려면 다른 NIC를 VM에 할당합니다. 모든 NIC는 서로 다른 IP 주소를 가지며 모든 NIC는 다른 가상 네트워크 서브넷에 할당됩니다. 모든 서브넷의 NSG 규칙은 서로 다릅니다. 네트워크 트래픽 격리 또는 분리는 라우팅에 대한 측정값입니다. 네트워크 처리량에 대한 할당량을 설정하는 데 사용되지 않습니다.
@@ -286,7 +303,7 @@ Azure 가용성 집합을 설정하는 방법에 대한 자세한 내용은 [이
 >
 
 
-> [!IMPORTANT]
+> [!WARNING]
 > SAP 애플리케이션과 SAP NetWeaver, Hybris 또는 S/4HANA 기반 SAP 시스템의 DBMS 계층 사이의 통신 경로에 [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/)를 구성하는 것은 지원되지 않습니다. 이러한 제한 사항은 기능 및 성능 때문입니다. SAP 애플리케이션 계층과 DBMS 계층 간의 통신 경로는 직접 통신이어야 합니다. ASG 및 NSG 규칙에서 직접 통신 경로를 허용하는 경우에는 [해당 ASG(애플리케이션 보안 그룹) 및 NSG 규칙](../../../virtual-network/security-overview.md)이 제한에 포함되지 않습니다. 
 >
 > 네트워크 가상 어플라이언스를 지원하지 않는 다른 시나리오는 다음과 같습니다.
@@ -304,7 +321,7 @@ Azure 가용성 집합을 설정하는 방법에 대한 자세한 내용은 [이
 >
 > [피어링](../../../virtual-network/virtual-network-peering-overview.md)된 두 Azure 가상 네트워크 간의 네트워크 트래픽에는 전송 비용이 부과됩니다. 테라바이트급의 대용량 데이터 볼륨이 SAP 애플리케이션 계층과 DBMS 계층 간에 교환됩니다. SAP 애플리케이션 계층 및 DBMS 계층이 두 피어링된 Azure Virtual Network 간에 분리된 경우 상당한 비용을 누적시킬 수 있습니다.
 
-Azure 가용성 집합 내에서 프로덕션 DBMS 배포에 두 개의 VM을 사용합니다. 또한 SAP 애플리케이션 계층 및 두 DBMS VM에 대한 관리 및 운영 트래픽에 대해 별도의 라우팅을 사용합니다. 다음 이미지를 참조하세요.
+Azure 가용성 집합 내에서 또는 두 Azure 가용성 영역 간에 프로덕션 DBMS 배포에 대해 두 개의 Vm을 사용 합니다. 또한 SAP 애플리케이션 계층 및 두 DBMS VM에 대한 관리 및 운영 트래픽에 대해 별도의 라우팅을 사용합니다. 다음 이미지를 참조하세요.
 
 ![두 서브넷에 있는 두 VM에 대한 다이어그램](./media/virtual-machines-shared-sap-deployment-guide/general_two_dbms_two_subnets.PNG)
 
@@ -314,19 +331,13 @@ SQL Server Always On 또는 HANA System Replication과 같은 기능에 사용�
 
 데이터베이스 노드를 장애 조치(failover)하는 경우 SAP 애플리케이션을 다시 구성할 필요가 없습니다. 대신 가장 일반적인 SAP 애플리케이션 아키텍처가 개인 가상 IP 주소에 다시 연결됩니다. 한편 부하 분산 장치는 개인 가상 IP 주소에 대한 트래픽을 두 번째 노드로 리디렉션하여 노드 장애 조치(failover)에 대응했습니다.
 
-Azure는 기본 SKU와 표준 SKU의 두 가지 [부하 분산 장치 SKU](../../../load-balancer/load-balancer-overview.md)를 제공합니다. Azure 가용성 영역을 통해 배포하지 않으려는 경우 기본 부하 분산 장치 SKU가 정상적으로 수행됩니다.
+Azure는 기본 SKU와 표준 SKU의 두 가지 [부하 분산 장치 SKU](../../../load-balancer/load-balancer-overview.md)를 제공합니다. 설치 및 기능의 이점에 따라 Azure 부하 분산 장치의 표준 SKU를 사용 해야 합니다. 부하 분산 장치의 표준 버전의 큰 장점 중 하나는 데이터 트래픽이 부하 분산 장치 자체를 통해 라우팅되지 않기 때문입니다.
 
-DBMS VM과 SAP 애플리케이션 계층 간의 트래픽은 항상 부하 분산 장치를 통해 언제나 라우팅되나요? 대답은 부하 분산 장치를 구성하는 방법에 따라 다릅니다. 
+내부 부하 분산 장치를 구성 하는 방법의 예는 [자습서: Azure Virtual Machines에서 수동으로 SQL Server 가용성 그룹 구성](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer) 문서에서 찾을 수 있습니다.
 
-이 시점에서 DBMS VM에 들어오는 트래픽은 항상 부하 분산 장치를 통해 라우팅됩니다. DBMS VM에서 애플리케이션 계층 VM으로 나가는 트래픽 경로는 부하 분산 장치의 구성에 따라 다릅니다. 
+> [!NOTE]
+> 공용 IP 주소의 액세스와 관련 된 기본 및 표준 SKU의 동작에 차이점이 있습니다. 공용 IP 주소에 액세스 하는 표준 SKU의 제한을 해결 하는 방법은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 문서에 설명 되어 있습니다.
 
-부하 분산 장치는 DirectServerReturn 옵션을 제공합니다. 이 옵션이 구성되면 DBMS VM에서 SAP 애플리케이션 계층으로 향하는 트래픽이 부하 분산 장치를 통해 라우팅되지 *않습니다*. 대신 애플리케이션 계층으로 직접 이동합니다. DirectServerReturn이 구성되지 않으면 SAP 애플리케이션 계층으로 반환되는 트래픽이 부하 분산 장치를 통해 라우팅됩니다.
-
-SAP 애플리케이션 계층과 DBMS 계층 사이에 배치되는 부하 분산 장치와 함께 DirectServerReturn을 구성하는 것이 좋습니다. 이 구성은 두 계층 간의 네트워크 대기 시간을 줄입니다.
-
-SQL Server Always On을 사용하여 이 구성을 설정하는 방법에 대한 예는 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener)을 참조하세요.
-
-Azure에서 게시된 GitHub JSON 템플릿을 SAP 인프라 배포에 대한 참조로 사용하는 경우 이 [SAP 3계층 시스템용 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md)을 연구합니다. 이 템플릿에서 부하 분산 장치에 대한 올바른 설정을 볼 수 있습니다.
 
 ### <a name="azure-accelerated-networking"></a>Azure 가속 네트워킹
 Azure VM 간의 네트워크 대기 시간을 줄이려면 [Azure 가속화된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)을 선택하는 것이 좋습니다. SAP 워크로드, 특히 SAP 애플리케이션 계층 및 SAP DBMS 계층에 대해 Azure VM을 배포할 때 이 도구를 사용합니다.
@@ -336,11 +347,11 @@ Azure VM 간의 네트워크 대기 시간을 줄이려면 [Azure 가속화된 �
 >
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows 가속 네트워킹][Logo_Windows] Windows
 >
 > Windows용 가속화된 네트워킹을 사용하여 VM을 배포하는 방법을 알아보려면 [가속화된 네트워킹을 사용하여 Windows 가상 머신 만들기](../../../virtual-network/create-vm-accelerated-networking-powershell.md)를 참조하세요.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux 가속화 네트워킹][Logo_Linux] Linux
 >
 > Linux 배포에 대한 자세한 내용은 [가속화된 네트워킹을 사용하여 Linux 가상 머신 만들기](../../../virtual-network/create-vm-accelerated-networking-cli.md)를 참조하세요.
 >

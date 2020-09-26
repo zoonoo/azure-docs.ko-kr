@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workplace by Facebook 구성 | Microsoft Docs'
-description: Azure Active Directory와 Workplace by Facebook 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+description: 자동 사용자 프로 비전을 구성 하기 위해 Facebook 및 Azure Active Directory (Azure AD)로 작업 공간에서 수행 해야 하는 단계를 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321903"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "90973874"
 
 *   Workplace by Facebook에 사용자를 할당할 때 유효한 사용자 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
 
-## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간 추가
+## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간 추가
 
 Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간을 추가 하 여 Facebook에서 작업 공간으로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Facebook의 작업 공간을 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
@@ -81,11 +81,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 **권한 부여**를 클릭 합니다. Facebook의 권한 부여 페이지에서 작업 공간으로 리디렉션됩니다. Facebook 사용자 이름으로 작업 공간을 입력 하 고 **계속** 단추를 클릭 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Facebook의 작업 공간에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Facebook 계정으로 작업 공간에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -131,7 +131,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
-   |urn: scim: 스키마: 확장: facebook: auth_method: 1.0: auth_method|문자열|
+   |urn: scim: 스키마: 확장: facebook: auth_method: 1.0: auth_method|String|
    |urn: scim: 스키마: 확장: facebook: frontline: 1.0. is_frontline|부울|
    |urn: scim: 스키마: 확장: facebook: starttermdates: 1.0.|정수|
 

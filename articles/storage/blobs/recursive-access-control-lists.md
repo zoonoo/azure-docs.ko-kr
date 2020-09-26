@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280371"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "89229042"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -55,7 +55,7 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 를 참조 하세요.
+   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) 를 참조 하세요.
     
 3. PowershellGet 모듈의 최신 버전을 설치 합니다.
 
@@ -71,7 +71,7 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 를 참조 하세요.
+   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps) 를 참조 하세요.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -279,7 +279,9 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>재귀적으로 ACL 설정
 
-Acl을 재귀적으로 설정할 수 있습니다.  
+ACL을 *설정* 하는 경우 모든 항목을 포함 하 여 전체 acl을 **바꿉니다** . 보안 주체의 권한 수준을 변경 하거나 다른 기존 항목에 영향을 주지 않고 ACL에 새 보안 주체를 추가 하려면 대신 ACL을 *업데이트* 해야 합니다. ACL을 대체 하는 대신 업데이트 하려면이 문서의 [acl을 재귀적으로 업데이트](#update-an-acl-recursively) 섹션을 참조 하세요.   
+
+이 섹션에는 ACL을 설정 하는 방법에 대 한 예제가 포함 되어 있습니다. 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -367,13 +369,17 @@ def set_permission_recursively():
 
 ## <a name="update-an-acl-recursively"></a>재귀적으로 ACL 업데이트
 
-기존 ACL을 재귀적으로 업데이트할 수 있습니다.
+Acl을 *업데이트할* 때 acl을 대체 하는 대신 acl을 수정 합니다. 예를 들어 ACL에 나열 된 다른 보안 주체에 영향을 주지 않고 ACL에 새 보안 주체를 추가할 수 있습니다.  ACL을 업데이트 하지 않고 바꾸려면이 문서의 [acl을 재귀적으로 설정](#set-an-acl-recursively) 섹션을 참조 하세요. 
+
+ACL을 업데이트 하려면 업데이트 하려는 ACL 항목을 사용 하 여 새 ACL 개체를 만든 다음 ACL 업데이트 작업에서 해당 개체를 사용 합니다. 기존 ACL을 가져오지 말고 업데이트할 ACL 항목만 제공 하면 됩니다.
+
+이 섹션에는 ACL을 업데이트 하는 방법에 대 한 예제가 포함 되어 있습니다.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 **AzDataLakeGen2AclRecursive** cmdlet을 사용 하 여 ACL을 재귀적으로 업데이트 합니다. 
 
-이 예에서는 write 권한이 있는 ACL 항목을 업데이트 합니다.
+이 예에서는 write 권한이 있는 ACL 항목을 업데이트 합니다. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -445,7 +451,9 @@ def update_permission_recursively():
 
 ## <a name="remove-acl-entries-recursively"></a>ACL 항목을 재귀적으로 제거
 
-하나 이상의 ACL 항목을 재귀적으로 제거할 수 있습니다.
+하나 이상의 ACL 항목을 재귀적으로 제거할 수 있습니다. ACL 항목을 제거 하려면 acl 항목을 제거할 새 ACL 개체를 만든 다음 ACL 제거 작업에서 해당 개체를 사용 합니다. 기존 ACL을 가져오지 말고 제거할 ACL 항목만 제공 하면 됩니다. 
+
+이 섹션에는 ACL을 제거 하는 방법에 대 한 예제가 포함 되어 있습니다.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

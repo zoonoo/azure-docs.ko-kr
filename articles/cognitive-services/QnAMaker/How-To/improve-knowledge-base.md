@@ -3,13 +3,13 @@ title: 활성 학습 권장 질문-QnA Maker
 description: 활성 학습을 사용 하 여 기술 자료의 품질을 향상 시킵니다. 기존 질문을 삭제하거나 변경하지 않고 검토, 수락, 거부 또는 추가합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 9bed80ac8c80fb4cecf06b979e0403e34645db01
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: bd90ea3cd73fcd6a545d925e3897c6053184d98c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919134"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321019"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -128,12 +128,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|속성|Type|목적|
+|HTTP 요청 속성|Name|형식|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
-|header|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 다음과 같습니다. `application/json`|
-|header|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 다음과 같습니다. `application/json`|
+|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |본문 게시|JSON 개체|JSON|학습 피드백|
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
