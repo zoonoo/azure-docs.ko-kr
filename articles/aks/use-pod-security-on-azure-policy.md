@@ -3,22 +3,23 @@ title: AKS (Azure Kubernetes Service)에서 Azure Policy를 사용 하 여 pod �
 description: AKS (Azure Kubernetes Service)에서 Azure Policy를 사용 하 여 pod를 보호 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299156"
 ---
-# <a name="secure-pods-with-azure-policy-preview"></a>Azure Policy를 사용 하 여 pod 보호 (미리 보기)
+# <a name="secure-pods-with-azure-policy"></a>Azure Policy를 사용 하 여 pod 보호
 
 AKS 클러스터의 보안을 강화 하기 위해 pod에 부여 된 기능과 회사 정책에 대해 실행 중인 항목이 무엇 인지 제어할 수 있습니다. 이 액세스는 [AKS 용 Azure Policy 추가 기능][kubernetes-policy-reference]에서 제공 하는 기본 제공 정책을 통해 정의 됩니다. 루트 권한과 같이 pod 사양의 보안 측면에 대 한 추가 제어 기능을 제공 하 여 클러스터에 배포 된 항목을 보다 엄격 하 게 보안을 준수 하 고 볼 수 있습니다. Pod가 정책에 지정 된 조건을 충족 하지 않는 경우 pod가 위반을 시작 하거나 플래그를 지정 하지 못하게 할 수 Azure Policy. 이 문서에서는 Azure Policy를 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## <a name="before-you-begin"></a>시작하기 전에
+
+> [!IMPORTANT]
+> AKS의 Azure Policy에 대 한 GA (일반 공급)는 모든 지역에서 적극적으로 출시 되 고 있습니다. GA 릴리스의 예상 된 글로벌 완료는 9/29/2020입니다. GA 릴리스를 사용 하지 않는 지역에는 미리 보기 등록 단계가 필요 합니다. 그러나 지역에서 사용할 수 있는 경우이는 GA 릴리스로 자동 업데이트 됩니다.
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
@@ -26,14 +27,13 @@ AKS 클러스터의 보안을 강화 하기 위해 pod에 부여 된 기능과 �
 
 Azure Policy를 통해 AKS pod를 보호 하려면 AKS 클러스터에 AKS 용 추가 기능을 Azure Policy 설치 해야 합니다. [Azure Policy 추가 기능을 설치 하려면 다음 단계를](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks)수행 합니다.
 
-이 문서에서는 위에 링크 된 연습에 배포 된 다음이 있다고 가정 합니다.
+이 문서에서는 위에 링크 된 연습에서 배포 된 다음이 있다고 가정 합니다.
 
 * 를 `Microsoft.ContainerService` `Microsoft.PolicyInsights` 사용 하 여 및 리소스 공급자를 등록 했습니다. `az provider register`
-* 다음을 `AKS-AzurePolicyAutoApprove` 사용 하 여 미리 보기 기능 플래그를 등록 했습니다. `az feature register`
-* 확장 버전이 0.4.53 이상인 Azure CLI 설치 되어 있습니다. `aks-preview`
-* Azure Policy 추가 기능을 사용 하 여 설치 된 1.15 이상의 지원 되는 버전에 대 한 AKS 클러스터
+* Azure CLI 2.12 이상
+* Azure Policy 추가 기능으로 설치 된 1.15 이상 버전의 AKS 클러스터
 
-## <a name="overview-of-securing-pods-with-azure-policy-for-aks-preview"></a>AKS (미리 보기)에 대 한 Azure Policy를 사용 하 여 pod 보안 개요
+## <a name="overview-of-securing-pods-with-azure-policy-for-aks"></a>AKS에 대 한 Azure Policy를 사용 하 여 pod 보안 개요
 
 >[!NOTE]
 > 이 문서에서는 pod를 Azure Policy 사용 하 여를 보호 하는 방법에 대해 자세히 설명 합니다 .이 작업은 [미리 보기의 Kubernetes pod 보안 정책 기능](use-pod-security-policies.md)입니다.
@@ -51,21 +51,49 @@ AKS 클러스터는 Azure Policy 추가 기능을 사용 하 여 이전에 pod �
 
 ## <a name="limitations"></a>제한 사항
 
-* 미리 보기가 제공 되는 동안 Kubernetes 정책에 대해 20 Azure Policy의 제한 200 pod 단일 클러스터에서 실행할 수 있습니다.
-* AKS managed pod를 포함 하는 [일부 시스템 네임 스페이스](#namespace-exclusion) 는 정책 평가에서 제외 됩니다.
-* Windows pod는 [보안 컨텍스트를 지원 하지](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods)않으므로 많은 Azure 정책은 Linux pod (예: windows pod에서 에스컬레이션 될 수 없는 루트 권한 허용 안 함)에만 적용 됩니다.
-* Pod 보안 정책 및 AKS 용 Azure Policy 추가 기능을 모두 사용 하도록 설정할 수 없습니다. Pod 보안 정책을 사용 하는 클러스터에 Azure Policy 추가 기능을 설치 하는 경우 [다음 지침](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster)에 따라 pod 보안 정책을 사용 하지 않도록 설정 합니다.
+Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일반적인 제한 사항이 적용 됩니다.
+
+- Kubernetes 용 Azure Policy 추가 기능은 Kubernetes 버전 **1.14** 이상에서 지원 됩니다.
+- Kubernetes 용 Azure Policy 추가 기능을 Linux 노드 풀에만 배포할 수 있습니다.
+- 기본 제공 정책 정의만 지원 됩니다.
+- 클러스터당 정책 당 최대 비규격 레코드 수: **500**
+- 구독 당 호환 되지 않는 레코드의 최대 수: **100만**
+- Azure Policy 추가 기능 외부에서 게이트 키퍼 설치가 지원 되지 않습니다. Azure Policy 추가 기능을 사용 하도록 설정 하기 전에 이전 게이트 키퍼 설치를 통해 설치 된 모든 구성 요소를 제거 합니다.
+- 이 [리소스 공급자 모드](../governance/policy/concepts/definition-structure.md#resource-provider-modes) [에서 비준수의 원인을](../governance/policy/how-to/determine-non-compliance.md#compliance-reasons) 사용할 수 없습니다.
+
+다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
+
+- [AKS Pod 보안 정책 (미리 보기)](use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 
+- _Kube_, _aks 및-periscope_ _를 평가_하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
+
+### <a name="recommendations"></a>권장 사항
+
+다음은 Azure Policy 추가 기능을 사용 하기 위한 일반적인 권장 사항입니다.
+
+- Azure Policy 추가 기능을 실행 하려면 3 개의 게이트 키퍼 구성 요소를 실행 해야 합니다. 1 감사 pod 및 2 개의 webhook pod 복제본입니다. 이러한 구성 요소는 Kubernetes 리소스의 수와 감사 및 적용 작업을 요구 하는 클러스터의 정책 할당 수가 늘어남에 따라 더 많은 리소스를 사용 합니다.
+
+  - 최대 20 개의 제약 조건이 있는 단일 클러스터에서 500 pod 미만: 2 개 vCPUs와 구성 요소별 350 MB 메모리.
+  - 최대 40 제약 조건이 있는 단일 클러스터에서 500 pod 이상: 3 개 vCPUs와 구성 요소별 600 MB 메모리
+
+다음 권장 사항은 AKS 및 Azure Policy 추가 기능에만 적용 됩니다.
+
+- Taint와 함께 시스템 노드 풀 `CriticalAddonsOnly` 을 사용 하 여 게이트 키퍼 pod을 예약 합니다. 자세한 내용은 [시스템 노드 풀 사용](use-system-pools.md#system-and-user-node-pools)을 참조 하세요.
+- AKS 클러스터에서 아웃 바운드 트래픽을 보호 합니다. 자세한 내용은 [클러스터 노드에 대 한 송신 트래픽 제어](limit-egress-traffic.md)를 참조 하세요.
+- 클러스터가 `aad-pod-identity` 사용 하도록 설정 된 경우 NMI (Node Managed Identity) pod는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)을 참조 하세요.
+  예외를 구성 하려면 [mic 예외 YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)을 설치 합니다.
+
+Azure Policy 추가 기능을 사용 하려면 CPU 및 메모리 리소스가 작동 해야 합니다. 이러한 요구 사항은 클러스터 크기가 증가 함에 따라 증가 합니다. Azure Policy 추가 기능 사용에 대 한 일반적인 지침은 [Azure Policy 권장 사항][policy-recommendations] 을 참조 하세요.
 
 ## <a name="azure-policies-to-secure-kubernetes-pods"></a>Kubernetes pod를 보호 하는 Azure 정책
 
 Azure Policy 추가 기능을 설치한 후에는 기본적으로 정책이 적용 되지 않습니다.
 
-11 개의 기본 제공 개별 Azure 정책 및 AKS 클러스터의 pod를 안전 하 게 보호 하는 2 개의 기본 제공 이니셔티브가 있습니다.
+AKS 클러스터에서 pod를 안전 하 게 보호 하는 11 개의 기본 제공 개별 Azure 정책 및 두 개의 기본 제공 이니셔티브가 있습니다.
 각 정책은 효과를 사용 하 여 사용자 지정할 수 있습니다. AKS 정책의 전체 목록과 [지원 되는 영향은 여기에 나열 되어][policy-samples]있습니다. [Azure Policy 효과](../governance/policy/concepts/effects.md)에 대 한 자세한 내용을 참조 하세요.
 
 Azure 정책은 관리 그룹, 구독 또는 리소스 그룹 수준에서 적용할 수 있습니다. 리소스 그룹 수준에서 정책을 할당 하는 경우 대상 AKS 클러스터의 리소스 그룹이 정책 범위 내에서 선택 되었는지 확인 합니다. Azure Policy 추가 기능이 설치 된 할당 된 범위의 모든 클러스터는 정책 범위에 있습니다.
 
-[Pod 보안 정책 (미리 보기)](use-pod-security-policies.md)을 사용 하는 경우 [Azure Policy로 마이그레이션하는 방법과 다른 동작 차이점에](#migrate-from-kubernetes-pod-security-policy-to-azure-policy)대해 알아봅니다.
+[Pod 보안 정책 (미리 보기) ](use-pod-security-policies.md)을 사용 하는 경우 [Azure Policy로 마이그레이션하는 방법과 다른 동작 차이점에](#migrate-from-kubernetes-pod-security-policy-to-azure-policy)대해 알아봅니다.
 
 ### <a name="built-in-policy-initiatives"></a>기본 제공 정책 이니셔티브
 
@@ -96,8 +124,8 @@ Kubernetes에 대 한 Azure Policy는 pod, [기준선](https://portal.azure.com/
 
 |[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| 기준 이니셔티브 외에도 적용 | 제한 된 이니셔티브 외에도 적용 |
 |---|---|---|---|
-|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 옵션 | 옵션 |
-|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 옵션 | 옵션 |
+|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 선택 사항 | 선택 사항 |
+|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 선택 사항 | 선택 사항 |
 |특정 vervolume 드라이버로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | 선택 사항-상대 볼륨 드라이버만 제한 하 고 "정의 된 볼륨 유형의 사용 제한"으로 설정 하지 않은 경우에만 사용 합니다. | 해당 없음-제한 된 이니셔티브에는 모든 vervolume 드라이버를 허용 하지 않는 "정의 된 볼륨 유형의 사용 제한"이 포함 됩니다. |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>관리 되는 AKS 클러스터에 대해 지원 되지 않는 기본 제공 정책
@@ -125,14 +153,14 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > 클러스터를 정상 상태로 유지 하기 위해 kube와 같은 관리 네임 스페이스의 pod을 실행 해야 합니다. 제외 된 기본 네임 스페이스 목록에서 필수 네임 스페이스를 제거 하면 필수 시스템 pod로 인해 정책 위반이 발생할 수 있습니다.
 
-AKS를 사용 하려면 클러스터에서 시스템 pod을 실행 하 여 중요 한 서비스 (예: DNS 확인)를 제공 해야 합니다. Pod 기능을 제한 하는 정책은 시스템 pod 안정성 기능에 영향을 줄 수 있습니다. 결과적으로 다음 네임 스페이스는 **만들기, 업데이트 및 정책 감사 중에 허용 요청 중에 정책 평가에서 제외**됩니다. 이렇게 하면 이러한 네임 스페이스에 대 한 새 배포가 Azure 정책에서 제외 됩니다.
+AKS를 사용 하려면 클러스터에서 시스템 pod을 실행 하 여 중요 한 서비스 (예: DNS 확인)를 제공 해야 합니다. Pod 기능을 제한 하는 정책은 시스템 pod 안정성 기능에 영향을 줄 수 있습니다. 결과적으로 다음 네임 스페이스는 **생성, 업데이트 및 정책 감사 중에 허용 요청 중에 정책 평가에서 제외**됩니다. 이렇게 하면 이러한 네임 스페이스에 대 한 새 배포가 Azure 정책에서 제외 됩니다.
 
 1. kube-시스템
 1. 게이트 키퍼-시스템
 1. azure-호
 1. aks-periscope
 
-추가 사용자 지정 네임 스페이스는 생성, 업데이트 및 감사 중에 평가에서 제외할 수 있습니다. 사용 권한 네임 스페이스에서 실행 되는 특수화 된 pod이 있고 감사 위반을 트리거하지 않도록 하려면이를 사용 해야 합니다.
+추가 사용자 지정 네임 스페이스는 생성, 업데이트 및 감사 중에 평가에서 제외할 수 있습니다. 사용 권한 네임 스페이스에서 실행 되는 특수화 된 pod이 있고 감사 위반을 트리거하지 않도록 하려면 이러한 제외를 사용 해야 합니다.
 
 ## <a name="apply-the-baseline-initiative"></a>기준 이니셔티브 적용
 
@@ -304,8 +332,12 @@ Pod 네트워크 트래픽을 제한 하는 방법에 대 한 자세한 내용�
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
+[policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
+[policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-samples]: policy-samples.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
