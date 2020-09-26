@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6af23aba28ce3cda9982878ed08ec515aa25633a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7f2824f4dcacb26d8941f51db6129aea0bb5f915
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273282"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -62,7 +62,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 [서비스 사용자 만들기](#create-a-service-principal) 에서 JSON 출력의 내용을 비밀 변수의 값으로 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `AZURE_CREDENTIALS` .
 
-나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들어:
+나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 - uses: azure/login@v1
@@ -110,7 +110,7 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>App Service 컨테이너에 배포
 
-App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 작업을 사용 `azure/webapps-container-deploy@v1` 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
+App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 작업을 사용 `azure/webapps-container-deploy@v2` 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
 
 | **매개 변수**  | **설명**  |
 |---------|---------|
@@ -150,7 +150,7 @@ jobs:
         docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }} 
       
-    - uses: azure/webapps-container-deploy@v1
+    - uses: azure/webapps-container-deploy@v2
       with:
         app-name: 'node-rnc'
         images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'

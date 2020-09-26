@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273248"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 배포
 
@@ -23,6 +23,22 @@ ms.locfileid: "88962573"
 > 
 
 워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다.
+
+## <a name="use-the-deployment-center"></a>배포 센터 사용
+
+App Service Deployment Center를 사용 하 여 GitHub 작업을 신속 하 게 시작할 수 있습니다. 그러면 응용 프로그램 스택에 따라 워크플로 파일이 자동으로 생성 되 고 올바른 디렉터리의 GitHub 리포지토리에 커밋합니다.
+
+1. Azure Portal에서 webapp로 이동 합니다.
+1. 왼쪽에서 **배포 센터** 를 클릭 합니다.
+1. **연속 배포 (CI/CD)** 에서 **GitHub** 를 선택 합니다.
+1. 다음으로 **GitHub 작업** 을 선택 합니다.
+1. 드롭다운을 사용 하 여 GitHub 리포지토리, 분기 및 응용 프로그램 스택 선택
+    - 선택한 분기가 보호 되는 경우에도 워크플로 파일을 계속 추가할 수 있습니다. 계속 하기 전에 분기 보호를 검토 해야 합니다.
+1. 최종 화면에서 선택 항목을 검토 하 고 리포지토리로 커밋될 워크플로 파일을 미리 볼 수 있습니다. 선택이 올바르면 **마침** 을 클릭 합니다.
+
+이렇게 하면 워크플로 파일이 리포지토리에 커밋됩니다. 앱을 빌드하고 배포 하는 워크플로가 즉시 시작 됩니다.
+
+## <a name="add-the-workflow-manually"></a>수동으로 워크플로 추가
 
 Azure App Service 워크플로의 경우 파일에는 다음 세 개의 섹션이 있습니다.
 
@@ -75,7 +91,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 [사용자 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 Azure CLI 명령의 전체 JSON 출력을 암호의 값 필드에 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `AZURE_CREDENTIALS` .
 
-나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들어:
+나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 - uses: azure/login@v1
@@ -89,7 +105,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 [앱 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 다운로드 한 게시 프로필 파일의 내용을 비밀의 값 필드에 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `azureWebAppPublishProfile` .
 
-나중에 워크플로 파일을 구성 하는 경우 `publish-profile` Azure 웹 앱 배포 작업의 입력에 대 한 암호를 사용 합니다. 예를 들어:
+나중에 워크플로 파일을 구성 하는 경우 `publish-profile` Azure 웹 앱 배포 작업의 입력에 대 한 암호를 사용 합니다. 예를 들면 다음과 같습니다.
     
 ```yaml
 - uses: azure/webapps-deploy@v2

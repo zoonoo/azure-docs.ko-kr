@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6ce2966d7e91bd0fc6a23ad2605316da4e2342e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310359"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>지원 되는 기본 제공 지도 스타일 Azure Maps
 
@@ -134,5 +134,4 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 Azure Maps에서 지도 스타일을 설정 하는 방법에 대해 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [지도 스타일 선택](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[지도 스타일 선택](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

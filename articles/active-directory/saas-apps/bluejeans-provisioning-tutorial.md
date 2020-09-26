@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b90389f6ae88a073f3961cc2f0957d22e190fe0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273692"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
 
@@ -91,11 +91,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![프로 비전 옵션이 강조 표시 되 고 호출 된 BlueJeans Enterprise Application 사이드바의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![프로 비전 모드 및 관리자 자격 증명 섹션이 포함 된 프로 비전 페이지의 스크린샷](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
 5. **관리자 자격 증명** 섹션에 BlueJeans 계정의 **관리자 사용자 이름** 및 **관리자 암호**를 입력합니다. 이러한 값의 예는 다음과 같습니다.
 
@@ -105,35 +105,35 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 6. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD에서 BlueJeans에 연결할 수 있는지 확인합니다. 연결에 실패하면 BlueJeans 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![연결 테스트 옵션을 호출한 관리자 자격 증명 섹션의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
 7. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+    ![알림 전자 메일 텍스트 상자의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. **저장**을 클릭합니다.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 BlueJeans에 동기화**를 선택합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+    ![BlueJeans 사용자에 게 Azure Active Directory 동기화 옵션이 강조 표시 된 매핑 섹션의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
 10. **특성 매핑** 섹션에서는 Azure AD에서 BlueJeans로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 BlueJeans의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![7 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
 11. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
 12. BlueJeans에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+    ![프로 비전 상태 옵션이 설정으로 설정 된 설정 섹션의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
 13. **설정** 섹션의 **범위**에서 원하는 값을 선택하여 BlueJeans에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+    ![할당 된 사용자 및 그룹만 동기화 옵션이 강조 표시 된 범위 설정의 스크린샷](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
 14. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![저장 옵션이 포함 된 BlueJeans Enterprise Application 사이드바의 스크린샷](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, BlueJeans에서 Azure AD 프로비전 서비스가 수행하는 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
 

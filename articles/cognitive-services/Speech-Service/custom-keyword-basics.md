@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360670"
 ---
 # <a name="custom-keyword-basics"></a>사용자 지정 키워드 기본 사항
 
 이 문서에서는 Speech Studio 및 Speech SDK를 사용 하 여 사용자 지정 키워드로 작업 하는 기본 사항을 알아봅니다. 키워드는 제품이 음성으로 활성화 될 수 있도록 하는 단어 또는 짧은 문구입니다. Speech Studio에서 키워드 모델을 만든 다음 응용 프로그램에서 Speech SDK와 함께 사용 하는 모델 파일을 내보냅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서의 단계에는 음성 구독과 음성 SDK가 필요 합니다. 아직 구독이 없는 경우 [음성 서비스를 무료로 사용해 보세요](get-started.md). SDK를 다운로드 하려면 해당 플랫폼에 대 한 [설치 가이드](quickstarts/setup-platform.md) 를 참조 하세요.
+이 문서의 단계에는 음성 구독과 음성 SDK가 필요 합니다. 아직 구독이 없는 경우 [음성 서비스를 무료로 사용해 보세요](overview.md#try-the-speech-service-for-free). SDK를 다운로드 하려면 해당 플랫폼에 대 한 [설치 가이드](quickstarts/setup-platform.md) 를 참조 하세요.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Speech Studio에서 키워드 만들기
 

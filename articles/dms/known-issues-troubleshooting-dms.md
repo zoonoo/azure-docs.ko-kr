@@ -9,21 +9,21 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 40c7b1b0ae2065ed00cf21f99ab2046e25970237
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609440"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297361"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
 이 문서에서는 사용자가 수행할 수 Azure Database Migration Service 있는 몇 가지 일반적인 문제 및 오류에 대해 설명 합니다. 이 문서에는 이러한 문제 및 오류를 해결 하는 방법에 대 한 정보도 포함 되어 있습니다.
 
 > [!NOTE]
-> 바이어스-무료 통신
+> 바이어스 없는 통신
 >
 > Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
 >
