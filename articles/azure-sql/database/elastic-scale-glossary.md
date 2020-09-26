@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84034714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362617"
 ---
 # <a name="elastic-database-tools-glossary"></a>Elastic Database 도구 용어집
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ ms.locfileid: "84034714"
 
 **분할된 데이터베이스 맵 관리자**: 분할 맵, 분할 위치 및 하나 이상의 분할 집합에 대한 매핑을 포함하는 관리 개체 및 데이터 저장소입니다.
 
-![매핑][2]
+![다이어그램은 shardmaps_global, shards_global 및 shard_mappings_global와 연결 된 분할 된 맵 관리자를 보여 줍니다.][2]
 
 ## <a name="verbs"></a>동사
 **수평적 크기 조정**: 분할 맵에 분할을 추가하거나 제거하여 아래와 같이 분할 컬렉션을 규모 확장(또는 규모 감축)하는 작업입니다.

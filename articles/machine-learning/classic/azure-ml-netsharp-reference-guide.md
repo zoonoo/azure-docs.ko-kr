@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b4441c58838c3c44b01e57642e4433b12b2d1bc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343702"
+ms.locfileid: "91367957"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임의 차원의 난해와 같은 복잡한 신경 네트워크 아키텍처를 정의하는 데 사용됩니다. 이미지, 비디오 또는 오디오와 같은 데이터에 대한 학습을 개선하는 데 복잡한 구조체를 사용할 수 있습니다.
 

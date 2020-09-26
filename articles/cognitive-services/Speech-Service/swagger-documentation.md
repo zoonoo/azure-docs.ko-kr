@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77430808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363191"
 ---
 # <a name="swagger-documentation"></a>Swagger 설명서
 
@@ -32,7 +32,7 @@ Swagger를 음성 서비스 구독과 동일한 지역으로 설정 해야 합�
 
 1. [https://editor.swagger.io](https://editor.swagger.io ) 으로 이동합니다.
 2. **파일**을 클릭한 다음, **가져오기**를 클릭합니다.
-3. Speech service 구독의 지역을 포함 하는 swagger URL 입력`https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Speech service 구독의 지역을 포함 하는 swagger URL 입력 `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. **클라이언트 생성** 을 클릭 하 고 Python을 선택 합니다.
 5. 클라이언트 라이브러리를 저장합니다.
 
@@ -47,4 +47,4 @@ Swagger를 음성 서비스 구독과 동일한 지역으로 설정 해야 합�
 ## <a name="next-steps"></a>다음 단계
 
 * [GitHub의 음성 서비스 샘플](https://aka.ms/csspeech/samples).
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)

@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363106"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 Azure Firewall 통합
 
 Azure 표준 Load Balancer(공용 또는 내부)를 사용하여 가상 네트워크에 Azure Firewall을 통합할 수 있습니다. 
 
-기본 디자인은 Azure 방화벽과 내부 부하 분산 장치를 통합 하는 것입니다 .이는 훨씬 간단한 디자인입니다. 이미 배포 된 부하 분산 장치를 보유 하 고 있는 경우 공용 부하 분산 장치를 사용할 수 있습니다. 그러나 공용 부하 분산 장치 시나리오에서 기능에 영향을 줄 수 있는 비대칭 라우팅 문제에 주의해야 합니다.
+기본 설정 디자인은 Azure Firewall과 내부 부하 분산 장치를 통합하는 것입니다 .이는 훨씬 간단한 디자인이기 때문입니다. 이미 배포된 공용 부하 분산 장치를 보유하고 있고, 그 상태로 유지하려는 경우 공용 부하 분산 장치를 사용할 수 있습니다. 그러나 공용 부하 분산 장치 시나리오에서 기능에 영향을 줄 수 있는 비대칭 라우팅 문제에 주의해야 합니다.
 
 Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer란?](../load-balancer/load-balancer-overview.md)를 참조하세요.
 
@@ -64,6 +64,10 @@ Azure Firewall을 서브넷에 배포할 때 한 가지 단계는 AzureFirewallS
 이 시나리오에서는 비대칭 라우팅 문제가 없습니다. 수신 패킷은 방화벽의 공용 IP 주소에 도착하고, 부하 분산 장치의 개인 IP 주소로 변환된 후 같은 반환 경로를 사용하여 방화벽의 개인 IP 주소로 돌아갑니다.
 
 따라서 공용 부하 분산 장치 시나리오와 비슷하게 이 시나리오를 배포할 수 있지만 방화벽 공용 IP 주소 호스트 경로는 필요하지 않습니다.
+
+>[!NOTE]
+>백 엔드 풀의 가상 머신은 이 구성과 아웃바운드 인터넷 연결을 사용하지 않습니다. </br> 아웃바운드 연결 제공에 대한 자세한 내용은 다음을 참조하세요. </br> **[Azure에서 아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md)**</br> 연결 제공 옵션: </br> **[아웃바운드 전용 부하 분산 장치 구성](../load-balancer/egress-only.md)** </br> [**Virtual Network NAT란?**](../virtual-network/nat-overview.md)
+
 
 ## <a name="additional-security"></a>추가 보안
 

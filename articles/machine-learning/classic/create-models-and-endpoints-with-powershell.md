@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 744b8e3ecf067e6f5986dde4fbf8abbe3a4c6224
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab14547ef5d9791728ce96fdf2c414945a46aab9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343574"
+ms.locfileid: "91362489"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>ML Studio (클래식) 및 PowerShell을 사용 하 여 한 실험에서 여러 웹 서비스 끝점 만들기
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용 하 여 Azure Machine Learning Studio (클래식)의 규모에서이 작업을 수행 하는 방법을 보여 줍니다.
 

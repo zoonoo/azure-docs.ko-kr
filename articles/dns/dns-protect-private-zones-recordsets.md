@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363225"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>개인 DNS 영역 및 레코드를 보호 하는 방법
 
@@ -102,9 +102,9 @@ az role assignment create \
 
 레코드 집합 수준 RBAC 권한은 Azure Portal를 통해 구성할 수 있으며, 레코드 집합 페이지의 **Access Control (IAM)** 단추를 사용 하 여 구성할 수 있습니다.
 
-![Azure Portal을 통한 레코드 집합 수준 RBAC](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![스크린샷 Access Control (I A M) 단추를 표시 합니다.](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Azure Portal을 통한 레코드 집합 수준 RBAC](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![역할 할당 추가가 선택 된 Access Control 스크린샷을 표시 합니다.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 레코드 집합 수준 RBAC 권한은 [Azure PowerShell을 사용하여 부여](../role-based-access-control/role-assignments-powershell.md)할 수도 있습니다.
 
@@ -165,7 +165,7 @@ CNAMEs를 관리 하는 데 사용 되는 계정에는 CNAME 레코드만 관리
 작업 속성은 다음과 같은 DNS별 권한을 정의합니다.
 
 * `Microsoft.Network/privateDnsZones/CNAME/*`은 CNAME 레코드에 대한 모든 권한을 부여합니다.
-* `Microsoft.Network/privateDNSZones/read`DNS 전용 영역을 읽을 수 있지만 수정할 수는 없으며 CNAME이 생성 되는 영역을 볼 수 있는 권한을 부여 합니다.
+* `Microsoft.Network/privateDNSZones/read` DNS 전용 영역을 읽을 수 있지만 수정할 수는 없으며 CNAME이 생성 되는 영역을 볼 수 있는 권한을 부여 합니다.
 
 > [!NOTE]
 > Azure 사용자 지정 역할을 사용 하 여 레코드 집합을 업데이트 하도록 허용 하는 동안 레코드 집합 삭제를 방지 하는 것은 효과적인 제어가 아닙니다. 이 방식에서는 레코드 집합을 삭제할 수 없지만 수정은 방지할 수 없습니다.  허용되는 수정 작업에는 레코드 집합을 비우기 위해 레코드를 모두 제거하는 작업을 포함하여 레코드 집합에서 레코드를 추가 및 제거하는 작업이 포함됩니다. 이 경우 DNS 확인 관점에서 레코드 집합을 삭제하는 것과 같은 효과를 가집니다.

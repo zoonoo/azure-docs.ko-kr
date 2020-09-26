@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363140"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
@@ -69,7 +69,7 @@ Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API: [Compu
 
 ![문서 크래킹 단계](./media/cognitive-search-intro/document-cracking-phase-blowup.png "문서 크래킹")
 
- 지원되는 원본에는 Azure Blob Storage, Azure Table Storage, Azure SQL Database 및 Azure Cosmos DB가 포함됩니다. 텍스트 기반 콘텐츠는 PDF, Word, PowerPoint, CSV 파일 형식에서 추출할 수 있습니다. 전체 목록은 [지원되는 형식](search-howto-indexing-azure-blob-storage.md#supported-document-formats)을 참조하세요. 인덱싱에 시간이 걸리므로 작은 대표 데이터 집합으로 시작한 다음, 솔루션의 완성도가 높아지면 증분 방식으로 빌드합니다.
+ 지원되는 원본에는 Azure Blob Storage, Azure Table Storage, Azure SQL Database 및 Azure Cosmos DB가 포함됩니다. 텍스트 기반 콘텐츠는 PDF, Word, PowerPoint, CSV 파일 형식에서 추출할 수 있습니다. 전체 목록은 [지원되는 형식](search-howto-indexing-azure-blob-storage.md#SupportedFormats)을 참조하세요. 인덱싱에 시간이 걸리므로 작은 대표 데이터 집합으로 시작한 다음, 솔루션의 완성도가 높아지면 증분 방식으로 빌드합니다.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2 단계: 인식 기술 및 보강 단계
 

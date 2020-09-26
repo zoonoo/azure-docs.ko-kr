@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314813"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>모니터링 및 조정 Azure Database for PostgreSQL-Hyperscale (Citus)
 
@@ -32,7 +32,7 @@ Hyperscale (Citus)은 서버 그룹의 각 노드에 대 한 메트릭을 제공
 |---|---|---|---|
 |active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
-|IOPS|IOPS|개수|[IOPS 정의](../virtual-machines/premium-storage-performance.md#iops) 및 [처리량 크기 조정](concepts-hyperscale-configuration-options.md) 을 참조 하세요.|
+|IOPS|IOPS|개수|[IOPS 정의](../virtual-machines/premium-storage-performance.md#iops) 및 [Citus (hyperscale) 처리량](concepts-hyperscale-configuration-options.md) 참조|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|

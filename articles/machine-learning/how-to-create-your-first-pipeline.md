@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 15e1af35def6a3cb6ffaf5df2db53326fba60bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 641f6de00f641f52db4f0b1e799d02397d01989d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315663"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -24,7 +24,7 @@ ms.locfileid: "90883053"
 
 이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용 하 여 [기계 학습 파이프라인](concept-ml-pipelines.md) 을 만들고 실행 하는 방법에 대해 알아봅니다. **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만듭니다. 그런 다음 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 게시 합니다. ML 파이프라인을 추적 하 여 모델을 실제 세계에서 어떻게 수행 하 고 있는지 확인 하 고 데이터 드리프트를 검색 합니다. ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다.
 
-ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
+ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml&preserve-view=true) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
 
 만든 ML 파이프라인은 Azure Machine Learning [작업 영역의](how-to-manage-workspace.md)구성원에 게 표시 됩니다. 
 
@@ -56,7 +56,7 @@ ML 파이프라인을 실행 하는 데 필요한 리소스를 만듭니다.
 * `Dataset`데이터 저장소에 상주 하거나 데이터 저장소에 액세스할 수 있는 영구 데이터를 가리키도록 개체를 구성 합니다. `PipelineData`파이프라인 단계 간에 전달 되는 임시 데이터에 대 한 개체를 구성 합니다. 
 
     > [!TIP]
-    > 파이프라인 단계 간에 임시 데이터를 전달 하기 위한 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  이 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
+    > 파이프라인 단계 간에 임시 데이터를 전달 하기 위한 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  이 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
 
 * 파이프라인 단계가 실행될 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md#compute-targets)을 설정합니다.
 
@@ -85,7 +85,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 파이프라인에 데이터를 제공 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) 개체입니다. `Dataset`개체는 데이터 저장소 또는 웹 URL에서 액세스할 수 있거나 액세스할 수 있는 데이터를 가리킵니다. `Dataset`클래스는 추상 클래스 이므로 하나 이상의 파일 `FileDataset` 을 참조 하는 (하나 이상의 파일 참조) 또는 `TabularDataset` 구분 기호로 분리 된 열이 있는 하나 이상의 파일에서 만든의 인스턴스를 만듭니다.
 
 
-`Dataset` [From_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) 또는 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-)와 같은 메서드를 사용 하 여를 만듭니다.
+`Dataset` [From_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-files-path--validate-true-) 또는 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-)와 같은 메서드를 사용 하 여를 만듭니다.
 
 ```python
 from azureml.core import Dataset
@@ -239,7 +239,7 @@ train_step = PythonScriptStep(
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
 > [!NOTE]
-> 단계를 정의 하거나 파이프라인을 빌드할 때 파일 또는 데이터가 Azure Machine Learning 업로드 되지 않습니다. [실험. submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-)를 호출 하면 파일이 업로드 됩니다.
+> 단계를 정의 하거나 파이프라인을 빌드할 때 파일 또는 데이터가 Azure Machine Learning 업로드 되지 않습니다. [실험. submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-)를 호출 하면 파일이 업로드 됩니다.
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -269,7 +269,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-그런 다음 [input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueinput-datasets) 사전을 사용 하 여 파이프라인에서 데이터 집합을 검색 합니다.
+그런 다음 [input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueinput-datasets) 사전을 사용 하 여 파이프라인에서 데이터 집합을 검색 합니다.
 
 ```python
 # iris_train.py
