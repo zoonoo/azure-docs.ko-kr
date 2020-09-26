@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314116"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 
@@ -43,12 +43,14 @@ Site Recovery가 예상 대로 작동 하려면 아웃 바운드 네트워크 �
 
 URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-| **이름**                  | **상용**                               | **정부**                                 | **설명** |
+| **이름**                  | **상업용**                               | **정부**                                 | **설명** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
 | 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
+
+온-프레미스 Azure Site Recovery 인프라와 Azure 서비스 간의 통신에 허용 목록 Url의 전체 목록은 [전제 조건 문서에서 네트워크 요구 사항 섹션](vmware-azure-deploy-configuration-server.md#prerequisites)을 참조 하세요.
 
 ## <a name="replication-process"></a>복제 프로세스
 
@@ -82,6 +84,54 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 5. 기본적으로 다시 동기화는 업무 시간 이외에 실행되도록 예약됩니다. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 이렇게 하려면 Azure Portal로 이동 하 고 VM > 다시 **동기화**를 선택 합니다.
 6. 업무 시간 외에 기본 다시 동기화가 실패 하 고 수동 개입이 필요한 경우 Azure Portal에서 특정 컴퓨터에 오류가 생성 됩니다. 오류를 해결 하 고 다시 동기화를 수동으로 트리거할 수 있습니다.
 7. 다시 동기화가 완료 되 면 델타 변경 내용의 복제가 다시 시작 됩니다.
+
+## <a name="replication-policy"></a>복제 정책 
+
+Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요약된 기본 설정을 사용하여 새 복제 정책을 만듭니다.
+
+**정책 설정** | **세부 정보** | **기본값**
+--- | --- | ---
+**복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
+**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4 시간 마다
+
+### <a name="managing-replication-policies"></a>복제 정책 관리
+
+다음과 같이 기본 복제 정책 설정을 관리 및 수정할 수 있습니다.
+- 복제를 사용하도록 설정하면 설정을 수정할 수 있습니다.
+- 언제든지 복제 정책을 만든 다음, 복제를 활성화할 때 적용할 수 있습니다.
+
+### <a name="multi-vm-consistency"></a>다중 VM 일관성
+
+VM을 함께 복제하고, 장애 조치(failover) 시 공유 크래시 일관성 및 앱 일치 복구 지점을 가지려는 경우 복제 그룹으로 함께 수집할 수 있습니다. 다중 VM 일관성은 워크로드 성능에 영향을 미치며, 모든 머신에서 일관성을 필요로 하는 워크로드를 실행하는 VM에만 사용해야 합니다. 
+
+
+
+## <a name="snapshots-and-recovery-points"></a>스냅샷 및 복구 지점
+
+복구 지점은 특정 시점에 생성되는 VM 디스크의 스냅샷에서 생성됩니다. VM을 장애 조치(failover)할 때 복구 지점을 사용하여 대상 위치에서 VM을 복원합니다.
+
+장애 조치(failover)할 때 일반적으로 손상 또는 데이터 손실 없이 VM을 시작하고, VM 데이터가 운영 체제 및 VM에서 실행되는 앱에 대해 일관되는지 확인하려고 합니다. 이는 생성되는 스냅샷의 유형에 따라 달라집니다.
+
+Site Recovery는 다음과 같이 스냅샷을 생성합니다.
+
+1. Site Recovery는 빈도를 지정하는 경우 기본적으로 데이터의 크래시 일관성이 있는 스냅샷 및 앱 일치 스냅샷을 생성합니다.
+2. 복구 지점은 스냅샷에서 생성되고, 복제 정책에서 보존 설정에 따라 저장됩니다.
+
+### <a name="consistency"></a>일관성
+
+다음 표에서는 여러 유형의 일관성에 대해 설명합니다.
+
+### <a name="crash-consistent"></a>크래시 일관성
+
+**설명** | **세부 정보** | **권장**
+--- | --- | ---
+크래시 일관성 스냅샷은 스냅샷을 만들 때 디스크에 있는 데이터를 캡처합니다. 메모리의 데이터를 포함하지 않습니다.<br/><br/> VM이 충돌하거나 스냅샷이 생성된 순간 전원 코드를 서버에서 가져온 경우 존재하는 디스크의 데이터에 해당합니다.<br/><br/> 크래시 일관성은 운영 체제 또는 VM의 앱에 대한 데이터 일관성을 보장하지 않습니다. | Site Recovery는 기본적으로 5분마다 크래시 일관성 복구 지점을 만듭니다. 이 설정은 수정할 수 없습니다.<br/><br/>  | 오늘날 대부분의 앱은 크래시 일관성 지점에서도 제대로 복구할 수 있습니다.<br/><br/> 크래시 일관성 복구 지점은 일반적으로 운영 체제 및 DHCP 서버 및 인쇄 서버와 같은 앱의 복제를 위해 충분합니다.
+
+### <a name="app-consistent"></a>앱 일치
+
+**설명** | **세부 정보** | **권장**
+--- | --- | ---
+앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) Azure Site Recovery Microsoft SQL의 트랜잭션 로그 백업 시간 및 시퀀스 번호를 변경 하지 않는 복사 전용 백업 (VSS_BT_COPY) 방법을 사용 합니다. </br></br> 2) 스냅숏이 시작 될 때 VSS는 볼륨에서 쓰기 (소) 작업을 수행 합니다.<br/><br/>   3) 소를 수행 하기 전에 VSS는 메모리 상주 데이터를 디스크에 플러시하는 데 필요한 모든 앱을 컴퓨터에 알립니다.<br/><br/>   4) VSS는 백업/재해 복구 앱 (이 경우 Site Recovery)에서 스냅숏 데이터를 읽고 계속 진행할 수 있도록 합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 

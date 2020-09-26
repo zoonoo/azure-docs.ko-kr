@@ -5,21 +5,24 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: c5f120d6d9d80db4eaa9cf6f68e8dd27d45c8aea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83267b1bebd501871277ea3e40b7fa9ba38f33cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098595"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313759"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)에서 네트워크 가상 어플라이언스를 만드는 방법
 
 이 자습서에서는 Azure에서 nva ( **네트워크 가상 어플라이언스** )를 통해 가상 WAN을 사용 하 여 azure의 리소스에 연결 하는 방법을 보여 줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. Virtual WAN에 대한 자세한 내용은 [Virtual WAN 개요](virtual-wan-about.md)를 참조하세요.
 
 이 문서의 단계를 통해 가상 WAN 허브에 **Barracuda CloudGen WAN** 네트워크 가상 어플라이언스를 만들 수 있습니다. 이 연습을 완료 하려면 시작 하기 전에 허브에 배포 하는 Barracuda CloudGen WAN 어플라이언스에 대 한 Barracuda 클라우드 프레미스 장치 (CPE) 및 라이선스가 있어야 합니다.
+
+Azure 가상 WAN 내에서 **CISCO SD-WAN** 에 대 한 배포 설명서는 다음 전자 메일 주소에서 cisco로 전자 메일을 보내 주세요 vwan_public_preview@cisco.com .
+
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

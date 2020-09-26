@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313691"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>가상 허브 라우팅을 구성하는 방법
 
@@ -32,7 +32,7 @@ ms.locfileid: "89145929"
 
    :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="기본 사항 탭":::
 
-   * **이름**
+   * **Name**
    * **경로**
    * **경로 이름**
    * **대상 유형**

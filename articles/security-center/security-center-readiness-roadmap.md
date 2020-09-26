@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314490"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -29,8 +29,8 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 다음 리소스를 사용하여 Security Center를 시작합니다.
 
 아티클
-- [Azure Security Center 소개](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Azure Security Center 빠른 시작 가이드](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Azure Security Center 소개](security-center-introduction.md)
+- [Azure Security Center 빠른 시작 가이드](security-center-get-started.md)
 
 동영상
 - [간략한 소개 비디오](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ Security Center를 완벽하게 활용하려면 조직의 여러 개인 또는 �
 
 다음 리소스를 사용하여 계획 및 작업 프로세스 중에 도움을 받습니다.
 
-- [Azure Security Center 계획 및 작업 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Security Center에 컴퓨터 온보딩
