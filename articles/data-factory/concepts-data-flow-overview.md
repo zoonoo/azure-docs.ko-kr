@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370915"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑
 
@@ -61,7 +61,7 @@ ms.locfileid: "89419967"
 
 **최적화** 탭에는 파티션 구성표를 구성 하는 설정이 포함 되어 있습니다. 데이터 흐름을 최적화 하는 방법에 대 한 자세한 내용은 [데이터 흐름 매핑 성능 가이드](concepts-data-flow-performance.md)를 참조 하세요.
 
-![Optimize](media/data-flow/optimize.png "최적화")
+![스크린샷에는 파티션 옵션, 파티션 유형 및 파티션 수를 포함 하는 최적화 탭이 표시 됩니다.](media/data-flow/optimize.png)
 
 #### <a name="inspect"></a>검사
 
@@ -138,7 +138,7 @@ Azure Data Factory 팀은 비즈니스 논리를 구축한 후 데이터 흐름�
 | 남아프리카 공화국 서부 |  |    |
 | 미국 중남부  | | ✓ |
 | 인도 남부 | | |
-| 동남아시아    | ✓ | ✓ |
+| 동남 아시아    | ✓ | ✓ |
 | 스위스 북부 |   |  |
 | 스위스 서부 | | |
 | 아랍에미리트 중부 | | |

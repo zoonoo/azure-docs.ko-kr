@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308387"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 
@@ -79,7 +79,7 @@ HDInsight 클러스터에 저장소 계정을 추가 하는 방법에 대 한 �
 SSH 셸을 사용 하 여 HDInsight 4.0 클러스터에서 Hive 업그레이드 후 도구를 실행 합니다.
 
 1. SSH를 사용 하 여 클러스터 헤드 노드에 연결 합니다. 지침은 [SSH를 사용 하 여 HDInsight에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md) 을 참조 하세요.
-1. 을 실행 하 여 Hive 사용자로 로그인 셸을 엽니다.`sudo su - hive`
+1. 을 실행 하 여 Hive 사용자로 로그인 셸을 엽니다. `sudo su - hive`
 1. 셸에서 다음 명령을 실행 합니다.
 
     ```bash
@@ -103,7 +103,7 @@ HDInsight 3.6 및 4.0 클러스터는 동일한 저장소 계정을 사용 해�
 >
 > * 이 스크립트가 완료 되 면 이전 클러스터가 스크립트에서 참조 되는 테이블 또는 데이터베이스에 액세스 하는 데 더 이상 사용 되지 않는 것으로 간주 됩니다.
 >
-> * 모든 관리 되는 테이블은 HDInsight 4.0에서 트랜잭션이 됩니다. 필요에 따라 데이터를 ' external. purge ' = ' t r u e ' 인 외부 테이블로 내보내서 트랜잭션 되지 않은 테이블을 유지 합니다. 예제:
+> * 모든 관리 되는 테이블은 HDInsight 4.0에서 트랜잭션이 됩니다. 필요에 따라 데이터를 ' external. purge ' = ' t r u e ' 인 외부 테이블로 내보내서 트랜잭션 되지 않은 테이블을 유지 합니다. 예를 들면 다음과 같습니다.
 >
 >    ```SQL
 >    create table tablename_backup like tablename;
@@ -208,30 +208,9 @@ Hdinsight 3.6부터 hdinsight는 Enterprise Security Package (ESP)를 사용 하
 
 ## <a name="query-execution-across-hdinsight-versions"></a>HDInsight 버전 간 쿼리 실행
 
-HDInsight 3.6 클러스터 내에서 Hive/LLAP 쿼리를 실행 하 고 디버그 하는 방법에는 두 가지가 있습니다. HiveCLI는 명령줄 환경을 제공 하며 Tez 뷰/Hive 보기는 GUI 기반 워크플로를 제공 합니다.
+HDInsight 3.6 클러스터 내에서 Hive/LLAP 쿼리를 실행 하 고 디버그 하는 방법에는 두 가지가 있습니다. HiveCLI는 명령줄 환경을 제공 하며 [Tez 뷰/Hive 보기](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) 는 GUI 기반 워크플로를 제공 합니다.
 
-HDInsight 4.0에서 HiveCLI는 Beeline로 대체 되었습니다. HiveCLI은 Hiveserver 1의 thrift 클라이언트 이며, Beeline는 Hiveserver 2에 대 한 액세스를 제공 하는 JDBC 클라이언트입니다. Beeline를 사용 하 여 다른 JDBC 호환 데이터베이스 끝점에 연결할 수도 있습니다. Beeline는 설치 하지 않아도 HDInsight 4.0에서 기본 제공 됩니다.
-
-HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 Ambari Hive 뷰입니다. HDInsight 4.0은 Ambari View와 함께 제공 되지 않습니다. 고객이 핵심 HDInsight 서비스가 아닌 DAS (Data Analytics Studio)를 사용할 수 있는 방법을 제공 하 고 있습니다. DAS는 HDInsight 클러스터에 기본 제공 되지 않으며 공식적으로 지원 되는 패키지가 아닙니다. 그러나 다음과 같이 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md) 을 사용 하 여 클러스터에 DAS를 설치할 수 있습니다.
-
-|속성 | 값 |
-|---|---|
-|스크립트 유형|- 사용자 지정|
-|속성|DAS|
-|Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|노드 유형|Head|
-
-10 ~ 15 분 정도 기다린 다음이 URL을 사용 하 여 데이터 분석 스튜디오를 시작 `https://CLUSTERNAME.azurehdinsight.net/das/` 합니다.
-
-DAS에 액세스 하기 전에 Ambari UI를 새로 고치거 나 모든 Ambari 구성 요소를 다시 시작 해야 할 수 있습니다.
-
-DAS가 설치 되 면 쿼리 뷰어에서 실행 한 쿼리가 표시 되지 않으면 다음 단계를 수행 합니다.
-
-1. [Das 설치 문제 해결에 대 한이 가이드](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html)에 설명 된 대로 Hive, TEZ 및 das에 대 한 구성을 설정 합니다.
-2. 다음 Azure storage 디렉터리 configs가 페이지 blob이 고 나열 되는지 확인 합니다 `fs.azure.page.blob.dirs` .
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. 두 헤드 노드에서 HDFS, Hive, Tez 및 DAS를 다시 시작 합니다.
+HDInsight 4.0에서 HiveCLI는 Beeline로 대체 되었습니다. Tez 뷰/Hive 보기는 GUI 기반 워크플로를 제공 합니다. HiveCLI은 Hiveserver 1의 thrift 클라이언트 이며, Beeline는 Hiveserver 2에 대 한 액세스를 제공 하는 JDBC 클라이언트입니다. Beeline를 사용 하 여 다른 JDBC 호환 데이터베이스 끝점에 연결할 수도 있습니다. Beeline는 설치 하지 않아도 HDInsight 4.0에서 기본 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

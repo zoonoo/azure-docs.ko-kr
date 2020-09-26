@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370830"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -21,9 +21,15 @@ ms.locfileid: "89377321"
 
 VM을 만들 때 [지원 되는 운영 체제](backup-support-matrix-iaas.md#supported-backup-actions)를 실행 하는 vm에 대 한 백업을 사용 하도록 설정할 수 있습니다.
 
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>초기 백업이 완료 되는 데 시간이 많이 소요 되는 이유는 무엇 인가요?
+
+초기 백업은 항상 전체 백업 이며 데이터의 크기 및 백업이 처리 되는 시기에 따라 달라 집니다. <br>
+백업 성능을 향상 시키려면 [백업 모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices)를 참조 하세요. [백업 고려 사항](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) 및 [백업 성능](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+증분 백업의 총 백업 시간은 24시간 미만이지만 첫 번째 백업은 그렇지 않을 수 있습니다.
+
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>백업 비용이 VM 비용에 포함 되나요?
 
-아닙니다. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
+아니요. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은 무엇입니까?
 
@@ -43,7 +49,7 @@ Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있�
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 사용하나요?
 
-아닙니다. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
+아니요. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>최근에 일부 VM에서 Azure Disk Encryption을 사용할 수 있습니다. 내 백업이 계속 작동하나요?
 
@@ -154,6 +160,10 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스할 수 있나요?
 
 예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>복원 작업을 완료 하는 데 시간이 오래 걸리는 이유는 무엇 인가요?
+
+총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다. 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 
