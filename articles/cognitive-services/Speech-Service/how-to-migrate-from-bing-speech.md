@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362081"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech service로 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "80656461"
 
 단일 Speech service 구독 키는 다음 기능에 대 한 액세스 권한을 부여 합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
-* [음성 텍스트 변환](speech-to-text.md)
+* [음성 텍스트](speech-to-text.md)
 * [음성 텍스트 변환 사용자 지정](https://cris.ai)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](how-to-customize-voice-font.md)
@@ -51,7 +51,7 @@ ms.locfileid: "80656461"
 | 간단한 의도 인식 | :heavy_minus_sign: | :heavy_check_mark: |
 | 긴 오디오 파일의 일괄 처리 기록 | :heavy_minus_sign: | :heavy_check_mark: |
 | 인식 모드 | 엔드포인트 URI 통해 수동 | 자동 | 인식 모드는 음성 서비스에서 사용할 수 없습니다. |
-| 엔드포인트 위치 | Global | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다. |
+| 엔드포인트 위치 | 전역 | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다. |
 | REST API | :heavy_check_mark: | :heavy_check_mark: | 음성 서비스 REST Api는 Bing Speech (다른 끝점)와 호환 됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다. |
 | WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech service Websocket API는 Bing Speech (다른 끝점)과 호환 됩니다. 코드를 단순화하기 위해 가능한 경우 Speech SDK로 마이그레이션합니다. |
 | 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다. |
@@ -79,7 +79,7 @@ Speech Devices SDK를 시작하려면
 1. 음성 서비스 [빠른 시작 가이드](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) 및 [자습서](how-to-recognize-intents-from-speech-csharp.md)를 진행 합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
 1. 음성 서비스를 사용 하도록 응용 프로그램을 업데이트 합니다.
 
-## <a name="support"></a>Support(지원)
+## <a name="support"></a>지원
 
 Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 개설하여 고객 지원 서비스에 문의해야 합니다. 지원을 받으려면 [기술 지원 플랜](https://azure.microsoft.com/support/plans/)이 필요한 경우에도 Microsoft로 연락 주시면 됩니다.
 
@@ -87,7 +87,7 @@ Speech service, SDK 및 API 지원이 필요한 경우 Speech service [지원 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 서비스를 무료로 사용해 보세요.](get-started.md)
+* [음성 서비스를 무료로 사용해 보세요.](overview.md#try-the-speech-service-for-free)
 * [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>참고 항목

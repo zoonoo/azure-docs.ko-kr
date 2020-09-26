@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9a5925b9667cf0db5003584c3bf6a30d8611c5ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 881dbd02a6bf069fbe68108cc6eab0cb6b909a13
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362653"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Log Analytics를 사용 하 Application Gateway WAF (웹 응용 프로그램 방화벽) 로그를 검사 합니다.
 
@@ -80,7 +80,7 @@ AzureDiagnostics
 
 쿼리를 만든 후 대시보드에 추가할 수 있습니다.  Log analytics 작업 영역의 오른쪽 위에서 **대시보드에 고정을** 선택 합니다. 예제 대시보드에 고정 된 이전 4 개의 쿼리를 사용 하 여이 데이터를 한눈에 볼 수 있습니다.
 
-![대시보드](media/log-analytics/dashboard.png)
+![쿼리를 추가할 수 있는 Azure 대시보드가 스크린샷에 표시 됩니다.](media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>다음 단계
 

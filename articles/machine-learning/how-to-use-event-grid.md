@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 7b1030c816bff5b50c0c47a16fa5f1812bb16b15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250830"
+ms.locfileid: "91362519"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 (미리 보기)를 기반으로 응용 프로그램, 프로세스 또는 CI/CD 워크플로 트리거
 
@@ -126,7 +126,7 @@ Azure Event Grid를 사용하는 고객은 분리형 메시지 처리기를 만�
 
 1. 이벤트를 게시할 엔드포인트를 선택합니다. 다음 스크린샷에서는 __이벤트 허브__를 엔드포인트로 선택합니다.
 
-    ![이벤트 처리기](./media/how-to-use-event-grid/select-event-handler.png)
+    ![이벤트 허브 선택 창이 열려 있는 이벤트 구독 만들기 창이 표시 됩니다.](./media/how-to-use-event-grid/select-event-handler.png)
 
 선택 사항을 확인한 후 __만들기__를 클릭합니다. 구성을 마치면 이벤트가 엔드포인트로 푸시됩니다.
 
@@ -164,15 +164,15 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 1. Azure Portal에서 Azure Machine Learning 작업 영역으로 이동한 다음, 왼쪽 표시줄에서 이벤트 탭을 선택합니다. 여기서 __논리 앱__을 선택합니다. 
 
-    ![선택-논리-앱](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![Logic Apps 있는 Machine Learning 작업 영역 이벤트 페이지가 표시 됩니다.](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. 논리 앱 UI에 로그인하고 토픽 유형으로 Machine Learning Service를 선택합니다. 
 
-    ![토픽-형식](./media/how-to-use-event-grid/select-topic-type.png)
+    ![리소스 유형으로 선택 된 machine learning을 사용 하 여 리소스 이벤트가 발생 하는 경우 스크린샷 대화 상자를 표시 합니다.](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. 알림을 받을 이벤트를 선택합니다. 예를 들어 다음은 __RunCompleted__ 이벤트에 대한 스크린샷입니다.
 
-    ![선택-이벤트-실행-완료](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![이벤트 유형이 선택 된 상태에서 리소스 이벤트가 발생 하는 경우 스크린샷 대화 상자를 표시 합니다.](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. 위의 섹션에 설명된 필터링 방법을 사용할 수도 있고, 이벤트 유형 하위 세트의 논리 앱만 트리거하는 필터를 추가할 수도 있습니다. 다음 스크린샷에서는 __/datadriftID/runs/__ 의 __접두사 필터__를 사용합니다.
 
@@ -180,15 +180,15 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 1. 다음으로, 이 이벤트를 사용하고 이메일을 검색하는 단계를 추가합니다. 이벤트를 수신하는 데 사용할 수 있는 여러 메일 계정이 있습니다. 이메일 경고를 보낼 시기에 대한 조건을 구성할 수도 있습니다.
 
-    ![전자 메일-작업](./media/how-to-use-event-grid/select-email-action.png)
+    ![스크린샷 검색 줄에 입력 한 전자 메일을 사용 하 여 작업 선택 대화 상자를 보여 줍니다.](./media/how-to-use-event-grid/select-email-action.png)
 
 1. __이메일 보내기__를 선택하고 매개 변수를 입력합니다. 제목에 __이벤트 유형__ 및 __토픽__을 포함하면 이벤트를 필터링하는 데 도움이 됩니다. 또한 실행의 작업 영역 페이지에 대한 링크를 메시지 본문에 포함할 수 있습니다. 
 
-    ![구성-전자 메일](./media/how-to-use-event-grid/configure-email-body.png)
+    ![스크린샷 오른쪽 목록에서 제목 줄에 항목 및 이벤트 유형이 추가 된 전자 메일 보내기 대화 상자를 표시 합니다.](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. 이 작업을 저장하려면 페이지의 왼쪽 모서리에서 **다른 이름으로 저장**을 선택합니다. 표시되는 오른쪽 막대에서 이 작업 만들기를 확인합니다.
 
-    ![논리 확인-앱 만들기](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![Logic Apps 디자이너의 다른 이름으로 저장 및 만들기 단추를 보여 주는 스크린샷](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### <a name="example-data-drift-triggers-retraining"></a>예제: 데이터 드리프트 트리거 재학습
@@ -204,7 +204,7 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 이 예제에서는 간단한 Data Factory 파이프라인을 사용하여 파일을 BLOB 저장소에 복사하고 게시된 Machine Learning 파이프라인을 실행합니다. 이 시나리오에 대한 자세한 내용은 [Azure Data Factory에서 Machine Learning 단계를 설정하는 방법](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)을 참조하세요.
 
-![adf-mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![스크린샷 복사를 사용 하는 팩터리 리소스의 학습 파이프라인을 보여 줍니다. Pipeline1를 실행 합니다.](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. 논리 앱 만들기부터 시작합니다. [Azure Portal](https://portal.azure.com)로 이동하여 Logic Apps를 검색하고 [만들기]를 선택합니다.
 
@@ -212,31 +212,31 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 1. 요청된 정보를 입력합니다. 진행하기 쉽게 Azure Data Factory 파이프라인 및 Azure Machine Learning 작업 영역과 동일한 구독 및 리소스 그룹을 사용해도 됩니다.
 
-    ![설정-논리-앱-adf](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![논리 앱 만들기 창을 보여 주는 스크린샷](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. 논리 앱을 만든 후에는 __Event Grid 리소스 이벤트가 발생하는 경우__를 선택합니다. 
 
-    ![-eventgrid-트리거를 선택 합니다.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![Event Grid 리소스 이벤트가 발생 하는 경우를 포함 하 여 시작 하는 Logic Apps 디자이너가 일반적인 트리거 옵션과 함께 표시 됩니다.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. 로그인하여 이벤트의 세부 정보를 입력합니다. __리소스 이름__을 작업 영역 이름으로 설정합니다. __이벤트 유형__을 __DatasetDriftDetected__로 설정합니다.
 
-    ![로그인-추가 이벤트](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![이벤트 유형 항목이 선택 된 상태에서 리소스 이벤트가 발생 하는 시점을 보여 주는 스크린샷](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. 새 단계를 추가하고, __Azure Data Factory__를 검색합니다. __파이프라인 실행 만들기__를 선택합니다. 
 
-    ![만들기-adf-파이프라인-실행](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![파이프라인 만들기 실행을 선택 하 여 작업 선택 창이 표시 됩니다.](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. 로그인하고, 실행할 게시된 Azure Data Factory 파이프라인을 지정합니다.
 
-    ![-adfpipeline 지정](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![스크린샷에는 다양 한 값을 사용 하 여 파이프라인 실행 만들기 창이 표시 됩니다.](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. 페이지 왼쪽 위에 있는 **저장** 단추를 사용하여 논리 앱을 저장하고 만듭니다. 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 작업 영역으로 이동하여 **이벤트**를 클릭합니다.
 
-    ![logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![논리 앱이 강조 표시 된 이벤트를 보여 주는 스크린샷](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 이제 드리프트가 발생할 때 데이터 팩터리 파이프라인이 트리거됩니다. [새 작업 영역 포털](https://ml.azure.com)에서 데이터 드리프트 실행 및 기계 학습 파이프라인의 세부 정보를 확인합니다. 
 
-![보기-작업 영역](./media/how-to-use-event-grid/view-in-workspace.png)
+![파이프라인 끝점을 보여 주는 스크린샷](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### <a name="example-deploy-a-model-based-on-tags"></a>예제: 태그를 기준으로 모델 배포
 

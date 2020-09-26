@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362268"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 세트 캐싱을 사용한 성능 조정
 
@@ -56,11 +56,11 @@ WHERE request_id  = <'request_id'>;
 
 다음은 결과 세트 캐싱을 사용하지 않도록 설정한 상태로 실행되는 쿼리의 예제 출력입니다.
 
-![Query-steps-with-rsc-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![위치 유형 및 명령을 포함 하 여 쿼리 결과를 보여 주는 스크린샷](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 다음은 결과 세트 캐싱을 사용하도록 설정한 상태로 실행되는 쿼리의 예제 출력입니다.
 
-![Query-steps-with-rsc-enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![스크린샷은 선택 된 명령을 사용 하 여 쿼리 결과를 보여 줍니다. * from [D W ResultCache D b] 점 D b o는 out 이라고 합니다.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>캐시된 결과가 사용되는 경우
 

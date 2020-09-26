@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362732"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – 워크로드 관리 포털 모니터링
 
@@ -59,7 +59,8 @@ WITH ( WORKLOAD_GROUP = 'wgPriority'
 메트릭 1: *유효 최소 리소스 비율* (평균 집계, `blue line`)<br>
 메트릭 2: *시스템 비율별 작업 그룹 할당*(평균 집계, `purple line`)<br>
 필터: [작업 그룹] = `wgPriority`<br>
-![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) 이 차트에서는 25%의 워크로드 격리 상태에서 평균 10%만 사용되고 있음을 보여 줍니다.  이 경우 `MIN_PERCENTAGE_RESOURCE` 매개 변수 값을 10 또는 15 사이로 낮추고 시스템의 다른 워크로드에서 리소스를 사용할 수 있습니다.
+![스크린샷에는 두 개의 메트릭과 필터가 있는 차트가 표시 됩니다.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+이 차트에서는 25% 워크 로드 격리를 사용 하 여 평균에 10%만 사용 하 고 있음을 보여 줍니다.  이 경우 `MIN_PERCENTAGE_RESOURCE` 매개 변수 값을 10 또는 15 사이로 낮추고 시스템의 다른 워크로드에서 리소스를 사용할 수 있습니다.
 
 ### <a name="workload-group-bottleneck"></a>작업 그룹 병목 상태
 
@@ -81,7 +82,8 @@ WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
 메트릭 2: *최대 리소스 비율별 작업 그룹 할당*(평균 집계, `purple line`)<br>
 메트릭 3: *작업 그룹 큐에 대기 중인 쿼리*(합계 집계, `turquoise line`)<br>
 필터: [작업 그룹] = `wgDataAnalyst`<br>
-![bottle-necked-wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) 이 차트에서는 9%의 리소스 상한 상태에서 작업 그룹이 90% 이상 사용되고 있음을 보여 줍니다(*최대 리소스 비율별 작업 그룹 할당 메트릭*).  *작업 그룹 큐에 대기 중인 쿼리 메트릭*에서와 같이 쿼리가 큐에서 안정적으로 대기하고 있습니다.  이 경우 `CAP_PERCENTAGE_RESOURCE`를 9%보다 큰 값으로 늘리면 더 많은 쿼리를 동시에 실행할 수 있습니다.  `CAP_PERCENTAGE_RESOURCE`를 늘리면 사용 가능한 리소스가 충분하고 다른 작업 그룹에서 격리되지 않은 것으로 가정합니다.  *유효 상한 리소스 비율 메트릭*을 확인하여 상한이 증가했는지 확인합니다.  더 많은 처리량이 필요한 경우 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 3보다 큰 값으로 늘릴 수도 있습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 늘리면 쿼리가 더 빨리 실행될 수 있습니다.
+![3 개의 메트릭과 필터가 있는 차트를 보여 주는 스크린샷](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+이 차트에서는 리소스에서 9% 캡이 포함 된 것을 보여 줍니다. 작업 그룹은 90% 이상 ( *최대 리소스 비율 메트릭 별 작업 그룹 할당*)입니다.  *작업 그룹 큐에 대기 중인 쿼리 메트릭*에서와 같이 쿼리가 큐에서 안정적으로 대기하고 있습니다.  이 경우 `CAP_PERCENTAGE_RESOURCE`를 9%보다 큰 값으로 늘리면 더 많은 쿼리를 동시에 실행할 수 있습니다.  `CAP_PERCENTAGE_RESOURCE`를 늘리면 사용 가능한 리소스가 충분하고 다른 작업 그룹에서 격리되지 않은 것으로 가정합니다.  *유효 상한 리소스 비율 메트릭*을 확인하여 상한이 증가했는지 확인합니다.  더 많은 처리량이 필요한 경우 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 3보다 큰 값으로 늘릴 수도 있습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 늘리면 쿼리가 더 빨리 실행될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

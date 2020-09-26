@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74185870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362200"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Hyper-v 복제는 어떻게 작동 하나요?
 
@@ -30,7 +30,7 @@ Azure Migrate Server 마이그레이션은 온-프레미스 워크 로드 및 �
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소
 
-![Architecture](./media/hyper-v-replication-architecture/architecture.png)
+![다이어그램은 Microsoft Azure 하는 H T P S P S 데이터 채널이 있는 원본 Hyper-v 네트워크를 보여 줍니다. 자세한 내용은 테이블에 설명 되어 있습니다.](./media/hyper-v-replication-architecture/architecture.png)
 
 
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362251"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -143,7 +143,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우 기본 기능화 기술이 적용 됩니다. **기능화 설정 보기** 에서 이러한 기본값을 변경 하 고 적절 하 게 사용자 지정할 수 있습니다. [Featurizations를 사용자 지정](#customize-featurization)하는 방법을 알아봅니다. 
 
-    ![Azure Machine Learning studio 작업 형식 폼](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![스크린샷 기능화 설정이 포함 된 작업 유형 선택 대화 상자를 표시 합니다.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>기능화 사용자 지정
 
@@ -151,7 +151,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 다음 표에서는 현재 스튜디오를 통해 사용할 수 있는 사용자 지정 항목을 요약 합니다. 
 
-Column| 사용자 지정
+열| 사용자 지정
 ---|---
 포함 | 학습에 포함할 열을 지정 합니다.
 기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
