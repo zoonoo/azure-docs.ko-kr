@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319591"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397082"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -54,7 +54,7 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 | 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure SQL 분석 (미리 보기)를 추가 합니다.
 
@@ -90,11 +90,11 @@ SQL Database에 대 한 Azure SQL 분석 모니터링 대시보드를 보려면 
 
 데이터베이스에 대한 Azure SQL 분석 타일을 선택하면 모니터링 대시보드가 표시됩니다.
 
-![Azure SQL 분석 개요](./media/azure-sql/azure-sql-sol-overview.png)
+![모니터링 대시보드를 보여 주는 스크린샷](./media/azure-sql/azure-sql-sol-overview.png)
 
 임의의 타일을 선택하면 특정 관점으로의 드릴다운 보고서가 열립니다. 관점을 선택하면 드릴다운 보고서가 열립니다.
 
-![Azure SQL 분석 시간 제한](./media/azure-sql/azure-sql-sol-metrics.png)
+![특정 큐브 뷰에 드릴 다운 보고서를 표시 하는 스크린샷](./media/azure-sql/azure-sql-sol-metrics.png)
 
 이 보기의 각 큐브 뷰에서는 구독, 서버, 탄력적 풀 및 데이터베이스 수준에 대 한 요약을 제공 합니다. 또한 각 관점에 따라 오른쪽에 관점별 보고서가 표시됩니다. 목록에서 구독, 서버, 풀 또는 데이터베이스를 선택하면 계속해서 드릴다운됩니다.
 

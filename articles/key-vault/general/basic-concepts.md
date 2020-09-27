@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault란? | Microsoft Docs
+title: Azure Key Vault란? | Microsoft 문서
 description: 클라우드 응용 프로그램 및 서비스에서 사용 하는 암호화 키 및 암호를 보호 Azure Key Vault 하는 방법에 대해 알아봅니다.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983295"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398513"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault 기본 개념
 
@@ -23,7 +23,7 @@ Azure Key Vault는 비밀을 안전 하 게 저장 하 고 액세스 하는 클�
 
 다음은 다른 중요 한 용어입니다.
 
-- **테넌트** - Microsoft 클라우드 서비스의 특정 인스턴스를 소유하고 관리하는 조직입니다. 조직의 Azure 및 Office 365 서비스 집합을 참조 하는 데 주로 사용 됩니다.
+- **테넌트** - Microsoft 클라우드 서비스의 특정 인스턴스를 소유하고 관리하는 조직입니다. 조직의 Azure 및 Microsoft 365 서비스 집합을 참조 하는 데 주로 사용 됩니다.
 
 - **자격 증명 모음 소유자** - 키 자격 증명 모음을 만들고 전체 자격 증명 모음을 액세스하고 제어할 수 있습니다. 자격 증명 모음 소유자는 비밀과 키에 액세스하는 사용자를 기록하도록 감사를 설정할 수도 있습니다. 관리자는 키 수명 주기를 제어할 수 있습니다. 새 버전의 키로 롤링하고, 백업하고, 관련 작업을 수행할 수 있습니다.
 

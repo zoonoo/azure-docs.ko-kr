@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224495"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397252"
 ---
 # <a name="azure-data-encryption-at-rest"></a>휴지 상태의 Azure 데이터 암호화
 
@@ -81,13 +81,13 @@ Microsoft는 클라우드 서비스에서 저장 데이터 암호화 옵션을 �
 
 Microsoft Cloud 서비스는 세 가지 클라우드 모델, 즉 IaaS, PaaS, SaaS에서 모두 사용됩니다. 각 모델에서 작동하는 방식에 대한 예는 다음과 같습니다.
 
-- Office 365와 같이 클라우드에서 제공하는 애플리케이션이 있는 SaaS(Software as a Server)라는 소프트웨어 서비스
+- Microsoft 365와 같이 클라우드에서 제공 하는 응용 프로그램을 포함 하는 소프트웨어 서비스 (서버 또는 SaaS) 라고 합니다.
 - 고객이 자신의 애플리케이션에서 클라우드를 활용하고 스토리지, 분석 및 서비스 버스 기능과 같은 용도로 클라우드를 사용하는 플랫폼 서비스
 - 고객이 클라우드에 호스팅되어 다른 클라우드 서비스를 활용할 수 있는 운영 체제 및 애플리케이션을 배포하는 인프라 서비스 또는 IaaS(Infrastructure as a Service)
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>SaaS 고객에 대한 미사용 데이터 암호화
 
-SaaS(Software as a Service) 고객은 일반적으로 각 서비스에서 미사용 데이터 암호화를 사용하도록 설정하거나 사용할 수 있습니다. Office 365에는 고객이 미사용 데이터 암호화를 확인하거나 사용하도록 설정할 수 있는 몇 가지 옵션이 있습니다. Office 365 서비스에 대한 자세한 내용은 [Office 365의 암호화](https://docs.microsoft.com/office365/securitycompliance/encryption)를 참조하세요.
+SaaS(Software as a Service) 고객은 일반적으로 각 서비스에서 미사용 데이터 암호화를 사용하도록 설정하거나 사용할 수 있습니다. Microsoft 365에는 고객이 미사용 암호화를 확인 하거나 사용 하도록 설정할 수 있는 몇 가지 옵션이 있습니다. Microsoft 365 services에 대 한 자세한 내용은 [Microsoft 365의 암호화](/microsoft-365/compliance/encryption)를 참조 하세요.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>PaaS 고객에 대한 미사용 데이터 암호화
 

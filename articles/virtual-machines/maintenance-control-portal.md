@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676049"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397286"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>유지 관리 제어 및 Azure Portal를 사용 하 여 업데이트 제어
 
@@ -76,7 +76,7 @@ ms.locfileid: "84676049"
 
 전용 호스트의 **Virtual Machines** 또는 속성을 사용 하 여 특정 호스트를 확인할 수도 있습니다. 
 
-![호스트의 유지 관리를 확인 하는 방법을 보여 주는 스크린샷](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![강조 표시 된 유지 관리 상태를 보여 주는 스크린샷](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>업데이트 적용
 
@@ -94,7 +94,7 @@ ms.locfileid: "84676049"
 
 구성을 삭제 하려면 구성 세부 정보를 열고 **삭제**를 클릭 합니다.
 
-![호스트의 유지 관리를 확인 하는 방법을 보여 주는 스크린샷](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![구성을 삭제 하는 방법을 보여 주는 스크린샷](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## <a name="next-steps"></a>다음 단계

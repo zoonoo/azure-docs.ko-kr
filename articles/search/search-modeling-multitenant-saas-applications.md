@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935027"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397371"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴
 
@@ -41,7 +41,7 @@ Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스*를 �
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 및 인덱스 제한
 Azure Cognitive Search에는 몇 가지 다른 [가격 책정 계층이](https://azure.microsoft.com/pricing/details/search/) 있으며 각 계층에는 서로 다른 [제한과 할당량이](search-limits-quotas-capacity.md)있습니다. 서비스 수준에서 적용되는 제한도 있고, 인덱스 수준에서 적용되는 제한도 있고, 파티션 수준에서 적용되는 제한도 있습니다.
 
-|  | 기본 | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | **서비스당 최대 복제본** |3 |12 |12 |12 |12 |
 | **서비스당 최대 파티션** |1 |12 |12 |12 |3 |
@@ -76,7 +76,8 @@ Azure Cognitive Search은 테 넌 트의 데이터 및 워크 로드를 격리 �
 3. *두 가지 조합:* 좀 더 작은 테넌트에는 공유 서비스 내에서 개별 인덱스가 할당되지만, 좀 더 큰 활성 테넌트에는 전용 서비스가 할당됩니다.
 
 ## <a name="1-index-per-tenant"></a>1. 테 넌 트 당 인덱스
-![테넌트당 인덱스 모델](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="테넌트당 인덱스 모델" border="false":::
 
 테 넌 트 당 인덱스 모델에서 여러 테 넌 트는 각 테 넌 트에 고유한 인덱스가 있는 단일 Azure Cognitive Search 서비스를 차지 합니다.
 
@@ -93,7 +94,8 @@ Azure Cognitive Search는 개별 인덱스와 전체 인덱스 수를 확장할 
 인덱스의 총 수가 단일 서비스에 대해 너무 커지면 새 테넌트를 수용하도록 다른 서비스를 프로비전해야 합니다. 새 서비스가 추가 될 때 검색 서비스 간에 인덱스를 이동 해야 하는 경우 Azure Cognitive Search 인덱스를 이동 하는 것을 허용 하지 않으므로 인덱스의 데이터를 한 인덱스에서 다른 인덱스로 수동으로 복사 해야 합니다.
 
 ## <a name="2-service-per-tenant"></a>2. 테 넌 트 당 서비스
-![테넌트당 서비스 모델](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="테넌트당 서비스 모델" border="false":::
 
 테넌트당 서비스 아키텍처에서 각 테넌트에는 자체 검색 서비스가 있습니다.
 

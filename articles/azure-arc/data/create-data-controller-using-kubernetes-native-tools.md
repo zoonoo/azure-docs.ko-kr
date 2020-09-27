@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c5a2aa6ca75e352a824716c19af923c8628efde
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 087b021f088e344926a44f7e009f273d265dd82b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343294"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397626"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기
 
@@ -30,6 +30,20 @@ Kubernetes 도구를 사용 하 여 Azure Arc 데이터 컨트롤러를 만들�
 
 > [!NOTE]
 > 아래에 표시 된 Azure Arc 데이터 컨트롤러를 만드는 몇 가지 단계에는 Kubernetes cluster administrator 권한이 필요 합니다.  Kubernetes 클러스터 관리자가 아닌 경우 Kubernetes 클러스터 관리자가 사용자를 대신 하 여 이러한 단계를 수행 해야 합니다.
+
+#### <a name="cleanup-from-past-installations"></a>이전 설치에서 정리
+
+이전에 Azure Arc data controller를 동일한 클러스터에 설치 하 고 명령을 사용 하 여 Azure Arc 데이터 컨트롤러를 삭제 한 경우에 `azdata arc dc delete` 도 삭제 해야 하는 클러스터 수준 개체가 있을 수 있습니다. 다음 명령을 실행 하 여 Azure Arc 데이터 컨트롤러 클러스터 수준 개체를 삭제 합니다.
+
+```
+# Cleanup azure arc data service artifacts
+kubectl delete crd datacontrollers.arcdata.microsoft.com 
+kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete postgresql-11s.arcdata.microsoft.com 
+kubectl delete postgresql-12s.arcdata.microsoft.com
+kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
+kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+```
 
 ## <a name="overview"></a>개요
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317606"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397422"
 ---
 # <a name="power-bi-app-creation-overview"></a>Power BI 앱 만들기 개요
 
@@ -23,7 +23,7 @@ ms.locfileid: "87317606"
 상업용 마켓플레이스에 게시할 경우의 이점:
 
 - Microsoft 브랜드를 활용하여 회사를 홍보할 수 있습니다.
-- 잠재적으로 AppSource의 Office 365 및 Dynamics 365 사용자는 1억 명이 넘고, Azure Marketplace를 사용하는 조직은 200,000곳이 넘습니다.
+- Azure Marketplace을 통해 AppSource 및 20만 이상의 조직에서 1억 Microsoft 365 및 Dynamics 365 사용자에 게 도달할 수 있습니다.
 - 이러한 마켓플레이스에서 우량 잠재 고객을 확보할 수 있습니다.
 - Microsoft 필드 및 전화 영업 팀이 서비스를 승격 합니다.
 

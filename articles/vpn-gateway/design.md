@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecfb569f2791b674fe842e1c21cba972a8e9d2a7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443010"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397218"
 ---
 # <a name="vpn-gateway-design"></a>VPN Gateway 디자인
 
@@ -77,7 +77,7 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute(프라이빗 연결)
 
-ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 연결 공급자를 통한 연결 공급자를 통한 지점 간 이더넷 네트워크 또는 임의 (IP VPN) 네트워크에서의 연결을 사용할 수 있습니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하 여 Microsoft Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 연결 공급자를 통한 연결 공급자를 통한 지점 간 이더넷 네트워크 또는 임의 (IP VPN) 네트워크에서의 연결을 사용할 수 있습니다.
 
 ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 

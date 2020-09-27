@@ -3,12 +3,12 @@ title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e404c471990575460ccda3a26e7cdcb3ec1cf1d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336550"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396674"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -69,7 +69,7 @@ az account show
 권한 부여를 정의할 때는 사용자가 작업을 완료 하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원 되는 역할에 대 한 지침 및 정보는 [Azure Lighthouse 시나리오에서 테 넌 트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure AD 그룹에 대한 사용 권한을 추가하려면 **그룹 유형**이 **Office 365**가 아닌 **보안**이어야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+> Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류** 를 **보안**으로 설정 해야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 권한 부여를 정의 하려면 액세스 권한을 부여 하려는 서비스 공급자 테 넌 트의 각 사용자, 사용자 그룹 또는 서비스 사용자에 대 한 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 아직 없는 경우 서비스 공급자 테넌트 내에서 아래 명령을 실행하여 검색할 수 있습니다.
 

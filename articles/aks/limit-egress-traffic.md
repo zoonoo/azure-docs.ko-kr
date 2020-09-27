@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361044"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397167"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -205,10 +205,7 @@ Azure Dev Spaces를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN
 | `storage.googleapis.com` | **`HTTPS:443`** | 이 주소는 Helm/Tiller 이미지를 끌어오는 데 사용됩니다. |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (미리 보기)
-
-> [!CAUTION]
-> 아래 기능 중 일부는 미리 보기 상태입니다.  이 문서의 제안 사항은 기능이 공개 미리 보기 및 향후 릴리스 단계로 이동하면서 변경 될 수 있습니다.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>필요한 FQDN/응용 프로그램 규칙 
 
@@ -219,7 +216,6 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다. (현재 AKS의 미리 보기 상태) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. (현재 AKS의 미리 보기 상태) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure 방화벽을 사용 하 여 송신 트래픽 제한
 

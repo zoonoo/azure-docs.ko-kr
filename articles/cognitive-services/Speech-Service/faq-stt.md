@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357576"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397762"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -152,17 +152,17 @@ ms.locfileid: "91357576"
 
 **A**: 단어 목록을 업로드하면 단어가 어휘에 추가되지만 시스템에서 단어가 일반적으로 사용되는 방식이 학습되지는 않습니다. 전체 또는 부분 음성(사용자가 말하려는 문장이나 문구)을 제공하면 언어 모델이 새 단어를 학습하고 이 단어가 어떻게 사용되는지 학습할 수 있습니다. 사용자 지정 언어 모델은 시스템에 새 단어를 추가하는 것뿐만 아니라 애플리케이션에서 알려진 단어가 나타날 가능성을 조정하는 데에도 적합합니다. 전체 음성을 제공하면 시스템 학습 성능이 좋아집니다.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>테 넌 트 모델 (Office 365 데이터를 사용 하는 Custom Speech)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>테 넌 트 모델 (Microsoft 365 데이터를 사용 하는 Custom Speech)
 
 **Q: 테 넌 트 모델에 포함 되는 정보와 생성 방법**
 
-**A:** 테 넌 트 모델은 조직의 모든 사용자가 볼 수 있는 [공개 그룹](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) 메일 및 문서를 사용 하 여 빌드됩니다.
+**A:** 테 넌 트 모델은 조직의 모든 사용자가 볼 수 있는 [공개 그룹](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) 메일 및 문서를 사용 하 여 빌드됩니다.
 
 **Q: 테 넌 트 모델에서 어떤 음성 환경이 개선 되나요?**
 
 **A:** 테 넌 트 모델을 사용 하도록 설정 하 고 만들고 게시 하면, 음성 서비스를 사용 하 여 빌드된 모든 엔터프라이즈 응용 프로그램에 대 한 인식을 개선 하는 데 사용 됩니다. 또한 엔터프라이즈에 대 한 멤버 자격을 나타내는 사용자 Azure AD 토큰을 전달 합니다.
 
-음성 서비스 응용 프로그램에 대 한 테 넌 트 모델을 만들 때 받아쓰기 및 PowerPoint 캡션 등 Office 365에 내장 된 음성 환경은 변경 되지 않습니다.
+음성 서비스 응용 프로그램에 대 한 테 넌 트 모델을 만들 때 받아쓰기 및 PowerPoint 캡션 등 Microsoft 365에 내장 된 음성 환경은 변경 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646829"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398017"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "89646829"
 상업용 마켓플레이스에 게시할 경우의 이점:
 
 - Microsoft 브랜드를 활용하여 회사를 홍보할 수 있습니다.
-- 잠재적으로 AppSource의 Office 365 및 Dynamics 365 사용자는 1억 명이 넘고, Azure Marketplace를 사용하는 조직은 200,000곳이 넘습니다.
+- Azure Marketplace을 통해 AppSource 및 20만 이상의 조직에서 1억 Microsoft 365 및 Dynamics 365 사용자에 게 도달할 수 있습니다.
 - 이러한 마켓플레이스에서 우량 잠재 고객을 확보할 수 있습니다.
 - Microsoft 현장 팀 및 통신 판매 팀을 통해 서비스를 홍보할 수 있습니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "89646829"
 
     - 분석
     - 앱 현대화
-    - 보관
+    - 아카이브
     - AI + Machine Learning
     - Backup
     - 빅 데이터
@@ -158,7 +158,7 @@ ms.locfileid: "89646829"
 6. 요약
 7. Description
 8. 스크린샷/비디오
-9. Documents
+9. 문서
 
 ### <a name="name"></a>속성
 

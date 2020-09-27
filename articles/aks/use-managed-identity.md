@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 4e970f242d1c51218865fe459b8012f97add3d02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299292"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397048"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -30,6 +30,8 @@ ms.locfileid: "91299292"
 * 기존 AKS 클러스터는 관리 되는 id로 마이그레이션할 수 없습니다.
 * 클러스터 **업그레이드** 작업 중에 관리 되는 id를 일시적으로 사용할 수 없습니다.
 * 테 넌 트 이동/관리 되는 id 사용 클러스터의 마이그레이션은 지원 되지 않습니다.
+* 클러스터가 `aad-pod-identity` 사용 하도록 설정 된 경우 NMI (Node Managed Identity) pod는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)을 참조 하세요.
+  예외를 구성 하려면 [mic 예외 YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)을 설치 합니다.
 
 ## <a name="summary-of-managed-identities"></a>관리 id 요약
 

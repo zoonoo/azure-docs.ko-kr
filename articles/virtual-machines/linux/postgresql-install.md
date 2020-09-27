@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 321f6bd6324613967001139e365d96521217d50b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267254"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397099"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.
@@ -164,7 +164,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 
     다음과 같은 출력이 표시됩니다.
 
-![이미지](./media/postgresql-install/no1.png)
+![데이터베이스를 초기화 한 후 출력을 보여 주는 스크린샷](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>PostgreSQL 설정
 <!--    [postgres@ test ~]$ exit -->
@@ -185,7 +185,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 ```
 
-![이미지](./media/postgresql-install/no2.png)
+![설치 접두사와 데이터 디렉터리를 보여 주는 스크린샷](./media/postgresql-install/no2.png)
 
 파일을 변경하여 실행 가능하도록 설정합니다.
 
@@ -207,7 +207,7 @@ PostgreSQL의 엔드포인트가 켜져 있는지 확인합니다.
 
 다음 출력이 표시됩니다.
 
-![이미지](./media/postgresql-install/no3.png)
+![PostgreSQL의 끝점을 보여 주는 스크린샷](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Postgres 데이터베이스에 연결
 다시 한 번 postgres 사용자로 전환합니다.
@@ -246,11 +246,11 @@ CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1
 
 테이블이 생성된 경우 다음이 표시됩니다.
 
-![이미지](./media/postgresql-install/no4.png)
+![테이블이 성공적으로 생성 될 때 표시 되는 메시지를 보여 주는 스크린샷](./media/postgresql-install/no4.png)
 
 다음 명령을 사용하여 테이블 구조를 확인할 수 있습니다.
 
-![이미지](./media/postgresql-install/no5.png)
+![테이블 구조를 확인 하는 명령을 보여 주는 스크린샷](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>테이블에 데이터 추가
 먼저, 행에 정보를 삽입합니다.
@@ -261,7 +261,7 @@ INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Cassero
 
 다음 출력이 표시됩니다.
 
-![이미지](./media/postgresql-install/no6.png)
+![추가한 행 정보를 보여 주는 스크린샷](./media/postgresql-install/no6.png)
 
 테이블에 몇 명의 더 많은 사람을 추가할 수 있습니다. 다음은 몇 가지 옵션입니다. 또는 직접 만들 수도 있습니다.
 
@@ -280,9 +280,9 @@ INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad',
 select * from potluck;
 ```
 
-출력은 다음과 같습니다.
+결과는 다음과 같습니다.
 
-![이미지](./media/postgresql-install/no7.png)
+![테이블을 표시 하기 위한 명령의 출력을 보여 주는 스크린샷](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>테이블의 데이터 삭제
 테이블의 데이터를 삭제하려면 다음 명령을 사용합니다.
@@ -291,7 +291,7 @@ select * from potluck;
 delete from potluck where name=’John’;
 ```
 
-"John" 행에 있는 모든 정보를 삭제합니다. 출력은 다음과 같습니다.
+"John" 행에 있는 모든 정보를 삭제합니다. 결과는 다음과 같습니다.
 
 ![이미지](./media/postgresql-install/no8.png)
 

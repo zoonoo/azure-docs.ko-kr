@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318457"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398034"
 ---
 # <a name="caching-with-azure-front-door"></a>Azure Front 도어를 사용 하 여 캐싱
 다음 문서는 캐싱을 허용하고 회람 규칙을 사용하는 Front Door의 동작을 설명합니다. 프런트 도어는 CDN (최신 Content Delivery Network) 이며 동적 사이트 가속 및 부하 분산과 더불어 다른 CDN과 마찬가지로 캐싱 동작도 지원 합니다.
@@ -83,7 +83,7 @@ Front Door는 콘텐츠를 에지에서 동적으로 압축하므로 클라이�
 
 ## <a name="query-string-behavior"></a>쿼리 문자열 동작
 Front Door를 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예들 들어 `http://www.contoso.com/content.mov?field1=value1&field2=value2`입니다. 요청의 쿼리 문자열에 둘 이상의 키-값 쌍이 있는 경우 해당 순서는 중요하지 않습니다.
-- **쿼리 문자열 무시**: 기본 모드입니다. 이 모드에서는 Front Door가 첫 번째 요청에서 요청자의 쿼리 문자열을 백엔드로 전달하고 자산을 캐시합니다. 캐시된 자산이 만료될 때까지 Front Door 환경에서 제공되는 해당 자산의 모든 후속 요청은 쿼리 문자열을 무시합니다.
+- **쿼리 문자열 무시**:이 모드에서 전방 도어는 요청자의 쿼리 문자열을 첫 번째 요청에 대 한 백 엔드로 전달 하 고 자산을 캐시 합니다. 캐시된 자산이 만료될 때까지 Front Door 환경에서 제공되는 해당 자산의 모든 후속 요청은 쿼리 문자열을 무시합니다.
 
 - **각 고유한 URL 캐시**: 이 모드에서는 쿼리 문자열을 포함하여 고유한 URL이 있는 각 요청이 고유 캐시가 있는 고유 자산으로 처리됩니다. 예를 들어 `www.example.ashx?q=test1`에 대한 요청의 경우 백엔드에서의 응답이 Front Door 환경에서 캐시되고 그와 동일한 쿼리 문자열을 가진 후속 캐시에 대해 반환됩니다. `www.example.ashx?q=test2`에 대한 요청은 자체 TTL(Time To Live) 설정과 함께 별도의 자산으로 캐시됩니다.
 

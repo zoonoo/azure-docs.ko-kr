@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333191"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396249"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -86,7 +86,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 
-    ![탐색 창](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![데이터베이스 감사 페이지에 강조 표시 된 서버 설정 보기 링크를 보여 주는 스크린샷](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. 데이터베이스 수준에서 감사를 사용하도록 설정하려면 **감사**를 **켜짐**으로 전환합니다. 서버 감사를 사용하는 경우 데이터베이스 구성 감사가 서버 감사와 나란히 존재합니다.
 
@@ -163,7 +163,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 - [Azure Portal](https://portal.azure.com) 사용  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
 
-    ![탐색 창](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![데이터베이스 감사 페이지에 강조 표시 된 감사 로그 보기 단추를 보여 주는 스크린샷](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     **감사 레코드**가 열리고, 여기서 로그를 볼 수 있습니다.
 
@@ -171,14 +171,14 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
   - **감사 원본**을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 *데이터베이스 감사 정책*에서 생성된 감사 레코드 간을 전환할 수 있습니다.
   - **SQL 삽입 감사 레코드만 표시** 확인란을 선택하여 SQL 삽입 관련 감사 레코드만 볼 수 있습니다.
 
-       ![탐색 창]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![감사 레코드를 표시 하는 옵션을 보여 주는 스크린샷]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - 시스템 함수 **sys.fn_get_audit_file**(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 참조하세요.
 
 - SQL Server Management Studio에서 **감사 파일 병합** 사용(SSMS 17부터 지원):
     1. SSMS 메뉴에서 **파일**  >  **Open**  >  **병합 감사 파일**열기를 선택 합니다.
 
-        ![탐색 창](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![감사 파일 병합 메뉴 옵션을 보여 주는 스크린샷](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. **감사 파일 추가** 대화 상자가 열립니다. **추가** 옵션 중 하나를 선택하여 로컬 디스크에서 감사 파일을 병합할지 또는 Azure Storage에서 감사 파일을 가져올지 선택합니다 Azure Storage 세부 정보 및 계정 키를 제공해야 합니다.
 
     3. 병합할 모든 파일을 추가했으면 **확인**을 클릭하여 병합 작업을 완료합니다.
@@ -218,7 +218,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 1. **저장소 세부 정보**를 엽니다. **스토리지 액세스 키** 상자에서 **보조**를 선택하고 **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
 
-    ![탐색 창](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![보조 저장소 액세스 키를 선택 하는 프로세스를 보여 주는 스크린샷](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. 스토리지 구성 패널로 이동하고 기본 액세스 키를 다시 생성합니다.
 
     ![탐색 창](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)

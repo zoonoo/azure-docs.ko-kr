@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409022"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397303"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "79409022"
 * 서유럽
 * 북유럽
 * 오스트레일리아 동부
-* 동남아시아
+* 동남 아시아
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>데이터 자산 수에 대한 제한은 무엇입니까?
 데이터 카탈로그 무료 버전은 등록된 데이터 자산 5,000개로 제한됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "79409022"
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>새 카탈로그를 만들려고 할 때 오류 *카탈로그가 이미 존재* 하는 이유는 무엇 인가요?
 
-Power BI Pro 라이선스를 사용 하 여 Office 365 E5를 구매 하는 경우 Microsoft는 구독 지역에 자동으로 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용 합니다. Office 365/Power BI 사용자 라이선스는 Office 365 관리 페이지에서 관리 됩니다. 
+Power BI Pro 라이선스를 사용 하 여 Office 365 E5를 구매 하는 경우 Microsoft는 구독 지역에 자동으로 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용 합니다. Office 365/Power BI 사용자 라이선스는 관리 페이지에서 관리 됩니다. 
 
 그러나이 유형의 데이터 카탈로그에는 **관리자 옵션이** 없으며 **Azure Portal**에 표시 되지 않습니다. 이 유형의 데이터 카탈로그는 삭제할 수 없습니다. 마찬가지로, 데이터 카탈로그의 이름을 바꿀 수 없으며 다른 영역으로 이동할 수 없습니다. 
 
@@ -75,7 +75,7 @@ Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI P
 데이터 원본과 데이터 원본 사이의 특정 속성은 다르지만 일반적으로 데이터 카탈로그 게시 서비스는 다음 정보를 추출합니다.
 
 * 자산 이름
-* 자산 형식
+* 자산 유형
 * 자산 설명
 * 특성/열 이름
 * 특성/열 데이터 형식

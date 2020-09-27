@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480410"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396402"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대한 리소스 포리스트 개념 및 기능
 
-Azure Active Directory Domain Services (Azure AD DS)는 레거시 온-프레미스 lob (기간 업무) 응용 프로그램에 대 한 로그인 환경을 제공 합니다. 온-프레미스 및 클라우드 사용자의 사용자, 그룹 및 암호 해시는 Azure AD DS 관리형 도메인과 동기화됩니다. 이러한 동기화된 암호 해시는 온-프레미스 AD DS, Office 365 및 Azure Active Directory에 사용할 수 있는 단일 자격 증명 세트를 사용자에게 제공합니다.
+Azure Active Directory Domain Services (Azure AD DS)는 레거시 온-프레미스 lob (기간 업무) 응용 프로그램에 대 한 로그인 환경을 제공 합니다. 온-프레미스 및 클라우드 사용자의 사용자, 그룹 및 암호 해시는 Azure AD DS 관리형 도메인과 동기화됩니다. 이러한 동기화 된 암호 해시는 사용자에 게 온-프레미스 AD DS, Microsoft 365 및 Azure Active Directory에 사용할 수 있는 단일 자격 증명 집합을 제공 합니다.
 
 보안 및 추가 보안 이점을 제공하지만 일부 조직에서는 이러한 사용자 암호 해시를 Azure AD 또는 Azure AD DS와 동기화할 수 없습니다. 조직의 사용자는 스마트 카드 인증만 사용하기 때문에 암호를 알지 못할 수 있습니다. 이러한 제한 사항으로 인해 일부 조직에서는 Azure AD DS를 사용하여 온-프레미스 클래식 애플리케이션을 Azure로 리프트 앤 시프트하지 못합니다.
 

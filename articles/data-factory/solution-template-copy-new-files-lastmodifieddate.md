@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629068"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398326"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
 
@@ -75,7 +75,7 @@ ms.locfileid: "82629068"
     
 7. 이제 연속 windows 트리거를 추가 하 여이 파이프라인을 자동화할 수 있습니다. 그러면 파이프라인이 항상 새 파일 및 변경 된 파일을 LastModifiedDate에 의해 주기적으로 복사할 수 있습니다.  **트리거 추가**를 선택 하 고 **새로 만들기/편집**을 선택 합니다.
 
-    ![결과 검토](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![트리거 추가를 선택할 때 표시 되는 새로 만들기/편집 메뉴 옵션을 강조 표시 하는 스크린샷](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. **트리거 추가** 창에서 **+ 새로 만들기**를 선택합니다.
 
@@ -103,7 +103,7 @@ ms.locfileid: "82629068"
 
 14. 결과를 검토합니다. 15 분 마다 파이프라인이 자동으로 트리거되고 각 파이프라인 실행 시 원본 저장소의 새 파일 또는 변경 된 파일만 대상 저장소로 복사 되는 것을 볼 수 있습니다.
 
-    ![결과 검토](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![파이프라인이 트리거될 때 반환 되는 결과를 보여 주는 스크린샷](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>다음 단계
 

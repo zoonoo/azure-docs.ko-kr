@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 326d3a4783b058855d86e17198cbe8d7492feba2
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 2c21c872649e3b171f2658ef6bdb0476552f0e59
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370643"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397195"
 ---
 # <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -24,9 +24,26 @@ ms.locfileid: "91370643"
 
 컨테이너를 사용하면 사용자 환경에서 Computer Vision API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
 
-*읽기* 컨테이너를 사용 하면 다른 표면 및 배경 (예: 수신, 포스터 및 비즈니스 카드)을 사용 하 여 다양 한 개체의 이미지에서 *인쇄 된 텍스트* 를 검색 하 고 추출할 수 있습니다. 또한 *읽기* 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF, TIFF 및 다중 페이지 파일 지원을 제공 합니다. 자세한 내용은 [Read](concept-recognizing-text.md#read-api) API 설명서를 참조 하세요.
+*읽기* 컨테이너를 사용 하면 다른 표면 및 배경 (예: 수신, 포스터 및 비즈니스 카드)을 사용 하 여 다양 한 개체의 이미지에서 *인쇄 된 텍스트* 를 검색 하 고 추출할 수 있습니다. 또한 *읽기* 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF, TIFF 및 다중 페이지 파일 지원을 제공 합니다. 자세한 내용은 [READ API 설명서](concept-recognizing-text.md#read-api)를 참조 하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+Preview에서는 세 가지 버전의 2.x 컨테이너를 사용할 수 있습니다. 두 버전 모두 이전 컨테이너 보다 정확도와 기능을 추가로 제공 합니다.
+
+읽기 3.0-미리 보기 컨테이너는 다음을 제공 합니다.
+* 향상 된 정확도를 위한 새 모델
+* 동일한 문서 내에서 여러 언어 지원
+* 지원: 네덜란드어, 영어, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어
+* 문서와 이미지 모두에 대 한 단일 작업입니다.
+* 더 큰 문서와 이미지를 지원 합니다.
+* 신뢰도 점수는 0에서 1 사이입니다.
+* 인쇄 및 필기 텍스트가 모두 포함 된 문서 지원
+
+읽기 3.1-미리 보기 컨테이너는 추가 기능과 함께 v 3.0-preview와 동일한 혜택을 제공 합니다.
+
+* 중국어 간체 및 일본어 지원.
+* 인쇄 및 필기 텍스트에 대 한 신뢰도 점수와 레이블입니다. 
+* 문서에서 선택한 페이지 에서만 텍스트를 추출할 수 있습니다.
+
+사용할 컨테이너 버전을 고려할 때 v 3.1-미리 보기는 미리 보기의 이전 상태에 있습니다. 지금 읽기 2.0 컨테이너를 사용 하는 경우 새 버전의 변경 내용에 대해 알아보려면 [마이그레이션 가이드](read-container-migration-guide.md) 를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,6 +54,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
 |Computer Vision 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>Azure **Computer Vision** 리소스 및 연결 된 API 키 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공 된 끝점입니다.|
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 ## <a name="request-approval-to-run-the-container"></a>컨테이너 실행에 대 한 승인 요청
 
@@ -71,6 +90,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |-----------|------------|
+| 2.0 읽기-미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | 3.0 읽기-미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | 3.1 읽기-미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
@@ -88,6 +108,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
+```
+
+# <a name="version-20-preview"></a>[버전 2.0-미리 보기](#tab/version-2)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 ---
@@ -142,6 +168,23 @@ ApiKey={API_KEY}
 * 는 TCP 포트 5000를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
+# <a name="version-20-preview"></a>[버전 2.0-미리 보기](#tab/version-2)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+이 명령은 다음을 수행합니다.
+
+* 컨테이너 이미지에서 읽기 컨테이너를 실행 합니다.
+* 8 CPU 코어와 16gb (GB)의 메모리를 할당 합니다.
+* 는 TCP 포트 5000를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
+* 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
+
 ---
 
 
@@ -177,6 +220,10 @@ Azure Storage를 사용 하 여 처리할 이미지를 저장 하는 경우 컨�
 # <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
+
+# <a name="version-20-preview"></a>[버전 2.0-미리 보기](#tab/version-2)
+
+컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json` .
 
 ---
 
@@ -330,6 +377,67 @@ Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장
 }
 ```
 
+# <a name="version-20-preview"></a>[버전 2.0-미리 보기](#tab/version-2)
+
+및 작업을 함께 사용 하 여 `POST /vision/v2.0/read/core/asyncBatchAnalyze` `GET /vision/v2.0/read/operations/{operationId}` Computer Vision 서비스에서 해당 REST 작업을 사용 하는 방법과 유사한 방식으로 이미지를 비동기적으로 읽을 수 있습니다. 비동기 POST 메서드는 `operationId` HTTP GET 요청에 대 한 식별자로 사용 되는를 반환 합니다.
+
+Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장 합니다. **그런 다음**  >  **파일 선택**을 선택 합니다. 이 예제에서는 다음 이미지를 사용 합니다.
+
+![탭 및 공백](media/tabs-vs-spaces.png)
+
+비동기 게시물이 성공적으로 실행 되 면 **HTTP 202** 상태 코드를 반환 합니다. 응답의 일부로 `operation-location` 요청에 대 한 결과 끝점을 포함 하는 헤더가 있습니다.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+는 `operation-location` 정규화 된 URL 이며 HTTP GET을 통해 액세스 됩니다. 이전 이미지에서 URL을 실행 하 여 받은 JSON 응답은 `operation-location` 다음과 같습니다.
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ---
 
 > [!IMPORTANT]
@@ -346,6 +454,10 @@ Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장
 # <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 `POST /vision/v3.0/read/syncAnalyze`
+
+# <a name="version-20-preview"></a>[버전 2.0-미리 보기](#tab/version-2)
+
+`POST /vision/v2.0/read/core/Analyze`
 
 ---
 

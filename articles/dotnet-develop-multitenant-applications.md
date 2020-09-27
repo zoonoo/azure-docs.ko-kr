@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017705"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395977"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure의 다중 테넌트 애플리케이션
-다중 테 넌 트 응용 프로그램은 "별도의 테 넌 트에 있는 사용자"가 고유한 응용 프로그램을 볼 수 있도록 하는 공유 리소스입니다. 다중 테 넌 트 응용 프로그램에 사용 되는 일반적인 시나리오는 다른 테 넌 트에서 응용 프로그램의 모든 사용자가 사용자 환경을 사용자 지정 하려고 하지만 그렇지 않은 경우 동일한 기본 비즈니스 요구 사항이 있는 것입니다. 대규모 다중 테넌트 애플리케이션의 예로는 Office 365, Outlook.com 및 visualstudio.com이 있습니다.
+다중 테 넌 트 응용 프로그램은 "별도의 테 넌 트에 있는 사용자"가 고유한 응용 프로그램을 볼 수 있도록 하는 공유 리소스입니다. 다중 테 넌 트 응용 프로그램에 사용 되는 일반적인 시나리오는 다른 테 넌 트에서 응용 프로그램의 모든 사용자가 사용자 환경을 사용자 지정 하려고 하지만 그렇지 않은 경우 동일한 기본 비즈니스 요구 사항이 있는 것입니다. 대량 다중 테 넌 트 응용 프로그램의 예로는 Microsoft 365, Outlook.com 및 visualstudio.com가 있습니다.
 
 애플리케이션 공급자의 관점에서 다중 테넌트 지원의 이점은 주로 운영 및 비용 효율성과 관련이 있습니다. 모니터링, 성능 조정, 소프트웨어 유지 관리, 데이터 백업과 같은 시스템 관리 작업을 통합할 수 있어, 한 버전의 애플리케이션으로 다수의 테넌트/고객의 요구 사항을 충족할 수 있습니다.
 

@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280905"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398392"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
 Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유하고 운영 중입니다. 160,000마일 넘게 뻗어 있는 이 촘촘한 글로벌 아키텍처는 데이터 센터와 고객을 연결합니다. 
  
-매일 전 세계의 고객이 Microsoft Azure, Bing, Dynamics 365, Office 365, XBox 등에 연결하여 수조 건의 요청을 전달합니다. 종류가 무엇이든, 고객은 당사의 서비스에서 즉각적인 안정성과 응답성을 기대합니다. 
+매일 전 세계 고객은 Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox 등에 대 한 엄청난 요청을 연결 하 고 전달 합니다. 종류가 무엇이든, 고객은 당사의 서비스에서 즉각적인 안정성과 응답성을 기대합니다. 
  
 [Microsoft 글로벌 네트워크](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN)는 우수한 클라우드 환경을 제공하는 데 있어서 핵심적인 역할을 합니다. 54개 Azure 지역의 Microsoft [데이터 센터](https://azure.microsoft.com/global-infrastructure/)와 전 세계에 전략적으로 배치된 그물망 같은 에지 노드를 연결하는 당사의 글로벌 네트워크는 모든 수요를 충족하는 가용성, 용량 및 유연성을 모두 제공합니다.
 

@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 웹 앱에서 토큰 가져오기-Microsoft identity platform | Microsoft
+title: 웹 Api를 호출 하는 웹 앱에서 토큰을 가져옵니다. Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 웹 앱에 대 한 토큰을 획득 하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fe3744f3f8cb39a7493ce788ee9badc1b31b75e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518184"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396181"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 웹 앱: 앱에 대 한 토큰을 가져옵니다.
 
@@ -27,7 +28,11 @@ ms.locfileid: "86518184"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-컨트롤러 메서드는 `[Authorize]` 웹 앱을 사용 하도록 사용자를 인증 하도록 하는 특성으로 보호 됩니다. Microsoft Graph를 호출 하는 코드는 다음과 같습니다.
+*Microsoft. Identity* 는 Microsoft Graph 또는 다운스트림 웹 API를 호출 하기 위한 편리한 서비스를 제공 하는 확장 메서드를 추가 합니다. 이러한 메서드는 [Web api를 호출 하는 웹 앱](scenario-web-app-call-api-call-api.md)에 자세히 설명 되어 있습니다. Api를 호출 합니다. 이러한 도우미 메서드를 사용 하 여 토큰을 수동으로 가져올 필요가 없습니다.
+
+그러나 토큰을 수동으로 획득 하려는 경우 다음 코드는 home 컨트롤러에서이 작업을 *수행 하는 데 사용 하* 는 예를 보여 줍니다. Microsoft Graph SDK 대신 REST API를 사용 하 여 Microsoft Graph를 호출 합니다. 다운스트림 API를 호출 하는 토큰을 가져오려면 `ITokenAcquisition` 컨트롤러의 생성자 (또는 Blazor를 사용 하는 경우 페이지 생성자)에서 종속성 주입을 사용 하 여 서비스를 삽입 하 고, 컨트롤러 작업에서 사용 하 여 `GetAccessTokenForUserAsync` 디먼 시나리오에서 사용자 () 또는 응용 프로그램 자체에 대 한 토큰 ()을 가져옵니다 `GetAccessTokenForAppAsync` .
+
+컨트롤러 메서드는 `[Authorize]` 인증 된 사용자만 웹 앱을 사용할 수 있도록 하는 특성에 의해 보호 됩니다.
 
 ```csharp
 [Authorize]

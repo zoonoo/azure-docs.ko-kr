@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738218"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396776"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Azure Network Watcher 문제 해결로 VPN Gateway 모니터링
 
@@ -42,7 +42,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 - Azure에서 Azure Automation 계정. Automation 계정에 최신 모듈 및 AzureRM.Network 모듈이 있는지 확인합니다. AzureRM.Network 모듈을 Automation 계정에 추가해야 하는 경우 모듈 갤러리에서 해당 모듈을 사용할 수 있습니다.
 - Azure Automation에 구성된 자격 증명 집합이 있어야 합니다. [Azure Automation 보안](../automation/automation-security-overview.md)에서 자세히 알아보세요.
-- Azure Automation에 정의된 유효한 SMTP 서버(Office 365, 온-프레미스 전자 메일 또는 기타) 및 자격 증명
+- 유효한 SMTP 서버 (Microsoft 365, 온-프레미스 전자 메일 또는 기타) 및에 정의 된 자격 증명 Azure Automation
 - Azure에 구성된 Virtual Network 게이트웨이입니다.
 - 로그를 저장할 기존 컨테이너가 포함된 기존 스토리지 계정
 
@@ -85,7 +85,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 ```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -99,8 +99,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName

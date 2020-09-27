@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985904"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395892"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
 Id 데이터는 Microsoft 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. Id 데이터가 저장 되는 위치에 대 한 자세한 내용은 Microsoft 보안 센터의 [어디에 있는 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
@@ -35,6 +35,10 @@ Id 데이터는 Microsoft 365 및 Azure와 같은 Microsoft 온라인 서비스�
 * Eu 데이터 센터에서 시작 되는 OATH 코드를 사용 하는 multi-factor authentication 요청은 EU에서 유효성이 검사 됩니다.
 
 Azure Multi-Factor Authentication 서버 (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 하는 사용자 정보에 대 한 자세한 내용은 [azure Multi-Factor Authentication 사용자 데이터 컬렉션](../authentication/howto-mfa-reporting-datacollection.md)을 참조 하세요.
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>엔터프라이즈 응용 프로그램에 대 한 암호 기반 Single Sign-on
+ 
+고객이 새 엔터프라이즈 응용 프로그램을 만들고 (Azure AD 갤러리 또는 비 갤러리를 통해) 암호 기반 SSO를 사용 하도록 설정 하는 경우 응용 프로그램 로그인 URL 및 사용자 지정 캡처 로그인 필드는 미국에 저장 됩니다. 이 기능에 대 한 자세한 내용은 [암호 기반 Single Sign-On 구성](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md) 을 참조 하세요.
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure AD B2C(Azure Active Directory B2C)
 

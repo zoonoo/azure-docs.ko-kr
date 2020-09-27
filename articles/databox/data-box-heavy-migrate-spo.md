@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a6cb3392aa83b2c02df621449a73f7cb68691ec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608607"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396861"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Azure Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션
 
@@ -82,7 +82,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 1. Azure Portal에 로그인한 다음, [가상 머신을 만듭니다](../virtual-machines/windows/quick-create-portal.md).
 2. [Azure 파일 공유를 VM에 탑재](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer)합니다.
 3. [SharePoint 마이그레이션 도구를 다운로드](https://spmtreleasescus.blob.core.windows.net/install/default.htm)하여 Azure VM에 설치합니다.
-4. SharePoint 마이그레이션 도구를 시작합니다. **로그인**을 클릭하고 Office 365 사용자 이름 및 암호를 입력합니다.
+4. SharePoint 마이그레이션 도구를 시작합니다. **로그인** 을 클릭 하 고 회사 또는 학교 계정에 대 한 사용자 이름 및 암호를 입력 합니다.
 5. **데이터가 어디에 있나요?** 라는 메시지가 표시되면 **파일 공유**를 선택합니다. 데이터가 있는 Azure 파일 공유의 경로를 입력합니다.
 6. 대상 위치를 포함하여 나머지 지시를 평소와 같이 따릅니다. 자세한 내용은 [SharePoint 마이그레이션 도구를 사용하는 방법](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool)을 참조하세요.
 

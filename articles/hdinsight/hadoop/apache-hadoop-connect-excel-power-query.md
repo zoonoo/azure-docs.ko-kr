@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: acb5171048b5a12310b6c0af5d652b7e615a71f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087812"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397116"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
 
@@ -23,7 +23,7 @@ Microsoft의 빅데이터 솔루션의 주요 기능 중 하나는 Microsoft BI(
 
 * HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * Windows 10, 7, Windows Server 2008 R2 또는 이후 버전의 운영 체제를 실행 하는 워크스테이션입니다.
-* Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone 또는 Office 2010 Professional Plus.
+* Enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 독립 실행형 또는 Office 2010 Professional Plus 용 앱을 Microsoft 365 합니다.
 
 ## <a name="install-microsoft-power-query"></a>Microsoft 파워 쿼리 설치
 
@@ -73,10 +73,10 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 또한 HDInsight에 데이터를 업로드할 수 있습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 또한 HDInsight에 데이터를 업로드할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight에서 Microsoft Power BI를 사용 하 여 Apache Hive 데이터를 시각화](apache-hadoop-connect-hive-power-bi.md)합니다.
-* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
+* [Azure HDInsight에서 Power BI를 사용 하 여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Apache Zeppelin를 사용 하 여 Azure HDInsight에서 Apache Hive 쿼리를 실행](../interactive-query/hdinsight-connect-hive-zeppelin.md)합니다.
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)

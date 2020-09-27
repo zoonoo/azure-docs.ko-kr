@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414769"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398223"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Amazon s 3에서 Azure Data Lake Storage Gen2로 데이터 마이그레이션
 
@@ -109,23 +109,23 @@ ms.locfileid: "81414769"
 
 3. **AWS S3에서 기록 데이터 마이그레이션 Azure Data Lake Storage Gen2** 템플릿으로 이동 합니다. 외부 컨트롤 테이블에 대 한 연결을 입력 하 고, 데이터 원본 저장소로 S3을 AWS 하 고, 대상 저장소로 Azure Data Lake Storage Gen2 합니다. 외부 제어 테이블 및 저장 프로시저는 동일한 연결에 대 한 참조입니다.
 
-    ![새 연결 만들기](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![AWS S3에서 Azure Data Lake Storage Gen2 템플릿으로 기록 데이터를 마이그레이션하는 것을 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. **이 템플릿 사용**을 선택합니다.
 
-    ![이 템플릿 사용](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![이 템플릿 사용 단추를 강조 표시 하는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. 다음 예제와 같이 2 개의 파이프라인과 3 개의 데이터 집합이 생성 된 것을 볼 수 있습니다.
 
-    ![파이프라인 검토](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![두 파이프라인 및 템플릿을 사용 하 여 생성 된 세 개의 데이터 집합을 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
 
-    ![**디버그** 클릭](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![마침을 선택 하기 전에 디버그를 선택 하 고 매개 변수를 입력할 위치를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. 결과는 다음 예제와 유사합니다.
 
-    ![결과 검토](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![반환 된 결과를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>이 템플릿이 Amazon s 3에서 변경 된 파일만 복사 하려면 Azure Data Lake Storage Gen2
@@ -192,7 +192,7 @@ ms.locfileid: "81414769"
 
 8. *"Select * from s3_partition_delta_control_table"* 쿼리를 통해 컨트롤 테이블의 결과를 확인할 수도 있습니다. 다음 예제와 유사한 출력이 표시 됩니다.
 
-    ![결과 검토](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![쿼리를 실행 한 후 컨트롤 테이블의 결과를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>다음 단계
 

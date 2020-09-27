@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891484"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397337"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Microsoft Azure Cosmos DB용 Synapse Link(미리 보기)란?
 
@@ -116,7 +116,7 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 ## <a name="limitations"></a>제한 사항
 
-* Azure Synapse 링크는 Azure Cosmos DB SQL (Core) API 및 Azure Cosmos DB의 MongoDB API에 대해 지원 됩니다. Cassandra API에 대 한 지원은 현재 제어 된 미리 보기로 제공 됩니다. 제어된 미리 보기에 대한 액세스를 요청하려면 [Microsoft Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 이메일을 보내세요.
+* Azure Synapse 링크는 Azure Cosmos DB SQL (Core) API 및 Azure Cosmos DB의 MongoDB API에 대해 지원 됩니다.
 
 * 현재 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용 하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용 하 여 기존 컨테이너에서 새 컨테이너로 데이터를 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 수 있습니다.
 

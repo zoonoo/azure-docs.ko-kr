@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b07ed4589a54948ef87f516ac4bb97ef8492283e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329247"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398838"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Azure Virtual WAN으로 마이그레이션
 
@@ -72,7 +72,7 @@ Contoso는 유럽 및 아시아에서 사무실이 있는 글로벌 재무 조�
 - 허브는 글로벌 메시 네트워크에 대한 OpenVPN 연결을 사용하여 여러 클라이언트 유형에서 로밍 사용자에게 VPN 종료도 제공하므로, Azure로 마이그레이션된 애플리케이션뿐만 아니라 온-프레미스에 남아 있는 모든 리소스에도 액세스할 수 있습니다.
 - Azure Virtual WAN에서 가상 네트워크 내의 리소스에 대한 인터넷 연결을 제공합니다.
 
-Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합니다. Office 365와 같은 SaaS 서비스에 대한 액세스를 최적화하기 위해 파트너 통합을 통해 로컬 인터넷 분리가 지원됩니다.
+Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합니다. Microsoft 365와 같은 SaaS 서비스에 최적화 된 액세스를 위해 파트너 통합을 통해 지원 되는 로컬 인터넷 분리
 
 ## <a name="migrate-to-virtual-wan"></a>Virtual WAN으로 마이그레이션
 

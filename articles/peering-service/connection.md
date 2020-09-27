@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: df337736a676c40f1345310afb9a2e685ddc1d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0540fa9c7a29456aaf343adce83509b2d0e390e4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871323"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398923"
 ---
 # <a name="peering-service-connection"></a>피어 링 서비스 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "84871323"
 고객은 요구 사항에 따라 단일 연결 또는 다중 연결을 설정할 수 있습니다. 연결은 원격 분석 컬렉션의 단위로도 사용 됩니다. 예를 들어 원격 분석 경고를 옵트인 하기 위해 고객은 모니터링 되는 연결을 정의 해야 합니다.
 
 > [!Note]
-> 피어 링 서비스에 등록 하면 선택 된 접두사에 대 한 대기 시간 측정을 제공 하기 위해 Windows 및 Office 365 원격 분석을 분석 합니다.
+> 피어 링 서비스에 등록 하면 선택 된 접두사에 대 한 대기 시간 측정을 제공 하기 위해 Windows 및 Microsoft 365 원격 분석을 분석 합니다.
 >연결 원격 분석에 대 한 자세한 내용은 [피어 링 서비스 연결 원격 분석](connection-telemetry.md)을 참조 하세요.
 >
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270668"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396436"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -29,9 +29,9 @@ Azure AD 확장이 작동하지 않는 경우에는 일반적으로 두 가지 �
 
 Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다. Azure AD 테넌트는 조직을 나타냅니다. Azure AD B2C 테넌트는 신뢰 당사자 애플리케이션에서 사용할 ID 컬렉션을 나타냅니다. **Azure AD B2C > id 공급자** 또는 사용자 지정 정책을 사용 하 여 **새 openid connect Connect 공급자** 를 추가 하 여 조직 내 직원의 인증을 허용 하는 Azure AD에 페더레이션 할 수 Azure AD B2C.
 
-### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Azure AD B2C를 사용하여 소셜 로그인(Facebook 및 Google+)을 Office 365에 제공할 수 있나요?
+### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-microsoft-365"></a>Azure AD B2C를 사용 하 여 소셜 로그인 (Facebook 및 Google +)을 Microsoft 365에 제공할 수 있나요?
 
-Azure AD B2C를 사용하여 Microsoft Office 365에 사용자를 인증할 수는 없습니다. Azure AD는 SaaS 앱에 대 한 직원 액세스를 관리 하기 위한 Microsoft 솔루션 이며 라이선스 및 조건부 액세스와 같은 용도로 설계 된 기능을 제공 합니다. Azure AD B2C는 웹 및 모바일 애플리케이션을 빌드하기 위한 ID 및 액세스 관리 플랫폼을 제공합니다. Azure AD B2C가 Azure AD 테넌트에 페더레이션되도록 구성된 경우 Azure AD 테넌트는 Azure AD B2C를 사용하는 애플리케이션에 대한 직원 액세스를 관리합니다.
+Azure AD B2C는 Microsoft 365 사용자를 인증 하는 데 사용할 수 없습니다. Azure AD는 SaaS 앱에 대 한 직원 액세스를 관리 하기 위한 Microsoft 솔루션 이며 라이선스 및 조건부 액세스와 같은 용도로 설계 된 기능을 제공 합니다. Azure AD B2C는 웹 및 모바일 애플리케이션을 빌드하기 위한 ID 및 액세스 관리 플랫폼을 제공합니다. Azure AD B2C가 Azure AD 테넌트에 페더레이션되도록 구성된 경우 Azure AD 테넌트는 Azure AD B2C를 사용하는 애플리케이션에 대한 직원 액세스를 관리합니다.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C에서 로컬 계정은 무엇인가요? Azure AD의 회사 또는 학교 계정과 어떻게 다른가요?
 
@@ -166,7 +166,7 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **관리**에서 **사용자**를 선택합니다.
 1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
-1. **관리** 아래에서 **앱 등록**을 선택합니다.
+1. **관리**에서 **앱 등록**을 선택합니다.
 1. **모든 응용 프로그램 보기** 선택
 1. **B2c**이라는 응용 프로그램을 선택 하 고, **삭제**를 선택한 다음, 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. **관리**에서 **사용자 설정**을 선택 합니다.

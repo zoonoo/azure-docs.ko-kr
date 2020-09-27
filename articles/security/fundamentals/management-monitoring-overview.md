@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448350"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395773"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
@@ -32,7 +32,7 @@ RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액�
 자세한 정보:
 
 * [RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Azure 역할 기반 access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>맬웨어 방지
 
@@ -66,7 +66,7 @@ Azure Multi-Factor Authentication은 두 가지 이상의 확인 방법을 사�
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 다음에서 Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
+Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 연결을 설정할 수 있습니다.
 
 * 모든 대상 간(IP VPN) 네트워크
 * 지점 간 이더넷 네트워크

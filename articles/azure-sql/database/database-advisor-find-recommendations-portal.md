@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e13d69b8d821267a993cd2ca9a3b6d0d686ccf9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e96db18993dbb18ebf51d0b30e9172901d10df5b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284553"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398275"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
    ![관리자 설정](./media/database-advisor-find-recommendations-portal/settings.png)
 2. 자동화할 작업을 선택합니다.
 
-   ![권장된 인덱스](./media/database-advisor-find-recommendations-portal/server.png)
+   ![자동화할 작업을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다.
@@ -139,7 +139,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 세부 정보를 보려면 목록에서 In Process 권장 구성을 클릭합니다.
 
-![권장된 인덱스](./media/database-advisor-find-recommendations-portal/operations.png)
+![In-process 권장 사항 목록을 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>권장 사항 되돌리기
 

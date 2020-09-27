@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757826"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397235"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure 네트워크 보안 모범 사례
 이 문서에서는 네트워크 보안을 향상시키기 위한 Azure 모범 사례 컬렉션을 설명합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -131,7 +131,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 하이브리드 IT 시나리오에는 일반적으로 몇 가지 유형의 프레미스 간 연결이 있습니다. 크로스-프레미스 연결을 사용하면 회사가 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 다음과 같은 두 가지 크로스-프레미스 연결 솔루션이 제공됩니다.
 
 * [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). 신뢰할 수 있고 안정적이며 인정된 기술이지만 연결이 인터넷을 통해 이루어집니다. 대역폭이 최대 약 1.25Gbps로 제한됩니다. 일부 시나리오에서는 사이트 간 VPN이 권장되는 옵션입니다.
-* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해[ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다. ExpressRoute는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간에 설정된 전용 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않으므로 인터넷 통신의 잠재적 위험에 노출되지 않습니다.
+* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해[ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Microsoft 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. ExpressRoute는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간에 설정된 전용 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않으므로 인터넷 통신의 잠재적 위험에 노출되지 않습니다.
 
 ExpressRoute 연결 위치는 방화벽 기능, 확장성, 안정성 및 네트워크 트래픽 가시성에 영향을 줄 수 있습니다. 기존(온-프레미스) 네트워크에서 ExpressRoute를 종료하는 위치를 식별해야 합니다. 다음을 수행할 수 있습니다.
 

@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445324"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396691"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure Lab Services에서 Windows 템플릿 컴퓨터를 설정 하는 방법에 대 한 가이드
 
@@ -61,7 +61,7 @@ Active Directory를 사용 하지 않는 컴퓨터에 있는 경우 사용자가
 
 가상 컴퓨터가 Active Directory에 연결 된 경우 학생에 게 자동으로 알려진 폴더를 OneDrive로 이동 하도록 템플릿 컴퓨터를 설정할 수 있습니다.  
 
-먼저 Office 테 넌 트 ID를 검색 해야 합니다.  자세한 지침은 [Office 365 테 넌 트 ID 찾기](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id)를 참조 하세요.  다음 PowerShell을 사용 하 여 Office 365 테 넌 트 ID를 가져올 수도 있습니다.
+먼저 조직 ID를 검색 해야 합니다.  자세한 지침은 [Microsoft 365 조직 ID 찾기](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id)를 참조 하세요.  다음 PowerShell을 사용 하 여 조직 ID를 가져올 수도 있습니다.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -71,7 +71,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-Office 365 테 넌 트 ID가 있는 경우 다음 PowerShell을 사용 하 여 OneDrive를 OneDrive로 이동 하도록 설정 합니다.
+조직 ID가 있으면 다음 PowerShell을 사용 하 여 OneDrive를 OneDrive로 이동 하도록 설정 합니다.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -95,7 +95,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="silently-sign-in-users-to-onedrive"></a>OneDrive에 자동으로 사용자 로그인
 
-OneDrive는 로그온 한 사용자의 Windows 자격 증명을 사용 하 여 자동으로 로그인 하도록 설정할 수 있습니다.  자동 로그인은 학생이 Office 365 학교 자격 증명을 사용 하 여 로그인 하는 클래스에 유용 합니다.
+OneDrive는 로그온 한 사용자의 Windows 자격 증명을 사용 하 여 자동으로 로그인 하도록 설정할 수 있습니다.  자동 로그인은 학생이 학교 자격 증명을 사용 하 여 로그인 하는 클래스에 유용 합니다.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -115,7 +115,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>자동으로 다운로드 되는 파일의 최대 크기를 설정 합니다.
 
-이 설정은 onedrive 동기화 클라이언트에 대 한 사용자의 Windows 자격 증명을 사용 하도록 설정 된 OneDrive 파일이 없는 장치에서 자동으로 사용자 로그인과 함께 사용 됩니다. 지정 된 임계값 (MB) 보다 큰 OneDrive를 사용 하는 모든 사용자에 게는 OneDrive 동기화 클라이언트 (OneDrive.exe)에서 파일을 다운로드 하기 전에 동기화 할 폴더를 선택 하 라는 메시지가 표시 됩니다.  이 예제에서 "1111-2222-3333-4444"은 Office 365 테 넌 트 ID 이며 0005000는 5gb의 임계값을 설정 합니다.
+이 설정은 onedrive 동기화 클라이언트에 대 한 사용자의 Windows 자격 증명을 사용 하도록 설정 된 OneDrive 파일이 없는 장치에서 자동으로 사용자 로그인과 함께 사용 됩니다. 지정 된 임계값 (MB) 보다 큰 OneDrive를 사용 하는 모든 사용자에 게는 OneDrive 동기화 클라이언트 (OneDrive.exe)에서 파일을 다운로드 하기 전에 동기화 할 폴더를 선택 하 라는 메시지가 표시 됩니다.  이 예제에서 "1111-2222-3333-4444"은 조직 ID이 고 0005000은 5 GB의 임계값을 설정 합니다.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -124,23 +124,23 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
     -Name "1111-2222-3333-4444" -Value "0005000" -PropertyType DWORD
 ```
 
-## <a name="install-and-configure-microsoft-office-365"></a>Microsoft Office 365 설치 및 구성
+## <a name="install-and-configure-microsoft-365"></a>Microsoft 365 설치 및 구성
 
-### <a name="install-microsoft-office-365"></a>Microsoft Office 365 설치
+### <a name="install-microsoft-365"></a>Microsoft 365 설치
 
-템플릿 컴퓨터에 Office가 필요한 경우 [ODT (Office 배포 도구)](https://www.microsoft.com/download/details.aspx?id=49117 )를 통해 office를 설치 하는 것이 좋습니다. [Office 365 클라이언트 구성 서비스](https://config.office.com/) 를 사용 하 여 재사용 가능한 구성 파일을 만들어 office에서 필요한 기능 및 업데이트 빈도를 선택 해야 합니다.
+템플릿 컴퓨터에 Office가 필요한 경우 [ODT (Office 배포 도구)](https://www.microsoft.com/download/details.aspx?id=49117)를 통해 office를 설치 하는 것이 좋습니다. [Microsoft 365 Apps 관리 센터](https://config.office.com/) 를 사용 하 여 재사용 가능한 구성 파일을 만들어 Office에서 필요한 기능 및 업데이트 빈도를 선택 해야 합니다.
 
-1. [Office 365 클라이언트 구성 서비스로](https://config.office.com/) 이동 하 여 사용자 고유의 구성 파일을 다운로드 합니다.
+1. [Microsoft 365 Apps 관리 센터](https://config.office.com/) 로 이동 하 여 사용자 고유의 구성 파일을 다운로드 합니다.
 2. [Office 배포 도구](https://www.microsoft.com/download/details.aspx?id=49117)를 다운로드 합니다.  다운로드 한 파일은 `setup.exe` 입니다.
 3. `setup.exe /download configuration.xml`을 실행 하 여 Office 구성 요소를 다운로드 합니다.
 4. `setup.exe /configure configuration.xml`을 실행 하 여 Office 구성 요소를 설치 합니다.
 
-### <a name="change-the-microsoft-office-365-update-channel"></a>Microsoft Office 365 업데이트 채널 변경
+### <a name="change-the-microsoft-365-update-channel"></a>Microsoft 365 업데이트 채널 변경
 
-Office 구성 도구를 사용 하 여 Office에서 업데이트를 수신 하는 빈도를 설정할 수 있습니다. 그러나 설치 후 Office에서 업데이트를 수신 하는 빈도를 수정 해야 하는 경우에는 업데이트 채널 URL을 변경할 수 있습니다. 업데이트 채널 URL 주소 [는 조직의 장치에 대 한 Office 365 ProPlus 업데이트 채널 변경](https://docs.microsoft.com/deployoffice/change-update-channels)에서 찾을 수 있습니다. 아래 예제에서는 월별 업데이트 채널을 사용 하도록 Office 365을 설정 하는 방법을 보여 줍니다.
+Office 구성 도구를 사용 하 여 Office에서 업데이트를 수신 하는 빈도를 설정할 수 있습니다. 그러나 설치 후 Office에서 업데이트를 수신 하는 빈도를 수정 해야 하는 경우에는 업데이트 채널 URL을 변경할 수 있습니다. 채널 URL 주소 업데이트 [는 조직의 장치에 대 한 Microsoft 365 앱 업데이트 채널 변경](https://docs.microsoft.com/deployoffice/change-update-channels)에서 찾을 수 있습니다. 아래 예제에서는 월별 업데이트 채널을 사용 하도록 Microsoft 365를 설정 하는 방법을 보여 줍니다.
 
 ```powershell
-# Update to the Office 365 Monthly Channel
+# Update to the Microsoft 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
@@ -228,7 +228,7 @@ Windows 스토어 앱을 통해 일반적으로 학습에 사용 되는 다른 �
 
 ## <a name="conclusion"></a>결론
 
-이 문서에는 효과적인 클래스를 위해 Windows 템플릿 VM을 준비 하는 선택적 단계가 나와 있습니다.  이러한 단계에는 OneDrive 설치 및 Office 365 설치, Windows 용 업데이트 설치 및 Microsoft Store 앱에 대 한 업데이트 설치가 포함 됩니다.  또한 클래스에 가장 적합 한 일정으로 업데이트를 설정 하는 방법을 설명 했습니다.  
+이 문서에는 효과적인 클래스를 위해 Windows 템플릿 VM을 준비 하는 선택적 단계가 나와 있습니다.  이러한 단계에는 OneDrive 설치 및 Microsoft 365 설치, Windows 용 업데이트 설치 및 Microsoft Store 앱에 대 한 업데이트 설치가 포함 됩니다.  또한 클래스에 가장 적합 한 일정으로 업데이트를 설정 하는 방법을 설명 했습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 비용 관리에 도움이 되도록 Windows 종료 동작을 제어 하는 방법에 대 한 문서를 참조 하세요. [windows 종료 동작 제어 가이드](how-to-windows-shutdown.md)

@@ -1,5 +1,6 @@
 ---
-title: 웹 API를 호출하는 웹앱 구성 - Microsoft ID 플랫폼 | Azure
+title: 웹 Api를 호출 하는 웹 앱 구성 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 API를 호출하는 웹앱의 코드를 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8827d413144d8bc6f00c3948a99be3ee3aa2264e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855442"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396317"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -33,7 +34,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 | MSAL 라이브러리 | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼을 지원합니다. UWP(유니버설 Windows 플랫폼), Xamarin.iOS 및 Xamarin.Android는 퍼블릭 클라이언트 애플리케이션을 빌드하는 데 사용되는 플랫폼이므로 지원되지 않습니다. 웹 앱 및 web Api ASP.NET Core MSAL.NET는 더 높은 수준의 라이브러리 ( [Microsoft. Identity](https://aka.ms/ms-identity-web) )에 캡슐화 되어 있습니다.|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼을 지원합니다. UWP(유니버설 Windows 플랫폼), Xamarin.iOS 및 Xamarin.Android는 퍼블릭 클라이언트 애플리케이션을 빌드하는 데 사용되는 플랫폼이므로 지원되지 않습니다. <br/><br/>웹 앱 및 web Api ASP.NET Core MSAL.NET는 더 높은 수준의 라이브러리 ( [Microsoft. Identity. web](https://aka.ms/ms-identity-web))에 캡슐화 되어 있습니다. |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Python용 MSAL | Python 웹 애플리케이션 지원. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Java용 MSAL | Java 웹 애플리케이션 지원. |
 
@@ -41,32 +42,153 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-웹앱에서 Microsoft.Identity.Web을 사용할 때 보호되는 API를 호출할 수 있도록 하려면 `AddWebAppCallsProtectedWebApi`를 호출하고 토큰 캐시 직렬화 형식(예: 메모리 내 토큰 캐시)을 지정하기만 하면 됩니다.
+## <a name="client-secrets-or-client-certificates"></a>클라이언트 암호 또는 클라이언트 인증서
 
-```C#
-// This method gets called by the runtime. Use this method to add services to the container.
-public void ConfigureServices(IServiceCollection services)
+이제 웹 앱이 다운스트림 웹 API를 호출 하는 경우 파일 * 의appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
+
+- 다운스트림 웹 API의 URL
+- API를 호출 하는 데 필요한 범위
+
+다음 예에서는 `GraphBeta` 섹션에서 이러한 설정을 지정 합니다.
+
+```JSON
 {
-    // more code here
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
 
-    services.AddMicrosoftIdentityWebAppAuthentication(Configuration,
-                                                      "AzureAd")
-            .EnableTokenAcquisitionToCallDownstreamApi(
-                    initialScopes: new string[] { "user.read" })
-                .AddInMemoryTokenCaches();
-
-    // more code here
+   // To call an API
+   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+   "ClientCertificates": [
+  ]
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
-토큰 캐시에 대해 자세히 알아보려면 [토큰 캐시 직렬화 옵션](#token-cache)을 참조하세요.
+클라이언트 암호 대신 클라이언트 인증서를 제공할 수 있습니다. 다음 코드 조각에서는 Azure Key Vault에 저장 된 인증서를 사용 하는 방법을 보여 줍니다.
+
+```JSON
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+
+   // To call an API
+   "ClientCertificates": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
+}
+```
+
+*Microsoft. Identity* 는 구성 또는 코드를 통해 인증서를 설명 하는 여러 가지 방법을 제공 합니다. 자세한 내용은 GitHub에서 [인증서 사용](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) 을 참조 하세요.
+
+## <a name="startupcs"></a>Startup.cs
+
+웹 앱은 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러 및 페이지 작업에서 사용할 수 있는 서비스를 제공 합니다. 그러나 다음 두 가지 옵션에 표시 된 것 처럼 간단히 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs*에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+에 전달 되는 범위는 `EnableTokenAcquisitionToCallDownstreamApi` 선택 사항이 며, 웹 앱이 범위를 요청 하 고 사용자가 로그인 할 때 범위에 대 한 사용자 동의를 요청할 수 있도록 합니다. 범위를 지정 하지 않은 경우에는 *Microsoft. Identity. Web* 에서 증분 승인 환경을 사용 하도록 설정 합니다.
+
+토큰을 직접 획득 하지 않으려는 *경우, 웹* 앱에서 web API를 호출 하는 두 가지 메커니즘을 제공 합니다. 선택 하는 옵션은 Microsoft Graph 또는 다른 API를 호출 하는지 여부에 따라 달라 집니다.
+
+### <a name="option-1-call-microsoft-graph"></a>옵션 1: Microsoft Graph 호출
+
+Microsoft Graph *를 호출* 하려는 경우에는 `GraphServiceClient` API 작업에서 (Microsoft Graph SDK에 의해 노출 됨)를 직접 사용할 수 있습니다. Microsoft Graph를 노출 하려면:
+
+1. [Microsoft.azure.webjobs.extensions.microsoftgraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 프로젝트에 추가 합니다.
+1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *Startup.cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>옵션 2: Microsoft Graph 이외의 다운스트림 웹 API 호출
+
+Microsoft Graph 이외의 웹 API를 호출 하려면 토큰을 *Microsoft.Identity.Web* `.AddDownstreamWebApi()` 요청 하 고 다운스트림 웹 API를 호출 하는을 제공 합니다.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="summary"></a>요약
+
+웹 Api와 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft Identity cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 을 참조 하세요.
+
+다음 이미지는 *Startup.cs* 파일에 대 한 다양 한 *Microsoft id* 및 해당 영향을 보여 줍니다.
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Web api를 만들 때 다운스트림 api 및 토큰 캐시 구현을 호출 하도록 선택할 수 있습니다.":::
 
 > [!NOTE]
 > 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-사용자 로그인은 OIDC(Open ID Connect) 미들웨어에 위임되므로 OIDC 프로세스와 상호 작용해야 합니다. 상호 작용하는 방법은 사용하는 프레임워크에 따라 다릅니다.
+사용자 로그인은 OIDC (Openid connect Connect) 미들웨어에 위임 되므로 OIDC 프로세스와 상호 작용 해야 합니다. 상호 작용하는 방법은 사용하는 프레임워크에 따라 다릅니다.
 
 ASP.NET의 경우 미들웨어 OIDC 이벤트를 구독합니다.
 

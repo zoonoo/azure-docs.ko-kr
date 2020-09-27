@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257149"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396198"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 
@@ -28,11 +28,11 @@ ms.locfileid: "91257149"
 
 *Microsoft. Identity. Web*을 사용 하면 세 가지 사용 시나리오가 있습니다.
 
-- [Microsoft Graph 호출](#call-microsoft-graph)
-- [Microsoft Graph 이외의 웹 API 호출](#call-web-api-other-than-microsoft-graph)
-- [수동으로 토큰 획득](#acquire-a-token-manually)
+- [옵션 1: Microsoft Graph SDK를 사용 하 여 Microsoft Graph 호출](#option-1-call-microsoft-graph-with-the-sdk)
+- [옵션 2: 도우미 클래스를 사용 하 여 다운스트림 웹 API 호출](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [옵션 3: 도우미 클래스 없이 다운스트림 웹 API 호출](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-#### <a name="call-microsoft-graph"></a>Microsoft Graph 호출
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>옵션 1: SDK를 사용 하 여 Microsoft Graph 호출
 
 이 시나리오에서는 `.AddMicrosoftGraph()` [코드 구성](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)에 지정 된 대로 *Startup.cs* 에를 추가 했으며, `GraphServiceClient` 작업에 사용할 컨트롤러 또는 페이지 생성자에를 직접 삽입할 수 있습니다. 다음 예제 Razor 페이지는 로그인 한 사용자의 사진을 표시 합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "91257149"
  }
 ```
 
-#### <a name="call-web-api-other-than-microsoft-graph"></a>Microsoft Graph 이외의 웹 API 호출
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>옵션 2: 도우미 클래스를 사용 하 여 다운스트림 웹 API 호출
 
 이 시나리오에서는 `.AddDownstreamWebApi()` [코드 구성](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)에 지정 된 대로 *Startup.cs* 에를 추가 했으며, `IDownstreamWebApi` 컨트롤러 또는 페이지 생성자에서 서비스를 직접 삽입 하 고 작업에 사용할 수 있습니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "91257149"
  }
 ```
 
-#### <a name="acquire-a-token-manually"></a>수동으로 토큰 획득
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>옵션 3: 도우미 클래스 없이 다운스트림 웹 API 호출
 
 서비스를 사용 하 여 토큰을 수동으로 획득 하기로 결정 `ITokenAcquisition` 한 경우 이제 토큰을 사용 해야 합니다. 이 경우 다음 코드는 웹 api를 호출 하는 web API에 표시 된 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
 

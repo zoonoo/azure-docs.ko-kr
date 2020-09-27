@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083823"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397966"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -197,11 +197,11 @@ VM에서 사용자 지정 DNS 설정을 사용 하는지 확인 하려면:
 
 #### <a name="possible-cause"></a>가능한 원인
 
-Office 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습니다.
+Microsoft 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습니다.
 
 #### <a name="fix-the-problem"></a>문제 해결
 
-인증을 위해 Office 365 IP 범위에 필요한 액세스를 Azure Site Recovery 합니다.
+인증을 위해 Microsoft 365 IP 범위에 필요한 액세스를 Azure Site Recovery 합니다.
 Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 aad에 대 한 액세스를 허용 하기 위해 [aad (Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 nsg 규칙을 사용 해야 합니다. IP 주소 기반 NSG 규칙을 더 이상 지원 하지 않습니다.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
@@ -225,8 +225,8 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
 1. 모바일 서비스 에이전트는 Windows 및 Linux에서 IE의 프록시 설정을 검색 합니다 `/etc/environment` .
 1. 모바일 서비스에 대해서만 프록시를 설정 하는 것을 선호 하는 경우에는 다음 위치에 있는 _Proxyinfo._ 에 프록시 세부 정보를 제공할 수 있습니다.
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _Proxyinfo_ 는 다음 _INI_ 형식의 프록시 설정을 포함 해야 합니다.
 
@@ -239,7 +239,7 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
 > [!NOTE]
 > 모바일 서비스 에이전트는 **인증 되지 않은 프록시**만 지원 합니다.
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 [필수 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 지정 하려면 azure [에서 Azure로 복제에 대 한 정보](azure-to-azure-about-networking.md)를 참조 하세요.
 
@@ -575,4 +575,4 @@ Site Recovery 모바일 서비스에는 많은 구성 요소가 있으며,이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Vm을 다른 Azure 지역에 복제](azure-to-azure-how-to-enable-replication.md)
+[Azure VM을 다른 Azure 지역에 복제](azure-to-azure-how-to-enable-replication.md)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749615"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396334"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -108,13 +108,15 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 다음 네트워크 보안 그룹 규칙은 관리 되는 도메인에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. 관리 되는 도메인이 배포 된 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 용도 |
+| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
 | 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | 예      | 도메인 관리. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | 도메인 관리. |
 
 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다. 이 네트워크 보안 그룹을 삭제 하지 마세요. 부하 분산 장치가 없으면 제대로 작동 하지 않습니다.
+
+필요한 경우 [Azure PowerShell를 사용 하 여 필요한 네트워크 보안 그룹 및 규칙을 만들](powershell-create-instance.md#create-a-network-security-group)수 있습니다.
 
 > [!WARNING]
 > 이러한 네트워크 리소스 및 구성은 수동으로 편집 하지 마세요. 잘못 구성 된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 관리 되는 도메인이 배포 된 서브넷과 연결 하면 Microsoft에서 도메인을 서비스 하 고 관리 하는 기능을 방해할 수 있습니다. Azure AD 테 넌 트와 관리 되는 도메인 간의 동기화도 중단 됩니다.

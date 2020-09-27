@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801362"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398581"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합
 
@@ -22,8 +22,8 @@ ms.locfileid: "85801362"
 
 파워 자동화 및 Azure Logic Apps에 대 한 Azure IoT Central V3 커넥터를 사용 하 여 IoT Central에서 작업을 자동화 하는 고급 규칙을 만들 수 있습니다.
 
-- Azure IoT Central 앱에서 규칙이 실행되면 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 Office 365 같은 다른 클라우드 서비스 또는 타사 서비스에서 작업을 실행할 수 있습니다.
-- 다른 클라우드 서비스(예: Office 365)의 이벤트는 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 IoT Central 애플리케이션에서 작업을 실행하거나 데이터를 검색할 수 있습니다.
+- Azure IoT Central 앱에서 규칙이 실행되면 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 Microsoft 365 또는 타사 서비스와 같은 다른 클라우드 서비스에서 작업을 실행할 수 있습니다.
+- Microsoft 365 같은 다른 클라우드 서비스의 이벤트는 전원 자동화 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 IoT Central 애플리케이션에서 작업을 실행하거나 데이터를 검색할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

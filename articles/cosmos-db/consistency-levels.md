@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851695"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396028"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준은 무엇입니까?
 
 고가용성이나 짧은 대기 시간 또는 둘 다를 위해 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간과 처리량을 근본적으로 절충합니다. 가장 상업적으로 사용할 수 있는 분산 된 데이터베이스는 개발자에 게 *강력한* 일관성과 *최종* 일관성 모델 중에서 선택할 수 있도록 합니다. 강력한 일관성 모델의 선형화 가능성는 데이터 프로그래밍의 골드 표준입니다. 그러나 더 높은 쓰기 대기 시간 (안정적인 상태)과 가용성 감소 (오류 중)의 가격이 추가 됩니다. 반면, 최종 일관성은 고가용성과 향상 된 성능을 제공 하지만 응용 프로그램을 프로그래밍 하는 데 사용 하기 어렵습니다.
 
@@ -91,12 +91,12 @@ Azure Cosmos DB에서 제공하는 포괄적인 SLA는 읽기 요청의 100%가 
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="비디오":::
 
-- **최종**: 읽기에 대 한 순서가 보장 되지 않습니다. 추가적인 쓰기가 없는 경우 복제본이 결국 통합됩니다.  
+- **최종**: 읽기에 대 한 순서가 보장 되지 않습니다. 추가 쓰기가 없으면 복제본이 결과적으로 수렴합니다.  
 최종 일관성은 클라이언트에서 이전에 읽은 값 보다 오래 된 값을 읽을 수 있기 때문에 가장 약한 형태의 일관성입니다. 최종 일관성은 응용 프로그램에서 순서를 보장 하지 않아도 되는 경우에 적합 합니다. 예를 들면, 좋아요, 좋아요 또는 비 스레드된 주석의 개수가 포함 됩니다. 다음 그림은 악기 노트와의 최종 일관성을 보여 줍니다.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="비디오":::
 
-## <a name="additional-reading"></a>추가 참조 항목
+## <a name="additional-reading"></a>추가 자료
 
 일관성 개념에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 

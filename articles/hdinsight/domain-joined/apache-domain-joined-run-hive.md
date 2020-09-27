@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202578"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397830"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 후 Excel 및 ODBC 드라이버를 사용 하 여 HDInsight의 Hive 테이블에 연결 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Enterprise Security Package가 포함된 HDInsight 클러스터. [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
-* Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus를 포함한 워크스테이션
+* 엔터프라이즈, Office 2016, Office 2013 Professional Plus, Excel 2013 독립 실행형 또는 Office 2010 Professional Plus 용 Microsoft 365 apps를 사용 하는 워크스테이션
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Apache Ranger 관리 UI에 연결
 **Ranger 관리 UI에 연결하려면**
@@ -55,11 +55,11 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |속성 |값 |
     |---|---|
     |정책 이름|읽기 hivesampletable-모두|
-    |Hive 데이터베이스|default|
-    |table|hivesampletable|
+    |Hive 데이터베이스|기본값|
+    |테이블|hivesampletable|
     |Hive 열|*|
     |사용자 선택|hiveuser1|
-    |권한|선택|
+    |사용 권한|선택|
 
     ![HDInsight ESP 레인저 Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -73,17 +73,17 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |속성 |값 |
     |---|---|
     |정책 이름|읽기-hivesampletable-devicemake|
-    |Hive 데이터베이스|default|
-    |table|hivesampletable|
+    |Hive 데이터베이스|기본값|
+    |테이블|hivesampletable|
     |Hive 열|clientid, devicemake|
     |사용자 선택|hiveuser2|
-    |권한|선택|
+    |사용 권한|선택|
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |설명 |
+ | 속성  |Description |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
  | 호스트 | CLUSTERNAME.azurehdinsight.net를 입력 합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |

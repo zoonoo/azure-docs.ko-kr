@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750795"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398872"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure 보안 로깅 및 감사
 
@@ -46,7 +46,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 다음 표에는 Azure에서 사용할 수 있는 가장 중요한 유형의 로그가 나와 있습니다.
 
-| 로그 범주 | 로그 형식 | 사용량 | 통합 |
+| 로그 범주 | 로그 형식 | 사용 | 통합 |
 | ------------ | -------- | ------ | ----------- |
 |[활동 로그](../../azure-monitor/platform/platform-logs-overview.md)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|  구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.|    Rest API, [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Azure 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈번한 데이터|   리소스 자체에서 수행한 작업에 대한 인사이트를 제공합니다.| Azure Monitor|
@@ -68,4 +68,4 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 - [사이트 모음에 대한 감사 설정 구성](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): 사이트 모음 관리자인 경우 개별 사용자의 작업 기록과 특정 날짜 범위 동안 수행된 작업 기록을 검색할 수 있습니다.
 
-- [Office 365 보안 및 준수 센터에서 감사 로그 검색](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Office 365 보안 및 준수 센터를 사용하여 Office 365 조직에서 통합 감사 로그를 검색하고 사용자와 관리자의 활동을 확인합니다.
+- [Microsoft 365 security center에서 감사 로그 검색](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Microsoft 365 security center를 사용 하 여 통합 된 감사 로그를 검색 하 고 조직의 사용자 및 관리자 작업을 볼 수 있습니다.

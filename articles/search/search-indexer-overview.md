@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971391"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397898"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -60,7 +60,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 수집 하는 각 문서에 대해 인덱서는 인덱싱에 대 한 문서 검색에서 최종 검색 엔진 "전달"까지 여러 단계를 구현 하거나 조정 합니다. 필요에 따라 기술 실행 및 출력을 구동 하는 경우에도 인덱서가 지정 됩니다. 기술가 정의 되어 있다고 가정 합니다.
 
-![인덱서 단계](./media/search-indexer-overview/indexer-stages.png "인덱서 단계")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="인덱서 단계" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>1 단계: 문서 크랙
 

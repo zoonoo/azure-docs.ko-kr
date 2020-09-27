@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 4cc8f2c90e74b5b3ab6df3169df0524f1134b66e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b5b3d2ab1f576f87ead23b389252ec96a20f11
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113605"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397354"
 ---
-# <a name="globally-scale-provisioned-throughput"></a>전역적으로 프로비전된 처리량 크기 조정 
+# <a name="how-does-azure-cosmos-db-globally-scale-the-provisioned-throughput"></a>Azure Cosmos DB는 프로 비전 된 처리량을 전역적으로 확장 하는 방법
 
 Azure Cosmos DB에서 프로 비전 된 처리량은 요청 단위/초 (r u/초 또는 복수 형식 RUs)로 표시 됩니다. RU는 다음 이미지에서 표시된 대로 Cosmos 컨테이너에 대한 읽기 및 쓰기 작업의 비용을 모두 측정합니다.
 

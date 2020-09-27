@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191739"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396011"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>일관성, 가용성 및 성능의 장단점
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>다른 Azure Cosmos DB 일관성 수준에 대 한 대기 시간, 가용성 및 성능 절충
 
 고가용성, 낮은 대기 시간 또는 둘 다를 위해 복제에 의존하는 분산 데이터베이스는 절충을 해야 합니다. 읽기 일관성과 가용성, 대기 시간 및 처리량의 절충이 필요합니다.
 
@@ -52,7 +52,7 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 |**일관성 수준**|**쿼럼 읽기**|**쿼럼 쓰기**|
 |--|--|--|
 |**강력**|로컬 소주주|전역 과반수|
-|**제한된 부실**|로컬 소주주|로컬 과반수|
+|**제한 된 부실**|로컬 소주주|로컬 과반수|
 |**세션**|단일 복제본 (세션 토큰 사용)|로컬 과반수|
 |**일관적인 접두사**|단일 복제본|로컬 과반수|
 |**최종적인**|단일 복제본|로컬 과반수|

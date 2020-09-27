@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184298"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398189"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 디바이스로 데이터 마이그레이션
 
@@ -80,8 +80,8 @@ ms.locfileid: "88184298"
 
     ![레거시 디바이스의 소프트웨어 버전 확인](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * 정상 작동하는 디바이스에서 v2.1.1.518 이상 버전을 실행하고 있지 않는 경우 시스템을 최소 필수 버전으로 업그레이드하세요. 자세한 지침은 [v2.1.1.518 버전으로 시스템 업그레이드](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)를 참조하세요.
-    * v2.1.1.518을 실행 중인 경우 웹 UI로 이동하여 레지스트리 복원 실패에 대한 알림이 있는지 확인합니다. 레지스트리 복원이 실패했으면 레지스트리 복원을 실행합니다. 자세한 내용은 [레지스트리 복원 실행](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry)을 참조하세요.
+    * 정상 작동하는 디바이스에서 v2.1.1.518 이상 버전을 실행하고 있지 않는 경우 시스템을 최소 필수 버전으로 업그레이드하세요. 업그레이드를 수행 하는 데 도움이 되도록 Microsoft 지원 작업 해야 할 수 있습니다.
+    * v2.1.1.518을 실행 중인 경우 웹 UI로 이동하여 레지스트리 복원 실패에 대한 알림이 있는지 확인합니다. 레지스트리 복원이 실패했으면 레지스트리 복원을 실행합니다. 레지스트리를 복원 하는 데 도움이 되도록 Microsoft 지원 작업 해야 할 수 있습니다.
     * v2.1.1.518을 실행하지 않는 다운된 디바이스가 있으면 v2.1.1.518을 실행하는 대체 디바이스로 장애 조치(failover)를 수행합니다. 자세한 지침은 5000/7000 시리즈 StorSimple 디바이스의 DR을 참조하세요.
     * 클라우드 스냅샷을 만들어서 디바이스 데이터를 백업합니다.
     * 소스 디바이스에서 실행 중인 다른 활성 백업 작업이 있는지 확인합니다. 여기에는 StorSimple 데이터 보호 콘솔 호스트의 작업이 포함됩니다. 현재 작업이 완료될 때까지 기다립니다.
