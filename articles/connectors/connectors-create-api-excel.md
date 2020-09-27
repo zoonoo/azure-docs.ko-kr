@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097db6683127b410e713be53e6de838cf7734ddc
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445879"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400726"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Excel Online 데이터 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "75445879"
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 작업 계정 또는 개인 Microsoft 계정에 대한 [Office 365 계정](https://www.office.com/)
+* 회사 계정 또는 개인 Microsoft 계정에 대 한 [회사 또는 학교 계정](https://www.office.com/)
 
   Excel 데이터는 스토리지 폴더(예: OneDrive)에 쉼표로 구분된 값(CSV)으로 존재할 수 있습니다. 
   또한 동일한 CSV 파일을 [플랫 파일 커넥터](../logic-apps/logic-apps-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "75445879"
    > [!NOTE]
    > 논리 앱 디자이너는 100 개 이상의 열이 있는 테이블을 로드할 수 없습니다. 가능 하면 디자이너에서 테이블을 로드할 수 있도록 선택한 테이블의 열 수를 줄입니다.
 
-1. 메시지가 표시 되 면 Office 365 계정에 로그인 합니다.
+1. 메시지가 표시 되 면 회사 또는 학교 계정에 로그인 합니다.
 
    자격 증명을 통해 Excel Online에 대한 연결을 만들고 데이터에 액세스하는 권한이 논리 앱에 부여됩니다.
 

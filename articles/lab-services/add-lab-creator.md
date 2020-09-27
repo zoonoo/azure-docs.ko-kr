@@ -3,12 +3,12 @@ title: Azure Lab Services에서 사용자를 랩 작성자로 추가
 description: 이 문서에서는 Azure Lab Services에서 랩 계정에 대 한 랩 작성자 역할에 사용자를 추가 하는 방법을 보여 줍니다. 랩 작성자는이 랩 계정 내에서 랩을 만들 수 있습니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444287"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399485"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Azure Lab Services에서 랩 작성자를 랩 계정에 추가
 이 문서에서는 Azure Lab Services의 랩 계정에 사용자를 랩 작성자로 추가 하는 방법을 보여 줍니다. 그런 다음이를 사용 하 여 랩 계정에 교실 랩을 만들 수 있습니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "85444287"
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>랩 작성자로 Microsoft 계정 되지 않은 사용자 추가
 사용자를 랩 작성자로 추가 하려면 해당 전자 메일 계정을 사용 합니다. 다음과 같은 유형의 전자 메일 계정을 사용할 수 있습니다.
 
-- 사용자의 학교 Office 365 Azure Active Directory (AAD)에서 제공 하는 전자 메일 계정입니다. 
+- 자신의 대학 Azure Active Directory (AAD)에서 제공 하는 전자 메일 계정입니다.
 - Microsoft 전자 메일 계정 (예: `@outlook.com` , `@hotmail.com` , `@msn.com` 또는) `@live.com`
 - Yahoo 또는 Google에서 제공 하는 것과 같은 타사 전자 메일 계정. 그러나 이러한 유형의 계정은 Microsoft 계정 연결 해야 합니다.
 - GitHub 계정. 이 계정은 Microsoft 계정 연결 해야 합니다.

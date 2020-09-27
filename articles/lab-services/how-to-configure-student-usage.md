@@ -3,12 +3,12 @@ title: Azure Lab Services의 교실 랩에서 사용 설정 구성
 description: 랩에 대 한 학생 수를 구성 하 고, 랩에 등록 하 고, VM을 사용할 수 있는 시간 수를 제어 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445953"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399672"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 
@@ -166,7 +166,7 @@ ms.locfileid: "85445953"
 
 교실 랩에 학생을 추가 하려면 전자 메일 계정을 사용 합니다. 학생 들에 게는 다음과 같은 유형의 전자 메일 계정이 있을 수 있습니다.
 
-- 사용자의 Office 365에 대 한 대학 Azure Active Directory 인스턴스에서 제공 하는 학생 전자 메일 계정입니다. 
+- 대학 Azure Active Directory 인스턴스에서 제공 하는 학생 전자 메일 계정입니다.
 - Microsoft 도메인 전자 메일 계정 (예: *outlook.com*, *hotmail.com*, *msn.com*또는 *live.com*)
 - Yahoo!에서 제공 하는 것과 같은 타사 전자 메일 계정 또는 Google. 그러나 이러한 유형의 계정은 Microsoft 계정 연결 해야 합니다.
 - GitHub 계정. 이 계정은 Microsoft 계정 연결 해야 합니다.

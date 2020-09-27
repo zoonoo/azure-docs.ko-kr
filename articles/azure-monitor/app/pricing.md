@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930488"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400590"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -264,7 +264,7 @@ Application Insights 리소스의 기본 보존 기간은 90일입니다. 각 Ap
 
 보존 기간을 변경하려면 Application Insights 리소스에서 **사용량 및 예상 비용** 페이지로 이동하고 다음과 같은 **데이터 보존** 옵션을 선택합니다.
 
-![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
+![데이터 보존 기간을 변경할 위치를 보여 주는 스크린샷](./media/pricing/pricing-005.png)
 
 데이터 보존 기간을 줄이면 가장 오래된 데이터를 제거하기 전에 며칠의 유예 기간이 적용됩니다.
 

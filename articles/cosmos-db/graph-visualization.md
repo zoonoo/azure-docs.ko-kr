@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API에서 그래프 데이터 시각화
 description: Azure Cosmos DB 그래프 데이터를 시각화 솔루션 (Linkurious Enterprise, 캠브리지 Intelligence)과 통합 하는 방법에 대해 알아봅니다.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9850af3ea2365aa73d8b9f08b2e706c79062860
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261786"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400522"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>데이터 시각화 솔루션을 사용 하 여 Azure Cosmos DB Gremlin API에 저장 된 그래프 데이터 시각화
 
@@ -46,7 +46,7 @@ Linkurious Enterprise의 대화형 인터페이스는 복잡 한 데이터를 �
 
 
 ## <a name="next-steps"></a>다음 단계
- 
+
 - [도구 키트 사용해 보기](https://cambridge-intelligence.com/try/)
 - [KeyLines 기술 개요](https://cambridge-intelligence.com/keylines/technology/)
 - [다시 그래프 기술 개요](https://cambridge-intelligence.com/regraph/technology/)

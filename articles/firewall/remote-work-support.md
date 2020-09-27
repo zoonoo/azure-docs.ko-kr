@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82863419"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400114"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Azure 방화벽 원격 작업 지원
 
@@ -24,7 +24,7 @@ Azure 방화벽은 Azure virtual network 리소스를 보호 하는 관리 되�
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Azure Windows 가상 데스크톱 지원
 
-Windows 가상 데스크톱은 Azure에서 실행 되는 포괄적인 데스크톱 및 앱 가상화 서비스입니다. 간소화된 관리, 다중 세션 Windows 10, Office 365 ProPlus에 대한 최적화, Remote Desktop Services(RDS) 환경에 대한 지원을 제공하는 유일한 VDI(가상 데스크톱 인프라)입니다. 몇 분 내에 Azure에서 Windows 데스크톱 및 앱을 배포 하 고 크기를 조정할 수 있으며, 기본 제공 보안 및 규정 준수 기능을 활용할 수 있습니다. Windows 가상 데스크톱을 사용 하 여 가상 네트워크에 대 한 인바운드 액세스를 열 필요는 없습니다. 그러나 가상 네트워크에서 실행 되는 Windows 가상 데스크톱 가상 컴퓨터에 대해 아웃 바운드 네트워크 연결을 허용 해야 합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](protect-windows-virtual-desktop.md)를 참조하세요.
+Windows 가상 데스크톱은 Azure에서 실행 되는 포괄적인 데스크톱 및 앱 가상화 서비스입니다. 간단한 관리, 다중 세션 Windows 10, 엔터프라이즈 용 Microsoft 365 앱에 대 한 최적화 및 RDS (원격 데스크톱 서비스) 환경을 지 원하는 유일한 VDI (가상 데스크톱 인프라)입니다. 몇 분 내에 Azure에서 Windows 데스크톱 및 앱을 배포 하 고 크기를 조정할 수 있으며, 기본 제공 보안 및 규정 준수 기능을 활용할 수 있습니다. Windows 가상 데스크톱을 사용 하 여 가상 네트워크에 대 한 인바운드 액세스를 열 필요는 없습니다. 그러나 가상 네트워크에서 실행 되는 Windows 가상 데스크톱 가상 컴퓨터에 대해 아웃 바운드 네트워크 연결을 허용 해야 합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](protect-windows-virtual-desktop.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

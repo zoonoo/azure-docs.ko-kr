@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Automation 내에서 Azure 인증 공급�
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: c17c9cdc02c87037a39b8d6029bc4506afa8ad28
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd1f977b548c2b8e7980709ea125c07e22b1fa2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064390"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400675"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Azure AD를 사용하여 Azure에 인증
 
@@ -21,7 +21,7 @@ ms.locfileid: "87064390"
 
 * Graph용 Azure Active Directory PowerShell(AzureRM 및 Az 모듈). Azure Automation은 AzureRM 모듈 및 최신 업그레이드인 Az 모듈과 함께 제공됩니다. 기능으로는 Azure AD 사용자(OrgId) 자격 증명 기반 인증을 사용하는 Azure에 대한 비대화형 인증이 포함됩니다. [Azure AD 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76)을 참조하세요.
 
-* Windows PowerShell용 Microsoft Azure Active Directory(MSOnline 모듈). 이 모듈은 Office 365을 포함하여 Microsoft Online과의 상호 작용을 가능하게 합니다.
+* Windows PowerShell용 Microsoft Azure Active Directory(MSOnline 모듈). 이 모듈은 Microsoft 365를 포함 하 여 Microsoft Online과의 상호 작용을 가능 하 게 합니다.
 
 >[!NOTE]
 >PowerShell Core는 MSOnline 모듈을 지원하지 않습니다. 모듈 cmdlet을 사용하려면 Windows PowerShell에서 실행해야 합니다. MSOnline 모듈 대신 최신 Graph용 Azure Active Directory PowerShell 모듈을 사용하는 것이 좋습니다. 
@@ -46,7 +46,7 @@ ms.locfileid: "87064390"
 ### <a name="install-the-msonline-module"></a>MSOnline 모듈 설치
 
 >[!NOTE]
->MSOnline 모듈을 설치하려면 Office 365 관리자 역할의 구성원이어야 합니다. [관리자 역할 정보](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)를 참조하세요.
+>MSOnline 모듈을 설치 하려면 관리자 역할의 멤버 여야 합니다. [관리자 역할 정보](/microsoft-365/admin/add-users/about-admin-roles)를 참조하세요.
 
 1. 컴퓨터에서 Microsoft .NET Framework 3.5.x 기능을 사용하도록 설정되었는지 확인합니다. 컴퓨터에 최신 버전이 설치되었을 확률이 높지만, .NET Framework 이전 버전과의 호환성을 사용하도록 또는 사용하지 않도록 설정할 수 있습니다. 
 

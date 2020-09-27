@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 364f4f38599508e4dfb455f1336d4a6978cdf5b6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651725"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400454"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
 
@@ -53,7 +53,7 @@ Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구�
 자세한 내용은 [Azure Virtual Network 란?](../virtual-network/virtual-networks-overview.md)을 참조 하세요.
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-Express 경로를 사용 하면 연결 공급자가 촉진 하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 이 연결은 프라이빗 전용입니다. 트래픽은 인터넷을 통해 이동하지 않습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.  자세한 내용은 [express 란?](../expressroute/expressroute-introduction.md)을 참조 하세요.
+Express 경로를 사용 하면 연결 공급자가 촉진 하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 이 연결은 프라이빗 전용입니다. 트래픽은 인터넷을 통해 이동하지 않습니다. ExpressRoute를 사용하면 Microsoft Azure, Microsoft 365, Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.  자세한 내용은 [express 란?](../expressroute/expressroute-introduction.md)을 참조 하세요.
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -84,7 +84,7 @@ Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대�
 ![가상 네트워크 NAT 게이트웨이](./media/networking-overview/flow-map.png)
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Azure 피어 링 서비스
-Azure 피어 링 서비스는 Office 365, Dynamics 365, SaaS (software as a service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대 한 고객의 연결을 향상 시킵니다. 자세한 내용은 [Azure 피어 링 서비스 란?](../peering-service/about.md)을 참조 하세요.
+Azure 피어 링 서비스는 Microsoft 365, Dynamics 365, SaaS (software as a service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대 한 고객의 연결을 향상 시킵니다. 자세한 내용은 [Azure 피어 링 서비스 란?](../peering-service/about.md)을 참조 하세요.
 
 ## <a name="application-protection-services"></a><a name="protect"></a>응용 프로그램 보호 서비스
 

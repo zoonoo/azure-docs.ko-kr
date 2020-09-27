@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541025"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399604"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -64,13 +64,13 @@ Azure ID 보호를 사용하여 계정과 ID를 보호할 수 있는 몇 가지 
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-[Azure Active Directory PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)을 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이 기능에는 Azure AD 및 다른 Microsoft 온라인 서비스(예: Office 365 또는 Microsoft Intune)의 리소스에 대한 액세스가 포함됩니다.
+[Azure Active Directory PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)을 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이 기능에는 Azure AD의 리소스에 대 한 액세스 및 기타 Microsoft 온라인 서비스 (예: Microsoft 365 또는 Microsoft Intune)가 포함 됩니다.
 
 ![Azure AD Privileged Identity Management 다이어그램](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM은 다음과 같이 도움을 줍니다.
 
--   Microsoft 온라인 서비스(예: Office 365 및 Intune)에 대한 Azure AD 관리자 및 JIT(Just-In-Time) 관리 액세스에 대한 경고 및 보고서를 받습니다.
+-   Azure AD 관리자 및 Microsoft 365 및 Intune과 같은 Microsoft 온라인 서비스에 대 한 JIT (just-in-time) 관리 액세스에 대 한 경고 및 보고서를 가져옵니다.
 
 -   관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서를 가져옵니다.
 
@@ -155,7 +155,7 @@ Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니�
 
 Microsoft는 방대한 글로벌 위협 인텔리전스에 대한 액세스 권한을 보유합니다.
 
-원격 분석은 Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU(Digital Crimes Unit) 및 MSRC(Microsoft 보안 대응 센터)와 같은 여러 출처에서 유입됩니다.
+원격 분석은 Azure, Microsoft 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU (Digital Crimes Unit) 및 MSRC (Microsoft 보안 대응 센터)와 같은 여러 원본에서 흐릅니다.
 
 ![위협 인텔리전스 결과](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스에 대한 액세스 권�
 
 -   **악의적인 PowerShell 스크립트**: 공격자는 PowerShell을 사용하여 대상 가상 머신에서 다양한 목적으로 악성 코드를 실행할 수 있습니다. 보안 센터는 의심스러운 활동의 증거에 대해 PowerShell 작업을 검사합니다.
 
--   **외향적 공격**: 공격자는 종종 추가 공격을 탑재한 해당 리소스를 사용할 목표를 가지고 클라우드 리소스를 겨냥합니다. 예를 들어, 다른 가상 머신에 무차별 대입 공격을 시작하고 스팸을 전송하거나 인터넷에서 오픈 포트 및 다른 디바이스를 검색하는 데 손상된 가상 머신을 사용할 수 있습니다. 보안 센터는 네트워크 트래픽에 기계 학습을 적용하여 아웃바운드 네트워크 통신이 표준을 초과하는 경우를 감지할 수 있습니다. 또한 스팸의 경우, Security Center는 Office 365의 인텔리전스와 비정상적인 메일 트래픽을 상호 연결하여 메일이 부정한 것인지 또는 합법적인 메일 캠페인의 결과인지 여부를 결정합니다.
+-   **외향적 공격**: 공격자는 종종 추가 공격을 탑재한 해당 리소스를 사용할 목표를 가지고 클라우드 리소스를 겨냥합니다. 예를 들어, 다른 가상 머신에 무차별 대입 공격을 시작하고 스팸을 전송하거나 인터넷에서 오픈 포트 및 다른 디바이스를 검색하는 데 손상된 가상 머신을 사용할 수 있습니다. 보안 센터는 네트워크 트래픽에 기계 학습을 적용하여 아웃바운드 네트워크 통신이 표준을 초과하는 경우를 감지할 수 있습니다. 스팸이 Security Center 검색 되 면 Microsoft 365의 인텔리전스를 사용 하 여 비정상적인 메일 트래픽과의 상관 관계를 지정 하 여 메일을 부정한 하거나 합법적인 전자 메일 캠페인의 결과를 확인할 수도 있습니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
@@ -340,7 +340,7 @@ Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을
 
 섀도 IT를 발견하고, 위험을 평가하며, 정책을 적용하고, 활동을 조사하며, 위협을 중지할 수 있는 도구를 사용하면 조직에서 중요한 데이터에 대한 제어를 유지하면서 보다 안전하게 클라우드로 이동할 수 있습니다.
 
-| 범주 | 설명 |
+| Category | Description |
 | -------- | ----------- |
 | 검색 | Cloud App Security로 섀도 IT를 발견합니다. 클라우드 환경에서 앱, 활동, 사용자, 데이터 및 파일을 검색하여 가시성을 확보합니다. 클라우드에 연결된 타사 앱을 발견합니다.|
 |조사 | 클라우드 법정 분석 도구로 클라우드 앱을 조사하여 네트워크에서 위험한 앱, 특정 사용자 및 파일을 심층 분석합니다. 클라우드에서 수집한 데이터의 패턴을 찾습니다. 클라우드를 모니터링하는 보고서를 생성합니다. |

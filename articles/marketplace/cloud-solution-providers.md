@@ -7,18 +7,18 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607479"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400743"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
 
 이 문서에서는 CSP(클라우드 솔루션 공급자) 프로그램에서 사용할 수 있도록 제품을 구성하는 방법을 설명합니다. [상용 marketplace online 스토어](comparing-appsource-azure-marketplace.md)를 통해 제품을 게시 하는 것 외에도 CSP 프로그램을 통해 판매 하 여 프로그램에서 사용 하는 수백만 개의 Microsoft 고객에 게 연락할 수 있습니다.
 
-옵트인 기반으로 CSP 프로그램에서 사용할 수 있게 신규 또는 기존 제품을 구성할 수 있어 CSP 파트너가 제품을 판매하고 고객을 위한 번들 솔루션을 만들 수 있습니다.
+옵트인 (opt in) 하 여 CSP 프로그램의 가용성에 대 한 신규 또는 기존 제안을 구성할 수 있습니다 .이를 통해 CSP 파트너가 제품을 판매 하 고 고객을 위한 번들 솔루션을 만들 수 있습니다.
 
 게시자는 최종 고객에게 고장 수리 지원을 제공하고 CSP 프로그램 및/또는 고객의 파트너에게 지원 요청 메커니즘을 제공하는 역할을 합니다. 고객의 계층 1 지원 요청을 처리할 수 있도록 CSP 프로그램의 파트너에게 사용자 설명서, 학습 및 서비스 상태/중단 알림(해당 하는 경우)을 제공하는 것이 가장 좋습니다.  
 

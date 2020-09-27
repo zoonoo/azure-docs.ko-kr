@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071593"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399536"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -66,9 +66,9 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 다음은 핵심적인 Azure id 관리 기능입니다.
 
-- Single Sign-On
+- SSO(Single sign-on)
 
-- Multi-factor Authentication
+- Multi-Factor Authentication
 
 - 보안 모니터링, 경고 및 기계 학습 기반 보고서
 
@@ -80,17 +80,17 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - ID 보호
 
-#### <a name="single-sign-on"></a>Single Sign-On
+#### <a name="single-sign-on"></a>SSO(Single sign-on)
 
 [Sso (single sign-on)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) 는 단일 사용자 계정을 사용 하 여 한 번만 로그인 함으로써 비즈니스를 수행 하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미 합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
-많은 조직에서는 최종 사용자 생산성을 위해 Office 365, Box 및 Salesforce와 같은 SaaS (software as a service) 응용 프로그램을 사용 합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
+많은 조직에서는 최종 사용자 생산성을 위해 Microsoft 365, Box 및 Salesforce와 같은 SaaS (software as a service) 응용 프로그램에 의존 합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
 [AZURE AD는 온-프레미스 Active Directory을 클라우드로 확장](../../active-directory/manage-apps/what-is-single-sign-on.md)하 여 사용자가 자신의 기본 조직 계정을 사용 하 여 도메인에 가입 된 장치 및 회사 리소스 뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 응용 프로그램에 로그인 할 수 있도록 합니다.
 
 사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 조직 그룹 및 직원으로서의 상태에 따라 해당 애플리케이션 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. Azure AD는 SaaS 응용 프로그램에서 사용자의 액세스를 중앙에서 관리할 수 있는 [보안 및 액세스 관리 제어를 도입](../../active-directory/active-directory-enterprise-apps-manage-sso.md) 합니다.
 
-#### <a name="multi-factor-authentication"></a>Multi-factor Authentication
+#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 [MFA (Azure Multi-Factor Authentication)](../../active-directory/authentication/multi-factor-authentication.md) 는 둘 이상의 인증 방법을 사용 해야 하 고 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증 방법입니다. MFA는 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 하는 [데 도움이 됩니다](../../active-directory/authentication/concept-mfa-howitworks.md) . 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
@@ -126,15 +126,15 @@ Intune과 같은 [MDM (모바일 장치 관리)](https://www.microsoft.com/itsho
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-[Ad (Azure Active Directory) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 를 사용 하면 권한 있는 id를 관리, 제어 및 모니터링 하 고 Azure AD의 리소스 뿐만 아니라 Office 365 또는 Microsoft Intune 같은 기타 Microsoft 온라인 서비스에 액세스할 수 있습니다.
+[Ad (Azure Active Directory) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 를 사용 하면 권한 있는 id를 관리, 제어 및 모니터링 하 고 Azure AD의 리소스 뿐만 아니라 Microsoft 365 또는 Microsoft Intune 같은 기타 Microsoft 온라인 서비스에 액세스할 수 있습니다.
 
-경우에 따라 사용자는 Azure, Office 365 리소스 또는 기타 SaaS 앱에서 권한이 필요한 작업을 수행해야 합니다. 이는 보통 조직이 사용자에게 Azure AD에서 영구 권한 있는 액세스를 제공해야 함을 의미합니다. 조직은 사용자가 관리자 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 클라우드에 호스트된 리소스의 보안 위험이 증가합니다. 또한 권한 있는 액세스가 있는 사용자 계정이 손상되면 이로 인해 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD 권한 있는 ID 관리는 이 위험을 해결하는 데 도움이 됩니다.
+사용자가 Azure 또는 Microsoft 365 리소스 또는 기타 SaaS 앱에서 권한 있는 작업을 수행 해야 하는 경우가 있습니다. 이는 보통 조직이 사용자에게 Azure AD에서 영구 권한 있는 액세스를 제공해야 함을 의미합니다. 조직은 사용자가 관리자 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 클라우드에 호스트된 리소스의 보안 위험이 증가합니다. 또한 권한 있는 액세스가 있는 사용자 계정이 손상되면 이로 인해 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD 권한 있는 ID 관리는 이 위험을 해결하는 데 도움이 됩니다.
 
 Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다.
 
 - Azure AD 관리자인 사용자를 확인할 수 있습니다.
 
-- Office 365 및 Intune 등의 Microsoft Online Services에 대해 주문형으로 “Just-In-Time”에 관리 권한을 사용하도록 설정할 수 있습니다.
+- Microsoft 365 및 Intune과 같은 Microsoft Online Services에 대 한 주문형 "just-in-time" 관리 액세스를 사용 하도록 설정
 
 - 관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서 가져오기
 
@@ -167,7 +167,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 - 스토리지: 모든 정보 스토리지 개체, 컨테이너 및 물리적 미디어(자기 또는 광 디스크)에 정적으로 존재하는 유형이 여기에 포함됩니다.
 - 전송 중: 데이터를 구성 요소, 위치 또는 프로그램 간에 전송 하는 경우 (예: Express 경로와 같은 하이브리드 연결을 포함 하 여 온-프레미스에서 클라우드로 또는 그 반대의 경우) 또는 입/출력 프로세스 중에는 이동 중 이라고 생각 합니다.
 
-### <a name="encryption-at-rest"></a>저장 데이터 암호화
+### <a name="encryption-at-rest"></a>미사용 암호화
 
 휴지 상태의 암호화에 대해서는 [Azure 미사용 데이터 암호화](encryption-atrest.md)에 자세히 설명 되어 있습니다.
 
@@ -339,7 +339,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 보안 센터는 Azure 리소스의 보안 상태를 분석하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
-다음은 이러한 템플릿의 예입니다.
+예제는 다음과 같습니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
 

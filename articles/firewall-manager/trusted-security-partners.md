@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563602"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399434"
 ---
 # <a name="what-are-security-partner-providers"></a>보안 파트너 공급자란?
 
@@ -44,7 +44,7 @@ Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하면 사�
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>보안 가상 허브에서 인터넷 트래픽 필터링 모범 사례
 
-인터넷 트래픽은 일반적으로 웹 트래픽을 포함 합니다. 하지만 Office 365 (O365)와 같은 SaaS 응용 프로그램 및 Azure Storage, Azure Sql 등의 Azure 공용 PaaS 서비스를 대상으로 하는 트래픽도 포함 합니다. 다음은 이러한 서비스에 대 한 트래픽을 처리 하기 위한 최선의 권장 방법입니다.
+인터넷 트래픽은 일반적으로 웹 트래픽을 포함 합니다. 하지만 Microsoft 365와 같은 SaaS 응용 프로그램으로 향하는 트래픽과 Azure Storage, Azure Sql 등의 Azure 공용 PaaS 서비스를 포함 합니다. 다음은 이러한 서비스에 대 한 트래픽을 처리 하기 위한 최선의 권장 방법입니다.
 
 ### <a name="handling-azure-paas-traffic"></a>Azure PaaS 트래픽 처리
  
@@ -54,15 +54,15 @@ Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하면 사�
 
 ![Azure 방화벽 관리자에 대 한 모든 시나리오](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>Office 365 (O365) 트래픽 처리
+## <a name="handling-microsoft-365-traffic"></a>Microsoft 365 트래픽 처리
 
-전역적으로 분산 된 분기 위치 시나리오에서는 Azure 보안 허브에 남은 인터넷 트래픽을 보내기 전에 지점에서 직접 Office 365 트래픽을 리디렉션해야 합니다.
+전역적으로 분산 된 분기 위치 시나리오에서는 Azure 보안 허브에 남은 인터넷 트래픽을 보내기 전에 분기에서 직접 Microsoft 365 트래픽을 리디렉션해야 합니다.
 
-Office 365의 경우 성공적인 사용자 환경을 위해 네트워크 대기 시간 및 성능이 매우 중요 합니다. 최적의 성능 및 사용자 환경에 대해 이러한 목표를 달성 하기 위해 고객은 Azure를 통해 나머지 인터넷 트래픽 라우팅을 고려 하기 전에 Office 365 직접 및 로컬 이스케이프를 구현 해야 합니다.
+성공적인 사용자 환경에서는 네트워크 대기 시간 및 성능이 매우 중요 Microsoft 365 있습니다. 최적의 성능 및 사용자 환경에 대해 이러한 목표를 달성 하기 위해 고객은 Azure를 통해 나머지 인터넷 트래픽 라우팅을 고려 하기 전에 Microsoft 365 직접 및 로컬 이스케이프를 구현 해야 합니다.
 
-[Office 365 네트워크 연결 원칙](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) 은 사용자 분기 또는 모바일 장치에서 로컬로, 인터넷을 통해 직접 라우팅할 Microsoft 네트워크 상태에 있는 키 office 365 네트워크 연결에 대 한 호출입니다.
+[네트워크 연결 원리 Microsoft 365](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles) 사용자 분기 또는 모바일 장치에서 로컬로 라우팅 하 고 인터넷을 통해 직접 라우팅할 수 있는 Microsoft 네트워크 상태에 네트워크 연결을 Microsoft 365 호출 합니다.
 
-또한 Office 365 연결은 개인 정보 보호를 위해 암호화 되며 성능상의 이유로 효율적이 고 독점적인 프로토콜을 사용 합니다. 이렇게 하면 기존 네트워크 수준 보안 솔루션에 대 한 이러한 연결을 적용 하기가 어렵습니다. 이러한 이유로 Azure를 통해 나머지 트래픽을 전송 하기 전에 고객이 지점에서 직접 Office 365 트래픽을 전송 하는 것이 좋습니다. Microsoft는 Azure와 Office 365을 통합 하는 여러 SD WAN 솔루션 공급자와 협력 하 여 고객이 쉽게 Office 365 직접 및 로컬 인터넷을 사용할 수 있도록 합니다. 자세한 내용은 [가상 WAN을 통해 내 O365 정책 설정 어떻게 할까요?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview) 을 참조 하세요.
+또한 Microsoft 365 연결은 개인 정보를 위해 암호화 되며 성능상의 이유로 효율적이 고 독점적인 프로토콜을 사용 합니다. 이렇게 하면 기존 네트워크 수준 보안 솔루션에 대 한 이러한 연결을 적용 하기가 어렵습니다. 이러한 이유로 Azure를 통해 나머지 트래픽을 전송 하기 전에 고객이 분기에서 직접 Microsoft 365 트래픽을 전송 하는 것이 좋습니다. Microsoft는 Azure 및 Microsoft 365와 통합 하는 여러 SD WAN 솔루션 공급자와 파트너 관계를 맺고 있으며, 고객이 직접 및 로컬 인터넷 분리를 쉽게 사용할 Microsoft 365 수 있도록 합니다. 자세한 내용은 [Azure 가상 WAN 이란?](../virtual-wan/virtual-wan-about.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

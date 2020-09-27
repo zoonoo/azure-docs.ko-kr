@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119755"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400267"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>회사 회사 계정 및 파트너 센터
 
@@ -20,7 +20,7 @@ ms.locfileid: "86119755"
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>회사에 회사 계정이 이미 있는지 확인
 
-회사에서 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft 클라우드 서비스를 구독 한 경우 파트너 센터에서 사용할 수 있는 회사 전자 메일 계정 도메인 (Azure Active Directory 테 넌 트 라고도 함)이 이미 있습니다.
+회사에서 Azure, Microsoft Intune 또는 Microsoft 365와 같은 Microsoft 클라우드 서비스를 구독 한 경우 파트너 센터에서 사용할 수 있는 회사 메일 계정 도메인 (Azure Active Directory 테 넌 트 라고도 함)이 이미 있는 것입니다.
 
 다음 단계를 수행 하 여 확인 합니다.
 1. 에서 Azure 관리 포털에 로그인 https://portal.azure.com 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "86119755"
 
 회사에 대 한 새 회사 계정을 만들려면 다음 단계를 수행 합니다. 회사의 Microsoft Azure 계정에 대 한 관리 권한이 있는 사용자에 게 지원을 요청 해야 할 수 있습니다.
 
-1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Microsoft Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **Azure Active Directory**  ->  **사용자**를 선택 합니다.
 3. **새 사용자** 를 선택 하 고 이름 및 전자 메일 주소를 입력 하 여 새 Azure 회사 계정을 만듭니다. **디렉터리 역할이** **사용자** 로 설정 되어 있는지 확인 하 고 맨 아래에 있는 **암호 표시** 확인란을 선택 하 여 자동 생성 된 암호를 확인 하 고 기록 합니다.
 4. **만들기** 를 선택 하 여 새 사용자를 저장 합니다.

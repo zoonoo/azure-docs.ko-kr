@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279222"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400046"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급자 프로그램용 StorSimple: 질문과 대답
 
@@ -40,10 +40,10 @@ ms.locfileid: "87279222"
 
 자세한 내용은 [CSP 프로그램의 StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/)로 이동합니다. 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>StorSimple은 사용량 기준 또는 Office 365 및 EMS(Enterprise Mobility Suite)와 같은 라이선스 기반입니까?
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-microsoft-365-and-enterprise-mobility-suite-ems"></a>StorSimple은 사용을 기반으로 하거나 Microsoft 365 및 EMS (Enterprise Mobility Suite)와 같은 사용자의 라이선스를 기반으로 하나요?
 StorSimple은 사용량 기준 서비스입니다. 가상 배열 및 Azure의 사용을 위해 CSP 경로를 통해 StorSimple 가상 배열을 조달하는 고객은 CSP 청구서에서 별도 라인 항목으로 청구됩니다. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>StorSimple 비즈니스 모델은 Office 365 및 Enterprise Mobility Suite 등의 다른 서비스와 유사합니까? 
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-microsoft-365-and-the-enterprise-mobility-suite"></a>StorSimple 비즈니스 모델은 Microsoft 365 및 Enterprise Mobility Suite와 같은 다른 서비스와 유사 하나요? 
 예. 모델은 Azure의 다른 사용량 기준 서비스와 마찬가지로 도매 할인 모델입니다. StorSimple에 대한 도매 할인은 다른 Azure 서비스의 도매 할인과 유사합니다. 이 모델은 CSP 파트너가 StorSimple 가상 배열을 통해 더 많이 판매하고 Azure 소비를 이끌 기회를 제공합니다.  
 
 ### <a name="which-storsimple-skus-are-available-at-launch"></a>시작 시 사용할 수 있는 StorSimple SKU는 무엇입니까?

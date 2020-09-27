@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488833"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400811"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -50,7 +50,7 @@ Logic Apps는 [수백 개의 커넥터](/connectors)를 제공 하지만,이 문
 
   또한 이러한 범주를 사용 하 여 커넥터를 식별할 수 있습니다. 하지만 일부 커넥터는 여러 범주에 있을 수 있습니다. 예를 들어 SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터입니다.
 
-  | 범주 | Description |
+  | Category | Description |
   |----------|-------------|
   | [**관리 되는 커넥터**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online 등과 같은 서비스를 사용하는 논리 앱을 만듭니다. |
   | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. |
@@ -136,7 +136,7 @@ Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프
 | [![Azure Service Bus 관리 커넥터 ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다. |
 | [![SQL Server 관리 커넥터 ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | 레코드를 관리 하거나 저장 프로시저를 실행 하거나 쿼리를 수행할 수 있도록 클라우드의 SQL Server 온-프레미스 또는 Azure SQL Database에 연결 합니다. |
 | [![][azure-blob-storage-icon]<br>**Azure Blob <br> Storage** Azure Blob Storage 관리 되는 커넥터][azure-blob-storage-doc] | Blob 콘텐츠를 만들고 관리할 수 있도록 저장소 계정에 연결 합니다. |
-| [![Office 365 Outlook 관리 커넥터 ][office-365-outlook-icon]<br> **office 365 <br> outlook**][office-365-outlook-doc] | 전자 메일, 작업, 일정 이벤트 및 모임, 연락처, 요청 등을 만들고 관리할 수 있도록 Office 365 전자 메일 계정에 연결 합니다. |
+| [![Office 365 Outlook 관리 커넥터 ][office-365-outlook-icon]<br> **office 365 <br> outlook**][office-365-outlook-doc] | 전자 메일, 작업, 일정 이벤트 및 모임, 연락처, 요청 등을 만들고 관리할 수 있도록 회사 또는 학교 전자 메일 계정에 연결 합니다. |
 | [![SFTP-SSH 관리 커넥터 ][sftp-ssh-icon]<br> **SFTP-ssh**][sftp-ssh-doc] | 파일 및 폴더에 대 한 작업을 수행할 수 있도록 SSH를 사용 하 여 인터넷에서 액세스할 수 있는 SFTP 서버에 연결 합니다. |
 | [![SharePoint Online 관리 커넥터 ][sharepoint-online-icon]<br> **sharepoint <br> online**][sharepoint-online-doc] | 파일, 첨부 파일, 폴더 등을 관리할 수 있도록 SharePoint Online에 연결 합니다. |
 | [![Azure 큐 관리 커넥터 ][azure-queues-icon]<br> **azure <br> 큐**][azure-queues-doc] | 큐와 메시지를 만들고 관리할 수 있도록 Azure Storage 계정에 연결 합니다. |
@@ -588,7 +588,7 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [instagram-doc]: ./connectors-create-api-instagram.md "명령이 있는 Agram에 연결 합니다. 이벤트 트리거 또는 동작"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "통신을 위해 Mandrill에 연결"
 [mysql-doc]: /connectors/mysql/ "데이터를 읽고 쓸 수 있도록 온-프레미스 MySQL 데이터베이스에 연결 합니다."
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "전자 메일을 보내고 받고, 일정 및 연락처를 관리 하는 등의 방법으로 Office 365 계정에 연결 합니다."
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "회사 또는 학교 계정에 연결 하 여 전자 메일을 보내고 받고, 일정 및 연락처를 관리 하는 등의 작업을 수행할 수 있습니다."
 [onedrive-doc]: ./connectors-create-api-onedrive.md "개인 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "비즈니스 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Oracle 데이터베이스에 연결 하 여 행을 추가 하 고 삽입 하 고 삭제할 수 있습니다."

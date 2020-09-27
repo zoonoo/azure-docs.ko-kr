@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386149"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399808"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -82,7 +82,7 @@ Azure AD에서 직접 ID를 만드는 경우 사용자의 [암호가 만료되�
 조직에서 통과 인증 또는 페더레이션을 사용하는 하이브리드 ID 솔루션을 이용하는 경우 다음과 같은 두 가지 이유로 암호 해시 동기화를 사용하도록 설정해야 합니다.
 
 * Azure AD 관리의 [유출된 자격 증명이 있는 사용자](../../active-directory/reports-monitoring/concept-risk-events.md) 보고서는 “다크 웹”에서 노출된 사용자 이름 및 암호 쌍에 대해 경고합니다. 엄청난 양의 암호가 피싱, 맬웨어 및 나중에 위반되는 타사 사이트에서 암호 재사용을 통해 유출됩니다. Microsoft는 이러한 유출된 자격 증명 중 많은 부분을 찾아 조직의 자격 증명과 일치하는 경우 이 보고서를 통해 알립니다. 단, [암호 해시 동기화를 사용하도록 설정](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)한 경우에만 적용됩니다!
-* 온-프레미스 장애(예: 랜섬웨어 공격)의 경우 [암호 해시 동기화를 사용하여 클라우드 인증](choose-ad-authn.md)으로 전환할 수 있습니다. 이 백업 인증 방법을 사용하면 Office 365를 비롯하여 Azure Active Directory를 통한 인증을 위해 구성된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결될 때까지 개인 이메일 계정을 사용하여 데이터를 공유할 필요가 없습니다.
+* 온-프레미스 중단 (예: 랜 섬 웨어 공격)의 경우 [암호 해시 동기화를 사용 하 여 클라우드 인증](choose-ad-authn.md)사용으로 전환할 수 있습니다. 이 백업 인증 방법을 사용 하면 Microsoft 365를 비롯 하 여 Azure Active Directory 인증을 위해 구성 된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결될 때까지 개인 이메일 계정을 사용하여 데이터를 공유할 필요가 없습니다.
 
 [암호 해시 동기화](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) 작동 방식에 대해 자세히 알아보세요.
 
@@ -193,7 +193,7 @@ IT 관리자는 Azure AD의 [SSPR(셀프 서비스 암호 재설정)](../../acti
 
 ### <a name="implement-self-service-group-and-application-access"></a>셀프 서비스 그룹 및 애플리케이션 액세스 구현
 
-Azure AD는 보안 그룹, Office 365 그룹, 애플리케이션 역할 및 액세스 패키지 카탈로그를 사용하여 리소스에 대한 액세스를 관리하는 기능을 비관리자에게 제공합니다.  [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md)를 통해 그룹 소유자는 관리 역할을 할당하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용하여 요청을 처리하지 않고 Office 365 그룹을 만들고 관리할 수 있으며, 사용하지 않는 그룹은 자동으로 만료됩니다.  [Azure AD 권한 관리](../../active-directory/governance/entitlement-management-overview.md)는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 강화합니다.  직원의 관리자 및 비즈니스 파트너 스폰서를 승인자로 구성하는 등 액세스를 승인해야 하는 사용자에 대한 사용자 지정 정책을 사용하여 자신이 소유한 그룹, 팀, 애플리케이션 및 SharePoint Online 사이트에 대한 고유한 액세스 패키지를 구성하는 기능을 비관리자에게 위임할 수 있습니다.
+Azure AD는 보안 그룹, Microsoft 365 그룹, 응용 프로그램 역할 및 액세스 패키지 카탈로그를 사용 하 여 관리자가 아닌 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다.  [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md)를 통해 그룹 소유자는 관리 역할을 할당하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용 하 여 요청을 처리 하지 않고 Microsoft 365 그룹을 만들고 관리할 수 있으며 사용 하지 않는 그룹은 자동으로 만료 됩니다.  [Azure AD 권한 관리](../../active-directory/governance/entitlement-management-overview.md)는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 강화합니다.  직원의 관리자 및 비즈니스 파트너 스폰서를 승인자로 구성하는 등 액세스를 승인해야 하는 사용자에 대한 사용자 지정 정책을 사용하여 자신이 소유한 그룹, 팀, 애플리케이션 및 SharePoint Online 사이트에 대한 고유한 액세스 패키지를 구성하는 기능을 비관리자에게 위임할 수 있습니다.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Azure AD 액세스 검토 구현
 

@@ -4,21 +4,21 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storag
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/12/2020
+ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008440"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399128"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>.NET을 사용 하 여 blob 속성 및 메타 데이터 관리
 
-Blob은 포함 된 데이터 외에 시스템 속성과 사용자 정의 메타 데이터를 지원 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 시스템 속성 및 사용자 정의 메타 데이터를 관리 하는 방법을 보여 줍니다.
+Blob은 포함 된 데이터 외에 시스템 속성과 사용자 정의 메타 데이터를 지원 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용 하 여 시스템 속성 및 사용자 정의 메타 데이터를 관리 하는 방법을 보여 줍니다.
 
 ## <a name="about-properties-and-metadata"></a>속성 및 메타 데이터 정보
 
@@ -168,7 +168,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-메타 데이터를 검색 하려면 blob 또는 컨테이너에서 [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) 또는 [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) 메서드를 호출 하 여 [메타 데이터](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) 컬렉션을 채운 다음 아래 예제와 같이 값을 읽습니다.
+메타 데이터를 검색 하려면 blob 또는 컨테이너에서 [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) 또는 [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) 메서드를 호출 하 여 [메타 데이터](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) 컬렉션을 채운 다음 아래 예제와 같이 값을 읽습니다. **GetProperties** 메서드는 단일 호출로 blob 속성 및 메타 데이터를 검색 합니다. 이는 [Blob 속성을 가져오고](/rest/api/storageservices/get-blob-properties) [blob 메타 데이터를 가져오기](/rest/api/storageservices/get-blob-metadata)위해 별도의 호출이 필요한 REST api와 다릅니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 

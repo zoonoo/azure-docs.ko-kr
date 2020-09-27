@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: 973426c6d9d3a4c642e5f37aebe60acce54d581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326408"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400097"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 리소스 공급자 작업
 
@@ -5098,7 +5098,7 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 
 ### <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
-Azure 서비스: [Machine Learning Studio (클래식)](../machine-learning/studio/index.yml)
+Azure 서비스: [Machine Learning Studio (클래식)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | 작업 | Description |
@@ -5242,36 +5242,6 @@ Azure 서비스: [Machine Learning 서비스](../machine-learning/index.yml)
 > | MachineLearningServices/작업 영역/서비스/aks/listkeys/작업 | Machine Learning Services 작업 영역에서 AKS services에 대 한 키를 나열 합니다. |
 > | MachineLearningServices/작업 영역/서비스/aks/삭제 | Machine Learning Services 작업 영역에서 AKS services를 삭제 합니다. |
 > | MachineLearningServices/작업 영역/서비스/aks/점수/작업 | Machine Learning Services 작업 영역의 점수 AKS services |
-
-
-### <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-
-Azure 서비스: [Machine Learning Studio (클래식)](../machine-learning/classic/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | 작업 | Description |
-> | --- | --- |
-> | Microsoft.MachineLearning/register/action | Machine Learning 웹 서비스 리소스 공급자에 대한 구독을 등록하고 웹 서비스를 만들도록 설정합니다. |
-> | Microsoft.MachineLearning/webServices/action | 지원되는 지역에 대한 국가별 웹 서비스 속성을 만듭니다. |
-> | Microsoft.MachineLearning/commitmentPlans/read | Machine Learning 약정 요금을 읽습니다. |
-> | Microsoft.MachineLearning/commitmentPlans/write | Machine Learning 약정 요금을 만들거나 업데이트합니다. |
-> | Microsoft.MachineLearning/commitmentPlans/delete | Machine Learning 약정 요금을 삭제합니다. |
-> | Microsoft.MachineLearning/commitmentPlans/join/action | Machine Learning 약정 요금제에 가입합니다. |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Machine Learning 약정 요금 관계를 읽습니다. |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Machine Learning 약정 요금 관계를 이동합니다. |
-> | Microsoft.MachineLearning/locations/operationresults/read | Machine Learning 작업의 결과를 가져옵니다. |
-> | Microsoft.MachineLearning/locations/operationsstatus/read | 진행 중인 Machine Learning 작업의 상태를 가져옵니다. |
-> | Microsoft.MachineLearning/operations/read | Machine Learning 작업을 가져옵니다. |
-> | Microsoft.MachineLearning/skus/read | Machine Learning 약정 요금제 SKU를 가져옵니다. |
-> | Microsoft.MachineLearning/webServices/read | Machine Learning 웹 서비스를 읽습니다. |
-> | Microsoft.MachineLearning/webServices/write | Machine Learning 웹 서비스를 만들거나 업데이트합니다. |
-> | Microsoft.MachineLearning/webServices/delete | Machine Learning 웹 서비스를 삭제합니다. |
-> | Microsoft.MachineLearning/webServices/listkeys/read | Machine Learning 웹 서비스에 대한 키를 가져옵니다. |
-> | Microsoft.MachineLearning/Workspaces/read | Machine Learning 작업 영역을 읽습니다. |
-> | Microsoft.MachineLearning/Workspaces/write | Machine Learning 작업 영역을 만들거나 업데이트합니다. |
-> | Microsoft.MachineLearning/Workspaces/delete | Machine Learning 작업 영역을 삭제합니다. |
-> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | Machine Learning 작업 영역에 대한 키를 나열합니다. |
-> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Machine Learning 작업 영역에 대해 구성된 스토리지 계정의 키를 다시 동기화합니다. |
 
 ## <a name="internet-of-things"></a>사물 인터넷
 
@@ -8239,7 +8209,7 @@ Azure 서비스: [Azure Policy](../governance/policy/overview.md), [azure RBAC](
 > | 작업 | Description |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한 부여 |
-> | Microsoft.Authorization/classicAdministrators/read | 구독에 대한 관리자를 읽습니다. |
+> | Microsoft.Authorization/classicAdministrators/read | 구독에 대한 관리자를 읽습니다. 사용자 지정 역할에서 NotAction으로 사용 되는 경우에는 효과가 없습니다. |
 > | Microsoft.Authorization/classicAdministrators/write | 구독에 대한 관리자를 추가 또는 수정합니다. |
 > | Microsoft.Authorization/classicAdministrators/delete | 구독에서 관리자를 제거합니다. |
 > | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 구독의 관리자 작업 상태를 가져옵니다. |

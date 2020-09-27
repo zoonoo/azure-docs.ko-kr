@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329230"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399111"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Azure Virtual WAN 및 보안 허브를 사용하여 중국과 상호 연결
 
-일반적인 자동차, 제조, 물류 산업 또는 대사관과 같은 다른 기관을 살펴볼 때, 중국과의 상호 연결을 개선하는 방법에 대한 질문이 있는 경우가 많습니다. 이러한 개선은 Office 365, Azure Global Services와 같은 클라우드 서비스를 사용하거나 중국 내 지점을 고객 백본과 상호 연결하는 것과 주로 관련이 있습니다.
+일반적인 자동차, 제조, 물류 산업 또는 대사관과 같은 다른 기관을 살펴볼 때, 중국과의 상호 연결을 개선하는 방법에 대한 질문이 있는 경우가 많습니다. 이러한 향상 된 기능은 주로 고객 백본으로 중국 내에서 Microsoft 365, Azure 글로벌 서비스 또는 상호 연결 분기와 같은 Cloud Services를 사용 하는 것과 관련이 있습니다.
 
 대부분의 경우 고객은 대기 시간이 길고 대역폭이 낮으며 연결이 불안정하고 중국 외부(예: 유럽 또는 미국)에 연결하는 비용이 높다는 어려움을 겪고 있습니다.
 
@@ -95,7 +95,7 @@ Virtual WAN을 사용하면 중국 사이버 보안법을 위반하지 않고도
 
 ![Global Reach](./media/interconnect-china/global.png)
 
-## <a name="secure-internet-breakout-for-office-365"></a><a name="secure"></a>Office 365에 대한 안전한 인터넷 브레이크아웃
+## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Microsoft 365에 대 한 보안 인터넷 분리
 
 또 다른 고려 사항은 네트워크 보안 및 중국과 Virtual WAN이 설정된 백본 구성 요소 및 고객 백본 간의 진입 점에 대한 로깅입니다. 대부분의 경우 Microsoft Edge 네트워크 및 Microsoft 365 서비스에 사용되는 Azure Front Door 서버에 직접 연결하려면 홍콩에 있는 인터넷으로 나갈 필요가 있습니다.
 
@@ -109,7 +109,7 @@ Virtual WAN을 사용하는 두 시나리오 모두 [Azure Virtual WAN 보안 �
 
 홍콩에 대한 연결과 관련된 선택에 따라 전체 아키텍처가 약간 변경될 수 있습니다. 이 섹션에서는 VPN 또는 SDWAN 및/또는 ExpressRoute를 다르게 조합하여 사용할 수 있는 3가지 아키텍처를 보여줍니다.
 
-이러한 모든 옵션은 Azure Virtual WAN 보안 허브를 활용하여 홍콩의 M365에 직접 연결합니다. 이러한 아키텍처는 [Office 365 다중 지역](https://docs.microsoft.com/office365/enterprise/office-365-multi-geo)에 대한 규정 준수 요구 사항을 지원하며 해당 트래픽을 다음 Office 365 Front Door 위치 근처에 유지합니다. 따라서 중국 이외의 지역에서 Microsoft 365 사용을 위한 개선 사항이기도 합니다.
+이러한 모든 옵션은 홍콩에서 직접 Microsoft 365 연결에 대 한 Azure 가상 WAN 보안 허브를 활용 합니다. 이러한 아키텍처는 [Microsoft 365 다중 지역](/microsoft-365/enterprise/microsoft-365-multi-geo) 에 대 한 규정 준수 요구 사항을 지원 하 고 다음 Azure 프런트 도어 위치 근처의 트래픽을 유지 합니다. 따라서 중국 이외의 지역에서 Microsoft 365 사용을 위한 개선 사항이기도 합니다.
 
 인터넷 연결에 Azure Virtual WAN을 사용하면 모든 연결에서 [MAPS(Microsoft Azure Peering Services)](https://docs.microsoft.com/azure/peering-service/about)와 같은 추가 서비스를 활용할 수 있습니다. MAPS는 타사 인터넷 서비스 공급자로부터 Microsoft 글로벌 네트워크로 들어오는 트래픽을 최적화하기 위해 생성되었습니다.
 

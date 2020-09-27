@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926181"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400794"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -28,13 +28,13 @@ Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/active-dire
 
 세 클라이언트 라이브러리는 Azure AD 대화형 흐름과 비대화형 인증 방법을 모두 지원합니다. Active Directory 암호 및 Active Directory 통합 인증 방법의 두 가지 비대화형 방법은 AMOMD 및 MSOLAP를 활용하는 애플리케이션에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 
-Excel 및 Power BI Desktop과 같은 클라이언트 애플리케이션과 SSMS 및 Visual Studio용 Analysis Services 프로젝트 확장과 같은 도구는 최신 릴리스로 업데이트될 때 최신 버전의 라이브러리를 설치합니다. Power BI Desktop, SSMS 및 Analysis Services 프로젝트 확장은 매월 업데이트됩니다. Excel은 [Office 365로 업데이트](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)됩니다. Office 365 업데이트는 자주 수행되지 않으며 일부 조직에서는 지연 채널을 사용합니다. 즉, 업데이트가 최대 3개월까지 지연됩니다.
+Excel 및 Power BI Desktop과 같은 클라이언트 애플리케이션과 SSMS 및 Visual Studio용 Analysis Services 프로젝트 확장과 같은 도구는 최신 릴리스로 업데이트될 때 최신 버전의 라이브러리를 설치합니다. Power BI Desktop, SSMS 및 Analysis Services 프로젝트 확장은 매월 업데이트됩니다. Excel은 [Microsoft 365로 업데이트](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516)됩니다. Microsoft 365 업데이트는 빈도가 낮지만 일부 조직에서는 지연 된 채널을 사용 합니다. 즉, 업데이트는 최대 3 개월까지 지연 됩니다.
 
 사용하는 클라이언트 애플리케이션이나 도구에 따라 인증 유형 및 로그인 방법이 달라질 수 있습니다. 각 애플리케이션은 Azure Analysis Services와 같은 클라우드 서비스에 연결하는 다양한 기능을 지원할 수 있습니다.
 
 Power BI Desktop, Visual Studio 및 SSMS는 Azure MFA(Multi-factor Authentication)도 지원하는 대화형 메서드인 Active Directory 유니버설 인증을 지원합니다. Azure MFA는 간단한 로그인 프로세스를 제공하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장**합니다.
 
-Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)가 필요합니다. 페더레이션, Azure AD 및 Office 365 사용자는 온-프레미스 자격 증명을 사용하여 인증되며 Azure 리소스에 액세스할 수 있습니다.
+Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)가 필요합니다. 페더레이션을 사용 하 여 Azure AD 및 Microsoft 365 사용자는 온-프레미스 자격 증명을 사용 하 여 인증 되며 Azure 리소스에 액세스할 수 있습니다.
 
 ### <a name="sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)
 
@@ -81,4 +81,4 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
 [서버 관리자 관리](analysis-services-server-admins.md)  
-[Azure 역할 기반 access control (Azure RBAC)](../role-based-access-control/overview.md)  
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079573"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400137"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -30,7 +30,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
 
 ## <a name="account"></a>account
-Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교나 개인 Microsoft 계정 또는 Office 365 사용자 이름 및 암호 중 하나일 수 있지만 Azure 계정이라고 말합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
+Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교 또는 개인 Microsoft 계정 일 수 있지만 Azure 계정 이라고 하기도 합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
 Microsoft 365 계정 및 [로그인에 사용할 수 있는 계정을](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) [사용 하 여 Azure 구독에 등록](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) 을 참조 하세요.
 
 ## <a name="api-app"></a>API 앱

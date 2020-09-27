@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145712"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400488"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Text Analytics 및 Power Automate를 사용하여 Excel에서 정보 추출 
 
@@ -23,7 +23,7 @@ ms.locfileid: "86145712"
 
 이 흐름은 아파트에 대해 보고 된 문제의 스프레드시트를 사용 하 여 두 가지 범주 (배관 및 기타)로 분류 합니다. 또한 전송 된 테 넌 트의 이름 및 전화 번호를 추출 합니다. 마지막으로 흐름은이 정보를 Excel 시트에 추가 합니다. 
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 전원 자동화를 사용 하 여 흐름 만들기
@@ -31,13 +31,13 @@ ms.locfileid: "86145712"
 > * Excel에서 텍스트를 추출 하 여 텍스트 분석 API 보냅니다. 
 > * API의 정보를 사용 하 여 Excel 시트를 업데이트 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Microsoft Azure 계정. [무료 계정을 만들거나](https://azure.microsoft.com/free/cognitive-services/) [로그인](https://portal.azure.com/)합니다.
+- Microsoft Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/cognitive-services/) 또는 [로그인](https://portal.azure.com/).
 - Text Analytics 리소스입니다. 없는 경우 [Azure Portal에서 만들고](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 무료 계층을 사용 하 여이 자습서를 완료할 수 있습니다.
 - 등록 하는 동안 생성 된 [키 및 끝점](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 입니다.
 - 테 넌 트 문제를 포함 하는 스프레드시트입니다. 예제 데이터는 GitHub에 제공 됩니다.
-- Office 365 (비즈니스용 OneDrive 포함)
+- 비즈니스용 OneDrive를 사용 하 여 Microsoft 365 합니다.
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>비즈니스용 OneDrive에 Excel 파일 추가
 
@@ -76,12 +76,12 @@ Excel 파일에 추가 될 정보를 나타내는 변수를 만듭니다. **새 
 
 만든 변수에 다음 정보를 추가 합니다. Excel 파일의 열을 나타냅니다. 축소 된 변수가 있으면 해당 변수를 클릭 하 여 확장할 수 있습니다.
 
-| 작업 |이름   | Type | 값 |
+| 작업 |Name   | Type | 값 |
 |---------|---------|---|---|
-| 변수 초기화 | var_person | 문자열 | Person |
-| 변수 2 초기화 | var_phone | 문자열 | Phone_Number |
-| 변수 3 초기화 | var_plumbing | 문자열 | 복잡 |
-| 변수 4 초기화 | var_other | 문자열 | 기타 | 
+| 변수 초기화 | var_person | String | 사람 |
+| 변수 2 초기화 | var_phone | String | Phone_Number |
+| 변수 3 초기화 | var_plumbing | String | 복잡 |
+| 변수 4 초기화 | var_other | String | other | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="흐름 변수에 포함 된 정보":::
@@ -123,7 +123,7 @@ Excel 파일에 추가 될 정보를 나타내는 변수를 만듭니다. **새 
 
 | 필드           | 값                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| 연결 이름 | Text Analytics 리소스에 대 한 연결의 이름입니다. 정의합니다(예: `TAforPowerAutomate`). |
+| 연결 이름 | Text Analytics 리소스에 대 한 연결의 이름입니다. 예들 들어 `TAforPowerAutomate`입니다. |
 | 계정 키     | Text Analytics 리소스의 키입니다.                                                                                   |
 | 사이트 URL        | Text Analytics 리소스에 대 한 끝점입니다.                                                       |
 

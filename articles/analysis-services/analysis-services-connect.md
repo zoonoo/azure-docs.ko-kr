@@ -8,12 +8,12 @@ ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 10e091ed58146d992d7b9c1f65b8b64f881a41b9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489020"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400284"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "89489020"
 
 [최신 클라이언트 라이브러리 가져오기](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
-종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치 또는 업데이트 됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Office 365 업데이트가 지연된 채널에 있는 경우입니다.
+종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치 또는 업데이트 됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Microsoft 365 업데이트가 지연 된 채널에 있는 경우입니다.
 
 > [!NOTE]
 > 클라이언트 라이브러리는 사용자 이름 및 암호가 필요한 프록시 서버를 통해 Azure Analysis Services에 연결할 수 없습니다. 

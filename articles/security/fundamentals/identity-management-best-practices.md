@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 69aac7dff80b7c85212602f1c03957a117628737
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835904"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400335"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -229,7 +229,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 
 권한 있는 계정은 IT 시스템을 운영하고 관리하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 지정합니다. 권한 있는 액세스를 보호하려면 계정과 시스템을 악의적 사용자에게 노출될 위험으로부터 격리해야 합니다.
 
-사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. Azure AD, Microsoft Azure, Office 365 및 기타 클라우드 서비스에서 관리되거나 보고되는 보안 ID 및 액세스에 대한 자세한 로드맵을 만드는 방법에 대한 자세한 내용은 [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)을 검토하세요.
+사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. Azure AD, Microsoft Azure, Microsoft 365 및 기타 클라우드 서비스에서 관리 되거나 보고 되는 id 및 액세스를 보호 하기 위한 자세한 로드맵을 만드는 방법에 대 한 자세한 내용은 [AZURE ad에서 하이브리드 및 클라우드 배포에 대 한 권한 있는 액세스 보안](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)을 참조 하세요.
 
 다음에서는 [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)에 있는 모범 사례를 요약합니다.
 
@@ -240,7 +240,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 **세부 정보**: 중요한 관리자 역할(예: hotmail.com, live.com, outlook.com 등의 Microsoft 계정)에서 소비자 계정을 제거합니다.
 
 **모범 사례**: 피싱이나 관리 권한을 손상시키는 기타 공격을 방지할 수 있도록 모든 중요 관리자 역할에서 관리 작업에 별도의 계정을 사용하게 합니다.
-**세부 정보**: 관리 작업을 수행하는 데 필요한 권한이 할당된 별도의 관리자 계정을 만듭니다. Microsoft Office 365 이메일 또는 임의의 웹 검색과 같은 일상적인 생산성 도구에는 이러한 관리 계정을 사용하지 못하도록 차단합니다.
+**세부 정보**: 관리 작업을 수행하는 데 필요한 권한이 할당된 별도의 관리자 계정을 만듭니다. Microsoft 365 전자 메일 또는 임의 웹 검색과 같은 일상적인 생산성 도구에 대해 이러한 관리 계정을 사용 하지 못하도록 차단 합니다.
 
 **모범 사례**: 권한이 높은 역할이 있는 계정을 식별 및 분류합니다.   
 **세부 정보**: Azure AD Privileged Identity Management를 설정하면 글로벌 관리자, 권한 있는 역할 관리자 및 기타 권한이 높은 관리자에 속한 사용자를 확인합니다. 이러한 역할에 더 이상 필요하지 않은 계정을 제거하고 관리자 역할에 할당된 나머지 계정은 다음과 같이 분류합니다.
@@ -281,7 +281,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 **세부 정보**: 직원이 퇴사할 때 관리자 계정을 사용하지 않도록 설정하거나 삭제하는 프로세스를 마련합니다.
 
 **모범 사례**: 최신 공격 기술을 사용하여 관리자 계정을 정기적으로 테스트합니다.
-**세부 정보**: Office 365 공격 시뮬레이터 또는 타사 제품을 사용하여 조직 내에서 현실적인 공격 시나리오를 실행합니다. 이렇게 하면 실제 공격이 발생하기 전에 취약한 사용자를 찾는 데 도움이 됩니다.
+**세부 정보**: Microsoft 365 공격 시뮬레이터 또는 타사 제품을 사용 하 여 조직에서 현실적인 공격 시나리오를 실행 합니다. 이렇게 하면 실제 공격이 발생하기 전에 취약한 사용자를 찾는 데 도움이 됩니다.
 
 **모범 사례**: 가장 많이 사용되는 공격 기술을 완화하는 단계를 수행합니다.  
 **세부 정보**: [직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
@@ -294,11 +294,11 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 
 [모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 Multi-Factor Authentication 요구](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
-[Office 365 보안 점수 가져오기(Office 365를 사용하는 경우)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
+[Microsoft 365 보안 점수 얻기 (Microsoft 365를 사용 하는 경우)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
 
-[Office 365 보안 및 규정 준수 지침 검토(Office 365를 사용하는 경우)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Microsoft 365를 사용 하는 경우 Microsoft 365 보안 지침 검토](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
 
-[Office 365 작업 모니터링 구성(Office 365를 사용하는 경우)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
+[Microsoft 365 작업 모니터링 구성 (Microsoft 365를 사용 하는 경우)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
 
 [인시던트/비상 대응 계획 소유자 설정](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#establish-incidentemergency-response-plan-owners)  
 

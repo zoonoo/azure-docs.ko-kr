@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281884"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399638"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>OPC 자격 증명 모음 인증서 관리 서비스를 안전 하 게 실행
 
@@ -94,7 +94,7 @@ OPC 자격 증명 모음 마이크로 서비스는 다음 역할을 정의 합�
 
 ### <a name="security-monitoring"></a>보안 모니터링
 
-적절 한 보안 모니터링을 구독 하거나 구현 합니다. 예를 들어 Azure Security Center 또는 Office 365 모니터링 솔루션과 같은 중앙 모니터링 솔루션을 구독 하 고, 보안 이벤트가 모니터링 솔루션에 전송 되도록 적절 하 게 구성 합니다.
+적절 한 보안 모니터링을 구독 하거나 구현 합니다. 예를 들어 Azure Security Center 또는 Microsoft 365 모니터링 솔루션과 같은 중앙 모니터링 솔루션을 구독 하 고, 보안 이벤트가 모니터링 솔루션에 전송 되도록 적절 하 게 구성 합니다.
 
 > [!IMPORTANT]
 > 기본적으로 OPC 자격 증명 모음 서비스는 [Azure 애플리케이션 정보](https://docs.microsoft.com/azure/azure-monitor/app/devops) 를 모니터링 솔루션으로 사용 하 여 배포 됩니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/) 와 같은 보안 솔루션을 추가 하는 것이 좋습니다.

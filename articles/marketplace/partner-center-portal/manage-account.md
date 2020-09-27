@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015835"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400692"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -306,7 +306,7 @@ Azure AD(Active Directory), 클라우드 솔루션 공급자(CSP), 제어판 공
 
 ## <a name="manage-tenants"></a>테넌트 관리
 
-이 설명서 전체에서 "회사 계정"이라고도 하는 Azure AD(Active Directory) 테넌트는 Azure Portal에 설정된 조직을 나타내는 표현이며, 내외부 사용자에 대한 특정 Microsoft 클라우드 서비스 인스턴스를 관리하는 데 도움이 됩니다. 조직이 Microsoft 클라우드 서비스(Azure, Microsoft Intune 또는 Office 365 등)에 가입한 경우 사용자를 위한 Azure AD 테넌트가 설정되었습니다.
+이 설명서 전체에서 "회사 계정"이라고도 하는 Azure AD(Active Directory) 테넌트는 Azure Portal에 설정된 조직을 나타내는 표현이며, 내외부 사용자에 대한 특정 Microsoft 클라우드 서비스 인스턴스를 관리하는 데 도움이 됩니다. 조직에서 Microsoft 클라우드 서비스 (예: Azure, Microsoft Intune 또는 Microsoft 365)를 구독 하는 경우 Azure AD 테 넌 트가 설정 되었습니다.
 
 파트너 센터에서 사용할 테넌트를 다수 설정할 수 있습니다. 파트너 센터 계정의 **관리자** 역할을 보유한 사용자에게는 계정에서 Azure AD 테넌트를 추가 및 제거할 수 있는 옵션이 주어집니다.  
 

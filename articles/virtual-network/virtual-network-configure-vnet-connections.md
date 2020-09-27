@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71099068"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400709"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>가상 네트워크 또는 VPN 연결 구성 및 유효성 검사
 
@@ -182,7 +182,7 @@ VNetA와 Vneta 간에 사이트 간 VPN 연결을 구성 하려는 시나리오�
 
 ### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Express 경로 연결에서 전송 라우팅 구성
 
-Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다. 자세한 내용은 [ExpressRoute 개요](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 참조하세요.
+Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Microsoft 365, Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다. 자세한 내용은 [ExpressRoute 개요](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 참조하세요.
 
 ![Azure virtual network에 대 한 Express 경로 개인 피어 링 연결](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 
@@ -258,7 +258,7 @@ SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합�
 
 ### <a name="validate-the-bgp-configuration"></a>BGP 구성 유효성 검사
 
-BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 예:
+BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 예를 들면 다음과 같습니다.
 
 ```
 {

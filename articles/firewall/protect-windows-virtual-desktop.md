@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611138"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400165"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure 방화벽을 사용하여 Windows 가상 데스크톱 배포 보호
 
@@ -61,11 +61,11 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 제대로
 
 ## <a name="host-pool-outbound-access-to-the-internet"></a>인터넷에 대 한 호스트 풀 아웃 바운드 액세스
 
-조직 요구 사항에 따라 최종 사용자에 게 보안 아웃 바운드 인터넷 액세스를 사용 하도록 설정할 수 있습니다. 허용 되는 대상 목록이 잘 정의 된 경우 (예: [Office 365 액세스](https://docs.microsoft.com/Office365/Enterprise/office-365-ip-web-service)) Azure 방화벽 응용 프로그램 및 네트워크 규칙을 사용 하 여 필요한 액세스를 구성할 수 있습니다. 그러면 최상의 성능을 위해 최종 사용자 트래픽을 인터넷으로 직접 라우팅합니다.
+조직 요구 사항에 따라 최종 사용자에 게 보안 아웃 바운드 인터넷 액세스를 사용 하도록 설정할 수 있습니다. 허용 되는 대상 목록이 잘 정의 된 경우 (예: [액세스 Microsoft 365](/microsoft-365/enterprise/microsoft-365-ip-web-service)) Azure 방화벽 응용 프로그램 및 네트워크 규칙을 사용 하 여 필요한 액세스를 구성할 수 있습니다. 그러면 최상의 성능을 위해 최종 사용자 트래픽을 인터넷으로 직접 라우팅합니다.
 
 기존 온-프레미스 보안 웹 게이트웨이를 사용 하 여 아웃 바운드 사용자 인터넷 트래픽을 필터링 하려는 경우 명시적 프록시 구성을 사용 하 여 Windows 가상 데스크톱 호스트 풀에서 실행 되는 웹 브라우저 또는 다른 응용 프로그램을 구성할 수 있습니다. 예를 들어 [Microsoft Edge 명령줄 옵션을 사용 하 여 프록시 설정을 구성 하는 방법](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings)을 참조 하세요. 이러한 프록시 설정은 최종 사용자 인터넷 액세스에만 영향을 주므로 Azure 방화벽을 통해 직접 Windows 가상 데스크톱 플랫폼 아웃 바운드 트래픽을 허용 합니다.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 요구 사항에 따라 추가 방화벽 규칙을 구성 해야 할 수도 있습니다.
 

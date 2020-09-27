@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725089"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399689"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -199,7 +199,7 @@ NSG 흐름 로그가 포함된 ElasticSearch 인덱스에서 읽을 수 있게 G
 
 다음 스크린샷에는 상위 흐름 및 빈도를 보여 주는 그래프와 차트가 나와 있습니다. 흐름을 NSG 규칙 및 결정을 기준으로 표시할 수도 있습니다. Grafana는 사용자 지정 기능이 뛰어나므로 특정 모니터링 요구에 맞게 대시보드를 만들 수 있습니다. 다음 예제에서는 일반적인 대시보드를 보여 줍니다.
 
-![대시보드 그래프](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![NSG 규칙에 따라 분할 된 흐름이 있는 샘플 그래프 구성을 보여 주는 스크린샷](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>결론
 

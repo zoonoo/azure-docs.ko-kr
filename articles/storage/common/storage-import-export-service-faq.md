@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f3a41fbd3cbd5b7c8eccfbea8833fdfedee97510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512392"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399043"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답
 
@@ -35,9 +35,9 @@ Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전�
 
 예. Azure Import/Export 서비스는 CSP(클라우드 솔루션 공급자) 구독을 지원합니다.
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>Azure Import/Export 서비스를 사용하여 PST 사서함 및 SharePoint 데이터를 O365에 복사할 수 있나요?
+### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-microsoft-365"></a>Azure Import/Export 서비스를 사용 하 여 PST 사서함 및 SharePoint 데이터를 Microsoft 365에 복사할 수 있나요?
 
-예. 자세한 내용은 [Office 365에 PST 파일 또는 SharePoint 데이터 가져오기](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx)로 이동합니다.
+예. 자세한 내용은 [조직의 PST 파일 가져오기 개요](/microsoft-365/compliance/importing-pst-files-to-office-365)를 참조 하세요.
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Azure Import/Export 서비스를 사용하여 오프라인 백업을 Azure Backup 서비스에 복사할 수 있나요?
 

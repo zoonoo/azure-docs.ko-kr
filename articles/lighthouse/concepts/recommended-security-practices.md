@@ -3,12 +3,12 @@ title: 권장 보안 방법
 description: Azure Lighthouse를 사용 하는 경우 보안 및 액세스 제어를 고려 하는 것이 중요 합니다.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ddc4d2c69e7aacc49c5309bc407aecd9bc8e572f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163274"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399383"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -28,18 +28,18 @@ ms.locfileid: "88163274"
 관리를 용이 하 게 하려면 고객의 리소스를 관리 하는 데 필요한 각 역할에 대해 Azure Active Directory (Azure AD) 그룹을 사용 합니다. 이렇게 하면 각 사용자에 게 직접 사용 권한을 할당 하는 대신 필요에 따라 그룹에 개별 사용자를 추가 하거나 제거할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure AD 그룹에 대한 사용 권한을 추가하려면 **그룹 유형**이 **Office 365**가 아닌 **보안**이어야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+> Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류** 를 **보안**으로 설정 해야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 권한 구조를 만들 때 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 하여 실수로 인한 오류 발생 가능성을 줄일 수 있게 최소 권한 원칙을 따라야 합니다.
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |Type  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |형식  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
 |설계자     |사용자 그룹         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM 전문가     |사용자 그룹         |\<principalId\>         |VM 참가자         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |SPN(서비스 주체 이름)         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |SPN(서비스 주체 이름)         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 이러한 그룹을 만든 후 필요에 따라 사용자를 할당할 수 있습니다. 실제로 액세스 권한이 필요한 사용자만 추가합니다. 그룹 멤버 자격을 정기적으로 검토하고 더 이상 적절하지 않거나 포함할 필요가 없는 모든 사용자를 제거해야 합니다.
 

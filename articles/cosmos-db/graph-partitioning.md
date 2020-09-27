@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB Gremlin API의 데이터 분할
 description: Azure Cosmos DB에서 분할된 그래프를 사용하는 방법을 알아봅니다. 이 문서에서는 또한 분할된 그래프에 대한 요구 사항 및 모범 사례를 설명합니다.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261769"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400505"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할된 그래프 사용
 
@@ -33,39 +33,39 @@ Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장�
 
 - **모서리는 원본 꼭짓점과 함께 저장됩니다**. 즉, 각 꼭짓점의 경우 해당 파티션 키는 돌출된 모서리와 함께 저장되는 위치를 정의합니다. 이 최적화는 그래프 쿼리에서 카디널리티를 사용할 때 파티션 간 쿼리를 방지 하기 위해 수행 됩니다 `out()` .
 
-- **가장자리는 가리키는 꼭 짓 점에 대 한 참조를 포함**합니다. 모든 가장자리는 가리키는 꼭 짓 점의 파티션 키와 Id를 사용 하 여 저장 됩니다. 이렇게 계산 하면 모든 `out()` 방향 쿼리가 항상 제한 된 분할 된 쿼리가 되며, 이러한 쿼리는 항상 사용 되지 않습니다. 
+- **가장자리는 가리키는 꼭 짓 점에 대 한 참조를 포함**합니다. 모든 가장자리는 가리키는 꼭 짓 점의 파티션 키와 Id를 사용 하 여 저장 됩니다. 이렇게 계산 하면 모든 `out()` 방향 쿼리가 항상 제한 된 분할 된 쿼리가 되며, 이러한 쿼리는 항상 사용 되지 않습니다.
 
 - **그래프 쿼리는 파티션 키를 지정해야 합니다**. Azure Cosmos DB에서 수평 분할을 최대한 활용하려면, 가능할 경우 단일 꼭짓점을 선택할 때마다 파티션 키를 지정해야 합니다. 다음은 분할된 그래프에서 하나 이상의 꼭짓점을 선택하기 위한 쿼리입니다.
 
     - `/id` 및 `/label`는 Gremlin API의 컨테이너에 대한 파티션 키로 지원되지 않습니다.
 
 
-    - ID로 꼭짓점을 선택한 후 **`.has()` 단계를 사용하여 파티션 키 속성 지정** 
-    
+    - ID로 꼭짓점을 선택한 후 **`.has()` 단계를 사용하여 파티션 키 속성 지정**
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - **파티션 키 값 및 ID를 포함하는 튜플을 지정**하여 꼭짓점 선택 
-    
+
+    - **파티션 키 값 및 ID를 포함하는 튜플을 지정**하여 꼭짓점 선택
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - **파티션 키 값 및 ID 튜플 배열** 지정
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - 해당 Id를 사용 하 여 꼭 짓 점 집합을 선택 하 고 **파티션 키 값 목록을 지정**합니다. 
-    
+
+    - 해당 Id를 사용 하 여 꼭 짓 점 집합을 선택 하 고 **파티션 키 값 목록을 지정**합니다.
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - 쿼리 시작 부분에서 **파티션 전략** 을 사용 하 고 나머지 Gremlin 쿼리 범위에 대 한 파티션을 지정 합니다. 
-    
+    - 쿼리 시작 부분에서 **파티션 전략** 을 사용 하 고 나머지 Gremlin 쿼리 범위에 대 한 파티션을 지정 합니다.
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

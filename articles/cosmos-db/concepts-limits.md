@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033016"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400063"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -27,8 +27,8 @@ ms.locfileid: "90033016"
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 컨테이너당 최대 RU([전용 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하여 늘릴 수 있습니다. |
-| 데이터베이스당 최대 RU([공유 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하여 늘릴 수 있습니다. |
+| 컨테이너당 최대 RU([전용 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다. |
+| 데이터베이스당 최대 RU([공유 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다. |
 | (논리적) 파티션당 최대 RUs | 10000 |
 | (논리) 파티션당 모든 항목에 대 한 최대 저장소 | 20GB |
 | 고유한(논리적) 파티션 키의 최대 수 | 제한 없음 |
@@ -79,8 +79,8 @@ Azure Portal, Azure PowerShell, Azure CLI 및 Azure Resource Manager 템플릿�
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 구독당 최대 데이터베이스 계정 수 | 기본값은 50입니다. [Azure 지원 티켓을 작성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하여 늘릴 수 있습니다.|
-| 최대 지역 장애 조치(failover) 수 | 기본적으로 시간당 1개입니다. [Azure 지원 티켓을 작성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하여 늘릴 수 있습니다.|
+| 구독당 최대 데이터베이스 계정 수 | 기본값은 50입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다.|
+| 최대 지역 장애 조치(failover) 수 | 기본적으로 시간당 1개입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다.|
 
 > [!NOTE]
 > 지역 장애 조치(failover)는 단일 지역 쓰기 계정에만 적용됩니다. 다중 지역 쓰기 계정은 쓰기 지역을 변경할 필요가 없거나 제한이 없습니다.
@@ -120,7 +120,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 | 고유 키 제약 조건당 최대 경로 수|16 <sup>*</sup>|
 | 최대 TTL 값 |2147483647|
 
-<sup>*</sup> Azure 지원에 문의하여 이러한 컨테이너당 제한을 늘릴 수 있습니다.
+<sup>*</sup>[Azure 지원 요청](create-support-request-quota-increase.md)을 만들어 이러한 컨테이너 별 제한을 늘릴 수 있습니다.
 
 ## <a name="per-item-limits"></a>항목당 제한
 
@@ -160,7 +160,7 @@ Cosmos DB는 권한 부여에 HMAC를 사용합니다. 마스터 키 또는 [리
 | --- | --- |
 | 최대 마스터 토큰 만료 시간 | 15분  |
 | 최소 리소스 토큰 만료 시간 | 10분  |
-| 최대 리소스 토큰 만료 시간 | 기본값은 24시간입니다. [Azure 지원 티켓을 작성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하여 늘릴 수 있습니다.|
+| 최대 리소스 토큰 만료 시간 | 기본값은 24시간입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다.|
 | 토큰 권한 부여의 최대 클럭 스큐| 15분 |
 
 Cosmos DB는 쓰기 중에 트리거 실행을 지원합니다. 이 서비스는 쓰기 작업당 최대 하나의 사전 트리거 및 하나의 사후 트리거를 지원합니다.
@@ -202,7 +202,7 @@ Cosmos DB는 [SQL](how-to-sql-query.md)을 사용하여 항목을 쿼리할 수 
 | 컨테이너당 최대 제외 경로| 500 |
 | 복합 인덱스의 최대 속성 수| 8 |
 
-<sup>*</sup> Azure 지원에 문의하여 이러한 SQL 쿼리 제한을 늘릴 수 있습니다.
+<sup>*</sup>[Azure 지원 요청](create-support-request-quota-increase.md)을 만들어 이러한 SQL 쿼리 제한을 늘릴 수 있습니다.
 
 ## <a name="mongodb-api-specific-limits"></a>MongoDB API 관련 제한
 

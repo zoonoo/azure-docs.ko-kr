@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047631"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400403"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
 
@@ -22,11 +22,11 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 
 Azure Cosmos DB를 사용하면 데이터뿐만 아니라 데이터의 백업도 지역 재해에 대해 중복성 및 복원력이 뛰어납니다. 다음 단계에서는 Azure Cosmos DB 데이터 백업을 수행 하는 방법을 보여 줍니다.
 
-* Azure Cosmos DB는 자동으로 4 시간 마다 데이터베이스의 백업을 수행 하 고, 언제 든 지 기본적으로 최신 두 백업만 저장 됩니다. 기본 간격이 작업에 충분 하지 않은 경우 Azure Portal에서 백업 간격과 보존 기간을 변경할 수 있습니다. Azure Cosmos 계정을 만든 후 또는 이후에 백업 구성을 변경할 수 있습니다. 컨테이너 또는 데이터베이스를 삭제 한 경우에는 지정 된 컨테이너 또는 데이터베이스의 기존 스냅숏이 30 일 동안 유지 Azure Cosmos DB.
+* Azure Cosmos DB는 4 시간 마다 데이터베이스의 전체 백업을 자동으로 수행 하며, 언제 든 지 최신 두 백업만 기본적으로 저장 됩니다. 기본 간격이 작업에 충분 하지 않은 경우 Azure Portal에서 백업 간격과 보존 기간을 변경할 수 있습니다. Azure Cosmos 계정을 만든 후 또는 이후에 백업 구성을 변경할 수 있습니다. 컨테이너 또는 데이터베이스를 삭제 한 경우에는 지정 된 컨테이너 또는 데이터베이스의 기존 스냅숏이 30 일 동안 유지 Azure Cosmos DB.
 
 * Azure Cosmos DB은 이러한 백업을 Azure Blob 저장소에 저장 하는 반면 실제 데이터는 Azure Cosmos DB 내에 로컬로 상주 합니다.
 
-* 짧은 대기 시간을 보장 하기 위해 백업의 스냅숏은 현재 쓰기 지역과 동일한 지역 (또는 다중 마스터 구성이 있는 경우 쓰기 지역 **중 하나** )의 Azure Blob 저장소에 저장 됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅샷은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB 팀은 지원 요청을 통해 요청 하는 경우 백업을 복원 합니다.
+* 낮은 대기 시간을 보장하기 위해 백업 스냅샷이 현재 쓰기 지역(또는 다중 마스터 구성이 있는 경우 쓰기 지역 중 **한 곳**)과 동일한 지역에 있는 Azure Blob Storage에 저장됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅샷은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB 팀은 지원 요청을 통해 요청하는 경우 백업을 복원합니다.
 
    다음 이미지는 미국 서부의 기본 실제 파티션 3개를 모두 포함하는 Azure Cosmos 컨테이너가 미국 서부의 원격 Azure Blob Storage 계정에 백업된 다음, 미국 동부에 복제되는 과정을 보여줍니다.
 
@@ -44,9 +44,9 @@ Azure Cosmos DB SQL API 계정을 통해 다음 방법 중 하나를 사용하�
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a>백업 간격 및 보존 기간 수정
 
-Azure Cosmos DB는 4 시간 마다 데이터의 백업을 자동으로 수행 하며, 언제 든 지 최신 두 백업이 저장 됩니다. 이 구성은 기본 옵션이 며 추가 비용 없이 제공 됩니다. Azure Cosmos 계정을 만드는 동안 또는 계정을 만든 후에 기본 백업 간격과 보존 기간을 변경할 수 있습니다. 백업 구성은 Azure Cosmos 계정 수준에서 설정 되며, 각 계정에 대해 구성 해야 합니다. 계정에 대 한 백업 옵션을 구성한 후에는 해당 계정 내의 모든 컨테이너에 적용 됩니다. 현재 Azure Portal 에서만 백업 옵션을 변경할 수 있습니다.
+Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 수행 하 고, 언제 든 지 최신 두 개의 백업이 저장 됩니다. 이 구성은 기본 옵션이 며 추가 비용 없이 제공 됩니다. Azure Cosmos 계정을 만드는 동안 또는 계정을 만든 후에 기본 백업 간격과 보존 기간을 변경할 수 있습니다. 백업 구성은 Azure Cosmos 계정 수준에서 설정되며, 각 계정에 대해 구성해야 합니다. 계정에 대 한 백업 옵션을 구성한 후에는 해당 계정 내의 모든 컨테이너에 적용 됩니다. 현재는 Azure Portal에서만 백업 옵션을 변경할 수 있습니다.
 
-실수로 데이터를 삭제 하거나 손상 한 경우 **데이터 복원에 대 한 지원 요청을 만들기 전에 계정에 대 한 백업 보존 기간을 7 일 이상으로 늘려야 합니다. 이 이벤트의 8 시간 이내에 보존 기간을 늘리는 것이 가장 좋습니다.** 이러한 방식으로 Azure Cosmos DB 팀에 계정을 복원할 시간이 충분 합니다.
+실수로 데이터를 삭제 하거나 손상 한 경우 **데이터 복원에 대 한 지원 요청을 만들기 전에 계정에 대 한 백업 보존 기간을 7 일 이상으로 늘려야 합니다. 이 이벤트의 8 시간 이내에 보존 기간을 늘리는 것이 가장 좋습니다.** 이렇게 하면 Azure Cosmos DB 팀이 계정을 복원할 충분한 시간을 갖게 됩니다.
 
 다음 단계를 사용 하 여 기존 Azure Cosmos 계정에 대 한 기본 백업 옵션을 변경 합니다.
 
@@ -57,7 +57,7 @@ Azure Cosmos DB는 4 시간 마다 데이터의 백업을 자동으로 수행 �
 
    * **백업 보존** -각 백업이 유지 되는 기간을 나타냅니다. 몇 시간 또는 며칠 내에 구성할 수 있습니다. 최소 보존 기간은 백업 간격 (시간)의 두 배 미만일 수 없으며 720 시간 보다 클 수 없습니다.
 
-   * **보존 된 데이터 복사본** -기본적으로 데이터의 백업 복사본 두 개는 무료로 제공 됩니다. 복사본이 두 개 이상 필요한 경우에는 추가 요금이 부과 됩니다. 추가 사본에 대 한 정확한 요금을 알아보려면 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 에서 사용 된 저장소 섹션을 참조 하세요.
+   * **보존 된 데이터 복사본** -기본적으로 데이터의 백업 복사본 두 개는 무료로 제공 됩니다. 복사본이 두 개 이상 필요한 경우에는 추가 요금이 부과 됩니다. 추가 복사본의 정확한 가격을 알아보려면 [가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지에서 사용된 스토리지 섹션을 참조하세요.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="기존 Azure Cosmos 계정에 대 한 백업 간격 및 보존 구성" border="true":::
 

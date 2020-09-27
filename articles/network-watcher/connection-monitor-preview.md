@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0cb51cd224145e7fe359e2b14a87ed2b87b18c26
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: f331c62060b2d8a39a87bab95b00225f363b4a56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563027"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400250"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "87563027"
 
 - 프런트 엔드 웹 서버 VM은 다중 계층 응용 프로그램에서 데이터베이스 서버 VM과 통신 합니다. 두 Vm 간의 네트워크 연결을 확인 하려고 합니다.
 - 미국 동부 지역의 Vm에서 미국 중부 지역의 vm을 ping 하 고 지역 간 네트워크 대기 시간을 비교 하려고 합니다.
-- 시애틀, 워싱턴 및 Ashburn (버지니아)에 여러 온-프레미스 사무실 사이트가 있습니다. Office 사이트에서 Office 365 Url에 연결 합니다. Office 365 Url 사용자의 경우 시애틀와 Ashburn 사이의 대기 시간을 비교 합니다.
+- 시애틀, 워싱턴 및 Ashburn (버지니아)에 여러 온-프레미스 사무실 사이트가 있습니다. Office 사이트는 Microsoft 365 Url에 연결 됩니다. Microsoft 365 Url의 사용자에 대해 시애틀와 Ashburn 사이의 대기 시간을 비교 합니다.
 - 하이브리드 응용 프로그램은 Azure Storage 끝점에 연결 해야 합니다. 온-프레미스 사이트와 Azure 응용 프로그램은 동일한 Azure Storage 끝점에 연결 됩니다. 온-프레미스 사이트의 대기 시간을 Azure 응용 프로그램의 대기 시간과 비교 하려고 합니다.
 - 온-프레미스 설정과 클라우드 응용 프로그램을 호스트 하는 Azure Vm 간의 연결을 확인 하려고 합니다.
 
@@ -87,7 +87,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
 연결 모니터는 일정 한 간격으로 통신을 모니터링 합니다. 연결 및 대기 시간에 대 한 변경 내용을 알려줍니다. 원본 에이전트와 대상 끝점 간의 현재 및 과거 네트워크 토폴로지를 확인할 수도 있습니다.
 
-소스는 모니터링 에이전트가 설치 된 Azure Vm 또는 온-프레미스 컴퓨터 일 수 있습니다. 대상 끝점은 Office 365 Url, Dynamics 365 Url, 사용자 지정 Url, Azure VM 리소스 Id, IPv4, IPv6, FQDN 또는 임의의 도메인 이름일 수 있습니다.
+소스는 모니터링 에이전트가 설치 된 Azure Vm 또는 온-프레미스 컴퓨터 일 수 있습니다. 대상 끝점 Microsoft 365 Url, Dynamics 365 Url, 사용자 지정 Url, Azure VM 리소스 Id, IPv4, IPv6, FQDN 또는 임의의 도메인 이름일 수 있습니다.
 
 ### <a name="access-connection-monitor-preview"></a>액세스 연결 모니터 (미리 보기)
 
@@ -137,7 +137,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 | 11 | C | E | 구성 1 |
 | 12 | C | E | 구성 2 |
 
-### <a name="scale-limits"></a>크기 제한
+### <a name="scale-limits"></a> 확장 한도
 
 연결 모니터의 크기 제한은 다음과 같습니다.
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187203"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400420"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -234,11 +234,11 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메시지를 보내는 것과 동일한 방식으로 Azure Automation에 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)를 보냅니다. Runbook을 활성화하듯이 세부 정보 표시 및 진행률 스트림을 활성화할 수 있습니다.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>시나리오: Orchestrator.Sandbox.exe가 프록시를 통해 Office 365에 연결할 수 없음
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>시나리오: Orchestrator.Sandbox.exe 프록시를 통해 Microsoft 365에 연결할 수 없음
 
 #### <a name="issue"></a>문제
 
-Windows Hybrid Runbook Worker에서 실행되는 스크립트가 Orchestrator 샌드박스의 Office 365에 예상대로 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)를 사용하고 있습니다. 
+Windows Hybrid Runbook Worker에서 실행 되는 스크립트는 오 케 스트레이 터 샌드박스에서 Microsoft 365에 정상적으로 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)를 사용하고 있습니다. 
 
 **Orchestrator.Sandbox.exe.config**를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(Service Management Automation) 로그 및 PowerShell 로그는 프록시와 관련된 정보를 제공하지 않습니다.
 

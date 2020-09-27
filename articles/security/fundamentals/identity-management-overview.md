@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002674"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400318"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 * SSO(Single sign-on)
 * 역방향 프록시
 * Multi-Factor Authentication
-* Azure 역할 기반 access control (Azure RBAC)
+* Azure RBAC(Azure 역할 기반 액세스 제어)
 * 보안 모니터링, 경고 및 기계 학습 기반 보고서
 * 소비자 ID 및 액세스 관리
 * 디바이스 등록
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 
 SSO란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
-대부분의 조직에서는 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
+많은 조직에서는 사용자 생산성을 위해 Microsoft 365, Box 및 Salesforce와 같은 SaaS 응용 프로그램에 의존 합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
 Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 디바이스 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 애플리케이션에 로그인할 수 있도록 합니다.
 
@@ -147,14 +147,14 @@ Intune과 같은 모바일 디바이스 관리 솔루션과 함께 사용할 경
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Azure AD Privileged Identity Management를 사용하여 Azure AD 및 기타 Microsoft 온라인 서비스(Office 365 및 Microsoft Intune 등)에서 권한 있는 ID를 관리, 제어, 모니터링하고 리소스에 액세스할 수 있습니다.
+Azure AD Privileged Identity Management를 사용 하 여 권한 있는 id를 관리, 제어 및 모니터링 하 고 Azure AD 및 기타 Microsoft 온라인 서비스 (예: Microsoft 365 및 Microsoft Intune)의 리소스에 액세스할 수 있습니다.
 
-경우에 따라 사용자는 Azure, Office 365 리소스 또는 기타 SaaS 앱에서 권한이 필요한 작업을 수행해야 합니다. 이는 보통 조직이 사용자에게 Azure AD에서 영구 권한 있는 액세스를 제공해야 함을 의미합니다. 조직은 사용자가 관리자 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 이러한 액세스는 클라우드에 호스트된 리소스의 보안 위험을 증가시킵니다. 또한 권한 있는 액세스가 있는 사용자 계정이 손상되면 이로 인해 조직의 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD 권한 있는 ID 관리는 이 위험을 완화하는 데 도움이 됩니다.
+사용자가 Azure 또는 Microsoft 365 리소스 또는 다른 SaaS 앱에서 권한 있는 작업을 수행 해야 하는 경우가 있습니다. 이는 보통 조직이 사용자에게 Azure AD에서 영구 권한 있는 액세스를 제공해야 함을 의미합니다. 조직은 사용자가 관리자 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 이러한 액세스는 클라우드에 호스트된 리소스의 보안 위험을 증가시킵니다. 또한 권한 있는 액세스가 있는 사용자 계정이 손상되면 이로 인해 조직의 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD 권한 있는 ID 관리는 이 위험을 완화하는 데 도움이 됩니다.
 
 Azure AD Privileged Identity Management로 다음을 수행할 수 있습니다.
 
 * Azure AD 관리자인 사용자를 확인할 수 있습니다.
-* Office 365 및 Intune 등의 Microsoft 서비스에 대해 주문형 JIT(Just-In-Time) 관리 권한을 사용하도록 설정할 수 있습니다.
+* Microsoft 365 및 Intune과 같은 Microsoft 서비스에 대 한 주문형 JIT (just-in-time) 관리 액세스를 사용 하도록 설정 합니다.
 * 관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서를 가져옵니다.
 * 권한 있는 역할의 액세스에 대한 알림을 받을 수 있습니다.
 
@@ -174,7 +174,7 @@ Azure AD ID 보호은 조직의 id에 영향을 주는 위험 검색 및 잠재�
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>하이브리드 ID 관리/Azure AD Connect
 
-Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 확장하며 이는 위치에 관계 없이 모든 리소스에 인증 및 권한 부여에 대한 단일 사용자 ID를 만듭니다. 하이브리드 ID라고 합니다. Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft 도구입니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 애플리케이션 사용자를 위한 공통 ID를 제공할 수 있습니다. 다음과 같은 기능을 제공합니다.
+Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 확장하며 이는 위치에 관계 없이 모든 리소스에 인증 및 권한 부여에 대한 단일 사용자 ID를 만듭니다. 하이브리드 ID라고 합니다. Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft 도구입니다. 이렇게 하면 Azure AD와 통합된 Microsoft 365, Azure 및 SaaS 애플리케이션 사용자를 위한 공통 ID를 제공할 수 있습니다. 다음과 같은 기능을 제공합니다.
 
 * 동기화
 * AD FS 및 페더레이션 통합
