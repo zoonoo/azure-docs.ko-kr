@@ -9,6 +9,8 @@
   items:
     - name: 사용자 지정 리소스 공급자 만들기
       href: create-custom-provider.md
+    - name: 사용자 지정 리소스 공급자 만들기 - Azure PowerShell
+      href: create-custom-provider-quickstart-powershell.md
 - name: 자습서
   items:
     - name: 사용자 지정 공급자 시작
@@ -45,6 +47,8 @@
       href: /rest/api/customproviders/
     - name: Azure CLI
       href: /cli/azure/ext/custom-providers/custom-providers/
+    - name: Azure PowerShell
+      href: /powershell/module/Az.CustomProviders/
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

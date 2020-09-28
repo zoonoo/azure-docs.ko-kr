@@ -70,10 +70,14 @@
           href: cache-how-to-premium-clustering.md
         - name: Redis 데이터 지속성을 통해 캐시 지속
           href: cache-how-to-premium-persistence.md
+        - name: 복제본 더 추가
+          href: cache-how-to-multi-replicas.md
         - name: 가상 네트워크로 캐시 보호
           href: cache-how-to-premium-vnet.md
         - name: 캐시에 비공개로 연결
           href: cache-private-link.md
+        - name: 영역 중복성 사용
+          href: cache-how-to-zone-redundancy.md
         - name: 지리적 복제 설정
           href: cache-how-to-geo-replication.md
         - name: 예약 용량으로 저장
@@ -156,7 +160,7 @@
       href: /powershell/module/az.rediscache
     - name: Azure CLI
       href: /cli/azure/redis
-    - name: REST (영문)
+    - name: REST
       href: 'https://docs.microsoft.com/rest/api/redis/'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions

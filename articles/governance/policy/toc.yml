@@ -17,6 +17,9 @@
     - name: 정책 할당 - Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: 정책 할당 - JavaScript
+      displayName: 'assign, compliance'
+      href: ./assign-policy-javascript.md
     - name: 정책 할당 - Python
       displayName: 'assign, compliance'
       href: ./assign-policy-python.md
@@ -112,10 +115,10 @@
       href: ./concepts/policy-as-code.md
     - name: Kubernetes 통합
       items:
-        - name: Kubernetes에 대한 Azure Policy(미리 보기)
+        - name: Kubernetes에 대한 Azure Policy
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Azure Policy를 사용하여 Pod 보안(미리 보기)
+        - name: Azure Policy로 포드 보안
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: 게스트 구성을 사용하여 VM 감사

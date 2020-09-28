@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5be0b43de8265b2b337c024117ae8f424e4a3bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318044"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403494"
 ---
 # <a name="feature-coverage-for-machines"></a>컴퓨터의 기능 검사
 
@@ -42,12 +42,12 @@ ms.locfileid: "91318044"
 |[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|예|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|예|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|-|-|-|예|
-|누락 된 OS 패치 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 예|
+|누락 된 OS 패치 평가|✔|✔|✔|Azure: 아니요<br><br>비 Azure: 예|
 |보안 잘못 평가|✔|✔|✔|Azure: 아니요<br><br>비 Azure: 예|
 |[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 아니요<br><br>비 Azure: 예|
-|디스크 암호화 평가|✔</br>( [지원 되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)의 경우)|✔|-|Free|
-|타사 취약성 평가|✔|-|-|Free|
-|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|Free|
+|디스크 암호화 평가|✔</br>( [지원 되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)의 경우)|✔|-|아니요|
+|타사 취약성 평가|✔|-|-|아니요|
+|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|아니요|
 
 
 ### <a name="linux-machines"></a>[**Linux 컴퓨터**](#tab/features-linux)
@@ -66,12 +66,12 @@ ms.locfileid: "91318044"
 |[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|예|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|예|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|✔|✔|✔|예|
-|누락 된 OS 패치 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 예|
-|보안 잘못 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 예|
-|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
-|디스크 암호화 평가|✔</br>( [지원 되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)의 경우)|✔|-|Free|
-|타사 취약성 평가|✔|-|-|Free|
-|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|Free|
+|누락 된 OS 패치 평가|✔|✔|✔|Azure: 아니요<br><br>비 Azure: 예|
+|보안 잘못 평가|✔|✔|✔|Azure: 아니요<br><br>비 Azure: 예|
+|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|아니요|
+|디스크 암호화 평가|✔</br>( [지원 되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)의 경우)|✔|-|아니요|
+|타사 취약성 평가|✔|-|-|아니요|
+|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|아니요|
 
 --- 
 
@@ -93,11 +93,11 @@ ms.locfileid: "91318044"
 |------|------|-----|-----|
 | Microsoft Defender 바이러스 백신| Windows Server 2016 이상| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| 추세 마이크로 – 심층 보안 | Windows Server 제품군  | 예 | 예 |
-| Symantec v12.1.1100+| Windows Server 제품군  | 예 | 예 |
-| McAfee v10+ | Windows Server 제품군  | 예 | 예 |
-| McAfee v10+ | Linux 서버 제품군  | 예 | 예로 **\*** |
-| Sophos V9 +| Linux 서버 제품군  | 예 | 예로  **\***  |
+| 추세 마이크로 – 심층 보안 | Windows Server 제품군  | 아니요 | 예 |
+| Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
+| McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
+| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예로 **\*** |
+| Sophos V9 +| Linux 서버 제품군  | 아니요 | 예로  **\***  |
 
  **\*** 현재는 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 검사 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영 되지 않습니다.
 

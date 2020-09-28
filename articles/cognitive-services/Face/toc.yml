@@ -13,7 +13,7 @@
       items:
         - name: 이미지에서 얼굴 감지
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
@@ -35,7 +35,7 @@
   items:
     - name: 클라이언트 SDK 사용
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: 개념
   items:
@@ -47,9 +47,7 @@
   items:
     - name: 얼굴 감지
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: 얼굴 식별
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: 얼굴 추가
+    - name: 그룹에 얼굴 추가
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: HeadPose 특성 사용
       href: Face-API-How-to-Topics/how-to-use-headpose.md

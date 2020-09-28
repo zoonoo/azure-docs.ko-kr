@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: f22380f65b91976e7696551ee0a65a5bf6dfd097
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334313"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404728"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory Parquet 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 | 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | 예      |
+| type          | 복사 작업 싱크의 type 속성은 **ParquetSink**로 설정 해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **Parquet write settings** 표를 참조 하세요. |    예      |
 | 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 예       |
 
@@ -127,7 +127,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-properties"></a>싱크 속성
 
-아래 표에서는 parquet 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
+아래 표에서는 parquet 싱크에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
 | Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |

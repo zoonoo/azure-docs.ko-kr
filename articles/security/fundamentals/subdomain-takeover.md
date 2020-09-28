@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514614"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403214"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
@@ -86,7 +86,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 도구는 다음 표에 나열 된 Azure 리소스를 지원 합니다. 도구는 모든 테 넌 트의 CNAMEs를 추출 하거나 입력으로 사용 합니다.
 
 
-| 서비스                   | Type                                        | FQDNproperty                               | 예제                         |
+| 서비스                   | 형식                                        | FQDNproperty                               | 예제                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | microsoft.network/frontdoors                | 속성. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | microsoft.storage/storageaccounts           | 속성. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -100,7 +100,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 
 
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음을 가진 사용자로 쿼리를 실행 합니다.
 
@@ -117,14 +117,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 
 ### <a name="run-the-script"></a>스크립트 실행
 
-스크립트에는 두 가지 버전이 있습니다. 둘 다 동일한 입력 매개 변수를 가지 며 비슷한 출력을 생성 합니다.
-
-|스크립트  |정보  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |병렬 모드는 PowerShell 버전 7 이상 에서만 지원 되며 다른 사용자는 직렬 모드를 실행 합니다.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |이 스크립트는 [Windows 워크플로](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview)를 사용 하기 때문에 6 보다 낮은 PowerShell 데스크톱/버전 에서만 지원 됩니다.|
-
-GitHub에서 PowerShell 스크립트에 대해 자세히 알아보고 다운로드 https://aka.ms/DanglingDNSDomains 합니다.
+PowerShell 스크립트 및 **Get-DanglingDnsRecords.ps1**에 대해 자세히 알아보고 GitHub에서 다운로드 https://aka.ms/DanglingDNSDomains 합니다.
 
 ## <a name="remediate-dangling-dns-entries"></a>현 항목 DNS 항목 재구성 
 

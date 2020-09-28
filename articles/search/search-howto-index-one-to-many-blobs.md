@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529593"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403588"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>여러 검색 문서를 생성 하는 blob 인덱싱
 기본적으로 blob 인덱서는 blob의 내용을 단일 검색 문서로 처리 합니다. 특정 **parsingMode** 값은 개별 blob이 여러 검색 문서를 발생 시킬 수 있는 시나리오를 지원 합니다. 인덱서가 blob에서 둘 이상의 검색 문서를 추출할 수 있는 다양 한 유형의 **parsingMode** 는 다음과 같습니다.
@@ -108,6 +108,9 @@ ParsingMode를 사용 하 여 인덱서를 만들 때 다음과 `delimitedText` 
 
 > [!NOTE]
 > 추출 된 엔터티 별로 고유성이 보장 되는 방법에 따라 `AzureSearch_DocumentKey` 변경 될 수 있으므로 응용 프로그램의 요구에 따라이 값을 사용 하면 안 됩니다.
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
+요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search/)에서 입력을 제공하세요. 기존 기능을 사용 하는 데 도움이 필요 하면 [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870)에 질문을 게시 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

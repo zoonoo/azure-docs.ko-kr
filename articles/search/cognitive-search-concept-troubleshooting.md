@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935469"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403384"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search AI 보강에 대 한 팁
 
@@ -110,12 +110,11 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 ## <a name="tip-8-increase-indexing-throughput"></a>팁 8: 인덱싱 처리량 증가
 
 [병렬 인덱싱](search-howto-large-index.md)의 경우 여러 컨테이너에 데이터를 또는 동일한 컨테이너 내부에 여러 가상 폴더를 저장합니다. 그런 다음, 여러 데이터 원본 및 인덱서 쌍을 만듭니다. 모든 인덱서는 동일한 기술 집합을 사용하며 동일한 대상 검색 인덱스에 쓸 수 있으므로 검색 앱이 이 분할을 알 필요가 없습니다.
-자세한 내용은 [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
+
 + [빠른 시작: 포털에서 AI 보강 파이프라인 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: AI 보강 REST Api 학습](cognitive-search-tutorial-blob.md)
 + [데이터 원본 자격 증명 지정](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱스에 보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

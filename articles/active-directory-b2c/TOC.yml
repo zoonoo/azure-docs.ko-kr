@@ -474,7 +474,7 @@
       href: error-codes.md
     - name: 앱 확장
       href: extensions-app.md
-    - name: IEF 릴리스 정보
+    - name: 사용자 지정 정책(IEF) 릴리스 정보
       href: custom-policy-developer-notes.md
     - name: Microsoft Graph API 작업
       href: microsoft-graph-operations.md

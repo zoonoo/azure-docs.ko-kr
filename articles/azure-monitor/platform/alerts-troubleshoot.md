@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045247"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403418"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
@@ -61,7 +61,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
     다음을 확인합니다.
 
    - 이메일 클라이언트(Outlook, Gmail과 같은)의 스팸 설정
-      - 이메일 서버(예: Exchange, Office 365, G suite)의 발신자 제한/스팸 설정/격리 설정
+      - 이메일 서버 (예: Exchange, Microsoft 365, G suite)의 발신자 제한/스팸 설정/격리 설정
       - 전자 메일 보안 어플라이언스의 설정 (있는 경우) (예: Barracuda, Cisco)
 
 1. **작업 그룹에서 실수로 구독을 취소 했습니까?**
@@ -203,7 +203,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     서비스 상태 경고(모니터링 서비스 = “Service Health”)는 작업 규칙의 영향을 받지 않습니다. 
 
-1. **작업 규칙이 경고에 대해 작동 했습니까?** 
+1. **작업 규칙이 경고에 대해 작동했나요?** 
 
     포털에서 발생한 경고를 클릭하여 작업 규칙이 처리되었는지 확인하고, 기록 탭을 살펴봅니다.
 
@@ -216,7 +216,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
     ![여러 작업 그룹에서 반복 되는 작업](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **작업 규칙 범위와 필터가 발생 한 경고와 일치 합니까?** 
+1. **작업 규칙 범위와 필터가 발생한 경고와 일치하나요?** 
 
     작업 규칙이 발생해야 하는데 발생하지 않았거나 발생하지 말아야 하는데 발생한 경우 작업 규칙 범위 및 필터 조건과 발생한 경고의 속성을 주의 깊게 검토합니다. 
 

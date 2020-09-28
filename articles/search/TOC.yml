@@ -144,7 +144,7 @@
           href: search-howto-complex-data-types.md
         - name: 관계형 데이터 모델링
           href: index-sql-relational-data.md
-    - name: 모든 데이터 수집
+    - name: 데이터 가져오기
       items:
         - name: 데이터 가져오기 개요
           href: search-what-is-data-import.md
@@ -156,45 +156,19 @@
           href: search-howto-large-index.md
         - name: 동시 업데이트 처리
           href: search-howto-concurrency.md
-    - name: Azure 전용 데이터 수집
+    - name: Azure 데이터 가져오기(인덱서)
       items:
-        - name: 인덱서 구성
-          href: search-indexer-overview.md
-        - name: 인덱서 모니터링
-          href: search-howto-monitor-indexers.md
-        - name: 인덱서 일정
-          href: search-howto-schedule-indexers.md
-        - name: 맵 필드
-          href: search-indexer-field-mappings.md
-        - name: 데이터 원본
+        - name: 인덱서 작업
           items:
-            - name: Azure Blob
-              items:
-                - name: Blob 검색
-                  href: search-blob-storage-integration.md
-                - name: AI를 사용하여 Blob 이해
-                  href: search-blob-ai-integration.md
-                - name: Blob 인덱서 구성
-                  href: search-howto-indexing-azure-blob-storage.md
-                - name: 일대다 Blob 인덱스
-                  href: search-howto-index-one-to-many-blobs.md
-                - name: 인덱스 CSV blob
-                  href: search-howto-index-csv-blobs.md
-                - name: 인덱스 JSON blob
-                  href: search-howto-index-json-blobs.md
-            - name: Azure Tables
-              href: search-howto-indexing-azure-tables.md
-            - name: Azure Cosmos DB
-              href: search-howto-index-cosmosdb.md
-            - name: Azure Data Lake Storage Gen2
-              href: search-howto-index-azure-data-lake-storage.md
-            - name: SQL Database
-              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-            - name: SQL Managed Instances
-              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-            - name: SQL Server VM
-              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: 관리 ID를 사용하여 연결
+            - name: 인덱서 구성
+              href: search-indexer-overview.md
+            - name: 인덱서 모니터링
+              href: search-howto-monitor-indexers.md
+            - name: 인덱서 일정
+              href: search-howto-schedule-indexers.md
+            - name: 맵 필드
+              href: search-indexer-field-mappings.md
+        - name: 관리 ID로 연결
           items:
             - name: 관리 ID 개요
               href: search-howto-managed-identities-data-sources.md
@@ -204,6 +178,32 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
+        - name: Azure Blob
+          items:
+            - name: Blob 검색
+              href: search-blob-storage-integration.md
+            - name: AI를 사용하여 Blob 이해
+              href: search-blob-ai-integration.md
+            - name: Blob 인덱서 구성
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: 일대다 Blob 인덱스
+              href: search-howto-index-one-to-many-blobs.md
+            - name: 인덱스 CSV blob
+              href: search-howto-index-csv-blobs.md
+            - name: 인덱스 JSON blob
+              href: search-howto-index-json-blobs.md
+        - name: Azure Tables
+          href: search-howto-indexing-azure-tables.md
+        - name: Azure Cosmos DB
+          href: search-howto-index-cosmosdb.md
+        - name: Azure Data Lake Storage Gen2
+          href: search-howto-index-azure-data-lake-storage.md
+        - name: Azure SQL Databases
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Azure SQL Managed Instance
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+        - name: Azure SQL Server VM
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: 기술(AI) 사용
       items:
         - name: Cognitive Services 리소스 연결

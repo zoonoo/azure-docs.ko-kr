@@ -4,7 +4,7 @@
   items:
     - name: Azure NetApp Files란?
       href: azure-netapp-files-introduction.md
-    - name: 스토리지 계층 구조 이해
+    - name: Azure NetApp Files의 스토리지 계층 구조
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: 빠른 시작
   expanded: true
@@ -61,6 +61,8 @@
       href: azure-netapp-files-create-netapp-account.md
     - name: 용량 풀 설정
       href: azure-netapp-files-set-up-capacity-pool.md
+    - name: 수동 QoS 용량 풀 관리
+      href: manage-manual-qos-capacity-pool.md
     - name: Azure NetApp Files에 서브넷 위임
       href: azure-netapp-files-delegate-subnet.md
     - name: NFS 볼륨 만들기 및 관리
@@ -109,8 +111,12 @@
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: 문제 해결
       items:
+        - name: 용량 풀 문제 해결
+          href: troubleshoot-capacity-pools.md
         - name: 지역 간 복제 문제 해결
           href: troubleshoot-cross-region-replication.md
+        - name: 스냅샷 정책 문제 해결
+          href: troubleshoot-snapshot-policies.md
 - name: 참조
   items:
     - name: REST (영문)

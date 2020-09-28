@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088533"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404904"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -43,7 +43,7 @@ ms.locfileid: "87088533"
 
 ## <a name="solution"></a>솔루션
 
-이 문제를 해결하려면 VM을 중지하고 할당을 취소했다가 다시 시작합니다. 이 작업을 수행하면 VM이 강제로 Azure Key Vault에서 BEK 파일을 검색한 후 암호화된 디스크에 넣습니다. 
+이 문제를 해결 하려면 VM을 중지 하 고 할당을 취소 한 다음 시작 합니다. 이 작업을 수행하면 VM이 강제로 Azure Key Vault에서 BEK 파일을 검색한 후 암호화된 디스크에 넣습니다. 
 
 이 방법으로 문제가 해결되지 않으면 다음 단계에 따라 BEK 파일을 수동으로 복원합니다.
 
@@ -293,7 +293,7 @@ ms.locfileid: "87088533"
 
 **매개 변수 샘플**
 
-| 매개 변수  | 값 샘플  |주석   |
+| 매개 변수  | 값 샘플  |의견   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
 |$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|

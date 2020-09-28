@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: b099a6ea706482e25b2c37a87cf0a24f2fe475bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531593"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403241"
 ---
 # <a name="revisions-in-azure-api-management"></a>Azure API Management의 수정 버전
 
@@ -38,7 +38,7 @@ API에 대 한 각 수정 버전에는 특별 한 형식의 URL을 사용 하 �
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-기본적으로 각 수정 버전에는 현재 수정 버전과 동일한 보안 설정이 있습니다. 각 수정 버전에 대해 다른 보안을 적용 하려는 경우 특정 수정 버전에 대 한 정책을 의도적으로 변경할 수 있습니다. 예를 들어 외부 호출자가 아직 개발 중인 수정 버전에 액세스 하지 못하도록 [IP 허용 목록 정책을](./api-management-access-restriction-policies.md#RestrictCallerIPs) 추가 하려고 할 수 있습니다.
+기본적으로 각 수정 버전에는 현재 수정 버전과 동일한 보안 설정이 있습니다. 각 수정 버전에 대해 다른 보안을 적용 하려는 경우 특정 수정 버전에 대 한 정책을 의도적으로 변경할 수 있습니다. 예를 들어 외부 호출자가 아직 개발 중인 수정 버전에 액세스 하지 못하도록 [IP 필터링 정책을](./api-management-access-restriction-policies.md#RestrictCallerIPs) 추가 하려고 할 수 있습니다.
 
 수정 버전을 오프 라인 상태로 만들 수 있습니다 .이 경우 해당 URL을 통해 수정 버전에 액세스 하려고 하는 경우에도 호출자가 액세스할 수 없게 됩니다. Azure Portal를 사용 하 여 수정 버전을 오프 라인으로 표시할 수 있습니다. PowerShell을 사용 하는 경우 cmdlet을 사용 하 여 `Set-AzApiManagementApiRevision` 인수를로 설정할 수 있습니다 `Path` `$null` .
 

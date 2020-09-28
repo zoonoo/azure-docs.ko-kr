@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 88f0891e9bd67da094240b059750226402da0244
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 9fe4d5cfb4b0b31a257dfecdeeb191a9c7920772
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396234"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403173"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
 
@@ -166,7 +166,7 @@ public class Startup
 
 다음 이미지는 *Startup.cs* 파일에 대 한 다양 한 *Microsoft id* 및 해당 영향을 보여 줍니다.
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Web api를 만들 때 다운스트림 api 및 토큰 캐시 구현을 호출 하도록 선택할 수 있습니다.":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출 하 고 토큰 캐시 구현을 지정 하는 시작 점 C의 서비스 구성 옵션을 보여 주는 블록 다이어그램":::
 
 > [!NOTE]
 > 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.

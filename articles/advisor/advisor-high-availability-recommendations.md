@@ -2,13 +2,13 @@
 title: Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 description: Azure Advisor를 사용 하 여 업무상 중요 한 Azure 배포에서 안정성을 보장 하 고 향상 시킵니다.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264595"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405193"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 
@@ -109,6 +109,12 @@ Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하�
 ## <a name="enable-virtual-machine-replication"></a>가상 머신 복제 사용
 다른 지역에 복제를 사용 하도록 설정 하지 않은 가상 머신은 지역 가동 중단으로 복원 되지 않습니다. 가상 컴퓨터를 복제 하면 Azure 지역 가동 중단 시 부정적인 비즈니스 영향이 줄어듭니다. Advisor는 복제를 사용 하도록 설정 하지 않은 Vm을 검색 하 고 사용 하도록 권장 합니다. 복제를 사용 하도록 설정 하는 경우 가동 중단이 발생 하면 원격 Azure 지역에서 가상 머신을 신속 하 게 가져올 수 있습니다. [가상 컴퓨터 복제에 대해 자세히 알아보세요.](../site-recovery/azure-to-azure-quickstart.md)
 
+## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>최신 버전 Azure Connected Machine 에이전트로 업그레이드
+[Azure 연결 된 컴퓨터 에이전트](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) 는 버그 수정, 안정성 향상 및 새로운 기능을 통해 정기적으로 업데이트 됩니다. 최신 버전의 컴퓨터 에이전트에서 작동 하지 않는 리소스를 식별 했으며,이 Advisor 권장 사항은 최상의 Azure Arc 환경을 위해 에이전트를 최신 버전으로 업그레이드 하는 것을 제안 합니다.
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>웹 사이트 무결성을 보장 하기 위해 호스트 이름을 재정의 하지 마십시오.
+Advisor Application Gateway를 구성할 때 호스트 이름을 재정의 하지 않는 것이 좋습니다. 백 엔드에 액세스 하는 데 사용 되는 것 보다 Application Gateway 프런트 엔드에서 다른 도메인을 사용 하면 쿠키 또는 리디렉션 url이 손상 될 수 있습니다. 이는 모든 상황에서 발생 하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주 (예: REST API)가이에 대 한 중요 한 영향을 받지 않습니다. 백 엔드가이를 처리 하거나 Application Gateway 구성을 업데이트할 수 있도록 하 여 백 엔드에 대 한 호스트 이름을 덮어쓸 필요가 없는지 확인 하세요. App Service와 함께 사용 하는 경우 웹 앱에 사용자 지정 도메인 이름을 연결 하 고 *백 엔드에 대 한 azurewebsites.net 호스트 이름을* 사용 하지 않습니다. [사용자 지정 도메인에 대해 자세히 알아보세요](https://aka.ms/appgw-advisor-usecustomdomain).
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스 하는 방법
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
@@ -120,6 +126,7 @@ Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하�
 Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 소개](advisor-overview.md)
 * [Advisor 시작](advisor-get-started.md)
+* [Advisor 점수](azure-advisor-score.md)
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)

@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/15/2020
-ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/28/2020
+ms.openlocfilehash: 4ef569864b27eff7f57aa2b0a922034fa28f587c
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090604"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405244"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -154,6 +154,10 @@ Express 사용자 지정 설치에 대해 **사용이 허가 된 구성 요소**
    * **Theobald Software의 추출 (is** 구성 요소를 선택 하는 경우 [에는 Azure-SSIS IR](https://theobald-software.com/en/xtract-is/) 의 Theobald Software에서 SAP 시스템용 커넥터 제품군 (ERP, s/4hana, BW)을 설치할 수 있습니다. 이렇게 하려면 먼저 구매한 제품 라이선스 파일을 & 끌어서 **라이선스 파일** 입력 상자에 저장/업로드 합니다. 현재 통합 버전은 **6.1.1.3**입니다.
 
    * **AecorSoft의 통합 서비스** 구성 요소를 선택 하는 경우에는 Azure-SSIS IR의 AECORSOFT에서 SAP 및 Salesforce 시스템용 커넥터의 [통합 서비스](https://www.aecorsoft.com/en/products/integrationservice) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **3.0.00**입니다.
+
+   * **Cdata의 Ssis 표준 패키지** 구성 요소를 선택 하는 경우 Azure-SSIS IR에 Microsoft SharePoint 커넥터와 같이 cdata에서 가장 인기 있는 구성 요소의 [SSIS 표준 패키지](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **19.7354**입니다.
+
+   * **Cdata의 Ssis 확장 패키지** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 Ssis **표준 패키지**에 Microsoft Dynamics 365 비즈니스 중앙 커넥터 및 기타 구성 요소와 같이 cdata의 모든 구성 요소에 대 한 [ssis 확장 패키지](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **19.7354**입니다. 설치 시간 초과를 방지 하기 위해 크기가 너무 많기 때문에 Azure-SSIS IR에 노드당 CPU 코어가 4 개 이상 있는지 확인 하세요.
 
 추가 된 빠른 사용자 지정 설치가 **고급 설정** 페이지에 표시 됩니다. 저장소를 제거하려면 해당 확인란을 선택한 다음, **삭제**를 선택합니다.
 

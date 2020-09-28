@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798910"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403724"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -28,7 +28,7 @@ ms.locfileid: "88798910"
 
 * [서비스 연결 모니터](network-performance-monitor-service-connectivity.md): 관심 있는 서비스에 대한 사용자의 연결을 모니터링하고, 경로에 어떤 인프라가 있는지 확인하고, 네트워크 병목 현상이 발생하는 위치를 식별할 수 있습니다. 사용자보다 먼저 중단에 대해 알 수 있고, 네트워크 경로에서 문제의 위치를 정확히 볼 수 있습니다. 
 
-    이 기능을 사용하면 HTTP, HTTPS, TCP 및 ICMP를 기반으로 테스트를 수행하여 서비스의 가용성 및 응답 시간을 거의 실시간으로 또는 시간별로 모니터링할 수 있습니다. 또한 패킷 손실 및 대기 시간에 대한 네트워크의 영향도 모니터링할 수 있습니다. 네트워크 토폴로지 맵을 통해 네트워크 속도 저하를 격리시킬 수 있습니다. 각 홉의 대기 시간 데이터를 통해, 노드에서 서비스로 가는 네트워크 경로에서 발생하는 문제 지점을 식별할 수 있습니다. 기본 제공 테스트를 통해 사전 구성 없이 Office 365, Dynamics CRM에 대한 네트워크 연결을 모니터링할 수 있습니다. 이 기능을 사용하여 웹 사이트, SaaS 애플리케이션, PaaS 애플리케이션, SQL 데이터베이스 등과 같은 TCP 지원 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다.
+    이 기능을 사용하면 HTTP, HTTPS, TCP 및 ICMP를 기반으로 테스트를 수행하여 서비스의 가용성 및 응답 시간을 거의 실시간으로 또는 시간별로 모니터링할 수 있습니다. 또한 패킷 손실 및 대기 시간에 대한 네트워크의 영향도 모니터링할 수 있습니다. 네트워크 토폴로지 맵을 통해 네트워크 속도 저하를 격리시킬 수 있습니다. 각 홉의 대기 시간 데이터를 통해, 노드에서 서비스로 가는 네트워크 경로에서 발생하는 문제 지점을 식별할 수 있습니다. 기본 제공 테스트를 통해 사전 구성 없이 Microsoft 365 및 Dynamics CRM에 대 한 네트워크 연결을 모니터링할 수 있습니다. 이 기능을 사용하여 웹 사이트, SaaS 애플리케이션, PaaS 애플리케이션, SQL 데이터베이스 등과 같은 TCP 지원 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다.
 
 * [ExpressRoute 모니터링](network-performance-monitor-expressroute.md): Azure ExpressRoute를 통해 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링합니다.  
 
@@ -82,7 +82,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
     네트워크 링크를 모니터링하려면 해당 링크의 엔드포인트 양쪽 모두에 에이전트를 설치해야 합니다. 네트워크 토폴로지를 확실히 모를 경우 사이의 네트워크 성능을 모니터링하려는 중요 워크로드가 있는 서버에 에이전트를 설치합니다. 예를 들어, 웹 서버와 SQL을 실행하는 서버 간의 네트워크 연결을 모니터링하려는 경우 두 서버 모두에 에이전트를 설치합니다. 에이전트는 호스트 자체가 아닌 호스트 간의 네트워크 연결(링크)을 모니터링합니다. 
 
-* **서비스 연결 모니터:** 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Log Analytics 에이전트를 설치합니다. 예를 들어 O1, O2 및 O3 레이블이 지정된 사무실 사이트에서 Office 365에 대한 네트워크 연결을 모니터링하려는 경우 O1, O2 및 O3 각각에서 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다. 
+* **서비스 연결 모니터:** 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Log Analytics 에이전트를 설치합니다. 예를 들어, office 사이트에서 O1, O2 및 O3로 네트워크 연결 Microsoft 365을 모니터링 하려는 경우를 들 수 있습니다. O1, O2 및 O3 각각에서 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다. 
 
 * **ExpressRoute 모니터**: Azure 가상 네트워크에 하나 이상의 Log Analytics 에이전트를 설치합니다. 또한 ExpressRoute 프라이빗 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
 
@@ -128,7 +128,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
    ![성능 모니터 보기](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **서비스 연결 모니터**: 이 기능은 에이전트에서 Office 365 및 Dynamics 365로의 네트워크 연결을 모니터링하기 위해 미리 구성된 기본 제공 테스트를 제공합니다. 옆에 있는 확인란을 선택하여 모니터링할 Office 365 및 Dynamics 365 서비스를 선택합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가**를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속**을 선택합니다.
+   **서비스 연결 모니터**:이 기능은 에이전트에서 Microsoft 365 및 Dynamics 365에 대 한 네트워크 연결을 모니터링 하는 미리 구성 된 기본 제공 테스트를 제공 합니다. 옆의 확인란을 선택 하 여 모니터링 하려는 Microsoft 365 및 Dynamics 365 서비스를 선택 합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가**를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속**을 선택합니다.
 
    ![서비스 연결 모니터 보기](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

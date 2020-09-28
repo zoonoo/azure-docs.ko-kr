@@ -138,8 +138,6 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: VPN 클라이언트 구성 파일 생성 및 설치
               href: point-to-site-vpn-client-configuration-azure-cert.md
-            - name: 세션 관리
-              href: p2s-session-management.md
         - name: RADIUS 인증
           items:
             - name: P2S VPN 구성
@@ -170,6 +168,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 이동
               href: ikev2-openvpn-from-sstp.md
+        - name: P2S 세션 관리 구성
+          href: p2s-session-management.md
         - name: P2S용 공용 CA 게이트웨이 인증서로 전환
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Always On VPN 디바이스 터널 구성

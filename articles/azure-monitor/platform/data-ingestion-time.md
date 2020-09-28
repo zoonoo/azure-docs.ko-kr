@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666640"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403554"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -51,7 +51,7 @@ Azure 데이터는 처리를 위해 Log Analytics 수집 지점에서 사용할 
 ### <a name="management-solutions-collection"></a>관리 솔루션 수집
 일부 솔루션은 에이전트에서 데이터를 수집하지 않고 추가 대기 시간을 도입하는 수집 방법을 사용할 수 있습니다. 일부 솔루션은 거의 실시간으로 수집하지 않고 주기적으로 데이터를 수집합니다. 특정 예제는 다음과 같습니다.
 
-- Office 365 솔루션은 현재 거의 실시간 대기 시간을 보장하지 않는 Office 365 관리 작업 API를 사용하여 활동 로그를 폴링합니다.
+- Microsoft 365 솔루션은 현재 거의 실시간 대기 시간을 보장 하지 않는 관리 활동 API를 사용 하 여 활동 로그를 폴링합니다.
 - Windows Analytics 솔루션(예: 업데이트 준수) 데이터는 매일 솔루션에 의해 수집됩니다.
 
 각 솔루션에 대한 문서를 참조하여 해당 수집 빈도를 확인하세요.

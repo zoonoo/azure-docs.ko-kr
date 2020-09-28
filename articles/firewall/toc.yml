@@ -88,6 +88,8 @@
       href: firewall-diagnostics.md
     - name: Azure Monitor 로그
       href: log-analytics-samples.md
+    - name: Azure Firewall 통합 문서
+      href: firewall-workbook.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -102,9 +104,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/firewall
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

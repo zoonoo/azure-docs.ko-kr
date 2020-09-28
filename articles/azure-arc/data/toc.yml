@@ -16,6 +16,8 @@
       href: connectivity.md
     - name: 스토리지 구성
       href: storage-configuration.md
+    - name: 크기 조정 지침
+      href: sizing-guidance.md
 - name: 방법 가이드
   items:
     - name: 도구 설치
@@ -47,7 +49,7 @@
         - name: 데이터 컨트롤러 만들기(azdata)
           href: create-data-controller-using-azdata.md
         - name: Kubernetes를 사용하여 데이터 컨트롤러 만들기
-          href: create-data-controller-using-k8s-native-tools.md
+          href: create-data-controller-using-kubernetes-native-tools.md
     - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
       items:
         - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
@@ -90,6 +92,8 @@
           href: create-postgresql-hyperscale-server-group.md
         - name: Postgres 하이퍼스케일 서버 그룹 만들기(Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Postgres 하이퍼스케일 서버 그룹 만들기 - Kubernetes 네이티브 도구
+          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: 연결
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: 개념
@@ -148,6 +152,8 @@
           href: create-sql-managed-instance.md
         - name: SQL Managed Instance 만들기(Azure Data Studio)
           href: create-sql-managed-instance-azure-data-studio.md
+        - name: Kubernetes 도구를 사용하여 만들기
+          href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: 연결
           href: connect-managed-instance.md
     - name: 방법

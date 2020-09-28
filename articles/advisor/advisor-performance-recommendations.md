@@ -2,13 +2,13 @@
 title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 07/29/2020
+ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651578"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405159"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -63,8 +63,6 @@ Advisor는 최신 [테이블 통계가](../synapse-analytics/sql-data-warehouse/
 
 Advisor 분석은 MySQL 서버에 연결 하는 응용 프로그램이 연결을 효율적으로 관리 하지 않을 수 있음을 나타낼 수 있습니다. 이로 인해 불필요 한 리소스 소비 및 전반적인 응용 프로그램 대기 시간이 발생할 수 있습니다. 연결 관리를 향상시키려면 수명이 짧은 연결 수를 줄이고 불필요한 유휴 연결을 제거하는 것이 좋습니다. ProxySQL과 같은 서버 쪽 연결 풀을 구성 하 여 이러한 개선을 수행할 수 있습니다.
 
-## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>현재 컴퓨팅 관리 SDK 버전을 최신 버전으로 업데이트
-Advisor는 오래 된 계산 관리 SDK 버전을 사용 하는 작업을 포함 하는 구독을 식별 합니다. 이는 워크 로드의 보안과 성능에 영향을 줄 수 있으므로 Advisor는 최신 버전의 Compute Management SDK로 전환 하는 것이 좋습니다. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Azure Synapse Analytics 테이블에서 캐시 사용률을 최적화 하 여 쿼리 성능 향상을 위해 확장
 
@@ -165,10 +163,18 @@ Azure Advisor는 지난 7 일간 시스템 로그를 분석 하 고 클러스터
 이 권장 사항은 구성된 캐시 기간(정책)을 초과하여 가장 많은 수의 쿼리를 포함하는 Azure Data Explorer 테이블을 표시합니다(캐시 외부 데이터에 액세스하는 쿼리 비율별로 상위 10개의 테이블이 표시됨). 클러스터의 성능을 향상시키기 위한 권장 조치: 이 테이블에 대한 쿼리를 필요한 최소 시간 범위(정의된 정책 내)로 제한합니다. 또는 전체 시간 범위의 데이터가 필요한 경우 캐시 기간을 권장 값으로 늘립니다.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>MySQL 임시 테이블 크기 조정을 최적화하여 성능 향상
-Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세히 알아보기](https://aka.ms/azure_mysql_tmp_table)
+Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세한 정보](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>서버 그룹에 데이터를 배포하여 노드 간에 워크로드 분산
-Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2135201) 
+
+## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Windows 가상 데스크톱 배포 위치에 더 가깝게 Vm을 배포 하 여 사용자 환경 및 연결 개선
+VM이 WVD(Windows Virtual Desktop)를 사용하여 사용자가 연결하는 위치와 다른 지역에 있는 것으로 확인되었습니다. 이로 인해 연결 응답 시간이 길어질 수 있으며 WVD에서 전반적인 사용자 환경에 영향을 줄 수 있습니다. 호스트 풀에 대해 VM을 만들 때 사용자에게 가까운 지역을 사용하려고 해야 합니다. 가까운 근접성을 사용하면 WVD 서비스에 대해 계속 만족할 수 있으며 전반적인 환경의 품질이 향상됩니다. [여기에서 연결 대기 시간에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+
+## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>최신 버전의 몰입형 리더 SDK로 업그레이드
+이 구독에서 오래된 버전의 몰입형 리더 SDK를 사용하는 리소스를 확인했습니다. 최신 버전의 몰입형 리더 SDK를 사용하면 통합 환경을 사용자 지정하고 향상시킬 수 있는 확장된 기능 집합, 업데이트된 보안, 성능이 제공됩니다.
+[몰입 형 판독기 SDK](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore)에 대해 자세히 알아보세요.
+
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor의 성능 권장 사항에 액세스 하는 방법
 
@@ -182,6 +188,7 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Advisor 소개](advisor-overview.md)
 * [Advisor 시작](advisor-get-started.md)
+* [Advisor 점수](azure-advisor-score.md)
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)

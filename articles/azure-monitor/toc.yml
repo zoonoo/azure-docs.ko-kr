@@ -497,14 +497,16 @@
               href: platform/alerts-troubleshoot-metric.md
         - name: 로그 경고 규칙
           items:
-            - name: 분석 쿼리에 대한 경고 구성
+            - name: 로그 경고 관리
               href: platform/alerts-log.md
-            - name: 쿼리
+            - name: 경고 쿼리 최적화
               href: platform/alerts-log-query.md
-            - name: 웹후크 작업
-              href: platform/alerts-log-webhook.md
+            - name: Resource Manager 템플릿 사용
+              href: platform/alerts-log-create-templates.md
             - name: 로그 경고 문제 해결
               href: platform/alerts-troubleshoot-log.md
+            - name: 웹후크 작업
+              href: platform/alerts-log-webhook.md
         - name: 활동 로그 경고 규칙
           items:
             - name: 활동 로그 이벤트에 대한 경고
@@ -1145,6 +1147,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: 그래프
               href: platform/workbooks-graph-visualizations.md
+            - name: 벌집
+              href: platform/workbooks-honey-comb.md
             - name: 복합 막대
               href: platform/workbooks-composite-bar.md
         - name: 데이터 원본
@@ -1183,7 +1187,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:
@@ -1245,8 +1249,6 @@
           href: app/auto-collect-dependencies.md
         - name: 원격 분석 상관 관계
           href: app/correlation.md
-        - name: NuGet 패키지
-          href: app/nuget.md
         - name: 플랫폼 지원
           href: app/platforms.md
         - name: 엔드포인트 재정의
@@ -1324,7 +1326,7 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: 클래식 경고 및 모니터링
           href: platform/monitoring-classic-retirement.md
-        - name: 로그 경고 API 기본 설정 전환
+        - name: 현재 로그 경고 API로 전환
           href: platform/alerts-log-api-switch.md
         - name: 웹앱 분석 솔루션
           href: insights/azure-web-apps-analytics.md

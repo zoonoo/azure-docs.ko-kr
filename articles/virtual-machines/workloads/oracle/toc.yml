@@ -4,7 +4,7 @@
       href: oracle-overview.md
     - name: Azure VM의 솔루션
       href: oracle-vm-solutions.md
-    - name: Azure의 Oracle WebLogic Server란?
+    - name: Azure Virtual Machines에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
       href: oracle-weblogic.md
     - name: OCI가 포함된 솔루션
       href: oracle-oci-overview.md

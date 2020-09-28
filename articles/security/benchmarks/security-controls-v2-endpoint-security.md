@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280625"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402925"
 ---
 # <a name="security-control-v2-endpoint-security"></a>보안 제어 V2: 끝점 보안
 
@@ -98,3 +98,4 @@ Azure Security Center "계산 앱"의 권장 사항을 따라 &amp; 모든 끝�
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Azure Security Center의 Endpoint protection 평가 및 권장 사항](../../security-center/security-center-endpoint-protection.md)

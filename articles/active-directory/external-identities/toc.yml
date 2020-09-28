@@ -2,11 +2,14 @@
   href: index.yml
   items:
     - name: 개요
+      expanded: true
       items:
         - name: External Identities용 솔루션 비교
           href: compare-with-b2c.md
         - name: B2B 게스트 사용자 액세스란?
           href: what-is-b2b.md
+        - name: Azure AD B2C란?
+          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
     - name: 빠른 시작
       items:
         - name: 포털에서 게스트 사용자 추가
@@ -15,15 +18,15 @@
           href: b2b-quickstart-invite-powershell.md
     - name: 자습서
       items:
-        - name: PowerShell을 통한 대량 초대
+        - name: PowerShell을 통해 게스트 사용자 대량 초대
           href: bulk-invite-powershell.md
-        - name: 포털을 통한 대량 초대
+        - name: 포트를 통해 게스트 사용자 대량 초대
           href: tutorial-bulk-invite.md
-        - name: Multi-Factor Authentication 적용
+        - name: 게스트 사용자에 다단계 인증 적용
           href: b2b-tutorial-require-mfa.md
     - name: 샘플
       items:
-        - name: 셀프 서비스 가입 샘플
+        - name: 게스트 사용자 셀프 서비스 가입 샘플
           href: code-samples-self-service-sign-up.md
         - name: 코드 및 Azure PowerShell 샘플
           href: code-samples.md
@@ -63,9 +66,9 @@
     - name: 방법 가이드
       expanded: true
       items:
-        - name: 외부 공유 구성
+        - name: 외부 협업 설정 구성
           href: delegate-invitations.md
-        - name: B2B 사용자 초대
+        - name: 게스트 사용자 초대
           items:
             - name: B2B 사용자를 추가하는 관리자
               href: add-users-administrator.md
@@ -91,7 +94,7 @@
               href: direct-federation-adfs.md
         - name: 일회성 암호 인증
           href: one-time-passcode.md
-        - name: 셀프 서비스 가입(미리 보기)
+        - name: 게스트 사용자의 셀프 서비스 등록(미리 보기)
           items:
             - name: 셀프 서비스 가입 사용자 흐름 추가
               href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: 사용자 지정 승인 시스템 추가
               href: self-service-sign-up-add-approvals.md
-        - name: 게스트 계정 관리
+        - name: 게스트 사용자 계정 관리
           items:
             - name: 역할에 B2B 사용자 추가
               href: add-guest-to-role.md
@@ -113,7 +116,7 @@
               href: user-properties.md
             - name: Azure AD용 B2B 통합 앱
               href: configure-saas-apps.md
-        - name: 하이브리드 조직을 위한 액세스 관리
+        - name: 하이브리드 조직의 게스트 액세스 관리
           items:
             - name: 로컬 사용자에게 클라우드 앱에 대한 액세스 권한 부여
               href: hybrid-on-premises-to-cloud.md

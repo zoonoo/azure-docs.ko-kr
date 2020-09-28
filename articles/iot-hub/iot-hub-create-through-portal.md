@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326735"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404962"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -22,9 +22,9 @@ ms.locfileid: "87326735"
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT 허브를 만들고 관리하는 방법에 대해 설명합니다.
 
-이 자습서의 단계를 사용하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+이 자습서의 단계를 사용하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+## <a name="create-an-iot-hub"></a>IoT 허브 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -78,7 +78,7 @@ IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
 ![새 경로 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-허브 이름을 지정합니다. 이름은 해당 허브에 대한 경로 목록 내에서 고유해야 합니다. 
+경로 이름을로 합니다. 경로 이름은 해당 허브의 경로 목록 내에서 고유 해야 합니다. 
 
 **엔드포인트**의 경우 드롭다운 목록에서 하나를 선택하거나 새로 추가할 수 있습니다. 이 예에서는 스토리지 계정과 컨테이너를 이미 사용할 수 있습니다. 이러한 항목을 엔드포인트로 추가하려면 [엔드포인트] 드롭다운 옆에 있는 **+ 추가**를 클릭하고 **Blob Storage**를 선택합니다. 다음 화면에서는 스토리지 계정 및 컨테이너가 지정된 위치를 보여 줍니다.
 

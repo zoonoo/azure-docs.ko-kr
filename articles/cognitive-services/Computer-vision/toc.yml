@@ -114,17 +114,17 @@
     - name: 투명성 메모
       items:
         - name: 공간 분석 소개
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview'
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
         - name: 특성 및 제한 사항
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations'
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
     - name: '규정 준수, 프라이버시 및 보안'
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
     - name: AI 배포의 책임감 있는 사용
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
     - name: 디자인 지침 공개
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
     - name: 인사이트 연구
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
 - name: 컨테이너
   items:
     - name: API 컨테이너 읽기
@@ -134,6 +134,8 @@
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: 컨테이너 구성
           href: computer-vision-resource-container-config.md
+        - name: 읽기 컨테이너의 v3으로 마이그레이션
+          href: read-container-migration-guide.md
           displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
         - name: Kubernetes 및 Helm 활용
           href: deploy-computer-vision-on-premises.md

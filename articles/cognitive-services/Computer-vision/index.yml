@@ -10,13 +10,13 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 10/01/2019
-  ms.openlocfilehash: 45515fc865d989394c465a25b5474153f8370bd0
-  ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3a11be023df31fc4f6babe44d869ae89862ae501
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90530219"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91277243"
 landingContent:
 - title: Computer Vision 정보
   linkLists:
@@ -86,7 +86,7 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Go SDK 사용
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-- title: 컨테이너 사용
+- title: 읽기 컨테이너 사용
   linkLists:
   - linkListType: get-started
     links:
@@ -102,6 +102,26 @@ landingContent:
       url: deploy-computer-vision-on-container-instances.md
     - text: Kubernetes 및 Helm 활용
       url: deploy-computer-vision-on-premises.md
+- title: 공간 분석 컨테이너 사용
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 컨테이너 설치 및 실행
+      url: spatial-analysis-container.md
+    - text: 작업 구성
+      url: spatial-analysis-operations.md
+  - linkListType: deploy
+    links:
+    - text: 인원수를 세는 앱 배포
+      url: spatial-analysis-web-app.md
+  - linkListType: concept
+    links:
+    - text: 영역 및 줄 배치
+      url: spatial-analysis-zone-line-placement.md
+    - text: 카메라 배치
+      url: spatial-analysis-camera-placement.md
+    - text: 로깅 및 문제 해결
+      url: spatial-analysis-logging.md
 - title: 이미지에서 얼굴 감지
   linkLists:
   - linkListType: concept

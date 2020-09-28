@@ -2,13 +2,13 @@
 title: Azure Advisor 소개
 description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 ms.topic: article
-ms.date: 02/01/2019
-ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654024"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405210"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -24,7 +24,7 @@ Advisor를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 [Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
-Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다섯 가지 범주로 나뉩니다. 
+Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다섯 가지 범주로 구분됩니다. 
 
 * **안정성 (이전에는 고가용성 이라고 함)**: 업무상 중요 한 응용 프로그램의 연속성을 보장 하 고 향상 시킵니다. 자세한 내용은 [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)을 참조 하세요.
 * **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색 합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
@@ -68,7 +68,9 @@ Azure Advisor에는 추가 리소스 유형에 대 한 권장 사항을 포함 �
 Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Advisor 시작](advisor-get-started.md)
+* [Advisor 점수](azure-advisor-score.md)
 * [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
+* [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)

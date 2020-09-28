@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 606d3c78e96491a92b2e09aa74801247369ba0ab
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284638"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403299"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Write-Output $table
 
 - "**Azure Automation-작업 만들기**" – PowerShell 스크립트를 실행 하 여 Azure Automation runbook 내에서 자동 조정 권장 사항을 검색 하는 데 사용 됩니다.
 - "**Azure Automation-작업 출력 가져오기**"-실행 된 PowerShell 스크립트에서 출력을 검색 하는 데 사용 됩니다.
-- "**Office 365 Outlook-전자 메일 보내기**"-전자 메일을 보내는 데 사용 됩니다. 전자 메일은 흐름을 만드는 개인의 Office 365 계정을 사용하여 전송됩니다.
+- "**Office 365 Outlook-전자 메일 보내기**"-전자 메일을 보내는 데 사용 됩니다. 전자 메일은 흐름을 만드는 개별의 회사 또는 학교 계정을 사용 하 여 전송 됩니다.
 
 Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](https://docs.microsoft.com/flow/getting-started)을 참조하세요.
 

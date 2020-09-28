@@ -250,7 +250,7 @@
           href: control-kubeconfig-access.md
         - name: 네트워크 정책을 사용하여 Pod 트래픽 보안
           href: use-network-policies.md
-        - name: Azure Policy를 사용하여 Pod 보안(미리 보기)
+        - name: Azure Policy로 포드 보안
           href: use-pod-security-on-azure-policy.md
         - name: Pod 보안 정책(미리 보기) 사용
           href: use-pod-security-policies.md
@@ -381,7 +381,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

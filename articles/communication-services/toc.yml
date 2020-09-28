@@ -82,7 +82,13 @@
   items:
     - name: REST API 설명서
       href: 'https://docs.microsoft.com/rest/api/azure/'
+    - name: 통화 라이브러리(Android/Java)
+      href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+    - name: 통화 라이브러리(JS)
+      href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+    - name: 통화 라이브러리(iOS)
+      href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
 - name: 리소스
   items:
     - name: 릴리스 정보
-      href: release-notes.md
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'

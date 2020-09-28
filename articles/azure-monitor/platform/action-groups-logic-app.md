@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321890"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403129"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -108,7 +108,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 �
 
     ![Microsoft 팀 작업](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft 팀 작업")
 
-12. Microsoft Teams 작업을 구성합니다. **Logic Apps 디자이너**에서 Office 365 계정에 인증할 것을 요청합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID**를 선택합니다.
+12. Microsoft Teams 작업을 구성합니다. **Logic Apps Designer** 는 회사 또는 학교 계정에 인증 하 라는 메시지를 표시 합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID**를 선택합니다.
 
 13. 정적 텍스트와 동적 콘텐츠에서의 참조를 조합 하 여 메시지를 구성 \<fields\> 합니다. 다음 텍스트를 잘라내어 **메시지** 필드에 붙여넣습니다.
 

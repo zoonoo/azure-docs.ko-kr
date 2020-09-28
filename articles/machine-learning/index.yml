@@ -11,22 +11,22 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/17/2020
+  ms.date: 09/21/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 4359f18e51dffa26f1bfc7fbe74f5f89dff7c56f
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 935476812e93a79be5e1cdb4d4d38a07d15e1935
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90900122"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91296589"
 landingContent:
 - title: '시작: 코드 우선'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Python SDK 시작(1일차)
+    - text: 시작 자습서(Python)
       url: tutorial-1st-experiment-sdk-setup-local.md
-    - text: Jupyter Notebook 사용
+    - text: Jupyter Notebook 사용 자습서
       url: tutorial-1st-experiment-sdk-setup.md
     - text: ML 파이프라인을 사용한 일괄 처리 유추(Python)
       url: tutorial-pipeline-batch-scoring-classification.md

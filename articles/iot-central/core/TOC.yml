@@ -81,12 +81,16 @@
       items:
         - name: 디바이스 템플릿 설정
           href: howto-set-up-template.md
+        - name: 속성을 사용하는 방법
+          href: howto-use-properties.md
         - name: Azure Sphere DevKit 준비 및 연결
           href: howto-connect-sphere.md
         - name: RuuviTag 디바이스 준비 및 연결
           href: howto-connect-ruuvi.md
         - name: Rigado Cascade 500 준비 및 연결
           href: howto-connect-rigado-cascade-500.md
+        - name: X.509를 사용하여 디바이스 연결
+          href: how-to-connect-devices-x509.md
         - name: 다른 IoT 클라우드 연결
           href: howto-build-iotc-device-bridge.md
     - name: 연결 유지

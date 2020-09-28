@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023859"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405176"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이에서 데이터 복사 및 변환
 
@@ -39,7 +39,7 @@ ms.locfileid: "90023859"
 
 Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱크로 지원 하지 않습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -150,12 +150,12 @@ Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱�
 | 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성은 **SnowflakeSource**로 설정 해야 합니다. | 예      |
-| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다. 스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` .<br>저장 프로시저 실행은 지원 되지 않습니다. | 아니요       |
-| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요       |
+| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다. 스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` .<br>저장 프로시저 실행은 지원 되지 않습니다. | 예       |
+| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 예       |
 | ***에서 `exportSettings` 다음을 수행 합니다.*** |  |  |
 | type | **SnowflakeExportCopyCommand**로 설정 된 내보내기 명령의 유형입니다. | 예 |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
-| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | 예 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | 예 |
 
 #### <a name="direct-copy-from-snowflake"></a>눈송이에서 직접 복사
 
@@ -179,7 +179,7 @@ Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱�
 - 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
 - 열 매핑이 지정 되지 않았습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -230,7 +230,7 @@ Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱�
 > [!NOTE]
 > 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다. 
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -282,11 +282,11 @@ Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱�
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink**로 설정 됩니다. | 예                                           |
 | preCopyScript     | 각 실행 시 눈송이에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
-| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요 |
+| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 예 |
 | ***에서 `importSettings` 다음을 수행 합니다.*** |                                                              |  |
 | type | **SnowflakeImportCopyCommand**로 설정 된 가져오기 명령의 유형입니다. | 예 |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
-| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | 예 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | 예 |
 
 #### <a name="direct-copy-to-snowflake"></a>눈송이로 직접 복사
 
@@ -314,7 +314,7 @@ Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱�
    - 원본이 폴더인 경우 `recursive` 는 true로 설정 됩니다.
    - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` 및 `enablePartitionDiscovery`는 지정되지 않습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -357,14 +357,14 @@ Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱�
 
 #### <a name="staged-copy-to-snowflake"></a>눈송이로 준비 된 복사
 
-싱크 데이터 저장소 또는 형식이 눈송이 복사 명령과 기본적으로 호환 되지 않는 경우 마지막 섹션에 설명 된 대로 중간 Azure Blob 저장소 인스턴스를 사용 하 여 기본 제공 준비 된 복사본을 사용 하도록 설정 합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory은 눈송이의 데이터 형식 요구 사항을 충족 하도록 데이터를 자동으로 변환 합니다. 그런 다음 복사 명령을 호출 하 여 데이터를 눈송이로 로드 합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비를 사용 하 여 데이터 복사에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 참조 하세요.
+마지막 섹션에서 설명한 것 처럼 원본 데이터 저장소 또는 형식이 눈송이 복사 명령과 기본적으로 호환 되지 않는 경우 중간 Azure Blob 저장소 인스턴스를 사용 하 여 기본 제공 준비 된 복사본을 사용 하도록 설정 합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory은 눈송이의 데이터 형식 요구 사항을 충족 하도록 데이터를 자동으로 변환 합니다. 그런 다음 복사 명령을 호출 하 여 데이터를 눈송이로 로드 합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비를 사용 하 여 데이터 복사에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 참조 하세요.
 
 이 기능을 사용 하려면 Azure storage 계정을 중간 준비로 참조 하는 [Azure Blob 저장소 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 를 만듭니다. 그런 다음 `enableStaging` `stagingSettings` 복사 작업에서 및 속성을 지정 합니다.
 
 > [!NOTE]
 > 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -444,8 +444,8 @@ source(allowSchemaDrift: true,
 | Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | 눈송이 대상에서 허용 되는 작업을 지정 합니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
-| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 아니요 | 배열 | 키 |
-| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | 아니요 | `true` 또는 `false` | 다시<br/>truncate |
+| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 예 | 배열 | 키 |
+| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | 예 | `true` 또는 `false` | 다시<br/>truncate |
 
 #### <a name="snowflake-sink-script-examples"></a>눈송이 싱크 스크립트 예제
 

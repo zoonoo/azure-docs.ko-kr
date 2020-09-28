@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301672"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403500"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>서버용 Azure Defender 소개
 
@@ -41,7 +41,7 @@ Linux의 경우 Azure Defender는 가장 일반적인 Linux 감사 프레임 워
 
 - **적응 응용 프로그램 컨트롤 (AAC)** -적응 응용 프로그램 컨트롤은 컴퓨터에 대해 알려진 안전한 응용 프로그램의 허용 목록을 정의 하기 위한 인텔리전트 및 자동화 된 솔루션입니다.
 
-    적응 응용 프로그램 제어를 사용 하도록 설정 하 고 구성 하면 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 받게 됩니다. [자세히 알아보기](security-center-adaptive-network-hardening.md).
+    적응 응용 프로그램 제어를 사용 하도록 설정 하 고 구성 하면 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 받게 됩니다. [자세히 알아보기](security-center-adaptive-application.md).
 
 - **ANH (적응 네트워크 강화** )-nsg (네트워크 보안 그룹)를 적용 하 여 리소스로 들어오고 나가는 트래픽을 필터링 하 고 네트워크 보안 상태를 향상 시킵니다. 그러나 NSG를 통과 하는 실제 트래픽이 정의 된 NSG 규칙의 하위 집합인 경우도 있습니다. 이러한 경우 실제 트래픽 패턴에 따라 NSG 규칙을 강화 하 여 보안 상태를 더욱 향상 시킬 수 있습니다.
 
@@ -58,7 +58,7 @@ Linux의 경우 Azure Defender는 가장 일반적인 Linux 감사 프레임 워
 
 - **Fileless 공격 검색 (Windows만 해당)** -Fileless 공격은 디스크 기반 검사 기술에서 검색 하지 않도록 악의적인 페이로드를 메모리에 삽입 합니다. 그러면 공격자의 페이로드가 손상 된 프로세스의 메모리 내에 유지 되 고 다양 한 악의적인 작업을 수행 합니다.
 
-  파일리스 공격 탐지를 통해 자동화된 메모리 포렌식 기술은 파일리스 공격 도구 키트, 기술 및 동작을 식별합니다. 이 솔루션은 런타임에 컴퓨터를 정기적으로 검색 하 고 프로세스의 메모리에서 직접 정보를 추출 합니다. Linux에 대 한 특정 정보에는 다음이 포함 됩니다. 
+  파일리스 공격 탐지를 통해 자동화된 메모리 포렌식 기술은 파일리스 공격 도구 키트, 기술 및 동작을 식별합니다. 이 솔루션은 런타임에 컴퓨터를 정기적으로 검색 하 고 프로세스의 메모리에서 직접 정보를 추출 합니다. 특정 정보에는 다음의 id가 포함 됩니다. 
 
   - 잘 알려진 도구 키트 및 암호화 마이닝 소프트웨어 
 

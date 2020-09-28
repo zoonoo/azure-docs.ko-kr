@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 2a0093ebb6e3214553cf5603151831d6ae53d862
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332052"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405088"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 HDFS 서버에서 데이터 복사
 
@@ -279,6 +279,34 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 * 옵션 1: [Kerberos 영역에 자체 호스팅 integration runtime 컴퓨터 가입](#kerberos-join-realm)
 * 옵션 2: [Windows 도메인과 Kerberos 영역 간의 상호 신뢰 사용](#kerberos-mutual-trust)
 
+두 옵션 모두에서 Hadoop 클러스터에 대해 webhdfs를 사용 하도록 설정 해야 합니다.
+
+1. Webhdfs에 대 한 HTTP 보안 주체 및 keytab를 만듭니다.
+
+    > [!IMPORTANT]
+    > HTTP Kerberos 보안 주체는 Kerberos HTTP SPNEGO 사양에 따라 "**http/**"로 시작 해야 합니다.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. HDFS 구성 옵션:에서 다음 세 가지 속성을 추가 `hdfs-site.xml` 합니다.
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>옵션 1: Kerberos 영역에 자체 호스팅 integration runtime 컴퓨터 가입
 
 #### <a name="requirements"></a>요구 사항
@@ -287,13 +315,24 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 
 #### <a name="how-to-configure"></a>구성 방법
 
+**KDC 서버에서 다음을 수행합니다.**
+
+사용할 Azure Data Factory의 보안 주체를 만들고 암호를 지정 합니다.
+
+> [!IMPORTANT]
+> 사용자 이름에는 호스트 이름을 포함 하면 안 됩니다.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **자체 호스팅 통합 런타임 컴퓨터에서 다음을 수행 합니다.**
 
 1.  Ksetup 유틸리티를 실행하여 KDC(Kerberos 키 배포 센터) 서버 및 영역을 구성합니다.
 
     Kerberos 영역은 Windows 도메인과 다르므로 컴퓨터를 작업 그룹의 구성원으로 구성 해야 합니다. 다음 명령을 실행 하 여 Kerberos 영역을 설정 하 고 KDC 서버를 추가 하 여이 구성을 달성할 수 있습니다. *REALM.COM* 을 자신의 영역 이름으로 바꿉니다.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -302,7 +341,7 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 
 2.  명령을 사용 하 여 구성을 확인 `Ksetup` 합니다. 출력은 다음과 같아야 합니다.
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:
@@ -396,7 +435,7 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 
     b. **그룹 정책 관리 편집기** 창에서 **컴퓨터 구성**  >  **정책**  >  **Windows 설정**  >  **보안 설정**  >  **로컬 정책**  >  **보안 옵션**을 선택 하 고 **네트워크 보안 구성: Kerberos에 허용 된 암호화 유형 구성**을 선택 합니다.
 
-    다. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택 합니다. 모든 옵션을 선택할 수 있습니다.
+    c. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택 합니다. 모든 옵션을 선택할 수 있습니다.
 
     !["네트워크 보안: Kerberos에 허용 된 암호화 유형 구성" 창 스크린샷](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
@@ -412,7 +451,7 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 
     b. **보기** > **고급 기능**을 선택하여 고급 기능을 구성합니다.
 
-    다. **고급 기능** 창에서 매핑을 만들 계정을 마우스 오른쪽 단추로 클릭 하 고 **이름 매핑** 창에서 **Kerberos 이름** 탭을 선택 합니다.
+    c. **고급 기능** 창에서 매핑을 만들 계정을 마우스 오른쪽 단추로 클릭 하 고 **이름 매핑** 창에서 **Kerberos 이름** 탭을 선택 합니다.
 
     d. 영역에서 보안 주체를 추가합니다.
 

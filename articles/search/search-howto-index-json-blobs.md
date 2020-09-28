@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: c3aa813c671e9755b6ab65ba1e2967876bd170ca
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398343"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403639"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -280,10 +280,10 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 .NET SDK에는 REST API 전체 패리티가 있습니다. 개념, 워크플로 및 요구 사항을 알아보려면 이전 REST API 섹션을 검토하는 것이 좋습니다. 그런 후, 다음 .NET API 참조 설명서를 참조하여 관리되는 코드에서 JSON 인덱서를 구현할 수 있습니다.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
++ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
++ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="parsing-modes"></a>
 
@@ -291,7 +291,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsingMode** 매개 변수는 Azure Cognitive Search 인덱스에서 json blob 콘텐츠를 구문 분석 하 고 구성 하는 방법을 결정 합니다.
 
-| parsingMode | Description |
+| parsingMode | 설명 |
 |-------------|-------------|
 | `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이것이 기본값입니다. |
 | `jsonArray` | Blob이 JSON 배열로 구성 된 경우이 모드를 선택 하 고, 배열의 각 요소가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
@@ -451,7 +451,9 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
 > [!NOTE]
 > 필드 매핑 경로의 원본 필드 이름이 JSON에 없는 속성을 참조하는 경우 해당 매핑은 오류 없이 건너뜁니다. 다른 스키마를 사용하여 문서를 지원할 수 있도록 이 작업을 수행합니다(일반적인 사용 사례). 유효성을 검사하지 않기 때문에 필드 매핑 사양에 오타가 발생하지 않도록 주의해야 합니다.
 >
->
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
+요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search/)에서 입력을 제공하세요. 기존 기능을 사용 하는 데 도움이 필요 하면 [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870)에 질문을 게시 하세요.
 
 ## <a name="see-also"></a>참고 항목
 

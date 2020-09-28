@@ -16,7 +16,7 @@
       href: tutorial-multiple-resources.md
 - name: 사용 방법
   items:
-    - name: 몰입형 판독기 리소스 만들기
+    - name: 몰입형 리더 리소스 만들기
       href: how-to-create-immersive-reader.md
     - name: 쿠키 정책 설정
       href: how-to/set-cookie-policy.md
@@ -24,7 +24,7 @@
       href: how-to/display-math.md
     - name: HTML 콘텐츠를 사용하여 몰입형 판독기 시작
       href: how-to-launch-with-html.md
-    - name: 몰입형 판독기 사용자 지정 단추
+    - name: 몰입형 리더 사용자 지정 단추
       href: how-to-customize-launch-button.md
     - name: 인증 토큰 캐시
       href: how-to-cache-token.md

@@ -362,6 +362,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 상태 및 수명 주기
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: 만들기 또는 업데이트 작업에 대한 PUT 호출
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: 모니터링
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 부트 진단
@@ -534,7 +537,7 @@
                 - name: 이미지 버전에서 VM 만들기
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: 공유 이미지 문제 해결
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: 고객 관리형 키 사용
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -556,8 +559,8 @@
                   href: image-builder-permissions-powershell.md
             - name: DevOps 작업
               href: image-builder-devops-task.md
-            - name: ARM 템플릿 참조
-              displayName: 'ARM,Resource Manager'
+            - name: Image Builder 템플릿 참조
+              displayName: json
               href: image-builder-json.md
             - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
@@ -617,6 +620,8 @@
               href: how-to-verify-encryption-status.md
             - name: 암호화에서 LVM RAID를 구성하는 방법
               href: how-to-configure-lvm-raid-on-crypt.md
+            - name: 암호화된 lvm 볼륨의 크기를 조정하는 방법
+              href: how-to-resize-encrypted-lvm.md
             - name: 디스크 암호화 문제 해결
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
@@ -849,7 +854,7 @@
         - name: 자동 크기 조정
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: 고가용성
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: 가용성 집합 변경
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 근접 배치 그룹 만들기
@@ -1152,7 +1157,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

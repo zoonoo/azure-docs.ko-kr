@@ -2,13 +2,13 @@
 title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 89bc72bcf3a19867341675f89cbc0a734d7996d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 7576ccb478a4f221ae7d7f68b14787f6f8bf7e88
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325847"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405227"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
@@ -111,6 +111,7 @@ Advisor는 테이블 캐시 정책을 줄이면 CPU 사용률, 메모리 및 높
 
 Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 소개](advisor-overview.md)
+* [Advisor 점수](azure-advisor-score.md)
 * [Advisor 시작](advisor-get-started.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326106"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403707"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -19,8 +19,8 @@ ms.locfileid: "87326106"
 
 서비스 연결 모니터를 사용하여 다음 기능을 수행할 수 있습니다. 
 
-- 여러 지사 또는 위치에서 애플리케이션 및 네트워크 서비스에 대한 네트워크 연결을 모니터링합니다. 응용 프로그램 및 네트워크 서비스에는 Office 365, Dynamics CRM, 내부 LOB(기간 업무) 애플리케이션 및 SQL 데이터베이스가 포함됩니다.
-- 기본 제공 테스트를 사용하여 Office 365 및 Dynamics 365 엔드포인트에 대한 네트워크 연결을 모니터링합니다. 
+- 여러 지사 또는 위치에서 애플리케이션 및 네트워크 서비스에 대한 네트워크 연결을 모니터링합니다. 응용 프로그램 및 네트워크 서비스에는 Microsoft 365, Dynamics CRM, 내부 lob (기간 업무) 응용 프로그램 및 SQL 데이터베이스가 포함 됩니다.
+- 기본 제공 테스트를 사용 하 여 Microsoft 365 및 Dynamics 365 끝점에 대 한 네트워크 연결을 모니터링할 수 있습니다. 
 - 엔드포인트에 연결할 때 발생하는 응답 시간, 네트워크 대기 시간, 패킷 손실을 확인합니다.
 - 애플리케이션 성능 저하가 네트워크 때문인지 또는 애플리케이션 공급자 끝의 문제 때문인지 확인합니다.
 - 토폴로지 맵의 각 홉으로 인한 대기 시간을 확인하여 애플리케이션 성능 저하를 일으킬 수 있는 네트워크의 핫스폿 식별입니다.
@@ -29,7 +29,7 @@ ms.locfileid: "87326106"
 ![서비스 연결 모니터](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>구성 
+## <a name="configuration"></a>Configuration 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
