@@ -214,6 +214,9 @@
         - name: vCPU 할당량
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: 만들기 또는 업데이트 작업에 대한 PUT 호출
+      href: ../virtual-machines/put-calls-create-or-update.md
+      maintainContext: true
     - name: 확장 집합 FAQ
       href: virtual-machine-scale-sets-faq.md
 - name: 방법
@@ -274,6 +277,8 @@
             - name: 고객 관리형 키 사용
               displayName: 'SSE, CMK, encrypt'
               href: ../virtual-machines/image-version-encryption.md
+            - name: 공유용 앱 등록
+              href: share-images-across-tenants.md
     - name: 템플릿 만들기
       items:
         - name: 확장 집합 템플릿에 대해 알아보기
@@ -326,6 +331,15 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 확장 집합 템플릿을 변환하여 관리 디스크 사용
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: 전용 호스트 사용(미리 보기)
+          href: ../virtual-machines/dedicated-hosts.md
+          items:
+            - name: CLI
+              href: ../virtual-machines/linux/dedicated-hosts-cli.md
+            - name: PowerShell
+              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+            - name: 포털
+              href: ../virtual-machines/dedicated-hosts-portal.md
         - name: 스폿 인스턴스 사용
           href: use-spot.md
     - name: 관리
@@ -358,18 +372,6 @@
           href: virtual-machine-scale-sets-scale-in-policy.md
         - name: 삭제 시 알림 종료
           href: virtual-machine-scale-sets-terminate-notification.md
-        - name: 공유 이미지 갤러리
-          items:
-            - name: 개요
-              href: shared-image-galleries.md
-            - name: CLI
-              href: shared-images-cli.md
-            - name: PowerShell
-              href: shared-images-powershell.md
-            - name: 테넌트 간에 이미지 공유
-              href: share-images-across-tenants.md
-            - name: 공유 이미지 문제 해결
-              href: troubleshooting-shared-images.md
         - name: 근접 배치 그룹 만들기
           href: proximity-placement-groups.md
         - name: 크기 집합에서 수직적 크기 조정

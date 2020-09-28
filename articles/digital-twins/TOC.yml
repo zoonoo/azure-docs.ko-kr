@@ -1,4 +1,4 @@
-- name: Azure Digital Twins
+- name: Azure Digital Twins 설명서
   href: index.yml
 - name: 개요
   items:
@@ -7,6 +7,7 @@
     - name: 이전 릴리스와의 차이점
       href: overview-differences.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 샘플 시나리오 살펴보기
       href: quickstart-adt-explorer.md
@@ -162,6 +163,8 @@
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
             - name: JavaScript SDK - 참조
               href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+            - name: Java SDK - Maven
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
     - name: Digital Twins CLI
       items:
         - name: Digital Twins CLI 참조
@@ -222,31 +225,3 @@
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
         - name: 지역 및 가용성
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-- name: 관련 항목
-  items:
-    - name: 솔루션
-      items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/core/overview-iot-central
-    - name: 플랫폼 서비스
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 지도
-          href: /azure/azure-maps
-        - name: 서비스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge 솔루션
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT 디바이스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

@@ -10,12 +10,12 @@ metadata:
   author: keferna
   ms.author: keferna
   ms.date: 09/02/2020
-  ms.openlocfilehash: 39d0f00bd59663da8ec5529e9a7be185d93e4de0
-  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+  ms.openlocfilehash: 16c122bd0efafce395be3ff931ef5324c0b757d1
+  ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/03/2020
-  ms.locfileid: "89421682"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91371476"
 landingContent:
 - title: 상용 마켓플레이스에서 작업
   linkLists:
@@ -97,14 +97,14 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: 지급 보고
-      url: ./partner-center-portal/payout-summary-overview.md
+    - text: 지급 명세서
+      url: /partner-center/payout-statement?context=/azure/marketplace/context/context
     - text: 결제 임계값, 메서드 및 시간 프레임
-      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+      url: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - text: 지급 계정 및 세금 양식 설정
-      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+      url: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
     - text: 세금 세부 정보
-      url: ./partner-center-portal/tax-details-paid-transactions.md
+      url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: 상용 마켓플레이스 청구
       url: ./partner-center-portal/billing-details.md
 - title: API 참조

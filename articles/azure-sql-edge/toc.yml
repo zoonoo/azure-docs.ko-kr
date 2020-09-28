@@ -46,8 +46,8 @@
           href: disconnected-deployment.md
         - name: Kubernetes에서 배포
           href: deploy-kubernetes.md
-        - name: SQL 도구
-          href: 'https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json'
+        - name: Azure Data Studio를 사용하여 배포
+          href: 'https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json'
     - name: 기계 학습
       items:
         - name: ONNX를 통한 기계 학습 및 AI

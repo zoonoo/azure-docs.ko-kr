@@ -9,6 +9,10 @@
   items:
     - name: Front Door 만들기 - Portal
       href: quickstart-create-front-door.md
+    - name: Front Door 만들기 - PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Front Door - CLI
+      href: quickstart-create-front-door-cli.md
     - name: Front Door 만들기 - ARM 템플릿
       href: quickstart-create-front-door-template.md
 - name: 자습서

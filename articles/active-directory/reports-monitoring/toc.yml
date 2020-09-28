@@ -31,6 +31,8 @@
       href: plan-monitoring-and-reporting.md
     - name: 감사 로그
       href: concept-audit-logs.md
+    - name: 새 로그인 로그 - 미리 보기
+      href: concept-all-sign-ins.md
     - name: 로그인 로그
       href: concept-sign-ins.md
     - name: 사용량 및 인사이트 보고서

@@ -311,8 +311,6 @@
           href: compute-benchmark-scores.md
     - name: 보증 배포
       href: endorsed-distros.md
-    - name: 전용 호스트
-      href: dedicated-hosts.md
     - name: 유지 관리 및 업데이트
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 디스크 스토리지
@@ -391,11 +389,12 @@
         - name: VM 복사 또는 복제
           href: copy-vm.md
         - name: 전용 호스트 사용
+          href: ../dedicated-hosts.md
           items:
             - name: CLI
               href: dedicated-hosts-cli.md
             - name: 포털
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: 스폿 VM 배포
           items:
             - name: CLI
@@ -858,6 +857,7 @@
         - name: 가용성 집합 변경
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 근접 배치 그룹 만들기
+          displayName: PPG aligned colocation co-location
           items:
             - name: CLI
               href: proximity-placement-groups.md

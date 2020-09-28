@@ -10,6 +10,8 @@
       href: event-hubs-capture-overview.md
     - name: Event Hubs Dedicated
       href: event-hubs-dedicated-overview.md
+    - name: Event Hubs의 Azure Schema Registry(미리 보기)
+      href: schema-registry-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -125,6 +127,8 @@
       maintainContext: true
 - name: 방법 가이드
   items:
+    - name: 스키마 레지스트리 만들기
+      href: create-schema-registry.md
     - name: 이동
       items:
         - name: 네임스페이스를 다른 영역으로 이동
@@ -219,6 +223,8 @@
           href: troubleshoot-authentication-authorization.md
         - name: Event Hubs용 kafka 문제 해결 가이드
           href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException
+          href: exceptions-dotnet.md
         - name: .NET 예외
           href: event-hubs-messaging-exceptions.md
         - name: Resource Manager 예외

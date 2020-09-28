@@ -277,19 +277,19 @@
     - name: 지급 받기
       items:
         - name: 지급 받기
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: 지급 계정 및 세금 양식 설정
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: '결제 임계값, 메서드 및 시간 프레임'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: 지급 요약 개요
-          href: partner-center-portal/payout-summary-overview.md
-        - name: 지급 요약
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: 결제 임계값 및 시간 프레임
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: 지급 명세서
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: 지급 정책 세부 정보
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: 세금 세부 정보
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: 지급 FAQ
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: CPP API 참조
       items:
         - name: 개요

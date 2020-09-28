@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: 47e1c509e8b7b60e889e1202b49b1a145c68162c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377614"
 ---
 ## <a name="local-settings-file"></a>로컬 설정 파일
 
@@ -40,7 +40,7 @@ local.settings.json 파일은 로컬 개발 도구에서 사용하는 앱 설정
 
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | 이 설정이 `true`로 설정된 경우 모든 값은 로컬 머신 키로 암호화됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `false`여야 합니다. |
+| **`IsEncrypted`** | 이 설정이 `true`로 설정된 경우 모든 값은 로컬 머신 키로 암호화됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `false`여야 합니다. 서비스 연결 문자열과 같은 비밀이 포함된 경우 로컬 컴퓨터에서 local.settings.json 파일을 암호화할 수 있습니다. 호스트는 실행 시 자동으로 설정의 암호를 해독합니다. 로컬로 암호화된 설정을 읽으려고 시도하기 전에 `func settings decrypt` 명령을 사용합니다. |
 | **`Values`** | 프로젝트가 로컬에서 실행될 때 사용되는 연결 문자열 및 애플리케이션 설정의 배열입니다. 이러한 키-값(문자열-문자열) 쌍은 Azure에서 함수 앱의 애플리케이션 설정에 해당합니다(예: [`AzureWebJobsStorage`]). 많은 트리거와 바인딩에는 연결 문자열 앱 설정을 참조하는 속성(예: [Blob Storage 트리거](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration)에 대한 `Connection`)이 있습니다. 이러한 속성의 경우 `Values` 배열에 정의된 애플리케이션 설정이 필요합니다. 일반적으로 사용되는 설정 목록은 다음 표를 참조하세요. <br/>값은 JSON 개체 또는 배열이 아닌 문자열이어야 합니다. 설정 이름에는 콜론(`:`) 또는 이중 밑줄(`__`)을 포함할 수 없습니다. 이중 밑줄 문자는 런타임에 예약되고 콜론은 [종속성 주입](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings)을 지원하도록 예약되어 있습니다. |
 | **`Host`** | 이 섹션의 설정은 프로젝트를 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. 이러한 설정은 Azure에서 프로젝트를 실행하는 경우에도 적용되는 host.json 설정과는 별개입니다. |
 | **`LocalHttpPort`** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 설정보다 우선합니다. |

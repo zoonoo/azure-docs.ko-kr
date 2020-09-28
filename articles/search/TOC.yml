@@ -118,6 +118,8 @@
           href: ./security-controls-policy.md
         - name: 인덱서 리소스 보안
           href: search-indexer-securing-resources.md
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 인덱스 및 구문 만들기

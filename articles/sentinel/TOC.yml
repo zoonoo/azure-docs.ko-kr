@@ -27,6 +27,8 @@
       href: roles.md
     - name: 고급 다단계 공격 탐지
       href: fusion.md
+    - name: 사용자 고유의 기계 학습 플랫폼 가져오기
+      href: bring-your-own-ml.md
     - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
       href: extend-sentinel-across-workspaces-tenants.md
     - name: UEBA를 사용하여 지능형 위협 식별
@@ -66,6 +68,8 @@
               href: connect-microsoft-defender-advanced-threat-protection.md
             - name: ID용 Microsoft Defender(이전 Azure ATP)
               href: connect-azure-atp.md
+            - name: Microsoft Defender for Office 365(이전의 Office 365 ATP)
+              href: connect-office-365-advanced-threat-protection.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall

@@ -354,6 +354,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 상태 및 수명 주기
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: 만들기 또는 업데이트 작업에 대한 PUT 호출
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: 모니터링
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 부트 진단
@@ -373,7 +376,7 @@
             - name: PowerShell
               href: dedicated-hosts-powershell.md
             - name: 포털
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: 스폿 VM 배포
           items:
             - name: 포털
@@ -499,7 +502,7 @@
                 - name: 이미지 버전에서 VM 만들기
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: 공유 이미지 문제 해결
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: 고객 관리형 키 사용
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -510,7 +513,7 @@
             - name: Image Builder 사용
               items:
                 - name: CLI
-                  href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: image-builder.md
                 - name: PowerShell
                   href: image-builder-powershell.md
             - name: VNET 사용
@@ -525,8 +528,8 @@
                   href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: DevOps 작업
               href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: ARM 템플릿 참조
-              displayName: Azure Resource Manager
+            - name: Image Builder 템플릿 참조
+              displayName: json
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
@@ -535,7 +538,7 @@
             - name: 스크립트 저장
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 문제 해결
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: ../linux/image-builder-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 이미지 검색 및 사용
           href: cli-ps-findimage.md
         - name: 구매 계획 정보
@@ -818,8 +821,9 @@
         - name: Virtual Machine Scale Sets
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: 고가용성
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: 근접 배치 그룹 만들기
+          displayName: ppg aligned colocation co-location
           items:
             - name: 포털
               href: proximity-placement-groups-portal.md

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377210"
 ---
 Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스토리지 계층을 제공하여 시나리오의 성능 및 가격 요구 사항에 맞게 공유를 조정할 수 있도록 지원합니다.
 
@@ -26,4 +26,5 @@ Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스
 
 핫 및 쿨 파일 공유는 모든 Azure 공용 및 Azure Government 지역에서 사용할 수 있습니다. 트랜잭션 최적화 파일 공유는 국가 클라우드 지역을 포함한 모든 Azure 중국 및 Azure 독일 지역에서 사용할 수 있습니다.
 
-핫 또는 쿨 파일 공유를 배포하려면 [핫 또는 쿨 파일 공유 만들기](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share)를 참조하세요. 
+> [!Important]  
+> GPv2 스토리지 계정 유형(트랜잭션 최적화, 핫 및 쿨) 내의 계층 간에 공유를 이동할 수 있습니다. 계층 간 공유 이동으로 인해 트랜잭션이 발생합니다. 핫 계층에서 쿨 계층으로 이동하면 공유의 각 파일에 대해 쿨 계층의 쓰기 트랜잭션 요금이 발생하는 반면, 쿨 계층에서 핫 계층으로 이동하면 각 파일 공유에 대해 쿨 계층의 읽기 트랜잭션 요금이 발생합니다.
