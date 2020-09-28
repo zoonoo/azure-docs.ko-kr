@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326677"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400975"
 ---
 Microsoft는 상업적 marketplace에 대 한 표준 계약 템플릿을 제공 합니다.
 
@@ -41,12 +41,12 @@ Microsoft는 상업적 marketplace에 대 한 표준 계약 템플릿을 제공 
 >[!NOTE]
 > 이러한 두 가지 유형의 수정은 누적됩니다. 사용자 지정 수정을 대상으로 하는 고객은 구매 중 표준 계약에 대한 범용 수정도 적용받게 됩니다.
 
-**Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 범용 수정 용어**:이 상자에 유니버설 수정 용어를 입력 합니다. 제품당 하나의 범용 수정안을 제공할 수 있습니다. 이 상자에서는 문자를 무제한으로 입력할 수 있습니다. 이러한 조건은 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에게 표시됩니다.
+**Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 범용 수정 용어**:이 상자에 유니버설 수정 용어를 입력 합니다. 제품당 하나의 범용 수정안을 제공할 수 있습니다. 이 상자에는 문자를 개수 제한 없이 입력할 수 있습니다. 이러한 조건은 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에게 표시됩니다.
 
 **Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 사용자 지정 수정 용어**: **사용자 지정 수정 용어 추가**를 선택 하 여 시작 합니다. 제품당 최대 10개의 사용자 지정 수정 조건을 제공할 수 있습니다.
 
 - **사용자 지정 수정 용어**: 사용자 지정 수정 약관 상자에 사용자 지정 수정 용어를 입력 합니다. 이 상자에는 문자를 개수 제한 없이 입력할 수 있습니다. 이러한 사용자 지정 약관에 지정하는 테넌트 ID의 고객에게만 Azure Portal의 제품 구매 흐름에 사용자 지정 수정 조건이 표시됩니다.  
-- **테 넌 트 id** (필수): 각 사용자 지정 수정은 최대 20 개의 테 넌 트 id를 대상으로 지정할 수 있습니다. 사용자 지정 수정을 추가하는 경우 하나 이상의 테넌트 ID를 제공해야 합니다. 테넌트 ID는 Azure에서 고객을 식별합니다. 게시자는 고객에게 이 ID를 요청할 수 있으며 고객은 portal.azure.com > Azure Active Directory > 속성으로 이동하여 ID를 확인할 수 있습니다. 디렉터리 ID 값은 테넌트 ID입니다(예: 50c464d3-4930-494c-963c-1e951d15360e). [내 Microsoft Azure 및 Office 365 테넌트 ID는 무엇인가요?](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용하여 고객의 조직 테넌트 ID를 조회할 수도 있습니다.
+- **테 넌 트 id** (필수): 각 사용자 지정 수정은 최대 20 개의 테 넌 트 id를 대상으로 지정할 수 있습니다. 사용자 지정 수정을 추가하는 경우 하나 이상의 테넌트 ID를 제공해야 합니다. 테넌트 ID는 Azure에서 고객을 식별합니다. 게시자는 고객에게 이 ID를 요청할 수 있으며 고객은 portal.azure.com > Azure Active Directory > 속성으로 이동하여 ID를 확인할 수 있습니다. 디렉터리 ID 값은 테넌트 ID입니다(예: 50c464d3-4930-494c-963c-1e951d15360e). 사용자의 도메인 이름 URL을 사용 하 여 고객의 테 넌 트 ID를 조회할 수도 있습니다. [Microsoft Azure 및 Microsoft 365 테 넌 트 id?](https://www.whatismytenantid.com)
 - **설명** (선택 사항): 필요에 따라 테 넌 트 ID에 대 한 친숙 한 설명을 제공 하 여, 수정으로 대상으로 하는 고객을 식별할 수 있습니다.
 
 **사용 약관**
