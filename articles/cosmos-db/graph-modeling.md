@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 description: Azure Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스를 모델링하는 방법을 알아봅니다. 이 문서에서는 그래프 데이터베이스와 모범 사례를 사용하여 엔터티 및 관계를 모델링하는 경우를 설명합니다.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
-ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261820"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409768"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 
@@ -45,7 +45,7 @@ ms.locfileid: "85261820"
 
 다음은 그래프 개체의 속성에 대한 모범 사례입니다.
 
-| Object | 속성 | 형식 | 참고 |
+| 개체 | 속성 | 형식 | 메모 |
 | --- | --- | --- |  --- |
 | 꼭짓점 | ID | String | 파티션별로 고유하게 적용됩니다. 삽입 시 값이 제공되지 않으면 자동 생성된 GUID가 저장됩니다. |
 | 꼭짓점 | label | String | 이 속성은 꼭짓점이 나타내는 엔터티 유형을 정의하는 데 사용됩니다. 값을 제공하지 않으면 기본값인 "꼭짓점"이 사용됩니다. |

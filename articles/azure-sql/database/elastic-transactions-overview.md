@@ -1,5 +1,5 @@
 ---
-title: 클라우드 데이터베이스의 분산 트랜잭션
+title: 클라우드 데이터베이스 간 분산 트랜잭션 (미리 보기)
 description: Azure SQL Database를 사용 하 Elastic Database 트랜잭션 개요.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f6863bbe051338308c30e22c6969d84670dc64
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829417"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409734"
 ---
-# <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
+# <a name="distributed-transactions-across-cloud-databases-preview"></a>클라우드 데이터베이스 간 분산 트랜잭션 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database에 대 한 탄력적 데이터베이스 트랜잭션을 사용 하면 SQL Database에서 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL Database에 대 한 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용 하는 .NET 응용 프로그램에 사용할 수 있으며, [시스템. 트랜잭션](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용 하 여 친숙 한 프로그래밍 환경과 통합할 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
+Azure SQL Database에 대 한 탄력적 데이터베이스 트랜잭션을 사용 하면 SQL Database에서 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL Database에 대 한 탄력적 데이터베이스 트랜잭션은 ADO.NET를 사용 하 여 .NET 응용 프로그램에 사용할 수 있으며, [시스템. 트랜잭션](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용 하 여 친숙 한 프로그래밍 환경과 통합할 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
 
 온-프레미스에서 이러한 시나리오는 일반적으로 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))를 실행 해야 합니다. MSDTC는 Azure에서 Platform as a Service 응용 프로그램에 사용할 수 없으므로 이제 분산 트랜잭션을 조정 하는 기능이 SQL Database에 직접 통합 되었습니다. 다음 그림에 표시 된 것 처럼 응용 프로그램은 SQL Database의 모든 데이터베이스에 연결 하 여 분산 트랜잭션을 시작할 수 있으며, 데이터베이스 중 하나가 분산 트랜잭션을 투명 하 게 조정 합니다.
 

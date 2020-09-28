@@ -1,18 +1,18 @@
 ---
 title: MongoDB에 대 한 Azure Cosmos DB API 계정의 Mongo 버전을 업그레이드 합니다.
 description: MongoDB 계정에 대 한 기존 Azure Cosmos DB의 API 용 MongoDB 버전을 원활 하 게 업그레이드 하는 방법
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
-ms.author: lbosq
-ms.openlocfilehash: 795b7641ac22373b02ab23126055c080af5e851d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: jasonh
+ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937448"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409666"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>MongoDB 용 Azure Cosmos DB API 계정에 대 한 MongoDB 유선 프로토콜 버전을 업그레이드 합니다.
 

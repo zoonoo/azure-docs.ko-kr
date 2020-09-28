@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291672"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409717"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Azure HDInsight의 할당량 증가 요청
 
 CPU 코어 할당량은 특정 Azure 지역의 모든 고객 간에 리소스 사용량이 폭넓게 분산되도록 하는 데 도움이 됩니다. 그러나 비즈니스 요구 사항에 따라 현재 할당량보다 더 많은 클러스터 리소스가 필요한 경우가 있을 수 있습니다. 이러한 경우 데이터 처리 요구 사항과 일치하는 클러스터를 배포할 수 있도록 CPU 코어 할당량 증가를 요청할 수 있습니다.
 
-할당량 한도에 도달하면 새 클러스터를 배포하거나, 작업자 노드를 더 추가하여 기존 클러스터를 확장할 수 없습니다. 유일한 할당량 제한은 각 구독에 대한 지역 수준에서 존재하는 CPU 코어 할당량입니다. 예를 들어 미국 동부 지역의 CPU 코어 수가 30개로 제한되고, 미국 동부 2에서는 또 다른 CPU 코어 30개를 사용할 수 있는 구독이 있을 수 있습니다.
+할당량 한도에 도달하면 새 클러스터를 배포하거나, 작업자 노드를 더 추가하여 기존 클러스터를 확장할 수 없습니다. 유일한 할당량 제한은 각 구독에 대한 지역 수준에서 존재하는 CPU 코어 할당량입니다. 예를 들어 미국 동부 지역에서 구독에 30 CPU 코어 제한이 있을 수 있으며 미국 동부에는 30 개의 CPU 코어가 허용 됩니다.
 
 ## <a name="gather-required-information"></a>필요한 정보 수집
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360211"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408218"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
@@ -92,16 +92,6 @@ PHP는 연결 풀링을 지원 하지 않지만 백 엔드 서버에 대 한 영
 * 기타 데이터 원본
 
    * [PHP 연결 관리](https://www.php.net/manual/en/pdo.connections.php)
-
-#### <a name="python"></a>Python
-
-* [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
-* [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
-* [PostgreSQL](https://node-postgres.com/features/pooling)
-* [SQL Server](https://github.com/tediousjs/node-mssql#connection-pools) (참고: MicrosoftSQL Server 외에 다른 데이터베이스와 함께 SQLAlchemy를 사용할 수 있음)
-* [HTTP](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)연결 유지 [(세션을](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)사용 하는 경우 Keep-alive는 자동으로 유지 됩니다.
-
-다른 환경에서는 응용 프로그램에서 연결 풀링을 구현 하기 위한 공급자 또는 드라이버 관련 문서를 검토 합니다.
 
 ### <a name="modify-the-application-to-reuse-connections"></a>연결을 다시 사용하도록 애플리케이션 수정
 

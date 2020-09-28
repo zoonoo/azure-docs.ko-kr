@@ -1,22 +1,22 @@
 ---
 title: MongoDB 용 Azure Cosmos DB API를 사용한 마이그레이션 후 최적화 단계
 description: 이 문서는 MongoDB에서 Mongo DB 용 APi Azure Cosmos DB로의 마이그레이션 후 최적화 기술을 제공 합니다.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: lbosq
-ms.openlocfilehash: 93a9058dec66ffe2e1c7ad4b15d9bf4eba12c647
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.author: jasonh
+ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358528"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409700"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 마이그레이션 후 최적화 단계
 
-MongoDB 데이터베이스에 저장 된 데이터를 MongoDB 용 Azure Cosmos DB의 API로 마이그레이션한 후에는 Azure Cosmos DB에 연결 하 여 데이터를 관리할 수 있습니다. 이 가이드는 마이그레이션 후에 고려해 야 하는 단계를 제공 합니다. 마이그레이션 단계는 [MongoDB to Azure Cosmos DB의 API For MongoDB API 자습서](../dms/tutorial-mongodb-cosmos-db.md) 를 참조 하세요.
+MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB의 API로 마이그레이션한 후 Azure Cosmos DB에 연결하고 데이터를 관리할 수 있습니다. 이 가이드는 마이그레이션 후에 고려해야 하는 단계를 제공합니다. 마이그레이션 단계는 [MongoDB to Azure Cosmos DB의 API For MongoDB API 자습서](../dms/tutorial-mongodb-cosmos-db.md) 를 참조 하세요.
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 

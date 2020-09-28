@@ -1,18 +1,18 @@
 ---
 title: MongoDB에 대 한 Azure Cosmos DB API의 데이터를 관리 하기 위한 MongoDB 확장 명령
 description: 이 문서에서는 MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 하는 방법을 설명 합니다.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326731"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409683"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 합니다. 
 
@@ -53,7 +53,7 @@ Create database extension 명령은 새 MongoDB 데이터베이스를 만듭니�
 
 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="create-a-database"></a>데이터베이스 만들기
 
@@ -108,7 +108,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-database"></a>데이터베이스와 연결 된 프로 비전 된 처리량 업데이트
 
@@ -159,7 +159,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 
 명령이 실패 하면 기본 사용자 지정 명령 응답이 반환 됩니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="get-the-database"></a>데이터베이스 가져오기
 
@@ -223,7 +223,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 기본 사용자 지정 명령 응답을 반환 합니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="create-a-collection-with-the-minimum-configuration"></a>최소 구성을 사용 하 여 컬렉션 만들기
 
@@ -313,7 +313,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 기본 사용자 지정 명령 응답을 반환 합니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-collection"></a>컬렉션과 연결 된 프로 비전 된 처리량 업데이트
 
@@ -359,7 +359,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 
 명령이 실패 하면 기본 사용자 지정 명령 응답이 반환 됩니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="get-the-collection"></a>컬렉션 가져오기
 

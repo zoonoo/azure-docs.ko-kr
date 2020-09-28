@@ -1,14 +1,14 @@
 ---
 title: 서명된 이미지 관리
-description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다. 콘텐츠 신뢰는 프리미엄 서비스 계층의 기능입니다.
+description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다. 콘텐츠 트러스트는 Docker 콘텐츠 신뢰를 구현 하며 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/18/2020
+ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253482"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409167"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -71,8 +71,10 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 권한이 부여된 사용자 또는 시스템만 레지스트리에 신뢰할 수 있는 이미지를 푸시할 수 있습니다. 사용자(또는 서비스 주체를 사용하는 시스템)에게 신뢰할 수 있는 이미지 푸시 권한을 부여하려면 사용자의 Azure Active Directory ID에 `AcrImageSigner` 역할을 부여합니다. 이미지를 레지스트리에 푸시하는 데 필요한 `AcrPush`(또는 상응하는 것) 역할 외에도 이 역할이 필요합니다. 자세한 내용은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.
 
-> [!NOTE]
-> Azure 컨테이너 레지스트리의 [관리자 계정](container-registry-authentication.md#admin-account)에는 신뢰할 수 있는 이미지 푸시 권한을 부여할 수 없습니다.
+> [!IMPORTANT]
+> 다음 관리 계정에는 트러스트 된 이미지 푸시 권한을 부여할 수 없습니다. 
+> * Azure container registry의 [관리자 계정](container-registry-authentication.md#admin-account)
+> * 의 사용자 계정은 [클래식 시스템 관리자 역할](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 사용 하 여 Azure Active Directory.
 
 Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세한 방법은 다음과 같습니다.
 
@@ -80,9 +82,9 @@ Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세�
 
 Azure Portal에서 레지스트리로 이동한 다음, **액세스 제어(IAM)**  > **역할 할당 추가**를 차례로 선택합니다. **역할 할당 추가**의 **역할** 아래에서 `AcrImageSigner`를 선택하고, 한 명 이상의 사용자 또는 서비스 주체를 **선택**한 다음, **저장**합니다.
 
-이 예제에서는 두 엔터티, 즉, "service-principal"이라는 서비스 사용자 이름과 "Azure User"라는 사용자에게 `AcrImageSigner` 역할을 할당했습니다.
+이 예제에서는 `AcrImageSigner` "서비스 주체" 라는 서비스 사용자와 "Azure user" 라는 사용자 라는 두 개의 엔터티가 역할에 할당 되었습니다.
 
-![Azure Portal에서 레지스트리에 콘텐츠 신뢰를 사용하도록 설정][content-trust-02-portal]
+![Azure Portal에서 ACR 이미지 서명 사용 권한 부여][content-trust-02-portal]
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -92,17 +94,16 @@ Azure CLI를 사용하여 사용자에게 서명 권한을 부여하려면 게�
 az role assignment create --scope <registry ID> --role AcrImageSigner --assignee <user name>
 ```
 
-예를 들어 자신에게 역할을 부여하려면 인증된 Azure CLI 세션에서 다음 명령을 실행하면 됩니다. Azure 컨테이너 레지스트리 이름을 반영하도록 `REGISTRY` 값을 수정합니다.
+예를 들어 관리자가 아닌 사용자에 게 역할을 부여 하려면 인증 된 Azure CLI 세션에서 다음 명령을 실행할 수 있습니다. Azure 컨테이너 레지스트리 이름을 반영하도록 `REGISTRY` 값을 수정합니다.
 
 ```bash
 # Grant signing permissions to authenticated Azure CLI user
 REGISTRY=myregistry
-USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 ```
 
 ```azurecli
-az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee azureuser@contoso.com
 ```
 
 [서비스 사용자](container-registry-auth-service-principal.md)에게 신뢰할 수 있는 이미지를 레지스트리에 푸시할 수 있는 권한을 부여할 수도 있습니다. 서비스 사용자를 사용하면 빌드 시스템 또는 신뢰할 수 있는 이미지를 레지스트리에 푸시해야 하는 기타 무인 시스템에 도움이 됩니다. 형식은 사용자 권한 부여와 비슷하지만, `--assignee` 값의 서비스 사용자 ID를 지정해야 합니다.
@@ -118,10 +119,11 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 ## <a name="push-a-trusted-image"></a>신뢰할 수 있는 이미지 푸시
 
-신뢰할 수 있는 이미지 태그를 컨테이너 레지스트리에 푸시하려면 콘텐츠 신뢰를 사용하도록 설정하고 `docker push`를 사용하여 이미지를 푸시해야 합니다. 서명된 태그를 처음으로 푸시하면 루트 서명 키 및 리포지토리 서명 키의 암호를 만들라는 메시지가 표시됩니다. 루트 및 리포지토리 키는 머신에 로컬로 생성 및 저장됩니다.
+신뢰할 수 있는 이미지 태그를 컨테이너 레지스트리에 푸시하려면 콘텐츠 신뢰를 사용하도록 설정하고 `docker push`를 사용하여 이미지를 푸시해야 합니다. 서명 된 태그가 있는 푸시가 처음으로 완료 되 면 루트 서명 키와 리포지토리 서명 키에 대 한 암호를 만들라는 메시지가 표시 됩니다. 루트 및 리포지토리 키는 머신에 로컬로 생성 및 저장됩니다.
 
 ```console
 $ docker push myregistry.azurecr.io/myimage:v1
+[...]
 The push refers to repository [myregistry.azurecr.io/myimage]
 ee83fc5847cb: Pushed
 v1: digest: sha256:aca41a608e5eb015f1ec6755f490f3be26b48010b178e78c00eac21ffbe246f1 size: 524
@@ -156,16 +158,19 @@ Status: Downloaded newer image for myregistry.azurecr.io/myimage@sha256:0800d17e
 Tagging myregistry.azurecr.io/myimage@sha256:0800d17e37fb4f8194495b1a188f121e5b54efb52b5d93dc9e0ed97fce49564b as myregistry.azurecr.io/myimage:signed
 ```
 
-콘텐츠 신뢰를 사용하도록 설정된 클라이언트가 서명되지 않은 태그를 풀하려고 시도하면 작업이 실패합니다.
+콘텐츠 트러스트가 설정 된 클라이언트에서 서명 되지 않은 태그를 가져오려고 하면 다음과 같은 오류가 발생 하 여 작업이 실패 합니다.
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:unsigned
-No valid trust data for unsigned
+Error: remote trust data does not exist
 ```
 
 ### <a name="behind-the-scenes"></a>배후 상황
 
 `docker pull` 명령을 실행하면 Docker 클라이언트는 [Notary CLI][docker-notary-cli]와 동일한 라이브러리를 사용하여 게시자가 풀링하는 태그에 대한 tag-to-SHA-256 다이제스트 매핑을 요청합니다. 신뢰 데이터의 서명 유효성 검사가 끝나면 클라이언트는 Docker 엔진에 "다이제스트별로 풀"하라고 지시합니다. 풀하는 동안, 엔진은 콘텐츠 주소로 SHA-256 체크섬을 사용하여 Azure 컨테이너 레지스트리에서 이미지 매니페스트를 요청하고 유효성을 검사합니다.
+
+> [!NOTE]
+> Azure Container Registry는 Notary CLI를 공식적으로 지원 하지 않지만 Docker Desktop에 포함 된 Notary 서버 API와 호환 됩니다. 현재 Notary 버전 **0.6.0** 을 권장 합니다.
 
 ## <a name="key-management"></a>키 관리
 
@@ -196,7 +201,7 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 콘텐츠 신뢰에 대한 추가 정보는 [Docker의 콘텐츠 신뢰][docker-content-trust]를 참조하세요. 이 문서에서 몇 가지 핵심을 살펴보았지만, 콘텐츠 신뢰는 방대한 주제이며 Docker 설명서에 자세히 설명되어 있습니다.
+* [Docker 신뢰](https://docs.docker.com/engine/reference/commandline/trust/) 명령 및 [트러스트 위임을](https://docs.docker.com/engine/security/trust/trust_delegation/)비롯 한 콘텐츠 신뢰에 대 한 자세한 내용은 [docker의 콘텐츠 신뢰][docker-content-trust] 를 참조 하세요. 이 문서에서 몇 가지 핵심을 살펴보았지만, 콘텐츠 신뢰는 방대한 주제이며 Docker 설명서에 자세히 설명되어 있습니다.
 
 * Docker 이미지를 빌드하고 푸시할 때 콘텐츠 신뢰를 사용하는 예제는 [Azure Pipelines](/azure/devops/pipelines/build/content-trust) 설명서를 참조하세요.
 

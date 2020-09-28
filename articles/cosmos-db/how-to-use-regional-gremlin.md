@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB 그래프 데이터베이스의 지역별 엔드포인트
 description: 애플리케이션에 가장 가까운 그래프 데이터베이스 엔드포인트에 연결하는 방법을 알아봅니다.
-author: luisbosquez
-ms.author: lbosq
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997254"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409012"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB 그래프 계정의 지역별 엔드포인트
 Azure Cosmos DB 그래프 데이터베이스는 [전 세계에 분산](distribute-data-globally.md)되어 있으므로, 애플리케이션에서 여러 개의 읽기 엔드포인트를 사용할 수 있습니다. 여러 위치에서 쓰기 권한이 필요한 애플리케이션은 [다중 마스터](how-to-multi-master.md) 기능을 사용하도록 설정해야 합니다.

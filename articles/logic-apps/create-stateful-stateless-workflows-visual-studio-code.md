@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 09/26/2020
+ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370983"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409853"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 또는 상태 비저장 워크플로 만들기
 
@@ -55,7 +55,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 * 메모리 에서만 실행 되는 상태 비저장 논리 앱을 만들어 더 빠르게 완료 하 고, 더 빠르게 응답 하 고, 처리량을 증가 하 고, 실행 기록 및 작업 간 데이터가 외부 저장소에 유지 되지 않기 때문에 실행 비용이 줄어듭니다. 필요에 따라 디버깅을 용이 하 게 하기 위해 실행 기록을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [상태 저장 및 상태 비저장 논리 앱](#stateful-stateless)을 참조 하세요.
 
-* Visual Studio Code 개발 환경에서 논리 앱을 로컬로 테스트 합니다.
+* Visual Studio Code 개발 환경에서 논리 앱을 로컬로 실행 하 고 디버깅 합니다.
 
 * Visual Studio Code에서 [Azure App Service](../app-service/environment/intro.md) 및 [Docker 컨테이너](/dotnet/core/docker/introduction)와 같은 다양 한 호스팅 환경에 직접 논리 앱을 게시 하 고 배포 합니다.
 
@@ -94,6 +94,24 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 * [App Service 가격 정보](https://azure.microsoft.com/pricing/details/app-service/windows/)
 * [Azure Storage 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
 
+<a name="unsupported"></a>
+
+## <a name="unavailable-or-unsupported-capabilities"></a>사용할 수 없거나 지원 되지 않는 기능
+
+이 공개 미리 보기의 경우 이러한 기능을 사용할 수 없거나 지원 되지 않습니다.
+
+* 새 **논리 앱 (미리 보기)** 리소스 만들기는 현재 macos에서 사용할 수 없습니다.
+
+* 일부 Azure 지역은 아직 지원 되지 않습니다. 현재 사용 가능한 지역에 대해서는 [지역 목록을](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)확인 하세요.
+
+* 워크플로를 시작 하려면 [Request, HTTP, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 현재, [엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors), [온-프레미스 데이터 게이트웨이 트리거](../connectors/apis-list.md#on-premises-connectors), Webhook 기반 트리거, 슬라이딩 윈도우 트리거, [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors), 통합 계정, 해당 아티팩트 및 [커넥터는](../connectors/apis-list.md#integration-account-connectors) 이 미리 보기에서 지원 되지 않습니다. "Azure 함수 호출" 기능을 사용할 수 없으므로 지금은 HTTP *작업* 을 사용 하 여 azure function에 대 한 요청 URL을 호출 합니다.
+
+  상태 비저장 논리 앱 워크플로는 트리거가 아니라 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대해서만 작업을 사용할 수 있습니다. 이전에 지정한 트리거를 제외 하 고, 상태 저장 워크플로는 관리 되는 커넥터에 대해 트리거와 작업을 모두 사용할 수 있습니다.
+
+* 새 **논리 앱 (미리 보기)** 리소스 유형은 [Azure의 프리미엄 또는 App Service 호스팅 계획](#publish-azure) 에만 배포 하거나 [ISEs (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)이 아닌 [Docker 컨테이너](#deploy-docker)에 배포할 수 있습니다. **소비** 호스팅 계획은이 리소스 종류를 배포 하는 데 지원 되지 않으며 사용할 수 없습니다.
+
+* Azure Portal에서는 새 **논리 앱 (미리 보기)** 리소스 유형을 사용 하 여 새 논리 앱을 만들 수 없습니다. 이러한 논리 앱은 Visual Studio Code 에서만 만들 수 있습니다. 그러나 Visual Studio Code에서 Azure로이 리소스 유형을 사용 하 여 논리 앱을 배포한 후에는 [해당 논리 앱에 새 워크플로를 추가할](#add-workflows)수 있습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
@@ -105,6 +123,17 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 * 이 문서에서 동일한 예제 논리 앱을 빌드하려면 Microsoft 회사 또는 학교 계정을 사용 하 여 로그인 하는 Office 365 Outlook 전자 메일 계정이 필요 합니다.
 
   Outlook.com 또는 [Gmail](../connectors/connectors-google-data-security-privacy-policy.md)과 같은 [Azure Logic Apps에서 지 원하는 다른 전자 메일 커넥터](/connectors/)를 사용 하도록 선택 하는 경우에도 예제를 계속 진행할 수 있지만 일반적인 전체 단계는 동일 하지만 사용자 인터페이스와 옵션은 일부 면에서 다를 수 있습니다. 예를 들어 Outlook.com 커넥터를 사용 하는 경우 대신 개인 Microsoft 계정를 사용 하 여 로그인 합니다.
+
+### <a name="storage-requirements"></a>저장소 요구 사항
+
+1. [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179)를 다운로드 하 여 설치 합니다.
+
+1. 에뮬레이터를 실행 하려면 무료 [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658)과 같은 로컬 SQL DB가 설치 되어 있어야 합니다. 자세한 내용은 [Azure Storage 에뮬레이터를 사용 하 여 개발 및 테스트](../storage/common/storage-use-emulator.md)를 참조 하세요.
+
+   > [!IMPORTANT]
+   > 논리 앱 디자이너를 열어 논리 앱 워크플로를 만들려면 먼저 에뮬레이터를 시작 해야 합니다. 그렇지 않으면 메시지를 받게 `Workflow design time could not be started` 됩니다.
+   >
+   > ![실행 중인 Azure Storage 에뮬레이터를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ### <a name="tools"></a>도구
 
@@ -121,7 +150,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
     >
     > JavaScript 코드를 실행 하는 데 [ **인라인 코드** 작업](../logic-apps/logic-apps-add-run-inline-code.md) 을 사용 하려는 경우 작업에서 버전 2x를 지원 하지 않으므로 Azure Functions 런타임 버전 3을 사용 해야 합니다. 또한이 작업은 현재 Linux 운영 체제에서 지원 되지 않습니다.
 
-  * [Visual Studio Code에 대 한 Azure Logic Apps (미리 보기) 확장](https://go.microsoft.com/fwlink/p/?linkid=2143167)입니다. 이 공개 미리 보기 확장은 상태 저장 및 상태 비저장 논리 앱을 만들고 Visual Studio Code에서 로컬로 테스트할 수 있는 기능을 제공 합니다.
+  * [Visual Studio Code에 대 한 Azure Logic Apps (미리 보기) 확장](https://go.microsoft.com/fwlink/p/?linkid=2143167)입니다. 이 공개 미리 보기 확장은 상태 저장 및 상태 비저장 논리 앱을 만들고 Visual Studio Code에서 로컬로 실행할 수 있는 기능을 제공 합니다.
 
     현재 Visual Studio Code에서 원래 **Azure Logic Apps** 확장 및 새 **Azure Logic Apps (미리 보기)** 확장을 동시에 설치할 수 있습니다. Visual Studio Code 도구 모음에서 Azure 아이콘을 선택 하 여 Azure에 배포 된 모든 논리 앱을 볼 수 있지만 각 리소스 종류는 자체 확장 섹션, **Logic Apps** 및 **Azure Logic Apps (미리 보기)** 에 표시 됩니다.
 
@@ -153,19 +182,6 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 * 이 문서에서 만든 예제 논리 앱을 테스트 하려면 예제 논리 앱의 첫 단계인 요청 트리거에 대 한 호출을 보낼 수 있는 도구가 필요 합니다. 이러한 도구가 없는 경우 [Postman](https://www.postman.com/downloads/)을 다운로드 하 여 설치 하 고 사용할 수 있습니다.
 
 * 보다 쉬운 진단 로깅 및 추적 기능을 위해 [Application Insights](../azure-monitor/app/app-insights-overview.md) 리소스를 추가 하 고 사용할 수 있습니다. 논리 앱을 배포 하는 동안 또는 논리 앱을 배포한 후 Azure Portal에서이 리소스를 만들 수 있습니다.
-
-### <a name="storage-requirements"></a>저장소 요구 사항
-
-현재 macOS에서는 새 **논리 앱 (미리 보기)** 리소스를 만들 수 없습니다. 그러나 Windows 또는 Linux와 같은 기타 OS의 경우이 저장소 요구 사항을 설정 합니다.
-
-1. [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179)를 다운로드 하 여 설치 합니다.
-
-1. 에뮬레이터를 실행 하려면 무료 [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658)과 같은 로컬 SQL DB가 설치 되어 있어야 합니다. 자세한 내용은 [Azure Storage 에뮬레이터를 사용 하 여 개발 및 테스트](../storage/common/storage-use-emulator.md)를 참조 하세요.
-
-   > [!IMPORTANT]
-   > 논리 앱 디자이너를 열어 논리 앱 워크플로를 만들려면 먼저 에뮬레이터를 시작 해야 합니다. 그렇지 않으면 메시지를 받게 `Workflow design time could not be started` 됩니다.
-   >
-   > ![실행 중인 Azure Storage 에뮬레이터를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 <a name="set-up"></a>
 
@@ -211,7 +227,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    ![Azure 로그인에 대 한 Azure 창 및 선택한 링크를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   로그인 한 후 Azure 창에는 Azure 계정에 구독이 표시 됩니다. 예상 되는 구독이 표시 되지 않거나이 창에 특정 구독만 표시 하려면 다음 단계를 수행 합니다.
+   로그인 한 후 Azure 창에는 Azure 계정에 구독이 표시 됩니다. 공개적으로 릴리스된 Logic Apps 확장을 사용 하는 경우 미리 보기 확장의 **Logic Apps (preview** 섹션이 아닌 릴리스된 확장의 **Logic Apps** 섹션에서 원래 확장을 사용 하 여 만든 원본 Logic Apps 리소스를 찾을 수 있습니다.
+   
+   예상 되는 구독이 표시 되지 않거나이 창에 특정 구독만 표시 하려면 다음 단계를 수행 합니다.
 
    1. 구독 목록에서 **구독 선택** 단추 (필터 아이콘)가 나타날 때까지 첫 번째 구독 옆으로 포인터를 이동 합니다. 필터 아이콘을 선택 합니다.
 
@@ -228,19 +246,6 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 논리 앱을 만들기 전에 Visual Studio Code에서 논리 앱을 관리 하 고 배포할 수 있도록 로컬 프로젝트를 만듭니다. 기본 프로젝트는 함수 앱 프로젝트 라고도 하는 Azure Functions 프로젝트와 비슷합니다. 그러나 이러한 프로젝트 형식은 서로 별개 이므로 동일한 프로젝트에 논리 앱 워크플로 및 함수를 사용할 수 없습니다.
 
 1. 컴퓨터에서 나중에 Visual Studio Code에서 만들 프로젝트에 사용할 *빈* 로컬 폴더를 만듭니다.
-
-   .NET Core SDK 5.0가 설치 되어 있는 경우 3.1.201 보다 이후 .NET Core 런타임 버전 3.x를 참조 하는 파일 ** 에global.js** 를 만듭니다. 예를 들면 다음과 같습니다.
-
-   ```json
-   {
-      "sdk": {
-         "version": "3.1.8",
-         "rollForward": "disable"
-      }
-   }
-   ```
-
-   나중에 프로젝트를 만든 후 논리 앱 디자이너에서 파일 ** 에workflow.js** 을 열기 전에 프로젝트의 루트 위치에이 **global.js** 파일을 추가 해야 합니다.
 
 1. Visual Studio Code에서 열려 있는 모든 폴더를 닫습니다.
 
@@ -266,18 +271,30 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    !["현재 창에서 열기"가 선택 된 목록을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
-   Visual Studio Code 다시 로드 하면 탐색기 창이 열리고 프로젝트가 자동으로 생성 된 프로젝트 파일을 포함 하는 프로젝트가 표시 됩니다. 예를 들어 프로젝트에 논리 앱 워크플로 이름을 표시 하는 폴더가 있습니다. 이 폴더 내에서 파일에는 `workflow.json` 논리 앱 워크플로의 기본 JSON 정의가 포함 되어 있습니다.
+   Visual Studio Code 다시 로드 하면 탐색기 창이 열리고 프로젝트가 자동으로 생성 된 프로젝트 파일을 포함 하는 프로젝트가 표시 됩니다. 예를 들어 프로젝트에 논리 앱 워크플로 이름을 표시 하는 폴더가 있습니다. 이 폴더 내에서 파일 ** 의workflow.js** 에는 논리 앱 워크플로의 기본 JSON 정의가 포함 되어 있습니다.
 
    ![프로젝트 폴더, 워크플로 폴더 및 "workflow.json" 파일을 포함 하는 탐색기 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
-
-1. .NET Core SDK 5.0가 설치 되어 있는 경우 3.1.201 보다 이후 버전의 .NET Core 런타임 버전 3.x를 참조 하는 파일 ** 에global.js** 를 만든 경우 내부 Visual Studio Code에서 프로젝트의 루트 위치에 해당 **global.js** 를 추가 해야 합니다.
-
-   > [!NOTE]
-   > 논리 앱 디자이너에서 워크플로의 기본 JSON 정의를 포함 하는 파일 ** 에workflow.js** 을 열기 전에이 단계를 완료 해야 합니다. 그렇지 않으면 디자이너가 열리지 않습니다.
 
 <a name="open-workflow-definition-designer"></a>
 
 ## <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>논리 앱 디자이너에서 워크플로 정의 파일을 엽니다.
+
+1. 다음 명령을 실행 하 여 컴퓨터에 설치 된 버전을 확인 합니다.
+
+   `..\Users\{yourUserName}\dotnet --list-sdks`
+
+   .NET Core SDK 5.x를 사용 하는 경우이 버전을 사용 하면 디자이너에서 논리 앱의 기본 워크플로 정의를 열 수 없습니다. 이 버전을 제거 하는 대신, 프로젝트의 루트 위치에서 3.1.201 보다 이후 버전의 .NET Core 런타임 2.x 버전을 참조 하는 파일 ** 에global.js** 를 만듭니다. 예를 들면 다음과 같습니다.
+
+   ```json
+   {
+      "sdk": {
+         "version": "3.1.8",
+         "rollForward": "disable"
+      }
+   }
+   ```
+
+   파일 ** 의global.js** Visual Studio Code 내부에서 루트 위치의 프로젝트에 추가 해야 합니다. 그렇지 않으면 디자이너가 열리지 않습니다.
 
 1. Visual Studio Code Windows 또는 Linux에서 실행 되는 경우 Azure Storage 에뮬레이터가 실행 중인지 확인 합니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조 하세요.
 
@@ -436,11 +453,13 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 1. 디자이너에서 **저장**을 선택 합니다.
 
-다음으로 Visual Studio Code에서 로컬로 워크플로를 디버그 하 고 테스트 합니다.
+다음으로 Visual Studio Code에서 로컬로 워크플로를 실행 하 고 디버그 합니다.
 
 <a name="debug-test-locally"></a>
 
-## <a name="debug-and-test-your-logic-app"></a>논리 앱 디버그 및 테스트
+## <a name="run-and-debug-locally"></a>로컬에서 실행 및 디버그
+
+논리 앱을 테스트 하려면 다음 단계를 수행 하 여 디버깅 세션을 시작 하 고 요청 트리거에 의해 만들어진 끝점의 URL을 찾습니다. 나중에 해당 끝점에 요청을 보낼 수 있도록이 URL이 필요 합니다.
 
 1. 상태 비저장 논리 앱 워크플로를 더 쉽게 디버깅할 수 있도록 [해당 워크플로에 대 한 실행 기록을 사용 하도록 설정할](#run-history)수 있습니다.
 
@@ -957,22 +976,6 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
   * 코드 문자의 제한은 1024 자에서 10만 자로 늘어납니다.
 
   * 코드 실행 시간 제한이 5 초에서 15 초로 늘어납니다.
-
-<a name="unsupported"></a>
-
-## <a name="unavailable-or-unsupported-capabilities"></a>사용할 수 없거나 지원 되지 않는 기능
-
-이 공개 미리 보기의 경우 이러한 기능을 사용할 수 없거나 지원 되지 않습니다.
-
-* 새 **논리 앱 (미리 보기)** 리소스 만들기는 현재 macos에서 사용할 수 없습니다.
-
-* 워크플로를 시작 하려면 [Request, HTTP, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 현재, [엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors), [온-프레미스 데이터 게이트웨이 트리거](../connectors/apis-list.md#on-premises-connectors), Webhook 기반 트리거, 슬라이딩 윈도우 트리거, [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors), 통합 계정, 해당 아티팩트 및 [커넥터는](../connectors/apis-list.md#integration-account-connectors) 이 미리 보기에서 지원 되지 않습니다. "Azure 함수 호출" 기능을 사용할 수 없으므로 지금은 HTTP *작업* 을 사용 하 여 azure function에 대 한 요청 URL을 호출 합니다.
-
-  상태 비저장 논리 앱 워크플로는 트리거가 아니라 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대해서만 작업을 사용할 수 있습니다. 이전에 지정한 트리거를 제외 하 고, 상태 저장 워크플로는 관리 되는 커넥터에 대해 트리거와 작업을 모두 사용할 수 있습니다.
-
-* 새 **논리 앱 (미리 보기)** 리소스 유형은 [Azure의 프리미엄 또는 App Service 호스팅 계획](#publish-azure) 에만 배포 하거나 [ISEs (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)이 아닌 [Docker 컨테이너](#deploy-docker)에 배포할 수 있습니다. **소비** 호스팅 계획은이 리소스 종류를 배포 하는 데 지원 되지 않으며 사용할 수 없습니다.
-
-* Azure Portal에서는 새 **논리 앱 (미리 보기)** 리소스 유형을 사용 하 여 새 논리 앱을 만들 수 없습니다. 이러한 논리 앱은 Visual Studio Code 에서만 만들 수 있습니다. 그러나 Visual Studio Code에서 Azure로이 리소스 유형을 사용 하 여 논리 앱을 배포한 후에는 [해당 논리 앱에 새 워크플로를 추가할](#add-workflows)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

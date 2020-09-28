@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855801"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409564"
 ---
 # <a name="what-is-virtual-network-nat"></a>Virtual Network NAT란?
 
@@ -32,7 +32,7 @@ Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대�
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix." width="256" title="Virtual Network NAT">
 </p>
 
 
@@ -51,11 +51,11 @@ NAT는 표준 SKU 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또�
 
 NAT는 "포트 네트워크 주소 변환"(PNAT 또는 PAT)을 사용하며 대부분의 워크로드에 추천됩니다. 주문형 아웃바운드 흐름 할당으로 동적 또는 확산 워크로드를 쉽게 수용할 수 있습니다. 광범위한 사전 계획, 미리 할당 및 궁극적으로 과도한 아웃바운드 리소스 프로비저닝을 방지할 수 있습니다. SNAT 포트 리소스는 특정 NAT 게이트웨이 리소스를 사용하여 모든 서브넷에서 공유하고 사용할 수 있으며 필요할 때 제공됩니다.
 
-NAT에 연결된 공용 IP 주소는 UDP 및 TCP에 대해 최대 64,000개의 동시 흐름을 제공합니다. 단일 IP 주소로 시작하여 최대 16개의 공용 IP 주소로 확장할 수 있습니다.
+NAT에 연결 된 공용 IP 주소는 각각 UDP 및 TCP에 대해 최대 64000의 동시 흐름을 제공 합니다. 단일 IP 주소로 시작 하 고 공용 IP 주소 또는 공용 IP 접두사 또는 둘 다를 사용 하 여 최대 16 개의 IP 주소로 확장할 수 있습니다.  NAT 게이트웨이 리소스는 동일한 NAT 게이트웨이 리소스를 사용 하 여 구성 된 모든 서브넷의 아웃 바운드 연결에 대 한 리소스와 연결 된 모든 IP 주소를 사용 합니다.
 
 NAT를 사용하면 가상 네트워크에서 인터넷으로의 흐름을 만들 수 있습니다. 인터넷에서 반환하는 트래픽은 활성 흐름에 대한 응답으로만 허용됩니다.
 
-부하 분산 장치 아웃바운드 SNAT와 달리 NAT는 아웃바운드 연결을 수행할 수 있는 가상 머신 인스턴스의 개인 IP를 제한하지 않습니다.  보조 IP 구성은 NAT를 통해 아웃바운드 인터넷 연결을 만들 수 있습니다.
+부하 분산 장치 아웃바운드 SNAT와 달리 NAT는 아웃바운드 연결을 수행할 수 있는 가상 머신 인스턴스의 개인 IP를 제한하지 않습니다.  기본 및 보조 IP 구성은 NAT를 사용 하 여 아웃 바운드 인터넷 연결을 만들 수 있습니다.
 
 ## <a name="coexistence-of-inbound-and-outbound"></a>인바운드 및 아웃바운드의 동시 사용
 

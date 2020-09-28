@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 35bf66549cedba22ec14999c4fea62a2c449416e
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897442"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408018"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretability: 자동화 된 machine learning (미리 보기)의 모델 설명
 
@@ -33,7 +33,7 @@ ms.locfileid: "90897442"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Interpretability 기능. `pip install azureml-interpret azureml-contrib-interpret`을 실행 하 여 필요한 패키지를 가져옵니다.
+- Interpretability 기능. `pip install azureml-interpret`을 실행 하 여 필요한 패키지를 가져옵니다.
 - 자동화 된 ML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>최상의 모델을 위한 학습 중에 Interpretability
@@ -53,7 +53,7 @@ ms.locfileid: "90897442"
 를 사용 `ExplanationClient` 하 여의 아티팩트 저장소에서 엔지니어링 된 기능 설명을 다운로드할 수 있습니다 `best_run` . 
 
 ```python
-from azureml.explain.model._internal.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -99,7 +99,7 @@ AutoML 모델에 대 한 설명을 생성 하려면 클래스를 사용 `MimicWr
 또한 MimicWrapper는 `automl_run` 엔지니어링 된 설명이 업로드 될 개체를 사용 합니다.
 
 ```python
-from azureml.explain.model.mimic_wrapper import MimicWrapper
+from azureml.interpret import MimicWrapper
 
 # Initialize the Mimic Explainer
 explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,

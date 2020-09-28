@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095554"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408510"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "85095554"
 
 Azure 방화벽에는 다음과 같은 기능이 포함 되어 있습니다.
 
-- [기본 제공되는 고가용성](#built-in-high-availability)
+- [기본 제공 되는 고가용성](#built-in-high-availability)
 - [가용성 영역](#availability-zones)
 - [무제한 클라우드 확장성](#unrestricted-cloud-scalability)
 - [애플리케이션 FQDN 필터링 규칙](#application-fqdn-filtering-rules)
@@ -62,7 +62,7 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 
 ## <a name="application-fqdn-filtering-rules"></a>애플리케이션 FQDN 필터링 규칙
 
-아웃바운드 HTTP/S 트래픽 또는 Azure SQL 트래픽(미리 보기)을 와일드 카드를 포함한 FQDN(정규화된 도메인 이름) 목록으로 제한할 수 있습니다. 이 기능에는 TLS 종료가 필요하지 않습니다.
+와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽 또는 Azure SQL 트래픽을 제한할 수 있습니다. 이 기능에는 TLS 종료가 필요하지 않습니다.
 
 ## <a name="network-traffic-filtering-rules"></a>네트워크 트래픽 필터링 규칙
 
