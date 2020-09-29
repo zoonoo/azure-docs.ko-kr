@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: f47569eef7281840108c32283f664c3218de23dc
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357792"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444780"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Windows 인증서 저장소를 사용 하 여 Always Encrypted 구성
 
@@ -37,7 +37,7 @@ Always Encrypted은 클라이언트와 서버 간에 이동 하는 동안 서버
 * 데이터베이스 테이블을 만들고 열을 암호화합니다.
 * 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 이 자습서에는 다음이 필요합니다.
 
