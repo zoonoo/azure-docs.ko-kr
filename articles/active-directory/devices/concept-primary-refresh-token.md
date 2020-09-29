@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468609"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450413"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
@@ -199,6 +199,9 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 | D | CloudAP 플러그 인은 PRT 쿠키를 만들고 TPM 바인딩 세션 키로 로그인한 다음, 다시 네이티브 클라이언트 호스트로 보냅니다. 쿠키는 세션 키로 서명되므로 변조될 수 없습니다. |
 | E | 네이티브 클라이언트 호스트는 이 PRT 쿠키를 브라우저에 반환합니다. 브라우저는 x-ms-RefreshTokenCredential이라는 요청 헤더의 일부로 이 쿠키를 포함하고 Azure AD에서 토큰을 요청합니다. |
 | F | Azure AD는 PRT 쿠키에서 세션 키 서명이 유효한지 검사하고, nonce가 유효한지 검사하고, 디바이스가 테넌트에서 유효한지 확인하고, 웹 페이지를 위한 ID 토큰과 브라우저를 위한 암호화된 세션 쿠키를 발급합니다. |
+
+> [!NOTE]
+> 위의 단계에서 설명 하는 브라우저 SSO 흐름은 Microsoft Edge의 InPrivate와 같은 개인 모드의 세션 또는 Google Chrome (Microsoft 계정 확장을 사용 하는 경우)에서 Incognito 적용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

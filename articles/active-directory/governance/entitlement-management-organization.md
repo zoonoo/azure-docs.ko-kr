@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783946"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449898"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -66,6 +66,8 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 
     !["연결 된 조직 추가" 기본 사항 창](./media/entitlement-management-organization/organization-basics.png)
 
+1. 새 연결 된 조직을 만들 때 상태가 자동으로 **구성** 됨으로 설정 됩니다. 상태 속성에 대 한 자세한 내용은 [연결 된 조직의 상태 속성](#state-properties-of-connected-organizations) 을 참조 하세요.
+
 1. **디렉터리 + 도메인** 탭을 선택 하 고 **디렉터리 추가 + 도메인**을 선택 합니다.
 
     **디렉터리 + 도메인 선택** 창이 열립니다.
@@ -109,7 +111,7 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 
 1. 왼쪽 창에서 **연결 된 조직**을 선택 하 고 연결 된 조직을 선택 하 여 엽니다.
 
-1. 연결 된 조직의 개요 창에서 **편집** 을 선택 하 여 조직 이름 또는 설명을 변경 합니다.  
+1. 연결 된 조직의 개요 창에서 **편집** 을 선택 하 여 조직 이름, 설명 또는 상태를 변경 합니다.  
 
 1. **디렉터리 + 도메인** 창에서 **디렉터리 업데이트 + 도메인** 을 선택 하 여 다른 디렉터리나 도메인으로 변경 합니다.
 
@@ -135,6 +137,23 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 ## <a name="managing-a-connected-organization-programmatically"></a>프로그래밍 방식으로 연결 된 조직 관리
 
 또한 Microsoft Graph를 사용 하 여 연결 된 조직을 만들고, 나열 하 고, 업데이트 하 고, 삭제할 수 있습니다. 위임 된 권한이 있는 응용 프로그램을 사용 하는 적절 한 역할의 사용자는 `EntitlementManagement.ReadWrite.All` API를 호출 하 여 [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) 개체를 관리 하 고 스폰서를 설정할 수 있습니다.
+
+## <a name="state-properties-of-connected-organizations"></a>연결 된 조직의 상태 속성
+
+Azure AD 자격 관리에서 연결 된 조직의 상태 속성에는 현재 구성 되어 있고 제안 된 두 가지 유형이 있습니다. 
+
+- 구성 된 연결 된 구성은 해당 조직 내의 사용자가 패키지에 액세스할 수 있도록 하는 완전 한 기능을 갖춘 연결 된 조직입니다. 관리자가 Azure Portal에 연결 된 새 조직을 만들면 관리자가 만들고 연결 된 조직을 사용 하려고 하기 때문에 기본적으로 **구성** 된 상태가 됩니다. 또한 API를 통해 프로그래밍 방식으로 연결 된 조직을 만든 경우에는 명시적으로 다른 상태로 설정 하지 않는 한 기본 상태를 **구성** 해야 합니다. 
+
+    구성 된 연결 된 조직은 연결 된 조직의 선택 영역에 표시 되 고 "모든" 연결 된 조직을 대상으로 하는 모든 정책에 대해 범위 내에 있습니다.
+
+- 제안 된 연결 된 구성은 자동으로 만들어졌지만 관리자가 조직을 만들거나 승인 하지 않은 연결 된 조직입니다. 사용자가 구성 된 연결 된 조직 외부에서 액세스 패키지에 등록 하는 경우 테 넌 트의 관리자가 해당 파트너 관계를 설정 하지 않았기 때문에 자동으로 생성 된 모든 연결 된 조직이 **제안 됨** 상태가 됩니다. 
+    
+    제안 된 연결 된 조직은 구성 된 연결 된 조직의 선택기에 표시 되지 않고 모든 정책에 대해 "구성 된 모든 연결 된 조직의" 설정에 대 한 범위에 속하지 않습니다. 
+
+구성 된 연결 된 조직의 사용자만 구성 된 모든 조직의 사용자가 사용할 수 있는 액세스 패키지를 요청할 수 있습니다. 제안 된 연결 된 조직의 사용자는 해당 도메인에 대 한 연결 된 조직이 없는 것 처럼 경험을 가지 며 관리자가 상태를 변경할 때까지 액세스 패키지에 액세스할 수 없습니다.
+
+> [!NOTE]
+> 이 새로운 기능을 배포 하는 과정의 일환으로 09/09/20 이전에 생성 된 모든 연결 된 조직은 **구성**된 것으로 간주 됩니다. 모든 조직의 사용자가 등록할 수 있도록 허용 하는 액세스 패키지가 있는 경우 해당 날짜 이전에 생성 된 연결 된 조직의 목록을 검토 하 여 **구성**된 것으로 miscategorized 되지 않도록 해야 합니다.  관리자는 **상태** 속성을 적절 하 게 업데이트할 수 있습니다. 지침은 [연결 된 조직 업데이트](#update-a-connected-organization)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

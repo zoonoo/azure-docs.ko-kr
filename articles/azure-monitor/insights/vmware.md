@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090179"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450392"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor에서 VMware 모니터링 (사용 되지 않음) 솔루션
 
@@ -50,14 +50,14 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. vSphere 콘솔에서 해당 syslog가 제대로 설정되어 있는지 확인합니다. ESXi 호스트에서 포트가 **1514**로 구성되어 있는지 확인합니다.
 1. Linux용 Log Analytics 에이전트를 다운로드하여 Linux 서버에 설치합니다. 자세한 내용은 [Linux용 Log Analytics 에이전트 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux)를 참조하세요.
-1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예를 들어:
+1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 다음은 그 예입니다.
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. `sudo /opt/microsoft/omsagent/bin/service_control restart`를 실행하여 Linux용 Log Analytics 에이전트를 다시 시작합니다.
-1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 예를 들어:
+1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 다음은 그 예입니다.
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -97,7 +97,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 | SyslogMessage_s |Syslog 데이터 |
 | UserName_s |VM을 만들거나 삭제한 사용자 |
 | VMName_s |VM 이름 |
-| 컴퓨터 |호스트 컴퓨터 |
+| Computer |호스트 컴퓨터 |
 | TimeGenerated |데이터가 생성된 시간 |
 | DataCenter_s |VMware 데이터 센터 |
 | StorageLatency_s |스토리지 대기 시간(밀리초) |
@@ -133,16 +133,16 @@ ESXi 호스트 또는 이벤트 유형을 클릭하면 관련 정보를 자세�
 
 ESXi 호스트 이름을 클릭하여 해당 ESXi 호스트의 정보를 살펴봅니다. 이벤트 유형으로 한정된 결과를 원하는 경우 검색 쿼리에 `“ProcessName_s=EVENT TYPE”`을 추가합니다. 검색 필터에서 **ProcessName**을 선택할 수도 있습니다. 그러면 사용자가 원하는 정보로 맞추어집니다.
 
-![연습](./media/vmware/eventhostdrilldown.png)
+![VMware 모니터링 대시보드 보기에서 이벤트 유형별 ESXi 호스트 및 이벤트 유형별 분석의 스크린샷](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>빈번한 VM 활동 찾기
 ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이렇게 하면 관리자가 ESXi 호스트에서 만드는 VM 수를 식별하는 데 도움이 됩니다. 또한 성능과 용량 계획을 파악하는 데에도 도움이 됩니다. 사용자 환경을 관리할 때는 VM 활동 이벤트를 추적하는 것이 중요합니다.
 
-![연습](./media/vmware/vmactivities1.png)
+![ESXi 호스트에서 VM을 만들고 삭제 하는 그래프를 보여 주는 VMware 모니터링 대시보드의 Virtual Machine 활동 블레이드의 스크린샷](./media/vmware/vmactivities1.png)
 
 또한 ESXi 호스트 VM 생성 데이터도 확인하려는 경우에는 ESXi 호스트 이름을 클릭합니다.
 
-![연습](./media/vmware/createvm.png)
+![ESXi 호스트에서 만든 각 가상 컴퓨터에 대 한 데이터 행이 있는 테이블을 보여 주는 VMware 모니터링 대시보드의 창 스크린샷](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>일반적인 로그 쿼리
 솔루션에는 대규모 스토리지 공간, 스토리지 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
@@ -192,7 +192,7 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 
      b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 파일을 엽니다.
 
-     c. 적절한 사용자 및 그룹 설정이 유효한지 확인합니다(`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`와 유사함).
+     다. 적절한 사용자 및 그룹 설정이 유효한지 확인합니다(`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`와 유사함).
 
      d. 파일이 없거나 사용자 및 그룹 정책 설정이 잘못된 경우 [Linux 서버를 준비](#prepare-a-linux-server)하여 정정 작업을 수행합니다.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/19/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 20cbc9b33e567ffe306aae694bb835d95c2d861e
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: b2e597ff8fc761b66de6228063c471933a364144
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704980"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449649"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -46,6 +46,9 @@ ms.locfileid: "88704980"
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
 
 ## <a name="ubuntu-configuration"></a>Ubuntu 구성 
+이 섹션에서는 NFS 클라이언트의 Ubuntu 구성에 대해 설명 합니다.  
+
+### <a name="if-you-are-using-nfsv41-kerberos-encryption"></a>NFSv 4.1 Kerberos 암호화를 사용 하는 경우 
 
 1. 패키지 설치:  
     `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
@@ -55,6 +58,26 @@ ms.locfileid: "88704980"
 
 3. Active Directory 도메인에 조인 합니다.  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
+
+### <a name="if-you-are-using-dual-protocol"></a>이중 프로토콜을 사용 하는 경우  
+
+1. 다음 명령을 실행 하 여 설치 된 패키지를 업그레이드 합니다.  
+    `sudo apt update && sudo apt install libnss-ldap libpam-ldap ldap-utils nscd`
+
+    예제:   
+
+    `base dc=hariscus,dc=com` `uri ldap://10.20.0.4:389/`
+    `ldap_version 3`
+    `rootbinddn cn=admin,cn=Users,dc=hariscus,dc=com`
+    `pam_password ad`
+ 
+2. 다음 명령을 실행 하 여 서비스를 다시 시작 하 고 사용 하도록 설정 합니다.   
+    `sudo systemctl restart nscd && sudo systemctl enable nscd`
+
+다음 예에서는 Ubuntu LDAP 클라이언트에서 LDAP 사용자에 대 한 AD LDAP 서버를 쿼리 합니다 `ldapu1` .   
+
+`root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
+`hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
 ## <a name="next-steps"></a>다음 단계  
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614047"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449332"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -73,15 +73,15 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
    - 단일 리소스의 경우 리소스 메뉴의 **모니터** 에서 **진단 설정** 을 클릭 합니다.
 
-        ![진단 설정](media/diagnostic-settings/menu-resource.png)
+        ![진단 설정이 강조 표시 된 Azure Portal에서 리소스 메뉴의 모니터링 섹션 스크린샷](media/diagnostic-settings/menu-resource.png)
 
    - 하나 이상의 리소스에 대해 Azure Monitor 메뉴의 **설정** 에서 **진단 설정** 을 클릭 한 다음 리소스를 클릭 합니다.
 
-      ![진단 설정](media/diagnostic-settings/menu-monitor.png)
+        ![진단 설정이 강조 표시 된 Azure Monitor 메뉴의 설정 섹션 스크린샷](media/diagnostic-settings/menu-monitor.png)
 
    - 활동 로그의 경우 **Azure Monitor** 메뉴에서 **활동 로그** 를 클릭 한 다음 **진단 설정**을 클릭 합니다. 활동 로그에 대 한 레거시 구성은 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [기존 설정 사용 안 함](./activity-log.md#legacy-collection-methods) 을 참조 하세요.
 
-        ![진단 설정](media/diagnostic-settings/menu-activity-log.png)
+        ![활동 로그를 선택 하 고 모니터-활동 로그 메뉴 모음에 진단 설정이 강조 표시 된 Azure Monitor 메뉴의 스크린샷](media/diagnostic-settings/menu-activity-log.png)
 
 2. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. **진단 설정 추가**를 클릭합니다.
 

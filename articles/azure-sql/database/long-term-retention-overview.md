@@ -12,18 +12,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334857"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450222"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>장기 보존-Azure SQL Database 및 Azure SQL Managed Instance
 
-많은 응용 프로그램에는 Azure SQL Database 및 Azure SQL Managed Instance [자동 백업](automated-backups-overview.md)에서 제공 하는 7-35 일 외에 데이터베이스 백업을 보존 해야 하는 규제, 규정 준수 또는 기타 비즈니스 목적이 있습니다. LTR (장기 보존) 기능을 사용 하면 최대 10 년 동안 읽기 액세스 지역 중복 저장소를 사용 하 여 Azure Blob storage에 지정 된 SQL Database 및 SQL Managed Instance 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
-
-또한 SQL Managed Instance는 LRS (로컬 중복), ZRS (영역 중복) 또는 GRS (지역 중복) [저장소 blob](../../storage/common/storage-redundancy.md)중에서 선택할 수 있는 유연성을 제공 하는 [구성 가능한 백업 저장소 중복성](automated-backups-overview.md#backup-storage-redundancy) 을 도입 했습니다. 이 옵션은 현재 관리 되는 인스턴스 만들기 프로세스 중에만 사용할 수 있으며 리소스가 프로 비전 된 후에는 변경할 수 없습니다.
+많은 응용 프로그램에는 Azure SQL Database 및 Azure SQL Managed Instance [자동 백업](automated-backups-overview.md)에서 제공 하는 7-35 일 외에 데이터베이스 백업을 보존 해야 하는 규제, 규정 준수 또는 기타 비즈니스 목적이 있습니다. LTR (장기 보존) 기능을 사용 하면 최대 10 년 동안 [중복성을 구성](automated-backups-overview.md#backup-storage-redundancy) 하 여 Azure Blob storage에 지정 된 SQL DATABASE 및 SQL Managed Instance 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
 
 장기 보존은 Azure SQL Database에 대해 사용 하도록 설정할 수 있으며, Azure SQL Managed Instance에 대해 제한 된 공개 미리 보기로 제공 됩니다. 이 문서에서는 장기 보존에 대 한 개념적 개요를 제공 합니다. 장기 보존을 구성 하려면 [AZURE SQL DATABASE Ltr 구성](long-term-backup-retention-configure.md) 및 [AZURE SQL Managed Instance ltr](../managed-instance/long-term-backup-retention-configure.md)구성을 참조 하세요. 
 

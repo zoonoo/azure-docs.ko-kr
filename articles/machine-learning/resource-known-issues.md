@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450053"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -135,7 +135,7 @@ ms.locfileid: "91280983"
     
 * **패키지를 설치할 때 Databricks 오류 발생**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -209,6 +209,9 @@ ms.locfileid: "91280983"
     ```
 
     선행 슬래시 ('/')를 포함 하지 않는 경우 `/mnt/batch/.../tmp/dataset` 데이터 집합을 탑재할 위치를 나타내기 위해 계산 대상에서 작업 디렉터리 (예:)에 접두사를 추가 해야 합니다.
+
+### <a name="mount-dataset"></a>데이터 집합 탑재
+* **데이터 집합 초기화 실패: 탑재 지점의 준비 대기 시간이 초과 되었습니다**. `azureml-sdk >=1.12.0` 문제를 완화 하기 위해에서 다시 시도 논리가 추가 되었습니다. 이전 azureml sdk 버전을 사용할 경우 최신 버전으로 업그레이드 하세요. 이미를 사용 하 고 있는 경우에는 픽스를 사용 하 여 `azureml-sdk>=1.12.0` 최신 패치를 사용할 수 있도록 환경을 다시 만드세요.
 
 ### <a name="data-labeling-projects"></a>데이터 레이블 지정 프로젝트
 

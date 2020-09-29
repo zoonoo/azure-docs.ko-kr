@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480456"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449792"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용하여 대화형 보고서 VM용 Azure Monitor 만들기
 
@@ -66,7 +66,7 @@ ms.locfileid: "79480456"
 
 통합 문서에는 **편집 모드** 및 **읽기 모드**라는 두 가지 모드가 있습니다. 새 통합 문서가 처음 시작 되 면 **편집 모드**에서 열립니다. 다른 방법으로는 숨겨진 모든 단계와 매개 변수를 포함 하 여 통합 문서의 모든 내용을 표시 합니다. **읽기 모드**는 간소화된 보고서 스타일 보기를 제공합니다. 읽기 모드를 사용 하면 수정이 필요한 경우에만 기본 메커니즘을 사용 하 여 보고서를 만들 때 발생 하는 복잡성을 추상화할 수 있습니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![편집 컨트롤이 강조 표시 된 편집 모드에서 새 통합 문서를 보여 주는 Azure Monitor의 Virtual Machines 통합 문서 섹션의 스크린샷](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. 섹션 편집이 완료 되 면 섹션의 왼쪽 아래 모서리에 있는 **편집 완료** 를 클릭 합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "79480456"
 
 각 섹션에는 ![ ](media/vminsights-workbooks/006-settings.png) **매개 변수 추가** 단추 오른쪽에 있는 설정 통합 문서 섹션 편집 컨트롤 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/007-settings-expanded.png)
+![Azure Monitor의 Virtual Machines 통합 문서 섹션에 있는 고급 설정 대화 상자의 스크린샷 대화 상자를 여는 아이콘이 강조 표시 됩니다.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ ms.locfileid: "79480456"
 
 통합 문서의 첫 번째 섹션은 로그 쿼리 데이터를 기반으로 합니다. 또한 두 번째 섹션은 로그 쿼리 데이터를 기반으로 하지만 첫 번째 테이블의 행을 선택 하면 차트의 내용이 대화형으로 업데이트 됩니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![미리 작성 된 통합 문서 TCP 트래픽을 보여 주는 Azure Monitor Virtual Machines 섹션의 스크린샷](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 **항목을 선택 하면** 테이블의 로그 쿼리에서 사용 되는 매개 변수 고급 설정을 내보냅니다 .를 사용 하 여 동작을 수행할 수 있습니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/009-settings-export.png)
+!["항목을 선택 하 고 매개 변수 내보내기" 옵션을 선택 하 여 Virtual Machines 통합 문서에 대 한 고급 설정 대화 상자의 스크린샷](media/vminsights-workbooks/009-settings-export.png)
 
 그런 다음 두 번째 로그 쿼리는 행을 선택 하 여 섹션 머리글과 차트에서 사용 되는 값 집합을 만들 때 내보낸 값을 활용 합니다. 선택 된 행이 없으면 섹션 머리글과 차트를 숨깁니다. 
 
@@ -141,7 +141,7 @@ VMConnection
 
 다음은 CPU 성능에 대 한 그리드 시각화를 제공 하기 위해 통합 문서로 끌어오는 가상 머신 데이터의 예입니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/010-metrics-grid.png)
+![Azure Monitor에서 가상 컴퓨터 통합 문서의 메트릭 섹션 스크린샷 각 가상 컴퓨터의 CPU 성능은 그래픽으로 표시 됩니다.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>매개 변수 추가 섹션
 
@@ -155,7 +155,7 @@ VMConnection
 
 |                  |      |
 | ---------------- |:-----|
-| **텍스트**    | 사용자가 텍스트 상자를 편집할 수 있으며, 선택적으로 기본값을 입력할 쿼리를 제공할 수 있습니다. |
+| **Text**    | 사용자가 텍스트 상자를 편집할 수 있으며, 선택적으로 기본값을 입력할 쿼리를 제공할 수 있습니다. |
 | **드롭다운** | 사용자가 값 집합에서 선택할 수 있습니다. |
 | **시간 범위 선택기**| 사용자가 미리 정의 된 시간 범위 값 집합에서 선택 하거나 사용자 지정 시간 범위에서 선택할 수 있습니다.|
 | **리소스 선택기** | 사용자가 통합 문서에 대해 선택한 리소스에서 선택할 수 있습니다.|
@@ -180,11 +180,11 @@ VMConnection
 
 연결 개요 보고서에 있는 매개 변수를 살펴보겠습니다. **방향**옆의 편집 기호를 클릭 합니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Azure Monitor에서 보고서 매개 변수를 추가 하 고 편집 하는 섹션의 스크린샷 방향 매개 변수의 편집 아이콘이 선택 됩니다.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 그러면 **매개 변수 편집** 메뉴 항목이 시작 됩니다.
 
-![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![매개 변수 편집 대화 상자의 스크린샷 매개 변수 이름이 Direction이 고 매개 변수 유형이 드롭다운 이며 JSON에서 데이터 가져오기가 선택 된 경우](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 JSON을 사용 하면 콘텐츠로 채워진 임의의 테이블을 생성할 수 있습니다. 예를 들어 다음 JSON은 드롭다운에서 두 값을 생성 합니다.
 

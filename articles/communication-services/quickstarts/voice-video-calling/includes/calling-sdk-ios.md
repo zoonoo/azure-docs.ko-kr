@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377442"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451485"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -41,7 +41,7 @@ Azure Communication Services 통화 클라이언트 라이브러리 및 해당 �
 5. 프로젝트 설정 편집기의 **빌드 설정** 탭을 열고 **검색 경로** 섹션으로 스크롤합니다. **AzureCommunicationCalling.framework**가 포함된 디렉터리에 대한 새 **프레임워크 검색 경로** 항목을 추가합니다.
     1. 종속성이 포함된 폴더를 가리키는 다른 프레임워크 검색 경로 항목을 추가합니다.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="XCode 내에서 프레임워크 검색 경로 업데이트를 보여주는 스크린샷":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Xcode 내에서 새 프로젝트 만들기 창을 보여주는 스크린샷":::
 
 ### <a name="request-access-to-the-microphone"></a>마이크에 대한 액세스 요청
 
@@ -68,7 +68,7 @@ import AVFoundation
 다음 클래스와 인터페이스는 iOS 용 클라이언트 라이브러리를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
 
-| Name                                  | 설명                                                  |
+| 속성                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | ACSCallClient는 호출 하는 클라이언트 라이브러리에 대 한 주 진입점입니다.|
 | ACSCallAgent | ACSCallAgent는 호출을 시작 하 고 관리 하는 데 사용 됩니다. |
@@ -113,7 +113,7 @@ public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: ACSJoin
 - 2 단계: Xcode > 서명 & 기능-> 기능 추가-> "백그라운드 모드"
 - 3 단계: "백그라운드 모드"-> "Voip (Voice over IP)" 및 "원격 알림" 선택
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Xcode의 기능을 추가 하는 방법을 보여 주는 스크린샷" lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Xcode 내에서 새 프로젝트 만들기 창을 보여주는 스크린샷" lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>푸시 알림 등록
 

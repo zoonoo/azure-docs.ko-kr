@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502517"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451376"
 ---
 Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 동시에 연결할 수 있도록 하는 Azure managed disks에 대 한 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure 공유 디스크는 다음에서 지원 됩니다.
 - [SUSE SLE for SAP and SUSE SLE HA 15 SP1 이상](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
 - [Ubuntu 18.04 이상](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL 8 버전의 RHEL developer preview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Linux 클러스터는 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)와 같은 클러스터 관리자를 활용할 수 있습니다. Pacemaker는 [Corosync](http://corosync.github.io/corosync/)를 기반으로 하며, 고가용성 환경에 배포된 애플리케이션에 클러스터 통신을 사용하도록 설정합니다. 몇 가지 일반적인 클러스터된 파일 시스템으로는 [ocfs2](https://oss.oracle.com/projects/ocfs2/) 및 [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2)가 있습니다. Scsi 영구 예약 (SCSI PR) 및/또는 STONITH SBD (Block Device) 기반 클러스터링 모델을 사용 하 여 디스크에 대 한 arbitrating 액세스를 수행할 수 있습니다. SCSI PR을 사용 하는 경우 [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) , [sg_persist](https://linux.die.net/man/8/sg_persist)등의 유틸리티를 사용 하 여 예약 및 등록을 조작할 수 있습니다.
 
@@ -131,19 +131,19 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 
 클러스터된 공유 볼륨을 사용하는 2노드 WSFC의 예는 다음과 같습니다. 이 구성을 사용 하는 경우 두 Vm은 디스크에 대 한 동시 쓰기 액세스 권한을 가지 며,이로 인해 `ReadWrite` 두 vm 간에 제한이 분할 되 고 `ReadOnly` 스로틀이 사용 되지 않습니다.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV 2노드 울트라 예제":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="예약 소유자, 등록 및 기타에 대 한 ' 읽기 전용 ' 또는 ' 읽기/쓰기 ' 액세스를 보여 주는 테이블의 이미지입니다.":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>클러스터 공유 볼륨을 사용하지 않는 2노드 클러스터
 
 다음은 클러스터된 공유 볼륨을 사용하지 않는 2노드 WSFC의 예입니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이로 인해 제한이 `ReadWrite` 주 VM에 독점적으로 사용 되 고 보조 데이터베이스에만 제한이 사용 됩니다 `ReadOnly` .
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV 2노드에 CSV Ultra Disk가 없는 예제":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="예약 소유자, 등록 및 기타에 대 한 ' 읽기 전용 ' 또는 ' 읽기/쓰기 ' 액세스를 보여 주는 테이블의 이미지입니다.":::
 
 ##### <a name="four-node-linux-cluster"></a>4노드 Linux 클러스터
 
 단일 작성기 및 3개의 스케일 아웃 판독기를 사용하는 4노드 Linux 클러스터의 예는 다음과 같습니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이렇게 하면 제한이 `ReadWrite` 주 vm에 독점적으로 사용 되며 `ReadOnly` 보조 vm에 의해 제한 됩니다.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="4노드 울트라 제한 예제":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="예약 소유자, 등록 및 기타에 대 한 ' 읽기 전용 ' 또는 ' 읽기/쓰기 ' 액세스를 보여 주는 테이블의 이미지입니다.":::
 
 #### <a name="ultra-pricing"></a>울트라 가격
 

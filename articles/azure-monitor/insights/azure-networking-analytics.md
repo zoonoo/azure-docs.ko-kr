@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318065"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449931"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
@@ -87,10 +87,10 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 1. Azure Portal에서 모니터링할 Application Gateway 리소스로 이동합니다.
 2. 진단 로그를 선택하여 다음 페이지를 엽니다.
 
-   ![Azure Application Gateway 리소스 이미지](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
+   ![진단을 설정 하는 옵션을 보여 주는 Application Gateway 리소스에 대 한 진단 로그 페이지의 스크린샷](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. 진단 사용을 클릭하여 다음 페이지를 엽니다.
 
-   ![Azure Application Gateway 리소스 이미지](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
+   ![진단 설정 구성에 대 한 페이지의 스크린샷 Log Analytics에 보내기 옵션은 3 개의 로그 유형과 메트릭으로 선택 됩니다.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. 진단을 사용하려면 상태에서 켜기를 클릭합니다.
 5. Log Analytics로 보내기 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
@@ -123,9 +123,9 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
   * Application Gateway에 대한 호스트 상태
   * Application Gateway 실패한 요청에 대해 최댓값 및 95번째 백분위수
 
-![Azure Application Gateway 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-appgateway01.png)
+![게이트웨이 오류, 요청 및 실패 한 요청에 대 한 데이터가 포함 된 타일을 보여 주는 Application Gateway Access logs 대시보드의 스크린샷](media/azure-networking-analytics/log-analytics-appgateway01.png)
 
-![Azure Application Gateway 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-appgateway02.png)
+![사용자 에이전트, 호스트 상태 및 실패 한 요청에 대 한 데이터를 포함 하는 타일을 보여 주는 Application Gateway Access logs 대시보드의 스크린샷](media/azure-networking-analytics/log-analytics-appgateway02.png)
 
 **Azure Application Gateway 분석** 대시보드의 블레이드 중 하나에서 요약 정보를 검토한 다음 하나를 클릭하여 로그 검색 페이지에서 해당 항목에 대한 세부 정보를 봅니다.
 
@@ -158,10 +158,10 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 1. Azure Portal에서 모니터링할 네트워크 보안 그룹 리소스로 이동합니다.
 2. *진단 로그*를 선택하여 다음 페이지를 엽니다.
 
-   ![Azure 네트워크 보안 그룹 리소스 이미지](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
+   ![진단을 켜는 옵션을 보여 주는 네트워크 보안 그룹 리소스에 대 한 진단 로그 페이지의 스크린샷](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. *진단 사용*을 클릭하여 다음 페이지를 엽니다.
 
-   ![Azure 네트워크 보안 그룹 리소스 이미지](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
+   ![진단 설정 구성에 대 한 페이지의 스크린샷 상태가 설정 됨으로 설정 되 고 Log Analytics에 보내기를 선택 하 고 두 개의 로그 유형을 선택 합니다.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. 진단을 사용하려면 *상태*에서 *켜기*를 클릭합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
@@ -189,9 +189,9 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
   * 허용된 흐름이 있는 네트워크 보안 그룹 규칙
   * 허용된 흐름이 있는 MAC 주소
 
-![Azure 네트워크 보안 그룹 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-nsg01.png)
+![차단 된 흐름 및 차단 된 흐름의 MAC 주소가 있는 규칙을 포함 하 여 네트워크 보안 그룹 차단 된 흐름에 대 한 데이터가 포함 된 타일의 스크린샷](media/azure-networking-analytics/log-analytics-nsg01.png)
 
-![Azure 네트워크 보안 그룹 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-nsg02.png)
+![허용 된 흐름이 있는 허용 된 흐름 및 MAC 주소를 포함 하는 네트워크 보안 그룹에 대 한 데이터가 포함 된 타일의 스크린샷](media/azure-networking-analytics/log-analytics-nsg02.png)
 
 **Azure 네트워크 보안 그룹 분석** 대시보드의 블레이드 중 하나에서 요약 정보를 검토한 다음 하나를 클릭하여 로그 검색 페이지에서 해당 항목에 대한 세부 정보를 봅니다.
 

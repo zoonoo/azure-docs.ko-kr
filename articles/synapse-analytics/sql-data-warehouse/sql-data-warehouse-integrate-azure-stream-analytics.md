@@ -2,29 +2,29 @@
 title: Azure Stream Analytics 사용
 description: 실시간 솔루션 개발을 위해 Azure Synapse의 데이터 웨어하우스와 함께 Azure Stream Analytics를 사용 하기 위한 팁입니다.
 services: synapse-analytics
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 2/5/2020
-ms.author: martinle
+ms.date: 9/25/2020
+ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213349"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449510"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Azure Stream Analytics 사용
 
 Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서에 따라 Stream Analytics로 엔드투엔드 솔루션을 만드는 방법에 대해 알 수 있습니다.
 
-이 문서에서는 Azure Stream Analytics 작업에 대 한 출력 싱크로 데이터 웨어하우스를 사용 하는 방법을 알아봅니다.
+이 문서에서는 Azure Stream Analytics 작업을 사용 하 여 처리량이 높은 데이터 수집에 대 한 출력 싱크로 데이터 웨어하우스를 사용 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 * 작업 Azure Stream Analytics-Azure Stream Analytics 작업을 만들려면 [Azure Stream Analytics 사용 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서의 단계에 따라 다음을 수행 합니다.  
 
@@ -32,7 +32,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
     2. 이벤트 생성기 애플리케이션 구성 및 시작
     3. Stream Analytics 작업 프로비전
     4. 작업 입력 및 쿼리 지정
-* Azure Synapse SQL 풀 데이터 웨어하우스-새 데이터 웨어하우스를 만들려면 빠른 시작의 단계를 수행 [하 여 새 데이터 웨어하우스를 만듭니다](create-data-warehouse-portal.md).
+* 데이터 웨어하우스에 대 한 Azure Synapse SQL 풀-새 데이터 웨어하우스를 만들려면 빠른 시작의 단계를 수행 [하 여 새 데이터 웨어하우스를 만듭니다](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>데이터 웨어하우스를 가리키도록 스트리밍 출력을 지정 합니다.
 
@@ -42,9 +42,9 @@ Azure Portal에서 Stream Analytics 작업으로 이동 하 고 **작업 토폴�
 
 ### <a name="step-2"></a>2단계
 
-**추가** 단추를 클릭 하 고 드롭다운 메뉴에서 **SQL Database** 를 선택 합니다.
+**추가** 단추를 클릭 하 고 드롭다운 메뉴에서 **Azure Synapse Analytics** 를 선택 합니다.
 
-![SQL Database 선택](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Azure Synapse Analytics 선택](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### <a name="step-3"></a>3단계
 
@@ -52,15 +52,15 @@ Azure Portal에서 Stream Analytics 작업으로 이동 하 고 **작업 토폴�
 
 * *출력 별칭*:이 작업 출력의 이름을 입력 합니다.
 * *구독*:
-  * 데이터 웨어하우스가 Stream Analytics 작업과 동일한 구독에 있는 경우 ***구독에서 SQL Database 선택***을 클릭 합니다.
-  * 데이터베이스가 다른 구독에 있는 경우 수동으로 SQL Database 설정 제공을 클릭 합니다.
+  * 데이터 웨어하우스가 Stream Analytics 작업과 동일한 구독에 있는 경우 ***구독에서 Azure Synapse Analytics 선택***을 클릭 합니다.
+  * 데이터 웨어하우스가 다른 구독에 있는 경우 Azure Synapse Analytics 설정 수동으로 제공을 클릭 합니다.
 * *데이터베이스*: 드롭다운 목록에서 대상 데이터베이스를 선택 합니다.
 * *사용자 이름*: 데이터베이스에 대한 쓰기 권한이 있는 계정의 사용자 이름을 지정합니다.
 * *암호*: 지정된 사용자 계정에 대한 암호를 제공합니다.
 * *테이블*: 데이터베이스에서 대상 테이블의 이름을 지정합니다.
 * **저장** 단추를 클릭 합니다.
 
-![완료 된 SQL Database 양식](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![완료 된 Azure Synapse Analytics 양식](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### <a name="step-4"></a>4단계
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264939"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450381"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
@@ -29,7 +29,7 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ## <a name="roles-available"></a>사용 가능한 역할
 
-역할  |  Description
+역할  |  설명
 ----- |  -----------
 인증 관리자  |  할당 된 관리 단위 에서만 관리자가 아닌 사용자에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정 하기 위한 액세스 권한이 있습니다.
 그룹 관리자  |  할당 된 관리 단위로 명명 및 만료 정책 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.
@@ -37,6 +37,12 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 라이선스 관리자  |  는 관리 단위 내 에서만 라이선스 할당을 할당, 제거 및 업데이트할 수 있습니다.
 암호 관리자  |  는 할당 된 관리 단위 내에서 비관리자 및 암호 관리자에 대 한 암호를 다시 설정할 수 있습니다.
 사용자 관리자  |  할당 된 관리 단위 내 에서만 제한 된 관리자에 대 한 암호 재설정을 포함 하 여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다.
+
+## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>AU 범위 역할에 할당할 수 있는 보안 주체
+AU 범위 역할에 다음 보안 주체를 할당할 수 있습니다.
+* 사용자
+* 역할 할당 가능한 클라우드 그룹 (미리 보기)
+* SPN(서비스 주체 이름)
 
 ## <a name="assign-a-scoped-role"></a>범위 지정 역할 할당
 
@@ -50,15 +56,19 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ![범위를 지정 하는 역할을 선택 하 고 할당 추가를 선택 합니다.](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
+> [!Note]
+>
+> PIM을 사용 하 여 관리 단위에 역할을 할당 하려면 [다음](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope)단계를 수행 합니다.
+
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
 $Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 $RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
 $RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
@@ -67,7 +77,7 @@ Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObje
 
 ```http
 Http request
-POST /administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{id}/scopedRoleMembers
     
 Request body
 {
@@ -87,8 +97,8 @@ Request body
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
@@ -97,7 +107,7 @@ Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 
 ```http
 Http request
-GET /administrativeUnits/{id}/scopedRoleMembers
+GET /directory/administrativeUnits/{id}/scopedRoleMembers
 Request body
 {}
 ```

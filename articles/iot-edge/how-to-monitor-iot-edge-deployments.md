@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489115"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450172"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
 
@@ -63,12 +63,11 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 
    ![배포에 대한 메트릭 보기](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-
 배포를 변경하려면 [배포 수정](how-to-deploy-at-scale.md#modify-a-deployment)을 참조하세요.
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Azure CLI를 사용하여 배포 모니터링
 
-[az IoT Edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) 명령을 사용하여 단일 배포에 대한 세부 정보를 표시합니다.
+[az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) 명령을 사용하여 단일 배포에 대한 세부 정보를 표시합니다.
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -86,7 +85,7 @@ deployment show 명령은 다음 매개 변수를 사용합니다.
 * **reportedSuccessfulCount** - IoT Edge 클라이언트 런타임의 성공을 보고하는 배포에서 IoT Edge 디바이스의 수를 지정하는 디바이스 메트릭입니다.
 * **reportedFailedCount** - IoT Edge 클라이언트 런타임의 오류를 보고하는 배포에서 IoT Edge 디바이스의 수를 지정하는 디바이스 메트릭입니다.
 
-[az IoT Edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric) 명령을 사용하여 각 메트릭에 대한 디바이스 ID 또는 개체 목록을 표시할 수 있습니다.
+[az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) 명령을 사용하여 각 메트릭에 대한 디바이스 ID 또는 개체 목록을 표시할 수 있습니다.
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

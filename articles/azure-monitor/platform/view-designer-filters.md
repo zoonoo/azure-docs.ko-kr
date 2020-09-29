@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955958"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449316"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure Monitor 뷰의 필터
 사용자는 [Azure Monitor 뷰의](view-designer.md) **필터** 를 사용 하 여 뷰 자체를 수정 하지 않고 특정 속성의 값을 기준으로 뷰의 데이터를 필터링 할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
@@ -19,12 +19,12 @@ ms.locfileid: "85955958"
 ## <a name="using-a-filter"></a>필터 사용
 보기의 맨 위에 있는 날짜 시간 범위를 클릭 하 여 보기의 날짜 시간 범위를 변경할 수 있는 드롭다운을 엽니다.
 
-![필터 예제](media/view-designer-filters/filters-example-time.png)
+![최근 7 일의 라디오 단추를 표시 하는 Azure Monitor의 보기에 대 한 시간 범위 드롭다운 메뉴의 스크린샷](media/view-designer-filters/filters-example-time.png)
 
 **+** 보기에 대해 정의 된 사용자 지정 필터를 사용 하 여 필터를 추가 하려면 클릭 합니다. 드롭다운에서 필터에 대한 값을 선택하거나 값을 입력합니다. 을 클릭 하 여 필터를 계속 추가 **+** 합니다. 
 
 
-![필터 예제](media/view-designer-filters/filters-example-custom.png)
+![Azure Monitor에서 사용자 지정 필터를 추가 하는 대화 상자의 스크린샷 속성 선택 드롭다운 메뉴에서 Computers 속성을 선택 합니다.](media/view-designer-filters/filters-example-custom.png)
 
 필터에 대한 모든 값을 제거하면 해당 필터가 더 이상 적용되지 않습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "85955958"
 
 다음 표에서는 필터의 설정을 설명합니다.
 
-| Setting | 설명 |
+| 설정 | 설명 |
 |:---|:---|
 | 필드 이름 | 필터링에 사용되는 필드의 이름입니다.  이 필드는 **값에 대 한 쿼리의**요약 필드와 일치 해야 합니다. |
 | 값에 대한 쿼리 | 쿼리를 실행하여 사용자에 대한 필터 드롭다운을 채웁니다.  이 쿼리는 [요약](/azure/kusto/query/summarizeoperator) 또는 [distinct](/azure/kusto/query/distinctoperator) 를 사용 하 여 특정 필드에 고유한 값을 제공 해야 하며 **필드 이름과**일치 해야 합니다.  [정렬](/azure/kusto/query/sortoperator)을 사용하여 사용자에게 표시되는 값을 정렬할 수 있습니다. |

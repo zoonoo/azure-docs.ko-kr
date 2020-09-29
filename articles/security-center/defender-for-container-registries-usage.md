@@ -4,15 +4,15 @@ description: 컨테이너 레지스트리 용 Azure Defender를 사용 하 여 �
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302012"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449132"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
 
@@ -30,7 +30,7 @@ ms.locfileid: "91302012"
 |결정|**컨테이너 레지스트리에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |지원 되는 레지스트리 및 이미지:|![예 ](./media/icons/yes-icon.png) Linux에서 호스트 되는 ACR 레지스트리는 공용 인터넷에서 액세스할 수 있고 셸 액세스를 제공 합니다.<br>![](./media/icons/no-icon.png)Windows에서 호스트 되는 ACR 레지스트리 없음.<br>![](./media/icons/no-icon.png)' Private ' 레지스트리를 Security Center 하지 않으면 공용 인터넷에서 레지스트리를 액세스할 수 있어야 합니다. Security Center는 현재 방화벽, 서비스 끝점 또는 Azure 개인 링크와 같은 개인 끝점으로 제한 된 액세스 권한이 있는 레지스트리 또는 검색에 연결할 수 없습니다.<br>![](./media/icons/no-icon.png) [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "distroless" 이미지를 포함 하지 않습니다.|
 |필요한 역할 및 사용 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 
@@ -132,7 +132,7 @@ ms.locfileid: "91302012"
 다음 조건 중 하나를 사용할 수 있습니다. 
 
 - ID 찾기 
-- Category
+- 범주
 - 보안 검사 
 - CVSS v3 점수
 - 심각도 
@@ -150,7 +150,7 @@ ms.locfileid: "91302012"
 1. 규칙을 보거나 재정의 하거나 삭제 하려면 다음을 수행 합니다. 
     1. **규칙 사용 안 함**을 선택 합니다.
     1. 범위 목록에서 활성 규칙이 있는 구독은 **규칙 적용**됨으로 표시 됩니다.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="기존 규칙 수정 또는 삭제":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="레지스트리에서 VA 검색에 대 한 사용 안 함 규칙 만들기":::
     1. 규칙을 보거나 삭제 하려면 줄임표 메뉴 ("...")를 선택 합니다.
 
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278494"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449635"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -38,6 +38,8 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 * [Active Directory 연결에 대 한 요구 사항을](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)충족 하는지 확인 합니다. 
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
 * NFS 클라이언트가 최신 상태 이며 운영 체제에 대 한 최신 업데이트를 실행 중인지 확인 합니다.
+* Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. 이 작업은 AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여 수행 됩니다.
+* Ad [CS (Active Directory 인증서 서비스](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 AD에서 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
 
 ## <a name="create-a-dual-protocol-volume"></a>이중 프로토콜 볼륨 만들기
 
@@ -136,6 +138,11 @@ Active Directory 사용자 및 컴퓨터 MMC 스냅인을 사용 하 여 UID, �
 
 ![Active Directory 특성 편집기](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+LDAP 사용자 및 LDAP 그룹에 대해 다음 특성을 설정 해야 합니다. 
+* LDAP 사용자에 대 한 필수 특성:   
+    `uid`: Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+* LDAP 그룹에 필요한 특성:   
+    `objectClass`: "posixGroup", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>NFS 클라이언트 구성 
 

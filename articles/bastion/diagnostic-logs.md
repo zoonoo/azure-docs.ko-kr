@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744207"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445382"
 ---
-# <a name="enable-and-work-with-bastion-resource-logs"></a>요새 리소스 로그 사용 및 사용
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Bastion 리소스 로그 사용 및 작업
 
 사용자가 Azure 방호를 사용 하 여 워크 로드에 연결 하면, 원격 세션의 진단 정보를 로깅할 수 있습니다. 그런 다음 진단을 사용 하 여 어떤 사용자가 어떤 시간에 어떤 작업에 연결 되어 있는지와 관련 된 로깅 정보를 볼 수 있습니다. 진단을 사용 하려면 Azure 방호에서 진단 로그를 사용 하도록 설정 해야 합니다. 이 문서는 진단 로그를 사용 하도록 설정 하 고 로그를 확인 하는 데 도움이 됩니다.
 
@@ -22,13 +22,13 @@ ms.locfileid: "84744207"
 
 1. [Azure Portal](https://portal.azure.com)에서 azure 방호 리소스로 이동 하 고 azure 방호 페이지에서 **진단 설정** 을 선택 합니다.
 
-   ![진단 설정](./media/diagnostic-logs/1diagnostics-settings.png)
+   !["진단 설정" 페이지를 보여 주는 스크린샷](./media/diagnostic-logs/1diagnostics-settings.png)
 2. **진단 설정**을 선택 하 고 **+ 진단 설정 추가** 를 선택 하 여 로그 대상을 추가 합니다.
 
-   ![진단 설정 추가](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   !["진단 설정 추가" 단추가 선택 된 "진단 설정" 페이지를 보여 주는 스크린샷](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. **진단 설정** 페이지에서 진단 로그를 저장 하는 데 사용할 저장소 계정의 유형을 선택 합니다.
 
-   ![저장소 위치 선택](./media/diagnostic-logs/3add-storage-account.png)
+   ![강조 표시 된 저장소 위치를 선택 하는 섹션을 포함 하는 "진단 설정" 페이지의 스크린샷](./media/diagnostic-logs/3add-storage-account.png)
 4. 설정을 완료 하면 다음 예제와 같이 표시 됩니다.
 
    ![설정 예](./media/diagnostic-logs/4example-settings.png)

@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782440"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449358"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
@@ -49,7 +49,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 서비스 사용자는 단일 테 넌 트 또는 디렉터리에 있는 전역 응용 프로그램 개체의 로컬 표현 또는 응용 프로그램 인스턴스입니다. 서비스 주체는 응용 프로그램 개체에서 만든 구체적인 인스턴스이고 해당 응용 프로그램 개체의 특정 속성을 상속 합니다.  응용 프로그램이 사용 되는 각 테 넌 트에 서비스 주체가 만들어지고 전역적으로 고유한 앱 개체를 참조 합니다.  서비스 주체 개체는 앱이 특정 테 넌 트에서 실제로 수행할 수 있는 작업, 앱에 액세스할 수 있는 사용자 및 앱이 액세스할 수 있는 리소스를 정의 합니다.
 
-애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]및 기타 도구를 사용 하 여 테 넌 트에서 서비스 사용자 개체를 만들 수도 있습니다.  포털을 사용 하는 경우 응용 프로그램을 등록할 때 서비스 주체가 자동으로 생성 됩니다.
+애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]및 기타 도구를 사용 하 여 테 넌 트에서 서비스 사용자 개체를 만들 수도 있습니다.  포털을 사용 하는 경우 응용 프로그램을 등록할 때 서비스 주체가 자동으로 생성 됩니다.
 
 포털의 **엔터프라이즈 응용 프로그램** 블레이드는 테 넌 트에서 서비스 사용자를 나열 하 고 관리 하는 데 사용 됩니다. 서비스 사용자의 권한, 사용자 동의한 권한, 해당 동의를 수행한 사용자 및 로그인 정보 등을 볼 수 있습니다.
 

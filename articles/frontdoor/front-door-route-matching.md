@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401574"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449205"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Front Door에서 회람 규칙에 요청을 매칭하는 방법
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>요청을 라우팅 규칙과 일치 시키는 방법
 
-연결을 설정 하 고 TLS 핸드셰이크를 수행한 후 요청이 프런트 도어 환경에 있는 경우 첫 번째 작업 중 하나는 모든 구성에서 결정 하는 것입니다. 즉, 요청에 일치 하는 특정 라우팅 규칙을 결정 한 다음 정의 된 작업을 수행 합니다. 다음 문서에서는 Front Door가 HTTP 요청을 처리할 때 사용할 경로 구성을 결정하는 방법을 설명합니다.
+연결을 설정 하 고 TLS 핸드셰이크를 완료 한 후 요청이 프런트 도어 환경에 있는 경우, 프런트 도어에서 첫 번째 작업 중 하나는 요청과 일치 하는 특정 라우팅 규칙을 결정 한 다음 구성에서 정의 된 작업을 수행 하는 것입니다. 다음 문서에서는 Front Door가 HTTP 요청을 처리할 때 사용할 경로 구성을 결정하는 방법을 설명합니다.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Front Door 경로 구성의 구조
 Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 구성됩니다. 들어오는 요청은 경로의 왼쪽에 매칭되고, 오른쪽은 요청을 처리하는 방법을 정의합니다.
@@ -41,7 +41,7 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 이 섹션에서는 지정된 Front Door 회람 규칙에 매칭하는 방법을 중점적으로 설명합니다. 기본 개념은 항상 "왼쪽"만 보면서 **가장 구체적인 첫 번째 매칭**에 매칭하는 것입니다.  HTTP 프로토콜, 프런트 엔드 호스트, 경로 순서로 매칭합니다.
 
 ### <a name="frontend-host-matching"></a>프런트 엔드 호스트 매칭
-프런트 엔드 호스트를 매칭할 때는 다음과 같은 논리를 사용합니다.
+프런트 엔드 호스트와 일치 하는 경우 아래에 정의 된 논리를 사용 합니다.
 
 1. 정확히 일치하는 호스트가 있는 회람 규칙을 찾습니다.
 2. 정확히 일치하는 프런트 엔드 호스트가 없을 경우 요청을 거부하고 400 잘못된 요청 오류를 보냅니다.

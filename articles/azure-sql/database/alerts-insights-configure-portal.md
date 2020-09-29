@@ -1,22 +1,22 @@
 ---
-title: 설정 경고 및 알림 (Azure Portal)
+title: Azure Portal에서 경고 및 알림 설정
 description: Azure Portal를 사용 하 여 경고를 만들 수 있습니다 .이 경고는 지정 된 조건이 충족 될 때 알림이나 자동화를 트리거할 수 있습니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: fdfa709d50f351d3202a01c5d3df65bb3015e887
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335119"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444906"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse 분석에 대 한 경고 만들기
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

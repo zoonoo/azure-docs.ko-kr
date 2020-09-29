@@ -7,20 +7,20 @@ author: msjuergent
 manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, Azure HANA, 저장소 Ultra disk, Premium storage
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440697"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449376"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -266,65 +266,9 @@ Ultra Disk를 사용하면 원하는 크기, IOPS 및 디스크 처리량 범위
 
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Azure NetApp Files 기반 NFS v 4.1 볼륨
-Azure NetApp Files은 **/hana/shared**, **/hana/data**및 **/hana/log** 볼륨에 사용할 수 있는 네이티브 NFS 공유를 제공 합니다. **/Hana/data** 및 **/hana/log** 볼륨에 대해 anf 기반 nfs 공유를 사용 하려면 v 4.1 nfs 프로토콜을 사용 해야 합니다. NFS 프로토콜 v3은 ANF의 공유를 기반으로 하는 경우 **/hana/data** 및 **/hana/log** 볼륨의 사용에 대해 지원 되지 않습니다. 
-
-> [!IMPORTANT]
-> Azure NetApp Files에서 구현 된 NFS v3 프로토콜은 **/hana/data** 및 **/hana/log**에 사용할 수 **없습니다** . NFS 4.1 사용은 기능 관점에서 **/hana/data** 및 **/hana/log** 볼륨에 대해 필수입니다. **/Hana/shared** 볼륨의 경우 기능 관점에서 nfs V3 또는 nfs v 4.1 프로토콜을 사용할 수 있습니다.
-
-### <a name="important-considerations"></a>중요 고려 사항
-SAP Netweaver 및 SAP HANA에 Azure NetApp Files를 고려하는 경우 다음과 같은 중요한 사항을 고려해야 합니다.
-
-- 최소 용량 풀은 4TiB입니다.  
-- 최소 볼륨 크기는 100GiB입니다.
-- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재되는 모든 가상 머신은 동일한 Azure Virtual Network 또는 동일한 지역의 [피어링된 가상 네트워크](../../../virtual-network/virtual-network-peering-overview.md)에 있어야 합니다.  
-- 선택한 가상 네트워크에는 Azure NetApp Files로 위임된 서브넷이 있어야 합니다.
-- Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 할당량과 서비스 수준의 함수입니다. HANA Azure NetApp 볼륨을 크기 조정할 때 결과 처리량이 HANA 시스템 요구 사항을 충족해야 합니다.  
-- Azure NetApp Files는 [내보내기 정책](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)을 제공합니다. 사용자는 허용되는 클라이언트, 액세스 유형(읽기 및 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
-- Azure NetApp Files 기능은 아직 영역을 인식하지 않습니다. 현재 Azure NetApp Files 기능은 Azure 지역의 모든 가용성 영역에 배포되지 않습니다. 일부 Azure 지역에서 대기 시간이 미칠지도 모르는 영향을 염두에 두어야 합니다.  
-- 짧은 대기 시간을 위해 Azure NetApp 스토리지와 근접하게 가상 머신을 배포하는 것이 중요합니다. 
-- 가상 머신의 <b>sid</b>adm 사용자 ID 및 `sapsys` 그룹 ID는 Azure NetApp Files의 구성과 일치해야 합니다. 
-
-> [!IMPORTANT]
-> SAP HANA 워크로드의 경우 짧은 대기 시간이 매우 중요합니다. Microsoft 담당자와 협력하여 가상 머신과 Azure NetApp Files 볼륨이 근접하게 배포되도록 해야 합니다.  
-
-> [!IMPORTANT]
-> 가상 머신과 Azure NetApp 구성 간에 <b>sid</b>adm 사용자 ID 및 `sapsys` 그룹 ID가 일치하지 않는 경우 가상 머신에 탑재된 Azure NetApp 볼륨의 파일에 대한 권한이 `nobody`로 표시됩니다. Azure NetApp Files에 [새 시스템을 온보딩](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u)할 때 <b>sidadm</b> 사용자 ID 및 `sapsys` 그룹 ID를 올바로 지정해야 합니다.
-
-### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Azure NetApp Files에서 HANA 데이터베이스 크기 조정
-
-Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 크기와 서비스 수준의 함수입니다. 
-
-Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성으로 변환되는 SAP의 최소 스토리지 처리량 요구 사항에 대해 알고 있어야 합니다.
-
-- 1MB I/O 크기의 **/hana/log**에 대해 250MB/초의 읽기/쓰기 작업을 사용하도록 설정합니다.  
-- 16MB 및 64MB I/O 크기의 **/hana/data**에 대해 최소 400MB/초의 읽기 작업을 사용하도록 설정합니다.  
-- 16MB 및 64MB I/O 크기의 **/hana/data**에 대해 최소 250MB/초의 쓰기 작업을 사용하도록 설정합니다.  
-
-볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](../../../azure-netapp-files/azure-netapp-files-service-levels.md)는 다음과 같습니다.
-- Premium storage 계층-64 MiB/s  
-- Ultra Storage 계층 - 128MiB/s  
-
-> [!IMPORTANT]
-> 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 가상 머신의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](../../../azure-netapp-files/performance-benchmarks-linux.md) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 측정합니다.
-
-데이터 및 로그에 대한 SAP 최소 처리량 요구 사항을 충족하기 위해 또한 `/hana/shared`에 대한 지침에 따라 권장 크기는 다음과 같습니다.
-
-| 볼륨 | 크기<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
-| --- | --- | --- |
-| /hana/log/ | 4TiB | 2TiB | v4.1 |
-| /hana/data | 6.3TiB | 3.2TiB | v4.1 |
-| /hana/shared | 4개 작업자 노드당 최대(512GB, 1xRAM) | 4개 작업자 노드당 최대(512GB, 1xRAM) | v3 또는 v4.1 |
+HANA 용 ANF에 대 한 자세한 내용은 Azure NetApp Files의 [NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 문서를 참조 하세요 SAP HANA
 
 
-> [!NOTE]
-> 여기에 명시된 Azure NetApp Files 크기 조정 권장 사항은 SAP가 인프라 공급자에게 표명하는 최소 요구 사항을 충족하는 것을 목표로 합니다. 실제 고객 배포 및 워크로드 시나리오에서는 충분하지 않을 수 있습니다. 이러한 권장 사항을 시작점으로 삼아 워크로드의 요구 사항에 따라 조정합니다.  
-
-따라서 Ultra Disk 스토리지에 대해 나열된 것처럼 ANF 볼륨에 비슷한 처리량을 배포하는 것을 고려할 수 있습니다. 또한 이미 Ultra Disk 테이블에서 수행한 것처럼 다른 VM SKU의 볼륨에 대해 나열된 크기에 대해서도 크기를 고려합니다.
-
-> [!TIP]
-> 볼륨을 `unmount`하거나 가상 머신을 중지하거나 SAP HANA를 중지하지 않고도 Azure NetApp Files 볼륨의 크기를 동적으로 조정할 수 있습니다. 그러므로 애플리케이션이 예상된 처리량 수요와 예측하지 못한 처리량 수요를 모두 충족할 수 있습니다.
-
-ANF에서 호스트되는 NFS v4.1 볼륨을 사용하는 대기 노드로 SAP HANA 스케일 아웃 구성을 배포하는 방법에 대한 설명서는 [SUSE Linux Enterprise Server의 Azure NetApp Files를 사용하여 Azure VM의 대기 노드로 SAP HANA 스케일 아웃](./sap-hana-scale-out-standby-netapp-files-suse.md)에 게시되어 있습니다.
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Azure premium storage를 사용 하는 비용에 민감한 솔루션

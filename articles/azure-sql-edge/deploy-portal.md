@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886781"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445718"
 ---
 # <a name="deploy-azure-sql-edge"></a>Azure SQL Edge 배포 
 
-Azure SQL Edge는 IoT 및 Azure IoT Edge 배포에 최적화 된 관계형 데이터베이스 엔진입니다. IoT 애플리케이션과 솔루션을 위한 고성능 데이터 스토리지 및 처리 계층을 만드는 기능을 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure IoT Edge를 통해 Azure SQL Edge 모듈 만들기를 시작하는 방법을 보여줍니다.
+Azure SQL Edge는 IoT 및 Azure IoT Edge 배포에 최적화된 관계형 데이터베이스 엔진으로, IoT 애플리케이션과 솔루션을 위한 고성능 데이터 스토리지 및 처리 계층을 만드는 기능을 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure IoT Edge를 통해 Azure SQL Edge 모듈 만들기를 시작하는 방법을 보여줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -62,7 +62,6 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 
    |**매개 변수**  |**설명**|
    |---------|---------|
-   | Name | 모듈의 이름입니다. |
    | MSSQL_SA_PASSWORD  | 기본값을 변경 하 여 SQL Edge 관리자 계정에 대 한 강력한 암호를 지정 합니다. |
    | MSSQL_LCID   | 기본값을 변경 하 여 SQL Edge에 사용할 언어 ID를 설정 합니다. 예를 들어 1036은 프랑스어입니다. |
    | MSSQL_COLLATION | 기본값을 변경 하 여 SQL Edge에 대 한 기본 데이터 정렬을 설정 합니다. 이 설정은 데이터 정렬에 대한 언어 ID(LCID)의 기본 매핑을 재정의합니다. |
@@ -110,7 +109,7 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
    
 8. **업데이트 IoT Edge 모듈** 창에서 **업데이트**를 클릭 합니다.
 9. **장치에서 모듈 설정** 페이지에서 다음을 클릭 합니다. 배포에 대 한 경로를 정의 해야 하는 경우 **>경로** 를 클릭 합니다. 그렇지 않으면 **검토 + 만들기**를 클릭 합니다. 경로를 구성 하는 방법에 대 한 자세한 내용은 [모듈 배포 및 IoT Edge에서 경로 설정](../iot-edge/module-composition.md)을 참조 하세요.
-11. **업데이트 IoT Edge 모듈** 창에서 **만들기**를 클릭 합니다.
+11. **장치에 모듈 설정** 페이지에서 **만들기**를 클릭 합니다.
 
 ## <a name="connect-to-azure-sql-edge"></a>Azure SQL Edge에 연결
 

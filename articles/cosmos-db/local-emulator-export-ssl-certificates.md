@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
-ms.custom: devx-track-python, devx-track-java
-ms.openlocfilehash: 8f2714c7c49aa5e02747ce726da29a98485b5fbd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-python, devx-track-java, contperfq1
+ms.openlocfilehash: 068b316eaa92a1e781df0b9945133a26fa0b88a2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988230"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445283"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Java, Python 및 Node.js 앱에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -36,31 +36,31 @@ Windows 인증서 저장소와 통합 되지 않는 언어 및 런타임 환경�
 
 1. **세부 정보**를 클릭한 다음 **확인**을 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 2단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 1. **파일에 복사...** 를 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 3단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 1. **다음**을 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 4단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 1. **아니요, 프라이빗 키를 내보내지 않습니다.** 를 클릭한 후, **다음**을 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 5단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 1. **Base-64 encoded X.509 (.CER)** 를 클릭한 후 **다음**을 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 6단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 1. 인증서에 이름을 지정합니다. 여기서는 **documentdbemulatorcert**이며, **다음**을 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 7단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. **마침**을 클릭합니다.
+1. **Finish**를 클릭합니다.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 8단계":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 ## <a name="use-the-certificate-with-java-apps"></a>Java 앱에서 인증서 사용
 
@@ -98,7 +98,7 @@ Node.js Sdk에서 에뮬레이터에 연결 하는 경우 TLS 확인이 사용 �
 
 Windows 트레이를 실행 하는 Azure Cosmos DB 에뮬레이터에서 **데이터 재설정** 을 선택 하 여 에뮬레이터 인증서를 강제로 다시 생성할 수 있습니다. 또한이 작업은 에뮬레이터에서 로컬로 저장 된 모든 데이터를 초기화 합니다.
 
-:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 데이터 다시 설정":::
+:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
 인증서를 Java 인증서 저장소에 설치 했거나 다른 곳에서 사용한 경우 현재 인증서를 사용 하 여 다시 가져와야 합니다. 응용 프로그램은 인증서를 업데이트할 때까지 로컬 에뮬레이터에 연결할 수 없습니다.
 

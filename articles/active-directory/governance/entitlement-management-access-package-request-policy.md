@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980258"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449967"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 변경 요청 설정
 
@@ -125,8 +125,8 @@ ms.locfileid: "90980258"
     |  |  |
     | --- | --- |
     | **연결 된 특정 조직** | 관리자가 이전에 추가한 조직 목록에서 선택 하려면이 옵션을 선택 합니다. 선택한 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. |
-    | **연결 된 모든 조직** | 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있는 경우이 옵션을 선택 합니다. |
-    | **모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자)** | 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청 하 고 B2B 허용 또는 거부 목록 설정이 새 외부 사용자에 우선 적용 되도록 하려면이 옵션을 선택 합니다. |
+    | **구성 된 모든 연결 된 조직** | 구성 된 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있는 경우이 옵션을 선택 합니다. 구성 된 연결 된 조직의 사용자만 구성 된 모든 조직의 사용자에 게 표시 되는 액세스 패키지를 요청할 수 있습니다. |
+    | **모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자)** | 인터넷의 모든 사용자가이 액세스 패키지를 요청할 수 있어야 하는 경우이 옵션을 선택 합니다.  사용자가 디렉터리의 연결 된 조직에 속해 있지 않으면 패키지를 요청할 때 연결 된 조직이 자동으로 만들어집니다. 자동으로 생성 된 연결 된 조직은 **제안** 된 상태가 됩니다. 제안 된 상태에 대 한 자세한 내용은 [연결 된 조직의 상태 속성](entitlement-management-organization.md#state-properties-of-connected-organizations)을 참조 하세요. |
 
     연결 된 조직은 외부 Azure AD 디렉터리 또는 관계가 있는 도메인입니다.
 

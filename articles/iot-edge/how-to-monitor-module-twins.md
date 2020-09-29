@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221134"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450165"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 
 Azure IoT Hub의 모듈 쌍은 IoT Edge 배포의 연결 및 상태를 모니터링할 수 있도록 합니다. 모듈 쌍은 IoT hub에 실행 중인 모듈의 성능에 대 한 유용한 정보를 저장 합니다. [IoT Edge 에이전트](iot-edge-runtime.md#iot-edge-agent) 및 [IoT Edge 허브](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈은 각각 해당 모듈 쌍을 유지 관리 합니다 `$edgeAgent` `$edgeHub` .
 
-* `$edgeAgent`IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈과 사용자 지정 모듈에 대 한 상태 및 연결 데이터를 포함 합니다. IoT Edge 에이전트는 모듈을 배포 하 고, 모니터링 하 고, Azure IoT hub에 연결 상태를 보고 하는 일을 담당 합니다.
-* `$edgeHub`장치에서 실행 되는 IoT Edge 허브와 Azure IoT hub 간의 통신에 대 한 데이터를 포함 합니다. 여기에는 다운스트림 장치에서 들어오는 메시지를 처리 하는 작업이 포함 됩니다. IoT Edge 허브는 Azure IoT Hub와 IoT Edge 장치 및 모듈 간의 통신 처리를 담당 합니다.
+* `$edgeAgent` IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈과 사용자 지정 모듈에 대 한 상태 및 연결 데이터를 포함 합니다. IoT Edge 에이전트는 모듈을 배포 하 고, 모니터링 하 고, Azure IoT hub에 연결 상태를 보고 하는 일을 담당 합니다.
+* `$edgeHub` 장치에서 실행 되는 IoT Edge 허브와 Azure IoT hub 간의 통신에 대 한 데이터를 포함 합니다. 여기에는 다운스트림 장치에서 들어오는 메시지를 처리 하는 작업이 포함 됩니다. IoT Edge 허브는 Azure IoT Hub와 IoT Edge 장치 및 모듈 간의 통신 처리를 담당 합니다.
 
 데이터는 모듈 쌍의 JSON 구조에서 desired 및 보고 된 속성 집합과 함께 메타 데이터 및 태그로 구성 됩니다. deployment.js파일에 지정 된 원하는 속성이 모듈 쌍에 복사 됩니다. IoT Edge 에이전트 및 IoT Edge 허브는 각 모듈에 대해 보고 된 속성을 업데이트 합니다.
 
@@ -213,7 +213,7 @@ Azure IoT Hub, Visual Studio Code 및 Azure CLI에서 모듈 쌍에 대 한 JSON
 
 IoT Edge 실행 중인지 확인 하려면 [az IoT hub invoke-module 메서드](how-to-edgeagent-direct-method.md#ping) 를 사용 하 여 IoT Edge 에이전트를 ping 합니다.
 
-[Az iot hub 모듈](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
+[Az iot hub 모듈](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
 
 * **az iot hub module-쌍 표시** -모듈 쌍 정의를 표시 합니다.
 * **az iot hub module-쌍 업데이트** -모듈 쌍 정의를 업데이트 합니다.

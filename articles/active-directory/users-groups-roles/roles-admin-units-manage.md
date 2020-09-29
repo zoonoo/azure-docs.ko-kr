@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264740"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450371"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
@@ -33,9 +33,6 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
 
     !["관리자 동의 허용"에 대 한 링크를 보여 주는 스크린샷](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. 그래프 탐색기에서 **베타** 버전을 선택 합니다.
-
-    ![선택한 베타 버전을 보여 주는 스크린샷](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Azure AD PowerShell의 미리 보기 버전을 사용 합니다.
 
@@ -59,7 +56,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 필요에 따라 따옴표로 묶인 값을 수정할 수 있습니다.
@@ -91,8 +88,8 @@ Azure AD에서 관리 역할의 범위 단위로 더 이상 필요 하지 않은
 ### <a name="use-powershell"></a>PowerShell 사용
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 특정 환경에 필요한 대로 따옴표로 묶인 값을 수정할 수 있습니다.

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22992f66d45b9bdb76383301cccff645c98a74d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f9af8ee3bf87cfd5d2e74adfce618c7cf8c7e63
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264782"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450323"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD 관리 단위: 문제 해결 및 FAQ
 
@@ -67,9 +67,9 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
 
 **Q: PowerShell 및 Graph API에서 지원 되는 관리 단위는 무엇입니까?**
 
-**A:** 예. [PowerShell cmdlet 설명서](/powershell/module/Azuread/?view=azureadps-2.0-preview&preserve-view=true) 및 [샘플 스크립트](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview&preserve-view=true)에서 관리 단위에 대 한 지원을 찾을 수 있습니다.
+**A:** 예. [PowerShell cmdlet 설명서](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) 및 [샘플 스크립트](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)에서 관리 단위에 대 한 지원을 찾을 수 있습니다.
 
-Microsoft Graph에서 [administrativeUnit 리소스 종류](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true) 에 대 한 지원을 찾습니다.
+Microsoft Graph에서 [administrativeUnit 리소스 종류](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) 에 대 한 지원을 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

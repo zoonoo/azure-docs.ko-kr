@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897379"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460036"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 
@@ -80,15 +80,20 @@ Notebook 페이지의 맨 위에 있는 도구를 사용하여 Notebook을 포�
 1. 계산 대상을 선택 하거나 새 **계산** 대상을 만들고 실행 될 때까지 기다립니다.
 1. **터미널 열기** 아이콘을 선택합니다.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="터미널을 엽니다.":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="새 파일을 만듭니다.":::
 
 1. 아이콘이 표시 되지 않으면 계산 대상의 오른쪽에 **있는 ...** 를 선택한 다음, **터미널 열기**를 선택 합니다.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="...에서 터미널 열기":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="새 파일을 만듭니다.":::
 
 
 [작업 영역 파일 시스템에 Git 리포지토리를 복제하는 방법](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)에 대해 자세히 알아보세요.
 
+### <a name="copy-and-paste-in-terminal"></a>터미널에서 복사 및 붙여넣기
+
+> * Windows: `Ctrl-Insert` 복사 하 여 사용 `Ctrl-Shift-v` 하거나 `Shift-Insert` 붙여 넣을 수 있습니다.
+> * Mac OS: `Cmd-c`: 복사, `Cmd-v`: 붙여넣기
+> * FireFox/IE에서 클립보드 사용 권한을 제대로 지원하지 않을 수 있습니다.
 
 ### <a name="share-notebooks-and-other-files"></a>Notebook 및 기타 파일 공유
 
@@ -121,8 +126,7 @@ Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있�
 1. 모든 노트북 셀을 실행 합니다.
 1. 새 전자 필기장을 실행 하려는 코드가 포함 된 셀을 선택 합니다. 예를 들어 실험을 제출 하는 코드 또는 모델을 등록 하는 코드를 예로 들 수도 있습니다.
 1. 셀 도구 모음에 표시 되는 **수집** 아이콘을 선택 합니다.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="스크린샷: 수집 아이콘을 선택 합니다.":::
-1. 새 "수집 된" 노트북의 이름을 입력 합니다.  
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="새 파일을 만듭니다." 노트북의 이름을 입력 합니다.  
 
 새 노트북에는 코드 셀만 포함 되어 있으며, 모든 셀은 수집 하도록 선택한 셀과 동일한 결과를 생성 하는 데 필요 합니다.
 
@@ -132,7 +136,7 @@ Azure Machine Learning는 *ipynb*파일을 만들 때 검사점 파일을 만�
 
 노트북 도구 모음에서 메뉴를 선택 하 고 **파일 &gt; 저장 및 검사점** 을 선택 하 여 노트북을 수동으로 저장 하 고 노트북에 연결 된 검사점 파일을 추가 합니다.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="노트북 도구 모음에 있는 저장 도구의 스크린샷":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="새 파일을 만듭니다.":::
 
 모든 노트북은 30 초 마다 자동으로 저장 됩니다.자동 저장은 검사점 파일이 아닌 초기 *ip이상 b*   파일만 업데이트 합니다.
  

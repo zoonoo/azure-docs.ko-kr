@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318268"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450132"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -56,6 +56,9 @@ if spec is None:
 
 > [!NOTE]
 > 파이프라인에 사전 설치 된 목록에 없는 패키지를 필요로 하는 여러 개의 Python 스크립트 실행 모듈이 포함 되어 있는 경우 각 모듈에 패키지를 설치 합니다.
+
+> [!WARNING]
+> Excute Python 스크립트 모듈은 Java, PyODBC 등의 명령을 사용 하 여 추가 네이티브 라이브러리에 종속 된 패키지를 설치 하는 것을 지원 하지 않습니다. 이 모듈은 Python이 사전 설치 되어 있고 비관리자 권한이 있는 간단한 환경에서 실행 되기 때문입니다.  
 
 ## <a name="upload-files"></a>파일 업로드
 Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
@@ -140,7 +143,10 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
     두 데이터 집합은 형식의 시퀀스 여야 하는 디자이너로 반환 될 수 있습니다 `pandas.DataFrame` . Python 코드에서 다른 출력을 만들고 Azure storage에 직접 쓸 수 있습니다.
 
-6. 파이프라인을 제출 하거나, 모듈을 선택 하 고, **선택 된 실행** 을 선택 하 여 Python 스크립트만 실행 합니다.
+    > [!WARNING]
+    > **Python 스크립트 실행 모듈**에서 데이터베이스나 다른 외부 저장소에 연결 하지 **않는** 것이 좋습니다. [데이터 가져오기 모듈](./import-data.md) 및 [데이터 내보내기 모듈](./export-data.md) 을 사용할 수 있습니다.     
+
+6. 파이프라인을 제출합니다.
 
     모든 데이터와 코드는 가상 컴퓨터에 로드 되 고 지정 된 Python 환경을 사용 하 여 실행 됩니다.
 

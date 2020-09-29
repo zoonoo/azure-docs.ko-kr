@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206144"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449662"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
-이 문서에서는 Data Box 및 Data Box Heavy 장치에서 수행할 수 있는 몇 가지 구성 및 관리 작업에 대해 설명 합니다. Azure Portal UI와 장치의 로컬 웹 UI를 통해 Data Box 및 Data Box Heavy 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용하여 수행할 수 있는 작업을 중점적으로 설명합니다.
+이 문서에서는 Data Box 및 Data Box Heavy 장치에서 수행 되는 구성 및 관리 작업에 대해 설명 합니다. Azure Portal UI와 장치의 로컬 웹 UI를 통해 Data Box 및 Data Box Heavy 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용 하 여 수행 되는 작업을 중점적으로 설명 합니다.
 
 Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성에 사용 됩니다. 로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작 하 고, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고, Microsoft 지원에 대 한 로그 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 장치에서는 장치의 각 노드에 해당 하는 두 개의 개별 로컬 웹 Ui에 액세스할 수 있습니다.
 
@@ -53,7 +53,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 ## <a name="shut-down-or-restart-your-device"></a>디바이스 종료 또는 다시 시작
 
-로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화 됩니다. 디바이스를 종료할 때 데이터 복사가 진행 중이지 않은지 확인합니다.
+로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화 됩니다. 장치를 종료할 때 데이터 복사가 진행 되 고 있지 않은지 확인 합니다.
 
 장치를 종료 하려면 다음 단계를 수행 합니다.
 
@@ -93,7 +93,7 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. 파일 탐색기에서, 디바이스에 연결하는 데 사용된 프로토콜 및 사용된 Azure Storage 유형에 따라 별도의 파일 목록이 생성되는 것을 볼 수 있습니다.
+3. 파일 탐색기에서 장치에 연결 하는 데 사용 되는 프로토콜 및 사용 되는 Azure Storage 형식에 따라 별도의 파일 목록이 생성 되는 것을 볼 수 있습니다.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![스토리지 유형 및 연결 프로토콜에 대한 파일](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -202,6 +202,49 @@ Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수
 4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
 5. **다시 시작**을 선택합니다.
 
+## <a name="enable-backup-operator-privileges"></a>Backup 운영자 권한 사용
+
+웹 UI 사용자에 게는 기본적으로 SMB 공유에 대 한 Backup Operator 권한이 있습니다. 이를 원하지 않는 경우에는 **Back Operator 권한** 사용을 사용 하거나 사용 하지 않도록 설정 합니다.
+
+자세한 내용은 [Active Directory 보안 그룹](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)의 백업 운영자를 참조 하세요.
+
+Azure 장치에서 Backup 운영자 권한을 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+
+   ![Data Box 설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **사용** Backup Operator 권한입니다.
+
+   ![Backup 운영자 권한 사용](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. **적용을 선택**합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
+5. **다시 시작**을 선택합니다.
+
+## <a name="enable-acls-for-azure-files"></a>Azure Files Acl 사용
+
+사용자가 SMB를 통해 Data Box에 데이터를 업로드 하면 기본적으로 파일에 대 한 메타 데이터가 전송 됩니다. 메타 데이터에는 Acl (액세스 제어 목록), 파일 특성 및 타임 스탬프가 포함 됩니다. 이 기능을 사용 하지 않으려면 **Azure 파일에 acl** 을 사용 하 여이 기능을 사용 하지 않도록 설정 하거나 사용 하도록 설정 합니다.
+
+<!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
+
+> [!Note]
+> 파일을 사용 하 여 메타 데이터를 전송 하려면 백업 운영자 여야 합니다. 이 기능을 사용 하는 경우 웹 UI의 로컬 사용자가 백업 운영자 인지 확인 합니다. [Backup Operator 권한 사용](#enable-backup-operator-privileges)을 참조 하세요.
+
+Azure 파일에 대 한 Acl 전송을 사용 하도록 설정 하려면:
+
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+
+    ![Data Box 설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **사용** Azure 파일에 대 한 Acl.
+
+     ![Azure 파일에 Acl 사용](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. **적용**을 선택합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
+5. **다시 시작**을 선택합니다.
+
 ## <a name="enable-tls-11"></a>TLS 1.1 사용
 
 기본적으로 Azure Data Box는 TSL 1.1 보다 더 안전 하므로 암호화에 TLS (Transport Layer Security) 1.2를 사용 합니다. 그러나 사용자 또는 클라이언트가 브라우저를 사용 하 여 TLS 1.2을 지원 하지 않는 데이터에 액세스 하는 경우 TLS 1.1을 사용 하도록 설정할 수 있습니다.
@@ -212,7 +255,7 @@ Azure 장치에서 TLS 1.1을 사용 하도록 설정 하려면 다음을 수행
 
 1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
 
-    ![설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Data Box 설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **사용** TLS 1.1.
 

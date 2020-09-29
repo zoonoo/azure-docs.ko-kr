@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325154"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445778"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
 
@@ -59,7 +59,7 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> Windows [에 대 한 Log Analytics 에이전트](../platform/agent-windows.md)외에도 windows 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> Linux [에 대 한 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md)외에도 linux 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
-| Azure Storage 계정 | 예 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서는 Microsoft Monitoring Agent (MMA)를 사용 하 여 데이터를 수집 하 고 전송 하기 위해 System Center Operations Manager와 Azure Monitor 모두 사용 합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공 합니다. 이러한 버전은 각각 System Center Operations Manager, Azure Monitor 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -76,7 +76,7 @@ Azure Monitor에 연결 된 관리 그룹이 있는 System Center Operations Man
 
 Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 경우 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 연결 하도록 Log Analytics 에이전트를 구성 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 Log Analytics 게이트웨이를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 - [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
 - 이전 버전의 Wire Data 솔루션을 사용하는 경우 먼저 이전 버전을 제거해야 합니다. 그러나 원래 Wire Data 솔루션을 통해 캡처된 모든 데이터는 Wire Data 2.0 및 로그 검색에서 계속 사용할 수 있습니다.
@@ -99,7 +99,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 #### <a name="windows-desktop"></a>Windows 데스크톱
 
 - Windows 10 1803
-- 윈도우 10
+- Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -183,7 +183,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 다음 단계를 사용 하 여 Windows를 실행 하는 각 컴퓨터에 종속성 에이전트를 설치 합니다.
 
 1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](../platform/agent-windows.md)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
-2. 이전 섹션의 링크를 사용 하 여 Windows 종속성 에이전트를 다운로드 한 후 다음 명령을 사용 하 여 실행 합니다.`InstallDependencyAgent-Windows.exe`
+2. 이전 섹션의 링크를 사용 하 여 Windows 종속성 에이전트를 다운로드 한 후 다음 명령을 사용 하 여 실행 합니다. `InstallDependencyAgent-Windows.exe`
 3. 마법사에 따라 에이전트를 설치합니다.
 4. Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다.
 
@@ -364,15 +364,15 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 **네트워크 트래픽을 캡처하는 에이전트** 블레이드를 사용하여 컴퓨터에서 사용되는 네트워크 대역폭 양을 확인할 수 있습니다. 이 블레이드는 사용자 환경에서 _chattiest_ 컴퓨터를 쉽게 찾을 수 있도록 도와 줍니다. 이러한 컴퓨터는 오버로드되거나 비정상적으로 작동하거나 보통 때보다 더 많은 네트워크 리소스를 사용할 수 있습니다.
 
-![로그 검색 예제](./media/wire-data/log-search-example01.png)
+![각 컴퓨터에서 사용 하는 네트워크 대역폭을 보여 주는 Wire Data 2.0 대시보드의 네트워크 트래픽 캡처 블레이드 스크린샷](./media/wire-data/log-search-example01.png)
 
 마찬가지로 **로컬 서브넷** 블레이드를 사용하여 서브넷을 통해 이동하는 네트워크 트래픽의 양을 확인할 수 있습니다. 사용자는 종종 애플리케이션의 중요한 영역 주위 서브넷을 정의합니다. 이 블레이드는 해당 영역에 대한 뷰를 제공합니다.
 
-![로그 검색 예제](./media/wire-data/log-search-example02.png)
+![각 LocalSubnet 사용 되는 네트워크 대역폭을 보여 주는 Wire Data 2.0 대시보드의 로컬 서브넷 블레이드의 스크린샷](./media/wire-data/log-search-example02.png)
 
 **애플리케이션 수준 프로토콜** 블레이드는 사용 중인 프로토콜을 아는 데 도움이 되므로 유용합니다. 예를 들어 네트워크 환경에서 SSH가 사용되지 않는 것을 예상할 수 있습니다. 블레이드에서 사용할 수 있는 정보 보기는 사용자의 예상을 신속하게 확인하거나 예상이 틀렸음을 증명할 수 있습니다.
 
-![로그 검색 예제](./media/wire-data/log-search-example03.png)
+![각 프로토콜에서 사용 하는 네트워크 대역폭을 보여 주는 Wire Data 2.0 대시보드의 응용 프로그램 수준 프로토콜 블레이드의 스크린샷](./media/wire-data/log-search-example03.png)
 
 프로토콜 트래픽이 시간에 따라 증가하는지 감소하는지 여부를 아는 데 유용합니다. 예를 들어 애플리케이션에 의해 전송되고 있는 데이터 양이 증가하는 경우 이를 알고 있어야 하거나 주목할 만한 것일 수 있습니다.
 

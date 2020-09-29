@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502939"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450209"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "87502939"
 2. **사용자 추가 마법사**를 클릭합니다.
 3. **사용자 선택** 단계에서 추가하려는 사용자를 찾습니다. **선택**을 클릭합니다.
 4. **역할 선택** 단계에서 **Data Lake Analytics 개발자**를 선택합니다. 이 역할에는 U-SQL 작업을 제출/모니터링/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
-5. **카탈로그 사용 권한 선택** 단계에서 사용자가 액세스해야 하는 추가 데이터베이스를 선택합니다. 작업을 제출하려면 master 데이터베이스에 대한 액세스 읽기 및 쓰기가 필요합니다. 작업이 끝나면 **확인**을 클릭합니다.
+5. **카탈로그 사용 권한 선택** 단계에서 사용자가 액세스해야 하는 추가 데이터베이스를 선택합니다. 작업을 제출 하려면 "master" 라는 기본 정적 데이터베이스에 대 한 읽기 및 쓰기 권한이 필요 합니다. 작업이 끝나면 **확인**을 클릭합니다.
 6. **선택한 사용 권한 할당**이라는 마지막 단계에서 마법사에 의한 변경 내용을 검토합니다. **확인**을 클릭합니다.
 
 
