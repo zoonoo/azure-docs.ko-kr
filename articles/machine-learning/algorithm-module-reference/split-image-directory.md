@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448685"
 ---
 # <a name="split-image-directory"></a>이미지 디렉터리 분할
 
@@ -28,26 +28,26 @@ ms.locfileid: "91268930"
 
 2. 출력이 이미지 디렉터리인 모듈에 연결 합니다.
 
-3. **첫 번째 출력에서 이미지의** 비율을 입력 하 여 왼쪽 분할에 포함할 데이터의 비율을 지정 합니다. 기본값은 0.9입니다.
+3. **첫 번째 출력에서 이미지의** 비율을 입력 하 여 왼쪽 분할에 포함할 데이터의 비율을 지정 합니다. 기본값은 0.9입니다. 분수 결과가 정수가 아닌 경우 모듈은 가까운 작은 정수를 사용 합니다.
 
 
 ## <a name="technical-notes"></a>기술 정보
 
 ### <a name="expected-inputs"></a>예상 입력
 
-| Name                  | Type           | Description              |
+| 속성                  | 유형           | 설명              |
 | --------------------- | -------------- | ------------------------ |
 | 입력 이미지 디렉터리 | ImageDirectory | 분할할 이미지 디렉터리입니다. |
 
 ### <a name="module-parameters"></a>모듈 매개 변수
 
-| Name                                   | Type  | 범위 | 옵션 | Description                            | 기본값 |
+| 속성                                   | Type  | 범위 | 옵션 | Description                            | 기본값 |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | 첫 번째 출력에서 이미지의 비율 | Float | 0-1   | 필수 | 첫 번째 출력에서 이미지의 비율 | 0.9     |
 
 ### <a name="outputs"></a>출력
 
-| Name                    | Type           | Description                              |
+| 속성                    | 유형           | 설명                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | 출력 이미지 directory1 | ImageDirectory | 선택한 이미지를 포함 하는 이미지 디렉터리 |
 | 출력 이미지 directory2 | ImageDirectory | 다른 모든 이미지를 포함 하는 이미지 디렉터리 |

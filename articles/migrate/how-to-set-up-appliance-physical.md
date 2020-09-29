@@ -4,12 +4,12 @@ description: 물리적 서버 평가를 위해 Azure Migrate 어플라이언스�
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: bace4ab03051a9febfe14cc30143bd4a5cfa7c84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085959"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448075"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
@@ -59,7 +59,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  최신 버전의 어플라이언스 및 해시 값 설정을 확인 합니다.
+3.  최신 버전의 어플라이언스 및 [해시 값](tutorial-discover-physical.md#verify-security) 설정을 확인 합니다.
  
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행

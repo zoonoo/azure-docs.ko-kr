@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552240"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448585"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
 
@@ -29,7 +29,7 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 > [!IMPORTANT]
 > 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 Azure Analysis Services 방화벽에서 허용 목록 해야 합니다. 지역별 Azure Logic Apps IP 범위에 대해 자세히 알아보려면 [Azure Logic Apps에 대 한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#configuration)를 참조 하세요.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 요건
 
 #### <a name="create-a-service-principal-spn"></a>SPN(서비스 사용자 이름) 만들기
 
@@ -53,9 +53,9 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 
 2. 새 단계를 추가 하 고 **HTTP**를 검색 합니다.  
 
-   ![HTTP 작업 추가](./media/analysis-services-async-refresh-logic-app/9.png)
+   !["HTTP" 타일이 선택 된 "작업 선택" 섹션의 스크린샷](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![HTTP 작업 추가](./media/analysis-services-async-refresh-logic-app/10.png)
+   !["HTTP-HTTP" 타일이 선택 된 "HTTP" 창의 스크린샷](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. **HTTP** 를 선택 하 여이 작업을 추가 합니다.
 
@@ -65,9 +65,9 @@ HTTP 작업을 다음과 같이 구성 합니다.
 
 |속성  |값  |
 |---------|---------|
-|**방법**     |POST         |
+|**메서드**     |POST         |
 |**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \/ /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
-|**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**헤더**     |   Content-type, application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |
 |**인증**     |Active Directory OAuth         |
 |**테넌트**     |Azure Active Directory TenantId를 입력 합니다.         |
@@ -76,7 +76,7 @@ HTTP 작업을 다음과 같이 구성 합니다.
 |**자격 증명 유형**     |비밀         |
 |**비밀**     |서비스 사용자 이름 암호를 입력 하세요.         |
 
-예:
+예제:
 
 ![완료 된 HTTP 작업](./media/analysis-services-async-refresh-logic-app/7.png)
 
@@ -98,15 +98,15 @@ Data Factory 등의 오케스트레이션 도구를 사용 하 여 모델 새로
 
 위의 예제를 사용 하 여 첫 번째 활동을 삭제 하 고 **일정** 활동으로 바꿉니다.
 
-![작업 예약](./media/analysis-services-async-refresh-logic-app/12.png)
+!["Schedule" 타일이 선택 된 "Logic Apps" 페이지를 보여 주는 스크린샷](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![작업 예약](./media/analysis-services-async-refresh-logic-app/13.png)
+!["트리거" 페이지를 보여 주는 스크린샷](./media/analysis-services-async-refresh-logic-app/13.png)
 
 이 예에서는 **되풀이**를 사용 합니다.
 
 활동이 추가 되 면 간격 및 빈도를 구성한 다음 새 매개 변수를 추가 하 고 **이러한 시간에**를 선택 합니다.
 
-![작업 예약](./media/analysis-services-async-refresh-logic-app/16.png)
+!["다음 시간" 매개 변수가 선택 된 "되풀이" 섹션을 보여 주는 스크린샷](./media/analysis-services-async-refresh-logic-app/16.png)
 
 원하는 시간을 선택 합니다.
 

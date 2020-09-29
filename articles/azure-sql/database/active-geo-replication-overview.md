@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330845"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445068"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ ms.locfileid: "91330845"
 
 ## <a name="configuring-secondary-database"></a>보조 데이터베이스 구성
 
-동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 주 데이터베이스와 동일한 계산 크기 (Dtu 또는 vCores)를 사용 하 여 보조 데이터베이스를 만드는 것이 좋습니다. 주 데이터베이스에 많은 쓰기 작업이 발생 하는 경우에는 계산 크기가 낮은 보조 데이터베이스를 사용할 수 없습니다. 이로 인해 보조 복제본에서 다시 실행 지연이 발생 하 고 보조 복제본의 가용성을 사용할 수 없게 됩니다. 이러한 위험을 완화 하기 위해 활성 지역 복제는 보조가 해당 보조 데이터베이스를 사용할 수 있도록 하는 데 필요한 경우 주 데이터베이스의 트랜잭션 로그 속도를 제한 합니다.
+동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 보조 데이터베이스는 주 데이터베이스와 동일한 백업 저장소 중복성 및 계산 크기 (Dtu 또는 vCores)를 사용 하 여 만드는 것이 좋습니다. 주 데이터베이스에 많은 쓰기 작업이 발생 하는 경우에는 계산 크기가 낮은 보조 데이터베이스를 사용할 수 없습니다. 이로 인해 보조 복제본에서 다시 실행 지연이 발생 하 고 보조 복제본의 가용성을 사용할 수 없게 됩니다. 이러한 위험을 완화 하기 위해 활성 지역 복제는 보조가 해당 보조 데이터베이스를 사용할 수 있도록 하는 데 필요한 경우 주 데이터베이스의 트랜잭션 로그 속도를 제한 합니다.
 
 불균형 보조 구성의 또 다른 결과는 장애 조치 (failover) 후 새 주 서버의 계산 용량이 부족 하기 때문에 응용 프로그램 성능이 저하 될 수 있다는 것입니다. 이 경우 데이터베이스 서비스 목표를 필요한 수준으로 확장 해야 하며,이는 상당한 시간과 계산 리소스를 사용할 수 있으며, 확장 프로세스가 끝날 때 고가용성 장애 조치 (failover [)가 필요](high-availability-sla.md) 합니다.
 
@@ -126,8 +126,13 @@ ms.locfileid: "91330845"
 
 보조에서 계산 크기가 더 낮은 경우 주 데이터베이스에 대 한 트랜잭션 로그 전송률 제한이 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 유형을 사용 하 여 보고 됩니다. [dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰에 표시 됩니다.
 
+기본적으로 보조 복제본의 백업 저장소 중복성은 주 데이터베이스와 동일 합니다. 다른 백업 저장소 중복성을 사용 하 여 보조 데이터베이스를 구성 하도록 선택할 수 있습니다. 백업은 항상 주 데이터베이스에서 수행 됩니다. 보조 복제본이 다른 백업 저장소 중복성으로 구성 된 경우 보조 복제본이 주 복제본으로 승격 되 면 장애 조치 (failover) 후 새 주 데이터베이스 (이전 보조 데이터베이스)에서 선택한 저장소 중복성에 따라 백업이 청구 됩니다. 
+
 > [!NOTE]
 > 주 데이터베이스의 트랜잭션 로그 비율은 보조에서 계산 크기가 낮은 것과 관련이 없는 이유로 제한 될 수 있습니다. 이러한 종류의 제한은 보조 데이터베이스의 계산 크기가 주 데이터베이스와 같거나 높은 경우에도 발생할 수 있습니다. 다른 종류의 로그 전송률 제한에 대 한 대기 유형을 포함 하는 자세한 내용은 [트랜잭션 로그 요금 관리](resource-limits-logical-server.md#transaction-log-rate-governance)를 참조 하세요.
+
+> [!NOTE]
+> 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. Azure SQL Database 미리 보기에서 원본 데이터베이스가 로컬 중복 또는 영역 중복 백업 중복성으로 생성 되는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](purchasing-models.md)를 참조하세요.
 
@@ -246,7 +251,7 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치 (failover) 그룹만 지원 하므로 SQL Managed Instance 인스턴스에는 적용 되지 않습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
@@ -263,7 +268,7 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| cmdlet | Description |
+| cmdlet | 설명 |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |

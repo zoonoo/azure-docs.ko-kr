@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301365"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448672"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -39,7 +39,7 @@ Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 �
 |결정|Free|
 |필요한 역할 및 사용 권한:|할당을 편집 하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보려면 **판독기**|
 |지원 되는 클러스터|Kubernetes v 1.14 이상이 필요 합니다.<br>클러스터에 PodSecurityPolicy 리소스 (이전 PSP 모델)가 없음<br>Windows 노드가 지원 되지 않습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 
@@ -58,7 +58,7 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능**을 �
 
     1. 보안 제어에서 추가를 설치할 수 있는 리소스를 확인 하는 권장 사항을 선택 하 고 **재구성**을 선택 합니다. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Kubernetes에 대 한 * * Azure Policy 추가 기능에 대 한 권장 사항 정보 페이지를 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="권장 사항 * * Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
 
 1. 추가 기능 설치가 완료 Security Center 되 고 약 30 분 후에는 다음과 같은 권장 사항에 대 한 클러스터의 상태를 표시 합니다 .이에 대 한 자세한 내용은 각각 관련 보안 제어에서 다음과 같이 표시 됩니다.
 
@@ -69,12 +69,12 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능**을 �
 
     | 권장 사항 이름                                                                   | 보안 컨트롤                         | 구성 필요 |
     |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | 컨테이너 CPU 및 메모리 제한 적용 (미리 보기)                          | DDoS 공격 으로부터 응용 프로그램 보호 | 예                     |
-    | 권한 있는 컨테이너를 피해 야 함 (미리 보기)                                     | 액세스 및 사용 권한 관리            | 예                     |
-    | 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함     | 액세스 및 사용 권한 관리            | 예                     |
-    | 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)                       | 액세스 및 사용 권한 관리            | 예                     |
-    | 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)                           | 액세스 및 사용 권한 관리            | 예                     |
-    | 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)              | 액세스 및 사용 권한 관리            | 예                     |
+    | 컨테이너 CPU 및 메모리 제한 적용 (미리 보기)                          | DDoS 공격 으로부터 응용 프로그램 보호 | 아니요                     |
+    | 권한 있는 컨테이너를 피해 야 함 (미리 보기)                                     | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함     | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)                       | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)                           | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)              | 액세스 및 사용 권한 관리            | 아니요                     |
     | 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함       | 액세스 및 사용 권한 관리            | **예**                |
     | Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)                              | 무단 네트워크 액세스 제한     | **예**                |
@@ -99,7 +99,7 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능**을 �
 
     1. 권장 사항 세부 정보 페이지를 열고 **거부**를 선택 합니다.
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대 한 Deny 옵션":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="권장 사항 * * Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
 
         그러면 범위를 설정 하는 창이 열립니다. 
 
@@ -113,7 +113,7 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능**을 �
 
 1. 워크 로드 보호 집합에서 권장 사항을 볼 때 클러스터와 함께 나열 된 영향을 받는 pod ("Kubernetes components") 수가 표시 됩니다. 특정 pod 목록을 보려면 클러스터를 선택 하 고 **작업 수행**을 선택 합니다.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="K8s 권장 사항에 대해 영향을 받는 pod 보기"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="권장 사항 * * Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *"::: 
 
 1. 적용을 테스트 하려면 아래의 두 Kubernetes 배포를 사용 합니다.
 

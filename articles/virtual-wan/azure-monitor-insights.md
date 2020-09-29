@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 47e9b616a2a686a7ce82a592ee81966041371048
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328006"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448622"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>가상 WAN (미리 보기)에 대 한 Azure Monitor 정보
 
@@ -24,7 +24,7 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 > 가상 WAN 포털의 **Insights** 메뉴 옵션이 현재 롤아웃 되 고 있습니다. 이 메뉴가 롤아웃 되는 동안 네트워크에 대 한 Azure Monitor를 사용 하 여 가상 WAN 토폴로지 및 메트릭 통합 문서에 액세스할 수 있습니다. 자세한 내용은 [네트워크에 대 한 Azure Monitor](../azure-monitor/insights/network-insights-overview.md)를 참조 하세요. 
 >
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서의 단계를 완료 하려면 하나 이상의 허브를 사용 하는 가상 WAN이 있어야 합니다. 가상 WAN 및 허브를 만들려면 다음 문서의 단계를 수행 합니다.
 
@@ -37,7 +37,7 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 
 **그림 1: > Insights 메뉴 모니터링**
 
-:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Insights 메뉴 옵션을 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/monitor-menu.png":::
+:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Insights (미리 보기) 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
 **Insights** 보기에서 Autodiscovered 된 가상 WAN 리소스를 볼 수 있습니다. 이러한 리소스로는 허브, 게이트웨이, 방화벽, 연결 및 스포크 가상 네트워크, 타사 Nva 및 종단 간 가상 WAN의 분기가 있습니다. 예제는 **그림 2**를 참조 하세요.
 
@@ -45,7 +45,7 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 
 **그림 2: Insights 보기**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Insights 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Insights (미리 보기) 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 ## <a name="dependency-view"></a><a name="dependency"></a>종속성 보기
 
@@ -53,7 +53,7 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 
 **그림 3: VWAN 종속성 보기**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="종속성 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Insights (미리 보기) 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
 **종속성** 보기 맵은 다음 리소스를 연결 된 그래프로 표시 합니다.
 
@@ -69,13 +69,13 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 
 **그림 4: 리소스 관련 정보로 이동**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="리소스 관련 정보를 탐색 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Insights (미리 보기) 보기를 보여 주는 스크린샷":::
 
 **종속성** 보기의 검색 및 필터 모음은 그래프를 검색 하는 쉬운 방법을 제공 합니다. 다양 한 필터를 통해 특정 경로 및 상태로 검색 범위를 좁힐 수 있습니다.
 
 **그림 5: 검색 및 필터링**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="검색 및 필터 표시줄을 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Insights (미리 보기) 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed-metrics"></a><a name="detailed"></a>자세한 메트릭
 
@@ -83,7 +83,7 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 
 **그림 6: 상세 메트릭 대시보드**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="자세한 메트릭 대시보드를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Insights (미리 보기) 보기를 보여 주는 스크린샷" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,33 +1,34 @@
 ---
-title: 컨테이너 설치 및 실행-얼굴
+title: Face API에 대 한 Docker 컨테이너를 설치 하 고 실행 합니다.
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는이 연습 자습서에서 Face 용 컨테이너를 다운로드, 설치 및 실행 하는 방법을 보여 줍니다.
+description: Face API에 대 한 Docker 컨테이너를 사용 하 여 이미지에서 사람의 얼굴을 감지 하 고 식별 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 766af570c959ff2c49256058dfbfffdd1021295f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+keywords: 온-프레미스, Docker, 컨테이너, 식별
+ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548466"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461515"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Face 컨테이너 설치 및 실행 (미리 보기)
 
 > [!IMPORTANT]
 > Face 컨테이너 사용자 제한에 도달했습니다. 현재 Face 컨테이너에 대해 새로운 애플리케이션을 수락하지 않습니다.
 
-Azure Cognitive Services Face는 이미지에서 인간 얼굴을 검색 하는 Docker 용 표준화 된 Linux 컨테이너를 제공 합니다. 또한 noses, 눈동자, 성별, 연령 및 기타 기계 예측 얼굴 기능과 같은 얼굴 랜드마크 포함 하는 특성도 식별 합니다. 검색 외에도 Face는 신뢰도 점수를 사용 하 여 동일한 이미지 또는 다른 이미지의 두 얼굴이 동일한 지 확인할 수 있습니다. 또한 face는 데이터베이스에 대해 얼굴을 비교 하 여 비슷하거나 동일한 얼굴이 이미 있는지 여부를 확인할 수 있습니다. 또한 공유 시각적 특성을 사용 하 여 유사한 얼굴을 그룹으로 구성할 수 있습니다.
+Azure Cognitive Services Face API는 이미지에서 인간 얼굴을 검색 하 고 분석 하는 Linux Docker 컨테이너를 제공 합니다. 또한 noses, 눈동자, 성별, 연령 및 기타 기계 예측 얼굴 기능과 같은 얼굴 랜드마크 포함 하는 특성도 식별 합니다. 검색 외에도 Face는 신뢰도 점수를 사용 하 여 동일한 이미지 또는 다른 이미지의 두 얼굴이 동일한 지 확인할 수 있습니다. 또한 face는 데이터베이스에 대해 얼굴을 비교 하 여 비슷하거나 동일한 얼굴이 이미 있는지 여부를 확인할 수 있습니다. 또한 공유 시각적 특성을 사용 하 여 유사한 얼굴을 그룹으로 구성할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Face 서비스 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 

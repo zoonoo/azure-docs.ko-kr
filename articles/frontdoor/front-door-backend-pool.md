@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399925"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449288"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Azure 전면 도어의 백 엔드 및 백 엔드 풀
-이 문서에서는 Azure Front 도어를 사용 하 여 앱 배포를 매핑하는 방법에 대 한 개념을 설명 합니다. 또한 앱 백 엔드에 대 한 Front 도어 구성의 다양 한 용어에 대해 설명 합니다.
+이 문서에서는 Azure Front 도어를 사용 하 여 웹 응용 프로그램 배포를 매핑하는 방법에 대 한 개념을 설명 합니다. 또한 응용 프로그램 백 엔드에 대 한 프런트 도어 구성에서 사용 되는 다양 한 용어 설명 합니다.
 
 ## <a name="backends"></a>백 엔드
-백 엔드는 한 지역의 앱 배포 인스턴스와 같습니다. 전면 도어는 azure 및 비 Azure 백 엔드를 모두 지원 하므로 지역은 Azure 지역으로 제한 되지 않습니다. 또한 온-프레미스 데이터 센터 또는 다른 클라우드의 앱 인스턴스일 수 있습니다.
+백 엔드는 지역에서 웹 응용 프로그램 배포를 참조 합니다. 프런트 도어는 백 엔드 풀에서 Azure 및 비 Azure 리소스를 모두 지원 합니다. 응용 프로그램은 온-프레미스 데이터 센터에 있거나 다른 클라우드 공급자에 있을 수 있습니다.
 
-프런트 도어 백 엔드는 클라이언트 요청을 처리할 수 있는 앱의 호스트 이름 또는 공용 IP를 나타냅니다. 백 엔드는 데이터베이스 계층, 저장소 계층 등과 혼동 해서는 안 됩니다. 백 엔드는 앱 백 엔드의 공용 끝점으로 표시 되어야 합니다. 프런트 도어 백 엔드 풀에 백 엔드를 추가 하는 경우 다음도 추가 해야 합니다.
+프런트 도어 백 엔드는 클라이언트 요청을 처리 하는 응용 프로그램의 호스트 이름 또는 공용 IP를 나타냅니다. 백 엔드는 데이터베이스 계층, 저장소 계층 등과 혼동 해서는 안 됩니다. 백 엔드는 응용 프로그램 백 엔드에 대 한 공용 끝점으로 표시 되어야 합니다. 프런트 도어 백 엔드 풀에 백 엔드를 추가 하는 경우 다음도 추가 해야 합니다.
 
 - **백 엔드 호스트 유형**입니다. 추가 하려는 리소스의 형식입니다. 전면 도어는 app service, cloud service 또는 storage에서 앱 백 엔드의 자동 검색을 지원 합니다. Azure 또는 비 Azure 백 엔드에서 다른 리소스를 원하는 경우 **사용자 지정 호스트**를 선택 합니다.
 
@@ -41,13 +41,13 @@ ms.locfileid: "89399925"
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>백 엔드 호스트 헤더
 
-프런트 도어로 백 엔드에 전달 된 요청에는 백 엔드가 대상 리소스를 검색 하는 데 사용 하는 호스트 헤더 필드가 포함 됩니다. 이 필드의 값은 일반적으로 백 엔드 URI에서 제공되며 호스트 및 포트를 포함합니다.
+프런트 도어로 백 엔드에 전달 된 요청에는 백 엔드가 대상 리소스를 검색 하는 데 사용 하는 호스트 헤더 필드가 포함 됩니다. 일반적으로이 필드의 값은 호스트 헤더와 포트가 있는 백 엔드 URI에서 제공 됩니다.
 
 예를 들어에 대해 수행 된 요청에는 `www.contoso.com` 호스트 헤더 www.contoso.com가 있습니다. Azure Portal를 사용 하 여 백 엔드를 구성 하는 경우이 필드의 기본값은 백 엔드의 호스트 이름입니다. 백 엔드가 contoso-westus.azurewebsites.net 인 경우 Azure Portal에 백 엔드 호스트 헤더에 대 한 채워집니다 값이 contoso-westus.azurewebsites.net 됩니다. 그러나이 필드를 명시적으로 설정 하지 않고 Azure Resource Manager 템플릿 또는 다른 방법을 사용 하는 경우 전면 도어는 들어오는 호스트 이름을 호스트 헤더에 대 한 값으로 보냅니다. Www contoso.com에 대 한 요청이 수행 \. 되 고 백 엔드가 contoso-westus.azurewebsites.net 빈 헤더 필드가 있는 경우, 프런트 도어는 호스트 헤더를 www contoso.com로 설정 합니다 \. .
 
 대부분의 앱 백 엔드 (Azure Web Apps, Blob storage 및 Cloud Services)에서는 호스트 헤더가 백 엔드의 도메인과 일치 해야 합니다. 그러나 백엔드로 라우팅하는 프런트 엔드 호스트는 www.contoso.net와 같은 다른 호스트 이름을 사용 합니다.
 
-백 엔드에서 백 엔드 호스트 이름과 일치 하는 호스트 헤더를 요구 하는 경우 백 엔드 호스트 헤더에 호스트 이름 백엔드가 포함 되어 있는지 확인 합니다.
+백 엔드에서 백 엔드 호스트 이름과 일치 하는 호스트 헤더를 요구 하는 경우 백 엔드 호스트 헤더에 백 엔드의 호스트 이름이 포함 되어 있는지 확인 합니다.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>백 엔드에 대한 백 엔드 호스트 헤더 구성
 

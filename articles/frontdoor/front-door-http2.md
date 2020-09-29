@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399432"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448697"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Azure 전면 도어의 HTTP/2 지원
 
 현재 모든 Azure Front 도어 구성에 대해 HTTP/2 지원이 활성 상태입니다. 고객의 추가적인 조치가 필요하지 않습니다.
 
-HTTP/2는 HTTP/1.1에 대한 주요 수정 버전입니다. 친숙한 HTTP 메서드, 상태 코드 및 의미 체계를 유지하면서 더 빨라진 웹 성능, 응답 시간 단축 및 향상된 사용자 경험을 제공합니다. HTTP/2는 HTTP 및 HTTPS와 함께 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS(전송 계층 보안)를 통한 HTTP/2만 지원합니다.
+HTTP/2는 응답 시간을 줄여 웹 성능을 더 빠르게 제공 하는 HTTP/1.1의 주요 수정 버전입니다. HTTP/2는 친숙 한 HTTP 메서드, 상태 코드 및 의미 체계를 유지 하 여 사용자 환경을 개선 하는 방식으로 수행 됩니다. Http/2는 HTTP 및 HTTPS를 사용 하도록 설계 되었지만 대부분의 클라이언트 웹 브라우저에서는 TLS (Transport Layer Security)를 통한 HTTP/2만 지원 합니다.
 
 > [!NOTE]
 > HTTP/2 프로토콜 지원은 클라이언트에서 Front 도어로의 요청에만 사용할 수 있습니다. 백 엔드 풀의 프런트 도어와 백 엔드 간의 통신은 HTTP/1.1을 통해 수행 됩니다. 
@@ -46,7 +46,7 @@ HTTP/2의 이점은 다음과 같습니다.
 
 ## <a name="http2-browser-support"></a>HTTP/2 브라우저 지원
 
-모든 주요 브라우저는 최신 버전에서 HTTP/2 지원을 구현했습니다. 지원되지 않는 브라우저는 HTTP/1.1로 자동으로 대체됩니다.
+모든 주요 브라우저는 최신 버전에서 HTTP/2 지원을 구현했습니다. 지원 되지 않는 브라우저는 HTTP/1.1로 자동으로 대체 됩니다.
 
 |브라우저|최소 버전|
 |-------------|------------|

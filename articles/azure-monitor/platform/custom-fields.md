@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974715"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448556"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Azure Monitor (미리 보기)에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 
@@ -101,7 +101,7 @@ Top 속성 옆에 있는 줄임표를 클릭 하 여 사용자 지정 필드를 
 
 일부 레코드에 대해서는 서비스 이름이 적절하게 식별되었지만 나머지에 대해서는 그렇지 못합니다.   **검색 결과**에 **WMI Performance Adapter**의 이름 일부가 선택되지 않은 것이 표시됩니다.  **요약** 에서는 **Windows 모듈 설치 관리자**대신 **모듈 설치 관리자** 를 식별 한 레코드를 보여 줍니다.  
 
-![검색 결과](media/custom-fields/search-results-01.png)
+![검색 결과 창에 강조 표시 된 서비스 이름 부분과 요약에 잘못 된 서비스 이름 하나가 강조 표시 된 스크린샷](media/custom-fields/search-results-01.png)
 
 **WMI Performance Adapter** 레코드부터 시작합니다.  편집 아이콘을 클릭한 다음 **Modify this highlight**(이 강조 표시 수정)를 클릭합니다.  
 
@@ -113,7 +113,7 @@ Top 속성 옆에 있는 줄임표를 클릭 하 여 사용자 지정 필드를 
 
 **WMI Performance Adapter**에 대한 항목이 수정되었고, Log Analytics 역시 해당 정보를 사용하여 **Windows모듈 설치 관리자**에 대한 레코드를 수정한 것을 볼 수 있습니다.
 
-![검색 결과](media/custom-fields/search-results-02.png)
+![검색 결과 창에 강조 표시 된 전체 서비스 이름과 요약에 올바른 서비스 이름이 강조 표시 된 스크린샷](media/custom-fields/search-results-02.png)
 
 이제 **Service_CF** 생성 되었지만 아직 레코드에 추가 되지 않았는지 확인 하는 쿼리를 실행할 수 있습니다. 사용자 지정 필드가 기존 레코드에 대해 작동 하지 않기 때문에 새 레코드가 수집 될 때까지 기다려야 합니다.
 

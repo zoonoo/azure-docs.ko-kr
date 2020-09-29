@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 2c8c31219f014935c14371cf4dd30b61ba35819b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319506"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448917"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Azure SQL Database 및 SQL Managed Instance 진단 원격 분석의 스트리밍 내보내기 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,16 +37,16 @@ Intelligent Insights 로그의 내보내기를 스트리밍하는 것 외에도 
 
 | 데이터베이스에 대 한 진단 원격 분석 | Azure SQL Database 지원 | Azure SQL Managed Instance 지원 |
 | :------------------- | ----- | ----- |
-| [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함 합니다. | 예 | 예 |
-| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터와 로그 파일 크기 및 사용 된 tempdb 비율 로그 파일을 포함 합니다. | 예 | 예 |
+| [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함 합니다. | 예 | 아니요 |
+| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터와 로그 파일 크기 및 사용 된 tempdb 비율 로그 파일을 포함 합니다. | 예 | 아니요 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대 한 정보를 포함 합니다. | 예 | 예 |
 | [Querystorewaitstatistics](#query-store-wait-statistics): CPU, 로그 및 잠금과 같은 쿼리 대기 통계 (쿼리가 대기 하는 시간)에 대 한 정보를 포함 합니다. | 예 | 예 |
 | [오류](#errors-dataset): 데이터베이스의 SQL 오류에 대 한 정보를 포함 합니다. | 예 | 예 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 예 |
-| [시간 제한](#time-outs-dataset): 데이터베이스의 제한 시간에 대 한 정보를 포함 합니다. | 예 | 예 |
-| [블록](#blockings-dataset): 데이터베이스의 차단 이벤트에 대 한 정보를 포함 합니다. | 예 | 예 |
-| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대 한 정보를 포함 합니다. | 예 | 예 |
-| 자동 [튜닝](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함 합니다. | 예 | 예 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [시간 제한](#time-outs-dataset): 데이터베이스의 제한 시간에 대 한 정보를 포함 합니다. | 예 | 아니요 |
+| [블록](#blockings-dataset): 데이터베이스의 차단 이벤트에 대 한 정보를 포함 합니다. | 예 | 아니요 |
+| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대 한 정보를 포함 합니다. | 예 | 아니요 |
+| 자동 [튜닝](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함 합니다. | 예 | 아니요 |
 | [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대 한 Intelligent Insights를 포함 합니다. 자세한 내용은 [Intelligent Insights](intelligent-insights-overview.md)를 참조하세요. | 예 | 예 |
 
 > [!NOTE]
@@ -471,14 +471,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="resource-usage-stats-for-managed-instances"></a>관리 되는 인스턴스의 리소스 사용 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: ResourceUsageStats |
+|범주|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: MANAGEDINSTANCES |
 |SubscriptionId|데이터베이스의 구독 GUID |
@@ -496,14 +496,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: QueryStoreRuntimeStatistics |
+|범주|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -547,14 +547,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: QueryStoreWaitStatistics |
+|범주|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -585,14 +585,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="errors-dataset"></a>오류 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Errors |
+|범주|범주 이름. 항상: Errors |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -610,18 +610,18 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |query_hash_s|실패한 쿼리의 쿼리 해시(있는 경우) |
 |query_plan_hash_s|실패한 쿼리의 쿼리 계획 해시(있는 경우) |
 
-[SQL 오류 메시지](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15)에 대해 자세히 알아보세요.
+[SQL 오류 메시지](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에 대해 자세히 알아보세요.
 
 #### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: DatabaseWaitStatistics |
+|범주|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -643,14 +643,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Timeouts |
+|범주|범주 이름. 항상: Timeouts |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -666,14 +666,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Blocks |
+|범주|범주 이름. 항상: Blocks |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -690,14 +690,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: 교착 상태 |
+|범주|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -711,14 +711,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: AutomaticTuning |
+|범주|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |

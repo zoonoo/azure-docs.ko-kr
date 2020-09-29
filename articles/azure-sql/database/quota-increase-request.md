@@ -4,24 +4,24 @@ description: 이 페이지에서는 Azure SQL Database 및 Azure SQL Managed Ins
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: conceptual
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987288"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448831"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 요청 할당량이 늘어납니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 할당량 증가를 요청 하는 방법을 설명 합니다. 또한 지역에 대 한 구독 액세스를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-## <a name="create-a-new-support-request"></a><a id="newquota"></a>새 지원 요청 만들기
+## <a name="create-a-new-support-request"></a><a id="newquota"></a> 새 지원 요청 만들기
 
 다음 단계를 사용 하 여 SQL Database에 대 한 Azure Portal에서 새 지원 요청을 만듭니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "85987288"
 
 **세부 정보 입력** 을 클릭 하면 추가 정보를 추가할 수 있는 **할당량 정보** 창이 표시 됩니다. 다음 섹션에서는 **SQL Database** 및 **SQL Database Managed Instance** 할당량 유형에 대 한 다양 한 옵션을 설명 합니다.
 
-## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>SQL Database 할당량 유형
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> SQL Database 할당량 유형
 
 다음 섹션에서는 **SQL Database** 할당량 유형에 대 한 할당량 증가 옵션을 설명 합니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "85987288"
 
 자세한 내용은 [SQL Database 리소스 제한 및 리소스 관리](resource-limits-logical-server.md)를 참조 하세요.
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>지역에 대 한 구독 액세스 사용
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a> 지역에 대 한 구독 액세스 사용
 
 일부 제품 유형은 모든 지역에서 사용할 수 없습니다. 다음과 같은 오류가 표시될 수 있습니다.
 
@@ -107,9 +107,9 @@ ms.locfileid: "85987288"
 
 1. **구매 모델**및 **예상 사용량** 세부 정보를 입력 합니다.
 
-   ![요청 영역 액세스](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![요청 영역 액세스](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>지역에 대 한 M 시리즈 액세스 사용
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> 지역에 대 한 M 시리즈 액세스 사용
 
 구독 및 지역에 M 시리즈 하드웨어를 사용 하도록 설정 하려면 지원 요청을 열어야 합니다.
 
@@ -118,9 +118,9 @@ ms.locfileid: "85987288"
 1. **위치 선택** 목록에서 사용할 Azure 지역을 선택 합니다. 할당량은 각 지역의 구독당입니다.
 
 
-   ![요청 영역 액세스](./media/quota-increase-request/quota-m-series.png)
+   ![M 시리즈 영역 액세스 요청](./media/quota-increase-request/quota-m-series.png)
 
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>SQL Managed Instance 할당량 유형
+## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> SQL Managed Instance 할당량 유형
 
 **SQL Managed Instance** 할당량 유형에 대해 다음 단계를 사용 합니다.
 

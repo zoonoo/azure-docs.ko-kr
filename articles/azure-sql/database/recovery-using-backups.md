@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371782"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448809"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ ms.locfileid: "91371782"
 
 > [!IMPORTANT]
 > 복원 하는 동안 기존 데이터베이스를 덮어쓸 수 없습니다.
-
-기본적으로 Azure SQL Database 및 Azure SQL Managed Instance 백업은 지역 복제 blob 저장소 (RA-GRS 저장소 유형)에 저장 됩니다. 또한 SQL Managed Instance는 LRS (로컬 중복) 및 ZRS (영역 중복) 백업 저장소도 지원 합니다. 중복성은 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획 되거나 계획 되지 않은 이벤트에서 데이터가 보호 되도록 합니다. ZRS (영역 중복 저장소)는 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 백업에 대 한 저장소 중복성 구성은 관리 되는 인스턴스에만 사용할 수 있으며 만들기 프로세스 중에 허용 됩니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다.
 
 Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이스 복원에 추가 저장소 비용이 발생할 수 있습니다. 복원 된 데이터베이스의 최대 크기가 대상 데이터베이스의 서비스 계층 및 성능 수준에 포함 된 저장소 용량 보다 큰 경우 추가 비용이 발생 합니다. 추가 스토리지에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 실제 사용 된 공간의 양이 포함 된 저장소 용량 보다 작은 경우 최대 데이터베이스 크기를 포함 된 용량으로 설정 하 여 이러한 추가 비용을 방지할 수 있습니다.
 
@@ -143,7 +138,7 @@ Azure SQL Database에서 삭제 된 데이터베이스를 복원 하는 방법�
 ## <a name="geo-restore"></a>지역 복원
 
 > [!IMPORTANT]
-> 지역에서 복원은 지역 중복 (GRS) 백업 저장소 유형으로 구성 된 관리 되는 인스턴스에서만 사용할 수 있습니다. 로컬 중복 또는 영역 중복 백업 저장소 유형을 사용 하 여 구성 된 관리 되는 인스턴스는 지역에서 복원을 지원 하지 않습니다.
+> 지역 복원은 지역 중복 [백업 저장소](automated-backups-overview.md#backup-storage-redundancy)로 구성 된 SQL 데이터베이스 또는 관리 되는 인스턴스에서만 사용할 수 있습니다.
 
 가장 최근의 지역에서 복제 된 백업에서 모든 Azure 지역의 관리 되는 인스턴스의 모든 SQL Database 서버 또는 인스턴스 데이터베이스에 있는 데이터베이스를 복원할 수 있습니다. 지역 복원에서는 지역에서 복제 된 백업을 원본으로 사용 합니다. 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 지역 복원을 요청할 수 있습니다.
 
@@ -216,7 +211,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 독립 실행형 또는 풀링된 데이터베이스를 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)을 참조 하세요.
 
-  | cmdlet | Description |
+  | cmdlet | 설명 |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -230,7 +225,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 관리 되는 인스턴스 데이터베이스를 복원 하려면 [AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)을 참조 하세요.
 
-  | cmdlet | Description |
+  | cmdlet | 설명 |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
   | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |

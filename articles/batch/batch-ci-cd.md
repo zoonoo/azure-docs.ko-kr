@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229398"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461532"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용하여 HPC 솔루션 빌드 및 배포
 
@@ -43,7 +43,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 * **arm-templates** 폴더. Azure Resource Manager 템플릿을 포함합니다. 템플릿에 대해서는 이 문서에서 설명합니다.
 * **client-application** 폴더. [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) 샘플의 복사본입니다. 이 문서에서는 필요하지 않습니다.
-* **hpc-application** 폴더. [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip)의 Windows 64비트 버전입니다.
+* Windows 64 비트 버전의 [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) **hpc 응용 프로그램** 폴더입니다.
 * **pipelines** 폴더. 빌드 프로세스를 설명하는 YAML 파일을 포함합니다. 이에 대해서는 이 문서에서 설명합니다.
 
 이 섹션에서는 사용자가 버전 제어 및 Resource Manager 템플릿 설계에 대해 잘 알고 있다고 가정합니다. 이러한 개념을 잘 모른다면 다음 페이지에서 관련 정보를 살펴보세요.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 745b12e2278c487ed49a9d2d726a760a7df8f276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e06e4079a5118e0aa9dedb1fca719f0b28e5716
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703170"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448639"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "84703170"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -60,13 +60,13 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 9. 가상 머신이 배포되면 포털의 맨 위에 있는 검색 상자에 *myPublicIpAddress*를 입력합니다. 검색 결과에 **myPublicIpAddress**가 표시되면 선택합니다.
 10. 할당된 공용 IP 주소 및 다음 그림에 나와 있는 것처럼 **myVM** 가상 머신에 주소가 할당된 것을 볼 수 있습니다.
 
-    ![공용 IP 주소 보기](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
+    ![스크린샷에 I P 주소와 이름이 호출 된 공용 I P 주소 창이 표시 됩니다. ](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
 
     Azure는 가상 머신을 만든 지역에서 사용되는 주소에서 공용 IP 주소를 할당했습니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다.
 
 11. **구성**을 선택하여 할당이 **고정**인지 확인합니다.
 
-    ![공용 IP 주소 보기](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
+    ![스크린샷 선택한 구성 항목을 포함 하는 공용 I P 주소 창을 보여 줍니다.](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
 > 가상 머신의 운영 체제 내에서 IP 주소 설정을 수정하지 마십시오. 운영 체제는 Azure 공용 IP 주소를 인식하지 않습니다. 운영 체제에 개인 IP 주소 설정을 추가할 수 있지만 필요하지 않는 한 그리고 [운영 체제에 개인 IP 주소 추가](virtual-network-network-interface-addresses.md#private)를 읽기 전까지 추가하지 않는 것이 좋습니다.

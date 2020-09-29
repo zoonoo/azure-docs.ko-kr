@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553906"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448592"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
@@ -54,15 +54,15 @@ Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 
 
 1. Automation 계정에서 서비스 사용자를 안전하게 저장하는 데 사용할 **자격 증명** 리소스를 만듭니다.
 
-    ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/6.png)
+    !["자격 증명 추가" 작업이 선택 된 "자격 증명" 페이지를 보여 주는 스크린샷](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. 자격 증명에 대한 세부 정보를 입력합니다. **사용자 이름**에 서비스 사용자 애플리케이션 ID(appid)를 입력하고 **암호**에는 서비스 사용자 비밀을 입력합니다.
+2. 자격 증명에 대한 세부 정보를 입력합니다. **사용자 이름**에 서비스 사용자 응용 프로그램 ID (appid)를 입력 하 고 **암호**에 서비스 사용자 암호를 입력 합니다.
 
     ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Automation Runbook 가져오기
+3. Automation Runbook을 가져옵니다.
 
-    ![Runbook 가져오기](./media/analysis-services-refresh-azure-automation/8.png)
+    !["Runbook 가져오기" 작업을 선택 하 여 "Runbook" 페이지를 보여 주는 스크린샷](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. [Refresh-Model.ps1](#sample-powershell-runbook) 파일을 찾고 **이름**과 **설명**을 입력한 다음, **만들기**를 클릭합니다.
 
@@ -80,7 +80,7 @@ Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 
 
 6. **시작**을 클릭하여 Runbook을 테스트합니다.
 
-    ![Runbook 시작](./media/analysis-services-refresh-azure-automation/11.png)
+    !["시작" 작업이 선택 된 "개요" 페이지를 보여 주는 스크린샷](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. **DATABASENAME**, **ANALYSISSERVER** 및 **REFRESHTYPE** 매개 변수를 입력한 다음, **확인**을 클릭합니다. Runbook을 수동으로 실행하는 경우에는 **WEBHOOKDATA** 매개 변수가 필요하지 않습니다.
 

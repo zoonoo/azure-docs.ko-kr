@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461734"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448529"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복구
 
@@ -86,11 +86,11 @@ Log Analytics 작업 영역을 실수로 또는 의도적으로 삭제하면 서
 2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다. 선택한 범위에 있는 작업 영역 목록이 표시됩니다.
 3. 왼쪽 위 메뉴에서 **복구**를 클릭하여 복구할 수 있는 일시 삭제 상태의 작업 영역을 포함하는 페이지를 엽니다.
 
-   ![작업 영역 복구](media/delete-workspace/recover-menu.png)
+   ![메뉴 모음에서 복구가 강조 표시 된 Azure Portal Log Analytics 작업 영역 화면의 스크린샷](media/delete-workspace/recover-menu.png)
 
 4. 작업 영역을 선택하고 **복구**를 클릭하여 해당 작업 영역을 복구합니다.
 
-   ![작업 영역 복구](media/delete-workspace/recover-workspace.png)
+   ![작업 영역이 강조 표시 되 고 복구 단추가 선택 된 Azure Portal의 삭제 된 Log Analytics 작업 영역 복구 대화 상자 스크린샷](media/delete-workspace/recover-workspace.png)
 
 
 ### <a name="powershell"></a>PowerShell

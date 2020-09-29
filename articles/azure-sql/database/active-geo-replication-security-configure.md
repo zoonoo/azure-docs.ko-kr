@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e9724462dc5f94908a1071f7039b20cca1c97e69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 92a0c7fd3733b5e27c34c6fd0fe157bfb466a0fd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330782"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444894"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

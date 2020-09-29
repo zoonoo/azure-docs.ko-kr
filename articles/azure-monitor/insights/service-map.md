@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825364"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448464"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
@@ -169,7 +169,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 실패한 연결은 프로세스 및 컴퓨터에 대한 서비스 맵에 표시됩니다. 이때 클라이언트 시스템이 프로세스 또는 포트에 도달할 수 없는 경우 빨간색 점선으로 표시됩니다. 실패한 연결은 시스템에서 실패한 연결을 시도하는 경우 서비스 맵 에이전트가 배포된 모든 시스템에서 보고됩니다. 서비스 맵은 연결 설정에 실패한 TCP 소켓을 관찰하여 이 프로세스를 측정합니다. 이러한 실패는 방화벽, 클라이언트 또는 서버의 잘못된 구성 또는 원격 서비스를 사용할 수 없기 때문에 발생할 수 있습니다.
 
-![실패한 연결](media/service-map/failed-connections.png)
+![Backup.pl 프로세스와 4475 포트 간의 연결에 실패 했음을 나타내는 빨간색 파선을 강조 표시 하는 서비스 맵의 한 부분에 대 한 스크린샷](media/service-map/failed-connections.png)
 
 실패한 연결을 이해하면 문제 해결, 마이그레이션 유효성 검사, 보안 분석 및 전체 아키텍처를 이해하는 데 도움이 됩니다. 실패한 연결이 문제가 되지 않을 때도 있지만 갑자기 장애 조치(failover) 환경에 도달할 수 없거나 두 개의 애플리케이션 계층이 클라우드 마이그레이션 후 대화할 수 없는 등과 같은 문제를 직접적으로 나타내는 경우가 많습니다.
 
@@ -193,7 +193,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 모든 서버의 오른쪽 위에 있는 줄임표(...)를 클릭하면 해당 서버의 상황에 맞는 메뉴가 표시됩니다.
 
-![실패한 연결](media/service-map/context-menu.png)
+![서비스 맵 서버에 대 한 열린 상황에 맞는 메뉴를 보여 주는 스크린샷 메뉴에는 서버 매핑 로드 및 자체 링크 표시 옵션이 있습니다.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>서버 맵 로드
 
@@ -258,7 +258,7 @@ IT 서비스 관리 커넥터와 서비스 맵 통합은 두 솔루션이 사용
 
 **컴퓨터 변경 내용 추적** 창에 로그 검색의 추가 정보를 드릴다운 수 있는 링크와 함께 모든 변경 내용이 최근 순으로 표시됩니다.
 
-![컴퓨터 변경 내용 추적 창](media/service-map/change-tracking.png)
+![서비스 맵에서 컴퓨터 변경 내용 추적 창의 스크린샷](media/service-map/change-tracking.png)
 
 다음 이미지는 **Log Analytics에 표시**를 선택한 후 볼 수 있는 ConfigurationChange 이벤트의 자세히 보기입니다.
 
@@ -300,7 +300,7 @@ Linux:
 
 **컴퓨터 업데이트** 창에는 선택한 서버에 대한 업데이트 관리 솔루션의 데이터가 표시됩니다. 이 창에는 선택한 시간 범위 동안 서버에서 누락된 업데이트에 대한 요약이 나열됩니다.
 
-![컴퓨터 변경 내용 추적 창](media/service-map/machine-updates.png)
+![서비스 맵에서 컴퓨터 업데이트 창의 스크린샷](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
 

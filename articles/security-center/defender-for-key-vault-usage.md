@@ -4,15 +4,15 @@ description: Key Vault에 대해 Azure Defender에서 경고에 응답 하는 �
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd153eb1b0e96165bccc807a72bc3614ded49428
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301689"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448329"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Key Vault용 Azure Defender 경고에 응답
 Azure Defender에서 Key Vault에 대 한 경고를 수신 하는 경우 아래에 설명 된 대로 경고를 조사 하 고 응답 하는 것이 좋습니다. Azure Defender for Key Vault는 응용 프로그램 및 자격 증명을 보호 하므로 경고를 트리거한 응용 프로그램이 나 사용자에 대해 잘 알고 있는 경우에도 모든 경고를 둘러싼 상황을 확인 하는 것이 중요 합니다.  
@@ -25,7 +25,7 @@ Azure Defender for Key Vault의 모든 경고에는 다음 요소가 포함 됩�
 > [!TIP]
 > 발생 한 액세스 *유형에* 따라 일부 필드는 사용 하지 못할 수 있습니다. 예를 들어 응용 프로그램에서 키 자격 증명 모음에 액세스 한 경우에는 연결 된 사용자 계정 이름이 표시 되지 않습니다. 트래픽이 Azure 외부에서 시작 된 경우에는 개체 ID가 표시 되지 않습니다.
 
-## <a name="step-1-contact"></a>1단계. 연락처
+## <a name="step-1-contact"></a>1단계: 연락처
 
 1. 트래픽이 Azure 테 넌 트 내에서 시작 되었는지 여부를 확인 합니다. 키 자격 증명 모음 방화벽을 사용 하는 경우이 경고를 트리거한 사용자 또는 응용 프로그램에 대 한 액세스를 제공 했을 수 있습니다.
 1. 트래픽의 원본을 확인할 수 없으면 [2 단계를 계속 합니다. 즉시 완화](#step-2-immediate-mitigation).
@@ -50,7 +50,7 @@ Azure Defender for Key Vault의 모든 경고에는 다음 요소가 포함 됩�
     1. 관리자에게 문의하십시오.
     1. Azure Active Directory 사용 권한을 줄이거나 취소 해야 하는지 여부를 확인 합니다.
 
-## <a name="step-3-identify-impact"></a>3단계. 영향 식별 
+## <a name="step-3-identify-impact"></a>3단계: 영향 식별 
 영향이 완화 된 경우 주요 자격 증명 모음에서 영향을 받은 암호를 조사 합니다.
 1. Azure Key Vault에서 "보안" 페이지를 열고 트리거된 경고를 확인 합니다.
 1. 트리거된 특정 경고를 선택 합니다.
