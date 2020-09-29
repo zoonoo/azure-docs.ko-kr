@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003830"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400991"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -54,7 +54,7 @@ Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따릅�
 
 1. 값이 제공되면 **검토 및 만들기**를 선택합니다.
 
-    ![Recovery Services 자격 증명 모음 만들기](./media/backup-create-rs-vault/review-and-create.png)
+    ![Recovery Services 자격 증명 모음 만들기 프로세스에서 검토 + 만들기 단추를 보여주는 스크린샷.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Recovery Services 자격 증명 모음을 만들 준비가 되면 **만들기**를 선택합니다.
 
