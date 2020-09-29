@@ -69,6 +69,8 @@
       href: ../../backup/security-baseline.md
     - name: Azure Cache for Redis 보안 기준
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Azure Cognitive Search 보안 기준
+      href: ../../search/security-baseline.md
     - name: Azure Data Box 보안 기준
       href: ../../databox/security-baseline.md
     - name: Azure Data Explorer 보안 기준

@@ -292,7 +292,7 @@
               href: log-query/query-optimization.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
-        - name: 작업 영역
+        - name: 작업 영역 및 클러스터
           items:
             - name: 작업 영역 배포 디자인
               href: platform/design-logs-deployment.md
@@ -312,6 +312,8 @@
               href: platform/service-providers.md
             - name: 액세스 관리
               href: platform/manage-access.md
+            - name: Dedicated 클러스터
+              href: log-query/logs-dedicated-clusters.md
     - name: 메트릭 탐색기
       items:
         - name: 메트릭 탐색기로 시작
