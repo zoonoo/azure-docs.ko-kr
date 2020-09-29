@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905196"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442038"
 ---
 # <a name="resnet"></a>ResNet
 
 이 문서에서는 Azure Machine Learning designer에서 **resnet** 모듈을 사용 하 여 resnet 알고리즘을 사용 하 여 이미지 분류 모델을 만드는 방법을 설명 합니다.  
 
-이 분류 알고리즘은 감독 된 학습 방법 이며 레이블이 지정 된 데이터 집합이 필요 합니다. 레이블이 지정 된 이미지 디렉터리를 가져오는 방법에 대 한 자세한 내용은 [이미지 디렉터리로 변환](convert-to-image-directory.md) 모듈을 참조 하세요. 모델 및 레이블이 지정 된 이미지 디렉터리를 [학습 Pytorch 모델](train-pytorch-model.md)에 대 한 입력으로 제공 하 여 모델을 학습 시킬 수 있습니다. 그러면 학습 된 모델을 사용 하 여 [점수 매기기 이미지 모델](score-image-model.md)을 사용 하는 새 입력 예제의 값을 예측할 수 있습니다.
+이 분류 알고리즘은 감독 된 학습 방법 이며 레이블이 지정 된 데이터 집합이 필요 합니다. 
+> [!NOTE]
+> 이 모듈은 studio의 *데이터 레이블에* 의해 생성 된 레이블이 지정 된 데이터 집합을 지원 하지 않지만, [이미지 디렉터리 모듈로 변환](convert-to-image-directory.md) 에서 생성 된 레이블이 지정 된 이미지 디렉터리만 지원 합니다. 
+
+모델 및 레이블이 지정 된 이미지 디렉터리를 [학습 Pytorch 모델](train-pytorch-model.md)에 대 한 입력으로 제공 하 여 모델을 학습 시킬 수 있습니다. 그러면 학습 된 모델을 사용 하 여 [점수 매기기 이미지 모델](score-image-model.md)을 사용 하는 새 입력 예제의 값을 예측할 수 있습니다.
 
 ### <a name="more-about-resnet"></a>ResNet에 대 한 자세한 정보
 
@@ -46,7 +50,7 @@ ResNet에 대 한 자세한 내용은 [이 문서](https://pytorch.org/docs/stab
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 이름       | 범위 | Type    | 기본값           | 설명                              |
+| 속성       | 범위 | Type    | 기본값           | 설명                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
 | 모델 이름 | 모두   | 모드    | resnext101 \_ 32x8d | 특정 ResNet 구조의 이름입니다.       |
 | 미리 학습 된 | 모두   | 부울 | True              | ImageNet에서 미리 학습 된 모델을 사용할지 여부 |
@@ -54,7 +58,7 @@ ResNet에 대 한 자세한 내용은 [이 문서](https://pytorch.org/docs/stab
 
 ###  <a name="output"></a>출력  
 
-| 이름            | Type                    | 설명                              |
+| 속성            | 유형                    | 설명                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델 | UntrainedModelDirectory | 학습 Pytorch 모델에 연결할 수 있는 학습 되지 않은 ResNet 모델입니다. |
 

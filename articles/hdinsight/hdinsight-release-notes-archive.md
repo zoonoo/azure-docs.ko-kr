@@ -8,18 +8,72 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ad0ff98174a81518fe26063f9ccc6acbbddbf8d6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292523"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442373"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
 ## <a name="summary"></a>요약
 
 Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
+
+## <a name="release-date-08092020"></a>릴리스 날짜: 08/09/2020
+
+이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새 기능
+#### <a name="support-for-sparkcruise"></a>SparkCruise 지원
+SparkCruise는 Spark의 자동 계산 재사용 시스템입니다. 이전 쿼리 워크 로드를 기준으로 구체화 하는 공통 부분식을 선택 합니다. SparkCruise는 이러한 하위 식을 쿼리 처리의 일부로 구체화 하 고 계산 재사용은 백그라운드에서 자동으로 적용 됩니다. Spark 코드를 수정 하지 않고 SparkCruise의 이점을 누릴 수 있습니다.
+ 
+#### <a name="support-hive-view-for-hdinsight-40"></a>HDInsight 4.0에 대 한 Hive 보기 지원
+Apache Ambari Hive 보기는 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행 하는 데 도움이 되도록 설계 되었습니다. Hive 보기는이 릴리스에서부터 HDInsight 4.0 클러스터에 대해 기본적으로 지원 됩니다. 기존 클러스터에는 적용 되지 않습니다. 기본 제공 Hive 보기를 가져오려면 클러스터를 삭제 하 고 다시 만들어야 합니다.
+ 
+#### <a name="support-tez-view-for-hdinsight-40"></a>HDInsight 4.0에 대 한 Tez 보기 지원
+Apache Tez 뷰는 Hive Tez 작업의 실행을 추적 하 고 디버그 하는 데 사용 됩니다. Tez 뷰는이 릴리스에서부터 HDInsight 4.0에 대해 기본적으로 지원 됩니다. 기존 클러스터에는 적용 되지 않습니다. 기본 제공 Tez 뷰를 가져오려면 클러스터를 삭제 하 고 다시 만들어야 합니다.
+
+### <a name="deprecation"></a>사용 중단
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 Spark 2.1 및 2.2 사용 중단
+7 월 1 2020부터 고객은 HDInsight 3.6에서 Spark 2.1 및 2.2을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 3.6의 Spark 2.3으로 전환하는 것이 좋습니다.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>HDInsight 4.0 Spark 클러스터의 Spark 2.3 사용 중단
+7 월 1 2020부터 고객이 HDInsight 4.0의 Spark 2.3을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Spark 2.4로 전환하는 것이 좋습니다.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 Kafka 1.1 사용 중단
+2020년 7월 1일부터 고객은 HDInsight 4.0의 Kafka 1.1을 사용하여 새 Kafka 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Kafka 2.1로 전환하는 것이 좋습니다.
+
+### <a name="behavior-changes"></a>동작 변경 내용
+#### <a name="ambari-stack-version-change"></a>Ambari stack 버전 변경
+이 릴리스에서 Ambari 버전은 2.x에서 4.1로 변경 됩니다. Ambari: Ambari > 사용자 > 버전에서 스택 버전 (HDInsight 4.1)을 확인할 수 있습니다.
+
+### <a name="upcoming-changes"></a>예정된 변경
+앞으로 주의 해야 하는 주요 변경 내용이 없습니다.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+
+다음은 Hive에 대 한 백 포팅 된 JIRAs.
+* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
+* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
+* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
+* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
+* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
+* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+다음은 HBase에 대 한 백 포팅 된 JIRAs
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+사용자가 공개 키의 SSH 인증 유형을 사용 하 여 Azure HDInsight 클러스터를 만들 때 오류가 발생 하는 Azure Portal에서 문제가 해결 되었습니다. 사용자가 **검토 + 만들기**를 클릭하면 "SSH 사용자 이름에서 연속된 문자 세 개를 포함해서는 안 됩니다" 오류가 표시됩니다. 이 문제는 해결되었지만 수정된 보기를 로드하려면 CTRL + F5를 눌러 브라우저 캐시를 새로 고쳐야 할 수도 있습니다. 이 문제에 대한 해결 방법은 ARM 템플릿을 사용하여 클러스터를 만드는 것이었습니다. 
 
 ## <a name="release-date-07132020"></a>릴리스 날짜: 07/13/2020
 
@@ -337,7 +391,7 @@ HDInsight 4.0에서 사용할 수 있는 패치에 대 한 자세한 내용은 �
 |---|---|
 | Ambari | [Ambari 패치 정보](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
 | Hadoop은 | [Hadoop 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
-| HBase는 | [HBase 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
+| HBase | [HBase 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
 | Hive  | 이 릴리스는 추가 Apache 패치 없이 Hive 3.1.0 제공 합니다.  |
 | Kafka | 이 릴리스는 추가 Apache 패치 없이 Kafka 1.1.1을 제공 합니다. |
 | Oozie | [Oozie 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
@@ -561,7 +615,7 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): PrivilegedOperationException null 종료 코드로 인해 LinuxContainerExecutor에서 NPE를 수행합니다.
 
-#### <a name="hbase"></a>HBase는
+#### <a name="hbase"></a>HBase
 
 이 릴리스에서는 HBase 1.1.2 및 다음 Apache 패치를 제공합니다.
 
@@ -1784,7 +1838,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
         
       다음 예제에서는 태그가 \`tags-test\`인 정책을 만들고, 모든 Hive 구성 요소 권한(예: select, update, create, drop, alter, index, lock, all)을 선택하여 astags.attr\['type'\]=='abc' 정책 조건으로 해당 정책을 \`공용\` 그룹에 할당합니다.
         
-      **예제:**
+      **예:**
         
       ```bash
         curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'
@@ -1796,7 +1850,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
         
       REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-      **예제:**
+      **예:**
         
       ```bash
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'

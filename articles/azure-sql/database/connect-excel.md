@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 304ad51bc40c8165c2dc11bb70287491e3d6dfb9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267514"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444041"
 ---
 # <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스에 Excel 연결 및 보고서 만들기
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -80,10 +80,10 @@ ms.locfileid: "84267514"
 
       ![새 연결 대화 상자](./media/connect-excel/new-connection.png)
 
-2. **데이터 연결 마법사**에서 서버 이름과 SQL Database 자격 증명을 입력합니다. **새로 만들기**를 선택합니다.
+2. **데이터 연결 마법사**에서 서버 이름과 SQL Database 자격 증명을 입력합니다. **다음**을 선택합니다.
    1. 드롭다운에서 데이터가 포함된 데이터베이스를 선택합니다.
    2. 원하는 테이블 또는 보기를 선택합니다. 여기서는 vGetAllCategories를 선택했습니다.
-   3. **새로 만들기**를 선택합니다.
+   3. **다음**을 선택합니다.
 
       ![데이터 연결 마법사](./media/connect-excel/data-connection-wizard.png)
 

@@ -9,14 +9,14 @@ ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
-ms.date: 08/04/2020
-ms.openlocfilehash: 24611853749a5fa675b8c26d5e27c18e44590eaf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: mathoma, carlrab, danil
+ms.date: 09/25/2020
+ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284723"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444289"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -38,22 +38,21 @@ SQL Database와 SQL Managed Instance는 모두 SQL Server 기술을 사용 하 �
 
 기본적으로 SQL Database 및 SQL Managed Instance는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 복제 되는 지역 중복 (RA-GRS) [저장소 blob](../../storage/common/storage-redundancy.md) 에 데이터를 저장 합니다. 이를 통해 주 지역의 백업 저장소에 영향을 주는 중단 으로부터 보호 하 고 재해 발생 시 다른 지역으로 서버를 복원할 수 있습니다. 
 
-SQL Managed Instance는 저장소 중복성을 LRS (로컬 중복) 또는 ZRS (영역 중복) 저장소 blob로 변경 하 여 관리 되는 인스턴스가 배포 되는 동일한 지역 내에 데이터가 유지 되도록 하는 기능을 도입 했습니다. 저장소 중복성 메커니즘은 일시적인 하드웨어 오류, 네트워크 또는 정전 또는 대규모 자연 재해를 비롯 하 여 계획 되거나 계획 되지 않은 이벤트에서 보호 되도록 데이터의 여러 복사본을 저장 합니다. 
+백업 저장소 중복성을 구성 하는 옵션은 SQL Managed Instance 또는 SQL Database에 대해 로컬 중복, 영역 중복 또는 지역 중복 저장소 blob 중에서 선택할 수 있는 유연성을 제공 합니다. 관리 되는 인스턴스 또는 SQL 데이터베이스를 배포 하는 동일한 지역 내에 데이터가 유지 되도록 하려면 기본 지역 중복 백업 저장소 중복성을 변경 하 고 백업용으로 LRS (로컬 중복) 또는 ZRS (영역 중복) 저장소 blob을 구성할 수 있습니다. 저장소 중복성 메커니즘은 일시적인 하드웨어 오류, 네트워크 또는 정전 또는 대규모 자연 재해를 비롯 하 여 계획 되거나 계획 되지 않은 이벤트에서 보호 되도록 데이터의 여러 복사본을 저장 합니다. 구성 된 백업 저장소 중복성은 PITR (특정 시점 복원)에 사용 되는 단기 백업 보존 설정 및 장기 백업 (LTR)에 사용 되는 장기 보존 백업 모두에 적용 됩니다. 
 
-백업 저장소 중복성을 구성 하는 옵션은 SQL Managed Instance에 대 한 LRS, ZRS 또는 RA GRS storage blob 중에서 선택할 수 있는 유연성을 제공 합니다. 관리 되는 인스턴스 만들기 프로세스 중에 백업 저장소 중복성 구성 리소스가 프로 비전 되 면 저장소 중복성을 더 이상 변경할 수 없습니다. (ZRS (영역 중복 저장소)는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다.)
+SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구성 하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기존 데이터베이스에 대 한 변경 내용은 이후 백업에만 적용 됩니다. 기존 데이터베이스의 백업 저장소 중복성을 업데이트 한 후 변경 내용을 적용 하는 데 최대 48 시간이 걸릴 수 있습니다. 로컬 또는 영역 중복 저장소를 사용 하도록 데이터베이스를 업데이트 하는 즉시 지역 복원은 사용 하지 않도록 설정 됩니다. 
 
 
 > [!IMPORTANT]
-> SQL Managed Instance에서 구성 된 백업 중복성은 PITR (지정 시간 복원)에 사용 되는 단기 백업 보존 설정과 장기 백업 (LTR)에 사용 되는 장기 보존 백업 모두에 적용 됩니다.
+> 관리 되는 인스턴스 만들기 프로세스 중에 백업 저장소 중복성 구성 리소스가 프로 비전 되 면 저장소 중복성을 더 이상 변경할 수 없습니다. 
 
+> [!IMPORTANT]
+> 영역 중복 저장소는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다. 
 
 > [!NOTE]
-> 구성 가능한 백업 저장소 중복성은 현재 동남 아시아 Azure 지역의 특정 고객에 대해 제한 된 비공개 미리 보기로 제공 됩니다. Azure SQL Database 이 비공개 미리 보기에서 등록을 고려 하려면에 문의 하세요 [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) . 
-
-데이터 보호 규칙에서 오랜 시간 동안 백업을 사용할 수 있어야 하는 경우 (최대 10 년), 단일 데이터베이스 및 풀링된 데이터베이스에 대 한 [장기 보존](long-term-retention-overview.md) 을 구성할 수 있습니다.
+> 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. Azure SQL Database  
 
 ### <a name="backup-usage"></a>백업 사용
-
 
 백업을 사용하여 다음을 수행할 수 있습니다.
 
@@ -61,7 +60,7 @@ SQL Managed Instance는 저장소 중복성을 LRS (로컬 중복) 또는 ZRS (�
 - **삭제 된 데이터베이스**  -  의 지정 시간 복원 삭제 된 [데이터베이스를 삭제 시간으로 복원](recovery-using-backups.md#deleted-database-restore) 하거나 보존 기간 내의 특정 시점으로 복원 합니다. 삭제 된 데이터베이스는 원래 데이터베이스가 만들어진 것과 동일한 서버 또는 관리 되는 인스턴스에서만 복원할 수 있습니다. 데이터베이스를 삭제 하는 경우 서비스는 데이터 손실을 방지 하기 위해 삭제 전에 최종 트랜잭션 로그 백업을 수행 합니다.
 - **지역 복원**  -  [데이터베이스를 다른 지역으로 복원](recovery-using-backups.md#geo-restore)합니다. 지역 복원 기능을 사용 하면 주 지역에서 데이터베이스 또는 백업에 액세스할 수 없는 경우 지리적 재해 로부터 복구할 수 있습니다. 모든 Azure 지역의 기존 서버 또는 관리 되는 인스턴스에 새 데이터베이스를 만듭니다.
    > [!IMPORTANT]
-   > 지역 복원은 GRS (지역 중복) 백업 저장소가 구성 된 관리 되는 인스턴스에서만 사용할 수 있습니다.
+   > 지역 복원은 지역 중복 백업 저장소로 구성 된 SQL 데이터베이스 또는 관리 되는 인스턴스에서만 사용할 수 있습니다.
 - **장기 백업**  -  에서 복원 데이터베이스를 LTR (장기 보존 정책)로 구성한 경우 단일 데이터베이스 또는 풀링된 데이터베이스의 [특정 장기 백업에서 데이터베이스를 복원](long-term-retention-overview.md) 합니다. LTR을 사용하면 [Azure Portal](long-term-backup-retention-configure.md#using-the-azure-portal) 또는 [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell)을 사용해 이전 버전의 데이터베이스를 복원하여 규정 준수 요청을 충족하고 이전 버전의 애플리케이션을 실행할 수 있습니다. 자세한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
 
 복원을 수행하려면 [백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조하세요.
@@ -136,6 +135,9 @@ VCore 데이터베이스의 경우 각 백업 유형 (전체, 차등 및 로그)
 
 SQL Database 및 SQL Managed Instance 모두 Azure Blob storage에서 최대 10 년 동안 전체 백업 LTR (장기 보존)을 구성할 수 있습니다. LTR 정책이 구성 된 후에는 전체 백업이 매주 다른 저장소 컨테이너에 자동으로 복사 됩니다. 다양 한 규정 준수 요구 사항을 충족 하기 위해 매주, 매월 및/또는 매년 전체 백업에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 저장소 소비는 LTR 백업의 선택 된 빈도 및 보존 기간에 따라 달라 집니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 스토리지 비용을 추정할 수 있습니다.
 
+> [!IMPORTANT]
+> 기존 Azure SQL Database에 대 한 백업 저장소 중복성 업데이트는 데이터베이스에 대해 수행 되는 이후 백업에만 적용 됩니다. 데이터베이스에 대 한 모든 기존 LTR 백업은 기존 저장소 blob에 계속 존재 하 고 새 백업은 요청 된 저장소 blob 유형에 저장 됩니다. 
+
 LTR에 대한 자세한 내용은 [장기 백업 보존](long-term-retention-overview.md)을 참조하세요.
 
 ## <a name="storage-costs"></a>스토리지 비용
@@ -162,7 +164,7 @@ SQL Database의 단일 데이터베이스의 경우 데이터베이스에 대 �
 
 `Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
 
-청구 가능한 총 백업 저장소 (있는 경우)는 g b/월 단위로 요금이 청구 됩니다. 이 백업 저장소 사용량은 개별 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스의 워크 로드 및 크기에 따라 달라 집니다. 자주 수정 되는 데이터베이스의 경우에는 이러한 백업의 크기가 데이터 변경의 양에 비례 하므로 차등 및 로그 백업이 크게 증가 합니다. 따라서 이러한 데이터베이스에는 백업 비용이 더 많이 듭니다.
+청구 되는 총 백업 저장소 (있는 경우)는 사용 된 백업 저장소 중복성의 비율에 따라 g b/월 단위로 요금이 청구 됩니다. 이 백업 저장소 사용량은 개별 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스의 워크 로드 및 크기에 따라 달라 집니다. 자주 수정 되는 데이터베이스의 경우에는 이러한 백업의 크기가 데이터 변경의 양에 비례 하므로 차등 및 로그 백업이 크게 증가 합니다. 따라서 이러한 데이터베이스에는 백업 비용이 더 많이 듭니다.
 
 SQL Database 및 SQL Managed Instance은 모든 백업 파일에서 총 청구 가능 백업 저장소를 누적 값으로 계산 합니다. 1 시간 마다이 값이 시간당 사용량을 집계 하 여 각 월의 끝에 백업 저장소 소비를 가져오는 Azure 청구 파이프라인에 보고 됩니다. 데이터베이스가 삭제 된 경우 오래 된 백업 기간이 초과 되 면 백업 저장소 사용량이 점차 감소 하 고 삭제 됩니다. 차등 백업 및 로그 백업에서 복원 가능한 하기 위해 이전 전체 백업을 수행 해야 하기 때문에 세 가지 백업 유형이 모두 주별 집합에서 함께 제거 됩니다. 모든 백업이 삭제 되 면 청구는 중지 됩니다. 
 
@@ -184,13 +186,13 @@ SQL Database 및 SQL Managed Instance은 모든 백업 파일에서 총 청구 �
 백업 저장소 가격 책정에 대 한 자세한 내용은 가격 책정 페이지 및 [AZURE SQL Managed Instance 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) 하세요.
 
 > [!IMPORTANT]
-> 백업에 대 한 구성 가능한 저장소 중복성은 현재 SQL Managed Instance 에서만 사용할 수 있으며 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다.
+> SQL 관리 되는 인스턴스에 대 한 구성 가능한 백업 저장소 중복성은 모든 Azure 지역에서 사용할 수 있으며 현재는 SQL Database에만 동남 아시아 Azure 지역에서 사용할 수 있습니다. Managed Instance의 경우 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다.
 
 ### <a name="monitor-costs"></a>비용 모니터링
 
 백업 스토리지 비용을 이해하려면 Azure Portal의 **비용 관리 + 청구**로 이동하여 **비용 관리**를 선택한 다음, **비용 분석**을 선택합니다. 원하는 구독을 **범위**로 선택하고 관심 있는 기간 및 서비스를 필터링합니다.
 
-**서비스 이름**에 대한 필터를 추가한 다음, 드롭다운 목록에서 **SQL 데이터베이스**를 선택합니다. **미터 하위 범주** 필터를 사용하여 서비스에 대한 청구 카운터를 선택합니다. 단일 데이터베이스 또는 Elastic Database 풀의 경우 **단일/탄력적 풀 PITR 백업 스토리지**를 선택합니다. 관리되는 인스턴스의 경우 **MI PITR 백업 스토리지**를 선택합니다. **스토리지** 및 **계산** 하위 범주에도 관심이 갈지 모르지만, 이 둘은 백업 스토리지 비용과는 관련이 없습니다.
+**서비스 이름**에 대한 필터를 추가한 다음, 드롭다운 목록에서 **SQL 데이터베이스**를 선택합니다. **미터 하위 범주** 필터를 사용하여 서비스에 대한 청구 카운터를 선택합니다. 단일 데이터베이스 또는 탄력적 데이터베이스 풀의 경우 **단일/탄력적 풀 PITR 백업 저장소**를 선택 합니다. 관리 되는 인스턴스의 경우 **MI PITR backup storage**를 선택 합니다. **스토리지** 및 **계산** 하위 범주에도 관심이 갈지 모르지만, 이 둘은 백업 스토리지 비용과는 관련이 없습니다.
 
 ![백업 스토리지 비용 분석](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -369,17 +371,80 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 ## <a name="configure-backup-storage-redundancy"></a>백업 저장소 중복성 구성
 
 > [!NOTE]
-> 백업에 대 한 구성 가능한 저장소 중복성은 현재 SQL Managed Instance 에서만 사용할 수 있으며 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다.
+> SQL Managed Instance 백업에 대 한 구성 가능한 저장소 중복성은 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우 현재이 기능의 공개 미리 보기는 동남 아시아 Azure 지역 에서만 사용할 수 있습니다. 
 
-관리 되는 인스턴스의 백업 저장소 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. 기본값은 지역 중복 저장소 (RA-GRS)입니다. LRS (로컬 중복), ZRS (영역 중복) 및 지역 중복 (RA-GRS) 백업 저장소 간의 가격 차이에 대 한 자세한 내용은 [관리 되는 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 참조 하세요.
+관리 되는 인스턴스의 백업 저장소 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. SQL Database 데이터베이스를 만들 때 설정 하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기본값은 지역 중복 저장소 (RA-GRS)입니다. LRS (로컬 중복), ZRS (영역 중복) 및 지역 중복 (RA-GRS) 백업 저장소 간의 가격 차이에 대 한 자세한 내용은 [관리 되는 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 참조 하세요.
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 백업 저장소 중복성 구성
 
+#### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
+
+Azure Portal에서 **SQL Database 만들기** 블레이드에서 백업 저장소 중복성을 구성할 수 있습니다. 옵션은 백업 저장소 중복성 섹션에서 사용할 수 있습니다. 
+![SQL Database 만들기 블레이드 열기](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
+
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
+
 Azure Portal에서 백업 저장소 중복성을 변경 하는 옵션은 SQL Managed Instance를 만들 때 **기본** 탭의 **구성 Managed Instance** 옵션에서 액세스할 수 있는 **Compute + storage** 블레이드에 있습니다.
-![Compute + 저장소 구성-블레이드 열기](./media/automated-backups-overview/open-configuration-blade-mi.png)
+![Compute + 저장소 구성-블레이드 열기](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
 **계산 + 저장소** 블레이드에서 백업 저장소 중복성을 선택 하는 옵션을 찾습니다.
-![백업 저장소 중복성 구성](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
+![백업 저장소 중복성 구성](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
+
+---
+
+### <a name="configure-backup-storage-redundancy-by-using-powershell"></a>PowerShell을 사용 하 여 백업 저장소 중복성 구성
+
+#### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
+
+새 데이터베이스를 만들 때 백업 저장소 중복성을 구성 하려면-BackupStoageRedundancy 매개 변수를 지정 하면 됩니다. 가능한 값은 지역, 영역 및 지역입니다. 기본적으로 모든 SQL 데이터베이스는 백업에 지역 중복 저장소를 사용 합니다. 로컬 또는 영역 중복 백업 저장소를 사용 하 여 데이터베이스를 만든 경우 지역 복원을 사용할 수 없습니다. 
+
+```powershell
+# Create a new database with geo-redundant backup storage.  
+New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
+```
+
+자세한 내용은 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)를 참조 하세요.
+
+기존 데이터베이스의 백업 저장소 중복성을 업데이트 하려면-BackupStorageRedundancy 매개 변수를 사용 하면 됩니다. 가능한 값은 지역, 영역 및 지역입니다.
+데이터베이스에 변경 내용을 적용 하는 데 최대 48 시간이 걸릴 수 있습니다. 지역 중복 백업 저장소에서 로컬 또는 영역 중복 저장소로 전환 하면 지역 복원을 사용할 수 없습니다. 
+
+```powershell
+# Change the backup storage redundancy for Database01 to zone-redundant. 
+Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
+```
+
+자세한 내용은 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 를 참조 하세요.
+
+
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
+
+관리 되는 인스턴스를 만드는 동안 백업 저장소 중복성을 구성 하려면-BackupStoageRedundancy 매개 변수를 지정 합니다. 가능한 값은 지역, 영역 및 지역입니다.
+
+```powershell
+New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
+```
+
+자세한 내용은 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)를 참조 하세요.
+
+## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Azure Policy를 사용 하 여 백업 저장소 중복성 적용
+
+모든 데이터를 단일 Azure 지역에 유지 해야 하는 데이터 상주 요구 사항이 있는 경우 Azure Policy를 사용 하 여 SQL Database 또는 Managed Instance에 대해 영역 중복 또는 로컬 중복 백업을 적용 하는 것이 좋습니다. Azure Policy은 Azure 리소스에 규칙을 적용 하는 정책을 만들고 할당 하 고 관리 하는 데 사용할 수 있는 서비스입니다. Azure Policy를 사용 하면 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수 하는 상태로 유지할 수 있습니다. 자세한 내용은 [Azure Policy 개요](https://docs.microsoft.com/azure/governance/policy/overview)를 참조하세요. 
+
+### <a name="built-in-backup-storage-redundancy-policies"></a>기본 제공 백업 저장소 중복성 정책 
+
+지역 중복 백업 저장소를 사용 하 여 새 데이터베이스 또는 인스턴스 만들기를 차단 하기 위해 구독 또는 리소스 그룹 수준에서 할당 될 수 있는 새로운 기본 제공 정책이 추가 됩니다. 
+
+[GRS 백업 중복성을 사용 하지 않아야 SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
+
+[SQL 관리 되는 인스턴스는 GRS 백업 중복성을 사용 하지 않아야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
+
+SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전체 목록은 [여기](https://docs.microsoft.com/azure/azure-sql/database/policy-reference)에서 찾을 수 있습니다.
+
+조직 수준에서 데이터 상주 요구 사항을 적용 하기 위해 구독에 이러한 정책을 할당할 수 있습니다. 구독 수준에서 할당 된 후에는 지정 된 구독의 사용자가 Azure Portal 또는 Azure PowerShell를 통해 지역 중복 백업 저장소를 사용 하 여 데이터베이스 또는 관리 되는 인스턴스를 만들 수 없습니다. T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. 
+
+[Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) 또는 [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell) 를 사용 하 여 정책을 할당 하는 방법을 알아봅니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

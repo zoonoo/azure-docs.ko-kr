@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7b0f2bb479154fa10a18cd07a65b9f7287fc97c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278178"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444480"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
@@ -190,7 +190,7 @@ Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 �
 
 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 하 고 관리 하는 데 사용 되는 cmdlet은 다음 표에 나와 있습니다.
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |현재 구독의 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함)|
 | [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |현재 구독에서 SQL Managed Instance에 대 한 Azure AD 관리자를 제거 합니다. |
@@ -218,7 +218,7 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 다음 CLI 명령을 호출 하 여 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 할 수도 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | SQL Managed Instance에 대 한 Azure Active Directory 관리자를 프로 비전 합니다 (현재 구독에서 가져와야 함). |
 |[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | SQL Managed Instance에 대 한 Azure Active Directory 관리자를 제거 합니다. |
@@ -279,7 +279,7 @@ PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해�
 
 SQL Database 및 Azure Synapse에 대 한 Azure AD 관리자를 프로 비전 하 고 관리 하는 데 사용 되는 cmdlet:
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 제거 합니다.|
@@ -293,7 +293,7 @@ PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``를 지정합니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
 > [!NOTE]
 > Azure PowerShell 명령 ```Set-AzSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다.
@@ -324,7 +324,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 다음 CLI 명령을 호출 하 여 Azure AD 관리자를 프로 비전 할 수 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 |[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 제거 합니다. |

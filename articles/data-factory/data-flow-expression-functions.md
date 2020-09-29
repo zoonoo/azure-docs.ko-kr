@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: b26f892d622c66f7746f7938a709650070cad5d5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605104"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442513"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -637,6 +637,10 @@ ___
 한 숫자를 다른 숫자의 승수로 거듭제곱 합니다.  
 * ``power(10, 2) -> 100``  
 ___
+### <code>random</code>
+<code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
+파티션 내에서 선택적 초기값을 지정 하 여 난수를 반환 합니다. 초기값은 고정 값 이어야 하며 partitionId와 함께 사용 되어 임의 값을 생성 합니다. * ``random(1) == 1 -> false``
+___
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
 배열에 요소를 누적합니다. 줄이기를 사용 하면 첫 번째 식 함수에서 누적기 및 one 요소에 대 한 참조가 #acc 및 #item으로 예상 되며 결과 값이 두 번째 식 함수에서 사용 될 #result으로 예상 됩니다.  
@@ -741,6 +745,11 @@ ___
 <code><b>sinh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 하이퍼볼릭 사인 값을 계산 합니다.  
 * ``sinh(0) -> 0.0``  
+___
+### <code>size</code>
+<code><b>size(<i>&lt;value1&gt;</i> : any) => integer</b></code><br/><br/>
+배열 또는 지도 형식의 크기를 찾습니다. * ``size(['element1', 'element2']) -> 2``
+* ``size([1,2,3]) -> 3``
 ___
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>

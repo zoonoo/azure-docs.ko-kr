@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 610e21064c26734461ba8fd6639868dc930f926c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963940"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443666"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -81,7 +81,7 @@ Visual Studio를 사용 하 여 빌드하는 [이 샘플을 사용 하 여 Windo
 
 ![파일 DSN 만들기](./media/develop-cplusplus-simple/datasource.png)
 
-지금까지 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
+축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>5 단계: Linux C/C++ 애플리케이션에서 연결
 
@@ -131,7 +131,7 @@ Windows ODBC 샘플과 마찬가지로 이전에 Azure Portal에서 복사한 �
 
 ![Linux 콘솔 창 출력](./media/develop-cplusplus-simple/linuxconsolewindow.png)
 
-지금까지 자습서를 성공적으로 완료 했으며 이제 Windows 및 Linux 플랫폼의 c + +에서 Azure SQL Database에 연결할 수 있습니다.
+축하합니다! 자습서를 성공적으로 완료 했으며 이제 Windows 및 Linux 플랫폼의 c + +에서 Azure SQL Database에 연결할 수 있습니다.
 
 ## <a name="get-the-complete-cc-tutorial-solution"></a><a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 
@@ -145,7 +145,7 @@ GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 * [SQL Database 개발 개요](develop-overview.md) 를 검토 합니다.
 * [ODBC API 참조](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](saas-tenancy-app-design-patterns.md)
 * 모든 [SQL Database의 기능](https://azure.microsoft.com/services/sql-database/)

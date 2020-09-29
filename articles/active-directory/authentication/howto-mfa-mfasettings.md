@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526887"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441636"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -57,7 +57,7 @@ Azure Portal에서 사용할 수 있는 Azure Multi-Factor Authentication 설정
 
 ## <a name="block-and-unblock-users"></a>사용자 차단 및 차단 해제
 
-사용자의 장치를 분실 하거나 도난당 한 경우에는 연결 된 계정에 대 한 인증 시도를 차단할 수 있습니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다.
+사용자의 장치를 분실 하거나 도난당 한 경우 연결 된 계정에 대 한 Azure Multi-Factor Authentication 시도를 차단할 수 있습니다. 차단 된 사용자에 대 한 모든 Azure Multi-Factor Authentication 시도가 자동으로 거부 됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다.
 
 ### <a name="block-a-user"></a>사용자 차단
 
@@ -85,7 +85,7 @@ Azure Portal에서 사용할 수 있는 Azure Multi-Factor Authentication 설정
 
 다음 사기 행위 경고 구성 옵션을 사용할 수 있습니다.
 
-* **사기 행위를 보고 하는 사용자를 자동으로 차단**: 사용자가 사기 행위를 보고 하는 경우 해당 계정은 90 일 동안 또는 관리자가 계정을 차단 해제할 때까지 차단 됩니다. 관리자는 로그인 보고서를 사용하여 로그인을 검토하고 향후 사기를 예방하기 위해 적절한 조치를 취할 수 있습니다. 그런 다음 관리자는 사용자의 계정을 [차단 해제](#unblock-a-user)할 수 있습니다.
+* **사기 행위를 보고 하는 사용자 자동 차단**: 사용자가 사기 행위를 보고 하는 경우 사용자 계정에 대 한 Azure MFA 인증 시도는 90 일 동안 또는 관리자가 계정을 차단 해제할 때까지 차단 됩니다. 관리자는 로그인 보고서를 사용하여 로그인을 검토하고 향후 사기를 예방하기 위해 적절한 조치를 취할 수 있습니다. 그런 다음 관리자는 사용자의 계정을 [차단 해제](#unblock-a-user)할 수 있습니다.
 * **초기 인사말 중 사기 행위를 보고 하는 코드**: 사용자가 multi-factor authentication을 수행 하는 전화 통화를 받으면 일반적으로를 눌러 **#** 로그인을 확인 합니다. 사기 행위를 보고하려면 사용자가 **#** 를 누르기 전에 코드를 입력합니다. 이 코드의 기본값은 **0**이지만, 사용자가 지정할 수 있습니다.
 
    > [!NOTE]

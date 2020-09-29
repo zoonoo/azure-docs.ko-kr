@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064947"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443038"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "88064947"
 
 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **찾고 content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **찾습니다** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 (및 필수 클라이언트 dll)를 찾습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 요건
 
 1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL Database 데이터베이스를 만듭니다. [Azure Portal](https://portal.azure.com)로 이동합니다. 새 **SQL Database**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 

@@ -1,18 +1,18 @@
 ---
 title: '지점 및 사이트 간 연결과 RADIUS 인증을 사용하여 가상 네트워크에 컴퓨터 연결: PowerShell | Azure'
-description: P2S 및 RADIUS 인증을 사용하여 Windows 및 Mac OS X 클라이언트를 가상 네트워크에 안전하게 연결합니다.
+description: P2S 및 RADIUS 인증을 사용 하 여 Windows 및 OS X 클라이언트를 가상 네트워크에 안전 하 게 연결 합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329162"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442417"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -28,7 +28,7 @@ P2S VPN 연결은 Windows 및 Mac 디바이스에서 시작됩니다. 다음 인
 
 이 문서에서는 RADIUS 서버를 통해 인증하도록 P2S를 구성하는 방법에 대해 설명합니다. 대신 생성 된 인증서와 VPN gateway 기본 인증서 인증을 사용 하 여 인증 하려는 경우 [vpn gateway 기본 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md) 또는 Azure Active Directory 인증을 위해 [P2S openvpn 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기](openvpn-azure-ad-tenant.md) 를 참조 하세요.
 
-![연결 다이어그램 - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![RADIUS 서버를 사용 하 여 인증을 사용 하는 P2S 구성을 보여 주는 다이어그램입니다.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
 P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP (Secure Socket Tunneling Protocol), OpenVPN 또는 IKEv2를 통해 VPN 연결을 만듭니다.
 
@@ -65,7 +65,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example-values"></a><a name="example"></a>예제 값
 

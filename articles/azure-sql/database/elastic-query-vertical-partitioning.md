@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 95964064200064dcc43449e1d939c1cdfd78cdb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84035984"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443082"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84035984"
 
 수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 집합을 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 * 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다.
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "84035984"
 > 행 분할과 달리 이 DDL 문은 Elastic Database 클라이언트 라이브러리를 통한 분할 맵이 있는 데이터 계층 정의에 종속되지 않습니다.
 >
 
-1. [마스터 키 만들기](https://msdn.microsoft.com/library/ms174382.aspx)
+1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
@@ -172,7 +172,7 @@ DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 외부 데이터 원본의 자격 증명을 사용하여 원격 데이터베이스에 연결합니다.  
 
-예:
+예제:
 
 ```sql
     EXEC sp_execute_remote

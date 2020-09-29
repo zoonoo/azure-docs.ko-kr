@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 1bbd6ad9e33aab8d3564865b86485d70df5a108f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2abb66684738e97ade2a2e67309a4e7b53c4734
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343325"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442089"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀 관리
 
@@ -90,3 +90,12 @@ QoS 유형에 대 한 고려 사항을 이해 하려면 [Azure NetApp Files의 �
 * [Azure NetApp Files에 대한 메트릭](azure-netapp-files-metrics.md)
 * [Azure NetApp Files의 성능 고려 사항](azure-netapp-files-performance-considerations.md)
 * [용량 풀 문제 해결](troubleshoot-capacity-pools.md)
+* [Azure NetApp Files의 스토리지 계층 구조](azure-netapp-files-understand-storage-hierarchy.md)
+* [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
+* [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md)
+* [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
+* [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
+* [SMB 볼륨 만들기](azure-netapp-files-create-volumes-smb.md)
+* [이중 프로토콜 볼륨 만들기](create-volumes-dual-protocol.md)
+
+

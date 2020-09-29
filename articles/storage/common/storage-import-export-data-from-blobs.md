@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275214"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441884"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -119,7 +119,7 @@ ms.locfileid: "91275214"
 1. 내보낸 데이터가 있는 드라이브를 받은 후에는 BitLocker 키를 가져와서 드라이브의 잠금을 해제해야 합니다. Azure Portal에서 내보내기 작업으로 이동합니다. **가져오기/내보내기** 탭을 클릭합니다.
 2. 목록에서 내보내기 작업을 선택하고 클릭합니다. **암호화** 로 이동 하 여 키를 복사 합니다.
 
-   ![내보내기 작업의 BitLocker 키 보기](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
+   ![내보내기 작업의 BitLocker 키 보기](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. BitLocker 키를 사용하여 디스크의 잠금을 해제합니다.
 
@@ -153,14 +153,14 @@ ms.locfileid: "91275214"
 
     다음 표에는 매개 변수가 나와 있습니다.
 
-    |명령줄 매개 변수|Description|  
+    |명령줄 매개 변수|설명|  
     |--------------------------|-----------------|  
     |**/logdir**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
-    |**/sn**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
+    |**/sn**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
     |**/sk**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|  
     |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
-    |**/ExportBlobListFile:**|필수 요소. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
-    |**/DriveSize:**|필수 요소. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
+    |**/ExportBlobListFile:**|필수 사항입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
+    |**/DriveSize:**|필수 사항입니다. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
 
     [PreviewExport 명령 예제](#example-of-previewexport-command)를 참조하세요.
 
@@ -207,7 +207,7 @@ Number of drives needed:        3
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | Description |
+   | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
    | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

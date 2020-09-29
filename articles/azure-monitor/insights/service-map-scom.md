@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326038"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441505"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor 맵 기능과 System Center Operations Manager 통합
 
@@ -73,11 +73,11 @@ VM용 Azure Monitor 맵 통합을 구성하려면 다음을 수행합니다.
 
 6. 선택 사항: Log Analytics와 통신할 모든 관리 서버 리소스 풀을 선택한 다음, **작업 영역 추가**를 클릭합니다.
 
-    ![Operations Manager 구성 리소스 풀](media/service-map-scom/scom-config-pool.png)
+    ![모든 관리 서버 리소스 풀을 선택한 Microsoft Operations Management Suite 작업 영역 추가에서 서버 풀 화면의 스크린샷](media/service-map-scom/scom-config-pool.png)
 
     Log Analytics 작업 영역을 구성 및 등록하는 데 1분 정도 걸릴 수 있습니다. 구성된 후에 Operations Manager는 첫 번째 맵 동기화를 시작합니다.
 
-    ![Operations Manager 구성 리소스 풀](media/service-map-scom/scom-config-success.png)
+    ![작업 영역 추가가 추가 되었는지 확인 하는 Microsoft Operations Management Suite 작업 영역 추가의 완료 화면 스크린샷](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>모니터 통합
 
@@ -98,11 +98,11 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 * **머신 그룹 종속성 보기**: 맵 기능에서 동기화되는 모든 머신 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 애플리케이션 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 애플리케이션 다이어그램](media/service-map-scom/scom-group-dad.png)
+    ![각 컴퓨터 그룹의 이미지가 포함 된 다이어그램을 보여 주는 서비스 맵의 스크린샷 및 각 컴퓨터의 종속성을 나타내는 선입니다.](media/service-map-scom/scom-group-dad.png)
 
 * **서버 종속성 보기**: 맵 기능에서 동기화되는 모든 서버를 나열합니다. 원하는 서버를 클릭하면 해당 서버의 분산 애플리케이션 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 애플리케이션 다이어그램](media/service-map-scom/scom-dad.png)
+    ![각 서버에 대 한 이미지가 포함 된 다이어그램 및 두 항목 간의 종속성을 나타내는 선을 보여 주는 서비스 맵의 스크린샷](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
 

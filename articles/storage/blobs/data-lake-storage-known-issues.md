@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923741"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441784"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -96,7 +96,7 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 ### <a name="diagnostic-logs"></a>진단 로그
 
-진단 로그는 아직 Azure Portal을 사용하여 활성화할 수 없습니다. PowerShell을 사용하여 활성화할 수 있습니다. 예를 들면 다음과 같습니다.
+진단 로그는 아직 Azure Portal을 사용하여 활성화할 수 없습니다. PowerShell을 사용하여 활성화할 수 있습니다. 다음은 그 예입니다.
 
 ```powershell
 #To login
@@ -113,11 +113,9 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 
-- 수명 주기 관리 정책은 프리미엄 BlockBlobStorage 계정에서 아직 지원되지 않습니다. 
+- 수명 주기 관리 정책은 범용 v2 계정 에서만 지원 됩니다. 프리미엄 블록 Blobstorage 저장소 계정에서 아직 지원 되지 않습니다.
+- 데이터를 프리미엄 계층에서 하위 계층으로 이동할 수 없습니다.
 
-- 데이터를 프리미엄 계층에서 하위 계층으로 이동할 수 없습니다. 
-
-- **Blob 삭제** 작업은 현재 지원되지 않습니다. 
 
 ### <a name="hdinsight-support"></a>HDInsight 지원
 

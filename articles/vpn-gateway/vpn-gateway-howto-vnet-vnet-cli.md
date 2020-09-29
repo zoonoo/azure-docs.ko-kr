@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ffad738a8f10816f26760fa34c5ce686fac5bad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401149"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442151"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -70,7 +70,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 * [동일한 구독에 상주 하는 vnet:](#samesub) 이 구성에 대 한 단계에서는 TestVNet1 및 TestVNet4를 사용 합니다.
 
-  ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![동일한 구독에 상주 하는 V 안전망의 V 넷 단계를 보여 주는 다이어그램입니다.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 * [서로 다른 구독에 상주 하는 vnet:](#difsub) 이 구성에 대 한 단계에서는 TestVNet1 및 TestVNet5를 사용 합니다.
 
@@ -79,7 +79,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>같은 구독에 있는 VNet 연결
 
-### <a name="before-you-begin"></a>시작하기 전에
+### <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 명령을 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 

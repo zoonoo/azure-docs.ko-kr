@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894819"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441494"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -166,7 +166,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 1. 구독에서 Azure Defender를 사용 하는 경우 해당 구독에 대 한 보안 정책을 열고 **Azure defender off**를 선택 합니다.
 
-   ![가격 책정 계층][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Azure Defender 사용 또는 사용 안 함":::
 
 1. 다음으로, **보안 정책 - 데이터 수집** 페이지에서 **끄기**를 선택하여 자동 프로비저닝을 해제합니다.
    ![데이터 수집][2]
@@ -200,7 +200,7 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
 
 에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 ‘Security’ 또는 ‘SecurityCenterFree’ 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 **보안 정책 - 가격 책정 계층** 페이지를 통해 가격 책정 계층을 적용합니다.
 
-   ![가격 책정 계층][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Azure Defender 사용 또는 사용 안 함":::
 
 Security Center는 선택한 가격 책정 계층을 기반으로 작업 영역에 올바른 솔루션을 사용하도록 설정합니다.
 
@@ -271,7 +271,6 @@ Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

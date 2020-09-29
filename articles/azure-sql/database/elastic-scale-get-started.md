@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8a7efdee772c3a871fb8f26655dfc1160c275959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84029884"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442937"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84029884"
 
 ## <a name="elastic-database-tools-for-java"></a>Java용 Elastic Database 도구
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 요건
 
 * JDK(Java Developer Kit) 버전 1.8 이상
 * [Maven](https://maven.apache.org/download.cgi)
@@ -58,7 +58,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
     ![Progress-java][5]
 
-지금까지 Azure SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
+축하합니다! Azure SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
 클라이언트 라이브러리를 자신의 Maven 프로젝트에 추가하려면 POM 파일에 다음 종속성을 추가합니다.
 
@@ -72,7 +72,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 ## <a name="elastic-database-tools-for-net"></a>.Net용 Elastic Database 도구
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 요건
 
 * C#이 있는 Visual Studio 2012 이상. [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 * NuGet 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](https://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.
@@ -95,7 +95,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
    ![진행률][4]
 
-지금까지 SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
+축하합니다! SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure 및 SQL Database에 대한 업데이트와 동기화된 상태를 유지하도록 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -116,7 +116,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 * **기존의 분할된 데이터베이스 병합**: 분할 병합도 분할/병합 도구를 사용하여 수행할 수 있습니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 
 Elastic Database 도구 라이브러리는 무료로 제공됩니다. Elastic Database 도구를 사용하면 Azure 사용량 비용 이외의 요금이 추가되지 않습니다.
 

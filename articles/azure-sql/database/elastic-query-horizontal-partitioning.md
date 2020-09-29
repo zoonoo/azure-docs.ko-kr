@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 8dcaecb1e4eb91ee01e3ccb39000e087b3455ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832358"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443130"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "85832358"
 
 비분할 데이터베이스의 경우 [여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리](elastic-query-vertical-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 * 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 분할된 데이터베이스 맵을 만듭니다. [분할된 데이터베이스 맵 관리](elastic-scale-shard-map-management.md)를 참조하세요. 또는 [탄력적 데이터베이스 도구 시작하기](elastic-scale-get-started.md)의 샘플 앱을 사용하세요.
 * 또는 [기존 데이터베이스를 확장된 데이터베이스로 마이그레이션](elastic-convert-to-use-elastic-tools.md)을 참조합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "85832358"
 
 이 문은 탄력적 쿼리 데이터베이스에서 분할된 데이터 계층의 메타데이터 표현을 만듭니다.
 
-1. [마스터 키 만들기](https://msdn.microsoft.com/library/ms174382.aspx)
+1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
@@ -203,7 +203,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 또한 외부 데이터 원본의 자격 증명을 사용하여 분할 맵 관리자 데이터베이스 및 원격 데이터베이스에 연결합니다.  
 
-예:
+예제:
 
 ```sql
     EXEC sp_execute_remote

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398752"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442351"
 ---
 # <a name="wildcard-domains"></a>와일드 카드 도메인
 
@@ -72,7 +72,7 @@ WAF 정책은 다른 도메인과 비슷하게 와일드 카드 도메인에 연
 라우팅 규칙을 구성 하는 경우 와일드 카드 도메인을 프런트 엔드 호스트로 선택할 수 있습니다. 와일드 카드 도메인 및 하위 도메인에 대해 다른 경로 동작을 사용할 수도 있습니다. [Azure Front 도어가 경로 일치를 수행 하는 방법](front-door-route-matching.md)에 설명 된 대로 여러 라우팅 규칙에서 도메인에 대 한 가장 구체적인 일치 항목이 런타임에 선택 됩니다.
 
 > [!IMPORTANT]
-> 라우팅 규칙에 일치 하는 경로 패턴이 있어야 합니다. 그렇지 않으면 클라이언트에 오류가 표시 됩니다. 예를 들어 경로 1 ( `*.foo.com/*` 백 엔드 풀 A에 매핑됨)과 경로 2 ( `bar.foo.com/somePath/*` 백 엔드 풀 B로 매핑됨)와 같은 라우팅 규칙이 두 개 있습니다. 그런 다음에 대 한 요청이 도착 `bar.foo.com/anotherPath/*` 합니다. Azure 전면 도어는 더 구체적인 도메인 일치를 기반으로 경로 2를 선택 합니다. 경로 전체에서 일치 하는 경로 패턴을 찾을 수 없습니다.
+> 라우팅 규칙에 일치 하는 경로 패턴이 있어야 합니다. 그렇지 않으면 클라이언트에 오류가 표시 됩니다. 예를 들어 경로 1 ( `*.foo.com/*` 백 엔드 풀 A에 매핑됨)과 경로 2 ( `/bar.foo.com/somePath/*` 백 엔드 풀 B로 매핑됨)와 같은 라우팅 규칙이 두 개 있습니다. 그런 다음에 대 한 요청이 도착 `bar.foo.com/anotherPath/*` 합니다. Azure 전면 도어는 더 구체적인 도메인 일치를 기반으로 경로 2를 선택 합니다. 경로 전체에서 일치 하는 경로 패턴을 찾을 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

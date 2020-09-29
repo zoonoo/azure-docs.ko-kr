@@ -4,18 +4,18 @@ description: 감사 로그 Azure SQL Database 구성 하는 방법을 이해 합
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 49e885862a49bb3bbea718566ee5389e6b08e860
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954114"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444602"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
 

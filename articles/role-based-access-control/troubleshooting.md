@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329507"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441824"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -63,7 +63,7 @@ $ras.Count
 
     이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할을 할당 하는 것입니다.
 
-    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#new-service-principal)를 참조 하세요.
+    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)를 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -150,7 +150,7 @@ CanDelegate        : False
 }
 ```
 
-보안 주체가 삭제 된 위치에서 이러한 역할 할당을 유지 하는 것은 문제가 되지 않습니다. 원하는 경우 다른 역할 할당과 비슷한 단계를 사용 하 여 이러한 역할 할당을 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)또는 [Azure CLI](role-assignments-cli.md#remove-a-role-assignment) 를 참조 하세요.
+보안 주체가 삭제 된 위치에서 이러한 역할 할당을 유지 하는 것은 문제가 되지 않습니다. 원하는 경우 다른 역할 할당과 비슷한 단계를 사용 하 여 이러한 역할 할당을 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)또는 [Azure CLI](role-assignments-cli.md#remove-role-assignment) 를 참조 하세요.
 
 PowerShell에서 개체 ID 및 역할 정의 이름을 사용 하 여 역할 할당을 제거 하려고 하지만 둘 이상의 역할 할당이 매개 변수와 일치 하는 경우 "제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 됩니다. 다음 출력은 오류 메시지의 예를 보여 줍니다.
 

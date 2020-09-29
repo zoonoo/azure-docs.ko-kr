@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277974"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444375"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "91277974"
 
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 단일 데이터베이스를 추가 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 요건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -196,7 +196,7 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀을 추가 합니다.  
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 요건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -348,7 +348,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 Azure SQL Managed Instance의 �
 
 [Express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로를 구성 하거나 각 SQL Managed Instance의 가상 네트워크에 대 한 게이트웨이를 만들고 두 게이트웨이를 연결한 다음 장애 조치 (failover) 그룹을 만들어야 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 요건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -381,7 +381,7 @@ Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만
     | **필드** | 값 |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **Name** | 가상 네트워크 게이트웨이의 이름입니다. |
+    | **이름** | 가상 네트워크 게이트웨이의 이름입니다. |
     | **지역** | 기본 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
@@ -443,7 +443,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 보조 가상 네트워크 게�
    | **필드** | 값 |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **Name** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. |
+   | **이름** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. |
    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |

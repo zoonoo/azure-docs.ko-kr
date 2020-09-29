@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cd33e202a76a5ae55a68d902bb4812dcaaf348aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51439edd1d8c7094a5b857821f632ace9e2dea53
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84034674"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442763"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,7 +73,7 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 관리 자격 증명과 마찬가지로 "username@server" 형태의 값을 사용하지 않습니다. 대신 "username"만 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Azure SQL Database에서 데이터베이스 및 로그인 관리](logins-create-manage.md)
 

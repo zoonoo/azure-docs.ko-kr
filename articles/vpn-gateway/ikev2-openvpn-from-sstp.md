@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: aec5a08bf56cd9a9ba18159ffc28a129163571b0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426285"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442177"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
@@ -47,7 +47,7 @@ VPN gateway에 대해 128 개가 넘는 동시 P2S 연결을 지원 하지만 SS
 
 기존 게이트웨이에 IKEv2를 추가 하려면 포털에서 Virtual Network 게이트웨이의 "지점 및 사이트 간 구성" 탭으로 이동 하 고 드롭다운 상자에서 **ikev2 및 SSTP (SSL)** 를 선택 하면 됩니다.
 
-![지점 및 사이트 간](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+!["터널 유형" 드롭다운이 열려 있는 "지점 및 사이트 간 구성" 페이지와 "IKEv2 및 SSTP (SSL)"가 선택 되어 표시 되는 스크린샷](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>옵션 2-SSTP 제거 및 게이트웨이에서 OpenVPN 사용

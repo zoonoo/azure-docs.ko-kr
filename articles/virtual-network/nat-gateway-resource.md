@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612896"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441763"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
-NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일부이며, 가상 네트워크에 있는 하나 이상의 서브넷에 대한 아웃바운드 인터넷 연결을 제공합니다. 가상 네트워크의 서브넷에는 사용할 NAT 게이트웨이가 명시됩니다. NAT는 서브넷에 대한 SNAT(Source Network Address Translation)를 제공합니다.  NAT 게이트웨이 리소스는 아웃바운드 흐름을 만들 때 가상 머신에서 사용하는 고정 IP 주소를 지정합니다. 고정 IP 주소는 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 둘 다에서 제공됩니다. 공용 IP 접두사 리소스를 사용하는 경우 전체 공용 IP 접두사 리소스의 모든 IP 주소는 NAT 게이트웨이 리소스에서 사용됩니다. NAT 게이트웨이 리소스는 둘 중 하나에서 최대 16개의 고정 IP 주소를 사용할 수 있습니다.
-
+NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일부이며, 가상 네트워크에 있는 하나 이상의 서브넷에 대한 아웃바운드 인터넷 연결을 제공합니다. 가상 네트워크의 서브넷에는 사용할 NAT 게이트웨이가 명시됩니다. NAT는 서브넷에 대한 SNAT(Source Network Address Translation)를 제공합니다.  NAT 게이트웨이 리소스는 아웃바운드 흐름을 만들 때 가상 머신에서 사용하는 고정 IP 주소를 지정합니다. 고정 IP 주소는 PIP (공용 IP 주소 리소스), 공용 IP 접두사 리소스 또는 둘 다에서 제공 됩니다. 공용 IP 접두사 리소스를 사용하는 경우 전체 공용 IP 접두사 리소스의 모든 IP 주소는 NAT 게이트웨이 리소스에서 사용됩니다. NAT 게이트웨이 리소스는 둘 중 하나에서 최대 16개의 고정 IP 주소를 사용할 수 있습니다.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
@@ -231,7 +230,7 @@ NAT 게이트웨이 리소스를 사용하는 가상 머신 인스턴스가 NAT 
 
 각 NAT 게이트웨이 리소스는 최대 50Gbps의 처리량을 제공할 수 있습니다. 배포를 여러 서브넷으로 분할하고 각 서브넷 또는 서브넷 그룹에 NAT 게이트웨이를 할당하여 스케일 아웃할 수 있습니다.
 
-각 NAT 게이트웨이는 할당된 아웃바운드 IP 주소당 64,000개의 연결을 지원할 수 있습니다.  자세한 내용은 SNAT(Source Network Address Translation)에서 다음 섹션을 검토하고 특정 문제 해결 지침은 [문제 해결 문서](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat)를 검토합니다.
+각 NAT 게이트웨이는 할당 된 아웃 바운드 IP 주소 마다 각각 TCP 및 UDP에 대해 64000 흐름을 지원할 수 있습니다.  자세한 내용은 SNAT(Source Network Address Translation)에서 다음 섹션을 검토하고 특정 문제 해결 지침은 [문제 해결 문서](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat)를 검토합니다.
 
 ## <a name="source-network-address-translation"></a>SNAT(Source Network Address Translation)
 
@@ -239,27 +238,39 @@ SNAT는 다른 IP 주소에서 시작하도록 흐름의 원본을 다시 작성
 
 ### <a name="fundamentals"></a>기본 사항
 
-기본 개념을 설명하기 위해 4가지 흐름의 예를 살펴보겠습니다.  NAT 게이트웨이는 65.52.0.2 공용 IP 주소 리소스를 사용하고 있습니다.
+기본 개념을 설명하기 위해 4가지 흐름의 예를 살펴보겠습니다.  NAT 게이트웨이에서 공용 IP 주소 리소스 65.52.1.1를 사용 중 이며 VM이 65.52.0.1에 연결 하는 중입니다.
 
 | 흐름 | 원본 튜플 | 대상 튜플 |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 PAT가 수행되면 이러한 흐름은 다음과 같습니다.
 
 | 흐름 | 원본 튜플 | SNAT로 변환된 원본 튜플 | 대상 튜플 | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-대상에는 할당된 포트가 표시된 흐름의 원본이 65.52.0.2(SNAT 원본 튜플)로 표시됩니다.  위의 표에 나와 있는 PAT를 포트 위장 SNAT라고도 합니다.  여러 프라이빗 원본이 IP 및 포트 뒤에 위장되어 있습니다.
+대상에는 흐름의 소스가 할당 된 포트가 표시 된 65.52.0.1 (SNAT 원본 튜플)로 표시 됩니다.  위의 표에 나와 있는 PAT를 포트 위장 SNAT라고도 합니다.  여러 프라이빗 원본이 IP 및 포트 뒤에 위장되어 있습니다.  
 
-원본 포트가 할당된 특정 방식에 대한 종속성을 사용하지 않습니다.  위의 개념에서는 기본 개념만 보여 줍니다.
+#### <a name="source-snat-port-reuse"></a>원본 (SNAT) 포트 다시 사용
+
+NAT 게이트웨이 대해 선택적으로 원본 (SNAT) 포트를 사용 합니다.  다음은이 개념을 앞 흐름 집합의 추가 흐름으로 보여 줍니다.  예제의 VM은 65.52.0.2에 대 한 흐름입니다.
+
+| 흐름 | 원본 튜플 | 대상 튜플 |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+NAT 게이트웨이는 흐름 4를 다른 대상에도 사용할 수 있는 포트로 변환할 가능성이 높습니다.  IP 주소 프로 비전의 올바른 크기 조정에 대 한 자세한 내용은 [크기 조정](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) 을 참조 하세요.
+
+| 흐름 | 원본 튜플 | SNAT로 변환된 원본 튜플 | 대상 튜플 | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+
+위의 예제에서 원본 포트가 할당 된 특정 방식에 대 한 종속성을 사용 하지 마세요.  위의 개념에서는 기본 개념만 보여 줍니다.
 
 NAT에서 제공하는 SNAT는 여러 측면에서 [Load Balancer](../load-balancer/load-balancer-outbound-connections.md)와 다릅니다.
 
@@ -292,7 +303,12 @@ NAT 크기 조정은 주로 사용 가능한 공유 SNAT 포트 인벤토리를 
 
 SNAT는 개인 주소를 하나 이상의 공용 IP 주소에 매핑하고, 프로세스의 원본 주소와 원본 포트를 다시 작성합니다. NAT 게이트웨이 리소스는 이 변환에 구성된 공용 IP 주소마다 64,000개의 포트(SNAT 포트)를 사용합니다. NAT 게이트웨이 리소스는 최대 16개의 IP 주소와 1,000,000개의 SNAT 포트로 확장할 수 있습니다. 공용 IP 접두사 리소스가 제공되는 경우 접두사 내의 각 IP 주소는 SNAT 포트 인벤토리를 제공합니다. 그리고 더 많은 공용 IP 주소를 추가하면 사용 가능한 인벤토리 SNAT 포트도 증가합니다. TCP와 UDP는 서로 관련이 없는 별도의 SNAT 포트 인벤토리입니다.
 
-NAT 게이트웨이 리소스는 선택적으로 원본 포트를 다시 사용합니다. 크기 조정을 위해 각 흐름에 새 SNAT 포트가 필요하다고 가정하고 아웃바운드 트래픽에 사용할 수 있는 총 IP 주소 수를 조정해야 합니다.
+대해 선택적으로 원본 (SNAT) 포트를 다시 사용 하는 NAT 게이트웨이 리소스 크기 조정을 위한 디자인 지침으로 각 흐름에 새 SNAT 포트가 필요 하며 아웃 바운드 트래픽에 대해 사용 가능한 IP 주소의 총 수를 조정 해야 합니다.  디자인 하는 규모를 신중 하 게 고려 하 고 IP 주소 수량을 적절 하 게 프로 비전 해야 합니다.
+
+여러 대상에 대 한 SNAT 포트는 가능한 경우 다시 사용 될 가능성이 높습니다. SNAT 포트 소모 방법으로 인해 흐름이 성공 하지 못할 수 있습니다.  
+
+예는 [SNAT 기본 사항](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) 을 참조 하세요.
+
 
 ### <a name="protocols"></a>프로토콜
 
@@ -344,11 +360,9 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
   - [템플릿](./quickstart-create-nat-gateway-template.md)
 * NAT 게이트웨이 리소스 API에 대한 자세한 정보
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * [가용성 영역](../availability-zones/az-overview.md)에 대해 알아봅니다.
 * [표준 부하 분산 장치](../load-balancer/load-balancer-standard-overview.md)에 대해 알아봅니다.
 * [가용성 영역 및 표준 부하 분산 장치](../load-balancer/load-balancer-standard-availability-zones.md)에 대해 알아봅니다.
 * [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려줍니다](https://aka.ms/natuservoice).
-
-

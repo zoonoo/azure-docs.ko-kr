@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 42a2d571c04d08b5ec868bbd06cd521bfcda24bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038484"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443477"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -162,7 +162,7 @@ Get-Mappings -ShardMap $ShardMap
 
 분할/병합 도구를 사용하여 데이터를 다중 테넌트 모델에서 단일 테넌트 모델로 또는 반대로 이동합니다. [분할 병합 도구](elastic-scale-get-started.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 애플리케이션의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 

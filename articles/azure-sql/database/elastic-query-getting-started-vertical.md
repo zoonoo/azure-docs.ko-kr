@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2e133228f04cacdc14278abb8b6ee6303b820e7b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956851"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443329"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Azure SQL Database에 Elastic Database 쿼리(미리 보기)를 사용하면 단
 
 탄력적 데이터베이스 쿼리 기능에 대한 자세한 내용은 [Azure SQL Database 탄력적 데이터베이스 쿼리 개요](elastic-query-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다. 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 
@@ -117,7 +117,7 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 ```
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 
 현재 Azure SQL Database 가격에는 Elastic Database 쿼리 기능이 포함되어 있습니다.  
 
