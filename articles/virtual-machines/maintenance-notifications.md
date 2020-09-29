@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182172"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460580"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>계획 된 유지 관리 알림 처리
 
@@ -80,7 +80,7 @@ Azure Portal, PowerShell, REST API 및 CLI를 사용하여 사용자 VM에 대�
 
 **Q: 계획된 유지 관리에 관한 알림은 어떻게 받나요?**
 
-**A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 전자 메일 알림이 구독 관리자에 게 전송 됩니다 (구독 당 하나의 전자 메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
+**A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 전자 메일 알림이 서비스 관리자에 게 전송 됩니다 (구독 당 하나의 전자 메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
 
 **Q: 포털, PowerShell 또는 CLI에서 계획 된 유지 관리의 표시가 표시 되지 않습니다. 무슨 문제 있나요?**
 

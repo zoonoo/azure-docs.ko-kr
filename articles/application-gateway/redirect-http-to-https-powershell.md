@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596064"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446523"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -319,7 +319,7 @@ Update-AzVmss `
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
+[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예, http://52.170.203.149
 
 ```powershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -333,11 +333,4 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
-
-> [!div class="checklist"]
-> * 자체 서명된 인증서 만들기
-> * 네트워크 설정
-> * 인증서가 있는 애플리케이션 게이트웨이 만들기
-> * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+- [Application Gateway를 사용 하 여 HTTP 헤더 및 URL 다시 작성](rewrite-http-headers-url.md)

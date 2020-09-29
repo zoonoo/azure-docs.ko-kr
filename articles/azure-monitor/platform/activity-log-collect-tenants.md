@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cd0a510480673c48f23b25f48ead5d75e2d05c84
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321873"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447650"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Azure 활동 로그를 Azure Active Directory 테 넌 트 간에 Azure Monitor으로 수집 (레거시)
 
@@ -102,7 +102,7 @@ Logic App에는 다음이 포함됩니다.
 - JSON을 개체로 변환하기 위한 [작성 작업](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action)
 - 데이터를 Log Analytics 작업 영역에 게시 하는 [데이터 송신 커넥터 Log Analytics](/connectors/azureloganalyticsdatacollector/) 입니다.
 
-   ![Logic Apps에서 이벤트 허브 트리거 추가 이미지](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![이벤트 허브에서 활동 로그를 수집 하 고 Log Analytics 작업 영역에 기록 하는 단계를 보여 주는 논리 앱 디자이너의 스크린샷](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="logic-app-requirements"></a>Logic App 요구 사항
 Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확인합니다.
@@ -126,8 +126,8 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
    |설정 | 설명  |
    |:---|:---|
-   | Name           | Logic App의 고유 이름입니다. |
-   | 구독   | Logic App이 포함될 Azure 구독을 선택합니다. |
+   | 속성           | Logic App의 고유 이름입니다. |
+   | Subscription   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
    | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
    | Log Analytics  | Log Analytics 작업 영역에서 논리 앱의 각 실행 상태를 기록 하려는 경우 선택 합니다.  |
@@ -145,7 +145,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
 1. Logic App 디자이너의 검색 상자에서 필터에 *이벤트 허브*를 입력합니다. **Event Hubs - 이벤트 허브에서 이벤트를 사용할 수 있는 경우** 트리거를 선택합니다.
 
-   ![Logic Apps에서 이벤트 허브 트리거 추가 이미지](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Event Hubs 서비스에 대해 "Event Hubs-이벤트 허브에서 이벤트를 사용할 수 있습니다." 트리거를 사용 하는 논리 앱 디자이너의 스크린샷](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
 2. 자격 증명을 묻는 메시지가 표시되면 Event Hubs 네임스페이스에 연결합니다. 연결 이름과 복사한 연결 문자열을 입력합니다.  **만들기**를 선택합니다.
 
@@ -315,14 +315,14 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
 Logic App 디자이너에서 **실행**을 클릭하여 Logic App을 테스트합니다. Logic App의 각 단계에 상태 아이콘이 표시되며, 녹색 원에 흰색 확인 표시가 있으면 성공을 나타냅니다.
 
-   ![Logic App 테스트](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![테스트를 실행 한 후 논리 앱 디자이너의 스크린샷 논리 앱의 각 단계에는 성공을 나타내는 확인 표시가 있습니다.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 각 단계에 대한 자세한 정보를 보려면 단계 이름을 클릭하여 확장합니다. **원시 입력 표시** 및 **원시 출력 표시**를 클릭하여 각 단계에서 보내고 받은 데이터에 대한 자세한 정보를 확인합니다.
 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>5단계 - Log Analytics에서 Azure 활동 로그 보기
 최종 단계는 Log Analytics 작업 영역을 검사하여 데이터가 예상대로 수집되는지 확인하는 것입니다.
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택 합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 작업 영역을 선택합니다.
 3.  **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `AzureActivity_CL`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다. 사용자 지정 로그의 이름을 *AzureActivity*로 지정하지 않은 경우 선택한 이름을 입력하고 `_CL`을 추가합니다.
 
@@ -333,7 +333,7 @@ Logic App 디자이너에서 **실행**을 클릭하여 Logic App을 테스트�
 > 활동 로그는 사용자 지정 테이블에 기록되며 [활동 로그 솔루션](./activity-log.md)에 표시되지 않습니다.
 
 
-![Logic App 테스트](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![작업 세부 정보를 표시 하기 위해 하나의 결과가 확장 된 결과 테이블을 보여 주는 로그 검색 창에서 AzureActivity_CL 검색의 스크린샷](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888400"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446954"
 ---
 # <a name="configure-azure-sql-edge"></a>Azure SQL Edge 구성
 
@@ -33,7 +33,8 @@ Azure SQL Edge는 SQL Edge 컨테이너를 구성하는 데 사용할 수 있는
 Azure SQL Edge에 다음과 같은 새 환경 변수가 추가 되었습니다. 
 
 | 환경 변수 | Description | 값 |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **PlanId** | 초기화 하는 동안 사용할 Azure SQL Edge SKU를 지정 합니다. 이 환경 변수는 Azure IoT Edge을 사용 하 여 Azure SQL Edge를 배포 하는 경우에만 필요 합니다. | **asde-최첨단** 또는 **asde-최첨단** (영문) | 
 | **MSSQL_TELEMETRY_ENABLED** | 사용량 및 진단 데이터 수집을 사용 하거나 사용 하지 않도록 설정 합니다. | TRUE 또는 FALSE |  
 | **MSSQL_TELEMETRY_DIR** | 사용 및 진단 데이터 수집 감사 파일에 대 한 대상 디렉터리를 설정 합니다. | SQL Edge 컨테이너 내의 폴더 위치입니다. 이 폴더는 탑재 지점이 나 데이터 볼륨을 사용 하 여 호스트 볼륨에 매핑할 수 있습니다. | 
 | **MSSQL_PACKAGE** | 배포할 dacpac 또는 bacpac 패키지의 위치를 지정 합니다. | Dacpac 또는 bacpac 패키지를 포함 하는 폴더, 파일 또는 SAS URL입니다. 자세한 내용은 [SQL Edge에서 SQL DATABASE DACPAC 및 BACPAC 패키지 배포](deploy-dacpac.md)를 참조 하세요. |

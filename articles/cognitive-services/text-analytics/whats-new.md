@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/29/2020
 ms.author: aahi
-ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12f3ce506d8b4588dc9c670e49cabd3bc7767566
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271174"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460274"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -34,7 +34,7 @@ ms.locfileid: "91271174"
     * v. 3.0-preview. 1
     
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 2](quickstarts/text-analytics-sdk.md)
 
 ### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
 
@@ -165,7 +165,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 * 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
     * PersonType
-    * Product
+    * 제품
     * 이벤트
     * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
     * 기술
@@ -175,7 +175,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * 메일 
+    * 전자 메일 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소

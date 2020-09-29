@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33cafd058e55951f7da4e925a603c2c442d4aed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 57c23ba4acdbde1a5dfac39d89a09dfcef6b25a1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077673"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460903"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Azure Time Series Insights Gen2 데이터 수집 개요
 
@@ -37,4 +37,4 @@ Azure Time Series Insights Gen2 환경에는 스트리밍 시계열 데이터를
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Time Series Insights Gen2 환경의 [이벤트 원본](./concepts-streaming-ingestion-event-sources.md) 에 대 한 자세한 내용은을 계속 진행 하세요. 
+* Azure Time Series Insights Gen2 환경의 [이벤트 원본](./concepts-streaming-ingestion-event-sources.md) 에 대 한 자세한 내용은을 계속 진행 하세요.

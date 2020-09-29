@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933361"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447871"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -32,7 +32,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 마이크로 서비스 환경에서 구성 요소의 추적은 다른 스토리지 항목으로 이동할 수 있습니다. 모든 구성 요소에는 자체의 계측 키가 Application Insights에 있을 수 있습니다. 논리 작업에 대 한 원격 분석을 가져오기 위해 Application Insights는 모든 저장소 항목의 데이터를 쿼리 합니다. 저장소 항목 수가 클 경우 다음을 찾을 위치에 대 한 힌트가 필요 합니다. Application Insights 데이터 모델에서는 이 문제를 해결하기 위해 두 가지 필드, 즉 `request.source` 및 `dependency.target`을 정의합니다. 첫 번째 필드는 종속성 요청을 시작한 구성 요소를 식별 합니다. 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 식별 합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 예제를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
 
@@ -55,7 +55,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 외부 서비스를 호출 하는 경우 `GET /api/stock/value` 필드를 적절 하 게 설정할 수 있도록 해당 서버의 id를 알고 있어야 합니다 `dependency.target` . 외부 서비스에서 모니터링을 지원하지 않는 경우 `target`은 서비스의 호스트 이름으로 설정됩니다(예: `stock-prices-api.com`). 그러나 서비스에서 미리 정의 된 HTTP 헤더를 반환 하 여 자신을 식별 하는 경우 `target` 는 해당 서비스에서 원격 분석을 쿼리하여 분산 추적을 작성할 Application Insights 수 있는 서비스 id를 포함 합니다.
 
-## <a name="correlation-headers"></a>상관 관계 헤더
+## <a name="correlation-headers-using-w3c-tracecontext"></a>W3C TraceContext를 사용 하 여 상관 관계 헤더
 
 Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.github.io/trace-context/)전환 하는 중입니다.
 
@@ -70,6 +70,18 @@ Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.g
 - `Correlation-Context`: 분산 추적 속성의 이름-값 쌍 컬렉션을 전달 합니다.
 
 또한 Application Insights은 상관 관계 HTTP 프로토콜에 대 한 [확장](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) 을 정의 합니다. `Request-Context` 이름-값 쌍을 사용하여 즉각적인 호출자 또는 호출 수신자에서 사용하는 속성의 컬렉션을 전파합니다. Application Insights SDK는이 헤더를 사용 하 여 `dependency.target` 및 필드를 설정 합니다 `request.source` .
+
+[W3C 추적 컨텍스트](https://w3c.github.io/trace-context/) 및 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
+
+| Application Insights                   | W3C TraceContext                                      |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `SpanKind` 동기 인 경우 서버 `SpanKind` 비동기 인 경우 소비자                    |
+| `Dependency`                           | `SpanKind` 동기 인 경우 client `SpanKind` 비동기 인 경우 생산자                   |
+| `Request` 및 `Dependency`의 `Id`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `SpanId` 이 범위의 부모 범위에 대 한입니다. 루트 범위 이면이 필드는 비어 있어야 합니다.     |
+
+자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>클래식 ASP.NET 앱에 W3C 분산 추적 지원을 사용하도록 설정
  
@@ -204,25 +216,11 @@ public void ConfigureServices(IServiceCollection services)
   </script>
   ```
 
-## <a name="opentracing-and-application-insights"></a>OpenTracing 및 Application Insights
-
-[OpenTracing 데이터 모델 사양](https://opentracing.io/)과 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
-
-| Application Insights                   | OpenTracing                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span`(`span.kind = server` 사용)                    |
-| `Dependency`                           | `Span`(`span.kind = client` 사용)                    |
-| `Request` 및 `Dependency`의 `Id`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `ChildOf` 유형의 `Reference`(상위 범위)     |
-
-자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
-
-OpenTracing 개념에 대 한 정의는 OpenTracing [사양](https://github.com/opentracing/specification/blob/master/specification.md) 및 [의미 체계 규칙](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)을 참조 하세요.
-
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
 
-OpenCensus Python은 `OpenTracing` 앞에서 설명한 데이터 모델 사양을 따릅니다. 또한 구성을 요구 하지 않고 [W3C 추적 컨텍스트를](https://w3c.github.io/trace-context/) 지원 합니다.
+OpenCensus Python은 추가 구성을 요구 하지 않고 [W3C 추적 컨텍스트를](https://w3c.github.io/trace-context/) 지원 합니다.
+
+참조로 OpenCensus 데이터 모델은 [여기](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace)에서 찾을 수 있습니다.
 
 ### <a name="incoming-request-correlation"></a>들어오는 요청 상관 관계
 

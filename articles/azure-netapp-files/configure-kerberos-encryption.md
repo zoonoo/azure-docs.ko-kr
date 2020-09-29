@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535478"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461481"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
 
@@ -89,7 +89,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    예를 들면 다음과 같습니다. 
+    다음은 그 예입니다. 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
@@ -135,7 +135,7 @@ NFSv 4.1 볼륨에 현재 사용할 수 있는 보안 옵션은 다음과 같습
 
 ### <a name="expected-performance-impact"></a>예상 성능 영향 
 
-포커스에는 두 가지 영역, 즉 낮은 부하와 상한이 있습니다. 다음 목록에서는 보안 설정 및 시나리오 별로 성능 영향 보안 설정에 대해 설명 합니다. 모든 비교는 보안 매개 변수를 기준으로 수행 됩니다 `sec=sys` .
+포커스에는 두 가지 영역, 즉 낮은 부하와 상한이 있습니다. 다음 목록에서는 보안 설정 및 시나리오 별로 성능 영향 보안 설정에 대해 설명 합니다. 모든 비교는 보안 매개 변수를 기준으로 수행 됩니다 `sec=sys` . 단일 클라이언트를 사용 하 여 단일 볼륨에서 테스트가 수행 되었습니다. 
 
 Krb5.conf의 성능 영향:
 
@@ -175,4 +175,4 @@ Krb5p의 성능 영향:
 * [Azure NetApp Files에 대 한 Faq](azure-netapp-files-faqs.md)
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Active Directory 연결 만들기](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
-* [Azure NetApp Files에 대 한 NFS 클라이언트 구성](configure-nfs-clients.md) 
+* [Azure NetApp Files에 대한 NFS 클라이언트 구성](configure-nfs-clients.md) 

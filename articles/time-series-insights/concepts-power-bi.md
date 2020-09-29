@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: f2e1985dbc0860297b4f11b4d0a53affa26423d0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/28/2020
+ms.openlocfilehash: a04712a22536b5811b2465e56995d7b161a15c6b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495315"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460886"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Power BI에 Azure Time Series Insights Gen 2 연결  
 
@@ -33,8 +33,8 @@ Azure Time Series Insights은 이제 [Power BI](https://powerbi.microsoft.com/)�
 
 이제 데이터를 Power BI에 연결 하 여 다음과 같은 작업을 수행할 수 있습니다.
 
-* Power BI에서 지 원하는 다른 데이터 원본과의 상관 관계를 수행 하 고 다양 한 데이터 시각화 옵션의 호스트에 액세스 합니다. 
-* 시계열 정보 데이터를 사용 하 여 Power BI 대시보드 및 보고서를 만들고 조직과 공유 합니다. 
+* Power BI에서 지 원하는 다른 데이터 원본과의 상관 관계를 수행 하 고 다양 한 데이터 시각화 옵션의 호스트에 액세스 합니다.
+* 시계열 정보 데이터를 사용 하 여 Power BI 대시보드 및 보고서를 만들고 조직과 공유 합니다.
 * 간단 하 고 사용 하기 쉬운 방식으로 데이터 interop 시나리오를 잠금 해제 하 고 그 어느 때 보다 빠르게 정보를 얻을 수 있습니다.
 * 강력한 고급 편집기를 사용 하 여 Power BI 내의 Azure Time Series Insights 데이터를 수정 합니다.
 
@@ -42,19 +42,19 @@ Azure Time Series Insights은 이제 [Power BI](https://powerbi.microsoft.com/)�
 
 데이터를 연결 하는 데 1 분 미만이 걸립니다. Azure Time Series Insights 탐색기에서 Power BI으로 보기를 신속 하 게 내보내면 조직의 모든 사용자가 데이터를 직관적으로 액세스 하 고 시각적으로 변형할 수 있습니다.
 
-구성 옵션에는 **원시** 및 **집계 수준** 데이터를 선택 하 고 원하는 시간 범위를 선택 하는 작업이 포함 됩니다. 
+구성 옵션에는 **원시** 및 **집계 수준** 데이터를 선택 하 고 원하는 시간 범위를 선택 하는 작업이 포함 됩니다.
 
-데이터가 연결 된 후에는 Power BI의 다양 한 시각화 및 차트 도구를 사용 하 여 정보 공유 기능을 더욱 향상 시킬 수 있습니다. 
+데이터가 연결 된 후에는 Power BI의 다양 한 시각화 및 차트 도구를 사용 하 여 정보 공유 기능을 더욱 향상 시킬 수 있습니다.
 
    [![Power BI의 차트 예제](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
 
 단계별 세부 정보 [는 Power BI에 Azure Time Series Insights 연결 하는 방법](./how-to-connect-power-bi.md) 을 참조 하세요.
 
 ## <a name="flexible-workflow"></a>유연한 워크플로
- 
+
 워크플로의 어디에서 나 커넥터를 사용 합니다.
 
-* Azure Time Series Insights 탐색기에 있는 경우 보기를 Power BI으로 신속 하 게 내보낼 수 있습니다. 
+* Azure Time Series Insights 탐색기에 있는 경우 보기를 Power BI으로 신속 하 게 내보낼 수 있습니다.
 * 이미 Power BI에 있는 경우 Azure Time Series Insights를 사용 하 여 데이터를 쿼리 하는 기존 시각화 시나리오를 보강 합니다.
 
 Power BI 내의 고급 쿼리 및 편집 기능을 사용 하려면 Power BI의 고급 편집기을 사용 합니다.

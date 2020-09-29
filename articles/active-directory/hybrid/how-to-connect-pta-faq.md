@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280165"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461277"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -35,10 +35,6 @@ ms.locfileid: "89280165"
 
 통과 인증은 무료 기능입니다. 이 기능을 사용하는 데 Azure AD 유료 버전이 필요하지 않습니다.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>통과 인증은 [Microsoft Azure 독일 클라우드](https://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
-
-아닙니다. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
-
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[조건부 액세스](../conditional-access/overview.md)는 통과 인증에서 작동하나요?
 
 예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
@@ -48,7 +44,7 @@ ms.locfileid: "89280165"
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-아닙니다. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환 하면 어떻게 되나요?
 

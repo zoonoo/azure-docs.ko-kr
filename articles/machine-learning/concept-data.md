@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359684"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446695"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -58,7 +58,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 + Azure Blob 컨테이너
 + Azure 파일 공유
-+ Azure Data Lake
++ Azure 데이터 레이크
 + Azure Data Lake Gen2
 + Azure SQL Database
 + Azure Database for PostgreSQL
@@ -67,7 +67,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 ## <a name="datasets"></a>데이터 세트
 
-Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 가리키는 참조입니다. Azure Machine Learning 데이터 집합을 만드는 dataBy 복사본은 아닙니다. 데이터 원본 위치에 대 한 참조를 메타 데이터의 복사본과 함께 만듭니다. 
+Azure Machine Learning 데이터 집합은 데이터의 복사본이 아닙니다. 데이터 집합을 만들면 해당 메타 데이터의 복사본과 함께 저장소 서비스에서 데이터에 대 한 참조를 만들 수 있습니다. 
 
 데이터 집합은 지연 평가 되 고 데이터는 기존 위치에 남아 있기 때문에
 

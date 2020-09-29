@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/25/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2f6ade3a01022bf3bcc4d6b522e45ae98fe29b33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5866ddfee049499a4179505e0c1a206b1c68945
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258423"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447306"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
@@ -103,7 +103,7 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 | 새로 고침 토큰 최대 비활성 시간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |90일 |
 | 새로 고침 토큰 최대 기간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |Until-revoked |
 
-* <sup>1</sup> 해지 정보가 충분 하지 않은 페더레이션된 사용자에 게는 "LastPasswordChangeTimestamp" 특성이 동기화 되지 않은 모든 사용자가 포함 됩니다. 이러한 사용자의 경우 AAD가 이전 자격 증명(예: 변경된 암호)에 연결된 토큰을 해지할 시기를 확인할 수 없어 이 짧은 최대 사용 기간이 제공되며, 사용자 및 연결된 토큰이 여전히 양호한 상태인지 자주 확인해야 합니다. 이 환경을 개선 하기 위해 테 넌 트 관리자는 "LastPasswordChangeTimestamp" 특성을 동기화 하 고 있는지 확인 해야 합니다 (PowerShell 또는 AADSync를 사용 하 여 사용자 개체에 설정할 수 있음).
+* <sup>1</sup> 해지 정보가 충분 하지 않은 페더레이션된 사용자에 게는 "LastPasswordChangeTimestamp" 특성이 동기화 되지 않은 모든 사용자가 포함 됩니다. Azure Active Directory에서 이전 자격 증명 (예: 변경 된 암호)에 연결 된 토큰을 해지 하는 시기를 확인할 수 없으며, 사용자 및 연결 된 토큰이 여전히 양호한 상태 인지 확인 하기 위해 더 자주 다시 확인 해야 하기 때문에 이러한 사용자에 게는이 짧은 최대 나이가 제공 됩니다. 이 환경을 개선 하기 위해 테 넌 트 관리자는 "LastPasswordChangeTimestamp" 특성을 동기화 하 고 있는지 확인 해야 합니다 (PowerShell 또는 AADSync를 사용 하 여 사용자 개체에 설정할 수 있음).
 
 ### <a name="policy-evaluation-and-prioritization"></a>정책 평가 및 우선 순위 지정
 토큰 수명 정책을 만들어서 특정 애플리케이션, 조직 및 서비스 주체에 할당할 수 있습니다. 특정 애플리케이션에 여러 정책이 적용될 수 있습니다. 적용되는 토큰 수명 정책은 다음 규칙을 따릅니다.
@@ -209,7 +209,7 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 * web API를 호출하는 네이티브 앱에 대한 정책 만들기
 * 고급 정책 관리
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 요건
 다음 예제에서는 앱, 서비스 주체 및 조직 전체에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제해 보겠습니다. Azure AD를 처음 사용 하는 경우 이러한 예제를 진행 하기 전에 [AZURE ad 테 넌 트를 가져오는 방법](quickstart-create-new-tenant.md) 에 대해 알아보는 것이 좋습니다.  
 
 시작하려면 다음 단계를 수행합니다.
@@ -382,170 +382,37 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 
 ## <a name="cmdlet-reference"></a>Cmdlet 참조
 
+[Azure Active Directory PowerShell For Graph Preview 모듈](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true)의 cmdlet입니다.
+
 ### <a name="manage-policies"></a>정책 관리
 
 다음 cmdlet을 사용하여 정책을 관리할 수 있습니다.
 
-#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-
-새 정책을 만듭니다.
-
-```powershell
-New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Definition</code> |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |true이면 정책을 조직의 기본 정책으로 설정하고 false이면 아무 작업도 수행하지 않습니다. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[선택 사항] |정책에 대한 대체 ID를 설정합니다. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-모든 Azure AD 정책 또는 지정된 정책을 가져옵니다.
-
-```powershell
-Get-AzureADPolicy
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code>[선택 사항] |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-정책에 연결된 모든 앱 및 서비스 주체를 가져옵니다.
-
-```powershell
-Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-기존 정책을 업데이트합니다.
-
-```powershell
-Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[선택 사항] |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[선택 사항] |true이면 정책을 조직의 기본 정책으로 설정하고 false이면 아무 작업도 수행하지 않습니다. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[선택 사항] |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[선택 사항] |정책에 대한 대체 ID를 설정합니다. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-지정된 정책을 삭제합니다.
-
-```powershell
- Remove-AzureADPolicy -Id <ObjectId of Policy>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Policy>` |
-
-</br></br>
+| cmdlet | 설명 | 
+| --- | --- |
+| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 새 정책을 만듭니다. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 모든 Azure AD 정책 또는 지정된 정책을 가져옵니다. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | 정책에 연결된 모든 앱 및 서비스 주체를 가져옵니다. |
+| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 기존 정책을 업데이트합니다. |
+| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 삭제합니다. |
 
 ### <a name="application-policies"></a>애플리케이션 정책
 애플리케이션 정책에 다음 cmdlet을 사용할 수 있습니다.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-지정된 정책을 애플리케이션에 연결합니다.
-
-```powershell
-Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-애플리케이션에 할당된 정책을 가져옵니다.
-
-```powershell
-Get-AzureADApplicationPolicy -Id <ObjectId of Application>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-애플리케이션에서 정책을 제거합니다.
-
-```powershell
-Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
+| cmdlet | 설명 | 
+| --- | --- |
+| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 애플리케이션에 연결합니다. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 애플리케이션에 할당된 정책을 가져옵니다. |
+| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 애플리케이션에서 정책을 제거합니다. |
 
 ### <a name="service-principal-policies"></a>서비스 사용자 정책
 서비스 주체 정책에 다음 cmdlet을 사용할 수 있습니다.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-지정된 정책을 서비스 주체에 연결합니다.
-
-```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-지정된 서비스 주체에 연결된 모든 정책을 가져옵니다.
-
-```powershell
-Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-지정된 서비스 주체에서 정책을 제거합니다.
-
-```powershell
-Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
-```
-
-| 매개 변수 | Description | 예제 |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |
+| cmdlet | 설명 | 
+| --- | --- |
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 서비스 주체에 연결합니다. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 서비스 주체에 연결된 모든 정책을 가져옵니다.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 서비스 주체에서 정책을 제거합니다.|
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 

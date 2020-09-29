@@ -8,33 +8,32 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287548"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460831"
 ---
 # <a name="data-storage"></a>데이터 스토리지
 
 이 문서에서는 Azure Time Series Insights Gen2의 데이터 저장소에 대해 설명 합니다. 웜 및 콜드, 데이터 가용성 및 모범 사례를 다룹니다.
 
-## <a name="provisioning"></a>프로비저닝
+## <a name="provisioning"></a>프로비전
 
 Azure Time Series Insights Gen2 환경을 만들 때 다음 옵션을 사용할 수 있습니다.
 
 * 콜드 데이터 저장소:
-   * 사용자 환경에 대해 선택한 구독 및 지역에 새 Azure Storage 리소스를 만듭니다.
-   * 기존 Azure Storage 계정을 연결 합니다. 이 옵션은 Azure Resource Manager [템플릿에서](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)배포 하는 경우에만 사용할 수 있으며 Azure Portal에는 표시 되지 않습니다.
+  * 사용자 환경에 대해 선택한 구독 및 지역에 새 Azure Storage 리소스를 만듭니다.
+  * 기존 Azure Storage 계정을 연결 합니다. 이 옵션은 Azure Resource Manager [템플릿에서](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)배포 하는 경우에만 사용할 수 있으며 Azure Portal에는 표시 되지 않습니다.
 * 웜 데이터 저장소:
-   * 웜 저장소는 선택 사항이 며 프로 비전 중 또는 이후 시간에 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 나중에 웜 스토어를 사용 하도록 설정 하 고 콜드 스토어에 이미 데이터가 있는 경우 [아래 섹션을](concepts-storage.md#warm-store-behavior) 검토 하 여 예상 되는 동작을 파악 합니다. 웜 저장소 데이터 보존 시간은 7 ~ 31 일 동안 구성할 수 있으며, 필요에 따라 조정할 수도 있습니다.
+  * 웜 저장소는 선택 사항이 며 프로 비전 중 또는 이후 시간에 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 나중에 웜 스토어를 사용 하도록 설정 하 고 콜드 스토어에 이미 데이터가 있는 경우 [아래 섹션을](concepts-storage.md#warm-store-behavior) 검토 하 여 예상 되는 동작을 파악 합니다. 웜 저장소 데이터 보존 시간은 7 ~ 31 일 동안 구성할 수 있으며, 필요에 따라 조정할 수도 있습니다.
 
 수집 인 이벤트는 웜 저장소 (사용 하는 경우) 및 콜드 스토어 모두에서 인덱싱됩니다.
 
 [![저장소 개요](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > 콜드 저장소 데이터가 있는 Azure Blob 스토리지 계정의 소유자는 계정의 모든 데이터에 대한 모든 액세스 권한을 갖습니다. 이 액세스 권한에는 쓰기 및 삭제 권한이 포함됩니다. 데이터 손실이 발생할 수 있으므로 Gen2 쓰기를 Azure Time Series Insights 하는 데이터를 편집 하거나 삭제 하지 마세요.
@@ -50,11 +49,11 @@ Azure Time Series Insights Gen2 환경을 만들 때 다음 옵션을 사용할 
 
 웜 저장소의 데이터는 시계열 [쿼리 api](./time-series-insights-update-tsq.md), [Azure Time Series Insights tsi 탐색기](./time-series-insights-update-explorer.md)또는 [Power BI 커넥터](./how-to-connect-power-bi.md)를 통해서만 사용할 수 있습니다. 웜 저장소 쿼리는 무료 이며 할당량은 없지만 동시 요청 수는 [30 개로 제한](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) 됩니다.
 
-### <a name="warm-store-behavior"></a>웜 저장 동작 
+### <a name="warm-store-behavior"></a>웜 저장 동작
 
 * 사용 하도록 설정 하면 이벤트 타임 스탬프에 관계 없이 사용자 환경으로 스트리밍되는 모든 데이터가 웜 저장소로 라우팅됩니다. 스트리밍 수집 파이프라인은 거의 실시간 스트리밍을 위해 작성 되었으며 수집 기록 이벤트는 [지원 되지 않습니다](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * 보존 기간은 이벤트가 이벤트 타임 스탬프가 아니라 웜 저장소에서 인덱싱되는 시점을 기준으로 계산 됩니다. 즉, 나중에 이벤트 타임 스탬프가 있는 경우에도 보존 기간이 경과 된 후에는 데이터를 웜 저장소에서 더 이상 사용할 수 없습니다.
-  - 예: 10 일 일기 예보가 있는 이벤트는 7 일의 보존 기간으로 구성 된 웜 저장소 컨테이너에서 수집 및 인덱싱됩니다. 7 일 후에는 더 이상 웜 저장소에서 예측이 액세스 되지 않지만 콜드에서 쿼리할 수 있습니다. 
+  * 예: 10 일 일기 예보가 있는 이벤트는 7 일의 보존 기간으로 구성 된 웜 저장소 컨테이너에서 수집 및 인덱싱됩니다. 7 일 후에는 더 이상 웜 저장소에서 예측이 액세스 되지 않지만 콜드에서 쿼리할 수 있습니다.
 * 최신 데이터를 이미 콜드 저장소에 인덱싱한 기존 환경에서 웜 스토어를 사용 하도록 설정 하는 경우 웜 저장소는이 데이터로 다시 채워지지 않습니다.
 * 웜 저장소를 사용 하도록 설정 하 고 탐색기에서 최근 데이터를 보는 동안 문제가 발생 한 경우 웜 저장소 쿼리를 일시적으로 해제할 수 있습니다.
 

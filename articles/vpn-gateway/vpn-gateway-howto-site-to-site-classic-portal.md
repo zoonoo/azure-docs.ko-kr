@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f096993645aca6999667af88c91d3f55f79d914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983056"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445925"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "84983056"
 
 ![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전 주의 사항
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -112,7 +112,7 @@ DNS 설정이 S2S 구성의 일부가 아니지만 이름을 확인하려는 경
    - **VPN Gateway IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. VPN 디바이스에는 IPv4 공용 IP 주소가 필요합니다. 연결하려는 VPN 디바이스에 유효한 공용 IP 주소를 지정합니다. Azure에서 연결할 수 있어야 합니다. VPN 디바이스의 IP 주소를 모르는 경우 항상 자리 표시자 값을 넣고(반드시 유효한 공용 IP 주소 형식으로) 나중에 변경할 수 있습니다.
    - **클라이언트 주소 공간:** 이 게이트웨이를 통해 로컬 온-프레미스 네트워크에 라우팅할 IP 주소 범위를 나열합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 자체 가상 네트워크가 연결된 다른 네트워크의 범위 또는 가상 네트워크 자체의 주소 범위와 겹치지 않도록 합니다.
 
-   ![로컬 사이트](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "로컬 사이트 구성")
+   !["새 VPN 연결 및" 로컬 사이트 "창을 보여 주는 스크린샷](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png)
 
 **확인** 을 클릭 하 여 로컬 사이트 페이지를 닫습니다. **확인을 클릭 하 여 새 VPN 연결 페이지를 닫습니다**.
 
@@ -157,7 +157,7 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 > 현재 이 단계는 Azure Portal에서 지원되지 않습니다. Azure PowerShell cmdlet의 SM(서비스 관리) 버전을 사용해야 합니다. 이러한 cmdlet을 설치 하는 방법에 대 한 정보는 [시작 하기 전에](#before) 를 참조 하세요.
 >
 
-### <a name="step-1-connect-to-your-azure-account"></a>1단계. Azure 계정에 연결
+### <a name="step-1-connect-to-your-azure-account"></a>1단계: Azure 계정에 연결
 
 PowerShell 서비스 관리 모듈을 사용 하 여 이러한 명령을 로컬로 실행 해야 합니다. 
 

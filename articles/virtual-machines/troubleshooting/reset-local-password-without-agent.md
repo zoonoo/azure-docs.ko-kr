@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42d994a9cdd0e2718d8c2288b6cc0b9618202b41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028671"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447483"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM 오프라인의 로컬 Windows 암호 재설정
 Azure 게스트 에이전트 설치가 제공되는 [Azure Portal 또는 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure에서 VM의 로컬 Windows 암호를 재설정할 수 있습니다. 이 방법은 Azure VM의 암호를 재설정하는 기본 방법입니다. Azure 게스트 에이전트가 응답하지 않거나 사용자 지정 이미지를 업로드한 후 설치에 실패하는 문제가 발생하는 경우 Windows 암호를 수동으로 재설정할 수 있습니다. 이 문서에는 다른 VM에 원본 OS 가상 디스크를 연결하여 로컬 계정 암호를 재설정하는 방법을 자세히 설명합니다. 이 문서에 설명된 단계는 Windows 도메인 컨트롤러에는 적용되지 않습니다. 
@@ -67,21 +67,21 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![scripts.ini 만들기](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![scripts.ini 만들기](./media/reset-local-password-without-agent/create-scripts-ini-1.png)
 
-5. 다음 내용으로 `<username>` 및 `<newpassword>`를 고유한 값으로 교체하여 `\Windows\System32`에 `FixAzureVM.cmd`를 만듭니다.
+5. 다음 내용으로 `<username>` 및 `<newpassword>`를 고유한 값으로 교체하여 `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\`에 `FixAzureVM.cmd`를 만듭니다.
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![FixAzureVM.cmd 만들기](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![FixAzureVM.cmd 만들기](./media/reset-local-password-without-agent/create-fixazure-cmd-1.png)
    
     새 암호를 정의하는 경우 VM에 대해 구성된 암호 복잡성 요구 사항을 충족해야 합니다.
 
@@ -93,7 +93,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
 
 9. 새 VM에 대한 원격 세션에서 다음 파일을 제거하여 환경을 정리합니다.
     
-    * %windir%\System32에서
+    * %Windir%\System32\GroupPolicy\Machine\Scripts\Startup에서
       * FixAzureVM.cmd 제거
     * %windir%\System32\GroupPolicy\Machine\Scripts에서
       * scripts.ini 제거
@@ -113,31 +113,31 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
    
    * Azure Portal에서 VM을 선택한 다음, *삭제*를 클릭합니다.
      
-     ![기존 VM 삭제](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     ![기존 클래식 VM 삭제](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
 2. 문제 해결 VM에 원본 VM의 OS 디스크를 연결합니다. 문제 해결 VM은 원본 VM의 OS 디스크와 동일한 지역에 있어야 합니다(예: `West US`).
    
    1. Azure Portal에서 문제 해결 VM을 선택합니다. *디스크* | *기존 연결*을 클릭합니다.
      
-      ![기존 디스크 연결](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![기존 디스크 연결-클래식](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
    2. *VHD 파일*을 선택한 다음 원본 VM을 포함하는 스토리지 계정을 선택합니다.
      
-      ![스토리지 계정 선택](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![저장소 계정 선택-클래식](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. *클래식 스토리지 계정 표시*라고 되어 있는 상자를 선택한 다음, 원본 컨테이너를 선택합니다. 원본 컨테이너는 일반적으로 *vhds*입니다.
      
-      ![스토리지 컨테이너 선택](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      ![저장소 컨테이너 선택-클래식](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
-      ![스토리지 컨테이너 선택](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      ![저장소 컨테이너 선택-VHD-클래식](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
      
    4. 연결할 OS vhd를 선택합니다. *선택*을 클릭하여 프로세스를 완료합니다.
      
-      ![원본 가상 디스크 선택](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
+      ![원본 가상 디스크 선택-클래식](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
 
    5. 확인을 클릭하여 디스크 연결
 
-      ![기존 디스크 연결](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![기존 디스크 연결-확인 대화 상자-클래식](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
 3. 원격 데스크톱을 사용하여 문제 해결 VM에 연결하고 원본 VM의 OS 디스크가 표시되는지 확인합니다.
 
@@ -163,7 +163,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      Version=1
      ```
      
-     ![gpt.ini 만들기](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![gpt.ini 만들기-클래식](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. `\Windows\System32\GroupPolicy\Machines\Scripts\`에 `scripts.ini`를 만듭니다. 숨겨진 폴더가 표시되어 있는지 확인합니다. 필요한 경우 `Machine` 또는 `Scripts` 폴더를 만듭니다.
    
@@ -171,21 +171,21 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![scripts.ini 만들기](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![scripts.ini 만들기-클래식](./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png)
 
-6. 다음 내용으로 `<username>` 및 `<newpassword>`를 고유한 값으로 교체하여 `\Windows\System32`에 `FixAzureVM.cmd`를 만듭니다.
+6. 다음 내용으로 `<username>` 및 `<newpassword>`를 고유한 값으로 교체하여 `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\`에 `FixAzureVM.cmd`를 만듭니다.
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![FixAzureVM.cmd 만들기](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![FixAzureVM .cmd-클래식 만들기](./media/reset-local-password-without-agent/create-fixazure-cmd-classic-1.png)
    
     새 암호를 정의하는 경우 VM에 대해 구성된 암호 복잡성 요구 사항을 충족해야 합니다.
 
@@ -195,17 +195,17 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
    
    2. 2단계에서 연결된 데이터 디스크를 선택하고 **분리**를 클릭한 다음, **확인**을 클릭합니다.
 
-     ![디스크 분리](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![디스크 분리-VM 문제 해결-클래식](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![디스크 분리](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![디스크 분리-VM 문제 해결-정상 대화 상자-클래식](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
 8. 원본 VM의 OS 디스크에서 VM을 만듭니다.
    
-     ![템플릿에서 VM 만들기](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
+     ![템플릿에서 VM 만들기-클래식](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
 
-     ![템플릿에서 VM 만들기](./media/reset-local-password-without-agent/choose-subscription-classic.png)
+     ![템플릿에서 VM 만들기-구독 선택-클래식](./media/reset-local-password-without-agent/choose-subscription-classic.png)
 
-     ![템플릿에서 VM 만들기](./media/reset-local-password-without-agent/create-vm-classic.png)
+     ![템플릿에서 VM 만들기-VM 만들기-클래식](./media/reset-local-password-without-agent/create-vm-classic.png)
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>가상 머신 환경 생성 완료
 
@@ -213,7 +213,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
 
 2. 새 VM에 대한 원격 세션에서 다음 파일을 제거하여 환경을 정리합니다.
     
-    * `%windir%\System32`에서
+    * `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`에서
       * `FixAzureVM.cmd` 제거
     * `%windir%\System32\GroupPolicy\Machine\Scripts`에서
       * `scripts.ini` 제거

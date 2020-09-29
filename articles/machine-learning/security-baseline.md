@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657355"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461022"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -718,7 +718,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 더 이상 필요 하지 않은 경우 Azure 리소스를 제거 합니다.
 
-- [파일 무결성 모니터링을 사용 하는 방법](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [파일 무결성 모니터링을 사용 하는 방법](../security-center/security-center-file-integrity-monitoring.md)
 
 - [Azure Automation 변경 내용 추적 및 인벤토리 이해](../automation/change-tracking.md)
 

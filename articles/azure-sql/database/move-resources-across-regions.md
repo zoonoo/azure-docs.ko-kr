@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 9e7d2d08c7041b23f0eb02328367d07e72fe35eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333072"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446388"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Azure SQL Managed Instance & Azure SQL Database 새 지역으로 리소스 이동
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -170,7 +170,7 @@ ms.locfileid: "91333072"
 
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState**에 대 한 속성을 포함 합니다.
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState**에 대 한 속성을 포함 합니다.
 
 - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다.
 - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않았으며 장애 조치 (failover) 시도가 실패 했음을 나타냅니다.
@@ -182,7 +182,7 @@ ms.locfileid: "91333072"
 ### <a name="initiate-the-move"></a>이동 시작
 
 1. 보조 끝점을 사용 하 여 대상 관리 되는 인스턴스에 연결 `<fog-name>.secondary.database.windows.net` 합니다.
-1. [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) 를 사용 하 여 보조 관리 되는 인스턴스를 전체 동기화를 사용 하는 기본으로 전환 합니다. 이 작업은 성공적으로 수행 되거나 롤백됩니다.
+1. [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) 를 사용 하 여 보조 관리 되는 인스턴스를 전체 동기화를 사용 하는 기본으로 전환 합니다. 이 작업은 성공적으로 수행 되거나 롤백됩니다.
 1. 를 사용 하 여 `nslook up <fog-name>.secondary.database.windows.net` DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 하 여 명령이 성공적으로 완료 되었는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다.
 
 ### <a name="remove-the-source-managed-instances"></a>원본 관리 되는 인스턴스 제거

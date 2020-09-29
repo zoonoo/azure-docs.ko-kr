@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: e5ab3800e2d20bec34f321e0992240be8624404c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400879"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461464"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -65,16 +65,15 @@ Azure Monitor Logs 전용 클러스터는 대용량 고객에 게 더 나은 서
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한이 있어야 `(Microsoft.OperationalInsights/clusters/write)` 합니다.
 
-### <a name="create"></a>만들기 
+### <a name="create"></a>생성 
 
 **PowerShell**
 
 ```powershell
-invoke-command -scriptblock { New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} } -asjob
+New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
 
 # Check when the job is done
-Get-Job
-
+Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
 **REST (영문)**
@@ -106,13 +105,16 @@ Content-type: application/json
 
 ### <a name="check-provisioning-status"></a>프로비저닝 상태 확인
 
-Log Analytics 클러스터를 프로 비전 하는 작업은 완료 하는 데 시간이 걸립니다. 다음 두 가지 방법으로 프로 비전 상태를 확인할 수 있습니다.
+Log Analytics 클러스터를 프로 비전 하는 작업은 완료 하는 데 시간이 걸립니다. 여러 가지 방법으로 프로 비전 상태를 확인할 수 있습니다.
 
-1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
+- 리소스 그룹 이름을 사용 하 여 AzOperationalInsightsCluster PowerShell 명령을 실행 하 고 ProvisioningState 속성을 확인 합니다. 값은 프로 비전 중에 *ProvisioningAccount* 완료 되 면 *성공* 합니다.
+  ```powershell
+  New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
+  ```
 
-   또는
+- 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
 
-1. GET 요청을 *클러스터* 리소스에 보내고 *provisioningState* 값을 확인합니다. 값은 프로 비전 중에 *ProvisioningAccount* 완료 되 면 *성공* 합니다.
+- GET 요청을 *클러스터* 리소스에 보내고 *provisioningState* 값을 확인합니다. 값은 프로 비전 중에 *ProvisioningAccount* 완료 되 면 *성공* 합니다.
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -171,7 +173,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 > [!NOTE]
 > PATCH를 사용 하 여 *클러스터* 리소스 *sku*, *keyVaultProperties* 또는 *billingType* 를 업데이트할 수 있습니다.
 
-예를 들면 다음과 같습니다. 
+다음은 그 예입니다. 
 
 *전화할*
 
@@ -275,10 +277,10 @@ Content-type: application/json
 $clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
 
 # Link the workspace to the cluster
-invoke-command -scriptblock { Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId } -asjob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
-Get-Job
+Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
 

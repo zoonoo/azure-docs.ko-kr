@@ -1,22 +1,23 @@
 ---
-title: 컨테이너 설치 및 실행-Text Analytics
+title: 텍스트 분석 API에 대 한 Docker 컨테이너를 설치 하 고 실행 합니다.
 titleSuffix: Azure Cognitive Services
-description: 이 단계별 자습서에서 Text Analytics용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
+description: 텍스트 분석 API에 대 한 Docker 컨테이너를 사용 하 여 온-프레미스 감정 분석과 같은 자연어 처리를 수행 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 27881d6271fbedfb5763b293d5145e2f87cd1c13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: 온-프레미스, Docker, 컨테이너, 감정 분석, 자연어 처리
+ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309315"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461498"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -33,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!IMPORTANT]
 > 무료 계정은 매월 5000 개의 트랜잭션으로 제한 되며, **무료** 및 **표준** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">가격 책정 계층만 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 컨테이너에 대해 유효 합니다. 트랜잭션 요청 요금에 대 한 자세한 내용은 [데이터 제한](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이너 환경이 있어야 합니다.
 
@@ -41,7 +42,7 @@ Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이
 
 Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 

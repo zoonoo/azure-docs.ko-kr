@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942121"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447330"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows 중지 오류-0x00000074 잘못 된 시스템 구성 정보
 
@@ -61,10 +61,10 @@ ms.locfileid: "88942121"
 1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
 1. Hive 손상이 있는지 확인 합니다.
 1. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
-1. 폴더를 복사 `\windows\system32\config` 하 여 정상 디스크 파티션이나 다른 안전한 위치에 저장 합니다. 중요 한 레지스트리 파일을 편집할 수 있기 때문에이 폴더를 예방 조치로 백업 합니다.
+1. 폴더를 복사 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 하 여 정상 디스크 파티션이나 다른 안전한 위치에 저장 합니다. 중요 한 레지스트리 파일을 편집할 수 있기 때문에이 폴더를 예방 조치로 백업 합니다. 
 
 > [!NOTE]
-> 레지스트리에 대 한 `\windows\system32\config` 변경 내용을 롤백해야 하는 경우 백업으로 폴더 복사본을 만듭니다.
+> 레지스트리에 대 한 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 변경 내용을 롤백해야 하는 경우 백업으로 폴더 복사본을 만듭니다.
 
 ### <a name="check-for-hive-corruption"></a>Hive 손상 확인
 
@@ -72,7 +72,7 @@ ms.locfileid: "88942121"
 
 1. 복구 VM에서 **레지스트리 편집기** 응용 프로그램을 엽니다. Windows 검색 창에서 "REGEDIT"를 입력 하 여 찾습니다.
 1. 레지스트리 편집기에서 **HKEY_LOCAL_MACHINE** 를 선택 하 여 강조 표시 하 고 **파일 > Hive 로드** ...를 선택 합니다. (채널 만들기...)을 선택합니다.
-1. 으로 이동 하 여 `\windows\system32\config\SYSTEM` **열기**를 선택 합니다.
+1. 으로 이동 하 여 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` **열기**를 선택 합니다.
 1. 이름을 입력 하 라는 메시지가 표시 되 면 **BROKENSYSTEM**를 입력 합니다.
 
    1. Hive를 열지 못했거나 비어 있으면 hive가 손상 된 것입니다. Hive가 손상 된 경우 [지원 티켓을 엽니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

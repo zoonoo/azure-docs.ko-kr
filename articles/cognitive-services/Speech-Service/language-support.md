@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: b50f6c4b2ed86b950e68cf8c55b63af687ff9ead
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e0d6694d44fdac9958acdf70be067348fadde57f
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298052"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461243"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -41,13 +41,11 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | 아랍어 (아랍에미리트)     | 언어 모델                                    |
 | `ar-BH` | 아랍어(바레인), 최신 표준 | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 언어 모델                                    |
-| `ar-IL` | 아랍어(이스라엘)                   | 예                                                |
 | `ar-IQ` | 아랍어(이라크)                     | 언어 모델                                    |
 | `ar-JO` | 아랍어(요르단)                   | 언어 모델                                    |
 | `ar-KW` | 아랍어(쿠웨이트)                   | 언어 모델                                    |
 | `ar-LB` | 아랍어(레바논)                  | 언어 모델                                    |
 | `ar-OM` | 아랍어(오만)                     | 언어 모델                                    |
-| `ar-PS` | 아랍어 (팔레스타인 자치 정부 상태)       | 예                                                |
 | `ar-QA` | 아랍어(카타르)                    | 언어 모델                                    |
 | `ar-SA` | 아랍어(사우디아라비아)             | 언어 모델                                    |
 | `ar-SY` | 아랍어(시리아)                    | 언어 모델                                    |
@@ -273,7 +271,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `ja-JP` | 일본어(일본) | Female | `ja-JP-Ayumi` |
 | `ja-JP` | 일본어(일본) | Female | `ja-JP-HarukaRUS` |
 | `ja-JP` | 일본어(일본) | Male | `ja-JP-Ichiro` |
-| `ko-KR` | 한국어 (대한민국) | Female | `ko-KR-HeamiRUS` |
+| `ko-KR` | 한국어(한국) | Female | `ko-KR-HeamiRUS` |
 | `ms-MY` | 말레이어(말레이시아) | Male | `ms-MY-Rizwan` |
 | `nb-NO` | 노르웨이어, 복말 (노르웨이) | Female | `nb-NO-HuldaRUS` |
 | `nl-NL` | 네덜란드어(네덜란드) | Female | `nl-NL-HannaRUS` |

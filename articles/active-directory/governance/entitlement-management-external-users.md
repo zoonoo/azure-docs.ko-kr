@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460867"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447077"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 외부 사용자에 대 한 액세스 제어
 
@@ -83,7 +83,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../external-identities/wha
 
 - 게스트가 다른 게스트를 디렉터리에 초대 하도록 허용 하면 게스트 초대가 자격 관리 외부에서 발생할 수 있음을 의미 합니다. 게스트가 적절 하 게 관리 되는 초대에만 **허용 하도록 설정** 하 **는** 것이 좋습니다.
 - B2B 허용 목록을 사용 하는 경우 자격 관리를 사용 하 여 파트너 관계를 지정 하려는 도메인이 목록에 추가 되었는지 확인 해야 합니다. 또는 B2B 거부 목록을 사용 하는 경우 파트너 관계를 지정할 도메인이 목록에 추가 되지 않았는지 확인 해야 합니다.
-- **모든 사용자** (연결 된 모든 조직 + 새 외부 사용자)에 대 한 권한 관리 정책을 만드는 경우 사용자가 보유 한 B2B 허용 또는 거부 목록 설정이 우선 적용 됩니다. 따라서이 정책에 포함 하려는 도메인을 사용 중인 경우 허용 목록에 포함 하 고, 거부 목록을 사용 하는 경우 거부 목록에서 제외 합니다.
+- **모든 사용자** (연결 된 모든 조직 + 모든 새 외부 사용자)에 대 한 권한 관리 정책을 만드는 경우 사용자가 디렉터리의 연결 된 조직에 속해 있지 않으면 패키지를 요청할 때 연결 된 조직이 자동으로 생성 됩니다. 모든 B2B 허용 또는 거부 목록 설정이 우선적으로 적용 됩니다. 따라서이 정책에 포함 하려는 도메인을 사용 중인 경우 허용 목록에 포함 하 고, 거부 목록을 사용 하는 경우 거부 목록에서 제외 합니다.
 - **모든 사용자** (연결 된 모든 조직 + 새 외부 사용자)를 포함 하는 자격 관리 정책을 만들려면 먼저 디렉터리에 대해 전자 메일 일회용 암호 인증을 사용 하도록 설정 해야 합니다. 자세한 내용은 [일회용 암호 인증 (미리 보기)](../external-identities/one-time-passcode.md#opting-in-to-the-preview)을 참조 하세요.
 - Azure AD B2B 외부 공동 작업 설정에 대 한 자세한 내용은 [b2b 외부 공동 작업 사용 및 게스트를 초대할 수 있는 사용자 관리](../external-identities/delegate-invitations.md)를 참조 하세요.
 

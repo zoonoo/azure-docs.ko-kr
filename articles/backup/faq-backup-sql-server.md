@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500337"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461226"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -60,7 +60,7 @@ SQL 제한 사항에 따라 보조 복제본에서 전체 백업만 복사를 �
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>온-프레미스 가용성 그룹을 보호할 수 있나요?
 
-아닙니다. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
+아니요. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Azure 지역 간에 가용성 그룹을 보호할 수 있나요?
 
@@ -101,6 +101,10 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
 [Autoprotected 인스턴스에 추가](backup-sql-server-database-azure-vms.md#enable-auto-protection) 하는 데이터베이스는 보호 된 항목 아래에 즉시 표시 되지 않을 수 있습니다. 일반적으로 검색이 8시간마다 실행되기 때문입니다. 그러나 다음 그림에 표시 된 것 처럼 **db**다시 검색을 선택 하 여 수동으로 검색을 실행 하는 경우 새 데이터베이스를 즉시 검색 하 고 보호할 수 있습니다.
 
   ![새로 추가 된 데이터베이스를 수동으로 검색](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>TDE (투명한 데이터 암호화)를 설정 하 고 데이터베이스를 전체 백업 프로세스를 통해 암호화 된 상태로 유지 하는 데이터베이스를 보호할 수 있나요?
+
+예, Azure Backup은 SQL Server 데이터베이스 또는 TDE가 설정 된 서버의 백업을 지원 합니다. Backup은 Azure에서 관리 하는 키로 Tde를 지원 하거나 BYOK (고객 관리 키)를 사용 하 여 [Tde](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 를 지원 합니다.  Backup은 백업 프로세스의 일부로 SQL 암호화를 수행 하지 않으므로 백업 시 데이터베이스가 암호화 된 상태로 유지 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

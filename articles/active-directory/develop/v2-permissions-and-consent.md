@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: hirsin, jesakowi, jmprieur, marsma
+ms.custom: aaddev, fasttrack-edit, contperfq1
+ms.openlocfilehash: 2ac23e16dd294f6a17fbc891eb87889760724f36
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256605"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461260"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -193,7 +193,7 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | Description                                                                                |
+| 매개 변수        | 조건        | 설명                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID**입니다. |
@@ -212,7 +212,7 @@ https://graph.microsoft.com/mail.send
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |

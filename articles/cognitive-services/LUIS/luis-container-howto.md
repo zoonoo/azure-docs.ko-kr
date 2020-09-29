@@ -1,27 +1,29 @@
 ---
-title: Docker 컨테이너-LUIS
+title: LUIS 용 Docker 컨테이너 설치 및 실행
 titleSuffix: Azure Cognitive Services
-description: LUIS 컨테이너는 학습 또는 게시된 앱을 Docker 컨테이너로 로드하고 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다.
+description: LUIS 컨테이너를 사용 하 여 학습 된 앱 또는 게시 된 앱을 로드 하 고 온-프레미스의 예측에 대 한 액세스 권한을 얻습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: 온-프레미스, Docker, 컨테이너
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889500"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460988"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
+# <a name="install-and-run-docker-containers-for-luis"></a>LUIS 용 Docker 컨테이너 설치 및 실행
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+컨테이너를 사용 하면 자체 환경에서 LUIS를 사용할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 LUIS 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
 LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language Understanding 모델을 로드 합니다. [LUIS 앱](https://www.luis.ai)으로 docker 컨테이너는 컨테이너의 API 끝점에서 쿼리 예측에 대 한 액세스를 제공 합니다. 컨테이너에서 쿼리 로그를 수집 하 고 다시 Language Understanding 앱에 업로드 하 여 앱의 예측 정확도를 향상 시킬 수 있습니다.
 
@@ -31,11 +33,11 @@ LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|

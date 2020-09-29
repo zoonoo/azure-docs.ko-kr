@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ff408b8c8111eeb9c5b112a430858811276572c3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6390180052cb21bb0d2230a066b9f10d4eb99ca1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323785"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447342"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -31,7 +31,7 @@ ms.locfileid: "91323785"
 |릴리스 상태:|GA(일반 공급)|
 |결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
 |필요한 역할 및 사용 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 

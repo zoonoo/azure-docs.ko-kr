@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330165"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446773"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -101,6 +101,20 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 
 이러한 VM 시리즈를 지 원하는 Azure Machine Learning 있지만 일부 Azure 지역에서는 사용 하지 못할 수 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)에서 사용할 수 있는 VM 시리즈를 확인할 수 있습니다.
+
+### <a name="compute-isolation"></a>Compute 격리
+
+Azure Machine Learning Compute는 특정 하드웨어 종류에 격리 되 고 단일 고객 전용으로 제공 되는 가상 머신 크기를 제공 합니다. 격리 된 가상 머신 크기는 다른 고객의 워크 로드와의 높은 수준의 격리를 필요로 하는 작업에 가장 적합 하며,이는 회의 규정 준수 및 규제 요구 사항을 포함 합니다. 격리 크기를 사용하면 가상 머신이 특정 서버 인스턴스에서 하나만 실행되도록 보장합니다.
+
+현재 격리 가상 머신 제품에는 다음이 포함됩니다.
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3*
+
+*RDMA 지원
+
+[Azure 공용 클라우드의 격리](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)에 대해 자세히 알아보려면 여기를 참조 하세요.
 
 ## <a name="unmanaged-compute"></a>관리 되지 않는 계산
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530831"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448100"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
@@ -64,8 +64,8 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 | --- | --- | --- |
-| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
@@ -143,8 +143,8 @@ netsh interface ipv4 set interface “interfacename” weakhostsend=enabled
 
 | 규칙 | 프런트 엔드 | 백 엔드 풀에 매핑 |
 | --- | --- | --- |
-| 1 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
-| 2 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
+| 1 |![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
+| 2 |![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 

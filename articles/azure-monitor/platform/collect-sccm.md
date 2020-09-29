@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319323"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448161"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 요건
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 
@@ -47,7 +47,7 @@ Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 
 > Configuration Manager에 대 한 Log Analytics 작업 영역에서 사용 권한을 지정 해야 합니다. 그렇지 않고 Configuration Manager에서 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
 >
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택 합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 
 2. Log Analytics 작업 영역 목록에서 수정할 작업 영역을 선택합니다.
 
@@ -135,7 +135,7 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실�
 4. **컴퓨터 그룹**을 선택한 다음, **SCCM**을 선택합니다.  
 5. **구성 관리자 컬렉션 멤버 자격 가져오기**를 선택한 다음 **저장**을 클릭합니다.  
    
-    ![컴퓨터 그룹 - SCCM 탭](./media/collect-sccm/sccm-computer-groups01.png)
+    ![컬렉션 멤버 자격 Configuration Manager 가져오기에 대 한 옵션을 포함 하는 S C M에 대 한 고급 설정 컴퓨터 그룹의 스크린샷](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>구성 관리자의 데이터 보기
 
@@ -143,7 +143,7 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실�
 
 컬렉션을 가져오면 컬렉션 멤버 자격이 있는 컴퓨터 중 삭제된 컴퓨터 수를 확인할 수 있습니다. 또한 가져온 컬렉션 수도 확인할 수 있습니다.
 
-![컴퓨터 그룹 - SCCM 탭](./media/collect-sccm/sccm-computer-groups02.png)
+![가져오기 Configuration Manager 컬렉션 멤버 자격을 선택 하는 옵션을 보여 주는 컴퓨터 그룹 고급 설정의 스크린샷](./media/collect-sccm/sccm-computer-groups02.png)
 
 하나를 클릭 하면 모든 가져온 그룹이 나 각 그룹에 속한 모든 컴퓨터를 표시 하는 로그 쿼리 편집기가 열립니다. [로그 검색](../log-query/log-query-overview.md)을 사용 하 여 컬렉션 멤버 자격 데이터를 자세히 분석할 수 있습니다.
 

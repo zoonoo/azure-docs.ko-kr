@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c427982854e1d328b5d1553aa86866ad298eea1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71162155"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461321"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Microsoft Azure 클래식 VM 아키텍처 워크플로 
 이 문서에서는 가상 머신과 같은 Azure 리소스를 배포 하거나 업데이트할 때 발생 하는 워크플로 프로세스에 대 한 개요를 제공 합니다. 
@@ -29,11 +29,11 @@ ms.locfileid: "71162155"
 
 다음 다이어그램은 Azure 리소스의 아키텍처를 보여 줍니다.
 
-![Azure 워크플로](./media/cloud-services-workflow-process/workflow.jpg)
+:::image type="content" source="./media/cloud-services-workflow-process/workflow.jpg" alt-text=" Azure workflow>이미지를<합니다. ":::
 
 ## <a name="workflow-basics"></a>워크플로 기본 사항
    
-**입니다.** RDFE/FFE은 사용자에서 패브릭에 연결 된 통신 경로입니다. RDFE (RedDog 프런트 엔드)은 관리 포털의 프런트 엔드와 Visual Studio, Azure MMC 등의 Service Management API와 같은 공개적으로 노출 된 API입니다.  사용자의 모든 요청은 RDFE를 통과 합니다. FFE (패브릭 프런트 엔드)는 RDFE의 요청을 패브릭 명령으로 변환 하는 계층입니다. RDFE의 모든 요청은 FFE를 통해 패브릭 컨트롤러에 도달 합니다.
+**A**. RDFE/FFE은 사용자에서 패브릭에 연결 된 통신 경로입니다. RDFE (RedDog 프런트 엔드)은 관리 포털의 프런트 엔드와 Visual Studio, Azure MMC 등의 Service Management API와 같은 공개적으로 노출 된 API입니다.  사용자의 모든 요청은 RDFE를 통과 합니다. FFE (패브릭 프런트 엔드)는 RDFE의 요청을 패브릭 명령으로 변환 하는 계층입니다. RDFE의 모든 요청은 FFE를 통해 패브릭 컨트롤러에 도달 합니다.
 
 **2**. 패브릭 컨트롤러는 데이터 센터의 모든 리소스를 유지 관리 하 고 모니터링 하는 일을 담당 합니다. 게스트 OS 버전, 서비스 패키지, 서비스 구성, 서비스 상태 등의 정보를 전송 하는 패브릭 OS의 패브릭 호스트 에이전트와 통신 합니다.
 
@@ -69,11 +69,9 @@ ms.locfileid: "71162155"
 
 **I**. Wa작업 호스트는 일반 작업자 역할에 대 한 표준 호스트 프로세스입니다. 이 호스트 프로세스는 모든 역할의 Dll 및 진입점 코드 (예: OnStart 및 Run)를 호스팅합니다.
 
-**J**. Wawebhost.exe는 SDK 1.2 호환 호스팅 가능 웹 코어 (HWC)를 사용 하도록 구성 된 웹 역할에 대 한 표준 호스트 프로세스입니다. 역할은 서비스 정의 (.csdef)에서 요소를 제거 하 여 HWC 모드를 사용 하도록 설정할 수 있습니다. 이 모드에서는 모든 서비스의 코드와 Dll이 Wawebhost.exe 프로세스에서 실행 됩니다. Iis (w3wp.exe)는 사용 되지 않으며 iis는 WaWebHost.exe 내에서 호스트 되기 때문에 IIS 관리자에 구성 된 AppPools 없습니다.
+**J**. Waiishost.exe는 전체 IIS를 사용 하는 웹 역할에 대 한 역할 진입점 코드의 호스트 프로세스입니다. 이 프로세스는 **Roleentrypoint** 클래스를 사용 하는 첫 번째 DLL을 로드 하 고이 클래스 (OnStart, Run, OnStop)에서 코드를 실행 합니다. Roleenvironment 클래스에서 만든 **Roleenvironment** 이벤트 (예: statuscheck 및 Changed)는이 프로세스에서 발생 합니다.
 
-**K**. Waiishost.exe는 전체 IIS를 사용 하는 웹 역할에 대 한 역할 진입점 코드의 호스트 프로세스입니다. 이 프로세스는 **Roleentrypoint** 클래스를 사용 하는 첫 번째 DLL을 로드 하 고이 클래스 (OnStart, Run, OnStop)에서 코드를 실행 합니다. Roleenvironment 클래스에서 만든 **Roleenvironment** 이벤트 (예: statuscheck 및 Changed)는이 프로세스에서 발생 합니다.
-
-**L**. W3wp.exe는 역할이 전체 IIS를 사용 하도록 구성 된 경우에 사용 되는 표준 IIS 작업자 프로세스입니다. 그러면 IISConfigurator에서 구성 된 AppPool이 실행 됩니다. 여기에서 만든 RoleEnvironment 이벤트 (예: StatusCheck 및 Changed)는이 프로세스에서 발생 합니다. 두 프로세스 모두에서 이벤트를 구독 하는 경우 RoleEnvironment 이벤트는 두 위치 (Waiishost.exe 및 w3wp.exe) 모두에서 발생 합니다.
+**K**. W3wp.exe는 역할이 전체 IIS를 사용 하도록 구성 된 경우에 사용 되는 표준 IIS 작업자 프로세스입니다. 그러면 IISConfigurator에서 구성 된 AppPool이 실행 됩니다. 여기에서 만든 RoleEnvironment 이벤트 (예: StatusCheck 및 Changed)는이 프로세스에서 발생 합니다. 두 프로세스 모두에서 이벤트를 구독 하는 경우 RoleEnvironment 이벤트는 두 위치 (Waiishost.exe 및 w3wp.exe) 모두에서 발생 합니다.
 
 ## <a name="workflow-processes"></a>워크플로 프로세스
 
@@ -87,8 +85,7 @@ ms.locfileid: "71162155"
 8. 전체 IIS 웹 역할의 경우 WaHostBootstrapper는 IIS AppPool을 구성 하 고 사이트를 가리키도록 합니다 `E:\Sitesroot\<index>` `<index>` . 여기서은 `<Sites>` 서비스에 대해 정의 된 요소 수에 대 한 0 기반 인덱스입니다.
 9. WaHostBootstrapper는 역할 유형에 따라 호스트 프로세스를 시작 합니다.
     1. **작업자 역할**: WaWorkerHost.exe 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper는 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고이를 부하 분산 장치 순환에 배치 합니다 (InputEndpoints가 정의 된 경우). 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
-    1. **SDK 1.2 HWC 웹 역할**: wawebhost.exe가 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. Wawebhost.exe는 워밍업 요청 (GET rd_runtime_init/)을 발급 합니다. 모든 웹 요청은 WaWebHost.exe 전송 됩니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
-    1. **전체 IIS 웹 역할**: aIISHost이 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후에 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
+    2. **전체 IIS 웹 역할**: aIISHost이 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후에 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
 10. 전체 IIS 웹 역할에 대 한 들어오는 웹 요청은 IIS를 트리거하여 w3wp.exe 프로세스를 시작 하 고 요청을 처리 합니다 .이는 온-프레미스 IIS 환경에서와 동일 합니다.
 
 ## <a name="log-file-locations"></a>로그 파일 위치
@@ -103,10 +100,6 @@ ms.locfileid: "71162155"
 **WaHostBootstrapper**
 
 `C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
- 
-**Wawebhost.exe**
-
-`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **Waiishost.exe**
 
@@ -123,7 +116,3 @@ ms.locfileid: "71162155"
 **Windows 이벤트 로그**
 
 `D:\Windows\System32\Winevt\Logs`
- 
-
-
-

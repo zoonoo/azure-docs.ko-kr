@@ -6,25 +6,25 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328991"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460070"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
 이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
 
 Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 * Azure 구독- [무료로 하나 만들기](https://azure.microsoft.com/free/)
 
 > [!NOTE]
 > 이 기능은 현재 제한 된 지역에 대 한 공개 미리 보기로 제공 됩니다. 개인 끝점을 만들 수 있는 옵션이 없는 경우 [microsoft에 문의 하세요](mailto:azurecache@microsoft.com). 개인 끝점을 사용 하려면 2020 년 7 월 28 일 이후에 Azure Cache for Redis 인스턴스를 만들어야 합니다.
 >
-> 현재 공개 미리 보기 액세스 권한이 있는 지역: 미국 서 부, 미국 중 북부, 미국 서 부, 미국 동부 2, 노르웨이 동부, 유럽 북부, 아시아 동부, 일본 동부 및 인도 중부.
+> 현재 공개 미리 보기 액세스 권한이 있는 지역: 미국 서 부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 노르웨이 동부, 노르웨이 서 부, 유럽 북부, 유럽 서 부, 미국 동부, 일본 동부, 스위스 북부, 인도 중부, 아랍에미리트 중부, 대한민국 중부, 영국 남부, 남아프리카 공화국 북부, 프랑스 남부, 프랑스 중부, 캐나다 중부, 독일 북부, 오스트레일리아 중부, 인도 서 부 및 브라질 남부.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 새 Azure Cache를 사용 하 여 개인 끝점 만들기 
@@ -43,11 +43,11 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 4. **가상 네트워크 만들기**의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기**를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
-   | **Name** | 가상 네트워크 이름을 입력 하십시오. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
+   | **이름** | 가상 네트워크 이름을 입력 하십시오. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
    | **지역** | 드롭다운을 선택 하 고 지역을 선택 합니다. | 가상 네트워크를 사용 하는 다른 서비스 근처의 [지역을](https://azure.microsoft.com/regions/) 선택 합니다. |
 
 5. **Ip 주소** 탭을 선택 하거나 페이지 맨 아래에 있는 **다음: ip 주소** 단추를 클릭 합니다.
@@ -71,7 +71,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
    
 1. **새로 만들기** 페이지에서 **데이터베이스**를 선택한 다음, **Azure Cache for Redis**를 선택합니다.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Redis 용 Azure Cache를 선택 합니다.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="리소스 만들기를 선택 합니다.":::
    
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
    
@@ -89,7 +89,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 1. **추가** 단추를 클릭 하 여 개인 끝점을 만듭니다.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="네트워킹에서 개인 끝점을 추가 합니다.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="리소스 만들기를 선택 합니다.":::
 
 1. **개인 끝점 만들기** 페이지에서, 마지막 섹션에서 만든 가상 네트워크 및 서브넷을 사용 하 여 개인 끝점에 대 한 설정을 구성 하 고 **확인**을 선택 합니다. 
 
@@ -126,11 +126,11 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 4. **가상 네트워크 만들기**의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기**를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
-   | **Name** | 가상 네트워크 이름을 입력 하십시오. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
+   | **이름** | 가상 네트워크 이름을 입력 하십시오. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
    | **지역** | 드롭다운을 선택 하 고 지역을 선택 합니다. | 가상 네트워크를 사용 하는 다른 서비스 근처의 [지역을](https://azure.microsoft.com/regions/) 선택 합니다. |
 
 5. **Ip 주소** 탭을 선택 하거나 페이지 맨 아래에 있는 **다음: ip 주소** 단추를 클릭 합니다.
@@ -153,7 +153,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 1. Azure Portal에서 **Azure Cache For Redis** 를 검색 하 고 enter 키를 누르거나 검색 제안에서 선택 합니다.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Redis에 대 한 Azure 캐시를 검색 합니다.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="리소스 만들기를 선택 합니다.":::
 
 2. 개인 끝점을 추가 하려는 캐시 인스턴스를 선택 합니다.
 
@@ -161,15 +161,15 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 4. 개인 **끝점** 단추를 클릭 하 여 개인 끝점을 만듭니다.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="개인 끝점을 추가 합니다.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="리소스 만들기를 선택 합니다.":::
 
 5. **개인 끝점 만들기 페이지**에서 개인 끝점에 대 한 설정을 구성 합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 개인 끝점을 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기**를 선택하고 새 리소스 그룹 이름을 입력합니다. | 개인 끝점 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
-   | **Name** | 개인 끝점 이름을 입력 합니다. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
+   | **이름** | 개인 끝점 이름을 입력 합니다. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
    | **지역** | 드롭다운을 선택 하 고 지역을 선택 합니다. | 개인 끝점을 사용 하는 다른 서비스 근처의 [지역을](https://azure.microsoft.com/regions/) 선택 합니다. |
 
 6. 페이지 맨 아래에 있는 **다음: 리소스** 단추를 클릭 합니다.

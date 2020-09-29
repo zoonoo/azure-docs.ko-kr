@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981525"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445824"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure Active Directory 테넌트 만들기
 
@@ -47,7 +47,7 @@ Azure AD 테 넌 트에는 전역 관리자 계정 및 마스터 사용자 계�
 
 1. 인증에 사용할 디렉터리의 디렉터리 ID를 찾습니다. Active Directory 페이지의 속성 섹션에 나열되어 있습니다.
 
-    ![디렉터리 ID](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    !["디렉터리 ID"가 강조 표시 된 "디렉터리 속성" 페이지를 보여 주는 스크린샷](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. 디렉터리 ID를 복사합니다.
 
@@ -89,7 +89,7 @@ Azure AD 테 넌 트에는 전역 관리자 계정 및 마스터 사용자 계�
 
 7. Azure AD의 **엔터프라이즈 응용 프로그램**에는 나열 된 **azure VPN** 이 표시 됩니다.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    !["모든 응용 프로그램" 페이지를 보여 주는 스크린샷](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. 작동하는 지점-사이트 간 환경이 아직 없는 경우 지침에 따라 환경을 만듭니다. 지점 및 사이트 간 vpn 게이트웨이 만들기 및 구성에 대 한 [지점 및 사이트 간 Vpn 만들기](vpn-gateway-howto-point-to-site-resource-manager-portal.md) 를 참조 하세요. 
 

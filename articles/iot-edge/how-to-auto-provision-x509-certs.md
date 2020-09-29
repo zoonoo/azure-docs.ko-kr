@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 13c15eeb98b13d0fe9a5b7797ec942209d403cc6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530746"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447751"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -28,7 +28,7 @@ ms.locfileid: "90530746"
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 x.509 인증서는 신뢰의 인증서 체인에 정렬 됩니다. 자체 서명 되거나 신뢰할 수 있는 루트 인증서로 시작 하는 체인의 각 인증서는 다음으로 낮은 인증서에 서명 합니다. 이 패턴은 루트 인증서에서 각 중간 인증서를 통해 장치에 설치 된 최종 "리프" 인증서로 위임 된 신뢰 체인을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 * 활성 IoT Hub
 * IoT Edge 장치에 대 한 실제 또는 가상 장치입니다.
@@ -83,7 +83,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 장치 프로 비전 서비스의 등록에 대 한 자세한 내용은 [How to manage device 등록](../iot-dps/how-to-manage-enrollments.md)항목을 참조 하세요.
 
    > [!TIP]
-   > Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
+   > Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 
@@ -103,7 +103,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
@@ -188,7 +188,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
@@ -224,7 +224,7 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
 
 [Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
 
-X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예를 들어:
+X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 다음은 그 예입니다.
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`

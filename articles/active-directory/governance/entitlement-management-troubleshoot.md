@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979423"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446995"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -146,7 +146,7 @@ ms.locfileid: "90979423"
     | P1 | 디렉터리 또는 특정 연결 된 조직의 특정 사용자 및 그룹 |
     | P2 | 디렉터리의 모든 구성원 (게스트 제외) |
     | P3 | 디렉터리의 모든 사용자 (게스트 포함) 또는 연결 된 특정 조직 |
-    | P4 | 모든 연결 된 조직 또는 모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자) |
+    | P4 | 구성 된 모든 연결 된 조직 또는 모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자) |
     
     높은 우선 순위 범주에 속하는 정책이 있으면 낮은 우선 순위 범주가 무시 됩니다. 동일한 우선 순위의 여러 정책이 요청자에 게 표시 되는 방법에 대 한 예는 [정책 선택](entitlement-management-request-access.md#select-a-policy)을 참조 하세요.
 

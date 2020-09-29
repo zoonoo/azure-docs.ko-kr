@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228633"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460801"
 ---
 # <a name="soft-delete-for-containers-preview"></a>컨테이너에 대 한 일시 삭제 (미리 보기)
 
@@ -42,11 +42,7 @@ Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
-컨테이너 일시 삭제는 다음 지역에서 미리 보기로 제공 됩니다.
-
-- 프랑스 중부
-- 캐나다 동부
-- 캐나다 중부
+컨테이너 일시 삭제는 모든 공용 Azure 지역에서 미리 보기로 제공 됩니다.
 
 > [!IMPORTANT]
 > 컨테이너 일시 삭제 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.

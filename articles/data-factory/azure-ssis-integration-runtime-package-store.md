@@ -11,17 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/06/2020
-ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.date: 09/29/2020
+ms.openlocfilehash: 158adb6b35b488c310bd2912d4076b86579383a4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505491"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446411"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Azure-SSIS Integration Runtime 패키지 저장소를 사용 하 여 패키지 관리
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 온-프레미스 SQL Server Integration Services (SSIS) 워크 로드를 클라우드로 전환 & 하려면 Azure Data Factory (ADF)에서 Azure-SSIS Integration Runtime (IR)를 프로 비전 할 수 있습니다. 자세한 내용은 [Azure-SSIS IR 프로 비전](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)을 참조 하세요. Azure-SSIS IR에서 지원하는 작업은 다음과 같습니다.
 
@@ -148,7 +148,7 @@ for %f in (*.dtsx) do dtutil.exe /FILE %f /ENCRYPT FILE;Z:\%f;2;YourEncryptionPa
 
 배치 파일에서 위의 명령을 실행 하려면를 `%f` 로 바꿉니다 `%%f` .
 
-레거시 SSIS 패키지의 여러 패키지를 파일 시스템 위에 있는 Azure Files에 배포 하 고 해당 보호 수준을 동시에 전환 하려면 동일한 명령을 사용할 수 있지만를 `YourLocalDrive:\...\YourPackageFolder` 기존 ssis 패키지 저장소에 사용 되는 로컬 폴더로 `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder` 바꿉니다. 예를 들어 레거시 SSIS 패키지 저장소가 SQL Server 2016에 바인딩되어 있는 경우로 이동 `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder` 합니다.  `YourSQLServerDefaultCompatibilityLevel` [SQL Server 기본 호환성 수준 목록](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments)에서에 대 한 값을 찾을 수 있습니다.
+레거시 SSIS 패키지의 여러 패키지를 파일 시스템 위에 있는 Azure Files에 배포 하 고 해당 보호 수준을 동시에 전환 하려면 동일한 명령을 사용할 수 있지만를 `YourLocalDrive:\...\YourPackageFolder` 기존 ssis 패키지 저장소에 사용 되는 로컬 폴더로 `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder` 바꿉니다. 예를 들어 레거시 SSIS 패키지 저장소가 SQL Server 2016에 바인딩되어 있는 경우로 이동 `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder` 합니다.  [SQL Server 기본 호환성 수준 목록](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments)에서 `YourSQLServerDefaultCompatibilityLevel` 값을 찾을 수 있습니다.
 
 Azure Files 위에 Azure-SSIS IR 패키지 저장소를 구성한 경우 SSMS 2019 이상 버전에서 Azure-SSIS IR에 연결할 때 배포 된 패키지가 해당 패키지에 표시 됩니다.
 

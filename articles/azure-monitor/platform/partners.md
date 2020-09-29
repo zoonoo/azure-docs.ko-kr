@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 80b60e9f93720d0e06c1df1576834c5f462e7358
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449451"
+ms.locfileid: "91460097"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -211,6 +211,17 @@ Promitor은 Atlassian Statuspage, 프로메테우스 및 StatsD와 같은 시스
 ![QRadar 로고](./media/partners/qradar.png)
 
 Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Qradar 설명서](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)에서 Azure와의 통합에 대해 자세히 알아볼 수 있습니다.
+
+
+## <a name="rsa"></a>RSA
+
+![RSA 로고](./media/partners/rsa.png)
+
+RSA NetWitness 모니터 플랫폼은 향상 된 SIEM 및 확장 된 검색 및 대응 솔루션을 함께 제공 하는 업계 최고의 위협 검색 및 대응 플랫폼입니다. 솔루션은 unsurpassed 가시성, 분석 및 자동화 된 응답 기능을 제공 합니다. 이러한 결합 된 기능을 통해 보안 팀은 효율적이 고 효과적으로 작업을 수행 하 고, 위협 요소를 효과적으로 관리 하 고, 클라우드, 온-프레미스 또는 가상에 있든 조직의 전체 인프라에서 더 빠르게 위협을 조사 하 고 대응할 수 있도록 합니다. 
+
+RSA NetWitness 모니터 플랫폼은 Azure Monitor와의 통합을 통해 직관적인 UI와 강력한 네이티브 구문 분석 기능을 통해 기본적으로 Azure Monitor에서 RSA NetWitness 플랫폼으로 이벤트 데이터 및 로그를 수집할 수 있습니다. 활동, 진단, Active Directory 이벤트 및 기타 이벤트 허브 데이터를 신속 하 게 파악 하 고, 전체 위협 검색 및 대응 솔루션에서 다른 엔터프라이즈 보안 정보와 함께이 데이터를 볼 수 있습니다.
+
+[자세한 정보](https://community.rsa.com/docs/DOC-101239)
 
 
 ## <a name="sciencelogic"></a>ScienceLogic

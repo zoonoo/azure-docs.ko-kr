@@ -1,35 +1,38 @@
 ---
-title: Azure Cognitive Services 컨테이너
+title: 온-프레미스에서 Azure Cognitive Services 컨테이너 사용
 titleSuffix: Azure Cognitive Services
-description: Docker 컨테이너가 Cognitive Services를 데이터에 더 가깝게 가져오는 방법을 알아봅니다.
+description: Docker 컨테이너를 사용 하 여 온-프레미스 Cognitive Services를 사용 하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
+ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906985"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461209"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
 > [!WARNING]
 > 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.
 
-Azure Cognitive Services의 컨테이너 지원을 통해 개발자는 Azure에서 제공 되는 것과 동일한 풍부한 Api를 사용할 수 있으며, [Docker 컨테이너](https://www.docker.com/what-container)와 함께 제공 되는 서비스를 배포 하 고 호스트 하는 유연성을 발휘할 수 있습니다. 컨테이너 지원은 현재 다음 부분을 포함 하 여 Azure Cognitive Services의 하위 집합에 대해 사용할 수 있습니다.
+Azure Cognitive Services는 Azure, 온-프레미스에서 사용할 수 있는 것과 동일한 Api를 사용할 수 있는 여러 [Docker 컨테이너](https://www.docker.com/what-container) 를 제공 합니다. 이러한 컨테이너를 사용 하면 규정 준수, 보안 또는 기타 운영 상의 이유로 데이터에 더 가깝게 Cognitive Services를 제공할 수 있습니다. 
+
+컨테이너 지원은 현재 다음 부분을 포함 하 여 Azure Cognitive Services의 하위 집합에 대해 사용할 수 있습니다.
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
 > * [Computer Vision][cv-containers]
 > * [Face][fa-containers]
 > * [Form Recognizer][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
+> * [언어 이해(LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [텍스트 분석][ta-containers]
 
@@ -42,8 +45,8 @@ Cognitive Services 리소스는 [Microsoft Azure](https://azure.microsoft.com)�
 ## <a name="features-and-benefits"></a>기능 및 혜택
 
 - 변경할 수 없는 **인프라**: devops 팀을 사용 하도록 설정 하 여 일관 되 고 신뢰할 수 있는 알려진 시스템 매개 변수 집합을 활용할 수 있습니다. 컨테이너는 예측 가능한 에코 시스템 내에서 피벗을 위한 유연성을 제공 하 고 구성 드리프트를 방지 합니다.
-- **데이터 제어**: 고객이 이러한 Cognitive Services 데이터를 처리 하는 위치를 선택할 수 있습니다. 이는 클라우드로 데이터를 전송할 수는 없지만 Cognitive Services 기술에 액세스해야 하는 고객에게 필수입니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
-- **모델 업데이트 제어**: 고객이 솔루션에 배포된 모델의 버전 관리 및 업데이트를 유연하게 처리할 수 있습니다.
+- **데이터 제어**: Cognitive Services에서 데이터를 처리할 위치를 선택 합니다. 클라우드로 데이터를 보낼 수는 없지만 Cognitive Services API에 대 한 액세스 권한이 필요한 경우에는이를 반드시 사용 해야 합니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
+- **모델 업데이트 제어**: 솔루션에 배포 된 모델의 버전 관리 및 업데이트를 유연 하 게 수행할 수 있습니다.
 - **이식 가능한 아키텍처**: Azure, 온-프레미스 및에 지에 배포할 수 있는 이식 가능한 응용 프로그램 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](/azure-stack/operator)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
 - **높은 처리량/짧은 대기 시간**: Cognitive Services을 사용 하 여 응용 프로그램 논리 및 데이터에 물리적으로 가깝게 실행 되도록 하 여 높은 처리량 및 짧은 대기 시간 요구 사항에 맞게 확장할 수 있는 기능을 고객에 게 제공 합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다.
 - **확장성**: 컨테이너 화 및 컨테이너 오케스트레이션 소프트웨어 (예: Kubernetes)의 인기를 활용 합니다. 확장성은 기술적으로 발전 하 고 있습니다. 확장성 있는 클러스터 파운데이션을 기반으로 하는 응용 프로그램 개발은 고가용성을 맞춘 합니다.
@@ -79,7 +82,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 * Computer Vision
 * Face
 * LUIS
-* 텍스트 분석
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -87,7 +90,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

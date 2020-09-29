@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361027"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447556"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
@@ -33,7 +33,8 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 �
    VNet에는 위임 된 서브넷이 하나만 있을 수 있습니다. NetApp 계정은 각각 고유한 위임 된 서브넷이 있는 여러 Vnet에 볼륨을 배포할 수 있습니다.  
 * 위임된 서브넷에서 네트워크 보안 그룹 또는 서비스 엔드포인트를 지정할 수 없습니다. 이렇게 하면 서브넷 위임이 실패합니다.
 * 전역적으로 피어 링 가상 네트워크의 볼륨에 대 한 액세스는 현재 지원 되지 않습니다.
-* 주소 접두사 (대상)가 Azure NetApp Files에 위임 된 서브넷에 대 한 [사용자 정의 사용자 지정 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) 를 만드는 것은 지원 되지 않습니다. 이렇게 하면 VM 연결에 영향을 줍니다. Azure NetApp Files 위임 된 서브넷에 대 한 시스템 경로를 만듭니다. 경로는 문제를 해결 하는 데 필요한 경우 경로 테이블의 **유효 경로** 에 표시 됩니다.
+* Udrs ( [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) ) 및 Nsgs (네트워크 보안 그룹)는 Azure NetApp Files에 대 한 위임 된 서브넷에서 지원 되지 않습니다. 그러나 Azure NetApp Files에 위임된 서브넷과 동일한 VNet 내 에서도 UDR와 NSG를 다른 서브넷에 적용할 수 있습니다.  
+   Azure NetApp Files 위임 된 서브넷에 대 한 시스템 경로를 만듭니다. 경로는 문제를 해결 하는 데 필요한 경우 경로 테이블의 **유효 경로** 에 표시 됩니다.
 
 ## <a name="steps"></a>단계
 

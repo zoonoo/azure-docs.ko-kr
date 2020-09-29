@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 2ce2b7dab3e9eb4c9635ce4abc2933fd954844d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326006"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448193"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -219,7 +219,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
 
-![이미지](./media/diagnostics-linux/make_sas.png)
+![스크린샷은 A S를 생성 하는 공유 액세스 서명 페이지를 표시 합니다.](./media/diagnostics-linux/make_sas.png)
 
 생성된 SAS를 storageAccountSasToken 필드에 복사하고 앞의 물음표("?")를 제거합니다.
 
@@ -777,7 +777,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합니다.
 
-![이미지](./media/diagnostics-linux/graph_metrics.png)
+![선택한 메트릭에 사용 된 디스크 공간 및 결과 차트를 사용 하 여 Azure Portal를 보여 주는 스크린샷](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
@@ -786,7 +786,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")가 있어야 합니다.
+* [Azure Storage 탐색기의 컨테이너와 테이블을 보여 주는 스크린샷](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")
 
 Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 

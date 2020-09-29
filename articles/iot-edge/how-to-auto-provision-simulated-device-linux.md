@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531494"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447823"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -31,7 +31,7 @@ ms.locfileid: "90531494"
 >
 > 물리적 장치를 사용 하는 경우이 문서의 [물리적 장치에서 프로 비전 정보 검색](#retrieve-provisioning-information-from-a-physical-device) 섹션으로 건너뛸 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 * [Hyper-V를 사용하도록 설정된](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 * 활성 IoT Hub
@@ -147,7 +147,7 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 > [!TIP]
-> Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 을 만들고 **가장자리 사용** 플래그를 사용 하 여 장치가 IoT Edge 장치 임을 지정할 수 있습니다.
+> Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 을 만들고 **가장자리 사용** 플래그를 사용 하 여 장치가 IoT Edge 장치 임을 지정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 

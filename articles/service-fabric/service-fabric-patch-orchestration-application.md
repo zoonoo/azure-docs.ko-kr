@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258597"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445902"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -63,7 +63,7 @@ POA는 다음과 같은 하위 구성 요소로 구성 됩니다.
 > [!NOTE]
 > POA는 Service Fabric Repair Manager 서비스를 사용 하 여 노드를 사용 하지 않도록 설정 하거나 사용 하도록 설정 하 고 상태 검사를 수행 합니다. POA에서 만든 복구 작업은 각 노드에 대 한 Windows 업데이트 진행률을 추적 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
 > [!NOTE]
 > 필요한 최소 .NET Framework 버전은 4.6입니다.
@@ -157,16 +157,16 @@ Repair Manager 서비스를 사용 하도록 설정 하려면
 
 | 매개 변수        | 형식                          | 세부 정보 |
 |:-|-|-|
-|MaxResultsToCache    |Long                              | 캐시 해야 하는 Windows 업데이트 결과의 최대 수입니다. <br><br>기본값은 3000입니다. <br> &nbsp;&nbsp;-노드 수는 20 개입니다. <br> &nbsp;&nbsp;-월별 노드에 대 한 업데이트 수는 5 개입니다. <br> &nbsp;&nbsp;-작업당 결과 수는 10 일 수 있습니다. <br> &nbsp;&nbsp;-지난 3 개월 동안의 결과를 저장 해야 합니다. |
+|MaxResultsToCache    |long                              | 캐시 해야 하는 Windows 업데이트 결과의 최대 수입니다. <br><br>기본값은 3000입니다. <br> &nbsp;&nbsp;-노드 수는 20 개입니다. <br> &nbsp;&nbsp;-월별 노드에 대 한 업데이트 수는 5 개입니다. <br> &nbsp;&nbsp;-작업당 결과 수는 10 일 수 있습니다. <br> &nbsp;&nbsp;-지난 3 개월 동안의 결과를 저장 해야 합니다. |
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br><br>허용되는 값은 다음과 같습니다. <br>*Nodewise*: Windows update는 한 번에 하나의 노드에 설치 됩니다. <br> *Upgradedomainwise*: Windows 업데이트는 한 번에 하나의 업데이트 도메인에 설치 됩니다. (대부분의 경우 업데이트 도메인에 속하는 모든 노드에서 Windows 업데이트를 사용할 수 있습니다.)<br><br> 클러스터에 가장 적합 한 정책을 결정 하는 데 도움이 필요 하면 [FAQ](#frequently-asked-questions) 섹션을 참조 하세요.
-|LogsDiskQuotaInMB   |Long  <br> (기본값: *1024*)               | 패치 오케스트레이션 앱 로그의 최대 크기 (MB)로, 노드에서 로컬로 유지 될 수 있습니다.
+|LogsDiskQuotaInMB   |long  <br> (기본값: *1024*)               | 패치 오케스트레이션 앱 로그의 최대 크기 (MB)로, 노드에서 로컬로 유지 될 수 있습니다.
 | WUQuery               | 문자열<br>(기본값: *Isinstalled = 0*)                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)를 참조하세요.
 | InstallWindowsOSOnlyUpdates | *Boolean* <br> (기본값: false)                 | 이 플래그를 사용하여 다운로드하고 설치해야 하는 업데이트를 제어합니다. 다음 값이 허용됩니다. <br>true - Windows 운영 체제 업데이트만 설치합니다.<br>false - 컴퓨터에서 사용 가능한 모든 업데이트를 설치합니다.          |
 | WUOperationTimeOutInMinutes | Int <br>(기본값: *90*)                   | Windows 업데이트 작업에 대한 시간 제한을 지정합니다(검색, 다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
 | WURescheduleCount     | Int <br> (기본값: *5*)                  | 작업이 영구적으로 실패 하는 경우 서비스에서 Windows 업데이트를 예약 하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | Int <br>(기본값: *30*) | 오류가 계속 발생 하는 경우 서비스에서 Windows 업데이트를 예약 하는 간격입니다. |
 | WUFrequency           | 쉼표로 구분 된 문자열 (기본값: *매주, 수요일, 7:00:00*)     | Windows 업데이트를 설치 하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-매월, DD, HH: MM: SS (예: *매월, 5, 12:22:32*). 필드 _DD_ (일)에 허용 되는 값은 1부터 28 까지의 숫자 _입니다._ <br>-주별, Day, HH: MM: SS (예: *매주, 화요일, 12:22:32*)  <br>-매일, HH: MM: SS (예: *매일, 12:22:32*)  <br>-Week, Day, HH: MM: SS (예: *2, 금요일, 21:00:00* 은 매월 2 주 금요일 오후 9:00 시 UTC를 나타냄) <br>- *없음* 은 Windows 업데이트를 수행 하지 않음을 나타냅니다.  <br><br> 시간은 UTC 단위입니다.|
-| AcceptWindowsUpdateEula | 부울 <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
+| AcceptWindowsUpdateEula | Boolean <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
 > Windows 업데이트를 즉시 수행 하려면 `WUFrequency` 응용 프로그램 배포 시간을 기준으로 설정 합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 30 분이 소요 된다고 가정 하면 WUFrequency을 *매일, 17:30:00*로 설정 합니다.
@@ -296,9 +296,9 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
    POA 버전 1.4.0 이상에서는 WUOperationStatus를 사용 하 여 NodeAgentService에서 상태 이벤트를 확인 하 여 업데이트 상태를 찾을 수 있습니다 \<NodeName> . 다음 이미지의 강조 표시 된 섹션에서는 *poanode_0* 및 *poanode_2*노드의 Windows 업데이트 상태를 보여 줍니다.
 
-   [![Windows 업데이트 작업 상태의 이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![스크린샷 poanode_0 강조 표시 된 Windows 업데이트 작업 상태의 콘솔 창을 보여 줍니다.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Windows 업데이트 작업 상태의 이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![스크린샷 poanode_1 강조 표시 된 Windows 업데이트 작업 상태의 콘솔 창을 보여 줍니다.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    PowerShell을 사용 하 여 세부 정보를 가져올 수도 있습니다. 이렇게 하려면 클러스터에 연결 하 고 [ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps)을 사용 하 여 복구 작업의 상태를 가져옵니다. 
    
@@ -328,7 +328,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 1. POA 버전 1.4.0 이상에서 노드 업데이트 시도가 완료 되 면, 다음에 Windows 업데이트를 다운로드 하 고 설치 하는 시도가 시작 될 때 알리도록 "WUOperationStatus-[NodeName]" 속성이 포함 된 이벤트가 NodeAgentService에 게시 됩니다. 다음 그림에 표시 됩니다.
 
-     [![Windows 업데이트 작업 상태의 이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![NodeAgentService를 사용 하 여 Windows 업데이트 작업 상태의 콘솔 창을 보여 주는 스크린샷](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>진단 로그
 

@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322158"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447718"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 자동 응답 만들기
 
@@ -53,26 +53,7 @@ ms.locfileid: "91322158"
     1. 이 자동 워크플로를 시작 하는 트리거입니다. 예를 들어 "SQL"을 포함 하는 보안 경고가 생성 될 때 논리 앱을 실행 하려고 할 수 있습니다.
     1. 트리거 조건이 충족 될 때 실행 되는 논리 앱입니다. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Workflow 자동화 창 추가":::
-
-1. 작업 섹션에서 **새 항목 만들기** 를 클릭 하 여 논리 앱 만들기 프로세스를 시작 합니다.
-
-    Azure Logic Apps 하 게 됩니다.
-
-    [![새 논리 앱 만들기](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
-
-1. 이름, 리소스 그룹 및 위치를 입력 하 고 **만들기**를 클릭 합니다.
-
-1. 새 논리 앱의 보안 범주에서 기본 제공 되는 미리 정의 된 템플릿에서 선택할 수 있습니다. 또는이 프로세스가 트리거될 때 발생 하는 이벤트의 사용자 지정 흐름을 정의할 수 있습니다.
-
-    논리 앱 디자이너에서 Security Center 커넥터의 다음 트리거가 지원 됩니다.
-
-    * **Azure Security Center 권장 사항이 만들어지거나 트리거되** 는 경우-논리 앱이 사용 되지 않거나 대체 되는 권장 사항을 사용 하는 경우 automation의 작동이 중지 되 고 트리거를 업데이트 해야 합니다. 권장 사항에 대 한 변경 내용을 추적 하려면 [Azure Security Center 릴리스 정보](release-notes.md)를 참조 하세요.
-
-    * **Azure Security Center 경고가 만들어지거나 트리거될 때** 관심 있는 심각도 수준의 경고에만 관련 되도록 트리거를 사용자 지정할 수 있습니다.
-    
-    > [!NOTE]
-    > "Azure Security Center 경고에 대 한 응답이 트리거될 때" 레거시 트리거를 사용 하는 경우 논리 앱은 워크플로 자동화 기능을 통해 시작 되지 않습니다. 대신 위에서 언급 한 트리거 중 하나를 사용 합니다. 
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="워크플로 자동화 목록" 레거시 트리거를 사용 하는 경우 논리 앱은 워크플로 자동화 기능을 통해 시작 되지 않습니다. 대신 위에서 언급 한 트리거 중 하나를 사용 합니다. 
 
     [![샘플 논리 앱](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 

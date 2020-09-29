@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003705"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461345"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
@@ -145,8 +145,8 @@ ms.locfileid: "88003705"
 - 동일한 VNET에 있는 캐시 간의 지역에서 복제가 지원됩니다.
 - 서로 다른 Vnet 캐시 간의 지역에서 복제도 지원 됩니다.
   - Vnet이 동일한 지역에 있는 경우 [vnet 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 또는 [VPN Gateway vnet 간 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)을 사용 하 여 연결할 수 있습니다.
-  - Vnet 서로 다른 지역에 있는 경우 기본 내부 부하 분산 장치가 포함 된 제약 조건 때문에 VNET 피어 링을 사용 하는 지역에서 복제가 지원 되지 않습니다. VNET 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)을 참조 하세요. VPN Gateway VNET 간 연결을 사용 하는 것이 좋습니다.
-
+  - Vnet 서로 다른 지역에 있는 경우 VNET 피어 링을 사용 하는 지역에서 복제가 지원 되지만 VNET 1 (지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치를 포함 하는 제약 조건으로 인해 VNET 2 (지역 2)의 DNS 이름을 통해 해당 캐시에 액세스할 수 없습니다. VNET 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)을 참조 하세요. VPN Gateway VNET 간 연결을 사용 하는 것이 좋습니다.
+  
 [이 Azure 템플릿을](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)사용 하 여 VPN Gateway vnet 간 연결로 연결 된 vnet에 두 개의 지역에서 복제 된 캐시를 신속 하 게 배포할 수 있습니다.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Redis 지역에서 복제의 복제 일정이란?

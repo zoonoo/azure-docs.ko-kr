@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660645"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447050"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -207,7 +207,7 @@ ms.locfileid: "89660645"
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |실행된 검사|
 |---|
-|<ul><li>용량 리소스가 실행 중인가요?</li><li>모든 워크노드가 실행 중인가요?</li></ul>|
+|<ul><li>용량 리소스가 실행 중인가요?</li><li>모든 워크노드가 실행 중인가요?</li></ul>
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |실행된 검사|

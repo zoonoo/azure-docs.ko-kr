@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009616"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460172"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -39,7 +39,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [액세스 키](#access-keys)
     * [고급 설정](#advanced-settings)
     * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-    * [크기 조정](#scale)
+    * [규모](#scale)
     * [클러스터 크기](#cluster-size)
     * [데이터 지속성](#redis-data-persistence)
     * [업데이트를 예약](#schedule-updates)
@@ -53,7 +53,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [데이터 가져오기](#importexport)
     * [데이터 내보내기](#importexport)
     * [Reboot](#reboot)
-* [Monitoring](#monitoring)
+* [모니터링](#monitoring)
     * [Redis 메트릭](#redis-metrics)
     * [경고 규칙](#alert-rules)
     * [진단](#diagnostics)
@@ -91,7 +91,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [액세스 키](#access-keys)
 * [고급 설정](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-* [크기 조정](#scale)
+* [규모](#scale)
 * [클러스터 크기](#cluster-size)
 * [데이터 지속성](#redis-data-persistence)
 * [업데이트를 예약](#schedule-updates)
@@ -141,9 +141,9 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 `maxmemory` 정책에 대한 자세한 내용은 [제거 정책](https://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
-**Maxmemory** 설정은 장애 조치 (failover) 중 복제와 같은 비 캐시 작업에 예약 된 메모리 양 (MB)을 구성 합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
+**Maxmemory-예약** 된 설정은 장애 조치 (failover) 중 복제와 같은 비 캐시 작업용으로 예약 된 클러스터의 인스턴스당 메모리 양 (MB)을 구성 합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
-**maxfragmentationmemory-reserved** 설정은 메모리 조각화를 고려하여 예약된 메모리 양을 MB 단위로 구성합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
+**Maxfragmentationmemory-reserved 설정은-예약** 된 설정은 메모리 조각화를 수용 하기 위해 예약 된 클러스터의 인스턴스당 메모리 양 (MB)을 구성 합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
 새 메모리 예약 값(**maxmemory-reserved** 또는 **maxfragmentationmemory-reserved**)을 선택할 때 고려해야 할 사항 중 하나는 이러한 변경이 이미 많은 양의 데이터로 실행 중인 캐시에 미칠 수 있는 영향력입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템에서 `used_memory`과 `used_memory_rss` 모두가 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다. `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
 
@@ -183,7 +183,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 캐시가 오랫동안 이러한 메트릭의 최대 용량에 근접하면 추천이 생성됩니다. **권장 사항** 도구에서 검토 하는 메트릭 및 제한에 대 한 자세한 내용은 다음 표를 참조 하세요.
 
-| Azure Cache for Redis 메트릭 | 추가 정보 |
+| Azure Cache for Redis 메트릭 | 자세한 정보 |
 | --- | --- |
 | 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | 연결된 클라이언트 |[기본 Redis 서버 구성 - maxclients](#maxclients) |
@@ -386,7 +386,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 >
 >
 
-| 설정 | 기본값 | 설명 |
+| 설정 | 기본값 | Description |
 | --- | --- | --- |
 | `databases` |16 |데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 선택할 수 있습니다. 여기서 `dbid`는 `0`에서 `databases - 1` 사이의 숫자입니다. |
 | `maxclients` |가격 책정 계층에 따라 달라집니다.<sup>2</sup> |이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 반환하고 모든 새 연결을 닫습니다. |

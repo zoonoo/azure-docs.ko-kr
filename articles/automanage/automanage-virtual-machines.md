@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311566"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447918"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -37,7 +37,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
@@ -46,6 +46,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 - Vm은 지원 되는 지역에 있어야 합니다.
 - 사용자에 게 올바른 사용 권한이 있어야 합니다.
 - Vm은 다른 구독의 log analytics 작업 영역에 연결 하면 안 됩니다.
+- 지금은 automanage에서 샌드박스 구독을 지원 하지 않습니다.
 
 기존 Automanage 계정을 사용 하 여 Automanage를 사용 하도록 설정 하려면 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 권한이 필요 합니다.
 
@@ -111,7 +112,7 @@ Azure Portal 환경에서 Vm에 대해 Automanage를 사용 하도록 설정 하
 
 Azure Portal에서 자동 관리 되는 모든 Vm을 나열 하는 **Automanage – Azure virtual machines 모범 사례** 페이지로 이동 합니다. 여기에서 각 가상 머신의 전반적인 상태를 확인할 수 있습니다.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="구성 된 가상 컴퓨터 목록입니다.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="지능적으로 서비스를 등록 합니다.":::
 
 나열 된 각 VM에 대해 이름, 구성 프로필, 구성 기본 설정, 상태, 계정, 구독 및 리소스 그룹 세부 정보가 표시 됩니다.
 
@@ -129,7 +130,7 @@ Azure Portal에서 자동 관리 되는 모든 Vm을 나열 하는 **Automanage 
 
 Azure Portal에서이 작업을 수행 하려면 자동 관리 되는 모든 Vm을 나열 하는 **Automanage – Azure virtual machines 모범 사례** 페이지로 이동 합니다. Automanage에서 사용 하지 않도록 설정할 가상 컴퓨터 옆의 확인란을 선택 하 고 **Automanage 사용 안 함** 단추를 클릭 합니다.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="가상 머신에서 Automanage 사용 안 함":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="지능적으로 서비스를 등록 합니다.":::
 
 **사용 안 함**에 동의하기 전에 결과 팝업의 메시지를 자세히 읽어 보세요.
 

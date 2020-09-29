@@ -3,12 +3,12 @@ title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317092"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447526"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -392,7 +392,7 @@ ms.locfileid: "91317092"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/&%\?` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 > | components | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`%&\?/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral

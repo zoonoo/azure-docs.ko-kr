@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ccb8d29d0ec52c31913a43358c7daa1c0693df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308849"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447850"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -69,7 +69,7 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-디바이스 만들기 및 부모/자식 관리를 위한 Azure CLI 명령에 대한 자세한 내용은 [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) 명령에 대한 참조 콘텐츠를 참조하세요.
+디바이스 만들기 및 부모/자식 관리를 위한 Azure CLI 명령에 대한 자세한 내용은 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령에 대한 참조 콘텐츠를 참조하세요.
 
 그런 다음 디바이스에서 해당 게이트웨이를 통한 연결을 인식하도록 [연결 문자열을 검색 및 수정](#retrieve-and-modify-connection-string)합니다.
 
@@ -126,7 +126,7 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) 다운
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-디바이스 만들기, 인증서 생성 및 부모/자식 관리를 위한 Azure CLI 명령에 대한 자세한 내용은 [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) 명령에 대한 참조 콘텐츠를 참조하세요.
+디바이스 만들기, 인증서 생성 및 부모/자식 관리를 위한 Azure CLI 명령에 대한 자세한 내용은 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령에 대한 참조 콘텐츠를 참조하세요.
 
 그런 다음 디바이스에서 해당 게이트웨이를 통한 연결을 인식하도록 [연결 문자열을 검색 및 수정](#retrieve-and-modify-connection-string)합니다.
 
@@ -172,7 +172,7 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 다운스트림 장치에 �
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-자세한 내용은 [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) 명령에 대한 Azure CLI 참조 콘텐츠를 참조하세요.
+자세한 내용은 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령에 대한 Azure CLI 참조 콘텐츠를 참조하세요.
 
 그런 다음 디바이스에서 해당 게이트웨이를 통한 연결을 인식하도록 [연결 문자열을 검색 및 수정](#retrieve-and-modify-connection-string)합니다.
 
@@ -184,13 +184,21 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 * 디바이스가 연결하는 IoT 허브: `Hostname={iothub name}.azure-devices.net`
 * 허브에 등록된 디바이스 ID: `DeviceID={device ID}`
-* 기본 또는 보조 키: `SharedAccessKey={key}`
+* 인증 방법 (대칭 키 또는 x.509 인증서에 상관 없음)
+  * 대칭 키 인증을 사용 하는 경우 기본 키 또는 보조 키를 제공 합니다. `SharedAccessKey={key}`
+  * X.509 인증서 인증을 사용 하는 경우 플래그를 제공 합니다. `x509=true`
 * 디바이스가 통과하는 게이트웨이 디바이스. IoT Edge 게이트웨이 디바이스의 config.yaml 파일 에서 **호스트 이름** 값을 제공합니다. `GatewayHostName={gateway hostname}`
 
 최종적으로 전체 연결 문자열은 다음과 같습니다.
 
 ```
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
+```
+
+또는
+
+```
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 이 다운스트림 디바이스에 부모/자식 관계를 설정한 경우 게이트웨이를 연결 호스트로 직접 호출하여 연결 문자열을 단순화할 수 있습니다. 부모/자식 관계는 X.509 인증에서는 필수이지만 대칭 키 인증의 경우 선택 사항입니다. 다음은 그 예입니다.

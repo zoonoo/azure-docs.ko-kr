@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 769aa6c0d546b7a9bcbe355136bad811fb4f47b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6290d89ed0ee539b4df4c2c8bc9070097da98c81
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753316"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447360"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>기본에서 표준으로 가상 WAN 업그레이드
 
@@ -26,13 +26,13 @@ ms.locfileid: "84753316"
 
 1. 가상 WAN에 대 한 페이지에서 **구성** 을 선택 하 여 구성 페이지를 엽니다.
 
-   ![Virtual WAN 다이어그램](./media/upgrade-virtual-wan/1.png)
+   ![아래쪽에 강조 표시 된 표준 유형의 가상 WAN으로 업그레이드 하는 방법에 대 한 정보 텍스트 상자가 있는 "구성" 페이지를 보여 주는 스크린샷](./media/upgrade-virtual-wan/1.png)
 2. 가상 WAN 유형의 경우 드롭다운에서 **표준** 을 선택 합니다.
 
-   ![Virtual WAN 다이어그램](./media/upgrade-virtual-wan/2.png)
+   !["가상 WAN 유형" 드롭다운 메뉴를 보여 주는 스크린샷](./media/upgrade-virtual-wan/2.png)
 3. 표준 가상 WAN으로 업그레이드 하는 경우 기본 가상 WAN으로 되돌릴 수 없다는 것을 이해 합니다. 업그레이드 하려는 경우 **확인** 을 선택 합니다.
 
-   ![Virtual WAN 다이어그램](./media/upgrade-virtual-wan/4.png)
+   !["업그레이드 확인" 대화 상자를 보여 주는 스크린샷](./media/upgrade-virtual-wan/4.png)
 4. 변경 내용이 저장 되 면 가상 WAN 페이지가 다음 예와 유사 하 게 표시 됩니다.
 
    ![Virtual WAN 다이어그램](./media/upgrade-virtual-wan/5.png)

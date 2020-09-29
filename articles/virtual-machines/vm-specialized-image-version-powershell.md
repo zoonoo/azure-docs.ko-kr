@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 547712d16cb6a7504d1a875b6155a587746d86bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 289bca140392ec77fa453e594aface6be9befeca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279198"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446604"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>특수 이미지를 사용 하 여 VM 만들기 
 
 공유 이미지 갤러리에 저장 된 특수 이미지 버전에서 VM을 만듭니다. 일반화 된 이미지 버전을 사용 하 여 VM을 만들려면 일반화 된 [이미지를 사용 하 여 Vm 만들기](vm-generalized-image-version-powershell.md)를 참조 하세요.
 
-전문 이미지 버전이 있으면 하나 이상의 새 Vm을 만들 수 있습니다. [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet을 사용합니다. 
+특수 한 이미지 버전이 있으면 [new-azvm](/powershell/module/az.compute/new-azvm) cmdlet을 사용 하 여 하나 이상의 새 vm을 만들 수 있습니다. 
 
 이 예제에서는 이미지 정의 ID를 사용 하 여 새 VM에서 최신 버전의 이미지를 사용 하는지 확인 합니다. 의 이미지 버전 ID를 사용 하 여 특정 버전을 사용할 수도 있습니다 `Set-AzVMSourceImage -Id` . 예를 들어 이미지 버전 *1.0.0* 을 사용 하려면을 입력 `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` 합니다. 
 

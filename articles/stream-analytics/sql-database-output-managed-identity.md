@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870190"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460644"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 Azure SQL Database에 액세스(미리 보기)
 
@@ -60,15 +60,15 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
    ![Active Directory 관리자 추가](./media/sql-db-output-managed-identity/add-admin.png)
 
-   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다.  [SQL Database 또는 Azure Synapse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)의  **Azure AD 기능 및 제한 사항** 섹션에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자**를 만들 수 있는 사용자입니다.
+   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시 된 사용자 또는 그룹은 Azure Active Directory 관리자로 지원 되지 않으므로 선택할 수 없습니다.  **Azure Active Directory Features and Limitations**    [SQL Database 또는 Azure Synapse 인증에 대 한 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)의 Azure Active Directory 기능 및 제한 사항 섹션에서 지원 되는 관리자 목록을 참조 하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자**를 만들 수 있는 사용자입니다.
 
 1. **Active Directory 관리자** 페이지에서 **저장**을 선택합니다. 관리자를 변경하는 프로세스는 몇 분 정도 걸립니다.
 
-   Azure AD 관리자를 설정하는 경우 새 관리자 이름(사용자 또는 그룹)이 SQL Server 인증 사용자로 가상 master 데이터베이스에 있을 수는 없습니다. 새 관리자 이름이 있으면 Azure AD 관리자 설정은 실패하며 만들기 작업을 롤백하여 관리자(이름)가 이미 있다는 것을 나타냅니다. SQL Server 인증 사용자는 Azure AD에 속하지 않기 때문에 해당 사용자로 Azure AD 인증을 사용하여 서버에 연결하려는 작업은 실패합니다. 
+   Azure Active Directory 관리자를 설정 하면 새 관리자 이름 (사용자 또는 그룹)이 가상 주 데이터베이스에 SQL Server 인증 사용자로 표시 되지 않습니다. 표시 되는 경우 Azure Active Directory 관리자 설치 프로그램은 실패 하 고 관리자 (이름)가 이미 있음을 나타내는 만들기를 롤백합니다. SQL Server 인증 사용자는 Azure Active Directory의 일부가 아니므로 Azure Active Directory 인증을 사용 하 여 서버에 연결 하는 데 필요한 작업은 실패 합니다. 
 
 ## <a name="create-a-contained-database-user"></a>포함된 데이터베이스 사용자 만들기
 
-다음으로, Azure Active Directory ID에 매핑되는 포함된 데이터베이스 사용자를 SQL Database에 만듭니다. 포함된 데이터베이스 사용자는 master 데이터베이스에 로그인할 수 없지만, 데이터베이스와 연결된 디렉터리의 ID에 매핑됩니다. Azure Active Directory ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 이 경우 Stream Analytics 작업에 대한 포함된 데이터베이스 사용자를 만들어야 합니다. 
+다음으로, Azure Active Directory ID에 매핑되는 포함된 데이터베이스 사용자를 SQL Database에 만듭니다. 포함 된 데이터베이스 사용자에 게는 주 데이터베이스에 대 한 로그인이 없지만 데이터베이스와 연결 된 디렉터리의 id에 매핑됩니다. Azure Active Directory ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 이 경우 Stream Analytics 작업에 대한 포함된 데이터베이스 사용자를 만들어야 합니다. 
 
 1. SQL Server Management Studio를 사용 하 여 SQL Database에 연결 합니다. **사용자 이름**은 **ALTER ANY USER** 권한이 있는 Azure Active Directory 사용자입니다. SQL Server에서 설정하는 관리자를 예로 들 수 있습니다. **Azure Active Directory - MFA가 지원되는 유니버설** 인증을 사용합니다. 
 

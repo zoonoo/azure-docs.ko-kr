@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440816"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447972"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>지점 및 사이트 간 VPN 라우팅 정보
 
 이 문서는 Azure 지점 및 사이트 간 VPN 라우팅이 작동하는 방법을 이해하는 데 도움이 됩니다. P2S(지점 및 사이트 간) VPN 라우팅 동작은 클라이언트 OS, VPN 연결에 사용된 프로토콜 및 VNet(가상 네트워크)이 서로 연결된 방식에 따라 다릅니다.
 
-Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 및 SSTP를 지원합니다. IKEv2는 Windows, Linux, MacOS, Android 및 iOS를 포함한 많은 클라이언트 운영 체제에서 지원됩니다. SSTP는 Windows에서만 지원됩니다. 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
+Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 및 SSTP를 지원합니다. IKEv2는 Windows, Linux, macOS, Android 및 iOS를 비롯 한 여러 클라이언트 운영 체제에서 지원 됩니다. SSTP는 Windows에서만 지원됩니다. 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
 
 > [!NOTE]
 > 이 문서는 IKEv2에만 적용됩니다.
@@ -195,7 +195,7 @@ Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만,
 
 모든 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
-![다중 VNet S2S 및 지점](./media/vpn-gateway-about-point-to-site-routing/7.jpg "다중 VNet S2S 및 지점")
+![다중 VNet S2S 및 지점을 보여 주는 다이어그램](./media/vpn-gateway-about-point-to-site-routing/7.jpg "다중 VNet S2S 및 지점")
 
 ### <a name="address-space"></a>주소 공간
 
