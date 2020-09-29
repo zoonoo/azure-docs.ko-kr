@@ -8,24 +8,24 @@ manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82c800df03826386c8b79d45584f4b26b0bc45e4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582977"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440656"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 에 저장 되 고 Security Center에 노출 됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="searching-for-and-identifying-personal-data"></a>개인 데이터 검색 및 식별
+## <a name="searching-for-and-identifying-personal-data"></a>개인 데이터에 대한 검색 및 식별
 Azure Portal에서 Security Center의 조사 기능을 사용하여 개인 데이터를 검색할 수 있습니다. 조사 기능은 **보안 경고** 아래에서 사용할 수 있습니다.
 
 조사 기능은 **엔터티** 탭 아래에서 모든 엔터티, 사용자 정보 및 데이터를 표시합니다.

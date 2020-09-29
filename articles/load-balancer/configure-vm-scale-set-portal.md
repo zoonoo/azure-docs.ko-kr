@@ -6,18 +6,18 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333888"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439519"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합 구성
 
 이 문서에서는 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성 하는 방법을 알아봅니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독
 - 가상 머신 확장 집합이 배포 될 구독의 기존 표준 sku 부하 분산 장치입니다.
@@ -49,7 +49,7 @@ ms.locfileid: "91333888"
     | 리소스 그룹                 | 새로 만들기를 선택 하 고 **Myresourcegroup**을 입력 한 다음 확인을 선택 하거나 기존 리소스 그룹을 선택 합니다. |
     | **확장 집합 정보**          |                                                                                                       |
     | 가상 머신 확장 집합 이름 | **Myvmss** 를 입력 합니다.                                                                                      |
-    | 지역                         | **미국 동부 2** 를 선택 합니다.                                                                                    |
+    | Region                         | **미국 동부 2** 를 선택 합니다.                                                                                    |
     | 가용성 영역              | **없음**을 선택합니다.                                                                                       |
     | **인스턴스 세부 정보**           |                                                                                                       |
     | 이미지                          | **Ubuntu Server 18.04 LTS** 를 선택 합니다.                                                                    |
@@ -62,7 +62,7 @@ ms.locfileid: "91333888"
     | 암호 확인               | 관리자 암호를 다시 입력 합니다. |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="가상 머신 확장 집합을 만듭니다." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="가상 머신 확장 집합 기본 사항 만들기 탭을 보여 주는 스크린샷" border="true":::
 
 4. **네트워킹** 탭을 선택합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "91333888"
     | 부하 분산 장치 선택            | **Myloadbalancer** 또는 기존 부하 분산 장치를 선택 합니다. |
     | 백 엔드 풀 선택             | **MyBackendPool** 또는 기존 백 엔드 풀을 선택 합니다.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="가상 머신 확장 집합을 만듭니다." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="가상 머신 확장 집합 기본 사항 만들기 탭을 보여 주는 스크린샷" border="true":::
 
 6. **관리** 탭을 선택 합니다.
 

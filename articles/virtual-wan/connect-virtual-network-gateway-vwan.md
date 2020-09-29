@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983753"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441035"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>가상 WAN에 VPN Gateway (가상 네트워크 게이트웨이) 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "90983753"
 
 두 기능 사이에서 혼동을 최소화 하기 위해 게이트웨이 앞에는 참조 하는 기능의 이름이 포함 됩니다. 예를 들어 가상 네트워크 게이트웨이 및 가상 WAN VPN gateway를 VPN Gateway 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 시작 하기 전에 다음 리소스를 만듭니다.
 
@@ -83,7 +83,7 @@ Azure Virtual Network
 
 1. 가상 WAN **vpn 사이트** 페이지의 맨 위에서 **사이트**를 선택 하 고 **사이트 간 vpn 구성 다운로드**를 선택 합니다. Azure는 설정을 사용 하 여 구성 파일을 만듭니다.
 
-   ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/download.png "다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요")
+   !["사이트 간 VPN 구성 다운로드" 작업이 선택 된 "VPN 사이트" 페이지를 보여 주는 스크린샷](./media/connect-virtual-network-gateway-vwan/download.png "다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요")
 2. 구성 파일을 다운로드 하 여 엽니다.
 3. 두 번째 사이트에 대해 이러한 단계를 반복 합니다. 두 구성 파일을 모두 연 후에는 다음 섹션으로 진행할 수 있습니다.
 
@@ -98,7 +98,7 @@ Azure Virtual Network
    * **구독, 리소스 그룹 및 위치** 는 가상 WAN 허브의 경우와 동일 합니다.
 2. 로컬 네트워크 게이트웨이를 검토 하 고 만듭니다. 로컬 네트워크 게이트웨이는이 예제와 유사 하 게 표시 됩니다.
 
-   ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![IP 주소가 강조 표시 되 고 "BGP 설정 구성"이 선택 된 "구성" 페이지를 보여 주는 스크린샷](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. 다른 로컬 네트워크 게이트웨이를 만들려면이 단계를 반복 합니다. 그러나 이번에는 구성 파일에서 ' Instance0 ' 값 대신 ' Instance1 ' 값을 사용 합니다.
 
    ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")

@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 07a38e106b765fd28a8c3c1115e5fe84744ade62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-csharp, contperfq1
+ms.openlocfilehash: eb148801011b2d1c8c1f975edb870ba594b085a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303092"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440700"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos 에뮬레이터 설치 및 사용
 
@@ -80,13 +80,13 @@ Azure Cosmos 에뮬레이터는 `C:\Program Files\Azure Cosmos DB Emulator` 기�
 
 에뮬레이터가 시작 되 면 Windows 작업 표시줄 알림 영역에 아이콘이 표시 됩니다. 그러면 브라우저에서이 URL url의 Azure Cosmos 데이터 탐색기가 자동으로 열립니다 `https://localhost:8081/_explorer/index.html` .
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 작업 표시줄 알림":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="시작 단추를 선택 하거나, Windows 키를 누르고, Azure Cosmos emulator를 입력 하기 시작 하 고, 응용 프로그램 목록에서 에뮬레이터를 선택 합니다.":::
 
 명령줄 또는 PowerShell 명령에서 에뮬레이터를 시작 하 고 중지할 수도 있습니다. 자세한 내용은 [명령줄 도구 참조](emulator-command-line-parameters.md) 문서를 참조 하세요.
 
 기본적으로 Azure Cosmos 에뮬레이터는 포트 8081에서 수신 대기 하는 로컬 컴퓨터 ("localhost")에서 실행 됩니다. 주소가 `https://localhost:8081/_explorer/index.html`로 표시됩니다. 탐색기를 닫고 나중에 다시 열려면 브라우저에서 URL을 열거나 아래와 같이 Windows 트레이 아이콘의 Azure Cosmos 에뮬레이터에서 시작할 수 있습니다.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos 로컬 에뮬레이터 데이터 탐색기 시작 관리자":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="시작 단추를 선택 하거나, Windows 키를 누르고, Azure Cosmos emulator를 입력 하기 시작 하 고, 응용 프로그램 목록에서 에뮬레이터를 선택 합니다.":::
 
 ## <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Windows용 Docker 에뮬레이터 사용
 
@@ -289,7 +289,7 @@ Mac에서 작업하는 경우 다음 단계를 사용합니다.
 
 1. 특정 항목에 대한 상황에 맞는 메뉴를 열고 *항목 가져오기*를 선택하고 *신뢰* > *이 인증서를 사용할 경우* 옵션에서 *항상 신뢰*를 선택합니다. 
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="특정 항목에 대한 상황에 맞는 메뉴를 열고 항목 가져오기를 선택하고 신뢰 - 이 인증서를 사용할 경우 옵션에서 항상 신뢰를 선택합니다.":::
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="시작 단추를 선택 하거나, Windows 키를 누르고, Azure Cosmos emulator를 입력 하기 시작 하 고, 응용 프로그램 목록에서 에뮬레이터를 선택 합니다.":::
   
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a><a id="disable-ssl-validation"></a>옵션 2: 응용 프로그램에서 SSL 유효성 검사를 사용 하지 않도록 설정
 

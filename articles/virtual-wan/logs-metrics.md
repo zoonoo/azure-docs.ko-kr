@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983637"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440866"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 가상 WAN 로그 및 메트릭
 
@@ -66,7 +66,7 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 4. **메트릭** 페이지에서 관심 있는 메트릭을 볼 수 있습니다.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="메트릭 페이지":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>진단 로그
 
@@ -93,15 +93,15 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 1. 포털에서 가상 WAN 리소스로 이동 합니다. 포털의 가상 WAN 페이지 **개요** 섹션에서 **Essentials** 를 선택 하 여 보기를 확장 하 고 리소스 그룹 정보를 가져옵니다. 리소스 그룹 정보를 복사 합니다.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="메트릭 페이지":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
 
 2. 모니터링 섹션에서 리소스 그룹으로 이동 합니다. **진단 설정**을 선택 하 고 리소스 정보를 입력 합니다. 이 정보는이 문서 앞부분의 [게이트웨이 메트릭 보기](#metrics-steps) 섹션에서 2 단계에서 복사한 리소스 정보입니다.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="메트릭 페이지":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
 
 3. 결과 페이지에서 **+ 진단 설정 추가**를 선택한 다음 옵션을 선택 합니다. Log Analytics로 보내거나, 이벤트 허브로 스트림 하거나, 저장소 계정에 보관 하도록 선택할 수 있습니다.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="메트릭 페이지":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics 샘플 쿼리
 

@@ -1,22 +1,22 @@
 ---
 title: 'Azure VPN Gateway: VPN 클라이언트 구성 파일 만들기 & 설치-P2S RADIUS 연결'
-description: RADIUS 인증을 사용하는 Windows, Mac OS X 및 Linux VPN 클라이언트 구성 파일을 만듭니다.
+description: RADIUS 인증을 사용 하는 연결에 대 한 Windows, OS X 및 Linux VPN 클라이언트 구성 파일을 만듭니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419914"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440064"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
 
-P2S(지점 및 사이트 간) 연결을 통해 가상 네트워크에 연결하려면 연결할 클라이언트 디바이스를 구성해야 합니다. Windows, Mac OS X 및 Linux 클라이언트 디바이스에서 P2S VPN 연결을 만들 수 있습니다. 
+P2S(지점 및 사이트 간) 연결을 통해 가상 네트워크에 연결하려면 연결할 클라이언트 디바이스를 구성해야 합니다. Windows, OS X 및 Linux 클라이언트 장치에서 P2S VPN 연결을 만들 수 있습니다. 
 
 RADIUS 인증을 사용할 경우 사용자 이름/암호 인증, 인증서 인증 및 기타 인증 유형과 같은 여러 인증 옵션이 있습니다. VPN 클라이언트 구성은 각 인증 유형마다 다릅니다. VPN 클라이언트를 구성하려면 필요한 설정을 포함하는 클라이언트 구성 파일을 사용합니다. 이 아티클에서는 사용하려는 RADIUS 인증 유형에 대한 VPN 클라이언트 구성을 만들고 설치하는 데 도움이 됩니다.
 
@@ -36,7 +36,7 @@ P2S RADIUS 인증에 대한 구성 워크플로는 다음과 같습니다.
 >
 >
 
-이 아티클의 섹션을 사용하려면 먼저 사용자 이름/암호, 인증서 또는 다른 인증 유형 중에서 사용하려는 인증 유형을 결정하세요. 각 섹션에는 Windows, Mac OS X, Linux에 대한 단계가 있습니다(현재는 제한된 단계 제공).
+이 아티클의 섹션을 사용하려면 먼저 사용자 이름/암호, 인증서 또는 다른 인증 유형 중에서 사용하려는 인증 유형을 결정하세요. 각 섹션에는 Windows, OS X 및 Linux에 대 한 단계가 있습니다 (현재는 제한 된 단계를 사용할 수 있음).
 
 
 ## <a name="usernamepassword-authentication"></a><a name="adeap"></a>사용자 이름/암호 인증
@@ -142,9 +142,9 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 10. VPN 연결은 **IkeV2-VPN**로 표시됩니다. **mobileconfig** 파일을 업데이트하여 이름을 변경할 수 있습니다.
 
     ![VPN 연결에 대한 세부 정보](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
-11. **인증 설정**을 선택 합니다. 목록에서 **사용자 이름**을 선택하고 자격 증명을 입력합니다. 이전에 자격 증명을 입력한 경우 **사용자 이름**이 목록에서 자동으로 선택되며 사용자 이름 및 암호가 미리 채워집니다. **확인**을 선택하여 설정을 저장합니다.
+11. **인증 설정**을 선택 합니다. 목록에서 **사용자 이름**을 선택하고 자격 증명을 입력합니다. 이전에 자격 증명을 입력 한 경우 **사용자 이름** 이 목록에서 자동으로 선택 되 고 사용자 이름 및 암호가 미리 채워집니다. **확인**을 선택하여 설정을 저장합니다.
 
-    ![인증 설정](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    !["사용자 이름"이 선택 된 "인증 설정" 드롭다운을 보여 주는 스크린샷](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. **네트워크** 대화 상자로 돌아가서 **적용**을 선택하여 변경 내용을 저장합니다. 연결을 시작하려면 **연결**을 선택합니다.
 
 #### <a name="linux-vpn-client-setup-through-strongswan"></a><a name="adlinuxcli"></a>strongSwan을 통해 Linux VPN 클라이언트 설정

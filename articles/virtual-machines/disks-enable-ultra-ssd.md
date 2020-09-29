@@ -4,16 +4,16 @@ description: Azure Vm의 ultra disks에 대해 알아보기
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 681804eadc1f710eb5fbf6980fabca4beaaf5439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328225"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441194"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure ultra disks 사용
 
@@ -155,7 +155,7 @@ VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크�
 - **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS**및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
 - 블레이드에서 **확인을** 선택 합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="새 디스크 만들기 블레이드 스크린샷, 강조 표시 된 크기 변경":::
 
 - VM 배포를 계속 하면 다른 VM을 배포할 때와 동일 하 게 유지 됩니다.
 
@@ -250,7 +250,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 - **계정 유형을** **Ultra Disk**로 변경 합니다.
 - **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS**및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="새 디스크 만들기 블레이드 스크린샷, 강조 표시 된 크기 변경":::
 
 - **확인을** 선택 하 고 **만들기**를 선택 합니다.
 - 디스크의 블레이드에 반환 되 면 **저장**을 선택 합니다.
@@ -409,4 +409,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Kubernetes 서비스 (미리 보기)에서 azure ultra Disks 사용](../aks/use-ultra-disks.md)을 참조 하세요.
+- [Azure Kubernetes 서비스 (미리 보기)에서 azure ultra disks를 사용](../aks/use-ultra-disks.md)합니다.
+- [로그 디스크를 ultra disk로 마이그레이션합니다](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).

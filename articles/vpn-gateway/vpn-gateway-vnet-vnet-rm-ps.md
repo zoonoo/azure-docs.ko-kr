@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1b1cd0adb8581c7aa94f0de85a9f8beab38da112
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edd9f9f3127178f168f6c768b092a7ec6311e7bf
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398565"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440937"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -67,7 +67,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 * [동일한 구독에 상주하는 VNet](#samesub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet4를 사용합니다.
 
-  ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![동일한 구독에 상주 하는 V 안전망의 V 넷 단계를 보여 주는 다이어그램입니다.](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 * [서로 다른 구독에 상주하는 VNet](#difsub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet5를 사용합니다.
 
@@ -75,7 +75,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
 
-### <a name="before-you-begin"></a>시작하기 전에
+### <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -203,7 +203,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-명령을 완료하면 45분 이내에 이 게이트웨이가 만들어집니다. Azure Cloud Shell을 사용하는 경우 Cloud Shell 터미널의 왼쪽 위를 클릭한 다음, TestVNet4를 구성하여 CloudShell 세션을 다시 시작할 수 있습니다. TestVNet1 게이트웨이가 완료될 때까지 기다릴 필요가 없습니다.
+명령을 완료하면 45분 이내에 이 게이트웨이가 만들어집니다. Azure Cloud Shell를 사용 하는 경우 Cloud Shell 터미널의 왼쪽 위를 클릭 하 고 TestVNet4를 구성 하 여 Cloud Shell 세션을 다시 시작할 수 있습니다. TestVNet1 게이트웨이가 완료될 때까지 기다릴 필요가 없습니다.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>3단계 - TestVNet4 만들기 및 구성
 
@@ -448,7 +448,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[구독 1]** TestVNet1에서 TestVNet5에 연결 만들기. 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 여기서 차이점은 $vnet5gw가 다른 구독에 있기 때문에 직접 가져올 수 없다는 것입니다. 위의 단계에서 구독 1에서 전달한 값을 사용하여 새 PowerShell 개체를 만들어야 합니다. 아래 예제를 사용하세요. 이름, ID 및 공유 키를 사용자의 고유한 값으로 바꿉니다. 중요한 점은 두 연결에서 모두 공유 키가 일치해야 한다는 것입니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.
+3. **[구독 1]** TestVNet1에서 TestVNet5에 연결 만들기. 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 여기서 차이점은 $vnet5gw가 다른 구독에 있기 때문에 직접 가져올 수 없다는 것입니다. 위의 단계에서 구독 1에서 전달한 값을 사용하여 새 PowerShell 개체를 만들어야 합니다. 아래 예제를 사용하세요. 이름, ID 및 공유 키를 사용자 고유의 값으로 바꿉니다. 중요한 점은 두 연결에서 모두 공유 키가 일치해야 한다는 것입니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.
 
    다음 예제를 실행하기 전에 구독 1에 연결합니다.
 
@@ -475,7 +475,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>VNet 간 FAQ
 

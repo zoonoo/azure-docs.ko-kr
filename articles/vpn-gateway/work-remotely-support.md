@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: a70f7ccd1c3ca078bab0ff473283b505c0ded316
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441564"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440833"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Azure VPN Gateway 지점 및 사이트 간 원격 작업
 
@@ -30,13 +30,13 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 다음 표에서는 클라이언트 운영 체제와 해당 운영 체제에서 사용할 수 있는 인증 옵션을 보여 줍니다. 이미 사용 중인 클라이언트 OS에 따라 인증 방법을 선택 하는 것이 좋습니다. 예를 들어, 연결 해야 하는 클라이언트 운영 체제가 혼합 되어 있는 경우 인증서 기반 인증을 사용 하 여 OpenVPN을 선택 합니다. 또한 지점 및 사이트 간 VPN은 경로 기반 VPN 게이트웨이에서만 지원 됩니다.
 
-![지점 및 사이트 간](./media/working-remotely-support/ostable.png "OS")
+![클라이언트 운영 체제 및 사용 가능한 인증 옵션을 보여 주는 스크린샷](./media/working-remotely-support/ostable.png "OS")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>시나리오 1-사용자가 Azure의 리소스에만 액세스 해야 하는 경우
 
 이 시나리오에서 원격 사용자는 Azure에 있는 리소스에만 액세스 하면 됩니다.
 
-![지점 및 사이트 간](./media/working-remotely-support/scenario1.png "시나리오 1")
+![Azure의 리소스에만 액세스 해야 하는 사용자를 위한 지점 및 사이트 간 시나리오를 보여 주는 다이어그램입니다.](./media/working-remotely-support/scenario1.png "시나리오 1")
 
 높은 수준에서 사용자가 Azure 리소스에 안전 하 게 연결할 수 있도록 하려면 다음 단계를 수행 해야 합니다.
 
@@ -55,7 +55,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 이 시나리오에서 원격 사용자는 Azure 및 온-프레미스 데이터 센터에 있는 리소스에 액세스 해야 합니다.
 
-![지점 및 사이트 간](./media/working-remotely-support/scenario2.png "시나리오 2")
+![Azure의 리소스에 액세스 해야 하는 사용자를 위한 지점 및 사이트 간 시나리오를 보여 주는 다이어그램입니다.](./media/working-remotely-support/scenario2.png "시나리오 2")
 
 높은 수준에서 사용자가 Azure 리소스에 안전 하 게 연결할 수 있도록 하려면 다음 단계를 수행 해야 합니다.
 

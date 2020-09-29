@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883230"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439092"
 ---
 # <a name="train-pytorch-model"></a>Pytorch 모델 학습
 
@@ -49,7 +49,7 @@ ms.locfileid: "90883230"
 
 8.  그 동안에는 유효성 검사 손실이 연속으로 감소 하지 않는 경우 조기에 교육을 중지할 epoch의 **수를 지정**합니다. 기본적으로 3입니다.
 
-9.  파이프라인을 제출합니다. 데이터 집합의 크기가 더 큰 경우 시간이 소요 됩니다.
+9.  파이프라인을 제출합니다. 데이터 집합의 크기가 더 큰 경우 시간이 소요 되 고 GPU 계산을 사용 하는 것이 좋습니다.
 
 ## <a name="results"></a>결과
 
@@ -58,7 +58,7 @@ ms.locfileid: "90883230"
 ## <a name="technical-notes"></a>기술 정보
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 이름               | Type                    | 설명                              |
+| 속성               | 유형                    | 설명                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델    | UntrainedModelDirectory | 학습 되지 않은 모델, pytorch 필요         |
 | 학습 데이터 세트   | ImageDirectory          | 학습 데이터 세트                         |
@@ -66,7 +66,7 @@ ms.locfileid: "90883230"
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 이름          | 범위            | Type    | 기본값 | 설명                              |
+| 속성          | 범위            | Type    | 기본값 | 설명                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoch        | >0               | 정수 | 5       | 레이블 또는 결과 열이 포함된 열을 선택합니다. |
 | Batch 크기    | >0               | 정수 | 16      | 일괄 처리에서 학습 하는 인스턴스 수   |
@@ -76,7 +76,7 @@ ms.locfileid: "90883230"
 
 ###  <a name="outputs"></a>출력  
 
-| 이름          | Type           | 설명   |
+| 속성          | 유형           | 설명   |
 | ------------- | -------------- | ------------- |
 | 학습된 모델 | ModelDirectory | 학습된 모델 |
 

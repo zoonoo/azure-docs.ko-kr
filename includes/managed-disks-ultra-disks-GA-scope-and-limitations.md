@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328223"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441202"
 ---
 지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -35,7 +35,9 @@ ms.locfileid: "91328223"
 |US Gov 애리조나     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |US Gov 버지니아     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |미국 서부     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)        |
+|오스트레일리아 중부    |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |오스트레일리아 동부     |3 개의 가용성 영역         |
+|동남 아시아    |3 개의 가용성 영역        |
 |캐나다 중부 *     |3 개의 가용성 영역          |
 |미국 중부     |3 개의 가용성 영역          |
 |미국 동부     |3 개의 가용성 영역          |

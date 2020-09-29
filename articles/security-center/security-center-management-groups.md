@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440785"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 Azure 구독에 보안 정책을 적용 하 여 조직의 보안 상태를 대규모로 관리 하는 방법을 설명 합니다.
@@ -101,7 +101,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
  
 1. **액세스 제어(IAM)**, **역할 할당**을 차례로 클릭합니다.
 
-1. **역할 할당 추가**를 클릭 합니다.
+1. **역할 할당 추가**를 클릭합니다.
 
 1. 할당할 역할과 사용자를 선택한 다음, **저장**을 클릭합니다.  
    
@@ -113,7 +113,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
-2. 다음 명령을 실행합니다. 
+2. 다음 명령을 실행 합니다. 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user

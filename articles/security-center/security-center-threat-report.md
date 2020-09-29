@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: a4fdbab4a69fac1376779f37d5fa69fef587bf52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9b3fd0000a1b5dbba00995c37f96a89319de0e1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888217"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440482"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure Security Center 위협 인텔리전스 보고서
 
@@ -75,5 +75,5 @@ Security Center에는 세 가지 유형의 위협 보고서가 있는데 공격�
 
 이 페이지에서는 보안 경고를 조사할 때 위협 인텔리전스 보고서를 여는 방법에 대해 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
 
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
+* [Azure Security Center의 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 인시던트 처리](security-center-incident.md)

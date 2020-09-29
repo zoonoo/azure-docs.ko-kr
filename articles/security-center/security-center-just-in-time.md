@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904858"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440731"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-in-time 액세스를 사용 하 여 관리 포트 보호
 
@@ -241,7 +241,7 @@ Azure Portal (Security Center 또는 Azure Virtual machines)에서 또는 프로
 
 VM에 JIT를 사용 하는 경우 연결에 대 한 액세스를 요청 해야 합니다. JIT를 사용 하도록 설정 하는 방법에 관계 없이 지원 되는 방법 중 하나를 사용 하 여 액세스를 요청할 수 있습니다.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Security Center에서 JIT 액세스 요청":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Azure Security Center에서 JIT VM 액세스 구성":::
 
 1. **JUST-IN-TIME VM 액세스** 페이지에서 **구성 됨** 탭을 선택 합니다.
 

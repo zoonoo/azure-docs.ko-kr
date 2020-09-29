@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909337"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439845"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
 
@@ -32,7 +32,7 @@ ms.locfileid: "87909337"
 
 전자 메일의 몇 가지 요소를 확인하여 이러한 기능을 최대한 활용하는 방법에 대해 살펴보겠습니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>주체
 
 전자 메일의 제목은 다음 패턴을 따릅니다.
 
@@ -75,7 +75,21 @@ ms.locfileid: "87909337"
 바닥글에는 전송 중인 초대에 대 한 자세한 정보가 포함 됩니다. 초대를 받은 후에는 항상 초대를 차단할 수 있는 옵션이 있습니다. 조직에서 [개인 정보 취급 방침을 설정한](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)경우 문에 대 한 링크가 여기에 표시 됩니다.  그렇지 않으면 조직이 개인 정보 취급 방침을 설정 하지 않았음을 나타냅니다.
 
 ![전자 메일의 바닥글 섹션 이미지](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>조직 차단 (구독 취소)
+
+조직의 초대에서 바닥글에는 **이후 초대를 차단**하는 옵션이 포함 되어 있습니다. 게스트 사용자는이 링크를 선택 하 여 조직에서 향후 초대를 차단할 수 있습니다. 이 작업은 또한에서 사용자의 구독 목록에 조직을 추가 합니다 [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+
+### <a name="viewing-organizations-youve-blocked"></a>차단 된 조직 보기
+
+게스트 사용자는 다음 단계에 따라 차단 된 조직을 보거나 내보낼 수 있습니다.
+
+1. [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage)으로 이동합니다.
+2. 전자 메일을 입력 하 고 일회용 암호 인증을 위한 로그인 단계를 따르세요.
+3. 차단 된 조직을 보거나 복사 및 붙여넣기를 사용 하 여 이름을 내보냅니다.
+   > [!NOTE]
+   > 사용자를 다시 초대 하도록 차단한 조직을 허용 하려면 조직을 선택 하 고 **다음**을 선택 합니다.
+
 ## <a name="how-the-language-is-determined"></a>언어를 결정하는 방법
 
 초대 이메일에서 게스트 사용자에게 표시되는 언어는 다음 설정에 의해 결정됩니다. 이러한 설정은 우선 순위 순서대로 나열됩니다. 설정이 구성되지 않은 경우 목록의 다음 설정이 언어를 결정합니다.

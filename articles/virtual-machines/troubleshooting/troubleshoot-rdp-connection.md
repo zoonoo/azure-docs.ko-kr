@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 831ce1ccb2c09a85ddfff8fa65172b1871119a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079896"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439996"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결
 Windows 기반 Azure VM(가상 머신)에 RDP(원격 데스크톱 프로토콜) 연결은 여러 이유로 실패하여 VM에 액세스하지 못할 수 있습니다. 이러한 문제는 VM의 원격 데스크톱 서비스, 네트워크 연결 또는 호스트 컴퓨터의 원격 데스크톱 클라이언트에서 발생할 수 있습니다. 이 문서는 RDP 연결 문제를 해결하기 위한 가장 일반적인 방법 중 일부를 안내합니다. 
@@ -66,7 +66,7 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **암호 다시 설정** 단추를 클릭합니다. **모드**를 **구성만 재설정**으로 설정한 다음 **업데이트** 단추를 클릭합니다.
    
-    ![Azure Portal에서 RDP 구성 다시 설정](./media/troubleshoot-rdp-connection/reset-rdp.png)
+    ![Azure Portal에서 R D P 구성을 다시 설정 합니다.](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **네트워크 보안 그룹 규칙 확인**. [IP 흐름 확인](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 머신 간에 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 RDP 포트(기본값: 3389)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-traffic-filter-problem.md)을 참조하세요.
 
 3. **VM 부트 진단 검토**. 이 문제 해결 단계에서는 VM 콘솔 로그를 검토하여 VM이 문제를 보고하는지 확인합니다. 모든 VM에서 부팅 진단이 지원되는 것은 아니므로 이 문제 해결 단계는 선택 사항입니다.
@@ -78,17 +78,17 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **리소스 상태** 단추를 클릭합니다. 정상 VM은 **사용 가능**으로 보고합니다.
    
-    ![Azure Portal에서 VM 리소스 상태 확인](./media/troubleshoot-rdp-connection/check-resource-health.png)
+    ![Azure Portal에서 V M 리소스 상태를 확인 합니다.](./media/troubleshoot-rdp-connection/check-resource-health.png)
 6. **사용자 자격 증명 다시 설정**. 이 문제 해결 단계에서는 자격 증명이 확실하지 않거나 잊어버린 경우 로컬 관리자 계정에서 암호를 다시 설정합니다.  VM에 로그인하면 해당 사용자의 암호를 다시 설정해야 합니다.
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **암호 다시 설정** 단추를 클릭합니다. **모드**를 **암호 다시 설정**으로 지정한 다음 사용자 이름 및 새 암호를 입력합니다. 마지막으로 **업데이트** 단추를 클릭합니다.
    
-    ![Azure Portal에서 사용자 자격 증명 다시 설정](./media/troubleshoot-rdp-connection/reset-password.png)
+    ![Azure Portal에서 사용자 자격 증명을 다시 설정 합니다.](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
    
     Azure Portal에서 VM을 선택하고 **개요** 탭을 클릭합니다. **다시 시작** 단추를 클릭합니다.
    
-    ![Azure Portal에서 VM을 다시 시작합니다.](./media/troubleshoot-rdp-connection/restart-vm.png)
+    ![Azure Portal에서 V M을 다시 시작 합니다.](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **VM 다시 배포**. 이 문제 해결 단계에서는 Azure 내의 다른 호스트에 VM을 다시 배포하여 기본 플랫폼 또는 네트워킹 문제를 해결합니다.
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **다시 배포** 단추를 클릭한 다음 **다시 배포**를 클릭합니다.
@@ -203,14 +203,14 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
    
     Azure Portal에서 VM을 선택합니다. **...더 보기** 단추를 클릭한 다음 **원격 액세스 다시 설정**을 클릭합니다.
    
-    ![Azure Portal에서 RDP 구성 다시 설정](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
+    ![클래식 배포 모델을 사용 하 여 V M에 대 한 Azure Portal에서 R D P 구성을 다시 설정 합니다.](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
 2. **Cloud Services 엔드포인트 확인**. 이 문제 해결 단계에서는 Cloud Services에 RDP 트래픽을 허용하는 규칙이 있는지 확인합니다. RDP의 기본 포트는 TCP 포트 3389입니다. VM을 만들 때 RDP 트래픽을 허용하는 규칙이 자동으로 생성되지 않을 수도 있습니다.
    
    Azure Portal에서 VM을 선택합니다. **엔드포인트** 단추를 클릭하여 현재 VM에 대해 구성된 엔드포인트를 표시합니다. TCP 포트 3389에서 RDP 트래픽을 허용하는 엔드포인트가 있는지 확인합니다.
    
    다음 예제에서는 RDP 트래픽을 허용하는 유효한 엔드포인트를 보여줍니다.
    
-   ![Azure Portal에서 Cloud Services 엔드포인트 확인](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
+   ![클래식 배포 모델을 사용 하 여 V M에 대 한 Azure Portal Cloud Services 끝점을 확인 합니다.](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
    RDP 트래픽을 허용하는 엔드포인트가 없는 경우 [Cloud Services 엔드포인트를 만듭니다](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints). 프라이빗 포트 3389에 TCP를 허용합니다.
 3. **VM 부트 진단 검토**. 이 문제 해결 단계에서는 VM 콘솔 로그를 검토하여 VM이 문제를 보고하는지 확인합니다. 모든 VM에서 부팅 진단이 지원되는 것은 아니므로 이 문제 해결 단계는 선택 사항입니다.
@@ -220,17 +220,17 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **리소스 상태** 단추를 클릭합니다. 정상 VM은 **사용 가능**으로 보고합니다.
    
-    ![Azure Portal에서 VM 리소스 상태 확인](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
+    ![클래식 배포 모델을 사용 하 여 V M에 대 한 Azure Portal에서 V M 리소스 상태를 확인 합니다.](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
 5. **사용자 자격 증명 다시 설정**. 이 문제 해결 단계에서는 자격 증명이 확실하지 않거나 잊어버린 경우 사용자가 지정하는 로컬 관리자 계정에서 암호를 다시 설정합니다.  VM에 로그인하면 해당 사용자의 암호를 다시 설정해야 합니다.
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **암호 다시 설정** 단추를 클릭합니다. 사용자 이름 및 새 암호를 입력합니다. 마지막으로 **저장** 단추를 클릭합니다.
    
-    ![Azure Portal에서 사용자 자격 증명 다시 설정](./media/troubleshoot-rdp-connection/classic-reset-password.png)
+    ![클래식 배포 모델을 사용 하 여 V M에 대 한 Azure Portal에서 사용자 자격 증명을 다시 설정 합니다.](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
    
     Azure Portal에서 VM을 선택하고 **개요** 탭을 클릭합니다. **다시 시작** 단추를 클릭합니다.
    
-    ![Azure Portal에서 VM을 다시 시작합니다.](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+    ![클래식 배포 모델을 사용 하 여 V M에 대 한 Azure Portal에서 V M을 다시 시작 합니다.](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
 7. 온-프레미스 방화벽 또는 컴퓨터의 방화벽이 Azure로 아웃바운드 TCP 3389 트래픽을 허용하는지 확인합니다.
 
