@@ -1,20 +1,20 @@
 ---
-title: '자습서: Google Maps에서 웹앱 마이그레이션 | Microsoft Azure Maps'
-description: Google Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법을 설명합니다.
+title: Google Maps에서 웹앱 마이그레이션 | Microsoft Azure Maps
+description: Google Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/18/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bc5f10e34b929110763b53fe1016334ce9bfddd6
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 3414f50d6d0fc4983b7a05226a2f768e7ead81dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319676"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Google Maps에서 웹앱 마이그레이션
 
@@ -32,6 +32,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 - [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Azure Maps Blazor 구성 요소.
 - [Azure Maps React 구성 요소](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 컨트롤의 반응 래퍼.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 애플리케이션용 Azure Maps 구성 요소.
+
 
 ## <a name="key-features-support"></a>주요 기능 지원
 
@@ -112,7 +113,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 
 아래의 기본 예제는 Google Maps를 사용하여 좌표에 따라 뉴욕을 중심으로 맵을 로드합니다. 경도: -73.985, 위도: 40.747이며 맵의 확대/축소 수준은 12입니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 위치를 중심으로 확대/축소한 Google Maps를 표시합니다.
 
@@ -147,11 +148,9 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 
 브라우저에서 이 코드를 실행하면 다음 이미지와 비슷한 맵이 표시됩니다.
 
-<center>
+![간단한 Google Maps](media/migrate-google-maps-web-app/simple-google-map.png)
 
-![간단한 Google Maps](media/migrate-google-maps-web-app/simple-google-map.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 맵 스타일 컨트롤 및 확대/축소 단추로 Azure Maps에서 동일한 보기로 맵을 로드합니다.
 
@@ -206,9 +205,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 
 브라우저에서 이 코드를 실행하면 다음 이미지와 비슷한 맵이 표시됩니다.
 
-<center>
-
-![간단한 Azure Maps](media/migrate-google-maps-web-app/simple-azure-maps.png)</center>
+![간단한 Azure Maps](media/migrate-google-maps-web-app/simple-azure-maps.png)
 
 웹앱에서 Azure Maps 지도 컨트롤을 설정하고 사용하는 방법에 대한 자세한 설명서는 [여기](how-to-use-map-control.md)를 클릭하여 찾을 수 있습니다.
 
@@ -223,7 +220,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 
 대상 그룹이 여러 국가/지역에 분산되어 있거나 다른 언어를 사용하는 경우 지역화가 중요합니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 Google Maps를 지역화하려면 언어 및 지역 매개 변수를 추가합니다.
 
@@ -233,11 +230,9 @@ Google Maps를 지역화하려면 언어 및 지역 매개 변수를 추가합�
 
 다음은 언어가 "fr-FR"로 설정된 Google Maps의 예입니다.
 
-<center>
+![Google Maps 지역화](media/migrate-google-maps-web-app/google-maps-localization.png)
 
-![Google Maps 지역화](media/migrate-google-maps-web-app/google-maps-localization.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정으로 기본 설정됩니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "auto"로 설정합니다.
 
@@ -267,9 +262,7 @@ Azure Maps에서 [지원되는 언어](supported-languages.md)의 자세한 목�
 
 다음은 언어가 "fr"로 설정되고 사용자 지역이 "fr-FR"로 설정된 Azure Maps의 예입니다.
 
-<center>
-
-![Azure Maps 지역화](media/migrate-google-maps-web-app/azure-maps-localization.png)</center>
+![Azure Maps 지역화](media/migrate-google-maps-web-app/azure-maps-localization.png)
 
 ### <a name="setting-the-map-view"></a>맵 보기 설정
 
@@ -278,7 +271,7 @@ Azure Maps 및 Google Maps의 동적 맵은 프로그래밍 방식으로 새 지
 > [!NOTE]
 > Google Maps는 크기가 256픽셀인 타일을 사용하지만, Azure Maps는 이보다 큰 512픽셀 타일을 사용합니다. 따라서 Azure Maps는 Google Maps와 동일한 맵 영역을 로드하는 경우 더 적은 수의 네트워크 요청이 필요합니다. 지도 컨트롤에서 타일 피라미드가 작동하는 방식 때문에, Azure Maps를 사용하는 경우 Google Maps에 사용되는 확대/축소 수준을 숫자 1만큼 빼야 합니다. 이 산술 연산을 사용하여 Azure Maps의 큰 타일로 Google Maps와 동일한 맵 영역을 렌더링할 수 있습니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 `setOptions` 메서드를 사용하여 Google Maps 지도 컨트롤을 이동합니다. 이 메서드를 사용하면 맵의 중심과 확대/축소 수준을 지정할 수 있습니다.
 
@@ -290,11 +283,9 @@ map.setOptions({
 });
 ```
 
-<center>
+![Google Maps 보기 설정](media/migrate-google-maps-web-app/google-maps-set-view.png)
 
-![Google Maps 보기 설정](media/migrate-google-maps-web-app/google-maps-set-view.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 Azure Maps에서 `setCamera` 메서드를 사용하여 맵 위치를 변경하고 `setStyle` 메서드를 사용하여 맵 스타일을 변경합니다. Azure Maps의 좌표는 "경도, 위도" 형식이고, 확대/축소 수준은 1을 뺀 값입니다.
 
@@ -309,9 +300,7 @@ map.setStyle({
 });
 ```
 
-<center>
-
-![Azure Maps 보기 설정](media/migrate-google-maps-web-app/azure-maps-set-view.jpeg)</center>
+![Azure Maps 보기 설정](media/migrate-google-maps-web-app/azure-maps-set-view.jpeg)
 
 **추가 리소스:**
 
@@ -330,7 +319,7 @@ WebGL 컨텍스트 내에서 기호 및 거품형 레이어를 렌더링합니�
 
 숫자 10이 레이블로 중첩된 맵에 표식을 추가해보겠습니다. 경도: -0.2 및 위도: 51.5를 사용합니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 Google Maps에서는 `google.maps.Marker` 클래스를 사용하여 맵에 표식을 추가하고 옵션 중 하나로 맵을 지정합니다.
 
@@ -343,9 +332,7 @@ var marker = new google.maps.Marker({
 });
 ```
 
-<center>
-
-![Google Maps 표식](media/migrate-google-maps-web-app/google-maps-marker.png)</center>
+![Google Maps 표식](media/migrate-google-maps-web-app/google-maps-marker.png)
 
 **이후: HTML 표식을 사용하는 Azure Maps**
 
@@ -359,9 +346,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-<center>
-
-![Azure Maps HTML 표식](media/migrate-google-maps-web-app/azure-maps-html-marker.png)</center>
+![Azure Maps HTML 표식](media/migrate-google-maps-web-app/azure-maps-html-marker.png)
 
 **이후: 기호 레이어를 사용하는 Azure Maps**
 
@@ -425,9 +410,7 @@ map.markers.add(new atlas.HtmlMarker({
 </html>
 ```
 
-<center>
-
-![Azure Maps 기호 레이어](media/migrate-google-maps-web-app/azure-maps-symbol-layer.png)</center>
+![Azure Maps 기호 레이어](media/migrate-google-maps-web-app/azure-maps-symbol-layer.png)
 
 **추가 리소스:**
 
@@ -451,7 +434,8 @@ map.markers.add(new atlas.HtmlMarker({
 ![노란색 압정 이미지](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
 yellow-pushpin.png</center>
 
-**이전: Google Maps**
+
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 이미지의 `url`을 포함하는 `Icon` 개체를 지정하여 사용자 지정 표식을 만듭니다. 압정 이미지의 지점이 맵의 좌표와 맞도록 `anchor` 지점을 지정합니다. Google Maps의 앵커 값은 이미지의 왼쪽 위 모서리를 기준으로 합니다.
 
@@ -466,9 +450,8 @@ var marker = new google.maps.Marker({
 });
 ```
 
-<center>
 
-![Google Maps 사용자 지정 표식](media/migrate-google-maps-web-app/google-maps-custom-marker.png)</center>
+![Google Maps 사용자 지정 표식](media/migrate-google-maps-web-app/google-maps-custom-marker.png)
 
 **이후: HTML 표식을 사용하는 Azure Maps**
 
@@ -486,9 +469,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-<center>
-
-![Azure Maps 사용자 지정 HTML 표식](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.png)</center>
+![Azure Maps 사용자 지정 HTML 표식](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.png)
 
 **이후: 기호 레이어를 사용하는 Azure Maps**
 
@@ -553,9 +534,7 @@ Azure Maps의 기호 레이어는 사용자 지정 이미지도 지원합니다.
 </html>
 ```
 
-<center>
-
-![Azure Maps 사용자 지정 아이콘 기호 레이어](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.png)</center>
+![Azure Maps 사용자 지정 아이콘 기호 레이어](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.png)</
 
 > [!TIP]
 > 고급 사용자 지정 지점을 렌더링하려면 여러 렌더링 레이어를 함께 사용합니다. 예를 들어 서로 다른 색이 지정된 원에 동일한 아이콘이 있는 여러 개의 압정을 사용하려고 한다고 가정해 보겠습니다. 각 색 오버레이에 대해 많은 이미지를 만드는 대신 거품형 레이어 위에 기호 레이어를 추가합니다. 압정이 동일한 데이터 원본을 참조하도록 합니다. 이 방법은 서로 다른 많은 이미지를 만들어 유지 관리하는 것보다 더 효율적입니다.
@@ -575,7 +554,7 @@ Azure Maps의 기호 레이어는 사용자 지정 이미지도 지원합니다.
 
 폴리라인을 사용하여 맵에서 선 또는 경로를 나타냅니다. 맵에 파선 폴리라인을 만들어 보겠습니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 폴리라인 클래스는 일련의 옵션을 허용합니다. 좌표 배열을 폴리라인의 `path` 옵션에 전달합니다.
 
@@ -611,11 +590,9 @@ var line = new google.maps.Polyline({
 line.setMap(map);
 ```
 
-<center>
+![Google Maps 폴리라인](media/migrate-google-maps-web-app/google-maps-polyline.png)
 
-![Google Maps 폴리라인](media/migrate-google-maps-web-app/google-maps-polyline.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 폴리라인을 `LineString` 또는 `MultiLineString` 개체라고 합니다. 이러한 개체는 선 계층을 사용하여 데이터 원본에 추가하고 렌더링할 수 있습니다. `LineString`을 데이터 원본에 추가한 다음, 데이터 원본을 `LineLayer`에 추가하여 렌더링합니다.
 
@@ -641,10 +618,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
     strokeDashArray: [3, 3]
 }));
 ```
-
-<center>
-
-![Azure Maps 폴리라인](media/migrate-google-maps-web-app/azure-maps-polyline.png)</center>
+![Azure Maps 폴리라인](media/migrate-google-maps-web-app/azure-maps-polyline.png)
 
 **추가 리소스:**
 
@@ -656,7 +630,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 Azure Maps 및 Google Maps는 다각형을 비슷한 방식으로 지원합니다. 다각형은 맵의 영역을 나타내는 데 사용됩니다. 다음 예제에서는 맵의 가운데 좌표를 기준으로 삼각형을 형성하는 다각형을 만드는 방법을 보여줍니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 다각형 클래스는 일련의 옵션을 허용합니다. 좌표 배열을 다각형의 `paths` 옵션에 전달합니다.
 
@@ -681,11 +655,9 @@ var polygon = new google.maps.Polygon({
 polygon.setMap(map);
 ```
 
-<center>
+![Google Maps 다각형](media/migrate-google-maps-web-app/google-maps-polygon.png)
 
-![Google Maps 다각형](media/migrate-google-maps-web-app/google-maps-polygon.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 데이터 원본에 `Polygon` 또는 `MultiPolygon` 개체를 추가합니다. 레이어를 사용하여 맵에 개체를 렌더링합니다. 다각형 계층을 사용하여 다각형 영역을 렌더링합니다. 그리고, 선 계층을 사용하여 다각형의 윤곽선을 렌더링합니다.
 
@@ -716,10 +688,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
     strokeWidth: 2
 }));
 ```
-
-<center>
-
-![Azure Maps 다각형](media/migrate-google-maps-web-app/azure-maps-polygon.png)</center>
+![Azure Maps 다각형](media/migrate-google-maps-web-app/azure-maps-polygon.png)
 
 **추가 리소스:**
 
@@ -733,7 +702,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 Google Maps에서 엔터티에 대한 추가 정보는 `google.maps.InfoWindow` 클래스로 맵에 표시할 수 있습니다. Azure Maps에서 이 기능은 `atlas.Popup` 클래스를 사용하여 구현할 수 있습니다. 다음 예에서는 맵에 표식을 추가합니다. 표식을 클릭하면, 정보 창이나 팝업이 표시됩니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 `google.maps.InfoWindow` 생성자를 사용하여 정보 창을 인스턴스화합니다.
 
@@ -754,12 +723,9 @@ marker.addListener('click', function () {
     infowindow.open(map, marker);
 });
 ```
+![Google Maps 팝업](media/migrate-google-maps-web-app/google-maps-popup.png)
 
-<center>
-
-![Google Maps 팝업](media/migrate-google-maps-web-app/google-maps-popup.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 팝업을 사용하여 위치에 대한 추가 정보를 표시해 보겠습니다. HTML `string` 또는 `HTMLElement` 개체를 팝업의 `content` 옵션에 전달합니다. 원하는 경우 모양에 관계없이 팝업을 표시할 수 있습니다. 따라서 팝업에는 `position` 값을 지정해야 합니다. `position` 값을 지정합니다. 팝업을 표시하려면 `open` 메서드를 호출하고 팝업이 표시될 `map`을 전달합니다.
 
@@ -785,10 +751,7 @@ map.events.add('click', marker, function () {
     popup.open(map);
 });
 ```
-
-<center>
-
-![Azure Maps 팝업](media/migrate-google-maps-web-app/azure-maps-popup.png)</center>
+![Azure Maps 팝업](media/migrate-google-maps-web-app/azure-maps-popup.png)
 
 > [!NOTE]
 > 선택한 레이어를 표식 대신 맵 이벤트 코드에 전달하면 기호, 거품형, 선 또는 다각형 계층으로 동일한 작업을 수행할 수 있습니다.
@@ -808,7 +771,7 @@ Google Maps는 `google.maps.Data` 클래스를 통해 GeoJSON 데이터의 로�
 
 다음 예제에서는 USGS에서 지난 7일 동안 발생한 모든 지진에 대한 GeoJSON 피드를 로드합니다. 지진 데이터는 맵에서 크기가 조정된 원으로 렌더링됩니다. 각 원의 색과 배율은 각 지진의 크기를 기반으로 하며, 데이터 세트에 있는 각 기능의 `"mag"` 속성에 저장됩니다. 크기가 5보다 크거나 같으면 빨간색 원이 됩니다. 3보다 크거나 같지만 5보다 작으면 주황색 원이 됩니다. 3 미만이면 초록색 원이 됩니다. 각 원의 반지름은 규모에 0.1을 곱한 값의 지수입니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 `map.data.setStyle` 메서드에서 단일 콜백 함수를 지정합니다. 콜백 함수 내에서 각 기능에 비즈니스 논리를 적용합니다. `map.data.loadGeoJson` 메서드를 사용하여 GeoJSON 피드를 로드합니다.
 
@@ -877,11 +840,9 @@ Google Maps는 `google.maps.Data` 클래스를 통해 GeoJSON 데이터의 로�
 </html>
 ```
 
-<center>
+![Google Maps GeoJSON](media/migrate-google-maps-web-app/google-maps-geojson.png)
 
-![Google Maps GeoJSON](media/migrate-google-maps-web-app/google-maps-geojson.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 GeoJSON은 Azure Maps의 기본 데이터 형식입니다. `datasource.importFromUrl` 메서드를 사용하여 데이터 원본으로 가져옵니다. 거품형 레이어를 사용합니다. 거품형 레이어는 데이터 원본의 기능 속성에 따라 크기가 조정된 원을 렌더링하는 기능을 제공합니다. 콜백 함수를 포함하는 대신, 비즈니스 논리가 식으로 변환되어 스타일 옵션에 전달됩니다. 식은 비즈니스 논리의 작동 방식을 정의합니다. 식은 다른 스레드에 전달되고 기능 데이터와 비교하여 평가할 수 있습니다. 각각 비즈니스 논리가 다른 여러 데이터 원본과 레이어를 Azure Maps에 추가할 수 있습니다. 이 기능을 사용하면 여러 데이터 세트를 여러 가지 방법으로 맵에 렌더링할 수 있습니다.
 
@@ -958,9 +919,9 @@ GeoJSON은 Azure Maps의 기본 데이터 형식입니다. `datasource.importFro
 </html>
 ```
 
-<center>
 
-![Azure Maps GeoJSON](media/migrate-google-maps-web-app/azure-maps-geojson.png)</center>
+
+![Azure Maps GeoJSON](media/migrate-google-maps-web-app/azure-maps-geojson.png)
 
 **추가 리소스:**
 
@@ -978,7 +939,7 @@ GeoJSON은 Azure Maps의 기본 데이터 형식입니다. `datasource.importFro
 > [!NOTE]
 > Google Maps와 Azure Maps는 약간 다른 클러스터링 알고리즘을 사용합니다. 따라서 때때로 클러스터의 지점 배포가 달라질 수 있습니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다. 클러스터 아이콘은 이름이 1에서 5까지의 숫자로 이루어진 이미지로 제한됩니다. 동일한 디렉터리에서 호스팅됩니다.
 
@@ -1035,11 +996,11 @@ MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다
 </html>
 ```
 
-<center>
 
-![Google Maps 클러스터링](media/migrate-google-maps-web-app/google-maps-clustering.png)</center>
 
-**이후: Azure Maps**
+![Google Maps 클러스터링](media/migrate-google-maps-web-app/google-maps-clustering.png)
+
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 데이터 원본의 데이터를 추가하고 관리합니다. 데이터 원본과 레이어를 연결한 다음, 데이터를 렌더링합니다. Azure Maps의 `DataSource` 클래스는 여러 가지 클러스터링 옵션을 제공합니다.
 
@@ -1050,7 +1011,7 @@ MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다
 
 클러스터링을 사용하도록 설정하면 데이터 원본이 클러스터형 및 비클러스터형 데이터 요소를 렌더링하기 위해 레이어로 보냅니다. 데이터 원본은 수십만 개의 데이터 요소를 클러스터링할 수 있습니다. 클러스터링된 데이터 요소에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | 설명   |
+| 속성 이름             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |
@@ -1163,9 +1124,9 @@ Azure Maps 맵 내에서 `DataSource` 클래스의 `importDataFromUrl` 함수를
 </html>
 ```
 
-<center>
 
-![Azure Maps 클러스터링](media/migrate-google-maps-web-app/azure-maps-clustering.png)</center>
+
+![Azure Maps 클러스터링](media/migrate-google-maps-web-app/azure-maps-clustering.png)
 
 **추가 리소스:**
 
@@ -1180,7 +1141,7 @@ Azure Maps 맵 내에서 `DataSource` 클래스의 `importDataFromUrl` 함수를
 
 다음 예제에서는 USGS에서 지난 달에 발생한 모든 지진에 대한 GeoJSON 피드를 로드하여, 가중치가 적용된 열 지도로 렌더링합니다. `"mag"` 속성은 가중치로 사용됩니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 열 지도를 만들려면 API 스크립트 URL에 `&libraries=visualization`을 추가하여 "시각화" 라이브러리를 로드합니다. Google Maps의 열 지도 계층은 GeoJSON 데이터를 직접 지원하지 않습니다. 먼저 데이터를 다운로드하여 가중치가 적용된 데이터 요소 배열로 변환합니다.
 
@@ -1245,11 +1206,11 @@ Azure Maps 맵 내에서 `DataSource` 클래스의 `importDataFromUrl` 함수를
 </html>
 ```
 
-<center>
 
-![Google Maps 열 지도](media/migrate-google-maps-web-app/google-maps-heatmap.png)</center>
 
-**이후: Azure Maps**
+![Google Maps 열 지도](media/migrate-google-maps-web-app/google-maps-heatmap.png)
+
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 GeoJSON 데이터를 데이터 원본에 로드하고 데이터 원본을 열 지도 계층에 연결합니다. 가중치에 사용할 속성은 식을 사용하여 `weight` 옵션에 전달할 수 있습니다. `DataSource` 클래스의 `importDataFromUrl` 함수를 사용하여 GeoJSON 데이터를 Azure Maps로 직접 가져옵니다.
 
@@ -1311,9 +1272,9 @@ GeoJSON 데이터를 데이터 원본에 로드하고 데이터 원본을 열 �
 </html>
 ```
 
-<center>
 
-![Azure Maps 열 지도](media/migrate-google-maps-web-app/azure-maps-heatmap.png)</center>
+
+![Azure Maps 열 지도](media/migrate-google-maps-web-app/azure-maps-heatmap.png)
 
 **추가 리소스:**
 
@@ -1328,7 +1289,7 @@ Azure Maps의 타일 계층을 Google Maps에서는 이미지 오버레이라고
 
 다음 예제에서는 아이오와 주립 대학교의 Iowa Environmental Mesonet에서 받은 날씨 레이더 타일 레이어를 오버레이합니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 Google Maps에서 타일 레이어는 `google.maps.ImageMapType` 클래스를 사용하여 만들 수 있습니다.
 
@@ -1342,11 +1303,11 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 }));
 ```
 
-<center>
 
-![Google Maps 타일 레이어](media/migrate-google-maps-web-app/google-maps-tile-layer.png)</center>
 
-**이후: Azure Maps**
+![Google Maps 타일 레이어](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
+
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 다른 레이어와 마찬가지로 타일 계층을 맵에 추가합니다. x, y, 확대/축소 자리 표시자, `{x}`, `{y}`, `{z}`가 포함된 형식이 지정된 URL을 사용하여 타일에 액세스할 위치를 레이어에 알려줍니다. Azure Maps 타일 레이어는 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자도 지원합니다.
 
@@ -1362,9 +1323,9 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-<center>
 
-![Azure Maps 타일 레이어](media/migrate-google-maps-web-app/azure-maps-tile-layer.png)</center>
+
+![Azure Maps 타일 레이어](media/migrate-google-maps-web-app/azure-maps-tile-layer.png)
 
 > [!TIP]
 > 타일 요청은 맵의 `transformRequest` 옵션을 사용하여 캡처할 수 있습니다. 이렇게 하면 필요한 경우 헤더를 수정하거나 요청에 추가할 수 있습니다.
@@ -1379,7 +1340,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 트래픽 데이터는 Azure와 Google 맵에 모두 오버레이할 수 있습니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 트래픽 레이어를 사용하여 맵에 트래픽 데이터를 오버레이합니다.
 
@@ -1388,11 +1349,11 @@ var trafficLayer = new google.maps.TrafficLayer();
 trafficLayer.setMap(map);
 ```
 
-<center>
 
-![Google Maps 트래픽](media/migrate-google-maps-web-app/google-maps-traffic.png)</center>
 
-**이후: Azure Maps**
+![Google Maps 트래픽](media/migrate-google-maps-web-app/google-maps-traffic.png)
+
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 Azure Maps는 트래픽을 표시하는 여러 가지 옵션을 제공합니다. 도로 폐쇄나 사고와 같은 트래픽 인시던트를 맵에 아이콘으로 표시합니다. 트래픽 흐름과 색으로 구분된 도로를 맵에 오버레이합니다. 게시된 속도 제한을 기반으로 또는 일반적인 예상 지연 시간 또는 절대 지연 시간을 기준으로 색을 수정할 수 있습니다. Azure Maps에서 인시던트 데이터는 1분마다 업데이트되고, 흐름 데이터는 2분마다 업데이트됩니다.
 
@@ -1405,15 +1366,15 @@ map.setTraffic({
 });
 ```
 
-<center>
 
-![Azure Maps 트래픽](media/migrate-google-maps-web-app/azure-maps-traffic.png)</center>
+
+![Azure Maps 트래픽](media/migrate-google-maps-web-app/azure-maps-traffic.png)
 
 Azure Maps에서 트래픽 아이콘 중 하나를 클릭하면 팝업에 추가 정보가 표시됩니다.
 
-<center>
 
-![Azure Maps 트래픽 인시던트](media/migrate-google-maps-web-app/azure-maps-traffic-incident.png)</center>
+
+![Azure Maps 트래픽 인시던트](media/migrate-google-maps-web-app/azure-maps-traffic-incident.png)
 
 **추가 리소스:**
 
@@ -1424,7 +1385,7 @@ Azure Maps에서 트래픽 아이콘 중 하나를 클릭하면 팝업에 추가
 
 Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 오버레이를 지원합니다. 맵을 이동하고 확대/축소하면 지리 좌표화된(georeferenced) 이미지가 이동되고 크기가 조정됩니다. 지리 좌표화된(georeferenced) 이미지를 Google Maps에서는 그라운드 오버레이라고 하지만 Azure Maps에서는 이미지 레이어라고 합니다. 이 기능은 평면도를 빌드하고, 이전 맵 또는 드론의 이미지를 오버레이하는 데 매우 유용합니다.
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 오버레이하려는 이미지의 URL과 맵에서 이미지를 바인딩할 경계 상자를 지정합니다. 이 예제에서는 [뉴저지주 뉴어크의 1922년](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 맵 이미지를 맵에 오버레이합니다.
 
@@ -1471,11 +1432,9 @@ Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 
 
 브라우저에서 이 코드를 실행하면 다음 이미지와 비슷한 맵이 표시됩니다.
 
-<center>
+![Google Maps 이미지 오버레이](media/migrate-google-maps-web-app/google-maps-image-overlay.png)
 
-![Google Maps 이미지 오버레이](media/migrate-google-maps-web-app/google-maps-image-overlay.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 `atlas.layer.ImageLayer` 클래스를 사용하여 지리 좌표화된(georeferenced) 이미지를 오버레이합니다. 이 클래스에는 이미지 URL과 이미지의 네 모퉁이 좌표 세트가 필요합니다. 동일한 도메인에 이미지를 호스팅하거나 COR을 사용하도록 설정해야 합니다.
 
@@ -1534,9 +1493,9 @@ Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 
 </html>
 ```
 
-<center>
 
-![Azure Maps 이미지 오버레이](media/migrate-google-maps-web-app/azure-maps-image-overlay.png)</center>
+
+![Azure Maps 이미지 오버레이](media/migrate-google-maps-web-app/azure-maps-image-overlay.png)
 
 **추가 리소스:**
 
@@ -1547,7 +1506,7 @@ Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 
 
 Azure 및 Google 맵 모두 맵에서 KML, KMZ 및 GeoRSS 데이터를 가져와서 렌더링할 수 있습니다. Azure Maps는 GPX, GML, 공간 CSV 파일, GeoJSON, WKT(Well Known Text), WMS(Web Mapping Services), WMTS(Web Mapping Tile Services) 및 WFS(Web Feature Services)도 지원합니다. Azure Maps는 파일을 로컬 메모리로 읽어 들이며 대부분의 경우 훨씬 큰 KML 파일을 처리할 수 있습니다. 
 
-**이전: Google Maps**
+#### <a name="before-google-maps"></a>이전: Google Maps
 
 
 ```javascript
@@ -1586,11 +1545,9 @@ Azure 및 Google 맵 모두 맵에서 KML, KMZ 및 GeoRSS 데이터를 가져와
 
 브라우저에서 이 코드를 실행하면 다음 이미지와 비슷한 맵이 표시됩니다.
 
-<center>
+![Google Maps KML](media/migrate-google-maps-web-app/google-maps-kml.png)
 
-![Google Maps KML](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
-
-**이후: Azure Maps**
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 Azure Maps에서는 GeoJSON이 웹 SDK에 사용되는 기본 데이터 형식이며 [공간 IO 모듈](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)을 사용하여 추가 공간 데이터 형식을 쉽게 통합할 수 있습니다. 이 모듈에는 공간 데이터를 읽고 쓰는 기능이 있으며 이러한 공간 데이터 형식의 데이터를 쉽게 렌더링할 수 있는 간단한 데이터 계층도 포함되어 있습니다. 공간 데이터 파일의 데이터를 읽으려면 URL 또는 원시 데이터를 문자열 또는 Blob으로 `atlas.io.read` 함수에 전달합니다. 그러면 파일에서 구문 분석된 모든 데이터가 반환된 다음, 맵에 추가될 수 있습니다. KML은 대부분의 공간 데이터 형식보다 약간 더 복잡합니다. 스타일링 정보를 훨씬 더 많이 포함하기 때문입니다. `SpatialDataLayer` 클래스는 이러한 스타일 대부분의 렌더링을 지원하지만, 기능 데이터를 로드하기 전에 아이콘 이미지를 맵에 로드해야 하며, 지면 오버레이를 맵에 레이어로 별도로 추가해야 합니다. URL을 통해 데이터를 로드하는 경우 COR 지원 엔드포인트에 호스팅되거나 프록시 서비스가 읽기 함수에 옵션으로 전달되어야 합니다. 
 
@@ -1683,9 +1640,9 @@ Azure Maps에서는 GeoJSON이 웹 SDK에 사용되는 기본 데이터 형식�
 </html>
 ```
 
-<center>
 
 ![Azure Maps KML](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
+
 
 **추가 리소스:**
 
@@ -1763,21 +1720,9 @@ Azure Maps 웹 SDK에는 개별적으로 로드할 수 있는 서비스 모듈�
 | 기하 도형 라이브러리      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | 시각화 라이브러리 | [열 지도 계층](map-add-heat-map-layer.md) |
 
-## <a name="next-steps"></a>다음 단계
+Google Maps 마이그레이션에 대한 자세한 정보:
 
-Azure Maps 웹 SDK에 대해 자세히 알아보세요.
-
-> [!div class="nextstepaction"]
-> [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [서비스 모듈을 사용하는 방법](how-to-use-services-module.md)
-
-> [!div class="nextstepaction"]
-> [그리기 도구 모듈을 사용하는 방법](set-drawing-options.md)
-
-> [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-
-> [!div class="nextstepaction"]
-> [Azure Maps Web SDK Service API 참조 설명서](https://docs.microsoft.com/javascript/api/azure-maps-control/)
+* [서비스 모듈을 사용하는 방법](how-to-use-services-module.md) 
+* [그리기 도구 모듈을 사용하는 방법](set-drawing-options.md)
+* [서비스 모듈을 사용하는 방법](how-to-use-services-module.md)
+* [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
