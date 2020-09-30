@@ -7,23 +7,15 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/16/2020
+ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307724"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
-> [!div class="op_single_selector"]
-> * [포털](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Node.JS](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
 
 **데이터 가져오기** 마법사는 몇 분 내에 흥미로운 쿼리를 작성할 수 있도록 검색 인덱스를 만드는 과정을 안내하는 Azure Portal 도구입니다. 
 
@@ -276,8 +268,3 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 > [!div class="nextstepaction"]
 > [포털에서 데모 앱 만들기](search-create-app-portal.md)
-
-클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
-
-> [!div class="nextstepaction"]
-> [Cost Management를 통한 비용 분석 시작](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

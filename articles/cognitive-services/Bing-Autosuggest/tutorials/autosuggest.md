@@ -10,13 +10,13 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a45000c59f975a03f51aa5ee86846c772cbdfaaa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 9a5749d115a4d5d9ce1e0ac454609c7b639c2f8e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309769"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
 

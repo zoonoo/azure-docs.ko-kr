@@ -1,14 +1,16 @@
 ---
 title: '빠른 시작: 앱 만들기 - LUIS'
 description: 이 빠른 시작에서는 미리 빌드된 도메인 `HomeAutomation`을 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 앱을 만드는 방법을 보여줍니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 완료하면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/05/2020
-ms.openlocfilehash: cefa9d5995f876ef3f07cc32324e747125e9cbf7
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316491"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 

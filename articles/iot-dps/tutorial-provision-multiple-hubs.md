@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74976743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316003"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>자습서: 부하가 분산된 IoT Hub 간 디바이스 프로비전
 
@@ -67,8 +67,6 @@ Device Provisioning Service가 해당 허브에 디바이스를 등록할 수 �
 4. **IoT Hub에 링크 추가** 페이지에서 라디오 단추를 사용하여 연결된 IoT Hub가 현재 구독 또는 다른 구독 중 어디에 있는지를 지정합니다. 그런 다음 IoT Hub 이름을 **IoT Hub** 상자에서 선택합니다.
 5. **저장**을 클릭합니다.
 
-## <a name="next-steps"></a>다음 단계
-
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
@@ -76,6 +74,8 @@ Device Provisioning Service가 해당 허브에 디바이스를 등록할 수 �
 > * 두 번째 디바이스에 등록 목록 항목 추가
 > * Device Provisioning Service 할당 정책을 **균등하게 배포**로 설정
 > * Device Provisioning Service에 새 IoT Hub 연결
+
+## <a name="next-steps"></a>다음 단계
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

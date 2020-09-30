@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442601"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319472"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ Private Link를 사용하면 **프라이빗 엔드포인트**를 통해 Azure의
 
 > [!IMPORTANT]
 > 이 문서는 Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL Data Warehouse) 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다. 이 문서는 **Azure SQL Managed Instance**에 적용되지 *않습니다*.
-
-## <a name="data-exfiltration-prevention"></a>데이터 반출 방지
-
-Azure SQL Database의 데이터 반출은 데이터베이스 관리자와 같은 권한 있는 사용자가 한 시스템에서 데이터를 추출하여 조직 외부의 다른 위치 또는 시스템으로 이동할 수 있는 경우입니다. 예를 들어 사용자는 데이터를 타사 소유의 스토리지 계정으로 이동합니다.
-
-SQL Database의 데이터베이스에 연결하는 Azure 가상 머신 내에서 SSMS(SQL Server Management Studio)를 실행하는 사용자가 있는 시나리오를 고려해 보세요. 이 데이터베이스는 미국 서부 데이터 센터에 있습니다. 아래 예에서는 네트워크 액세스 제어를 사용하여 SQL Database에서 퍼블릭 엔드포인트를 통한 액세스를 제한하는 방법을 보여 줍니다.
-
-1. [Azure 서비스 허용]을 **끄기**로 설정하여 퍼블릭 엔드포인트를 통해 SQL Database로의 모든 Azure 서비스 트래픽을 사용하지 않도록 설정합니다. 서버 및 데이터베이스 수준 방화벽 규칙에서 IP 주소가 허용되지 않는지 확인합니다. 자세한 내용은 [Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어](network-access-controls-overview.md)를 참조하세요.
-1. VM의 개인 IP 주소를 사용하는 SQL Database의 데이터베이스로의 트래픽만 허용합니다. 자세한 내용은 [서비스 엔드포인트](vnet-service-endpoint-rule-overview.md) 및 [가상 네트워크 방화벽 규칙](firewall-configure.md) 문서를 참조하세요.
-1. Azure VM에서 다음과 같이 [NSG(네트워크 보안 그룹)](../../virtual-network/manage-network-security-group.md) 및 서비스 태그를 사용하여 나가는 연결의 범위를 좁힙니다.
-    - 서비스 태그 = SQL.WestUs에 대한 트래픽을 허용하는 NSG 규칙을 지정합니다. 미국 서부에서는 SQL Database에만 연결할 수 있습니다.
-    - 서비스 태그 = SQL에 대한 트래픽을 거부하는 NSG 규칙(**우선 순위가 높음**)을 지정합니다. 모든 지역에서 SQL Database에 대한 연결을 거부합니다.
-
-이 설정이 완료되면 Azure VM에서 미국 서부 지역의 SQL Database의 데이터베이스에만 연결할 수 있습니다. 그러나 연결은 단일 SQL Database의 단일 데이터베이스로 제한되지 않습니다. VM은 구독에 속하지 않은 데이터베이스를 포함하여 미국 서부 지역의 모든 데이터베이스에 계속 연결할 수 있습니다. 위의 시나리오에서 데이터 반출의 범위를 특정 지역으로 좁혔지만 완전히 제거하지는 않았습니다.
-
-Private Link를 사용하면 이제 고객이 NSG와 같은 네트워크 액세스 제어를 설정하여 프라이빗 엔드포인트에 대한 액세스를 제한할 수 있습니다. 그러면 개별 Azure PaaS 리소스가 특정 프라이빗 엔드포인트에 매핑됩니다. 악의적인 참가자는 매핑된 PaaS 리소스(예: SQL Database의 데이터베이스)에만 액세스할 수 있으며 다른 리소스에는 액세스할 수 없습니다. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>프라이빗 피어링을 통한 온-프레미스 연결
-
-고객이 온-프레미스 머신에서 퍼블릭 엔드포인트에 연결하는 경우 [서버 수준 방화벽 규칙](firewall-create-server-level-portal-quickstart.md)을 사용하여 IP 주소를 IP 기반 방화벽에 추가해야 합니다. 이 모델은 개발 또는 테스트 워크로드를 위해 개별 머신에 액세스할 수 있도록 하는 데 효과적이지만 프로덕션 환경에서는 관리하기가 어렵습니다.
-
-Private Link를 사용하면 고객이 [ExpressRoute](../../expressroute/expressroute-introduction.md), 프라이빗 피어링 또는 VPN 터널링을 사용하여 프라이빗 엔드포인트에 대한 프레미스 간 액세스를 사용하도록 설정할 수 있습니다. 그런 다음, 고객이 퍼블릭 엔드포인트를 통한 모든 액세스를 사용하지 않도록 설정하고, IP 기반 방화벽을 사용하여 IP 주소를 허용하지 않을 수 있습니다.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Azure SQL Database용 Private Link를 설정하는 방법 
 
@@ -71,6 +49,12 @@ Private Link를 사용하면 고객이 [ExpressRoute](../../expressroute/express
 
 1. 승인되거나 거부되면 목록에 응답 텍스트와 함께 적절한 상태가 반영됩니다.
 ![승인 후 모든 PEC의 스크린샷][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>프라이빗 피어링을 통한 온-프레미스 연결
+
+고객이 온-프레미스 머신에서 퍼블릭 엔드포인트에 연결하는 경우 [서버 수준 방화벽 규칙](firewall-create-server-level-portal-quickstart.md)을 사용하여 IP 주소를 IP 기반 방화벽에 추가해야 합니다. 이 모델은 개발 또는 테스트 워크로드를 위해 개별 머신에 액세스할 수 있도록 하는 데 효과적이지만 프로덕션 환경에서는 관리하기가 어렵습니다.
+
+Private Link를 사용하면 고객이 [ExpressRoute](../../expressroute/expressroute-introduction.md), 프라이빗 피어링 또는 VPN 터널링을 사용하여 프라이빗 엔드포인트에 대한 프레미스 간 액세스를 사용하도록 설정할 수 있습니다. 그런 다음, 고객이 퍼블릭 엔드포인트를 통한 모든 액세스를 사용하지 않도록 설정하고, IP 기반 방화벽을 사용하여 IP 주소를 허용하지 않을 수 있습니다.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Azure SQL Database용 Private Link 사용 사례 
 
@@ -154,6 +138,22 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>데이터 반출 방지
+
+Azure SQL Database의 데이터 반출은 데이터베이스 관리자와 같은 권한 있는 사용자가 한 시스템에서 데이터를 추출하여 조직 외부의 다른 위치 또는 시스템으로 이동할 수 있는 경우입니다. 예를 들어 사용자는 데이터를 타사 소유의 스토리지 계정으로 이동합니다.
+
+SQL Database의 데이터베이스에 연결하는 Azure 가상 머신 내에서 SSMS(SQL Server Management Studio)를 실행하는 사용자가 있는 시나리오를 고려해 보세요. 이 데이터베이스는 미국 서부 데이터 센터에 있습니다. 아래 예에서는 네트워크 액세스 제어를 사용하여 SQL Database에서 퍼블릭 엔드포인트를 통한 액세스를 제한하는 방법을 보여 줍니다.
+
+1. [Azure 서비스 허용]을 **끄기**로 설정하여 퍼블릭 엔드포인트를 통해 SQL Database로의 모든 Azure 서비스 트래픽을 사용하지 않도록 설정합니다. 서버 및 데이터베이스 수준 방화벽 규칙에서 IP 주소가 허용되지 않는지 확인합니다. 자세한 내용은 [Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어](network-access-controls-overview.md)를 참조하세요.
+1. VM의 개인 IP 주소를 사용하는 SQL Database의 데이터베이스로의 트래픽만 허용합니다. 자세한 내용은 [서비스 엔드포인트](vnet-service-endpoint-rule-overview.md) 및 [가상 네트워크 방화벽 규칙](firewall-configure.md) 문서를 참조하세요.
+1. Azure VM에서 다음과 같이 [NSG(네트워크 보안 그룹)](../../virtual-network/manage-network-security-group.md) 및 서비스 태그를 사용하여 나가는 연결의 범위를 좁힙니다.
+    - 서비스 태그 = SQL.WestUs에 대한 트래픽을 허용하는 NSG 규칙을 지정합니다. 미국 서부에서는 SQL Database에만 연결할 수 있습니다.
+    - 서비스 태그 = SQL에 대한 트래픽을 거부하는 NSG 규칙(**우선 순위가 높음**)을 지정합니다. 모든 지역에서 SQL Database에 대한 연결을 거부합니다.
+
+이 설정이 완료되면 Azure VM에서 미국 서부 지역의 SQL Database의 데이터베이스에만 연결할 수 있습니다. 그러나 연결은 단일 SQL Database의 단일 데이터베이스로 제한되지 않습니다. VM은 구독에 속하지 않은 데이터베이스를 포함하여 미국 서부 지역의 모든 데이터베이스에 계속 연결할 수 있습니다. 위의 시나리오에서 데이터 반출의 범위를 특정 지역으로 좁혔지만 완전히 제거하지는 않았습니다.
+
+Private Link를 사용하면 이제 고객이 NSG와 같은 네트워크 액세스 제어를 설정하여 프라이빗 엔드포인트에 대한 액세스를 제한할 수 있습니다. 그러면 개별 Azure PaaS 리소스가 특정 프라이빗 엔드포인트에 매핑됩니다. 악의적인 참가자는 매핑된 PaaS 리소스(예: SQL Database의 데이터베이스)에만 액세스할 수 있으며 다른 리소스에는 액세스할 수 없습니다. 
 
 ## <a name="limitations"></a>제한 사항 
 프라이빗 엔드포인트에 대한 연결은 **프록시**만 [연결 정책](connectivity-architecture.md#connection-policy)으로 지원합니다.

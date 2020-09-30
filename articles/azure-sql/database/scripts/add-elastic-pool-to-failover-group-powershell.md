@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/16/2019
-ms.openlocfilehash: e509fc0f93c60d271409b5453aecdf793cd22ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95d6066cd13876400ffff934b0b0f3ccdcde1c59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321547"
 ---
 # <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>PowerShell을 사용하여 탄력적 풀을 장애 조치(failover) 그룹에 추가
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

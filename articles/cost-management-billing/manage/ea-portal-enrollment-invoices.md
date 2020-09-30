@@ -3,17 +3,17 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316140"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -162,20 +162,6 @@ Azure 선불을 초과분에 적용하려면 다음 조건을 충족해야 합�
 ### <a name="enterprise-agreement-units-of-measure"></a>기업계약 측정 단위
 
 기업계약의 측정 단위는 MOSA(Microsoft Online Services 계약) 프로그램과 같은 다른 프로그램에 표시되는 측정 단위와 다른 경우가 많습니다. 이 차이는 여러 서비스의 경우 측정 단위를 집계하여 정규화된 가격 책정을 제공한다는 것을 의미합니다. Azure Enterprise Portal의 사용 요약 보기에 표시되는 측정 단위는 항상 엔터프라이즈 측정값입니다. 각 서비스에 대한 현재 측정 단위 및 변환의 전체 목록은 [친숙한 서비스 이름](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel 파일에 제공됩니다.
-
-### <a name="rounding-rules"></a>반올림 규칙
-
-Azure Enterprise Portal은 IEEE 표준 뱅커 반올림(Banker Rounding) 또는 가우스 반올림(Gaussian Rounding) 논리를 따릅니다. 이 논리는 반 자릿수 값에 대해 가장 가까운 짝수 자릿수로 숫자를 반올림합니다. 더 일반적인 절반 반올림되는 반올림 논리는 항상 반 자릿수를 다음 가장 높은 자릿수로 반올림합니다. 이 Azure Enterprise Portal 방법은 표준 Excel 논리와 비교할 때 실제로 그룹에 대해 더 정확한 총 합계를 제공합니다.
-
-예를 들어 드롭된 첫 번째 자릿수가 5이고 다음 자릿수가 없거나 0이면 가장 가까운 짝수 자릿수로 반올림합니다. 즉, 2.315와 2.325는 모두 가장 가까운 소수점 이하 2 자릿수로 반올림되어 2.32가 됩니다.
-
-참고로, 다음 표에서는 반올림 및 변환을 위한 Azure Enterprise Portal 규칙을 모델링하는 데 사용할 수 있는 Excel 수식을 보여 줍니다.
-
-| 시나리오 | 뱅커 논리 수식 |
-| --- | --- |
-| 반올림 사용 | =MROUND({_source_}, 0.0002) |
-| 가격 책정 반올림(2자리) | =MROUND({_source_}, 0.02) |
-| 가격 책정 반올림(0자리) | =MROUND({_source_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>사용량 세부 정보 보고서와 사용 요약 페이지 간 변환
 

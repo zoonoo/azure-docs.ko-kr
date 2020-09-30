@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312059"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -72,7 +72,7 @@ Visual Studio에서 *custom-font-win-container/CustomFontSample.sln* 파일을 �
 
 솔루션 탐색기에서 **Dockerfile**을 엽니다.
 
-[지원되는 부모 이미지](quickstart-custom-container.md#use-a-different-parent-image)를 사용해야 합니다. `FROM` 줄을 다음 코드로 바꿔서 부모 이미지를 변경합니다.
+[지원되는 부모 이미지](configure-custom-container.md#supported-parent-images)를 사용해야 합니다. `FROM` 줄을 다음 코드로 바꿔서 부모 이미지를 변경합니다.
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -618,6 +618,8 @@ service ssh start
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
+::: zone-end
+
 ## <a name="next-steps"></a>다음 단계
 
 학습한 내용은 다음과 같습니다.
@@ -625,9 +627,13 @@ az group delete --name AppSvc-DockerTutorial-rg
 > [!div class="checklist"]
 > * 개인 컨테이너 레지스트리에 사용자 지정 이미지 배포
 > * App Service에서 사용자 지정 이미지 배포
+::: zone pivot="container-linux"
 > * 이미지 업데이트 및 다시 배포
+::: zone-end
 > * 진단 로그 액세스
+::: zone pivot="container-linux"
 > * SSH를 사용하여 컨테이너에 연결
+::: zone-end
 
 다음 자습서에서는 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
@@ -639,7 +645,7 @@ az group delete --name AppSvc-DockerTutorial-rg
 > [!div class="nextstepaction"]
 > [사용자 지정 컨테이너 구성](configure-custom-container.md)
 
+::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
 > [자습서: 다중 컨테이너 WordPress 앱](tutorial-multi-container-app.md)
-
 ::: zone-end

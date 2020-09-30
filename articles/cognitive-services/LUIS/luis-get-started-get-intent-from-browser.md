@@ -1,14 +1,16 @@
 ---
 title: '빠른 시작: 브라우저를 사용한 예측 쿼리 - LUIS'
 description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 브라우저의 대화형 텍스트에서 사용자의 의도를 판단합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316276"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>빠른 시작: 사용자 텍스트로 예측 런타임 쿼리
 

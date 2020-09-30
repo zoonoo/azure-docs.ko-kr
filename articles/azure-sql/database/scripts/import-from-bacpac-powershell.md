@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 05/24/2019
-ms.openlocfilehash: 7e182b44810a322a0cf3a26e7131a411f6259dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 66ebb81f28727c954d3b47bac6829d456d03024f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319489"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>PowerShell을 사용하여 BACPAC 파일을 SQL Database의 데이터베이스로 가져오기
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

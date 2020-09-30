@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 72bb38b7d9d28366fb75c5656832a1f37c770fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945992"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303325"
 ---
 Communication Services Java SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -30,7 +30,8 @@ Communication Services Java SMS 클라이언트 라이브러리를 사용하여 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), 버전 8 이상.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- 배포된 Communication Services 리소스입니다. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
+- 활성 Communication Services 리소스 및 연결 문자열. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
+- SMS 지원 전화 번호입니다. [전화 번호를 가져옵니다](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 

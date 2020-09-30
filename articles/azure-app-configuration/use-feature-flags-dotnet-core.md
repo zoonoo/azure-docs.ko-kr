@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317313"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -230,6 +230,12 @@ public IActionResult Index()
 제어하는 기능 플래그가 *off*로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 `IDisabledFeaturesHandler` 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
 
 ## <a name="mvc-views"></a>MVC 보기
+
+*Views* 디렉터리에서 *_ViewImports.cshtml*을 열고, 다음과 같이 기능 관리자 태그 도우미를 추가합니다.
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 MVC 보기에서 `<feature>` 태그를 사용하여 기능 플래그의 사용 여부에 따라 콘텐츠를 렌더링할 수 있습니다.
 

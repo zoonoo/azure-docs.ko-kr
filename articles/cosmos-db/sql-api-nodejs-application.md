@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322702"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 
@@ -439,7 +439,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 1. 로컬 머신에서 애플리케이션을 테스트하려면 터미널에서 `npm start`를 실행하여 애플리케이션을 시작한 다음, `http://localhost:3000` 브라우저 페이지를 새로 고칩니다. 이제 페이지가 다음 스크린샷과 비슷하게 표시됩니다.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="브라우저 창에 표시된 MyTodo List 애플리케이션의 스크린샷":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Node.js 알아보기 - 브라우저 창에 표시된 Hello World 애플리케이션의 스크린샷":::
 
     > [!TIP]
     > layout.jade 파일 또는 index.jade 파일에서 들여쓰기에 대한 오류가 발생하면 두 파일의 처음 두 줄을 공백 없이 왼쪽에 맞춥니다. 처음 두 줄 앞에 공백이 있으면 이를 제거하고, 두 파일을 모두 저장한 다음, 브라우저 창을 새로 고칩니다. 
@@ -448,7 +448,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 3. 페이지가 업데이트되어 새로 만든 항목을 ToDo 목록에 표시합니다.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="ToDo 목록에 새 항목이 포함된 애플리케이션의 스크린샷":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Node.js 알아보기 - 브라우저 창에 표시된 Hello World 애플리케이션의 스크린샷":::
 
 4. 작업을 완료하려면 [완료] 열의 확인란을 선택한 다음, **작업 업데이트**를 선택합니다. 그러면 이미 만든 문서가 업데이트되고 보기에서 제거됩니다.
 

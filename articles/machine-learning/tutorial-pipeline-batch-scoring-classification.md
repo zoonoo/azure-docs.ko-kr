@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: b6b4be2eb2cd490d525046541f68a45d87a8e638
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f02638acdc60bba710280dcbeba0717173ed8b83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320509"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
@@ -388,7 +388,7 @@ REST 엔드포인트에서 파이프라인을 실행하려면 OAuth2 전달자 �
 
 서비스 주체 인증에는 *앱 등록*을 *Azure Active Directory*에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) 클래스를 사용하여 관리합니다. 
 
-[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
