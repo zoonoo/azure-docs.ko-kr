@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301536"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532553"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>권장 사항 및 보안 점수에서 리소스 제외
 
@@ -32,8 +32,8 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 |----|:----|
 |릴리스 상태:|미리 보기|
 |결정|Azure Defender 고객에 게 추가 비용 없이 제공 되는 프리미엄 Azure 정책 기능입니다. 다른 사용자에 게는 나중에 요금이 부과 될 수 있습니다.|
-|필요한 역할 및 사용 권한:|예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 RBAC 권한](../governance/policy/overview.md#rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|필요한 역할 및 사용 권한:|예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 
@@ -45,7 +45,7 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
     예외 만들기 창이 열립니다.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="예외 창 만들기":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="상황에 맞는 메뉴에서 예외 옵션 만들기":::
 
 1. 조건을 입력 하 고이 리소스를 제외 해야 하는 이유를 선택 합니다.
     - **완화** 됨-이 문제는 제안 되는 것과 다른 도구나 프로세스에서 처리 되기 때문에 리소스와 관련이 없습니다.
@@ -56,11 +56,11 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
     - 리소스는 권장 사항 세부 정보 페이지의 **해당 없음** 탭에 나열 됩니다.
     - 권장 사항 세부 정보 페이지의 맨 위에 있는 정보 스트립은 제외 된 리소스의 수를 나열 합니다.
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="제외 된 리소스 수":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="상황에 맞는 메뉴에서 예외 옵션 만들기":::
 
 1. 제외 된 리소스를 검토 하려면 **해당 없음** 탭을 엽니다.
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="예외 수정":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="상황에 맞는 메뉴에서 예외 옵션 만들기":::
 
     각 예외에 대 한 이유는 테이블 (1)에 포함 됩니다.
 
@@ -73,7 +73,7 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
 Azure Policy를 사용 하 여 **예외** 페이지에서 모든 예외를 추적할 수 있습니다.
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy의 예외 페이지":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="상황에 맞는 메뉴에서 예외 옵션 만들기":::
 
 
 

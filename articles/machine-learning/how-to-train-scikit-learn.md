@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: jordane
 author: jpe316
-ms.date: 07/24/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e2f1eb50f6d878eecb4b5c448e683a3024e8c396
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 28401b5900640ed7228d7c7caad0cebbabf00a65
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250847"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532723"
 ---
-# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
-
+# <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>학습 scikit-Azure Machine Learning를 사용 하 여 대규모로 모델 학습
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 scikit 학습 스크립트를 실행 하는 방법에 대해 알아봅니다.
 
@@ -26,22 +25,22 @@ ms.locfileid: "91250847"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
 
     - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
-    - 노트북 서버의 샘플 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > ml-프레임 워크 > scikit-학습 > 학습 > 학습-하이퍼 매개 변수-조정-배포-학습** 폴더.
+    - 노트북 서버의 샘플 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > ml-프레임 워크 > scikit-학습 > 학습-hyperparameter 변수-학습** 폴더.
 
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)합니다.
+    - [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)를 설치 합니다.
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
 
 ## <a name="set-up-the-experiment"></a>실험 설정
 
-이 섹션에서는 필요한 python 패키지를 로드 하 고, 작업 영역을 초기화 하 고, 실험을 만들고, 학습 데이터 및 학습 스크립트를 업로드 하 여 학습 실험을 설정 합니다.
+이 섹션에서는 필요한 Python 패키지를 로드 하 고, 작업 영역을 초기화 하 고, 학습 환경을 정의 하 고, 학습 스크립트를 준비 하 여 학습 실험을 설정 합니다.
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
@@ -55,24 +54,23 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-
 ### <a name="prepare-scripts"></a>스크립트 준비
 
-이 자습서에서는 학습 스크립트 **train_iris py** 이미 제공 [되어 있습니다](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
+이 자습서에서는 학습 스크립트 **train_iris py** 이미 제공 [되어 있습니다](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
 참고:
 - 제공 된 학습 스크립트는 `Run` 스크립트 내에서 개체를 사용 하 여 AZURE ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
-- 제공 된 학습 스크립트는 함수의 예제 데이터를 사용  `iris = datasets.load_iris()` 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
+- 제공 된 학습 스크립트는 함수의 예제 데이터를 사용  `iris = datasets.load_iris()` 합니다.  사용자 고유의 데이터를 사용 하 고 액세스 하려면 데이터 집합을 사용 하 여 학습 하는 동안 데이터를 사용할 수 있도록 하 [는 방법](how-to-train-with-datasets.md) 을 참조 하세요.
 
-### <a name="define-your-environment"></a>환경을 정의 합니다.
+### <a name="define-your-environment"></a>환경 정의
 
-#### <a name="create-a-custom-environment"></a>사용자 지정 환경을 만듭니다.
+학습 스크립트의 종속성을 캡슐화 하는 Azure ML [환경을](concept-environments.md) 정의 하기 위해 사용자 지정 환경을 정의 하거나 및 azure ml 큐 레이트 환경을 사용할 수 있습니다.
 
-Conda 환경을 작성 합니다 (sklearn-env).
-노트북에서 conda 환경을 작성 하려면 ```%%writefile sklearn-env.yml``` 셀의 위쪽에 선을 추가할 수 있습니다.
+#### <a name="create-a-custom-environment"></a>사용자 지정 환경 만들기
+
+사용자 고유의 사용자 지정 환경을 만들려면 YAML 파일에 conda 종속성을 정의 합니다. 이 예제에서 파일의 이름은 `conda_dependencies.yml` 입니다.
 
 ```yaml
-name: sklearn-training-env
 dependencies:
   - python=3.6.2
   - scikit-learn
@@ -81,59 +79,74 @@ dependencies:
     - azureml-defaults
 ```
 
-이 Conda 환경 사양에서 Azure ML 환경을 만듭니다. 환경은 런타임에 docker 컨테이너에 패키지 됩니다.
+이 Conda 환경 사양에서 Azure ML 환경을 만듭니다. 환경은 런타임에 Docker 컨테이너에 패키지 됩니다.
 ```python
 from azureml.core import Environment
 
-myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
-myenv.docker.enabled = True
+sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path='conda_dependencies.yml')
 ```
 
+환경을 만들고 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조 하세요.
+
 #### <a name="use-a-curated-environment"></a>큐 레이트 환경 사용
-Azure ML은 사용자 고유의 이미지를 빌드하지 않으려는 경우 미리 작성 되 고 큐 레이트 컨테이너 환경을 제공 합니다. 자세한 내용은 [여기](resource-curated-environments.md)를 참조 하세요.
+필요에 따라 사용자 고유의 이미지를 빌드하지 않으려는 경우 Azure ML은 미리 빌드된 큐 레이트 환경을 제공 합니다. 자세한 내용은 [여기](resource-curated-environments.md)를 참조 하세요.
 큐 레이트 환경을 사용 하려는 경우 다음 명령을 대신 실행할 수 있습니다.
 
 ```python
-env = Environment.get(workspace=ws, name="AzureML-Tutorial")
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 ```
 
-### <a name="create-a-scriptrunconfig"></a>ScriptRunConfig 만들기
+## <a name="configure-and-submit-your-training-run"></a>학습 실행 구성 및 제출
 
-이 ScriptRunConfig는 로컬 계산 대상에서 실행할 작업을 제출 합니다.
+### <a name="create-a-scriptrunconfig"></a>ScriptRunConfig 만들기
+ScriptRunConfig 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 계산 대상 등 학습 작업의 구성 세부 정보를 지정 합니다.
+매개 변수에 지정 된 경우 학습 스크립트에 대 한 모든 인수는 명령줄을 통해 전달 됩니다 `arguments` .
+
+다음 코드에서는 로컬 컴퓨터에서 실행 하기 위해 작업을 제출 하기 위해 ScriptRunConfig 개체를 구성 합니다.
 
 ```python
 from azureml.core import ScriptRunConfig
 
-sklearnconfig = ScriptRunConfig(source_directory='.', script='train_iris.py')
-sklearnconfig.run_config.environment = myenv
+src = ScriptRunConfig(source_directory='.',
+                      script='train_iris.py',
+                      arguments=['--kernel', 'linear', '--penalty', 1.0],
+                      environment=sklearn_env)
 ```
 
-원격 클러스터에 대해 전송 하려는 경우 run_config을 원하는 계산 대상으로 변경할 수 있습니다.
+대신 원격 클러스터에서 작업을 실행 하려는 경우 `compute_target` ScriptRunConfig의 매개 변수에 원하는 계산 대상을 지정할 수 있습니다.
+
+```python
+from azureml.core import ScriptRunConfig
+
+compute_target = ws.compute_targets['<my-cluster-name>']
+src = ScriptRunConfig(source_directory='.',
+                      script='train_iris.py',
+                      arguments=['--kernel', 'linear', '--penalty', 1.0],
+                      compute_target=compute_target,
+                      environment=sklearn_env)
+```
 
 ### <a name="submit-your-run"></a>실행 제출
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'train-sklearn').submit(config=sklearnconfig)
+run = Experiment(ws,'train-iris').submit(src)
 run.wait_for_completion(show_output=True)
-
 ```
 
 > [!WARNING]
-> Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)를 사용 하 여 데이터에 액세스 합니다.
+> Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신, Azure ML [데이터 집합](how-to-train-with-datasets.md)을 사용 하 여 데이터에 액세스 합니다.
 
-Python 환경을 사용자 지정하는 방법에 대한 자세한 내용은 [학습 및 배포 환경 만들기 및 관리](how-to-use-environments.md)를 참조하세요. 
-
-## <a name="what-happens-during-run-execution"></a>실행 실행 중 수행 되는 작업
+### <a name="what-happens-during-run-execution"></a>실행 실행 중 수행 되는 작업
 실행이 실행 되 면 다음 단계를 거칩니다.
 
-- **준비**: TensorFlow 평가기에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다.
+- **준비**: 정의 된 환경에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다. 큐 레이트 환경을 대신 지정 하면 해당 큐 레이트 환경을 지 원하는 캐시 된 이미지가 사용 됩니다.
 
 - **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, entry_script 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, `script` 이 실행 됩니다. Stdout의 출력과 **./clogs** 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
-- **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
+- **사후 처리**: 실행의 **./출력** 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="save-and-register-the-model"></a>모델 저장 및 등록
 
@@ -162,7 +175,7 @@ model = run.register_model(model_name='sklearn-iris',
 
 ## <a name="deployment"></a>배포
 
-방금 등록 한 모델은 학습에 사용한 평가기에 관계 없이 Azure Machine Learning에서 등록 된 다른 모델과 정확히 동일한 방식으로 배포할 수 있습니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
+방금 등록 한 모델은 Azure ML에서 등록 된 다른 모델과 정확히 동일한 방법으로 배포할 수 있습니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
 
 ### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
 
@@ -190,4 +203,3 @@ Azure Machine Learning의 배포에 [대 한 자세한 내용을](how-to-deploy-
 
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
-* [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

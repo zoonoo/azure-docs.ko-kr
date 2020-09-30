@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b77eaec0440aa4fcd22d7b35e7a205b0276164f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935826"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532570"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 예약 하는 방법
 
@@ -110,10 +110,10 @@ Azure Cognitive Search .NET SDK를 사용 하 여 인덱서 일정을 정의할 
 
 **StartTime** 매개 변수는 과거 시간으로 설정할 수 있습니다. 이 경우 첫 번째 실행은 지정 된 **startTime**이후에 인덱서가 지속적으로 실행 된 것 처럼 예약 됩니다.
 
-일정은 [Indexingschedule](/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) 클래스를 사용 하 여 정의 됩니다. **Indexingschedule** 생성자에는 **TimeSpan** 개체를 사용 하 여 지정 된 **interval** 매개 변수가 필요 합니다. 허용 되는 최소 간격 값은 5 분이 고 최대값은 24 시간입니다. **DateTimeOffset** 개체로 지정 된 두 번째 **startTime** 매개 변수는 선택 사항입니다.
+일정은 [Indexingschedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) 클래스를 사용 하 여 정의 됩니다. **Indexingschedule** 생성자에는 **TimeSpan** 개체를 사용 하 여 지정 된 **interval** 매개 변수가 필요 합니다. 허용 되는 최소 간격 값은 5 분이 고 최대값은 24 시간입니다. **DateTimeOffset** 개체로 지정 된 두 번째 **startTime** 매개 변수는 선택 사항입니다.
 
 .NET SDK를 사용 하면 **IIndexersOperations** 인터페이스에서 메서드를 구현 하는 [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) 클래스 및 [인덱서](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) 속성을 사용 하 여 인덱서 작업을 제어할 수 있습니다. 
 
 [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [Runasync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)또는 [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) 메서드 중 하나를 사용 하 여 언제 든 지 요청 시 인덱서를 실행할 수 있습니다.
 
-인덱서를 만들고 업데이트 하 고 실행 하는 방법에 대 한 자세한 내용은 [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet)를 참조 하세요.
+인덱서를 만들고 업데이트 하 고 실행 하는 방법에 대 한 자세한 내용은 [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations)를 참조 하세요.

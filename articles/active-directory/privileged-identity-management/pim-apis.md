@@ -14,12 +14,12 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783521"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529697"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Privileged Identity Management용 Microsoft Graph API(미리 보기)
 
@@ -51,7 +51,7 @@ Graph Explorer를 사용하여 호출을 테스트하는 경우 도구에서 사
 
 1. **권한 수정**을 클릭합니다.
 
-    ![Graph Explorer - 권한 수정](./media/pim-apis/graph-explorer.png)
+    !["사용 권한 수정" 작업이 선택 된 "그래프 탐색기" 페이지를 보여 주는 스크린샷](./media/pim-apis/graph-explorer.png)
 
 1. 포함하려는 권한 옆에 있는 확인란을 선택합니다. `PrivilegedAccess.ReadWrite.AzureAD`는 아직 Graph Explorer에서 사용할 수 없습니다.
 

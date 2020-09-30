@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
-ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251918"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529940"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 브로커 (미리 보기)
 
@@ -30,11 +30,13 @@ ms.locfileid: "91251918"
 
 다음 다이어그램에서는 ID Broker를 사용 하도록 설정한 후 페더레이션된 사용자를 포함 하 여 모든 사용자에 대 한 최신 OAuth 기반 인증 흐름을 보여 줍니다.
 
-![ID Broker를 사용 하 여 인증 흐름](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="ID Broker를 사용 하 여 인증 흐름":::
 
 이 다이어그램에서 클라이언트 (예: 브라우저 또는 앱)는 먼저 OAuth 토큰을 획득 한 다음 HTTP 요청에서 게이트웨이에 토큰을 제공 해야 합니다. Azure Portal와 같은 다른 Azure 서비스에 이미 로그인 한 경우에는 SSO (Single Sign-On) 환경을 사용 하 여 HDInsight 클러스터에 로그인 할 수 있습니다.
 
 기본 인증 (즉, 사용자 이름/암호)만 지 원하는 많은 레거시 응용 프로그램이 있을 수 있습니다. 이러한 시나리오의 경우 여전히 HTTP 기본 인증을 사용 하 여 클러스터 게이트웨이에 연결할 수 있습니다. 이 설정에서는 게이트웨이 노드에서 페더레이션 끝점 (ADFS 끝점)으로의 네트워크 연결을 확인 하 여 게이트웨이 노드에서 직접 시야를 확인 해야 합니다.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="ID Broker를 사용 하 여 인증 흐름":::
 
 다음 표를 사용 하 여 조직 요구 사항에 따라 가장 적합 한 인증 옵션을 결정 합니다.
 

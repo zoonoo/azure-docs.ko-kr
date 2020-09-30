@@ -11,23 +11,26 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934585"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532520"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
 음성 [SDK](speech-sdk.md)대신 음성 서비스를 사용 하면 REST API를 사용 하 여 음성을 텍스트로 변환할 수 있습니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다. REST API은 매우 제한적 이며, [음성 SDK](speech-sdk.md) 가 없는 경우에만 사용 해야 합니다.
 
-음성 텍스트 REST API를 사용 하기 전에 다음을 이해 합니다.
+음성 텍스트 REST API를 사용 하기 전에 다음 사항을 고려 하세요.
 
 * REST API를 사용 하 고 오디오를 직접 전송 하는 요청은 최대 60 초의 오디오만 포함할 수 있습니다.
 * Speech-to-Text REST API는 최종 결과만 반환합니다. 부분 결과는 제공되지 않습니다.
 
 응용 프로그램의 요구 사항이 긴 오디오를 보내는 경우에는 [음성 SDK](speech-sdk.md) 또는 [배치](batch-transcription.md)전송과 같은 파일 기반 REST API를 사용 하는 것이 좋습니다.
+
+> [!TIP]
+> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) 를 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -50,7 +53,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | Description | 필수/선택 |
+| 매개 변수 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | 선택 사항 |
@@ -87,7 +90,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
 
-| 매개 변수 | Description | 필수/선택 |
+| 매개 변수 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
 | GradingSystem | 점수 보정의 시점 시스템입니다. 허용되는 값은 `FivePoint` 및 `HundredMark`입니다. 기본 설정은 `FivePoint`입니다. | 선택 사항 |
@@ -144,7 +147,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | Description | 가능한 원인 |
+| HTTP 상태 코드 | 설명 | 가능한 원인 |
 |------------------|-------------|-----------------|
 | `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
 | `200` | 정상 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
@@ -192,7 +195,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 결과는 JSON으로 제공됩니다. `simple` 형식에는 이러한 최상위 수준 필드가 포함됩니다.
 
-| 매개 변수 | Description  |
+| 매개 변수 | 설명  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
 |`DisplayText`|대/소문자, 문장 부호, 역 텍스트 정규화 (음성 텍스트를 "200"의 경우 200, "의사 smith"의 경우 "Dr. Smith"의 경우) 및 불경 마스킹을 통해 인식 되는 텍스트입니다. 성공 시만 표시합니다.|
@@ -201,7 +204,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -217,7 +220,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 목록의 개체는 `NBest` 다음을 포함할 수 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | `Confidence` | 0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다. |
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |

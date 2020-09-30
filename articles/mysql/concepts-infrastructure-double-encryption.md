@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919712"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531029"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL 인프라 이중 암호화
-
-> [!NOTE]
-> 현재 이 기능을 사용하려면 액세스를 요청해야 합니다. 이렇게 하려면에 문의 하세요 AskAzureDBforMySQL@service.microsoft.com .
 
 Azure Database for MySQL는 Microsoft의 관리 되는 키를 사용 하 여 데이터에 대해 [미사용 데이터의 저장소 암호화](concepts-security.md#at-rest) 를 사용 합니다. 백업을 비롯 한 데이터는 디스크에서 암호화 되며이 암호화는 항상 사용 되며 사용 하지 않도록 설정할 수 없습니다. 이 암호화는 Azure storage 암호화를 위해 FIPS 140-2의 유효성을 검사 한 암호화 모듈과 AES 256 비트 암호를 사용 합니다.
 

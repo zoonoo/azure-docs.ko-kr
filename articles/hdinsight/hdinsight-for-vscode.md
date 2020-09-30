@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876787"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530156"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -21,7 +21,7 @@ Visual Studio Code에 & Hive 도구 Apache Spark를 사용 하는 방법에 대�
 
 Spark & Hive 도구는 Visual Studio Code에서 지 원하는 플랫폼에 설치할 수 있습니다. 다른 플랫폼에 대 한 다음 필수 구성 요소를 확인 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
@@ -140,7 +140,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 현재 스크립트 파일의 기본 클러스터로 사용할 클러스터를 선택합니다. 도구는 구성 파일 **의.VSCode\settings.js** 를 자동으로 업데이트 합니다.
+5. 현재 스크립트 파일의 기본 클러스터로 사용할 클러스터를 선택합니다. 도구는 구성 파일 ** 의.VSCode\settings.js** 를 자동으로 업데이트 합니다.
 
    ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -199,11 +199,11 @@ PySpark interactive 명령을 사용 하 여 쿼리를 제출 하 고 다음 단
 
 4. PySpark 커널을 설치 하 라는 메시지가 창의 오른쪽 아래 모퉁이에 표시 됩니다. **설치** 단추를 클릭 하 여 PySpark 설치를 계속할 수 있습니다. 또는 [ **건너뛰기** ] 단추를 클릭 하 여이 단계를 건너뜁니다.
 
-   ![pyspark 커널 설치](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![PySpark 설치를 건너뛰는 옵션을 보여 주는 스크린샷](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. 나중에 설치 해야 하는 경우 **파일**  >  **기본**  >  **설정**으로 이동한 다음 설정에서 **Hdinsight: Skip Pyspark 설치 사용** 을 선택 취소할 수 있습니다. 
     
-    ![pyspark 커널 설치](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Pyspark 건너뛰기 설치를 사용 하도록 설정 하는 옵션을 보여 줍니다.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. 4 단계에서 설치가 성공적으로 완료 되 면 "PySpark 설치 되었습니다." 라는 메시지 상자가 창의 오른쪽 아래 모서리에 표시 됩니다. **다시 로드** 단추를 클릭 하 여 창을 다시 로드 합니다.
     ![pyspark을 설치 했습니다.](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
@@ -214,7 +214,7 @@ PySpark interactive 명령을 사용 하 여 쿼리를 제출 하 고 다음 단
 
     ![pyspark 대화형 상황에 맞는 메뉴](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark를 클릭 하 여 커널을 **PySpark**로 전환 하면 코드가 성공적으로 실행 됩니다. 또한이 도구를 사용 하면 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수 있습니다.
+9. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark**로 전환 하면 코드가 성공적으로 실행 됩니다. 또한이 도구를 사용 하면 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수 있습니다.
 
    ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -331,7 +331,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
     **사후 배치/일괄 처리** 요청 본문
 
-    | name | description | type |
+    | name | description | 형식 |
     | --- | --- | --- |
     | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
     | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
@@ -352,7 +352,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
     응답 본문 생성 된 일괄 처리 개체입니다.
 
-    | name | description | type |
+    | name | description | 형식 |
     | --- | ---| --- |
     | ID | 세션 ID | Int |
     | appId | 이 세션의 응용 프로그램 ID | String |

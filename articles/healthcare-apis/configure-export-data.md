@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267261"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529986"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>내보내기 설정 구성 및 저장소 계정 설정
 
@@ -40,11 +40,11 @@ FHIR 용 Azure API에서 내보내기를 구성 하는 데는 세 가지 단계�
 
 저장소 계정을 만든 후 저장소 계정에서 Access Control (IAM) 블레이드로 이동 하 여 역할 할당 추가를 선택 합니다.
 
-![관리 Id 사용](media/export-data/fhir-export-role-assignment.png)
+![역할 할당 내보내기](media/export-data/fhir-export-role-assignment.png)
 
 그런 다음 서비스 이름에 역할 저장소 Blob 데이터 참가자를 추가 합니다.
 
-![관리 Id 사용](media/export-data/fhir-export-role-add.png)
+![Add Role](media/export-data/fhir-export-role-add.png)
 
 이제 다음 단계를 수행할 준비가 되었습니다. 여기서 FHIR 용 Azure API의 저장소 계정을 $export에 대 한 기본 저장소 계정으로 선택할 수 있습니다.
 
@@ -52,7 +52,7 @@ FHIR 용 Azure API에서 내보내기를 구성 하는 데는 세 가지 단계�
 
 마지막 단계는 Azure API 용 Azure API가 데이터를로 내보내는 데 사용할 Azure storage 계정을 할당 하는 것입니다. 이렇게 하려면 Azure Portal의 FHIR 서비스에 대 한 Azure API의 통합 블레이드로 이동 하 고 저장소 계정을 선택 합니다.
 
-![관리 Id 사용](media/export-data/fhir-export-storage.png)
+![저장소 내보내기 저장소](media/export-data/fhir-export-storage.png)
 
 그런 다음 $export 명령을 사용 하 여 데이터를 내보낼 준비가 된 것입니다.
 

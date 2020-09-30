@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/03/2020
-ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897406"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530632"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>VS Code 확장을 사용 하 여 Azure Machine Learning 리소스 관리 (미리 보기)
 
@@ -24,7 +24,7 @@ VS Code 확장을 사용 하 여 Azure Machine Learning 리소스를 관리 하�
 
 ![Azure Machine Learning VS Code 확장](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)에 가입하여 사용해 보세요.
 - Visual Studio Code. 없는 경우 [설치](https://code.visualstudio.com/docs/setup/setup-overview)합니다.
@@ -201,6 +201,7 @@ VS Code 확장은 현재 다음 형식의 데이터 저장소를 지원 합니�
 1. 작업 영역 내에서 **실험** 노드를 확장 합니다.
 1. 실행 하려는 실험을 마우스 오른쪽 단추로 클릭 합니다.
 1. 작업 표시줄에서 **실험 실행** 아이콘을 선택 합니다.
+1. 실험을 로컬 또는 원격으로 실행할지 여부를 선택 합니다. 로컬로 실험을 실행 하 고 디버깅 하는 방법에 대 한 자세한 내용은 [디버깅 가이드](how-to-debug-visual-studio-code.md) 를 참조 하세요.
 1. 구독을 선택합니다.
 1. Azure ML 작업 영역을 선택 하 여 실험을 실행 합니다.
 1. 실험을 선택 합니다.
@@ -320,7 +321,7 @@ Azure Machine Learning Studio에서 실험을 보려면 다음을 수행 합니�
 
 1. 작업 영역을 포함 하는 구독 노드를 확장 합니다.
 1. 작업 영역 내에서 **계산 클러스터** 노드를 확장 합니다.
-1. 실행 구성을 만들 계산 대상을 마우스 오른쪽 단추로 클릭 하 고 **실행 구성 만들기**를 선택 합니다.
+1. 실행 구성을 만들려는 계산 대상을 마우스 오른쪽 단추로 클릭 하 고 **실행 구성 만들기**를 선택 합니다.
 1. 프롬프트에서 다음을 수행 합니다.
     1. 계산 대상의 이름 제공
     1. 새 환경을 선택 하거나 만듭니다.

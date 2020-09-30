@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: f84dc17c6c074fc4dbda8a13fad3586a397fdf10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055427"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530615"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
 
@@ -73,21 +73,21 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 1. **구성**을 선택한 다음 현재 슬롯과 함께 사용할 설정 이름을 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Azure Portal 슬롯에 대 한 응용 프로그램 설정을 구성 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. **배포 슬롯 설정**을 선택 하 고 **확인**을 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="배포 슬롯 설정을 구성 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. 설정 섹션이 사라지면 **저장** 을 선택 하 여 변경 내용을 유지 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="배포 슬롯 설정을 저장 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 ## <a name="deployment"></a>배포
 
 슬롯은 슬롯을 만들 때 비어 있습니다. [지원 되는 배포 기술](./functions-deployment-technologies.md) 중 하나를 사용 하 여 응용 프로그램을 슬롯에 배포할 수 있습니다.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
 모든 슬롯은 프로덕션 슬롯과 동일한 수의 작업자로 확장 됩니다.
 
@@ -102,11 +102,11 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 1. **배포 슬롯**을 선택 하 고 **+ 슬롯 추가**를 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Azure Functions 배포 슬롯을 추가 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. 슬롯의 이름을 입력 하 고 **추가**를 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Azure Functions 배포 슬롯의 이름을로 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 ## <a name="swap-slots"></a>슬롯 교환
 
@@ -115,11 +115,11 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 1. 함수 앱으로 이동합니다.
 1. **배포 슬롯**을 선택 하 고 **교환**을 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="배포 슬롯을 교환 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. 교환에 대 한 구성 설정을 확인 하 고 **교환** 을 선택 합니다.
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="배포 슬롯을 교환 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 교환 작업을 실행 하는 동안 작업이 잠시 소요 될 수 있습니다.
 
@@ -137,15 +137,15 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 1. **삭제**를 선택합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Azure Portal에서 배포 슬롯을 삭제 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. 삭제 하려는 배포 슬롯의 이름을 입력 하 고 **삭제**를 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Azure Portal에서 배포 슬롯을 삭제 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. 삭제 확인 창을 닫습니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="배포 슬롯 삭제 확인." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 ## <a name="automate-slot-management"></a>슬롯 관리 자동화
 
@@ -174,7 +174,7 @@ App Service 계획으로 실행 되는 함수 앱을 사용 하 여 슬롯에 �
 
 1. 업그레이드 하려는 계획을 선택 하거나 새 계획을 만듭니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Azure Portal에서 App Service 계획을 변경 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
 1. **확인**을 선택합니다.
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449132"
+ms.locfileid: "91532604"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
 
@@ -127,7 +127,7 @@ ms.locfileid: "91449132"
 > [!IMPORTANT]
 > 규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.
 >
-> [Azure Policy에서 RBAC 권한](../governance/policy/overview.md#rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.
+> [Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.
 
 다음 조건 중 하나를 사용할 수 있습니다. 
 

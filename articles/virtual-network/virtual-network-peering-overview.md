@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531873"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
-가상 네트워크 피어 링을 사용 하면 [Azure Virtual Network](virtual-networks-overview.md)에서 네트워크를 원활 하 게 연결할 수 있습니다. 가상 네트워크는 연결 목적으로 하나의 가상 네트워크로 표시 됩니다. 가상 컴퓨터 간의 트래픽은 Microsoft 백본 인프라를 사용 합니다. 동일한 네트워크에 있는 가상 컴퓨터 간의 트래픽과 마찬가지로 트래픽은 Microsoft *개인* 네트워크를 통해 라우팅됩니다.
+가상 네트워크 피어 링을 사용 하면 Azure에서 두 개 이상의 [가상 네트워크](virtual-networks-overview.md) 를 원활 하 게 연결할 수 있습니다. 가상 네트워크는 연결 목적으로 하나의 가상 네트워크로 표시 됩니다. 피어 링 가상 네트워크의 가상 머신 간 트래픽은 Microsoft 백본 인프라를 사용 합니다. 동일한 네트워크에 있는 가상 컴퓨터 간의 트래픽과 마찬가지로 트래픽은 Microsoft *개인* 네트워크를 통해 라우팅됩니다.
 
 Azure는 다음 피어 링 유형을 지원 합니다.
 
@@ -93,7 +93,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 자세한 내용은 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 지원 되는 피어 링 수에 대 한 자세한 내용은 [네트워킹 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 가상 네트워크 피어 링을 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 [사용 권한](virtual-network-manage-peering.md#permissions)을 참조 하세요.
 
@@ -110,7 +110,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 * 두 가상 네트워크 간에 피어 링을 만들 수 있습니다. 네트워크는 동일한 구독, 동일한 구독에 있는 다른 배포 모델 또는 다른 구독에 속할 수 있습니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-    |Azure 배포 모델             | 구독  |
+    |Azure 배포 모델             | Subscription  |
     |---------                          |---------|
     |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[다름](create-peering-different-subscriptions.md)|

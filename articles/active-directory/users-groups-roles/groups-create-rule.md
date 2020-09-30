@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797176"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531533"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 만들기 또는 업데이트
 
@@ -40,7 +40,7 @@ Azure AD는 중요한 규칙을 더 신속하게 만들고 업데이트하는 �
 > [!NOTE]
 > 규칙 작성기가 텍스트 상자에 생성된 일부 규칙을 표시하지 못할 수도 있습니다. 규칙 작성기에서 규칙을 표시할 수 없을 때 메시지가 표시될 수 있습니다. 규칙 작성기는 지원되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경하지 않습니다.
 
-![동적 그룹 멤버 관리 규칙 추가](./media/groups-create-rule/update-dynamic-group-rule.png)
+!["규칙 구성" 탭에서 "식 추가" 작업이 선택 된 "동적 멤버 자격 규칙" 페이지를 보여 주는 스크린샷](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 멤버 자격 규칙에 대 한 구문, 지원 되는 속성, 연산자 및 값의 예는 [Azure Active Directory의 그룹에 대 한 동적 멤버 자격 규칙](groups-dynamic-membership.md)을 참조 하세요.
 
@@ -54,7 +54,7 @@ Azure AD는 중요한 규칙을 더 신속하게 만들고 업데이트하는 �
 
 1. **그룹** 페이지에서 새 그룹에 대 한 이름 및 설명을 입력 합니다. 사용자 또는 장치 중 하나에 대 한 **멤버 자격 유형을** 선택한 다음 **동적 쿼리 추가**를 선택 합니다. 규칙 작성기는 최대 5 개의 식을 지원 합니다. 5 개 이상의 식을 추가 하려면 텍스트 상자를 사용 해야 합니다.
 
-   ![동적 그룹 멤버 관리 규칙 추가](./media/groups-create-rule/add-dynamic-group-rule.png)
+   !["새 그룹" 작업이 선택 된 "모든 그룹" 페이지를 보여 주는 스크린샷](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. 멤버 자격 쿼리에 사용할 수 있는 사용자 지정 확장 속성을 보려면 다음을 수행 합니다.
    1. **사용자 지정 확장 속성 가져오기** 선택

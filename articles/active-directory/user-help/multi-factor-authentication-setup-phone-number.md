@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735993"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530258"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>2단계 인증 방법으로 모바일 디바이스 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "83735993"
 
 2. **방법** 영역에서 **문자 메시지로 코드 보내기**를 선택하고 **다음**을 선택합니다.
 
-    ![인증 전화 및 문자 메시지를 사용하는 추가 보안 인증 페이지](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    !["인증 전화" 및 "문자 메시지로 코드 보내기"를 선택 하 여 "추가 보안 확인" 페이지를 보여 주는 스크린샷](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Microsoft로부터 전송된 문자 메시지의 인증 코드를 **2단계: 휴대폰으로 문자 메시지를 전송했습니다** 영역에 입력한 다음, **확인**을 선택합니다.
 

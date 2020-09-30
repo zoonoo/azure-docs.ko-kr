@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325375"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531193"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -150,7 +150,7 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 ### <a name="probable-causes"></a>가능한 원인
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
-* Azure Monitor 및 Azure Automation 서비스 끝점은 데이터 센터에서 허용 목록 되지 않습니다. 
+* Azure Monitor 및 Azure Automation 서비스 끝점은 데이터 센터의 승인 된 목록에 포함 되지 않습니다. 
 
 ### <a name="resolution"></a>해결 방법
 1. 다음 명령을 사용 하도록 설정 하 고 다음 명령을 사용 하 여 Linux 용 Log Analytics 에이전트와 Azure Monitor 다시 등록 `-v` 합니다. 프록시를 통해 연결 되는 에이전트의 자세한 출력을 Azure Monitor 수 있습니다. 
@@ -211,7 +211,7 @@ Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.
 - Linux용 Log Analytics 에이전트가 백업되었습니다.
 
 ### <a name="resolution"></a>해결 방법
-1. 다음 파일이 있는지 확인 하 여 온 보 딩 Azure Monitor 성공 했는지 확인 합니다.`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. 다음 파일이 있는지 확인 하 여 온 보 딩 Azure Monitor 성공 했는지 확인 합니다. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
 3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
 4. Linux용 Log Analytics 에이전트가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` 명령을 실행하여 에이전트를 다시 시작해야 합니다. 
@@ -444,4 +444,3 @@ sudo sh ./onboard_agent.sh --purge
     ```
 
 3. `sudo sh ./omsagent-*.universal.x64.sh --upgrade` 명령을 실행하여 패키지를 업그레이드합니다.
-

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706322"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531244"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -38,12 +38,12 @@ ms.locfileid: "90706322"
 
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
 
-   ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/trustedip3.png)
+   ![클레임 규칙 템플릿을 선택할 수 있는 변환 클레임 규칙 추가 마법사가 스크린샷에 표시 됩니다.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. 규칙의 이름을 지정합니다. 
 7. 들어오는 클레임 유형으로 **인증 방법 참조**를 선택합니다.
 8. **모든 클레임 값 통과**를 선택합니다.
-    ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/configurewizard.png)
+    ![모든 클레임 값 통과를 선택 하는 스크린샷에 변환 클레임 규칙 추가 마법사가 표시 됩니다.](./media/howto-mfa-adfs/configurewizard.png)
 9. **Finish**를 클릭합니다. AD FS 관리 콘솔을 닫습니다.
 
 ## <a name="trusted-ips-for-federated-users"></a>페더레이션 사용자를 위한 신뢰할 수 있는 IP
@@ -63,11 +63,11 @@ ms.locfileid: "90706322"
 4. 발급 변환 규칙에서 **규칙 추가를 클릭 합니다.** 
     ![ 클레임 규칙 추가](./media/howto-mfa-adfs/trustedip2.png)
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
-   ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/trustedip3.png)
+   ![들어오는 클레임 통과 또는 필터링을 선택 하는 스크린샷 변환 클레임 규칙 추가 마법사를 보여 줍니다.](./media/howto-mfa-adfs/trustedip3.png)
 6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들어 InsideCorpNet입니다.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부**를 선택합니다.
    ![회사 네트워크 클레임 내부 추가](./media/howto-mfa-adfs/trustedip4.png)
-8. **마침**을 클릭합니다.
+8. **Finish**를 클릭합니다.
 9. 발급 변환 규칙에서 **규칙 추가**를 클릭 합니다.
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 11. 클레임 규칙 이름 아래에 있는 상자에 *로그인한 사용자 유지*를 입력합니다.
@@ -79,9 +79,9 @@ ms.locfileid: "90706322"
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
 ```
 
-13. **마침**을 클릭합니다.
+13. **Finish**를 클릭합니다.
 14. **적용**을 클릭합니다.
-15. **확인**을 클릭합니다.
+15. **Ok**를 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성

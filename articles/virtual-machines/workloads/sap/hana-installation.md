@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507848"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529833"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -179,7 +179,7 @@ Azure에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 `service manage
 
 S72m HANA 대규모 인스턴스 단위에 대한 df -h 명령의 출력은 다음과 같습니다.
 
-![HANA 큰 인스턴스 유닛의 탑재된 볼륨의 fstab](./media/hana-installation/image2_df_output.PNG)
+![HANA Large Instance unit 명령의 출력을 보여 주는 스크린샷](./media/hana-installation/image2_df_output.PNG)
 
 
 큰 인스턴스 스탬프의 스토리지 컨트롤러와 노드는 NTP 서버와 동기화됩니다. NTP 서버를 기준으로 Azure의 SAP HANA(대규모 인스턴스) 단위와 Azure VM을 동기화하는 경우 Azure 또는 대규모 인스턴스 스탬프의 인프라 및 컴퓨팅 단위 간에 큰 시간 차이가 없어야 합니다.

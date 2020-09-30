@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561349"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530700"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)
 
@@ -93,7 +93,7 @@ MSAL 또는 ASWebAuthenticationSession을 사용 하는 응용 프로그램을�
 
 기본적으로 Microsoft Enterprise SSO 플러그 인은 SSO 플러그 인에 이미 공유 자격 증명이 있는 경우에만 권한 있는 앱에 대 한 SSO를 제공 합니다. 토큰 획득 중에 다른 ADAL 또는 MSAL 기반 응용 프로그램에서 호출 하는 경우 Microsoft Enterprise SSO 플러그 인에서 공유 자격 증명을 가져올 수 있습니다. 대부분의 Microsoft 앱은 Microsoft Authenticator 또는 SSO 플러그 인을 사용 합니다. 즉, 기본적으로 네이티브 앱 흐름의 외부에 있는 SSO를 사용 하는 것이 가장 좋습니다.  
 
-플래그를 사용 하도록 설정 하면 `browser_sso_interaction_enabled` MSAL 앱 및 Safari 브라우저에서 초기 부트스트래핑을 수행 하 고 공유 자격 증명을 가져올 수 있습니다. Microsoft Enterprise SSO 플러그 인에 공유 자격 증명이 아직 없는 경우 Safari 브라우저, ASWebAuthenticationSession, SafariViewController 또는 다른 허용 목록 native 응용 프로그램 내에서 Azure AD URL의 로그인이 요청 될 때마다 하나를 가져오려고 시도 합니다.  
+플래그를 사용 하도록 설정 하면 `browser_sso_interaction_enabled` MSAL 앱 및 Safari 브라우저에서 초기 부트스트래핑을 수행 하 고 공유 자격 증명을 가져올 수 있습니다. Microsoft Enterprise SSO 플러그 인에 공유 자격 증명이 아직 없는 경우 Safari 브라우저, ASWebAuthenticationSession, SafariViewController 또는 다른 허용 되는 네이티브 응용 프로그램 내에서 Azure AD URL의 로그인이 요청 될 때마다 하나를 가져오려고 시도 합니다.  
 
 - **키**: `browser_sso_interaction_enabled`
 - **형식**: `Integer`

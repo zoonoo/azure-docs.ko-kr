@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830284"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530921"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
@@ -250,7 +250,7 @@ PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 - PostgreSQL 서버에서 default_transaction_read_only 매개 변수가 설정되어 있으면 Query Store가 데이터를 캡처할 수 없습니다.
 - 6000바이트 이상의 긴 유니코드 쿼리가 발견되면 Query Store 기능이 중단될 수 있습니다.
-- [읽기 복제본](concepts-read-replicas.md) 은 마스터 서버에서 쿼리 저장소 데이터를 복제 합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행 되는 쿼리에 대 한 통계를 제공 하지 않습니다.
+- [복제본 읽기](concepts-read-replicas.md) 는 주 서버에서 쿼리 저장소 데이터를 복제 합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행 되는 쿼리에 대 한 통계를 제공 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

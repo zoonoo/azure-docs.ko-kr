@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530139"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경에서 문제 진단 및 해결
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 문제를 설명 합니다. 이 문서에서는 잠재적인 원인 및 해결 방법을 제안합니다.
 
@@ -66,8 +69,8 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 이벤트 원본에 이전 이벤트가 있는 경우 다음 두 가지 방법 중 하나로 제한에 접근할 수 있습니다.
 
-- Azure Time Series Insights에 표시 하지 않을 이전 이벤트를 제거 하는 데 도움이 되도록 이벤트 원본의 보존 제한을 변경 합니다.
-- 더 큰 크기의 환경(단위 수)을 프로비전하여 이전 이벤트의 처리량 늘리기. 앞의 예제에서 1 일 동안 동일한 S1 환경을 5 개 단위로 늘리면 환경은 하루 내에 처리 해야 합니다. 안정적인 상태 이벤트 프로덕션이 100만 이하인 이벤트 일 경우 Azure Time Series Insights를 처리 한 후 이벤트 용량을 한 단위로 줄일 수 있습니다.
+* Azure Time Series Insights에 표시 하지 않을 이전 이벤트를 제거 하는 데 도움이 되도록 이벤트 원본의 보존 제한을 변경 합니다.
+* 더 큰 크기의 환경(단위 수)을 프로비전하여 이전 이벤트의 처리량 늘리기. 앞의 예제에서 1 일 동안 동일한 S1 환경을 5 개 단위로 늘리면 환경은 하루 내에 처리 해야 합니다. 안정적인 상태 이벤트 프로덕션이 100만 이하인 이벤트 일 경우 Azure Time Series Insights를 처리 한 후 이벤트 용량을 한 단위로 줄일 수 있습니다.
 
 적용 되는 제한 제한은 환경의 SKU 유형 및 용량을 기반으로 합니다. 환경의 모든 이벤트 원본은 이 용량을 공유합니다. IoT hub 또는 이벤트 허브에 대 한 이벤트 원본이 적용 된 한도를 초과 하 여 데이터를 푸시하는 경우 제한 및 지연 시간이 발생 합니다.
 
@@ -128,12 +131,12 @@ Azure Time Series Insights 더 이상 데이터를 수집 않지만 이벤트가
 
 다음 값은 표시 되지 않습니다.
 
-- *(abc)*: Azure Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
-- *Calendar icon*: Azure Time Series Insights에서 데이터 값을 datetime 값으로 읽도록 지정 합니다.
-- *#*: Azure Time Series Insights에서 데이터 값을 정수로 읽도록 지정 합니다.
+* *(abc)*: Azure Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
+* *Calendar icon*: Azure Time Series Insights에서 데이터 값을 datetime 값으로 읽도록 지정 합니다.
+* *#*: Azure Time Series Insights에서 데이터 값을 정수로 읽도록 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Time Series Insights에서 대기 시간을 완화 하는 방법](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.
+* [Azure Time Series Insights에서 대기 시간을 완화 하는 방법](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.
 
-- [Azure Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.
+* [Azure Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.

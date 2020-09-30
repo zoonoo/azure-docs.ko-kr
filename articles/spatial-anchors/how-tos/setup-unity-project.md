@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/17/2020
+ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57ead9636b7218ecfc7d72bb605b469d6a7d1ac6
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536361"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530422"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Unity 프로젝트에서 Azure 공간 앵커 구성
 
@@ -33,8 +33,8 @@ Unity 용 Azure 공간 앵커는 현재 UPM (Unity 패키지 관리자) 패키�
 
 #### <a name="add-the-registry-to-your-unity-project"></a>Unity 프로젝트에 레지스트리 추가
 
-1. 파일 탐색기에서 Unity 프로젝트의 `Packages` 폴더로 이동 합니다. 텍스트 편집기에서 프로젝트 매니페스트 파일를 엽니다 `manifest.json` .
-2. 파일의 위쪽에서 섹션과 같은 수준에 있는 `dependencies` 다음 항목을 추가 하 여 프로젝트에 Azure 공간 앵커 레지스트리를 포함 합니다. `scopedRegistries`항목은 Azure 공간 앵커 SDK 패키지를 찾을 위치를 Unity에 알려줍니다.
+1. 파일 탐색기에서 Unity 프로젝트의 `Packages` 폴더로 이동합니다. 텍스트 편집기에서 프로젝트 매니페스트 파일 `manifest.json`을 엽니다.
+2. 파일의 맨 위에 있는 `dependencies` 섹션과 동일한 수준에서 다음 항목을 추가하여 Azure Spatial Anchors 레지스트리를 프로젝트에 포함합니다. `scopedRegistries` 항목은 Azure Spatial Anchors SDK 패키지를 찾을 위치를 Unity에 알려줍니다.
 
     [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
 
@@ -50,14 +50,14 @@ Unity 용 Azure 공간 앵커는 현재 UPM (Unity 패키지 관리자) 패키�
 
     [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=12-14)]
 
-2. `manifest.json` 파일을 저장하고 닫습니다. Unity로 돌아가면 Unity는 프로젝트 매니페스트 변경을 자동으로 검색 하 고 지정 된 패키지를 검색 합니다. `Packages`프로젝트 뷰에서 폴더를 확장 하 여 올바른 패키지를 가져왔는지 확인할 수 있습니다.
+2. `manifest.json` 파일을 저장하고 닫습니다. Unity로 돌아가면 Unity는 프로젝트 매니페스트 변경을 자동으로 감지하고 지정된 패키지를 검색해야 합니다. 프로젝트 보기에서 `Packages` 폴더를 확장하여 올바른 패키지를 가져왔는지 확인할 수 있습니다.
 
 #### <a name="android-only-configure-the-maintemplategradle-file"></a>Android에만 해당: gradle 파일 구성 Maintemplate.json
 
 1. **편집** > **프로젝트 설정** > **플레이어**로 이동합니다.
 2. **플레이어 설정**에 대 한 **검사기 패널** 에서 **Android** 아이콘을 선택 합니다.
 3. **빌드** 섹션 아래에서 **사용자 지정 주 Gradle 템플릿** 확인란을 선택 하 여에서 사용자 지정 Gradle 템플릿을 생성 `Assets\Plugins\Android\mainTemplate.gradle` 합니다.
-4. 텍스트 편집기에서 `mainTemplate.gradle` 파일을 엽니다. 
+4. 텍스트 편집기에서 `mainTemplate.gradle` 파일을 엽니다.
 5. 섹션에서 `dependencies` 다음 종속성을 붙여넣습니다.
 
     ```gradle
@@ -72,10 +72,10 @@ Unity 용 Azure 공간 앵커는 현재 UPM (Unity 패키지 관리자) 패키�
 ### <a name="import-the-asset-package"></a>[자산 패키지 가져오기](#tab/UnityAssetPackage)
 
 > [!WARNING]
-> SDK 버전 2.5.0 이후 Azure 공간 앵커 SDK의 Unity 자산 패키지 배포는 더 이상 사용 되지 않습니다.
+> Azure 공간 앵커 SDK의 Unity 자산 패키지 배포는 버전 2.5.0에서 더 이상 사용 되지 않으며 2.6.0로 더 이상 사용할 수 없습니다.
 
-1. `AzureSpatialAnchors.unitypackage` [GitHub 릴리스에서](https://github.com/Azure/azure-spatial-anchors-samples/releases)대상으로 지정할 버전의 파일을 다운로드 합니다. 
-2. [여기](https://docs.unity3d.com/Manual/AssetPackagesImport.html) 의 지침에 따라 Unity 자산 패키지를 프로젝트로 가져옵니다.    
+1. `AzureSpatialAnchors.unitypackage` [GitHub 릴리스에서](https://github.com/Azure/azure-spatial-anchors-samples/releases)대상으로 지정할 버전의 파일을 다운로드 합니다.
+2. [여기](https://docs.unity3d.com/Manual/AssetPackagesImport.html) 의 지침에 따라 Unity 자산 패키지를 프로젝트로 가져옵니다.
 
 ---
 

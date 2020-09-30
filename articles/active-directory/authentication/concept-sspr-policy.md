@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052718"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531278"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -61,7 +61,7 @@ EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하�
 
 ## <a name="administrator-reset-policy-differences"></a>관리자 재설정 정책의 차이점
 
-Microsoft는 모든 Azure 관리자 역할에 대해 강력한 기본 *두 게이트* 암호 재설정 정책을 적용 합니다. 이 정책은 사용자에 대해 정의한 정책과 다를 수 있으며이 정책은 변경할 수 없습니다. 항상 Azure 관리자 역할이 할당되지 않은 사용자로 암호 재설정 기능을 테스트해야 합니다.
+기본적으로 관리자 계정은 셀프 서비스 암호 재설정을 사용 하도록 설정 되 고 강력한 기본 *두 게이트* 암호 재설정 정책이 적용 됩니다. 이 정책은 사용자에 대해 정의한 정책과 다를 수 있으며이 정책은 변경할 수 없습니다. 항상 Azure 관리자 역할이 할당되지 않은 사용자로 암호 재설정 기능을 테스트해야 합니다.
 
 두 게이트 정책을 사용할 경우 관리자는 보안 질문을 사용할 수 없습니다.
 
@@ -93,6 +93,8 @@ Microsoft는 모든 Azure 관리자 역할에 대해 강력한 기본 *두 게�
 * 평가판 구독에서 30일이 경과한 경우 또는
 * Azure AD 테 넌 트에 대해 사용자 지정 도메인 (예: *contoso.com*;)이 구성 되었습니다. 디스크나
 * Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
+
+[Set-msolcompanysettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet을 사용 하 여 관리자 계정에 SSPR를 사용 하지 않도록 설정할 수 있습니다. `-SelfServePasswordResetEnabled $False`매개 변수는 관리자에 대해 SSPR를 사용 하지 않도록 설정 합니다.
 
 ### <a name="exceptions"></a>예외
 

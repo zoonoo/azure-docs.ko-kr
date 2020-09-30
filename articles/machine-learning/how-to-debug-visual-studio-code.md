@@ -8,25 +8,83 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/06/2020
-ms.openlocfilehash: a16a8432f61e39a3e36aeb748cabfa2c4b60d796
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315357"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530677"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
 
 
-Visual Studio Code (VS Code) 및 [depugpy](https://github.com/microsoft/debugpy/)를 사용 하 여 Azure Machine Learning 파이프라인과 배포를 대화형으로 디버깅 하는 방법에 대해 알아봅니다.
+Visual Studio Code (VS Code) 및 [depugpy](https://github.com/microsoft/debugpy/)를 사용 하 여 Azure Machine Learning 실험, 파이프라인 및 배포를 대화형으로 디버깅 하는 방법에 대해 알아봅니다.
+
+## <a name="run-and-debug-experiments-locally"></a>로컬로 실험 실행 및 디버그
+
+Azure Machine Learning 확장을 사용 하 여 클라우드로 전송 하기 전에 Machine Learning 실험의 유효성을 검사, 실행 및 디버그할 수 있습니다.
+
+### <a name="prerequisites"></a>필수 조건
+
+* VS Code 확장 (미리 보기)을 Azure Machine Learning 합니다. 자세한 내용은 [VS Code 확장 Azure Machine Learning 설정](tutorial-setup-vscode-extension.md)을 참조 하세요.
+* [Docker](https://www.docker.com/get-started)
+  * Mac 및 Windows 용 Docker Desktop
+  * Linux 용 Docker 엔진.
+* [Python 3](https://www.python.org/downloads/)
+
+> [!NOTE]
+> Windows에서 [Linux 컨테이너를 사용 하도록 Docker를 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)해야 합니다.
+
+> [!TIP]
+> Windows의 경우 필수는 아니지만 [Linux 용 Windows 하위 시스템 (WSL) 2에서 Docker를 사용](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop)하는 것이 좋습니다.
+
+> [!IMPORTANT]
+> 실험을 로컬로 실행 하기 전에 Docker가 실행 중인지 확인 합니다.
+
+### <a name="debug-experiment-locally"></a>로컬로 디버그 실험
+
+1. VS Code에서 Azure Machine Learning 확장 뷰를 엽니다.
+1. 작업 영역을 포함 하는 구독 노드를 확장 합니다. 아직 없는 경우 확장을 사용 하 여 [Azure Machine Learning 작업 영역을 만들](how-to-manage-resources-vscode.md#create-a-workspace) 수 있습니다.
+1. 작업 영역 노드를 확장 합니다.
+1. **실험** 노드를 마우스 오른쪽 단추로 클릭 하 고 **실험 만들기**를 선택 합니다. 프롬프트가 표시 되 면 실험의 이름을 입력 합니다.
+1. **실험** 노드를 확장 하 고 실행 하려는 실험을 마우스 오른쪽 단추로 클릭 한 다음 **실험 실행**을 선택 합니다.
+1. 실험을 실행 하는 옵션 목록에서 **로컬**을 선택 합니다.
+1. **Windows 에서만 처음으로 사용**합니다. 파일 공유를 허용할지 묻는 메시지가 표시 되 면 **예**를 선택 합니다. 파일 공유를 사용 하도록 설정 하면 Docker에서 스크립트를 포함 하는 디렉터리를 컨테이너에 탑재할 수 있습니다. 또한 Docker를 사용 하 여 실행의 로그 및 출력을 시스템의 임시 디렉터리에 저장할 수도 있습니다.
+1. **예** 를 선택 하 여 실험을 디버깅 합니다. 그렇지 않은 경우 **아니요**를 선택합니다. 아니요를 선택 하면 디버거를 연결 하지 않고도 실험을 로컬로 실행할 수 있습니다.
+1. **새 실행 구성 만들기** 를 선택 하 여 실행 구성을 만듭니다. 실행 구성은 실행 하려는 스크립트, 종속성 및 사용 되는 데이터 집합을 정의 합니다. 또는 이미 있는 경우 드롭다운에서 선택 합니다.
+    1. 환경을 선택 합니다. [Azure Machine Learning 큐 레이트](resource-curated-environments.md) 중에서 선택 하거나 직접 만들 수 있습니다.
+    1. 실행 하려는 스크립트의 이름을 제공 합니다. 경로는 VS Code에서 열린 디렉터리를 기준으로 합니다.
+    1. Azure Machine Learning 데이터 집합을 사용할지 여부를 선택 합니다. 확장을 사용 하 여 [Azure Machine Learning 데이터 집합](how-to-manage-resources-vscode.md#create-dataset) 을 만들 수 있습니다.
+    1. Debugpy는 실험을 실행 하는 컨테이너에 디버거를 연결 하는 데 필요 합니다. Debugpy을 종속성으로 추가 하려면 **Debugpy 추가**를 선택 합니다. 그렇지 않으면 **건너뛰기**를 선택 합니다. Debugpy을 종속성으로 추가 하지 않으면 디버거를 연결 하지 않고 실험을 실행 합니다.
+    1. 실행 구성 설정이 포함 된 구성 파일이 편집기에서 열립니다. 설정에 만족 하는 경우 **실험 제출**을 선택 합니다. 또는 메뉴 모음에서 명령 팔레트 (**보기 > 명령 팔레트**)를 열고 `Azure ML: Submit experiment` 텍스트 상자에 명령을 입력 합니다.
+1. 실험을 제출 하면 스크립트 및 실행 구성에 지정 된 구성을 포함 하는 Docker 이미지가 만들어집니다.
+
+    Docker 이미지 빌드 프로세스가 시작 되 면 `60_control_log.txt` VS Code의 출력 콘솔에 대 한 파일 스트림의 내용이 출력 됩니다.
+
+    > [!NOTE]
+    > Docker 이미지를 처음 만들 때는 몇 분 정도 걸릴 수 있습니다.
+
+1. 이미지가 빌드되면 디버거를 시작 하 라는 메시지가 표시 됩니다. 스크립트에서 중단점을 설정 하 고 디버깅을 시작할 준비가 되 면 **디버거 시작** 을 선택 합니다. 이렇게 하면 실험을 실행 하는 컨테이너에 VS Code 디버거가 연결 됩니다. 또는 Azure Machine Learning 확장에서 현재 실행에 대 한 노드를 마우스로 가리키고 재생 아이콘을 선택 하 여 디버거를 시작 합니다.
+
+    > [!IMPORTANT]
+    > 단일 실험에는 여러 디버그 세션을 사용할 수 없습니다. 그러나 여러 VS Code 인스턴스를 사용 하 여 두 개 이상의 실험을 디버그할 수 있습니다.
+
+이 시점에서 VS Code를 사용 하 여 코드를 단계별로 실행 하 고 디버그할 수 있어야 합니다.
+
+언제 든 지 실행을 취소 하려는 경우 실행 노드를 마우스 오른쪽 단추로 클릭 하 고 **실행 취소**를 선택 합니다.
+
+원격 실험 실행과 마찬가지로 실행 노드를 확장 하 여 로그와 출력을 검사할 수 있습니다.
+
+> [!TIP]
+> 사용자 환경에 정의 된 동일한 종속성을 사용 하는 Docker 이미지는 실행 간에 다시 사용 됩니다. 그러나 새 환경 또는 다른 환경을 사용 하 여 실험을 실행 하면 새 이미지가 만들어집니다. 이러한 이미지는 로컬 저장소에 저장 되므로 오래 되거나 사용 되지 않는 Docker 이미지를 제거 하는 것이 좋습니다. 시스템에서 이미지를 제거 하려면 [DOCKER CLI](https://docs.docker.com/engine/reference/commandline/rmi/) 또는 [VS Code docker 확장](https://code.visualstudio.com/docs/containers/overview)을 사용 합니다.
 
 ## <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. VS Code 및 debugpy를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 * __Azure Virtual Network__를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
@@ -416,7 +474,7 @@ ip_address: 10.3.0.5
 
 이 시점에서 VS Code는 Docker 컨테이너 내부의 debugpy에 연결 하 고 이전에 설정한 중단점에서 중지 합니다. 이제 실행되는 코드를 단계별로 실행하고 변수를 보는 등의 작업을 수행할 수 있습니다.
 
-VS Code를 사용하여 Python을 디버그하는 방법에 대한 자세한 내용은 [Python 코드 디버그](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019&preserve-view=true)를 참조하세요.
+VS Code를 사용하여 Python을 디버그하는 방법에 대한 자세한 내용은 [Python 코드 디버그](https://code.visualstudio.com/docs/python/debugging)를 참조하세요.
 
 ### <a name="stop-the-container"></a>컨테이너 중지
 
@@ -428,6 +486,6 @@ docker stop debug
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 원격 Visual Studio Code 설정 했으므로 계산 인스턴스를 Visual Studio Code의 원격 계산으로 사용 하 여 코드를 대화형으로 디버그할 수 있습니다. 
+이제 원격 VS Code 설정 했으므로 계산 인스턴스를 VS Code의 원격 계산으로 사용 하 여 코드를 대화형으로 디버그할 수 있습니다. 
 
 [자습서: 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-train.md)에서는 통합 Notebook으로 컴퓨팅 인스턴스를 사용하는 방법을 보여 줍니다.

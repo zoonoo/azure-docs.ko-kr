@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 4bb713b3d50fa92728baf7b1fff1e6e65c48ed92
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368739"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530479"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -67,7 +67,7 @@ Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시�
 
 VMware HCX Enterprise Edition (EE)은 Azure VMware 솔루션에서 *Preview* 함수/서비스로 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX EE는 미리 보기 상태 이지만 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX EE 서비스가 GA로 전환 되 면 요금이 청구 되는 30 일 알림이 표시 됩니다. 또한 서비스를 끄거나 옵트아웃 (opt out) 할 수 있는 옵션도 있습니다.
 
-## <a name="compute-network-and-storage"></a>컴퓨팅, 네트워크 및 스토리지
+## <a name="compute-network-storage-and-backup"></a>계산, 네트워크, 저장소 및 백업
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>사용 가능한 호스트 유형이 2개 이상 있나요?
 
@@ -92,6 +92,14 @@ VMware HCX Enterprise Edition (EE)은 Azure VMware 솔루션에서 *Preview* 함
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>미사용 암호화 된 vSAN 데이터 저장소에 저장 된 데이터 입니까?
 
 예, 모든 vSAN 데이터는 Azure Key Vault에 저장 된 키를 사용 하 여 기본적으로 암호화 됩니다.
+
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>Commvault, Veritas 및 Veeam을 사용 하 여 Azure VMware 솔루션으로 작업 하는 백업 솔루션을 확장 했습니다. 다른 ISV (독립 소프트웨어 공급 업체) 백업 솔루션은 무엇 인가요?
+
+앞서 설명한 것 처럼 HotAdd 전송 모드에서 VMware VADP를 사용 하는 모든 백업 솔루션은 Azure VMware 솔루션에서 즉시 작동 해야 합니다.
+
+#### <a name="what-about-support-for-isv-backup-solutions"></a>ISV 백업 솔루션에 대 한 지원 이란 무엇 인가요?
+
+이러한 백업 솔루션은 고객에 의해 설치 되 고 관리 되므로 지원 하기 위해 각 ISV에 게 연락할 수 있습니다. 
 
 ## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 프라이빗 클라우드
 

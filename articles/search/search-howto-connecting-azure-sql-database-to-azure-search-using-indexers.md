@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331644"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530564"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용 하 여 Azure SQL 콘텐츠 연결 및 인덱싱
 
@@ -39,7 +39,7 @@ Azure Cognitive Search는 Azure SQL Database 및 SQL Managed Instance 외에도 
 다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.
 
 * [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
-* Azure Cognitive Search [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
 이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만듭니다.
@@ -333,7 +333,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 ## <a name="configuration-settings"></a>구성 설정
 SQL 인덱서는 여러 구성 설정을 노출합니다.
 
-| 설정 | 데이터 형식 | 목적 | 기본값 |
+| 설정 | 데이터 형식 | 용도 | 기본값 |
 | --- | --- | --- | --- |
 | queryTimeout |문자열 |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |

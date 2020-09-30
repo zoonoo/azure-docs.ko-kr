@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30c60dbe74835cb67879f7e0cf9bf403dca17fd8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884916"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531091"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용한 Azure Database for MySQL 데이터 암호화
 
@@ -80,7 +80,7 @@ Key Vault를 구성하기 위한 요구 사항은 다음과 같습니다.
 * DEK 래핑 및 래핑 해제 작업에 더 빠르게 액세스할 수 있도록 Key Vault와 Azure Database for MySQL이 동일한 지역에 있어야 합니다.
 * Azure KeyVault를 **프라이빗 엔드포인트 및 선택한 네트워크**로 잠가서 *신뢰할 수 있는 Microsoft* 서비스만 허용하여 리소스를 보호합니다.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Bring Your Own Key의 개요를 보여주는 다이어그램":::
 
 고객 관리형 키를 다음과 같이 구성하는 것이 좋습니다.
 
@@ -121,9 +121,9 @@ Key Vault에 대한 충분한 액세스 권한을 가진 사용자가 다음과 
 
 Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for MySQL을 암호화한 후에는 새로 만든 서버 복사본도 암호화됩니다. 로컬/지역 복원 작업을 통해 또는 읽기 복제본을 통해 새 복사본을 만들 수 있습니다. 그러나 새 고객이 암호화에 사용하는 관리형 키를 반영하도록 복사본을 변경할 수 있습니다. 고객 관리형 키가 변경되면 서버의 이전 백업에서 최신 키를 사용하기 시작합니다.
 
-복원 또는 읽기 복제본을 만드는 동안 고객 관리형 데이터 암호화를 설정할 때 문제가 발생하지 않게 하려면 마스터 서버와 복원된/복제 서버에서 다음 단계를 수행해야 합니다.
+복원 또는 복제본을 만드는 동안 고객이 관리 하는 데이터 암호화를 설정 하는 동안 문제를 방지 하려면 원본 및 복원/복제 서버에서 다음 단계를 수행 하는 것이 중요 합니다.
 
-* 마스터 Azure Database for MySQL에서 복원된 서버 또는 읽기 복제본 만들기 프로세스를 시작합니다.
+* 원본 Azure Database for MySQL에서 복원 또는 읽기 복제본 만들기 프로세스를 시작 합니다.
 * 새로 만든 서버(복원된 서버/복제본)의 고유 ID에 아직 Key Vault에 대한 권한이 부여되지 않았으므로 액세스할 수 없음 상태로 유지합니다.
 * 복원/복제 서버에서 데이터 암호화 설정의 고객 관리 키 유효성을 다시 검사하 여 새로 만든 서버에 Key Vault에 저장된 키에 대한 래핑 및 래핑 해제 권한을 부여해야 합니다.
 
