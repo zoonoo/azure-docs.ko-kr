@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a91f3781b490ee6f724e7d28a6be9a96c853426f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270528"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>자습서: 개별 Azure 청구서 검토
 
@@ -22,7 +22,7 @@ ms.locfileid: "88684629"
 
 이 자습서는 개별 구독을 체결한 Azure 고객에게만 적용됩니다. 일반적인 개별 구독은 Azure 웹 사이트에서 직접 구매한 종량제 요금입니다.
 
-예기치 않은 요금을 이해하는 데 도움이 필요한 경우 [예기치 않은 요금 분석](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges)을 참조하세요. 또는 Azure 구독을 취소해야 하는 경우 [Azure 구독 취소](../manage/cancel-azure-subscription.md)를 참조하세요.
+예기치 않은 요금을 이해하는 데 도움이 필요한 경우 [예기치 않은 요금 분석](analyze-unexpected-charges.md)을 참조하세요. 또는 Azure 구독을 취소해야 하는 경우 [Azure 구독 취소](../manage/cancel-azure-subscription.md)를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

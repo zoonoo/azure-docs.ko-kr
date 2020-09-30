@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: a5d697465f811f468fb0047284126deae0c455dd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292425"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
 
@@ -88,11 +88,11 @@ ms.locfileid: "87424310"
 
 6. 이제 인터넷 브라우저로 다시 이동하고 대부분의 컴퓨터에서 F12 키를 눌러 개발자 도구 네트워크 탭을 엽니다. `http://localhost:3000`으로 이동하여 네트워크를 통해 수행된 호출을 감시합니다.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="네트워크 활동을 보여주는 Chrome의 네트워킹 탭":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Visual Studio Code의 routes.js 및 hero.service.js":::
 
 7. **새 Hero 추가** 단추를 선택하여 새 Hero를 추가합니다. ID로 "999", 이름으로 "Fred", 설명으로 "Hello"를 입력하고 **저장**을 선택합니다. 새 Hero에 POST 요청을 보냈는지 네트워킹 탭에 표시됩니다. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="가져오기 및 게시 함수에 대한 네트워크 활동을 보여주는 Chrome의 네트워킹 탭":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Visual Studio Code의 routes.js 및 hero.service.js":::
 
     이제 다시 돌아가서 배치 및 삭제 함수를 앱에 추가하겠습니다.
 
@@ -177,11 +177,9 @@ ms.locfileid: "87424310"
 
     이제 네트워크 탭에서 ID를 선택하여 페이로드를 표시할 수 있습니다. 설명이 현재 "Bye"로 설정되었는지 페이로드에서 확인할 수 있습니다.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="페이로드를 보여주는 Heroes 앱 및 네트워킹 탭"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Visual Studio Code의 routes.js 및 hero.service.js" 단추를 선택해보세요.
 
-    UI에서 Heroes 중 하나를 삭제하고 삭제 작업을 완료하는 데 걸리는 시간을 확인할 수도 있습니다. "Fred"라는 Hero에서 "삭제" 단추를 선택해보세요.
-
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="함수를 완료하는 시간을 보여주는 Heroes 앱 및 네트워킹 탭"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Visual Studio Code의 routes.js 및 hero.service.js"::: 
 
     페이지를 새로 고치면 네트워크 탭에서는 Heroes를 가져오는 데 걸리는 시간을 표시합니다. 이러한 시간이 빠른 경우, 전 세계에서 데이터의 위치 및 사용자에게 가까운 지역의 지리적 복제 기능에 따라 달라집니다. 다음에 곧 릴리스될 자습서에서 지리적 복제에 대한 자세한 내용을 찾을 수 있습니다.
 
