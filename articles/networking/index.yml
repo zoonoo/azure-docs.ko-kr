@@ -11,13 +11,13 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 03/17/2020
-  ms.openlocfilehash: 55340e52505498f2475487567f141437347c3d10
-  ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+  ms.date: 09/28/2020
+  ms.openlocfilehash: bb515afe97116041ca30de31bdb70544cfe29e69
+  ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89290381"
+  ms.lasthandoff: 09/29/2020
+  ms.locfileid: "91446035"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Azure의 허브-스포크 네트워크 토폴로지
     itemType: architecture
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: 라우팅 기본 설정이란?
+  - title: Azure Orbital이란?
     itemType: concept
-    url: ../virtual-network/routing-preference-overview.md
+    url: azure-orbital-overview.md
   - title: Azure 서비스를 사용하여 원격으로 작업
     itemType: concept
     url: working-remotely-support.md

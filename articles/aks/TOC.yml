@@ -4,6 +4,8 @@
   items:
     - name: AKS 정보
       href: intro-kubernetes.md
+    - name: 솔루션 아키텍처
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: 빠른 시작
   expanded: true
   items:
