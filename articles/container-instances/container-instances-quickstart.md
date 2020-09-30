@@ -7,14 +7,14 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-- devx-track-javascript
+- devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 31e7e7d6785e8fd52f4c76171f6ca9d7f5c8383c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 41e064d34f9fdb004feb72d7becdb08fe377aec5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501324"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271225"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 

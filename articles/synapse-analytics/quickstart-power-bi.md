@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f9ae7b74c17bb330c2c7aa99903c62d4701f0a52
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.reviewer: jrasnick
+ms.openlocfilehash: 9b4b9da37b753418773141f832f253003ad40014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260462"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Power BI 작업 영역 연결
 

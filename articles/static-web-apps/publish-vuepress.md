@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c689b31f73d732dda37b64793f988febc409e6da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-js
+ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250133"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 VuePress 사이트 게시
 
@@ -127,7 +127,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _SKU_에 대해 **무료**를 선택합니다.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="세부 정보 입력":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
 
 1. **GitHub로 로그인** 단추를 클릭합니다.
 
@@ -137,7 +137,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _분기_에 대해 **마스터**를 선택합니다.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="완료된 GitHub 정보":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
 
 ### <a name="build"></a>빌드
 
@@ -151,7 +151,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 현재 API를 배포하지 않으므로 _API 위치_에 대한 값이 필요하지 않습니다.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="빌드 설정":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
@@ -163,7 +163,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. 리소스 화면에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다. GitHub Action이 완료되려면 1~2분 정도 기다려야 할 수 있습니다.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="배포된 애플리케이션":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
 
 ### <a name="clean-up-resources"></a>리소스 정리
 

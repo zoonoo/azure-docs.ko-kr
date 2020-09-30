@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c8aca82567de0b564aadc355b198502450dd7a5c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258917"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정
 
@@ -150,13 +150,13 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Azure AD B2C 사용자 흐름에 표시된 가입 페이지":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="로컬로 실행되는 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
 
 1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
 **만들기**를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="사용자가 로그인한 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="로컬로 실행되는 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
 
 로그인을 테스트하려면 **로그아웃** 단추를 선택한 다음, **로그인**을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
 

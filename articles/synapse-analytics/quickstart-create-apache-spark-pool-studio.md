@@ -2,19 +2,19 @@
 title: '빠른 시작: Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기'
 description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 새 Apache Spark 풀을 만듭니다.
 services: synapse-analytics
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: spark
 ms.date: 3/19/2020
-ms.author: jrasnick
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: cdf9a1f211e889146c9a6986eeea7502d3177057
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260838"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기
 

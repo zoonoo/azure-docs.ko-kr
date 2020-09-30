@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 09/23/2020
 ms.author: aahi
-ms.openlocfilehash: feab867414c2420378922e1f8c651b43238473c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2376ea01190d619a5d1b6368a17e55c09806a406
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253747"
 ---
 # <a name="quickstart-use-the-rest-apis-to-customize-your-solution"></a>빠른 시작: REST API를 사용하여 솔루션 사용자 지정
 

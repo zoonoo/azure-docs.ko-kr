@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1fa481911be8eb91db498350e57e2ba42e4aedb5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 19039f8b87145d6bbb1a6b3636ea0892b06ccfe8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253431"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -212,11 +212,11 @@ ms.locfileid: "87421011"
 > 
 > .crt 파일을 두 번 클릭하여 인증서 표시로 엽니다. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="출력 보기 및 확인":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사":::
 >
 > 인증서 마법사에서 다음을 누릅니다. Base-64로 인코딩된 X.509(.CER)를 선택한 후, 다음을 선택합니다.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="출력 보기 및 확인":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사":::
 >
 > 찾아보기를 선택하여 대상을 찾고 파일 이름을 입력합니다.
 > 다음을 선택한 다음, 완료를 선택합니다.
@@ -237,13 +237,13 @@ ms.locfileid: "87421011"
 
 4. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="출력 보기 및 확인":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사":::
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
 
 5. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
