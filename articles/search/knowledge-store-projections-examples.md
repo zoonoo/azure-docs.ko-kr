@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f40841887b8116ad1384dc2b827d8215ea659490
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924166"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537500"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>강화 셰이프 및 내보내기 방법
 
@@ -356,7 +356,7 @@ Power BI와 같은 도구를 사용 하 여 보고 및 분석 하는 데 Azure S
 
 ```generatedKeyName```및 ```referenceKeyName``` 속성을 사용 하 여 테이블 간 또는 프로젝션 형식 간에 데이터를 연결할 수 있습니다. 자식 테이블/프로젝션의 각 행에는 부모를 가리키는 속성이 있습니다. 자식의 열 또는 속성 이름은 ```referenceKeyName``` 부모에서입니다. 를 ```referenceKeyName``` 제공 하지 않으면 서비스는 부모에서로 기본값을 설정 합니다 ```generatedKeyName``` . 
 
-Power BI은 이러한 생성 된 키를 사용 하 여 테이블 내에서 관계를 검색 합니다. 자식 테이블의 열이 다른 이름으로 지정 되어야 하는 경우 ```referenceKeyName``` 부모 테이블에서 속성을 설정 합니다. 한 가지 예는 ```generatedKeyName``` pbiDocument 테이블에서 AS ID를 DocumentID로 설정 하는 것 ```referenceKeyName``` 입니다. 이렇게 하면 이름이 DocumentID 인 문서 id가 포함 된 pbiEntities 및 pbiKeyPhrases 테이블의 열이 생성 됩니다.
+Power BI은 이러한 생성 된 키를 사용 하 여 테이블 내에서 관계를 검색 합니다. 자식 테이블의 열이 다른 이름으로 지정 되어야 하는 경우 ```referenceKeyName``` 부모 테이블에서 속성을 설정 합니다. 한 가지 예는 ```generatedKeyName``` pbiDocument 테이블에서 AS ID를 DocumentID로 설정 하는 것 ```referenceKeyName``` 입니다. 이렇게 하면 이름이 DocumentID 인 문서 ID가 포함 된 pbiEntities 및 pbiKeyPhrases 테이블의 열이 생성 됩니다.
 
 ## <a name="projecting-to-objects"></a>개체로 프로젝션
 

@@ -8,18 +8,18 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889341"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540577"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
 
 디바이스 시뮬레이션 솔루션 가속기를 사용하여 IoT 솔루션을 테스트하도록 시뮬레이션된 디바이스에서 원격 분석을 생성할 수 있습니다. 이 방법 가이드에서는 Time Series Insights 환경을 사용하여 시뮬레이션된 원격 분석을 시각화 및 분석하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -63,7 +63,7 @@ Time Series Insights에 원격 분석을 스트리밍하도록 전용 소비자 
 
 1. 솔루션 가속기와 동일한 리소스 그룹에 Time Series Insights 환경을 만들려면 다음 표의 값을 사용합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 환경 이름 | 다음 스크린샷에서는 **Contoso-TSI**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 선택합니다. |
     | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
@@ -95,7 +95,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
 1. IoT Hub를 새 이벤트 원본으로 구성하려면 다음 표에 있는 값을 사용합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 이벤트 원본 이름 | 다음 스크린샷에서는 **contoso-iot-hub**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 사용합니다. |
     | 원본 | **IoT Hub** |
@@ -137,7 +137,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
 1. 왼쪽의 용어 패널에서 **측정값**으로 **온도** 및 **분할 기준** 값으로 **iothub-connection-device-id**를 선택합니다.
 
-    ![Time Series Insights 탐색기 쿼리](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    !["측정값" 및 "분할 기준" 값이 강조 표시 된 Time Series Insights "용어" 패널을 보여 주는 스크린샷](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. 차트를 마우스 오른쪽 단추로 클릭 하 고 **이벤트 탐색**을 선택 합니다.
 

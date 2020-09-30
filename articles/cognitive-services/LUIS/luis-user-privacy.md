@@ -3,20 +3,18 @@ title: 데이터 내보내기 & 삭제-LUIS
 titleSuffix: Azure Cognitive Services
 description: 데이터 보기, 내보내기 및 삭제를 완전히 제어할 수 있습니다. 고객 데이터를 삭제 하 여 개인 정보 보호 및 규정 준수를 확인 합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273354"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541009"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -66,7 +64,7 @@ LUIS 사용자에 게는 포털에서 데이터를 볼 수 있는 모든 권한�
 
 * 유럽
 * 프랑스
-* United Kingdom
+* 영국
 
 이러한 Azure 지역에 배포 하는 경우 앱 최종 사용자의 끝점에서 받은 길이 발언는 활성 학습을 위해 Azure의 유럽 지리에 저장 됩니다. 활성 학습을 사용 하지 않도록 설정할 수 있습니다. [활성 학습 사용 안 함](luis-how-to-review-endpoint-utterances.md#disable-active-learning)을 참조 하세요. 저장 된 길이 발언를 관리 하려면 [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance)를 참조 하세요.
 

@@ -3,20 +3,18 @@ title: 일괄 처리 테스트를 수행 하는 방법-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: ee15d08c820492cfa2c0701dfe3b682d57e00187
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344410"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540951"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -51,7 +49,7 @@ ms.locfileid: "84344410"
 
 다운로드 가능한 데이터 세트는 일괄 테스트용으로 업로드된 파일과 동일합니다.
 
-|주|의미|
+|시스템 상태|의미|
 |--|--|
 |![테스트 성공 녹색 원 아이콘](./media/luis-how-to-batch-test/batch-test-result-green.png)|모든 발화가 성공했습니다.|
 |![테스트 실패 빨간색 x 아이콘](./media/luis-how-to-batch-test/batch-test-result-red.png)|하나 이상의 발화 의도가 예측과 일치하지 않습니다.|

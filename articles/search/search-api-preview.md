@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7d7e7e883d9b92b7a9e700f66a54ed48ba5296b1
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 90f91c56b2448e8455f3c22cf7ccae7b06b5be70
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402942"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539914"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure Cognitive Search의 미리 보기 기능
 
@@ -28,7 +28,7 @@ ms.locfileid: "91402942"
 | [**디버그 세션**](cognitive-search-debug-session.md) | 포털, AI 보강 (기술) | 기술와 관련 된 문제를 조사 하 고 해결 하는 데 사용 되는 세션 내 기술 편집기입니다. 디버그 세션 중에 적용 되는 픽스는 서비스의 기술에 저장할 수 있습니다. | 개요 페이지의 중간 페이지 링크를 사용 하 여 디버그 세션을 열 수 있습니다. |
 | [**네이티브 blob 일시 삭제**](search-howto-index-changed-deleted-blobs.md) | 인덱서, Azure blob| Azure Cognitive Search의 Azure Blob Storage 인덱서는 일시 삭제 된 상태에 있는 blob을 인식 하 고 인덱싱 중에 해당 하는 검색 문서를 제거 합니다. | [Create 인덱서 (REST)](/rest/api/searchservice/create-indexer) 를 사용 하 여 Create 인덱서-version = 2020-06 -30 또는 api-version = 2019-05 -06-preview를 사용 하 여이 구성 설정을 추가 합니다. |
 | [**사용자 지정 엔터티 조회 기술**](cognitive-search-skill-custom-entity-lookup.md ) | AI 보강 (기술) | 사용자 정의 된 단어 및 구 목록에서 텍스트를 찾는 인식 기술입니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다. | 포털에서 기술 편집기를 사용 하 여이 미리 보기 기술을 참조 하거나 api-version = 2020-06 -30-Preview 또는 api-version = 2019-05 -06-Preview를 사용 하 여 [기술 (REST) 만들기](/rest/api/searchservice/create-skillset) 를 참조 하세요. |
-| [**PII 검색 기술**](cognitive-search-skill-pii-detection.md) | AI 보강 (기술) | 입력 텍스트에서 개인적으로 식별할 수 있는 정보를 추출 하 고 다양 한 방법으로 해당 텍스트를 마스킹할 수 있는 옵션을 제공 하는 인덱싱 중에 사용 되는 인식 기술입니다. | 포털에서 기술 편집기를 사용 하 여이 미리 보기 기술을 참조 하거나 api-version = 2020-06 -30-Preview 또는 api-version = 2019-05 -06-Preview를 사용 하 여 [기술 (REST) 만들기](/rest/api/searchservice/create-skillset) 를 참조 하세요. |
+| [**PII 검색 기술**](cognitive-search-skill-pii-detection.md) | AI 보강 (기술) | 인덱싱 중에 사용 되는 인식 기술로, 입력 텍스트에서 개인 정보를 추출 하 고 다양 한 방법으로 해당 텍스트를 마스킹할 수 있는 옵션을 제공 합니다. | 포털에서 기술 편집기를 사용 하 여이 미리 보기 기술을 참조 하거나 api-version = 2020-06 -30-Preview 또는 api-version = 2019-05 -06-Preview를 사용 하 여 [기술 (REST) 만들기](/rest/api/searchservice/create-skillset) 를 참조 하세요. |
 | [**증분 보강**](cognitive-search-incremental-indexing-conceptual.md) | 인덱서 구성| 보강 파이프라인에 캐싱을 추가 하 여 기술 또는 다른 개체에 대 한 업데이트와 같은 대상 수정에서 콘텐츠를 변경 하지 않는 경우 기존 출력을 다시 사용할 수 있도록 합니다. 캐싱은 기술에서 생성 된 보강 문서에만 적용 됩니다.| [Create 인덱서 (REST)](/rest/api/searchservice/create-indexer) 를 사용 하 여 Create 인덱서-version = 2020-06 -30 또는 api-version = 2019-05 -06-preview를 사용 하 여이 구성 설정을 추가 합니다. |
 | [**Cosmos DB 인덱서: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | 인덱서 데이터 원본 | Cosmos DB의 경우 SQL API는 일반적으로 사용할 수 있지만 MongoDB, Gremlin 및 Cassandra Api는 미리 보기 상태입니다. | Gremlin 및 Cassandra에만 해당 하는 경우 [먼저 등록](https://aka.ms/azure-cognitive-search/indexer-preview) 하 여 백 엔드에서 구독에 대해 지원을 사용할 수 있도록 합니다. MongoDB 데이터 원본은 포털에서 구성할 수 있습니다. 그렇지 않은 경우 세 가지 모든 Api에 대 한 데이터 원본 구성은 [Create Data source (REST)](/rest/api/searchservice/create-data-source) 를 사용 하 여 api-version = 2020-06 -30 또는 api-version = 2019-05 -06-preview를 사용 하 여 지원 됩니다. |
 |  [**Azure Data Lake Storage Gen2 인덱서**](search-howto-index-azure-data-lake-storage.md) | 인덱서 데이터 원본 | Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱합니다.| 백 엔드에서 구독에 대 한 지원을 사용 하도록 설정 하려면 [등록](https://aka.ms/azure-cognitive-search/indexer-preview) 해야 합니다. Api-version = 2020-06 -30-Preview 또는 api-version = 2019-05 -06-Preview를 사용 하 여 [데이터 원본 만들기 (REST)](/rest/api/searchservice/create-data-source) 를 사용 하 여이 데이터 원본에 액세스 합니다. |

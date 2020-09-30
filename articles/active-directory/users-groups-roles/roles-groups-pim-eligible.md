@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539897"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Privileged Identity Management를 사용 하 여 그룹에 역할 할당
 
@@ -35,7 +35,7 @@ ms.locfileid: "90971167"
 
 1. 역할을 선택한 다음 그룹을 선택 합니다. 역할 할당 (역할 할당 가능한 그룹)에 적합 한 그룹만 표시 되 고 모든 그룹이 표시 되지 않습니다.
 
-    ![역할을 할당할 사용자 선택](./media/roles-groups-pim-eligible/select-member.png)
+    !["역할 선택" 및 "멤버 선택" 섹션이 강조 표시 된 "할당 추가" 페이지를 보여 주는 스크린샷](./media/roles-groups-pim-eligible/select-member.png)
 
 1. 원하는 멤버 자격 설정을 선택 합니다. 활성화가 필요한 역할의 경우 **적격**을 선택 합니다. 기본적으로 사용자는 영구적으로 사용할 수 있지만 사용자의 자격에 대 한 시작 및 종료 시간을 설정할 수도 있습니다. 완료 되 면 저장 및 추가를 눌러 역할 할당을 완료 합니다.
 

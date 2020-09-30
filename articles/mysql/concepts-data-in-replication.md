@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031220"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537160"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Azure Database for MySQL에 데이터를 복제합니다.
 
@@ -28,23 +28,23 @@ ms.locfileid: "88031220"
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
 ### <a name="data-not-replicated"></a>데이터가 복제되지 않음
-마스터 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 복제되지 않습니다. 마스터 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 마스터 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)를 참조합니다.
+원본 서버의 [*mysql 시스템 데이터베이스가*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) 복제 되지 않습니다. 원본 서버에 대 한 계정 및 사용 권한에 대 한 변경 내용은 복제 되지 않습니다. 원본 서버에서 계정을 만들고이 계정에서 복제 서버에 액세스 해야 하는 경우 복제본 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)를 참조합니다.
 
 ### <a name="filtering"></a>필터링
-마스터 서버 (온-프레미스, 가상 컴퓨터 또는 다른 클라우드 공급자가 호스팅하는 데이터베이스 서비스)에서 테이블을 복제 하는 것을 건너뛰려면 `replicate_wild_ignore_table` 매개 변수가 지원 됩니다. 필요에 따라 [Azure Portal](howto-server-parameters.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 Azure에서 호스트 되는 복제본 서버에서이 매개 변수를 업데이트 합니다.
+원본 서버 (온-프레미스, 가상 컴퓨터 또는 다른 클라우드 공급자가 호스팅하는 데이터베이스 서비스)에서 테이블을 복제 하는 것을 건너뛰려면 `replicate_wild_ignore_table` 매개 변수가 지원 됩니다. 필요에 따라 [Azure Portal](howto-server-parameters.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 Azure에서 호스트 되는 복제본 서버에서이 매개 변수를 업데이트 합니다.
 
 이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table)를 참조하세요.
 
 ### <a name="requirements"></a>요구 사항
-- 마스터 서버 버전은 MySQL 버전 5.6 이상이어야 합니다. 
-- 마스터 서버 및 복제 서버 버전은 동일해야 합니다. 예를 들어 둘 다 MySQL 버전 5.6이거나 둘 다 MySQL 버전 5.7이어야 합니다.
+- 원본 서버 버전은 MySQL 버전 5.6 이상 이어야 합니다. 
+- 원본 및 복제 서버 버전은 동일 해야 합니다. 예를 들어 둘 다 MySQL 버전 5.6이거나 둘 다 MySQL 버전 5.7이어야 합니다.
 - 각 표에는 기본 키가 있어야 합니다.
-- 마스터 서버는 MySQL InnoDB 엔진을 사용해야 합니다.
-- 사용자는 이진 로깅을 구성하고 마스터 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
-- 마스터 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mysql.az_replication_change_master` . 다음 [예제](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
-- 마스터 서버의 IP 주소가 Azure Database for MySQL 복제본 서버의 방화벽 규칙에 추가되었는지 확인합니다. [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
-- 마스터 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
-- 마스터 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
+- 원본 서버는 MySQL InnoDB 엔진을 사용 해야 합니다.
+- 사용자는 이진 로깅을 구성 하 고 원본 서버에 새 사용자를 만들 수 있는 권한이 있어야 합니다.
+- 원본 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mysql.az_replication_change_master` . 다음 [예제](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
+- 원본 서버의 IP 주소가 Azure Database for MySQL 복제 서버의 방화벽 규칙에 추가 되었는지 확인 합니다. [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
+- 원본 서버를 호스트 하는 컴퓨터에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 둘 다 허용 하는지 확인 합니다.
+- 원본 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.

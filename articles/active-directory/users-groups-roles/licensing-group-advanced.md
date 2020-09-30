@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799063"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538843"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -112,7 +112,7 @@ Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제
 
 3. [**Azure Active Directory > 라이선스 > 모든 제품**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 블레이드로 이동하고 *Office 365 Enterprise E5*, **허가된 그룹**을 차례로 선택하여 해당 제품을 가진 모든 그룹 목록을 표시합니다.
 
-4. 검토할 그룹을 클릭합니다(이 경우 *O365 E5 - Exchange only*). 그러면 **라이선스** 탭이 열립니다. E5 라이선스를 클릭 하면 사용 하도록 설정 된 모든 서비스가 나열 되는 블레이드가 열립니다.
+4. 검토할 그룹을 클릭합니다(이 경우 *O365 E5 - Exchange only*). 그러면 **라이선스** 탭이 열립니다. E5 라이선스를 클릭 하면 사용 하도록 설정 된 모든 서비스를 나열 하는 블레이드가 열립니다.
    > [!NOTE]
    > *Exchange Online* 서비스 이외에 *Microsoft Stream* 서비스가 이 그룹에 자동으로 추가되어 사용하도록 설정되었습니다.
 
@@ -157,7 +157,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 세부 정보를 포함한 최근 그룹 라이선스 변경의 예는 다음과 같습니다.
 
-![스크린샷 그룹 라이선스 변경](./media/licensing-group-advanced/audit-group-license-change.png)
+![목록 항목이 선택 된 "감사 로그" 페이지와 "작업 세부 정보 감사 로그" 창이 열린 상태로 표시 되는 스크린샷](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>그룹 변경이 처리를 시작하고 완료한 시점 확인
 

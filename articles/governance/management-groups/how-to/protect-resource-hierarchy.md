@@ -3,12 +3,12 @@ title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469782"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533982"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
@@ -16,9 +16,9 @@ ms.locfileid: "89469782"
 
 이제 관리 그룹에 테넌트 관리자가 이러한 동작을 제어할 수 있도록 하는 계층 설정이 있습니다. 이 문서에서는 사용 가능한 각 계층 설정과 이러한 계층 설정을 지정하는 방법을 설명합니다.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>계층 설정에 대한 RBAC 권한
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>계층 설정에 대 한 Azure RBAC 권한
 
-계층 설정을 구성하려면 루트 관리 그룹에 대해 다음과 같은 두 가지 RBAC 작업이 필요합니다.
+계층 설정을 구성 하려면 루트 관리 그룹에 대해 다음과 같은 두 가지 리소스 공급자 작업이 필요 합니다.
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ ms.locfileid: "89469782"
 
 ## <a name="setting---default-management-group"></a>설정 - 기본 관리 그룹
 
-기본적으로 테넌트 내에 추가된 새 구독은 루트 관리 그룹의 멤버로 추가됩니다. 정책 할당, RBAC(역할 기반 액세스 제어) 및 기타 거버넌스 구문이 루트 관리 그룹에 할당되면 이러한 새 구독에 즉시 적용됩니다. 이러한 이유로 대부분의 조직에서는 루트 관리 그룹이 이러한 구성을 할당하기에 적합한 그룹이더라도 루트 관리 그룹에 적용하지 않습니다. 다른 경우에는 보다 제한적인 컨트롤 집합이 새 구독에 대해 필요하지만 모든 구독에 할당되어서는 안 됩니다. 이 설정은 두 사용 사례 모두 지원합니다.
+기본적으로 테넌트 내에 추가된 새 구독은 루트 관리 그룹의 멤버로 추가됩니다. 정책 할당, azure RBAC (역할 기반 액세스 제어) 및 기타 거 버 넌 스 구문이 루트 관리 그룹에 할당 되 면 이러한 새 구독에 즉시 적용 됩니다. 이러한 이유로 대부분의 조직에서는 루트 관리 그룹이 이러한 구성을 할당하기에 적합한 그룹이더라도 루트 관리 그룹에 적용하지 않습니다. 다른 경우에는 보다 제한적인 컨트롤 집합이 새 구독에 대해 필요하지만 모든 구독에 할당되어서는 안 됩니다. 이 설정은 두 사용 사례 모두 지원합니다.
 
 새 구독에 대 한 기본 관리 그룹을 정의할 수 있도록 하 여, 조직 차원의 거 버 넌 스 구문을 루트 관리 그룹에 적용할 수 있으며, 정책 할당 또는 Azure 역할 할당을 사용 하는 별도의 관리 그룹을 새 구독에 더 적합 하 게 정의할 수 있습니다.
 

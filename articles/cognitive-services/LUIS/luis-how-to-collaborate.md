@@ -3,20 +3,18 @@ title: 다른 사람들과 공동 작업-LUIS
 titleSuffix: Azure Cognitive Services
 description: 앱 소유자는 제작 리소스에 참가자를 추가할 수 있습니다. 이러한 참가자는 모델을 수정 하 고, 학습 하 고, 게시할 수 있습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: diberry
-ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055633"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540911"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 

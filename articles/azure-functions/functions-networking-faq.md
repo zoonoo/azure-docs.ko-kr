@@ -4,12 +4,12 @@ description: Azure Functions에서 네트워킹에 대 한 가장 일반적인 �
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385911"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538061"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
 
@@ -27,7 +27,7 @@ ms.locfileid: "87385911"
     * IP 제한에서 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 구성할 수도 있습니다 .이는 특정 가상 네트워크에서 인바운드 트래픽만 허용 하도록 함수를 제한 하는 것입니다.
 * 모든 HTTP 트리거를 제거 합니다. 일부 응용 프로그램의 경우 단순히 HTTP 트리거를 방지 하 고 다른 이벤트 소스를 사용 하 여 함수를 트리거하는 것 만으로도 충분 합니다.
 
-Azure Portal 편집기는 실행 중인 함수에 직접 액세스 해야 한다는 점에 유의 하세요. Azure Portal를 통해 코드를 변경 하면 포털에서 IP 허용 목록을 검색 하는 데 사용 하는 장치가 필요 합니다. 그러나 여전히 네트워크 제한이 적용 된 플랫폼 기능 탭에서 모든 항목을 사용할 수 있습니다.
+Azure Portal 편집기는 실행 중인 함수에 직접 액세스 해야 한다는 점에 유의 하세요. Azure Portal를 통해 코드를 변경 하는 경우 포털을 검색 하는 데 사용 하는 장치가 승인 된 목록에 해당 IP를 추가 하도록 요구 합니다. 그러나 여전히 네트워크 제한이 적용 된 플랫폼 기능 탭에서 모든 항목을 사용할 수 있습니다.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>내 함수 앱을 가상 네트워크로 제한 어떻게 할까요??
 

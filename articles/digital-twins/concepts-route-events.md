@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334262"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541359"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -55,7 +55,9 @@ Azure Digital 쌍는 **이벤트 경로** 를 사용 하 여 서비스 외부의
 * 이벤트 허브
 * Service Bus
 
-끝점은 [Azure Digital Twins CLI](how-to-use-cli.md)에서 지원 되는 제어 평면 api를 사용 하 여 설정 하거나 Azure Portal을 통해 설정 됩니다. 끝점 정의는 다음을 제공 합니다.
+끝점을 만들려면 Azure Digital Twins [**제어 평면 api**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI 명령**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)또는 [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)를 사용할 수 있습니다. 
+
+끝점을 정의 하는 경우 다음을 제공 해야 합니다.
 * 끝점의 이름입니다.
 * 끝점 유형 (Event Grid, Event Hub 또는 Service Bus)
 * 인증할 기본 연결 문자열 및 보조 연결 문자열 
@@ -69,7 +71,9 @@ Azure Digital 쌍는 **이벤트 경로** 를 사용 하 여 서비스 외부의
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
  
-이벤트 경로는 클라이언트 응용 프로그램에 생성 됩니다. 이 작업을 수행 하는 한 가지 방법은 `CreateEventRoute` [.Net (c #) SDK](how-to-use-apis-sdks.md) 호출을 사용 하는 것입니다. 
+이벤트 경로를 만들려면 Azure Digital Twins [**데이터 평면 api**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI 명령**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)또는 [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route)를 사용할 수 있습니다. 
+
+다음은 `CreateEventRoute` [.Net (c #) SDK](how-to-use-apis-sdks.md) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

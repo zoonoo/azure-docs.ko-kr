@@ -3,21 +3,18 @@ title: Azure Portal을 사용 하 여 Resource Health 경고 만들기
 description: Azure 리소스를 사용할 수 없게 되 면 알리는 Azure Portal를 사용 하 여 경고를 만듭니다.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091575"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540679"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Azure Portal을 사용하여 리소스 상태 경고 구성
 
 이 문서에서는 Azure Portal를 사용 하 여 리소스 상태 알림에 대 한 활동 로그 경고를 설정 하는 방법을 보여 줍니다.
 
 Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 정보를 알려줍니다. Azure Resource Health 경고는 이러한 리소스의 상태가 변경되면 거의 실시간으로 알려줍니다. Resource Health 경고를 프로그래밍 방식으로 만들면 사용자가 경고를 대량으로 생성하고 사용자 지정할 수 있습니다.
-
-> [!NOTE]
-> Resource Health 경고는 현재 미리 보기 상태입니다.
 
 리소스 상태 알림은 활동 로그에 저장 된 대용량 정보를 제공 하는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md) 에 저장 됩니다. 리소스 상태 알림에 대 한 경고를 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다.
 Azure 리소스가 Azure 구독에 리소스 상태 알림을 보낼 때 경고를 받을 수 있습니다. 다음 항목에 따라 경고를 구성할 수 있습니다.

@@ -3,20 +3,18 @@ title: DatetimeV2 미리 작성 한 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 아티클에는 LUIS(Language Understanding)의 datetimeV2 미리 작성된 엔터티가 포함됩니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
-ms.author: diberry
-ms.openlocfilehash: 33f8b787119e1c5d6d1a1bb28c94d9791a1c048e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81272613"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534185"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -116,7 +114,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |속성 이름 |속성 형식 및 설명|
 |---|---|
 |엔터티|**문자열** - 날짜, 시간, 날짜 범위 또는 시간 범위라는 형식이 있는 발언에서 추출된 텍스트입니다.|
-|type|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
+|형식|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
 |startIndex|**int** - 엔터티가 시작하는 발언의 인덱스입니다.|
 |endIndex|**int** - 엔터티가 끝나는 발언의 인덱스입니다.|
 |확인|하나, 둘 또는 네 가지 [해결 방법](#values-of-resolution)이 있는 `values` 배열이 포함됩니다.|
@@ -146,15 +144,15 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |속성 이름|속성 설명|
 |--|--|
 |timex|[ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601) 뒤에 오는 TIMEX 형식으로 표현된 시간, 날짜 또는 날짜 범위와 TimeML 언어를 사용하는 주석에 대한 TIMEX3 특성입니다.|
-|mod|, `before` `after`와 같은 값을 사용 하는 방법을 설명 하는 데 사용 되는 용어입니다.|
-|type|하위 형식으로,,,,,,, 등의 `datetime`항목 `date` `time` `daterange` `timerange` `datetimerange` `duration` `set`중 하나일 수 있습니다.|
-|value|**필드.** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
+|mod|,와 같은 값을 사용 하는 방법을 설명 하는 데 사용 되는 용어 `before` `after` 입니다.|
+|형식|하위 형식으로,,,,,,, 등의 항목 중 하나일 수 있습니다. `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` `set`|
+|값|**선택 사항입니다.** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
 
 ## <a name="valid-date-values"></a>유효한 날짜 값
 
 **datetimeV2**는 다음 범위 사이의 날짜를 지원합니다.
 
-| 최소값 | 최대 |
+| 최소값 | 최대값 |
 |----------|-------------|
 | 1900년 1월 1일   | 2099년 12월 31일 |
 
@@ -274,7 +272,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>숫자 형식 날짜에 대한 날짜 범위 해결 방법 예제
 
-`datetimeV2` 엔터티는 날짜 및 시간 범위를 추출합니다. `start` 및 `end` 필드는 범위의 시작과 끝을 지정합니다. Utterance `May 2nd to May 5th`의 경우 LUIS는 현재 연도와 다음 연도 모두에 대 한 **daterange** 값을 제공 합니다. `timex` 필드에서 `XXXX` 값은 연도의 모호성을 나타냅니다. `P3D`는 기간이 3일임을 나타냅니다.
+`datetimeV2` 엔터티는 날짜 및 시간 범위를 추출합니다. `start` 및 `end` 필드는 범위의 시작과 끝을 지정합니다. Utterance의 경우 `May 2nd to May 5th` LUIS는 현재 연도와 다음 연도 모두에 대 한 **daterange** 값을 제공 합니다. `timex` 필드에서 `XXXX` 값은 연도의 모호성을 나타냅니다. `P3D`는 기간이 3일임을 나타냅니다.
 
 다음 utterance 및 해당 부분 JSON 응답은 아래에 나와 있습니다.
 
@@ -378,7 +376,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>요일에 대한 날짜 범위 해결 방법 예제
 
-다음 예제에서는 LUIS에서 **datetimeV2** 을 사용 하 여 utterance `Tuesday to Thursday`를 확인 하는 방법을 보여 줍니다. 이 예제에서 현재 날짜는 6월 19일입니다. LUIS에는 현재 날짜의 전후인 모든 날짜 범위에 대한 **daterange** 값이 포함됩니다.
+다음 예제에서는 LUIS에서 **datetimeV2** 을 사용 하 여 utterance를 확인 하는 방법을 보여 줍니다 `Tuesday to Thursday` . 이 예제에서 현재 날짜는 6월 19일입니다. LUIS에는 현재 날짜의 전후인 모든 날짜 범위에 대한 **daterange** 값이 포함됩니다.
 
 다음 utterance 및 해당 부분 JSON 응답은 아래에 나와 있습니다.
 
@@ -485,8 +483,8 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 API V3에서 DatetimeV2 JSON 응답이 변경 되었습니다. 다음 예제에서는 LUIS가 **datetimeV2**를 사용하여 시간 범위가 있는 발언을 확인하는 방법을 보여줍니다.
 
 API v 2의 변경 내용:
-* `datetimeV2.timex.type`속성은 부모 수준에서 반환 되기 때문에 더 이상 반환 되지 않습니다 `datetimev2.type`.
-* `datetimeV2.value` 속성 이름이로 `datetimeV2.timex`바뀌었습니다.
+* `datetimeV2.timex.type` 속성은 부모 수준에서 반환 되기 때문에 더 이상 반환 되지 않습니다 `datetimev2.type` .
+* `datetimeV2.value`속성 이름이로 바뀌었습니다 `datetimeV2.timex` .
 
 다음 utterance 및 해당 부분 JSON 응답은 아래에 나와 있습니다.
 
@@ -494,7 +492,7 @@ API v 2의 변경 내용:
 
 #### <a name="v3-response"></a>[V3 응답](#tab/5-1)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `false` .
 
 ```JSON
 
@@ -519,7 +517,7 @@ API v 2의 변경 내용:
 ```
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/5-2)
 
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `true` .
 
 ```json
 

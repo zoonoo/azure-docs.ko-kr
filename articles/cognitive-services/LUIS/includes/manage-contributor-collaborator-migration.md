@@ -1,21 +1,19 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: b5486c8ad61a82696c9b4fb5b9a3475818390596
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 28629b05ab18ea02edce2a9bf1e9cd27a7090999
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375077"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540910"
 ---
 공동 작업자의 기여 관리는 앱의 현재 상태에 따라 달라 집니다.
 

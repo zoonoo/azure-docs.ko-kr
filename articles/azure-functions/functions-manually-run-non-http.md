@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640969"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537704"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>HTTP 이외 트리거 함수를 수동으로 실행
 
@@ -43,11 +43,11 @@ Azure에 대한 요청에서 함수의 마스터 키와 함께 Postman의 요청
 
 1. **키 편집** 섹션에서 키 값을 클립보드에 복사한 다음 **확인**을 선택 합니다.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="마스터 키를 클립보드에 복사 합니다." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
 1. *_Master* 키를 복사한 후 **코드 + 테스트**를 선택 하 고 **로그**를 선택 합니다. Postman에서 함수를 수동으로 실행하는 경우 여기에 기록된 함수의 메시지가 표시됩니다.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="로그를 확인 하 여 마스터 키 테스트 결과를 확인 합니다." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
 > [!CAUTION]  
 > 함수 앱에서는 마스터 키를 통해 높은 권한이 부여되므로, 이 키를 제3자와 공유하거나 애플리케이션에 배포해서는 안 됩니다. 키는 HTTPS 끝점 으로만 전송 되어야 합니다.
@@ -62,22 +62,22 @@ Postman을 열고 다음 단계를 수행합니다.
 1. 첫 번째 키로 **x-함수 키** 를 입력 하 고 클립보드의 마스터 키를 값으로 붙여넣습니다.
 1. **Content-type** 을 두 번째 키로 입력 하 고 **application/json** 을 값으로 입력 합니다.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman headers 설정입니다." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
 1. **본문** 탭을 선택합니다.
 1. 요청 본문으로 **{"input": "test"}** 를 입력 합니다.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body 설정입니다." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
 1. **보내기**를 선택합니다.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Postman을 사용 하 여 요청을 보냅니다." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
     그런 다음, Postman은 **202 수락됨**이라는 상태를 보고합니다.
 
 1. 다음으로, Azure Portal에서 해당 함수로 돌아갑니다. 로그를 검토 하면 함수에 대 한 수동 호출에서 들어오는 메시지가 표시 됩니다.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="로그를 확인 하 여 마스터 키 테스트 결과를 확인 합니다." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

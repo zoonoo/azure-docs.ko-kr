@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300224"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534065"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -71,7 +71,6 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |일본어|  `ja`    |
 |칸나다어|`kn`|
 |카자흐어|`kk`|
-|스와힐리어| `sw`    |
 |클링곤어|   `tlh-Latn`  |
 |클링곤어(plqaD)|   `tlh-Piqd`  |
 |한국어 |`ko`   |
@@ -102,6 +101,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |슬로바키아어|    `sk`    |
 |슬로베니아어| `sl`    |
 |스페인어|   `es`    |
+|스와힐리어|   `sw`    |
 |스웨덴어|   `sv`    |
 |타히티어|  `ty`    |
 |타밀어| `ta`    |
@@ -152,7 +152,6 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |아일랜드어 | `ga`|
 |이탈리아어|   `it`    |
 |일본어|  `ja`    |
-|스와힐리어| `sw`    |
 |클링곤어|   `tlh-Latn`  |
 |한국어 |`ko`   |
 |쿠르드어 (중부)  |`ku-Arab`  |
@@ -173,6 +172,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |슬로바키아어|    `sk`    |
 |슬로베니아어| `sl`    |
 |스페인어|   `es`    |
+|스와힐리어|   `sw`    |
 |스웨덴어|   `sv`    |
 |타히티어|  `ty`    |
 |태국어|  `th`    |
@@ -246,7 +246,6 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 인도네시아어      | `id`          |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
-| 스와힐리어      | `sw`          |
 | 클링곤어      | `tlh`          |
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
@@ -263,6 +262,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 슬로바키아어     | `sk`          |
 | 슬로베니아어      | `sl`          |
 | 스페인어      | `es`          |
+| 스와힐리어      | `sw`          |
 | 스웨덴어      | `sv`          |
 | 타밀어      | `ta`          |
 | 태국어      | `th`          |
@@ -314,7 +314,6 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
 |칸나다어|`kn`|
-| 스와힐리어|    `sw`    |
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
@@ -335,6 +334,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 슬로바키아어     | `sk`          |
 | 슬로베니아어      | `sl`          |
 | 스페인어      | `es`          |
+| 스와힐리어|  `sw`    |
 | 스웨덴어      | `sv`          |
 |타히티어|  `ty`    |
 | 태국어      | `th`          |

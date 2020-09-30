@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512927"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533641"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
 
@@ -50,13 +50,13 @@ ms.locfileid: "87512927"
 
       ![Azure Cloud Shell 아이콘](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Azure 계정에 여러 구독이 있는 경우 Azure NetApp Files의 허용 목록에 지정된 구독을 선택합니다.
+2. Azure 계정에 여러 구독이 있는 경우 Azure NetApp Files 승인 된 구독을 선택 합니다.
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. Azure Cloud Shell 콘솔에서 구독이 허용 목록에 지정되었는지 확인하려면 다음 명령을 입력합니다.
+3. Azure Cloud Shell 콘솔에서 다음 명령을 입력 하 여 구독이 승인 되었는지 확인 합니다.
     
     ```azurepowershell
     az feature list | grep NetApp

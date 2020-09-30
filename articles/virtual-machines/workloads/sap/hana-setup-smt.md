@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616985"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541155"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SUSE Linux용 SMT 서버 설정
 SAP HANA 대규모 인스턴스는 인터넷에 직접 연결되지 않습니다. 이러한 유닛을 운영 체제 공급자에 등록하고 업데이트를 다운로드하여 적용하는 것은 간단한 프로세스가 아닙니다. SUSE Linux용 솔루션은 Azure 가상 머신에 SMT 서버를 설정하는 것입니다. HANA 큰 인스턴스에 연결되는 Azure 가상 네트워크에서 가상 머신을 호스팅합니다. 이러한 SMT 서버를 사용하면 HANA 큰 인스턴스 유닛이 업데이트를 등록하고 다운로드할 수 있습니다. 
@@ -44,7 +44,7 @@ HANA 큰 인스턴스에 대한 작업을 수행하는 SMT 서버를 설치하�
 
 가상 머신에 디스크를 추가합니다. 이 디스크를 사용하여 업데이트를 저장하면 부팅 디스크 자체가 너무 작을 수 있습니다. 여기서, 다음 스크린샷처럼 디스크가 /srv/www/htdocs에 탑재되었습니다. 100GB 디스크로 충분합니다.
 
-![SMT 서버에 대한 가상 머신 배포의 스크린샷](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![PuTTy 창에 추가 된 디스크를 보여 주는 스크린샷](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 HANA 큰 인스턴스 유닛 또는 여러 유닛에 로그인하고, /etc/hosts를 유지 관리하고, 네트워크에서 SMT 서버를 실행해야 하는 Azure 가상 머신에 연결할 수 있는지 확인합니다.
 

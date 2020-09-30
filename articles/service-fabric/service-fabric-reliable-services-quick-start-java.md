@@ -1,17 +1,15 @@
 ---
 title: Java에서 첫 번째 신뢰할 수 있는 서비스 만들기
 description: Java에서 상태 비저장 및 상태 저장 서비스를 사용 하 여 Microsoft Azure Service Fabric 응용 프로그램을 만드는 방법을 소개 합니다.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: f74265c7b774e4b471c8621e99377a009f939ee1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-javai
+ms.openlocfilehash: f67957d711958febdb01dfad0b3c44a92cb0bcfa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250099"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535239"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Java에서 Reliable Services 시작
 > [!div class="op_single_selector"]

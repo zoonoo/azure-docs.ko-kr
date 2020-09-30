@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335887"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534440"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Azure AD 역할에 대 한 검색 및 통찰력 (미리 보기) (이전의 보안 마법사)
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
 1. **전역 관리자 줄이기**를 선택 합니다.
 
-    ![전역 관리자 줄이기-모든 멤버를 표시 하는 역할 창](./media/pim-security-wizard/new-preview-page.png)
+    !["전역 관리자 감소" 작업을 선택 하 여 "검색 및 정보 (미리 보기)"를 보여 주는 스크린샷](./media/pim-security-wizard/new-preview-page.png)
 
 1. 전역 관리자 역할 할당의 목록을 검토 합니다.
 

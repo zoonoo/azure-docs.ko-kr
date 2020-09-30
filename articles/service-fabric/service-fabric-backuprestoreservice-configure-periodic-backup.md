@@ -1,16 +1,14 @@
 ---
 title: 정기 백업 구성 이해
 description: Service Fabric의 정기 백업 및 복원 기능을 사용 하 여 신뢰할 수 있는 상태 저장 서비스 또는 Reliable Actors의 정기적 백업을 구성 합니다.
-author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
-ms.author: hrushib
-ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530916"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538622"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 

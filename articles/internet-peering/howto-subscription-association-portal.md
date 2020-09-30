@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710850"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540271"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>포털을 사용하여 피어 ASN을 Azure 구독에 연결
 
@@ -70,12 +70,12 @@ ms.locfileid: "84710850"
 1. 그런 다음, **검토 + 만들기**를 클릭하고 포털에서 입력한 정보에 대한 기본 유효성 검사를 실행하는지 확인합니다. 이는 맨 위의 리본에 *최종 유효성 검사를 실행하는 중...* 으로 표시됩니다.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn 검토 탭](./media/peerasn-review-tab-validation.png)
+    > ![피어 A S N 기본 사항 연결 탭을 보여 주는 스크린샷](./media/peerasn-review-tab-validation.png)
 
 1. 리본의 메시지가 *유효성 검사 통과*로 바뀌면 정보를 확인하고 **만들기**를 클릭하여 요청을 제출합니다. 유효성 검사를 통과하지 못하는 경우 **이전**을 클릭하고 위의 단계를 반복하여 요청을 수정하고 입력한 값에 오류가 없는지 확인합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn 검토 탭](./media/peerasn-review-tab.png)
+    > ![스크린샷에 연결 된 유효성 검사를 통과 한 피어 A S N 기본 사항 연결 탭을 보여 줍니다.](./media/peerasn-review-tab.png)
 
 1. 요청을 제출한 후 배포가 완료될 때까지 기다립니다. 배포에 실패하면 [Microsoft 피어링](mailto:peering@microsoft.com)에 문의하세요. 성공적인 배포는 아래와 같이 표시됩니다.
 

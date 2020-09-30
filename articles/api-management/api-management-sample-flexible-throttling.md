@@ -15,20 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213997"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537347"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Azure API Management로 고급 요청 제한
 들어오는 요청을 제한하는 것은 Azure API Management의 중요한 역할입니다. Azure API Management는 요청 속도 또는 전송된 총 요청/데이터를 제어하여 API 공급자가 자신의 API가 남용되지 않도록 보호하고 다양한 API 제품 계층에 대해 가치를 창출할 수 있도록 합니다.
 
+## <a name="rate-limits-and-quotas"></a>요율 한도 및 할당량
+요금 제한과 할당량은 다양 한 용도로 사용 됩니다.
+
+### <a name="rate-limits"></a>속도 제한
+속도 제한은 일반적으로 짧고 강한 볼륨 버스트를 방지 하는 데 사용 됩니다. 예를 들어 백 엔드 서비스의 데이터베이스에서 호출 볼륨이 많은 병목 상태가 발생 하는 경우 `rate-limit-by-key` 이 설정을 사용 하 여 높은 통화 볼륨을 허용 하지 않도록 정책을 설정할 수 있습니다.
+
+### <a name="quotas"></a>할당량
+할당량은 일반적으로 더 긴 시간 동안 호출 속도를 제어 하는 데 사용 됩니다. 예를 들어 특정 월에 특정 구독자가 수행할 수 있는 총 호출 수를 설정할 수 있습니다. API를 수익 화 계층 기반 구독에 대해 할당량을 다르게 설정할 수도 있습니다. 예를 들어 기본 계층 구독은 한 달에 1만 개 미만의 호출을 할 수 있지만 프리미엄 계층은 매월 1억 호출까지 이동할 수 있습니다.
+
+Azure API Management 내에서 속도 제한은 일반적으로 노드에 걸쳐 더 빠르게 전파 되어 급증을 방지 합니다. 반면에 사용 할당량 정보는 더 긴 기간 동안 사용 되므로 구현은 다릅니다.
+
+> [!CAUTION]
+> 조정 아키텍처의 분산 특성으로 인해 요율 제한은 완전히 정확 하지 않습니다. 구성 된 요청 수와 허용 되는 실제 요청 수의 차이는 요청 볼륨 및 비율, 백 엔드 대기 시간 및 기타 요인에 따라 달라 집니다.
+
 ## <a name="product-based-throttling"></a>제품 기반 제한
 현재까지, 속도 제한 기능은 Azure Portal에 정의된 특정 제품 구독으로 범위를 제한했습니다. 이렇게 하면 API 공급자가 해당 API를 사용하기 위해 등록한 개발자에게 제한을 적용하는 데는 유용하지만 예를 들어 API의 개별 최종 사용자를 제한하는 데는 도움이 되지 않습니다. 개발자 애플리케이션의 단일 사용자가 전체 할당량을 사용한 후 개발자의 다른 고객이 해당 애플리케이션을 사용하지 못하도록 할 수 있습니다. 또한, 대용량의 요청을 생성할 수 있는 여러 고객이 간헐적 사용자에 대한 액세스를 제한할 수 있습니다.
 
-## <a name="custom-key-based-throttling"></a>사용자 지정 키 기반 제한
+## <a name="custom-key-based-throttling"></a>사용자 지정 키 기반 조정
 
 > [!NOTE]
 > `rate-limit-by-key` `quota-by-key` Azure API Management의 소비 계층에서는 및 정책을 사용할 수 없습니다. 

@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 6825627b77e3ea227cad88e347dbbabd5e6f5d0c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230979"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540339"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Power BI의 Azure Time Series Insights에서 데이터 시각화
 
@@ -29,7 +29,7 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 
 아직 없는 경우 [무료 Azure 구독](https://azure.microsoft.com/free/) 에 등록 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 최신 버전의 [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 다운로드 및 설치
 * [Azure Time Series Insights Gen2 환경을](time-series-insights-update-how-to-manage.md) 만들거나 만듭니다.
@@ -110,13 +110,13 @@ Azure Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계�
 
 1. 창의 왼쪽에서 **보고서** 뷰를 선택 했는지 확인 합니다.
 
-    [![보고서 뷰 선택](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![보고서 뷰 아이콘을 보여 주는 스크린샷](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1. **시각화** 열에서 원하는 시각적 개체를 선택 합니다. 예를 들어 **꺾은선형 차트**를 선택 합니다. 그러면 캔버스에 빈 꺾은선형 차트가 추가 됩니다.
 
 1. **필드** 목록에서 **_Timestamp** 을 선택 하 고 **축** 필드로 끌어 X 축을 따라 항목을 표시 합니다. **축** 에 대 한 값으로 **_Timestamp** 로 전환 (기본값은 **날짜 계층 구조**) 해야 합니다.
 
-    [![보고서 뷰 선택](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![_Timestamp 선택 된 타임 스탬프 메뉴가 표시 됩니다.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1. 다시 **필드** 목록에서 **Timeseriesid** 를 선택 하 고 **값** 필드로 끌어 Y 축을 따라 항목을 표시 합니다.
 

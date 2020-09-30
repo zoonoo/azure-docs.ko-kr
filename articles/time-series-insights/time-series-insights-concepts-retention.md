@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059431"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535692"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1의 데이터 보존 이해
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights 환경의 데이터 보존에 영향을 주는 두 가지 기본 설정을 설명 합니다.
 
@@ -37,7 +40,8 @@ ms.locfileid: "87059431"
 
 > [!NOTE]
 > 기본적으로 새 환경을 만들면 보존 기간이 **이전 데이터 삭제**로 구성됩니다. Azure Time Series Insights 환경의 **구성** 페이지에서 Azure Portal를 사용 하 여 만든 후 필요에 따라이 설정을 전환할 수 있습니다.
-> * 보존 정책을 구성 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
+>
+> - 보존 정책을 구성 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
 
 데이터 보존 정책에 대 한 자세한 내용은 아래에 자세히 설명 되어 있습니다.
 
@@ -69,8 +73,8 @@ ms.locfileid: "87059431"
 - 데이터 손실 로부터 보호 하는 데 도움이 되지만 이벤트 원본의 보존 기간을 초과 하 여 수신이 일시 중지 된 경우 가장 최근의 데이터가 손실 될 기회가 발생할 수 있습니다.
 - 그러나 환경의 최대 용량에 도달 하면 다음 추가 작업이 발생할 때까지 환경이 데이터 수신을 일시 중지 합니다.
 
-   - [Azure Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md)에 설명 된 대로 환경의 최대 용량을 늘려 배율 단위를 추가 합니다.
-   - 데이터 보존 기간에 도달 하 고 데이터를 제거 하 여 환경을 최대 용량 아래로 전환 합니다.
+  - [Azure Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md)에 설명 된 대로 환경의 최대 용량을 늘려 배율 단위를 추가 합니다.
+  - 데이터 보존 기간에 도달 하 고 데이터를 제거 하 여 환경을 최대 용량 아래로 전환 합니다.
 
 ### <a name="example-three"></a>예 3
 

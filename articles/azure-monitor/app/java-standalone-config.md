@@ -4,12 +4,12 @@ description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371306"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537660"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -154,9 +154,9 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
           "display": "JVM uptime (millis)"
         },
         {
-          "objectName": "java.lang:type=MemoryPool,name=Code Cache",
+          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
           "attribute": "Usage.used",
-          "display": "Code Cache Used"
+          "display": "MetaSpace Used"
         }
       ]
     }
@@ -166,7 +166,7 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 
 환경 변수를 사용 하 여 JMX 메트릭을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_JMX_METRICS` .
 
-이 환경 변수 콘텐츠는 위의 구조와 일치 하는 json 데이터 여야 합니다 (예:). `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
+이 환경 변수 콘텐츠는 위의 구조와 일치 하는 json 데이터 여야 합니다 (예:). `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>마이크로 측정기 (스프링 부트 발동기의 메트릭 포함)
 
