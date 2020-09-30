@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 508d054bc4eed88867bb6e3282edbafaae9a5247
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298048"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541733"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
@@ -63,11 +63,11 @@ REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이�
 
 1. Kafka 클러스터 만들기 워크플로 중 **보안 + 네트워킹** 탭에서 **Kafka REST 프록시 사용** 옵션을 선택합니다.
 
-     ![Kafka REST 프록시를 사용하도록 설정하고 보안 그룹을 선택합니다.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![보안 + 네트워킹이 선택 된 H + 정보 클러스터 만들기 페이지를 보여 주는 스크린샷](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. **보안 그룹 선택**을 클릭합니다. 보안 그룹 목록에서 REST 프록시에 액세스하려는 보안 그룹을 선택합니다. 검색 상자를 사용하여 적절한 보안 그룹을 찾을 수 있습니다. 아래쪽에서 **선택** 단추를 클릭합니다.
 
-     ![Kafka REST 프록시를 사용하도록 설정하고 보안 그룹을 선택합니다.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![스크린샷에는 보안 그룹을 선택 하는 옵션이 포함 된 H D 정보 클러스터 만들기 페이지가 표시 됩니다.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. [Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)에 설명된 대로 클러스터를 만드는 나머지 단계를 완료합니다.
 

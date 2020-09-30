@@ -1,20 +1,20 @@
 ---
-title: 가상 컴퓨터 및 디스크 성능
+title: 가상 머신 및 디스크 성능
 description: Vm 및 연결 된 디스크가 성능에 대해 조합 하 여 작동 하는 방법에 대 한 자세한 정보
 author: albecker1
 ms.author: albecker
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 6621efe6d0b391ed38ab49f147d791a11db14301
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: c248549fae9e5a0b80f70223a2a1a1f9c7ac9c81
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664601"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541529"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>가상 컴퓨터 및 디스크 성능
+# <a name="virtual-machine-and-disk-performance"></a>가상 머신 및 디스크 성능
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>가상 컴퓨터 캐시 되지 않은 및 캐시 된 제한

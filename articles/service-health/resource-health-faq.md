@@ -3,12 +3,12 @@ title: Azure Resource Health FAQ
 description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 345724a28441e5a6b20863da8d2fd47be0a8d6f9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518948"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536497"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -46,7 +46,7 @@ Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 
 포털에서는 사용자가 시작한 작업이 파란색 알림 아이콘을 사용하여 표시되지만 계획 및 계획되지 않은 이벤트는 빨간색 경고 아이콘을 사용하여 표시됩니다. 자세한 내용은 [Resource Health 개요](Resource-health-overview.md)에 제공됩니다.  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Resource Health를 내 모니터링 도구에 통합할 수 있나요?
-리소스 상태는 활동 로그 기반 경고에 대 한 [미리 보기를 지원](resource-health-alert-arm-template-guide.md) 합니다. 활동 로그 경고는 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 사용 하 여 경고가 트리거 되었음을 사용자에 게 알립니다. 작업 그룹은 전자 메일, SMS, 웹 후크, ITSM 작업 등의 다양 한 알림 채널을 지원 합니다.
+리소스 상태는 활동 로그 기반 경고를 [지원](resource-health-alert-arm-template-guide.md) 합니다. 활동 로그 경고는 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 사용 하 여 경고가 트리거 되었음을 사용자에 게 알립니다. 작업 그룹은 전자 메일, SMS, 웹 후크, ITSM 작업 등의 다양 한 알림 채널을 지원 합니다.
 
 ## <a name="where-do-i-find-resource-health"></a>Resource Health는 어디서 찾을 수 있나요?
 Azure Portal에 로그인하면 여러 가지 방법으로 Resource Health에 액세스할 수 있습니다.

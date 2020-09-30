@@ -1,7 +1,7 @@
 ---
-title: Computer Vision 읽기 API에 대 한 Docker 컨테이너를 설치 하 고 실행 합니다.
+title: Computer Vision에서 OCR Docker 컨테이너를 설치 합니다.
 titleSuffix: Azure Cognitive Services
-description: Computer Vision 읽기 API에 대 한 Docker 컨테이너를 사용 하 여 온-프레미스 이미지에서 텍스트를 검색 하 고 추출 합니다.
+description: Computer Vision에서 OCR Docker 컨테이너 읽기를 사용 하 여 이미지에서 텍스트를 추출 하 고 온-프레미스로 douments.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,23 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
-keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+keywords: 온-프레미스, OCR, Docker, 컨테이너
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460444"
+ms.locfileid: "91536378"
 ---
-# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>읽기 API (미리 보기)에 대 한 Docker 컨테이너 설치 및 실행 
+# <a name="install-read-ocr-docker-containers-preview"></a>읽기 OCR Docker 컨테이너 (미리 보기) 설치 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-컨테이너를 사용하면 사용자 환경에서 Computer Vision API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
+컨테이너를 사용하면 사용자 환경에서 Computer Vision API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
-*읽기* 컨테이너를 사용 하면 다른 표면 및 배경 (예: 수신, 포스터 및 비즈니스 카드)을 사용 하 여 다양 한 개체의 이미지에서 *인쇄 된 텍스트* 를 검색 하 고 추출할 수 있습니다. 또한 *읽기* 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF, TIFF 및 다중 페이지 파일 지원을 제공 합니다. 자세한 내용은 [READ API 설명서](concept-recognizing-text.md#read-api)를 참조 하세요.
+*읽기* OCR 컨테이너를 사용 하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대 한 지원이 포함 된 이미지와 문서에서 인쇄 된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [READ API 설명서](concept-recognizing-text.md#read-api)를 참조 하세요.
 
+## <a name="read-3x-containers"></a>3. x 컨테이너 읽기
 Preview에서는 세 가지 버전의 2.x 컨테이너를 사용할 수 있습니다. 두 버전 모두 이전 컨테이너 보다 정확도와 기능을 추가로 제공 합니다.
 
 읽기 3.0-미리 보기 컨테이너는 다음을 제공 합니다.

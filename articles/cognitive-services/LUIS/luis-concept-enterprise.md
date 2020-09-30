@@ -3,20 +3,18 @@ title: 엔터프라이즈 개념-LUIS
 titleSuffix: Azure Cognitive Services
 description: 규모가 큰 LUIS 앱 또는 LUIS 및 QnA Maker를 함께 포함하는 여러 앱에 대한 디자인 개념을 이해합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221524"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536123"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.
@@ -69,12 +67,12 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인�
 ### <a name="intent-limits-in-dispatch-model"></a>디스패치 모델의 의도 제한
 디스패치 애플리케이션에는 최댓값으로 500개 의도에 해당하는 500개 디스패치 원본이 있습니다. 
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 * [Bot framework SDK](https://github.com/Microsoft/botframework)
 * [모델 디스패치 자습서](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
 * [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools)
-* 디스패치 모델 봇 샘플- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* 디스패치 모델 봇 샘플- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>다음 단계
 

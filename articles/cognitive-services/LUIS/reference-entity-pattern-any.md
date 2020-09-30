@@ -3,19 +3,17 @@ title: 패턴. 모든 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
 description: Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75979171"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542209"
 ---
 # <a name="patternany-entity"></a>Pattern.any 엔터티
 
@@ -69,7 +67,7 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
+이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -79,7 +77,7 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 }
 ```
 
-이는 쿼리 문자열에 `verbose=true` 가 설정 된 경우 JSON입니다.
+이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {

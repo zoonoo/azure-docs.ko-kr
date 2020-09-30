@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296674"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542158"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 데이터에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "91296674"
 
 다음 표에서는 데이터 저장소 및 데이터 집합의 이점을 정의 하 고 요약 합니다. 
 
-|개체|Description| 이점|   
+|개체|설명| 이점|   
 |---|---|---|
 |데이터 저장소| 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하 여 Azure의 저장소 서비스에 안전 하 게 연결 합니다. | 사용자 정보를 안전 하 게 저장 하기 때문에 <br><br> <li> &nbsp; &nbsp; 인증 &nbsp; 자격 증명이 &nbsp; 나 &nbsp; 원본 &nbsp; 데이터 원본을 위험에 노출 하지 마십시오. <li> 더 이상 스크립트에서 하드 코드를 코딩할 필요가 없습니다.
 |데이터 세트| 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. <br><br><li> 모델 학습 중 데이터에 액세스 합니다.<li> 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.<li> 데이터 탐색을 위해 pandas와 같은 오픈 소스 라이브러리를 활용 합니다. | 데이터 집합은 지연 평가 되 고 데이터는 기존 위치에 남아 있기 때문에 <br><br><li>저장소에 데이터의 단일 복사본을 유지 합니다.<li> 추가 저장소 비용이 발생 하지 않음 <li> 실수로 원래 데이터 원본을 변경 하는 것은 위험 하지 않습니다.<li>ML 워크플로 성능 속도를 향상 시킵니다. 
@@ -35,7 +35,7 @@ Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](https://docs.
 * [데이터 저장소를 사용 하 여 Azure storage 서비스에 연결](how-to-access-data.md)합니다. 
 * [Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md). 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -158,7 +158,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 > [!IMPORTANT]
 > 보안상의 이유로 Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 할 수 있습니다. 이렇게 하려면 작업 영역 및 연결 된 데이터 저장소와 새 자격 증명을 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다.
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 
 
@@ -170,6 +170,6 @@ Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자
 
 * [TabularDatasets 및 자동화 된 기계 학습으로 학습](tutorial-first-experiment-automated-ml.md)하는 단계별 예제입니다.
 
-* [모델을 학습](how-to-train-ml-models.md)합니다.
+* [모델을 학습](how-to-set-up-training-targets.md)합니다.
 
 * 더 많은 데이터 집합 학습 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)을 참조 하세요.

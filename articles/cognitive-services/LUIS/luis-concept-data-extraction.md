@@ -3,15 +3,14 @@ title: 데이터 추출-LUIS
 description: 의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다. Language Understanding에서 추출할 수 있는 데이터의 종류를 알아봅니다 (LUIS).
 ms.service: cognitive-services
 ms.subservice: language-understanding
-author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324827"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541784"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용하여 발화 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.

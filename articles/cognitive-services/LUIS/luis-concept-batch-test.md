@@ -3,20 +3,18 @@ title: 일괄 처리 테스트-LUIS
 titleSuffix: Azure Cognitive Services
 description: 일괄 처리 테스트를 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어에 대한 이해를 향상합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.author: diberry
-ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f3a8f5ef8119d9895f67e07ea1b68c660be59f9b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680426"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541869"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>LUIS 포털에서 1000개 발언을 사용한 일괄 처리 테스트
 
@@ -30,7 +28,7 @@ ms.locfileid: "83680426"
 
 일괄 테스트를 위해 *데이터 집합*으로 알려진 길이 발언의 배치 파일을 제출 합니다. 데이터 집합은 **중복 되지 않은** 길이 발언 레이블이 지정 된 최대 1000를 포함 하는 JSON 형식의 파일입니다. 앱에서 최대 10 개의 데이터 집합을 테스트할 수 있습니다. 더 많은 테스트를 수행 해야 하는 경우 데이터 집합을 삭제 한 다음 새 데이터 집합을 추가 합니다.
 
-|**규칙**|
+|**규칙.**|
 |--|
 |*중복 발언 없음|
 |1000개 이하의 발언|

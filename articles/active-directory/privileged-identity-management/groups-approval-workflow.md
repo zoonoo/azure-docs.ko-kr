@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505862"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536990"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>권한 있는 액세스 그룹 구성원 및 소유자에 대 한 활성화 요청 승인 (미리 보기)
 
@@ -46,7 +46,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. 승인 하려는 요청을 찾아 선택 하 고 **승인**을 선택 합니다.
 
-    ![요청 승인-세부 정보 및 근거 상자를 사용 하 여 승인 또는 거부 창](./media/groups-approval-workflow/groups-confirm-approval.png)
+    !["승인" 및 "확인" 단추가 강조 표시 된 "요청 승인" 페이지를 보여 주는 스크린샷](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. **근거** 상자에 비즈니스 근거를 입력 합니다.
 

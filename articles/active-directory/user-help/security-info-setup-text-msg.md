@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c68e01e0eb7c926f47c99b16efa87d23a10b6711
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747234"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537036"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>확인 방법으로 문자 메시지 설정
 
@@ -52,7 +52,7 @@ ms.locfileid: "83747234"
 
 4. **전화** 페이지에서 모바일 디바이스의 전화 번호를 입력하고 **문자 메시지 보내기**를 선택한 후, **다음**을 선택합니다.
 
-    ![전화 번호를 추가하고 문자 메시지 선택](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    !["코드에 텍스트 표시"를 선택 하 여 "전화" 페이지를 표시 하는 스크린샷](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. 문자 메시지를 통해 받은 코드를 모바일 디바이스에 입력한 후 **다음**을 선택합니다.
 

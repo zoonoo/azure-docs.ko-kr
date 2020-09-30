@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/23/2020
+ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f778e996eeda0f2b850864c9c90cd522c411b032
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1b636c1b01bb3b4a8a4ab285c812d04dedfcc966
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328023"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536327"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -31,7 +31,7 @@ Azure에 다양한 DBMS가 있는 SAP NetWeaver 시나리오 호스트 외에 Az
 
 SAP HANA용 Azure의 고유한 특성은 Azure를 차별화하는 고유한 요소입니다. SAP HANA와 관련된 더 많은 메모리 및 CPU 리소스 수요가 많은 SAP 시나리오 호스트를 지원하기 위해 Azure는 고객 전용 운영 체제 미설치 하드웨어를 제공합니다. 이 솔루션을 사용하면 S/4HANA 또는 기타 SAP HANA 워크로드에 대해 최대 24TB(120TB 스케일 아웃)의 메모리가 있어야 하는 SAP HANA 배포를 실행할 수 있습니다. 
 
-Azure에서 SAP 워크로드 시나리오를 호스트하면 ID 통합 및 Single Sign-On 요구 사항을 만들 수 있습니다. 이 상황은 Azure AD(Azure Active Directory)를 사용하여 다양한 SAP 구성 요소와 SAP SaaS(Software as a Service) 또는 PaaS(Platform as a Service) 제품을 연결하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티를 사용한 이러한 통합 및 Single Sign-On 시나리오 목록은 “AAD SAP ID 통합 및 Single Sign-On” 섹션에 설명 및 문서화되어 있습니다.
+Azure에서 SAP 워크로드 시나리오를 호스트하면 ID 통합 및 Single Sign-On 요구 사항을 만들 수 있습니다. 이 상황은 Azure AD(Azure Active Directory)를 사용하여 다양한 SAP 구성 요소와 SAP SaaS(Software as a Service) 또는 PaaS(Platform as a Service) 제품을 연결하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티와 이러한 통합 및 Single Sign-On 시나리오의 목록은 "Azure AD SAP id 통합 및 Single Sign-On" 섹션에서 설명 하 고 설명 합니다.
 
 ## <a name="changes-to-the-sap-workload-section"></a>SAP 워크로드 섹션에 대한 변경 내용
 Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서의 끝에 나열되어 있습니다. 변경 로그의 항목은 약 180일 동안 유지됩니다.
@@ -82,7 +82,9 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>변경 로그
 
-- 09/02/2020: hli에 [대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 에 hli 용 인증 된 새 sku를 추가 합니다. 
+- 09/28/2020: [Azure NetApp Files에서 NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) 문서와 함께 Azure NetApp Files를 사용 하 SAP HANA에 대 한 새 저장소 작업 가이드를 추가 SAP HANA
+- 09/23/2020: hli에 [대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 에 hli 용 인증 된 새 sku를 추가 합니다. 
+- 09/20/2020: 문서에서 변경 된 내용은 [sap SQL Server 워크 로드에 대 한 azure VIRTUAL MACHINES dbms 배포에 대 한 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), sap 용 AZURE [Virtual Machines dbms](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver)배포, sap 워크 [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) 로드에 대 한 azure Virtual Machines Oracle dbms 배포, sap 워크 로드에 대 한 [AZURE Oracle DBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)배포의 경우 Dbms 이진 파일과 sap 이진 파일을 다른 Azure 디스크로 분리 하는 것이 좋습니다. 또한 다양 한 가이드에 Ultra disk 권장 사항을 추가 합니다.
 - 09/08/2020: SLES의 [Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability.md) 을 변경 하 여 stonith 정의를 명확 하 게 합니다.
 - 09/03/2020: Ultra disk를 사용 하 여 1gb 용량의 최소 2 IOPS에 맞게 [Azure virtual machine storage 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경
 - 09/02/2020: [HLI에 대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 를 변경 하 여 HANA 인증의 sku에 대 한 추가 정보를 확인 하세요.
@@ -98,29 +100,29 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 - 08/10/2020: azure [가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 에서 저장소 구성을 SAP HANA 하 고 Azure에서 SAP 워크 로드에 대 한 몇 가지 업데이트를 수행 합니다 [. 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: Pacemaker 클러스터에 대 한 신뢰할 수 있는 이름 확인의 중요성을 강조 하기 위해 azure에서 [SLES의 Pacemaker](./high-availability-guide-suse-pacemaker.md) 설정 및 AZURE에서 [RHEL 설정 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경
 - 08/04/2020: [파일 공유를 사용 하 여 WFCS에서 SAP NW ha](./sap-high-availability-installation-wsfc-file-share.md)를 변경 하 고, [공유 디스크를 사용 하는 WFCS의](./sap-high-availability-installation-wsfc-shared-disk.md)Sap Nw ha, [azure vm의 sap Nw Ha](./high-availability-guide.md), [SLES의 azure vm에서 sap nw에 대 한 ha](./high-availability-guide-suse.md)SLES의 azure vm에 있는 azure vm의 azure VM에 [대 한](./high-availability-guide-suse-netapp-files.md)ha, [SLES 다중 sid 가이드의 azure](./high-availability-guide-suse-multi-sid.md)vm에서 sap nw에 대 한 ha, [RHEL의](./high-availability-guide-rhel.md)azure vm에서 sap의 azure vm에 대 한 ha, RHEL의 azure vm에 대 한 [ha](./high-availability-guide-rhel-netapp-files.md) (RHEL의 azure vm에서 azure vm에 대 한 ha [)](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
-- 07/23/2020: SAP HANA(대규모 인스턴스) 예약을 구입 하기 전에 알고 있어야 하는 내용과 구매를 수행 하는 방법을 설명 하는 [Azure 예약 문서와 함께 SAP HANA(대규모 인스턴스) 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) 을 추가 했습니다.
-- 07/16/2020: Azure PowerShell 사용 하 여 SAP 용 새 VM 확장을 설치 하는 방법에 대 한 설명 [배포 가이드](deployment-guide.md)
-- 7/04/2020: [SAP 솔루션 (미리 보기)에 대 한 Azure monitor](./azure-monitor-overview.md) 릴리스
-- 07/01/2020: 문서의 Azure premium storage 버스트 기능을 기준으로 저렴 한 저장소 구성을 제안 [SAP HANA azure 가상 머신 저장소 구성](./hana-vm-operations-storage.md) 
-- 06/24/2020: azure 펜스 에이전트를 기반으로 하는 [azure의 SLES On Pacemaker on을 설정](./high-availability-guide-suse-pacemaker.md) 하 여 새로운 향상 된 Azure Fence 에이전트 및 장치에 대 한 더 많은 복원 력 있는 구성을 릴리스 하세요. 
-- 06/24/2020: [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 에서 변경 하 여 복원 력 있는 STONITH 구성의 릴리스
-- 06/23/2020: [Sap NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현에 대 한](./planning-guide.md) 변경 사항 가이드 및 [sap 워크 로드 가이드에 대 한 Azure Storage 유형](./planning-guide-storage.md) 소개
+- 2020 년 7 월 23 일: SAP HANA(대규모 인스턴스) 예약을 구입 하기 전에 알아두어야 하는 내용과 구매를 설정 하는 방법을 설명 하는 [Azure 예약 문서와 함께 SAP HANA(대규모 인스턴스) 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) 을 추가 했습니다.
+- 2020 년 7 월 16 일: Azure PowerShell을 사용 하 여 새로운 SAP 용 VM 확장을 설치 하는 방법에 대 한 설명 [배포 가이드](deployment-guide.md)
+- 2020 년 7 월 04 일:  [SAP 솔루션에 대 한 Azure Monitor 릴리스 (미리 보기)](./azure-monitor-overview.md)
+- 2020 년 7 월 01 일: azure [가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 문서에서 azure premium storage 버스트 기능을 기준으로 저렴 한 저장소 구성 제안 
+- 2020 년 6 월 24 일: azure [에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 에서 변경 하 여 새로운 향상 된 Azure fence 에이전트를 릴리스 하 고, Azure fence 에이전트를 기반으로 하는 장치에 대 한 복원 력이 강화 된 구성 
+- 2020 년 6 월 24 일: [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 에서 변경 하 여 복원 력이 뛰어난 STONITH 구성
+- 2020 년 6 월 23 일: [Sap NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현에 대 한](./planning-guide.md) 변경 사항 가이드 및 [sap 워크 로드 가이드에 대 한 Azure Storage 유형](./planning-guide-storage.md) 소개
 - 06/22/2020: SAP 용 새 VM 확장에 대 한 설치 단계를 [배포 가이드](deployment-guide.md) 에 추가 합니다.
-- 06/16/2020: [SAP HA 시나리오에서 Azure 표준 ILB를 사용 하 여 vm에 대 한 공용 끝점 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 을 변경 하 여 SUSE 공용 클라우드 인프라 101 설명서에 대 한 링크를 추가 합니다. 
-- 06/10/2020: HLI 및 [SAP HANA (대량 인스턴스) 저장소 아키텍처](./hana-storage-architecture.md) [의 사용 가능한 sku](./hana-available-skus.md) 에 새 hli sku 추가
-- 21 2020 년 5 월: azure에서 [SLES의 Pacemaker](./high-availability-guide-suse-pacemaker.md) 설정에서 변경 하 고 AZURE [에서 RHEL를 설정](./high-availability-guide-rhel-pacemaker.md) 하 여 azure [표준 Ilb를 사용 하는 vm 용 공용 끝점 연결에 대 한 링크를 SAP HA 시나리오에서](./high-availability-guide-standard-load-balancer-outbound-connections.md) 추가  
-- 19 2020 년 5 월: [Azure 가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 HANA 관련 볼륨에 lvm을 사용 하는 경우 루트 볼륨 그룹을 사용 하지 않는 중요 한 메시지를 추가 합니다.
-- 19 2020 년 5 월: hana large Instance Type II에 대해 지원 되는 새 OS를 [Hana Large Instances에 대 한 호환 운영 체제](/- azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) 에 추가
-- 12 2020 년 5 월: [SAP HA 시나리오에서 Azure 표준 ILB를 사용 하 여 vm에 대 한 공용 끝점 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 변경 링크를 업데이트 하 고 타사 방화벽 구성에 대 한 정보 추가
-- 11 2020 년 5 월: [SLES의 Azure vm에](./sap-hana-high-availability.md) 대 한 고가용성의 변경으로 SAP HANA 인해 netcat 리소스에 대 한 리소스를 0으로 설정 하 여 보다 간소화 된 장애 조치 (failover)가 발생 합니다. 
-- 05 2020 년 5 월: [SAP NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현을](./planning-guide.md) 변경 하 여 Gen2 배포를 Mv1 VM 제품군에 사용할 수 있습니다.
-- 4 월 24 2020: SLES의 [anf f SAP HANA](./sap-hana-scale-out-standby-netapp-files-suse.md)를 사용 하는 azure vm의 대기 노드를 사용 하 여 azure vm에서 azure VM의 [RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), anf를 사용 하는 azure vm에서 Azure vm의 [sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) , ANF를 사용 하는 NetWeaver의 azure vm에서 sap [RHEL](./high-availability-guide-rhel-netapp-files.md) 에 대 한 고가용성, anf 볼륨의 IP 주소가 자동으로 할당 되는 설명 추가
-- 4 월 22 2020: 클러스터를 유지 관리 모드에서 제거 하는 것과 충돌 하므로 [SLES의 Azure vm에서 Azure vm에 대 한 SAP HANA의 고가용성](./sap-hana-high-availability.md) 을 변경 하 여 `is-managed` 해당 지침에서 meta 특성을 제거 합니다.
-- 4 월 21 2020: SQL Azure DB를 SAP (Hybris) Commerce Platform 1811에 대해 지원 되는 DBMS로 추가 했습니다. 문서에서는 [Azure 배포에 대해 지원 되는 sap 소프트웨어](./sap-supported-product-on-azure.md) 및 [sap 인증 및 구성에서 실행 되는 구성](./sap-certifications.md) 에 대해 다룹니다 Microsoft Azure
-- 4 월 16 2020: 지원 되는 SAP 용 DBMS (Hybris) 상거래 플랫폼으로 SAP HANA 추가 되었습니다. [Azure 배포에 대해 지원 되는 sap 소프트웨어](./sap-supported-product-on-azure.md) 및 [에서 실행 되는 sap 인증 및 구성](./sap-certifications.md) 에 대해 다룹니다 Microsoft Azure
-- 4 월 13 2020: sap ASE의 정확한 SAP ASE 릴리스 번호에 [대 한 올바른 sap 워크 로드 용 DBMS 배포 Virtual Machines](./dbms_guide_sapase.md)
-- 4 월 07 2020: Azure에서 클라우드 netconfig를 명확 하 게 설명 하기 위해 [Pacemaker ON SLES 설정](./high-availability-guide-suse-pacemaker.md) 변경
-- 06 2020 년 4 월 [: Azure vm의 대기](./sap-hana-scale-out-standby-netapp-files-suse.md) 노드를 사용 하 여 SLES [Azure NetApp Files SAP HANA](./sap-hana-scale-out-standby-netapp-files-rhel.md) 및 [4746](https://www.netapp.com/us/media/tr-4746.pdf) [4435](https://www.netapp.com/us/media/tr-4746.pdf) RHEL에 Azure NetApp Files를 사용 하는 azure vm의 대기 노드를 사용 하는 SAP HANA 확장
+- 2020 년 6 월 16 일: [SAP HA 시나리오에서 Azure 표준 ILB를 사용 하 여 vm에 대 한 공용 끝점 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 변경 SUSE 공용 클라우드 인프라 101 설명서에 대 한 링크 추가 
+- 2020 년 6 월 10 일: HLI 및 [SAP HANA (대량 인스턴스) 저장소 아키텍처](./hana-storage-architecture.md) 에 대해 새로운 Hli Sku를 [사용 가능한 sku](./hana-available-skus.md) 에 추가
+- 2020 년 5 월 21 일: azure에서 [SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 에서 변경 하 고 AZURE [에서 RHEL를 설정](./high-availability-guide-rhel-pacemaker.md) 하 여 azure [표준 Ilb를 사용 하는 vm 용 공용 끝점 연결에 대 한 링크를 SAP HA 시나리오에서](./high-availability-guide-standard-load-balancer-outbound-connections.md) 추가할 수 있습니다.  
+- 5 월 19 일 2020: [Azure 가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 HANA 관련 볼륨에 lvm을 사용 하는 경우 루트 볼륨 그룹을 사용 하지 않는 중요 한 메시지를 추가 합니다.
+- 5 월 19 일 2020: hana large Instance Type II에 대해 지원 되는 새 OS를 [Hana Large Instances에 대해 호환 되는 운영 체제](/- azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) 에 추가 합니다.
+- 5 월 12 일 2020: [SAP HA 시나리오에서 Azure 표준 ILB를 사용 하 여 vm에 대 한 공용 끝점 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 을 변경 하 여 링크를 업데이트 하 고 타사 방화벽 구성에 대 한 정보 추가
+- 2020 년 5 월 11 일: [SLES의 Azure vm에 대 한 SAP HANA 고가용성](./sap-hana-high-availability.md) 을 변경 하 여 대량으로 장애 조치 (failover)를 수행 하는 netcat 리소스에 대 한 리소스 작업을 0으로 설정 합니다. 
+- 2020 년 5 월 5 일: [SAP NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현을](./planning-guide.md) 변경 하 여 Gen2 배포를 Mv1 VM 제품군에 사용할 수 있습니다.
+- 2020 년 4 월 24 일: SLES의 [anf를 사용](./sap-hana-scale-out-standby-netapp-files-suse.md)SAP HANA 하 SAP HANA는 azure vm의 대기 노드를 사용 하 여 azure vm에서 azure VM의 [RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), anf를 사용 하는 azure vm에서 Azure vm의 [sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) , ANF를 사용 하는 NetWeaver의 azure vm에서 sap [RHEL](./high-availability-guide-rhel-netapp-files.md) 에 대 한 고가용성, anf 볼륨의 IP 주소가 자동으로 할당 되는 설명 추가
+- 2020 년 4 월 22 일: 클러스터를 유지 관리 모드에서 제거 하는 것과 충돌 하므로 [SLES의 Azure vm에서 Azure vm에 대 한 SAP HANA의 고가용성](./sap-hana-high-availability.md) 을 변경 하 여 지침에서 meta 특성을 제거 합니다. `is-managed`
+- 2020 년 4 월 21 일: SQL Azure DB를 SAP (Hybris) Commerce Platform 1811에 대해 지원 되는 DBMS로 추가 했습니다. 문서에서 [Azure 배포에 대해 지원 되는 sap 소프트웨어](./sap-supported-product-on-azure.md) 및 [sap 인증 및 구성 Microsoft Azure에서 실행](./sap-certifications.md) 되는 구성
+- 2020 년 4 월 16 일: [Azure 배포에 대해 지원 되는 sap 소프트웨어](./sap-supported-product-on-azure.md) 및 [sap 인증 및 구성에서 실행](./sap-certifications.md) 되는 구성에 대 한 문서에서 지원 되는 Sap 용 DBMS (Hybris) 상거래 플랫폼으로 SAP HANA 추가 되었습니다 Microsoft Azure
+- 2020 년 4 월 13 일: sap ASE의 정확한 SAP ASE 릴리스 번호에 [대 한 올바른 sap 워크 로드 용 DBMS 배포 Virtual Machines](./dbms_guide_sapase.md)
+- 2020 년 4 월 7 일: [azure에서 SLES On Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 에서 변경 되어 클라우드 netconfig를 명확 하 게 설명
+- 2020 년 4 월 06: Azure Vm의 대기 노드를 사용 하 여 SLES [Azure NetApp Files SAP HANA](./sap-hana-scale-out-standby-netapp-files-rhel.md) 및 [4746](https://www.netapp.com/us/media/tr-4746.pdf) [4435](https://www.netapp.com/us/media/tr-4746.pdf) RHEL에 [Azure NetApp Files를 사용](./sap-hana-scale-out-standby-netapp-files-suse.md) 하는 azure vm의 대기 노드를 사용 하는 SAP HANA 확장
 - 2020 년 3 월 31 일: [SLES의 Azure vm에서](./sap-hana-high-availability.md) 고가용성을 변경 하 [SAP HANA 고 RHEL의 azure vm](./sap-hana-high-availability-rhel.md) 에서 고가용성을 SAP HANA 변경 하 여 스트라이프 볼륨을 만들 때 스트라이프 크기를 지정 하는 방법에 대 한 지침을 추가 합니다.
 - 2020 년 3 월 27 일: [sap 응용 프로그램용 SLES에서 Azure vm의 SAP NW에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) 을 변경 하 여 파일 시스템 탑재 옵션을 NETAPP TR-4746 (동기화 탑재 옵션 제거)에 맞춥니다.
 - 2020 년 3 월 26 일: [SLES 다중 SID 가이드에서 Azure vm의 SAP NetWeaver에 대 한 고가용성](./high-availability-guide-suse-multi-sid.md) 변경: NETAPP 4746 TR에 참조 추가

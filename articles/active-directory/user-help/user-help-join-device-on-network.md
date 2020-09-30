@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333412"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536973"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "91333412"
 
 4. 모바일 디바이스에서 계정에 액세스할 수 있도록 디바이스를 승인합니다. 
 
-    ![모바일 알림 화면](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    !["암호 입력" 알림 화면을 보여 주는 스크린샷](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. 개인 정보 및 Windows Hello(필요한 경우) 설정을 포함하여 OOBE 프로세스를 완료합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "91333412"
 
 2. **회사 또는 학교 액세스**를 선택 하 고 ** *\<your_organization>* Azure AD에 연결 된**것과 같은 텍스트가 표시 되는지 확인 합니다.
 
-    ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    !["연결 된 (조직) Azure AD" 계정이 선택 된 "회사 또는 학교 액세스" 창을 보여 주는 스크린샷](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>이미 구성된 Windows 10 디바이스를 가입하려면
