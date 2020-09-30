@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 93bd6972a89065832a20fbd66949cde5b7510534
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794207"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538911"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Azure Database for MySQL를 사용 하 여 응용 프로그램을 빌드하기 위한 모범 사례 
 
@@ -69,9 +69,9 @@ Azure Portal를 사용 하 여 MySQL server에 대 한 [암호를 다시 설정�
 첫 번째 재시도 전에 5 초간 대기 하는 것이 좋습니다. 그런 다음 각 다시 시도를 수행 하 고, 최대 60 초까지 대기를 늘립니다. 응용 프로그램에서 작업에 실패 한 것으로 간주 하는 최대 다시 시도 횟수를 제한 하 여 추가 조사를 수행할 수 있습니다. 자세히 알아보려면 [연결 오류 문제를 해결 하는 방법](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) 을 참조 하세요. 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>장애 조치 (failover)를 완화 하기 위해 읽기 복제 사용
-장애 조치 (failover) 시나리오에 [입력 데이터 복제](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) 를 사용할 수 있습니다. 읽기 복제본을 사용 하는 경우 마스터 서버와 복제 서버 간에 자동 장애 조치 (failover)가 수행 되지 않습니다. 
+장애 조치 (failover) 시나리오에 [입력 데이터 복제](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) 를 사용할 수 있습니다. 읽기 복제본을 사용 하는 경우 원본 서버와 복제 서버 간에 자동 장애 조치 (failover)가 수행 되지 않습니다. 
 
-복제는 비동기 이기 때문에 마스터와 복제본 사이에 지연이 발생 합니다. 네트워크 지연은 마스터 서버에서 실행 되는 워크 로드의 크기 및 데이터 센터 간의 대기 시간 등 여러 가지 요인에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 범위는 몇 초에서 몇 분까지입니다.
+복제는 비동기 이므로 원본과 복제본 사이에 지연이 발생 합니다. 네트워크 지연은 원본 서버에서 실행 되는 워크 로드의 크기와 데이터 센터 간의 대기 시간 등 여러 가지 요인에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 범위는 몇 초에서 몇 분까지입니다.
 
 ## <a name="database-deployment"></a>데이터베이스 배포 
 

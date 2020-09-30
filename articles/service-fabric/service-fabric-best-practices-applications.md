@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 응용 프로그램 디자인 모범 사례
 description: Azure Service Fabric를 사용 하 여 응용 프로그램 및 서비스를 개발 하기 위한 모범 사례 및 디자인 고려 사항입니다.
-author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: mfussell
-ms.openlocfilehash: 742cd9b1e7480fcc510b61d8987e42b499a1ff20
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ddf846e9e3ac6add7cf3f584b702de5accfb22af
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261191"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538501"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric 응용 프로그램 디자인 모범 사례
 

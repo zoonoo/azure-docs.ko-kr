@@ -1,17 +1,15 @@
 ---
 title: Eclipse에서 응용 프로그램 디버그
 description: 로컬 개발 클러스터의 Eclipse에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: 32472c6caafe62d629ee3a5ffb8c758624228efd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d321e0c10b66a15e6cb309cefe711602fa12957c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87316616"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534112"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]

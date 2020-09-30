@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317126"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534202"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -26,6 +26,8 @@ Log Analytics 작업 영역이 제공하는 정보:
 * 데이터 저장소에 대 한 지리적 위치입니다.
 * 권장 되는 디자인 전략 중 하나에 따라 다른 사용자에 게 액세스 권한을 부여 하 여 데이터를 격리 합니다.
 * [가격 책정 계층](./manage-cost-storage.md#changing-pricing-tier), [보존](./manage-cost-storage.md#change-the-data-retention-period)및 [데이터 50,](./manage-cost-storage.md#manage-your-maximum-daily-data-volume)같은 설정의 구성에 대 한 범위입니다.
+
+작업 영역은 실제 클러스터에서 호스팅됩니다. 기본적으로 시스템은 이러한 클러스터를 만들고 관리 합니다. 4TB/day 이상을 수집 하는 고객은 자신의 작업 영역에 대 한 자체 전용 클러스터를 만들어야 합니다 .이를 통해 더 나은 제어 및 더 높은 수집 속도가 가능 합니다.
 
 이 문서에서는 디자인 및 마이그레이션 고려 사항, 액세스 제어 개요 및 IT 조직에 권장 되는 디자인 구현을 이해 하는 방법에 대 한 자세한 개요를 제공 합니다.
 
@@ -62,7 +64,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요인 | Description |
+| 요인 | 설명 |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -125,37 +127,16 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 
 포털에서 또는 PowerShell을 사용 하 여 액세스 제어 모드를 변경 하거나 리소스 관리자 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [액세스 제어 모드 구성](manage-access.md#configure-access-control-mode)을 참조 하세요.
 
-## <a name="ingestion-volume-rate-limit"></a>수집 볼륨 률 제한
+## <a name="scale-and-ingestion-volume-rate-limit"></a>크기 조정 및 수집 볼륨 비율 제한
 
-Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. Volume rate 제한은 배포할지에 환경의 갑작스러운 수집 급증을 Azure Monitor 고객을 격리 하는 것입니다. 기본 수집 볼륨 비율 임계값 500 (압축 됨)이 작업 영역에서 정의 되 고,이는 약 **6gb/min** 으로 변환 됩니다. 실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식에 따라 달라질 수 있습니다. Volume rate 제한은 [진단 설정](diagnostic-settings.md), [데이터 수집기 API](data-collector-api.md) 또는 에이전트를 사용 하 여 Azure 리소스에서 전송 된 모든 수집 데이터에 적용 됩니다.
+Azure Monitor은 수천 명의 고객이 성장 하는 속도로 매월 페타바이트 데이터를 전송 하는 대규모 데이터 서비스입니다. 작업 영역은 저장소 공간에서 제한 되지 않으며 페타바이트 수 있습니다. 크기 조정으로 인해 작업 영역을 분할할 필요가 없습니다.
 
-작업 영역에 전송되는 데이터의 볼륨 속도가 작업 영역에 구성된 임계값의 80%를 초과할 경우 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블에 이벤트가 계속 전송됩니다. 수집 볼륨 속도가 임계값을 초과할 경우 일부 데이터가 삭제되고, 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블로 이벤트가 전송됩니다. 수집 볼륨의 요금이 계속 해 서 임계값을 초과 하거나 곧 도착할 것으로 예상 되는 경우에는 지원 요청을 열어에서 증가 하도록 요청할 수 있습니다. 
+Azure Monitor 고객과 백 엔드 인프라를 보호 하 고 격리 하기 위해 급증 및 홍수 상황을 방지 하기 위해 설계 된 기본 수집 률 제한이 있습니다. Rate limit 기본값은 약 **6gb/분** 이며 정상적인 수집을 사용할 수 있도록 설계 되었습니다. 수집 볼륨 한도 측정에 대 한 자세한 내용은 [Azure Monitor 서비스 제한](../service-limits.md#data-ingestion-volume-rate)을 참조 하세요.
 
-작업 영역의 대량 수집 볼륨 요금 제한에 대 한 알림을 받으려면 0 보다 큰 결과 수에 대 한 경고 논리 기반 및 5 분의 평가 기간 및 5 분의 빈도를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
+4TB/day 미만으로 수집 하는 고객은 일반적으로 이러한 제한을 충족 하지 않습니다. 더 큰 볼륨을 수집 하거나 정상적인 작업의 일부로 스파이크가 있는 고객은 수집 속도가 발생 될 수 있는 [전용 클러스터](../log-query/logs-dedicated-clusters.md) 로 이동 하는 것이 좋습니다.
 
-수집 볼륨 비율이 임계값을 초과 합니다.
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
-```
+수집 비율 제한이 활성화 되거나 임계값의 80%가 되 면 작업 영역의 *작업* 테이블에 이벤트가 추가 됩니다. 이를 모니터링 하 고 경고를 만드는 것이 좋습니다. [데이터 수집 볼륨 요금](../service-limits.md#data-ingestion-volume-rate)에 대 한 자세한 내용을 참조 하세요.
 
-수집 볼륨 비율이 임계값의 80%를 초과 했습니다.
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
-```
-
-수집 볼륨 비율이 임계값의 70%를 초과 했습니다.
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
-```
 
 ## <a name="recommendations"></a>권장 사항
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 404516778255409d56dd5c3a7d1fd96711cc981f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540611"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc 사용 Kubernetes 문제 해결(미리 보기)
 
@@ -100,6 +100,34 @@ Command group 'connectedk8s' is in preview. It may be changed/removed in a futur
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
+
+### <a name="helm-issue"></a>투구 문제
+
+투구 `v3.3.0-rc.1` 버전에는 CONNECTEDK8S CLI 확장을 통해 내부적으로 사용 되는 투구 설치/업그레이드로 인해 모든 후크가 실행 되어 다음 오류가 발생 하는 [문제가](https://github.com/helm/helm/pull/8527) 있습니다.
+
+```console
+$ az connectedk8s connect -n shasbakstest -g shasbakstest
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Ensure that you have the latest helm version installed before proceeding.
+This operation might take a while...
+
+Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the kubernetes cluster to onboard to arc.
+ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
+```
+
+이 문제를 복구 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 Azure Arc 사용이 가능한 Kubernetes 리소스를 삭제 합니다.
+2. 컴퓨터에서 다음 명령을 실행 합니다.
+    
+    ```console
+    kubectl delete ns azure-arc
+    kubectl delete clusterrolebinding azure-arc-operator
+    kubectl delete secret sh.helm.release.v1.azure-arc.v1
+    ```
+
+3. 릴리스 후보 버전이 아닌 컴퓨터에 안정적인 버전의 투구 3 [을 설치](https://helm.sh/docs/intro/install/) 합니다.
+4. `az connectedk8s connect`적절 한 값으로 명령을 실행 하 여 클러스터를 Azure Arc에 연결 합니다.
 
 ## <a name="configuration-management"></a>구성 관리
 

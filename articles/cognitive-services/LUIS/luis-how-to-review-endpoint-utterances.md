@@ -3,24 +3,22 @@ title: 사용자 길이 발언 검토-LUIS
 titleSuffix: Azure Cognitive Services
 description: 활성 학습에서 캡처한 길이 발언을 검토 하 여 의도를 선택 하 고 엔터티를 읽기 전용 길이 발언로 표시 합니다. 변경 내용 적용, 학습 및 게시
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055616"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541461"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 길이 발언을 검토 하 여 LUIS 앱을 개선 하는 방법
 
-올바른 예측에 대 한 끝점 길이 발언를 검토 하는 프로세스를 [활성 학습](luis-concept-review-endpoint-utterances.md)이라고 합니다. 활성 학습은 끝점 쿼리를 캡처하고 사용자의 끝점 길이 발언를 선택 합니다. 이러한 길이 발언를 검토 하 여 이러한 실제 길이 발언에 대 한 의도 및 표시 엔터티를 선택 합니다. 예제에 이러한 변경 내용을 적용 한 다음 학습 및 게시 길이 발언. LUIS는 길이 발언를 보다 정확 하 게 식별 합니다.
+올바른 예측에 대 한 끝점 길이 발언를 검토 하는 프로세스를 [활성 학습](luis-concept-review-endpoint-utterances.md)이라고 합니다. 활성 학습은 끝점 쿼리를 캡처하고 사용자의 끝점 길이 발언를 선택 합니다. 이러한 길이 발언를 검토 하 여 이러한 실제 길이 발언에 대 한 의도 및 표시 엔터티를 선택 합니다. 예제 발화에 이러한 변경 내용을 적용한 다음 학습 및 게시합니다. LUIS는 길이 발언를 보다 정확 하 게 식별 합니다.
 
 ## <a name="enable-active-learning"></a>활성 학습 사용
 
@@ -34,7 +32,7 @@ LUIS 포털을 사용 하 여 올바른 끝점 쿼리를 생성 합니다.
 1. 할당 된 예측 리소스의 경우 **쿼리 매개 변수 변경**을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![LUIS 포털을 사용 하 여 활성 학습에 필요한 로그를 저장 합니다.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![쿼리 매개 변수 변경 링크를 보여 주는 스크린샷](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. **로그 저장** 을 전환 하 고 **완료**를 선택 하 여 저장 합니다.
 

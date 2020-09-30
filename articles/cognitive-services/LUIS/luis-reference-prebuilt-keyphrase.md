@@ -3,20 +3,18 @@ title: 키 구 미리 작성 한 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 keyPhrase 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270523"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541988"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 keyPhrase 미리 빌드된 엔터티
 키 구 엔터티는 utterance에서 다양 한 키 구를 추출 합니다. 키 구를 포함 하는 예제 길이 발언를 응용 프로그램에 추가할 필요가 없습니다. 키 구 엔터티는 [텍스트 분석](../text-analytics/overview.md) 기능의 일부로 [많은 문화권](luis-language-support.md#languages-supported) 에서 지원 됩니다.
@@ -29,7 +27,7 @@ ms.locfileid: "78270523"
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `false` .
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ ms.locfileid: "78270523"
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `true` .
 
 ```json
 "entities": {

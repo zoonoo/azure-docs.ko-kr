@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289933"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540305"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -81,11 +81,11 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 
 새 키를 사용 하 여 Time Series Insights Gen2 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. TSI 리소스로 이동 하 여 이벤트 원본을 클릭 합니다. 
 
-   [![키를 업데이트 합니다.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![스크린샷 이라는 이벤트 원본 메뉴 항목이 포함 된 T 리소스를 보여 주는 스크린샷](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 수집이 중지 된 이벤트 원본을 선택 하 고 새 키를 붙여넣고 저장을 클릭 합니다.
 
-   [![키를 업데이트 합니다.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![스크린샷 입력 된 I o T i o T hub 정책 키가 있는 T의 I 리소스를 보여 줍니다.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>문제: 이벤트 원본의 타임 스탬프 속성 이름이 작동 하지 않습니다.
 
@@ -129,7 +129,7 @@ Timestamp 속성을 명시적으로 지정 하지 않으면 이벤트의 IoT hub
 
 Power BI Desktop에서 Power BI 커넥터의 최신 버전을 사용 하지 않는 경우이 문제가 발생할 수 있습니다.
 
-[![Unparented 인스턴스는 경고를 표시 합니다.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![연결할 수 없음 대화 상자를 보여 주는 스크린샷](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Power BI Desktop 버전을 확인 하 고 7 월 2020 버전을 사용 하 고 있는지 확인 합니다. 그렇지 않으면 Power BI Desktop를 업데이트 하 고 커넥터를 다시 실행 합니다. 
 

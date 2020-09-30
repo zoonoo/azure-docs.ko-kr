@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448727"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541189"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 보기 및 할당
 
@@ -55,7 +55,7 @@ ms.locfileid: "87448727"
 
 역할의 멤버를 보고 있는 경우 **설명**을 선택하여 역할 할당에서 부여된 권한의 전체 목록을 확인합니다. 이 페이지에는 디렉터리 역할을 관리하는 데 도움이 되는 관련 설명서에 대한 링크가 포함되어 있습니다.
 
-![관리 역할에 대한 권한 목록](./media/directory-manage-roles-portal/role-description.png)
+!["전역 관리자-설명" 페이지를 보여 주는 스크린샷](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>역할 할당 다운로드
 
@@ -71,7 +71,7 @@ ms.locfileid: "87448727"
 
 1. 역할을 선택 하 여 해당 할당을 확인 합니다.
 
-    ![관리 역할에 대한 권한 목록](./media/directory-manage-roles-portal/member-list.png)
+    !["PIM에서 관리" 작업이 선택 된 "사용자 관리자-할당" 페이지를 보여 주는 스크린샷](./media/directory-manage-roles-portal/member-list.png)
 
 1. 할당 **추가** 를 선택 하 고 할당 하려는 역할을 선택 합니다. 추가 관리 기능을 위해 **PIM에서 관리**를 선택할 수 있습니다. 다음 그림과 다른 내용이 표시 되는 경우 [권한 있는 역할에 대 한 할당 보기](#view-assignments-for-privileged-roles) 에서 참고 사항을 읽어 PIM에 있는지 확인 합니다.
 

@@ -1,7 +1,7 @@
 ---
-title: 컨테이너 구성 - Computer Vision
+title: 읽기 OCR 컨테이너 구성-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Computer Vision의 텍스트 인식 컨테이너에 대해 필수 설정과 선택적 설정을 모두 구성 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Computer Vision에서 OCR 컨테이너 읽기에 필요한 필수 설정과 선택적 설정을 모두 구성 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397133"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536242"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Computer Vision Docker 컨테이너 구성
+# <a name="configure-read-ocr-docker-containers"></a>읽기 OCR Docker 컨테이너 구성
 
-명령 인수를 사용 하 여 Computer Vision 컨테이너의 런타임 환경을 구성 합니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
+명령 인수를 사용 하 여 OCR 컨테이너의 런타임 환경을 읽는 Computer Vision를 구성 합니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
 ## <a name="configuration-settings"></a>구성 설정
 
@@ -31,14 +31,14 @@ ms.locfileid: "91397133"
 
 컨테이너에는 다음과 같은 컨테이너 관련 구성 설정도 있습니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
-|예|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
-|예|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
-|예|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
-|예|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
-|예|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
-|예|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
+|아니요|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
+|아니요|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
+|아니요|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
+|아니요|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
+|아니요|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
+|아니요|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
@@ -62,9 +62,9 @@ ms.locfileid: "91397133"
 
 `vision/v1.0`다음 표와 같이 끝점 URI에 라우팅을 추가 해야 합니다. 
 
-|필수| Name | 데이터 형식 | Description |
+|필수| 속성 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -90,10 +90,10 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용 하는 사용 권한 및 호스트 탑재 위치 권한에 따라 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스할 수 없습니다. 
 
-|선택 사항| Name | 데이터 형식 | Description |
+|선택 사항| 속성 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
-|선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
+|선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
 

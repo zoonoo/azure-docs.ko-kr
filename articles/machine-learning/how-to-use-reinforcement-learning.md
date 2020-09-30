@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f4003f8cd78a20e2ed40c6d874d50ffcd49b704e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302261"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541716"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -215,7 +215,7 @@ else:
 
 이 섹션에서는 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true)를 사용하여 학습 작업을 Azure Machine Learning에 제출하는 방법을 알아봅니다.
 
-Azure Machine Learning은 예측 도구 클래스를 사용하여 실행 구성 정보를 캡슐화합니다. 이렇게 하면 스크립트 실행을 구성하는 방법을 쉽게 지정할 수 있습니다. Azure Machine Learning 예측 도구 패턴에 대한 자세한 내용은 [예측 도구를 사용하여 모델을 학습시키는 방법](how-to-train-ml-models.md)을 참조하세요.
+Azure Machine Learning은 예측 도구 클래스를 사용하여 실행 구성 정보를 캡슐화합니다. 이렇게 하면 스크립트 실행을 구성하는 방법을 쉽게 지정할 수 있습니다. 
 
 ### <a name="define-a-worker-configuration"></a>작업자 구성 정의
 

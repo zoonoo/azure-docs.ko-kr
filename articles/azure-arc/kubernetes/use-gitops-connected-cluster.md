@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 지원 클러스터 구성에 GitOps 사용(미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049969"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541631"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster (Preview)에서 GitOps를 사용 하 여 구성 배포
 
@@ -29,11 +29,13 @@ Git 리포지토리에는 네임스페이스, ConfigMaps, 배포, DaemonSets 등
 
 이 시작 가이드에서는 클러스터 관리자 범위를 사용하여 구성 집합을 적용하는 과정을 안내합니다.
 
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서에서는 기존 Azure Arc 사용 Kubernetes 연결 클러스터가 있다고 가정합니다. 연결된 클러스터가 필요한 경우 [클러스터 연결 빠른 시작](./connect-cluster.md)을 참조하세요.
+
 ## <a name="create-a-configuration"></a>구성 만들기
 
-- 예제 리포지토리: <https://github.com/Azure/arc-k8s-demo>
-
-예제 리포지토리는 몇 가지 네임스페이스를 프로비전하고, 공통 워크로드를 배포하고, 몇 가지 팀별 구성을 제공하려는 클러스터 연산자의 가상 사용자를 중심으로 구성됩니다. 이 리포지토리를 사용하면 클러스터에 다음 리소스가 만들어집니다.
+이 문서에 사용 된 [예제 리포지토리](https://github.com/Azure/arc-k8s-demo) 는 몇 가지 네임 스페이스를 프로 비전 하 고, 일반적인 워크 로드를 배포 하 고, 몇 가지 팀 특정 구성을 제공 하고자 하는 클러스터 연산자의 가상 사용자를 중심으로 구성 됩니다. 이 리포지토리를 사용하면 클러스터에 다음 리소스가 만들어집니다.
 
 **네임스페이스:** `cluster-config`, `team-a`, `team-b`
 **배포:** `cluster-config/azure-vote`
@@ -47,12 +49,7 @@ Git 리포지토리에는 네임스페이스, ConfigMaps, 배포, DaemonSets 등
 의 Azure CLI 확장을 사용 하 여 `k8sconfiguration` 연결 된 클러스터를 [예제 git 리포지토리에](https://github.com/Azure/arc-k8s-demo)연결 해 보겠습니다. 이 구성에 이름 `cluster-config`를 지정하고, `cluster-config` 네임스페이스에 연산자를 배포하도록 에이전트에 지시하고, 연산자에게 `cluster-admin` 권한을 부여합니다.
 
 ```console
-az k8sconfiguration create \
-    --name cluster-config \
-    --cluster-name AzureArcTest1 --resource-group AzureArcTest \
-    --operator-instance-name cluster-config --operator-namespace cluster-config \
-    --repository-url https://github.com/Azure/arc-k8s-demo \
-    --scope cluster --cluster-type connectedClusters
+az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
 **출력:**
@@ -159,7 +156,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 Azure CLI를 사용하여 `sourceControlConfiguration`이 성공적으로 만들어졌는지 확인합니다.
 
 ```console
-az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --cluster-name AzureArcTest1 --cluster-type connectedClusters
+az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 `sourceControlConfiguration` 리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트됩니다.
@@ -198,7 +195,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
     * `config-agent`가 대상 네임스페이스를 만듭니다.
     * `config-agent`가 적절한 권한(`cluster` 또는 `namespace` 범위)을 사용하여 Kubernetes 서비스 계정을 준비합니다.
     * `config-agent`가 `flux`의 인스턴스를 배포합니다.
-    * `flux`SSH 키를 생성 하 고 공개 키를 로깅합니다.
+    * `flux` SSH 키를 생성 하 고 공개 키를 로깅합니다.
 1. `config-agent`가 상태를 `sourceControlConfiguration`에 다시 보고합니다.
 
 프로비전 프로세스가 진행되는 동안 `sourceControlConfiguration`이 몇 가지 상태 변경을 거칩니다. 위의 `az k8sconfiguration show ...` 명령을 사용하여 진행률을 모니터링합니다.
@@ -302,7 +299,7 @@ kubectl -n itops get all
 > 추적 된 git 리포지토리에서 배포의 결과로 생성 된 클러스터에 대 한 변경 내용은이 삭제 될 때 삭제 되지 않습니다 `sourceControlConfiguration` .
 
 ```console
-az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
+az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 **출력:**

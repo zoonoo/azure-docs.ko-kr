@@ -3,20 +3,18 @@ title: 앱 게시-LUIS
 titleSuffix: Azure Cognitive Services
 description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541478"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -37,7 +35,7 @@ ms.locfileid: "84340694"
 
 팝업 창이 표시 되 면 올바른 슬롯을 선택 합니다.
 
-* 스테이징
+* 준비
 * 프로덕션
 
 두 게시 슬롯을 모두 사용 하면 게시 된 끝점에서 두 가지 다른 버전의 앱을 사용할 수 있거나 두 개의 서로 다른 끝점에서 동일한 버전을 사용할 수 있습니다.
@@ -56,7 +54,7 @@ ms.locfileid: "84340694"
 
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
-* 정서 분석
+* 감정 분석
 * [맞춤법 수정](luis-tutorial-bing-spellcheck.md) -v2 예측 끝점만
 * 음성 초기화
 
@@ -68,7 +66,7 @@ ms.locfileid: "84340694"
 
 엔드포인트 URL이 필요한 경우 링크를 선택하세요. 상단 메뉴에서 **관리** 를 선택 하 고 왼쪽 메뉴에서 **Azure 리소스** 를 선택 하 여 끝점 url로 이동할 수도 있습니다.
 
-## <a name="sentiment-analysis"></a>정서 분석
+## <a name="sentiment-analysis"></a>감정 분석
 
 <a name="enable-sentiment-analysis"></a>
 

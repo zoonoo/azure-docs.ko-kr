@@ -3,19 +3,17 @@ title: 복합 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
 description: 복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 97bd079034a39f158e3ca438c484929cb6f00363
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681397"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542260"
 ---
 # <a name="composite-entity"></a>복합 엔터티
 

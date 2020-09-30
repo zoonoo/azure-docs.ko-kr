@@ -2,7 +2,6 @@
 title: 끝점 할당량 늘리기-LUIS
 titleSuffix: Azure Cognitive Services
 description: Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다.
-author: diberry
 manager: nitinme
 ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
 services: cognitive-services
@@ -10,13 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.author: diberry
-ms.openlocfilehash: 827dec47fa6ea3925513b2b3aadfb103a2b58c72
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e37b35e3473b2da397904d01be5e65cf8cafbbe5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298391"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541121"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다.
@@ -78,7 +76,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-Name|luis-profile-eastus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
@@ -97,7 +95,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     ```
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-EndpointName|luis-east-endpoint|프로필 아래에 표시되는 엔드포인트 이름|
     |-TrafficManagerProfile|$eastprofile|1단계에서 만든 프로필 개체 사용|
@@ -146,7 +144,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-Name|luis-profile-westus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
@@ -166,7 +164,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-EndpointName|luis-west-endpoint|프로필 아래에 표시되는 엔드포인트 이름|
     |-TrafficManagerProfile|$westprofile|1단계에서 만든 프로필 개체 사용|
@@ -213,7 +211,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-Name|luis-profile-parent|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
@@ -233,7 +231,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-EndpointName|child-endpoint-useast|East 프로필|
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|
@@ -270,7 +268,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|목적|
+    |구성 매개 변수|변수 이름 또는 값|용도|
     |--|--|--|
     |-EndpointName|child-endpoint-uswest|West 프로필|
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|

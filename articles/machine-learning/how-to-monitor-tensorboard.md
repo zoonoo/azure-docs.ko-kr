@@ -10,12 +10,12 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b6d4ac2727e558ed3d4538b6d325b7304d7928f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250881"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542056"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
 
@@ -39,8 +39,8 @@ Azure Machine Learning 실험을 통한 TensorBoard 시작 방법은 실험 유�
     * Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
         * 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리로 미리 로드된 전용 Notebook 서버를 만들기 위한 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 설정합니다.
         * Notebook 서버의 샘플 폴더에서 다음 디렉터리로 이동하여 두 개의 완료 및 확장된 Notebook을 찾습니다.
-            * **how-to-use-azureml > training-with-deep-learning > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
-            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
+            * **사용 방법-azureml > 추적-및 모니터-실험 > tensorboard > tensorboard > 내보내기-실행-기록-tensorboard. n a b**
+            * **사용 방법-azureml > 추적-및 모니터-실험 > tensorboard > tensorboard > tensorboard. ip b**
     * 사용자 고유의 Jupyter Notebook 서버에서 다음을 수행합니다.
        * `tensorboard` extra와 함께 [Azure Machine Learning SDK를 설치합니다](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
         * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).  

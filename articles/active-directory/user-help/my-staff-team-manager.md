@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744529"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537093"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>내 직원(미리 보기)을 사용하여 사용자 관리 위임
 
@@ -104,7 +104,7 @@ ms.locfileid: "83744529"
 
 1. 완료되면 **확인**을 선택합니다.
 
-    ![내 직원에서 직원 전화 번호 제거](media/my-staff-team-manager/enableforms2.png)
+    !["로그인에 전화 번호를 사용 하도록 설정 하 시겠습니까?"를 보여 주는 스크린샷 "확인" 단추가 선택 된 창입니다.](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>전화 번호 제거
 

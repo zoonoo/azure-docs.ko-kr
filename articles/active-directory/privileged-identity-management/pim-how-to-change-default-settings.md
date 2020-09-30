@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055489"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541138"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -147,7 +147,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **활성화** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간(시간 단위)을 설정합니다. 이 값은 1 ~ 72시간 사이가 될 수 있습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 알림은 무단 또는 불법 활성화를 검색 하는 데 유용할 수 있습니다.
 
@@ -196,7 +196,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 1. **승인 필요** 스위치를 **사용**으로 설정합니다. 창은 승인자를 선택하는 옵션을 표시하도록 확장합니다.
 
-    ![Azure AD 역할-설정-승인 필요](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    !["사용"이 선택 된 "승인 필요" 스위치를 보여 주는 스크린샷](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     승인자를 지정 하지 않으면 권한 있는 역할 관리자가 기본 승인자가 되며이 역할에 대 한 모든 활성화 요청을 승인 하는 데 필요 합니다.
 

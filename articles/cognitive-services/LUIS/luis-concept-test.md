@@ -2,7 +2,6 @@
 title: LUIS 앱 테스트
 titleSuffix: Azure Cognitive Services
 description: 테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.custom: seodec18
@@ -10,13 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: ccd732c644cf0a5641099a9731f65dd7b03bf374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316412"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535851"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 

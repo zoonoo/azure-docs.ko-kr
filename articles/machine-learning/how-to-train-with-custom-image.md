@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893109"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537619"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
 
@@ -25,11 +25,11 @@ ms.locfileid: "90893109"
 
 Azure Machine Learning 기본 Docker 기본 이미지를 제공 하는 동안 Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [AZURE ML 기본 이미지](https://github.com/Azure/AzureML-Containers) 집합 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)중 하나 등의 특정 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 * Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
     * [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
-    * Azure Machine Learning [예제 리포지토리에서](https://github.com/Azure/azureml-examples)이 디렉터리로 이동 하 여 완성 된 노트북을 찾습니다. **노트북 > fastai > resnet34** 
+    * Azure Machine Learning [예제 리포지토리에서](https://github.com/Azure/azureml-examples)이 디렉터리로 이동 하 여 완성 된 노트북을 찾습니다. **사용 방법-azureml > ml-프레임 워크 > fastai > 학습-사용자 지정-docker** 
 
 * 사용자 고유의 Jupyter Notebook 서버
     * [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
@@ -63,7 +63,7 @@ fastai_env = Environment("fastai2")
 fastai_env.docker.enabled = True
 ```
 
-이 지정 된 기본 이미지는 분산 심층 학습 기능을 허용 하는 fast.ai 라이브러리를 지원 합니다. 자세한 내용은 [Fast.ai DockerHub](https://hub.docker.com/u/fastdotai)를 참조 하세요. 
+아래 지정 된 기본 이미지는 분산 심층 학습 기능을 허용 하는 fast.ai 라이브러리를 지원 합니다. 자세한 내용은 [Fast.ai DockerHub](https://hub.docker.com/u/fastdotai)를 참조 하세요. 
 
 사용자 지정 Docker 이미지를 사용 하는 경우 Python 환경이 이미 제대로 설정 되어 있을 수 있습니다. 이 경우 `user_managed_dependencies` 사용자 지정 이미지의 기본 제공 python 환경을 활용 하기 위해 플래그를 True로 설정 합니다. 기본적으로 Azure ML은 사용자가 지정한 종속성이 있는 Conda 환경을 빌드하고 기본 이미지에 설치한 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다.
 
@@ -98,6 +98,8 @@ fastai_env.docker.base_dockerfile = dockerfile
 fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
+
+Azure ML 환경을 만들고 관리 하는 방법에 대 한 자세한 내용은 [소프트웨어 환경 만들기 & 사용](how-to-use-environments.md)을 참조 하세요. 
 
 ### <a name="create-or-attach-existing-amlcompute"></a>기존 AmlCompute 만들기 또는 연결
 모델 학습을 위한 [계산 대상을](concept-azure-machine-learning-architecture.md#compute-targets) 만들어야 합니다. 이 자습서에서는 AmlCompute를 학습 계산 리소스로 만듭니다.
@@ -136,9 +138,10 @@ print(compute_target.get_status().serialize())
 ```python
 from azureml.core import ScriptRunConfig
 
-fastai_config = ScriptRunConfig(source_directory='fastai-example', script='train.py')
-fastai_config.run_config.environment = fastai_env
-fastai_config.run_config.target = compute_target
+src = ScriptRunConfig(source_directory='fastai-example',
+                      script='train.py',
+                      compute_target=compute_target,
+                      environment=fastai_env)
 ```
 
 ### <a name="submit-your-run"></a>실행 제출
@@ -147,14 +150,12 @@ ScriptRunConfig 개체를 사용 하 여 학습 실행을 제출할 때 submit �
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(fastai_config)
+run = Experiment(ws,'fastai-custom-image').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
 > Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)를 사용 하 여 데이터에 액세스 합니다.
-
-Python 환경을 사용자 지정 하는 방법에 대 한 자세한 내용은 [소프트웨어 환경 만들기 & 사용](how-to-use-environments.md)을 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 사용자 지정 Docker 이미지를 사용 하 여 모델을 학습 했습니다. Azure Machine Learning에 대해 자세히 알아보려면 다음 문서를 참조 하세요.

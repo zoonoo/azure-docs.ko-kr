@@ -3,20 +3,18 @@ title: 패턴 정확도 추가-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS (Language Understanding) 응용 프로그램에서 예측 정확도를 향상 시키기 위해 패턴 템플릿을 추가 합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 4af8f90abf2a5581ec18ea550cbc5f1a5df50a4e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 914ca77b18d0469c3ea926848be4c60aab04c9c6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344903"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539107"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 시키기 위해 패턴을 추가 하는 방법
 LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md) 을 사용 하 여 단어 순서 및 단어 선택의 패턴을 표시 하는 길이 발언에 대 한 예측 정확도를 향상 시킵니다. 패턴은 특정 [구문을](luis-concept-patterns.md#pattern-syntax) 사용 하 여 [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md)및 선택적 텍스트의 위치를 지정 합니다.

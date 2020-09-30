@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: e9944e95dd452cd00e63280ad8002141591f521e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 94763cee852893057348f8eea1fa74fa742f62a1
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971436"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534729"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>개인 끝점을 통해 보안 리소스 액세스
 
@@ -45,7 +45,7 @@ Azure Cognitive Search는 [공유 개인 링크 리소스를 만들거나 업데
 이 가이드의 목적을 위해 [ARMClient](https://github.com/projectkudu/ARMClient) 및 [postman](https://www.postman.com/) 을 함께 사용 하 여 REST API 호출을 보여 줍니다.
 
 > [!NOTE]
-> 이 가이드에서는 구독 id가 __00000000-0000-0000-0000-000000000000__인 구독의 리소스 그룹 __contoso__ 에 존재 하는 검색 서비스 이름이 __contoso-search__ 인 것으로 가정 합니다. 이 검색 서비스의 리소스 id는 다음과 같을 예정입니다. `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
+> 이 가이드에서는 구독 ID가 __00000000-0000-0000-0000-000000000000__인 구독의 리소스 그룹 __contoso__ 에 존재 하는 검색 서비스 이름이 __contoso-search__ 인 것으로 가정 합니다. 이 검색 서비스의 리소스 ID는 다음과 같을 예정입니다. `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
 
 이 가이드의 나머지 부분에서는 해당 인덱서가 보안 저장소 계정의 데이터에 액세스할 수 있도록 __contoso search__ 서비스를 구성 하는 방법을 보여 줍니다. `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
 

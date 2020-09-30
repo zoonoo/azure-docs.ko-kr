@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423000"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536888"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>전화 번호를 사용자 이름으로 사용(미리 보기)
 
@@ -52,7 +52,7 @@ ms.locfileid: "87423000"
 
 1. SMS 로그인을 사용할 수 있게 되면 전화 번호를 SMS 로그인용으로 사용할 것인지 묻는 배너가 표시됩니다.
 
-    [![전화 번호에 대해 SMS 로그인을 사용 하도록 설정 하는 배너입니다.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="' 사용 ' 작업을 선택한 전화 번호에 대해 SMS 로그인을 사용 하도록 설정 하는 배너를 보여 주는 스크린샷" lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. 또한, 전화 방법 타일에서 캐럿을 선택하면 **사용** 단추가 표시됩니다.
 

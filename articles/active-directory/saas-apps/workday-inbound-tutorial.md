@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974378"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541291"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -129,7 +129,7 @@ Workday를 Active Directory 사용자 프로 비전을 구성 하려면 다음�
 1. 검색 상자에 보안 그룹 만들기를 입력하고 **보안 그룹 만들기**를 클릭합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_03.png "보안 그룹 만들기")
+   > ![검색 상자에 입력 된 "보안 그룹 만들기"와 검색 결과에 표시 된 "보안 그룹 만들기-작업"을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. **보안 그룹 만들기** 작업을 완료합니다. 
 
    * Workday에 있는 두 가지 유형의 보안 그룹은 다음과 같습니다.
@@ -154,7 +154,7 @@ Workday를 Active Directory 사용자 프로 비전을 구성 하려면 다음�
 
 1. 검색 상자에 **도메인 보안 구성**을 입력한 다음, **도메인 보안 구성 보고서** 링크를 클릭합니다.  
    >[!div class="mx-imgBorder"]
-   >![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_06.png "도메인 보안 정책")  
+   >![검색 상자에 "도메인 보안 구성"이 표시 되 고 결과에 "도메인 보안 구성-보고서"가 표시 되는 스크린샷](./media/workday-inbound-tutorial/wd_isu_06.png "도메인 보안 정책")  
 2. **도메인** 텍스트 상자에서 다음 도메인을 검색하고 필터에 하나씩 추가합니다.  
    * *외부 계정 프로비저닝*
    * *작업자 데이터: 작업자*
@@ -166,10 +166,10 @@ Workday를 Active Directory 사용자 프로 비전을 구성 하려면 다음�
    * *Workday 계정*
    
      >[!div class="mx-imgBorder"]
-     >![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_07.png "도메인 보안 정책")  
+     >!["도메인" 텍스트 상자에 "외부 계정"을 포함 하는 도메인 보안 구성 보고서를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_07.png "도메인 보안 정책")  
 
      >[!div class="mx-imgBorder"]
-     >![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_08.png "도메인 보안 정책") 
+     >![도메인 목록이 선택 된 도메인 보안 구성 보고서를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_08.png "도메인 보안 정책") 
 
      **확인**을 클릭합니다.
 
@@ -179,7 +179,7 @@ Workday를 Active Directory 사용자 프로 비전을 구성 하려면 다음�
 
 4. **도메인 보안 정책 권한 편집** 페이지에서 **통합 권한** 섹션까지 아래로 스크롤합니다. “+” 기호를 클릭하여 **Get** 및 **Put** 통합 권한이 있는 보안 그룹 목록에 통합 시스템 그룹을 추가합니다.
    >[!div class="mx-imgBorder"]
-   >![권한 편집](./media/workday-inbound-tutorial/wd_isu_10.png "편집 권한")  
+   >![강조 표시 된 "Integration 권한이" 섹션을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_10.png "편집 권한")  
 
 5. “+” 기호를 클릭하여 **Get** 및 **Put** 통합 권한이 있는 보안 그룹 목록에 통합 시스템 그룹을 추가합니다.
 
@@ -210,12 +210,12 @@ Workday를 Active Directory 사용자 프로 비전을 구성 하려면 다음�
 1. 검색 상자에 **비즈니스 프로세스 정책**을 입력한 다음, **비즈니스 프로세스 보안 정책 편집** 작업 링크를 클릭합니다.  
 
    >[!div class="mx-imgBorder"]
-   >![비즈니스 프로세스 보안 정책](./media/workday-inbound-tutorial/wd_isu_12.png "비즈니스 프로세스 보안 정책")  
+   >![검색 상자에 "비즈니스 프로세스 정책"을 보여 주는 스크린샷 및 "비즈니스 프로세스 보안 정책 편집-작업"이 선택 되어 있습니다.](./media/workday-inbound-tutorial/wd_isu_12.png "비즈니스 프로세스 보안 정책")  
 
 2. **비즈니스 프로세스 유형** 텍스트 상자에서 *연락처*를 검색하고 **회사 연락처 변경** 비즈니스 프로세스를 선택하고 **확인**을 클릭합니다.
 
    >[!div class="mx-imgBorder"]
-   >![비즈니스 프로세스 보안 정책](./media/workday-inbound-tutorial/wd_isu_13.png "비즈니스 프로세스 보안 정책")  
+   >!["비즈니스 프로세스 유형" 메뉴에서 선택한 "비즈니스 프로세스 보안 정책 편집" 페이지 및 "회사 연락처 변경 내용"을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_13.png "비즈니스 프로세스 보안 정책")  
 
 3. **비즈니스 프로세스 보안 정책 편집** 페이지에서 **회사 연락처 정보 변경(웹 서비스)** 섹션으로 스크롤합니다.
     
@@ -390,7 +390,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    
      | URL 형식 | 사용 되는 WWS API 버전 | XPATH 변경 필요 |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 예 |
+     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 아니요 |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | 아니요 |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # # # | 예 |
 
@@ -415,7 +415,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
      >[!div class="mx-imgBorder"]
-     >![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     >![자격 증명이 입력 된 "프로 비전" 페이지를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_1.png)
 
    * 자격 증명이 저장되면 **매핑** 섹션에 기본 매핑인 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화)가 표시됩니다.
 
@@ -480,7 +480,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 
 1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
    >[!div class="mx-imgBorder"]
-   >![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   >!["저장" 작업이 선택 된 "특성 매핑" 페이지를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.
 
@@ -942,11 +942,11 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
   *Event ID = 2*인 내보내기 작업의 타임스탬프에 해당하는 HTTP POST 레코드를 찾습니다. 이 레코드는 프로비전 서비스가 프로비전 에이전트에 보낸 특성 값을 포함합니다.
 
-  [![SCIM 추가](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="' 프로 비전 에이전트 ' 로그의 ' HTTP POST ' 레코드를 보여 주는 스크린샷" lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   위의 이벤트 바로 뒤에는 AD 계정 만들기 작업의 응답을 캡처하는 또 다른 이벤트가 있어야 합니다. 이 이벤트는 AD에 만들어진 새 objectGuid를 반환하고 프로비전 서비스의 TargetAnchor 특성으로 설정됩니다.
 
-  [![SCIM 추가](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="' 프로 비전 에이전트 ' 로그의 ' HTTP POST ' 레코드를 보여 주는 스크린샷" lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>관리자 업데이트 작업에 대한 로그 이해
 
@@ -1040,14 +1040,14 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 5. **외부**를 선택하고 2단계에서 다운로드한 Human_Resources WSDL 파일을 선택합니다.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Workday Studio에서 열려 있는 "Human_Resources" 파일을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. "IMPL-CC"를 실제 인스턴스 유형으로, "TENANT"를 실제 테넌트 이름으로 바꾸어 **위치** 필드를 `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`로 설정합니다.
 
 7. **작업**을 **Get_Workers**로 설정합니다.
 
 8.    요청/응답 창 아래의 작은 **구성** 링크를 클릭하여 Workday 자격 증명을 설정합니다. **인증**을 선택하고 Workday 통합 시스템 계정의 사용자 이름 및 암호를 입력합니다. 사용자 이름 형식을 name\@tenant로 지정하고 **WS-Security UsernameToken** 옵션을 선택된 상태로 둡니다.
-   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   !["사용자 이름" 및 "암호"를 입력 하 고 "WS-SECURITY 사용자 이름 토큰"을 선택 하 여 "보안" 탭을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. **확인**을 선택합니다.
 
@@ -1086,7 +1086,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 13. Workday Studio의 명령 모음에서 **파일 > 파일 열기...** 를 선택하고 저장한 XML 파일을 엽니다. 이 작업을 수행하면 Workday Studio XML 편집기에서 파일이 열립니다.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    !["Workday Studio X M L 편집기"에 열려 있는 X M L 파일의 스크린샷](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. 파일 트리에서 **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker**를 탐색하여 사용자의 데이터를 찾습니다.
 
@@ -1112,7 +1112,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 5. **Workday에 대한 특성 목록 편집**을 선택합니다.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    !["Workday에 대 한 특성 목록 편집" 작업이 강조 표시 된 "Workday에서 Azure A D 사용자 프로 비전-프로 비전 중" 페이지를 보여 주는 스크린샷](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. 특성 목록에서 입력 필드가 있는 맨 아래로 스크롤합니다.
 

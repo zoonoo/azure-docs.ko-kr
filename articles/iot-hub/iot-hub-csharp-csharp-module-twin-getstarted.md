@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: e990d122367581c785b411f3f6d3c39b334a14fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3d683ada6401c4ba4f2e232948e9712643339fd8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998580"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533471"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (.NET)
 
@@ -70,7 +70,7 @@ ms.locfileid: "88998580"
 
 1. 를 검색 하 고 **Microsoft. Devices**를 선택 하 고 **설치**를 선택 합니다.
 
-    ![Azure IoT Hub .NET 서비스 SDK 최신 버전을 설치 합니다.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+    !["Microsoft. Azure. 클라이언트"가 선택 되 고 "설치" 단추가 강조 표시 된 스크린샷](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
 1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056808"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534984"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -33,6 +33,9 @@ ms.locfileid: "88056808"
 
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
+> [!TIP]
+> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) 를 참조 하세요.
+
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## <a name="get-a-list-of-voices"></a>음성 목록 가져오기
@@ -41,7 +44,7 @@ ms.locfileid: "88056808"
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
-| 지역 | 엔드포인트 |
+| Region | 엔드포인트 |
 |--------|----------|
 | 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -233,7 +236,7 @@ Authorization: Bearer [Base64 access_token]
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
 | 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
 | 413 | 요청 엔터티가 너무 큼 | SSML 입력이 1024자보다 깁니다. |
-| 415 | 지원되지 않는 미디어 유형 | 잘못 된를 제공 했을 수 `Content-Type` 있습니다. `Content-Type`로 설정 해야 `application/ssml+xml` 합니다. |
+| 415 | 지원되지 않는 미디어 유형 | 잘못 된를 제공 했을 수 `Content-Type` 있습니다. `Content-Type` 로 설정 해야 `application/ssml+xml` 합니다. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
 | 502 | 잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
 

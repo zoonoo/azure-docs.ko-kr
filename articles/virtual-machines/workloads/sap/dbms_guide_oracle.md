@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279011"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540713"
 ---
-# <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
+# <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>SAP 워크 로드에 대 한 Azure Virtual Machines Oracle DBMS 배포
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830

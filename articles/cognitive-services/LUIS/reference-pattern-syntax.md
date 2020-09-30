@@ -5,13 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 533dc87e50abc5a689d1157b294070ece39dab9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322821"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542192"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
@@ -34,7 +33,7 @@ ms.locfileid: "91322821"
 
 ## <a name="nesting-syntax-in-patterns"></a>패턴의 중첩 구문
 
-대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form`. 이 예에서는 다음 길이 발언을 허용 합니다.
+대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form` 이 예에서는 다음 길이 발언을 허용 합니다.
 
 |중첩 된 선택적 utterance 예제|설명|
 |--|--|
@@ -42,7 +41,7 @@ ms.locfileid: "91322821"
 |새 양식|패턴의 외부 선택적 단어 및 선택적 단어가 아닌 단어를 찾습니다.|
 |새 양식|필수 단어만 찾습니다.|
 
-괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
+괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
 
 Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 위치인 경우 엔터티 2는 목록 엔터티 (RedWest-C)에서 알려진 빌딩 이름이 고, 다음 길이 발언는이 패턴에 매핑됩니다.
 
@@ -59,7 +58,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 |허용|예제|
 |--|--|
 |예|([(test1 &#x7c; test2)] &#x7c; test3)|
-|예|([([test1] &#x7c; test2)] &#x7c; test3)|
+|아니요|([([test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>또는 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
@@ -68,7 +67,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 |허용|예제|
 |--|--|
 |예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
-|예|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|아니요|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>패턴 템플릿에 엔터티를 추가하는 구문
 패턴 템플릿에 엔터티를 추가하려면 엔터티 이름을 중괄호로 묶습니다(예: `Who does {Employee} manage?`).

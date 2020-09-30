@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449577"
+ms.locfileid: "91535613"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -28,8 +28,8 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
 ## <a name="new-features"></a>새 기능
-### <a name="llap-cluster-auto-scale-general-available"></a>LLAP 클러스터 자동 크기 조정 일반 사용 가능
-LLAP 클러스터 형식에 대 한 자동 크기 조정이 이제 GA (일반 공급)로 제공 됩니다. 27 2020 월 27 일 이후에 만들어진 모든 LLAP 클러스터는 자동 크기 조정에 대해 GA를 지원 합니다.
+### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>HDInsight 4.0를 사용 하 여 대화형 쿼리에 대 한 자동 크기 조정이 이제 일반 공급 됩니다.
+대화형 쿼리 클러스터 유형에 대 한 자동 크기 조정 기능은 이제 HDInsight 4.0에 대 한 GA (일반 공급)로 제공 됩니다. 27 2020 월 27 일 이후에 만들어진 모든 대화형 쿼리 4.0 클러스터는 자동 크기 조정에 대해 GA를 지원 합니다.
 
 ### <a name="hbase-cluster-supports-premium-adls-gen2"></a>HBase 클러스터는 Premium ADLS Gen2 지원
 이제 HDInsight는 HDInsight HBase 3.6 및 4.0 클러스터에 대 한 기본 저장소 계정으로 Premium ADLS Gen2 지원 합니다. 가속화 된 [쓰기](./hbase/apache-hbase-accelerated-writes.md)와 함께 HBase 클러스터에 대해 더 나은 성능을 얻을 수 있습니다.

@@ -7,16 +7,16 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma, stevestein, danil
 ms.date: 09/25/2020
-ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444289"
+ms.locfileid: "91535103"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -415,6 +415,9 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 
 자세한 내용은 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 를 참조 하세요.
 
+> [!NOTE]
+> 데이터베이스 복원, 데이터베이스 복사 또는 보조 작업 만들기에-BackupStorageRedundancy 매개 변수를 사용 하려면 Azure PowerShell 버전 Az. Sql 2.11.0를 사용 합니다. 
+
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
@@ -425,6 +428,8 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 ```
 
 자세한 내용은 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)를 참조 하세요.
+
+---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Azure Policy를 사용 하 여 백업 저장소 중복성 적용
 
@@ -440,11 +445,13 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 
 SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전체 목록은 [여기](https://docs.microsoft.com/azure/azure-sql/database/policy-reference)에서 찾을 수 있습니다.
 
-조직 수준에서 데이터 상주 요구 사항을 적용 하기 위해 구독에 이러한 정책을 할당할 수 있습니다. 구독 수준에서 할당 된 후에는 지정 된 구독의 사용자가 Azure Portal 또는 Azure PowerShell를 통해 지역 중복 백업 저장소를 사용 하 여 데이터베이스 또는 관리 되는 인스턴스를 만들 수 없습니다. T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. 
+조직 수준에서 데이터 상주 요구 사항을 적용 하기 위해 구독에 이러한 정책을 할당할 수 있습니다. 구독 수준에서 할당 된 후에는 지정 된 구독의 사용자가 Azure Portal 또는 Azure PowerShell를 통해 지역 중복 백업 저장소를 사용 하 여 데이터베이스 또는 관리 되는 인스턴스를 만들 수 없습니다. 
+
+> [!IMPORTANT]
+> T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. T-sql을 사용 하 여 데이터베이스를 만들 때 데이터 상주을 적용 하려면 [CREATE database 문에 ' LOCAL ' 또는 ' ZONE '을 입력으로 사용](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups)하 여 매개 변수를 BACKUP_STORAGE_REDUNDANCY 합니다.
 
 [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) 또는 [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell) 를 사용 하 여 정책을 할당 하는 방법을 알아봅니다.
 
----
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,14 +3,14 @@ title: Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 교육
 description: Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 학습 하도록 랩을 설정 하는 방법을 알아봅니다.
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445018"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533523"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 교육 하는 랩 설정
 이 문서에서는 학생 들에 게 [Jupyter 노트북](http://jupyter-notebook.readthedocs.io/)을 사용 하는 방법을 학습 하는 데 필요한 도구를 사용 하 여 랩 서비스에서 템플릿 vm (가상 머신)을 설정 하는 방법 및 학생이 vm (가상 머신)에서 노트북에 연결 하는 방법을 설명 합니다.
@@ -112,7 +112,7 @@ Mac 또는 Chromebook를 사용 하는 학생은 다음 문서의 지침에 따�
 4. 이 정보가 있으면 X2Go client 앱을 열고 새 세션을 만듭니다. 
 5.  **세션 기본 설정** 창에서 다음 값을 입력 합니다.
     - **세션 이름**: 원하는 대로 지정할 수 있지만 랩 VM의 이름을 사용 하는 것이 좋습니다.
-     - **호스트**:`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
+     - **호스트**: `ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
      - **로그인**: 학생
      - **SSH 포트**: 12345
      - **세션 유형**: xfce

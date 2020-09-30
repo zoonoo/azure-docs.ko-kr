@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002422"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534797"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
@@ -138,7 +138,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되어 있습니다. 필터링 가능 필드는 인덱스 크기가 늘어나기 때문에 필터에서 실제로 사용하지 않는 필드에 대해서는 `"filterable": false`로 설정합니다. 필드 정의 설정에 대한 자세한 내용은 [Create Index](/rest/api/searchservice/create-index)(인덱스 만들기)를 참조하세요.
 
-.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) 개체의 [isfilterable 가능 속성](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) 을로 설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다 `true` . [Isfilterable 가능한 특성](/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 대해 설정 됩니다.
+.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](/dotnet/api/microsoft.azure.search.models.field) 개체의 [isfilterable 가능 속성](/dotnet/api/microsoft.azure.search.models.field.isfilterable) 을로 설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다 `true` . [Isfilterable 가능한 특성](/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 대해 설정 됩니다.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -202,4 +202,4 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 + [문서 검색 REST API](/rest/api/searchservice/search-documents)
 + [단순 쿼리 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [지원 되는 데이터 형식](/rest/api/searchservice/supported-data-types)
++ [지원되는 데이터 형식](/rest/api/searchservice/supported-data-types)

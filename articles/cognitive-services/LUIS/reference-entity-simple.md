@@ -3,19 +3,17 @@ title: 단순 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
 description: 간단한 엔터티는 기계 학습 컨텍스트의 단일 개념을 설명 합니다. 간단한 엔터티를 사용 하 여 결과를 개선할 때 구 목록을 추가 합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 1b5754be3c9941101a53f332841ace93caf9acdd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 384d3df2de551e7c79f13a0fe47ffb26c7825f1b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684563"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539289"
 ---
 # <a name="simple-entity"></a>단순 엔터티
 

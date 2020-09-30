@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1df576e3316a529ec38c4a53960ff817d129ffd8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 260125b5e7aa4537c6e204d93263b65be042793a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002259"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540747"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Windows 가상 데스크톱 (클래식) 호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
 
@@ -49,7 +49,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/singlecustomrdpproperty.png)
+> ![사용자 지정 R D P 속성을 편집 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>여러 사용자 지정 RDP 속성 추가 또는 편집
 
@@ -61,7 +61,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/multiplecustomrdpproperty.png)
+> ![사용자 지정 R D P 속성을 편집 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>모든 사용자 지정 RDP 속성 다시 설정
 

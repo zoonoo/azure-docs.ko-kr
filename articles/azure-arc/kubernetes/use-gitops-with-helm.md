@@ -8,16 +8,16 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 사용 클러스터 구성(미리 보기)을 위한 Helm에서 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: cca48910b679ff8f72ee06f4ed990bd480fb2200
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: eea81d458ac6631c4a023134b3198e4cdb04526e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723642"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541614"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
 
-Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT 및 Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
+Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT, Yum 등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
 
 이 문서에서는 Azure Arc 사용 Kubernetes에서 Helm을 구성하고 사용하는 방법을 보여 줍니다.
 
@@ -25,33 +25,13 @@ Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하
 
 이 문서에서는 기존 Azure Arc 사용 Kubernetes 연결 클러스터가 있다고 가정합니다. 연결된 클러스터가 필요한 경우 [클러스터 연결 빠른 시작](./connect-cluster.md)을 참조하세요.
 
-먼저 이 자습서 전체에서 사용할 환경 변수를 설정합니다. 연결된 클러스터에 대한 리소스 그룹 이름 및 클러스터 이름이 필요합니다.
-
-```bash
-export RESOURCE_GROUP=<Resource_Group_Name>
-export CLUSTER_NAME=<ClusterName>
-```
-
-## <a name="verify-your-cluster-is-enabled-with-arc"></a>클러스터가 Arc에서 사용하도록 설정되어 있는지 확인
-
-```bash
-az connectedk8s list -g $RESOURCE_GROUP -o table
-```
-
-출력:
-```bash
-Name           Location    ResourceGroup
--------------  ----------  ---------------
-arc-helm-demo  eastus      k8s-clusters
-```
-
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc를 사용 하는 Kubernetes를 사용 하 여 GitOps 및 투구 사용에 대 한 개요
 
  Helm 연산자는 Helm 차트 릴리스를 자동화하는 Flux에 대한 확장을 제공합니다. 차트 릴리스는 HelmRelease라는 Kubernetes 사용자 지정 리소스를 통해 설명됩니다. Flux는 Git에서 클러스터로 이러한 리소스를 동기화하고, Helm 연산자는 리소스에 지정된 대로 Helm 차트가 릴리스되도록 합니다.
 
- 다음은 이 자습서에서 사용할 Git 리포지토리 구조 예제입니다.
+ 이 문서에 사용 된 [예제 리포지토리](https://github.com/Azure/arc-helm-demo) 는 다음과 같은 방식으로 구성 됩니다.
 
-```bash
+```console
 ├── charts
 │   └── azure-arc-sample
 │       ├── Chart.yaml
@@ -98,15 +78,8 @@ HelmRelease에 대한 자세한 내용은 공식 [Helm 연산자 설명서](http
 
 `k8sconfiguration`에 대한 Azure CLI 확장을 사용하여 연결된 클러스터를 예제 Git 리포지토리에 연결해 보겠습니다. 이 구성 이름을 `azure-arc-sample`으로 지정하고 `arc-k8s-demo` 네임스페이스에 Flux 연산자를 배포합니다.
 
-```bash
-az k8sconfiguration create --name azure-arc-sample \
-  --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME \
-  --operator-instance-name flux --operator-namespace arc-k8s-demo \
-  --operator-params='--git-readonly --git-path=releases' \
-  --enable-helm-operator --helm-operator-version='0.6.0' \
-  --helm-operator-params='--set helm.versions=v3' \
-  --repository-url https://github.com/Azure/arc-helm-demo.git  \
-  --scope namespace --cluster-type connectedClusters
+```console
+az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>구성 매개 변수
@@ -118,7 +91,7 @@ az k8sconfiguration create --name azure-arc-sample \
 Azure CLI를 사용하여 `sourceControlConfiguration`이 성공적으로 만들어졌는지 확인합니다.
 
 ```console
-az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-arc-sample --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
+az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 `sourceControlConfiguration`리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트 됩니다.
@@ -158,7 +131,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 다음 명령을 실행 하 고 브라우저에서로 이동 하 여 `localhost:8080` 응용 프로그램이 실행 중인지 확인 합니다.
 
-```bash
+```console
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 ```
 

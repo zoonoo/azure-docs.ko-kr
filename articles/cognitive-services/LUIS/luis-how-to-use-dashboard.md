@@ -3,20 +3,18 @@ title: 대시보드-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
 description: 학습 된 앱의 대시보드를 사용 하 여 의도 및 엔터티를 수정 합니다. 대시보드는 전체 앱 정보를 표시 하 고 수정 해야 하는 의도를 강조 표시 합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
-ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345243"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541410"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>대시보드를 사용 하 여 앱을 개선 하는 방법
 
@@ -33,8 +31,8 @@ ms.locfileid: "84345243"
 |문제|차트 색|설명|
 |--|--|--|
 |데이터 불균형|-|이는 예 길이 발언의 수량이 현저 하 게 다를 때 발생 합니다. 모든 의도에는 _거의_ 동일한 수의 예 길이 발언 (없음)를 포함 해야 합니다. 앱에서 길이 발언의 총 수량에 대해 10%-15%만 있어야 합니다.<br><br> 데이터의 균형이 맞지 않지만 의도 정확도가 특정 임계값을 초과 하는 경우 이러한 불균형은 문제로 보고 되지 않습니다.<br><br>**이 문제부터 시작 하 여 다른 문제의 근본 원인일 수 있습니다.**|
-|명확 하지 않은 예측|주황|이는 [부정적인 샘플링](luis-how-to-train.md#train-with-all-data) 또는 더 많은 예제 길이 발언가 의도에 추가 되었기 때문에 다음 학습에 대해 전환할 수 있을 만큼의 최고 도와 다음 의도의 점수가 가까이 있을 때 발생 합니다. |
-|잘못 된 예측|빨강|이는 utterance 예제에서 레이블이 지정 된 의도 (의 의도)에 대해 예측 하지 않을 때 발생 합니다.|
+|명확 하지 않은 예측|Orange|이는 [부정적인 샘플링](luis-how-to-train.md#train-with-all-data) 또는 더 많은 예제 길이 발언가 의도에 추가 되었기 때문에 다음 학습에 대해 전환할 수 있을 만큼의 최고 도와 다음 의도의 점수가 가까이 있을 때 발생 합니다. |
+|잘못 된 예측|빨간색|이는 utterance 예제에서 레이블이 지정 된 의도 (의 의도)에 대해 예측 하지 않을 때 발생 합니다.|
 
 올바른 예측은 파란색으로 표시 됩니다.
 
@@ -92,7 +90,7 @@ ms.locfileid: "84345243"
 
 데이터 **불균형** 의도 목록에는 데이터 불균형을 수정 하기 위해 더 많은 길이 발언이 필요한 의도가 표시 됩니다.
 
-**이 문제를 해결 하려면**:
+**이 문제를 해결하려면**
 
 * 길이 발언를 더 추가 하 고 다시 학습 합니다.
 
@@ -106,7 +104,7 @@ ms.locfileid: "84345243"
 
 **잘못 된 예측** 의도 목록에는 특정 의도에 대 한 예제로 사용 되지만 다른 의도에 대해 예측 되는 길이 발언가 있는 의도가 표시 됩니다.
 
-**이 문제를 해결 하려면**:
+**이 문제를 해결하려면**
 
 * 길이 발언를 편집 하 고 다시 학습 합니다.
 * 길이 발언이 너무 밀접 하 게 정렬 되 고 다시 학습 하는 경우 의도를 결합 합니다.
@@ -130,11 +128,11 @@ ms.locfileid: "84345243"
 
 다음 차트에서는 많은 문제를 해결 해야 하는 균형이 맞지 않는 앱을 보여 줍니다.
 
-![다음 차트는 해결할 문제가 거의 없는 잘 조정 된 앱을 보여 줍니다.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![스크린 샷에서는 명확 하거나 잘못 예측 한 결과를 사용 하 여 의도 당 예측을 보여 줍니다.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 각 의도의 막대를 마우스로 가리켜서 의도에 대 한 정보를 얻습니다.
 
-![다음 차트는 해결할 문제가 거의 없는 잘 조정 된 앱을 보여 줍니다.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![스크린 샷에서는 명확 하거나 잘못 예측 한 결과의 세부 정보를 사용 하 여 내재 된 예측을 보여 줍니다.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 **정렬 기준** 기능을 사용 하 여 문제 유형별 의도를 정렬 하 고 해당 문제에 대 한 가장 문제가 있는 의도에 집중할 수 있습니다.
 
@@ -154,7 +152,7 @@ ms.locfileid: "84345243"
 
 필터를 사용 하 여 특정 문제에 대 한 의도를 찾을 수 있습니다.
 
-|필터|제안 된 비율|용도|
+|Assert|제안 된 비율|용도|
 |--|--|--|
 |가장 문제가 있는 의도|-|**여기부터 시작** -이 의도에서 길이 발언를 수정 하면 앱이 다른 픽스 보다 더 향상 됩니다.|
 |아래에서 올바른 예측|60%|이 값은 선택 된 의도에서 올바르지만 정확도 점수가 임계값 보다 길이 발언 비율입니다. |

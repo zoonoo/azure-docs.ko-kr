@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533845"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -51,7 +51,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. **역할** 을 선택 하 여 Azure AD 사용 권한에 대 한 역할 목록을 표시 합니다.
 
-    ![Azure AD 역할](./media/pim-how-to-add-role-to-user/roles-list.png)
+    !["할당 추가" 작업이 선택 된 "역할" 페이지의 스크린샷](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. 할당 **추가** 를 선택 하 여 **할당 추가** 페이지를 엽니다.
 

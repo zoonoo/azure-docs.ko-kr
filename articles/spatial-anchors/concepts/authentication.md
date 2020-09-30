@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997169"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538248"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -22,7 +22,7 @@ ms.locfileid: "88997169"
 
 ## <a name="overview"></a>개요
 
-![Azure Spatial Anchors에 대한 인증 개요](./media/spatial-anchors-authentication-overview.png)
+![Azure 공간 앵커로의 인증에 대 한 개요를 보여 주는 다이어그램입니다.](./media/spatial-anchors-authentication-overview.png)
 
 지정된 Azure Spatial Anchors 계정에 액세스하려면 클라이언트는 먼저 Azure Mixed Reality STS(보안 토큰 서비스)에서 액세스 토큰을 가져와야 합니다. STS에서 가져온 토큰은 24시간 동안 유효하며, 포함된 Spatial Anchors 서비스에 대한 정보를 통해 계정에 대한 권한 부여를 결정하고 권한 있는 사용자만이 계정에 액세스할 수 있도록 합니다.
 
@@ -39,7 +39,7 @@ Azure AD 인증 토큰은 다음 두 가지 방법으로 가져올 수 있습니
 
 가장 간단한 시작 방법은 계정 키를 사용하여 Azure Spatial Anchors 계정에 액세스하는 것입니다. Azure Portal에서 계정 키를 찾을 수 있습니다. 계정으로 이동하여 "키" 탭을 선택합니다.
 
-![Azure Spatial Anchors에 대한 인증 개요](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+!["기본 키"에 대해 "복사" 단추가 강조 표시 된 "키" 페이지를 보여 주는 스크린샷](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Spatial Anchors 계정에 동시에 액세스할 수 있는 두 개의 유효한 키를 사용할 수 있습니다. 계정에 액세스하는 데 사용하는 키를 정기적으로 업데이트하는 것이 좋습니다. 두 개의 유효한 키를 사용하면 가동 중지 시간 없이 이러한 업데이트를 사용할 수 있습니다. 기본 키와 보조 키만 교대로 업데이트하면 됩니다.
 

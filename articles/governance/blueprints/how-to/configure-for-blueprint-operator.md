@@ -3,18 +3,18 @@ title: 청사진 운영자를 위한 환경 설정
 description: Azure 기본 제공 역할 청사진에 사용 하도록 Azure 환경을 구성 하는 방법을 알아봅니다.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051460"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535784"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>청사진 운영자를 위한 환경 구성
 
 청사진 정의 및 청사진 할당의 관리를 다른 팀에 할당할 수 있습니다. 운영 팀은 중앙에서 제어 되는 중앙 집중식 청사진 정의의 할당을 관리 하는 동안 청사진 정의의 수명 주기 관리를 담당 하는 것이 일반적입니다.
 
-**청사진 연산자** 기본 제공 RBAC (역할 기반 액세스 제어)는 이러한 유형의 시나리오에서 사용 하도록 특별히 설계 되었습니다. 역할을 사용 하면 작업 유형 팀에서 조직 청사진 정의의 할당을 관리할 수 있지만 수정할 수는 없습니다. 이렇게 하려면 Azure 환경에서 몇 가지 구성이 필요 합니다 .이 문서에서는 필요한 단계를 설명 합니다.
+**청사진 연산자** 기본 제공 역할은 이러한 유형의 시나리오에서 사용 하기 위해 특별히 설계 되었습니다. 역할을 사용 하면 작업 유형 팀에서 조직 청사진 정의의 할당을 관리할 수 있지만 수정할 수는 없습니다. 이렇게 하려면 Azure 환경에서 몇 가지 구성이 필요 합니다 .이 문서에서는 필요한 단계를 설명 합니다.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>청사진 연산자에 사용 권한 부여
 

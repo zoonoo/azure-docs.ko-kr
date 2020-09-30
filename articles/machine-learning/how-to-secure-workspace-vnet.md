@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 07/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 92975251955b608d9dd888328b54a4b40f4592d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: how-to, contperfq4, tracking-python, contperfq1
+ms.openlocfilehash: e593cfa06b160539a0d830b9149c9aa9a069a984
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275833"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542073"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "91275833"
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -67,7 +67,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 >
 > 기본 스토리지 계정은 작업 영역을 만들 때 자동으로 프로비저닝됩니다.
 >
-> 기본이 아닌 스토리지 계정의 경우 [`Workspace.create()`함수](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)의 `storage_account` 매개 변수를 사용하여 Azure 리소스 ID로 사용자 지정 스토리지 계정을 지정할 수 있습니다.
+> 기본이 아닌 스토리지 계정의 경우 [`Workspace.create()`함수](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true)의 `storage_account` 매개 변수를 사용하여 Azure 리소스 ID로 사용자 지정 스토리지 계정을 지정할 수 있습니다.
 
 가상 네트워크의 작업 영역에 Azure 스토리지 계정을 사용하려면 다음 단계를 사용합니다.
 
@@ -217,7 +217,7 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
     > [!IMPORTANT]
     > 스토리지 계정, 컴퓨팅 클러스터 및 Azure Container Registry는 모두 가상 네트워크의 동일한 서브넷에 있어야 합니다.
     
-    자세한 내용은 [update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) 메서드 참조를 확인하세요.
+    자세한 내용은 [update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) 메서드 참조를 확인하세요.
 
 1. 다음 Azure Resource Manager 템플릿을 적용 합니다. 이 템플릿을 사용하면 작업 영역이 ACR과 통신할 수 있습니다.
 
