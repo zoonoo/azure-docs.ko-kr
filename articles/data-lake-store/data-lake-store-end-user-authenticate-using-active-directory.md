@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511304"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578549"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -97,17 +97,17 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 2. 애플리케이션에 대한 **설정** 블레이드에서 **필요한 사용 권한**을 클릭한 다음, **추가**를 클릭합니다.
 
-    ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![리디렉션 U R I 옵션을 호출 하는 설정 블레이드의 스크린샷 및 실제 U r i가 호출 되는 U r i의 리디렉션 U r i 블레이드](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. **API 액세스 추가** 블레이드에서 **API 선택**을 클릭하고 **Azure Data Lake**를 클릭한 후 **선택**을 클릭합니다.
 
-    ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![Api 선택 옵션을 사용 하 여 api 액세스 추가 블레이드의 스크린샷 및 Azure Data Lake 옵션을 사용 하 여 API 선택 블레이드 및 out 이라는 선택 옵션이 있습니다.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
 
 4.  **API 액세스 추가** 블레이드에서 **사용 권한 선택**을 클릭한 후 **Data Lake Store에 대한 모든 권한**을 부여하기 위한 확인란을 선택하고 **선택**을 클릭합니다.
 
-    ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![권한 선택 옵션을 사용 하 여 API 액세스 추가 블레이드의 스크린샷 및 Azure Data Lake 서비스에 대 한 모든 권한 및 선택 옵션 (out)이 포함 된 액세스 사용 블레이드](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    **Done**을 클릭합니다.
+    **완료**를 클릭합니다.
 
 5. 마지막 두 단계를 반복하여 **Microsoft Azure Service Management API**에 대한 권한도 부여합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905429"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578481"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
 
@@ -27,23 +27,23 @@ ms.locfileid: "90905429"
 
 Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. Azure 센티널을 등록 하는 첫 번째 단계는 해당 목적으로 사용 하려는 Log Analytics 작업 영역을 선택 하는 것입니다.
 
-단일 작업 영역을 사용 하는 경우 Azure 센티널 환경의 모든 이점을 얻을 수 있습니다. 하지만 여러 작업 영역을 포함 해야 하는 경우도 있습니다. 다음 표에서는 이러한 상황 중 일부를 나열 하 고 가능한 경우 단일 작업 영역을 사용 하 여 요구 사항을 충족 하는 방법을 제안 합니다.
+단일 작업 영역을 사용한다면 Azure Sentinel 환경의 모든 이점을 누릴 수 있습니다. 하지만 여러 작업 영역을 포함 해야 하는 경우도 있습니다. 다음 표에서는 이러한 상황 중 일부를 나열 하 고 가능한 경우 단일 작업 영역을 사용 하 여 요구 사항을 충족 하는 방법을 제안 합니다.
 
 | 요구 사항 | Description | 작업 영역 수를 줄이는 방법 |
 |-------------|-------------|--------------------------------|
-| 주권 및 규정 준수 | 작업 영역은 특정 영역에 연결 됩니다. 규정 요구 사항을 충족 하기 위해 데이터를 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 유지 해야 하는 경우 별도의 작업 영역으로 분할 해야 합니다. |  |
+| 주권 및 규정 준수 | 작업 영역이 특정 지역에 귀속되어 있음. 규정 요구 사항을 충족 하기 위해 데이터를 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 유지 해야 하는 경우 별도의 작업 영역으로 분할 해야 합니다. |  |
 | 데이터 소유권 | 자회사 또는 관련 회사 등의 데이터 소유권 경계는 개별 작업 영역을 사용 하 여 더 잘 구분 됩니다. |  |
-| 여러 Azure 테 넌 트 | Azure 센티널은 자체 Azure Active Directory (Azure AD) 테 넌 트 경계 내 에서만 Microsoft 및 Azure SaaS 리소스의 데이터 수집을 지원 합니다. 따라서 각 Azure AD 테 넌 트는 별도의 작업 영역이 필요 합니다. |  |
-| 세부적인 데이터 액세스 제어 | 조직에서 조직의 내부 또는 외부에 있는 다른 그룹을 허용 하 여 Azure 센티널에서 수집 된 데이터에 액세스 해야 할 수 있습니다. 다음은 그 예입니다. <br><ul><li>리소스 소유자의 리소스에 관련 된 데이터 액세스</li><li>지역 또는 자회사 Soc ' 조직의 부분과 관련 된 데이터에 대 한 액세스</li></ul> | [리소스 rbac](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
+| 여러 Azure 테 넌 트 | Azure 센티널은 자체 Azure Active Directory (Azure AD) 테 넌 트 경계 내 에서만 Microsoft 및 Azure SaaS 리소스의 데이터 수집을 지원 합니다. 따라서 각 Azure AD 테넌트에는 별도의 작업 영역이 필요합니다. |  |
+| 세부적인 데이터 액세스 제어 | 조직에서 조직의 내부 또는 외부에 있는 다른 그룹을 허용 하 여 Azure 센티널에서 수집 된 데이터에 액세스 해야 할 수 있습니다. 예를 들면 다음과 같습니다.<br><ul><li>리소스 소유자의 리소스에 관련 된 데이터 액세스</li><li>지역 또는 자회사 Soc ' 조직의 부분과 관련 된 데이터에 대 한 액세스</li></ul> | [리소스 rbac](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
 | 세분화 된 보존 설정 | 지금까지 여러 작업 영역이 여러 데이터 형식에 대해 서로 다른 보존 기간을 설정 하는 유일한 방법 이었습니다. 이는 테이블 수준 보존 설정의 도입으로 인해 더 이상 필요 하지 않습니다. | [테이블 수준 보존 설정](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) 사용 또는 [데이터 삭제](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) 자동화 |
-| 분할 청구 | 별도의 구독에 작업 영역을 배치 하면 다른 당사자에 게 요금이 청구 될 수 있습니다. | 사용 보고 및 교차 요금 |
-| 레거시 아키텍처 | 여러 작업 영역을 사용 하는 것은 더 이상 적용 되지 않는 제한 사항 또는 모범 사례를 고려 하는 과거 디자인에서 기인 합니다. 또한 Azure 센티널에 맞게 수정할 수 있는 임의 디자인 선택이 될 수 있습니다.<br><br>예제는 다음과 같습니다.<br><ul><li>Azure Security Center 배포할 때 구독 당 기본 작업 영역 사용</li><li>비교적 새로운 솔루션에 대 한 세분화 된 액세스 제어 또는 보존 설정의 필요성</li></ul> | 작업 영역 다시 설계 |
+| 분할 청구 | 별도의 구독에 작업 영역을 배치 하면 다른 당사자에 게 요금이 청구 될 수 있습니다. | 사용량 보고 및 교차 요금 |
+| 레거시 아키텍처 | 여러 작업 영역을 사용 하는 것은 더 이상 적용 되지 않는 제한 사항 또는 모범 사례를 고려 하는 과거 디자인에서 기인 합니다. 자의적인 디자인 선택을 했다면 Azure Sentinel에 맞게 수정할 수도 있습니다.<br><br>예제는 다음과 같습니다.<br><ul><li>Azure Security Center 배포할 때 구독 당 기본 작업 영역 사용</li><li>비교적 새로운 솔루션에 대 한 세분화 된 액세스 제어 또는 보존 설정의 필요성</li></ul> | 작업 영역 재설계 |
 
 ### <a name="managed-security-service-provider-mssp"></a>MSSP (관리 되는 보안 서비스 공급자)
 
 여러 작업 영역을 요구 하는 특정 사용 사례는 MSSP Azure 센티널 서비스입니다. 이 경우 여러 테 넌 트에 걸쳐 여러 작업 영역을 만드는 것이 가장 좋습니다. MSSP는 [Azure Lighthouse](../lighthouse/overview.md) 를 사용 하 여 테 넌 트 간에 azure 센티널 상호 작업 영역 기능을 확장할 수 있습니다.
 
-## <a name="azure-sentinel-multiple-workspace-architecture"></a>Azure 센티널 다중 작업 영역 아키텍처
+## <a name="azure-sentinel-multiple-workspace-architecture"></a>Azure Sentinel 다중 작업 영역 아키텍처
 
 위의 요구 사항에 암시 된 대로 여러 Azure 센티널 작업 영역을 Azure Active Directory (Azure AD) 테 넌 트에 걸쳐 잠재적으로 단일 SOC에서 중앙 집중식으로 모니터링 하 고 관리 해야 하는 경우가 있습니다.
 
@@ -63,7 +63,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 - 데이터 소유권, 데이터 개인 정보 보호 및 규정 준수와 관련 하 여 문제가 줄어듭니다.
 
-- 최소 네트워크 대기 시간 및 요금.
+- 네트워크 대기 시간 및 요금이 최소화됩니다.
 
 - 새 자회사 또는 고객의 간편한 온 보 딩 및 오프 보 딩.
 
@@ -110,7 +110,7 @@ Azure 센티널은 단일 쿼리에서 [여러 작업 영역](../azure-monitor/l
 
 통합 문서는 다음과 같은 세 가지 방법 중 하나에서 작업 영역 쿼리를 제공할 수 있습니다. 각 메서드는 최종 사용자 전문 기술 수준에 따라 달라 집니다.
 
-| 방법  | 설명 | 언제를 사용 해야 하나요? |
+| 방법  | Description | 언제를 사용 해야 하나요? |
 |---------|-------------|--------------------|
 | 작업 영역 간 쿼리 작성 | 통합 문서 작성자는 통합 문서에서 작업 영역 간 쿼리 (위에 설명 된)를 작성할 수 있습니다. | 이 옵션을 사용 하면 통합 문서 작성자가 작업 영역 구조에서 사용자를 완전히 보호할 수 있습니다. |
 | 통합 문서에 작업 영역 선택기 추가 | 통합 문서 작성자는 [여기](https://techcommunity.microsoft.com/t5/azure-sentinel/making-your-azure-sentinel-workbooks-multi-tenant-or-multi/ba-p/1402357)에 설명 된 대로 통합 문서의 일부로 작업 영역 선택기를 구현할 수 있습니다. | 이 옵션은 사용 하기 쉬운 드롭다운 상자를 통해 통합 문서에 표시 되는 작업 영역에 대 한 제어를 사용자에 게 제공 합니다. |
@@ -131,7 +131,7 @@ Azure 센티널을 코드로 배포 하 고 관리 하 고 개인 GitHub 리포�
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Azure Lighthouse를 사용 하 여 테 넌 트 간 작업 영역 관리
 
-위에서 설명한 것 처럼 다양 한 azure 센티널 작업 영역은 다른 Azure AD 테 넌 트에 있을 수 있습니다. [Azure Lighthouse](../lighthouse/overview.md) 를 사용 하 여 테 넌 트 경계 전체에서 작업 영역 간 활동을 모두 확장할 수 있습니다. 그러면 관리 테 넌 트의 사용자가 모든 테 넌 트의 Azure 센티널 작업 영역에서 작업할 수 있습니다. Azure Lighthouse가 [등록](../lighthouse/how-to/onboard-customer.md)되 면 Azure Portal에서 [디렉터리 + 구독 선택기](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) 를 사용 하 여 관리 하려는 작업 영역이 포함 된 모든 구독을 선택 하 여 포털의 다른 작업 영역 선택기에서 모두 사용할 수 있도록 합니다.
+위에서 설명한 것 처럼 다양 한 azure 센티널 작업 영역은 다른 Azure AD 테 넌 트에 있을 수 있습니다. [Azure Lighthouse](../lighthouse/overview.md) 를 사용 하 여 테 넌 트 경계 전체에서 작업 영역 간 활동을 모두 확장할 수 있습니다. 그러면 관리 테 넌 트의 사용자가 모든 테 넌 트의 Azure 센티널 작업 영역에서 작업할 수 있습니다. Azure Lighthouse가 [등록](../lighthouse/how-to/onboard-customer.md)되 면 Azure Portal에서 [디렉터리 + 구독 선택기](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) 를 사용 하 여 관리 하려는 작업 영역이 포함 된 모든 구독을 선택 하 여 포털의 다른 작업 영역 선택기에서 모두 사용할 수 있도록 합니다.
 
 Azure Lighthouse를 사용 하는 경우 각 Azure 센티널 역할에 대 한 그룹을 만들고 각 테 넌 트의 권한을 해당 그룹에 위임 하는 것이 좋습니다.
 

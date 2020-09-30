@@ -1,15 +1,15 @@
 ---
 title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트의 레코드를 가져오고, 서식을 지정하고, 페이징하고, 건너뛰는 방법을 파악합니다.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005941"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578498"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -48,7 +48,7 @@ Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 큰 데이터 세트 작업을 위한 다음 옵션은 **Skip** 제어입니다. 이 제어를 사용하면 쿼리가 결과를 반환하기 전에 정의된 레코드 수를 점프하거나 건너뛸 수 있습니다. **Skip**은 결과 집합의 중간에 있는 레코드에 접근하기 위해 의미 있는 방식으로 결과를 정렬하는 쿼리에 유용합니다. 필요한 결과가 반환된 데이터 세트의 끝에 있는 경우, 다른 정렬 구성을 사용하고 대신 데이터 세트의 맨 위에서 결과를 검색하는 것이 더 효율적입니다.
 
 > [!NOTE]
-> **Skip**을 사용할 경우 `asc` 또는 `desc`를 사용하여 하나 이상의 열을 기준으로 결과를 정렬하는 것이 좋습니다. 정렬하지 않으면 결과가 무작위로 반환되고 반복되지 않습니다.
+> **Skip**을 사용할 경우 `asc` 또는 `desc`를 사용하여 하나 이상의 열을 기준으로 결과를 정렬하는 것이 좋습니다. 정렬하지 않으면 결과가 무작위로 반환되고 반복되지 않습니다. `limit`쿼리에서 또는를 `take` 사용 하는 경우 **Skip** 은 무시 됩니다.
 
 다음 예제에서는 반환된 결과 집합을 11번째 레코드로 시작하는 대신, 쿼리에서 생성하는 처음 _10_개의 레코드를 건너뛰는 방법을 보여 줍니다.
 
