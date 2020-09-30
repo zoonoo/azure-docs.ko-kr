@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: danimir
 ms.author: danil
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/26/2019
-ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2f2e8c6be128e5004769dca2f42a6c8013510cde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986843"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325235"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>빠른 시작: SQL Managed Instance의 관리형 인스턴스 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -10,13 +10,13 @@ services: iot-central
 ms.custom:
 - mqtt
 - device-developer
-- devx-track-javascript
-ms.openlocfilehash: 7eba6adffcdd3dab3263e82faf51ac90bae79b89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+- devx-track-js
+ms.openlocfilehash: 87284b88076cbd205a5d8ae388fe0b37c35cf6f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328550"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Node.js)
 

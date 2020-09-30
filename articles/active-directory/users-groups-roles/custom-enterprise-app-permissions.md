@@ -12,12 +12,12 @@ ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1d196ea33eafbfae0d9db68588c0adb131a383f4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2ebba2bb957a1c05fd591181f0a784ed778c6c57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333378"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 엔터프라이즈 애플리케이션 권한
 
@@ -138,7 +138,6 @@ microsoft.directory/servicePrincipals/appRoleAssignedTo/read | 서비스 주체 
 microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 서비스 주체 역할 할당을 업데이트합니다.
 microsoft.directory/servicePrincipals/appRoleAssignments/read | 서비스 주체에 할당된 역할 할당을 읽습니다.
 microsoft.directory/servicePrincipals/audience/update | 서비스 주체의 대상 그룹 속성을 업데이트합니다.
-microsoft.directory/servicePrincipals/authentication/read |  
 microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성을 업데이트합니다.
 microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성을 업데이트합니다.
 microsoft.directory/servicePrincipals/create | 서비스 주체를 만듭니다.

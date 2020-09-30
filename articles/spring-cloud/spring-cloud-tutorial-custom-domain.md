@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326153"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -58,12 +58,12 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 
 다음 명령을 통해 개체 ID를 가져옵니다.
 ```
-az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+az ad sp show --id <service principal id> --query objectId
 ```
 
 키 자격 증명 모음에 Azure Spring Cloud 읽기 액세스 권한을 부여하고, 다음 명령에서 개체 ID를 바꿉니다.
 ```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
 ``` 
 
 Azure Spring Cloud로 인증서를 가져오려면 다음을 수행합니다.
@@ -93,7 +93,7 @@ az keyvault set-policy -g <key vault resource group> -n <key vault name>  --obje
 또는 Azure CLI를 사용하여 인증서 목록을 표시할 수 있습니다.
 
 ```
-az spring-cloud certificate list
+az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
 
 > [!IMPORTANT] 
@@ -128,7 +128,7 @@ Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azu
 
 또는 Azure CLI를 사용하여 사용자 지정 도메인을 추가할 수 있습니다.
 ```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 하나의 앱이 여러 도메인을 포함할 수 있지만, 하나의 도메인은 하나의 앱에만 매핑할 수 있습니다. 사용자 지정 도메인을 앱에 성공적으로 매핑했다면 사용자 지정 도메인 테이블에 표시됩니다.
@@ -137,7 +137,7 @@ az spring-cloud app custom-domain bind --domain-name <domain name> --app <app na
 
 또는 Azure CLI를 사용하여 사용자 지정 도메인의 목록을 표시할 수 있습니다.
 ```
-az spring-cloud app custom-domain list --app <app name> 
+az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 > [!NOTE]
@@ -168,7 +168,7 @@ SSL 바인딩을 성공적으로 추가한 후에는 도메인 상태가 안전�
 
 또는 Azure CLI를 사용하여 HTTPS를 적용할 수 있습니다.
 ```
-az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 작업이 완료되면 앱을 가리키는 HTTPS URL 중 하나로 이동합니다. HTTP URL은 작동하지 않습니다.

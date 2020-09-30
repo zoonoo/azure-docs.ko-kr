@@ -5,14 +5,14 @@ services: vnf-manager
 author: wamota
 ms.service: vnf-manager
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.author: wamota
-ms.openlocfilehash: 5a858531f578612be8190625ae371992babca34e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fcc44bb1c8017d63ee7926a31177aebaafd832fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945648"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336380"
 ---
 # <a name="what-is-azure-orbital-preview"></a>Azure Orbital이란? (미리 보기)
 
@@ -25,7 +25,7 @@ Azure Orbital은 고객이 Orbital 지상국 외에도 파트너 지상국을 �
 
 Azure Orbital은 고객을 위해 지구 관측 및 글로벌 통신을 포함한 다양한 사용 사례를 사용할 수 있도록 지원합니다. 또한 가상화를 사용하여 기존 지상국의 디지털 변환을 가능하게 하는 플랫폼을 제공합니다. 모든 Azure 서비스, Azure 글로벌 인프라, Marketplace에 직접 액세스할 수 있으며, 서비스를 통해 세계적 수준의 파트너 에코시스템에 액세스할 수 있습니다.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-overview.png" alt-text="Azure Orbital 개요":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-overview.png" alt-text="Azure Orbital Ignite 시작 비디오":::
 
 **Azure Orbital 사용자를 위한 가치 제안은 다음과 같습니다.**
 
@@ -49,13 +49,13 @@ Azure Orbital은 고객을 위해 지구 관측 및 글로벌 통신을 포함�
 
 ## <a name="earth-observation"></a><a name="earth-observation"></a>지구 관측
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-eos-dataflow.png" alt-text="지구 관측 데이터 흐름에 대한 Azure Orbital" lightbox="./media/azure-orbital-overview/orbital-eos-dataflow-expanded.png":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-eos-dataflow.png" alt-text="Azure Orbital Ignite 시작 비디오" lightbox="./media/azure-orbital-overview/orbital-eos-dataflow-expanded.png":::
 
 Azure Orbital을 사용하여 정리 및 페이로드 다운링크에 대한 종량제 기준으로 위성과의 연락처를 예약할 수 있습니다. 예약된 액세스 시간을 사용하여 위성에서 데이터를 수집하거나, 위성 상태 및 상태를 모니터링하거나, 위성으로 명령을 전송합니다. 들어오는 데이터는 개인 가상 네트워크로 전송되어 Azure에서 처리하거나 저장할 수 있습니다.
 
 서비스가 완전히 디지털화되므로 Kratos 및 Amergint의 소프트웨어 모뎀을 사용하여 변조/복조 및 인코딩/디코딩 기능을 통해 데이터를 복구할 수 있습니다. 귀하는 Marketplace에서 구입하거나 귀하를 위해 이 부품을 관리할 수 있습니다. 또한, Kubos와 통합하여, 엔드투엔드 솔루션을 충분히 활용하여 비행단 운영 및 TT&C(원격 분석, 추적 및 제어) 기능을 관리합니다. Azure 리소스 및 도구 상자를 사용하여 Azure에서 워크로드를 구현하여 페이로드 데이터를 최종 제품으로 조작합니다.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-eos-schedule.png" alt-text="지구 관측 일정 예약에 대한 Azure Orbital":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-eos-schedule.png" alt-text="Azure Orbital Ignite 시작 비디오":::
 
 ### <a name="scheduling-contacts"></a><a name="scheduling-contacts"></a>연락처 일정 예약
 
@@ -71,7 +71,7 @@ Azure Orbital을 사용하여 연락처를 예약하는 작업은 간단한 3단
 
 ## <a name="global-communication"></a><a name="global-communication"></a>글로벌 통신
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="글로벌 통신 사용 흐름에 대한 Azure Orbital":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Azure Orbital Ignite 시작 비디오":::
 
 고객에게 글로벌 통신 기능을 제공하는 위성 공급 기업은 Azure Orbital을 사용하여 새 지상국을 Azure 데이터 센터 또는 Azure 네트워크의 에지에 공동 배치하거나 기존 지상국을 글로벌 Azure 백본과 상호 연결할 수 있습니다. 그런 다음, 글로벌 Microsoft 네트워크에서 트래픽을 라우팅하고 Azure 네트워크의 에지에서 인터넷 중단을 활용하여 고객에게 인터넷 서비스 및 기타 관리형 서비스를 제공할 수 있습니다.
 
@@ -85,7 +85,7 @@ Azure Orbital은 자체 지상국을 구축하는 것 외에도 고객이 파트
 
 지상국 또는 텔레포트 공급 기업은 Azure Orbital과 협력하여 지상국을 디지털 방식으로 변환할 수 있습니다. 이렇게 하면 고객이 이러한 지상국을 사용하여 위성에 대한 연락처를 예약하는 한편, 플랫폼 및 Orbital 파트너가 Marketplace를 통해 제공하는 모든 소프트웨어 무선 처리 및 데이터 처리 기능을 활용할 수 있습니다. 이 서비스는 클라우드의 워크로드 및 마켓플레이스를 통한 생생한 타사 솔루션의 에코시스템(예: 모뎀, 리소스 관리 및 우주 비행 관제 센터 서비스)과 긴밀하게 통합됩니다. 또한 모든 데이터는 짧은 대기 시간이 짧고 안정성이 높은 Azure의 글로벌 파이버 네트워크를 활용할 수 있습니다. Microsoft는 고객이 최고의 민첩성과 안정성을 통해 위성과 통신할 수 있는 최고의 적용 범위와 유연성을 제공할 수 있다고 믿습니다.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-digital-transformations.png" alt-text="디지털 변환에 대한 Azure Orbital":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-digital-transformations.png" alt-text="Azure Orbital Ignite 시작 비디오":::
 
 미리 보기에 대한 자세한 내용을 원하거나 미리 보기에 참여하는 데 관심이 있는 경우 [여기](https://aka.ms/iaminterested)에 있는 연락처 양식을 채우거나 이메일을 [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com)으로 보내주세요.
 
@@ -93,7 +93,7 @@ Azure Orbital은 자체 지상국을 구축하는 것 외에도 고객이 파트
 
 우주로의 여정을 진행하면서 고객이 Azure Obtal을 사용하여 더 많은 성과를 달성할 수 있도록 Microsoft는 더 많은 파트너를 에코시스템에 추가할 것입니다. Azure Orbital을 구축함에 따라 Microsoft의 접근 방식은 파트너 주도로 이루어집니다. 또한 Microsoft의 목표는 파트너와 고객 모두를 위해 더 많은 가치를 공동으로 창출할 수 있는 생생한 파트너 에코시스템을 구축하는 것입니다. 산호초라고 생각하세요!
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-partners.png" alt-text="Azure Orbital 파트너":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-partners.png" alt-text="Azure Orbital Ignite 시작 비디오":::
 
 다음 섹션에서는 이미 Orbital 에코시스템의 일부인 파트너 범주 및 Azure Orbital 파트너에 대한 목록을 보여 줍니다.
 

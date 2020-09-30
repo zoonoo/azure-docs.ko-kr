@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 53fdea6a52cc02ddc9aaf22574a6bac5f5b7bca6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323677"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -67,7 +67,7 @@ Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니�
 
 Security Center를 사용하면 **섀도 IT 구독을 확인**할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center 정책 대시보드":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="정책 관리 페이지":::
 
 ### <a name="continuous-assessments"></a>연속 평가
 
@@ -75,13 +75,13 @@ Security Center는 워크로드 전체에 배포되는 새 리소스를 지속�
 
 각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center 보안 점수":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="정책 관리 페이지":::
 
 ### <a name="network-map"></a>네트워크 맵
 
 Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는 **네트워크 맵**입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center 네트워크 맵":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="정책 관리 페이지":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>권장 제어를 구성하여 보안 최적화 및 개선
@@ -92,7 +92,7 @@ Azure Security Center 가치의 핵심은 권장 사항에 있습니다. 권장 
 
 권장 사항은 각 리소스의 공격 표면을 줄이는 데 도움이 됩니다. 여기에는 Azure 가상 머신, 비 Azure 서버 및 SQL, Storage 계정 등의 Azure PaaS 서비스가 포함되며 각 리소스 유형이 다르게 평가되고 고유한 표준을 갖습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center 권장 사항 예제":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="정책 관리 페이지":::
 
 ## <a name="protect-against-threats"></a>위협으로부터 보호
 
@@ -100,7 +100,7 @@ Security Center의 위협 방지를 사용하면 Azure의 PaaS(Platforms as a Se
 
 Security Center의 위협 방지에는 사이버 적극 대처(kill-chain) 분석에 따라 사용자 환경의 경고 간에 상관 관계를 자동으로 파악하는 Fusion 적극 대처(kill-chain) 분석이 포함됩니다. 이 분석은 공격 캠페인의 전체 스토리, 시작된 위치 및 리소스에 미치는 영향을 이해하는 데 도움이 됩니다.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="보안 경고":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="정책 관리 페이지":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Microsoft Defender Advanced 위협 보호와 통합
 

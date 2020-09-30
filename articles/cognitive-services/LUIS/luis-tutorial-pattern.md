@@ -1,14 +1,16 @@
 ---
 title: '자습서: 패턴 - LUIS'
 description: 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측 정확도를 높이고 발화 예제를 줄입니다. 패턴은 템플릿 발화 예제로 제공되며, 여기에는 엔터티 및 무시해도 되는 텍스트를 식별하는 구문이 포함됩니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324657"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 

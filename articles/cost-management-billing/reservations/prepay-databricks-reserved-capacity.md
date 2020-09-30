@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 699b3d9c9799b9d3a4ec148cbf395b212715f536
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368569"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용하여 Azure Databricks 비용 최적화
 
@@ -63,7 +63,7 @@ Databricks 사전 구매는 모든 Databricks 워크로드 및 계층에 적용�
 구매한 후 예약에 대해 다음과 같은 유형의 변경을 수행할 수 있습니다.
 
 - 예약 범위 업데이트
-- 역할 기반 액세스
+- Azure RBAC(Azure 역할 기반 액세스 제어)
 
 Databricks 커밋 단위 사전 구매를 분할하거나 병합할 수 없습니다. 예약을 관리하는 방법에 대한 자세한 내용은 [구매 후 예약 관리](manage-reserved-vm-instance.md)를 참조하세요.
 

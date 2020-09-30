@@ -1,14 +1,16 @@
 ---
 title: '자습서: 의도 예측 - LUIS'
 description: 이 자습서의 발화(텍스트)를 기반으로 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c4a564834166686e8280f1117269742b489fc62c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334755"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 

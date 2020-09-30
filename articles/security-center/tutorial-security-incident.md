@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336278"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 작업 방법을 배웁니다.
@@ -76,7 +76,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 
    ![인시던트의 경고 세부 정보](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   경고 유형은 다양할 수 있습니다. 경고 유형 및 잠재적 수정 단계에 대한 자세한 내용은 [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)를 참조하세요. 안전하게 해제할 수 있는 경고의 경우 해당 경고를 마우스 오른쪽 단추로 클릭하고 **해제** 옵션을 선택할 수 있습니다.
+   경고 유형은 다양할 수 있습니다. 경고 유형 및 잠재적 수정 단계에 대한 자세한 내용은 [Azure Security Center의 보안 경고 이해](security-center-alerts-type.md)를 참조하세요. 안전하게 해제할 수 있는 경고의 경우 해당 경고를 마우스 오른쪽 단추로 클릭하고 **해제** 옵션을 선택할 수 있습니다.
 
    ![경고](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 

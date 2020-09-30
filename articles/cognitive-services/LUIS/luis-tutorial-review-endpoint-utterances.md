@@ -2,14 +2,16 @@
 title: '자습서: 엔드포인트 발화 검토 - LUIS'
 description: 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTP 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
-ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324640"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTPS 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 예약된 LUIS 유지 관리의 일반적인 부분으로 엔드포인트 발화를 검토해야 합니다.
@@ -82,7 +84,7 @@ ms.locfileid: "85959042"
 
 1. 포털에 있는 **빌드** 섹션의 왼쪽 탐색 영역에서 **엔드포인트 발화 검토**를 선택합니다. 목록은 **ApplyForJob** 의도에 대해 필터링됩니다.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="왼쪽 탐색 영역에 있는 엔드포인트 발화 검토 단추의 스크린샷.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="[버전] 페이지에서 [의도] 페이지로 변경합니다.":::
 
     이 발화(`I'm looking for a job with Natural Language Processing`)는 올바른 의도(_GetJobInformation_)에 있지 않습니다. 이는 두 가지 의도에서 작업 이름과 동사의 유사성 때문에 _ApplyForJob_으로 잘못 예측되었습니다.
 
