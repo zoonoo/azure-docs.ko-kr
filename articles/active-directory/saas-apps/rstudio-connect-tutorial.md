@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 80d444e9887a3aaa48262ccf59350b0108d7d709
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>자습서: RStudio Connect와 Azure Active Directory 통합
 
@@ -126,7 +126,7 @@ RStudio Connect에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>RStudio Connect Single Sign-On 구성
 
-**RStudio Connect**에 대한 Single Sign-On을 구성하려면 위에서 사용한 **앱 페더레이션 메타데이터 Url** 및 **서버 주소**를 사용해야 합니다. 이 작업은 `/etc/rstudio-connect.rstudio-connect.gcfg`에 있는 RStudio 연결 구성 파일에서 수행됩니다.
+**RStudio Connect**에 대한 Single Sign-On을 구성하려면 위에서 사용한 **앱 페더레이션 메타데이터 Url** 및 **서버 주소**를 사용해야 합니다. 이 작업은 `/etc/rstudio-connect/rstudio-connect.gcfg`에 있는 RStudio 연결 구성 파일에서 수행됩니다.
 
 다음은 구성 파일 예제입니다.
 

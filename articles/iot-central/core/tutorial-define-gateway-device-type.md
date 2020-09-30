@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central에서 새 게이트웨이 디바이스 유형 정의 | Microsoft Docs
+title: 자습서 - Azure IoT Central에서 새 게이트웨이 디바이스 유형 정의 | Microsoft Docs
 description: 이 자습서에서는 개발자가 Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형을 정의하는 방법을 알려줍니다.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758138"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967906"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>자습서 - Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
 *이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
 
@@ -31,6 +31,9 @@ ms.locfileid: "81758138"
 * 온도 같은 자체 원격 분석 데이터를 보냅니다.
 * 운영자가 수행한 쓰기 가능한 속성 업데이트에 응답합니다. 예를 들어 운영자가 원격 분석 데이터 송신 간격을 변경할 수 있습니다.
 * 디바이스 재부팅 같은 명령에 응답합니다.
+
+> [!div class="checklist"]
+> 다운스트림 디바이스 템플릿 생성 게이트웨이 디바이스 템플릿 생성 디바이스 템플릿 게시 시뮬레이션된 디바이스 생성
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

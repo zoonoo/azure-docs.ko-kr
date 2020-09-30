@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가를 사용하여 AWS 인스턴스를 검
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275458"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>자습서: 서버 평가를 사용하여 AWS 인스턴스 검색
 
@@ -76,7 +76,18 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 - Windows 서버의 경우 검색에 포함할 모든 Windows 서버에 로컬 사용자 계정을 설정합니다. 사용자 계정을 - 원격 관리 사용자 - 성능 모니터 사용자 - 성능 로그 사용자 그룹에 추가합니다.
  - Linux 서버의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다.
-
+- Azure Migrate는 AWS 인스턴스를 검색할 때 암호 인증을 사용합니다. AWS 인스턴스는 기본적으로 암호 인증을 지원하지 않습니다. 인스턴스를 검색하려면 먼저 암호 인증을 사용하도록 설정해야 합니다.
+    - Windows 머신의 경우 WinRM 포트 5985(HTTP)를 허용합니다. 이렇게 하면 원격 WMI 호출을 수행할 수 있습니다.
+    - Linux 컴퓨터의 경우:
+        1. 각 Linux 머신에 로그인합니다.
+        2. sshd_config file : vi /etc/ssh/sshd_config 열기
+        3. 파일에서 **PasswordAuthentication** 줄을 찾아 값을 **예**로 변경합니다.
+        4. 파일을 저장하고 닫습니다. ssh 서비스를 다시 시작합니다.
+    - 루트 사용자를 사용하여 Linux VM을 검색하는 경우 VM에서 루트 로그인이 허용되는지 확인합니다.
+        1. 각 Linux 머신에 로그인
+        2. sshd_config file : vi /etc/ssh/sshd_config 열기
+        3. 파일에서 **PermitRootLogin** 줄을 찾아 값을 **예**로 변경합니다.
+        4. 파일을 저장하고 닫습니다. ssh 서비스를 다시 시작합니다.
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
 

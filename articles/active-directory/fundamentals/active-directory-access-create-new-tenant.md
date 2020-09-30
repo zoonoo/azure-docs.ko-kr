@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d6341aeb6db89d43ef887a3ae50c4439e3867e6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287018"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
@@ -37,7 +37,7 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 
     ![Azure Active Directory 만들기 리소스 페이지](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-1. **ID**를 선택한 다음, **Azure Active Directory**를 선택합니다.
+1. **Azure Active Directory**를 검색하고 선택합니다.
 
     **디렉터리 만들기** 페이지가 나타납니다.
 

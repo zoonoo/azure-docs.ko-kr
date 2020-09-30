@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285335"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -52,7 +52,7 @@ Azure Maps 웹 SDK를 사용하면 고유한 콘텐츠와 이미지를 사용하
 
 Azure Maps Android SDK를 사용하여 모바일 매핑 애플리케이션을 만듭니다.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="모바일 디바이스의 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
 
 ## <a name="services-in-azure-maps"></a>Azure Maps의 서비스
 
@@ -78,7 +78,7 @@ Azure Maps Mobility Service는 교통 라우팅, 가까운 대중 교통 정류�
 
 현재 미리 보기로 제공되는 [Render Service V2](https://docs.microsoft.com/rest/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Render Service V2의 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
 
 자세한 내용은 [Render Service V2 설명서](https://docs.microsoft.com/rest/api/maps/renderv2)를 참조하세요.
 
@@ -88,7 +88,7 @@ Azure Maps Mobility Service는 교통 라우팅, 가까운 대중 교통 정류�
 
 경로 서비스를 사용하여 요청된 각 경로의 ETA(예상 도착 시간)를 계산할 수 있습니다. Route API는 요청된 요일 및 시간의 일반적인 도로 통행 속도와 같은 실시간 교통 정보, 과거의 교통 데이터 같은 요소를 고려합니다. 이 API는 시간 또는 거리를 기준으로 차례대로 또는 최적화된 순서대로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환합니다. 이 서비스를 통해 개발자는 자동차, 트럭, 자전거, 도보, 전기차 등의 다양한 이동 모드로 방향을 계산할 수 있습니다. 이 서비스는 출발 시간, 무게 제한, 위해 물질 운송 등의 입력도 고려합니다.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Route Service의 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
 
 Route Service는 다음과 같은 고급 기능 세트를 제공합니다.
 
@@ -102,7 +102,7 @@ Route Service는 다음과 같은 고급 기능 세트를 제공합니다.
 
 Search Service는 개발자가 주소, 장소, 비즈니스 목록을 이름이나 범주 및 기타 지리 정보 기준으로 검색하는 데 유용합니다. 또한 Search Service는 위도 및 경도를 기반으로 주소 및 교차로를 [역방향으로 지오코딩](https://en.wikipedia.org/wiki/Reverse_geocoding)할 수 있습니다.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="맵에서 검색 예제":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
 
 또한 Search Service는 다음과 같은 고급 기능을 제공합니다.
 
@@ -204,7 +204,7 @@ Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케�
 
 Power BI용 Azure Maps 시각적 개체는 지도 위에 공간 데이터에 대한 다양한 데이터 시각화 세트를 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure Maps 시각적 개체는 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻을 수 있는 코드 없는 솔루션을 제공합니다.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="비즈니스 데이터를 표시하는 Azure Maps 시각적 개체가 포함된 Power BI 데스크톱":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
 
 자세한 내용은 [Azure Maps Power BI 시각적 개체](power-bi-visual-getting-started.md) 시작 설명서를 참조하세요.
 
@@ -231,10 +231,8 @@ Azure Maps 서비스는 현재 다음 국가/지역을 제외한 모든 지역�
 
 Azure Maps를 보여주는 샘플 앱을 사용해보세요.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: 웹앱 만들기](quick-demo-map-app.md)
+[빠른 시작: 웹앱 만들기](quick-demo-map-app.md)
 
 Azure Maps에서 데이터를 최신 상태로 유지하세요.
 
-> [!div class="nextstepaction"]
-> [Azure Maps 블로그](https://azure.microsoft.com/blog/topics/azure-maps/)
+[Azure Maps 블로그](https://azure.microsoft.com/blog/topics/azure-maps/)
