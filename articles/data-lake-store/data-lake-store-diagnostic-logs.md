@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: e50091750e01435912a2a5163cc786e79dc09f5c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cd1b03c8cecf84e75bac32be0570c2f4f3db9b2e
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985067"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575540"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
 Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 설정하는 방법 및 계정에 대해 수집된 로그를 보는 방법을 알아봅니다.
@@ -26,18 +26,18 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용 하 여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)의 지침을 따릅니다.
+* **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정에 대해 진단 로깅 사용
 1. 새 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
 2. Data Lake Storage Gen1 계정을 열고, Data Lake Storage Gen1 계정 블레이드에서 **진단 설정**을 클릭합니다.
 3. **진단 설정** 블레이드에서 **진단 켜기**를 클릭합니다.
 
-    ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "진단 로그 활성화")
+    ![진단 설정 옵션과 진단 켜기 옵션을 사용 하 여 Data Lake Storage Gen 1 계정의 스크린샷](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "진단 로그 활성화")
 
 3. **진단 설정** 블레이드에서 다음과 같이 변경하여 진단 로깅을 구성합니다.
    
-    ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 활성화")
+    ![이름 텍스트 상자와 저장 옵션이 out 인 진단 설정 섹션의 스크린샷](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 활성화")
    
    * **이름**으로 진단 로그 구성에 대한 값을 입력합니다.
    * 다양한 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
@@ -73,13 +73,13 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Storage 계정에서
 1. 로깅을 위해 Data Lake Storage Gen1과 연결된 Azure Storage 계정 블레이드를 열고 Blob을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
    
-    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
+    ![Data Lake Storage Gen 1 블레이드의 스크린샷 선택한 Blob 옵션 및 두 개의 blob 서비스 이름이 포함 된 블로그 서비스 블레이드를 호출 합니다.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
    
    * **insights-logs-audit** 컨테이너는 감사 로그를 포함합니다.
    * **insights-logs-requests** 컨테이너는 요청 로그를 포함합니다.
 2. 이러한 컨테이너 내에서 로그는 다음 구조로 저장됩니다.
    
-    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "진단 로그 보기")
+    ![컨테이너에 저장 된 로그 구조의 스크린샷](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "진단 로그 보기")
    
     예를 들어, 감사 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -115,7 +115,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -124,11 +124,11 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | resultType |String |작업의 상태, 예를 들어 200 |
 | callerIpAddress |String |요청한 클라이언트의 IP 주소 |
 | correlationId |String |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
-| identity |Object |로그를 생성하는 ID |
+| identity |개체 |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -164,7 +164,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -173,11 +173,11 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | resultType |String |작업의 상태, 예를 들어 200 |
 | resultSignature |String |작업에 대한 추가 세부 정보입니다. |
 | correlationId |String |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
-| identity |Object |로그를 생성하는 ID |
+| identity |개체 |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | StreamName |String |작업이 수행된 경로 |
 
@@ -193,7 +193,7 @@ search *
 
 Azure Data Lake Storage Gen1에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. 에서 샘플을 찾을 수 있습니다 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 

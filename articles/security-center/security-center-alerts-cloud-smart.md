@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268071"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575948"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Azure Security Center의 클라우드 스마트 경고 상관 관계 (인시던트)
 
@@ -35,6 +35,9 @@ Security Center는 MITRE 공격 매트릭스를 활용 하 여 경고를 인식 
 공격은 여러 테 넌 트에서 자주 발생 하므로 AI 알고리즘을 결합 하 여 각 구독에 대해 보고 되는 공격 순서를 분석할 수 Security Center. 이 기술은 공격 시퀀스를 서로 연결 하는 것이 아니라 널리 사용 되는 경고 패턴으로 식별 합니다.
 
 인시던트를 조사 하는 동안 분석가는 위협에 대 한 특성 및이를 완화 하는 방법에 대 한 verdict에 도달 하는 데 추가 컨텍스트가 필요 하기도 합니다. 예를 들어 네트워크에서 발생 하는 다른 작업을 이해 하거나 대상 리소스와 관련 하 여 네트워크 변칙이 검색 된 경우에도 다음에 수행할 작업을 이해 하기 어렵습니다. 이를 돕기 위해 보안 인시던트에는 아티팩트, 관련 이벤트 및 정보가 포함 될 수 있습니다. 보안 인시던트에 사용할 수 있는 추가 정보는 검색 된 위협 유형 및 사용자 환경의 구성에 따라 달라 집니다. 
+
+> [!TIP]
+> Fusion analytics에서 생성할 수 있는 보안 인시던트 경고 목록은 [경고의 참조 테이블](alerts-reference.md#alerts-fusion)을 참조 하세요.
 
 ![보안 인시던트의 검색 된 보고서의 스크린샷](./media/security-center-alerts-cloud-smart/security-incident.png)
 

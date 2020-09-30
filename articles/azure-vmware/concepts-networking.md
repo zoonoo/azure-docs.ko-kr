@@ -3,16 +3,16 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316899"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575761"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 상호 연결과에 대 한 유용한 관점은 두 가지 유형의 Azure VMware 솔루션 사설 클라우드 구현을 고려 하는 것입니다.
 
@@ -53,7 +53,7 @@ Azure VMware 솔루션 사설 클라우드의 사용 사례는 다음과 같습�
 * 핫/콜드 교차 vCenter vMotion
 * 온-프레미스와 Azure VMware 솔루션 사설 클라우드 관리 액세스
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="가상 네트워크 및 온-프레미스 전체 사설 클라우드 연결" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="사설 클라우드 연결에 대 한 기본 가상 네트워크" border="false":::
 
 사설 클라우드에 대 한 전체 상호 연결과 경우 Express 경로 Global Reach를 사용 하도록 설정 하 고 Azure Portal의 Global Reach에 대 한 인증 키 및 개인 피어 링 ID를 요청 합니다. 권한 부여 키 및 피어 링 ID는 구독의 Express 경로 회로와 새 사설 클라우드의 Express 경로 회로 간에 Global Reach를 설정 하는 데 사용 됩니다. 연결 되 면 두 개의 Express 경로 회로에서 온-프레미스 환경 간의 네트워크 트래픽을 사설 클라우드로 라우팅합니다.  권한 부여 키 및 피어 링 ID를 요청 하 고 사용 하는 절차는 [사설 클라우드로의 express 경로 Global Reach 피어 링을 만들기 위한 자습서](tutorial-expressroute-global-reach-private-cloud.md) 를 참조 하세요.
 

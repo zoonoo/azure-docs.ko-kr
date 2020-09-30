@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러�
 description: Azure VMware 솔루션 사설 클라우드에 VM을 배포 하는 콘텐츠 라이브러리를 만듭니다.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: a8e2f1911899e659724760cff514a33c8f0740a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347591"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575808"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리 만들기
 
@@ -92,7 +92,7 @@ ms.locfileid: "91347591"
 
 ## <a name="next-steps"></a>다음 단계
 
-HCX(Hybrid Cloud Extension)를 사용하여 VM 워크로드를 프라이빗 클라우드로 마이그레이션할 계획이라면 [Azure VMware Solution용 HCX 설치](hybrid-cloud-extension-installation.md) 절차를 사용하세요.
+HCX(Hybrid Cloud Extension)를 사용하여 VM 워크로드를 프라이빗 클라우드로 마이그레이션할 계획이라면 [Azure VMware Solution용 HCX 설치](tutorial-deploy-vmware-hcx.md) 절차를 사용하세요.
 
 <!-- LINKS - external-->
 

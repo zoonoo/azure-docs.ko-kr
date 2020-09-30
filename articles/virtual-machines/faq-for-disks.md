@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b8ee222b7d65fe9b6b9a605bf055e127aef58ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439306"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575863"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -396,13 +396,19 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 아니요, 표준 SSD 관리 디스크는 크기에 상관없이 비관리 디스크 또는 페이지 Blob에서 사용할 수 없습니다.
 
-**운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
+**Gen1 Vm의 운영 체제 및 데이터 디스크에 대해 지원 되는 가장 큰 관리 디스크 크기는 무엇 인가요?**
 
-Azure에서 운영 체제 디스크에 대해 지 원하는 파티션 유형은 MBR (마스터 부트 레코드) 및 Gen 1 및 Gen 2 Vm에 대 한 GPT (GUID 파티션 테이블)입니다. MBR 형식은 최대 2TiB의 디스크 크기를 지원합니다. Gen 1 Vm의 경우 최대 4 개의 TiB를 할당할 수 있지만, 운영 체제에 대해이 디스크 공간의 최대 2 TiB 사용할 수 있습니다. Gen 2 Vm의 경우 운영 체제 디스크에 할당 하 고 사용할 수 있는 최대 크기는 4 TiB입니다. Azure는 관리 데이터 디스크에 최대 32TiB를 지원합니다.
+Azure에서 Gen1 운영 체제 디스크에 대해 지 원하는 파티션 유형은 MBR (마스터 부트 레코드)입니다. Gen1 OS 디스크는 MBR만 지원 하지만 데이터 디스크는 GPT를 지원 합니다. 최대 4 개의 TiB OS 디스크를 할당할 수 있지만, MBR 파티션 유형은 운영 체제에 대해이 디스크 공간의 최대 2 TiB 사용할 수 있습니다. Azure는 관리 데이터 디스크에 최대 32TiB를 지원합니다.
+
+**Gen2 Vm의 운영 체제 및 데이터 디스크에 대해 지원 되는 가장 큰 관리 디스크 크기는 무엇 인가요?**
+
+Gen2 운영 체제 디스크에 대해 Azure에서 지 원하는 파티션 유형은 GPT (GUID 파티션 테이블)입니다. Gen2 Vm은 최대 4 개의 TiB OS 디스크를 지원 합니다. Azure는 관리 데이터 디스크에 최대 32TiB를 지원합니다.
+
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리되지 않는 디스크 크기는 어떻게 되나요?**
 
-Azure에서 운영 체제 디스크에 지원하는 파티션 형식은 MBR(마스터 부트 레코드)입니다. MBR 형식은 최대 2TiB의 디스크 크기를 지원합니다. Azure에서 운영 체제 관리 되지 않는 디스크에 대해 지 원하는 최대 크기는 4 TiB입니다. Azure는 관리되지 않는 디스크에 최대 4TiB를 지원합니다.
+Azure에서 관리 되지 않는 디스크를 사용 하는 운영 체제 디스크에 대해 지 원하는 파티션 유형은 MBR (마스터 부트 레코드)입니다.  최대 4 개의 TiB OS 디스크를 할당할 수 있지만, MBR 파티션 유형은 운영 체제에 대해이 디스크 공간의 최대 2 TiB 사용할 수 있습니다. Azure는 관리 되지 않는 데이터 디스크에 대해 최대 4 개의 TiB 지원 합니다.
+
 
 **지원되는 가장 큰 페이지 Blob 크기는 무엇인가요?**
 

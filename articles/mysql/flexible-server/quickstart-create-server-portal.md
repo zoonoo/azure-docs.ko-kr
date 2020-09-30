@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/21/2020
-ms.openlocfilehash: 4d4d65f9ad04ca6bf99375647684a75e8662bb4d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/29/2020
+ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945693"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569628"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기
 
@@ -36,18 +36,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 2. **데이터베이스** > **Azure Database for MySQL**을 차례로 선택합니다. 검색 상자에서 **MySQL**을 입력하여 해당 서비스를 찾을 수도 있습니다.
 
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Azure Database for MySQL 옵션":::
 
 3. **유연한 서버**를 배포 옵션으로 선택합니다.
      
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="배포 옵션 선택":::    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Azure Database for MySQL 옵션":::    
 
 4. 다음 정보로 **기본 사항** 양식을 입력합니다. 
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="서버 양식 만들기"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Azure Database for MySQL 옵션"::: 
                                     
     |**설정**|**제안 값**|**설명**|
     |---|---|---|
@@ -60,8 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     버전|5.7| MySQL 주 버전입니다.|
     컴퓨팅 + 스토리지 | **버스트 가능**, **Standard_B1ms**, **10GiB**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성**을 선택합니다. *버스트 가능*, *Standard_B1ms*, *10GiB*, 및 *7일*은 **컴퓨팅 계층**, **컴퓨팅 크기**, **스토리지** 및 **백업 보존 기간**에 대한 기본값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 이 컴퓨팅 및 스토리지 선택 항목을 저장하려면 **저장**을 선택하여 구성을 계속합니다. 아래 스크린샷은 컴퓨팅 및 스토리지 옵션을 보여 줍니다.|
     
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="컴퓨팅 + 스토리지":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Azure Database for MySQL 옵션":::
 
 5. 네트워킹 구성 옵션
 
@@ -70,10 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     > [!NOTE]
     > 서버를 만든 후에는 연결 방법을 변경할 수 없습니다. 예를 들어 만드는 동안 *퍼블릭 액세스(허용된 IP 주소)* 를 선택한 경우 만든 후에 *프라이빗 액세스(VNet 통합)* 로 변경할 수 없습니다. VNet 통합을 사용하여 서버에 안전하게 액세스하려면 프라이빗 액세스 권한이 있는 서버를 만드는 것이 좋습니다. [개념 문서](./concepts-networking.md)에서 프라이빗 액세스에 대해 자세히 알아보세요.
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="네트워킹 구성":::  
-
-    <!--:::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select "Add current client IP address"":::-->
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Azure Database for MySQL 옵션":::  
 
 6. **검토 + 만들기**를 선택하여 유연한 서버 구성을 검토합니다.
 
@@ -110,7 +103,7 @@ mysql.exe를 사용하면 다음 명령으로 연결합니다. 값을 실제 서
 서버를 삭제하려면 아래와 같이 서버의 **개요** 페이지에서 **삭제** 단추를 클릭하면 됩니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="리소스 삭제":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Azure Database for MySQL 옵션":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 10f2b44d00361885778a523109a8fcb05dabe9dd
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698673"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574350"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
 
@@ -24,9 +24,9 @@ ms.locfileid: "83698673"
 
 가상 네트워크의 액세스 구성에 대해 몇 가지 자주 묻는 질문은 다음과 같습니다.
 
-### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Notebook 및 Mongo 셸이 현재 Virtual Network 사용 가능 계정과 호환됩니까?
+### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>노트북 및 Mongo/Cassandra Shell이 현재 Virtual Network 사용 계정과 호환 되나요?
 
-현재 [Cosmos DB 데이터 탐색기의 Mongo 셸 통합](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) 및 [Jupyter Notebook 서비스](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)는 VNET 액세스를 통해 지원되지 않습니다. 이 기능은 현재 개발 중입니다.
+현재 Cosmos DB 데이터 탐색기 및 [Jupyter 노트북 서비스](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)의 [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) 및 [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) 통합은 VNET 액세스에서 지원 되지 않습니다. 이 기능은 현재 개발 중입니다.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>가상 네트워크 서비스 엔드포인트 및 IP 액세스 제어 정책 모두 Azure Cosmos 계정에서 지정할 수 있나요? 
 

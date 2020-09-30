@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 82a109dd5c2813861e21e11aa40774b6b868cfe3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357712"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576203"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,9 +76,9 @@ ms.locfileid: "91357712"
   
 - **초기 시드**
 
-  장애 조치 (failover) 그룹에 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스를 추가 하는 경우 데이터 복제를 시작 하기 전에 초기 시드 단계가 수행 됩니다. 초기 시드 단계는 가장 오래 되 고 비용이 많이 드는 작업입니다. 초기 시드가 완료 되 면 데이터가 동기화 되 고 이후의 데이터 변경 내용만 복제 됩니다. 초기 초기값을 완료 하는 데 걸리는 시간은 데이터의 크기, 복제 된 데이터베이스 수 및 장애 조치 (failover) 그룹에 있는 엔터티 간의 링크 속도에 따라 다릅니다. 일반적인 상황에서 일반적인 시드 속도는 SQL Database의 경우 50-500 GB이 고, SQL Managed Instance의 경우 18-35 GB는 1 시간입니다. 모든 데이터베이스에 대 한 시드는 병렬로 수행 됩니다. 데이터 복제를 시작 하기 전에 데이터베이스 수 및 데이터의 전체 크기와 함께 명시 된 시드 속도를 사용 하 여 초기 시드 단계가 소요 되는 기간을 예측할 수 있습니다.
+  장애 조치 (failover) 그룹에 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스를 추가 하는 경우 데이터 복제를 시작 하기 전에 초기 시드 단계가 수행 됩니다. 초기 시드 단계는 가장 오래 되 고 비용이 많이 드는 작업입니다. 초기 시드가 완료 되 면 데이터가 동기화 되 고 이후의 데이터 변경 내용만 복제 됩니다. 초기 초기값을 완료 하는 데 걸리는 시간은 데이터의 크기, 복제 된 데이터베이스 수 및 장애 조치 (failover) 그룹에 있는 엔터티 간의 링크 속도에 따라 다릅니다. 정상적인 상황에서 가능한 시드 속도는 SQL Database에 대해 최대 500 g b, SQL Managed Instance의 경우 최대 360 GB의 시간입니다. 모든 데이터베이스에 대 한 시드는 병렬로 수행 됩니다.
 
-  SQL Managed Instance의 경우 두 인스턴스 간의 Express 경로 링크 속도는 초기 시드 단계의 시간을 예측할 때 고려해 야 합니다. 두 인스턴스 간의 링크 속도가 필요한 것 보다 느린 경우 시드 시간이 특히 영향을 받을 수 있습니다. 설명 된 시드 속도, 데이터베이스 수, 총 데이터 크기 및 링크 속도를 사용 하 여 데이터 복제가 시작 되기 전에 초기 시드 단계가 소요 되는 기간을 예측할 수 있습니다. 예를 들어 단일 100 GB 데이터베이스의 경우 링크에서 시간당 35 GB를 푸시할 수 있는 경우 초기 초기값 단계는 2.8-5.5 시간에서 아무 곳 이나 사용 하지 않습니다. 링크에서 시간당 10gb만 전송할 수 있는 경우 100 g b 데이터베이스를 시드해야 하면 약 10 시간이 소요 됩니다. 복제할 데이터베이스가 여러 개 있는 경우에는 시드가 병렬로 실행 되며, 저속 링크 속도와 함께 사용 하는 경우, 특히 모든 데이터베이스의 데이터에 대 한 병렬 시드가 사용 가능한 링크 대역폭을 초과 하는 경우 초기 시드 단계가 훨씬 더 오래 걸릴 수 있습니다. 두 인스턴스 간의 네트워크 대역폭이 제한 되어 있고 여러 관리 되는 인스턴스를 장애 조치 (failover) 그룹에 추가 하는 경우 여러 개의 관리 되는 인스턴스를 장애 조치 그룹에 하나씩 순차적으로 추가 하는 것이 좋습니다.
+  SQL Managed Instance의 경우 초기 시드 단계의 시간을 예측할 때 두 인스턴스 간의 Express 경로 링크 속도를 고려 합니다. 두 인스턴스 간의 링크 속도가 필요한 것 보다 느린 경우 시드 시간이 특히 영향을 받을 수 있습니다. 설명 된 시드 속도, 데이터베이스 수, 총 데이터 크기 및 링크 속도를 사용 하 여 데이터 복제가 시작 되기 전에 초기 시드 단계가 소요 되는 기간을 예측할 수 있습니다. 예를 들어 단일 100 GB 데이터베이스의 경우 링크에서 시간당 84 g b를 푸시할 수 있는 경우 및 시드 되는 다른 데이터베이스가 없는 경우 초기 초기값 단계에 약 1.2 시간이 소요 됩니다. 링크에서 시간당 10gb만 전송할 수 있는 경우 100 g b 데이터베이스를 시드해야 하면 약 10 시간이 소요 됩니다. 복제할 데이터베이스가 여러 개 있는 경우에는 시드가 병렬로 실행 되며, 저속 링크 속도와 함께 사용 하는 경우, 특히 모든 데이터베이스의 데이터에 대 한 병렬 시드가 사용 가능한 링크 대역폭을 초과 하는 경우 초기 시드 단계가 훨씬 더 오래 걸릴 수 있습니다. 두 인스턴스 간의 네트워크 대역폭이 제한 되어 있고 여러 관리 되는 인스턴스를 장애 조치 (failover) 그룹에 추가 하는 경우 여러 개의 관리 되는 인스턴스를 장애 조치 그룹에 하나씩 순차적으로 추가 하는 것이 좋습니다. 두 개의 관리 되는 인스턴스 간에 적절 한 크기의 게이트웨이 SKU를 지정 하 고 회사 네트워크 대역폭에서 허용 하는 경우 한 시간에 360 기가바이트 만큼 속도를 달성할 수 있습니다.  
 
 - **DNS 영역**
 
@@ -133,7 +133,7 @@ ms.locfileid: "91357712"
   > [!NOTE]
   > SQL Managed Instance는 여러 장애 조치 (failover) 그룹을 지원 하지 않습니다.
   
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 장애 조치 (failover) 그룹에 대 한 사용 권한은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 통해 관리 됩니다. [SQL Server 참여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할에는 장애 조치 (failover) 그룹을 관리 하는 데 필요한 모든 권한이 있습니다.
 
@@ -232,6 +232,10 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 > 서브넷에서 만든 첫 번째 관리 되는 인스턴스는 동일한 서브넷에 있는 모든 후속 인스턴스의 DNS 영역을 결정 합니다. 즉, 동일한 서브넷의 두 인스턴스는 서로 다른 DNS 영역에 속할 수 없습니다.
 
 주 인스턴스와 동일한 DNS 영역에 보조 SQL Managed Instance를 만드는 방법에 대 한 자세한 내용은 [보조 관리 되는 인스턴스 만들기](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance)를 참조 하세요.
+
+### <a name="using-geo-paired-regions"></a>지리적으로 쌍을 이루는 지역 사용
+
+성능상의 이유로 두 관리 되는 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 에 배포 합니다. 지리적으로 쌍을 이루는 지역에 상주 하는 관리 되는 인스턴스는 페어링되지 않은 영역에 비해 훨씬 더 나은 성능을 갖습니다. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>두 인스턴스 간의 복제 트래픽 활성화
 

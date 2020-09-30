@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: fa25d07ff034cec50da515341bd9ca604ee28577
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319187"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570046"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "87319187"
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다. 
 
-* 최신 버전의 [JDK(Java Development Kit)](/java/azure/jdk/?view=azure-java-stable)를 가져옵니다. 
+* 최신 버전의 [JDK(Java Development Kit)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)를 가져옵니다. 
 
 * [Maven](https://maven.apache.org/) 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다. 
   - Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다. 

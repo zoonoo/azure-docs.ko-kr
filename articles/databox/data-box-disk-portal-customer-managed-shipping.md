@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055577"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575166"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Azure Portal에서 Azure Data Box Disk용 자체 관리형 배송 사용
 
@@ -37,13 +37,13 @@ Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 �
 
 1. Azure Data Box Disk 주문의 **연락처 세부 정보**에서 **+ 배송 주소 추가**를 선택합니다.
 
-   ![자체 관리형 배송](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![발송 주소 추가 옵션을 호출 하 여 연락처 정보 단계를 보여 주는 주문 마법사의 스크린샷](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. 배송 유형을 선택할 때 **자체 관리형 배송** 옵션을 선택합니다. 이 옵션은 필수 구성 요소에 설명된 대로 지원되는 지역에서만 사용할 수 있습니다.
 
 3. 배송 주소를 입력한 후에는 유효한지 검사하고 주문을 완료해야 합니다.
 
-   ![자체 관리형 배송](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![배송 사용 옵션 및 추가 된 배송 주소 추가 옵션이 있는 배송 주소 추가 대화 상자의 스크린샷](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. 장치가 준비 되 고 전자 메일 알림을 받으면 픽업을 예약할 수 있습니다. Azure Data Box Disk 주문에서 **개요**로 이동한 후 **픽업 예약**을 선택합니다.
 
@@ -55,7 +55,7 @@ Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 �
 
 6. 디바이스 픽업을 예약한 후에는 **Azure 픽업 예약**에서 인증 코드를 볼 수 있습니다.
 
-   ![인증 코드 보기](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![픽업 텍스트 상자에 대 한 인증 코드를 호출 하 여 Azure에 대 한 선택 일정 대화 상자 스크린샷](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    **인증 코드**를 적어 둡니다.
 
@@ -78,7 +78,7 @@ Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 �
 
 9. 반납 약속을 받은 경우에는 이제 Azure Portal에서 주문이 **Azure 데이터 센터에서 수신 준비 완료** 상태여야 합니다.
 
-   ![인증 코드 보기](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![발송을 사용 하는 옵션을 제공 하는 발송 주소 추가 대화 상자와 전달 주소 추가 옵션의 스크린샷](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. ID 및 인증 코드를 확인하고 데이터 센터에서 디바이스를 반납한 후에는 주문 상태가 **수신됨**이 됩니다.
 

@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229519"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566825"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 보고서란?
 
@@ -66,6 +66,12 @@ Azure AD(Azure Active Directory) 보고서는 환경에서 작업의 포괄적�
 - **감사 로그** - [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
 
 - **로그인** - [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그 보고서에서 보고한 작업을 수행한 사람을 확인할 수 있습니다.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
 
 
 ### <a name="audit-logs-report"></a>감사 로그 보고서 

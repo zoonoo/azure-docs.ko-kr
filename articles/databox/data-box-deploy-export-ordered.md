@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053057"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575574"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>자습서: Azure Data Box (미리 보기)에 대 한 내보내기 순서 만들기
 
@@ -70,7 +70,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |전송 형식     | **Azure로 내보내기를**선택 합니다.        |
     |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
-    |리소스 그룹     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |Resource group     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |원본 Azure 지역    |    현재 데이터가 있는 Azure 지역을 선택 합니다.         |
     |대상 국가     |     장치를 배송 하려는 국가를 선택 합니다.        |
 
@@ -119,12 +119,12 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
    ![연락처 세부 정보](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
 
-1. **보안**에서 소프트웨어 기반 이중 암호화를 사용 하도록 설정 하려면 **순서에 이중 암호화 사용**을 선택 합니다. 
+1. **보안**에서 소프트웨어 기반 이중 암호화를 사용하도록 설정하려면 **주문에 이중 암호화 사용**을 선택합니다. 
 
-   소프트웨어 기반 암호화는 Data Box 데이터의 AES-256 비트 암호화와 함께 수행 됩니다.
+   소프트웨어 기반 암호화는 Data Box 데이터의 AES-256비트 암호화와 함께 수행됩니다.
 
    > [!NOTE]
-   > 이 옵션을 사용 하도록 설정 하면 주문 처리 및 데이터 복사 시간이 길어질 수 있습니다. 주문을 만든 후에는이 옵션을 변경할 수 없습니다.
+   > 이 옵션을 사용하도록 설정하면 주문 처리 및 데이터 복사 시간이 더 길어질 수 있습니다. 주문을 만든 후에는 이 옵션을 변경할 수 없습니다.
 
    ![데이터 상자 가져오기, 이중 암호화를 위한 보안 화면](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
 
@@ -159,34 +159,34 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 **XML 파일 사용**을 선택 하는 경우 내보내려는 특정 컨테이너와 blob (페이지 및 블록)를 지정할 수 있습니다. XML 서식 지정에 대 한 [예제 xml 파일 테이블](#sample-xml-file) 사양을 따라야 합니다. 아래 단계에서는 XML 파일을 사용 하 여 데이터를 내보내는 방법을 보여 줍니다.
 
 1. **내보내기 유형**에서 **XML 파일 사용**을 선택 합니다. 내보내려는 특정 blob 및 Azure 파일을 지정 하는 XML 파일입니다. XML 파일을 추가 하려면 **xml 파일을 선택 하려면 여기를 클릭**하십시오 .를 선택 합니다.
-     ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Out 이라는 X M L 파일 옵션을 선택 하려면 여기를 클릭 하세요 .로 내보내기 옵션의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. **+ 컨테이너** 를 선택 하 여 컨테이너를 만듭니다.
-    ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+    ![컨테이너 섹션의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
 3. Azure Portal 오른쪽에서 팝 되는 **새 컨테이너** 탭에서 컨테이너의 이름을 추가 합니다. 이름은 소문자 여야 하 고 숫자 및 대시 '-'를 포함할 수 있습니다. 그런 다음 드롭다운 목록 상자에서 **공용 액세스 수준을** 선택 합니다. 다른 사용자가 데이터에 액세스 하지 못하도록 하려면 **개인 (익명이 아닌 액세스)** 을 선택 하는 것이 좋습니다. 컨테이너 액세스 수준에 대 한 자세한 내용은 [컨테이너 액세스 권한](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)을 참조 하세요.
 
-   ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![개인 (익명 액세스 없음) 옵션을 선택한 새 컨테이너 탭의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
 4. **만들기**를 선택합니다.
 
-   ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Create 옵션이 out으로 호출 된 새 컨테이너 탭의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
    컨테이너가 성공적으로 생성 되 면 다음과 같은 메시지가 표시 됩니다.
 
-   ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   !["저장소 컨테이너를 만들었습니다." 라는 메시지의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
 
 5. 만든 컨테이너를 선택 하 고 두 번 클릭 합니다.
 
-   ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![내 전용 테스트 컨테이너 컨테이너가 out 인 컨테이너 섹션의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
 6. 컨테이너를 두 번 클릭 하면 컨테이너 속성 보기가 표시 됩니다. 이제 내보내려는 blob 및/또는 Azure 파일 목록이 포함 된 XML 파일을 첨부 (또는 탐색) 하려고 합니다. **업로드**를 선택합니다.
 
-   ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![업로드 옵션을 out으로 호출한 blob 업로드 대화 상자의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 
 7. 컨테이너에 XML 파일을 추가 했습니다. 이 XML에서 지정한 blob 및 Azure 파일만 내보내집니다.
 
-   ![XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![다음이 포함 된 주문 마법사 스크린샷: 보안 옵션을 out 이라고 합니다.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## <a name="track-the-order"></a>주문 추적
 

@@ -3,12 +3,12 @@ title: 자습서 - 네트워크 계획 검사 목록
 description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 세부 정보 및 네트워크 요구 사항 전제 조건에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254400"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576680"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
@@ -21,8 +21,6 @@ Azure VMware 솔루션은 온-프레미스 및 Azure 기반 환경 또는 리소
 > * 라우팅 및 서브넷 요구 사항
 > * 서비스와 통신하는 데 필요한 네트워크 포트
 > * Azure VMware Solution의 DHCP 및 DNS 고려 사항
-
-
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>가상 네트워크 및 ExpressRoute 회로 고려 사항
 구독에서 가상 네트워크 연결을 만들 때 ExpressRoute 회로는 피어링을 통해 설정되며, Azure Portal에서 요청하는 권한 부여 키와 피어링 ID를 사용합니다. 피어링은 프라이빗 클라우드와 가상 네트워크 간의 일대일 연결입니다.

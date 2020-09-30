@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 20948ec088d11468b5750ca89979050965246b58
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664232"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575482"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -38,7 +38,7 @@ Microsoft Azure native tools를 사용 하 여 Azure 환경에서 Vm (가상 머
 
 다음 다이어그램은 Azure VMware 솔루션 Vm에 대 한 통합 모니터링 아키텍처를 보여 줍니다.
 
-![통합 Azure 모니터링 아키텍처](media/lifecycle-mgmt-avs-vms/integrated-azure-monitoring-architecture.png)
+![통합 Azure 모니터링 아키텍처](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
 ## <a name="integrating-and-deploying-azure-native-services"></a>Azure native services 통합 및 배포
 

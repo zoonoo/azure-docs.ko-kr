@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56b018326e8673e6ac9e625a5732a08238f982fd
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: ed717c2423b5336824bccd256bf43654c31a4c8a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274325"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568940"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 연결
+# <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB용 Azure Synapse Link에 연결
 
 이 문서에서는 Synapse Link를 사용하여 Azure Synapse Analytics Studio에서 Azure Cosmos DB 데이터베이스에 액세스하는 방법을 설명합니다. 
 

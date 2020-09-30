@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c9d4747b227c7ff83e4c43292badd65836edfef
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052174"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575965"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 5.1 설치
 
@@ -60,15 +60,15 @@ ms.locfileid: "90052174"
 
 2. **장치 설정**  >  **장치 업데이트**로 이동 합니다.
 
-    ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update-51/update2.png)
+    ![장치 업데이트 옵션이 호출 된 설정 블레이드의 스크린샷](./media/storsimple-8000-install-update-51/update2.png)
 
 3. 새 업데이트를 사용할 수 있는 경우 알림이 나타납니다. 또는 **디바이스 업데이트** 블레이드에서 **업데이트 검색**을 클릭합니다. 사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 작업이 성공적으로 완료되면 알림이 표시됩니다.
 
-    ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update-51/update3.png)
+    ![장치 업데이트 옵션이 포함 된 설정 블레이드의 스크린샷 및 새로운 일반 업데이트를 포함 하는 장치 업데이트 블레이드는 사용 가능한 메시지 라는 메시지를 제공 합니다.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. 디바이스에 업데이트를 적용하기 전에 릴리스 정보를 검토하는 것이 좋습니다. 업데이트를 적용하려면 **업데이트 설치**를 클릭합니다. **Confirm regular updates(정기 업데이트 확인)** 블레이드에서 업데이트를 적용하기 전에 완료할 필수 구성 요소를 검토합니다. 디바이스를 업데이트할 준비가 되었음을 나타내는 확인란을 선택한 후 **설치**를 클릭합니다.
 
-    ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update-51/update4.png)
+    ![업데이트 설치 옵션을 사용 하는 장치 업데이트 블레이드의 스크린샷 및 "동의 함" 및 "설치 옵션으로 일반 업데이트 확인.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. 일련의 필수 조건 검사가 시작됩니다. 이들 검사는 다음과 같습니다.
    
@@ -80,17 +80,17 @@ ms.locfileid: "90052174"
 
 7. 사전 검사를 성공적으로 완료한 후 업데이트 작업이 생성됩니다. 업데이트 작업이 성공적으로 만들어지면 알림이 표시됩니다.
    
-    ![업데이트 작업 만들기](./media/storsimple-8000-install-update-51/update6.png)
+    !["소프트웨어 업데이트 작업 시작" 이라는 알림의 스크린샷](./media/storsimple-8000-install-update-51/update6.png)
    
     그런 다음 업데이트가 디바이스에 적용됩니다.
 
 9. 업데이트를 완료하는 데 몇 시간이 걸립니다. 업데이트 작업을 선택하고 **세부 정보** 를 클릭하여 언제든지 작업의 세부 정보를 봅니다.
 
-    ![업데이트 작업 만들기](./media/storsimple-8000-install-update-51/update8.png)
+    ![소프트웨어 업데이트를 다운로드 하 여 설치 하는 중 옵션을 선택 하 고 업데이트를 설치 하는 장치 업데이트 블레이드의 스크린샷.](./media/storsimple-8000-install-update-51/update8.png)
 
      **디바이스 설정 &gt; 작업**에서 업데이트 작업의 진행률을 모니터링할 수도 있습니다. **작업** 블레이드에서 업데이트 진행률을 볼 수 있습니다.
 
-     ![업데이트 작업 만들기](./media/storsimple-8000-install-update-51/update7.png)
+     ![작업이 호출 되는 설정 블레이드의 스크린샷 및 업데이트 진행률이 표시 된 작업 블레이드 스크린샷](./media/storsimple-8000-install-update-51/update7.png)
 
 10. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트**로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
 

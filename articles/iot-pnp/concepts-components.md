@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c4a32a5c929e74332e85ceb6f4cff787e237e385
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069648"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574282"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>모델의 IoT 플러그 앤 플레이 구성 요소
 
@@ -56,7 +56,7 @@ Iot 플러그 앤 플레이 규칙에서 장치는 iot hub에 연결할 때 dtdl
 ...
 ```
 
-모델은 구성 요소를 명시적으로 정의 하지 않지만 모든 원격 분석, 속성 및 명령 정의를 포함 하는 단일 구성 요소가 있는 것 처럼 동작 합니다.
+모델은 구성 요소를 명시적으로 정의 하지 않지만 모든 원격 분석, 속성 및 명령 정의를 포함 하는 단일 _기본 구성 요소가_있는 것 처럼 동작 합니다.
 
 다음 스크린샷은 Azure IoT 탐색기 도구에 모델을 표시 하는 방법을 보여 줍니다.
 
@@ -64,9 +64,12 @@ Iot 플러그 앤 플레이 규칙에서 장치는 iot hub에 연결할 때 dtdl
 
 모델 ID는 다음 스크린샷에 표시 된 것 처럼 장치 쌍 속성에 저장 됩니다.
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="디지털 쌍 속성의 모델 ID":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Azure IoT 탐색기의 기본 구성 요소":::
 
-구성 요소가 없는 DTDL 모델은 단일 원격 분석, 속성 및 명령 집합을 사용 하는 장치에 대 한 유용한 단순화입니다. 구성 요소를 사용 하지 않는 모델을 사용 하면 기존 장치를 IoT 플러그 앤 플레이 장치로 쉽게 마이그레이션할 수 있습니다. 구성 요소를 정의할 필요 없이 실제 장치를 설명 하는 DTDL 모델을 만듭니다.
+구성 요소가 없는 DTDL 모델은 단일 원격 분석, 속성 및 명령 집합을 사용 하는 장치 또는 IoT Edge 모듈에 유용 하 게 사용할 수 있습니다. 구성 요소를 사용 하지 않는 모델을 사용 하면 기존 장치 또는 모듈을 IoT 플러그 앤 플레이 장치 또는 모듈로 쉽게 마이그레이션할 수 있습니다. 구성 요소를 정의할 필요 없이 실제 장치 또는 모듈을 설명 하는 DTDL 모델을 만듭니다.
+
+> [!TIP]
+> 모듈은 장치 [module] (.. /iot-hub/iot-hub-devguide-module-twins.md 또는 [IoT Edge 모듈](../iot-edge/about-iot-edge.md)
 
 ## <a name="multiple-components"></a>여러 구성 요소
 
@@ -109,11 +112,12 @@ Iot 플러그 앤 플레이 규칙에서 장치는 iot hub에 연결할 때 dtdl
 ...
 ```
 
-이 모델에는 내용 섹션 (두 구성 요소 및 구성 요소)에 정의 된 세 가지 구성 요소가 있습니다 `Thermostat` `DeviceInformation` . 기본 루트 구성 요소도 있습니다.
+이 모델에는 내용 섹션 (두 구성 요소 및 구성 요소)에 정의 된 세 가지 구성 요소가 있습니다 `Thermostat` `DeviceInformation` . 기본 구성 요소도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 모델 구성 요소에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
+- [DTDL authoring tools 설치 및 사용](howto-use-dtdl-authoring-tools.md)
 - [디지털 Twins 정의 언어 v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [모델 리포지토리](./concepts-model-repository.md)

@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060818"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91573972"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
@@ -32,21 +32,29 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
 1. **클라우드 속성**, **속성**또는 **명령** 을 **작업 유형**으로 선택 합니다.
 
-    **속성** 작업 구성을 설정 하려면 속성을 선택 하 고 새 값을 설정 합니다. **명령** 작업 구성을 설정 하려면 실행할 명령을 선택 합니다. 속성 작업은 여러 속성을 설정할 수 있습니다.
+    **속성** 작업을 구성 하려면 속성을 선택 하 고 새 값을 설정 합니다. **명령** 작업을 구성 하려면 실행할 명령을 선택 합니다. 속성 작업은 여러 속성을 설정할 수 있습니다.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
     **저장 후 종료** 를 선택 **하 여 작업 페이지의** 저장 된 작업 목록에 작업을 추가 합니다. 나중에 저장 된 작업 목록에서 작업으로 돌아갈 수 있습니다.
 
+    **다음** 을 선택 하 여 **배달 옵션** 페이지로 이동 합니다. **배달 옵션** 페이지에서이 작업에 대 한 배달 옵션을 **일괄 처리** 및 **취소 임계값**으로 설정할 수 있습니다.
+
+    일괄 처리를 사용 하면 많은 수의 장치에 대 한 작업을 엇갈리게 배치할 수 있습니다. 작업은 여러 일괄 처리로 나뉘어 각 일괄 처리에는 장치의 하위 집합이 포함 되어 있습니다. 일괄 처리는 큐에 대기 하 고 순서 대로 실행 됩니다.
+
+    취소 임계값을 사용 하면 오류 수가 설정 된 제한을 초과 하는 경우 작업을 자동으로 취소할 수 있습니다. 임계값은 작업의 모든 장치 또는 개별 일괄 처리에 적용 될 수 있습니다.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
+
     **다음** 을 선택 하 여 **검토** 페이지로 이동 합니다. **검토** 페이지에 작업 구성 세부 정보가 표시 됩니다. **실행** 을 선택 하 여 작업을 제출 합니다.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="작업 마법사 검토 페이지의 스크린샷":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 1. 작업은 *보류 중*, *실행 중*및 *완료* 된 단계를 거칩니다. 작업 실행 세부 정보에는 결과 메트릭, 기간 정보 및 장치 목록 표가 포함 됩니다.
 
     작업이 완료 되 면 **결과 로그** 를 선택 하 여 장치 및 해당 상태 값을 비롯 한 작업 세부 정보의 CSV 파일을 다운로드할 수 있습니다. 이 정보는 문제 해결에 유용할 수 있습니다.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="장치 상태를 보여 주는 스크린샷":::
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 1. 이제 **작업이 작업 페이지** 의 **최근 30 일** 목록에 표시 됩니다. 이 페이지에는 현재 실행 중인 작업과 이전에 실행 되거나 저장 된 작업의 기록이 표시 됩니다.
 
@@ -57,17 +65,17 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
 실행 중인 작업을 중지 하려면 해당 작업을 열고 **중지**를 선택 합니다. 작업 상태가 중지 됨으로 변경 됩니다. **요약** 섹션에는 완료 되었거나 실패 했거나 아직 보류 중인 장치가 표시 됩니다.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="실행 중인 작업과 작업을 중지 하는 단추를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 작업이 중지 됨 상태인 경우 **계속** 을 선택 하 여 작업 실행을 다시 시작할 수 있습니다. 작업이 현재 실행 중임을 반영 하도록 작업 상태가 변경 됩니다. **요약** 섹션은 최신 진행 상태로 계속 업데이트 됩니다.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="중지 된 작업과 작업을 계속 하는 단추를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 ## <a name="copy-a-job"></a>작업 복사
 
 기존 작업을 복사 하려면 실행 된 작업을 선택 합니다. 작업 결과 페이지 또는 작업 세부 정보 페이지에서 **복사** 를 선택 합니다.
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="복사 단추를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 편집 하기 위해 작업 구성의 복사본이 열리고 **복사** 는 작업 이름에 추가 됩니다.
 
@@ -82,6 +90,7 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 | Pending              | 이 작업은 장치에서 아직 실행 되지 않았습니다.         |
 | 실행 중              | 이 작업은 현재 장치에서 실행 되 고 있습니다.             |
 | 중지됨              | 사용자가 수동으로이 작업을 중지 했습니다.           |
+| 취소됨             | **배달 옵션** 페이지에 설정 된 임계값을 초과 하 여이 작업이 취소 되었습니다. |
 
 상태 메시지는 작업의 장치에 대 한 개요를 따릅니다. 다음 표에서는 가능한 *장치 상태* 값을 보여 줍니다.
 
@@ -104,13 +113,13 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
 **작업 세부 정보** 페이지에서 필터 아이콘을 선택 하 여 장치 목록을 필터링 할 수 있습니다. **장치 ID** 또는 **상태** 필드를 기준으로 필터링 할 수 있습니다.
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="장치 목록을 필터링 하기 위한 선택 항목을 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 ## <a name="customize-columns-in-the-device-list"></a>장치 목록의 열 사용자 지정
 
 열 옵션 아이콘을 선택 하 여 장치 목록에 열을 추가할 수 있습니다.
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="열 옵션에 대 한 아이콘을 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 **열 옵션** 대화 상자를 사용 하 여 장치 목록 열을 선택할 수 있습니다. 표시 하려는 열을 선택 하 고 오른쪽 화살표를 선택한 다음 **확인**을 선택 합니다. 사용 가능한 모든 열을 선택 하려면 **모두 선택**을 선택 합니다. 선택한 열이 장치 목록에 표시 됩니다.
 
@@ -120,7 +129,7 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
 장치가 실패 한 작업을 다시 실행할 수 있습니다. **실패 한 경우 다시 실행을**선택 합니다.
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="실패 한 장치에서 작업을 다시 실행 하는 단추를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="설정 된 Light 임계값 이라는 속성 작업을 만들기 위한 선택 항목을 보여 주는 스크린샷":::
 
 작업 이름 및 설명을 입력 한 다음 **작업 다시 실행**을 선택 합니다. 실패 한 장치에 대 한 작업을 다시 시도 하기 위해 새 작업이 전송 됩니다.
 

@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: ab9217229a64605273537fc65cf3a29dcecd20c3
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a9a8a73e2208f7efe01f43fa87e196ffd8c64f14
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85361594"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576305"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 

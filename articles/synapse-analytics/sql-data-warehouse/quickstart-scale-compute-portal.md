@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL 풀에 대한 컴퓨팅 크기 조정(Azure Portal)
+title: '빠른 시작: Synapse SQL 풀에 대한 컴퓨팅 크기 조정(Azure Portal)'
 description: Azure Portal을 사용하여 Synapse SQL 풀(데이터 웨어하우스)에 대한 컴퓨팅을 크기 조정할 수 있습니다.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d944ff86cdc11c30142792c6fd15d03e3cfd4fa9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b8a39220bda788cf6dac0be5151c2cdf5385e342
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212941"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570266"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀에 대한 컴퓨팅 크기 조정
 

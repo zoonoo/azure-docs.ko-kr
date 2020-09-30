@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse 작업 영역 Azure Resource Manager 템플릿 만들기
+title: '빠른 시작: Azure Synapse 작업 영역 Azure Resource Manager 템플릿 만들기'
 description: Azure Resource Manager 템플릿을 사용하여 Synapse 작업 영역을 만드는 방법을 알아봅니다.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: c64f3d835eeede79f937bbaadb0a54992176438d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: dc6d36f2316e0ae19ce8b813fa9eb127b1a9cf1f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500676"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569014"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>빠른 시작: 배포 템플릿을 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음과 같이 **시각화** 링크를 선택하여 템플릿을 검토할 수 있습니다.
 
-[![시각화](../media/template-deployments/template-visualize-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![시각화](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 템플릿은 다음 두 가지 리소스를 정의합니다.
 

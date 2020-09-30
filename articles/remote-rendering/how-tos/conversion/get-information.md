@@ -1,18 +1,18 @@
 ---
-title: 변환에 대 한 정보 가져오기
-description: 변환에 대 한 정보 가져오기
+title: 변환 정보 가져오기
+description: 변환 정보 가져오기
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870292"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576628"
 ---
-# <a name="get-information-about-conversions"></a>변환에 대 한 정보 가져오기
+# <a name="get-information-about-conversions"></a>변환 정보 가져오기
 
 ## <a name="information-about-a-conversion-the-result-file"></a>변환에 대 한 정보: 결과 파일
 
@@ -65,6 +65,10 @@ ms.locfileid: "88870292"
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -114,6 +118,13 @@ ms.locfileid: "88870292"
 * `sourceAssetFormat`: 원본 파일 형식에 대 한 설명입니다.
 * `sourceAssetFormatVersion`: 소스 파일 형식의 버전입니다.
 * `sourceAssetGenerator`: 사용할 수 있는 경우 소스 파일을 생성 한 도구의 이름입니다.
+
+### <a name="the-materialoverrides-section"></a>*MaterialOverrides* 섹션
+
+이 섹션에서는 변환 서비스에 재질 재정의 파일이 제공 될 때 재정의 하는 [자료](override-materials.md) 에 대 한 정보를 제공 합니다.
+여기에는 다음 정보가 포함되어 있습니다.
+* `numOverrides`: 재질 재정의 파일에서 읽은 재정의 항목 수입니다.
+* `numOverriddenMaterials`: 재정의 된 재질의 수입니다.
 
 ### <a name="the-inputstatistics-section"></a>*Inputstatistics* 섹션
 

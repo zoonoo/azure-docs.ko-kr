@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461464"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575523"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -19,7 +19,7 @@ Azure Monitor Logs 전용 클러스터는 대용량 고객에 게 더 나은 서
 
 대용량 클러스터를 지 원하는 것 외에 전용 클러스터를 사용 하는 경우 다음과 같은 이점이 있습니다.
 
-- **요금 제한** -고객은 전용 클러스터에 대해서만 수집 속도가 더 높아질 수 있습니다.
+- **요금 제한** -고객은 전용 클러스터에 대해서만 수집 [속도가](../service-limits.md#data-ingestion-volume-rate) 더 높아질 수 있습니다.
 - **기능** -특정 엔터프라이즈 기능은 전용 클러스터-특히 cmk (고객 관리 키) 및 LockBox 지원 에서만 사용할 수 있습니다. 
 - **일관성** -고객은 자신의 전용 리소스를 가지 므로 동일한 공유 인프라에서 실행 되는 다른 고객의 영향을 받지 않습니다.
 - **비용 효율성** -할당 된 용량 예약 계층이 모든 클러스터 수집을 고려 하므로 전용 클러스터를 사용 하는 것이 더 비용 효율적일 수 있습니다. 이러한 항목 중 일부는 작고 용량 예약 할인이 적합 하지 않은 경우에도 마찬가지입니다.
@@ -38,14 +38,23 @@ Azure Monitor Logs 전용 클러스터는 대용량 고객에 게 더 나은 서
 
 클러스터 수준의 모든 작업에는 `Microsoft.OperationalInsights/clusters/write` 클러스터에 대 한 작업 권한이 필요 합니다. 작업을 포함 하는 소유자 또는 참가자를 통하거나 `*/write` 동작을 포함 하는 Log Analytics 참여자 역할을 통해이 사용 권한을 부여할 수 있습니다 `Microsoft.OperationalInsights/*` . Log Analytics 권한에 대 한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대 한 액세스 관리](../platform/manage-access.md)를 참조 하세요. 
 
-## <a name="billing"></a>결제
 
-전용 클러스터는 용량 예약 계층을 사용 하거나 사용 하지 않고 GB 당 요금제를 사용 하는 작업 영역에 대해서만 지원 됩니다. 전용 클러스터에는 해당 클러스터에 대해 1TB 이상 수집 하도록 커밋하는 고객에 대 한 추가 요금이 부과 되지 않습니다. "수집에 커밋"은 클러스터 수준에서 최소 1TB/일의 용량 예약 계층을 할당 했음을 의미 합니다. 용량 예약이 클러스터 수준에서 연결 되어 있는 동안에는 데이터에 대 한 실제 요금 청구에 대해 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
+## <a name="cluster-pricing-model"></a>클러스터 가격 책정 모델
 
-- *클러스터* (기본값)-클러스터의 용량 예약 비용은 *클러스터* 리소스의 특성을 갖습니다.
-- *작업 영역* -클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 사용 합니다. 하루에 대 한 총 수집 데이터가 용량 예약 아래에 있는 경우 *클러스터* 리소스의 사용량에 대 한 요금이 청구 됩니다. 클러스터 가격 책정 모델에 대해 자세히 알아보려면 [전용 클러스터 Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요.
+Log Analytics 전용 클러스터는 최소 1000 g b/일의 용량 예약 가격 책정 모델을 사용 합니다. 예약 수준을 초과하는 모든 사용량에 대한 요금은 종량제 요율로 청구됩니다.  용량 예약 가격 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
 
-전용 클러스터 요금 청구에 대 한 자세한 내용은 [Log Analytics 전용 클러스터 청구](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조 하세요.
+클러스터 용량 예약 수준은에서 매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다 `Capacity` `Sku` . `Capacity`는 GB 단위로 지정되며 일일 100GB의 증분 단위로 일일 1000GB 이상의 값을 가질 수 있습니다.
+
+클러스터에서 사용 하기 위한 두 가지 모드의 요금 청구 방법이 있습니다. `billingType`클러스터를 구성할 때 매개 변수를 통해 지정할 수 있습니다. 
+
+1. **Cluster**:이 경우 (기본값) 수집 데이터에 대 한 청구는 클러스터 수준에서 수행 됩니다. 클러스터의 일별 청구 금액을 계산하기 위해 클러스터에 연결된 각 작업 영역의 수집된 데이터 수량이 집계됩니다. 
+
+2. **작업 영역**: 클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 사용 합니다 (각 작업 영역에 대 한 노드 별 [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 할당에 대 한 회계).
+
+작업 영역이 레거시 노드당 가격 책정 계층을 사용 하는 경우 클러스터에 연결 된 경우 클러스터의 용량 예약에 대 한 데이터 수집를 기준으로 요금이 청구 되 고 노드당 더 이상 청구 되지 않습니다. 노드당 데이터 할당 Azure Security Center 계속 적용 됩니다.
+
+자세한 내용은 [여기]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)에서 사용할 수 있는 Log Analytics 전용 클러스터에 대 한 청구입니다.
+
 
 ## <a name="creating-a-cluster"></a>클러스터 만들기
 
@@ -155,8 +164,8 @@ Log Analytics 클러스터를 프로 비전 하는 작업은 완료 하는 데 �
 
 - **keyVaultProperties**: [고객이 관리 하는 Azure Monitor 키](../platform/customer-managed-keys.md#cmk-provisioning-procedure)를 프로 비전 하는 데 사용 되는 Azure Key Vault를 구성 하는 데 사용 됩니다. *KeyVaultUri*, *KeyName*, *keyversion*매개 변수를 포함 합니다. 
 - **billingType** - *billingType* 속성은 *클러스터* 리소스 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
-- **클러스터** (기본값)-클러스터의 용량 예약 비용은 *클러스터* 리소스의 특성을 갖습니다.
-- **작업 영역** -클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 기준으로 하며, 해당 요일의 총 수집 데이터가 용량 예약에 포함 되는 경우 *클러스터* 리소스의 사용량에 대 한 비용이 청구 됩니다. 클러스터 가격 책정 모델에 대해 자세히 알아보려면 [전용 클러스터 Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요. 
+  - **클러스터** (기본값)-클러스터의 용량 예약 비용은 *클러스터* 리소스의 특성을 갖습니다.
+  - **작업 영역** -클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 기준으로 하며, 해당 요일의 총 수집 데이터가 용량 예약에 포함 되는 경우 *클러스터* 리소스의 사용량에 대 한 비용이 청구 됩니다. 클러스터 가격 책정 모델에 대해 자세히 알아보려면 [전용 클러스터 Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요. 
 
 > [!NOTE]
 > *BillingType* 속성은 PowerShell에서 지원 되지 않습니다.
@@ -173,7 +182,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 > [!NOTE]
 > PATCH를 사용 하 여 *클러스터* 리소스 *sku*, *keyVaultProperties* 또는 *billingType* 를 업데이트할 수 있습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다. 
 
 *전화할*
 
@@ -185,7 +194,7 @@ Content-type: application/json
 {
    "sku": {
      "name": "capacityReservation",
-     "capacity": 1000
+     "capacity": <capacity-reservation-amount-in-GB>
      },
    "properties": {
     "billingType": "cluster",
@@ -265,8 +274,6 @@ Content-type: application/json
 > [!WARNING]
 > 작업 영역을 클러스터에 연결 하려면 여러 백 엔드 구성 요소를 동기화 하 고 캐시 하이드레이션를 보장 해야 합니다. 이 작업을 완료 하는 데 최대 2 시간이 걸릴 수 있습니다. 이를 비동기적으로 실행 하는 것이 좋습니다.
 
-
-### <a name="link-operations"></a>링크 작업
 
 **PowerShell**
 
@@ -366,7 +373,36 @@ Authorization: Bearer <token>
 
 ## <a name="delete-a-dedicated-cluster"></a>전용 클러스터 삭제
 
-전용 클러스터 리소스를 삭제할 수 있습니다. 클러스터에서 모든 작업 영역을 삭제 하기 전에 연결을 해제 해야 합니다. 클러스터 리소스가 삭제 되 면 물리적 클러스터는 제거 및 삭제 프로세스를 시작 합니다. 클러스터를 삭제 하면 클러스터에 저장 된 모든 데이터가 삭제 됩니다. 이전에 클러스터에 연결 된 작업 영역에서 데이터를 만들 수 있습니다.
+전용 클러스터 리소스를 삭제할 수 있습니다. 클러스터에서 모든 작업 영역을 삭제 하기 전에 연결을 해제 해야 합니다. 이 작업을 수행하려면 *클러스터* 리소스에 대한 '쓰기' 권한이 필요합니다. 
+
+클러스터 리소스가 삭제 되 면 물리적 클러스터는 제거 및 삭제 프로세스를 시작 합니다. 클러스터를 삭제 하면 클러스터에 저장 된 모든 데이터가 삭제 됩니다. 이전에 클러스터에 연결 된 작업 영역에서 데이터를 만들 수 있습니다.
+
+지난 14일 동안 삭제된 *클러스터* 리소스는 일시 삭제 상태에 있으므로 해당 데이터를 사용하여 복구할 수 있습니다. 클러스터 리소스 삭제 *를 사용 하 여 모든* 작업 영역을 *클러스터* 리소스에서 분리 했으므로 복구 후 작업 영역을 다시 연결 해야 합니다. 사용자가 Microsoft 채널에 연결 하거나 복구 요청을 지원 하기 위해 복구 작업을 수행할 수 없습니다.
+
+삭제 후 14 일 이내에 클러스터 리소스 이름은 예약 되어 있으며 다른 리소스에서 사용할 수 없습니다.
+
+**PowerShell**
+
+다음 PowerShell 명령을 사용 하 여 클러스터를 삭제 합니다.
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
+
+**REST (영문)**
+
+클러스터를 삭제 하려면 다음 REST 호출을 사용 합니다.
+
+  ```rst
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  **응답**
+
+  200 정상
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

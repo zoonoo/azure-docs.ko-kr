@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: e9981f9df31f6de21262aedc9790dbf1a7725fc7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985353"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576441"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -79,7 +79,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 [docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. 다음과 같이 `<acrLoginServer>`를 ACR 로그인 서버 이름 또는 공용 레지스트리 호스트 이름으로 바꾸고, 이미지 버전을 *:v2*로 업데이트합니다.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.

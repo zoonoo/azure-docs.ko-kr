@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell을 사용하여 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
+title: '빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작'
 description: Azure PowerShell을 사용하여 Synapse SQL 풀(데이터 웨어하우스)을 일시 중지하고 다시 시작할 수 있습니다. 컴퓨팅 리소스
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 9adc994ef9ac3f43f593da010b35ada4a83e424e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 08ddb6077887043d798af9790a7b66f1b8ebb95c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078964"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570694"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 282ac6f87d5ecff75e77b075ee1092f79b4923ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574197"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석
 이 문서에서는 Power BI Desktop을 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터를 분석하고 시각화하는 방법에 대해 알아봅니다.
@@ -27,7 +27,7 @@ ms.locfileid: "88192868"
 1. 컴퓨터에서 Power BI Desktop을 시작합니다.
 2. **홈** 리본 메뉴에서 **데이터 가져오기**, [자세히]를 차례로 클릭합니다. **데이터 가져오기** 대화 상자에서 **Azure**, **Azure Data Lake Store**, **연결**을 차례로 클릭합니다.
    
-    ![Data Lake Storage Gen1에 연결](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Data Lake Storage Gen1에 연결")
+    ![Azure Data Lake Store 옵션이 강조 표시 된 데이터 가져오기 대화 상자의 스크린샷 및 호출 된 연결 옵션입니다.](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Data Lake Storage Gen1에 연결")
 3. 커넥터가 개발 단계에 있다는 대화 상자가 표시되면, 계속 진행하도록 선택합니다.
 4. **Azure Data Lake Store** 대화 상자에서 Data Lake Storage Gen1 계정에 대한 URL을 제공한 다음, **확인**을 클릭합니다.
    
@@ -37,7 +37,7 @@ ms.locfileid: "88192868"
     ![Data Lake Storage Gen1에 로그인](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Data Lake Storage Gen1에 로그인")
 6. 성공적으로 로그인한 후에 **연결**을 클릭합니다.
    
-    ![Data Lake Storage Gen1에 연결](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Data Lake Storage Gen1에 연결")
+    ![연결 옵션이 out 인 Azure Data Lake Store 대화 상자의 스크린샷](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Data Lake Storage Gen1에 연결")
 7. 다음 대화 상자에서 Data Lake Storage Gen1 계정에 업로드한 파일이 표시됩니다. 정보를 확인한 다음 **로드**를 클릭합니다.
    
     ![Data Lake Storage Gen1에서 데이터 로드](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Data Lake Storage Gen1에서 데이터 로드")
@@ -52,19 +52,19 @@ ms.locfileid: "88192868"
     다음 단계에서는 가져온 데이터를 원하는 형식으로 변환하기 위해 쿼리를 업데이트합니다.
 9. **홈** 리본 메뉴에서 **쿼리 편집**을 클릭합니다.
    
-    ![쿼리 편집](./media/data-lake-store-power-bi/edit-queries.png "쿼리 편집")
+    ![쿼리 편집 옵션이 호출 된 홈 리본의 스크린샷](./media/data-lake-store-power-bi/edit-queries.png "쿼리 편집")
 10. [쿼리 편집기]에서 **콘텐츠** 열 아래쪽의 **이진**를 클릭합니다.
     
-    ![쿼리 편집](./media/data-lake-store-power-bi/convert-query1.png "쿼리 편집")
+    ![내용 열이 out 인 쿼리 편집기의 스크린샷](./media/data-lake-store-power-bi/convert-query1.png "쿼리 편집")
 11. 업로드해 놓은 **Drivers.txt** 파일을 나타내는 파일 아이콘이 표시됩니다. 파일을 마우스 오른쪽 단추로 클릭하고 **CSV**를 클릭합니다.    
     
-    ![쿼리 편집](./media/data-lake-store-power-bi/convert-query2.png "쿼리 편집")
+    ![CSV 옵션을 호출한 쿼리 편집기의 스크린샷](./media/data-lake-store-power-bi/convert-query2.png "쿼리 편집")
 12. 아래와 같이 출력이 표시됩니다. 이제 시각화를 만드는 데 사용할 수 있는 형식으로 데이터가 준비되었습니다.
     
-    ![쿼리 편집](./media/data-lake-store-power-bi/convert-query3.png "쿼리 편집")
+    ![결과가 예상 대로 표시 된 쿼리 편집기의 스크린샷](./media/data-lake-store-power-bi/convert-query3.png "쿼리 편집")
 13. **홈** 리본 메뉴에서 **닫기 및 적용**을 클릭한 다음 **닫기 및 적용**을 다시 클릭합니다.
     
-    ![쿼리 편집](./media/data-lake-store-power-bi/load-edited-query.png "쿼리 편집")
+    ![Close 및 Apply 옵션을 out으로 사용 하는 홈 리본의 스크린샷](./media/data-lake-store-power-bi/load-edited-query.png "쿼리 편집")
 14. 쿼리가 업데이트되면, 시각화에 사용할 수 있는 새로운 필드가 **Fields** (필드) 탭에 표시됩니다.
     
     ![업데이트된 필드](./media/data-lake-store-power-bi/updated-query-fields.png "업데이트된 필드")
