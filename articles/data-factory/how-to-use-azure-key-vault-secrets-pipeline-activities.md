@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417086"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537398"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "81417086"
 
 Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프라인 실행 중에 사용 하 여 작업에 전달할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다.  [Data Factory에 대 한 관리 id](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리가 연결 된 것이 있는지 확인 합니다.
 
@@ -35,7 +35,7 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
 
 2. 키 자격 증명 모음 액세스 정책을 열고 관리 id 권한을 추가 하 여 비밀을 가져오고 나열 합니다.
 
-    ![Key Vault 액세스 정책](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    !["액세스 정책 추가" 작업이 강조 표시 된 "액세스 정책" 페이지를 보여 주는 스크린샷](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
     ![Key Vault 액세스 정책](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 

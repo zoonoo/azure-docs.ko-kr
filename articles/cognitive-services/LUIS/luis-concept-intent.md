@@ -3,20 +3,18 @@ title: 의도 및 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 단일 의도는 사용자가 수행 하려는 작업 또는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101079"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536106"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
@@ -55,7 +53,7 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 
 |Intent   | 엔터티 | 예제 발화   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | `Seattle` `tomorrow`무엇 인가요? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | 무엇 `Seattle` `tomorrow` 인가요? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` |
 ||||
 

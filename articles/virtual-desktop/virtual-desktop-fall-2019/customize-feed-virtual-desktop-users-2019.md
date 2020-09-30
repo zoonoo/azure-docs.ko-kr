@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a8c1a5da4f4d46d98e01eeb0bf210567af19a95
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cd7496690ec88fbe4297386c32d1b8a2c3234577
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007236"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540764"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Windows 가상 데스크톱 (클래식) 사용자에 대 한 피드 사용자 지정
 
@@ -37,7 +37,7 @@ Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/get-rdsremoteapp.png)
+> ![표시 이름을 사용자 지정 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/get-rdsremoteapp.png)
 
 RemoteApp에 이름을 할당 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
@@ -46,7 +46,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![이름 및 새 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/set-rdsremoteapp.png)
+> ![이름 및 새 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷에는 표시 이름을 사용자 지정 합니다.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>원격 데스크톱에 대 한 표시 이름 사용자 지정
 

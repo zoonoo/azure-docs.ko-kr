@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799199"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537007"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>보안 정보(미리 보기) 페이지에서 앱 암호 만들기
 
@@ -59,7 +59,7 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 4. 앱 암호가 필요한 앱의 이름을 입력하고 **다음**을 선택합니다.
 
-    ![앱 이름이 표시되는 앱 암호 페이지](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![앱 이름이 입력 된 "앱 암호" 페이지를 보여 주는 스크린샷](media/security-info/securityinfo-myprofile-password-appname.png)
 
 5. **암호** 상자의 텍스트를 복사한 후 앱(이 예제에서는 Outlook 2010)의 암호 영역에 암호를 붙여넣고 **완료**를 선택합니다.
 

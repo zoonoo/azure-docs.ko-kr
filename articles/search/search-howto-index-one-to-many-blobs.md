@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: e5a69525c4bd0717c0561bc61ee3c52aa68e1c9d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403588"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533964"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>여러 검색 문서를 생성 하는 blob 인덱싱
 기본적으로 blob 인덱서는 blob의 내용을 단일 검색 문서로 처리 합니다. 특정 **parsingMode** 값은 개별 blob이 여러 검색 문서를 발생 시킬 수 있는 시나리오를 지원 합니다. 인덱서가 blob에서 둘 이상의 검색 문서를 추출할 수 있는 다양 한 유형의 **parsingMode** 는 다음과 같습니다.
@@ -64,9 +64,9 @@ _Blob2.json_
     }
 ```
 
-이 설치 프로그램은 다음 정보를 포함 하는 Azure Cognitive Search 인덱스를 생성 합니다 (간단 하 게 하기 위해 base64 인코딩 id 단축).
+이 설치 프로그램은 다음 정보를 포함 하는 Azure Cognitive Search 인덱스를 생성 합니다 (간단 하 게 하기 위해 base64 인코딩 ID 단축).
 
-| id | 온도 | 압력 | timestamp |
+| ID | 온도 | 압력 | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a8cab82511a495ed2eef444b05dc534c0f1891
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8745482ed551108044bbe5e2b2f191ad46d7a441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422048"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538450"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 구성
 
@@ -44,7 +44,7 @@ ms.locfileid: "87422048"
 1. **설정**을 선택하여 **설정** 페이지를 엽니다. 구성하려는 설정에 대한 역할을 선택합니다.
 1. **편집**을 선택하여 **역할 설정** 페이지를 엽니다.
 
-    ![설정을 편집하기 위한 Azure AD 사용자 지정 역할 열기](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    !["편집" 작업이 선택 된 "역할 설정 세부 정보" 페이지를 보여 주는 스크린샷](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## <a name="role-settings"></a>역할 설정
 

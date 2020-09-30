@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 63efaf8d74ac4122a422ec09e2d652baa0bee3bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq4, tracking-python, contperfq1
+ms.openlocfilehash: 7953573d5e82c6393a1dc1f0407835cb307638e5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276019"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533080"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "91276019"
 > - Virtual Machine
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 

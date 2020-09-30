@@ -3,20 +3,18 @@ title: 반복적인 앱 디자인-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: diberry
-ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057877"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538724"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS에 대 한 반복적인 앱 디자인
 

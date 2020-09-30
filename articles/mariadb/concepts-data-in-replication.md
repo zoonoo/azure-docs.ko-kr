@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532063"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536616"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 
@@ -26,18 +26,18 @@ ms.locfileid: "79532063"
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
 ### <a name="data-not-replicated"></a>데이터가 복제되지 않음
-마스터 서버의 [*mysql 시스템 데이터베이스*](https://mariadb.com/kb/en/library/the-mysql-database-tables/)는 복제되지 않습니다. 마스터 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 마스터 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 어떤 테이블이 포함되는지 이해하려면 [MariaDB 설명서](https://mariadb.com/kb/en/library/the-mysql-database-tables/)를 참조하세요.
+원본 서버의 [*mysql 시스템 데이터베이스가*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) 복제 되지 않습니다. 원본 서버에 대 한 계정 및 사용 권한에 대 한 변경 내용은 복제 되지 않습니다. 원본 서버에서 계정을 만들고이 계정에서 복제 서버에 액세스 해야 하는 경우 복제본 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 어떤 테이블이 포함되는지 이해하려면 [MariaDB 설명서](https://mariadb.com/kb/en/library/the-mysql-database-tables/)를 참조하세요.
 
 ### <a name="requirements"></a>요구 사항
-- 마스터 서버 버전은 MariaDB 버전 10.2 이상이어야 합니다.
-- 마스터 서버 및 복제 서버 버전은 동일해야 합니다. 예를 들어 둘 다 MariaDB 10.2 버전이어야 합니다.
+- 원본 서버 버전은 MariaDB 버전 10.2 이상 이어야 합니다.
+- 원본 및 복제 서버 버전은 동일 해야 합니다. 예를 들어 둘 다 MariaDB 10.2 버전이어야 합니다.
 - 각 표에는 기본 키가 있어야 합니다.
-- 마스터 서버는 InnoDB 엔진을 사용해야 합니다.
-- 사용자는 이진 로깅을 구성하고 마스터 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
-- 마스터 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mariadb.az_replication_change_master` . 다음 [예제](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
-- 마스터 서버의 IP 주소가 Azure Database for MariaDB 복제본 서버의 방화벽 규칙에 추가되었는지 확인합니다. [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
-- 마스터 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
-- 마스터 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
+- 원본 서버는 InnoDB 엔진을 사용 해야 합니다.
+- 사용자는 이진 로깅을 구성 하 고 원본 서버에 새 사용자를 만들 수 있는 권한이 있어야 합니다.
+- 원본 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mariadb.az_replication_change_master` . 다음 [예제](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
+- 원본 서버의 IP 주소가 Azure Database for MariaDB 복제 서버의 방화벽 규칙에 추가 되었는지 확인 합니다. [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
+- 원본 서버를 호스트 하는 컴퓨터에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 둘 다 허용 하는지 확인 합니다.
+- 원본 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.

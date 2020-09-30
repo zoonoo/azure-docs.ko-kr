@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24471ff5a085be905f9316f1af3c95c3a7912bf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7e0f74f98adcc8a4e8aabc96f7f35c9c55ae277f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421538"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536361"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 요청 승인 또는 거부
 
@@ -58,7 +58,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용
 
 1. 승인 하려는 요청을 찾아 선택 합니다. 승인 또는 거부 페이지가 표시 됩니다.
 
-    ![요청 승인-세부 정보 및 근거 상자를 사용 하 여 승인 또는 거부 창](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    !["요청 승인-Azure AD 역할" 페이지를 보여 주는 스크린샷](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
 1. **근거** 상자에 비즈니스 근거를 입력 합니다.
 

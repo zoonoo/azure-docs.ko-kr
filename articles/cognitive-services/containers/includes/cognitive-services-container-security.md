@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: fd2a6cdad01302501e30ec60a4d3ccf6efd9c266
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876833"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545556"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Azure Cognitive Services 컨테이너 보안
 
@@ -27,7 +27,7 @@ ms.locfileid: "80876833"
 
 ![컨테이너 보안](../media/container-security.svg)
 
-다른 방법으로 *보안* 을 유지 하는 방법으로 Cognitive Services 컨테이너의 소비자는 컨테이너 끝점을 비공개로 유지 하는 프런트 엔드 구성 요소가 있는 컨테이너를 확장할 수 있습니다. [Istio][istio] 를 수신 게이트웨이로 사용 하는 시나리오를 살펴보겠습니다. Istio는 HTTPS/TLS 및 클라이언트 인증서 인증을 지원 합니다. 이 시나리오에서 Istio 프런트 엔드는 컨테이너 액세스를 노출 하 여 Istio로 미리 허용 목록 된 클라이언트 인증서를 표시 합니다.
+다른 방법으로 *보안* 을 유지 하는 방법으로 Cognitive Services 컨테이너의 소비자는 컨테이너 끝점을 비공개로 유지 하는 프런트 엔드 구성 요소가 있는 컨테이너를 확장할 수 있습니다. [Istio][istio] 를 수신 게이트웨이로 사용 하는 시나리오를 살펴보겠습니다. Istio는 HTTPS/TLS 및 클라이언트 인증서 인증을 지원 합니다. 이 시나리오에서 Istio 프런트 엔드는 컨테이너 액세스를 노출 하 고 Istio를 사용 하 여 사전에 승인 된 클라이언트 인증서를 표시 합니다.
 
 [Nginx][nginx] 는 동일한 범주에서 널리 사용 되는 다른 옵션입니다. Istio와 Nginx는 모두 서비스 메시 역할을 하며 부하 분산, 라우팅 및 요율 제어와 같은 항목을 포함 하 여 추가 기능을 제공 합니다.
 

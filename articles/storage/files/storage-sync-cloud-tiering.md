@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329315"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538183"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
@@ -40,7 +40,7 @@ Azure 파일 동기화 시스템 필터가 각 서버 엔드포인트에 네임�
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>계층에 대 한 파일의 최소 파일 크기는 무엇입니까?
 
-에이전트 버전 12 이상에서 파일 계층에 대 한 최소 파일 크기는 파일 시스템 클러스터 크기를 기준으로 합니다. 클라우드 계층화에 적합 한 최소 파일 크기는 클러스터 크기를 2 배, 최소 8kb로 계산 합니다. 다음 표에서는 볼륨 클러스터 크기를 기준으로 계층화 할 수 있는 최소 파일 크기를 보여 줍니다.
+에이전트 버전 9 이상에서 파일 계층에 대 한 최소 파일 크기는 파일 시스템 클러스터 크기를 기준으로 합니다. 클라우드 계층화에 적합 한 최소 파일 크기는 클러스터 크기를 2 배, 최소 8kb로 계산 합니다. 다음 표에서는 볼륨 클러스터 크기를 기준으로 계층화 할 수 있는 최소 파일 크기를 보여 줍니다.
 
 |볼륨 클러스터 크기 (바이트) |이 크기 이상의 파일은 계층화 될 수 있습니다.  |
 |----------------------------|---------|
@@ -50,7 +50,7 @@ Azure 파일 동기화 시스템 필터가 각 서버 엔드포인트에 네임�
 |32 KB (32768)               | 64KB   |
 |64 KB (65536) 이상    | 128KB  |
 
-Windows Server 2019 및 Azure File Sync 에이전트 버전 12 이상에서는 클러스터 크기를 최대 2mb까지 지원 하 고 더 큰 클러스터 크기를 계층화 하 여 동일한 방식으로 작동 합니다. 이전 OS 또는 에이전트 버전은 클러스터 크기를 64 KB까지 지원 하지만 그 외에는 클라우드 계층화가 작동 하지 않습니다.
+Windows Server 2019 및 Azure File Sync 에이전트 버전 12 (이후 에이전트 버전)를 사용 하는 경우 최대 2mb의 클러스터 크기를 지원 하 고 더 큰 클러스터 크기를 계층화 하 여 동일한 방식으로 작동 합니다. 이전 OS 또는 에이전트 버전은 클러스터 크기를 64 KB까지 지원 하지만 그 외에는 클라우드 계층화가 작동 하지 않습니다.
 
 Windows에서 사용 하는 모든 파일 시스템은 클러스터 크기 (할당 단위 크기 라고도 함)에 따라 하드 디스크를 구성 합니다. 클러스터 크기는 파일을 저장 하는 데 사용할 수 있는 최소 크기의 디스크 공간을 나타냅니다. 파일 크기가 클러스터 크기의 짝수 배수가 아닌 경우에는 클러스터 크기의 다음 배수로 파일을 저장 하기 위해 추가 공간을 사용 해야 합니다.
 
@@ -137,7 +137,7 @@ Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
         
         | 특성 문자 | attribute | 정의 |
         |:----------------:|-----------|------------|
-        | A | 아카이브 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
+        | A | 보관 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
         | P | 스파스 파일 | 파일이 스파스 파일인지를 나타냅니다. 스파스 파일은 디스크 스트림의 파일이 대부분 비어 있을 때 효율적으로 사용하기 위해 NTFS가 제공하는 특수한 형식의 파일입니다. Azure 파일 동기화는 파일이 완전히 계층화되거나 부분적으로 회수되기 때문에 스파스 파일을 사용합니다. 완전히 계층화된 파일에서 파일 스트림은 클라우드에 저장됩니다. 부분적으로 회수된 파일에서 파일의 해당 부분은 이미 디스크에 있습니다. 파일이 디스크에 완전히 회수되면 Azure 파일 동기화는 스파스 파일에서 일반 파일로 변환합니다. 이 특성은 Windows Server 2016 이상 에서만 설정 됩니다.|
         | M | 데이터 액세스 시 회수 | 파일의 데이터가 로컬 저장소에 완전히 표시 되지 않음을 나타냅니다. 파일을 읽으면 서버 끝점이 연결 된 Azure 파일 공유에서 하나 이상의 파일 콘텐츠를 인출 하 게 됩니다. 이 특성은 Windows Server 2019에만 설정 됩니다. |
         | L | 재분석 지점 | 파일에 재분석 지점이 있음을 나타냅니다. 재분석 지점은 파일 시스템 필터에서 사용되는 특별한 포인터입니다. Azure 파일 동기화는 재분석 지점을 사용하여 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)에 파일이 저장되는 클라우드 위치를 정의합니다. 원활한 액세스를 지원합니다. 사용자는 Azure 파일 동기화가 사용되는지 또는 Azure 파일 공유에 있는 파일에 액세스하는 방법을 알 필요가 없습니다. 파일을 완전하게 회수되면 Azure 파일 동기화는 파일에서 재분석 지점을 제거합니다. |
@@ -177,7 +177,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 * `-PerFileRetryCount`현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
 * `-PerFileRetryDelaySeconds`재시도 사이의 재시도 간격 (초)을 결정 합니다 .이 시간은 항상 이전 매개 변수와 함께 사용 해야 합니다.
 
-예:
+예제:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10

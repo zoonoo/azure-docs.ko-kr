@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: c32e1bc6e219ff645223cc34cf78991e229b86f0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935928"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537636"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가
 
@@ -82,7 +82,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  또한 관련성 기반 순서 지정도 점수 매기기 프로필을 통해 구현됩니다. 이전에 사용했던 검색 결과 페이지에서는 가격, 날짜, 등급 또는 관련성을 기준으로 결과를 정렬했다면, Azure Cognitive Search에서는 점수 매기기 프로필을 통해 ' 관련성 ' 옵션을 구동 합니다. 관련성의 정의는 제공하려는 검색 환경의 유형과 비즈니스 목표를 통해 직접 제어할 수 있습니다.  
 
-##  <a name="example"></a><a name="bkmk_ex"></a> 예제  
+##  <a name="example"></a><a name="bkmk_ex"></a> 예  
  앞에서 설명한 것처럼 인덱스 스키마에 정의된 하나 이상의 점수 매기기 프로필을 통해 사용자 지정 점수 매기기를 구현합니다.  
 
  아래 예제에서는 `boostGenre` 및 `newAndHighlyRated`의 두 점수 매기기 프로필이 포함된 인덱스의 스키마를 보여 줍니다. 쿼리 매개 변수로 두 프로필 중 하나를 포함하는 쿼리를 이 인덱스에 대해 실행하는 경우 해당 프로필을 사용하여 결과 집합의 점수를 계산합니다.  
@@ -227,9 +227,9 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 > [!NOTE]  
 >  점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.  
 
-|특성|Description|  
+|attribute|설명|  
 |---------------|-----------------|  
-|`name`|필수 요소. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
+|`name`|필수 사항입니다. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
 |`text`|가중치 속성을 포함 합니다.|  
 |`weights`|선택 사항입니다. 각각 필드 이름과 상대적 가중치를 지정 하는 이름-값 쌍을 포함 합니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다.<br /><br /> 가중치는 다른 검색 가능한 필드를 기준으로 한 검색 가능한 필드의 중요도를 나타내는 데 사용 됩니다.|  
 |`functions`|선택 사항입니다. 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  
@@ -254,7 +254,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> 보간 설정  
  보간을 사용하면 채점에 사용되는 기울기의 모양을 설정할 수 있습니다. 채점은 높음에서 낮음으로 진행되기 때문에 기울기가 항상 감소하지만, 보간을 통해 하향 기울기의 곡선이 결정됩니다. 다음과 같은 보간을 사용할 수 있습니다.  
 
-| 삽입할 | Description |  
+| 삽입할 | 설명 |  
 |-|-|  
 |`linear`|최댓값 및 최솟값 범위 내 항목의 경우 항목에 적용되는 순위 상승 값이 지속적으로 감소합니다. Linear는 점수 매기기 프로필의 기본 보간입니다.|  
 |`constant`|시작 및 끝 범위 내 항목의 경우 일정한 순위 상승이 순위 결과에 적용됩니다.|  
@@ -270,7 +270,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  다음 표에 여러 예제가 나와 있습니다.  
 
-|Duration|boostingDuration|  
+|기간|boostingDuration|  
 |--------------|----------------------|  
 |1일|"P1D"|  
 |2일 12시간|"P2DT12H"|  
@@ -279,8 +279,8 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  더 많은 예제를 보려면 [XML 스키마: Datatypes(W3.org 웹 사이트)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)를 참조하세요.  
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
-+ [REST API 참조](/rest/api/searchservice/)   
-+ [인덱스 API 만들기](/rest/api/searchservice/create-index)   
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [REST API 참조](/rest/api/searchservice/)
++ [인덱스 API 만들기](/rest/api/searchservice/create-index)
++ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?)

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 639e4cde82fd8496c90f8ebf263dd42661a75748
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e118c22829bc55e8baafb87db20817ab043ef4df
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296810"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540781"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 스토리지 서비스에 연결
 
@@ -111,7 +111,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 > [!IMPORTANT]
 > 보안상의 이유로 Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 할 수 있습니다. 이렇게 하려면 작업 영역 및 연결 된 데이터 저장소와 새 자격 증명을 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 데이터 읽기 액세스의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 데이터 쓰기 액세스의 경우 쓰기 및 추가 권한도 필요 합니다.
 
@@ -266,5 +266,5 @@ Azure Data Factory는 80개 이상의 미리 작성된 커넥터를 추가 비�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 기계 학습 데이터 세트 만들기](how-to-create-register-datasets.md)
-* [모델 학습](how-to-train-ml-models.md)
+* [모델 학습](how-to-set-up-training-targets.md)
 * [모델 배포](how-to-deploy-and-where.md)

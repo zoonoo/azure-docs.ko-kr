@@ -3,20 +3,18 @@ title: 패턴 지원 예측-LUIS
 titleSuffix: Azure Cognitive Services
 description: 패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.author: diberry
-ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538057"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535964"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.

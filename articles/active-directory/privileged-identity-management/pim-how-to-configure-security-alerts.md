@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331307"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533551"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 보안 경고 구성
 
@@ -38,7 +38,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 # <a name="new-version"></a>[새 버전](#tab/new)
 
-![Azure AD 역할-경고 및 심각도를 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![경고 목록과 해당 심각도가 포함 된 "경고" 페이지를 보여 주는 스크린샷](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>보안 경고
 
@@ -82,7 +82,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 | | |
 | --- | --- |
-| **심각도** | 중형 |
+| **심각도** | 중간 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
@@ -181,12 +181,12 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 | | |
 | --- | --- |
-| **심각도** | 중형 |
+| **심각도** | 중간 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
-| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세한 정보](https://aka.ms/breakglass) |
+| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세히 알아보기](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>역할이 Privileged Identity Management 외부에서 할당 됨
 

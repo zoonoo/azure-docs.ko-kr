@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932766"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538790"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>데이터 가져오기 개요-Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Azure Cognitive Search에 프로그래밍 방식으로 데이터를 전송 하�
 다음 API를 사용하여 하나 또는 여러 문서를 인덱스에 로드할 수 있습니다.
 
 + [문서 추가, 업데이트 또는 삭제(REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction 클래스](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) 또는 [indexBatch 클래스](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [indexAction 클래스](/dotnet/api/microsoft.azure.search.models.indexaction) 또는 [indexBatch 클래스](/dotnet/api/microsoft.azure.search.models.indexbatch) 
 
 현재 포털을 통해 데이터를 푸시할 수 있는 도구가 없습니다.
 
@@ -52,7 +52,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 .NET SDK에서 개체에 데이터를 패키지 `IndexBatch` 합니다. 는 `IndexBatch` 개체의 컬렉션을 캡슐화 하며 `IndexAction` , 각 개체에는 문서 및 속성을 포함 하 여 해당 문서에 대해 수행할 작업을 Cognitive Search 합니다. 코드 예제는 [c # 빠른](search-get-started-dotnet.md)시작을 참조 하세요.
 
 
-| @search.action | Description | 각 문서에 대해 필요한 필드 | 참고 |
+| @search.action | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
 | `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. .NET SDK에서 여기에는 형식의 필드가 포함 됩니다 `DataType.Collection(DataType.String)` . REST API에는 형식의 필드가 포함 됩니다 `Collection(Edm.String)` . 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
@@ -98,7 +98,7 @@ POST의 형식은 동일 하지만 `api-version` 쿼리 문자열 매개 변수�
 > [!TIP]
 > 수많은 [Azure Cognitive Search 코드 샘플](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) 에는 포함 되거나 즉시 사용 가능한 데이터 집합이 포함 되어 쉽게 시작할 수 있는 방법이 제공 됩니다. 또한 포털에서는 작은 부동산 데이터 세트("realestate-us-sample")로 구성된 샘플 인덱서 및 데이터 원본도 제공합니다. 샘플 데이터 원본에 미리 구성된 인덱서를 실행하면 인덱스가 검색 탐색기 또는 작성한 코드로 쿼리할 수 있는 문서로 만들어지고 로드됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [인덱서 개요](search-indexer-overview.md)
 + [포털 연습: 인덱스 만들기, 로드, 쿼리](search-get-started-portal.md)

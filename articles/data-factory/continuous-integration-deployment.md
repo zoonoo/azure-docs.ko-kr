@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e1b9aacf96249c3e102c6a3dbf87d8ac1ff20be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320982"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533318"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -30,10 +30,6 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
 -    Data Factory와 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)의 통합을 사용한 자동화된 배포
 -    Azure Resource Manager와 Data Factory UX의 통합을 사용하여 Resource Manager 템플릿을 수동으로 업로드합니다.
-
-이 기능의 소개와 데모를 보려면 다음 동영상(9분)을 시청하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

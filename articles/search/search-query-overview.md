@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928839"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537721"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Azure Cognitive Search의 쿼리 유형 및 컴퍼지션
 
@@ -88,11 +88,11 @@ Azure Cognitive Search에서 쿼리 실행은 항상 요청에 제공 된 api �
 
 다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
 
-| 방법론 | Description |
+| 방법 | 설명 |
 |-------------|-------------|
 | [검색 탐색기 (포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. 탐색, 테스트 및 유효성 검사에 권장 됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
 | [Postman 또는 기타 REST 도구](search-get-started-postman.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Cognitive Search에서 가능한 모든 작업을 지원 합니다. 이 문서에서는 Azure Cognitive Search에 요청을 보내기 위한 HTTP 요청 헤더 및 본문을 설정 하는 방법에 대해 알아봅니다.  |
-| [SearchIndexClient(.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Azure Cognitive Search 인덱스를 쿼리 하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchIndexClient(.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Azure Cognitive Search 인덱스를 쿼리 하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Search Documents(REST API)](/rest/api/searchservice/search-documents) | 인덱스에 대한 GET 또는 POST 메서드로, 추가 입력을 위해 쿼리 매개 변수를 사용합니다.  |
 
 ## <a name="choose-a-parser-simple--full"></a>파서 선택: 단순 | 전체
@@ -165,7 +165,7 @@ Azure Cognitive Search 검색 점수 이외의 값으로 정렬 된 결과를 �
 ### <a name="hit-highlighting"></a>적중 항목 강조 표시
 Azure Cognitive Search에서는 **`highlight`** , 및 매개 변수를 사용 하 여 검색 쿼리와 일치 하는 검색 결과의 정확한 부분을 쉽게 강조할 수 **`highlightPreTag`** **`highlightPostTag`** 있습니다. 일치 하는 텍스트를 강조 표시 하는 *검색 가능한* 필드를 지정 하 고, Azure Cognitive Search에서 반환 하는 일치 하는 텍스트의 시작과 끝에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식 (쿼리 구문 분석 아키텍처)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

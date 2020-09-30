@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: da0eeafc9d92bf08a2475d7676f1da8a4fa30da5
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461419"
+ms.locfileid: "91541172"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용 하 여 Azure Security Center에서 FIM (파일 무결성 모니터링)을 구성 하는 방법에 대해 알아봅니다.
@@ -116,7 +116,7 @@ Security Center는 알려진 공격 패턴을 기준으로 모니터링할 권�
 
     - ![업그레이드 계획 아이콘 ][4] Azure Defender를 사용 하도록 작업 영역을 업그레이드 합니다. 이 아이콘은 작업 영역 또는 구독이 Azure Defender에 의해 보호 되지 않음을 나타냅니다. FIM 기능을 사용 하려면 Azure Defender에서 구독을 보호 해야 합니다. [자세히 알아봅니다](security-center-pricing.md).
 
-    - ![사용 아이콘:][3] 작업 영역 아래의 모든 컴퓨터에서 FIM을 사용 하도록 설정 하 고 FIM 옵션을 구성 합니다. 이 아이콘은 작업 영역에 FIM이 사용 되도록 설정 되지 않았음을 나타냅니다.-이 단추를 사용 하 여 다음을 수행 합니다.
+    - ![사용 아이콘:][3] 작업 영역 아래의 모든 컴퓨터에서 FIM을 사용 하도록 설정 하 고 FIM 옵션을 구성 합니다. 이 아이콘은 작업 영역에 FIM이 사용 하도록 설정 되어 있지 않음을 나타냅니다.
 
         :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="FIM 시작":::
 

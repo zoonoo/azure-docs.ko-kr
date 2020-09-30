@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090385"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542379"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B AS2 메시지 받기 및 확인
 
@@ -23,7 +23,7 @@ ms.locfileid: "87090385"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 아직 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 아직 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 새 논리 앱: 다음 작업을 수행 하는 [요청](../connectors/connectors-native-reqres.md) 트리거를 사용 하 여 B2B 워크플로를 만들 수 있습니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "87090385"
 
    이제 조건이 충족 되었는지 여부에 대 한 경로를 포함 하 여 condition 셰이프가 나타납니다.
 
-   ![의사 결정 경로가 있는 Condition 셰이프](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![스크린샷 빈 경로가 있는 condition 셰이프를 보여 줍니다.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. 이제 평가할 조건을 지정 합니다. **값 선택** 상자에 다음 식을 입력 합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "87090385"
 
    가운데 상자에서 비교 작업이로 설정 되었는지 확인 `is equal to` 합니다. 오른쪽 상자에 값을 입력 `Expected` 합니다. 이 토큰으로 확인할 식을 얻으려면 디자이너와 코드 뷰 간을 전환 합니다.
 
-   ![의사 결정 경로가 있는 Condition 셰이프](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![스크린 샷에서 조건이 추가 된 조건 셰이프를 보여 줍니다.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. 이제 **AS2 디코드** 작업 성공 여부를 반환 하는 응답을 지정 합니다.
 

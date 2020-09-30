@@ -3,20 +3,18 @@ title: 서 수 미리 작성 한 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 ordinal 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: bb3bb27db48255f534e873ed4e93ac62f07016af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fa86c8960ea9f32163ebd7991260a19ef7a5d79
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273438"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535460"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Ordinal 미리 빌드된 엔터티
 서수는 집합 내의 개체를 `first`, `second`, `third`와 같이 숫자로 나타낸 것입니다. 이 엔터티를 이미 학습했기 때문에 ordinal을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Ordinal 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.
@@ -32,7 +30,7 @@ ms.locfileid: "78273438"
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `false` .
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ ms.locfileid: "78273438"
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `true` .
 
 ```json
 "entities": {

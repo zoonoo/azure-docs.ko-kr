@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: c7d574bf172a792c59e4b00ea9ad0366ad1f17ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a121751e71bffdb76341f6a7dc2a01a22240019b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922857"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534471"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Azure Cognitive Search에서 여러 언어에 대 한 인덱스를 만드는 방법
 
@@ -67,4 +67,4 @@ Azure Cognitive Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-.NET 개발자 인 경우 [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) 및 [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) 속성을 사용 하 여 언어 분석기를 구성할 수 있습니다.
+.NET 개발자 인 경우 [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) 및 [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer) 속성을 사용 하 여 언어 분석기를 구성할 수 있습니다.

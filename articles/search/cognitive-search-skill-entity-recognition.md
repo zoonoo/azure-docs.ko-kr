@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936081"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542464"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
@@ -45,7 +45,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | Description                   |
+| 입력 이름      | 설명                   |
 |---------------|-------------------------------|
 | `languageCode`    | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | `text`          | 분석할 텍스트입니다.          |
@@ -55,7 +55,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 > [!NOTE]
 > 모든 엔터티 범주가 모든 언어로 지원되는 것은 아닙니다. `"Person"`, `"Location"` 및 `"Organization"` 엔터티 범주 형식은 위의 전체 언어 목록에 대해 지원 됩니다. _De_, _en_, _es_, _fr_및 _zh-cn hans_ 만 `"Quantity"` , `"Datetime"` , 및 형식의 추출을 지원 `"URL"` `"Email"` 합니다. 자세한 내용은 [텍스트 분석 API에 대 한 언어 및 지역 지원](../cognitive-services/text-analytics/language-support.md)을 참조 하세요.  
 
-| 출력 이름      | Description                   |
+| 출력 이름      | 설명                   |
 |---------------|-------------------------------|
 | `persons`       | 각 문자열이 사람 이름을 나타내는 경우 문자열 배열입니다. |
 | `locations`  | 각 문자열이 위치를 나타내는 경우 문자열 배열입니다. |
@@ -187,7 +187,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 }
 ```
 
-이 기술 출력의 엔터티에 대해 반환 되는 오프셋은 [텍스트 분석 API](../cognitive-services/text-analytics/overview.md)에서 직접 반환 됩니다. 즉, 원본 문자열을 인덱싱하는 데 사용 하는 경우에는 .Net에서 [쌍인지](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) 클래스를 사용 하 여 올바른 콘텐츠를 추출 해야 합니다.  [자세한 내용은 여기를 참조 하세요.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+이 기술 출력의 엔터티에 대해 반환 되는 오프셋은 [텍스트 분석 API](../cognitive-services/text-analytics/overview.md)에서 직접 반환 됩니다. 즉, 원본 문자열을 인덱싱하는 데 사용 하는 경우에는 .Net에서 [쌍인지](/dotnet/api/system.globalization.stringinfo) 클래스를 사용 하 여 올바른 콘텐츠를 추출 해야 합니다.  [자세한 내용은 여기를 참조 하세요.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>오류 사례
 문서에 대한 언어 코드가 지원되지 않는 경우 오류가 반환되고 엔터티가 추출되지 않습니다.

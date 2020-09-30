@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317415"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542311"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>클라우드 그룹을 사용 하 여 Azure Active Directory에서 역할 할당 관리 (미리 보기)
 
@@ -58,7 +58,6 @@ Azure AD를 사용 하면 그룹에 대해 isAssignableToRole 라는 새 속성�
 
 ## <a name="known-issues"></a>알려진 문제
 
-- 그룹을 통해 역할을 할당 하는 경우 동적 그룹을 만들거나 수정할 수 없습니다.
 - **관리 되는 사용자 로그인 기능에 대해 준비 된 롤아웃 사용** 은 그룹을 통한 할당을 지원 하지 않습니다.
 - *AZURE Ad P2 사용이 허가 된 고객만*해당: azure ad 및 PRIVILEGED IDENTITY MANAGEMENT (PIM)을 통해 역할에 활성으로 그룹을 할당 하지 않습니다. 특히 역할 할당을 만들 때 역할 할당 가능 그룹에 역할을 할당 *하지 않고 나중* 에 PIM을 사용 하 여 그룹에 역할을 할당 합니다. 이렇게 하면 사용자가 PIM에서 활성 역할 할당을 볼 수 없는 문제가 발생 하 고 해당 PIM 할당을 제거할 수 없습니다. 적격 할당은이 시나리오에서 영향을 받지 않습니다. 이 할당을 수행 하려고 하면 다음과 같은 예기치 않은 동작이 발생할 수 있습니다.
   - 역할 할당의 종료 시간이 잘못 표시 될 수 있습니다.

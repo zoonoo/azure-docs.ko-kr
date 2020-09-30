@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 576ff4eb3a189b27a4c7743966ced0676ec67a9d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 976b423822fa667df713382b34d7208cb0e3b002
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978913"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540662"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -84,7 +84,7 @@ Baltimore CyberTrust Root 인증서를 사용 하 여 여기에 설명 된 Azure
 *   잘못 된 인증서/해지 된 인증서
 *   연결 시간이 초과됨
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 
@@ -120,7 +120,7 @@ Azure Integration Runtime를 사용 하는 커넥터의 경우 커넥터는 Azur
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Microsoft에서 인증서를 업데이트 하는 빈도 또는 만료 정책 이란?
 Azure Database for PostgreSQL에서 사용 하는 이러한 인증서는 신뢰할 수 있는 CA (인증 기관)에서 제공 합니다. 따라서 Azure Database for PostgreSQL에서 이러한 인증서를 지 원하는 것은 CA에서 이러한 인증서를 지 원하는 것과 관련이 있습니다. 그러나이 경우에는 미리 정의 된 이러한 인증서에 예측할 수 없는 버그가 있을 수 있으며,이는 초기에 수정 해야 합니다.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 마스터 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 주 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
 이 업데이트는 클라이언트 쪽 변경 이기 때문에 클라이언트가 복제본 서버에서 데이터를 읽는 데 사용 되는 경우에도 해당 클라이언트에 대 한 변경 내용을 적용 해야 합니다. 
 
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. SSL이 사용 중인지 확인 하는 서버 쪽 쿼리가 있나요?

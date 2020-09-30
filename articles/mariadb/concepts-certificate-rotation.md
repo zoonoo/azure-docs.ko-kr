@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a52dd48bb97c8e7979771bdc2dbb50654493b088
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3182f7fa913cd61e6c51ea91be6b46e83a1ab949
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972597"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540105"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -83,7 +83,7 @@ Azure Database for MariaDB sslmode를 이해 하려면 [SSL 모드 설명을](co
 *   잘못 된 인증서/해지 된 인증서
 *   연결 시간이 초과됨
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 
@@ -119,7 +119,7 @@ Azure Integration Runtime를 사용 하는 커넥터의 경우 커넥터는 Azur
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Microsoft에서 인증서를 업데이트 하는 빈도 또는 만료 정책 이란?
 Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 수 있는 CA (인증 기관)에서 제공 합니다. 따라서 Azure Database for MariaDB에서 이러한 인증서를 지 원하는 것은 CA에서 이러한 인증서를 지 원하는 것과 관련이 있습니다. 그러나이 경우에는 미리 정의 된 이러한 인증서에 예측할 수 없는 버그가 있을 수 있으며,이는 초기에 수정 해야 합니다.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 마스터 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 원본 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
 이 업데이트는 클라이언트 쪽 변경 이기 때문에 클라이언트가 복제본 서버에서 데이터를 읽는 데 사용 되는 경우에도 해당 클라이언트에 대 한 변경 내용을 적용 해야 합니다.
 
 ### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. 데이터 복제를 사용 하는 경우 어떤 작업을 수행 해야 하나요?
@@ -137,7 +137,7 @@ Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 
 
     CA_file, SSL_Cert 및 SSL_Key에 대 한 인증서가 제공 되는 것으로 확인 되 면 [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 추가 하 여 파일을 업데이트 해야 합니다.
 
-*   데이터 복제가 두 Azure Database for MySQL 사이에 있는 경우 MySQL 호출을 실행 하 여 복제본을 다시 설정 해야 **합니다. az_replication_change_master** 하 고 새 이중 루트 인증서를 [master_ssl_ca](howto-data-in-replication.md#link-the-master-and-replica-servers-to-start-data-in-replication)마지막 매개 변수로 제공 합니다.
+*   데이터 복제가 두 Azure Database for MySQL 사이에 있는 경우 MySQL 호출을 실행 하 여 복제본을 다시 설정 해야 **합니다. az_replication_change_master** 하 고 새 이중 루트 인증서를 [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication)마지막 매개 변수로 제공 합니다.
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. SSL이 사용 중인지 확인 하는 서버 쪽 쿼리가 있나요?
 SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl 확인](howto-configure-ssl.md#verify-the-ssl-connection)을 참조 하세요.

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.custom: dpalled
-ms.openlocfilehash: 43d3e80c66d54e3f7518246f7d75c5661995578c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4d4e7f4433171e593f5e61ab6f48afc640857d9b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489037"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536582"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 long 데이터 형식에 대 한 지원 추가
 
@@ -72,11 +72,11 @@ IoT Hub 사용 하는 경우 기본 제공 끝점에 액세스 하는 방법에 
 
 *이전 변수 정의:*
 
-[![이전 변수 정의](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![스크린샷에는 PropertyValue 변수 숫자에 대 한 새 변수 추가 대화 상자가 표시 됩니다.](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
 *새 변수 정의:*
 
-[![새 변수 정의](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![사용자 지정 값이 숫자 인 PropertyValue 변수에 대 한 새 변수 추가 대화 상자를 보여 주는 스크린샷](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
 또한 사용자 지정 [시계열 식](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)으로 **병합 ($event toDouble ($event))** 을 사용할 수 있습니다.
 
@@ -139,11 +139,11 @@ IoT Hub 사용 하는 경우 기본 제공 끝점에 액세스 하는 방법에 
 
 *이전 변수 정의:*
 
-[![이전 변수 정의](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![스크린샷에는 PropertyValue 변수 범주에 대 한 새 변수 추가 대화 상자가 표시 됩니다.](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
 *새 변수 정의:*
 
-[![새 변수 정의](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![사용자 지정 값 범주를 사용 하 여 PropertyValue 변수에 대 한 새 변수 추가 대화 상자를 보여 주는 스크린샷](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
 또한 사용자 지정 [시계열 식](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)으로 **병합 ($event toDouble ($event))** 을 사용할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b01b9a3782d25660462d0cc2bf3aec87baf0023
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 417bdacc3ce8b619d5ec9618e6060ac071882471
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403782"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533928"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반 텍스트 blob을 인덱싱하는 방법
 
@@ -61,9 +61,10 @@ ms.locfileid: "91403782"
 ```
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
+
 요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search/)에서 입력을 제공하세요. 기존 기능을 사용 하는 데 도움이 필요 하면 [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870)에 질문을 게시 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 * [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 * [Blob 인덱서를 구성 하는 방법](search-howto-indexing-azure-blob-storage.md)

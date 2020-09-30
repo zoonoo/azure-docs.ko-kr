@@ -2,20 +2,18 @@
 title: 엔터티 추가-LUIS
 description: LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 추출 하는 엔터티를 만듭니다. 추출 된 엔터티 데이터는 클라이언트 응용 프로그램에서 고객 요청을 fullfil 하는 데 사용 됩니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344478"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540968"
 ---
 # <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가
 
@@ -118,7 +116,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 |색 목록 항목 이름|색-동의어|
 |--|--|
-|빨강|크림슨, 피, apple, 화재-엔진|
+|빨간색|크림슨, 피, apple, 화재-엔진|
 |파랑|하늘, 코발트|
 |녹색|최소라, 라임|
 
@@ -179,14 +177,14 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 1. 역할을 사용 하 여 레이블을 표시 하려면 utterance 예제에서 엔터티 레이블 (텍스트 아래 실선)을 선택 하 고 드롭다운 목록에서 **엔터티 창에서 보기** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/add-entities/view-in-entity-pane.png)
+    > ![엔터티 창에서 보기 메뉴 항목을 선택 하 여 보여 주는 스크린샷](media/add-entities/view-in-entity-pane.png)
 
     엔터티 팔레트가 오른쪽에 열립니다.
 
 1. 엔터티를 선택 하 고 팔레트 아래쪽으로 이동 하 여 역할을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/add-entities/select-role-in-entity-palette.png)
+    > ![역할을 선택할 수 있는 위치를 보여 주는 스크린샷](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>

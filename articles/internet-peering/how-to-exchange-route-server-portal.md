@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700671"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537194"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Azure Portal에서 경로 서버를 사용 하 여 Exchange 피어 링 만들기 또는 수정
 
@@ -74,7 +74,7 @@ ms.locfileid: "84700671"
 1.  **직접 피어 링 연결**에서 다음 BGP 세션 세부 정보를 입력 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![직접 피어 링 경로 서버 구성](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![스크린샷 추가 된 추가 정보를 포함 하는 직접 피어 링 연결 창을 보여 줍니다.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * 피어 링 기능-피어 링에 적절 한 물리적 위치를 선택 합니다.
@@ -99,19 +99,19 @@ ms.locfileid: "84700671"
 1. 설정 섹션에서 **등록 된 ASNs** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![직접 피어 링 경로 서버 구성](./media/setup-exchange-registered-asn.png)
+    > ![스크린샷 이라는 등록 된 S Ns 메뉴 항목이 있는 피어 링 창이 표시 됩니다.](./media/setup-exchange-registered-asn.png)
 
 1. **등록 된 Asn 추가** 를 선택 하 여 exchange 구독에서 새 고객 asn을 만듭니다.
 
     > [!div class="mx-imgBorder"]
-    > ![직접 피어 링 경로 서버 구성](./media/setup-exchange-register-new-asn.png)
+    > ![이름 및 S N 텍스트 상자를 포함 하는 A S N 창 등록을 보여 주는 스크린샷](./media/setup-exchange-register-new-asn.png)
 
 1. ASN 등록에서 이름을 선택 하 고 customer ASN을 채운 다음 저장을 클릭 합니다.
 
 1. 등록 된 ASNs에는 각 ASN에 할당 된 접두사 키가 있습니다. Exchange 공급자는이 접두사 키를 고객에 게 제공 하 여 해당 구독에서 피어 링 서비스를 등록할 수 있도록 해야 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![직접 피어 링 경로 서버 구성](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![스크린샷에는 접두사 키가 있는 등록 된 S Ns 창이 표시 됩니다.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

@@ -3,20 +3,18 @@ title: 새 앱 만들기-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 웹 페이지에서 애플리케이션을 만들고 관리합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144390"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541438"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또는 LUIS 제작 [API](developer-reference-resource.md)를 통해 LUIS 앱을 만들 수 있습니다.

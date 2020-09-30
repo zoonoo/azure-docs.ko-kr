@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/10/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: f3194198447f024154c369d519d6ff55ee8ee699
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 895bdfde80dfe10bef4b6aad12236db60e2c427b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296691"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533148"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "91296691"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -117,7 +117,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
     Azure Machine Learning 관리 되는 계산을 사용 하는 원격 예제는 [이 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 을 참조 하세요. 
 
-* Azure 구독의 **Azure Databricks 클러스터** 여기에서 자세한 정보를 찾을 수 있습니다. [자동화 된 ML에 대 한 Azure Databricks 클러스터 설정](how-to-configure-environment.md#azure-databricks)을 참조 하세요. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)를 참조하세요.
+* Azure 구독의 **Azure Databricks 클러스터** 여기에서 자세한 정보를 찾을 수 있습니다. [자동화 된 ML에 대 한 Azure Databricks 클러스터 설정](how-to-configure-environment.md#aml-databricks)을 참조 하세요. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)를 참조하세요.
 
 <a name='configure-experiment'></a>
 

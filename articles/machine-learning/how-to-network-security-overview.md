@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 09/25/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
+ms.openlocfilehash: c1d351cf7a3d66f6051bf5c9d17672b054c2d862
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362217"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538385"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "91362217"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

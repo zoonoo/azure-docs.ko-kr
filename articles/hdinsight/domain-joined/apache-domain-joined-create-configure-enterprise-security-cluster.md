@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080162"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536072"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Enterprise Security Package 클러스터 만들기 및 구성
 
@@ -82,7 +82,7 @@ Azure HDInsight 용 ESP (Enterprise Security Package)를 사용 하면 Azure에�
 
         ![새 Active Directory 사용자 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. **새 개체-사용자** 페이지에서 이름으로를 `HDIUser` 입력 **First name** 하 고 **사용자 로그온 이름을**입력 합니다. 다른 필드는 자동 됩니다. **다음**을 선택합니다.
+    1. **새 개체-사용자** 페이지에서 이름으로를 `HDIUser` 입력 **First name** 하 고 **사용자 로그온 이름을**입력 합니다. 다른 필드는 자동 됩니다. 그런 후 **다음**을 선택합니다.
 
         ![첫 번째 관리 사용자 개체 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
@@ -129,7 +129,7 @@ Azure HDInsight 용 ESP (Enterprise Security Package)를 사용 하면 Azure에�
 ### <a name="create-a-custom-domain"></a>사용자 지정 도메인 만들기
 
 1. 새 **Azure Active Directory**의 **관리**에서 **사용자 지정 도메인 이름**을 선택 합니다.
-1. **+ 사용자 지정 도메인 추가**를 선택 합니다.
+1. **+사용자 지정 도메인 추가**를 선택합니다.
 1. **사용자 지정 도메인 이름**에서을 입력 한 `HDIFabrikam.com` 다음 **도메인 추가**를 선택 합니다.
 1. 그런 다음 [도메인 등록자에 DNS 정보 추가를](../../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar)완료 합니다.
 
@@ -158,8 +158,8 @@ Active Directory 테 넌 트 관리자를 만듭니다.
 
     |속성 |설명 |
     |---|---|
-    |사용자 이름|텍스트 상자에 `fabrikamazureadmin`를 입력합니다. 도메인 이름 드롭다운 목록에서 다음을 선택 합니다.`hdifabrikam.com`|
-    |Name| `fabrikamazureadmin`를 입력합니다.|
+    |사용자 이름|텍스트 상자에 `fabrikamazureadmin`를 입력합니다. 도메인 이름 드롭다운 목록에서 다음을 선택 합니다. `hdifabrikam.com`|
+    |속성| `fabrikamazureadmin`를 입력합니다.|
 
     **암호**
     1. **암호 만들기를**선택 합니다.
@@ -190,13 +190,13 @@ Active Directory 테 넌 트 관리자를 만듭니다.
 
 1. **Express 설정 사용**을 선택 합니다.
 
-1. **AZURE ad에 연결** 페이지에서 azure ad에 대 한 전역 관리자의 사용자 이름 및 암호를 입력 합니다. `fabrikamazureadmin@hdifabrikam.com`Active Directory 테 넌 트를 구성할 때 만든 사용자 이름을 사용 합니다. **다음**을 선택합니다.
+1. **AZURE ad에 연결** 페이지에서 azure ad에 대 한 전역 관리자의 사용자 이름 및 암호를 입력 합니다. `fabrikamazureadmin@hdifabrikam.com`Active Directory 테 넌 트를 구성할 때 만든 사용자 이름을 사용 합니다. 그런 후 **다음**을 선택합니다.
 
-    !["Azure AD에 연결" 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    !["Azure A D에 연결" 페이지.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. **Active Directory Domain Services에 연결** 페이지에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력 합니다. 이전에 만든 사용자 이름 `HDIFabrikam\HDIFabrikamAdmin` 및 암호를 사용 합니다. **다음**을 선택합니다.
+1. **Active Directory Domain Services에 연결** 페이지에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력 합니다. 이전에 만든 사용자 이름 `HDIFabrikam\HDIFabrikamAdmin` 및 암호를 사용 합니다. 그런 후 **다음**을 선택합니다.
 
-   !["Azure AD에 연결" 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   !["D D S에 연결" 페이지.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. **AZURE AD 로그인 구성** 페이지에서 **다음**을 선택 합니다.
    !["Azure AD 로그인 구성" 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -204,7 +204,7 @@ Active Directory 테 넌 트 관리자를 만듭니다.
 
    !["구성 준비 완료" 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
-1. **구성 완료** 페이지에서 **끝내기**를 선택합니다.
+1. **구성 완료** 페이지에서 **종료**를 선택합니다.
    !["구성 완료" 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. 동기화가 완료 된 후 IaaS 디렉터리에서 만든 사용자가 Azure AD와 동기화 되는지 확인 합니다.
@@ -333,7 +333,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     ![인증서 내보내기 마법사의 개인 키 내보내기 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. **내보내기 파일 형식** 페이지에서 기본 설정을 그대로 두고 **다음**을 선택 합니다.
-1. **암호** 페이지에서 개인 키의 암호를 입력 합니다. **암호화**의 경우 **TripleDES-SHA1**을 선택 합니다. **다음**을 선택합니다.
+1. **암호** 페이지에서 개인 키의 암호를 입력 합니다. **암호화**의 경우 **TripleDES-SHA1**을 선택 합니다. 그런 후 **다음**을 선택합니다.
 1. **내보낼 파일** 페이지에서 내보낸 인증서 파일의 경로와 이름을 입력 하 고 **다음**을 선택 합니다. 파일 이름에는 .pfx 확장명이 있어야 합니다. 이 파일은 Azure Portal에서 구성 되어 보안 연결을 설정 합니다.
 1. Azure AD DS 관리 되는 도메인에 대해 LDAPS를 사용 하도록 설정 합니다.
     1. Azure Portal에서 도메인을 선택 `HDIFabrikam.com` 합니다.
@@ -356,9 +356,9 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | 대상 | 모두 |
         | 대상 포트 범위 | 636 |
         | 프로토콜 | 모두 |
-        | 작업 | Allow |
+        | 작업 | 허용 |
         | 우선 순위 | \<Desired number> |
-        | Name | Port_LDAP_636 |
+        | 속성 | Port_LDAP_636 |
 
     !["인바운드 보안 규칙 추가" 대화 상자](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

@@ -1,14 +1,14 @@
 ---
 title: 규정 비준수의 원인 확인
 description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있을 수 있습니다. 규정 비준수를 일으킨 원인을 확인하는 방법을 알아보세요.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541274"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -40,7 +40,7 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
 
 1. **준수 세부 정보** 창에는 현재 정책 할당에 대한 리소스의 최신 평가 정보가 표시됩니다. 이 예제에서 **Microsoft.Sql/servers/version** 필드는 _12.0_으로 확인되며 정책 정의는 _14.0_으로 예상됩니다. 여러 가지 이유로 리소스가 규정 비준수인 경우 각각이 이 창에 나열됩니다.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="준수 정보 창의 스크린샷 및 현재 값이 12이 고 대상 값이 14입니다." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
    **auditIfNotExists** 또는 **deployIfNotExists** 정책 정의의 경우 세부 정보는 **details.type** 속성 및 선택적 속성을 포함합니다. 목록은 [auditIfNotExists 속성](../concepts/effects.md#auditifnotexists-properties) 및 [deployIfNotExists 속성](../concepts/effects.md#deployifnotexists-properties)을 참조하세요. **마지막으로 평가된 리소스**는 정의의 **세부 정보** 섹션에서 관련된 리소스입니다.
 
@@ -69,7 +69,7 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="평가 된 리소스 수를 포함 하 여 ifNotExists에 대 한 준수 정보 창의 스크린샷" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
 > [!NOTE]
 > 데이터를 보호하기 위해 속성 값이 _비밀_이면 현재 값이 별표를 표시합니다.
@@ -104,17 +104,17 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
 |현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치할 수 없습니다. |notMatchInsensitively 또는 matchInsensitively **아님** |
 |정책 정의의 효과 세부 정보와 일치하는 관련 리소스가 없습니다. |**then.details.type**에서 정의되고 정책 규칙의 **if** 부분에 정의된 리소스와 관련된 유형의 리소스가 존재하지 않습니다. |
 
+## <a name="component-details-for-resource-provider-modes"></a>리소스 공급자 모드의 구성 요소 세부 정보
+
+[리소스 공급자 모드](../concepts/definition-structure.md#resource-manager-modes)를 사용 하는 할당의 경우 _비준수_ 리소스를 선택 하 여 자세히 보기를 엽니다. **구성 요소 호환성** 탭에는 _비규격_ **구성 요소** 및 **구성 요소 ID**를 표시 하는 할당 된 정책에서 리소스 공급자 모드와 관련 된 추가 정보가 있습니다.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대한 준수 세부 정보
 
 _게스트 구성_ 범주의 _auditIfNotExists_ 정책에 대해 가상 컴퓨터 내에서 여러 설정이 평가 될 수 있으며, 설정 별 세부 정보를 확인 해야 합니다. 예를 들어 암호 정책 목록에 대한 감사를 수행하고 그 중 하나에만 _규정 비준수_ 상태가 있는 경우 준수하지 않는 특정 암호 정책 및 이유를 알아야 합니다.
 
 또한 가상 머신에 직접 로그인 할 수 있는 액세스 권한이 없을 수도 있지만, 가상 머신이 _비규격_인 이유를 보고 해야 합니다.
-
-## <a name="compliance-details-for-resource-provider-modes"></a>리소스 공급자 모드에 대 한 호환성 세부 정보
-
-[리소스 공급자 모드](../concepts/definition-structure.md#resource-manager-modes)를 사용 하는 할당의 경우 _비준수_ 리소스를 선택 하 여 자세히 보기를 엽니다. **구성 요소 호환성** 탭에는 _비규격_ **구성 요소** 및 **구성 요소 ID**를 표시 하는 할당 된 정책에서 리소스 공급자 모드와 관련 된 추가 정보가 있습니다.
-
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 공급자 모드 할당에 대 한 구성 요소 호환성 탭의 스크린샷 및 호환성 세부 정보입니다." border="false":::
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -122,11 +122,11 @@ _게스트 구성_ 범주의 _auditIfNotExists_ 정책에 대해 가상 컴퓨�
 
 준수 정보 창 보기에서 **마지막 평가 리소스**링크를 선택 합니다.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="AuditIfNotExists 정의 준수 세부 정보를 보는 스크린샷" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
 **게스트 할당** 페이지에는 사용 가능한 모든 준수 세부 정보가 표시됩니다. 뷰의 각 행은 머신 내에서 수행된 평가를 나타냅니다. **Reason** 열에서 게스트 할당이 _규정 비준수_인 이유를 설명하는 구가 표시됩니다. 예를 들어 암호 정책을 감사하는 경우 **Reason** 열에 각 설정에 대한 현재 값을 포함한 텍스트가 표시됩니다.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="게스트 할당 호환성 정보의 스크린샷" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -205,11 +205,11 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="변경 기록 탭의 스크린샷 및 리소스 호환성 페이지에서 검색 된 변경 시간입니다." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
 1. 검색된 변경 중 하나를 선택합니다. 리소스의 _시각적 차이_는 **변경 기록** 페이지에 표시됩니다.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="변경 기록 페이지에서 속성의 이전 및 이후 상태에 대 한 변경 기록 시각적 Diff의 스크린샷" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
 _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색된 변경 내용이 리소스의 현재 호환 상태와 관련되어 있지 않을 수 있습니다.
 

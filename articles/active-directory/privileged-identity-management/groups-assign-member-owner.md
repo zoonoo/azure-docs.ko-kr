@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869659"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534423"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹 (미리 보기)에 대 한 자격 할당
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 Azure 
 
 1. 권한 있는 액세스 그룹에 적격 할 구성원 또는 소유자를 선택 합니다.
 
-    ![멤버 또는 그룹 선택 창](./media/groups-assign-member-owner/add-assignments.png)
+    !["멤버 또는 그룹 선택" 창이 열려 있는 "할당 추가" 페이지와 "선택" 단추가 강조 표시 된 스크린샷](./media/groups-assign-member-owner/add-assignments.png)
 
 1. **다음** 을 선택 하 여 멤버 자격 또는 소유권 기간을 설정 합니다.
 

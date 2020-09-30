@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4889e73e851e285c84d5d4429298e9a7cdacc140
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014390"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537602"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -26,7 +26,7 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 이러한 기능은 개별적으로 또는 함께 사용할 수 있습니다. Azure Cognitive Search에서 이러한 동작을 구현 하기 위해 인덱스 및 쿼리 구성 요소가 있습니다. 
 
-+ 인덱스에서 확인 기를 인덱스에 추가 합니다. 포털, [REST API](/rest/api/searchservice/create-index)또는 [.net SDK](/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)를 사용할 수 있습니다. 이 문서의 나머지 부분에서는 확인 기를 만드는 방법에 대해 집중적으로 설명 합니다.
++ 인덱스에서 확인 기를 인덱스에 추가 합니다. 포털, [REST API](/rest/api/searchservice/create-index)또는 [.net SDK](/dotnet/api/microsoft.azure.search.models.suggester)를 사용할 수 있습니다. 이 문서의 나머지 부분에서는 확인 기를 만드는 방법에 대해 집중적으로 설명 합니다.
 
 + 쿼리 요청에서 [아래에 나열 된 api](#how-to-use-a-suggester)중 하나를 호출 합니다.
 
@@ -111,7 +111,7 @@ REST API에서 [Create index](/rest/api/searchservice/create-index) 또는 [Upda
 
 ## <a name="create-using-net"></a>.NET을 사용 하 여 만들기
 
-C #에서 [확인 기 개체](/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)를 정의 합니다. `Suggesters` 는 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 
+C #에서 [확인 기 개체](/dotnet/api/microsoft.azure.search.models.suggester)를 정의 합니다. `Suggesters` 는 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -138,7 +138,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |제안기의 이름입니다.|
 |`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
-|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 에서 명명 된 분석기 여야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
+|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/microsoft.azure.search.models.analyzername) 에서 명명 된 분석기 여야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -148,8 +148,8 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 + [제안 REST API](/rest/api/searchservice/suggestions) 
 + [자동 완성 REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [AutocompleteWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [SuggestWithHttpMessagesAsync 메서드] (/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [AutocompleteWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 검색 응용 프로그램에서 클라이언트 코드는 [JQUERY UI 자동 완성](https://jqueryui.com/autocomplete/) 같은 라이브러리를 활용 하 여 부분 쿼리를 수집 하 고 일치 하는 항목을 제공 해야 합니다. 이 작업에 대 한 자세한 내용은 [클라이언트 코드에 자동 완성 또는 제안 된 결과 추가](search-autocomplete-tutorial.md)를 참조 하세요.
 
