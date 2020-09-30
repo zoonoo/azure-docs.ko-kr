@@ -1,21 +1,21 @@
 ---
-title: Creator를 사용하여 실내 맵 만들기
-description: Azure Maps Creator를 사용하여 실내 맵을 만듭니다.
+title: '자습서: Creator를 사용하여 실내 맵 만들기'
+description: Azure Maps Creator를 사용하여 실내 맵을 만드는 방법에 대한 자습서입니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
-ms.translationtype: MT
+ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371425"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Creator를 사용하여 실내 맵 만들기
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>자습서: Creator를 사용하여 실내 맵 만들기
 
 이 자습서에서는 실내 맵을 만드는 방법을 보여 줍니다. 이 자습서에서 API를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -35,12 +35,12 @@ ms.locfileid: "89469918"
 1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 3. [Creator 리소스를 만듭니다](how-to-manage-creator.md).
-4. [그리기 패키지 샘플](https://github.com/Azure-Samples/am-creator-indoor-data-examples)을 다운로드합니다.
+4. [그리기 패키지 샘플](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip)을 다운로드합니다.
 
 이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
 
 >[!IMPORTANT]
-> 이 문서의 API url은 작성자 리소스의 위치에 따라 조정 해야 할 수 있습니다. 자세한 내용은 [Creator Services에](how-to-manage-creator.md#access-to-creator-services)대 한 액세스를 참조 하세요.
+> 이 문서의 API URL은 Creator 리소스의 위치에 따라 조정해야 할 수 있습니다. 자세한 내용은 [Creator 서비스에 대한 액세스](how-to-manage-creator.md#access-to-creator-services)를 참조하세요.
 
 ## <a name="upload-a-drawing-package"></a>그리기 패키지 업로드
 
@@ -64,7 +64,7 @@ ms.locfileid: "89469918"
 
 5. 파란색 **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **위치** 키의 값(`status URL`)을 복사합니다.
 
-6. API 호출의 상태를 확인하려면 `status URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL 처럼 표시 됩니다.
+6. API 호출의 상태를 확인하려면 `status URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -111,13 +111,13 @@ ms.locfileid: "89469918"
     ```
 
     >[!IMPORTANT]
-    > 이 문서의 API url은 작성자 리소스의 위치에 따라 조정 해야 할 수 있습니다. 자세한 내용은 [Creator Services에](how-to-manage-creator.md#access-to-creator-services)대 한 액세스를 참조 하세요.
+    > 이 문서의 API URL은 Creator 리소스의 위치에 따라 조정해야 할 수 있습니다. 자세한 내용은 [Creator 서비스에 대한 액세스](how-to-manage-creator.md#access-to-creator-services)를 참조하세요.
 
-3. **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동하여 **위치** 키를 찾습니다. 변환 요청에 대한 `status URL`인 **위치** 키의 값을 복사합니다. 다음 단계에서이를 사용 합니다.
+3. **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동하여 **위치** 키를 찾습니다. 변환 요청에 대한 `status URL`인 **위치** 키의 값을 복사합니다. 이 값은 다음 단계에서 사용합니다.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="위치 키의 값 복사":::
 
-4. 작성기 탭에서 새 **GET** HTTP 메서드를 시작합니다. Azure Maps 기본 구독 키를 `status URL`에 추가합니다. 3 단계에서 복사한에서 **GET** 요청을 수행 `status URL` 합니다. 는 `status URL` 다음 URL과 유사 합니다.
+4. 작성기 탭에서 새 **GET** HTTP 메서드를 시작합니다. Azure Maps 기본 구독 키를 `status URL`에 추가합니다. 3단계에서 복사한 `status URL`에서 **GET** 요청을 수행합니다. `status URL`은 다음 URL과 같습니다.
 
     ```http
     https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -404,43 +404,11 @@ ms.locfileid: "89469918"
 
 [기능 상태 가져오기 API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview)를 사용하면 기능 `ID`를 사용하여 기능의 상태를 검색할 수 있습니다. 또한 [기능 상태 삭제 API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview)를 사용하여 상태 세트 및 해당 리소스를 삭제할 수도 있습니다.
 
+이 문서에서 설명하는 다양한 Azure Maps Creator 서비스에 대한 자세한 내용은 [실내 맵용 Creator](creator-indoor-maps.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-> [!div class="checklist"]
-> * 실내 맵 그리기 패키지 업로드
-> * 그리기 패키지를 맵 데이터로 변환
-> * 맵 데이터에서 데이터 세트 만들기
-> * 데이터 세트의 데이터에서 타일 세트 만들기
-> * Azure Maps WFS 서비스를 쿼리하여 맵 기능에 대해 알아보기
-> * 맵 기능 및 데이터 세트의 데이터를 사용하여 기능 상태 세트 만들기
-> * 기능 상태 세트 업데이트
-
-이제 다음 가이드로 이동하는 데 필요한 기술을 갖추었습니다.
+실내 맵 모듈을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [실내 맵 모듈 사용](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [실내 맵 동적 스타일 지정 구현](indoor-map-dynamic-styling.md)
-
-이 문서에서 설명하는 다양한 Azure Maps 서비스에 대해 자세히 알아보세요.
-
-> [!div class="nextstepaction"]
-> [데이터 업로드](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [데이터 변환](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [데이터 세트](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [타일 세트](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [기능 상태 세트](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [WFS 서비스](creator-indoor-maps.md#web-feature-service-api)
+> [Indoor Maps 모듈 사용](how-to-use-indoor-module.md)

@@ -5,14 +5,14 @@ author: avneet723
 ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001272"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980538"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -62,11 +62,11 @@ ms.locfileid: "81001272"
    * 처리 구조 내에 있는 로봇 캐리어의 평면도와 위치를 봅니다.
    * 제어 시스템 다시 설정, 캐리어 펌웨어 업데이트 및 네트워크 재구성과 같은 명령을 트리거합니다.
 
-     ![Northwind Traders 마이크로 처리 센터 대시보드의 스크린샷](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Northwind Traders 마이크로 처리 센터 대시보드 상단 절반의 스크린샷](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * 운영자가 처리 센터 내의 상태를 모니터링하는 데 사용할 수 있는 대시보드의 예를 참조합니다. 
    * 처리 센터 내의 게이트웨이 디바이스에서 실행되는 페이로드의 상태를 모니터링합니다.    
 
-     ![Northwind Traders 마이크로 처리 센터 대시보드의 스크린샷](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Northwind Traders 마이크로 처리 센터 대시보드 하단 절반의 스크린샷](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>디바이스 템플릿
 디바이스 템플릿 탭이 선택되면 템플릿에 포함된 다음 두 가지 유형의 디바이스가 표시됩니다. 
@@ -91,6 +91,9 @@ ms.locfileid: "81001272"
 ![마이크로 처리 센터 애플리케이션 설정 페이지의 스크린샷](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [마이크로 처리 센터 솔루션 아키텍처](./architecture-micro-fulfillment-center.md)에 대한 자세한 정보
-* 다른 [Azure IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대한 자세한 정보
-* [Azure IoT Central 개요](../preview/overview-iot-central.md) 참조
+
+자세한 정보
+> [!div class="nextstepaction"]
+> [마이크로 처리 센터 솔루션 아키텍처](./architecture-micro-fulfillment-center.md)
+* [Azure IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대한 자세한 정보
+* 기타 [Azure IoT Central 개요](../preview/overview-iot-central.md)에 대한 자세한 정보

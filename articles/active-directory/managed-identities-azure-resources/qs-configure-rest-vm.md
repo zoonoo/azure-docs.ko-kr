@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f60a0167e7ac09b1fdfee87cc8412cdbe19053
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255973"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968866"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API 호출을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -37,11 +37,9 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](/windows/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-- [Linux용 Windows 하위 시스템](/windows/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔](/cli/azure/install-azure-cli)을 설치합니다.
-- Azure CLI 로컬 콘솔을 사용하는 경우, 시스템 또는 사용자 할당 관리 ID를 관리하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- 이 문서의 모든 명령은 클라우드에서 또는 로컬로 실행할 수 있습니다.
+    - 클라우드에서 실행하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
+    - 로컬로 실행하려면 [curl](https://curl.haxx.se/download.html) 및 [Azure CLI](/cli/azure/install-azure-cli)를 설치한 다음, 시스템 또는 사용자 할당 관리 ID를 관리하려는 Azure 구독과 연결된 계정으로 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 

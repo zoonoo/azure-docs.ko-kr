@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: cb40252460fe62deb94ce495bb41d38c326f10e2
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001342"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980744"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -35,7 +35,7 @@ ms.locfileid: "81001342"
 1. Azure IoT Central 애플리케이션 관리자 웹 사이트로 이동합니다. 왼쪽 탐색 모음에서 **빌드**를 선택하고 **소매** 탭을 클릭합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![디지털 배포 센터](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > ![디지털 유통 센터 애플리케이션 템플릿을 선택하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
 2. **소매** 탭을 선택하고 **디지털 배포 센터 애플리케이션**에서 **앱 만들기**를 선택합니다.
 
@@ -46,10 +46,10 @@ ms.locfileid: "81001342"
    **만들기**: 페이지 맨 아래에서 만들기를 선택하여 애플리케이션을 배포합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![디지털 유통 센터 애플리케이션 템플릿에서 앱을 만드는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![디지털 배포 청구 정보](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![애플리케이션을 만들 때 청구 옵션을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>애플리케이션 대시보드 살펴보기 
 
@@ -62,31 +62,31 @@ ms.locfileid: "81001342"
    * 솔루션에 포함된 모든 카메라를 관리합니다. 
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![디지털 유통 센터 대시보드를 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>디바이스 템플릿
 
 디바이스 템플릿 탭을 클릭하면 게이트웨이 기능 모델이 표시됩니다. 기능 모델은 **카메라** 및 **디지털 배포 게이트웨이**의 두 가지 다른 인터페이스로 구성됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![애플리케이션의 디지털 유통 게이트웨이 디바이스 템플릿을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **카메라** - 이 인터페이스는 모든 카메라 관련 명령 기능을 구성합니다. 
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![디지털 유통 게이트웨이 디바이스 템플릿의 카메라 인터페이스를 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **디지털 배포 게이트웨이** - 이 인터페이스는 카메라, 클라우드 정의 디바이스 쌍 속성 및 게이트웨이 정보에서 들어오는 모든 원격 분석을 나타냅니다.
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![디지털 유통 게이트웨이 디바이스 템플릿의 디지털 유통 게이트웨이 인터페이스를 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>게이트웨이 명령
 이 인터페이스는 모든 게이트웨이 명령 기능을 구성합니다.
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![디지털 유통 게이트웨이 디바이스 템플릿의 게이트웨이 명령 인터페이스를 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>규칙
 규칙 탭을 선택하여 이 애플리케이션 템플릿에 존재하는 두 가지 다른 규칙을 표시합니다. 이러한 규칙은 추가 조사를 위해 운영자에게 메일 알림을 보내도록 구성됩니다.
@@ -96,7 +96,7 @@ ms.locfileid: "81001342"
 **대규모 패키지** - 카메라에서 품질을 검사할 수 없는 방대한 패키지를 감지하는 경우 이 규칙이 트리거됩니다. 
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![디지털 유통 센터 애플리케이션의 규칙 목록을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>작업
 작업 탭을 선택하여 이 애플리케이션 템플릿의 일부로 존재하는 5개의 다른 작업을 표시합니다. 작업 기능을 활용하여 솔루션 전체 작업을 수행할 수 있습니다. 여기에서 디지털 배포 센터 작업은 디바이스 명령 및 쌍 기능을 사용하여 다음과 같은 작업을 수행합니다.
@@ -105,15 +105,17 @@ ms.locfileid: "81001342"
    * 데이터 업로드를 관리하는 원격 분석 간격 수정
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![디지털 유통 센터 애플리케이션의 작업 목록을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 애플리케이션을 계속 사용하지 않으려면 **관리** > **애플리케이션 설정**을 방문하여 애플리케이션 템플릿을 삭제하고 **삭제**를 클릭합니다.
 
 > [!div class="mx-imgBorder"]
-> ![디지털 배포 센터](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![작업을 완료했을 때 애플리케이션을 삭제하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 디지털 배포 센터 솔루션 아키텍처 [디지털 배포 센터 개념](./architecture-digital-distribution-center.md)에 대해 자세히 알아보기
+* 디지털 유통 센터 솔루션 아키텍처에 대한 자세한 정보 
+> [!div class="nextstepaction"]
+> [디지털 유통 센터 개념](./architecture-digital-distribution-center.md)
 * 다른 [IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대해 자세히 알아보기
 * [IoT Central 개요](../core/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.

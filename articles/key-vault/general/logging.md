@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485458"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290656"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -133,6 +133,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
   * 이러한 키 또는 비밀 만들기, 수정 또는 삭제
   * 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
 * 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.  
+* 곧 만료되는 정책, 만료된 정책 및 자격 증명 모음 액세스 정책에 대한 Event Grid 알림 이벤트가 변경되었습니다(새 버전 이벤트가 기록되지 않음). 키 자격 증명 모음에 생성된 이벤트 구독이 있는지 여부에 관계 없이 이벤트가 기록됩니다. 자세한 내용은 [Key Vault에 대한 Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)를 참조하세요.
 
 ## <a name="enable-logging-using-azure-cli"></a>Azure CLI를 통해 로깅 사용
 
@@ -289,6 +290,8 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 다음 표에는 **operationName** 값 및 해당 REST API 명령이 나와 있습니다.
 
+### <a name="operation-names-table"></a>작업 이름 테이블
+
 | operationName | REST API 명령 |
 | --- | --- |
 | **인증** |Azure Active Directory 엔드포인트를 통해 인증 |
@@ -318,6 +321,13 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 | **SecretDelete** |[암호 삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[암호 버전 나열](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | 자격 증명 모음 액세스 정책 변경 이벤트가 게시됨 |
+| **SecretNearExpiryEventGridNotification** |비밀이 곧 만료되는 이벤트가 게시됨 |
+| **SecretExpiredEventGridNotification** |비밀이 만료된 이벤트가 게시됨 |
+| **KeyNearExpiryEventGridNotification** |키가 곧 만료되는 이벤트가 게시됨 |
+| **KeyExpiredEventGridNotification** |키가 만료된 이벤트가 게시됨 |
+| **CertificateNearExpiryEventGridNotification** |인증서가 곧 만료되는 이벤트가 게시됨 |
+| **CertificateExpiredEventGridNotification** |인증서가 만료된 이벤트가 게시됨 |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Azure Monitor 로그 사용
 

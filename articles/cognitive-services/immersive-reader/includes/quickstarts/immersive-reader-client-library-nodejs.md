@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: d485e95e0f41b323d1297c669c13fb1fe5886619
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505404"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978298"
 ---
-[몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
+[몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
-이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 리더 클라이언트 라이브러리를 사용하여 몰입형 리더를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs)에서 확인할 수 있습니다.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 리더 클라이언트 라이브러리를 사용하여 몰입형 리더를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * [Node.js](https://nodejs.org/) 및 [Yarn](https://yarnpkg.com)
 * [Visual Studio Code](https://code.visualstudio.com/)와 같은 IDE
@@ -246,13 +245,13 @@ npm start
 
 브라우저를 열고, _http://localhost:3000_ 으로 이동합니다. 다음이 표시되어야 합니다.
 
-![샘플 앱](../../media/quickstart-nodejs/1-buildapp.png)
+![샘플 앱 - Node.js](../../media/quickstart-nodejs/1-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>몰입형 판독기 시작
 
 “몰입형 판독기” 단추를 클릭하면 페이지의 콘텐츠와 함께 몰입형 판독기가 시작됩니다.
 
-![몰입형 판독기](../../media/quickstart-nodejs/2-viewimmersivereader.png)
+![몰입형 리더 - Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>다음 단계
 

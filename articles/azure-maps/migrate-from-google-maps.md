@@ -1,24 +1,24 @@
 ---
-title: '자습서: Google Maps에서 Azure Maps로 마이그레이션 | Microsoft Azure Maps'
-description: Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법에 대한 자습서입니다. Azure Maps API 및 SDK로 전환하는 방법을 안내하는 지침입니다.
+title: Google Maps에서 Azure Maps로 마이그레이션 | Microsoft Azure Maps
+description: Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법을 설명합니다. Azure Maps API 및 SDK로 전환하는 방법을 안내하는 지침입니다.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 09/23/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264170"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Google Maps에서 Azure Maps로 마이그레이션
 
-이 자습서에서는 Google Maps의 웹, 모바일 및 서버 기반 애플리케이션을 Microsoft Azure Maps 플랫폼으로 마이그레이션하는 방법에 대한 인사이트를 제공합니다. 이 자습서에는 Azure Maps로 마이그레이션하기 위한 비교 코드 샘플, 마이그레이션 제안 사항 및 모범 사례가 포함되어 있습니다.
+이 문서에서는 웹, 모바일 및 서버 기반 애플리케이션을 Google Maps에서 Microsoft Azure Maps 플랫폼으로 마이그레이션하는 방법에 대한 인사이트를 제공합니다. 이 자습서에는 Azure Maps로 마이그레이션하기 위한 비교 코드 샘플, 마이그레이션 제안 사항 및 모범 사례가 포함되어 있습니다.
 
 ## <a name="azure-maps-platform-overview"></a>Azure Maps 플랫폼 개요
 
@@ -80,6 +80,15 @@ Google Maps에서 Azure Maps로 마이그레이션할 때 라이선스와 관련
 5. 마이그레이션된 애플리케이션을 테스트합니다.
 6. 마이그레이션된 애플리케이션을 프로덕션 환경에 배포합니다.
 
+## <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
+
+Azure Maps 계정을 만들고 Azure Maps 플랫폼에 액세스하려면 다음 단계를 수행합니다.
+
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+3. [Azure Maps 계정](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)을 만듭니다. 
+4. 보안 강화를 위해 [Azure Maps 구독 키를 가져오거나](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) Azure Active Directory 인증을 설정합니다.
+
 ## <a name="azure-maps-technical-resources"></a>Azure Maps 기술 리소스
 
 다음은 Azure Maps에 대한 유용한 기술 리소스 목록입니다.
@@ -98,15 +107,10 @@ Google Maps에서 Azure Maps로 마이그레이션할 때 라이선스와 관련
 
 개발자는 [포럼](https://aka.ms/AzureMapsForums) 또는 여러 Azure 지원 옵션([https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)) 중 하나를 통해 마이그레이션 지원을 검색할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+다음을 사용하여 Google Maps 애플리케이션을 마이그레이션하는 방법을 알아볼 수 있습니다. 
 
-다음 문서를 사용하여 Google Maps 애플리케이션을 마이그레이션하는 방법에 대해 자세히 알아봅니다.
+[Android 앱 마이그레이션](migrate-from-google-maps-android-app.md) 
 
-> [!div class="nextstepaction"]
-> [웹앱 마이그레이션](migrate-from-google-maps-web-app.md)
+[웹 서비스 마이그레이션](migrate-from-google-maps-web-services.md) 
 
-> [!div class="nextstepaction"]
-> [Android 앱 마이그레이션](migrate-from-google-maps-android-app.md)
-
-> [!div class="nextstepaction"]
-> [웹 서비스 마이그레이션](migrate-from-google-maps-web-services.md)
+[웹앱 마이그레이션](migrate-from-google-maps-web-app.md)

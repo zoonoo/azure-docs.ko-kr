@@ -1,25 +1,37 @@
 ---
-title: Azure Key Vault 키 정보 - Azure Key Vault
+title: 키 - Azure Key Vault 정보
 description: 키에 대한 Azure Key Vault REST 인터페이스 및 개발자 세부 정보의 개요입니다.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967549"
 ---
-# <a name="about-azure-key-vault-keys"></a>Azure Key Vault 키 정보
+# <a name="about-keys"></a>키 정보
 
-Azure Key Vault는 여러 키 유형과 알고리즘을 지원하며, 고부가 가치 키에 HSM(하드웨어 보안 모듈)을 사용할 수 있습니다.
+Azure Key Vault는 암호화 키를 저장하고 관리하는 두 가지 유형의 리소스를 제공합니다.
+
+|리소스 유형|키 보호 방법|데이터 평면 엔드포인트 기준 URL|
+|--|--|--|
+| **자격 증명 모음** | 소프트웨어 보호<br/><br/>및<br/><br/>HSM 보호(프리미엄 SKU 포함)</li></ul> | https://{vault-name}.vault.azure.net |
+| **관리형 HSM 풀** | HSM 보호 | https://{hsm-name}.managedhsm.azure.net |
+||||
+
+- **자격 증명 모음** - 가장 일반적인 클라우드 애플리케이션 시나리오에 적합한 저렴하고 배포하기 쉬운 다중 테넌트, 영역 복원 가능(사용 가능한 경우), 고가용성 키 관리 솔루션을 제공합니다.
+- **관리형 HSM** - 관리형 HSM은 암호화 키를 저장하고 관리하는 단일 테넌트, 영역 복원 가능(사용 가능한 경우), 고가용성 HSM을 제공합니다. 높은 값 키를 처리하는 애플리케이션 및 사용 시나리오에 가장 적합합니다. 가장 엄격한 보안, 규정 준수 및 규정 요구 사항을 충족하는 데도 도움이 됩니다. 
+
+> [!NOTE]
+> 자격 증명 모음을 사용하여 암호화 키 외에도 비밀, 인증서 및 스토리지 계정 키와 같은 여러 유형의 개체를 저장하고 관리할 수 있습니다.
 
 Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. JSON(JavaScript Object Notation) 및 JOSE(JavaScript Object Signing and Encryption) 사양은 다음과 같습니다.
 
@@ -28,30 +40,49 @@ Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. JSON(
 -   [JWA(JSON 웹 알고리즘)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JWS(JSON 웹 서명)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-또한 기본 JWK/JWA 사양을 확장하여 Key Vault 구현에 고유한 키 유형을 지원할 수 있습니다. 예를 들어 HSM 공급업체별 패키징을 사용하여 키를 가져오면 Key Vault HSM에서만 사용할 수 있는 키를 안전하게 전송할 수 있습니다. 
+또한 기본 JWK/JWA 사양을 확장하여 Azure Key Vault 및 관리형 HSM 구현에 고유한 키 유형을 지원할 수 있습니다. 
 
-Azure Key Vault는 소프트웨어 보호 및 HSM 보호 키를 모두 지원합니다.
+HSM 보호 키(HSM 키라고도 함)는 HSM(하드웨어 보안 모듈)에서 처리되며 항상 HSM 보호 경계를 유지합니다. 
 
-- **소프트웨어 보호 키**: 소프트웨어에서 Key Vault를 통해 처리되지만, 사용되지 않을 때에는 HSM에 있는 시스템 키를 사용하여 암호화되는 키입니다. 클라이언트는 기존 RSA 또는 EC(타원 곡선) 키를 가져오거나 Key Vault에서 생성하도록 요청할 수 있습니다.
-- **HSM 보호 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트웨어 보호 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 HSM 키 자료를 전송하기 위해 가져오는 JWK에 key_hsm 특성을 추가합니다.
+- 자격 증명 모음은 **FIPS 140-2 수준 2** 유효성이 검사된 HSM을 사용하여 공유 HSM 백 엔드 인프라에서 HSM 키를 보호합니다. 
+- 관리형 HSM 풀은 **FIPS 140-2 수준 3** 유효성이 검사된 HSM 모듈을 사용하여 키를 보호합니다. 각 HSM 풀은 자체 [보안 도메인](../managed-hsm/security-domain.md)을 포함하는 격리된 단일 테넌트 인스턴스로, 동일한 하드웨어 인프라를 공유하는 다른 모든 HSM 풀에서 완벽한 암호화 격리를 제공합니다.
 
-지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/privacy/)를 참조하세요.  
+이러한 키는 단일 테넌트 HSM 풀에서 보호됩니다. RSA, EC 및 대칭 키를 소프트 형식으로 또는 지원되는 HSM 디바이스에서 내보내 가져올 수 있습니다. 또한 HSM 풀에서 키를 생성할 수도 있습니다. [BYOK(사용자 고유 키 가져오기)사양](../keys/byok-specification.md)에 설명된 방법을 사용하여 키를 사용하여 HSM 키를 가져오는 경우 보안 운송 키 자료를 관리형 HSM 풀로 사용할 수 있습니다. 
 
-## <a name="cryptographic-protection"></a>암호화 보호
+지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/privacy/)를 참조하세요.
 
-Key Vault는 RSA 및 타원 곡선 키만 지원합니다. 
+## <a name="key-types-protection-methods-and-algorithms"></a>키 유형, 보호 방법 및 알고리즘
 
--   **EC**: 소프트웨어 보호 타원 곡선 키입니다.
--   **EC-HSM**: “하드” 타원 곡선 키입니다.
--   **RSA**: 소프트웨어 보호 RSA 키입니다.
--   **RSA-HSM**: “하드” RSA 키입니다.
+Key Vault는 RSA, EC 및 대칭 키를 지원합니다. 
 
-Key Vault는 크기가 2048, 3072, 4096인 RSA 키를 지원합니다. Key Vault는 타원 곡선 키 유형 p-256, p-384, p-521 및 P-256K(SECP256K1)를 지원합니다.
+### <a name="hsm-protected-keys"></a>HSM 보호 키
 
-Key Vault에서 사용하는 암호화 모듈(HSM 또는 소프트웨어)은 FIPS에 유효합니다. FIPS 모드에서 실행하기 위해 특별한 작업을 수행할 필요가 없습니다. HSM으로 보호되는 키로 **만들어진** 또는 **가져온** 키는 FIPS 140-2 Level 2에서 유효한 HSM 내부에서 처리됩니다. 소프트웨어로 보호되는 키로 **만들어진** 또는 **가져온** 키는 FIPS 140-2 Level 1에서 유효한 암호화 모듈 내부에서 처리됩니다.
+|키 유형|자격 증명 모음(프리미엄 SKU에만 해당)|관리형 HSM 풀|
+|--|--|--|--|
+**EC-HSM**: 타원 곡선 키|FIPS 140-2 수준 2 HSM|FIPS 140-2 수준 3 HSM
+**RSA-HSM**: RSA 키|FIPS 140-2 수준 2 HSM|FIPS 140-2 수준 3 HSM
+**oct-HSM**: 대칭|지원되지 않음|FIPS 140-2 수준 3 HSM
+||||
+
+### <a name="software-protected-keys"></a>소프트웨어 보호 키
+
+|키 유형|자격 증명 모음|관리형 HSM 풀|
+|--|--|--|--|
+**RSA**: "소프트웨어 보호" RSA 키|FIPS 140-2 수준 1|지원되지 않음
+**EC**: "소프트웨어 보호" 타원 곡선 키|FIPS 140-2 수준 1|지원되지 않음
+||||
+
+### <a name="supported-algorithms"></a>지원되는 알고리즘
+
+|키 유형/크기/곡선| 암호화/암호 해독<br>(래핑/래핑 해제) | 서명/확인 | 
+| --- | --- | --- |
+|EC-P256, EC-P256K, EC-P384, EC-521|해당 없음|ES256<br>ES256K<br>ES384<br>ES512|
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|AES 128비트, 256비트| AES-KW<br>AES-GCM<br>AES-CBC| 해당 없음| 
+|||
 
 ###  <a name="ec-algorithms"></a>EC 알고리즘
- Key Vault의 EC 및 EC-HSM 키에서 지원되는 알고리즘 식별자는 다음과 같습니다. 
+ EC-HSM 키에서 지원되는 알고리즘 식별자는 다음과 같습니다.
 
 #### <a name="curve-types"></a>곡선 유형
 
@@ -68,12 +99,13 @@ Key Vault에서 사용하는 암호화 모듈(HSM 또는 소프트웨어)은 FIP
 -   **ES512** - 곡선 P-521을 사용하여 생성된 SHA-512 메시지 다이제스트 및 키에 대한 ECDSA입니다. 이 알고리즘은 [RFC7518](https://tools.ietf.org/html/rfc7518)에 설명되어 있습니다.
 
 ###  <a name="rsa-algorithms"></a>RSA 알고리즘  
- Key Vault의 RSA 및 RSA-HSM 키에서 지원되는 알고리즘 식별자는 다음과 같습니다.  
+ RSA 및 RSA-HSM 키에서 지원되는 알고리즘 식별자는 다음과 같습니다.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
 -   **RSA1_5** - RSAES-PKCS1-V1_5[RFC3447] 키 암호화입니다.  
 -   **RSA-OAEP** - OAEP(Optimal Asymmetric Encryption Padding)[RFC3447]를 사용하는 RSAES입니다(A.2.1 섹션의 RFC 3447에 명시된 기본 매개 변수 포함). 이러한 기본 매개 변수는 SHA-1의 해시 함수와 SHA-1이 포함된 MGF1의 마스크 생성 함수를 사용합니다.  
+-  **RSA-OAEP-256** – SHA-256의 해시 함수 및 SHA-256과 함께 MGF1의 마스크 생성 함수로 최적의 비대칭 암호화 안쪽 여백을 사용하는 RSAES
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
@@ -83,11 +115,19 @@ Key Vault에서 사용하는 암호화 모듈(HSM 또는 소프트웨어)은 FIP
 -   **RS256** - SHA-256을 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-256을 사용하여 계산되어야 하며, 길이는 32바이트여야 합니다.  
 -   **RS384** - SHA-384를 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-384를 사용하여 계산되어야 하며, 길이는 48바이트여야 합니다.  
 -   **RS512** - SHA-512를 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-512를 사용하여 계산되어야 하며, 길이는 64바이트여야 합니다.  
--   **RSNULL** - 특정 TLS 시나리오를 사용하려면 특수 사용 사례인 [RFC2437]을 참조하세요.  
+-   **RSNULL** - 특정 TLS 시나리오를 사용하려면 특수 사용 사례인 [RFC2437](https://tools.ietf.org/html/rfc2437)을 참조하세요.  
+
+###  <a name="symmetric-key-algorithms"></a>대칭 키 알고리즘
+- **AES-KW** - AES 키 래핑([RFC3394](https://tools.ietf.org/html/rfc3394))
+- **AES-GCM** - Galois 카운터 모드의 AES 암호화([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC** - 암호화 블록 체인 모드의 AES 암호화([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+
+> [!NOTE] 
+> 현재 AES-GCM 구현 및 해당 API는 실험적입니다. 구현 및 API는 이후 반복에서 크게 변경될 수 있습니다. 
 
 ##  <a name="key-operations"></a>키 작업
 
-Key Vault에서 키 개체에 대해 지원하는 작업은 다음과 같습니다.  
+관리형 HSM에서 키 개체에 대해 지원하는 작업은 다음과 같습니다.  
 
 -   **만들기**: 클라이언트가 Key Vault에 키를 만들 수 있습니다. 키 값은 Key Vault에서 생성되고 저장되며 클라이언트에 릴리스되지 않습니다. Key Vault에 비대칭 키를 만들 수 있습니다.  
 -   **Import**: 클라이언트가 기존 키를 Key Vault로 가져올 수 있습니다. JWK 구조 내에서 다양한 패키징 메서드를 사용하여 Key Vault로 비대칭 키를 가져올 수 있습니다. 
@@ -142,8 +182,8 @@ IntDate 및 기타 데이터 형식에 대한 자세한 내용은 [키, 비밀 �
 
 애플리케이션 관련 메타데이터를 태그 형식으로 추가로 지정할 수 있습니다. Key Vault는 최대 15개의 태그를 지원하며, 각 태그는 256자 이름과 256자의 값을 가질 수 있습니다.  
 
->[!Note]
->해당 개체 형식(키, 비밀 또는 인증서)에 대한 *list* 또는 *get* 권한이 태그에 있는 경우 호출자에서 해당 태그를 읽을 수 있습니다.
+> [!NOTE] 
+> 태그는 해당 키에 대한 *list* 또는 *get* 권한이 있는 경우 호출자가 읽을 수 있습니다.
 
 ##  <a name="key-access-control"></a>키 액세스 제어
 
@@ -176,10 +216,10 @@ Key Vault에서 관리하는 키에 대한 액세스 제어는 키 컨테이너 
 키 사용에 대한 자세한 내용은 [Key Vault REST API 참조에서 키 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-
 - [Key Vault 정보](../general/overview.md)
-- [키, 비밀 및 인증서에 대한 정보](../general/about-keys-secrets-certificates.md)
+- [관리형 HSM 정보](../managed-hsm/overview.md)
 - [비밀 정보](../secrets/about-secrets.md)
 - [인증서 정보](../certificates/about-certificates.md)
+- [Key Vault REST API 개요](../general/about-keys-secrets-certificates.md)
 - [인증, 요청 및 응답](../general/authentication-requests-and-responses.md)
 - [Key Vault 개발자 가이드](../general/developers-guide.md)

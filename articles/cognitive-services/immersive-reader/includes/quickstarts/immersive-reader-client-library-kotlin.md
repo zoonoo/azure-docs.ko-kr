@@ -7,24 +7,23 @@ author: dylankil
 manager: guillasi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 09/14/2020
 ms.author: dylankil
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0904694a461f57a1988444aea71ffe64bfa7e809
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7c368964ca04662c8bf1dfe79db57f81c90f5699
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602269"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978278"
 ---
-[몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
+[몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
 이 빠른 시작에서는 Android 앱을 처음부터 빌드하고 몰입형 리더를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin)에서 사용할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * [Git](https://git-scm.com/)
 * [몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk).
@@ -34,27 +33,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Android Studio에서 새 프로젝트를 시작합니다. 이 예제에 대한 소스 코드는 [몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin)의 일부로 사용할 수 있습니다.
 
-![새 프로젝트](../../media/android/kotlin/android-studio-create-project.png)
+![새 프로젝트 - Kotlin](../../media/android/kotlin/android-studio-create-project.png)
 
 **프로젝트 선택** 창에서 **빈 작업**을 선택한 후, **다음**을 선택합니다.
 
-![빈 활동 프로젝트](../../media/android/kotlin/android-studio-empty-activity.png)
+![빈 작업 프로젝트 - Kotlin](../../media/android/kotlin/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>프로젝트 구성
 
 프로젝트 이름을 **QuickstartKotlin**으로 지정하고 저장할 위치를 선택합니다. 프로그래밍 언어로 **Kotlin**을 선택한 다음, **마침**을 선택합니다.
 
-![프로젝트 구성](../../media/android/kotlin/android-studio-configure-project.png)
+![프로젝트 구성 - Kotlin](../../media/android/kotlin/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>자산 및 인증 설정
 
 새 **/assets** 폴더를 만듭니다.
 
-![새 자산 폴더 만들기](../../media/android/kotlin/android-studio-assets-folder.png)
+![새 자산 폴더 만들기 - Kotlin](../../media/android/kotlin/android-studio-assets-folder.png)
 
  자산 폴더 내에 **env**라는 파일을 만듭니다. 다음 이름과 값을 추가하고 적절한 값을 제공합니다. 이 env 파일에는 공개되어서는 안 되는 비밀이 있으므로 소스 제어로 커밋하지 마세요.
 
-![새 env 파일 만들기](../../media/android/kotlin/android-studio-create-env-file.png)
+![새 env 파일 만들기 - Kotlin](../../media/android/kotlin/android-studio-create-env-file.png)
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -62,7 +61,7 @@ CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
-![Android Studio의 환경 변수](../../media/android/kotlin/android-studio-assets-and-env-file.png)
+![Android Studio의 환경 변수 - Kotlin](../../media/android/kotlin/android-studio-assets-and-env-file.png)
 
 ## <a name="add-dependencies"></a>종속성 추가
 
@@ -85,13 +84,13 @@ dependencies {
 }
 ```
 
-![앱 Gradle 구현](../../media/android/kotlin/android-studio-build-gradle.png)
+![앱 Gradle 구현 - Kotlin](../../media/android/kotlin/android-studio-build-gradle.png)
 
 ## <a name="update-app-strings-and-layout-resources"></a>앱 문자열 및 레이아웃 리소스 업데이트
 
-**res/strings/strings.xml**의 콘테츠를 앱에서 사용할 다음 문자열로 바꿉니다.
+**res/strings/strings.xml**의 콘텐츠를 앱에서 사용할 다음 문자열로 바꿉니다.
 
-![앱 strings.xml](../../media/android/kotlin/android-studio-strings.png)
+![앱 strings.xml - Kotlin](../../media/android/kotlin/android-studio-strings.png)
 
 ```strings.xml
 <resources>
@@ -101,7 +100,7 @@ dependencies {
 
     <string name="app_name">ImmersiveReaderSDK</string>
     <string name="geographyTitle">Geography</string>
-    <string name="geographyTextEn">The study of Earth’s landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians.Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
+    <string name="geographyTextEn">The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians. Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
     <string name="geographyTextFr">L\'étude des reliefs de la Terre est appelée géographie physique. Les reliefs peuvent être des montagnes et des vallées. Il peut aussi s\'agira de glaciers, delacs ou de rivières. Les reliefs sont parfois appelés caractéristiques physiques. Il est important que les élèves connaissent la géographie physique de laTerre. Les saisons, l\'atmosphère et tous les processus naturels de la Terre affectent l\'endroit où les gens sont capables de vivre. La géographie est l\'un desfacteurs que les gens utilisent pour décider où ils veulent vivre. Les caractéristiques physiques d\'une région sont souvent riches en ressources. Àl\'intérieur d\'une nation, les chaînes de montagnes deviennent des frontières naturelles pour les zones de peuplement. Aux États-Unis, les principaleschaînes de montagnes sont la Sierra Nevada, les montagnes Rocheuses et les Appalaches.Les sources d\'eau douce influencent également l\'endroit où lesgens s\'installent. Les gens ont besoin d\'eau pour boire. Ils en ont aussi besoin pour se laver. Tout au long de l\'histoire, les gens se sont installés près del\'eau douce. Vivre près d\'une source d\'eau permet de s\'assurer que les gens ont l\'eau dont ils ont besoin. Il y avait un bonus supplémentaire, aussi. L\'eaupourrait être utilisée comme voie de voyage pour les personnes et les marchandises. Beaucoup d\'Américains vivent près des sources d\'eau populaires,telles que le fleuve Mississippi, le fleuve Colorado et les Grands Lacs.Mountains et les déserts ont été installés par moins de gens que les zones desplaines. Cependant, ils disposent de ressources précieuses.Les gens ont une réponse.</string>
     <string name="immersiveReaderButtonText">Immersive Reader</string>
 </resources>
@@ -109,7 +108,7 @@ dependencies {
 
 **res/layout/activity_main.xml**의 콘텐츠를 앱에서 사용할 다음 XML로 바꿉니다. 이 XML은 앱의 UI 레이아웃입니다.
 
-![앱 activity_main.xml](../../media/android/kotlin/android-studio-activity-main-xml.png)
+![앱 activity_main.xml - Kotlin](../../media/android/kotlin/android-studio-activity-main-xml.png)
 
 ```activity_main.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -210,9 +209,9 @@ dependencies {
 
 **/Java/com.example.quickstartkotlin** 폴더에서 새 Kotlin 클래스를 만들고 이름을 **WebAppInterface**로 지정합니다. 그런 다음, 다음 코드를 추가합니다. 이 코드를 통해 앱은 이후 단계에서 추가될 HTML의 JavaScript 함수와 인터페이스할 수 있습니다.
 
-![com.example.quickstartkotlin 폴더](../../media/android/kotlin/android-studio-com-folder.png)
+![com.example.quickstartkotlin 폴더 - Kotlin](../../media/android/kotlin/android-studio-com-folder.png)
 
-![WebAppInterface](../../media/android/kotlin/android-studio-web-app-interface.png)
+![WebAppInterface - Kotlin](../../media/android/kotlin/android-studio-web-app-interface.png)
 
 ```WebAppInterface.kt
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -524,9 +523,9 @@ class MainActivity : AppCompatActivity() {
 
 웹 보기 구현에는 HTML을 사용해야 합니다. 마우스 오른쪽 단추로 **/assets** 폴더를 클릭하고, 새 파일을 만들고, 이름을 **immersiveReader.html**로 지정합니다.
 
-![새 HTML 파일 만들기](../../media/android/kotlin/android-studio-immersive-reader-html.png)
+![새 HTML 파일 만들기 - Kotlin](../../media/android/kotlin/android-studio-immersive-reader-html.png)
 
-![HTML 자산 위치](../../media/android/kotlin/android-studio-immersive-reader-html-assets.png)
+![HTML 자산 위치 - Kotlin](../../media/android/kotlin/android-studio-immersive-reader-html-assets.png)
 
 다음 HTML 및 JavaScript를 추가합니다. 이 코드는 몰입형 리더 SDK를 앱에 추가하고, 이를 통해 작성한 앱 코드를 사용하여 몰입형 리더를 엽니다.
 
@@ -575,7 +574,7 @@ Licensed under the MIT License. -->
 
 ## <a name="set-up-app-permissions"></a>앱 권한 설정
 
-![AndroidManifest](../../media/android/kotlin/android-studio-android-manifest-xml.png)
+![AndroidManifest - Kotlin](../../media/android/kotlin/android-studio-android-manifest-xml.png)
 
 애플리케이션이 작동하려면 몰입형 리더 SDK에 대한 네트워크를 호출해야 하므로 네트워크 액세스를 허용하도록 앱 권한이 구성되어야 합니다. **/manifests/AndroidManifest.xml**의 콘텐츠를 다음 XML로 바꿉니다.
 
@@ -607,9 +606,9 @@ Licensed under the MIT License. -->
 
 ## <a name="run-the-app"></a>앱 실행
 
-Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더**를 선택하면 몰입 형 리더가 앱의 콘텐츠와 함께 열립니다.
+Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더**를 선택하면 몰입형 리더가 앱의 콘텐츠와 함께 열립니다.
 
-![몰입형 판독기](../../media/android/kotlin/android-studio-device-emulator.png)
+![몰입형 리더 - Kotlin](../../media/android/kotlin/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>다음 단계
 

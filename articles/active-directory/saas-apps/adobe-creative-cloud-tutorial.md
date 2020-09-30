@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 81e02bdc483c4b68901d7e81b29f3a7f423480d9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 48009246dd491ca3f4080cf85036c66605a73272
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537603"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707003"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>자습서: Adobe Creative Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -102,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | Email | user.mail |
 
     > [!NOTE]
-    > SAML 응답에서 이메일 클레임 값이 입력되려면 사용자에게 유효한 Office 365 ExO 라이선스가 있어야 합니다.
+    > SAML 응답에 이메일 클레임 값을 입력하려면 사용자에게 유효한 Microsoft 365 ExO 라이선스가 있어야 합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 데이터 XML**을 찾은 다음, **다운로드**를 선택하여 XML 메타데이터 파일을 다운로드하여 컴퓨터에 저장합니다.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a66f45fe3e20bedf5ff99ee924ac267b4fd869
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a2b776ba64d96d092ad51ad2888b891e19e8b521
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266802"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968877"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -45,12 +45,9 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
     - [가상 머신 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): 가상 머신 확장 집합을 만들고, 가상 머신 확장 집합에서 시스템 및/또는 사용자 할당 관리 ID를 사용하도록 설정하고 제거합니다.
     - [관리 ID 참가자](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) 역할: 사용자 할당 관리 ID를 만듭니다.
     - [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할: 가상 머신 확장 집합에 사용자가 할당한 ID를 할당하거나 이 집합에서 사용자 할당 ID를 제거합니다.
-- Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](/windows/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-- [Linux용 Windows 하위 시스템](/windows/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔](/cli/azure/install-azure-cli)을 설치합니다.
-- Azure CLI 로컬 콘솔을 사용하는 경우, 시스템 또는 사용자 할당 관리 ID를 관리하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- 이 문서의 모든 명령은 클라우드에서 또는 로컬로 실행할 수 있습니다.
+    - 클라우드에서 실행하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
+    - 로컬로 실행하려면 [curl](https://curl.haxx.se/download.html) 및 [Azure CLI](/cli/azure/install-azure-cli)를 설치한 다음, 시스템 또는 사용자 할당 관리 ID를 관리하려는 Azure 구독과 연결된 계정으로 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 

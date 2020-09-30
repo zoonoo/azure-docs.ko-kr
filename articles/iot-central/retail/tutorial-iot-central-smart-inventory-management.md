@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 430f477422e040e0e7e28fd69a1cbc18bce7d656
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001282"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980609"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>자습서: 스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -36,7 +36,7 @@ ms.locfileid: "81001282"
 1. Azure IoT Central 애플리케이션 관리자 웹 사이트로 이동합니다. 왼쪽 탐색 모음에서 **빌드**를 선택하고 **소매** 탭을 클릭합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > ![스마트 재고 관리 애플리케이션 템플릿을 선택하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
 2. **소매** 탭을 선택하고 **스마트 재고 관리**에서 **앱 만들기**를 선택합니다.
 
@@ -47,10 +47,10 @@ ms.locfileid: "81001282"
    **만들기**: 페이지 맨 아래에서 만들기를 선택하여 애플리케이션을 배포합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > ![스마트 재고 관리 애플리케이션 템플릿에서 앱을 만드는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![스마트 재고 관리 청구 정보](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    > ![애플리케이션을 만들 때 청구 옵션을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## <a name="walk-through-the-application"></a>애플리케이션 살펴보기 
 
@@ -63,14 +63,14 @@ ms.locfileid: "81001282"
    * 게이트웨이 위치, 상태 및 관련 세부 정보 보기 
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
+> ![스마트 재고 관리 대시보드의 상단 절반을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
    * 게이트웨이, 활성 및 알 수 없는 태그의 총 수를 쉽게 추적할 수 있습니다.
    * 펌웨어 업데이트, 센서 사용 안 함, 센서 임계값 업데이트, 원격 분석 간격 업데이트, 디바이스 서비스 계약 업데이트 등의 디바이스 관리 작업을 수행할 수 있습니다.
    * 게이트웨이 디바이스는 전체 또는 증분 검색을 통해 주문형 인벤토리 관리를 수행할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
+> ![스마트 재고 관리 대시보드의 하단 절반을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
 
 ## <a name="device-template"></a>디바이스 템플릿
 디바이스 템플릿 탭을 클릭하면 게이트웨이 기능 모델이 표시됩니다. 기능 모델은 두 개의 다른 인터페이스인 **게이트웨이 원격 분석 및 속성** 및 **게이트웨이 명령**을 통해 구성됩니다.
@@ -78,13 +78,13 @@ ms.locfileid: "81001282"
 **게이트웨이 원격 분석 및 속성** - 이 인터페이스는 게이트웨이 임계값 및 업데이트 간격과 같은 센서, 위치, 디바이스 정보 및 디바이스 쌍 속성 기능과 관련된 모든 원격 분석을 나타냅니다.
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
+> ![애플리케이션의 인벤토리 게이트웨이 디바이스 템플릿을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
 
 
 **게이트웨이 명령** - 이 인터페이스는 모든 게이트웨이 명령 기능을 구성합니다.
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
+> ![인벤토리 게이트웨이 디바이스 템플릿의 게이트웨이 명령 인터페이스를 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
 
 ## <a name="rules"></a>규칙
 규칙 탭을 선택하여 이 애플리케이션 템플릿에 존재하는 두 가지 다른 규칙을 표시합니다. 이러한 규칙은 추가 조사를 위해 운영자에게 메일 알림을 보내도록 구성됩니다.
@@ -94,7 +94,7 @@ ms.locfileid: "81001282"
 **알 수 없는 태그**: 자산과 연결된 모든 RFID 및 BLE 태그를 추적하는 것이 중요합니다. 게이트웨이에서 알 수 없는 태그를 너무 많이 감지하는 경우 태그 소싱 애플리케이션에 동기화 문제가 있는 것을 나타냅니다.
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
+> ![스마트 재고 관리 애플리케이션의 규칙 목록을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## <a name="jobs"></a>작업
 작업 탭을 선택하여 이 애플리케이션 템플릿의 일부로 존재하는 5개의 다른 작업을 표시합니다. 작업 기능을 사용하여 솔루션 전체 작업을 수행할 수 있습니다. 여기에서 재고 관리 작업은 디바이스 명령 및 쌍 기능을 사용하여 다음과 같은 작업을 수행합니다.
@@ -103,16 +103,18 @@ ms.locfileid: "81001282"
    * 전체 솔루션에서 주문형 인벤토리 검색 수행
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
+> ![스마트 재고 관리 애플리케이션의 작업 목록을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 애플리케이션을 계속 사용하지 않으려면 **관리** > **애플리케이션 설정**을 방문하여 애플리케이션 템플릿을 삭제하고 **삭제**를 클릭합니다.
 
 > [!div class="mx-imgBorder"]
-> ![스마트 재고 관리 대시보드](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
+> ![작업을 완료했을 때 애플리케이션을 삭제하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 스마트 재고 관리 [스마트 재고 관리 개념](./architecture-smart-inventory-management.md)에 대해 자세히 알아보기
+* 스마트 재고 관리에 대한 자세한 정보 
+> [!div class="nextstepaction"]
+> [스마트 재고 관리 개념](./architecture-smart-inventory-management.md)
 * 다른 [IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대해 자세히 알아보기
 * [IoT Central 개요](../core/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.

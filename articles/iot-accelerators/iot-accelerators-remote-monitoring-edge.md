@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66117755"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970000"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 변칙 검색
 
@@ -26,7 +26,7 @@ Contoso는 오일 펌프 잭에 온도 이상을 감지하는 지능형 에지 �
 
 다음 다이어그램은 자습서 시나리오의 주요 구성 요소입니다.
 
-![개요](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![다이어그램은 원격 분석 및 명령을 위해 IoT Edge 디바이스의 IoT Edge 스트림 분석 모듈에 연결된 오일 펌프 잭을 보여줍니다. 필터링된 원격 분석은 클라우드의 원격 모니터링 솔루션 가속기에서 IoT Edge 디바이스로 이동합니다. 클라우드에는 배포 및 패키지도 포함되어 있습니다. 배포는 디바이스에 IoT Edge 런타임을 배포합니다.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -80,11 +80,11 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 작업     | 태그들  |
+    | 작업     | 태그  |
     | 작업 이름 | AddEdgeTag |
     | 키     | IsOilPump |
     | 값   | Y     |
-    | Type    | 텍스트  |
+    | 형식    | 텍스트  |
 
     [![태그 추가](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
@@ -96,11 +96,11 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성    | OilPumps |
+    | 이름    | OilPumps |
     | 필드   | Tags.IsOilPump |
     | 연산자 | = Equals |
     | 값    | Y |
-    | Type     | 텍스트 |
+    | 형식     | 텍스트 |
 
     [![디바이스 그룹 만들기](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -257,7 +257,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
 
 1. **새 패키지** 패널에서 패키지 유형으로 **Edge 매니페스트**를 선택하고 **찾아보기**를 클릭하여 로컬 컴퓨터에서 **oil-pump-device.json**을 찾은 후 **업로드**를 클릭합니다.
 
-    [![패키지 로드](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
+    [![패키지 업로드](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
 
     이제 패키지의 목록에는 **oil-pump-device.json** 패키지가 포함됩니다.
 
@@ -275,7 +275,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
 
     | 옵션 | 값 |
     | ------ | ----- |
-    | 속성   | OilPumpDevices |
+    | 이름   | OilPumpDevices |
     | 패키지 유형 | Edge 매니페스트 |
     | 패키지 | oil-pump-device.json |
     | 디바이스 그룹 | OilPumps |
@@ -315,7 +315,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
     | 옵션 | 값 |
     | ------ | ----- |
     | 규칙 이름 | 오일 펌프 온도 |
-    | Description | 오일 펌프 온도가 300을 초과했습니다. |
+    | 설명 | 오일 펌프 온도가 300을 초과했습니다. |
     | 디바이스 그룹 | OilPumps |
     | 계산 | 인스턴트 |
     | 필드 | 온도 |

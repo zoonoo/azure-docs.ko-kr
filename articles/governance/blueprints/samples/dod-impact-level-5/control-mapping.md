@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 5 청사진 샘플 컨트롤
 description: DoD 영향 수준 5 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978372"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>DoD 영향 수준 5 청사진 샘플의 컨트롤 매핑
 
@@ -307,11 +307,8 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) 결함 수정 | 이전 버전의 소프트웨어/펌웨어 제거
 
-이 청사진은 애플리케이션에서 최신 버전의 .NET Framework, HTTP, Java, PHP, Python, TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
+이 청사진은 애플리케이션에서 최신 버전의 HTTP, Java, PHP, Python 및 TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
 
-- API 앱의 일부로 사용되는 경우 '.NET Framework' 버전이 최신 상태인지 확인합니다.
-- 함수 앱의 일부로 사용되는 경우 '.NET Framework' 버전이 최신 상태인지 확인합니다.
-- 웹앱의 일부로 사용되는 경우 '.NET Framework' 버전이 최신 상태인지 확인합니다.
 - API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
@@ -319,7 +316,6 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
-- 함수 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
 - API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
 - 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.

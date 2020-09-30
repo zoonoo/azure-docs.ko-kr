@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: f4a4c38cf079c22dbd2b8eda5e68cc3f147b1fc0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 84db28348baebc4f6b62f9cacb0035b4df1f6145
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534985"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660768"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>자습서: Meraki Dashboard와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -42,6 +42,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Meraki Dashboard에서 **IDP** 시작 SSO를 지원합니다.
 * Meraki Dashboard가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+
 ## <a name="adding-meraki-dashboard-from-the-gallery"></a>갤러리에서 Meraki Dashboard 추가
 
 Meraki Dashboard가 Azure AD에 통합되도록 구성하려면 갤러리의 Meraki Dashboard를 관리형 SaaS 앱 목록에 추가해야 합니다.
@@ -53,7 +56,7 @@ Meraki Dashboard가 Azure AD에 통합되도록 구성하려면 갤러리의 Mer
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Meraki Dashboard**를 입력합니다.
 1. 결과 패널에서 **Meraki Dashboard**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-meraki-dashboard"></a>Meraki Dashboard에 대한 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-meraki-dashboard"></a>Meraki Dashboard에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Meraki Dashboard에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Meraki Dashboard의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
@@ -91,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Meraki Dashboard 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | 속성 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------- |
     | `https://dashboard.meraki.com/saml/attributes/username` | user.userprincipalname |
     | `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
@@ -147,15 +150,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Organization(조직)**  -> **Settings(설정)** 로 차례로 이동합니다.
 
-    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/configure1.png)
+    ![Meraki Dashboard 설정 탭](./media/meraki-dashboard-tutorial/configure1.png)
 
 1. Authentication(인증) 아래에서 **SAML SSO**를 **SAML SSO enabled(SAML SSO 사용)** 로 변경합니다.
 
-    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/configure2.png)
+    ![Meraki Dashboard 인증](./media/meraki-dashboard-tutorial/configure2.png)
 
 1. **Add a SAML IdP(SAML IdP 추가)** 를 클릭합니다.
 
-    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/configure3.png)
+    ![Meraki Dashboard SAML IdP 추가](./media/meraki-dashboard-tutorial/configure3.png)
 
 1. Azure Portal에서 복사한 **지문** 값을 **X.590 cert SHA1 fingerprint(X.590 인증서 SHA1 지문)** 텍스트 상자에 붙여넣습니다. 그런 다음 **Save**를 클릭합니다. 저장되면 Consumer URL(소비자 URL)이 표시됩니다. Consumer URL 값을 복사하고, Azure Portal에 있는 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -167,15 +170,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Organization(조직)**  -> **Administrators(관리자)** 로 차례로 이동합니다.
 
-    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/user1.png)
+    ![Meraki Dashboard 관리자](./media/meraki-dashboard-tutorial/user1.png)
 
 1. SAML administrator roles(SAML 관리자 역할) 섹션에서 **Add SAML role(SAML 역할 추가)** 단추를 클릭합니다.
 
-    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/user2.png)
+    ![Meraki Dashboard SAML 역할 추가 단추](./media/meraki-dashboard-tutorial/user2.png)
 
 1. **meraki_full_admin** 역할을 입력하고, **Organization access(조직 액세스)** 를 **전체(Full)** 로 표시하고 **Create role(역할 만들기)** 을 클릭합니다. **meraki_readonly_admin**에 대해 이 프로세스를 반복합니다. 이번에는 **Organization access**를 **Read-only(읽기 전용)** 상자로 표시합니다.
  
-    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/user3.png)
+    ![Meraki Dashboard 사용자 만들기](./media/meraki-dashboard-tutorial/user3.png)
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -194,6 +197,3 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure AD에서 Meraki Dashboard 사용해 보기](https://aad.portal.azure.com/)
 
 - [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [고급 표시 유형 및 제어를 사용하여 Meraki Dashboard를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

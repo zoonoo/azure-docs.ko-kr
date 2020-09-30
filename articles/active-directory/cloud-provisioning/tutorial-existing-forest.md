@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure AD Connect 클라우드 프로비저닝을 사용하여 기존 포리스트와 새 포리스트를 단일 Azure AD 테넌트와 통합
-description: 자습서입니다.
+description: 기존 하이브리드 ID 환경에 클라우드 프로비저닝을 추가하는 방법을 알아봅니다. .
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba35d6ffb4cbeb25d64d42adb2429636f1d56ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 25e70809becd59ceeb3c45867b9e35119df497a3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228479"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526921"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>기존 포리스트 및 새 포리스트를 단일 Azure AD 테넌트와 통합
 

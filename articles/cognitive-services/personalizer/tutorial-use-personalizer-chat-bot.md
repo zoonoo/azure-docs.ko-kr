@@ -4,12 +4,12 @@ description: Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용자
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935656"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089890"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>자습서: .NET 채팅 봇에서 Personalizer 사용
 
@@ -21,7 +21,7 @@ Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용하여 사용자
 > [!div class="checklist"]
 > * Azure 리소스 설정
 > * 봇 구성 및 실행
-> * 봇 에뮬레이터를 사용하여 봇과 상호 작용
+> * Bot Framework Emulator를 사용하여 봇과 상호 작용
 > * 봇에서 Personalizer를 사용하는 위치 및 방법 이해
 
 
@@ -174,20 +174,20 @@ LUIS를 처음 사용하는 경우 [로그인](https://www.luis.ai)하여 계정
 
 ## <a name="set-up-the-bot-emulator"></a>봇 에뮬레이터 설정
 
-1. [봇 에뮬레이터]를 열고, **봇 열기**를 선택합니다.
+1. Bot Framework Emulator를 열고, **봇 열기**를 선택합니다.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="봇 에뮬레이터 시작 화면의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="채팅 봇 웹 사이트를 표시하는 브라우저의 스크린샷":::
 
 
 1. 다음 **봇 URL**을 사용하여 봇을 구성한 다음, **연결**을 선택합니다.
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="봇 에뮬레이터 봇 열기 설정의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="채팅 봇 웹 사이트를 표시하는 브라우저의 스크린샷":::
 
     에뮬레이터에서 채팅 봇에 연결하고, 로컬 개발에 유용한 로깅 및 디버그 정보와 함께 지침 텍스트를 표시합니다.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="첫 번째 대화 턴의 봇 에뮬레이터에 대한 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="채팅 봇 웹 사이트를 표시하는 브라우저의 스크린샷":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>봇 에뮬레이터에서 봇 사용
 

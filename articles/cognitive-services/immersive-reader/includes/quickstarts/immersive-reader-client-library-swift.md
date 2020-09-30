@@ -7,23 +7,22 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 7a298de40264a06e18aa4b7c77abfd622be4bb75
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505402"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978324"
 ---
-[몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
+[몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
 이 빠른 시작에서는 iOS 앱을 처음부터 빌드하고 몰입형 판독기를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)에서 확인할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요. 샘플 프로젝트 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 
@@ -31,21 +30,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Xcode에서 새 프로젝트를 만듭니다.
 
-![새 프로젝트](../../media/ios/xcode-create-project.png)
+![새 프로젝트 - Swift](../../media/ios/xcode-create-project.png)
 
 **단일 보기 앱**을 선택합니다.
 
-![새 단일 보기 앱](../../media/ios/xcode-single-view-app.png)
+![새 단일 보기 앱 - Swift](../../media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>인증 설정
 
 상단 메뉴에서 **제품 > 구성표 > 구성표 편집...** 을 클릭합니다.
 
-![구성표 편집](../../media/ios/quickstart-ios-edit-scheme.png)
+![구성표 편집 - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 **실행** 보기에서 **인수** 탭을 클릭합니다.
 
-![구성표 편집](../../media/ios/quickstart-ios-env-vars.png)
+![구성표 환경 변수 편집 - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 **환경 변수** 섹션에서 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 다음 이름 및 값을 추가합니다.
 
@@ -557,19 +556,19 @@ function sendContentToReader(message) {
 
 시뮬레이터 또는 디바이스 대상을 선택하여 Xcode에서 보관 체계를 설정합니다.
 
-![보관 체계](../../media/ios/xcode-archive-scheme.png)
+![보관 체계 - Swift](../../media/ios/xcode-archive-scheme.png)
 
-![대상 선택](../../media/ios/xcode-select-target.png)
+![대상 선택 - Swift](../../media/ios/xcode-select-target.png)
 
 Xcode에서 **Ctrl+R**을 누르거나 재생 단추를 클릭하여 프로젝트를 실행합니다. 지정된 시뮬레이터 또는 디바이스에서 앱이 시작됩니다.
 
 앱에서 다음과 같이 표시됩니다.
 
-![샘플 앱](../../media/ios/sample-app-ipad.png)
+![샘플 앱 - Swift](../../media/ios/sample-app-ipad.png)
 
 **몰입형 판독기** 단추를 클릭하면 앱의 콘텐츠와 함께 몰입형 판독기가 시작됩니다.
 
-![몰입형 판독기](../../media/ios/immersive-reader-ipad.png)
+![몰입형 리더 - Swift](../../media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>다음 단계
 

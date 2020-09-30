@@ -1,6 +1,6 @@
 ---
 title: Dedicated HSM이란? - Azure 전용 HSM | Microsoft Docs
-description: Azure 전용 HSM 개요에서는 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+description: Azure Dedicated HSM이 Azure에서 암호화 키 스토리지를 제공하는 Azure 서비스인 방법을 알아봅니다.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70881083"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970206"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Azure 전용 HSM이란?
 
@@ -60,7 +60,7 @@ Azure Dedicated HSM은 특정 유형의 대규모 조직을 위해 고유한 요
 
 ### <a name="best-fit"></a>가장 적합한 경우
 
-Azure Dedicated HSM은 HSM 디바이스에 직접 단독으로 액세스해야 하는 “리프트 앤 시프트” 시나리오에 가장 적합합니다. 다음은 이러한 템플릿의 예입니다.
+Azure Dedicated HSM은 HSM 디바이스에 직접 단독으로 액세스해야 하는 “리프트 앤 시프트” 시나리오에 가장 적합합니다. 예제는 다음과 같습니다.
 
 - 온-프레미스에서 Azure Virtual Machines로 애플리케이션 마이그레이션
 - Amazon AWS EC2에서 AWS Cloud HSM Classic 서비스(Amazon에서는 신규 고객에게 이 서비스를 제공하지 않음)를 사용하는 가상 머신으로 애플리케이션 마이그레이션
@@ -70,7 +70,7 @@ Azure Dedicated HSM은 HSM 디바이스에 직접 단독으로 액세스해야 �
 
 Azure Dedicated HSM는 다음과 같은 유형의 시나리오에는 적합하지 않습니다. Azure Dedicated HSM과 통합되지 않은 고객 관리형 키로 암호화를 지원하는 Microsoft 클라우드 서비스(예: Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database 및 Office 365용 고객 키).
 
-### <a name="it-depends"></a>경우에 따라 다른 경우
+### <a name="it-depends"></a>경우에 따라 다릅니다.
 
 Azure Dedicated HSM이 적합할지 여부는 가능하거나 가능하지 않은 잠재적으로 복잡한 요구 사항과 절충안의 혼합에 달려 있습니다. 한 가지 예는 FIPS 140-2 수준 3 요구 사항입니다. 이 요구 사항은 일반적이며, Dedicated HSM은 현재 이것을 충족할 수 있는 유일한 옵션입니다. 위임된 요구 사항이 관련이 없는 경우에는 Azure Key Vault와 Dedicated HSM 중에서 선택해야 하는 경우가 많습니다. 결정을 내리기 전에 요구 사항을 평가하십시오.
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462176"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090315"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -147,6 +147,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 **스타터** 템플릿을 선택하고, Apache Maven을 사용하여 Java 프로젝트를 빌드하고 테스트를 실행하는 아래 YAML 코드 조각을 복사합니다.
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Linux VM에 배포할 CD 단계 정의
 
-1. 위의 파이프라인을 편집하고 아래 YAML 구문을 사용하여 이전에 사용한 환경과 VM 리소스를 참조하여 [배포 작업](/azure/devops/pipelines/process/deployment-jobs)을 포함합니다.
+1. 아래 YAML 구문을 사용하여 이전에 사용했던 VM 리소스와 환경을 참조하여 [배포 작업](/azure/devops/pipelines/process/deployment-jobs)을 포함하도록 위의 파이프라인에 대한 YAML 파일을 변경합니다.
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. 환경에서 각 가상 머신에 대해 정의한 **tags**를 지정하여 배포를 받는 환경에서 특정 가상 머신 세트를 선택할 수 있습니다.
 [여기](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.

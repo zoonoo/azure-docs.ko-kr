@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 836e56884659c60c129eba0bb5505eddd9981283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0d5c758873413e549b31e3ec4cc41791fc8c371
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093906"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667422"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
@@ -64,7 +64,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-     스크립트에서 **연결 대상** 필드가 **SQL 주문형**으로 설정됩니다.
+    스크립트 창에서 **연결 대상** 필드가 **SQL 주문형**으로 설정됩니다.
 
 1. 스크립트를 실행합니다.
 

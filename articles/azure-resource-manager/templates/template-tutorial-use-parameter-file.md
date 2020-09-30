@@ -2,20 +2,20 @@
 title: 자습서 - 매개 변수 파일을 사용하여 템플릿 배포
 description: Azure Resource Manager 템플릿을 배포하는 데 사용할 값이 포함된 매개 변수 파일을 사용합니다.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502803"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069512"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>자습서: 매개 변수 파일을 사용하여 ARM 템플릿 배포
 
-이 자습서에서는 [매개 변수 파일](parameter-files.md)을 사용하여 배포 중에 전달하는 값을 저장하는 방법을 알아봅니다. 이전 자습서에서는 배포 명령에 인라인 매개 변수를 사용했습니다. 이 방식은 ARM(Azure Resource Manager) 템플릿을 테스트하는 데 적당하지만 배포를 자동화하는 경우에는 환경에 맞는 값 세트를 전달하는 것이 더 쉬울 수 있습니다. 매개 변수 파일을 사용하면 특정 환경에 대한 매개 변수 값을 쉽게 패키징할 수 있습니다. 이 자습서에서는 개발 및 프로덕션 환경에 대한 매개 변수 파일을 생성합니다. 완료하는 데 **12분** 정도 걸립니다.
+이 자습서에서는 [매개 변수 파일](parameter-files.md)을 사용하여 배포 중에 전달하는 값을 저장하는 방법을 알아봅니다. 이전 자습서에서는 배포 명령에 인라인 매개 변수를 사용했습니다. 이 방식은 ARM 템플릿(Azure Resource Manager 템플릿)을 테스트하는 데 적당하지만 배포를 자동화하는 경우에는 환경에 맞는 값 세트를 전달하는 것이 더 쉬울 수 있습니다. 매개 변수 파일을 사용하면 특정 환경에 대한 매개 변수 값을 쉽게 패키징할 수 있습니다. 이 자습서에서는 개발 및 프로덕션 환경에 대한 매개 변수 파일을 생성합니다. 완료하는 데 **12분** 정도 걸립니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,6 +34,12 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 ## <a name="add-parameter-files"></a>매개 변수 파일 추가
 
 매개 변수 파일은 템플릿과 유사한 구조의 JSON 파일입니다. 배포 중에 전달할 매개 변수 값을 이 파일에 제공합니다.
+
+매개 변수 파일 내에서 템플릿의 매개 변수에 대한 값을 제공합니다. 매개 변수 파일의 각 매개 변수 이름은 템플릿의 매개 변수 이름과 일치해야 합니다. 이름은 대/소문자를 구분하지 않지만, 일치하는 값을 쉽게 확인하려면 템플릿에서 대/소문자를 일치시키는 것이 좋습니다.
+
+모든 매개 변수에 값을 제공할 필요는 없습니다. 지정되지 않은 매개 변수에 기본값이 있는 경우 해당 값은 배포 중에 사용됩니다. 매개 변수에 기본값이 없고 매개 변수 파일에 지정되지 않은 경우 배포 중에 값을 제공하라는 메시지가 표시됩니다.
+
+템플릿의 매개 변수 이름과 일치하지 않는 매개 변수 파일에 매개 변수 이름을 지정할 수 없습니다. 알 수 없는 매개 변수가 제공되면 오류가 발생합니다.
 
 VS Code에서 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 **azuredeploy.parameters.dev.json**이라는 이름으로 저장합니다.
 
@@ -122,7 +128,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
+> 배포에 실패한 경우 **자세한 정보** 스위치를 사용하여 생성되는 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 **디버그** 스위치를 사용합니다.
 
 ## <a name="verify-deployment"></a>배포 확인
 

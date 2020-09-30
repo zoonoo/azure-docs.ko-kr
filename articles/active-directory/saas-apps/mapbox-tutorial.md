@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554773"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661903"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>자습서: Mapbox와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -41,6 +41,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Mapbox는 **IDP** 시작 SSO를 지원합니다.
 * Mapbox가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>갤러리에서 Mapbox 추가
 
@@ -84,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Mapbox 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성   |  원본 특성|
+    | Name   |  원본 특성|
     | -----|--------- |
     | 역할(role) | user.assignedroles |
     | | |
@@ -136,15 +139,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **설정** 탭을 클릭합니다.
 
-    ![Mapbox 구성](./media/mapbox-tutorial/configure1.png)
+    ![Mapbox 설정 탭](./media/mapbox-tutorial/configure1.png)
 
 1. 왼쪽 탐색 창에서 **보안** 탭을 클릭합니다.
 
-    ![Mapbox 구성](./media/mapbox-tutorial/configure2.png)
+    ![Mapbox 보안 탭](./media/mapbox-tutorial/configure2.png)
 
 1. **Single Sign-On 편집**을 클릭합니다.
 
-    ![Mapbox 구성](./media/mapbox-tutorial/configure3.png)
+    ![Mapbox Single Sign-On 편집](./media/mapbox-tutorial/configure3.png)
 
 1. **3단계: Mapbox용 SAML Single Sign-On 설정**이 나타날 때까지 아래로 스크롤하고 다음 단계를 수행합니다.
 

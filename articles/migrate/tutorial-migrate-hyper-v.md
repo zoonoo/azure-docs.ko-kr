@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 370712ea976db027abee943d786f6ce81ac99c4a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 10e17a4fba1adbccf71497c54060fda2f60088ab
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376012"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525340"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -137,7 +137,7 @@ Hyper-V VM을 마이그레이션하는 경우 Azure Migrate:Server Migration은 
     - 디스크를 복제에서 제외할 수 있습니다.
     - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다. 
 
-    ![디스크](./media/tutorial-migrate-hyper-v/disks.png)
+    ![스크린샷은 복제 대화 상자의 디스크 탭을 표시합니다.](./media/tutorial-migrate-hyper-v/disks.png)
 
 13. **검토 및 복제 시작**에서 설정을 검토하고, **복제**를 클릭하여 서버에 대한 초기 복제를 시작합니다.
 

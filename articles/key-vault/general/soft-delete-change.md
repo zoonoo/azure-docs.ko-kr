@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068849"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984604"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>모든 키 자격 증명 모음에 대해 사용하도록 설정되는 일시 삭제
 
 > [!WARNING]
 > **호환성이 손상되는 변경**: 일시 삭제를 옵트아웃하는 기능은 연말에 더 이상 사용되지 않으며, 모든 키 자격 증명 모음에 대해 일시 삭제 보호가 자동으로 설정됩니다.  Azure Key Vault 사용자와 관리자는 즉시 키 자격 증명 모음에 대해 일시 삭제를 사용하도록 설정해야 합니다.
+>
+> 관리형 HSM의 경우 일시 삭제가 기본적으로 활성화되어 있으므로 비활성화할 수 없습니다.
 
 키 자격 증명 모음에 대해 일시 삭제 보호를 사용하지 않고 비밀을 삭제하면 해당 비밀이 영구적으로 삭제됩니다. 사용자는 현재 키 자격 증명 모음을 만드는 동안 일시 삭제를 옵트아웃할 수 있지만, 사용자의 실수로 또는 악의적으로 삭제하지 못하도록 비밀을 보호하기 위해 Microsoft는 곧 **모든** 키 자격 증명 모음에 대해 일시 삭제 보호를 사용하도록 설정하며, 사용자는 더 이상 일시 삭제를 옵트아웃하거나 해제할 수 있는 옵션을 사용할 수 없습니다.
 

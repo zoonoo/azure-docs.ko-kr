@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f3d694a1e1eb368a97d994ebe9885c279ff44463
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: fc3d5237fc795a2a828e886172e5d15acd9a9fb7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978287"
 ---
-[몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
+[몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
-이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 리더 클라이언트 라이브러리를 사용하여 몰입형 리더를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)에서 확인할 수 있습니다.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 리더 클라이언트 라이브러리를 사용하여 몰입형 리더를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요. 샘플 프로젝트 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 
@@ -32,17 +31,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 기본 제공되는 Model-View-Controller 및 ASP.NET Core 2.1과 함께 ASP.NET Core 웹 애플리케이션 템플릿을 사용하여 Visual Studio에서 새 프로젝트를 만듭니다. 프로젝트 이름을 “QuickstartSampleWebApp”으로 지정합니다.
 
-![새 프로젝트](../../media/quickstart-csharp/1-createproject.png)
+![새 프로젝트 - C#](../../media/quickstart-csharp/1-createproject.png)
 
-![새 프로젝트 구성](../../media/quickstart-csharp/2-configureproject.png)
+![새 프로젝트 구성 - C#](../../media/quickstart-csharp/2-configureproject.png)
 
-![새 ASP.NET Core 웹 애플리케이션](../../media/quickstart-csharp/3-createmvc.png)
+![새 ASP.NET Core 웹 애플리케이션 - C#](../../media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>인증 설정
 
 ### <a name="configure-authentication-values"></a>인증 값 구성
 
-_Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사용자 비밀 관리**를 선택합니다. 그러면 _secrets.json_이라는 파일이 열립니다. 이 파일은 소스 제어에 체크 인되지 않습니다. [여기](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows)를 참조하세요. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 _secrets.json_의 콘텐츠를 다음으로 바꿉니다.
+_Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사용자 비밀 관리**를 선택합니다. 그러면 _secrets.json_이라는 파일이 열립니다. 이 파일은 소스 제어에 체크 인되지 않습니다. [여기](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)를 참조하세요. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 _secrets.json_의 콘텐츠를 다음으로 바꿉니다.
 
 ```json
 {
@@ -53,7 +52,7 @@ _Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭�
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Microsoft.IdentityModel.Clients.ActiveDirectory NuGet 패키지 추가
+### <a name="install-active-directory"></a>Active Directory 설치
 
 다음 코드는 **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet 패키지의 개체를 사용하므로, 프로젝트에서 해당 패키지에 대한 참조를 추가해야 합니다.
 
@@ -216,7 +215,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 
 모든 텍스트에는 텍스트의 언어를 설명하는 **lang** 특성이 있습니다. 이 특성은 몰입형 판독기가 관련 언어와 문법 기능을 제공하는 데 도움이 됩니다.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>몰입형 판독기 시작을 처리하는 JavaScript 추가
+## <a name="add-javascript-to-handle-launching-immersive-reader"></a>몰입형 리더 시작을 처리하는 JavaScript 추가
 
 몰입형 판독기 라이브러리는 몰입형 판독기를 시작하고 몰입형 판독기 단추를 렌더링하는 등의 기능을 제공합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)를 참조하세요.
 
@@ -296,18 +295,14 @@ _Views\Home\Index.cshtml_의 맨 아래에 다음 코드를 추가합니다.
 
 브라우저에서 다음이 표시됩니다.
 
-![샘플 앱](../../media/quickstart-csharp/4-buildapp.png)
+![샘플 앱 - C#](../../media/quickstart-csharp/4-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>몰입형 판독기 시작
 
 “몰입형 판독기” 단추를 클릭하면 페이지의 콘텐츠와 함께 몰입형 판독기가 시작됩니다.
 
-![몰입형 판독기](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![몰입형 리더 - C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Node.js를 사용하여 몰입형 리더 클라이언트 라이브러리를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](../../tutorial-nodejs.md)을 살펴보세요.
-* [Android 자습서](../../tutorial-android.md)를 보고 Java 또는 Android용 Kotlin을 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인합니다.
-* [iOS 자습서](../../tutorial-ios.md)를 보고 iOS용 Swift를 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인합니다.
-* Python을 사용하여 몰입형 리더 클라이언트 라이브러리를 통해 수행할 수 있는 다른 작업을 확인하려면 [Python 자습서](../../tutorial-python.md)를 살펴보세요.
 * [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../../reference.md) 살펴보기

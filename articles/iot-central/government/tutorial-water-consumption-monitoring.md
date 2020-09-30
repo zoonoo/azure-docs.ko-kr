@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 400585d3e5908268708d93ceeefd26a4a5efdd49
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77122079"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972402"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>자습서: Azure IoT Central을 사용하여 용수 사용량 모니터링 애플리케이션 만들기
 
@@ -256,4 +256,7 @@ Azure IoT Central에서 작업을 사용하면 여러 디바이스에서 디바�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [용수 사용량 모니터링 개념](./concepts-waterconsumptionmonitoring-architecture.md)에 대해 자세히 알아보세요.
+* 자세한 정보 
+
+> [!div class="nextstepaction"]
+> [용수 사용량 모니터링 개념](./concepts-waterconsumptionmonitoring-architecture.md).

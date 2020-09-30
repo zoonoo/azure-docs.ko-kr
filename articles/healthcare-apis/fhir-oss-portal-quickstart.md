@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978607"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 오픈 소스 FHIR 서버 배포
 
@@ -25,17 +25,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [GitHub 배포 페이지](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md)로 이동하여 "Azure에 배포" 단추를 찾습니다.
 
-![오픈 소스 배포 페이지](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![오픈 소스 배포 페이지](media/quickstart-oss-portal/deployment-page-oss.png)
 
 배포 단추를 클릭하면 Azure Portal이 열립니다.
 
 ## <a name="fill-in-deployment-parameters"></a>배포 매개 변수 입력
 
-새 리소스 그룹을 만들고 고유한 이름을 지정하려면 선택합니다. 다른 필수 매개 변수만 서비스의 이름입니다.
+새 리소스 그룹을 만들고 고유한 이름을 지정하려면 선택합니다. 다른 필수 매개 변수만 서비스의 이름과 Sql 관리자 암호입니다.
 
-![사용자 지정 배포 매개 변수](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-이 배포는 GitHub의 오픈 소스 리포지토리에서 직접 소스 코드를 끌어옵니다. 리포지토리를 분기한 경우 고유한 분기와 특정 분기를 가리킬 수 있습니다.
+>[!div class="mx-imgBorder"]
+>![사용자 지정 배포 매개 변수](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 세부 정보를 입력한 후 배포를 시작할 수 있습니다.
 

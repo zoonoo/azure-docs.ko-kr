@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 030f2b893cd429bfdb451d24e799689fdb8a3cf8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d26c7f544c9754f455b67aadf9e923344cda3fdf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255701"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968697"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -48,19 +48,42 @@ ms.locfileid: "89255701"
 - [Windows 가상 머신 만들기](../../virtual-machines/windows/quick-create-portal.md)
 
 - 이 자습서에서 필요한 리소스 만들기 및 역할 관리 단계를 수행하려면 적절한 범위(사용자 구독 또는 리소스 그룹)에서 계정에 “소유자” 권한이 필요합니다. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
-- [최신 버전의 Azure PowerShell 모듈을 설치합니다.](/powershell/azure/install-az-ps) 
-- `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
-- [PowerShellGet 최신 버전](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)을 설치합니다.
-- `Install-Module -Name PowerShellGet -AllowPrerelease` 명령을 실행하여 `PowerShellGet` 모듈의 시험판 버전을 가져옵니다. 이 명령을 실행한 후 `Az.ManagedServiceIdentity` 모듈을 설치하기 위해 현재 PowerShell 세션에서 `Exit`해야 할 수도 있습니다.
-- `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` 명령을 실행하여 `Az.ManagedServiceIdentity` 모듈의 시험판 버전을 설치하고 이 문서의 사용자 할당 ID 작업을 수행합니다.
 
+- 예제 스크립트를 실행하려면 다음 두 가지 옵션을 사용합니다.
+    - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
+    - 다음 섹션에 설명된 대로 Azure PowerShell을 사용하여 로컬로 스크립트를 실행합니다.
+
+### <a name="configure-azure-powershell-locally"></a>로컬로 Azure PowerShell 구성
+
+이 문서에 로컬로 Azure PowerShell을 사용(Cloud Shell을 사용하는 대신)하려면 다음 단계를 완료합니다.
+
+1. 아직 설치하지 않은 경우 [Azure PowerShell 최신 버전](/powershell/azure/install-az-ps)을 설치합니다.
+
+1. Azure에 로그인:
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. [PowerShellGet 최신 버전](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)을 설치합니다.
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    다음 단계에서 이 명령을 실행한 후 현재 PowerShell 세션에서 `Exit`를 제거해야 합니다.
+
+1. `Az.ManagedServiceIdentity` 모듈의 시험판 버전을 설치하여 이 문서의 사용자 할당 관리 ID 작업을 수행합니다.
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    ```
 
 ## <a name="enable"></a>사용
 
 사용자 할당 ID를 기반으로 하는 시나리오의 경우 다음 단계를 수행해야 합니다.
 
 - ID 만들기
- 
 - 새로 만든 ID 할당
 
 ### <a name="create-identity"></a>ID 만들기
@@ -163,4 +186,4 @@ CanDelegate: False
 이 자습서에서는 사용자 할당 ID를 만들고 이를 Azure Virtual Machine에 연결하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
->[Azure 리소스 관리자](../../azure-resource-manager/management/overview.md)
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

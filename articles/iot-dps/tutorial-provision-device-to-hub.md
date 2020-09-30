@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74975043"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526445"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
 
@@ -28,12 +28,12 @@ ms.locfileid: "74975043"
 
 계속 진행하려면 [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 디바이스를 설정](./tutorial-set-up-device.md) 자습서의 설명에 따라 디바이스를 구성해야 합니다.
 
-자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요.
+자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>디바이스 등록
 
-이 단계에서는 Device Provisioning Service에 디바이스의 고유 보안 아티팩트를 추가하는 것이 포함됩니다. 이러한 보안 아티팩트는 다음과 같은 디바이스의 [증명 메커니즘](concepts-device.md#attestation-mechanism)을 기반으로 합니다.
+이 단계에서는 Device Provisioning Service에 디바이스의 고유 보안 아티팩트를 추가하는 것이 포함됩니다. 이러한 보안 아티팩트는 다음과 같은 디바이스의 [증명 메커니즘](concepts-service.md#attestation-mechanism)을 기반으로 합니다.
 
 - TPM 기반 디바이스의 경우 다음과 같은 항목이 필요합니다.
     - TPM 칩 제조업체에서 얻은 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키*.  자세한 정보는 [TPM 인증 키 이해](https://technet.microsoft.com/library/cc770443.aspx)를 읽어보세요.
@@ -48,7 +48,7 @@ ms.locfileid: "74975043"
 
 Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지가 있습니다.
 
-- **등록 그룹** 특정 증명 메커니즘을 공유하는 디바이스의 그룹을 나타냅니다. 원하는 초기 구성을 공유하는 디바이스 수가 많은 경우 또는 디바이스가 모두 동일한 테넌트로 이동하는 경우 등록 그룹을 사용하는 것이 좋습니다. 등록 그룹의 Id 증명에 대한 자세한 내용은 [보안](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)을 참조하세요.
+- **등록 그룹** 특정 증명 메커니즘을 공유하는 디바이스의 그룹을 나타냅니다. 원하는 초기 구성을 공유하는 디바이스 수가 많은 경우 또는 디바이스가 모두 동일한 테넌트로 이동하는 경우 등록 그룹을 사용하는 것이 좋습니다. 등록 그룹의 Id 증명에 대한 자세한 내용은 [보안](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)을 참조하세요.
 
     [![포털에 X.509 증명에 대한 그룹 등록 추가](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 

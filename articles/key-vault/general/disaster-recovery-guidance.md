@@ -9,18 +9,22 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 35814f34550ac7bf4ad85a96d0838df62fe63be6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 27d8d4de308fe7cf6e6f36dd33f33bb73c495073
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073185"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983234"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
 Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플리케이션에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.
 
+> [!NOTE]
+> 이 가이드는 자격 증명 모음에 적용됩니다. 관리형 HSM 풀은 다른 고가용성 및 재해 복구 모델을 사용합니다. 자세한 내용은 [관리형 HSM 재해 복구 가이드](../managed-hsm/disaster-recovery-guide.md)를 참조하세요.
+
 주요 자격 증명 모음의 내용은 키와 비밀의 높은 내구성을 유지하기 위해 지역 내에 복제되고 동일한 지리 내 최소 150마일 떨어진 보조 지역에도 복제됩니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 문서를 참조하세요.
+
 
 주요 자격 증명 모음 서비스 내에서 개별 구성 요소가 실패하면 기능이 저하되지 않도록 하기 위해 해당 지역 내의 대체 구성 요소가 요청을 처리하도록 개입됩니다. 이 프로세스를 시작하기 위해 어떤 작업도 수행할 필요가 없습니다. 이 프로세스는 자동으로 수행되며 사용자에게 투명하게 공개됩니다.
 
@@ -45,6 +49,7 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
   * 확인
   * 로그인
   * Backup
-* 장애 조치(failover) 중에는 주요 자격 증명 모음 속성을 변경할 수 없습니다. 액세스 정책 또는 방화벽 구성 및 설정을 변경할 수 없습니다.
-* 장애 조치가 장애 복구되면 모든 요청 유형( 읽기 *및* 쓰기 요청 포함)을 사용할 수 있습니다.
 
+* 장애 조치(failover) 중에는 주요 자격 증명 모음 속성을 변경할 수 없습니다. 액세스 정책 또는 방화벽 구성 및 설정을 변경할 수 없습니다.
+
+* 장애 조치가 장애 복구되면 모든 요청 유형( 읽기 *및* 쓰기 요청 포함)을 사용할 수 있습니다.

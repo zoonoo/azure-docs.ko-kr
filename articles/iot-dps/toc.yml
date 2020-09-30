@@ -46,7 +46,7 @@
         - name: 다중 테넌트에 대한 프로비전
           href: how-to-provision-multitenant.md
         - name: 사용자 지정 할당 정책 사용
-          href: how-to-use-custom-allocation-policies.md
+          href: tutorial-custom-allocation-policies.md
 - name: 샘플
   items:
     - name: 시뮬레이션된 TPM 디바이스 증명 샘플
@@ -109,6 +109,8 @@
   items:
     - name: IoT Hub에 MXChip IoT DevKit 연결
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: 사용자 지정 할당 정책을 사용하여 디바이스 프로비저닝
+      href: how-to-use-custom-allocation-policies.md
     - name: Device Provisioning Service 관리
       items:
         - name: 등록 관리 - 포털

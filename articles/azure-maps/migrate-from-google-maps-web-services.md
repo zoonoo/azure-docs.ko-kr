@@ -1,20 +1,20 @@
 ---
-title: '자습서: Google Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps'
-description: Google Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법을 설명합니다.
+title: Google Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps
+description: 웹 서비스를 Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법을 설명합니다.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319574"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Google Maps에서 웹 서비스 마이그레이션
 
@@ -293,9 +293,8 @@ Google Maps의 사용자 지정 아이콘에는 다음과 같은 스타일 옵�
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Google Maps 표식](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Google Maps 표식](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **이후: Azure Maps**
 
@@ -335,9 +334,8 @@ Azure Maps에서 핀 위치는 "경도 위도" 형식이어야 합니다. Google
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Azure Maps 표식](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Azure Maps 표식](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 레이블 값이 '1', '2' 및 '3'인 세 개의 핀을 추가합니다.
 
@@ -345,9 +343,9 @@ Azure Maps에서 핀 위치는 "경도 위도" 형식이어야 합니다. Google
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Azure Maps 여러 표식](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Azure Maps 여러 표식](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### <a name="path-url-parameter-format-comparison"></a>경로 URL 매개 변수 형식 비교
 
@@ -376,9 +374,7 @@ URL 매개 변수에서 좌표 사이의 맵에 빨간색 선 불투명도와 �
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Google Maps 폴리라인](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Google Maps 폴리라인](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **이후: Azure Maps**
 
@@ -405,9 +401,7 @@ URL 매개 변수에서 좌표 사이에 빨간색 선 불투명도와 픽셀 �
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Azure Maps 폴리라인](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Azure Maps 폴리라인](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## <a name="calculate-a-distance-matrix"></a>거리 행렬 계산
 
@@ -482,22 +476,5 @@ Azure Maps는 다음 프로그래밍 언어를 위한 클라이언트 라이브�
 - [주소 검색](how-to-search-for-address.md)
 - [라우팅 모범 사례](how-to-use-best-practices-for-routing.md)
 - [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
-
-## <a name="next-steps"></a>다음 단계
-
-Azure Maps REST 서비스에 대해 자세히 알아보세요.
-
-> [!div class="nextstepaction"]
-> [검색 서비스 사용 모범 사례](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [라우팅 서비스 사용 모범 사례](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)

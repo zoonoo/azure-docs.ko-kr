@@ -6,20 +6,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/01/2020
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 788b3f5e9f4012e418ece691ebb5fbc5d2f866af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931848"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979583"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 ## <a name="feature-announcements-in-2020"></a>2020년 기능 공지
+
+### <a name="september-2020"></a>2020년 9월
+
+Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBAC 권한을 사용하여 Azure 데이터 원본에 ID 읽기 전용 권한을 부여합니다. IP 규칙이 옵션이 아닌 경우, 필요에 따라 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md) 기능을 선택합니다.
+
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
+|------------------------------|----------|-------------|---------------|
+| [관리 서비스 ID](search-howto-managed-identities-data-sources.md) | 인덱서, 보안 | Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBAC 권한을 사용하여 Azure 데이터 원본에 대한 액세스 권한을 부여합니다. 이 방법을 사용하면 연결 문자열에 대한 자격 증명이 필요하지 않습니다. <br><br>IP 규칙이 옵션이 아닌 경우 관리 서비스 ID를 사용하는 추가 방법은 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md)를 사용하는 것입니다. | 일반 공급. api-version=2020-06-30에서 포털 또는 [데이터 원본(REST) 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 사용할 때 이 기능에 액세스합니다. |
+| [프라이빗 링크를 사용하는 아웃바운드 요청](search-indexer-howto-access-private.md) | 인덱서, 보안 | 인덱서가 Azure Private Link를 통해 보안이 유지되는 Azure 리소스에 액세스할 때 사용할 수 있는 공유 프라이빗 링크 리소스를 만듭니다. 인덱서 연결을 보호할 수 있는 모든 방법에 대한 자세한 내용은 [Azure 네트워크 보안 기능을 사용하는 보안 인덱서 리소스](search-indexer-securing-resources.md)를 참조하세요. | 일반 공급. api-version=2020-08-01에서 포털 또는 [공유 Private Link 리소스](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources)를 사용할 때 이 기능에 액세스합니다. |
+| [관리 REST API(2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST (영문) | 안정적인 새 REST API에는 공유 프라이빗 링크 리소스 만들기에 대한 지원이 추가되었습니다. | 일반 공급. |
+| [관리 REST API(2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST (영문) | Azure Functions 및 Azure SQL for MySQL Databases용 공유 프라이빗 링크 리소스를 추가합니다. | 공개 미리 보기. |
+| [관리 .NET SDK 4.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | 관리 SDK용 Azure SDK 업데이트, 대상 REST API 버전 2020-08-01. | 일반 공급. |
 
 ### <a name="august-2020"></a>2020년 8월
 
@@ -31,9 +44,9 @@ ms.locfileid: "88931848"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.Documents 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK for .NET | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 .NET 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST api-version=2020-06-30을 대상으로 하지만 기술 자료 저장소, 지리 공간적 형식 또는 [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet)는 아직 지원하지 않습니다. <br/><br/>자세한 내용은 [빠른 시작: 인덱스 만들기](search-get-started-dotnet.md) 및 [Azure.Search.Documents(v11)로 업그레이드](search-dotnet-sdk-migration-version-11.md)를 참조하세요. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
-| [azure.search.documents 클라이언트 라이브러리](/python/api/overview/azure/search-documents-readme?view=azure-python)  | Python용 Azure SDK| 다른 Python 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 Python 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> PyPI에서 [azure-search-documents 패키지](https://pypi.org/project/azure-search-documents/)를 설치합니다. |
-| [@azure/search-documents 클라이언트 라이브러리](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | JavaScript용 Azure SDK | 다른 JavaScript 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 JavaScript 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> npm에서 [@azure/search-documents 패키지](https://www.npmjs.com/package/@azure/search-documents)를 설치합니다. |
+| [Azure.Search.Documents 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK for .NET | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 .NET 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST api-version=2020-06-30을 대상으로 하지만 기술 자료 저장소, 지리 공간적 형식 또는 [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder)는 아직 지원하지 않습니다. <br/><br/>자세한 내용은 [빠른 시작: 인덱스 만들기](search-get-started-dotnet.md) 및 [Azure.Search.Documents(v11)로 업그레이드](search-dotnet-sdk-migration-version-11.md)를 참조하세요. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
+| [azure.search.documents 클라이언트 라이브러리](/python/api/overview/azure/search-documents-readme)  | Python용 Azure SDK| 다른 Python 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 Python 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> PyPI에서 [azure-search-documents 패키지](https://pypi.org/project/azure-search-documents/)를 설치합니다. |
+| [@azure/search-documents 클라이언트 라이브러리](/javascript/api/overview/azure/search-documents-readme)  | JavaScript용 Azure SDK | 다른 JavaScript 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 JavaScript 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> npm에서 [@azure/search-documents 패키지](https://www.npmjs.com/package/@azure/search-documents)를 설치합니다. |
 
 ### <a name="june-2020"></a>2020년 6월
 

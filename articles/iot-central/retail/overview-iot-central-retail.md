@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c72825f4645919468f8b59bbc4b9d9498fe11009
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719229"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979405"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 소매업 솔루션 빌드
 
@@ -41,9 +41,9 @@ IoT 센서를 사용하여 온도, 습도, 기울기, 충격, 조명 및 배송 
 
 다음 스크린샷에서는 애플리케이션 템플릿의 기본 대시보드를 보여 줍니다. 대시보드는 특정 솔루션 요구 사항을 충족하도록 완벽하게 사용자 지정할 수 있습니다.
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="연결된 물류 대시보드":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Azure IoT 소매업 개요":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="연결된 물류 대시보드":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Azure IoT 소매업 개요":::
 
 자세한 내용은 [연결된 물류 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-connected-logistics.md) 자습서를 참조하세요.
 
@@ -64,7 +64,7 @@ IoT 사용 카메라를 기반으로 하는 솔루션은 디지털 피드백 루
 
 다음 스크린샷에서는 애플리케이션 템플릿의 기본 제공 대시보드를 보여 줍니다. 대시보드는 특정 솔루션 요구 사항을 충족하도록 완벽하게 사용자 지정할 수 있습니다. 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="디지털 물류 센터 대시보드":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Azure IoT 소매업 개요":::
 
 자세한 내용은 [디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-digital-distribution-center.md) 자습서를 참조하세요.
 
@@ -86,7 +86,7 @@ IoT 사용 카메라를 기반으로 하는 솔루션은 디지털 피드백 루
 
 다음 스크린샷에서는 애플리케이션 템플릿의 기본 제공 대시보드를 보여 줍니다. 대시보드는 특정 솔루션 요구 사항을 충족하도록 완벽하게 사용자 지정할 수 있습니다. 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="스토어 내 분석 조건 모니터링":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Azure IoT 소매업 개요":::
 
 자세한 내용은 [Azure IoT Central에서 스토어 내 분석 애플리케이션 만들기](./tutorial-in-store-analytics-create-app.md) 자습서를 참조하세요.
 
@@ -108,7 +108,7 @@ IoT 사용 카메라를 기반으로 하는 솔루션은 디지털 피드백 루
 
 다음 스크린샷에서는 애플리케이션 템플릿의 기본 제공 대시보드를 보여 줍니다. 대시보드는 특정 솔루션 요구 사항을 충족하도록 완벽하게 사용자 지정할 수 있습니다. 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="스토어 내 분석 체크 아웃":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Azure IoT 소매업 개요":::
 
 자세한 내용은 [Azure IoT Central에서 스토어 내 분석 애플리케이션 만들기](./tutorial-in-store-analytics-create-app.md) 자습서를 참조하세요.
 
@@ -128,7 +128,7 @@ RFID(전파 식별) 태그, 오류 신호(beacon) 및 카메라에서 생성된 
 
 다음 스크린샷에서는 애플리케이션 템플릿의 기본 제공 대시보드를 보여 줍니다. 대시보드는 특정 솔루션 요구 사항을 충족하도록 완벽하게 사용자 지정할 수 있습니다.
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="스마트 재고 관리 대시보드":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Azure IoT 소매업 개요":::
 
 자세한 내용은 [스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-smart-inventory-management.md) 자습서를 참조하세요.
 
@@ -148,7 +148,7 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 
 다음 스크린샷에서는 애플리케이션 템플릿의 기본 제공 대시보드를 보여 줍니다. 대시보드는 특정 솔루션 요구 사항을 충족하도록 완벽하게 사용자 지정할 수 있습니다.
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="마이크로 주문 처리 센터":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Azure IoT 소매업 개요":::
 
 자세한 내용은 [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-micro-fulfillment-center.md) 자습서를 참조하세요.
 
@@ -165,7 +165,7 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 * **(샘플) 실제 카메라 관리**는 시뮬레이션된 카메라를 사용하여 애플리케이션에서 카메라를 관리하는 방법을 보여줍니다.
 * **(샘플) 실제 카메라 모니터**는 시뮬레이션된 카메라를 사용하여 애플리케이션에서 카메라를 모니터링하는 방법을 보여줍니다.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="비디오 분석 - 개체 및 동작 감지":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Azure IoT 소매업 개요":::
 
 솔루션의 아키텍처에 대해 자세히 알아보려면 [비디오 분석 애플리케이션 아키텍처](architecture-video-analytics.md)를 참조하세요.
 

@@ -1,18 +1,18 @@
 ---
-title: 기존 Azure Application Gateway를 사용하여 기존 AKS 클러스터에 수신 컨트롤러 추가 기능을 사용하도록 설정
+title: '자습서: 기존 Azure Application Gateway를 사용하여 기존 AKS 클러스터에 수신 컨트롤러 추가 기능을 사용하도록 설정'
 description: 이 자습서의 설명에 따라 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 수신 컨트롤러 추가 기능을 사용하도록 설정합니다.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285658"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>자습서: Azure CLI를 통해 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정(미리 보기)
 
@@ -28,6 +28,8 @@ Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microso
 > * Application Gateway 가상 네트워크를 AKS 클러스터 가상 네트워크와 피어링
 > * 수신용 AGIC를 사용하여 AKS 클러스터에 샘플 애플리케이션 배포
 > * Application Gateway를 통해 애플리케이션에 연결할 수 있는지 확인
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -151,7 +153,6 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [AGIC 추가 기능을 사용하지 않도록 설정하는 방법에 대한 자세한 정보](./ingress-controller-disable-addon.md)
-* [AGIC에서 지원되는 주석에 대한 자세한 정보](./ingress-controller-annotations.md)
-* [AGIC 관련 문제 해결](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [AGIC 추가 기능을 사용하지 않도록 설정하는 방법에 대한 자세한 정보](./ingress-controller-disable-addon.md)

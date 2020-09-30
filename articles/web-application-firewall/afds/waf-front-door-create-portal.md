@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79475844"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602220"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Front Door에 대한 웹 애플리케이션 방화벽 정책 만들기
 
-이 자습서는 기본 Azure WAF(웹 애플리케이션 방화벽) 정책을 만들고 Azure Front Door의 프런트 엔드 호스트에 적용하는 방법을 안내합니다.
+이 자습서에서는 기본 Azure WAF(Web Application Firewall) 정책을 만들고 Azure Front Door의 프런트 엔드 호스트에 적용하는 방법을 보여줍니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -68,7 +68,7 @@ WAF 정책을 만드는 경우 기본적으로 WAF 정책은 **검색** 모드�
 
 **사용자 지정 규칙** 섹션에서 **사용자 지정 규칙 추가**를 선택하여 사용자 지정 규칙을 만들 수 있습니다. 그러면 사용자 지정 규칙 구성 페이지가 시작됩니다. 다음은 쿼리 문자열에 **blockme**가 포함될 경우 요청을 차단하는 사용자 지정 규칙을 구성하는 예입니다.
 
-![WAF 정책 모드 변경](../media/waf-front-door-create-portal/customquerystring2.png)
+![사용자 지정 규칙](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>DRS(기본 규칙 집합)
 
@@ -76,8 +76,11 @@ Azure 관리형 기본 규칙 집합은 기본적으로 사용하도록 설정�
 
  ![WAF 규칙 집합 변경](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않으면 리소스 그룹 및 모든 관련 리소스를 제거합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 웹 애플리케이션 방화벽에 대해 자세히 알아보기](../overview.md)
-> [Azure Front Door에 대해 자세히 알아보기](../../frontdoor/front-door-overview.md)
+> [Azure Front Door에 대한 자세한 정보](../../frontdoor/front-door-overview.md)

@@ -2,18 +2,18 @@
 title: Azure Data Box 주문 자습서 | Microsoft 설명서
 description: 이 자습서에서는 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 솔루션인 Azure Data Box와 Azure Data Box를 정렬하는 방법에 대해 알아봅니다.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/15/2020
+ms.author: alkohli
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783572"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604311"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -268,8 +268,21 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 관리형 디스크로 변환한 후 리소스 그룹으로 이동하기 전에 페이지 Blob으로 스테이징 스토리지 계정에 업로드합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
+   > [!NOTE]
+   > 페이지 Blob이 관리 디스크로 성공적으로 변환되지 않은 경우 스토리지 계정에 유지되고 스토리지에 대한 요금이 청구됩니다.
 
-    완료되면 **다음: 연락처 정보**를 선택하여 계속 진행합니다.
+    계속하려면 **다음: 보안**을 선택합니다.
+
+1. **보안**에서 소프트웨어 기반 이중 암호화를 사용하도록 설정하려면 **주문에 이중 암호화 사용**을 선택합니다. 
+
+   소프트웨어 기반 암호화는 Data Box 데이터의 AES-256비트 암호화와 함께 수행됩니다.
+
+   > [!NOTE]
+   > 이 옵션을 사용하도록 설정하면 주문 처리 및 데이터 복사 시간이 더 길어질 수 있습니다. 주문을 만든 후에는 이 옵션을 변경할 수 없습니다.
+
+   ![데이터 상자 가져오기, 이중 암호화를 위한 보안 화면](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   완료되면 **다음: 연락처 정보**를 선택하여 계속 진행합니다.
 
 8. **연락처 정보**에서 **+ 배송 주소 추가**를 선택합니다.
 

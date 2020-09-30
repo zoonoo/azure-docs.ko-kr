@@ -1,5 +1,6 @@
 ---
 title: Azure Site Recovery를 사용하여 가용성 영역이 있는 Azure 지역으로 VM 이동
+description: Site Recovery를 사용하여 다른 지역의 가용성 영역으로 VM을 이동하는 방법을 알아봅니다.
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425475"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605110"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
+
+이 문서에서는 Azure VM을 다른 지역의 가용성 영역으로 이동하는 방법을 설명합니다. 동일한 지역에 있는 다른 영역으로 이동하려면 [이 문서를 검토](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)하세요.
+
+
 Azure 프로젝트의 가용성 영역은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호할 수 있도록 지원합니다. 각 가용성 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있도록 합니다. 가용성 영역을 사용하여 Azure는 이제 VM(가상 머신) 작동 시간에 대해 99.99% SLA(서비스 수준 약정)를 제공합니다. 가용성 영역은 [가용성 영역을 지원하는 지역](../availability-zones/az-region.md)에 언급된 대로 선택된 지역에서 지원됩니다.
 
 VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 가용성 영역으로 이동하여 가용성을 높이려는 경우 Azure Site Recovery를 사용하면 됩니다. 이 작업을 다음과 같이 좀 더 자세히 분석할 수 있습니다.
@@ -23,7 +28,15 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 - 가용성 집합의 VM을 대상 Azure 지역의 가용성 영역으로 이동
 
 > [!IMPORTANT]
-> 현재 Azure Site Recovery는 한 지역에서 다른 지역으로 VM 이동을 지원합니다. 일부 지역에서는 지역 내의 영역 간 이동만 지원합니다. [자세히 알아보기](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> Azure VM을 다른 지역의 가용성 영역으로 이동하려면 이제 [Azure Resource Mover](../resource-mover/move-region-availability-zone.md)를 사용하는 것이 좋습니다. Azure Resource Mover는 현재 공개 미리 보기로 제공되며 다음을 제공합니다.
+> - 지역 간에 리소스를 이동하기 위한 단일 허브입니다.
+> - 이동 시간과 복잡성이 줄어듭니다. 필요한 모든 항목은 단일 위치에 있습니다.
+> - 다양한 유형의 Azure 리소스를 이동할 수 있는 간단하고 일관된 환경을 제공합니다.
+> - 이동하려는 리소스 간의 종속성을 쉽게 식별할 수 있는 방법입니다. 이를 통해 관련 리소스를 함께 이동함으로써 이동 후 대상 지역에서 모든 것이 예상대로 작동하도록 할 수 있습니다.
+> - 이동 후 리소스를 삭제하려는 경우 원본 지역의 리소스를 자동으로 정리합니다.
+> - 테스트 이동을 시도한 다음, 전체 이동을 수행하지 않으려면 취소할 수 있습니다.
+
+
 
 ## <a name="check-prerequisites"></a>필수 구성 요소 확인
 

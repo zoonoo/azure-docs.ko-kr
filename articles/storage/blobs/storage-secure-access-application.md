@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001176"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967518"
 ---
 # <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
@@ -160,7 +160,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 [Azure Storage 암호화](../common/storage-service-encryption.md)를 사용하면 미사용 데이터를 암호화하고 암호화 및 암호 해독을 처리하여 데이터를 보호할 수 있습니다. 모든 데이터는 가장 강력한 블록 암호화 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 암호화됩니다.
 
-Microsoft에서 암호화 키를 관리하도록 선택하거나 Azure Key Vault를 통해 고객 관리 키를 사용하여 사용자 고유의 키를 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault를 통해 고객 관리 키를 사용하여 Azure Storage 암호화 관리](../common/encryption-customer-managed-keys.md)를 참조하세요.
+Microsoft에서 암호화 키를 관리하도록 선택하거나 Azure Key Vault 또는 Key Vault Managed HSM(Hardware Security Model)에 저장된 고객 관리형 키를 사용하여 사용자 고유의 키를 가져올 수 있습니다(미리 보기). 자세한 내용은 [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)를 참조하세요.
 
 Azure Storage 암호화는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다.
 

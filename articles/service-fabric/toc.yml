@@ -4,12 +4,16 @@
   items:
     - name: Service Fabric이란?
       href: service-fabric-overview.md
+    - name: Service Fabric 관리형 클러스터
+      href: overview-managed-cluster.md
 - name: 빠른 시작
   expanded: true
   items:
     - name: ARM 템플릿
       displayName: Resource Manager
       href: quickstart-cluster-template.md
+    - name: 관리형 클러스터
+      href: quickstart-managed-cluster-template.md
     - name: .NET 애플리케이션 만들기
       href: service-fabric-quickstart-dotnet.md
     - name: Linux 컨테이너 애플리케이션 배포
@@ -64,6 +68,16 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3- 장애 조치(failover) 및 비율 크기 조정
           href: service-fabric-tutorial-containers-failover.md
+    - name: Service Fabric 관리형 클러스터 만들기
+      items:
+        - name: 1 - Service Fabric 관리형 클러스터 배포
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2 - 관리형 클러스터 노드 형식 확장
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 - 관리형 클러스터 노드 형식 추가 및 제거
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 - 관리형 클러스터에 연결하고 애플리케이션 배포
+          href: tutorial-managed-cluster-deploy-app.md
     - name: 클러스터 만들기 및 관리
       items:
         - name: 1 - Azure에서 클러스터 만들기
@@ -124,7 +138,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -155,7 +169,7 @@
           items:
             - name: 컨테이너 개요
               href: service-fabric-containers-overview.md
-            - name: Docker Compose(미리 보기)
+            - name: Docker 작성
               href: service-fabric-docker-compose.md
             - name: 프로브
               href: probes-codepackage.md
@@ -430,7 +444,7 @@
               href: service-fabric-deploy-existing-app.md
         - name: 컨테이너 서비스 빌드
           items:
-            - name: Docker Compose(미리 보기)
+            - name: Docker 작성
               href: service-fabric-docker-compose.md
             - name: 볼륨 및 로깅 드라이버
               href: service-fabric-containers-volume-logging-drivers.md
@@ -509,7 +523,7 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: 암호화 인증서 설정 및 Linux에서 비밀 암호화
                   href: service-fabric-application-secret-management-linux.md
-                - name: KeyVaultReference를 사용하여 비밀을 안전하게 저장(미리 보기)
+                - name: KeyVaultReference를 사용하여 비밀을 안전하게 저장
                   href: service-fabric-keyvault-references.md
             - name: 보안 통신에 대한 역방향 프록시 구성
               href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -675,6 +689,8 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: 업그레이드
               items:
+                - name: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가
+                  href: how-to-managed-cluster-vmss-extension.md
                 - name: Service Fabric 버전 업그레이드
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: 클러스터 구성 업그레이드
@@ -901,6 +917,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 일반적인 질문
       href: service-fabric-common-questions.md
+    - name: Service Fabric 관리형 클러스터 공통 질문
+      href: faq-managed-cluster.md
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-service-fabric.html
     - name: Azure Resource Manager 배포 가드레일

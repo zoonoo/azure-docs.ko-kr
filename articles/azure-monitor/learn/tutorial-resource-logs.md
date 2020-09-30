@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505842"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090077"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>자습서: Azure 리소스에서 리소스 로그 수집 및 분석
 
@@ -84,7 +84,7 @@ KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytic
     > [!NOTE]
     > Azure Monitor 메뉴에서 로그를 연 경우에는 범위가 Log Analytics 작업 영역으로 설정됩니다. 이 경우 모든 쿼리는 작업 영역에 있는 모든 레코드를 포함합니다.
    
-    ![로그](media/tutorial-resource-logs/logs.png)
+    ![스크린샷은 논리 앱 이름이 강조 표시된 새 쿼리를 표시하는 논리 앱에 대한 로그를 보여줍니다.](media/tutorial-resource-logs/logs.png)
 
 4. 예제에 표시된 서비스는 리소스 로그를 **AzureDiagnostics** 테이블에 쓰지만, 다른 서비스는 다른 테이블에 쓸 수 있습니다. 다른 Azure 서비스에서 사용하는 테이블에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/resource-logs-schema.md)를 참조하세요.
 

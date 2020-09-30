@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1aa52c81b7abbfb355ef06f6ae93a5dd4c985042
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5b5f115ab2fb7036287c976a94b9e123bf6ed42
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88532422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982800"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verasmart"></a>자습서: VeraSMART와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -131,7 +131,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리** -> **보안** -> **인증 구성**으로 이동합니다.
 
-    ![구성](./media/verasmart-tutorial/configuration.png)
+    ![스크린샷은 관리, 보안, 인증 구성이 선택된 VeraSMART를 차례로 표시합니다.](./media/verasmart-tutorial/configuration.png)
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 

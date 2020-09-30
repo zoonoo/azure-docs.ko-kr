@@ -5,15 +5,15 @@ description: 이 문서에서는 Application Gateway의 WAF(웹 애플리케이�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267026"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -75,9 +75,21 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 - 특정 국가/지역의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽. (미리 보기)
 - 봇 완화 규칙 세트를 사용하여 봇으로부터 애플리케이션 보호 (미리 보기)
 
-## <a name="waf-policy"></a>WAF 정책
+## <a name="waf-policy-and-rules"></a>WAF 정책 및 규칙
 
-Application Gateway에서 웹 애플리케이션 방화벽을 사용하도록 설정하려면 WAF 정책을 만들어야 합니다. 이 정책에는 모든 관리형 규칙, 사용자 지정 규칙, 제외 및 기타 사용자 지정(예: 파일 업로드 제한)이 있습니다. 
+Application Gateway에서 웹 애플리케이션 방화벽을 사용하도록 설정하려면 WAF 정책을 만들어야 합니다. 이 정책에는 모든 관리형 규칙, 사용자 지정 규칙, 제외 및 기타 사용자 지정(예: 파일 업로드 제한)이 있습니다.
+
+WAF 정책을 구성한 후 보호를 위해 하나 이상의 애플리케이션 게이트웨이에 이 정책을 연결할 수 있습니다. WAF 정책은 다음 두 가지 유형의 보안 규칙으로 구성됩니다.
+
+- 사용자가 만든 사용자 지정 규칙
+
+- Azure에서 관리하는 미리 구성된 규칙 집합의 컬렉션에 해당하는 관리형 규칙 집합
+
+두 규칙이 모두 존재하는 경우 관리형 규칙 세트의 규칙을 처리하기 전에 사용자 지정 규칙이 처리됩니다. 규칙은 일치 조건, 우선 순위 및 작업으로 구성됩니다. 지원되는 작업 유형은 ALLOW, BLOCK, LOG입니다. 관리형 규칙과 사용자 지정 규칙을 결합하여 특정 애플리케이션 보호 요구 사항을 충족하는 완전히 사용자 지정된 정책을 만들 수 있습니다.
+
+정책 내 규칙은 우선 순위에 따라 처리됩니다. 우선 순위는 처리할 규칙의 순서를 정의하는 고유한 정수입니다. 정수 값이 작을수록 우선 순위가 높고 이러한 규칙은 정수 값이 높은 규칙보다 먼저 평가됩니다. 규칙이 일치하면 규칙에 정의된 해당 작업이 요청에 적용됩니다. 이러한 일치가 처리되면 우선 순위가 낮은 규칙은 더 이상 처리되지 않습니다.
+
+Application Gateway에서 제공하는 웹 애플리케이션에는 전역 수준, 사이트 별 수준 또는 URI별 수준에서 연결된 WAF 정책이 있을 수 있습니다.
 
 ### <a name="core-rule-sets"></a>핵심 규칙 집합
 
@@ -159,6 +171,11 @@ Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, SIEM(보
 
 
 ![Azure WAF 방화벽 이벤트 통합 문서](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>WAF용 Azure Monitor 통합 문서
+
+이 통합 문서를 사용하면 필터링 가능한 여러 패널에서 보안 관련 WAF 이벤트를 사용자 지정 시각화할 수 있습니다. Application Gateway, Front Door 및 CDN을 비롯한 모든 WAF 형식에서 작동하며 WAF 유형 또는 특정 WAF 인스턴스를 기반으로 필터링할 수 있습니다. ARM 템플릿 또는 갤러리 템플릿을 통해 가져옵니다. 이 통합 문서를 배포하려면 [WAF 통합 문서](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook)를 참조하세요.
 
 #### <a name="logging"></a>로깅
 

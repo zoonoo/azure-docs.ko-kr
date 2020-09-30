@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874234"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088360"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>자습서: Log Analytics 쿼리 시작
 
@@ -42,7 +42,7 @@ Log Analytics를 사용하려면 Azure 계정에 로그인해야 합니다. Azur
 
 스키마 테이블은 Log Analytics 작업 영역의 **테이블** 탭에 표시됩니다. 테이블에는 각각 열 이름 옆에 아이콘으로 표시된 데이터 형식이 있는 열이 포함되어 있습니다. 예를 들어 **Event** 테이블에는 **Computer**와 같은 텍스트 열과 **EventCategory**와 같은 숫자 열이 포함되어 있습니다.
 
-![스키마](media/get-started-portal/schema.png)
+![스크린샷은 새 쿼리가 있는 Azure Portal 로그 페이지를 표시하고, 컴퓨터 및 EventCategory가 강조 표시된 테이블 창을 강조 표시합니다.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>기본 쿼리 작성 및 실행
 
@@ -120,7 +120,7 @@ Log Analytics는 결과를 최대 10,000개의 레코드로 제한합니다. `Ev
    
 1. **필터**를 선택합니다.
    
-   ![Assert](media/get-started-portal/filter.png)
+   ![스크린샷은 EventLevelName을 기준으로 결과를 필터링하는 컨텍스트 메뉴가 있는 결과 테이블을 표시합니다.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>열 정렬, 그룹화 및 선택
 **TimeGenerated [UTC]** 와 같은 특정 열을 기준으로 쿼리 결과를 정렬하려면 열 제목을 선택합니다. 제목을 다시 선택하여 오름차순과 내림차순 간에 전환합니다.
@@ -129,7 +129,7 @@ Log Analytics는 결과를 최대 10,000개의 레코드로 제한합니다. `Ev
 
 결과를 구성하는 다른 방법은 그룹화하는 것입니다. 특정 열을 기준으로 결과를 그룹화하려면 열 제목을 **해당 열별로 그룹화하려면 열 헤더를 여기에 끌어다 놓으세요.** 라는 레이블이 지정된 결과 테이블의 위쪽 표시줄로 끕니다. 하위 그룹을 만들려면 다른 열을 위쪽 표시줄로 끕니다. 이 표시줄에서 그룹 및 하위 그룹의 계층 구조와 정렬을 다시 정렬할 수 있습니다.
 
-![그룹](media/get-started-portal/groups.png)
+![스크린샷은 EventLevelName 및 컴퓨터에 대한 하위 그룹을 포함하는 쿼리 결과를 표시합니다.](media/get-started-portal/groups.png)
 
 결과에서 열을 숨기거나 표시하려면 테이블 위에서 **열**을 선택한 다음, 드롭다운 목록에서 원하는 열을 선택하거나 선택 취소합니다.
 

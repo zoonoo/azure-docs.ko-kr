@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Automation에서 간단한 그래픽 Runb
 keywords: runbook, runbook 템플릿, runbook 자동화, azure runbook
 services: automation
 ms.subservice: process-automation
-ms.date: 04/19/2020
+ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa92cd4f4cba63eee09714813954af9fa9c9c4ea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290953"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987655"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>자습서: 그래픽 Runbook 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "87290953"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
+* 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free)을 등록할 수 있습니다.
 * [Automation 계정](../index.yml) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 이 머신을 중지하고 시작하므로 프로덕션 VM이 아니어야 합니다.
 * 필요한 경우 사용하는 cmdlet에 따라 [Azure 모듈을 가져오거나](../shared-resources/modules.md) [모듈을 업데이트](../automation-update-azure-modules.md)합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "87290953"
 
 먼저 `Hello World`라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
 
-1. Azure Portal에서 Automation 계정을 엽니다. 
+1. Azure Portal에서 Automation 계정을 엽니다.
 
     Automation 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 이러한 자산의 대부분은 새 Automation 계정에 자동으로 포함되는 모듈입니다. 또한 구독과 연결된 자격 증명 자산이 있어야 합니다.
 
@@ -48,7 +48,9 @@ ms.locfileid: "87290953"
 
 4. Runbook 이름을 **MyFirstRunbook-Graphical**로 지정합니다.
 
-5. 여기서는 [그래픽 Runbook](../automation-graphical-authoring-intro.md)을 만듭니다. **Runbook 형식**에 대해 **그래픽**을 선택합니다.<br> ![새 runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)<br>
+5. 여기서는 [그래픽 Runbook](../automation-graphical-authoring-intro.md)을 만듭니다. **Runbook 형식**에 대해 **그래픽**을 선택합니다.
+
+    ![새 runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)
 
 6. **만들기** 를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
 
@@ -56,7 +58,9 @@ ms.locfileid: "87290953"
 
 편집기의 왼쪽에 있는 라이브러리 컨트롤은 사용자의 runbook에 추가할 활동을 선택할 수 있게 해줍니다. Runbook에서 텍스트를 출력하는 `Write-Output` cmdlet을 추가합니다.
 
-1. [라이브러리] 컨트롤에서 검색 필드를 클릭하고, `write-output`을 입력합니다. 검색 결과는 다음 이미지에 나와 있습니다. <br> ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+1. [라이브러리] 컨트롤에서 검색 필드를 클릭하고, `write-output`을 입력합니다. 검색 결과는 다음 이미지에 나와 있습니다.
+
+    ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 
 2. 목록의 아래로 스크롤하십시오. 마우스 오른쪽 단추로 **Write-Output**을 클릭하고, **캔버스에 추가**를 선택합니다. 또는 cmdlet 이름 옆의 줄임표(...)를 클릭한 다음, **캔버스에 추가**를 선택할 수 있습니다.
 
@@ -70,9 +74,9 @@ ms.locfileid: "87290953"
 
 6. `InputObject` 매개 변수를 선택합니다. 이는 출력 스트림으로 보낼 텍스트를 지정하는 데 사용하는 매개 변수입니다.
 
-7. **데이터 원본** 드롭다운 메뉴는 매개 변수 값을 채우는 데 사용할 수 있는 원본을 제공합니다. 이 메뉴에서 **PowerShell 식**을 선택합니다. 
+7. **데이터 원본** 드롭다운 메뉴는 매개 변수 값을 채우는 데 사용할 수 있는 원본을 제공합니다. 이 메뉴에서 **PowerShell 식**을 선택합니다.
 
-   다른 활동, Automation 자산 또는 PowerShell 식과 같은 원본의 출력을 사용할 수 있습니다. 여기서는 출력이 `Hello World`입니다. PowerShell 식을 사용하고 문자열을 지정할 수 있습니다.<br>
+   다른 활동, Automation 자산 또는 PowerShell 식과 같은 원본의 출력을 사용할 수 있습니다. 여기서는 출력이 `Hello World`입니다. PowerShell 식을 사용하고 문자열을 지정할 수 있습니다.
 
 8. **식** 필드에서 `Hello World`를 입력한 다음, **확인**을 두 번 클릭하여 캔버스로 돌아갑니다.
 
@@ -92,7 +96,7 @@ ms.locfileid: "87290953"
 
 4. Runbook 작업이 완료되면 [테스트] 창에 해당 출력이 표시됩니다. 여기서는 `Hello World`가 표시됩니다.
 
-    ![Hello World](../media/automation-tutorial-runbook-graphical/runbook-test-results.png)
+    ![Hello World Runbook 출력](../media/automation-tutorial-runbook-graphical/runbook-test-results.png)
 
 5. 캔버스로 돌아가려면 테스트 창을 닫습니다.
 
@@ -116,7 +120,7 @@ ms.locfileid: "87290953"
 
 7. 출력 페이지를 닫습니다.
 
-8. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에는 `Hello World`만 표시됩니다. 
+8. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에는 `Hello World`만 표시됩니다.
 
     Runbook에서 [스트림] 창에 기록하는 경우 자세한 정보 및 오류 스트림과 같은 Runbook 작업에 대한 다른 스트림이 표시될 수 있습니다.
 
@@ -139,7 +143,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 4. [새 변수] 페이지에 제공된 필드에서 다음 설정을 지정합니다.
 
     * **이름** - `AzureSubscriptionId`를 입력합니다.
-    * **값** - 구독 ID를 입력합니다. 
+    * **값** - 구독 ID를 입력합니다.
     * **형식** - 선택된 문자열을 그대로 유지합니다.
     * **암호화** - 기본값을 사용합니다.
 
@@ -147,7 +151,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 ## <a name="step-6---add-authentication"></a>6단계 - 인증 추가
 
-이제 구독 ID를 보유할 변수가 있으므로 구독에 대한 실행 자격 증명을 사용하여 인증하도록 Runbook을 구성할 수 있습니다. 이렇게 하려면 Azure 실행 연결을 자산으로 추가합니다. 또한 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) cmdlet 및 [Set-AzContext](/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) cmdlet을 캔버스에 추가해야 합니다.
+이제 구독 ID를 보유할 변수가 있으므로 구독에 대한 실행 자격 증명을 사용하여 인증하도록 Runbook을 구성할 수 있습니다. 이렇게 하려면 Azure 실행 연결을 자산으로 추가합니다. 또한 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet 및 [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) cmdlet을 캔버스에 추가해야 합니다.
 
 >[!NOTE]
 >PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 `Connect-AzAccount`에 대한 별칭입니다. 이러한 별칭은 그래픽 Runbook에서 사용할 수 없습니다. `Connect-AzAccount` 자체만 그래픽 Runbook에서 사용할 수 있습니다.
@@ -164,7 +168,9 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 6. `Connect-AzAccount`을 캔버스에 추가합니다.
 
-7. 도형 아래쪽에 원이 나타날 때까지 마우스로 `Get Run As Connection` 위를 가리킵니다. 원을 클릭하고, 화살표를 `Connect-AzAccount`로 끌어 링크를 만듭니다. Runbook에서 `Get Run As Connection`을 사용하여 시작한 다음, `Connect-AzAccount`를 실행합니다.<br> ![활동 간 링크 만들기](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
+7. 도형 아래쪽에 원이 나타날 때까지 마우스로 `Get Run As Connection` 위를 가리킵니다. 원을 클릭하고, 화살표를 `Connect-AzAccount`로 끌어 링크를 만듭니다. Runbook에서 `Get Run As Connection`을 사용하여 시작한 다음, `Connect-AzAccount`를 실행합니다.
+
+    ![활동 간 링크 만들기](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
 
 8. 캔버스에서 `Connect-AzAccount`를 선택합니다. [구성] 제어 창의 **레이블** 필드에서 **Azure에 로그인**을 입력합니다.
 
@@ -172,7 +178,9 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 10. `Connect-AzAccount` cmdlet에는 여러 매개 변수 세트가 있으며, 매개 변수 값을 제공하기 전에 먼저 매개 변수 세트를 선택해야 합니다. **매개 변수 세트**를 클릭한 다음, **ServicePrincipalCertificateWithSubscriptionId**를 선택합니다.
 
-11. [활동 매개 변수 구성] 페이지에 이 매개 변수 세트의 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure 계정 매개 변수 추가](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
+11. [활동 매개 변수 구성] 페이지에 이 매개 변수 세트의 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.
+
+    ![Azure 계정 매개 변수 추가](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
 
 12. [매개 변수 값] 페이지에서 다음 설정을 지정한 다음, **확인**을 클릭합니다.
 
@@ -186,13 +194,13 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
     * 데이터 원본 목록 - **Automation 연결 가져오기**를 선택합니다.
     * **필드 경로** - `CertificateThumbprint`를 입력합니다.
 
-14. **SERVICEPRINCIPAL**을 클릭하고, [매개 변수 값] 페이지에서 **데이터 원본** 필드에 대해 **ConstantValue**를 선택하고, **True** 옵션을 클릭한 다음, **확인**을 클릭합니다.
+14. **SERVICEPRINCIPAL**을 클릭하고, [매개 변수 값] 페이지에서 **데이터 원본** 필드에 대해 **ConstantValue**를 선택합니다. **True** 옵션을 클릭한 다음, **확인**을 클릭합니다.
 
 15. **TENANTID**를 클릭하고, [매개 변수 값] 페이지에서 다음 설정을 지정합니다. 완료되면 **확인**을 두 번 클릭합니다.
 
-    * **데이터 원본** - **활동 출력**을 선택합니다. 
+    * **데이터 원본** - **활동 출력**을 선택합니다.
     * 데이터 원본 목록 - **Automation 연결 가져오기**를 선택합니다.
-    * **필드 경로** - `TenantId`를 입력합니다. 
+    * **필드 경로** - `TenantId`를 입력합니다.
 
 16. [라이브러리] 컨트롤의 검색 필드에서 `Set-AzContext`를 입력합니다.
 
@@ -210,11 +218,11 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 23. 도형 아래쪽에 원이 나타날 때까지 마우스로 `Login to Azure` 위를 가리킵니다. 원을 클릭하고, 화살표를 `Specify Subscription Id`로 끕니다. 이 시점에서 Runbook은 다음과 같습니다.
 
-    ![Runbook 인증 구성](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="화살표를 '구독 ID 지정'으로 끌어온 후에 Runbook의 스크린샷.":::
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>7 단계 - 가상 머신을 시작하는 활동 추가
 
-이제 가상 머신을 시작하는 `Start-AzVM` 활동을 추가해야 합니다. Azure 구독에서 VM을 선택할 수 있지만, 지금은 해당 이름을 [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-3.5.0) cmdlet에 하드 코딩합니다.
+이제 가상 머신을 시작하는 `Start-AzVM` 활동을 추가해야 합니다. Azure 구독에서 VM을 선택할 수 있지만, 지금은 해당 이름을 [Start-AzVM](/powershell/module/az.compute/start-azvm) cmdlet에 하드 코딩합니다.
 
 1. [라이브러리] 컨트롤의 검색 필드에서 `Start-Az`를 입력합니다.
 
@@ -234,7 +242,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 9. **시작**을 클릭하여 테스트를 시작합니다. 완료되면 VM이 시작되었는지 확인합니다. 이 시점에서 Runbook은 다음과 같습니다.
 
-    ![Runbook 인증 구성](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+    ![Runbook Start-AzVM 출력](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
 
 ## <a name="step-8---add-additional-input-parameters"></a>8단계 - 추가 입력 매개 변수 추가
 
@@ -249,13 +257,17 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
    * **형식** - 문자열 설정을 유지합니다.
    * **필수** - 값을 **예**로 변경합니다.
 
-4. `ResourceGroupName`이라는 두 번째 필수 입력 매개 변수를 만든 다음, **확인**을 클릭하여 [입력 및 출력] 창을 닫습니다.<br> ![Runbook 입력 매개 변수](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
+4. `ResourceGroupName`이라는 두 번째 필수 입력 매개 변수를 만든 다음, **확인**을 클릭하여 [입력 및 출력] 창을 닫습니다.
+
+    ![Runbook 입력 매개 변수](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
 
 5. `Start-AzVM` 활동을 선택한 다음, **매개 변수**를 클릭합니다.
 
 6. **이름**에 대한 **데이터 원본** 필드를 **Runbook 입력**으로 변경합니다. 그런 다음, **VMName**을 선택합니다.
 
-7. **ResourceGroupName**에 대한 **데이터 원본** 필드를 **Runbook 입력**으로 변경한 다음, **ResourceGroupName**을 선택합니다.<br> ![Start-AzVM 매개 변수](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
+7. **ResourceGroupName**에 대한 **데이터 원본** 필드를 **Runbook 입력**으로 변경한 다음, **ResourceGroupName**을 선택합니다.
+
+    ![Start-AzVM 매개 변수](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
 
 8. Runbook을 저장하고 테스트 창을 엽니다. 이제 테스트에서 사용하는 두 입력 변수에 대한 값을 제공할 수 있습니다.
 
@@ -271,7 +283,7 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
 
 ## <a name="step-9---create-a-conditional-link"></a>9 단계 - 조건부 링크 만들기
 
-이제 아직 시작되지 않은 VM만 시작하도록 Runbook을 수정할 수 있습니다. 이렇게 하려면 VM의 인스턴스 수준 상태를 검색하는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) cmdlet을 추가합니다. 그런 다음, VM 상태가 실행 중인지 또는 중지되었는지 여부를 확인하는 PowerShell 코드 조각이 있는 `Get Status`라는 PowerShell 워크플로 코드 모듈을 추가할 수 있습니다. 현재 실행 중인 상태가 중지되는 경우에만 `Get Status` 모듈의 조건부 링크에서 `Start-AzVM`을 실행합니다. 이 절차가 완료되면 Runbook에서 `Write-Output` cmdlet을 사용하여 VM이 성공적으로 시작되었는지 알려주는 메시지를 출력합니다.
+이제 아직 시작되지 않은 VM만 시작하도록 Runbook을 수정할 수 있습니다. 이렇게 하려면 VM의 인스턴스 수준 상태를 검색하는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) cmdlet을 추가합니다. 그런 다음, VM 상태가 실행 중인지 또는 중지되었는지 여부를 확인하는 PowerShell 코드 조각이 있는 `Get Status`라는 PowerShell 워크플로 코드 모듈을 추가할 수 있습니다. 현재 실행 중인 상태가 중지되는 경우에만 `Get Status` 모듈의 조건부 링크에서 `Start-AzVM`을 실행합니다. 이 절차가 완료되면 Runbook에서 `Write-Output` cmdlet을 사용하여 VM이 성공적으로 시작되었는지 알려주는 메시지를 출력합니다.
 
 1. 그래픽 편집기에서 **MyFirstRunbook-Graphical**을 엽니다.
 
@@ -281,7 +293,7 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
 
 4. `Get-AzVM`을 캔버스에 추가합니다.
 
-5. `Get-AzVM`을 선택한 다음, **매개 변수 세트**를 클릭하여 cmdlet에 대한 세트를 봅니다. 
+5. `Get-AzVM`을 선택한 다음, **매개 변수 세트**를 클릭하여 cmdlet에 대한 세트를 봅니다.
 
 6. **GetVirtualMachineInResourceGroupNameParamSet** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **Name** 필드 옆에 필수 매개 변수를 지정했음을 나타내는 느낌표가 있습니다. 두 필드 모두에는 문자열 값이 필요합니다.
 
@@ -303,16 +315,17 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
 
 15. 다음 코드 조각을 편집기 페이지에 붙여넣습니다.
 
-    ```powershell-interactive
-     $StatusesJson = $ActivityOutput['Get-AzVM'].StatusesText
-     $Statuses = ConvertFrom-Json $StatusesJson
-     $StatusOut =""
-     foreach ($Status in $Statuses){
-     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
-     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
-     }
-     $StatusOut
-     ```
+    ```powershell
+    $Statuses = $ActivityOutput['Get-AzVM'].Statuses
+    $StatusOut = ""
+    foreach ($Status in $Statuses) {
+      if($Status.Code -eq "Powerstate/running")
+        {$StatusOut = "running"}
+      elseif ($Status.Code -eq "Powerstate/deallocated")
+        {$StatusOut = "stopped"}
+    }
+    $StatusOut
+    ```
 
 16. `Get Status`에서 `Start-AzVM`으로의 링크를 만듭니다.
 
@@ -355,4 +368,4 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 Runbook 작성](../automation-graphical-authoring-intro.md)을 참조하세요.
 * PowerShell Runbook을 시작하려면 [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

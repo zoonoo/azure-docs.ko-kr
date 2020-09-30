@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869187"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061804"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -70,7 +70,7 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
     ```azurecli
     kubectl version
     ```
-1. Kubernetes 버전이 1.16.0 이상인지 확인합니다. 다음 명령은 Kubernetes 클러스터와 노드 풀을 모두 업그레이드합니다. 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 이 예제에서 리소스 그룹은 *contosoResourceGroup*이고, Kubernetes 클러스터는 *contosoAKSCluster*입니다.
+1. Kubernetes 버전이 1.16.0 이상인지 확인합니다. Windows 클러스터의 경우 Kubernetes 버전이 1.18.0 이상인지 확인합니다. 다음 명령은 Kubernetes 클러스터와 노드 풀을 모두 업그레이드합니다. 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 이 예제에서 리소스 그룹은 *contosoResourceGroup*이고, Kubernetes 클러스터는 *contosoAKSCluster*입니다.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
 
 ## <a name="create-your-own-secretproviderclass-object"></a>사용자 고유의 SecretProviderClass 개체 만들기
 
-비밀 저장소 CSI 드라이버에 대한 공급자별 매개 변수를 사용하여 사용자 고유의 사용자 지정 SecretProviderClass 개체를 만들려면 [이 템플릿을 사용](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml)합니다. 이 개체는 키 자격 증명 모음에 대한 ID 액세스를 제공합니다.
+비밀 저장소 CSI 드라이버에 대한 공급자별 매개 변수를 사용하여 사용자 고유의 사용자 지정 SecretProviderClass 개체를 만들려면 [이 템플릿을 사용](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml)합니다. 이 개체는 키 자격 증명 모음에 대한 ID 액세스를 제공합니다.
 
 SecretProviderClass YAML 파일 샘플에서 누락된 매개 변수를 입력합니다. 필수 매개 변수는 다음과 같습니다.
 
-* **userAssignedIdentityID**: 서비스 주체의 클라이언트 ID
+* **userAssignedIdentityID**: # [필수] 서비스 주체를 사용하는 경우 클라이언트 ID를 사용하여 사용할 사용자 할당 관리 ID를 지정합니다. 사용자 할당 ID를 VM의 관리 ID로 사용하는 경우 ID의 클라이언트 ID를 지정합니다. 값이 비어 있는 경우 기본적으로 VM에서 시스템 할당 ID를 사용합니다. 
 * **keyvaultName**: 키 자격 증명 모음의 이름
 * **objects**: 탑재하려는 모든 비밀 콘텐츠에 대한 컨테이너
     * **objectName**: 비밀 콘텐츠의 이름
     * **objectType**: 개체 형식(비밀, 키, 인증서)
-* **resourceGroup**: 리소스 그룹의 이름
-* **subscriptionId**: 키 자격 증명 모음의 구독 ID
+* **resourceGroup**: 리소스 그룹의 이름 # [버전 < 0.0.4에 필요] KeyVault의 리소스 그룹
+* **subscriptionId**: 키 자격 증명 모음의 구독 ID # [버전 < 0.0.4에 필요] KeyVault의 구독 ID
 * **tenantID**: 키 자격 증명 모음의 테넌트 ID 또는 디렉터리 ID
+
+모든 필수 필드에 대한 설명서는 여기에서 확인할 수 있습니다. [링크](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 업데이트된 템플릿은 다음 코드에 표시되어 있습니다. YAML 파일로 다운로드하고, 필수 필드를 입력합니다. 이 예제에서 키 자격 증명 모음은 **contosoKeyVault5**입니다. 여기에는 **secret1** 및 **secret2**의 두 가지 비밀이 있습니다.
 
@@ -210,6 +212,11 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 1. 사용자가 할당한 관리 ID를 만들거나, 나열하거나 읽으려면 [관리 ID 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할을 AKS 클러스터에 할당해야 합니다. **$clientId**가 Kubernetes 클러스터의 clientId인지 확인합니다. 범위의 경우 Azure 구독 서비스, 특히 AKS 클러스터를 만들 때 생성한 노드 리소스 그룹 아래에 있게 됩니다. 이 범위는 해당 그룹 내의 리소스만 아래에 할당된 역할의 영향을 받을 수 있도록 합니다. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
@@ -304,6 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+          nodePublishSecretRef:
+              name: secrets-store-creds 
 ```
 
 다음 명령을 실행하여 Pod를 배포합니다.

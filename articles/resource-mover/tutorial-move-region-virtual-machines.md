@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 49b7a3700bf497ad868b7c4ab1f0802564b61bf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652494"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603971"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>자습서: 지역 간에 Azure VM 이동
 
@@ -68,6 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이동하려는 리소스를 선택합니다.
 
 - 선택한 원본 영역 내의 리소스 그룹에서 지원되는 모든 리소스 종류가 표시됩니다.
+- 지역 간 이동을 위해 이미 추가된 리소스는 표시되지 않습니다.
 - 리소스를 원본 지역과 동일한 구독의 대상 지역으로 이동합니다. 구독을 변경하려면 리소스를 이동한 후에 변경할 수 있습니다.
 
 1. Azure Portal에서 *resource mover*를 검색합니다. 그런 다음, **서비스** 아래에서 **Azure Resource Mover**를 선택합니다.
@@ -80,7 +81,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. **리소스 이동** > **원본 + 대상**에서 원본 구독과 지역을 선택합니다.
 4. **대상**에서 VM을 이동하려는 지역을 선택합니다. 그런 다음 **다음**을 클릭합니다.
-5. **메타데이터 지역**에서 이동하는 리소스에 대한 메타데이터를 저장하려는 위치를 선택합니다. 이 용도로만 사용되는 리소스 그룹이 만들어집니다. 그런 다음 **다음**을 클릭합니다.
 
     ![원본 및 대상 지역을 선택하는 페이지](./media/tutorial-move-region-virtual-machines/source-target.png)
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![이동할 VM을 선택하는 페이지](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  **이동할 리소스**에서 **다음**을 클릭합니다.
-9. **검토 + 추가**에서 원본 및 대상 설정을 확인합니다. 이동에 대한 메타데이터가 저장을 목적으로 생성된 메타데이터 지역의 리소스 그룹에 저장된다는 것을 이해해야 합니다.
+9. **검토 + 추가**에서 원본 및 대상 설정을 확인합니다. 
 
     ![설정을 검토하고 이동을 계속하는 페이지](./media/tutorial-move-region-virtual-machines/review.png)
 10. **계속**을 클릭하여 리소스 추가를 시작합니다.
@@ -235,7 +235,8 @@ VM을 준비하고 이동하려면 대상 지역에 VM 리소스 그룹이 있�
 
 ## <a name="configure-settings-after-the-move"></a>이동 후 설정 구성
 
-Mobility Service는 VM에서 자동으로 제거되지 않습니다. 수동으로 제거하거나, 서버를 다시 이동할 생각이면 그대로 두세요.
+- Mobility Service는 VM에서 자동으로 제거되지 않습니다. 수동으로 제거하거나, 서버를 다시 이동할 생각이면 그대로 두세요.
+- 이동 후 Azure RBAC(Azure 역할 기반 액세스 제어) 규칙을 수정합니다.
 
 ## <a name="delete-source-resources-after-commit"></a>커밋 후 원본 리소스 삭제
 

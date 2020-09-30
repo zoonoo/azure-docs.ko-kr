@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543927"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705625"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
@@ -76,13 +76,13 @@ ms.locfileid: "88543927"
 ## <a name="consent-framework"></a>동의 프레임워크
 
 Azure AD 동의 프레임워크를 사용하여 다중 테넌트 웹 및 네이티브 클라이언트 애플리케이션을 개발할 수 있습니다. 이러한 애플리케이션을 사용하면 애플리케이션이 등록되어 있는 계정과 다르게 Azure AD 테넌트의 사용자 계정으로 로그인할 수 있습니다. 다음과 같은 웹 API에 액세스해야 할 수 있습니다.
-- Azure AD, Intune 및 Office 365의 서비스에 액세스하기 위한 Microsoft Graph API
+- Azure AD, Intune 및 Microsoft 365의 서비스에 액세스하기 위한 Microsoft Graph API.
 - 기타 Microsoft 서비스의 API
 - 사용자 고유의 웹 API
 
 이 프레임워크는 애플리케이션을 자신의 디렉터리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 등록은 디렉터리 데이터 액세스가 필요할 수도 있습니다. 사용자가 동의해 주면 해당 클라이언트 애플리케이션에서 사용자를 대신하여 Microsoft Graph API를 호출하고 필요한 대로 정보를 사용할 수 있습니다.
 
-[Microsoft Graph API](https://developer.microsoft.com/graph/)는 Office 365에서 다음과 같은 데이터에 대한 액세스를 제공합니다.
+[Microsoft Graph API](https://developer.microsoft.com/graph/)는 Microsoft 365에서 다음과 같은 데이터에 대한 액세스를 제공합니다.
 
 - Exchange의 일정 및 메시지
 - SharePoint의 사이트 및 목록
@@ -121,7 +121,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 3. 사용자가 인증되지 않은 경우 Azure AD/authorize 엔드포인트는 로그인하라는 메시지를 표시합니다.
 
-    ![인증](./media/openidoauth-tutorial/authentication.png)
+    ![계정에 대한 로그인 프롬프트의 스크린샷](./media/openidoauth-tutorial/authentication.png)
 
 4. 사용자가 로그인한 후 Azure AD는 사용자를 동의 페이지에 표시해야 하는지 여부를 결정합니다. 이 결정은 사용자(또는 해당 조직의 관리자)가 애플리케이션 동의를 부여했는지 여부에 따라 다릅니다.
 

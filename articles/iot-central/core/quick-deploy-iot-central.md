@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 애플리케이션 만들기 | Microsoft Docs
-description: 새로운 Azure IoT Central 애플리케이션을 만듭니다. 무료 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 애플리케이션 만들기
+title: 빠른 시작 - Azure IoT Central 애플리케이션 만들기 | Microsoft Docs
+description: 빠른 시작 - 새 Azure IoT Central 애플리케이션을 만듭니다. 무료 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 애플리케이션 만들기
 author: viv-liu
 ms.author: viviali
 ms.date: 07/30/2020
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552580"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987382"
 ---
-# <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
+# <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
 이 빠른 시작에서는 Azure IoT Central 애플리케이션을 만드는 방법을 보여줍니다.
 

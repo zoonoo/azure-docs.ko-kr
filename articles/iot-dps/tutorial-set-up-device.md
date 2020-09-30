@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687127"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531528"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
 
-이전 자습서에서 디바이스를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 IoT Hub가 자동으로 프로비전되도록 제조 과정에서 디바이스를 설정하는 방법을 보여줍니다. 디바이스를 처음으로 부팅하고 프로비전 서비스에 연결할 때 디바이스의 [증명 메커니즘](concepts-device.md#attestation-mechanism)에 따라 디바이스가 프로비전됩니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
+이전 자습서에서 디바이스를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 IoT Hub가 자동으로 프로비전되도록 제조 과정에서 디바이스를 설정하는 방법을 보여줍니다. 디바이스를 처음으로 부팅하고 프로비전 서비스에 연결할 때 디바이스의 [증명 메커니즘](concepts-service.md#attestation-mechanism)에 따라 디바이스가 프로비전됩니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 플랫폼별 디바이스 프로비전 서비스 클라이언트 SDK 빌드
@@ -29,7 +29,7 @@ ms.locfileid: "84687127"
 
 이 자습서에서는 C용 Device Provisioning Service 클라이언트 SDK를 포함하고 있는 [Azure IoT SDK 및 C 리포지토리용 라이브러리](https://github.com/Azure/azure-iot-sdk-c)를 사용합니다. 이 SDK는 현재 Windows 또는 Ubuntu 구현에서 실행 중인 디바이스에 TPM 및 X.509 지원을 제공합니다. 이 자습서는 Windows 개발 클라이언트 사용을 기반으로 하며, 마찬가지로 사용자가 Visual Studio의 기본적인 내용을 알고 있다고 가정합니다. 
 
-자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 
+자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "84687127"
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -100,9 +100,9 @@ Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트
 
 - X.509 디바이스의 경우 디바이스에 발급된 인증서를 가져와야 합니다. 프로비전 서비스는 X.509 증명 메커니즘을 사용하는 디바이스에 대한 액세스를 제어하는 두 가지 유형의 등록 항목을 공개합니다. 필요한 인증서는 사용할 등록 유형에 따라 다릅니다.
 
-    - 개별 등록: 특정 단일 디바이스를 등록합니다. 이 유형의 등록 항목은 [최종 엔터티, "리프", 인증서](concepts-security.md#end-entity-leaf-certificate)가 필요합니다.
+    - 개별 등록: 특정 단일 디바이스를 등록합니다. 이 유형의 등록 항목은 [최종 엔터티, "리프", 인증서](concepts-x509-attestation.md#end-entity-leaf-certificate)가 필요합니다.
     
-    - 등록 그룹: 이 유형의 등록 항목은 중간 또는 루트 인증서가 필요합니다. 자세한 내용은 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
+    - 등록 그룹: 이 유형의 등록 항목은 중간 또는 루트 인증서가 필요합니다. 자세한 내용은 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
 
 ### <a name="simulated-devices"></a>시뮬레이션된 디바이스
 

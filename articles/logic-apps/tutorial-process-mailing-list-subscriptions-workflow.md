@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c802fafa92ace2260002f7156b0df9841af8338c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132401"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029582"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "87132401"
 
 * 논리 앱이 승인된 구성원에 대한 이메일 주소를 추가할 수 있는 "test-members-ML"이라는 목록이 포함된 MailChimp 계정입니다. 계정이 없는 경우 [체험 계정에 가입](https://login.mailchimp.com/signup/)하고 [MailChimp 목록을 만드는 방법](https://us17.admin.mailchimp.com/lists/#)을 알아보세요.
 
-* 승인 워크플로를 지원하는 Office 365 Outlook 또는 Outlook.com의 이메일 계정. 이 문서에서는 Office 365 Outlook을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
+* 승인 워크플로를 지원하는 Microsoft 365용 Outlook 또는 Outlook.com의 이메일 계정. 이 문서에서는 Office 365 Outlook을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 

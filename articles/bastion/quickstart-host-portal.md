@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743986"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985582"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>빠른 시작: 개인 IP 주소 및 Azure Bastion을 사용하여 가상 머신에 연결
 
@@ -72,7 +72,7 @@ Bastion이 가상 네트워크에 배포되면 화면이 연결 페이지로 바
 
 1. 가상 머신의 사용자 이름과 암호를 입력합니다. 그런 다음, **연결**을 선택합니다.
 
-   ![연결](./media/quickstart-host-portal/connect.png)
+   ![스크린샷은 사용자 이름과 암호를 입력하라는 메시지가 표시되는 Azure Bastion을 사용하여 연결 대화 상자를 표시합니다.](./media/quickstart-host-portal/connect.png)
 1. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해).
 
    ![RDP 연결](./media/quickstart-host-portal/443-rdp.png)

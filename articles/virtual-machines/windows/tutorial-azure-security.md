@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508239"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984590"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -36,7 +36,7 @@ Security Center 대시보드에 액세스하려면 Azure Portal의 메뉴에서 
 
 Security Center는 데이터 검색 외에도 검색된 문제에 대한 권장 사항을 제공합니다. 예를 들어 연결된 네트워크 보안 그룹 없이 VM을 배포한 경우 Security Center에서 수행할 수 있는 재구성 단계와 함께 권장 사항을 표시합니다. Security Center의 컨텍스트를 벗어나지 않으면서 자동화된 재구성을 얻을 수 있습니다.  
 
-![권장 사항](./media/tutorial-azure-security/recommendations.png)
+![스크린샷은 권장 사항에 대한 설명, 리소스, 상태 및 심각도를 포함하는 권장 사항 페이지를 보여줍니다.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>데이터 수집 설정
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185401"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987641"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>자습서: PowerShell 워크플로 Runbook 만들기
 
@@ -109,17 +109,17 @@ ms.locfileid: "86185401"
 
 6. 작업 상태는 **작업 요약**에 표시됩니다. 이 상태는 Runbook을 테스트할 때 표시된 상태와 일치합니다.
 
-   ![작업 요약](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="강조 표시된 작업 요약 섹션을 보여주는 Runbook 작업 창의 스크린샷.":::
 
 7. Runbook 상태가 '완료됨'으로 표시되면 **출력**을 클릭합니다. `Hello World` 메시지가 표시되는 [출력] 페이지가 열립니다.
 
-   ![작업 요약](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="강조 표시된 작업 요약 섹션을 보여주는 Runbook 작업 창의 스크린샷.":::
 
 8. 출력 페이지를 닫습니다.
 
 9. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에는 `Hello World`만 표시됩니다. Runbook에서 [스트림] 창에 기록하는 경우 자세한 정보 및 오류 스트림과 같은 Runbook 작업에 대한 다른 스트림이 표시될 수 있습니다.
 
-   ![작업 요약](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="강조 표시된 작업 요약 섹션을 보여주는 Runbook 작업 창의 스크린샷.":::
 
 10. [스트림] 창과 [작업] 창을 닫고 MyFirstRunbook 페이지로 돌아갑니다.
 

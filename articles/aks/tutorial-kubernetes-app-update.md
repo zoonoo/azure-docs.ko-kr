@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
-ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9981f9df31f6de21262aedc9790dbf1a7725fc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77593379"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985353"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 업데이트된 컨테이너 이미지에 변경 내용이 적용되었는지 확인하고, 로컬 웹 브라우저를 `http://localhost:8080`으로 엽니다.
 
-![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="로컬 웹 브라우저 및 로컬 호스트를 사용하여 연 업데이트된 컨테이너 이미지 Azure 투표 앱의 예를 보여주는 스크린샷.":::
 
 *config_file.cfg* 파일에 제공된 업데이트된 값은 실행 중인 애플리케이션에 표시됩니다.
 
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 로컬 웹 브라우저를 서비스의 IP 주소로 엽니다.
 
-![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="로컬 웹 브라우저 및 로컬 호스트를 사용하여 연 업데이트된 컨테이너 이미지 Azure 투표 앱의 예를 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

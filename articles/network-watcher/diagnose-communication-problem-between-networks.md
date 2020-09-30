@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76834689"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987172"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 간 통신 문제 진단
 
@@ -73,12 +73,12 @@ VPN진단을 사용하려면 실행 중인 기존 VPN 게이트웨이가 있어�
 8. 이전 그림에서 테스트가 실행되는 동안 **문제 해결 상태** 열에 **실행 중**이 표시되고 **시작되지 않음**으로 나타납니다. 테스트가 실행될 때까지 몇 분 정도 걸릴 수 있습니다.
 9. 완료된 테스트의 상태를 봅니다. 다음 그림은 완료된 진단 테스트의 상태 결과를 보여줍니다.
 
-    ![상태](./media/diagnose-communication-problem-between-networks/status.png)
+    ![스크린샷은 요약 및 세부 정보를 포함한 진단 테스트의 상태 결과(이 예제에서는 비정상)를 보여줍니다.](./media/diagnose-communication-problem-between-networks/status.png)
 
     **문제 해결 상태**가 **비정상**인 것을 볼 수 있으며, **상태** 탭에서 문제의 **요약** 및 **상세 정보**를 볼 수 있습니다.
 10. **작업** 탭을 선택하면 VPN 진단에서 추가 정보를 제공합니다. 다음 그림의 예제에서는 VPN 진단을 통해 각 연결의 상태를 확인해야 한다는 것을 알 수 있습니다.
 
-    ![작업](./media/diagnose-communication-problem-between-networks/action.png)
+    ![스크린샷은 추가 정보를 제공하는 작업 탭을 보여줍니다.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>게이트웨이 연결 진단
 
@@ -86,7 +86,7 @@ VPN진단을 사용하려면 실행 중인 기존 VPN 게이트웨이가 있어�
 
 1. [게이트웨이 진단](#diagnose-a-gateway)의 7단계를 다시 완료하되, 이번에는 연결을 선택합니다. 다음 예제에서는 **VNet1toSite1**이라는 연결을 테스트합니다.
 
-    ![연결](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![스크린샷은 선택한 연결에 대한 문제 해결을 시작하는 방법을 보여줍니다.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     테스트는 몇 분 동안 실행됩니다.
 2. 연결 테스트가 완료되면 **상태** 및 **작업** 탭에 다음 그림의 결과와 비슷한 결과가 표시됩니다.

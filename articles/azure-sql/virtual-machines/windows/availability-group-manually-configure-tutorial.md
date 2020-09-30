@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
-ms.translationtype: MT
+ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360925"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>자습서: Azure Virtual Machines에서 수동으로 SQL Server 가용성 그룹 구성
 
@@ -41,13 +41,13 @@ ms.locfileid: "87286855"
 
 | 요구 사항 |Description |
 |----- |----- |----- |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**두 개의 사각형 SQL Server 인스턴스**    | - Azure 가용성 집합에 <br/> - 단일 도메인에 <br/> - 장애 조치(Failover) 클러스터링 기능(설치됨) |
-|![사각형 ](./media/availability-group-manually-configure-tutorial/square.png) **Windows Server**    | 클러스터 감시를 위한 파일 공유 |  
-|![사각형 ](./media/availability-group-manually-configure-tutorial/square.png) **SQL Server 서비스 계정**    | 도메인 계정 |
-|![사각형 ](./media/availability-group-manually-configure-tutorial/square.png) **SQL Server 에이전트 서비스 계정**    | 도메인 계정 |  
-|![사각형 ](./media/availability-group-manually-configure-tutorial/square.png) **방화벽 포트 열기**    | - SQL Server: 기본 인스턴스의 경우 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 모든 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 모든 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 모든 포트 |
-|![제곱 ](./media/availability-group-manually-configure-tutorial/square.png) **장애 조치 (Failover) 클러스터링 기능 추가**    | 두 SQL Server 인스턴스에 모두 이 기능이 필요합니다. |
-|![Square ](./media/availability-group-manually-configure-tutorial/square.png) **설치 도메인 계정**    | - 각 SQL Server의 로컬 관리자 <br/> - SQL Server의 각 인스턴스에 대해 SQL Server sysadmin 고정 서버 역할의 멤버  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **두 개의 SQL Server 인스턴스** | - Azure 가용성 집합에 <br/> - 단일 도메인에 <br/> - 장애 조치(Failover) 클러스터링 기능(설치됨) |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | 클러스터 감시를 위한 파일 공유 |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server 서비스 계정** | 도메인 계정 |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server 에이전트 서비스 계정** | 도메인 계정 |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **방화벽 포트 열기** | - SQL Server: 기본 인스턴스의 경우 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 모든 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 모든 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 모든 포트 |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **장애 조치(Failover) 클러스터링 기능 추가** | 두 SQL Server 인스턴스에 모두 이 기능이 필요합니다. |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **설치 도메인 계정** | - 각 SQL Server의 로컬 관리자 <br/> - SQL Server의 각 인스턴스에 대해 SQL Server sysadmin 고정 서버 역할의 멤버  |
 
 
 자습서를 시작하기 전에 [Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 조건을 완료](availability-group-manually-configure-prerequisites-tutorial.md)해야 합니다. 이러한 필수 구성 요소를 이미 완료한 경우 [클러스터 만들기](#CreateCluster)로 이동할 수 있습니다.
@@ -64,13 +64,13 @@ ms.locfileid: "87286855"
 
 필수 구성 요소를 완료한 후 첫 번째 단계는 두 개의 SQL Sever와 미러링 모니터 서버를 포함하는 Windows Server 장애 조치(Failover) 클러스터를 만드는 것입니다.
 
-1. 원격 데스크톱 프로토콜 (RDP)를 사용 하 여 첫 번째 SQL Server에 연결 합니다. SQL server와 미러링 모니터 서버 모두에서 관리자 인 도메인 계정을 사용 합니다.
+1. RDP(원격 데스크톱 프로토콜)를 사용하여 첫 번째 SQL Server에 연결합니다. SQL Server 및 미러링 모니터 서버 모두에서 관리자인 도메인 계정을 사용합니다.
 
    >[!TIP]
    >[필수 구성 요소 문서](availability-group-manually-configure-prerequisites-tutorial.md)에 따라 **CORP\Install**이라고 하는 계정을 만들었습니다. 이 계정을 사용합니다.
 
-2. **서버 관리자** 대시보드에서 **도구**를 선택 하 고 **장애 조치(Failover) 클러스터 관리자**를 선택 합니다.
-3. 왼쪽 창에서 **장애 조치(Failover) 클러스터 관리자**을 마우스 오른쪽 단추로 클릭 하 고 **클러스터 만들기**를 선택 합니다.
+2. **서버 관리자** 대시보드에서 **도구**를 선택한 다음, **장애 조치(Failover) 클러스터 관리자**를 선택합니다.
+3. 왼쪽 창에서 마우스 오른쪽 단추로 **장애 조치(Failover) 클러스터 관리자**를 클릭한 다음, **클러스터 만들기**를 선택합니다.
 
    ![클러스터 만들기](./media/availability-group-manually-configure-tutorial/40-createcluster.png)
 
@@ -79,8 +79,8 @@ ms.locfileid: "87286855"
    | 호출 | 설정 |
    | --- | --- |
    | 시작하기 전에 |기본값 사용 |
-   | 서버 선택 |**서버 이름 입력** 에 첫 번째 SQL Server 이름을 입력 하 고 **추가**를 선택 합니다. |
-   | 유효성 검사 경고 |**아니요 .이 클러스터에 대 한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행 하지 않습니다. 다음을 선택 하면 클러스터 만들기를 계속**합니다. |
+   | 서버 선택 |**서버 이름 입력**에서 첫 번째 SQL Server 이름을 입력하고, **추가**를 선택합니다. |
+   | 유효성 검사 경고 |**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 선택하면 클러스터 만들기를 계속합니다.** 를 선택합니다. |
    | 클러스터 관리를 위한 액세스 지점 |클러스터 이름(예: **SQLAGCluster1**)을 **클러스터 이름**에 입력합니다.|
    | 확인 |스토리지 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
 
@@ -91,32 +91,32 @@ ms.locfileid: "87286855"
 
 1. **장애 조치(Failover) 클러스터 관리자**에서 **클러스터 코어 리소스**로 아래로 스크롤하여 클러스터 세부 정보를 확장합니다. **이름** 및 **IP 주소** 리소스가 **실패** 상태에 모두 표시됩니다. 클러스터에 컴퓨터 자체와 동일한 IP 주소가 할당되어 주소가 중복되므로 IP 주소 리소스는 온라인 상태로 전환할 수 없습니다.
 
-2. 오류가 발생 한 **IP 주소** 리소스를 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 선택 합니다.
+2. 마우스 오른쪽 단추로 실패한 **IP 주소** 리소스를 클릭한 다음, **속성**을 선택합니다.
 
    ![클러스터 속성](./media/availability-group-manually-configure-tutorial/42_IPProperties.png)
 
 3. **고정 IP 주소**를 선택하고 가상 머신과 동일한 서브넷에서 사용 가능한 주소를 지정합니다.
 
-4. **클러스터 코어 리소스** 섹션에서 클러스터 이름을 마우스 오른쪽 단추로 클릭 하 고 **온라인 상태로 만들기**를 선택 합니다. 두 리소스가 모두 온라인 상태로 전환될 때까지 기다립니다. 클러스터 이름 리소스가 온라인 상태가 되 면 새 AD (Active Directory) 컴퓨터 계정으로 DC (도메인 컨트롤러) 서버를 업데이트 합니다. 이 AD 계정을 사용하여 나중에 가용성 그룹 클러스터형 서비스를 실행합니다.
+4. **클러스터 코어 리소스** 섹션에서 마우스 오른쪽 단추로 클러스터 이름을 클릭하고, **온라인 상태로 전환**을 선택합니다. 두 리소스가 모두 온라인 상태로 전환될 때까지 기다립니다. 클러스터 이름 리소스가 온라인 상태가 되면 새 AD(Active Directory) 컴퓨터 계정을 사용하여 DC(도메인 컨트롤러) 서버를 업데이트합니다. 이 AD 계정을 사용하여 나중에 가용성 그룹 클러스터형 서비스를 실행합니다.
 
 ### <a name="add-the-other-sql-server-to-cluster"></a><a name="addNode"></a>다른 SQL Server를 클러스터에 추가
 
 다른 SQL Server를 클러스터에 추가합니다.
 
-1. 브라우저 트리에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **노드 추가**를 선택 합니다.
+1. 브라우저 트리에서 마우스 오른쪽 단추로 클러스터를 클릭하고, **노드 추가**를 선택합니다.
 
     ![클러스터에 노드 추가](./media/availability-group-manually-configure-tutorial/44-addnode.png)
 
-1. **노드 추가 마법사**에서 **다음**을 선택 합니다. **서버 선택** 페이지에서 두 번째 SQL Server를 추가합니다. **서버 이름 입력** 에 서버 이름을 입력 하 고 **추가**를 선택 합니다. 완료 되 면 **다음**을 선택 합니다.
+1. **노드 추가 마법사**에서 **다음**을 선택합니다. **서버 선택** 페이지에서 두 번째 SQL Server를 추가합니다. **서버 이름 입력**에서 서버 이름을 입력한 다음, **추가**를 선택합니다. 완료되면 **다음**을 선택합니다.
 
-1. **유효성 검사 경고** 페이지에서 **아니요** 를 선택 합니다. 프로덕션 시나리오에서는 유효성 검사 테스트를 수행 해야 합니다. 그다음에 **다음**을 선택합니다.
+1. **유효성 검사 경고** 페이지에서 **아니요**(유효성 검사 테스트를 수행할 프로덕션 시나리오에서)를 선택합니다. 그다음에 **다음**을 선택합니다.
 
 8. 스토리지 공간을 사용 중인 경우 **확인** 페이지에서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소합니다.
 
    ![노드 확인 추가](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >만약 스토리지 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 따라서 저장소 공간이 클러스터에서 제거 되 고 PowerShell을 사용 하 여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시 되지 않습니다. 스토리지 공간은 여러 디스크를 스토리지 풀로 그룹화합니다. 자세한 내용은 [스토리지 공간](https://technet.microsoft.com/library/hh831739)을 참조하세요.
+   >만약 스토리지 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 결과적으로 클러스터에서 스토리지 공간이 제거되고 PowerShell을 사용하여 다시 연결될 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다. 스토리지 공간은 여러 디스크를 스토리지 풀로 그룹화합니다. 자세한 내용은 [스토리지 공간](https://technet.microsoft.com/library/hh831739)을 참조하세요.
    >
 
 1. **다음**을 선택합니다.
@@ -133,23 +133,23 @@ ms.locfileid: "87286855"
 
 1. 원격 데스크톱 세션으로 파일 공유 미러링 모니터 구성원 서버에 연결합니다.
 
-1. **서버 관리자**에서 **도구**를 선택 합니다. **컴퓨터 관리**를 엽니다.
+1. **서버 관리자**에서 **도구**를 선택합니다. **컴퓨터 관리**를 엽니다.
 
-1. **공유 폴더**를 선택 합니다.
+1. **공유 폴더**를 선택합니다.
 
-1. **공유**를 마우스 오른쪽 단추로 클릭 하 고 **새 공유 ...** 를 선택 합니다.
+1. 마우스 오른쪽 단추로 **공유**를 클릭하고, **새 공유...** 를 선택합니다.
 
    ![새 공유](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    **공유 폴더 만들기 마법사**를 사용하여 공유를 만듭니다.
 
-1. **폴더 경로**에서 **찾아보기** 를 선택 하 고 공유 폴더에 대 한 경로를 찾거나 만듭니다. **다음**을 선택합니다.
+1. **폴더 경로**에서 **찾아보기**를 선택하고, 공유 폴더에 대한 경로를 찾거나 만듭니다. **다음**을 선택합니다.
 
 1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 선택합니다.
 
-1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정**...을 선택 합니다.
+1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정...** 을 선택합니다.
 
-1. **권한 사용자 지정**에서 **추가 ...** 를 선택 합니다.
+1. **사용 권한 사용자 지정**에서 **추가...** 를 선택합니다.
 
 1. 클러스터를 만드는 데 사용되는 계정에 모든 권한이 있는지 확인합니다.
 
@@ -157,7 +157,7 @@ ms.locfileid: "87286855"
 
 1. **확인**을 선택합니다.
 
-1. **공유 폴더 사용 권한**에서 **마침**을 선택 합니다. 다시 **마침**을 선택합니다.  
+1. **공유 폴더 사용 권한**에서 **마침**을 선택합니다. 다시 **마침**을 선택합니다.  
 
 1. 서버에서 로그아웃합니다.
 
@@ -167,15 +167,15 @@ ms.locfileid: "87286855"
 
 1. 원격 데스크톱을 사용하여 첫 번째 클러스터 노드에 연결합니다.
 
-1. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **기타 작업**을 가리킨 다음 **클러스터 쿼럼 설정 구성**...을 선택 합니다.
+1. **장애 조치(Failover) 클러스터 관리자**에서 마우스 오른쪽 단추로 클러스터를 클릭하고, **기타 작업**을 가리킨 다음, **클러스터 쿼럼 설정 구성...** 을 선택합니다.
 
    ![새 공유](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
 
-1. **클러스터 쿼럼 구성 마법사**에서 **다음**을 선택 합니다.
+1. **클러스터 쿼럼 구성 마법사**에서 **다음**을 선택합니다.
 
-1. **쿼럼 구성 옵션 선택**에서 **쿼럼 감시 선택**을 선택 하 고 **다음**을 선택 합니다.
+1. **쿼럼 구성 옵션 선택**에서 **쿼럼 감시 선택**을 선택하고, **다음**을 선택합니다.
 
-1. **쿼럼 감시 선택**에서 **파일 공유 감시 구성**을 선택 합니다.
+1. **쿼럼 감시 선택**에서 **파일 공유 감시 구성**을 선택합니다.
 
    >[!TIP]
    >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
@@ -194,12 +194,12 @@ ms.locfileid: "87286855"
 다음으로 **AlwaysOn 가용성 그룹** 기능을 사용하도록 설정합니다. 두 SQL Server에서 다음 단계를 수행합니다.
 
 1. **시작** 화면에서 **SQL Server 구성 관리자**를 시작합니다.
-2. 브라우저 트리에서 **SQL Server 서비스**를 선택한 다음 **SQL Server (MSSQLSERVER)** 서비스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
-3. **AlwaysOn 고가용성** 탭을 선택 하 고 다음과 같이 **AlwaysOn 가용성 그룹 사용**을 선택 합니다.
+2. 브라우저 트리에서 **SQL Server 서비스**를 선택하고, 마우스 오른쪽 단추로 **SQL Server(MSSQLSERVER)** 서비스를 클릭한 다음, **속성**을 선택합니다.
+3. **AlwaysOn 고가용성** 탭을 선택한 다음, 다음과 같이 **AlwaysOn 가용성 그룹 사용**을 선택합니다.
 
     ![AlwaysOn 가용성 그룹 사용](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
 
-4. **적용**을 선택합니다. 팝업 대화 상자에서 **확인을** 선택 합니다.
+4. **적용**을 선택합니다. 팝업 대화 상자에서 **확인**을 선택합니다.
 
 5. SQL Server 서비스를 다시 시작합니다.
 
@@ -231,28 +231,28 @@ Repeat these steps on the second SQL Server.
 
 1. Sysadmin 고정 서버 역할의 구성원인 도메인 계정을 사용하여 첫 번째 SQL Server에 RDP 파일을 시작합니다.
 1. SQL Server Management Studio를 열고 첫 번째 SQL Server에 연결합니다.
-7. **개체 탐색기**에서 **데이터베이스** 를 마우스 오른쪽 단추로 클릭 하 고 **새 데이터베이스**를 선택 합니다.
-8. **데이터베이스 이름**에 **MyDB1**를 입력 한 다음 **확인**을 선택 합니다.
+7. **개체 탐색기**에서 마우스 오른쪽 단추로 **데이터베이스**를 클릭하고, **새 데이터베이스**를 선택합니다.
+8. **데이터베이스 이름**에서 **MyDB1**을 입력한 다음, **확인**을 선택합니다.
 
 ### <a name="create-a-backup-share"></a><a name="backupshare"></a> 백업 공유 만들기
 
-1. **서버 관리자**의 첫 번째 SQL Server에서 **도구**를 선택 합니다. **컴퓨터 관리**를 엽니다.
+1. **서버 관리자**의 첫 번째 SQL Server에서 **도구**를 선택합니다. **컴퓨터 관리**를 엽니다.
 
-1. **공유 폴더**를 선택 합니다.
+1. **공유 폴더**를 선택합니다.
 
-1. **공유**를 마우스 오른쪽 단추로 클릭 하 고 **새 공유 ...** 를 선택 합니다.
+1. 마우스 오른쪽 단추로 **공유**를 클릭하고, **새 공유...** 를 선택합니다.
 
    ![새 공유](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    **공유 폴더 만들기 마법사**를 사용하여 공유를 만듭니다.
 
-1. **폴더 경로**에서 **찾아보기** 를 선택 하 고 데이터베이스 백업 공유 폴더의 경로를 찾거나 만듭니다. **다음**을 선택합니다.
+1. **폴더 경로**에서 **찾아보기**를 선택하고, 데이터베이스 백업 공유 폴더에 대한 경로를 찾거나 만듭니다. **다음**을 선택합니다.
 
 1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 선택합니다.
 
-1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정**...을 선택 합니다.
+1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정...** 을 선택합니다.
 
-1. **권한 사용자 지정**에서 **추가 ...** 를 선택 합니다.
+1. **사용 권한 사용자 지정**에서 **추가...** 를 선택합니다.
 
 1. 두 서버 모두에 대한 SQL Server 및 SQL Server 에이전트 서비스 계정에 모든 권한이 있는지 확인합니다.
 
@@ -260,15 +260,15 @@ Repeat these steps on the second SQL Server.
 
 1. **확인**을 선택합니다.
 
-1. **공유 폴더 사용 권한**에서 **마침**을 선택 합니다. 다시 **마침**을 선택합니다.  
+1. **공유 폴더 사용 권한**에서 **마침**을 선택합니다. 다시 **마침**을 선택합니다.  
 
 ### <a name="take-a-full-backup-of-the-database"></a>데이터베이스의 전체 백업 수행
 
 새 데이터베이스를 백업하여 로그 체인을 초기화해야 합니다. 새 데이터베이스의 백업을 수행하지 않으면 가용성 그룹에 포함할 수 없습니다.
 
-1. **개체 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **작업 ...** 을 가리킨 다음 **백업**을 선택 합니다.
+1. **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고, **작업...** 을 가리킨 다음 **백업**을 선택합니다.
 
-1. **확인** 을 선택 하 여 기본 백업 위치에 대 한 전체 백업을 수행 합니다.
+1. **확인**을 선택하여 기본 백업 위치로 전체 백업을 수행합니다.
 
 ## <a name="create-the-availability-group"></a>가용성 그룹 만들기
 
@@ -276,20 +276,20 @@ Repeat these steps on the second SQL Server.
 
 * 첫 번째 SQL Server에서 데이터베이스를 만듭니다.
 * 데이터베이스의 전체 백업 및 트랜잭션 로그 백업을 수행합니다.
-* **NORECOVERY** 옵션을 사용 하 여 전체 및 로그 백업을 두 번째 SQL Server에 복원 합니다.
-* 동기 커밋, 자동 장애 조치 (failover) 및 읽을 수 있는 보조 복제본을 사용 하 여 가용성 그룹 (**AG1**)을 만듭니다.
+* **NORECOVERY** 옵션을 사용하여 전체 및 로그 백업을 두 번째 SQL Server로 복원합니다.
+* 동기 커밋, 자동 장애 조치 및 읽을 수 있는 보조 복제본을 사용하여 가용성 그룹(**AG1**)을 만듭니다.
 
 ### <a name="create-the-availability-group"></a>가용성 그룹 만들기:
 
-1. 첫 번째 SQL Server에 원격 데스크톱 세션을 엽니다. SSMS의 **개체 탐색기** 에서 **AlwaysOn 고가용성** 을 마우스 오른쪽 단추로 클릭 하 고 **새 가용성 그룹 마법사**를 선택 합니다.
+1. 첫 번째 SQL Server에 원격 데스크톱 세션을 엽니다. SSMS의 **개체 탐색기**에서 마우스 오른쪽 단추로 **AlwaysOn 고가용성**을 클릭하고, **새 가용성 그룹 마법사**를 선택합니다.
 
     ![새 가용성 그룹 마법사 시작](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. **소개** 페이지에서 **다음**을 선택 합니다. 가용성 그룹 **이름 지정** 페이지에서 가용성 **그룹 이름**에 가용성 그룹의 이름을 입력 합니다. 예: **AG1**. **다음**을 선택합니다.
+2. **소개** 페이지에서 **다음**을 선택합니다. **가용성 그룹 이름 지정** 페이지의 **가용성 그룹 이름**에서 가용성 그룹 이름을 입력합니다. 예를 들어 **AG1**입니다. **다음**을 선택합니다.
 
     ![새 가용성 그룹 마법사, 가용성 그룹 이름 지정](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 
-3. 데이터베이스 **선택** 페이지에서 데이터베이스를 선택 하 고 **다음**을 선택 합니다.
+3. **데이터베이스 선택** 페이지에서 데이터베이스를 선택한 다음, **다음**을 선택합니다.
 
    >[!NOTE]
    >원하는 주 복제본에서 전체 백업을 하나 이상 생성했으므로, 이러한 데이터베이스는 가용성 그룹의 필수 구성 요소를 충족합니다.
@@ -297,7 +297,7 @@ Repeat these steps on the second SQL Server.
 
    ![새 가용성 그룹 마법사, 데이터베이스 선택](./media/availability-group-manually-configure-tutorial/60-newagselectdatabase.png)
 
-4. **복제본 지정** 페이지에서 **복제본 추가**를 선택 합니다.
+4. **복제본 지정** 페이지에서 **복제본 추가**를 선택합니다.
 
    ![새 가용성 그룹 마법사, 복제본 지정](./media/availability-group-manually-configure-tutorial/62-newagaddreplica.png)
 
@@ -305,13 +305,13 @@ Repeat these steps on the second SQL Server.
 
    **복제본 지정** 페이지로 돌아가면 이제 **가용성 복제본**에 두 번째 서버가 표시됩니다. 아래와 같이 복제본을 구성합니다.
 
-   ![새 가용성 그룹 마법사, 복제본 지정 (전체)](./media/availability-group-manually-configure-tutorial/64-newagreplica.png)
+   ![새 가용성 그룹 마법사, 복제본 지정(전체)](./media/availability-group-manually-configure-tutorial/64-newagreplica.png)
 
-6. **끝점** 을 선택 하 여이 가용성 그룹에 대 한 데이터베이스 미러링 끝점을 확인 합니다. [데이터베이스 미러링 엔드포인트에 대한 방화벽 규칙](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall)을 설정할 때 사용한 것과 동일한 포트를 사용합니다.
+6. **엔드포인트**를 선택하여 이 가용성 그룹에 대한 데이터베이스 미러링 엔드포인트를 확인합니다. [데이터베이스 미러링 엔드포인트에 대한 방화벽 규칙](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall)을 설정할 때 사용한 것과 동일한 포트를 사용합니다.
 
     ![새 가용성 그룹 마법사, 초기 데이터 동기화 선택](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 ** \\ \\ 먼저 SQL Server \> \\ \backup을<** 합니다. **다음**을 선택합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 이 예에서는 **\\\\<First SQL Server\>\Backup\\** 이었습니다. **다음**을 선택합니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.
@@ -319,14 +319,14 @@ Repeat these steps on the second SQL Server.
 
    ![새 가용성 그룹 마법사, 초기 데이터 동기화 선택](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
 
-9. **유효성 검사** 페이지에서 **다음**을 선택 합니다. 이 페이지는 다음 이미지와 유사하게 나타납니다.
+9. **유효성 검사** 페이지에서 **다음**을 선택합니다. 이 페이지는 다음 이미지와 유사하게 나타납니다.
 
     ![새 가용성 그룹 마법사, 유효성 검사](./media/availability-group-manually-configure-tutorial/72-validation.png)
 
     >[!NOTE]
     >가용성 그룹 수신기가 구성되어 있지 않으므로 수신기 구성에 대한 경고가 표시됩니다. Azure Virtual Machines에서 Azure Load Balancer를 만든 후 수신기를 만들기 때문에 이 경고는 무시할 수 있습니다.
 
-10. **요약** 페이지에서 **마침**을 선택한 다음 마법사에서 새 가용성 그룹을 구성 하는 동안 기다립니다. **진행률** 페이지에서 **자세한 내용** 을 선택 하 여 자세한 진행률을 볼 수 있습니다. 마법사가 완료되면 **결과** 페이지를 검토하여 가용성 그룹이 올바르게 만들어졌는지 확인합니다.
+10. **요약** 페이지에서 **마침**을 선택한 다음, 마법사에서 새 가용성 그룹을 구성하는 동안 기다립니다. **진행률** 페이지에서 **자세한 내용**을 선택하여 자세한 진행 상황을 확인할 수 있습니다. 마법사가 완료되면 **결과** 페이지를 검토하여 가용성 그룹이 올바르게 만들어졌는지 확인합니다.
 
      ![새 가용성 그룹 마법사, 결과](./media/availability-group-manually-configure-tutorial/74-results.png)
 
@@ -334,17 +334,17 @@ Repeat these steps on the second SQL Server.
 
 ### <a name="check-the-availability-group"></a>가용성 그룹 확인
 
-1. **개체 탐색기**에서 **AlwaysOn 고가용성**을 확장 하 고 **가용성 그룹**을 확장 합니다. 이 컨테이너에 새 가용성 그룹이 표시됩니다. 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **대시보드 표시**를 선택 합니다.
+1. **개체 탐색기**에서 **AlwaysOn 고가용성**, **가용성 그룹**을 차례로 펼칩니다. 이 컨테이너에 새 가용성 그룹이 표시됩니다. 마우스 오른쪽 단추로 가용성 그룹을 클릭하고, **대시보드 표시**를 선택합니다.
 
    ![가용성 그룹 대시보드 표시](./media/availability-group-manually-configure-tutorial/76-showdashboard.png)
 
-   **AlwaysOn 대시보드** 는 다음 스크린샷 처럼 표시 됩니다.
+   **AlwaysOn 대시보드**는 다음 스크린샷과 비슷합니다.
 
    ![가용성 그룹 대시보드](./media/availability-group-manually-configure-tutorial/78-agdashboard.png)
 
    복제본, 각 복제본의 장애 조치(failover) 모드 및 동기화 상태를 볼 수 있습니다.
 
-2. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 선택 합니다. **역할**을 선택합니다. 사용하는 가용성 그룹 이름은 클러스터에서 역할입니다. 수신기를 구성 하지 않았으므로 해당 가용성 그룹에 클라이언트 연결에 대 한 IP 주소가 없습니다. Azure Load Balancer를 만든 후에 수신기를 구성하게 됩니다.
+2. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 선택합니다. **역할**을 선택합니다. 사용하는 가용성 그룹 이름은 클러스터에서 역할입니다. 수신기를 구성하지 않았으므로 해당 가용성 그룹에는 클라이언트 연결에 대한 IP 주소가 없습니다. Azure Load Balancer를 만든 후에 수신기를 구성하게 됩니다.
 
    ![장애 조치(Failover) 클러스터 관리자의 가용성 그룹](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
@@ -360,9 +360,9 @@ Repeat these steps on the second SQL Server.
 
 Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기 및 Windows Server 장애 조치(failover) 클러스터의 IP 주소를 보유합니다. 이 섹션에서는 Azure Portal에서 부하 분산 장치를 만드는 방법을 요약합니다.
 
-Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balancer 일 수 있습니다. 표준 Load Balancer는 기본 Load Balancer 보다 더 많은 기능을 제공합니다. 가용성 그룹의 경우 가용성 집합 대신 가용성 영역을 사용하는 경우 표준 Load Balancer가 필요합니다. 부하 분산 장치 SKU 간의 차이점에 대한 자세한 내용은 [부하 분산 장치 SKU 비교](../../../load-balancer/skus.md)를 참조하세요.
+Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balancer일 수 있습니다. 표준 Load Balancer는 기본 Load Balancer 보다 더 많은 기능을 제공합니다. 가용성 그룹의 경우 가용성 집합 대신 가용성 영역을 사용하는 경우 표준 Load Balancer가 필요합니다. 부하 분산 장치 SKU 간의 차이점에 대한 자세한 내용은 [부하 분산 장치 SKU 비교](../../../load-balancer/skus.md)를 참조하세요.
 
-1. Azure Portal에서 SQL Server가 있는 리소스 그룹으로 이동 하 고 **+ 추가**를 선택 합니다.
+1. Azure Portal에서 SQL Server가 있는 리소스 그룹으로 이동하여 **+ 추가**를 선택합니다.
 1. **부하 분산 장치**를 검색합니다. Microsoft에서 게시한 부하 분산 장치를 선택합니다.
 
    ![장애 조치(Failover) 클러스터 관리자의 가용성 그룹](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
@@ -372,7 +372,7 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
    | 설정 | 필드 |
    | --- | --- |
-   | **Name** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
+   | **이름** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
    | **형식** |내부 |
    | **가상 네트워크** |Azure Virtual Network의 이름을 사용합니다. |
    | **서브넷** |가상 컴퓨터가 있는 서브넷 이름을 사용합니다.  |
@@ -385,17 +385,17 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
    ![부하 분산 장치 만들기](./media/availability-group-manually-configure-tutorial/84-createloadbalancer.png)
 
-1. **만들기**를 선택 하 여 부하 분산 장치를 만듭니다.
+1. **만들기**를 선택하여 부하 분산 장치를 만듭니다.
 
 부하 분산 장치를 구성하려면 백 엔드 풀, 프로브를 만들고 부하 분산 규칙을 설정해야 합니다. Azure Portal에서 이러한 작업을 수행할 수 있습니다.
 
-### <a name="add-a-backend-pool-for-the-availability-group-listener"></a>가용성 그룹 수신기에 대 한 백 엔드 풀 추가
+### <a name="add-a-backend-pool-for-the-availability-group-listener"></a>가용성 그룹 수신기에 대한 백 엔드 풀 추가
 
 1. Azure Portal에서 가용성 그룹으로 이동합니다. 새로 만든 부하 분산 장치를 보려면 보기를 새로 고쳐야 할 수도 있습니다.
 
    ![리소스 그룹의 부하 분산 장치 찾기](./media/availability-group-manually-configure-tutorial/86-findloadbalancer.png)
 
-1. 부하 분산 장치를 선택 하 고 **백 엔드 풀**을 선택한 다음 **+ 추가**를 선택 합니다.
+1. 부하 분산 장치를 선택하고, **백 엔드 풀**, **+ 추가**를 차례로 선택합니다.
 
 1. 백 엔드 풀의 이름을 입력합니다.
 
@@ -410,11 +410,11 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
 ### <a name="set-the-probe"></a>프로브 설정
 
-1. 부하 분산 장치를 선택 하 고 **상태 프로브**를 선택한 다음 **+ 추가**를 선택 합니다.
+1. 부하 분산 장치를 선택하고, **상태 프로브**, **+ 추가**를 차례로 선택합니다.
 
 1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -422,15 +422,15 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
    | **간격**  | 프로브 시도 간격(초) |5 |
    | **비정상 임계값** | 가상 머신이 비정상 상태로 간주되기 위한 연속된 프로브 실패 횟수  | 2 |
 
-1. **확인** 을 선택 하 여 상태 프로브를 설정 합니다.
+1. **확인**을 선택하여 상태 프로브를 설정합니다.
 
 ### <a name="set-the-load-balancing-rules"></a>부하 분산 규칙 설정
 
-1. 부하 분산 장치를 선택 하 고 **부하 분산 규칙**을 선택한 다음 **+ 추가**를 선택 합니다.
+1. 부하 분산 장치를 선택하고, **부하 분산 규칙**, **+ 추가**를 차례로 선택합니다.
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
@@ -446,19 +446,19 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
    > 직접 서버 반환은 만드는 동안 설정됩니다. 이는 변경할 수 없습니다.
    >
 
-1. **확인** 을 선택 하 여 수신기 부하 분산 규칙을 설정 합니다.
+1. **확인**을 선택하여 수신기 부하 분산 규칙을 설정합니다.
 
 ### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>WSFC(Windows Server 장애 조치 클러스터)에 대한 클러스터 코어 IP 주소 추가
 
 WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
-1. Azure Portal에서 동일한 Azure 부하 분산 장치로 이동 합니다. **프런트 엔드 IP 구성** 을 선택 하 고 **+ 추가**를 선택 합니다. 클러스터 코어 리소스에서 WSFC에 대해 구성한 IP 주소를 사용합니다. IP 주소를 고정으로 설정합니다.
+1. Azure Portal에서 동일한 Azure 부하 분산 장치로 이동합니다. **프런트 엔드 IP 구성**, **+ 추가**를 차례로 선택합니다. 클러스터 코어 리소스에서 WSFC에 대해 구성한 IP 주소를 사용합니다. IP 주소를 고정으로 설정합니다.
 
-1. 부하 분산 장치에서 **상태 프로브**를 선택 하 고 **+ 추가**를 선택 합니다.
+1. 부하 분산 장치에서 **상태 프로브**, **+ 추가**를 차례로 선택합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -466,13 +466,13 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
    | **간격**  | 프로브 시도 간격(초) |5 |
    | **비정상 임계값** | 가상 머신이 비정상 상태로 간주되기 위한 연속된 프로브 실패 횟수  | 2 |
 
-1. **확인** 을 선택 하 여 상태 프로브를 설정 합니다.
+1. **확인**을 선택하여 상태 프로브를 설정합니다.
 
-1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙**을 선택 하 고 **+ 추가**를 선택 합니다.
+1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙**, **+ 추가**를 차례로 선택합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |
@@ -488,14 +488,14 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
    > 직접 서버 반환은 만드는 동안 설정됩니다. 이는 변경할 수 없습니다.
    >
 
-1. **확인** 을 선택 하 여 부하 분산 규칙을 설정 합니다.
+1. **확인**을 선택하여 부하 분산 규칙을 설정합니다.
 
 ## <a name="configure-the-listener"></a><a name="configure-listener"></a> 수신기 구성
 
 다음에 수행할 작업은 장애 조치(failover) 클러스터에서 가용성 그룹 수신기를 구성하는 것입니다.
 
 > [!NOTE]
-> 이 자습서에서는 ILB IP 주소 하나를 사용 하 여 단일 수신기를 만드는 방법을 보여 줍니다. 하나 이상의 IP 주소를 사용하여 하나 이상의 수신기를 만들려면 [가용성 그룹 수신기 및 부하 분산 장치 만들기 | Azure](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> 이 자습서에서는 하나의 ILB IP 주소를 사용하여 단일 수신기를 만드는 방법을 보여 줍니다. 하나 이상의 IP 주소를 사용하여 하나 이상의 수신기를 만들려면 [가용성 그룹 수신기 및 부하 분산 장치 만들기 | Azure](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 >
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
@@ -508,7 +508,7 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 
 1. **AlwaysOn 고가용성** > **가용성 그룹** > **가용성 그룹 수신기**로 이동합니다.
 
-1. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 수신기 이름을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
+1. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 마우스 오른쪽 단추로 수신기 이름을 클릭하고, **속성**을 선택합니다.
 
 1. **포트** 상자에 가용성 그룹 수신기의 포트 번호를 지정합니다. 기본값은 1433입니다. **확인**을 선택합니다.
 
@@ -518,15 +518,15 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 
 연결을 테스트하려면
 
-1. RDP를 사용 하 여 동일한 가상 네트워크에 있지만 복제본을 소유 하지 않는 SQL Server에 연결 합니다. 클러스터의 다른 SQL Server를 사용할 수 있습니다.
+1. RDP를 사용하여 동일한 가상 네트워크에 있지만 복제본을 소유하지 않는 SQL Server에 연결합니다. 클러스터의 다른 SQL Server를 사용할 수 있습니다.
 
-1. **Sqlcmd** 유틸리티를 사용 하 여 연결을 테스트 합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
+1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
 
    ```cmd
    sqlcmd -S <listenerName> -E
    ```
 
-   수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 `sqlcmd` 명령은 포트 1435의 수신기에 연결 합니다.
+   수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 `sqlcmd` 명령은 1435 포트에서 수신기에 연결합니다.
 
    ```cmd
    sqlcmd -S <listenerName>,1435 -E

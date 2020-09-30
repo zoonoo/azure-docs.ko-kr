@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79082815"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090094"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>자습서: Azure Monitor에서 메트릭 차트 만들기
 메트릭 탐색기는 메트릭 값으로 차트를 만들고, 추세를 시각적으로 상호 연결하고, 메트릭 값의 급증 및 급락을 조사할 수 있는 Azure Portal의 Azure Monitor 기능입니다. 메트릭 탐색기를 사용하여 Azure 리소스의 상태 및 사용률을 조사하거나 사용자 지정 메트릭에서 차트를 그릴 수 있습니다. 
@@ -52,7 +52,7 @@ Azure Monitor 메뉴 또는 Azure Portal의 리소스 메뉴에서 메트릭 탐
 
 4. 필요에 따라 메트릭 **집계**를 변경합니다. 집계는 그래프의 시간 세분성에서 메트릭 값을 집계하는 방법을 정의합니다. 예를 들어 시간 세분성을 15분으로 설정하고 집계를 합계로 설정하면 그래프의 각 지점은 각각의 15분 세그먼트 동안 수집된 모든 값의 합계가 됩니다.
 
-    ![차트](media/tutorial-metrics-explorer/chart.png)
+    ![스크린샷은 contosoretailweb에 대한 Sum Ingress라는 제목의 차트를 표시합니다.](media/tutorial-metrics-explorer/chart.png)
 
 5. 동일한 차트에 여러 메트릭을 표시하려면 **메트릭 추가** 단추를 사용하여 이 단계를 반복합니다. 한 보기에서 여러 차트를 보려면 **새 차트** 단추를 선택합니다.
 

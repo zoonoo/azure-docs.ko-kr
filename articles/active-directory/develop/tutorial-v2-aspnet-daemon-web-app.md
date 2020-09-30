@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641112"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982847"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 앱은 Microsoft 비즈니스 고객을 위한 다중 테넌트 앱이므로 고객이 애플리케이션을 회사 데이터에 "가입"하거나 "연결"할 수 있는 방법을 제공해야 합니다. 연결 흐름 중에 회사 관리자는 먼저 로그인한 사용자가 없어도 비대화형 방식으로 회사 데이터에 액세스할 수 있도록 *애플리케이션 권한*을 앱에 직접 부여합니다. 이 샘플의 논리 대부분에서는 ID 플랫폼의 [관리자 동의](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) 엔드포인트를 사용하여 이 연결 흐름을 수행하는 방법을 보여 줍니다.
 
-![토폴로지](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![다이어그램은 Azure에 연결되는 세 개의 로컬 항목이 있는 UserSync 앱을 보여줍니다. Start dot Auth는 대화형으로 토큰을 획득하여 Azure AD에 연결하고, AccountController는 Azure AD에 연결하기 위한 관리자 동의를 가져오고, SyncController는 사용자를 읽어 Microsoft Graph에 연결합니다.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 이 샘플에 사용되는 개념에 대한 자세한 내용은 [ID 플랫폼 엔드포인트의 클라이언트 자격 증명 프로토콜 설명서](v2-oauth2-client-creds-grant-flow.md)를 참조하세요.
 

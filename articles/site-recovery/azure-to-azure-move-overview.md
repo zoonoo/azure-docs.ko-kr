@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 61d596c4b3a65c54e1a70682adad5b7328c384f8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130627"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007369"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
@@ -26,9 +26,21 @@ ms.locfileid: "86130627"
 - 한 지역에 이미 배포한 상태에서 애플리케이션 또는 서비스의 최종 사용자에게 더 가까운 새 지역 지원이 추가되었습니다. 이 시나리오에서는 VM을 새 지역에 그대로 옮겨서 대기 시간을 줄이는 것이 좋습니다. 구독을 통합하려는 경우 또는 이동을 요구하는 거버넌스 또는 조직 규칙이 있는 경우에도 동일한 방식을 사용합니다.
 - VM이 단일 인스턴스 VM으로 배포되거나 가용성 집합의 일부로 배포되었습니다. 가용성 SLA를 높이려면 VM을 가용성 영역으로 옮기면 됩니다.
 
-## <a name="steps-to-move-azure-vms"></a>Azure VM을 이동하는 단계
+## <a name="move-vms-with-resource-mover"></a>Resource Mover를 사용하여 VM 이동
 
-VM을 이동하려면 다음 단계를 수행해야 합니다.
+이제 [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md)를 사용하여 VM을 다른 지역으로 이동할 수 있습니다. Azure Resource Mover는 현재 공개 미리 보기로 제공되며 다음을 제공합니다.
+- 지역 간에 리소스를 이동하기 위한 단일 허브입니다.
+- 이동 시간과 복잡성이 줄어듭니다. 필요한 모든 항목은 단일 위치에 있습니다.
+- 다양한 유형의 Azure 리소스를 이동할 수 있는 간단하고 일관된 환경을 제공합니다.
+- 이동하려는 리소스 간의 종속성을 쉽게 식별할 수 있는 방법입니다. 이를 통해 관련 리소스를 함께 이동함으로써 이동 후 대상 지역에서 모든 것이 예상대로 작동하도록 할 수 있습니다.
+- 이동 후 리소스를 삭제하려는 경우 원본 지역의 리소스를 자동으로 정리합니다.
+- 테스트 이동을 시도한 다음, 전체 이동을 수행하지 않으려면 취소할 수 있습니다.
+
+
+
+## <a name="move-vms-with-site-recovery"></a>Site Recovery를 사용하여 VM 이동
+
+Site Recovery를 사용하여 VM을 이동하려면 다음 단계를 수행합니다.
 
 1. 필수 조건을 확인합니다.
 2. 원본 VM을 준비합니다.
@@ -49,7 +61,7 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
 * **다양한 계층에 배포되는 단일 인스턴스 VM**: 계층의 각 VM은 단일 인스턴스 VM으로 구성되고, 부하 분산 장치를 통해 다른 계층과 연결됩니다. 이 구성은 채택하기 가장 간단합니다.
 
-     ![여러 계층에 단일 인스턴스 VM 배포](media/move-vm-overview/regular-deployment.png)
+     ![단일 인스턴스 VM 배포를 계층 간에 이동하기 위한 선택](media/move-vm-overview/regular-deployment.png)
 
 * **가용성 집합에 배포되는 각 계층의 VM**: 계층의 각 VM은 가용성 집합으로 구성됩니다. [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)을 사용하면 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어에 장애가 발생해도 VM의 하위 세트만 영향을 받고 전반적인 솔루션은 사용 가능한 작동 상태를 유지할 수 있습니다.
 
@@ -64,16 +76,8 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 앞서 언급한 [아키텍처](#typical-architectures-for-a-multi-tier-deployment)를 기반으로, 있는 그대로 대상 지역에 이동한 후 배포의 모양은 다음과 같습니다.
 
 * **다양한 계층에 배포되는 단일 인스턴스 VM**
-
-     ![여러 계층에 단일 인스턴스 VM 배포](media/move-vm-overview/single-zone.png)
-
 * **가용성 집합에 배포되는 각 계층의 VM**
-
-     ![지역 간 가용성 집합](media/move-vm-overview/crossregionaset.png)
-
 * **가용성 영역 전반에 배포되는 각 계층의 VM**
-
-     ![가용성 영역 전반에 VM 배포](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>VM을 이동하여 가용성 향상
 

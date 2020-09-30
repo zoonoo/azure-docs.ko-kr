@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 994d427fb91f04ea0d2002a2c95e12366f4c6420
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553568"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658936"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>자습서: Prezi와 Azure Active Directory Single Sign-On 통합
 
@@ -42,6 +42,9 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 * Prezi는 SP 및 IDP 시작 SSO를 지원합니다.
 * Prezi는 Just-In-Time 사용자 프로비저닝을 지원합니다.
 * Prezi가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)를 참조하세요.
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="add-prezi-from-the-gallery"></a>갤러리에서 Prezi 추가
 

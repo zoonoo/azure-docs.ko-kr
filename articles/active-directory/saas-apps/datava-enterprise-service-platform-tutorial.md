@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 67016d930e2cc40ccf38e89c8dfc7700db7d3109
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d249005e77328460a0e7152e0a3ff125857534b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536720"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659478"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datava-enterprise-service-platform"></a>자습서: Datava Enterprise Service Platform과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -35,9 +35,6 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Datava Enterprise Service Platform SSO(Single Sign-On)가 설정된 구독
 
-> [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
-
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
@@ -45,6 +42,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Datava Enterprise Service Platform은 **SP** 시작 SSO를 지원합니다.
 * Datava Enterprise Service Platform은 **Just In Time** 사용자 프로비저닝을 지원합니다.
 * Datava Enterprise Service Platform이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-datava-enterprise-service-platform-from-the-gallery"></a>갤러리에서 Datava Enterprise Service Platform 추가
 
@@ -57,7 +57,7 @@ Datava Enterprise Service Platform이 Azure AD에 통합되도록 구성하려�
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Datava Enterprise Service Platform**을 입력합니다.
 1. 결과 패널에서 **Datava Enterprise Service Platform**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-datava-enterprise-service-platform"></a>Datava Enterprise Service Platform에 대한 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-datava-enterprise-service-platform"></a>Datava Enterprise Service Platform에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Datava Enterprise Service Platform에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Datava Enterprise Service Platform의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그인 URL** 텍스트 상자에서 `https://go.datava.com/<TENANT_NAME>` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp` URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 URL `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`를 입력합니다.
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 해당 값을 얻으려면 [Datava Enterprise Service Platform 클라이언트 지원 팀](mailto:support@datava.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -148,5 +148,3 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure AD로 Datava Enterprise Service Platform 사용해 보기](https://aad.portal.azure.com/)
 
 - [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [고급 표시 유형 및 컨트롤을 사용하여 Datava Enterprise Service Platform을 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

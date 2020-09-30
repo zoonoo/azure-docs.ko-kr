@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central에 Azure IoT Edge 디바이스 추가 | Microsoft Docs
-description: 운영자가 Azure IoT Edge 디바이스를 Azure IoT Central 애플리케이션에 추가합니다.
+title: 자습서 - Azure IoT Central에 Azure IoT Edge 디바이스 추가 | Microsoft Docs
+description: 자습서 - 운영자로서, Azure IoT Edge 디바이스를 Azure IoT Central 애플리케이션에 추가합니다.
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018665"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987019"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가
 
@@ -99,7 +99,7 @@ IoT Edge 매니페스트는 모듈에서 보내는 원격 분석을 정의하지
 
 이제 **관리** 인터페이스에는 **machine**, **ambient** 및 **timeCreated** 원격 분석 유형이 포함되어 있습니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="machine 및 ambient 원격 분석 유형을 사용하는 인터페이스":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 ### <a name="add-views-to-template"></a>템플릿에 보기 추가
 
@@ -115,7 +115,7 @@ IoT Edge 매니페스트는 모듈에서 보내는 원격 분석을 정의하지
 
 1. **저장**을 선택하여 **IoT Edge 디바이스 원격 분석 보기** 보기를 저장합니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="원격 분석 보기를 사용하는 디바이스 템플릿":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 ### <a name="publish-the-template"></a>템플릿 게시
 
@@ -123,7 +123,7 @@ IoT Edge 매니페스트는 모듈에서 보내는 원격 분석을 정의하지
 
 **환경 센서 에지 디바이스** 템플릿으로 이동하고, **게시**를 선택합니다. **이 디바이스 템플릿을 애플리케이션에 게시** 패널에서 **게시**를 선택하여 템플릿을 게시합니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="디바이스 템플릿 게시":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 ## <a name="add-iot-edge-device"></a>IoT Edge 디바이스 추가
 
@@ -135,7 +135,7 @@ IoT Edge 매니페스트는 모듈에서 보내는 원격 분석을 정의하지
 
 이제 **등록됨**상태의 새 디바이스가 있습니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="새로 등록된 디바이스"::::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿"::::
 
 ### <a name="get-the-device-credentials"></a>디바이스 자격 증명 가져오기
 
@@ -181,7 +181,7 @@ IoT Edge 매니페스트는 모듈에서 보내는 원격 분석을 정의하지
 
 1. 선택 항목을 검토한 다음, **만들기**를 선택합니다.
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="IoT Edge VM 만들기":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 배포가 완료될 때까지 몇 분 정도 소요됩니다. 배포가 완료되면 Azure Portal에서**central-edge-rg** 리소스 그룹으로 이동합니다.
 
@@ -269,15 +269,15 @@ DPS를 사용하여 IoT Central 애플리케이션에 등록하고 연결하도�
 
 이제 시뮬레이션된 IoT Edge 디바이스가 VM에서 실행되고 있습니다. IoT Central 애플리케이션의 **디바이스** 페이지에서 디바이스 상태는 이제 **프로비저닝됨**입니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="프로비저닝된 IoT Edge 디바이스":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 **IoT Edge 디바이스 원격 분석 보기** 페이지에서 디바이스의 원격 분석을 볼 수 있습니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="디바이스 원격 분석":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 **모듈** 페이지에서 디바이스의 IoT Edge 모듈의 상태가 표시됩니다.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="디바이스 모듈 상태":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="IoT Edge 매니페스트에서 만든 디바이스 템플릿":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -286,14 +286,14 @@ IoT Edge VM을 계속 사용하려는 경우 이 자습서에서 사용한 리�
 * IoT Edge VM 및 관련 리소스를 삭제하려면 Azure Portal에서 **contoso-edge-rg** 리소스 그룹을 삭제합니다.
 * IoT Central 애플리케이션을 삭제하려면 애플리케이션 **관리** 섹션의 **애플리케이션** 페이지로 이동하여 **삭제**를 선택합니다.
 
+솔루션 개발자 또는 운영자로서, 이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계를 수행하세요.
+
+> [!div class="nextstepaction"]
+> [디바이스 그룹을 사용하여 디바이스 원격 분석 수행](./tutorial-use-device-groups.md)
+
 ## <a name="next-steps"></a>다음 단계
 
 디바이스 개발자로서, 이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계를 읽어보세요.
 
 > [!div class="nextstepaction"]
 > [Azure IoT Edge 모듈 개발](../../iot-edge/tutorial-develop-for-linux.md)
-
-솔루션 개발자 또는 운영자로서, 이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계를 수행하세요.
-
-> [!div class="nextstepaction"]
-> [디바이스 그룹을 사용하여 디바이스 원격 분석 수행](./tutorial-use-device-groups.md)

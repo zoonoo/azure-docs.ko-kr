@@ -3,12 +3,12 @@ title: 자습서 - Azure에서 vSphere 클러스터 배포
 description: Azure VMWare Solution을 사용하여 Azure에 vSphere 클러스터를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/07/2020
-ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512376"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985947"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>자습서: Azure에서 Azure VMware Solution 프라이빗 클라우드 배포
 
@@ -76,14 +76,24 @@ azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="delete-a-private-cloud-azure-portal"></a>프라이빗 클라우드 삭제(Azure Portal)
+## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Azure VMware Solution 프라이빗 클라우드 삭제
 
-더 이상 필요하지 않은 Azure VMware Solution 프라이빗 클라우드가 있으면 이를 삭제할 수 있습니다. 프라이빗 클라우드를 삭제하면 모든 클러스터가 해당 구성 요소와 함께 삭제됩니다.
-
-이렇게 하려면 Azure Portal에서 프라이빗 클라우드로 이동하여 **삭제**를 선택합니다. 확인 페이지에서 프라이빗 클라우드 이름으로 확인하고, **예**를 선택합니다.
+더 이상 필요하지 않은 Azure VMware Solution 프라이빗 클라우드가 있으면 이를 삭제할 수 있습니다. Azure VMware Solution 프라이빗 클라우드에는 격리된 네트워크 도메인, 전용 서버 노드에 프로비저닝된 하나 이상의 vSphere 클러스터 및 일반적으로 많은 가상 머신이 포함되어 있습니다. 프라이빗 클라우드를 삭제하면 모든 가상 머신, 해당 데이터 및 클러스터가 삭제됩니다. 전용 운영 체제 미 설치 노드는 안전하게 초기화되어 무료 풀로 반환됩니다. 고객에게 프로비저닝된 네트워크 도메인이 삭제됩니다.  
 
 > [!CAUTION]
-> 프라이빗 클라우드 삭제는 되돌릴 수 없는 작업입니다. 프라이빗 클라우드를 삭제하면 실행 중인 모든 워크로드, 구성 요소가 종료되고 공용 IP 주소를 포함하여 모든 프라이빗 클라우드 데이터 및 구성 설정이 삭제되므로 데이터를 복구할 수 없습니다. 
+> 프라이빗 클라우드 삭제는 되돌릴 수 없는 작업입니다. 프라이빗 클라우드를 삭제하면 실행 중인 모든 워크로드 및 구성 요소가 종료되고 공용 IP 주소를 포함한 모든 프라이빗 클라우드 데이터 및 구성 설정이 삭제되므로 데이터를 복구할 수 없습니다.
+
+### <a name="prerequisites"></a>사전 요구 사항
+
+프라이빗 클라우드가 삭제되면 가상 머신과 해당 데이터를 복구할 수 없습니다. 나중에 가상 머신 데이터가 필요한 경우 관리자는 프라이빗 클라우드를 삭제하기 전에 먼저 모든 데이터를 백업해야 합니다.
+
+### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Azure VMware Solution 프라이빗 클라우드를 삭제하는 단계
+
+1. Azure Portal에서 Azure VMware Solution 페이지에 액세스합니다.
+
+2. 삭제할 프라이빗 클라우드를 선택합니다.
+ 
+3. 프라이빗 클라우드의 이름을 입력하고 **예**를 선택합니다. 몇 시간 후에 삭제 프로세스가 완료됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -92,6 +102,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 > [!div class="checklist"]
 > * Azure VMware Solution 프라이빗 클라우드 만들기
 > * 배포된 프라이빗 클라우드 확인
+> * Azure VMware Solution 프라이빗 클라우드 삭제
 
 프라이빗 클라우드 클러스터에 대한 로컬 관리 설정의 일부로 프라이빗 클라우드에서 사용할 가상 네트워크를 만드는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 

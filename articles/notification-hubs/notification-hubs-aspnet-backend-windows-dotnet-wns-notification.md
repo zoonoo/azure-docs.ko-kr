@@ -4,25 +4,23 @@ description: UWP(유니버설 Windows 플랫폼) 애플리케이션을 사용하
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.custom: mvc
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 865aaf748fd8fad5f10350cb5b57d31b3eadf7a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018045"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090060"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 
@@ -30,7 +28,7 @@ ms.locfileid: "89018045"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 애플리케이션 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스의 특정 앱 사용자에게 푸시 알림을 보내는 방법을 설명합니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 애플리케이션 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다.
 
 > [!NOTE]
 > 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)에서 찾을 수 있습니다.
@@ -66,7 +64,7 @@ ms.locfileid: "89018045"
 5. 결과 목록에서 **System.Net.Http**를 클릭하고, **설치**를 클릭합니다. 설치를 완료합니다.
 6. 다시 NuGet **검색** 상자에 **Json.net**을 입력합니다. **Newtonsoft.json** 패키지를 설치한 다음, NuGet 패키지 관리자 창을 닫습니다.
 7. 솔루션 탐색기의 **WindowsApp** 프로젝트에서 **MainPage.xaml**을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-8. `MainPage.xaml` XML 코드에서 `<Grid>` 섹션을 다음 코드로 바꿉니다. 이 코드는 사용자가 인증하는 데 사용하는 사용자 이름 및 암호 텍스트 상자를 추가합니다. 또한 알림 메시지 및 알림을 받을 사용자 이름 태그용 텍스트 상자도 추가합니다.
+8. `MainPage.xaml` 파일에서 `<Grid>` 섹션을 다음 코드로 바꿉니다. 이 코드는 사용자가 인증하는 데 사용하는 사용자 이름 및 암호 텍스트 상자를 추가합니다. 또한 알림 메시지 및 알림을 받을 사용자 이름 태그용 텍스트 상자도 추가합니다.
 
     ```xml
     <Grid>
@@ -118,6 +116,7 @@ ms.locfileid: "89018045"
         </StackPanel>
     </Grid>
     ```
+
 9. 솔루션 탐색기에서 **(Windows 8.1)** 및 **(Windows Phone 8.1)** 프로젝트의 `MainPage.xaml.cs` 파일을 엽니다. 두 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
@@ -128,11 +127,13 @@ ms.locfileid: "89018045"
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
+
 10. **WindowsApp** 프로젝트의 `MainPage.xaml.cs`에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. 예들 들어 `http://mybackend.azurewebsites.net`입니다.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
+
 11. **(Windows 8.1)** 및 **(Windows Phone 8.1)** 프로젝트의 `MainPage.xaml.cs`에서 아래 코드를 MainPage 클래스에 추가합니다.
 
     `PushClick` 메서드는 **Send Push(푸시 전송)** 단추의 클릭 처리기입니다. `to_tag` 매개 변수와 일치하는 사용자 이름 태그가 있는 모든 디바이스로 알림을 트리거하도록 백 엔드를 호출합니다. 알림 메시지는 요청 본문의 JSON 콘텐츠로 전송됩니다.
@@ -215,6 +216,7 @@ ms.locfileid: "89018045"
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
+
 12. `App.xaml.cs`를 열고 `OnLaunched()` 이벤트 처리기의 `InitNotificationsAsync()`에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
 
     ```csharp
@@ -222,6 +224,7 @@ ms.locfileid: "89018045"
     {
         //InitNotificationsAsync();
     ```
+
 13. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 `RegisterClient.cs`로 지정한 다음, **확인**을 클릭하여 클래스를 생성합니다.
 
     이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](/previous-versions/azure/azure-services/dn743807(v=azure.100))를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
@@ -236,6 +239,7 @@ ms.locfileid: "89018045"
     using System.Threading.Tasks;
     using System.Linq;
     ```
+
 15. 다음 코드를 `RegisterClient` 클래스 정의 내에 추가합니다.
 
     ```csharp
@@ -323,6 +327,7 @@ ms.locfileid: "89018045"
 
     }
     ```
+
 16. 변경 내용을 모두 저장합니다.
 
 ## <a name="test-the-application"></a>애플리케이션 테스트
@@ -332,8 +337,8 @@ ms.locfileid: "89018045"
 3. **Log in and register(로그인 및 등록)** 를 클릭하고 대화 상자에 로그인되었다고 표시되는지 확인합니다. 이 코드는 **푸시 전송** 단추도 활성화합니다.
 
     ![입력한 사용자 이름과 암호를 표시하는 Notification Hubs 애플리케이션의 스크린샷.][14]
-5. 그런 다음, **받는 사람 사용자 이름 태그** 필드에 등록한 사용자 이름을 입력합니다. 알림 메시지를 입력하고 **Send Push(푸시 전송)** 를 클릭합니다.
-6. 일치하는 사용자 이름 태그로 등록된 디바이스만 이 알림 메시지를 받습니다.
+4. 그런 다음, **받는 사람 사용자 이름 태그** 필드에 등록한 사용자 이름을 입력합니다. 알림 메시지를 입력하고 **Send Push(푸시 전송)** 를 클릭합니다.
+5. 일치하는 사용자 이름 태그로 등록된 디바이스만 이 알림 메시지를 받습니다.
 
     ![푸시된 메시지를 표시하는 Notification Hubs 애플리케이션의 스크린샷.][15]
 

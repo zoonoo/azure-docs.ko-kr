@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플 컨트롤
 description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923291"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978398"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑
 
@@ -102,11 +102,11 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 영역에 저장되므로 중앙 집중식 구성 및 관리가 가능합니다. 이 청사진을 사용하면 Azure 가상 머신에서 Log Analytics 에이전트의 배포를 감사하고 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 이벤트가 기록되도록 할 수 있습니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5 감사 처리 실패에 대한 응답
@@ -123,11 +123,11 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 영역에 저장되므로 중앙 집중식 보고 및 분석이 가능합니다. 이 청사진을 사용하면 Azure 가상 머신에서 Log Analytics 에이전트의 배포를 감사하고 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 이벤트가 기록되도록 할 수 있습니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) 감사 검토, 분석 및 보고 | 통합/검색 및 모니터링 기능
@@ -144,7 +144,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 
 ## <a name="au-12-audit-generation"></a>AU-12 감사 생성
 
@@ -152,11 +152,11 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 뿐만 아니라 SQL 서버에 감사 및 Advanced Data Security가 구성됩니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 진단 설정 감사
 - SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
@@ -336,11 +336,8 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) 결함 수정 | 이전 버전의 소프트웨어/펌웨어 제거
 
-이 청사진은 애플리케이션에서 최신 버전의 .NET Framework, HTTP, Java, PHP, Python, TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
+이 청사진은 애플리케이션에서 최신 버전의 HTTP, Java, PHP, Python 및 TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
 
-- API 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
-- 함수 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
-- 웹앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
 - API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
@@ -348,7 +345,6 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
-- 함수 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
 - API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
 - 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
@@ -356,7 +352,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - API 앱에서 최신 TLS 버전을 사용해야 합니다.
 - 함수 앱에서 최신 TLS 버전을 사용해야 합니다.
 - 웹앱에서 최신 TLS 버전을 사용해야 합니다.
-- \[미리 보기\]: Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함
+- Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 악성 코드 방지
 
@@ -378,11 +374,11 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 이 청사진은 Azure 리소스에 로깅 및 데이터 보안을 적용하고 감사하여 시스템 모니터링을 도와줍니다. 특히, 이 정책은 Log Analytics 에이전트 배포를 감사 및 적용하고 SQL 데이터베이스, 스토리지 계정 및 네트워크 리소스의 보안 설정을 강화합니다. 이러한 기능은 비정상적인 동작과 공격 징후를 감지하여 적절한 조치를 취하도록 도와줍니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.

@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure IoT Central에서 비디오 분석 IoT Edge 인스턴스 만들기(Linux VM)
-description: 이 자습서에서는 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿에 사용할 비디오 분석 IoT Edge 인스턴스를 만드는 방법을 보여줍니다.
+description: 이 자습서에서는 Linux VM에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿에 사용할 비디오 분석 IoT Edge 인스턴스를 만드는 방법을 보여줍니다.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 69e5b757036a2d68fa779e3fc232cc42a034e33c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038018"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526394"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)
 

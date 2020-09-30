@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 512b96b6b785c0694bb41fab657f0a45c4321f10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4890ee7fe013aa4dba8cdc9740481874ccfc1430
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544335"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657597"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>자습서: Egnyte와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -42,6 +42,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Egnyte에서 **SP** 시작 SSO를 지원합니다.
 * Egnyte를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+
 ## <a name="adding-egnyte-from-the-gallery"></a>갤러리에서 Egnyte 추가
 
 Egnyte의 Azure AD 통합을 구성하려면 갤러리의 Egnyte를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -53,7 +56,7 @@ Egnyte의 Azure AD 통합을 구성하려면 갤러리의 Egnyte를 관리되는
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Egnyte**를 입력합니다.
 1. 결과 패널에서 **Egnyte**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
 
 이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Egnyte에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Egnyte의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -71,30 +74,24 @@ Egnyte에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
+Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-Egnyte에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Egnyte** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On**을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Egnyte** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
-
-    ![Single Sign-On 구성 링크](common/select-sso.png)
-
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
-
-    ![Single Sign-On 선택 모드](common/select-saml-option.png)
-
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
-
-    ![기본 SAML 구성 편집](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     ![Egnyte 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
-    **로그인 URL** 텍스트 상자에서 `https://<companyname>.egnyte.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그인 URL** 텍스트 상자에서 `https://<companyname>.egnyte.com` 패턴을 사용하여 URL을 입력합니다.
 
+    b. **회신 URL** 텍스트 상자에서 `https://<companyname>.egnyte.com/samlconsumer/AzureAD` 패턴을 사용하여 URL을 입력합니다.
+    
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Egnyte 클라이언트 지원 팀](https://www.egnyte.com/corp/contact_egnyte.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 값을 업데이트합니다. 이 값을 얻으려면 [Egnyte 클라이언트 지원 팀](https://www.egnyte.com/corp/contact_egnyte.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -112,54 +109,33 @@ Egnyte에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
-
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
-
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
-
-    ![새 사용자 단추](common/new-user.png)
-
-3. 사용자 속성에서 다음 단계를 수행합니다.
-
-    ![사용자 대화 상자](common/user-properties.png)
-
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
-  
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
-
-    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기**를 클릭합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기**를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Egnyte에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 BambooHR에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Egnyte**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. 애플리케이션 목록에서 **BambooHR**을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-2. 애플리케이션 목록에서 **Egnyte**를 선택합니다.
+1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![애플리케이션 목록의 Egnyte 링크](common/all-applications.png)
+    ![사용자 추가 링크](common/add-assign-user.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
-
-    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
-
-    ![할당 추가 창](common/add-assign-user.png)
-
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-
-6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
-
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-egnyte-sso"></a>Egnyte SSO 구성
 
@@ -167,13 +143,13 @@ Egnyte에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 2. **설정**을 클릭합니다.
    
-    ![설정](./media/egnyte-tutorial/ic787819.png "설정")
+    ![설정 1](./media/egnyte-tutorial/ic787819.png "설정")
 
 3. 메뉴에서 **설정**을 클릭합니다.
 
     ![설정](./media/egnyte-tutorial/ic787820.png "설정")
 
-4. **구성**탭을 클릭한 다음 **보안**을 클릭합니다.
+4. **구성** 탭을 클릭한 다음 **보안**을 클릭합니다.
 
     ![보안](./media/egnyte-tutorial/ic787821.png "보안")
 
@@ -181,7 +157,7 @@ Egnyte에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Single Sign On 인증](./media/egnyte-tutorial/ic787822.png "Single Sign On 인증")   
     
-    a. **Single sign-on 인증**으로 **SAML 2.0**을 선택합니다.
+    a. **Single Sign-On 인증**으로 **SAML 2.0**을 선택합니다.
    
     b. **ID 공급자**로 **AzureAD**를 선택합니다.
    
@@ -193,7 +169,7 @@ Egnyte에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
    
     f. **기본 사용자 매핑**으로 **전자 메일 주소**를 선택합니다.
    
-    g. **도메인 특정 발급자 값 사용**을 **비활성화**로 선택합니다.
+    g. **도메인별 발급자 값 사용**으로 **사용 안 함**을 선택합니다.
    
     h. **저장**을 클릭합니다.
 
@@ -201,13 +177,13 @@ Egnyte에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 Azure AD 사용자가 Egnyte에 로그인할 수 있도록 하려면 Egnyte로 프로비저닝되어야 합니다. Egnyte의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. **Egnyte** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. **설정 \> 사용자 및 그룹**으로 이동합니다.
 
-3. **새 사용자 추가**를 클릭한 다음 추가하려는 사용자의 유형을 선택합니다.
+3. **새 사용자 추가**를 클릭한 다음 추가할 사용자의 유형을 선택합니다.
    
     ![사용자](./media/egnyte-tutorial/ic787824.png "사용자")
 

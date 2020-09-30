@@ -1,18 +1,18 @@
 ---
-title: 새 Azure Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정합니다.
-description: Azure CLI를 사용하여 새 Application Gateway 인스턴스로 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정하는 방법을 알아봅니다.
+title: '자습서: 새 Azure Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정합니다.'
+description: 이 자습서에서는 Azure CLI를 사용하여 새 Application Gateway 인스턴스로 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정하는 방법을 알아봅니다.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 620fe5851f9dbde01b2206595fa79b61f62deb66
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595923"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285590"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>자습서: 새 Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능(미리 보기)을 사용하도록 설정합니다.
 
@@ -30,11 +30,12 @@ Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microso
 > * AKS 클러스터에서 수신에 AGIC를 사용하여 샘플 애플리케이션을 배포합니다.
 > * Application Gateway를 통해 애플리케이션에 연결할 수 있는지 확인합니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
 
 CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -134,7 +135,7 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [AGIC 추가 기능을 사용하지 않도록 설정하는 방법 알아보기](./ingress-controller-disable-addon.md)
-* [AGIC에서 지원되는 주석에 대해 알아보기](./ingress-controller-annotations.md)
-* [AGIC 관련 문제 해결](./ingress-controller-troubleshoot.md)
+
+> [!div class="nextstepaction"]
+> [AGIC 추가 기능을 사용하지 않도록 설정하는 방법 알아보기](./ingress-controller-disable-addon.md)
 

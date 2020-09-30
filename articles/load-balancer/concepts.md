@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 96b91c08e0bf9a176af2ed844cd63a2cfa1e233d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9765f685f2fccc9332a2f07d907aac415aa2c57f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333922"
 ---
 # <a name="azure-load-balancer-concepts"></a>Azure Load Balancer 개념
 
@@ -85,7 +85,7 @@ ms.locfileid: "88589642"
 
 ## <a name="limitations"></a><a name = "limitations"></a>제한 사항
 
-- 부동 IP는 현재 Load Balancing 시나리오의 보조 IP 구성에서 지원되지 않습니다.
+- 부동 IP는 현재 내부 부하 분산 시나리오 또는 공용 부하 분산 시나리오의 보조 IP 구성에서 지원되지 않습니다.
 
 - 부하 분산 장치 규칙은 두 개의 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트 엔드 및 해당 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
 

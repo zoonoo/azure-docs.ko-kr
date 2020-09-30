@@ -2,22 +2,22 @@
 title: '빠른 시작: LUIS(Language Understanding) SDK 클라이언트 라이브러리'
 description: C#, Python 또는 JavaScript를 통해 이 빠른 시작을 사용하여 LUIS SDK 클라이언트 라이브러리로 LUIS 앱을 만들고 쿼리합니다.
 ms.topic: quickstart
-ms.date: 09/01/2020
-keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, 자연어 인식, nlu, ai 대화, 대화형 ai, ai 챗봇, 챗봇 작성자, LUIS, nlp ai, luis ai, azure luis, 자연어 이해
+ms.date: 09/14/2020
+keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, LUIS, azure luis, 자연어 이해, ai 챗봇, 챗봇 작성자, 자연어 이해
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 6bcdca85125d44475fadfd195c1dfda88f761f88
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972614"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>빠른 시작: LUIS 앱을 만들고 쿼리하는 LUIS(Language Understanding) SDK 클라이언트 라이브러리
 
-C#, Python 또는 JavaScript를 통해 이 빠른 시작을 사용하여 LUIS SDK 클라이언트 라이브러리로 LUIS 앱을 만들고 쿼리합니다.
+C#, Python 또는 JavaScript를 통해 이 빠른 시작을 사용하여 LUIS SDK 클라이언트 라이브러리로 Azure LUIS AI(인공 지능) 앱을 만들고 쿼리합니다.
 
-LUIS(Language Understanding)를 사용하면 사용자 지정 기계 학습 인텔리전스를 사용자의 대화형 자연어 텍스트에 적용하여 전반적인 의미를 예측하고 관련된 세부 정보를 끌어올 수 있습니다.
+LUIS(Language Understanding)를 사용하면 사용자의 대화형 자연어 텍스트에 NLP(자연어 처리)를 적용하여 전반적인 의미를 예측하고 관련된 세부 정보를 끌어올 수 있습니다.
 
 * **작성 SDK** 클라이언트 라이브러리를 사용하면 LUIS 앱을 생성, 편집, 학습 및 게시할 수 있습니다. * **예측 런타임 SDK** 클라이언트 라이브러리를 사용하면 게시된 앱을 쿼리할 수 있습니다.
 
@@ -45,7 +45,7 @@ LUIS(Language Understanding)를 사용하면 사용자 지정 기계 학습 인�
 * 학습 - 학습 오류가 발생하는 경우 이는 일반적으로 빈 앱(예: 예제 발화가 있는 의도 없음) 또는 형식이 잘못된 의도 또는 엔터티가 포함된 앱을 나타냅니다.
 * 기타 오류 - 코드가 텍스트 및 JSON 개체를 사용하여 클라이언트 라이브러리를 호출하므로 코드를 변경하지 않았는지 확인합니다.
 
-기타 오류 - 이전 목록에서 다루지 않은 오류가 발생하면 이 페이지의 하단에 피드백을 제공하여 알려주세요. 설치한 클라이언트 라이브러리의 프로그래밍 언어와 버전을 포함합니다. 
+기타 오류 - 이전 목록에서 다루지 않은 오류가 발생하면 이 페이지의 하단에 피드백을 제공하여 알려주세요. 설치한 클라이언트 라이브러리의 프로그래밍 언어와 버전을 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -53,3 +53,5 @@ LUIS(Language Understanding)를 사용하면 사용자 지정 기계 학습 인�
 * [새로운 기능](whats-new.md)
 * [의도](luis-concept-intent.md), [엔터티](luis-concept-entity-types.md), [발화 예제](luis-concept-utterance.md) 및 [미리 작성된 엔터티](luis-reference-prebuilt-entities.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code)에서 확인할 수 있습니다.
+* 자연어 이해: [NLU(자연어 이해) 및 NLP(자연어 처리)](artificial-intelligence.md)
+* 봇: [AI 챗봇](luis-csharp-tutorial-bf-v4.md "챗봇 작성자 자습서")

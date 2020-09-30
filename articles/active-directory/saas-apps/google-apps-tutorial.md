@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017538"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707818"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>자습서: Google Cloud (G Suite) Connector와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -72,9 +72,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
     이메일 특성은 유효한 Exchange 라이선스가 있는 모든 사용자에 대한 자동으로 채워집니다. 사용자가 이메일을 사용할 수 없는 경우 애플리케이션이 액세스 권한을 얻기 위해 이 특성을 가져와야 하므로 이 오류가 수신됩니다.
 
-    관리자 계정으로 portal.office.com으로 이동한 다음, 관리 센터, 청구서 발송, 구독을 클릭하고 Office 365 구독을 선택한 다음, 사용자에게 할당을 클릭하고 가입을 확인할 사용자를 선택한 후 오른쪽 창에서 라이선스 편집을 클릭합니다.
+    관리자 계정으로 portal.office.com으로 이동한 다음, 관리 센터, 청구서 발송, 구독을 클릭하고 Microsoft 365 구독을 선택한 다음, 사용자에게 할당을 클릭하고 가입을 확인할 사용자를 선택한 후 오른쪽 창에서 라이선스 편집을 클릭합니다.
 
-    O365 라이선스가 할당되면 적용하는 데 몇 분 정도 걸립니다. 그 후 user.mail 특성이 자동으로 채워지며, 문제가 해결됩니다.
+    Microsoft 365 라이선스가 할당되면 적용하는 데 몇 분 정도 걸립니다. 그 후 user.mail 특성이 자동으로 채워지며, 문제가 해결됩니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -240,7 +240,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Google Cloud (G Suite) Connector 테스트 사용자 만들기
 
-이 섹션에서는 [Google Cloud (G Suite) Connector에서 B.Simon이라는 사용자를 만듭니다](https://support.google.com/a/answer/33310?hl=en). Google Cloud (G Suite) Connector에서 사용자가 만들어지면 이제 해당 사용자가 Office 365 로그인 자격 증명을 사용하여 로그인할 수 있습니다.
+이 섹션에서는 [Google Cloud (G Suite) Connector에서 B.Simon이라는 사용자를 만듭니다](https://support.google.com/a/answer/33310?hl=en). Google Cloud (G Suite) Connector에서 사용자가 수동으로 만들어지면 이제 사용자가 해당 Microsoft 365 로그인 자격 증명을 사용하여 로그인할 수 있습니다.
 
 Google Cloud (G Suite) Connector는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝을 구성하려면 먼저 [자동 사용자 프로비저닝을 수행하도록 Google Cloud (G Suite) Connector를 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)해야 합니다.
 

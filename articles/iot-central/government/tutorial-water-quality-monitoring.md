@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82024475"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972359"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 용수 품질 모니터링 애플리케이션 만들기
 
@@ -256,4 +256,7 @@ Azure IoT Central 작업을 사용하면 여러 디바이스에서 디바이스 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [용수 품질 모니터링 개념](./concepts-waterqualitymonitoring-architecture.md)에 대해 자세히 알아보세요.
+* 자세한 정보 
+
+> [!div class="nextstepaction"]
+> [용수 품질 모니터링 개념](./concepts-waterqualitymonitoring-architecture.md).

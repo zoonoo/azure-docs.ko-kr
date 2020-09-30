@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209429"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976290"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
 
@@ -122,7 +122,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 1. ExpressRoute 페이지에서 **+인증 키 사용**을 클릭합니다.
 
-   ![사용](./media/virtual-wan-expressroute-portal/redeem.png "사용")
+   ![스크린샷은 권한 부여 키 사용이 선택된 가상 허브의 ExpressRoute를 표시합니다.](./media/virtual-wan-expressroute-portal/redeem.png "사용")
 2. 인증 키 사용 페이지에 값을 입력합니다.
 
    ![키 값 사용](./media/virtual-wan-expressroute-portal/redeemkey2.png "키 값 사용")

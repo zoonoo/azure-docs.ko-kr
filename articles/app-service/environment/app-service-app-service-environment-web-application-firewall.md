@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961842"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973700"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
@@ -26,7 +26,7 @@ Azure Application Gateway 외에도 [Azure Marketplace](https://azuremarketplace
 ## <a name="setup"></a>설치 프로그램
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 App Service Environment를 구성하여 WAF의 트래픽만이 App Service Environment에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure Traffic Manager를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 다음 이미지와 비슷합니다.
 
-![Architecture][Architecture] 
+![다이어그램은 두 지역에 대해 웹, API 및 모바일 앱이 포함된 App Service 환경에서 방화벽으로부터의 트래픽만 허용하도록 네트워크 ACL에 연결하여 Web Application Firewall의 인스턴스에 연결하는 선택적 Azure Traffic Manager를 보여줍니다.][Architecture] 
 
 > [!NOTE]
 > [App Service 환경에 대한 ILB 지원](app-service-environment-with-internal-load-balancer.md)의 도입으로 DMZ에서 ASE에 액세스할 수 없고 프라이빗 네트워크에만 사용할 수 있도록 구성할 수 있습니다. 

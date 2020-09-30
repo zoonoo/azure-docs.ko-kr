@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 71c1bea58f17b457f417a5b050640d04d44019d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0bbfdc2463795770b52f5008fc633fe9e95244a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551063"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>자습서: FreshDesk와 Azure Active Directory 통합
 
@@ -55,7 +55,7 @@ FreshDesk의 Azure AD 통합을 구성하려면 갤러리의 FreshDesk를 관리
 1. **갤러리에서 추가** 섹션의 검색 상자에 **FreshDesk**를 입력합니다.
 1. 결과 패널에서 **FreshDesk**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshdesk"></a>FreshDesk용 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-freshdesk"></a>FreshDesk에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 FreshDesk에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 FreshDesk의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
@@ -81,9 +81,11 @@ FreshDesk에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 �
     a. **로그온 URL** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com` 패턴 또는 Freshdesk에서 제안한 다른 값을 사용하는 URL을 입력합니다.
 
     b. **ID(엔터티 ID)** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com` 패턴 또는 Freshdesk에서 제안한 다른 값을 사용하는 URL을 입력합니다.
-
+     
+    다. **회신 URL** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com/login/saml` 패턴을 사용하여 URL을 입력합니다.
+    
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이 값을 얻으려면 [FreshDesk Client 지원 팀](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이 값을 얻으려면 [FreshDesk Client 지원 팀](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. FreshDesk 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 기본 특성 목록을 보여주며, **고유한 사용자 식별자**는 **user.userprincipalname**과 매핑되지만, FreshDesk는 이 클레임이 **user.mail**과 매핑되어야 하므로 [편집] 아이콘을 클릭하고 특성 매핑을 변경하여 특성 매핑을 편집해야 합니다.
 

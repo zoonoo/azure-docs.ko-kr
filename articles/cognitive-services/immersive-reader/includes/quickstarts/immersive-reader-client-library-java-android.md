@@ -7,24 +7,25 @@ author: dylankil
 manager: guillasi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-javascript
 ms.author: dylankil
-ms.openlocfilehash: 63a7e7756eee80b8d57c168890ba3613bbd11f01
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 572bd35a916ed97ab0c846e2b8d561bd27b145cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978239"
 ---
-[몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
+[몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
 이 빠른 시작에서는 Android 앱을 처음부터 빌드하고 몰입형 리더를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android)에서 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * [Git](https://git-scm.com/)
 * [몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk).
@@ -34,27 +35,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Android Studio에서 새 프로젝트를 시작합니다. 이 예제에 대한 소스 코드는 [몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android)의 일부로 사용할 수 있습니다.
 
-![새 프로젝트](../../media/android/java/android-studio-create-project.png)
+![새 프로젝트 - Android](../../media/android/java/android-studio-create-project.png)
 
 **프로젝트 선택** 창에서 **빈 작업**을 선택한 후, **다음**을 선택합니다.
 
-![빈 작업 프로젝트](../../media/android/java/android-studio-empty-activity.png)
+![빈 작업 프로젝트 - Android](../../media/android/java/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>프로젝트 구성
 
 프로젝트 이름을 **QuickstartJava**로 지정하고 저장할 위치를 선택합니다. 프로그래밍 언어로 **Java**를 선택한 다음, **마침**을 선택합니다.
 
-![프로젝트 구성](../../media/android/java/android-studio-configure-project.png)
+![프로젝트 구성 - Android](../../media/android/java/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>자산 및 인증 설정
 
 새 **/assets** 폴더를 만듭니다.
 
-![새 자산 폴더 만들기](../../media/android/java/android-studio-assets-folder.png)
+![새 자산 폴더 만들기 - Android](../../media/android/java/android-studio-assets-folder.png)
 
  자산 폴더 내에 **env**라는 파일을 만듭니다. 다음 이름과 값을 추가하고 적절한 값을 제공합니다. 이 env 파일에는 공개되어서는 안 되는 비밀이 있으므로 소스 제어로 커밋하지 마세요.
 
-![새 env 파일 만들기](../../media/android/java/android-studio-create-env-file.png)
+![새 env 파일 만들기 - Android](../../media/android/java/android-studio-create-env-file.png)
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -81,13 +82,13 @@ dependencies {
 }
 ```
 
-![앱 gradle 구현](../../media/android/java/android-studio-build-gradle.png)
+![앱 gradle 구현 - Android](../../media/android/java/android-studio-build-gradle.png)
 
 ## <a name="update-app-strings-and-layout-resources"></a>앱 문자열 및 레이아웃 리소스 업데이트
 
 **res/strings/strings.xml**의 콘텐츠를 앱에서 사용할 다음 문자열로 바꿉니다.
 
-![앱 strings.xml](../../media/android/java/android-studio-strings.png)
+![앱 strings.xml - Android](../../media/android/java/android-studio-strings.png)
 
 ```strings.xml
 <resources>
@@ -97,7 +98,7 @@ dependencies {
 
     <string name="app_name">ImmersiveReaderSDK</string>
     <string name="geographyTitle">Geography</string>
-    <string name="geographyTextEn">The study of Earth’s landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live. The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians.Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
+    <string name="geographyTextEn">The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live. The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians. Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
     <string name="geographyTextFr">L\'étude des reliefs de la Terre est appelée géographie physique. Les reliefs peuvent être des montagnes et des vallées. Il peut aussi s\'agira de glaciers, delacs ou de rivières. Les reliefs sont parfois appelés caractéristiques physiques. Il est important que les élèves connaissent la géographie physique de laTerre. Les saisons, l\'atmosphère et tous les processus naturels de la Terre affectent l\'endroit où les gens sont capables de vivre. La géographie est l\'un desfacteurs que les gens utilisent pour décider où ils veulent vivre. Les caractéristiques physiques d\'une région sont souvent riches en ressources. Àl\'intérieur d\'une nation, les chaînes de montagnes deviennent des frontières naturelles pour les zones de peuplement. Aux États-Unis, les principaleschaînes de montagnes sont la Sierra Nevada, les montagnes Rocheuses et les Appalaches.Les sources d\'eau douce influencent également l\'endroit où lesgens s\'installent. Les gens ont besoin d\'eau pour boire. Ils en ont aussi besoin pour se laver. Tout au long de l\'histoire, les gens se sont installés près del\'eau douce. Vivre près d\'une source d\'eau permet de s\'assurer que les gens ont l\'eau dont ils ont besoin. Il y avait un bonus supplémentaire, aussi. L\'eaupourrait être utilisée comme voie de voyage pour les personnes et les marchandises. Beaucoup d\'Américains vivent près des sources d\'eau populaires,telles que le fleuve Mississippi, le fleuve Colorado et les Grands Lacs.Mountains et les déserts ont été installés par moins de gens que les zones desplaines. Cependant, ils disposent de ressources précieuses.Les gens ont une réponse.</string>
     <string name="immersiveReaderButtonText">Immersive Reader</string>
 </resources>
@@ -105,7 +106,7 @@ dependencies {
 
 **res/layout/activity_main.xml**의 콘텐츠를 앱에서 사용할 다음 XML로 바꿉니다. 이 XML은 앱의 UI 레이아웃입니다.
 
-![앱 activity_main.xml](../../media/android/java/android-studio-activity-main-xml.png)
+![앱 activity_main.xml - Android](../../media/android/java/android-studio-activity-main-xml.png)
 
 ```activity_main.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -206,9 +207,9 @@ dependencies {
 
 **res/layout/** 폴더에서 새 레이아웃 리소스 파일을 만들고, 이름을 **activity_immersive_reader**로 지정합니다. 그런 다음, 해당 콘텐츠를 다음 XML로 바꿉니다. 이 XML은 이후 단계에서 만들어지는 IRActivity Java 코드에서 사용할 WebView 구성 요소를 추가합니다. 지금은 정의되지 않으며 오류가 발생합니다.
 
-![새 레이아웃 리소스 파일 만들기](../../media/android/java/android-studio-new-layout-resource.png)
+![새 레이아웃 리소스 파일 만들기 - Android](../../media/android/java/android-studio-new-layout-resource.png)
 
-![새 레이아웃 리소스 구성](../../media/android/java/android-studio-activity-immersive-reader.png)
+![새 레이아웃 리소스 구성 - Android](../../media/android/java/android-studio-activity-immersive-reader.png)
 
 ```activity_immersive_reader.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -235,7 +236,7 @@ dependencies {
 
 **/Java/com.example.quickstartjava** 폴더에 기존 **MainActivity.java** Java 클래스 파일이 표시됩니다. 이 폴더에는 앱 논리가 작성됩니다.
 
-![MainActivity](../../media/android/java/android-studio-main-activity-java.png)
+![MainActivity - Android](../../media/android/java/android-studio-main-activity-java.png)
 
 **MainActivity.java** 내용을 다음 코드로 바꿉니다. 아직 존재하지 않으며 나중에 만들어지는 코드에서 참조되는 몇 가지 클래스가 있습니다.
 
@@ -292,7 +293,7 @@ public class MainActivity extends Activity {
 
 새 **ImmersiveReader.java** Java 클래스를 만들려면 Android Studio에서 마우스 오른쪽 단추로 폴더를 클릭하고 **새로 만들기**를 선택한 다음, **Java 클래스**를 선택합니다. 사용자가 만든 각 새 Java 클래스 파일에 대해 동일한 방법을 사용하여 Java 클래스 파일을 만듭니다.
 
-![ImmersiveReader](../../media/android/java/android-studio-immersivereader-java.png)
+![ImmersiveReader - Android](../../media/android/java/android-studio-immersivereader-java.png)
 
 **ImmersiveReader.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -376,7 +377,7 @@ public class ImmersiveReader {
 
 새 **IRActivity.java** Java 클래스 파일을 만듭니다.
 
-![IRActivity](../../media/android/java/android-studio-iractivity-java.png)
+![IRActivity - Android](../../media/android/java/android-studio-iractivity-java.png)
 
 **IRActivity.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -460,7 +461,7 @@ public class ImmersiveReader {
 
 새 **IRError.java** Java 클래스 파일을 만듭니다.
 
-![IRError](../../media/android/java/android-studio-irerror-java.png)
+![IRError - Android](../../media/android/java/android-studio-irerror-java.png)
 
 **IRError.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -539,7 +540,7 @@ public class IRError implements Parcelable {
 
 새 **Error.java** Java 클래스 파일을 만듭니다.
 
-![Error](../../media/android/java/android-studio-error-java.png)
+![오류 - Android](../../media/android/java/android-studio-error-java.png)
 
 **Error.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -570,7 +571,7 @@ public class Error {
 
 새 **ReadableContent.java** Java 클래스 파일을 만듭니다.
 
-![ReadableContent](../../media/android/java/android-studio-readablecontent-java.png)
+![ReadableContent - Android](../../media/android/java/android-studio-readablecontent-java.png)
 
 **ReadableContent.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -614,7 +615,7 @@ public class ReadableContent {
 
 새 **ReadableTextChunk.java** Java 클래스 파일을 만듭니다.
 
-![ReadableTextChunk](../../media/android/java/android-studio-readabletextchunk-java.png)
+![ReadableTextChunk - Android](../../media/android/java/android-studio-readabletextchunk-java.png)
 
 **ReadableTextChunk.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -646,7 +647,7 @@ public class ReadableTextChunk {
 
 새 **IRDataHolder.java** Java 클래스 파일을 만듭니다.
 
-![IRDataHolder](../../media/android/java/android-studio-irdataholder-java.png)
+![IRDataHolder - Android](../../media/android/java/android-studio-irdataholder-java.png)
 
 **IRDataHolder.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -711,7 +712,7 @@ public class IRDataHolder {
 
 새 **IRAuthenticator.java** Java 클래스 파일을 만듭니다.
 
-![IRAuthenticator](../../media/android/java/android-studio-irauthenticator-java.png)
+![IRAuthenticator - Android](../../media/android/java/android-studio-irauthenticator-java.png)
 
 **IRAuthenticator.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -822,7 +823,7 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
 
 새 **IRLauncher.java** Java 클래스 파일을 만듭니다.
 
-![IRLauncher](../../media/android/java/android-studio-irlauncher-java.png)
+![IRLauncher - Android](../../media/android/java/android-studio-irlauncher-java.png)
 
 **IRLauncher.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1015,7 +1016,7 @@ public class IRLauncher {
 
 새 **IRStore.java** Java 클래스 파일을 만듭니다.
 
-![IRStore](../../media/android/java/android-studio-irstore-java.png)
+![IRStore - Android](../../media/android/java/android-studio-irstore-java.png)
 
 **IRStore.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1097,7 +1098,7 @@ public class AuthenticationTask extends AsyncTask<Void, Void, String> {
 
 새 **Chunk.java** Java 클래스 파일을 만듭니다.
 
-![Chunk](../../media/android/java/android-studio-chunk-java.png)
+![청크 - Android](../../media/android/java/android-studio-chunk-java.png)
 
 **Chunk.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1134,7 +1135,7 @@ public class Chunk {
 
 새 **Content.java** Java 클래스 파일을 만듭니다.
 
-![콘텐츠](../../media/android/java/android-studio-content-java.png)
+![콘텐츠 - Android](../../media/android/java/android-studio-content-java.png)
 
 **Content.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1170,7 +1171,7 @@ public class Content {
 
 새 **Options.java** Java 클래스 파일을 만듭니다.
 
-![옵션](../../media/android/java/android-studio-options-java.png)
+![옵션 - Android](../../media/android/java/android-studio-options-java.png)
 
 **Options.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1204,7 +1205,7 @@ public class Options {
 
 새 **Message.java** Java 클래스 파일을 만듭니다.
 
-![메시지](../../media/android/java/android-studio-message-java.png)
+![메시지 - Android](../../media/android/java/android-studio-message-java.png)
 
 **Message.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1242,7 +1243,7 @@ public class Message {
 
 새 **WebAppInterface.java** Java 클래스 파일을 만듭니다.
 
-![WebAppInterface](../../media/android/java/android-studio-webappinterface-java.png)
+![WebAppInterface - Android](../../media/android/java/android-studio-webappinterface-java.png)
 
 **WebAppInterface.java** 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -1293,9 +1294,9 @@ public class WebAppInterface {
 
 웹 보기 구현에는 HTML을 사용해야 합니다. 마우스 오른쪽 단추로 **/assets** 폴더를 클릭하고, 새 파일을 만들고, 이름을 **immersiveReader.html**로 지정합니다.
 
-![새 html 파일 만들기](../../media/android/java/android-studio-immersive-reader-html.png)
+![새 html 파일 만들기 - Android](../../media/android/java/android-studio-immersive-reader-html.png)
 
-![HTML 자산 위치](../../media/android/java/android-studio-immersive-reader-html-assets.png)
+![HTML 자산 위치 - Android](../../media/android/java/android-studio-immersive-reader-html-assets.png)
 
 다음 HTML 및 JavaScript를 추가합니다. 이 코드는 몰입형 리더 SDK를 앱에 추가하고, 이를 통해 작성한 앱 코드를 사용하여 몰입형 리더를 엽니다.
 
@@ -1352,7 +1353,7 @@ Licensed under the MIT License. -->
 
 ## <a name="set-up-app-permissions"></a>앱 권한 설정
 
-![AndroidManifest](../../media/android/java/android-studio-android-manifest-xml.png)
+![AndroidManifest - Android](../../media/android/java/android-studio-android-manifest-xml.png)
 
 애플리케이션이 작동하려면 몰입형 리더 SDK에 대한 네트워크를 호출해야 하므로 네트워크 액세스를 허용하도록 앱 권한이 구성되어야 합니다. **/manifests/AndroidManifest.xml**의 콘텐츠를 다음 XML로 바꿉니다.
 
@@ -1389,7 +1390,7 @@ Licensed under the MIT License. -->
 
 Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더**를 선택하면 몰입형 리더가 앱의 콘텐츠와 함께 열립니다.
 
-![몰입형 판독기](../../media/android/java/android-studio-device-emulator.png)
+![몰입형 리더 - Android](../../media/android/java/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519865"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708124"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>자습서: Clever와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -40,6 +40,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Clever에서 **SP** 시작 SSO를 지원합니다.
+* Concur를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -56,7 +57,7 @@ Clever의 Azure AD 통합을 구성하려면 갤러리의 Clever를 관리되는
 1. 결과 패널에서 **Clever**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Clever용 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Clever에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Clever에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Clever의 관련 사용자 간에 연결이 형성되어야 합니다.
 
@@ -83,10 +84,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그온 URL** 텍스트 상자에서 `https://clever.com/in/<companyname>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://clever.com/oauth/saml/metadata.xml` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 `https://clever.com/oauth/saml/metadata.xml` URL을 입력합니다.
 
+    다. **회신 URL** 텍스트 상자에서 `https://clever.com/<companyname>` 패턴을 사용하여 URL을 입력합니다.
+    
     > [!NOTE]
-    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    >  이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 이 값을 얻으려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
@@ -131,11 +134,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![인스턴트 로그인](./media/clever-tutorial/ic798984.png "인스턴트 로그인")
 
     > [!NOTE]
-    > Single Sign-On을 테스트하려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 연락하여 백 엔드에서 Office 365 SSO를 활성화해야 합니다.
+    > Single Sign-On을 테스트하려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하여 백 엔드에서 Microsoft 365 SSO를 활성화해야 합니다.
 
 1. **인스턴트 로그인** 페이지에서 다음 단계를 수행합니다.
  
-    ![인스턴트 로그인](./media/clever-tutorial/ic798985.png "인스턴트 로그인")
+    ![인스턴트 로그인 페이지의 SSO 구성](./media/clever-tutorial/ic798985.png "인스턴트 로그인")
 
     a. **로그인 URL**을 입력합니다.
 

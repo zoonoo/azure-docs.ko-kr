@@ -1,53 +1,57 @@
 ---
-title: '자습서: 네트워크 검사 목록'
-description: 네트워크 연결 및 네트워크 포트에 대한 네트워크 요구 사항 사전 요구 사항 및 세부 정보입니다.
+title: 자습서 - 네트워크 계획 검사 목록
+description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 세부 정보 및 네트워크 요구 사항 전제 조건에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: aba5d7767e420b3ade6238621487884e44fbb6e2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750418"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254400"
 ---
-# <a name="networking-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 검사 목록 
+# <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
-Azure VMware 솔루션은 온-프레미스 및 Azure 기반 환경 또는 리소스의 사용자와 애플리케이션에 액세스할 수 있는 VMware 프라이빗 클라우드 환경을 제공합니다. 이 연결은 Azure ExpressRoute 및 VPN 연결과 같은 네트워킹 서비스를 통해 제공되며, 서비스를 사용하도록 설정하려면 특정 네트워크 주소 범위와 방화벽 포트가 필요합니다. 이 문서에서는 Azure VMware Solution에서 작동하도록 네트워킹을 제대로 구성하는 데 필요한 정보를 제공합니다.
+Azure VMware 솔루션은 온-프레미스 및 Azure 기반 환경 또는 리소스의 사용자와 애플리케이션에 액세스할 수 있는 VMware 프라이빗 클라우드 환경을 제공합니다. 이 연결은 Azure ExpressRoute 및 VPN 연결과 같은 네트워킹 서비스를 통해 제공되며, 서비스를 사용하도록 설정하려면 특정 네트워크 주소 범위와 방화벽 포트가 필요합니다. 이 문서에서는 Azure VMware Solution에서 작동하도록 네트워킹을 올바르게 구성하는 데 필요한 정보를 제공합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 네트워크 연결 요구 사항
-> * Azure VMware Solution의 DHCP
+> * 가상 네트워크 및 ExpressRoute 회로 고려 사항
+> * 라우팅 및 서브넷 요구 사항
+> * 서비스와 통신하는 데 필요한 네트워크 포트
+> * Azure VMware Solution의 DHCP 및 DNS 고려 사항
 
-## <a name="virtual--network-and-expressroute-circuit--considerations"></a>가상 네트워크 및 ExpressRoute 회로 고려 사항
-구독의 가상 네트워크에서 연결을 만들 때 ExpressRoute 회로는 피어링을 통해 설정되며, Azure Portal에서 요청하는 권한 부여 키와 피어링 ID를 사용합니다. 피어링은 프라이빗 클라우드와 가상 네트워크 간의 일대일 연결입니다.
+
+
+## <a name="virtual-network-and-expressroute-circuit-considerations"></a>가상 네트워크 및 ExpressRoute 회로 고려 사항
+구독에서 가상 네트워크 연결을 만들 때 ExpressRoute 회로는 피어링을 통해 설정되며, Azure Portal에서 요청하는 권한 부여 키와 피어링 ID를 사용합니다. 피어링은 프라이빗 클라우드와 가상 네트워크 간의 일대일 연결입니다.
 
 > [!NOTE] 
 > ExpressRoute 회로는 프라이빗 클라우드 배포에 포함되지 않습니다. 온-프레미스 ExpressRoute 회로는 이 문서의 범위를 벗어났습니다. 프라이빗 클라우드에 대한 온-프레미스 연결이 필요한 경우 기존 ExpressRoute 회로 중 하나를 사용하거나 Azure Portal에서 구매할 수 있습니다.
 
-프라이빗 클라우드를 배포할 때 vCenter 및 NSX-T Manager에 대한 IP 주소를 수신합니다. 이러한 관리 인터페이스에 액세스하려면 구독의 가상 네트워크에 추가 리소스를 만들어야 합니다. 자습서에서 이러한 리소스를 만들고 ExpressRoute 개인 피어링을 설정하는 절차를 찾을 수 있습니다.
+프라이빗 클라우드를 배포할 때 vCenter 및 NSX-T Manager에 대한 IP 주소를 수신합니다. 이러한 관리 인터페이스에 액세스하려면 구독의 가상 네트워크에 추가 리소스를 만들어야 합니다. 자습서에서 이러한 리소스를 만들고 [ExpressRoute 프라이빗 피어링](tutorial-expressroute-global-reach-private-cloud.md)을 설정하는 절차를 찾을 수 있습니다.
 
 프라이빗 클라우드 논리 네트워킹에는 미리 프로비저닝된 NSX-T가 제공됩니다. 계층-0 게이트웨이 및 계층-1 게이트웨이는 사용자를 위해 미리 프로비저닝됩니다. 세그먼트를 만들고 기존 계층-1 게이트웨이에 연결하거나 정의한 새 계층-1 게이트웨이에 연결할 수 있습니다. NSX-T 논리 네트워킹 구성 요소는 워크로드 간에 동-서 연결을 제공하고 인터넷 및 Azure 서비스에 대한 북-남 연결을 제공합니다.
 
 ## <a name="routing-and-subnet-considerations"></a>라우팅 및 서브넷 고려 사항
 AVS 프라이빗 클라우드는 Azure ExpressRoute 연결을 사용하여 Azure 가상 네트워크에 연결됩니다. 높은 대역폭이 높고 대기 시간이 짧은 이 연결을 사용하면 프라이빗 클라우드 환경의 Azure 구독에서 실행되는 서비스에 액세스할 수 있습니다. 라우팅은 BGP(Border Gateway Protocol) 기반이며, 자동으로 프로비저닝되며, 각 프라이빗 클라우드 배포에 대해 기본적으로 사용하도록 설정됩니다. 
 
-AVS 프라이빗 클라우드의 서브넷에는 `/22` CIDR 네트워크 주소 블록 이상이 필요합니다(아래 참조). 이 네트워크는 온-프레미스 네트워크를 보완합니다. 주소 블록은 구독과 온-프레미스 네트워크에 있는 다른 가상 네트워크에서 사용되는 주소 블록과 겹칠 수 없습니다. 이 주소 블록 내에서 관리, 프로비저닝 및 vMotion 네트워크는 자동으로 프로비저닝됩니다.
+AVS 프라이빗 클라우드의 서브넷에는 `/22` CIDR 네트워크 주소 블록 이상이 필요합니다(아래 참조). 이 네트워크는 온-프레미스 네트워크를 보완합니다. 주소 블록은 구독과 온-프레미스 네트워크의 다른 가상 네트워크에서 사용되는 주소 블록과 겹치지 않아야 합니다. 이 주소 블록 내에서 관리, 프로비저닝 및 vMotion 네트워크는 자동으로 프로비저닝됩니다.
 
 `/22` CIDR 네트워크 주소 블록의 예: `10.10.0.0/22`
 
 서브넷:
 
-| 네트워크 사용량             | 서브넷 | 예제        |
-| ------------------------- | ------ | -------------- |
-| 프라이빗 클라우드 관리  | `/24`  | `10.10.0.0/24` |
-| vMotion 네트워크           | `/24`  | `10.10.1.0/24` |
-| VM 워크로드              | `/24`  | `10.10.2.0/24` |
-| ExpressRoute 피어링      | `/24`  | `10.10.3.8/30` |
+| 네트워크 사용량             | 서브넷 | 예제          |
+| ------------------------- | ------ | ---------------- |
+| 프라이빗 클라우드 관리  | `/26`  | `10.10.0.0/26`   |
+| vMotion 네트워크           | `/25`  | `10.10.1.128/25` |
+| VM 워크로드              | `/24`  | `10.10.2.0/24`   |
+| ExpressRoute 피어링      | `/29`  | `10.10.3.8/29`   |
 
 
-### <a name="network-ports-required-to-communicate-with-the-service"></a>서비스와 통신하는 데 필요한 네트워크 포트
+## <a name="required-network-ports"></a>필수 네트워크 포트
 
 | 원본 | 대상 | 프로토콜 | 포트 | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
@@ -69,18 +73,15 @@ AVS 프라이빗 클라우드의 서브넷에는 `/22` CIDR 네트워크 주소 
 ## <a name="dhcp-and-dns-resolution-considerations"></a>DHCP 및 DNS 확인 고려 사항
 프라이빗 클라우드 환경에서 실행되는 애플리케이션 및 워크로드에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 프라이빗 클라우드 환경에서 이러한 서비스를 제공하도록 가상 머신을 구성할 수 있습니다.  
 
-WAN을 통해 브로드캐스트 DHCP 트래픽을 온-프레미스로 다시 라우팅하는 대신, NSX에 기본 제공되어 있거나 프라이빗 클라우드에서 로컬 DHCP 서버를 사용하는 DHCP 서비스를 사용하는 것이 좋습니다.
+WAN을 통해 브로드캐스트 DHCP 트래픽을 온-프레미스로 다시 라우팅하는 대신, NSX에 기본 제공되는 DHCP 서비스를 사용하거나 프라이빗 클라우드에서 로컬 DHCP 서버를 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음에 대해 알아보았습니다.
+이 자습서에서는 Azure VMware Solution 프라이빗 클라우드를 배포하기 위한 고려 사항 및 요구 사항에 대해 알아보았습니다. 
 
-> [!div class="checklist"]
-> * 네트워크 연결 요구 사항
-> * Azure VMware Solution의 DHCP
 
 적절한 네트워킹이 제대로 준비되면 Azure VMware Solution 프라이빗 클라우드를 만들기 위해 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure VMware Solution 프라이빗 클라우드 만들기](tutorial-create-private-cloud.md)
+> [Azure VMware Solution 프라이빗 클라우드 만들기](tutorial-create-private-cloud.md)

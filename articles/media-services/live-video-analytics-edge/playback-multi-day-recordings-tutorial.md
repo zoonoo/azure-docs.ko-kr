@@ -3,12 +3,12 @@ title: 여러 날 녹화본 재생 - Azure
 description: 이 자습서에서는 Azure Media Service API를 사용하여 여러 날 연속 비디오 녹화본을 재생하는 방법을 설명합니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649094"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530576"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>자습서: 여러 날 녹화본 재생  
 
@@ -72,11 +72,11 @@ ms.locfileid: "88649094"
 
 Visual Studio Code에서 왼쪽에 있는 실행 아이콘을 클릭하거나 Ctrl+ Shift+D를 눌러 실행할 수 있는 애플리케이션을 표시할 수 있습니다.
 
-![다음을 실행합니다.](./media/playback-multi-day-recordings-tutorial/run.png)
+![스크린샷은 실행 항목이 선택된 Visual Studio Code의 메뉴를 표시합니다.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 아래와 같이 드롭다운 상자에서 AMS Asset Player 애플리케이션을 선택하고 F5 키를 눌러 디버깅을 시작합니다.
 
-![디버그](./media/playback-multi-day-recordings-tutorial/debug.png)
+![스크린샷은 AMS Asset Player가 선택된 Visual Studio Code의 메뉴를 표시합니다.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 샘플 애플리케이션은 기본 브라우저 앱을 빌드 및 실행하고 AMS Asset Player 페이지를 엽니다.
 

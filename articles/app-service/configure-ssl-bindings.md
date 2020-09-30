@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962641"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981119"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -108,9 +108,9 @@ ms.locfileid: "88962641"
 
 다양한 브라우저에서 `https://<your.custom.domain>`으로 이동하여 앱을 처리하는지 확인합니다.
 
-![Azure 앱에 대한 포털 탐색](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="contoso.com URL이 강조 표시된 사용자 지정 도메인을 검색하는 예제를 보여주는 스크린샷.&quot;:::
 
-애플리케이션 코드는 "x-appservice-proto" 헤더를 통해 프로토콜을 검사할 수 있습니다. 헤더의 값은 `http` 또는 `https`입니다. 
+애플리케이션 코드는 &quot;x-appservice-proto" 헤더를 통해 프로토콜을 검사할 수 있습니다. 헤더의 값은 `http` 또는 `https`입니다. 
 
 > [!NOTE]
 > 앱에서 인증서 유효성 검사 오류가 발생한 경우 자체 서명된 인증서를 사용하고 있을 수도 있습니다.

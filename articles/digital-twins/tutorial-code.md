@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 30a782c7d7c13eb9c92e4a4bf64e268416a2b382
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923707"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561553"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -112,7 +112,7 @@ using Azure.Identity;
 >[!TIP]
 > *디렉터리(테넌트) ID*를 모르는 경우 [Azure Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행하여 가져올 수 있습니다.
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
@@ -322,12 +322,13 @@ for(int i=0; i<3; i++) {
 
 다음으로, 앞에서 만든 트윈 간의 **관계**를 만들어 **트윈 그래프**로 연결할 수 있습니다. [트윈 그래프](concepts-twins-graph.md)는 전체 환경을 나타내는 데 사용됩니다.
 
-관계를 만들려면 SDK에서 관계 기본 형식에 대한 `using` 문을 추가합니다. 이미 추가된 경우 건너뜁니다.
+관계를 만들 수 있으려면 `Azure.DigitalTwins.Core.Serialization` 네임스페이스가 필요합니다. 이 `using` 문을 사용하여 이전에 프로젝트에 추가했습니다.
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-다음으로 `Program` 클래스의 `Main` 메서드 아래에 새로운 정적 메서드를 추가합니다.
+`Main` 메서드 아래에 있는 `Program` 클래스에 새 정적 메서드를 추가합니다.
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

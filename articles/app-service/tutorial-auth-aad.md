@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c1c3f52dafe63e3f829eb12d4fb872ed3ce85f36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982902"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -145,7 +145,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/azure-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 > [!NOTE]
 > 앱이 다시 시작되면 새로운 데이터가 삭제되었음을 알 수 있습니다. 샘플 ASP.NET Core 앱은 메모리 내 데이터베이스를 사용하기 때문에 이 동작은 의도적입니다.
@@ -225,7 +225,7 @@ git push frontend master
 
 `http://<back-end-app-name>.azurewebsites.net`으로 이동하여 프런트 엔드 앱에서 추가된 항목을 확인합니다. `from back end 1` 및 `from back end 2` 등과 같은 몇 가지 항목을 추가한 다음 프런트 엔드 앱을 새로 고쳐서 변경 내용이 반영되는지 확인합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/remote-api-call-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 ## <a name="configure-auth"></a>인증 구성
 
@@ -239,7 +239,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 **리소스 그룹**에서 리소스 그룹을 찾아 선택합니다. **개요**에서 백 엔드 앱의 관리 페이지를 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/portal-navigate-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여**을 선택하고 **설정**을 선택하여 App Service 인증을 사용하도록 설정합니다.
 
@@ -247,7 +247,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/configure-auth-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 **기본**을 선택하고 기본 설정을 그대로 사용하여 새 AD 앱을 만든 후 **확인**을 선택합니다.
 
@@ -259,7 +259,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/get-application-id-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 여기에서 중지하는 경우 App Service 인증 및 권한 부여로 이미 보호되는 자체 포함된 앱이 있습니다. 나머지 섹션에서는 프런트 엔드에서 백 엔드로 인증된 사용자를 "전달"하여 다중 앱 솔루션의 보안을 유지하는 방법을 보여 줍니다. 
 
@@ -284,13 +284,13 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 **앱 등록** > **소유 애플리케이션** > **이 디렉터리의 모든 애플리케이션 보기**를 선택합니다. 프런트 엔드 앱 이름을 선택하고 **API 사용 권한**을 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/add-api-access-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 **권한 추가**를 선택한 다음, **내 조직에서 사용하는 API** >  **\<back-end-app-name>** 를 선택합니다.
 
 백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation**를 선택한 다음, **권한 추가**를 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/select-permission-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 
@@ -300,7 +300,7 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 이제 [Azure Resource Explorer](https://resources.azure.com)가 리소스 트리에서 선택된 프런트 엔드 앱과 함께 열립니다. 페이지의 위쪽에서 **읽기/쓰기** 를 클릭하여 Azure 리소스 편집이 가능하도록 설정합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/resources-enable-write.png)
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 왼쪽 브라우저에서 **구성** > **authsettings**로 드릴다운합니다.
 
@@ -310,7 +310,7 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/additional-login-params-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
 **PUT**을 클릭하여 설정을 저장합니다.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85513323"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983418"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -26,7 +26,7 @@ ms.locfileid: "85513323"
 
 다음 그래픽에서는 시나리오에 대한 개요를 제공합니다.
 
-![개요](media/tutorial-control-flow/overview.png)
+![다이어그램은 복사본의 대상인 Azure Blob Storage를 표시합니다. 성공 시 세부 정보가 포함된 이메일을 보내거나 실패 시 오류 세부 정보가 포함된 이메일을 보냅니다.](media/tutorial-control-flow/overview.png)
 
 이 자습서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 

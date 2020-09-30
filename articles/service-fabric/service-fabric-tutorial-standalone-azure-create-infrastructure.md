@@ -4,12 +4,12 @@ description: 이 자습서에서는 Service Fabric 클러스터를 실행하는 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614012"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561843"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: Azure VM 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
@@ -49,7 +49,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 8. 다음으로, **NIC 네트워크 보안 그룹**을 **고급**으로 설정합니다. 새 보안 그룹을 만들고 이름을 메모해 둔 후 모든 소스의 TCP 트래픽을 허용하는 다음 규칙을 만듭니다.
 
-   ![sf-inbound][sf-inbound]
+   ![스크린샷은 인바운드 TCP 트래픽을 허용하는 규칙 생성을 보여줍니다.][sf-inbound]
 
    * 포트 `3389` - RDP 및 ICMP용(기본 연결)
    * 포트 `19000-19003` - Service Fabric용
@@ -61,7 +61,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 9. 다른 규칙을 추가합니다. 소스를 **서비스 태그**로 설정하고 소스 서비스 태그를 **VirtualNetwork**로 설정합니다. Service Fabric이 클러스터 내에서 통신하려면 다음 포트가 열려 있어야 합니다. 135,137-139,445,20001-20031,20606-20861.
 
-   ![vnet-inbound][vnet-inbound]
+   ![스크린샷은 클러스터에 대한 TCP 트래픽을 허용하는 규칙을 만드는 방법을 보여줍니다.][vnet-inbound]
 
 10. 옵션의 나머지 부분은 기본 상태로 적용됩니다. 원한다면 검토한 후 가상 머신을 시작하세요.
 

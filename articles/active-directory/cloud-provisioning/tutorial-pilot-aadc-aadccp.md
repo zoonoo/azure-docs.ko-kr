@@ -1,6 +1,6 @@
 ---
 title: 자습서 - 기존 동기화된 AD 포리스트에 대한 Azure AD Connect 클라우드 프로비저닝 파일럿 테스트
-description: 자습서입니다.
+description: Azure AD(Azure Active Directory) Connect 동기화를 사용하여 이미 동기화된 테스트 Active Directory 포리스트에 대한 클라우드 프로비저닝을 파일럿하는 방법을 알아봅니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146815"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526938"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 

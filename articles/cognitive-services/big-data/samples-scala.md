@@ -1,6 +1,6 @@
 ---
 title: 빅 데이터 Scala 샘플에 대한 Cognitive Services
-description: Azure Databricks용 Python의 Cognitive Services 샘플을 사용하여 빅 데이터용 MMLSpark 파이프라인을 실행해 보세요.
+description: Azure Databricks용 Cognitive Services를 사용하여 빅 데이터에 대한 MMLSpark 파이프라인을 실행해 봅니다.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 098b59b8de0d0d7e5c3929ce084276350c04810a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189325"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524966"
 ---
 # <a name="quick-examples"></a>빠른 예제
 

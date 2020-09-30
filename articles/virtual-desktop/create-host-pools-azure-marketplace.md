@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322588"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084365"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -188,6 +188,13 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
      - 구성에 기반한 Azure 리소스 관리 템플릿에 대한 다운로드 링크
 
 그러면 모든 작업이 완료되었습니다!
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Azure Resource Manager 템플릿을 실행하여 새 호스트 풀 프로비전
+
+자동화된 프로세스를 사용하는 경우 대신 [Azure Resource Manager 템플릿을 다운로드](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)하여 새 호스트 풀을 프로비저닝합니다.
+
+>[!NOTE]
+>자동화된 프로세스를 사용하여 환경을 빌드하는 경우 최신 버전의 구성 JSON 파일이 필요합니다. [여기](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list)에서 JSON 파일을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

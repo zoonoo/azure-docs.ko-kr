@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure IaaS VM을 다른 지역으로 이동
-description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 이동합니다.
+title: Azure Site Recovery를 사용하여 Azure VM을 다른 Azure 지역으로 이동
+description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure VM을 이동합니다.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425928"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006417"
 ---
-# <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
+# <a name="move-vms-to-another-azure-region"></a>다른 Azure 지역으로 VM 이동
 
-기존 Azure IaaS 가상 머신(VM)을 한 지역에서 다른 지역으로 이동하려는 다양한 상황이 있습니다. 예를 들어, 기존 VM의 안정성 및 가용성을 개선하고 관리 기능을 개선하거나 거버넌스 이유로 이동하길 원할 수 있습니다. 자세한 내용은 [Azure VM 이동 개요](azure-to-azure-move-overview.md)를 참조하세요. 
+기존 Azure IaaS 가상 머신(VM)을 한 지역에서 다른 지역으로 이동하려는 시나리오가 있습니다. 예를 들어, 기존 VM의 안정성 및 가용성을 개선하고 관리 기능을 개선하거나 거버넌스 이유로 이동하길 원할 수 있습니다. 자세한 내용은 [Azure VM 이동 개요](azure-to-azure-move-overview.md)를 참조하세요. 
 
-[Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 비즈니스 연속성 및 재해 복구(BCDR)를 위해 온-프레미스 머신과 Azure VM의 재해 복구를 관리하고 오케스트레이션할 수 있습니다. 또한 Site Recovery를 사용하여 보조 지역으로 Azure VM을 이동하는 것을 관리할 수 있습니다.
+[Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure VM을 보조 지역으로 이동할 수 있습니다.
 
-이 자습서에서는 다음을 수행합니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ ms.locfileid: "89425928"
 > * 데이터를 복사 및 복제 사용
 > * 구성 테스트 및 이동 수행
 > * 원본 지역에서 리소스 삭제
-> 
+
+
+> [!IMPORTANT]
+> Azure VM을 다른 지역으로 이동하려면 이제 [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md)를 사용하는 것이 좋습니다. Azure Resource Mover는 현재 공개 미리 보기로 제공되며 다음을 제공합니다.
+> - 지역 간에 리소스를 이동하기 위한 단일 허브입니다.
+> - 이동 시간과 복잡성이 줄어듭니다. 필요한 모든 항목은 단일 위치에 있습니다.
+> - 다양한 유형의 Azure 리소스를 이동할 수 있는 간단하고 일관된 환경을 제공합니다.
+> - 이동하려는 리소스 간의 종속성을 쉽게 식별할 수 있는 방법입니다. 이를 통해 관련 리소스를 함께 이동함으로써 이동 후 대상 지역에서 모든 것이 예상대로 작동하도록 할 수 있습니다.
+> - 이동 후 리소스를 삭제하려는 경우 원본 지역의 리소스를 자동으로 정리합니다.
+> - 테스트 이동을 시도한 다음, 전체 이동을 수행하지 않으려면 취소할 수 있습니다.
+
+
+
 > [!NOTE]
 > 이 자습서에서는 Azure VM을 한 지역에서 다른 지역으로 그대로 이동하는 방법을 보여줍니다. 가용성 집합에 있는 VM을 다른 지역의 영역이 고정된 VM으로 이동하여 가용성을 개선해야 하는 경우에는 [가용성 영역으로 Azure VM 이동 자습서](move-azure-vms-avset-azone.md)를 참조하세요.
 

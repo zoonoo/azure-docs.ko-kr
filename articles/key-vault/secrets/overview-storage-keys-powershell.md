@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8e8479179aa74f2fb2ead41dec28d247de9657c3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: dd54dd17e5a9a828935ad0d6ac3d713aaedd9535
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251595"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell을 사용하여 스토리지 계정 키 관리
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>변수 설정
 
-먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정합니다. <YourResourceGroupName>, <YourStorageAccountName> 및 <YourKeyVaultName> 자리 표시자를 업데이트하고, 위의 [서비스 주체 애플리케이션 ID](#service-principal-application-id)에 지정된 대로 $keyVaultSpAppId를 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`으로 설정합니다.
+먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정합니다. "YourResourceGroupName", "YourStorageAccountName", "YourKeyVaultName" 자리 표시자를 업데이트하고, 위의 [서비스 주체 애플리케이션 ID](#service-principal-application-id)에 지정된 대로 $keyVaultSpAppId를 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`으로 설정합니다.
 
 또한 여기서는 Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) 및 [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlet을 사용하여 사용자 ID와 Azure 스토리지 계정의 컨텍스트를 가져올 것입니다.
 
