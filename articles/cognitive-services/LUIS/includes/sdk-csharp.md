@@ -2,20 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
 ms.custom: include file, devx-track-dotnet, cog-serv-seo-aug-2020
-ms.author: diberry
-ms.openlocfilehash: fff4e8c43263dfcc49be6cb6269078643118e8df
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2a3129e6a4ce51d9c50d210c6ce87a8d6fbda6de
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323117"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91544911"
 ---
 .NET용 LUIS(Language Understanding) 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 * 앱 만들기
@@ -180,7 +178,7 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 각 발화 예제에 대한 하나의 개체인 [ExampleLabelObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-dotnet) 개체의 목록을 만들어 발화 예제를 추가합니다. 각 예제는 엔터티 이름과 엔터티 값의 이름/값 쌍으로 구성된 사전을 통해 모든 엔터티를 표시해야 합니다. 엔터티 값은 발화 예제의 텍스트에 표시된 것과 정확히 일치해야 합니다.
 
-:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="포털에서 레이블이 지정된 예제 발화를 보여주는 부분 스크린샷.":::
+:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="생성된 엔터티, 하위 엔터티 및 기능이 `Quantity` 하위 엔터티에 적용되는 기계 학습 엔터티를 보여주는 포털의 부분 스크린샷.":::
 
 앱 ID, 버전 ID 및 예제를 사용하여 [Examples.AddAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet)를 호출합니다.
 

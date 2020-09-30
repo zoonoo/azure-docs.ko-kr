@@ -1,17 +1,15 @@
 ---
 title: 로컬 Service Fabric 클러스터에서 Java 앱 디버그
 description: 이 자습서에서는 로컬 클러스터에서 실행되는 Service Fabric Java 애플리케이션에서 로그를 가져오고 디버그하는 방법을 알아봅니다.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 040eaeb3ef77dfd68feb2aebac71d945ef669d6d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 801702d43bae6d925fa4f7fbc37cf44bf585fa6d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372436"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531993"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 애플리케이션 디버그
 

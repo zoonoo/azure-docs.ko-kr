@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffcb2c741838b1292eaf0793cd625c99d252068c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1a52a15012e367dc902992f7f7b905fc6c6a5eb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462074"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541546"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>빠른 시작: Azure.Search.Documents 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 
-새로운 [Azure.Search.Documents(버전 11) 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)를 사용하여 C#에서 검색 인덱스를 만들고 로드하고 쿼리하는 .NET Core 콘솔 애플리케이션을 만듭니다.
+새로운 [Azure.Search.Documents(버전 11) 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme)를 사용하여 C#에서 검색 인덱스를 만들고 로드하고 쿼리하는 .NET Core 콘솔 애플리케이션을 만듭니다.
 
 [소스 코드를 다운로드](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11)하여 완성된 프로젝트로 시작하거나 이 문서의 단계에 따라 새 프로젝트를 만듭니다.
 

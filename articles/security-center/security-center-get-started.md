@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895748"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447176"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>빠른 시작: Azure Security Center 설정
 
@@ -61,7 +61,7 @@ Security Center 빠른 시작 및 자습서를 위해 Azure Defender를 사용�
 
 1. Security Center의 사이드바에서 **시작**을 선택합니다.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="시작 페이지의 업그레이드 탭"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Security Center 개요 대시보드"::: 
 
     **업그레이드** 탭에는 온보딩에 적합한 구독 및 작업 영역이 나열되어 있습니다.
 
@@ -82,7 +82,7 @@ Log Analytics 에이전트의 자동 프로비저닝을 사용하려면 다음�
 1. **데이터 수집** 페이지에서 **자동 프로비저닝**을 **켜짐**으로 설정합니다.
 1. **저장**을 선택합니다.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Security Center 개요 대시보드":::
 
 >[!TIP]
 > 작업 영역을 프로비저닝해야 하는 경우 에이전트 설치에는 최대 25분이 걸릴 수 있습니다.
@@ -109,7 +109,6 @@ Log Analytics 에이전트의 자동 프로비저닝을 사용하려면 다음�
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png

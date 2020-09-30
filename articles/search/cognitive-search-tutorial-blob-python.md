@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936030"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531006"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -59,7 +59,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
-   ![스토리지 계정 만들기](media/cognitive-search-tutorial-blob/storage-account.png "Storage 계정 만들기")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. [기본 사항] 탭의 필수 항목은 다음과 같습니다. 다른 모든 항목에는 기본값을 적용합니다.
 
@@ -81,7 +81,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. *cog-search-demo*를 선택한 다음, **업로드**를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 이미지가 아닌 파일을 모두 선택합니다. 7개의 파일이 있어야 합니다. **확인**을 클릭하여 업로드합니다.
 
-   ![샘플 파일 업로드](media/cognitive-search-tutorial-blob/sample-files.png "샘플 파일 업로드")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. Azure Storage를 나가기 전에 Azure Cognitive Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
 
@@ -117,7 +117,7 @@ Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키
 
    쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="스토리지 계정 만들기" border="false":::
 
 모든 요청에서 서비스에 보내는 각 요청의 헤더마다 API 키가 필요합니다. 유효한 키는 요청을 보내는 애플리케이션과 이 요청을 처리하는 서비스 간에 요청별로 신뢰를 설정합니다.
 
@@ -190,7 +190,7 @@ print(r.status_code)
 
 Azure Portal의 검색 서비스 대시보드 페이지에서 **데이터 원본** 목록에 cogsrch-py-datasource가 표시되는지 확인합니다. **새로 고침**을 클릭하여 페이지를 업데이트합니다.
 
-![포털의 데이터 원본 타일](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "포털의 데이터 원본 타일")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="스토리지 계정 만들기" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>2단계: 기술 집합 만들기
 
@@ -303,7 +303,7 @@ print(r.status_code)
 
 기술 집합의 그래픽 표현은 아래와 같습니다.
 
-![기술 세트 이해](media/cognitive-search-tutorial-blob/skillset.png "기술 세트 이해")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="스토리지 계정 만들기" border="false":::
 
 출력을 인덱스에 매핑할 수도 있고, 다운스트림 기술의 입력으로 사용할 수도 있고, 언어 코드처럼 둘 다 할 수도 있습니다. 인덱스에서 언어 코드는 필터링에 유용합니다. 입력으로써의 언어 코드는 단어 분리에 대한 언어적 규칙을 알려주기 위해 텍스트 분석 기술에 사용됩니다.
 
@@ -315,7 +315,7 @@ print(r.status_code)
 
 이 연습에서는 다음 필드와 필드 형식을 사용합니다.
 
-| 필드 이름: | id         | content   | languageCode | keyPhrases         | organizations     |
+| 필드 이름: | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | 필드 형식: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 응답에서 `"lastResult"`의 `"status"` 및 `"endTime"` 값을 모니터링합니다. 정기적으로 스크립트를 실행하여 상태를 확인합니다. 인덱서가 완료된 경우 status가 "success"로 설정되고, "endTime"이 지정되며, 응답에 보강 과정에서 발생한 오류와 경고가 포함됩니다.
 
-![인덱서가 생성됩니다.](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "인덱서가 생성됩니다.")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="스토리지 계정 만들기" border="false":::
 
 경고는 일부 원본 파일 및 기술 조합에서 일반적이며 항상 문제를 나타내는 것은 아닙니다. 많은 경고는 심각하지 않습니다. 예를 들어 텍스트가 없는 JPEG 파일을 인덱싱하면 다음 스크린샷에 경고가 표시됩니다.
 
-![예제 인덱서 경고](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "예제 인덱서 경고")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="스토리지 계정 만들기" border="false":::
 
 ## <a name="5---search"></a>5 - 검색
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 결과는 다음 예와 유사하게 나타납니다. 스크린샷은 응답의 일부만 보여줍니다.
 
-![모든 필드에 대한 인덱스 쿼리](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "모든 필드에 대한 인덱스 쿼리")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="스토리지 계정 만들기" border="false":::
 
 출력은 각 필드의 이름, 형식 및 특성이 포함된 인덱스 스키마입니다.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 결과는 다음 예와 유사하게 나타납니다. 스크린샷은 응답의 일부만 보여줍니다.
 
-![조직 콘텐츠의 쿼리 인덱스](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "인덱스를 쿼리하여 조직의 콘텐츠 반환")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="스토리지 계정 만들기" border="false":::
 
 이 연습에서는 `content`, `languageCode`, `keyPhrases` 및 `organizations` 등의 추가 필드에 대해 이 작업을 반복합니다. 쉼표로 구분된 목록을 사용하여 `$select`를 통해 여러 필드를 반환할 수 있습니다.
 
@@ -522,7 +522,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 포털을 사용하여 인덱스, 인덱서, 데이터 원본 및 기술 세트를 삭제할 수 있습니다. 인덱서를 삭제할 때 필요한 경우 인덱스, 기술 세트 및 데이터 원본을 동시에 선택적으로 삭제할 수 있습니다.
 
-![검색 개체 삭제](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "포털에서 검색 개체 삭제")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="스토리지 계정 만들기" border="false":::
 
 스크립트를 사용하여 삭제할 수도 있습니다. 다음 스크립트는 기술 세트를 삭제하는 방법을 보여줍니다. 
 

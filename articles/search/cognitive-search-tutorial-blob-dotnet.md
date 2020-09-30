@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 13e3f5a7d86d2e9b705fbeb104ba4f8eb690cb3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002865"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534101"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Blob에서 AI 생성 검색 가능 콘텐츠
 
@@ -170,7 +170,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-    
+
 검색 서비스 및 Blob 스토리지 계정 정보를 추가합니다. 이 정보는 이전 섹션에 표시된 서비스 프로비전 단계에서 가져올 수 있습니다.
 
 **SearchServiceName**의 경우 전체 URL이 아닌 짧은 서비스 이름을 입력합니다.
@@ -586,11 +586,11 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 
 | 필드 이름 | 필드 형식 |
 | --- | --- |
-| id | Edm.String |
-| content | Edm.String |
-| languageCode | Edm.String |
-| keyPhrases | List<Edm.String> |
-| organizations | List<Edm.String> |
+| `id` | Edm.String |
+| `content` | Edm.String |
+| `languageCode` | Edm.String |
+| `keyPhrases` | List<Edm.String> |
+| `organizations` | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>DemoIndex 클래스 만들기
 
@@ -906,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) 속성을 통해 여러 필드를 반환할 수 있습니다.
+추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) 속성을 통해 여러 필드를 반환할 수 있습니다.
 
 <a name="reset"></a>
 

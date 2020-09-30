@@ -2,18 +2,17 @@
 title: V3 예측 엔드포인트를 가져오는 방법
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: diberry
-ms.openlocfilehash: 18f5422202cf972d49349cc04b845c623cabffa3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a607ad71915606d6046b4c71291a49b8641bdcc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589151"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545345"
 ---
 1. LUIS 포털의 **관리** 섹션(오른쪽 상단 메뉴)에 있는 **Azure 리소스** 페이지(왼쪽 메뉴)의 **예측 리소스** 탭에서 페이지 하단에 있는 **예제 쿼리**를 복사합니다.
 

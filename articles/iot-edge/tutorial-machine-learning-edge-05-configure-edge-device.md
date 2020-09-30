@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81733021"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448512"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -167,7 +167,7 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
     * 리소스 그룹이 없으면 리소스 그룹 생성
     * 가상 머신 만들기
     * 포트 22(SSH), 5671(AMQP), 5672(AMPQ) 및 443(TLS)의 VM에 대한 NSG 예외 추가
-    * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest) 설치
+    * [Azure CLI](/cli/azure/install-azure-cli-apt) 설치
 
 7. 스크립트는 VM에 연결하기 위한 SSH 연결 문자열을 출력합니다. 다음 단계에서 사용할 수 있도록 연결 문자열을 복사합니다.
 
