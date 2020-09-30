@@ -1,18 +1,18 @@
 ---
 title: IoT 플러그 앤 플레이 디지털 쌍 이해
-description: IoT 플러그 앤 플레이 미리 보기에서 디지털 쌍을 사용 하는 방법 이해
+description: IoT 플러그 앤 플레이에서 디지털 쌍을 사용 하는 방법 이해
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352275"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578056"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 이해
 
@@ -34,7 +34,7 @@ DTDL은 IoT 플러그 앤 플레이에만 국한 되지 않습니다. [Azure Dig
 
 장치 쌍에서 쓰기 가능한 속성의 상태는 원하는 및 보고 된 섹션에서 분할 됩니다. 모든 읽기 전용 속성은 보고 된 섹션 내에서 사용할 수 있습니다.
 
-디지털 쌍에는 속성의 현재 상태와 원하는 상태를 보여 주는 통합 뷰가 있습니다. 지정 된 속성의 동기화 상태는 해당 루트 수준 또는 구성 요소 섹션에 저장 됩니다 `$metadata` .
+디지털 쌍에는 속성의 현재 상태와 원하는 상태를 보여 주는 통합 뷰가 있습니다. 지정 된 속성의 동기화 상태는 해당 하는 기본 구성 요소 섹션에 저장 됩니다 `$metadata` .
 
 ### <a name="digital-twin-json-format"></a>디지털 쌍 JSON 형식
 
@@ -48,12 +48,12 @@ JSON 개체로 표시 되는 디지털 쌍에는 다음 필드가 포함 됩니�
 | `$metadata.{propertyName}.desiredValue` | [쓰기 가능한 속성에만 해당] 지정 된 속성의 원하는 값입니다. |
 | `$metadata.{propertyName}.desiredVersion` | [쓰기 가능한 속성에만 해당] IoT Hub에서 유지 관리 되는 원하는 값의 버전입니다.|
 | `$metadata.{propertyName}.ackVersion` | [필수, 쓰기 가능한 속성에만 해당] 디지털 쌍을 구현 하는 장치에서 승인 하는 버전은 원하는 버전과 같거나 커야 합니다. |
-| `$metadata.{propertyName}.ackCode` | [필수, 쓰기 가능한 속성에만 해당] `ack`디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
-| `$metadata.{propertyName}.ackDescription` | [선택 사항, 쓰기 가능한 속성만 해당] `ack`디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
+| `$metadata.{propertyName}.ackCode` | [필수, 쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
+| `$metadata.{propertyName}.ackDescription` | [선택 사항, 쓰기 가능한 속성만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub은 장치의 마지막 속성 업데이트에 대 한 타임 스탬프를 유지 관리 합니다. 타임 스탬프는 UTC로 ISO8601 형식으로 인코딩됩니다. YYYY-MM-DDTHH: MM: SS. mmmZ |
-| `{componentName}` | 루트 개체와 유사한 구성 요소의 속성 값과 메타 데이터를 포함 하는 JSON 개체입니다. |
+| `{componentName}` | 구성 요소의 속성 값과 메타 데이터를 포함 하는 JSON 개체입니다. |
 | `{componentName}.{propertyName}` | JSON의 구성 요소 속성 값 |
-| `{componentName}.$metadata` | 루트 수준과 비슷한 구성 요소에 대 한 메타 데이터 정보입니다.`$metadata` |
+| `{componentName}.$metadata` | 구성 요소에 대 한 메타 데이터 정보입니다. |
 
 #### <a name="device-twin-sample"></a>장치 쌍 샘플
 
@@ -171,7 +171,7 @@ JSON 개체로 표시 되는 디지털 쌍에는 다음 필드가 포함 됩니�
 
 #### <a name="writable-property"></a>쓰기 가능 속성
 
-또한 루트 수준에서 다음과 같은 쓰기 가능한 속성이 장치에 있다고 가정해 보겠습니다.
+기본 구성 요소에 다음과 같은 쓰기 가능 속성도 있다고 가정해 보겠습니다.
 
 ```json
 {
@@ -228,7 +228,7 @@ JSON 개체로 표시 되는 디지털 쌍에는 다음 필드가 포함 됩니�
    :::column-end:::
 :::row-end:::
 
-이 예제에서 `3.0` 는 장치에서 보고 하는 속성의 현재 값입니다 `fanSpeed` . `2.0`는 솔루션에 의해 설정 되는 원하는 값입니다. 루트 수준 속성의 원하는 값 및 동기화 상태는 디지털 쌍의 루트 수준 내에서 설정 됩니다 `$metadata` . 장치가 온라인 상태가 되 면이 업데이트를 적용 하 고 업데이트 된 값을 다시 보고할 수 있습니다.
+이 예제에서 `3.0` 는 장치에서 보고 하는 속성의 현재 값입니다 `fanSpeed` . `2.0` 는 솔루션에 의해 설정 되는 원하는 값입니다. 루트 수준 속성의 원하는 값 및 동기화 상태는 디지털 쌍의 루트 수준 내에서 설정 됩니다 `$metadata` . 장치가 온라인 상태가 되 면이 업데이트를 적용 하 고 업데이트 된 값을 다시 보고할 수 있습니다.
 
 ### <a name="components"></a>구성 요소
 
@@ -241,7 +241,7 @@ JSON 개체로 표시 되는 디지털 쌍에는 다음 필드가 포함 됩니�
 이 예제에서 `thermostat1` 은 두 개의 속성을 포함 하는 구성 요소입니다.
 
 - `maxTempSinceLastReboot` 읽기 전용 속성이입니다.
-- `targetTemperature`는 장치에서 성공적으로 동기화 된 쓰기 가능한 속성입니다. 이러한 속성의 원하는 값과 동기화 상태는 구성 요소에 `$metadata` 있습니다.
+- `targetTemperature` 는 장치에서 성공적으로 동기화 된 쓰기 가능한 속성입니다. 이러한 속성의 원하는 값과 동기화 상태는 구성 요소에 `$metadata` 있습니다.
 
 다음 코드 조각은 구성 요소의 side-by-side JSON 표현을 보여 줍니다 `thermostat1` .
 
@@ -374,11 +374,14 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> 장치와 디지털 쌍 변경 알림에서 모두 설정 되 면 쌍 변경 알림 메시지가 두 배가 됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 이제 디지털 쌍에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [IoT 플러그 앤 플레이 디지털 쌍 Api를 사용 하는 방법](howto-manage-digital-twin.md)
-- [솔루션에서 장치와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
 - [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

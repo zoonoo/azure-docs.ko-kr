@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 034940a0990fc97118e62caab051a5a9e2ffd3e7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325252"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578566"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Azure SQL Managed Instance의 관리 되는 인스턴스를 장애 조치 (failo
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>리소스 그룹 및 기본 관리 되는 인스턴스 만들기
 
 이 단계에서는 Azure Portal 또는 PowerShell을 사용 하 여 장애 조치 (failover) 그룹에 대 한 리소스 그룹 및 기본 관리 되는 인스턴스를 만듭니다. 
+
+성능상의 이유로 두 관리 되는 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 에 배포 합니다. 지리적으로 쌍을 이루는 지역에 상주 하는 관리 되는 인스턴스는 페어링되지 않은 영역에 비해 훨씬 더 나은 성능을 갖습니다. 
 
 
 # <a name="portal"></a>[포털](#tab/azure-portal) 
@@ -740,6 +742,8 @@ PowerShell을 사용 하 여 보조 관리 되는 인스턴스를 만듭니다.
 
 이 문서에서는 두 VPN gateway를 만들고 연결 하는 단계를 제공 하지만 대신 Express 경로를 구성한 경우에는 장애 조치 (failover) 그룹 만들기로 건너뛸 수 있습니다. 
 
+> [!NOTE]
+> 게이트웨이의 SKU는 처리량 성능에 영향을 줍니다. 이 자습서에서는 가장 기본적인 SKU ()를 사용 하 여 게이트웨이를 배포 `HwGw1` 합니다. 높은 SKU (예:)를 배포 `VpnGw3` 하 여 더 높은 처리량을 달성할 수 있습니다. 사용 가능한 모든 옵션은 [게이트웨이 sku](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 를 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -762,7 +766,7 @@ Azure Portal를 사용 하 여 기본 관리 되는 인스턴스의 가상 네�
     | **필드** | 값 |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **Name** | 과 같은 가상 네트워크 게이트웨이의 이름 `primary-mi-gateway` 입니다. | 
+    | **이름** | 과 같은 가상 네트워크 게이트웨이의 이름 `primary-mi-gateway` 입니다. | 
     | **지역** | 기본 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반**을 선택합니다. |
@@ -843,7 +847,7 @@ Azure Portal를 사용 하 여 이전 섹션의 단계를 반복 하 여 보조 
    | **필드** | 값 |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **Name** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. | 
+   | **이름** | 과 같은 가상 네트워크 게이트웨이의 이름 `secondary-mi-gateway` 입니다. | 
    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반**을 선택합니다. |

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033645"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577767"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -52,7 +52,7 @@ IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 �
 | [디바이스 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md) 및 [디바이스 관리](iot-hub-device-management-overview.md) |   | 예 |
 | [디바이스 스트림(미리 보기)](iot-hub-device-streams-overview.md) |   | 예 |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 예 |
-| [IoT 플러그 앤 플레이 미리 보기](../iot-pnp/overview-iot-plug-and-play.md) |   | 예 |
+| [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) |   | 예 |
 
 IoT Hub는 또한 테스트와 평가를 위한 무료 계층을 제공합니다. 제한된 메시징 허용 개수로 표준 계층의 모든 기능을 포함합니다. 무료 계층에서 기본 또는 표준 계층으로 업그레이드할 수 없습니다.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 192780f1340b09cd2579e31f4023acb101d0e1f9
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 89dc962c73a6446afc79eec2a0fcfd5c0e32e84e
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358086"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576713"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 만들기
 
@@ -110,8 +110,8 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
     - **준비 상태 알 수 없음**: 온-프레미스 환경에서 수집 된 메타 데이터가 부족 하 여 컴퓨터의 준비 상태를 확인할 수 Azure Migrate.
 
 3. 제안 된 도구를 검토 합니다.
-    - **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
-    - **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 컴퓨터의 경우에는 VMware 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다. 
+    - **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+    - **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 머신의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션을 사용하는 것이 좋습니다. 
 
 4. **AVS 준비** 상태를 클릭 합니다. VM 준비 상태 세부 정보를 살펴보고, 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수 있습니다.
 
@@ -121,11 +121,11 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
 
 이 보기는 Azure VMware 솔루션 (AVS)에서 Vm을 실행 하는 예상 비용을 보여 줍니다.
 
-1. 월별 총 비용을 검토 합니다. 비용은 평가된 그룹의 모든 VM에 대해 집계됩니다. 
+1. 월별 총 비용을 검토합니다. 비용은 평가된 그룹의 모든 VM에 대해 집계됩니다. 
 
     - 예상 비용은 전체 Vm의 리소스 요구 사항을 고려 하는 데 필요한 AVS 노드 수를 기준으로 합니다.
     - Azure VMware 솔루션 (AVS)의 가격은 노드당 계산 되므로 총 비용에는 계산 비용 및 저장소 비용 분포가 없습니다.
-    - 비용 예측은 AVS에서 온-프레미스 Vm을 실행 하기 위한 것입니다. Azure Migrate 서버 평가에서는 PaaS 또는 SaaS 비용을 고려하지 않습니다.
+    - 예상 비용은 AVS에서 온-프레미스 VM을 실행하는 데 드는 비용입니다. Azure Migrate 서버 평가에서는 PaaS 또는 SaaS 비용을 고려하지 않습니다.
     
 2. 월간 예상 스토리지 비용을 검토할 수 있습니다. 이 보기에는 평가된 그룹에 대해 집계된 스토리지 비용이 표시되며, 해당 그룹은 여러 유형의 스토리지 디스크로 분할되어 있습니다.
 

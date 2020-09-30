@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1484c4bf17d5f437d681e32559b7e6ed4115f5f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515127"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578515"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록
 이 문서에서는 데이터 카탈로그와 데이터를 통합하여 조직 내에서 데이터를 검색할 수 있도록 만들기 위해 Azure Data Lake Storage Gen1과 Azure Data Catalog를 통합하는 방법을 알아봅니다. 데이터 카탈로그를 만드는 방법에 대한 자세한 내용은 [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md)를 참조하세요. 데이터 카탈로그를 사용할 수 있는 시나리오를 이해하려면 [Azure Data Catalog 일반적인 시나리오](../data-catalog/data-catalog-common-scenarios.md)를 참조하세요.
@@ -20,7 +20,7 @@ ms.locfileid: "85515127"
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Data Lake Storage Gen1에 대해 **Azure 구독을 사용하도록 설정**합니다. [지침](data-lake-store-get-started-portal.md)을 참조 하세요.
+* Data Lake Storage Gen1에 대해 **Azure 구독을 사용하도록 설정**합니다. [지침](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 이 자습서에서는 Data Lake Storage Gen1 계정 **datacatalogstore**를 만듭니다.
 
     계정을 만든 후에 그 계정에 샘플 데이터 집합을 업로드합니다. 이 자습서에서는, **Azure Data Lake Git 리포지토리** 의 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)폴더에 있는 모든 .csv 파일을 업로드하겠습니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
@@ -52,12 +52,12 @@ ms.locfileid: "85515127"
 
     다. 등록할 **개체** 상자에는 Azure Data Catalog 등록 하려는 파일 및 폴더가 나열 됩니다.
 
-    ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-data-structure.png "데이터 구조 보기")
+    ![Microsoft Azure Data Catalog 저장소 계정 대화 상자의 스크린샷](./media/data-lake-store-with-data-catalog/view-data-structure.png "데이터 구조 보기")
 1. 이 자습서에서는, 디렉터리의 모든 파일을 등록합니다. 이를 위해, (![개체 이동](./media/data-lake-store-with-data-catalog/move-objects.png "개체 이동")) 단추를 클릭하여 모든 파일을 **등록할 개체** 상자로 이동합니다.
 
     데이터를 조직 전체의 데이터 카탈로그에 등록하는 것이므로, 나중에 데이터를 신속하게 찾는 데 사용할 수 있는 메타데이터를 추가하는 것이 좋습니다. 예를 들어, 데이터 소유자(예: 데이터를 업로드한 사람)의 전자 메일 주소를 추가하거나 데이터 식별을 위한 태그를 추가할 수 있습니다. 아래 스크린 캡처에서 데이터에 추가하는 태그를 볼 수 있습니다.
 
-    ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "데이터 구조 보기")
+    ![Out 이라는 데이터에 추가 된 태그를 사용 하 여 Microsoft Azure Data Catalog 저장소 계정 대화 상자의 스크린샷](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "데이터 구조 보기")
 
     **등록**을 클릭합니다.
 1. 다음 화면 캡처는 데이터가 데이터 카탈로그에 성공적으로 등록된 것을 나타냅니다.
@@ -71,7 +71,7 @@ ms.locfileid: "85515127"
     * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
     * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
 * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 * [Data Lake Storage Gen1과 다른 Azure 서비스 통합](data-lake-store-integrate-with-other-services.md)

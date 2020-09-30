@@ -1,18 +1,21 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255046"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577223"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트를 사용 하면 회사 네트워크 또는 다른 클라우드 공급자의 Azure 외부에서 호스트 되는 Windows 및 Linux 컴퓨터를 관리할 수 있습니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
+
+>[!NOTE]
+>9 월 2020에 Azure Arc 사용이 가능한 서버를 일반적으로 출시 한 후에는 Azure에 연결 된 컴퓨터 에이전트의 모든 시험판 버전 (1.0 보다 낮은 버전의 에이전트)은 **2021 2,를**사용 하 여 **더 이상 사용** 되지 않습니다.  이 시간 프레임을 사용 하면 미리 릴리스된 에이전트가 Azure Arc 사용 서버 서비스와 더 이상 통신할 수 없으므로 버전 1.0 이상으로 업그레이드할 수 있습니다.
 
 ## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
 
@@ -44,14 +47,14 @@ Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 �
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다. 
+Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다.
 
 - Windows Server 2012 R2 이상(Windows Server Core 포함)
 - Ubuntu 16.04 및 18.04 LTS (x64)
 - CentOS Linux 7(x64)
 - SLES(SUSE Linux Enterprise Server) 15(x64)
-- Red Hat Enterprise Linux (RHEL) 7 (x64)
-- Amazon Linux 2 (x64)
+- RHEL(Red Hat Enterprise Linux) 7(x64)
+- Amazon Linux 2(x64)
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
@@ -87,7 +90,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure Resource Manager|
+|`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`agentserviceapi.azure-automation.net`|게스트 구성|
@@ -134,7 +137,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 > [!IMPORTANT]
 > 연결 된 컴퓨터 에이전트는 Azure Windows 가상 컴퓨터에 설치할 수 없습니다. 을 (를) 시도 하면 설치에서이를 감지 하 고 롤백합니다.
 
-| 메서드 | Description |
+| 방법 | Description |
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|

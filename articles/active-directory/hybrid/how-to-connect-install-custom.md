@@ -10,38 +10,44 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db10f53033e305aa2306bce230e7880140f35189
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295348"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578288"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
-설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
+설치에 대 한 추가 옵션을 원하는 경우 Azure AD Connect **사용자 지정 설정이** 사용 됩니다.  예를 들어 포리스트가 여러 개인 경우 또는 선택적 기능을 구성 하려는 경우입니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
 
 Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료해야 합니다. 또한 [Azure AD Connect 계정 및 사용 권한](reference-connect-accounts-permissions.md)에 설명된 대로 사용할 수 있는 계정이 있어야 합니다.
 
-사용자 지정 설정이 토폴로지와 일치하지 않는 경우(예: DirSync 업그레이드) 다른 시나리오의 관련 설명서를 참조하세요.
-
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설정 설치
+
 ### <a name="express-settings"></a>Express 설정
-이 페이지에서 **사용자 지정**을 클릭하여 사용자 지정된 설정을 설치하기 시작합니다.
+이 페이지에서 **사용자 지정**을 클릭하여 사용자 지정된 설정을 설치하기 시작합니다.  이 문서의 나머지 부분에서는 사용자 지정 설치를 위한 다양 한 마법사 화면을 안내 합니다.  아래 링크를 사용 하 여 특정 마법사 화면에 대 한 정보를 신속 하 게 탐색할 수 있습니다.
+
+- [필요한 구성 요소 설치](#install-required-components)
+- [사용자 로그인](#user-sign-in)
+- [Azure에 연결](#connect-to-azure-ad)
+- [동기화 섹션의 페이지](#pages-under-the-sync-section)
 
 ### <a name="install-required-components"></a>필요한 구성 요소 설치
-동기화 서비스를 설치한 경우 선택적 구성 섹션을 선택하지 않은 채로 두고 Azure AD Connect가 모든 내용을 자동으로 설정하도록 할 수 있습니다. 즉, SQL Server 2012 Express LocalDB 인스턴스를 설정하고 적절한 그룹을 만들고 사용 권한을 할당합니다. 기본값을 변경하려면 다음 테이블을 사용하여 사용 가능한 선택적 구성 옵션을 숙지할 수 있습니다.
+동기화 서비스를 설치한 경우 선택적 구성 섹션을 선택하지 않은 채로 두고 Azure AD Connect가 모든 내용을 자동으로 설정하도록 할 수 있습니다. SQL Server 2012 Express LocalDB 인스턴스를 설정 하 고, 적절 한 그룹을 만들고, 사용 권한을 할당 합니다. 기본값을 변경 하려는 경우 적절 한 상자를 선택 하 여이 작업을 사용할 수 있습니다.  다음 표에서는 이러한 옵션에 대 한 요약 및 추가 정보에 대 한 링크를 제공 합니다. 
 
 ![필수 구성 요소](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | 선택적 구성 | Description |
 | --- | --- |
+|사용자 지정 설치 위치 지정| Azure AD Connect에 대 한 기본 설치 경로를 변경할 수 있습니다.|
 | 기존 SQL Server 사용 |SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용하려는 데이터베이스 서버가 이미 있는 경우 이 옵션을 선택합니다. SQL Server에서 찾아보기를 사용하도록 설정하지 않은 경우 **인스턴스 이름**에 인스턴스 이름, 쉼표 및 포트 번호를 차례로 입력합니다.  그런 다음, Azure AD Connect 데이터베이스의 이름을 지정합니다.  SQL 권한에 따라 새 데이터베이스를 만들 것인지 아니면 SQL 관리자가 데이터베이스를 미리 만들어야 하는지가 결정됩니다.  SQL SA 권한이 있는 경우 [기존 데이터베이스를 사용하여 설치하는 방법](how-to-connect-install-existing-database.md)을 참조하세요.  위임된 권한(DBO)이 있는 경우 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요. |
 | 기존 서비스 계정 사용 |기본적으로 Azure AD Connect에서는 사용할 동기화 서비스에 대한 가상 서비스 계정을 사용합니다. 원격 SQL Server를 사용하거나 인증이 필요한 프록시를 사용하는 경우 **관리 서비스 계정** 또는 도메인의 서비스 계정을 사용하고 암호를 알고 있어야 합니다. 이러한 경우에 사용할 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다.  [Azure AD Connect 계정 및 권한](reference-connect-accounts-permissions.md#adsync-service-account)을 참조하세요. </br></br>최신 빌드를 사용하면 이제는 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  자세한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.|
 | 사용자 지정 동기화 그룹 지정 |기본적으로 Azure AD Connect에서는 동기화 서비스를 설치할 때 서버에 로컬 그룹 4개를 만듭니다. 이러한 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹 및 Password Reset 그룹입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
+|동기화 설정 가져오기 (미리 보기)|다른 버전의 Azure AD Connect에서 설정을 가져올 수 있습니다.  자세한 내용은 [Azure AD Connect 구성 설정 가져오기 및 내보내기](how-to-connect-import-export-config.md)를 참조 하세요.|
 
 ### <a name="user-sign-in"></a>사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](plan-connect-user-signin.md)을 참조하세요.
@@ -167,7 +173,7 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 >
 >최신 버전의 Azure AD Connect를 다운로드하려면 [여기](https://www.microsoft.com/download/details.aspx?id=47594)를 클릭하세요.
 
-![선택적 기능](./media/how-to-connect-install-custom/optional2.png)
+ ![선택적 기능](./media/how-to-connect-install-custom/optional2a.png)
 
 > [!WARNING]
 > 현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.

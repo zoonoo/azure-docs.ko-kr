@@ -3,12 +3,12 @@ title: Azure Migrate의 검색, 평가 및 종속성 분석에 대 한 질문
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019014"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577274"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
 
@@ -124,7 +124,7 @@ Azure에서 평가를 만들 때 성능 기간 및 성능 기록 백분위 수 �
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>가져오기 기반 AVS 평가에서 제안 된 마이그레이션 도구가 알 수 없음으로 표시 되는 이유는 무엇 인가요?
 
-CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 HCX (VMware 하이브리드 클라우드 확장) 솔루션을 사용 하는 것이 좋습니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
+CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 HCX (VMware 하이브리드 클라우드 확장) 솔루션을 사용 하는 것이 좋습니다. [자세한 정보](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>종속성 시각화란?
@@ -142,9 +142,9 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 --- | --- | ---
 지원 | 이 옵션은 현재 미리 보기 상태 이며 VMware Vm에 대해서만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 에이전트 | 교차 확인 하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | [MMA (Microsoft Monitoring agent)](../azure-monitor/platform/agent-windows.md)및 [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent)를 분석 하려는 각 온-프레미스 컴퓨터에 설치 되는 에이전트입니다. 
-필수 구성 요소 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
-Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
-작동 방법 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
+사전 요구 사항 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
+Log Analytics | 필요하지 않습니다. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
+작동 방식 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
 데이터 | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 시각화 | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
 데이터 내보내기 | 지난 30 일간의 데이터는 CSV 형식으로 다운로드할 수 있습니다. | Log Analytics를 사용 하 여 데이터를 쿼리할 수 있습니다.

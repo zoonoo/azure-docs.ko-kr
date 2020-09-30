@@ -7,22 +7,25 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475501"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577801"
 ---
 # <a name="azure-iot-model-repository"></a>Azure IoT 모델 리포지토리
 
 Azure IoT 모델 리포지토리를 사용 하면 장치 빌더가 IoT 플러그 앤 플레이 장치 모델을 관리 하 고 공유할 수 있습니다. 장치 모델은 [DTDL (디지털 Twins 모델링 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)을 사용 하 여 정의 된 JSON LD 문서입니다. 모델 리포지토리 서비스에 저장 된 모델은 IoT 플러그 앤 플레이 클라우드 솔루션을 통합 하 고 개발 하는 인증을 요구 하지 않고도 액세스 제어 또는 공개적으로 솔루션 개발자와 공유할 수 있습니다.
 
+> [!NOTE]
+> 장치 빌더는 장치에서 직접 또는 모듈을 사용 하거나 IoT Edge 모듈에서 IoT 플러그 앤 플레이 장치 모델을 구현 하도록 선택할 수 있습니다.
+
 다음을 사용 하 여 모델 리포지토리에 액세스할 수 있습니다.
 
 - [Azure IoT 모델 리포지토리](https://aka.ms/iotmodelrepo) 포털
 - [Azure IoT 모델 리포지토리 REST API](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)
-- [IoT 모델 리포지토리 명령 Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)
+- [IoT 모델 리포지토리 명령 Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="public-models"></a>공용 모델
 
@@ -45,10 +48,10 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-CLI를 사용 하 여 공용 모델을 보려면 Azure CLI [모델 가져오기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) 명령을 참조 하세요.
+CLI를 사용 하 여 공용 모델을 보려면 Azure CLI [모델 가져오기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) 명령을 참조 하세요.
 
 ## <a name="company-models"></a>회사 모델
 
@@ -115,10 +118,10 @@ REST API를 사용 하 여 회사 또는 공유 모델을 보려면 [모델 가�
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-CLI를 사용 하 여 회사 모델 또는 공유 모델을 보려면 Azure CLI [모델 가져오기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) 명령을 참조 하세요.
+CLI를 사용 하 여 회사 모델 또는 공유 모델을 보려면 Azure CLI [모델 가져오기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) 명령을 참조 하세요.
 
 ### <a name="manage-roles"></a>역할 관리
 
@@ -161,10 +164,10 @@ REST API를 사용 하 여 모델을 업로드 하려면 [모델 만들기](http
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
 ```
 
-CLI를 사용 하 여 모델을 업로드 하려면 모델 Azure CLI [만들기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create) 명령을 참조 하세요.
+CLI를 사용 하 여 모델을 업로드 하려면 모델 Azure CLI [만들기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) 명령을 참조 하세요.
 
 ### <a name="publish-a-model"></a>모델 게시
 
@@ -189,7 +192,10 @@ CLI를 사용 하 여 모델을 업로드 하려면 모델 Azure CLI [만들기]
 
 REST API를 사용 하 여 모델을 게시 하려면 [모델 게시](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API 설명서를 참조 하세요. `update-metadata=true`REST API를 사용 하 여 모델을 게시 하려면 쿼리 문자열 매개 변수를 제공 합니다. HTTP 요청에서 JWT 권한 부여 헤더를 전달 하는 방법에 대 한 자세한 내용은 [REST API를 사용 하 여 회사 모델에 액세스할 때 보안 토큰 전달](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) 을 참조 하세요.
 
-CLI를 사용 하 여 모델을 게시 하려면 Azure CLI [모델 게시](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) 명령을 참조 하세요.
+CLI를 사용 하 여 모델을 게시 하려면 Azure CLI [모델 게시](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish&preserve-view=true) 명령을 참조 하세요.
+
+> [!NOTE]
+> 모델은 인증 테스트를 실행 하기 전에 모델 리포지토리에 게시 해야 합니다. 자세히 알아보려면 [IoT 플러그 앤 플레이 장치를 인증 하는 방법](howto-certify-device.md)을 참조 하세요.
 
 ### <a name="share-a-model"></a>모델 공유
 

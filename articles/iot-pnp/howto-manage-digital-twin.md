@@ -1,24 +1,24 @@
 ---
 title: IoT 플러그 앤 플레이 디지털 쌍을 관리 하는 방법
-description: 디지털 쌍 Api를 사용 하 여 IoT 플러그 앤 플레이 미리 보기 장치를 관리 하는 방법
+description: 디지털 쌍 Api를 사용 하 여 IoT 플러그 앤 플레이 장치를 관리 하는 방법
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352236"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577597"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 관리
 
 IoT 플러그 앤 플레이는 디지털 쌍 **가져오기** 및 디지털 쌍 **업데이트** 작업을 지원 하 여 디지털 쌍을 관리 합니다. [REST api](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) 또는 [서비스 sdk](libraries-sdks.md)중 하나를 사용할 수 있습니다.
 
-이 문서를 작성할 당시에는 공개 미리 보기용 디지털 쌍 API 버전이 `2020-05-31-preview` 있습니다.
+문서를 작성할 당시 디지털 쌍 API 버전은 `2020-09-30` 입니다.
 
 ## <a name="update-a-digital-twin"></a>디지털 쌍 업데이트
 
@@ -72,7 +72,7 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 ]
 ```
 
-이전 업데이트는 다음 코드 조각과 같이 해당 루트 수준 또는 구성 요소 수준에서 원하는 속성 값을 설정 합니다 `$metadata` . IoT Hub는 속성의 원하는 버전을 업데이트 합니다.
+이전 업데이트는 다음 코드 조각과 같이 해당 구성 요소 수준에서 원하는 속성 값을 설정 합니다 `$metadata` . IoT Hub는 속성의 원하는 버전을 업데이트 합니다.
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 
 추가 또는 바꾸기 작업은 속성의 원하는 값을 설정 합니다. 장치는 `ack` 코드, 버전 및 설명과 함께 상태를 동기화 하 고 값 업데이트를 보고할 수 있습니다.
 
-속성을 제거 하면 속성 값이 설정 된 경우 해당 값이 지워집니다. 그러면 장치는이 속성에 대 한 보고를 중지할 수 있으며 루트 수준 또는 구성 요소에서 제거 됩니다. 이 속성이 구성 요소의 마지막 속성 인 경우에도 구성 요소가 제거 됩니다.
+속성을 제거 하면 속성 값이 설정 된 경우 해당 값이 지워집니다. 그러면 장치는이 속성에 대 한 보고를 중지할 수 있으며 구성 요소에서 제거 됩니다. 이 속성이 구성 요소의 마지막 속성 인 경우에도 구성 요소가 제거 됩니다.
 
 다음 JSON Patch 샘플에서는 구성 요소 내에서 속성을 추가, 대체 또는 제거 하는 방법을 보여 줍니다.
 
@@ -155,7 +155,7 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 
 ### <a name="rules-for-setting-the-desired-value-of-a-digital-twin-property"></a>Digital 쌍 속성의 원하는 값을 설정 하기 위한 규칙
 
-**Name**
+**이름**
 
 구성 요소 또는 속성의 이름은 유효한 DTDL v2 이름 이어야 합니다.
 
@@ -193,6 +193,6 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 
 이제 디지털 쌍에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
-- [솔루션에서 장치와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
 - [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

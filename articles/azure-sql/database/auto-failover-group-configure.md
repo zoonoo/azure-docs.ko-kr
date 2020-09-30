@@ -12,23 +12,23 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444375"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577512"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 항목에서는 Azure SQL Database 및 Azure SQL Managed Instance에 대해 [자동 장애 조치 (failover) 그룹](auto-failover-group-overview.md) 을 구성 하는 방법을 설명 합니다.
 
-## <a name="single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스
+## <a name="single-database"></a>단일 데이터베이스
 
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 단일 데이터베이스를 추가 합니다.
 
-### <a name="prerequisites"></a>필수 요건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -192,11 +192,11 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 > [!IMPORTANT]
 > 보조 데이터베이스를 삭제 해야 하는 경우 해당 데이터베이스를 삭제 하기 전에 장애 조치 (failover) 그룹에서 제거 합니다. 장애 조치 (failover) 그룹에서 보조 데이터베이스를 제거 하기 전에 삭제 하면 예기치 않은 동작이 발생할 수 있습니다.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Azure SQL Database의 탄력적 풀
+## <a name="elastic-pool"></a>탄력적 풀
 
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀을 추가 합니다.  
 
-### <a name="prerequisites"></a>필수 요건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -346,9 +346,11 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 
 Azure Portal 또는 PowerShell을 사용 하 여 Azure SQL Managed Instance의 두 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 만듭니다.
 
-[Express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로를 구성 하거나 각 SQL Managed Instance의 가상 네트워크에 대 한 게이트웨이를 만들고 두 게이트웨이를 연결한 다음 장애 조치 (failover) 그룹을 만들어야 합니다.
+[Express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로를 구성 하거나 각 SQL Managed Instance의 가상 네트워크에 대 한 게이트웨이를 만들고 두 게이트웨이를 연결한 다음 장애 조치 (failover) 그룹을 만들어야 합니다. 
 
-### <a name="prerequisites"></a>필수 요건
+성능상의 이유로 두 관리 되는 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 에 배포 합니다. 지리적으로 쌍을 이루는 지역에 상주 하는 관리 되는 인스턴스는 페어링되지 않은 영역에 비해 훨씬 더 나은 성능을 갖습니다. 
+
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -360,6 +362,9 @@ Azure Portal 또는 PowerShell을 사용 하 여 Azure SQL Managed Instance의 �
 ### <a name="create-primary-virtual-network-gateway"></a>기본 가상 네트워크 게이트웨이 만들기
 
 [Express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)경로를 구성 하지 않은 경우 Azure Portal 또는 PowerShell을 사용 하 여 기본 가상 네트워크 게이트웨이를 만들 수 있습니다.
+
+> [!NOTE]
+> 게이트웨이의 SKU는 처리량 성능에 영향을 줍니다. 이 문서에서는 가장 기본적인 SKU ()를 사용 하 여 게이트웨이를 배포 `HwGw1` 합니다. 높은 SKU (예:)를 배포 `VpnGw3` 하 여 더 높은 처리량을 달성할 수 있습니다. 사용 가능한 모든 옵션은 [게이트웨이 sku](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 를 참조 하세요. 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

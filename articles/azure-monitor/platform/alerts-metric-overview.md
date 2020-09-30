@@ -1,15 +1,15 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595566"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578073"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -137,12 +137,13 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 | 서비스 | 공용 Azure | 정부 | 중국 |
 |:--------|:--------|:--------|:--------|
-| 가상 컴퓨터<sup>1</sup>  | **예** | 아니요 | 아니요 |
+| 가상 컴퓨터<sup>1</sup>  | **예** | 예 | 예 |
 | SQL server 데이터베이스 | **예** | **예** | **예** |
 | SQL server 탄력적 풀 | **예** | **예** | **예** |
 | NetApp 파일 용량 풀 | **예** | **예** | **예** |
 | NetApp 파일 볼륨 | **예** | **예** | **예** |
 | Key Vault | **예** | **예** | **예** |
+| Azure Cache for Redis | **예** | **예** | **예** |
 | Data box edge 장치 | **예** | **예** | **예** |
 
 <sup>1</sup> 가상 컴퓨터 네트워크 메트릭에 대해 지원 되지 않음 (총 네트워크, 총 네트워크, 인바운드 흐름, 아웃 바운드 흐름, 인바운드 흐름 최대 생성 비율, 아웃 바운드 흐름 최대 생성 비율).

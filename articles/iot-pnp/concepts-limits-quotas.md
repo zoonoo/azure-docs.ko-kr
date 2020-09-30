@@ -1,26 +1,26 @@
 ---
-title: 제한 및 할당량 IoT 플러그 앤 플레이 미리 보기 | Microsoft Docs
-description: IoT 플러그 앤 플레이 미리 보기를 사용 하는 경우 적용 되는 제한, 할당량 및 제한에 대해 알아봅니다.
+title: 제한 및 할당량 IoT 플러그 앤 플레이 | Microsoft Docs
+description: IoT 플러그 앤 플레이를 사용 하는 경우 적용 되는 제한, 할당량 및 제한 사항에 대해 알아봅니다.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5c4377120f61792b580225a22b9f5ff51b5e1b64
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d965d9cb8b87ce0b67f4fe0c07b660fdfd69cc07
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337401"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577988"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT 플러그 앤 플레이 미리 보기 제한, 할당량 및 제한
+# <a name="iot-plug-and-play-limits-quotas-and-throttles"></a>IoT 플러그 앤 플레이 제한, 할당량 및 제한
 
-이 문서에서는 공개 미리 보기에 적용 되는 IoT 플러그 앤 플레이 별 제한, 할당량 및 제한에 대해 설명 합니다. 기존 [IoT Hub 할당량과 제한이](../iot-hub/iot-hub-devguide-quotas-throttling.md) 적용 됩니다.
+이 문서에서는 IoT 플러그 앤 플레이 별 제한, 할당량 및 제한에 대해 설명 합니다. 기존 [IoT Hub 할당량과 제한이](../iot-hub/iot-hub-devguide-quotas-throttling.md) 적용 됩니다.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-공개 미리 보기의 경우 다음과 같은 제한과 할당량이 IoT hub에 적용 됩니다.
+IoT hub에 적용 되는 제한 및 할당량은 다음과 같습니다.
 
 | 제한, 제한 사항 및 제한 | 값 | 메모 |
 |-----|-----|-----|

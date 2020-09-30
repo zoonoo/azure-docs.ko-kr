@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8b516180f09634dfa430275ef39370f0328a0927
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229228"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577903"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "89229228"
 
 Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Data Lake Storage Gen1 계정을 사용하는 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. 추가 저장소는 HDInsight 클러스터에 대 한 선택 사항 이지만 추가 저장소 계정에 비즈니스 데이터를 저장 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 계정을 기본 저장소 계정으로 사용 하 여 HD
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
 3. **스토리지** 블레이드의 **기본 스토리지 유형** 아래에서 **Azure Data Lake Storage Gen1**을 선택한 후 다음 정보를 입력합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
+    ![기본 저장소 유형 옵션을 사용 하는 저장소 블레이드의 스크린샷 Data Lake Store 계정 옵션을 선택 하 고 호출 된 Data Lake Store 액세스 옵션을 선택 합니다.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
 
     * **Data Lake Store 계정 선택**: 기존 Data Lake Storage Gen1 계정을 선택합니다. 기존 Data Lake Storage Gen1 계정은 필수 항목입니다.  [필수 조건](#prerequisites)을 참조하세요.
     * **루트 경로**: 클러스터 관련 파일이 저장되는 경로를 입력합니다. 스크린샷에서 __/clusters__ 폴더가 존재해야 하는 __/clusters/myhdiadlcluster/__ 이며 포털은 *myhdicluster* 폴더를 만듭니다.  *myhdicluster*는 클러스터 이름입니다.
@@ -68,7 +68,7 @@ Data Lake Storage Gen1 계정을 추가 저장소 계정으로 사용 하 여 HD
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
 3. **스토리지** 블레이드의 **기본 스토리지 형식** 아래에서 **Azure Storage**를 선택한 후 다음 정보를 입력합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "HDInsight 클러스터에 서비스 주체 추가")
+    ![기본 저장소 유형 옵션과 Data Lake Store 액세스 옵션이 out 인 저장소 블레이드의 스크린샷](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "HDInsight 클러스터에 서비스 주체 추가")
 
     * **선택 방법** -Azure 구독의 일부인 저장소 계정을 지정 하려면 **내 구독**을 선택한 다음 저장소 계정을 선택 합니다. Azure 구독 외부에 있는 스토리지 계정을 지정하려면 **선택키**를 선택한 다음 외부 스토리지 계정에 대한 정보를 제공합니다.
 
@@ -95,7 +95,7 @@ Azure Portal에서 기존 서비스 주체를 사용 하려면 다음을 수행 
 1. **서비스 주체**를 선택 하 고 서비스 주체를 선택 합니다.
 1. 선택한 서비스 주체와 연결된 인증서(.pfx 파일)를 업로드한 다음 인증서 암호를 입력합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "HDInsight 클러스터에 서비스 주체 추가")
+    ![기존 옵션 사용 옵션을 사용 하는 Data Lake Storage Gen1 액세스 블레이드의 스크린샷 및 h d 통찰력 s p 옵션을 사용 하는 서비스 주체 선택 블레이드 및 선택 옵션 (out).](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "HDInsight 클러스터에 서비스 주체 추가")
 
 1. **액세스** 를 선택 하 여 폴더 액세스를 구성 합니다.  [파일 권한 구성](#configure-file-permissions)을 참조하세요.
 
@@ -121,7 +121,7 @@ Data Lake Storage Gen1 계정 루트 수준에서 사용 권한을 할당 하려
 1. **Data Lake Storage Gen1 액세스** 블레이드에서 **액세스**를 선택 합니다. **파일 권한 선택** 블레이드가 열립니다. 그리고 구독의 모든 Data Lake Storage Gen1 계정이 나열됩니다.
 1. 확인란이 표시되도록 Data Lake Storage Gen1 계정의 이름을 마우스로 가리킨 다음(이름을 클릭하면 안 됨) 확인란을 선택합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "HDInsight 클러스터에 서비스 주체 추가")
+    ![Data Lake Storage Gen 1 계정이 강조 표시 되 고 선택 된 상태를 보여 주는 자체 파일 사용 권한 블레이드의 스크린샷](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "HDInsight 클러스터에 서비스 주체 추가")
 
    기본적으로 __읽기__, __쓰기__및 __실행__ 이 모두 선택 되어 있습니다.
 
@@ -149,13 +149,13 @@ Data Lake Storage Gen1을 추가 스토리지로 사용하는 경우 HDInsight �
 
 * 클러스터에 대 한 연결 된 저장소가 지정한 Data Lake Storage Gen1 계정 인지 확인 하려면 왼쪽 창에서 **저장소 계정** 을 선택 합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "HDInsight 클러스터에 서비스 주체 추가")
+    ![저장소 계정 옵션이 강조 표시 된 Data Lake Storage Gen 1 계정의 스크린샷](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "HDInsight 클러스터에 서비스 주체 추가")
 
 * 서비스 주체가 HDInsight 클러스터와 올바르게 연결 되었는지 확인 하려면 왼쪽 창에서 **Data Lake Storage Gen1 액세스** 를 선택 합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "HDInsight 클러스터에 서비스 주체 추가")
+    ![Data Lake Storage Gen 1 액세스 옵션이 강조 표시 된 Data Lake Storage Gen 1 계정의 스크린샷](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "HDInsight 클러스터에 서비스 주체 추가")
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 저장소로 Data Lake Storage Gen1를 사용 하 여 클러스터를 설정한 후에는 HDInsight 클러스터를 사용 하 여 Data Lake Storage Gen1에 저장 된 데이터를 분석 하는 방법에 대 한 다음 예제를 참조 하세요.
 

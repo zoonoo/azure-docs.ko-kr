@@ -1,14 +1,14 @@
 ---
 title: 리소스의 배열 속성에 대한 작성자 정책
 description: 배열 매개 변수 및 배열 언어 식을 사용하고, [*] 별칭을 평가하고, Azure Policy 정의 규칙을 사용하여 요소를 추가하는 방법을 알아봅니다.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048485"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576900"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대한 작성자 정책
 
@@ -194,12 +194,24 @@ Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 �
 |`{<field>,"Equals":"127.0.0.1"}` |없음 |모두 일치 |한 배열 요소가 true(127.0.0.1 == 127.0.0.1)로 평가되고, 한 배열 요소는 false(127.0.0.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_이고 효과는 트리거되지 않습니다. |
 |`{<field>,"Equals":"10.0.4.1"}` |없음 |모두 일치 |두 배열 요소가 false(10.0.4.1 == 127.0.0.1 및 10.0.4.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_이고 효과는 트리거되지 않습니다. |
 
-## <a name="the-append-effect-and-arrays"></a>추가 효과 및 배열
+## <a name="modifying-arrays"></a>배열 수정
 
-[추가 효과](../concepts/effects.md#append)는 **details.field**가 **\[\*\]** 별칭인지 여부에 따라 다르게 동작합니다.
+만들거나 업데이트 하는 동안 리소스에 대 한 alter 속성을 [추가](../concepts/effects.md#append) 및 [수정](../concepts/effects.md#modify) 합니다. 배열 속성으로 작업할 때 이러한 효과의 동작은 작업이 별칭을 수정 하려고 하는지 여부에 따라 달라 집니다  **\[\*\]** .
 
-- **\[\*\]** 별칭이 아닐 경우 추가 효과는 전체 배열을 **값** 속성으로 바꿉니다.
-- **\[\*\]** 별칭일 경우 추가 효과는 **값** 속성을 기존 배열에 추가하거나 새 배열을 만듭니다.
+> [!NOTE]
+> 별칭에 효과를 사용 하 `modify` 는 것은 현재 **미리 보기**상태입니다.
+
+|Alias |영향 | 결과 |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy는 효과 세부 정보에 지정 된 전체 배열을 누락 된 경우 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `add` 작업 | Azure Policy는 효과 세부 정보에 지정 된 전체 배열을 누락 된 경우 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `addOrReplace` 작업 | Azure Policy 기존 배열을 누락 하거나 바꾸면 효과 세부 정보에 지정 된 전체 배열을 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy 효과 세부 정보에 지정 된 배열 멤버를 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `add` 작업 | Azure Policy 효과 세부 정보에 지정 된 배열 멤버를 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `addOrReplace` 작업 | Azure Policy 기존 배열 멤버를 모두 제거 하 고 효과 세부 정보에 지정 된 배열 멤버를 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy는 `action` 각 배열 멤버의 속성에 값을 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `add` 작업 | Azure Policy는 `action` 각 배열 멤버의 속성에 값을 추가 합니다. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` 작업 | Azure Policy는 `action` 각 배열 멤버의 기존 속성을 추가 하거나 바꿉니다. |
 
 자세한 내용은 [추가 예제](../concepts/effects.md#append-examples)를 참조하세요.
 

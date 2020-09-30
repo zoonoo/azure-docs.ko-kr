@@ -1,20 +1,20 @@
 ---
-title: 용어 설명 - IoT 플러그 앤 플레이 미리 보기 | Microsoft Docs
-description: 개념 - IoT 플러그 앤 플레이 미리 보기와 관련된 일반적인 용어 설명입니다.
+title: 용어 설명-IoT 플러그 앤 플레이 | Microsoft Docs
+description: 개념-IoT 플러그 앤 플레이와 관련 된 일반적인 용어의 용어입니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854207"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577342"
 ---
-# <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
+# <a name="glossary-of-terms-for-iot-plug-and-play"></a>IoT 플러그 앤 플레이 용어 설명
 
 IoT 플러그 앤 플레이 문서에서 사용되는 일반적인 용어의 정의입니다.
 
@@ -38,7 +38,7 @@ IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 애플
 
 ## <a name="azure-iot-device-sdk"></a>Azure IoT 디바이스 SDK
 
-IoT 플러그 앤 플레이 디바이스 클라이언트 애플리케이션을 빌드하는 데 사용할 수 있는 여러 언어에 대한 디바이스 SDK가 있습니다.
+IoT 플러그 앤 플레이 디바이스 클라이언트 애플리케이션을 빌드하는 데 사용할 수 있는 여러 언어에 대한 디바이스 SDK가 있습니다. 장치에 **DeviceClient** 를 사용 하 고 모듈 및 IoT Edge 모듈에 대해 **ModuleClient** 를 사용 합니다.
 
 ## <a name="commands"></a>명령
 
@@ -55,13 +55,19 @@ IoT 플러그 앤 플레이 디바이스 클라이언트 애플리케이션을 �
 - 디바이스 연결 문자열은 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)에서 IoT hub의 디바이스 연결 엔드포인트에 연결할 수 있도록 합니다. 디바이스의 클라이언트 코드는 연결 문자열을 사용하여 IoT Hub와의 보안 연결을 설정합니다.
 - IoT Hub 연결 문자열은 백 엔드 솔루션 및 도구에서 IoT Hub의 서비스 연결 엔드포인트에 안전하게 연결할 수 있도록 합니다. 이러한 솔루션 및 도구는 IoT Hub 및 연결된 디바이스를 관리합니다.
 
+## <a name="default-component"></a>기본 구성 요소
+
+모든 [장치 모델](#device-model) 에는 기본 구성 요소가 있습니다. 단순 장치 모델에는 기본 구성 요소만 있습니다. 이러한 모델은 구성 요소 장치가 아닌 것으로 알려져 있습니다. 더 복잡 한 모델에는 기본 구성 요소 아래에 중첩 된 여러 구성 요소가 있습니다.
+
 ## <a name="device-certification"></a>디바이스 인증
 
-IoT 플러그 앤 플레이 장치 인증 프로그램은 장치가 IoT 플러그 앤 플레이 인증 요구 사항을 충족 하는지 확인 합니다. 인증 된 장치를 [Azure IoT 장치 카탈로그에 대해 인증](https://aka.ms/devicecatalog)된 공용에 추가할 수 있습니다.
+IoT 플러그 앤 플레이 디바이스 인증 프로그램은 디바이스가 IoT 플러그 앤 플레이 인증 요구 사항을 충족하는지 확인합니다. 인증된 디바이스를 공용 [Azure IoT 디바이스 카탈로그 인증](https://aka.ms/devicecatalog)에 추가할 수 있습니다.
 
 ## <a name="device-model"></a>디바이스 모델
 
-장치 모델은 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) 를 설명 하 고 장치를 구성 하는 [구성 요소](#component) 를 정의 합니다. 단순 장치 모델에는 별도의 구성 요소가 없고 단일 루트 수준 인터페이스에 대 한 정의가 포함 되어 있습니다. 더 복잡 한 장치 모델에는 여러 구성 요소가 포함 됩니다. 장치 모델은 일반적으로 물리적 장치, 제품 또는 SKU에 해당 합니다. [디지털 Twins 정의 언어 버전 2](#digital-twins-definition-language) 를 사용 하 여 장치 모델을 정의 합니다.
+장치 모델은 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) 를 설명 하 고 장치를 구성 하는 [구성 요소](#component) 를 정의 합니다. 단순 장치 모델에는 별도의 구성 요소가 없으며 단일 인터페이스에 대 한 정의가 포함 되어 있습니다. Azure IoT 탐색기 도구는 단일 [기본 구성 요소가](#default-component)있는 간단한 모델을 보여 줍니다.
+
+더 복잡 한 장치 모델에는 여러 구성 요소가 포함 됩니다. 장치 모델은 일반적으로 물리적 장치, 제품 또는 SKU에 해당 합니다. [디지털 Twins 정의 언어 버전 2](#digital-twins-definition-language) 를 사용 하 여 장치 모델을 정의 합니다.
 
 ## <a name="device-builder"></a>장치 빌더
 
@@ -69,7 +75,7 @@ IoT 플러그 앤 플레이 장치 인증 프로그램은 장치가 IoT 플러�
 
 ## <a name="device-modeling"></a>디바이스 모델링
 
-[장치 빌더](#device-builder) 는 [디지털 Twins 정의 언어](#digital-twins-definition-language) 를 사용 하 여 [IoT 플러그 앤 플레이 장치의](#iot-plug-and-play-device)기능을 모델링 합니다. [솔루션 빌더](#solution-builder) 는 모델에서 IoT 솔루션을 구성할 수 있습니다.
+[장치 빌더](#device-builder) 또는 [모듈 빌더](#module-builder)는 [디지털 twins 정의 언어](#digital-twins-definition-language) 를 사용 하 여 [IoT 플러그 앤 플레이 장치의](#iot-plug-and-play-device)기능을 모델링 합니다. [솔루션 빌더](#solution-builder) 는 모델에서 IoT 솔루션을 구성할 수 있습니다.
 
 ## <a name="digital-twin"></a>디지털 쌍
 
@@ -89,15 +95,19 @@ IoT 플러그 앤 플레이 장치 인증 프로그램은 장치가 IoT 플러�
 
 ## <a name="interface"></a>인터페이스
 
-인터페이스는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 또는 [디지털 쌍](#digital-twin)에서 구현하는 관련 기능을 설명합니다. 여러 [장치 모델](#device-model)에서 인터페이스를 재사용할 수 있습니다. 인터페이스는 장치 모델에서 사용 되는 경우 장치의 [구성 요소](#component) 를 정의 합니다.
+인터페이스는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 또는 [디지털 쌍](#digital-twin)에서 구현하는 관련 기능을 설명합니다. 여러 [장치 모델](#device-model)에서 인터페이스를 재사용할 수 있습니다. 인터페이스는 장치 모델에서 사용 되는 경우 장치의 [구성 요소](#component) 를 정의 합니다. 단순 장치에는 기본 인터페이스만 포함 됩니다.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub 쿼리 언어
 
 IoT Hub 쿼리 언어는 여러 용도로 사용됩니다. 예를 들어, 언어를 사용하여 IoT Hub에 등록된 디바이스를 검색하거나 [디지털 쌍 라우팅](#digital-twin-route) 동작을 구체화할 수 있습니다.
 
+## <a name="iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지
+
+IoT 플러그 앤 플레이 브리지는 Windows 또는 Linux 게이트웨이에 연결 된 기존 센서와 주변 장치를 [IoT 플러그 앤 플레이 장치로](#iot-plug-and-play-device)연결 하는 데 사용할 수 있는 오픈 소스 응용 프로그램입니다.
+
 ## <a name="iot-plug-and-play-device"></a>IoT 플러그 앤 플레이 디바이스
 
-IoT 플러그 앤 플레이 장치는 일반적으로 데이터를 수집 하거나 다른 장치를 제어 하 고 [장치 모델](#device-model)을 구현 하는 소프트웨어 또는 펌웨어를 실행 하는 소규모의 독립 실행형 컴퓨팅 장치입니다.  예를 들어, IoT 플러그 앤 플레이 디바이스는 환경 모니터링 디바이스이거나 스마트 농업 관개 시스템용 컨트롤러일 수 있습니다. IoT 플러그 앤 플레이 디바이스에서 명령을 하고 제어하고 데이터를 수신하기 위한 클라우드 호스티트 IoT 솔루션을 작성할 수 있습니다.
+IoT 플러그 앤 플레이 장치는 일반적으로 데이터를 수집 하거나 다른 장치를 제어 하 고 [장치 모델](#device-model)을 구현 하는 소프트웨어 또는 펌웨어를 실행 하는 소규모의 독립 실행형 컴퓨팅 장치입니다.  예를 들어, IoT 플러그 앤 플레이 디바이스는 환경 모니터링 디바이스이거나 스마트 농업 관개 시스템용 컨트롤러일 수 있습니다. IoT 플러그 앤 플레이 장치는 직접 또는 IoT Edge 모듈로 구현할 수 있습니다. IoT 플러그 앤 플레이 디바이스에서 명령을 하고 제어하고 데이터를 수신하기 위한 클라우드 호스티트 IoT 솔루션을 작성할 수 있습니다.
 
 ## <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
@@ -114,6 +124,10 @@ IoT 플러그 앤 플레이 장치가 IoT Hub에 연결 하는 경우 구현 하
 ## <a name="model-repository-rest-api"></a>Model repository REST API
 
 모델 리포지토리를 관리 하 고 상호 작용 하기 위한 API입니다. 예를 들어 API를 사용 하 여 [장치 모델](#device-model)을 추가 하 고 검색할 수 있습니다.
+
+## <a name="module-builder"></a>모듈 작성기
+
+모듈 빌더는 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device)에서 실행 되도록 코드를 구현할 때 [장치 모델](#device-model) 및 [인터페이스](#interface) 를 사용 합니다. 모듈 빌더는 코드를 모듈 또는 IoT Edge 모듈로 구현 하 여 장치의 IoT Edge 런타임에 배포 합니다.
 
 ## <a name="properties"></a>속성
 

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595654"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578260"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -46,9 +46,9 @@ Log Analytics에 대한 기본 가격은 수집된 데이터 볼륨을 기반으
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics 전용 클러스터
 
-Log Analytics 전용 클러스터는 단일 관리형 Azure Data Explorer 클러스터로 수집된 작업 영역들의 컬렉션이며, [고객 관리형 키](customer-managed-keys.md) 등의 고급 시나리오를 지원합니다.  Log Analytics 전용 클러스터는 종량제 가격에 비해 25% 할인된 요금으로 일일 1000GB로 시작되는 용량 예약 가격 책정 모델만 지원합니다. 예약 수준을 초과하는 모든 사용량에 대한 요금은 종량제 요율로 청구됩니다. 예약 수준을 늘린 후 클러스터 용량 예약은 31일의 약정 기간이 있습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제든지 늘릴 수는 있습니다. [Log Analytics 클러스터를 만들고](customer-managed-keys.md#create-cluster-resource) [이 클러스터에 작업 영역을 연결](customer-managed-keys.md#workspace-association-to-cluster-resource)하는 방법에 대해 자세히 알아보세요.  
+Log Analytics 전용 클러스터는 단일 관리형 Azure Data Explorer 클러스터로 수집된 작업 영역들의 컬렉션이며, [고객 관리형 키](customer-managed-keys.md) 등의 고급 시나리오를 지원합니다.  Log Analytics 전용 클러스터는 최소 1000 g b/일로 구성 해야 하는 용량 예약 가격 책정 모델을 사용 합니다. 이 용량 수준은 종 량 제 가격 책정과 비교 하 여 25% 할인 됩니다. 예약 수준을 초과하는 모든 사용량에 대한 요금은 종량제 요율로 청구됩니다. 예약 수준을 늘린 후 클러스터 용량 예약은 31일의 약정 기간이 있습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제든지 늘릴 수는 있습니다. 작업 영역이 클러스터에 연결 된 경우 해당 작업 영역에 대 한 데이터 수집 청구는 구성 된 용량 예약 수준을 사용 하 여 클러스터 수준에서 수행 됩니다. [Log Analytics 클러스터를 만들고](customer-managed-keys.md#create-cluster-resource) [이 클러스터에 작업 영역을 연결](customer-managed-keys.md#workspace-association-to-cluster-resource)하는 방법에 대해 자세히 알아보세요. 용량 예약 가격 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
 
-클러스터 용량 예약 수준은 `Sku`아래의 `Capacity` 매개 변수를 사용하여 Azure Resource Manager를 통해 프로그래밍 방식으로 구성됩니다. `Capacity`는 GB 단위로 지정되며 일일 100GB의 증분 단위로 일일 1000GB 이상의 값을 가질 수 있습니다. 이 내용은 [고객이 관리 하는 키 Azure Monitor](customer-managed-keys.md#create-cluster-resource)에 자세히 설명 되어 있습니다. 클러스터에서 일일 2000GB를 초과하는 예약이 필요한 경우, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)에 문의하세요.
+클러스터 용량 예약 수준은에서 매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다 `Capacity` `Sku` . `Capacity`는 GB 단위로 지정되며 일일 100GB의 증분 단위로 일일 1000GB 이상의 값을 가질 수 있습니다. 이 내용은 [고객이 관리 하는 키 Azure Monitor](customer-managed-keys.md#create-cluster-resource)에 자세히 설명 되어 있습니다. 클러스터에서 일일 2000GB를 초과하는 예약이 필요한 경우, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)에 문의하세요.
 
 클러스터에서 사용 하기 위한 두 가지 모드의 요금 청구 방법이 있습니다. `billingType` [클러스터를 구성할](customer-managed-keys.md#cmk-management)때 매개 변수를 통해 지정할 수 있습니다. 두 모드는 다음과 같습니다. 
 
@@ -56,7 +56,7 @@ Log Analytics 전용 클러스터는 단일 관리형 Azure Data Explorer 클러
 
 2. **작업 영역**: 클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 사용 합니다 (각 작업 영역에 대 한 노드 별 [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 할당에 대 한 회계). 하루에 대 한 작업 영역에 수집 총 데이터 볼륨이 용량 예약 보다 작은 경우 각 작업 영역에는 용량 예약의 비율을 청구 하 여 해당 수집 데이터에 대 한 요금이 청구 되 고 용량 예약의 사용 되지 않는 부분은 클러스터 리소스로 청구 됩니다. 총 데이터 볼륨이 수집의 작업 영역으로 전환 되는 경우, 해당 일에 해당 하는 수집 데이터의 비율을 기준으로 각 작업 영역에 대 한 요금이 청구 되 고, 용량 예약 위에 있는 수집 데이터의 분수로 각 작업 영역이 청구 됩니다. 하루 동안 작업 영역으로 수집 총 데이터 볼륨이 용량 예약을 초과 하는 경우 클러스터 리소스에 대 한 요금이 청구 되지 않습니다.
 
-클러스터 청구 옵션에서 데이터 보존은 작업 영역 수준에서 청구 됩니다. 클러스터 요금 청구는 작업 영역이 클러스터에 연결되었는지 여부에 관계 없이 클러스터를 만들 때 시작됩니다. 또한 클러스터에 연결 된 작업 영역에는 더 이상 가격 책정 계층이 없습니다.
+클러스터 청구 옵션에서 데이터 보존은 작업 영역 단위로 청구 됩니다. 클러스터 요금 청구는 작업 영역이 클러스터에 연결되었는지 여부에 관계 없이 클러스터를 만들 때 시작됩니다. 또한 클러스터에 연결 된 작업 영역에는 더 이상 가격 책정 계층이 없습니다.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>환경을 관리하는 데 드는 비용을 추정 
 
@@ -234,12 +234,12 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 데이터 제한 임계값에 도달하는 경우 Azure Portal에 시각적 큐를 표시하는 반면, 이 동작은 즉각적인 주의가 필요한 운영 문제를 관리하는 방법에 맞출 필요는 없습니다.  경고 알림을 수신하려면 Azure Monitor에서 새 경고 규칙을 만들 수 있습니다.  자세한 내용은 [경고를 만들고 보고 관리하는 방법](alerts-metric.md)을 참조하세요.
 
-시작하려면 경고에 대한 권장 설정은 다음과 같습니다.
+시작 하려면 `Operation` 함수를 사용 하 여 테이블을 쿼리 하는 경고에 대해 권장 되는 설정은 다음과 같습니다 `_LogOperation` . 
 
 - 대상: Log Analytics 리소스 선택
 - 조건: 
    - 신호 이름: 사용자 지정 로그 검색
-   - 검색 쿼리: 작업 | 세부 정보에 'OverQuota'가 있는 경우
+   - 검색 쿼리: `_LogOperation | where Detail has 'OverQuota'`
    - 기준: 결과의 수
    - 조건: 초과
    - 임계값: 0
@@ -441,7 +441,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 
 | 높은 데이터 볼륨의 소스 | 데이터 볼륨을 줄이는 방법 |
 | -------------------------- | ------------------------- |
-| 컨테이너 정보         | 필요한 데이터만 수집 하도록 [컨테이너 정보를 구성](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) 합니다. |
+| 컨테이너 인사이트         | 필요한 데이터만 수집 하도록 [컨테이너 정보를 구성](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) 합니다. |
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
