@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5d1d7008151ae61a72368d3d8ecfaf545a2080fa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 4d3db2c10c3fd989ac9737e242e3d6eda517a55f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376774"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -18,7 +18,7 @@ ms.locfileid: "87406176"
 
 > [!div class="checklist"]
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="create-a-new-js-file"></a>새 JS 파일 만들기

@@ -10,19 +10,19 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3d169ac42e03f0c57ea1c23247fd0daa1cf51d0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a28a35bb57c759c58105c12673cb233d5b6f2e75
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926442"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376398"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 

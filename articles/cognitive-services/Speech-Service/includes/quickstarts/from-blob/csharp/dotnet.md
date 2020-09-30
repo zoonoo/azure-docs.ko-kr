@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 750ce2d19334f549242c37494a11a1f683469f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 05cf63f741e287112ace76a5249ae2ca8d01f34f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377021"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -18,7 +18,7 @@ ms.locfileid: "88926146"
 
 > [!div class="checklist"]
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="open-your-project-in-visual-studio"></a>Visual Studio에서 프로젝트 열기

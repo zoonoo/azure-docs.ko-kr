@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929791"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398411"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>빠른 시작: 포털에서 검색 탐색기를 사용하여 쿼리 실행
 
@@ -37,11 +37,11 @@ ms.locfileid: "88929791"
 
 1. 다음과 같이 명령 모음에서 검색 탐색기를 엽니다.
 
-   ![포털의 검색 탐색기 명령](./media/search-explorer/search-explorer-cmd2.png "포털의 검색 탐색기 명령")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
     또는 다음과 같이 열려 있는 인덱스에서 포함된 **검색 탐색기** 탭을 사용합니다.
 
-   ![검색 탐색기 탭](./media/search-explorer/search-explorer-tab.png "검색 탐색기 탭")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="unspecified-query"></a>지정되지 않은 쿼리
 
@@ -55,7 +55,7 @@ ms.locfileid: "88929791"
 
    **결과**
    
-   ![빈 쿼리 예제](./media/search-explorer/search-explorer-example-empty.png "정규화되지 않았거나 비어 있는 쿼리 예제")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="free-text-search"></a>자유 텍스트 검색
 
@@ -71,7 +71,7 @@ ms.locfileid: "88929791"
 
    특정 관심 용어의 경우 Ctrl+F를 사용하여 결과 내에서 검색을 수행할 수 있습니다.
 
-   ![자유 텍스트 쿼리 예제](./media/search-explorer/search-explorer-example-freetext.png "자유 텍스트 쿼리 예제")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="count-of-matching-documents"></a>일치하는 문서 수 
 
@@ -83,7 +83,7 @@ ms.locfileid: "88929791"
 
    **결과**
 
-   ![문서 수 예제](./media/search-explorer/search-explorer-example-count.png "인덱스의 일치하는 문서 수")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>검색 결과의 필드 제한
 
@@ -95,7 +95,7 @@ ms.locfileid: "88929791"
 
    **결과**
 
-   ![필드 제한 예제](./media/search-explorer/search-explorer-example-selectfield.png "검색 결과의 필드 제한")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>결과의 다음 일괄 처리 반환
 
@@ -107,7 +107,7 @@ Azure Cognitive Search는 검색 순위에 따라 상위 50개의 일치 항목�
 
    **결과**
 
-   ![일괄 처리 검색 결과](./media/search-explorer/search-explorer-example-topskip.png "검색 결과의 다음 일괄 처리 반환")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>필터 식(보다 큼, 보다 작음, 같음)
 
@@ -119,7 +119,7 @@ Azure Cognitive Search는 검색 순위에 따라 상위 50개의 일치 항목�
    
    **결과**
 
-   ![필터 식](./media/search-explorer/search-explorer-example-filter.png "조건으로 필터링")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 ## <a name="order-by-expressions"></a>Order-by 식
 
@@ -131,7 +131,7 @@ Azure Cognitive Search는 검색 순위에 따라 상위 50개의 일치 항목�
    
    **결과**
 
-   ![Orderby 식](./media/search-explorer/search-explorer-example-ordery.png "정렬 순서 변경")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="포털의 검색 탐색기 명령" border="false":::
 
 **$filter** 및 **$orderby** 식 둘 다 OData 생성입니다. 자세한 내용은 [OData 필터 구문](/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 참조하세요.
 

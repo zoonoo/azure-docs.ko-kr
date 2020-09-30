@@ -5,15 +5,16 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: include
 ms.date: 08/25/2019
 ms.author: erhopf
-ms.openlocfilehash: eafc782f6244b73df1511466af07adad9bb4301d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 6a212cd931153574eb8a931c7394d39108852bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377472"
 ---
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Personalizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 

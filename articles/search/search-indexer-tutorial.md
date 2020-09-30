@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c8647e28701316ecd7305e206918c53281deb6b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004258"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399230"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure SQL 데이터 인덱싱
 
@@ -57,7 +57,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. **SQL Database**를 찾거나 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 
-   ![새 데이터베이스 페이지](./media/search-indexer-tutorial/indexer-new-sqldb.png "새 데이터베이스 페이지")
+   :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="새 데이터베이스 페이지" border="false":::
 
 1. **검토 + 만들기**를 클릭하여 새 서버와 데이터베이스를 배포합니다. 서버 및 데이터베이스를 배포하도록 대기합니다.
 
@@ -69,7 +69,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. 파일을 선택하고 **열기**를 클릭합니다. 이 스크립트는 다음 스크린샷과 비슷하게 표시됩니다.
 
-   ![SQL 스크립트](./media/search-indexer-tutorial/sql-script.png "SQL 스크립트")
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="새 데이터베이스 페이지" border="false":::
 
 1. **실행**을 클릭하여 쿼리를 실행합니다. 결과 창에서 3행에 대한 쿼리 성공 메시지가 표시됩니다.
 
@@ -99,7 +99,7 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="새 데이터베이스 페이지" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - 환경 설정
 
@@ -201,7 +201,7 @@ public string HotelName { get; set; }
 
 F5 키를 눌러 솔루션을 빌드하고 실행합니다. 디버그 모드로 프로그램을 실행합니다. 콘솔 창에서는 각 작업의 상태를 보고합니다.
 
-   ![콘솔 출력](./media/search-indexer-tutorial/console-output.png "콘솔 출력")
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="새 데이터베이스 페이지" border="false":::
 
 코드는 Visual Studio에서 로컬로 실행되어 Azure의 검색 서비스에 연결됩니다. 그러면 Azure SQL Database에 연결되어 데이터 세트를 검색합니다. 이러한 많은 작업을 수행하는 경우 몇 가지 잠재적인 실패 지점이 있습니다. 오류가 발생하면 먼저 다음 조건을 확인하세요.
 
@@ -217,7 +217,7 @@ Azure Portal을 사용하여 개체 만들기를 확인한 다음, **Search 탐�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 각 목록을 차례로 열어 개체가 만들어졌는지 확인합니다. **인덱스**, **인덱서** 및 **데이터 원본**에는 각각 "hotels", "azure-sql-indexer" 및 "azure-sql"이 있습니다.
 
-   ![인덱서 및 데이터 원본 타일](./media/search-indexer-tutorial/tiles-portal.png)
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="새 데이터베이스 페이지" border="false":::
 
 1. hotels 인덱스를 선택합니다. hotels 페이지에서 첫 번째 탭은 **Search 탐색기**입니다. 
 
@@ -225,7 +225,7 @@ Azure Portal을 사용하여 개체 만들기를 확인한 다음, **Search 탐�
 
    인덱스에 있는 세 개의 항목이 JSON 문서로 반환됩니다. 전체 구조를 볼 수 있도록 검색 탐색기는 JSON으로 문서를 반환합니다.
 
-   ![인덱스 쿼리](./media/search-indexer-tutorial/portal-search.png "인덱스 쿼리")
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="새 데이터베이스 페이지" border="false":::
    
 1. 다음으로 검색 문자열을 입력합니다.`search=river&$count=true` 
 

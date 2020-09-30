@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff5c7c7018945bb93ce492ee3205f3567dff1d7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a8aa2fc0b5ba76a92a0aa0234635dadee5a00f28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925902"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376650"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>샘플 코드 추가

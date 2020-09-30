@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: references_regions
-ms.openlocfilehash: 57e8c2cab69e68d10eb57afa01a9968041bb5906
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: f545bac522eaac65cc5a3390e0cfcbd445805708
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771162"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376724"
 ---
 관리 디스크 가져오기 또는 내보내기에 대한 프라이빗 링크는 현재 다음에서만 사용할 수 있습니다.
 
-- 미국 중북부
+- 미국 동부 2

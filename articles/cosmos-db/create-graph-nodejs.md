@@ -1,20 +1,20 @@
 ---
 title: Gremlin API를 사용하여 Azure Cosmos DB Node.js 애플리케이션 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제시합니다.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1e619468ecbcd533c8cda725cb316d1e2a0e256
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.author: jasonh
+ms.custom: devx-track-js
+ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420433"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409377"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용하여 Node.js 애플리케이션 빌드
 
@@ -161,7 +161,7 @@ ms.locfileid: "87420433"
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure Portal 키 블레이드":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure Portal, 개요 페이지에서 액세스 키 보기 및 복사":::
 
 4. config.database 및 config.collection의 값에 데이터베이스 이름 및 그래프(컨테이너) 이름을 입력합니다. 
 

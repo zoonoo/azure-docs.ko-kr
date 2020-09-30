@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 5832920ec491ce9d99219a7a423fcf0e38ba62cc
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 3a3799fc1e931993c00ba497765f4cd3e60d3493
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377236"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 

@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917893"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400607"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 모든 요청에서 서비스에 보내는 각 요청의 헤더마다 API 키가 필요합니다. 유효한 키는 요청을 보내는 애플리케이션과 이 요청을 처리하는 서비스 간에 요청별로 신뢰를 설정합니다.
 
@@ -473,7 +473,7 @@ run();
 
 Azure Portal에서 검색 서비스의 **개요**를 엽니다. **인덱스** 탭을 선택합니다. 다음과 유사한 출력이 표시됩니다.
 
-![Azure Portal, Search Service 개요, 인덱스 탭의 스크린샷](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 다음 단계에서는 데이터를 인덱스에 추가합니다. 
 

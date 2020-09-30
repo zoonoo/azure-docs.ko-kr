@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439954"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버
 
@@ -49,15 +49,14 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 1. 새 컴퓨팅 Linux VM이 프로비저닝됩니다.
 2. 데이터 파일이 있는 스토리지가 새 가상 머신에 매핑됩니다.
 3. 새 가상 머신에서 PostgreSQL 데이터베이스 엔진이 온라인 상태로 전환됩니다.
-4. 게이트웨이 서비스는 투명한 장애 조치(failover)를 보장하여 애플리케이션 쪽에서 변경할 필요가 없습니다
 
 아래 그림은 VM 및 스토리지 오류에 대한 전환을 보여 줍니다.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="유연한 서버 - VM 및 스토리지 오류":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="유연한 서버 - VM 및 스토리지 오류":::
 
 영역 중복 고가용성이 구성된 경우 서비스는 동일한 Azure 지역 내에서 가용성 영역에 걸쳐 상시 대기 서버를 프로비저닝하고 유지 관리합니다. 데이터 손실을 방지하기 위해 원본 서버의 데이터 변경 내용이 대기 서버에 동기적으로 복제됩니다. 영역 중복 고가용성을 사용하면 계획되거나 계획되지 않은 장애 조치(failover) 이벤트가 트리거되면 대기 서버가 즉시 온라인 상태가 되고 들어오는 트랜잭션을 처리할 수 있습니다. 이를 통해 아래 그림에 표시된 것처럼 여러 가용성 영역을 지원하는 Azure 지역 내에서 가용성 영역 오류로 인한 서비스 복원력이 가능합니다.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="영역 중복 고가용성":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="유연한 서버 - VM 및 스토리지 오류":::
 
  자세한 내용은 [고가용성 문서](./concepts-high-availability.md)를 참조하세요.
 

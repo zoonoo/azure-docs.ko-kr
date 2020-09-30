@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929706"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397388"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>자습서: REST를 사용하여 Azure Storage에서 JSON Blob 인덱싱
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
-   ![스토리지 계정 만들기](media/cognitive-search-tutorial-blob/storage-account.png "Storage 계정 만들기")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. [기본 사항] 탭의 필수 항목은 다음과 같습니다. 다른 모든 항목에는 기본값을 적용합니다.
 
@@ -76,11 +76,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드**를 선택합니다.
 
-   ![명령 모음에서 업로드](media/search-semi-structured-data/upload-command-bar.png "명령 모음에서 업로드")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. 샘플 파일이 포함된 폴더로 이동합니다. 모두 선택한 다음, **업로드**를 클릭합니다.
 
-   ![파일 업로드](media/search-semi-structured-data/clinicalupload.png "파일 업로드")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="스토리지 계정 만들기" border="false":::
 
 업로드가 완료되면 파일이 데이터 컨테이너의 하위 폴더에 나타납니다.
 
@@ -98,7 +98,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="스토리지 계정 만들기" border="false":::
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -110,7 +110,7 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
 [헤더]에서 "Content-type"을 `application/json`으로 설정하고, `api-key`를 Azure Cognitive Search 서비스의 관리 API 키로 설정합니다. 헤더가 설정되면 이 연습의 모든 요청에 헤더를 사용할 수 있습니다.
 
-  ![Postman 요청 URL 및 헤더](media/search-get-started-postman/postman-url.png "Postman 요청 URL 및 헤더")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="스토리지 계정 만들기" border="false":::
 
 URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2020-06-30`입니다.
 
@@ -315,11 +315,11 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 
 1. `$select` 쿼리 매개 변수를 추가하여 결과를 더 적은 수의 필드로 제한합니다. `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  이 쿼리의 경우 문서 100개가 일치하지만 기본적으로 Azure Cognitive Search는 결과에 50개만 반환합니다.
 
-   ![매개 변수가 있는 쿼리](media/search-semi-structured-data/lastquery.png "매개 변수가 있는 쿼리")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. 보다 복잡한 쿼리에는 `$filter=MinimumAge ge 30 and MaximumAge lt 75`를 포함할 수 있으며 이 경우 매개 변수 MinimumAge가 30 이상이고 MaximumAge가 75 미만인 결과만 반환합니다. `$select` 식을 `$filter` 식으로 바꿉니다.
 
-   ![반구조화된 검색](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="스토리지 계정 만들기" border="false":::
 
 논리 연산자(and, or, not) 및 비교 연산자(eq, ne, gt, lt, ge, le)를 사용할 수도 있습니다. 문자열 비교는 대/소문자를 구분합니다. 자세한 내용과 예제는 [간단한 쿼리 만들기](search-query-simple-examples.md)를 참조하세요.
 

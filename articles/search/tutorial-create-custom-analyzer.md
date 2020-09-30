@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290313"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397269"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>자습서: 전화 번호에 대한 사용자 지정 분석기 만들기
 
@@ -59,7 +59,7 @@ ms.locfileid: "89290313"
 
 1. `<YOUR-ADMIN-API-KEY>`를 검색 서비스의 기본 키 또는 보조 키로 바꿉니다.
 
-  ![Postman 요청 URL 및 헤더](media/search-get-started-postman/postman-url.png "Postman 요청 URL 및 헤더")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman 요청 URL 및 헤더" border="false":::
 
 Postman에 익숙하지 않은 경우 [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
 
@@ -239,11 +239,11 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 
 아래 다이어그램에서는 이러한 세 가지 구성 요소가 함께 작동하여 문장을 토큰화하는 방법을 확인할 수 있습니다.
 
-  ![문장을 토큰화하는 분석기 프로세스 다이어그램](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Postman 요청 URL 및 헤더":::
 
 그런 다음, 이러한 토큰은 반전된 인덱스에 저장되어 전체 텍스트를 빠르게 검색할 수 있도록 허용합니다.  반전된 인덱스는 어휘 분석 중에 추출된 모든 고유한 용어를 해당 용어가 발생한 문서에 매핑하여 전체 텍스트 검색을 가능하게 합니다. 아래 다이어그램에서는 이 예를 확인할 수 있습니다.
 
-  ![반전된 인덱스 예](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Postman 요청 URL 및 헤더":::
 
 모든 검색에서 반전된 인덱스에 저장된 용어를 검색하게 됩니다. 사용자가 쿼리를 실행하는 경우 다음과 같이 수행됩니다.
 
@@ -251,7 +251,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 1. 그런 다음, 반전된 인덱스에서 일치하는 용어가 있는 문서를 검색합니다.
 1. 마지막으로, [유사성 알고리즘](index-ranking-similarity.md)에 따라 검색된 문서의 순위를 매깁니다.
 
-  ![분석기 프로세스 순위 유사성 다이어그램](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Postman 요청 URL 및 헤더":::
 
 쿼리 용어가 반전된 인덱스의 용어와 일치하지 않으면 결과가 반환되지 않습니다. 쿼리가 작동하는 방법에 대한 자세한 내용은 [전체 텍스트 검색에 대한 이 문서](search-lucene-query-architecture.md)를 참조하세요.
 

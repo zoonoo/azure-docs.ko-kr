@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48a80d7367943c2c86fd3822a5c236b0cdf11846
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f89bdbfd144fb327c1daae020a1e371c00045859
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376866"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 

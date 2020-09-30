@@ -1,18 +1,18 @@
 ---
 title: 'TinkerPop Gremlin 콘솔을 사용하여 Azure Cosmos DB Gremlin API로 쿼리: 자습서'
 description: Azure Cosmos DB 빠른 시작은 Azure Cosmos DB Gremlin API를 사용하여 꼭짓점, 에지 및 쿼리를 만듭니다.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: jasonh
+ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543778"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409394"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 
@@ -65,11 +65,11 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
    호스트 값의 경우 **개요** 페이지에서 **Gremlin URI** 값을 복사합니다.
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Portal의 개요 페이지에서 Gremlin URI 값 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Apache Gremlin 콘솔의 Azure Cosmos DB":::
 
    암호 값의 경우 **키** 페이지의 **기본 키**를 복사합니다.
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Portal의 키 페이지에서 기본 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Apache Gremlin 콘솔의 Azure Cosmos DB":::
 
    remote-secure.yaml 파일은 다음과 같은 모양입니다.
 

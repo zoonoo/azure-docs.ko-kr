@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924591"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399842"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 사용자 지정 기술 빌드 및 배포 
 
@@ -82,8 +82,7 @@ Notebook의 섹션 4에는 기술 세트와 인덱서를 업데이트하는 4개
 
 포털에서 기술 기술로 이동하여 기술 세트 정의(JSON) 링크를 선택합니다. Notebook의 첫 번째 셀에서 만든 기술 세트의 JSON이 포털에 표시됩니다. 디스플레이 오른쪽에는 기술 정의 템플릿을 선택할 수 있는 드롭다운 메뉴가 있습니다. AML(Azure Machine Learning) 템플릿을 선택합니다. Azure ML 작업 영역의 이름과 유추 클러스터에 배포할 모델의 엔드포인트를 입력합니다. 템플릿이 이 엔드포인트 uri와 키로 업데이트됩니다.
 
-> [!div class="mx-imgBorder"]
-> ![기술 세트 정의 템플릿](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="기술 세트 정의 템플릿":::
 
 창에서 기술 세트 템플릿을 복사하여 왼쪽의 기술 세트 정의에 붙여넣습니다. 템플릿을 편집하여 누락된 다음 값을 입력합니다.
 

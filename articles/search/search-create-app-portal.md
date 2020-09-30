@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
-ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292540"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399825"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 데모 앱 만들기(Azure Cognitive Search)
 
@@ -35,7 +35,7 @@ Azure Portal의 **데모 앱 만들기** 마법사를 사용하여 브라우저�
 
   이 빠른 시작에서는 미리 보기 이미지가 있으므로 기본 제공 부동산 샘플 데이터와 인덱스를 사용합니다(마법사에서 결과 페이지에 이미지 추가를 지원함). 이 연습에 사용되는 인덱스를 만들려면 **데이터 가져오기** 마법사를 실행하여 *realestate-us-sample* 데이터 원본을 선택합니다.
 
-  ![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="샘플 데이터에 대한 데이터 원본 페이지" border="false":::
 
 인덱스를 사용할 준비가 되면 다음 단계로 이동합니다.
 
@@ -61,7 +61,7 @@ Azure Portal의 **데모 앱 만들기** 마법사를 사용하여 브라우저�
 
 1. [설명]에서 다른 사용자가 특정 문서를 클릭할지 여부를 결정하는 데 도움이 될 수 있는 세부 정보를 제공하는 필드를 선택합니다.
 
-   ![샘플 데이터에 대한 결과 구성](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="샘플 데이터에 대한 데이터 원본 페이지" border="false":::
 
 ## <a name="add-a-sidebar"></a>사이드바 추가
 
@@ -83,7 +83,7 @@ Azure Cognitive Search에서 패싯 탐색은 누적 필터링 환경입니다. 
 
 다음 스크린샷에서는 앱에서 렌더링된 페이지와 함께 마법사의 옵션을 보여 줍니다. 필드 선택이 사용되는 방법 및 "필드 이름 표시"가 제안 내에서 레이블 지정을 포함하거나 제외하는 데 사용되는 방법을 확인할 수 있습니다.
 
-![쿼리 제안 구성](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="샘플 데이터에 대한 데이터 원본 페이지":::
 
 ## <a name="create-download-and-execute"></a>만들기, 다운로드 및 실행
 
@@ -95,7 +95,7 @@ Azure Cognitive Search에서 패싯 탐색은 누적 필터링 환경입니다. 
 
 기본 인덱스는 문서 간에 중복된 가상의 생성된 데이터로 구성되며, 설명이 이미지와 일치하지 않는 경우도 있습니다. 사용자 고유의 인덱스를 기반으로 하여 앱을 만드는 경우 더 응집력 있는 환경을 사용할 수 있습니다.
 
-![앱 실행](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="샘플 데이터에 대한 데이터 원본 페이지":::
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
