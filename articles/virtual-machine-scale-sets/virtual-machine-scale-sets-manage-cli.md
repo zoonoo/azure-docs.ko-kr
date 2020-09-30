@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502905"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570524"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 관리
 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 명령의 일부를 설명합니다.
@@ -49,6 +49,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+단일 API 호출의 모든 인스턴스에 대 한 자세한 *Instanceview* 정보를 가져올 수도 있습니다 .이를 통해 대량 설치에 대 한 api 제한을 방지할 수 있습니다. , 및에 대 한 고유한 값을 제공 `--resource-group` `--subscription` `--name` 합니다.
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="list-connection-information-for-vms"></a>VN의 연결 정보 나열
 확장 집합의 VM에 연결하려면 할당된 공용 IP 주소와 포트 번호에 RDP 또는 SSH합니다. NAT(네트워크 주소 변환) 규칙은 기본적으로 각 VM에 원격 연결 트래픽을 전달하는 Azure Load Balancer에 추가됩니다. 주소 및 포트를 나열하여 확장 집합의 VM 인스턴스에 연결하려면 [az vmss list-instance-connection-info](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup* 리소스 그룹에서 VM 인스턴스에 대한 연결 정보를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.

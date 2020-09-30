@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078207"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568892"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -47,7 +47,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 | 속성 | Description |
 -------- | ------------- | 
-| Name | Azure 통합 런타임의 이름. |  
+| 이름 | Azure 통합 런타임의 이름. |  
 | 시스템 상태 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
@@ -76,7 +76,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 | 속성 | Description | 
 | -------- | ----------- | 
-| Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
+| 이름 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 다음 섹션을 참조 하세요. | 
 | 버전 | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
@@ -193,10 +193,10 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 | VNetId                       | 연결할 Azure-SSIS IR의 가상 네트워크 리소스 ID입니다. |
 | 서브넷                       | 조인할 Azure-SSIS IR의 서브넷 이름입니다. |
 | ID                           | Azure-SSIS IR의 리소스 ID입니다. |
-| Type                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
+| 유형                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
 | ResourceGroupName            | ADF와 Azure-SSIS IR를 만든 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName              | ADF의 이름입니다. |
-| Name                         | Azure-SSIS IR 이름입니다. |
+| 이름                         | Azure-SSIS IR 이름입니다. |
 | Description                  | Azure-SSIS IR에 대 한 설명입니다. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>상태 (Azure-SSIS IR 노드당)
@@ -258,13 +258,13 @@ Azure-SSIS IR VNet에 연결 하는 경우 Azure-SSIS IR 모니터링 페이지�
 
 Azure-SSIS IR 모니터링 페이지의 연결 **진단** 타일에서 **연결 테스트** 링크를 선택 하 여 창을 표시할 수 있습니다. 여기서는 Azure-SSIS IR 및 관련 패키지/구성/데이터 저장소와 관리 서비스는 정규화 된 도메인 이름 (FQDN)/ip 주소 및 지정 된 포트를 통해 연결을 확인할 수 있습니다 ( [Azure-SSIS IR에서 연결 테스트](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)참조).
 
-![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Azure-SSIS IR와 관련 패키지/구성/데이터 저장소 간의 연결을 테스트할 수 있는 위치를 보여 주는 스크린샷](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>고정 공용 IP 주소 타일
 
 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **고정 공용 IP 주소** 타일이 표시 됩니다 ( [Azure-SSIS IR에 대 한 고정 공용 ip 주소 가져오기](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)참조). 이 타일에서 Azure-SSIS IR에 대 한 첫 번째/초 고정 공용 IP 주소를 지정 하는 링크를 선택 하 여 텍스트 상자에서 해당 리소스 ID ()를 복사할 수 있는 창을 팝업 할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` . 팝업 창에서 **첫 번째/두 번째 고정 공용 ip 주소 설정 확인** 링크를 선택 하 여 Azure Portal에서 첫 번째/초 고정 공용 ip 주소를 관리할 수도 있습니다.
 
-![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![첫 번째/초 고정 공용 IP 주소를 지정할 수 있는 위치를 보여 주는 스크린샷](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>패키지 저장소 타일
 

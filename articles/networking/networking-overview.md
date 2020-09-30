@@ -8,14 +8,14 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 09/29/2020
 ms.author: kumud
-ms.openlocfilehash: 364f4f38599508e4dfb455f1336d4a6978cdf5b6
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 791a248c8fb10bc4db483451971d452a359c8a07
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400454"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569260"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
 
@@ -34,13 +34,14 @@ Azure의 네트워킹 서비스는 함께 또는 별도로 사용할 수 있는 
 |[가상 네트워크](#vnet)|Azure 리소스가 서로 안전 하 게 통신 하 고, 인터넷 및 온-프레미스 네트워크를 사용할 수 있습니다.| <p>[네트워크 트래픽 필터링](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[네트워크 트래픽 라우팅](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[리소스에 대한 네트워크 액세스 제한](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[가상 네트워크 연결](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|연결 공급자가 쉽게 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장 합니다.|<p>[ExpressRoute 회로 만들기 및 수정](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[ExpressRoute 회로의 피어링 만들기 및 수정](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[VNet을 ExpressRoute 회로에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Express 경로 회로에 대 한 경로 필터 구성 및 관리](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN Gateway](#vpngateway)|공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화 된 트래픽을 보냅니다.|<p>[사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[지점 및 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Virtual WAN](#virtualwan)|Azure에 대 한 분기 연결을 최적화 하 고 자동화 합니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다.|<p>[사이트 간 연결](../virtual-wan/virtual-wan-site-to-site-portal.md), [express 경로 연결](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
+|[가상 WAN](#virtualwan)|Azure에 대 한 분기 연결을 최적화 하 고 자동화 합니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다.|<p>[사이트 간 연결](../virtual-wan/virtual-wan-site-to-site-portal.md), [express 경로 연결](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Microsoft Azure 인프라를 사용 하 여 이름 확인을 제공 하는 DNS 도메인을 호스팅합니다.|<p>[Azure DNS에서 도메인 호스트](../dns/dns-delegate-domain-azure-dns.md)</p><p>[웹 앱에 대 한 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md)</p> <p>[Traffic Manager에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-tm.md)</p> <p>[공용 IP 주소에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-pip.md)</p> <p>[영역 리소스 레코드에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|TLS를 통해 Azure Portal에서 직접 가상 머신에 안전 하 고 원활한 RDP/SSH 연결을 구성 합니다. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다.|<p>[Azure Bastion 호스트 만들기](../bastion/bastion-create-host-portal.md)</p><p>[Linux VM에 SSH를 사용 하 여 연결](../bastion/bastion-connect-vm-ssh.md)</p><p>[RDP를 사용 하 여 Windows VM에 연결](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[가상 네트워크 NAT 게이트웨이](#nat)|가상 컴퓨터에 대 한 아웃 바운드 연결을 제공 하는 NAT 게이트웨이를 만듭니다.|<p>[NAT 게이트웨이 만들기](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
 |[Azure Peering Service](#azurepeeringservice)|공용 네트워크를 통해 Microsoft 클라우드로 가장 안정적이 고 안정적인 라우팅을 위해 서비스 공급자와 공동 작업 합니다.|<p>[Azure 피어 링 서비스 등록](../peering-service/azure-portal.md)</p>|
+| [Azure Edge Zone](#edge-zones)| 대기 시간이 짧고 처리량이 많은 요구 사항을 해결 하기 위해 Vm, 컨테이너 및 기타 서비스를 Edge 영역에 배포 합니다.| <p>[캐리어를 사용 하는에 지 영역](edge-zones-overview.md#carrier)<p> <p>[개인에 지 영역](edge-zones-overview.md#private-edge-zones)</p>|
+| [Azure 궤도](#orbital)| 우주선 또는 위성 constellations, 다운 링크 및 업링크 데이터와 통신 하 고, 클라우드에서 데이터를 처리 하 고, 고유한 시나리오에서 Azure 서비스를 사용 하 여 서비스를 연결 하 고, 고객을 위한 제품을 생성 합니다.  | <p>[글로벌 통신](azure-orbital-overview.md#global-communication)</p>  <p>[파트너 그라운드 스테이션](azure-orbital-overview.md#digital-transformation)</p>|
 ||||
-
 
 ### <a name="virtual-network"></a><a name="vnet"></a>가상 네트워크
 
@@ -55,20 +56,20 @@ Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구�
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
 Express 경로를 사용 하면 연결 공급자가 촉진 하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 이 연결은 프라이빗 전용입니다. 트래픽은 인터넷을 통해 이동하지 않습니다. ExpressRoute를 사용하면 Microsoft Azure, Microsoft 365, Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.  자세한 내용은 [express 란?](../expressroute/expressroute-introduction.md)을 참조 하세요.
 
-![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
+:::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
 
 ### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN Gateway
-VPN Gateway를 사용 하 여 온-프레미스 위치에서 가상 네트워크에 대 한 암호화 된 프레미스 간 연결을 만들거나 Vnet 간에 암호화 된 연결을 만들 수 있습니다. 사이트 간, 지점 및 사이트 간 또는 VNet 간 vnet과 같은 VPN Gateway 연결에 대해 다양 한 구성을 사용할 수 있습니다.
+VPN Gateway를 사용 하 여 온-프레미스 위치에서 가상 네트워크에 대 한 암호화 된 프레미스 간 연결을 만들거나 Vnet 간에 암호화 된 연결을 만들 수 있습니다. 사이트 간, 지점 및 사이트 간 또는 VNet 간 연결 등의 VPN Gateway 연결에 대해 다양 한 구성을 사용할 수 있습니다.
 다음 다이어그램은 동일한 가상 네트워크에 대 한 여러 사이트 간 VPN 연결을 보여 줍니다.
 
-![사이트 간 Azure VPN Gateway 연결](./media/networking-overview/vpngateway-multisite-connection-diagram.png)
+:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Azure ExpressRoute":::
 
 여러 VPN 연결 유형에 대 한 자세한 내용은 [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조 하세요.
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>가상 WAN
 Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공하는 네트워킹 서비스입니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다. 또한 Azure 백본을 활용하여 분기를 연결하고 분기 및 VNet 간 연결을 설정할 수 있습니다. Azure 가상 WAN은 사이트 간 VPN, Express 경로, 지점 및 사이트 간 사용자 VPN과 같은 여러 Azure 클라우드 연결 서비스를 단일 운영 인터페이스로 제공 합니다. Azure VNet에 대한 연결은 가상 네트워크 연결을 사용하여 설정합니다. 자세한 내용은 [Azure 가상 WAN 이란?](../virtual-wan/virtual-wan-about.md)을 참조 하세요.
 
-![Virtual WAN 다이어그램](./media/networking-overview/virtualwan1.png)
+:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azure-dns"></a><a name="dns"></a>Azure DNS
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 자세한 내용은 [Azure DNS 란?](../dns/dns-overview.md)을 참조 하세요.
@@ -76,15 +77,25 @@ Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공�
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
 Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 새로운 완전 플랫폼 관리형 PaaS 서비스입니다. TLS를 통해 Azure Portal에서 직접 가상 머신에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다. 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md)을 참조 하세요.
 
-![Azure 방호 아키텍처](./media/networking-overview/architecture.png)
+:::image type="content" source="./media/networking-overview/architecture.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="virtual-network-nat-gateway"></a><a name="nat"></a>가상 네트워크 NAT 게이트웨이
-Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대한 아웃바운드 전용 인터넷 연결을 간소화합니다. 서브넷에 구성되는 경우 모든 아웃바운드 연결에서 지정된 고정 공용 IP 주소를 사용합니다. 가상 머신에 직접 연결되는 부하 분산 장치 또는 공용 IP 주소가 없으면 아웃바운드 연결이 가능합니다. 자세한 내용은 [가상 네트워크 NAT 게이트웨이 란?](../virtual-network/nat-overview.md) 을 참조 하세요. 
+Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대한 아웃바운드 전용 인터넷 연결을 간소화합니다. 서브넷에 구성되는 경우 모든 아웃바운드 연결에서 지정된 고정 공용 IP 주소를 사용합니다. 가상 머신에 직접 연결되는 부하 분산 장치 또는 공용 IP 주소가 없으면 아웃바운드 연결이 가능합니다. 자세한 내용은 [가상 네트워크 NAT 게이트웨이 란?](../virtual-network/nat-overview.md)을 참조 하세요.
 
-![가상 네트워크 NAT 게이트웨이](./media/networking-overview/flow-map.png)
+:::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Azure 피어 링 서비스
 Azure 피어 링 서비스는 Microsoft 365, Dynamics 365, SaaS (software as a service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대 한 고객의 연결을 향상 시킵니다. 자세한 내용은 [Azure 피어 링 서비스 란?](../peering-service/about.md)을 참조 하세요.
+
+### <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zone
+
+Azure Edge 영역은 사용자에 게 가까운 데이터 처리를 가능 하 게 하는 Microsoft Azure에서 제공 하는 제품군입니다. 응용 프로그램의 대기 시간이 짧고 처리량이 많은 요구 사항을 해결 하기 위해 Vm, 컨테이너 및 선택한 기타 Azure 서비스를 Edge 영역에 배포할 수 있습니다. 자세한 내용은 [Azure Edge 영역 이란?](edge-zones-overview.md)을 참조 하세요.
+
+### <a name="azure-orbital"></a><a name="orbital"></a>Azure 궤도
+
+Azure Orbital은 우주선 또는 위성 관측, 다운링크 및 업링크 데이터와 통신하고, 클라우드에서 데이터를 처리하며, 고유한 시나리오에서 서비스를 Azure 서비스와 연결하고, 고객을 위한 제품을 생성할 수 있는 완전 관리형 클라우드 기반 지상국 서비스입니다. 이 시스템은 Azure 글로벌 인프라 및 대기 시간이 짧은 글로벌 파이버 네트워크를 기반으로 하여 구축되었습니다. 자세한 내용은 [Azure 궤도 란?](azure-orbital-overview.md)을 참조 하세요.
+
+:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Azure ExpressRoute":::
 
 ## <a name="application-protection-services"></a><a name="protect"></a>응용 프로그램 보호 서비스
 
@@ -99,10 +110,11 @@ Azure 피어 링 서비스는 Microsoft 365, Dynamics 365, SaaS (software as a s
 |[가상 네트워크 서비스 엔드포인트](#serviceendpoints)|일부 Azure 서비스 리소스에 대 한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다.|[PaaS 리소스에 대한 네트워크 액세스 제한](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 [Private Link](#privatelink)|를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database)와 Azure에서 호스트 되는 고객 소유/파트너 서비스에 액세스할 수 있습니다.|<p>[프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-portal.md)</p><p>[Private Link 서비스 만들기](../private-link/create-private-link-service-portal.md)</p>|
 |||
+
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) 은 가장 정교한 DDoS 위협에 대 한 대책을 제공 합니다. 이 서비스는 응용 프로그램 및 가상 네트워크에 배포 된 리소스에 대 한 향상 된 DDoS 완화 기능을 제공 합니다. 또한 Azure DDoS Protection를 사용 하는 고객은 활성 공격 동안 DDoS 전문가에 게 대응할 수 있도록 신속한 응답 지원을 DDoS 수 있습니다.
 
-![DDoS Protection](./media/networking-overview/ddos-protection.png)
+:::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="web-application-firewall"></a><a name="waf"></a>웹 애플리케이션 방화벽
 
@@ -110,30 +122,28 @@ Azure waf ( [웹 응용 프로그램 방화벽](../web-application-firewall/over
 
 고객은 공용 및 개인 주소 공간에서 엔터티에 대 한 지역 보호를 제공 하는 [Application Gateway으로 Azure WAF](../application-gateway/waf-overview.md) 를 배포 하도록 선택할 수 있습니다. 또한 고객은 네트워크에 지에서 공용 끝점에 대 한 보호를 제공 하는 [프런트 도어를 사용 하 여 Azure WAF](../frontdoor/waf-overview.md) 를 배포 하도록 선택할 수 있습니다.
 
-![웹 애플리케이션 방화벽](./media/networking-overview/waf-overview.png)
-
+:::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azure-firewall"></a><a name="firewall"></a>Azure Firewall
 Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. Azure 방화벽을 사용 하 여 구독 및 가상 네트워크에서 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고, 적용 하 고, 기록할 수 있습니다. Azure Firewall은 가상 네트워크 리소스에 정적 공용 IP 주소를 사용하기 때문에 외부 방화벽이 사용자의 가상 네트워크에서 시작된 트래픽을 식별할 수 있습니다. 
 
 Azure 방화벽에 대 한 자세한 내용은 [Azure 방화벽 설명서](../firewall/overview.md)를 참조 하세요.
 
-![방화벽 개요](./media/networking-overview/firewall-threat.png)
+:::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="network-security-groups"></a><a name="nsg"></a>네트워크 보안 그룹
 Azure 가상 네트워크의 Azure 리소스와 네트워크 보안 그룹이 주고 받는 네트워크 트래픽을 필터링할 수 있습니다. 자세한 내용은 [보안 개요](../virtual-network/security-overview.md)를 참조하세요.
 
-### <a name="service-endpoints"></a><a name="serviceendpoints"></a>서비스 엔드포인트
+### <a name="service-endpoints"></a><a name="serviceendpoints"></a>서비스 끝점
 VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가상 네트워크 프라이빗 주소 공간 및 Azure 서비스에 대한 VNet의 ID를 확장합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다. 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
-![가상 네트워크 서비스 엔드포인트](./media/networking-overview/vnet-service-endpoints-overview.png)
+:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azure-private-link"></a><a name="privatelink"></a>Azure Private Link
 Azure [개인 링크](../private-link/private-link-overview.md) 를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database)와 azure에서 호스트 되는 고객 소유/파트너 서비스에 액세스할 수 있습니다.
 가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 가상 네트워크에 자체 프라이빗 링크 서비스를 만들어서 고객에게 제공할 수도 있습니다.
 
-![프라이빗 엔드포인트 개요](./media/networking-overview/private-endpoint.png)
-
+:::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Azure ExpressRoute":::
 
 ## <a name="application-delivery-services"></a><a name="deliver"></a>응용 프로그램 배달 서비스
 
@@ -149,13 +159,12 @@ Azure [개인 링크](../private-link/private-link-overview.md) 를 사용 하�
 |
 
 ### <a name="content-delivery-network"></a><a name="cdn"></a>Content Delivery Network
-Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 전송할 수 있는 글로벌 솔루션을 개발자에게 제공합니다. Azure CDN에 대 한 자세한 내용은 [Azure Content Delivery Network](../cdn/cdn-overview.md) 를 참조 하세요.
+Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 전송할 수 있는 글로벌 솔루션을 개발자에게 제공합니다. Azure CDN에 대 한 자세한 내용은 [Azure Content Delivery Network](../cdn/cdn-overview.md)를 참조 하세요.
 
-![Azure CDN](./media/networking-overview/cdn-overview.png)
+:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azure-front-door-service"></a><a name="frontdoor"></a>Azure Front 도어 서비스
 Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다. 자세한 내용은 [Azure Front 도어](../frontdoor/front-door-overview.md)를 참조 하세요.
-
 
 ### <a name="traffic-manager"></a><a name="trafficmanager"></a>Traffic Manager
 
@@ -163,7 +172,7 @@ Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 �
 
 다음 다이어그램은 Traffic Manager를 사용한 끝점 우선 순위 기반 라우팅을 보여 줍니다.
 
-![Azure Traffic Manager '우선 순위' 트래픽 라우팅 메서드](./media/networking-overview/priority.png)
+:::image type="content" source="./media/networking-overview/priority.png" alt-text="Azure ExpressRoute":::
 
 Traffic Manager에 대 한 자세한 내용은 [Azure Traffic Manager 란?](../traffic-manager/traffic-manager-overview.md) 을 참조 하세요.
 
@@ -172,15 +181,14 @@ Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간�
 
 다음 그림에서는 외부 및 내부 부하 분산 장치를 모두 활용하는 인터넷 연결 다중 계층 애플리케이션을 보여줍니다.
 
-![Azure Load Balancer 예제](./media/networking-overview/load-balancer.png)
-
+:::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="application-gateway"></a><a name="applicationgateway"></a>Application Gateway
 Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다. 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 하는 서비스인 ADC (응용 프로그램 배달 컨트롤러)입니다. 자세한 내용은 [Azure 애플리케이션 게이트웨이 란?](../application-gateway/overview.md)을 참조 하세요.
 
 다음 다이어그램은 Application Gateway를 사용 하 여 url 경로 기반 라우팅을 보여 줍니다.
 
-![Application Gateway 예제](./media/networking-overview/figure1-720.png)
+:::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Azure ExpressRoute":::
 
 ## <a name="network-monitoring-services"></a><a name="monitor"></a>네트워크 모니터링 서비스
 이 섹션에서는 네트워크 리소스를 모니터링 하는 데 도움이 되는 Azure의 네트워킹 서비스 (Network Watcher, Express 경로 모니터, Azure Monitor 및 Virtual Network 탭을 설명 합니다.
@@ -204,7 +212,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 
 다음 그림은 가상 네트워크 TAP이 작동하는 방법을 보여 줍니다. 
 
-![가상 네트워크 TAP이 작동하는 방법](./media/networking-overview/virtual-network-tap-architecture.png)
+:::image type="content" source="./media/networking-overview/virtual-network-tap-architecture.png" alt-text="Azure ExpressRoute":::
 
 자세한 내용은 [VIRTUAL NETWORK 탭](../virtual-network/virtual-network-tap-overview.md)을 참조 하세요.
 
@@ -213,6 +221,3 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 - [첫 번째 가상 네트워크 만들기](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 첫 번째 VNet을 만들고 일부 VM을 연결합니다.
 - [지점 및 사이트 간 연결 구성 문서의](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)단계를 완료 하 여 VNet에 컴퓨터를 연결 합니다.
 - [인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 공용 서버에 인터넷 트래픽의 부하를 분산합니다.
- 
- 
-   

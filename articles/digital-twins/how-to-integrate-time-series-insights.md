@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c6c5c9b00ec3309638a7c5618e5995c8c5f07b11
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64e959536b4abea4f2facb5ae3238b4843e4611
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564374"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569945"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "90564374"
 
 이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 데이터를 Time Series Insights으로 보내기 전에 데이터를 표준화 하 고 정보를 표준화 하는 데 사용할 수 있기 때문에 데이터를 Time Series Insights으로 공급할 수 있는 좋은 방법입니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 Time Series Insights와의 관계를 설정 하려면 먼저 **Azure Digital Twins 인스턴스가**있어야 합니다. 이 인스턴스는 데이터를 기반으로 하는 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 하며, Time Series Insights에서 추적 되는 데이터를 확인 하기 위해 쌍 정보를 몇 번 업데이트 해야 합니다. 
 
@@ -65,7 +65,7 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
-4. Event grid 토픽을 Azure Digital Twins 인스턴스에 연결 하는 Azure Digital Twins [끝점](concepts-route-events.md#create-an-endpoint) 을 만듭니다.
+4. Azure Digital Twins 인스턴스에 이벤트 허브를 연결 하는 Azure Digital Twins [끝점](concepts-route-events.md#create-an-endpoint) 을 만듭니다.
 
     ```azurecli
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
@@ -203,11 +203,11 @@ namespace SampleFunctionsApp
     1. **PAYG (미리 보기)** 가격 책정 계층을 선택 합니다.
     2. 이 환경에 대 한 **시계열 ID** 를 선택 해야 합니다. 시계열 ID는 Time Series Insights에서 데이터를 검색 하는 데 사용할 수 있는 최대 3 개의 값이 될 수 있습니다. 이 자습서에서는 **$dtId**를 사용할 수 있습니다. [*시계열 id를 선택 하는 방법에 대 한 자세한 내용은 모범 사례*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)에서 id 값 선택을 참조 하세요.
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Time Series Insights 환경의 생성 포털 UX입니다. PAYG (미리 보기) 가격 책정 계층이 선택 되 고 시계열 ID 속성 이름이 $dtId":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="종단 간 시나리오에서 강조 표시 되는 Azure 서비스의 보기 Time Series Insights":::
 
 2. **다음: 이벤트 원본** 을 선택 하 고 위에서 Event Hubs 정보를 선택 합니다. 새 Event Hubs 소비자 그룹을 만들어야 할 수도 있습니다.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Time Series Insights 환경 이벤트 원본에 대 한 생성 포털 UX입니다. 위의 이벤트 허브 정보를 사용 하 여 이벤트 원본을 만듭니다. 또한 새 소비자 그룹을 만듭니다.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="종단 간 시나리오에서 강조 표시 되는 Azure 서비스의 보기 Time Series Insights":::
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>IoT 데이터를 Azure Digital Twins로 보내기 시작
 
@@ -223,19 +223,19 @@ Time Series Insights로 데이터를 보내기 시작 하려면 변경 데이터
 
 1. [Azure Portal](https://portal.azure.com) 에서 Time Series Insights 인스턴스를 엽니다. 포털 검색 표시줄에서 인스턴스의 이름을 검색할 수 있습니다. 인스턴스 개요에 표시 된 *Time Series Insights 탐색기 URL* 을 방문 합니다.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Time Series Insights 환경의 개요 탭에서 Time Series Insights 탐색기 URL을 선택 합니다.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="종단 간 시나리오에서 강조 표시 되는 Azure 서비스의 보기 Time Series Insights":::
 
 2. 탐색기의 왼쪽에 표시 되는 Azure Digital 쌍에서 3 개의 쌍이 표시 됩니다. _**Thermostat67**_ 을 선택 하 고 **온도**를 선택 하 고 **추가**를 누릅니다.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="* * Thermostat67 * *를 선택 하 고 * * 온도 * *를 선택 하 고 * * 추가 * *를 선택 합니다.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="종단 간 시나리오에서 강조 표시 되는 Azure 서비스의 보기 Time Series Insights":::
 
 3. 이제 아래와 같이 자동 온도 조절기의 초기 온도 판독값이 표시 됩니다. *Room21* 및 *floor1*에 대 한 동일한 온도 읽기가 업데이트 되며 이러한 데이터 스트림을 동시에 시각화할 수 있습니다.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="초기 온도 데이터는 TSI 탐색기에서 그래프로 표현 됩니다. 68과 85 사이의 임의 값 줄입니다.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="종단 간 시나리오에서 강조 표시 되는 Azure 서비스의 보기 Time Series Insights":::
 
 4. 시뮬레이션을 훨씬 더 오랫동안 실행 하도록 허용 하면 시각화가 다음과 같이 표시 됩니다.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="각 쌍에 대 한 온도 데이터는 서로 다른 색의 세 평행 선으로 그래프로 표현 됩니다.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="종단 간 시나리오에서 강조 표시 되는 Azure 서비스의 보기 Time Series Insights":::
 
 ## <a name="next-steps"></a>다음 단계
 

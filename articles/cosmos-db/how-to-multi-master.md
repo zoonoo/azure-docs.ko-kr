@@ -1,29 +1,29 @@
 ---
-title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
-description: Azure Cosmos DB에서 다른 Sdk를 사용 하 여 응용 프로그램에 대 한 다중 마스터를 구성 하는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB에서 다중 지역 쓰기를 구성 하는 방법
+description: Azure Cosmos DB에서 다른 Sdk를 사용 하 여 응용 프로그램에 대 한 다중 지역 쓰기를 구성 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 40d2e5f3d79fdc7725f04fbfd2c7f29f8db265a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328533"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570660"
 ---
-# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
+# <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 응용 프로그램에서 다중 지역 쓰기 구성
 
-사용할 수 있는 여러 쓰기 지역으로 계정이 만들어지면 DocumentClient의 ConnectionPolicy에 대한 애플리케이션에서 두 가지를 변경하여 Azure Cosmos DB에서 다중 마스터 및 다중 호밍 기능을 사용하도록 설정해야 합니다. ConnectionPolicy 내에서 UseMultipleWriteLocations를 true로 설정하고 애플리케이션이 배포되는 지역 이름을 SetCurrentLocation으로 전달합니다. 이를 통해 전달된 위치에서 지역 근접도에 따라 PreferredLocations 속성이 채워집니다. 나중에 계정에 새 지역이 추가되는 경우 애플리케이션은 업데이트되거나 다시 배포될 필요 없이 가까운 지역을 자동으로 탐지하고 자동 호밍되어 지역 이벤트가 발생합니다.
+여러 쓰기 지역을 사용 하도록 설정 된 계정을 만든 후에는 Azure Cosmos DB에서 다중 지역 쓰기 및 다중 호 밍 기능을 사용할 수 있도록 DocumentClient에 대 한 ConnectionPolicy에 대해 응용 프로그램에서 두 가지 변경을 수행 해야 합니다. ConnectionPolicy 내에서 UseMultipleWriteLocations를 true로 설정하고 애플리케이션이 배포되는 지역 이름을 SetCurrentLocation으로 전달합니다. 이를 통해 전달된 위치에서 지역 근접도에 따라 PreferredLocations 속성이 채워집니다. 나중에 계정에 새 지역이 추가되는 경우 애플리케이션은 업데이트되거나 다시 배포될 필요 없이 가까운 지역을 자동으로 탐지하고 자동 호밍되어 지역 이벤트가 발생합니다.
 
 > [!Note]
-> 처음에 단일 쓰기 지역으로 구성된 Cosmos 계정을 중단 시간이 0인 다중 쓰기 지역(즉, 다중 마스터)에 구성할 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.
+> 단일 쓰기 지역으로 처음 구성 된 Cosmos 계정은 중단 시간이 0 인 여러 쓰기 지역으로 구성 될 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `UseMultipleWriteLocations`를 `true`로 설정합니다. 또한 `SetCurrentLocation`을 애플리케이션이 배포되고 Azure Cosmos DB가 복제되는 지역으로 설정합니다.
+응용 프로그램에서 다중 지역 쓰기를 사용 하도록 설정 하려면 `UseMultipleWriteLocations` 를로 설정 `true` 합니다. 또한 `SetCurrentLocation`을 애플리케이션이 배포되고 Azure Cosmos DB가 복제되는 지역으로 설정합니다.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -37,7 +37,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a name="net-sdk-v3"></a><a id="netv3"></a>.NET SDK v3
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `ApplicationRegion`을 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
+응용 프로그램에서 다중 지역 쓰기를 사용 하도록 설정 하려면 `ApplicationRegion` 응용 프로그램이 배포 되는 영역 및 Cosmos DB 복제 되는 위치를 설정 합니다.
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
@@ -56,9 +56,9 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> Java V4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-multi-region-writes"></a> Java V4 SDK
 
-응용 프로그램에서 다중 마스터를 사용 하도록 설정 하려면 `.multipleWriteRegionsEnabled(true)` `.preferredRegions(preferredRegions)` 클라이언트 작성기에서 및를 호출 합니다 `preferredRegions` . 여기서는 `List` 응용 프로그램이 배포 되는 영역인 Cosmos DB 복제 되는 영역인 하나의 요소를 포함 하는입니다.
+응용 프로그램에서 다중 지역 쓰기를 사용 하도록 설정 하려면 `.multipleWriteRegionsEnabled(true)` `.preferredRegions(preferredRegions)` 클라이언트 작성기에서 및를 호출 합니다 `preferredRegions` . 여기서는 `List` 응용 프로그램이 배포 되는 영역인 Cosmos DB 복제 되는 영역인 하나의 요소를 포함 하는입니다.
 
 # <a name="async"></a>[Async](#tab/api-async)
 
@@ -74,9 +74,9 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> Async Java V2 SDK
+## <a name="async-java-v2-sdk"></a><a id="java2-multi-region-writes"></a> Async Java V2 SDK
 
-Java V2 SDK는 Maven [:: azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)를 사용 했습니다. 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `policy.setUsingMultipleWriteLocations(true)`를 설정하고 `policy.setPreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
+Java V2 SDK는 Maven [:: azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)를 사용 했습니다. 응용 프로그램에서 다중 지역 쓰기를 사용 하도록 설정 하려면를 설정 하 `policy.setUsingMultipleWriteLocations(true)` 고를 `policy.setPreferredLocations` 응용 프로그램이 배포 되는 지역으로 설정 하 고 Cosmos DB 복제 합니다.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -93,7 +93,7 @@ AsyncDocumentClient client =
 
 ## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, JavaScript 및 TypeScript SDK
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `connectionPolicy.UseMultipleWriteLocations`를 `true`로 설정합니다. 또한 `connectionPolicy.PreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
+응용 프로그램에서 다중 지역 쓰기를 사용 하도록 설정 하려면 `connectionPolicy.UseMultipleWriteLocations` 를로 설정 `true` 합니다. 또한 `connectionPolicy.PreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -110,7 +110,7 @@ const client = new CosmosClient({
 
 ## <a name="python-sdk"></a><a id="python"></a>Python SDK
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `connection_policy.UseMultipleWriteLocations`를 `true`로 설정합니다. 또한 `connection_policy.PreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
+응용 프로그램에서 다중 지역 쓰기를 사용 하도록 설정 하려면 `connection_policy.UseMultipleWriteLocations` 를로 설정 `true` 합니다. 또한 `connection_policy.PreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
 ```python
 connection_policy = documents.ConnectionPolicy()

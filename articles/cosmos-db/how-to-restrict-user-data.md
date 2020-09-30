@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44a62643c459fb61e7a2a95c2a9dd55ea4f19111
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031995"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570656"
 ---
-# <a name="restrict-user-access-to-data-operations-only"></a>데이터 작업에 대해서만 사용자 액세스 제한
+# <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 작업에 대 한 사용자 액세스 제한
 
 Azure Cosmos DB에서는 데이터베이스 서비스와의 상호 작용을 인증 하는 두 가지 방법이 있습니다.
+
 - Azure Portal와 상호 작용할 때 Azure Active Directory id 사용
-- Api 및 Sdk에서 호출을 실행 하는 경우 Azure Cosmos DB [키](secure-access-to-data.md#master-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens) 을 사용 합니다.
+- Api 및 Sdk에서 호출을 실행 하는 경우 Azure Cosmos DB [키](secure-access-to-data.md#primary-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens) 을 사용 합니다.
 
 각 인증 방법은 다음과 같이 여러 작업 집합에 대 한 액세스를 제공 합니다.
 
@@ -35,10 +36,10 @@ Azure Cosmos DB에서는 데이터베이스 서비스와의 상호 작용을 인
 > 다음 섹션에서 명령을 실행 하려면 수정 하려는 구독에 대 한 [Azure 소유자 역할](../role-based-access-control/built-in-roles.md#owner) 뿐만 아니라 Azure PowerShell Module 3.0.0 이상을 설치 해야 합니다.
 
 다음 섹션의 PowerShell 스크립트에서 다음 자리 표시자를 사용자 환경에 해당 하는 값으로 대체 합니다.
-- `$MySubscriptionId`-사용 권한을 제한 하려는 Azure Cosmos 계정을 포함 하는 구독 ID입니다. 예: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName`-Azure Cosmos 계정이 포함 된 리소스 그룹입니다. 예: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName`-Azure Cosmos 계정의 이름입니다. 예: `mycosmosdbsaccount`.
-- `$MyUserName`- username@domain 액세스를 제한 하려는 사용자의 로그인 ()입니다. 예: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId` -사용 권한을 제한 하려는 Azure Cosmos 계정을 포함 하는 구독 ID입니다. 예: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`
+- `$MyResourceGroupName` -Azure Cosmos 계정이 포함 된 리소스 그룹입니다. 예: `myresourcegroup`
+- `$MyAzureCosmosDBAccountName` -Azure Cosmos 계정의 이름입니다. 예: `mycosmosdbsaccount`
+- `$MyUserName` - username@domain 액세스를 제한 하려는 사용자의 로그인 ()입니다. 예: `cosmosdbuser@contoso.com`
 
 ## <a name="select-your-azure-subscription"></a>Azure 구독 선택
 

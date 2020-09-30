@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8c305da074f3090ced0dfc16b4a3faa4c757699
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440215"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569828"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
 
@@ -216,6 +216,8 @@ Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통
 ```azurecli
 az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
 ```
+
+## <a name="change-adminstate-for-links"></a><a name="state"></a>링크에 대한 AdminState 변경
 
 이 프로세스를 사용하여 계층 1 테스트를 수행합니다. 각 교차 연결을 기본 및 보조 포트의 각 라우터에 제대로 패치해야 합니다.
 

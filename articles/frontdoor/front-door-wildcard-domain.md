@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442351"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570328"
 ---
 # <a name="wildcard-domains"></a>와일드 카드 도메인
 
-Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메인 이름을 Azure Front 도어 프로필의 프런트 엔드 호스트 또는 사용자 지정 도메인 목록에 매핑할 수 있습니다. Azure 프런트 도어 구성에 와일드 카드 도메인이 있으면 동일한 라우팅 규칙에서 API, 응용 프로그램 또는 웹 사이트에 대 한 여러 하위 도메인에 대 한 트래픽 라우팅 동작이 간소화 됩니다. 각 하위 도메인을 별도로 추가 하거나 지정 하도록 구성을 수정할 필요가 없습니다. 예를 들어 `customer1.contoso.com` `customer2.contoso.com` `customerN.contoso.com` 동일한 라우팅 규칙을 사용 하 고 와일드 카드 도메인을 추가 하 여, 및에 대 한 라우팅을 정의할 수 있습니다 `*.contoso.com` .
+Apex 도메인 및 하위 도메인 외에도 와일드 카드 도메인을 Azure Front 도어 프로필에 대 한 프런트 엔드 호스트 또는 사용자 지정 도메인에 매핑할 수 있습니다. Azure 프런트 도어 구성에 와일드 카드 도메인이 있으면 동일한 라우팅 규칙에서 API, 응용 프로그램 또는 웹 사이트에 대 한 여러 하위 도메인에 대 한 트래픽 라우팅 동작이 간소화 됩니다. 각 하위 도메인을 별도로 추가 하거나 지정 하도록 구성을 수정할 필요가 없습니다. 예를 들어 `customer1.contoso.com` `customer2.contoso.com` `customerN.contoso.com` 동일한 라우팅 규칙을 사용 하 고 와일드 카드 도메인을 추가 하 여, 및에 대 한 라우팅을 정의할 수 있습니다 `*.contoso.com` .
 
 와일드 카드 도메인에 대 한 지원으로 향상 된 주요 시나리오는 다음과 같습니다.
 
@@ -47,7 +47,7 @@ Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메�
 - 와일드 카드 도메인이 Azure Front 문 프로필에 추가 되는 경우:
   - 와일드 카드 도메인은 다른 Azure Front 문 프로필에 추가할 수 없습니다.
   - 와일드 카드 도메인의 첫 번째 수준 하위 도메인은 다른 Azure Front 문 프로필 또는 Azure Content Delivery Network 프로필에 추가할 수 없습니다.
-- 와일드 카드 도메인의 하위 도메인을 Azure 프런트 도어 프로필 또는 Azure Content Delivery Network 프로필에 추가 하는 경우 다른 Azure Front 문 프로필에 와일드 카드 도메인을 추가할 수 없습니다.
+- 와일드 카드 도메인의 하위 도메인이 이미 Azure 프런트 도어 프로필 또는 Azure Content Delivery Network 프로필에 추가 된 경우 다른 Azure Front 문 프로필에 와일드 카드 도메인을 사용할 수 없습니다.
 - 두 프로필 (Azure Front 문이나 Azure Content Delivery Network)에 루트 도메인의 여러 하위 도메인이 있는 경우 와일드 카드 도메인을 프로필 중 하나에 추가할 수 없습니다.
 
 ## <a name="certificate-binding"></a>인증서 바인딩
@@ -59,7 +59,7 @@ Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메�
 
 Azure Key Vault에서와 동일한 와일드 카드 인증서를 사용 하거나 하위 도메인에 대 한 Azure Front 도어가 관리 되는 인증서를 사용 하도록 선택할 수 있습니다.
 
-이미 연결 된 인증서가 있는 와일드 카드 도메인에 대해 하위 도메인을 추가 하는 경우 하위 도메인에 대 한 HTTPS를 사용 하지 않도록 설정할 수 없습니다. 다른 Key Vault 또는 Azure Front 도어 관리 인증서가 재정의 되지 않는 한 하위 도메인은 와일드 카드 도메인에 대 한 인증서 바인딩을 사용 합니다.
+연결 된 인증서가 이미 있는 와일드 카드 도메인에 대해 하위 도메인을 추가 하는 경우 하위 도메인에 대해 HTTPS를 사용 하지 않도록 설정할 수 없습니다. 다른 Key Vault 또는 Azure Front 도어 관리 인증서가 재정의 되지 않는 한 하위 도메인은 와일드 카드 도메인에 대 한 인증서 바인딩을 사용 합니다.
 
 ## <a name="waf-policies"></a>WAF 정책
 

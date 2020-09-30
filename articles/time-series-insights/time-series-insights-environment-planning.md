@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046413"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569433"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경 계획
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 예상 되는 수신 요금 및 데이터 보존 요구 사항에 따라 Azure Time Series Insights Gen1 환경을 계획 하는 방법을 설명 합니다.
 
@@ -48,19 +51,19 @@ Azure Time Series Insights Sku에 대 한 용량 및 보존에 대 한 자세한
 
 ## <a name="data-retention"></a>데이터 보존
 
-Azure Time Series Insights 환경의 **데이터 보존 시간** 설정을 변경할 수 있습니다. 최대 400 일의 보존을 사용 하도록 설정할 수 있습니다. 
+Azure Time Series Insights 환경의 **데이터 보존 시간** 설정을 변경할 수 있습니다. 최대 400 일의 보존을 사용 하도록 설정할 수 있습니다.
 
 Azure Time Series Insights에는 두 가지 모드가 있습니다.
 
-* 한 가지 모드는 최신 데이터에 대해 최적화 됩니다. **이전 데이터를 삭제** 하는 정책을 적용 하 여 최근 데이터를 인스턴스에서 사용할 수 있습니다. 이 모드는 기본적으로 설정 되어 있습니다. 
-* 다른는 구성 된 보존 제한 보다 낮게 유지 되도록 데이터를 최적화 합니다. **일시 중지 수신** 은 **저장소 제한 초과 동작**으로 선택 된 경우 새 데이터가 수신 되지 않도록 방지 합니다.
+- 한 가지 모드는 최신 데이터에 대해 최적화 됩니다. **이전 데이터를 삭제** 하는 정책을 적용 하 여 최근 데이터를 인스턴스에서 사용할 수 있습니다. 이 모드는 기본적으로 설정 되어 있습니다.
+- 다른는 구성 된 보존 제한 보다 낮게 유지 되도록 데이터를 최적화 합니다. **일시 중지 수신** 은 **저장소 제한 초과 동작**으로 선택 된 경우 새 데이터가 수신 되지 않도록 방지 합니다.
 
 Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 두 모드를 전환할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Time Series Insights Gen1 환경에서 최대 400 일의 데이터 보존을 구성할 수 있습니다.
 
-### <a name="configure-data-retention"></a>데이터 보존 구성
+### <a name="configure-data-retention"></a>데이터 보존 구성하기
 
 1. [Azure Portal](https://portal.azure.com)에서 Time Series Insights 환경을 선택합니다.
 
@@ -83,7 +86,7 @@ Azure Time Series Insights 환경을 계획 하는 데 중점을 두는 두 번�
 
 하나의 환경에서 S1 또는 S2 SKU의 용량을 10개의 단위로 늘릴 수 있습니다. S1 환경에서 S2로 마이그레이션할 수 없습니다. S2 환경에서 S1로 마이그레이션할 수 없습니다.
 
-수신 용량의 경우 먼저 월별 기준으로 필요한 총 수신을 결정 합니다. 그런 다음 분 단위 요구 사항을 확인 합니다. 
+수신 용량의 경우 먼저 월별 기준으로 필요한 총 수신을 결정 합니다. 그런 다음 분 단위 요구 사항을 확인 합니다.
 
 제한 및 대기 시간은 분당 용량으로 역할을 수행 합니다. 24 시간 이내에 지속 되는 데이터 수신에 급증 하는 경우 앞의 표에 나열 된 속도의 두 배를 수신 속도에서 "파악" 할 수 Azure Time Series Insights.
 

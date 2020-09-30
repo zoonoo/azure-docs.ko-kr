@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB로 데이터 글로벌 배포
-description: 글로벌 분산형 다중 모델 데이터베이스 서비스인 Azure Cosmos DB에서 글로벌 데이터베이스를 사용한 전 세계적 지역 복제, 다중 마스터, 장애 조치(Failover) 및 데이터 복구에 대해 알아봅니다.
+description: 전 세계적으로 분산 된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB의 글로벌 데이터베이스를 사용 하 여 전 세계 규모의 지리적 복제, 다중 지역 쓰기, 장애 조치 (failover) 및 데이터 복구에 대해 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399468"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570186"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 전역적으로 데이터 배포
 
@@ -27,7 +27,7 @@ Azure Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추�
 
 ## <a name="key-benefits-of-global-distribution"></a>전역 분산의 주요 혜택
 
-**전역 활성-활성 앱을 빌드합니다.** Novel 다중 마스터 복제 프로토콜을 사용 하면 모든 지역에서 쓰기와 읽기를 모두 지원 합니다. 다중 마스터 기능을 사용 하면 다음을 수행할 수도 있습니다.
+**전역 활성-활성 앱을 빌드합니다.** Novel 다중 지역 쓰기 복제 프로토콜을 사용 하면 모든 지역에서 쓰기 및 읽기를 모두 지원 합니다. 다중 지역 쓰기 기능을 사용 하면 다음을 수행할 수 있습니다.
 
 - 무제한 탄력적 쓰기 및 읽기 확장성. 
 - 전 세계의 99.999% 읽기 및 쓰기 가용성
@@ -50,7 +50,7 @@ Azure Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추�
 다음 문서에서 전역 분산에 대해 자세히 알아보세요.
 
 * [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
-* [응용 프로그램에서 다중 마스터를 구성 하는 방법](how-to-multi-master.md)
+* [응용 프로그램에서 다중 지역 쓰기를 구성 하는 방법](how-to-multi-master.md)
 * [멀티 호 밍에 대 한 클라이언트 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [SQL API 계정에 대한 사용자 지정 충돌 해결 정책 만들기](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

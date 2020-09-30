@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409012"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570619"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB 그래프 계정의 지역별 엔드포인트
-Azure Cosmos DB 그래프 데이터베이스는 [전 세계에 분산](distribute-data-globally.md)되어 있으므로, 애플리케이션에서 여러 개의 읽기 엔드포인트를 사용할 수 있습니다. 여러 위치에서 쓰기 권한이 필요한 애플리케이션은 [다중 마스터](how-to-multi-master.md) 기능을 사용하도록 설정해야 합니다.
+Azure Cosmos DB 그래프 데이터베이스는 [전 세계에 분산](distribute-data-globally.md)되어 있으므로, 애플리케이션에서 여러 개의 읽기 엔드포인트를 사용할 수 있습니다. 여러 위치에서 쓰기 권한이 필요한 응용 프로그램은 [다중 지역 쓰기](how-to-multi-master.md) 기능을 사용 하도록 설정 해야 합니다.
 
 두 개 이상의 지역을 선택해야 하는 이유:
 1. **수평적 읽기 확장성** - 애플리케이션 부하가 증가함에 따라 읽기 트래픽을 여러 Azure 지역으로 라우팅하는 것이 바람직할 수 있습니다.

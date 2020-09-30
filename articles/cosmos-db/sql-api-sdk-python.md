@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585987"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569818"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 
@@ -40,7 +40,7 @@ ms.locfileid: "88585987"
 | |  |
 |---|---|
 |**SDK 다운로드**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**시작**|[Python SDK 시작](create-sql-api-python.md)|
 |**현재 지원되는 플랫폼**|[Python 2.7](https://www.python.org/downloads/) 및 [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -126,7 +126,7 @@ ms.locfileid: "88585987"
 
 * `CosmosClient` 생성자가 업데이트되었습니다.
 
-  * `auth` 매개 변수가 `credential`로 변경되었고 이제 인증 형식을 직접 사용합니다. 즉, 마스터 키 값, 리소스 토큰의 사전 또는 권한 목록을 전달할 수 있습니다. 하지만 이전 사전 형식도 계속 지원됩니다.
+  * `auth` 매개 변수가 `credential`로 변경되었고 이제 인증 형식을 직접 사용합니다. 이는 기본 키 값, 리소스 토큰 사전 또는 사용 권한 목록을 전달 하는 것을 의미 합니다. 하지만 이전 사전 형식도 계속 지원됩니다.
 
   * `connection_policy` 매개 변수가 키워드 전용 매개 변수로 설정되었고, 이 매개 변수도 계속 지원되지만, 이제는 정책의 각 개별 특성을 명시적 키워드 인수로 전달할 수 있습니다.
 

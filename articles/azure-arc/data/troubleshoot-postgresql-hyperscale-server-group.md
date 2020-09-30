@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531958"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570010"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>PostgreSQL Hyperscale 서버 그룹 문제 해결
 이 문서에서는 서버 그룹 문제를 해결 하는 데 사용할 수 있는 몇 가지 기법을 설명 합니다. 이 문서 외에도 [Kibana](monitor-grafana-kibana.md) 를 사용 하 여 로그를 검색 하거나 [Grafana](monitor-grafana-kibana.md) 를 사용 하 여 서버 그룹에 대 한 메트릭을 시각화 하는 방법을 읽을 수 있습니다. 

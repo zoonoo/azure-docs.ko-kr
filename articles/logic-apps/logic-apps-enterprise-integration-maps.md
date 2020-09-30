@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072651"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570779"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 맵을 사용하여 XML 변환
 
@@ -23,7 +23,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오의 형식 간에 X
 
 통합 계정 및 아티팩트(예: 맵)와 관련된 제한에 대해서는 [Azure Logic Apps에 대한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -69,7 +69,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오의 형식 간에 X
 
 1. **어셈블리** 페이지가 열리면 **추가**를 선택합니다.
 
-   !["추가" 선택](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![어셈블리 페이지의 추가 단추를 강조 표시 하는 스크린샷](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 어셈블리 파일의 크기에 따라 [2MB보다 작거나](#smaller-assembly)[2MB보다 크고](#larger-assembly) 8MB보다 작은 어셈블리를 업로드하는 단계를 따릅니다.
 통합 계정의 어셈블리 수량 제한에 대해서는 [Azure Logic Apps의 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)을 참조하세요.

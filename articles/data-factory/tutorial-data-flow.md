@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418680"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569888"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>매핑 데이터 흐름을 사용 하 여 데이터 변환
 
@@ -32,7 +32,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업 모니터링
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
@@ -80,10 +80,10 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
     ![데이터 흐름 작업](media/tutorial-data-flow/dataflow1.png)
 1. **작업** 창에서 **이동 및 변환** 아코디언을 확장 합니다. **데이터 흐름** 활동을 창에서 파이프라인 캔버스로 끌어다 놓습니다.
 
-    ![데이터 흐름 작업](media/tutorial-data-flow/activity1.png)
+    ![데이터 흐름 작업을 삭제할 수 있는 파이프라인 캔버스를 보여 주는 스크린샷](media/tutorial-data-flow/activity1.png)
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 만들기** 를 선택 하 고 데이터 흐름의 이름을 **TransformMovies**로 설정 합니다. 완료되었으면 마침을 클릭합니다.
 
-    ![데이터 흐름 작업](media/tutorial-data-flow/activity2.png)
+    ![새 데이터 흐름을 만들 때 데이터 흐름의 이름을 나타내는 위치를 보여 주는 스크린샷](media/tutorial-data-flow/activity2.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>데이터 흐름 캔버스의 빌드 변환 논리
 
@@ -91,19 +91,19 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 1. 데이터 흐름 캔버스에서 **원본 추가** 상자를 클릭 하 여 원본을 추가 합니다.
 
-    ![데이터 흐름 캔버스](media/tutorial-data-flow/dataflow2.png)
+    ![소스 추가 상자를 보여 주는 스크린샷](media/tutorial-data-flow/dataflow2.png)
 1. 원본 이름을 **MoviesDB**로 합니다. **새로 만들기를 클릭 하 여** 새 원본 데이터 집합을 만듭니다.
 
-    ![데이터 흐름 캔버스](media/tutorial-data-flow/dataflow3.png)
+    ![원본 이름을 변경한 후 새로 만들기를 선택 하는 위치를 보여 주는 스크린샷](media/tutorial-data-flow/dataflow3.png)
 1. **Azure Data Lake Storage Gen2**를 선택 합니다. 계속을 클릭합니다.
 
-    ![데이터 세트](media/tutorial-data-flow/dataset1.png)
+    ![Azure Data Lake Storage Gen2 타일을 보여 주는 스크린샷](media/tutorial-data-flow/dataset1.png)
 1. **DelimitedText**를 선택 합니다. 계속을 클릭합니다.
 
-    ![데이터 세트](media/tutorial-data-flow/dataset2.png)
+    ![DelimitedText 타일을 보여 주는 스크린샷](media/tutorial-data-flow/dataset2.png)
 1. 데이터 집합의 이름을 **MoviesDB**로 합니다. 연결 된 서비스 드롭다운에서 **새로 만들기**를 선택 합니다.
 
-    ![데이터 세트](media/tutorial-data-flow/dataset3.png)
+    ![연결 된 서비스 드롭다운 목록을 보여 주는 스크린샷](media/tutorial-data-flow/dataset3.png)
 1. 연결 된 서비스 만들기 화면에서 ADLS gen2 연결 된 서비스 **ADLSGen2** 의 이름을 지정 하 고 인증 방법을 지정 합니다. 그런 다음 연결 자격 증명을 입력 합니다. 이 자습서에서는 계정 키를 사용 하 여 저장소 계정에 연결 합니다. **연결 테스트** 를 클릭 하 여 자격 증명이 올바르게 입력 되었는지 확인할 수 있습니다. 작업을 마쳤으면 만들기를 클릭합니다.
 
     ![연결된 서비스](media/tutorial-data-flow/ls1.png)
@@ -112,13 +112,13 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
     ![데이터 세트](media/tutorial-data-flow/dataset4.png)
 1. 디버그 클러스터가 시작 된 경우 원본 변환의 **데이터 미리 보기** 탭으로 이동 하 고 **새로 고침** 을 클릭 하 여 데이터의 스냅숏을 가져옵니다. 데이터 미리 보기를 사용 하 여 변환이 올바르게 구성 되었는지 확인할 수 있습니다.
 
-    ![데이터 흐름 캔버스](media/tutorial-data-flow/dataflow4.png)
+    ![데이터를 미리 볼 수 있는 위치를 표시 하 여 변환이 올바르게 구성 되었는지 확인 하는 스크린샷](media/tutorial-data-flow/dataflow4.png)
 1. 데이터 흐름 캔버스의 원본 노드 옆에 있는 더하기 아이콘을 클릭 하 여 새 변환을 추가 합니다. 추가 하는 첫 번째 변환은 **필터**입니다.
 
     ![데이터 흐름 캔버스](media/tutorial-data-flow/dataflow5.png)
 1. 필터 변환의 이름을 **Filteryears**로 합니다. **필터 설정** 옆의 식 상자를 클릭 하 여 식 작성기를 엽니다. 여기서 필터링 조건을 지정 합니다.
 
-    ![필터](media/tutorial-data-flow/filter1.png)
+    ![식 상자에 필터를 표시 하는 스크린샷](media/tutorial-data-flow/filter1.png)
 1. 데이터 흐름 식 작성기를 사용 하면 다양 한 변환에서 사용할 식을 대화형으로 작성할 수 있습니다. 식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함 될 수 있습니다. 식을 작성 하는 방법에 대 한 자세한 내용은 [데이터 흐름 식 작성기](concepts-data-flow-expression-builder.md)를 참조 하세요.
 
     이 자습서에서는 1910 년에서 2000 년 사이에 제공 된 장르 코미디의 영화를 필터링 하려고 합니다. 현재 연도는 문자열 이므로 함수를 사용 하 여 정수로 변환 해야 ```toInteger()``` 합니다. 다음 보다 크거나 같음 (>=) 및 작거나 같음 (<=) 연산자를 사용 하 여 리터럴 연도 값 1910 및 200을 비교 합니다. 이러한 식을 and (&&) 연산자와 결합 합니다. 식은 다음과 같이 제공 됩니다.
@@ -131,41 +131,41 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
     디버그 클러스터가 활성 상태 이면 **새로 고침** 을 클릭 하 여 논리를 확인할 수 있습니다. 사용 된 입력에 대 한 식 출력을 볼 수 있습니다. 데이터 흐름 식 언어를 사용 하 여이 논리를 수행 하는 방법에는 두 개 이상의 올바른 대답이 있습니다.
 
-    ![필터](media/tutorial-data-flow/filter2.png)
+    ![Assert](media/tutorial-data-flow/filter2.png)
 
     **저장을** 클릭 하 고 식을 사용 하 여 작업을 완료 합니다.
 
 1. **데이터 미리 보기** 를 가져와 필터가 제대로 작동 하는지 확인 합니다.
 
-    ![필터](media/tutorial-data-flow/filter3.png)
+    ![가져온 데이터 미리 보기를 보여 주는 스크린샷](media/tutorial-data-flow/filter3.png)
 1. 추가할 다음 변환은 **Schema modifier**의 **집계** 변환입니다.
 
-    ![집계](media/tutorial-data-flow/agg1.png)
+    ![집계 스키마 한정자를 보여 주는 스크린샷](media/tutorial-data-flow/agg1.png)
 1. 집계 변환의 이름을 **AggregateComedyRatings**로 합니다. **묶는 방법** 탭의 드롭다운에서 **year** 를 선택 하 여 해당 집계가 생성 된 연도를 기준으로 집계를 그룹화 합니다.
 
-    ![집계](media/tutorial-data-flow/agg2.png)
+    ![집계 설정에서 그룹화 방법 탭의 연도 옵션을 보여 주는 스크린샷](media/tutorial-data-flow/agg2.png)
 1. **집계** 탭으로 이동 합니다. 왼쪽 텍스트 상자에서 집계 열의 이름을 **AverageComedyRating**로 합니다. 오른쪽 식 상자를 클릭 하 여 식 작성기를 통해 집계 식을 입력 합니다.
 
-    ![집계](media/tutorial-data-flow/agg3.png)
+    ![집계 설정의 집계 탭에서 year 옵션을 보여 주는 스크린샷](media/tutorial-data-flow/agg3.png)
 1. 열 **등급**의 평균을 얻으려면 집계 함수를 사용 합니다 ```avg()``` . **등급** 은 문자열이 고 ```avg()``` 숫자 입력을 사용 하므로 함수를 통해 값을 숫자로 변환 해야 합니다 ```toInteger()``` . 식은 다음과 같습니다.
 
     ```avg(toInteger(Rating))```
 
     **저장을 클릭 하 고** 완료 되 면 마침을 클릭 합니다.
 
-    ![집계](media/tutorial-data-flow/agg4.png)
+    ![저장 된 식을 보여 주는 스크린샷](media/tutorial-data-flow/agg4.png)
 1. **데이터 미리 보기** 탭으로 이동 하 여 변환 출력을 볼 수 있습니다. 두 개의 열만 **year** 및 **AverageComedyRating**입니다.
 
     ![집계](media/tutorial-data-flow/agg3.png)
 1. 다음으로 **대상**아래에 **싱크** 변환을 추가 하려고 합니다.
 
-    ![sink](media/tutorial-data-flow/sink1.png)
+    ![대상 아래에서 싱크 변환을 추가할 위치를 보여 주는 스크린샷](media/tutorial-data-flow/sink1.png)
 1. 싱크 **싱크의**이름을로 합니다. **새로** 만들기를 클릭 하 여 싱크 데이터 집합을 만듭니다.
 
-    ![sink](media/tutorial-data-flow/sink2.png)
+    ![싱크 이름을 지정할 수 있는 위치를 보여 주는 스크린샷 및 새 싱크 데이터 집합을 만들 수 있습니다.](media/tutorial-data-flow/sink2.png)
 1. **Azure Data Lake Storage Gen2**를 선택 합니다. 계속을 클릭합니다.
 
-    ![데이터 세트](media/tutorial-data-flow/dataset1.png)
+    ![선택할 수 있는 Azure Data Lake Storage Gen2 타일을 보여 주는 스크린샷](media/tutorial-data-flow/dataset1.png)
 1. **DelimitedText**를 선택 합니다. 계속을 클릭합니다.
 
     ![데이터 세트](media/tutorial-data-flow/dataset2.png)
@@ -181,13 +181,13 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 1. 파이프라인 캔버스로 이동 합니다. 디버그 **를 클릭 하 여 디버그** 실행을 트리거합니다.
 
-    ![파이프라인](media/tutorial-data-flow/pipeline1.png)
+    ![디버그가 강조 표시 된 파이프라인 캔버스를 보여 주는 스크린샷](media/tutorial-data-flow/pipeline1.png)
 1. 데이터 흐름 작업의 파이프라인 디버그는 활성 디버그 클러스터를 사용 하지만 초기화 하는 데 적어도 1 분이 걸립니다. **출력** 탭을 통해 진행률을 추적할 수 있습니다. 성공적으로 실행 되 면 안경 아이콘을 클릭 하 여 모니터링 창을 엽니다.
 
     ![파이프라인](media/tutorial-data-flow/pipeline2.png)
 1. 모니터링 창에서 각 변환 단계에서 소요 된 행 수와 시간을 확인할 수 있습니다.
 
-    ![모니터링](media/tutorial-data-flow/pipeline3.png)
+    ![각 변환 단계에서 소요 된 행 및 시간의 수를 확인할 수 있는 모니터링 창을 보여 주는 스크린샷](media/tutorial-data-flow/pipeline3.png)
 1. 데이터의 열 및 분할에 대 한 자세한 정보를 보려면 변환을 클릭 합니다.
 
     ![모니터링](media/tutorial-data-flow/pipeline4.png)

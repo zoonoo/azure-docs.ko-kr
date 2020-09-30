@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397167"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570380"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -49,11 +49,11 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다. |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다. [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Azure Global 필수 FQDN/응용 프로그램 규칙 
 
@@ -184,7 +184,7 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | 이 끝점은 log analytics 서비스를 인증 하는 데 사용 되는 omsagent에서 사용 됩니다. |
 | *.monitoring.azure.com | **`HTTPS:443`** | 이 끝점은 Azure Monitor에 메트릭 데이터를 전송 하는 데 사용 됩니다. |
 
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
+### <a name="azure-dev-spaces"></a>Azure Dev 공간
 
 아래 Fqdn 및 [Azure Dev Spaces 인프라 서비스][dev-spaces-service-tags]에 대 한 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다.
 

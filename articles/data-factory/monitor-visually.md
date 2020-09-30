@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801535"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570138"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -136,7 +136,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 실행 옆에 있는 사용량 아이콘을 클릭하여 파이프라인 실행에서 사용된 리소스를 볼 수 있습니다. 
 
-![사용량 모니터링](media/monitor-visually/monitor-consumption-1.png)
+![파이프라인에서 사용 하는 리소스를 볼 수 있는 위치를 보여 주는 스크린샷](media/monitor-visually/monitor-consumption-1.png)
 
 아이콘을 클릭하면 해당 파이프라인 실행에 사용되는 리소스의 사용량 보고서가 열립니다. 
 
@@ -190,7 +190,7 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
     ![대상 조건을 위한 상자](media/monitor-visually/add-criteria-1.png)
 
-    ![조건 목록](media/monitor-visually/add-criteria-2.png)
+    ![경고 조건을 설정 하기 위해 하나의 메트릭을 선택 하는 위치를 보여 주는 스크린샷](media/monitor-visually/add-criteria-2.png)
 
     ![조건 목록](media/monitor-visually/add-criteria-3.png)
 

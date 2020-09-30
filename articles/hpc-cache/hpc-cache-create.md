@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 5e17c55f8321ba0ad9a9686ada41413d64879d6c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612068"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570880"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | no          | no          |
-  | 6144 GB    | 예         | 예         | no          |
+  | 3072GB    | 예         | 아니요          | 아니요          |
+  | 6144 GB    | 예         | 예         | 아니요          |
   | 12288 GB   | 예         | 예         | 예         |
-  | 24576 GB   | no          | 예         | 예         |
-  | 49152 GB   | no          | no          | 예         |
+  | 24576 GB   | 아니요          | 예         | 예         |
+  | 49152 GB   | 아니요          | 아니요          | 예         |
 
   가격 책정, 처리량 및 워크플로에 적절 한 캐시 크기를 조정 하는 방법에 대 한 중요 한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조 하세요.
 
@@ -188,6 +188,97 @@ az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
 
 * 클라이언트 탑재 주소-캐시에 클라이언트를 연결할 준비가 되 면 이러한 IP 주소를 사용 합니다. 자세한 내용은 [AZURE HPC 캐시 탑재](hpc-cache-mount.md) 를 참조 하세요.
 * 업그레이드 상태-소프트웨어 업데이트가 릴리스되면이 메시지가 변경 됩니다. [캐시 소프트웨어](hpc-cache-manage.md#upgrade-cache-software) 를 편리 하 게 수동으로 업그레이드할 수도 있고, 며칠 후에도 자동으로 적용 됩니다.
+
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+> [!CAUTION]
+> Az. HPCCache PowerShell 모듈은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 됩니다. 프로덕션 워크 로드에는 권장 되지 않습니다. 일부 기능은 지원 되지 않거나 제한 된 기능을 가질 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+## <a name="requirements"></a>요구 사항
+
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. Cloud Shell 사용 하도록 선택 하는 경우 자세한 내용은 [Azure Cloud Shell 개요](https://docs.microsoft.com/azure/cloud-shell/overview) 를 참조 하세요.
+
+> [!IMPORTANT]
+> **Az. HPCCache** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈은 일반적으로 사용할 수 있게 되 면 이후 Az PowerShell 모듈 릴리스에 포함 되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
+
+```azurepowershell-interactive
+Install-Module -Name Az.HPCCache
+```
+
+## <a name="create-the-cache-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 캐시 만들기
+
+> [!NOTE]
+> 현재 Azure PowerShell에서는 고객이 관리 하는 암호화 키를 사용 하 여 캐시를 만드는 기능을 지원 하지 않습니다. Azure 포털을 사용합니다.
+
+[AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) cmdlet을 사용 하 여 새 Azure HPC 캐시를 만듭니다.
+
+다음 값을 제공합니다.
+
+* 캐시 리소스 그룹 이름
+* 캐시 이름
+* Azure 지역
+* 다음 형식으로 서브넷 캐시:
+
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"`
+
+  캐시 서브넷에는 최소 64 개의 IP 주소 (/24)가 필요 하며 다른 리소스를 저장할 수 없습니다.
+
+* 캐시 용량입니다. Azure HPC 캐시의 최대 처리량을 설정 하는 두 값은 다음과 같습니다.
+
+  * 캐시 크기 (GB)
+  * 캐시 인프라에서 사용 되는 가상 컴퓨터의 SKU
+
+  [AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) 에는 사용 가능한 sku와 각 sku에 대 한 유효한 캐시 크기 옵션이 표시 됩니다. 캐시 크기 옵션의 범위는 3TB에서 48 TB 이지만 일부 값만 지원 됩니다.
+
+  이 차트는이 문서가 준비 되는 시점 (7 월 2020 일)에 유효한 캐시 크기 및 SKU 조합을 보여 줍니다.
+
+  | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072GB    | 예         | 아니요          | 아니요          |
+  | 6144 GB    | 예         | 예         | 아니요          |
+  | 12288 GB   | 예         | 예         | 예         |
+  | 24576 GB   | 아니요          | 예         | 예         |
+  | 49152 GB   | 아니요          | 아니요          | 예         |
+
+  가격 책정, 처리량 및 워크플로에 적절 한 캐시 크기를 조정 하는 방법에 대 한 중요 한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조 하세요.
+
+캐시 생성 예:
+
+```azurepowershell-interactive
+$cacheParams = @{
+  ResourceGroupName = 'doc-demo-rg'
+  CacheName = 'my-cache-0619'
+  Location = 'eastus'
+  cacheSize = '3072'
+  SubnetUri = "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default"
+  Sku = 'Standard_2G'
+}
+New-AzHpcCache @cacheParams
+```
+
+캐시 생성은 몇 분 정도 걸립니다. 성공할 경우 create 명령은 다음 출력을 반환 합니다.
+
+```Output
+cacheSizeGb       : 3072
+health            : @{state=Healthy; statusDescription=The cache is in Running state}
+id                : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619
+location          : eastus
+mountAddresses    : {10.3.0.17, 10.3.0.18, 10.3.0.19}
+name              : my-cache-0619
+provisioningState : Succeeded
+resourceGroup     : doc-demo-rg
+sku               : @{name=Standard_2G}
+subnet            : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default
+tags              :
+type              : Microsoft.StorageCache/caches
+upgradeStatus     : @{currentFirmwareVersion=5.3.42; firmwareUpdateDeadline=1/1/0001 12:00:00 AM; firmwareUpdateStatus=unavailable; lastFirmwareUpdate=4/1/2020 10:19:54 AM; pendingFirmwareVersion=}
+```
+
+메시지에는 다음 항목을 포함 하 여 몇 가지 유용한 정보가 포함 되어 있습니다.
+
+* 클라이언트 탑재 주소-캐시에 클라이언트를 연결할 준비가 되 면 이러한 IP 주소를 사용 합니다. 자세한 내용은 [AZURE HPC 캐시 탑재](hpc-cache-mount.md) 를 참조 하세요.
+* 업그레이드 상태-소프트웨어 업데이트가 릴리스되면이 메시지가 변경 됩니다. [캐시 소프트웨어](hpc-cache-manage.md#upgrade-cache-software) 를 편리 하 게 수동으로 업그레이드 하거나 며칠 후에 자동으로 적용할 수 있습니다.
 
 ---
 

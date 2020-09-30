@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL 하이퍼 확장 서버 그룹에 대 한 백업 및 복원
-description: Azure Database for PostgreSQL 하이퍼 확장 서버 그룹에 대 한 백업 및 복원
+title: Azure Database for PostgreSQL 하이퍼스케일 서버 그룹에 대한 백업 및 복원
+description: Azure Database for PostgreSQL 하이퍼스케일 서버 그룹에 대한 백업 및 복원
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939785"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569707"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 백업 및 복원
 
@@ -52,7 +52,7 @@ Azure Arc enabled PostgreSQL Hyperscale 서버 그룹의 전체 백업/복원을
     }
 ...
 ```
-"백업" 섹션이 표시 되는 경우 서버 그룹이 백업 저장소 클래스를 사용 하도록 구성 되었으며 백업을 수행 하 고 복원을 수행할 준비가 되었음을 의미 합니다. "백업" 섹션이 표시 되지 않으면 서버 그룹을 삭제 하 고 다시 만들어 백업 저장소 클래스를 구성 해야 합니다. 이 시점에서 서버 그룹을 만든 후에는 아직 백업 저장소 클래스를 구성할 수 없습니다.
+해당 명령의 출력에서 "백업" 섹션에 표시 된 저장소 클래스의 이름이 표시 되는 경우이는 서버 그룹이 백업 저장소 클래스를 사용 하도록 구성 되었으며 백업을 수행 하 고 복원을 수행할 준비가 되었음을 의미 합니다. "백업" 섹션이 표시 되지 않으면 서버 그룹을 삭제 하 고 다시 만들어 백업 저장소 클래스를 구성 해야 합니다. 이 시점에서 서버 그룹을 만든 후에는 아직 백업 저장소 클래스를 구성할 수 없습니다.
 
 >[!IMPORTANT]
 >서버 그룹이 이미 백업 저장소 클래스를 사용 하도록 구성 된 경우 다음 단계를 건너뛰고 "수동 전체 백업 수행" 단계로 바로 이동 합니다.
@@ -98,12 +98,12 @@ azdata arc postgres backup create [--name <backup name>] --server-name <server g
 
 이 명령은 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 노드에서 분산 된 전체 백업을 조정 합니다. 즉, 코디네이터 및 작업자 노드의 모든 데이터를 백업 합니다.
 
-다음은 그 예입니다. 
+다음은 그 예입니다.
 ```console
 azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
 ```
 
-백업이 완료 되 면 백업 ID, 이름 및 상태가 반환 됩니다. 다음은 그 예입니다. 
+백업이 완료 되 면 백업 ID, 이름 및 상태가 반환 됩니다. 다음은 그 예입니다.
 ```console
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
@@ -127,17 +127,19 @@ azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name 
 azdata arc postgres backup list --server-name <servergroup name>
 ```
 
-다음은 그 예입니다. 
+다음은 그 예입니다.
 ```console
 azdata arc postgres backup list --server-name postgres01
 ```
 
 다음과 같은 출력을 반환 합니다.
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+타임 스탬프는 백업이 수행 된 시점을 UTC로 나타냅니다.
 
 ## <a name="restore-a-backup"></a>백업 복원
 
@@ -151,7 +153,7 @@ azdata arc postgres backup restore --server-name <server group name> --backup-id
 - __백업 id__ 는 백업 나열 명령에 표시 된 백업의 id입니다 (3 단계 참조).
 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 노드에서 분산 된 전체 복원을 조정 합니다. 즉, 코디네이터와 작업자 노드의 모든 데이터를 복원 합니다.
 
-다음은 그 예입니다. 
+다음은 그 예입니다.
 ```console
 azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```

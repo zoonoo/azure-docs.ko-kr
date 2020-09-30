@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791149"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570736"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
 
@@ -77,7 +77,7 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 | **프로비저닝된 처리량(RU/s)** | 수동으로 프로비저닝됨 | 워크로드 사용량 패턴을 기반으로 자동으로 즉시 크기 조정됩니다. |
 | **요청/작업의 속도 제한(429)**  | 소비가 프로비저닝된 용량을 초과하는 경우 발생할 수 있습니다. | 설정한 자동 크기 조정 처리량 범위 내에서 RU/s를 사용하는 경우에는 발생하지 않습니다.    |
 | **용량 계획** |  용량 계획을 수행하고 필요한 정확한 처리량을 프로비저닝해야 합니다. |    시스템은 용량 계획 및 용량 관리를 자동으로 처리합니다. |
-| **가격** | [시간당 표준(수동) RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간당 수동 프로비저닝된 RU/s에 대해 요금을 지불합니다. | 시스템이 해당 시간 내로 확장된 최대 RU/s에 대해 시간당 요금이 청구됩니다. <br/><br/> 단일 쓰기 지역 계정의 경우 [시간당 자동 크기 조정 RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간 단위로 사용되는 RU/s에 대해 요금을 지불합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우에는 자동 크기 조정에 대한 추가 요금이 부과되지 않습니다. 동일한 [시간당 다중 마스터 RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간 단위로 사용되는 처리량에 대해 요금이 청구됩니다. |
+| **가격** | [시간당 표준(수동) RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간당 수동 프로비저닝된 RU/s에 대해 요금을 지불합니다. | 시스템이 해당 시간 내로 확장된 최대 RU/s에 대해 시간당 요금이 청구됩니다. <br/><br/> 단일 쓰기 지역 계정의 경우 [시간당 자동 크기 조정 RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간 단위로 사용되는 RU/s에 대해 요금을 지불합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우에는 자동 크기 조정에 대한 추가 요금이 부과되지 않습니다. 동일한 [다중 지역 쓰기/시간 급여](https://azure.microsoft.com/pricing/details/cosmos-db/)를 사용 하 여 시간별로 사용 된 처리량에 대 한 비용을 지불 합니다. |
 | **워크로드 유형에 가장 적합함** |  예측 가능하고 안정적인 워크로드|   예측 불가능하고 가변적인 워크로드  |
 
 ## <a name="next-steps"></a>다음 단계

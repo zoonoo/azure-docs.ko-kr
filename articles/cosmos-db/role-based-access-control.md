@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: e65c17be47cdc59f929aa539071cf1c758e271f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320883"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569188"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
@@ -29,7 +29,7 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 |[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있습니다. 데이터에 액세스 하거나 데이터 탐색기를 사용할 수 없습니다.|
 
 > [!IMPORTANT]
-> Azure Cosmos DB의 RBAC 지원은 제어 평면 작업에만 적용 됩니다. 데이터 평면 작업은 마스터 키 또는 리소스 토큰을 사용 하 여 보호 됩니다. 자세한 내용은 [Azure Cosmos DB의 데이터에 안전](secure-access-to-data.md) 하 게 액세스를 참조 하세요.
+> Azure Cosmos DB의 RBAC 지원은 제어 평면 작업에만 적용 됩니다. 데이터 평면 작업은 기본 키 또는 리소스 토큰을 사용 하 여 보호 됩니다. 자세한 내용은 [Azure Cosmos DB의 데이터에 안전](secure-access-to-data.md) 하 게 액세스를 참조 하세요.
 
 ## <a name="identity-and-access-management-iam"></a>Id 및 액세스 관리 (IAM)
 

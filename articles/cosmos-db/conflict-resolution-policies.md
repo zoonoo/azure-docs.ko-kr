@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 91054318d4b030d9b2cb9bb80424ade80aeeca85
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395841"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570110"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>여러 쓰기 영역을 사용 하는 경우 충돌 형식 및 해결 정책
 
@@ -50,6 +50,6 @@ Azure Cosmos DB는 쓰기 충돌을 해결 하는 유연한 정책 기반 메커
 
 충돌 해결 정책을 구성 하는 방법에 대해 알아봅니다.
 
-* [응용 프로그램에서 다중 마스터를 구성 하는 방법](how-to-multi-master.md)
+* [응용 프로그램에 대 한 여러 쓰기 영역을 구성 하는 방법](how-to-multi-master.md)
 * [충돌 해결 정책을 관리 하는 방법](how-to-manage-conflicts.md)
 * [충돌 피드를 읽는 방법](how-to-manage-conflicts.md#read-from-conflict-feed)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3dcadd77866a6c57542a43657a1942791cc4d179
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027788"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570830"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
@@ -25,7 +25,7 @@ ms.locfileid: "86027788"
 > [!NOTE]
 > Azure Cosmos DB와 Power BI 커넥터 연결은 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
 * [최신 버전의 Power BI Desktop 다운로드](https://powerbi.microsoft.com/desktop).
@@ -82,7 +82,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 4. **Azure**를 클릭하고 **Azure Cosmos DB(베타)** 를 선택한 다음, **연결**을 클릭합니다. 
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 5. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
    
 7. 처음으로 이 엔드포인트에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **읽기 전용 키** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
    
-   보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure Portal의 **키** 블레이드에서 사용할 수 있습니다. 
+   보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 기본 키가 잠재적인 보안 위험에 노출 되지 않습니다. 읽기 전용 키는 Azure Portal의 **키** 블레이드에서 사용할 수 있습니다. 
     
 8. 계정이 성공적으로 연결되면 **탐색기** 창이 표시됩니다. **탐색기**는 계정의 데이터베이스 목록을 표시합니다.
 
@@ -100,34 +100,34 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
     
     미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 탐색기 창":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 12. **편집**을 클릭하여 새 창에서 쿼리 편집기를 시작해 데이터를 변환합니다.
 
 ## <a name="flattening-and-transforming-json-documents"></a>JSON 문서 평면화 및 변환
 1. Power BI 쿼리 편집기 창으로 전환합니다. 가운데 창에 **문서** 열이 표시됩니다.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI 데스크톱 쿼리 편집기":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 1. **문서** 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다.  필드 목록이 있는 상황에 맞는 메뉴가 표시됩니다.  화산 이름, 국가, 지역, 위치, 상승, 유형, 상태, 마지막 분출일 등 보고서에 필요한 필드를 선택합니다. **원래 열 이름을 접두사로 사용** 확인란의 선택을 취소하고 **확인**을 클릭합니다.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 문서 확장":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 1. 가운데 창에는 선택한 필드와 함께 결과의 미리 보기가 표시됩니다.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 결과 평면화":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 1. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다.  보이는 것처럼 위치는 Power BI 데스크톱에서 **레코드** 형식으로 나타납니다.  
 
 1. Document.Location 열 헤더의 오른쪽에 있는 확장 아이콘을 클릭합니다.  유형 및 좌표 필드가 있는 상황에 맞는 메뉴가 표시됩니다.  좌표 필드를 선택하고, **원래 열 이름을 접두사로 사용**의 선택을 취소하고, **확인**을 클릭합니다.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 위치 레코드":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 1. 이제 가운데 창에는 **목록** 유형의 좌표 열이 표시됩니다.  자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
    
    좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 좌표 목록":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 1. 좌표 배열을 평면화하기 위해 이름이 LatLong이라고 하는 **사용자 지정 열**을 만듭니다.  **열 추가** 리본을 선택하고 **사용자 지정 열**을 클릭합니다.  **사용자 지정 열** 창이 나타납니다.
 
@@ -137,21 +137,21 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
    
    Dax 함수를 비롯 한 dax (Data Analysis Expressions)에 대 한 자세한 내용은 [Power BI Desktop Dax 기본 사항](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)을 참조 하세요.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 열 추가":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 1. 이제 가운데 창에 값이 채워진 새 LatLong 열이 표시됩니다.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 LatLong 열":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
     
     새 열에 오류를 수신하는 경우 쿼리 설정에서 적용된 단계가 다음 그림과 일치하는지 확인합니다.
     
-    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="적용된 단계는 원본, 탐색, 확장된 문서, 확장된 Document.Location, 추가된 사용자 지정이어야 합니다.":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
     
     단계가 다른 경우 추가 단계를 삭제하고 사용자 지정 열을 다시 추가해 보십시오. 
 
 1. **닫고 적용** 을 클릭하여 데이터 모델을 저장합니다.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Azure Cosmos DB Power BI 커넥터에 대 한 Power BI 자습서-닫기 & 적용":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 <a id="build-the-reports"></a>
 ## <a name="build-the-reports"></a>보고서 작성
@@ -186,18 +186,18 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 1. 자격 증명이 인증되면 보고서가 선택한 대상에 게시됩니다.
 1. **Power BI에서 'PowerBITutorial.pbix' 열기** 를 클릭하여 PowerBI.com에서 보고서를 보고 공유합니다.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Power BI 성공에 게시 하는 중 Power BI에서 자습서 열기":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>PowerBI.com에서 대시보드 만들기
 이제 보고서가 있으니 PowerBI.com에서 공유하겠습니다.
 
 보고서를 Power BI 데스크톱에서 PowerBI.com에 게시하는 경우 PowerBI.com 테넌트에 **보고서** 및 **데이터 세트**를 생성합니다. 예를 들어 **PowerBITutorial**이라는 보고서를 PowerBI.com에 게시한 후 PowerBI.com의 **보고서** 및 **데이터 세트** 섹션 모두에서 PowerBITutorial이 표시됩니다.
 
-   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="PowerBI.com에서 새 보고서 및 데이터 세트의 스크린샷":::
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 공유할 수 있는 대시보드를 만들려면 PowerBI.com 보고서의 **라이브 페이지 고정** 단추를 클릭합니다.
 
-   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="PowerBI.com에서 새 보고서 및 데이터 세트의 스크린샷":::
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 그런 다음 [보고서에서 타일을 고정](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) 의 지침을 따라 새 대시보드를 만듭니다. 
 
@@ -208,13 +208,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

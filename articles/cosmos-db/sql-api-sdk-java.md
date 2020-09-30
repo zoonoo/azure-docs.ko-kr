@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 406690eb1303a25002d3d787e746bd091dd83fc6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586132"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569927"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -49,12 +49,12 @@ ms.locfileid: "88586132"
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**시작**|[Java SDK 시작](sql-api-java-get-started.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)|
-|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable)|
+|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* DocumentCollection 쿼리에서 마스터 파티션 캐시 문제를 수정 합니다.
+* DocumentCollection 쿼리의 주 파티션 캐시 문제를 수정 합니다.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
 * 449 다시 시도 사용자 지정 구성에 대 한 지원이 추가 되었습니다.

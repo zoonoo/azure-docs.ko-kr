@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570874"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>공용 IP 주소가 없는 Azure Batch 풀 만들기
 
@@ -34,8 +34,11 @@ Azure Batch 풀을 만들 때 공용 IP 주소를 사용 하지 않고 가상 �
 - **Azure VNet**. [가상 네트워크](batch-virtual-network.md)에서 풀을 만드는 경우 다음 요구 사항 및 구성을 따릅니다. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다.
   - VNet은 풀을 만들 때 사용한 Batch 계정과 동일한 구독 및 지역에 있어야 합니다.
   - 풀에 대해 지정한 서브넷에는 풀에 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 즉 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성 합계입니다. 서브넷에 할당되지 않은 IP 주소가 충분하지 않으면 풀은 컴퓨팅 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
-  - 개인 링크 서비스 및 끝점 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. Azure CLI를 사용 하 여이 작업을 수행할 수 있습니다. ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
-  
+  - 개인 링크 서비스 및 끝점 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. Azure CLI를 사용 하 여이 작업을 수행할 수 있습니다.
+    ```azurecli
+    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
+    ```
+
 > [!IMPORTANT]
 > 100 개의 전용 또는 우선 순위가 낮은 노드에 대해 일괄 처리는 하나의 개인 링크 서비스와 하나의 부하 분산 장치를 할당 합니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대량 풀의 경우 이러한 리소스 중 하나 이상에 대 한 [할당량 증가를 요청](batch-quota-limit.md#increase-a-quota) 해야 할 수 있습니다. 또한 일괄 처리로 생성 된 리소스에는 리소스 잠금이 적용 되지 않습니다 .이로 인해 풀을 삭제 하거나 0으로 크기를 조정 하는 등의 사용자 시작 작업의 결과로 리소스 정리가 수행 되지 않습니다.
 

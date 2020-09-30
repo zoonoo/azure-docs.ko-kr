@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450194"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569855"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
@@ -166,9 +166,12 @@ Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통
 
    ```powershell
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
 
-  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
-1. Get ExpressRoute Direct details.
+## <a name="change-admin-state-of-links"></a><a name="state"></a>링크의 관리 상태 변경
+   
+이 프로세스를 사용하여 계층 1 테스트를 수행하고 각 교차 연결이 1차 및 2차 포트에 대한 각 라우터에 제대로 패치되도록 합니다.
+1. ExpressRoute Direct 세부 정보를 가져옵니다.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName

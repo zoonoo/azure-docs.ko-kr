@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401625"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569530"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 
@@ -290,7 +290,7 @@ Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 �
 
 또한 Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다. 
 
-또한 Azure Cosmos DB의 일부 동작은 Azure Active Directory 및 계정 관련 마스터 키로 제어할 수 있습니다.  ' DisableKeyBasedMetadataWriteAccess ' 계정 설정을 사용 하 여 키 액세스를 제어 합니다.
+또한 Azure Cosmos DB의 일부 동작은 Azure Active Directory 및 계정 관련 기본 키를 사용 하 여 제어할 수 있습니다.  ' DisableKeyBasedMetadataWriteAccess ' 계정 설정을 사용 하 여 키 액세스를 제어 합니다.
 
 Azure Cosmos DB의 역할 기반 액세스 제어를 이해 합니다. https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Azure Cosmos DB 작업을 사용 하 여 사용자 지정 역할을 빌드합니
 
 Azure Active Directory에서 새 역할을 만듭니다. https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할을 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할을 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할의 멤버를 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할의 멤버를 가져오는 방법: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 데이터 작업에 대 한 사용자 액세스 제한: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할의
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 기본 암호 변경(해당하는 경우)
 
-**지침**: 기본 또는 빈 암호의 개념은 Azure AD 또는 Azure Cosmos DB와 관련 하 여 존재 하지 않습니다. 대신, Azure Cosmos DB는 두 가지 유형의 키를 사용 하 여 사용자를 인증 하 고 해당 데이터 및 리소스에 대 한 액세스를 제공 합니다. 마스터 키 및 리소스 토큰입니다. 언제 든 지 키를 다시 생성할 수 있습니다.
+**지침**: 기본 또는 빈 암호의 개념은 Azure AD 또는 Azure Cosmos DB와 관련 하 여 존재 하지 않습니다. 대신, Azure Cosmos DB는 두 가지 유형의 키를 사용 하 여 사용자를 인증 하 고 해당 데이터 및 리소스에 대 한 액세스를 제공 합니다. 기본 키 및 리소스 토큰입니다. 언제 든 지 키를 다시 생성할 수 있습니다.
 
 Azure Cosmos DB 데이터에 대 한 보안 액세스 이해: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -640,7 +640,7 @@ Azure Security Center에서 사용할 수 있는 지원 되는 기능은 다음�
 
 Azure Resource Graph를 사용하여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Azure 구독을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Azure 구독을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Azure 역할 기반 액세스 제어 이해: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -792,7 +792,7 @@ Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세�
 
 - Cosmos DB는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
-사용 가능한 Azure 정책 별칭을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+사용 가능한 Azure 정책 별칭을 확인하는 방법: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Azure Policy를 구성하고 관리하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,7 +834,7 @@ Azure Policy 효과 이해: https://docs.microsoft.com/azure/governance/policy/c
 
 **지침**: Cosmos DB 또는 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Azure Key Vault 비밀을 복원 하는 방법:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069127"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570744"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 스프링 데이터 Azure Cosmos DB v2: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "90069127"
 > * [Azure Cosmos DB로 스프링 데이터 Gremlin](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > 신속 하 게 진행 하 고 싶으세요?
-> 1. SDK를 사용할 수 있도록 [지원 되는 최소 Java RUNTIME JDK 8](/java/azure/jdk/?view=azure-java-stable)을 설치 합니다.
+> 1. SDK를 사용할 수 있도록 [지원 되는 최소 Java RUNTIME JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)을 설치 합니다.
 > 2. [스타터](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)를 사용 하 여 스프링 데이터 Azure Cosmos DB 앱을 만듭니다. 간단합니다.
 > 3. 기본 Azure Cosmos DB 요청을 안내 하는 [스프링 데이터 Azure Cosmos DB 개발자 가이드를 참조](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb)하세요.
 >
@@ -170,7 +170,7 @@ ms.locfileid: "90069127"
 
 ### <a name="211-march-7-2019"></a>2.1.1 (3 월 7 일, 2019)
 #### <a name="new-features"></a>새 기능
-* 마스터 버전을 2.1.1로 업데이트 합니다.
+* 주 버전을 2.1.1로 업데이트 합니다.
 
 ### <a name="206-march-7-2019"></a>2.0.6 (3 월 7 일, 2019)
 #### <a name="new-features"></a>새 기능

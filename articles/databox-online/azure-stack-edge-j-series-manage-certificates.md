@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890746"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569427"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 인증서 사용
 
@@ -52,7 +52,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 
 인증서 또는 서명 인증 기관에 서명 하는 인증 기관에 대 한 인증서입니다. 
 
-### <a name="types"></a>형식
+### <a name="types"></a>유형
 
 이러한 인증서는 루트 인증서 또는 중간 인증서 일 수 있습니다. 루트 인증서는 항상 자체 서명 되거나 자체 서명 됩니다. 중간 인증서는 자체 서명 되지 않고 서명 기관에서 서명 됩니다.
 
@@ -61,7 +61,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 루트 인증서는 서명 체인 인증서 여야 합니다.
 - 루트 인증서는 다음과 같은 형식으로 장치에 업로드할 수 있습니다. 
     - **DER** – 파일 확장명으로 사용할 수 있습니다 `.cer` .
-    - **Base-64 인코딩 또는 PEM** – 확장으로 사용할 수 있습니다 `.cer` .
+    - **Base-64로 인코드** – 파일 확장명으로 사용할 수 있습니다 `.cer` .
     - **P7b** –이 형식은 루트 및 중간 인증서를 포함 하는 체인 인증서를 서명 하는 데만 사용 됩니다.
 - 서명 체인 인증서는 다른 인증서를 업로드 하기 전에 항상 업로드 됩니다.
 
@@ -77,7 +77,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - DNS 도메인이 변경 되어도 장치 이름이 변경 되지 않으면 노드 인증서를 변경 해야 합니다. 사용자 고유의 노드 인증서를 가져오는 경우 장치 일련 번호를 변경할 수 없으며, 도메인 이름만 변경할 수 있습니다.
 - 다음 표를 사용 하 여 노드 인증서를 만들 때 안내 합니다.
    
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |노드|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,9 +98,9 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 끝점 인증서의 속성은 일반적인 SSL 인증서의 속성과 유사 합니다. 
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
@@ -114,7 +114,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 로컬 UI 인증서는 `.pfx` 내보낼 수 있는 개인 키를 사용 하 여 형식으로도 업로드 됩니다.
 - 로컬 UI 인증서를 업로드 한 후 브라우저를 다시 시작 하 고 캐시를 지워야 합니다. 브라우저에 대 한 구체적인 지침을 참조 하세요.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
@@ -275,11 +275,11 @@ New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSeria
 
     1. 먼저 루트 인증서를 업로드 합니다. 로컬 웹 UI에서 **인증서 > + 인증서 추가**로 이동 합니다.
 
-        ![서명 체인 인증서 추가](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+        ![서명 체인 인증서 추가 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
     2. 그런 다음 끝점 인증서를 업로드 합니다. 
 
-        ![서명 체인 인증서 추가](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+        ![서명 체인 인증서 추가 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
         *.Pfx* 형식의 인증서 파일을 선택 하 고 인증서를 내보낼 때 입력 한 암호를 입력 합니다. Azure Resource Manager 인증서를 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -383,20 +383,20 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 
 1. 개인 인증서 저장소에서 루트 인증서를 선택 합니다. 마우스 오른쪽 단추를 클릭 하 고 **모든 작업 > 내보내기 ...** 를 선택 합니다.
 
-    ![인증서 내보내기 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![인증서 DER로 내보내기 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
 2. 인증서 마법사가 열립니다. **DER로 인코딩된 이진 x.509 (.cer)** 형식을 선택 합니다. **다음**을 선택합니다.
 
-    ![인증서 내보내기 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![인증서 DER로 내보내기 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. .Cer 형식 파일을 내보낼 위치를 찾아 선택 합니다.
 
-    ![인증서 내보내기 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
+    ![인증서 DER 3 내보내기](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
 
 4. **마침**을 선택합니다.
 
-    ![인증서 내보내기 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![인증서 DER로 내보내기 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
 
 
 ## <a name="supported-certificate-algorithms"></a>지원 되는 인증서 알고리즘
@@ -410,11 +410,11 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 
 사용자 고유의 인증서를 가져오는 경우 인증서는 일반적으로 1 년 또는 6 개월 이내에 만료 됩니다. 인증서의 만료 날짜를 보려면 장치의 로컬 웹 UI에 있는 **인증서** 페이지로 이동 합니다. 특정 인증서를 선택 하는 경우 인증서의 만료 날짜를 확인할 수 있습니다.
 
-## <a name="rotate-certificates"></a>인증서 회전
+<!--## Rotate certificates
 
-이 릴리스에서는 인증서 회전이 구현 되어 있지 않습니다. 또한 인증서에 대 한 보류 중인 만료 날짜에 대 한 알림이 표시 되지 않습니다. 
+Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-장치의 로컬 웹 UI에 있는 인증서 **페이지에서 인증서 만료** 날짜를 확인 합니다. 인증서 만료가 임박 하면 [인증서 만들기 및 업로드](azure-stack-edge-j-series-manage-certificates.md)의 자세한 지침에 따라 새 인증서를 만들고 업로드 합니다.
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## <a name="next-steps"></a>다음 단계
 

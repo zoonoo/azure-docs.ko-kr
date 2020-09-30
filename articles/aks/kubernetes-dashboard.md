@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225991"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570822"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
@@ -26,7 +26,7 @@ Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시�
  > * Kubernetes 1.19부터 미리 보기에서 AKS은 더 이상 관리 되는 kube 추가 기능을 설치 하는 것을 지원 하지 않습니다. 
  > * 추가 기능이 사용 하도록 설정 된 기존 클러스터는 영향을 받지 않습니다. 사용자는 계속 해 서 사용자가 설치한 소프트웨어로 오픈 소스 대시보드를 수동으로 설치할 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에 자세히 설명 된 단계에서는 AKS 클러스터를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. AKS 클러스터를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 Azure Kubernetes Service 클러스터 배포][aks-quickstart]를 참조 하세요.
 
@@ -36,7 +36,7 @@ Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시�
 
 Kube-dashboard 추가 기능은 **K8s 1.18 보다 오래 된 클러스터에서 기본적으로 사용 하도록 설정**됩니다. 다음 명령을 실행 하 여 추가 기능을 사용 하지 않도록 설정할 수 있습니다.
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 

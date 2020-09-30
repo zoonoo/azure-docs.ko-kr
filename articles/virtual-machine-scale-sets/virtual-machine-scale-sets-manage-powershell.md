@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 45bace9ac174b353bb4662a27e800c0de4eada4b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: eee4dd7fae872f6b3ddd01f60aba732edc170766
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072726"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570576"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합 관리
 
@@ -45,6 +45,15 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
+단일 API 호출의 모든 인스턴스에 대 한 자세한 *Instanceview* 정보를 가져올 수도 있습니다 .이를 통해 대량 설치에 대 한 api 제한을 방지할 수 있습니다.
+
+```powershell
+Get-AzVmssVM -InstanceView -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
 이전 명령은 확장 집합 및 VM 인스턴스에 대한 정보를 표시했습니다. 확장 집합에서 인스턴스 수를 늘리거나 줄이려면 용량을 변경할 수 있습니다. 확장 집합은 자동으로 필요한 수의 VM을 만들거나 제거한 후 애플리케이션 트래픽을 받도록 VM을 구성합니다.

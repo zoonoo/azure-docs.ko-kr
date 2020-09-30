@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400403"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570918"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
 
@@ -26,7 +26,7 @@ Azure Cosmos DB를 사용하면 데이터뿐만 아니라 데이터의 백업도
 
 * Azure Cosmos DB은 이러한 백업을 Azure Blob 저장소에 저장 하는 반면 실제 데이터는 Azure Cosmos DB 내에 로컬로 상주 합니다.
 
-* 낮은 대기 시간을 보장하기 위해 백업 스냅샷이 현재 쓰기 지역(또는 다중 마스터 구성이 있는 경우 쓰기 지역 중 **한 곳**)과 동일한 지역에 있는 Azure Blob Storage에 저장됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅샷은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB 팀은 지원 요청을 통해 요청하는 경우 백업을 복원합니다.
+* 짧은 대기 시간을 보장 하기 위해 백업의 스냅숏은 Azure Blob storage에 현재 쓰기 지역과 동일한 지역 (또는 다중 지역 쓰기 구성이 있는 경우 쓰기 지역 중 **하나** )에 저장 됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅샷은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB 팀은 지원 요청을 통해 요청하는 경우 백업을 복원합니다.
 
    다음 이미지는 미국 서부의 기본 실제 파티션 3개를 모두 포함하는 Azure Cosmos 컨테이너가 미국 서부의 원격 Azure Blob Storage 계정에 백업된 다음, 미국 동부에 복제되는 과정을 보여줍니다.
 
@@ -59,11 +59,11 @@ Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 �
 
    * **보존 된 데이터 복사본** -기본적으로 데이터의 백업 복사본 두 개는 무료로 제공 됩니다. 복사본이 두 개 이상 필요한 경우에는 추가 요금이 부과 됩니다. 추가 복사본의 정확한 가격을 알아보려면 [가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지에서 사용된 스토리지 섹션을 참조하세요.
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="기존 Azure Cosmos 계정에 대 한 백업 간격 및 보존 구성" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
 
 계정을 만드는 동안 백업 옵션을 구성 하는 경우 **정기적** 으로 또는 **연속**되는 **백업 정책을**구성할 수 있습니다. 정기 정책을 사용 하면 백업 간격 및 백업 보존을 구성할 수 있습니다. 현재 연속 정책은 등록 전용으로 사용할 수 있습니다. Azure Cosmos DB 팀은 워크 로드를 평가 하 고 요청을 승인 합니다.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="새 Azure Cosmos 계정에 대 한 주기적 또는 연속 백업 정책 구성" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
 
 ## <a name="restore-data-from-an-online-backup"></a>온라인 백업에서 데이터 복원
 

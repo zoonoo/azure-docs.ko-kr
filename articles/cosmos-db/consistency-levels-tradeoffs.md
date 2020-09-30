@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396011"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570073"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>다른 Azure Cosmos DB 일관성 수준에 대 한 대기 시간, 가용성 및 성능 절충
 
@@ -76,9 +76,9 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 
 *T* = 마지막 업데이트 이후의 시간 간격 *"t"* 입니다.
 
-## <a name="strong-consistency-and-multi-master"></a>강력한 일관성 및 다중 마스터
+## <a name="strong-consistency-and-multiple-write-regions"></a>강력한 일관성 및 여러 쓰기 지역
 
-분산 시스템이 0의 RPO와 0의 RTO를 제공할 수 없기 때문에 다중 마스터에 대해 구성 된 Cosmos 계정은 강력한 일관성을 위해 구성할 수 없습니다. 또한 모든 지역에 대 한 쓰기를 복제 하 고 계정 내의 모든 구성 된 지역에 커밋 해야 하므로 다중 마스터에서 강력한 일관성을 사용 하는 경우 쓰기 대기 시간 이점이 없습니다. 이로 인해 단일 마스터 계정으로 쓰기 대기 시간이 동일 하 게 됩니다.
+여러 쓰기 지역으로 구성 된 Cosmos 계정은 분산 시스템이 0 및 RTO 0의 RPO를 제공할 수 없으므로 강력한 일관성을 위해 구성할 수 없습니다. 또한 모든 지역에 대 한 쓰기 요청은 복제 되 고 계정 내의 모든 구성 된 지역에 커밋되기 때문에 쓰기 대기 시간 혜택은 여러 쓰기 지역에서 강력한 일관성을 사용 하는 경우에는 발생 하지 않습니다. 이로 인해 단일 쓰기 지역 계정으로 쓰기 대기 시간이 동일 하 게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

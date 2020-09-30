@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a68207b3e5390a26e8d62ee6b725b0768ea565a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116080"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569700"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 
@@ -21,7 +21,7 @@ Azure Cosmos DB는 완전 관리형 PaaS(platform-as-a-service)입니다. Azure 
 
 Azure Cosmos 계정은 글로벌 배포와 고가용성을 위한 기본 단위입니다. 데이터를 여러 Azure 지역에 걸쳐 글로벌 배포하려면 언제든지 Azure Cosmos 계정에서 Azure 지역을 추가하거나 제거할 수 있습니다. Azure Cosmos 계정이 단일 또는 복수 쓰기 지역을 갖도록 구성할 수 있습니다. 자세한 내용은 [Azure Cosmos 계정에서 Azure 지역을 추가하고 제거하는 방법](how-to-manage-database-account.md)을 참조하세요. Azure Cosmos 계정에서 [기본 일관성 ](consistency-levels.md) 수준을 구성할 수 있습니다. Azure Cosmos DB는 처리량 99번째 백분위수의 대기 시간, 일관성 및 고가용성을 포함하는 종합적인 SLA를 제공합니다. 자세한 내용은 [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)를 참조하세요.
 
-Azure Cosmos 계정 내의 모든 데이터에 대 한 액세스를 안전 하 게 관리 하려면 계정에 연결 된 [마스터 키](secure-access-to-data.md) 를 사용할 수 있습니다. 데이터에 대 한 액세스를 더욱 안전 하 게 보호 하기 위해 Azure Cosmos 계정에서 [VNET 서비스 끝점](vnet-service-endpoint.md) 및 [IP 방화벽](firewall-support.md) 을 구성할 수 있습니다. 
+Azure Cosmos 계정 내의 모든 데이터에 대 한 액세스를 안전 하 게 관리 하려면 계정에 연결 된 [기본 키](secure-access-to-data.md) 를 사용할 수 있습니다. 데이터에 대 한 액세스를 더욱 안전 하 게 보호 하기 위해 Azure Cosmos 계정에서 [VNET 서비스 끝점](vnet-service-endpoint.md) 및 [IP 방화벽](firewall-support.md) 을 구성할 수 있습니다. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Azure Cosmos 계정의 요소
 

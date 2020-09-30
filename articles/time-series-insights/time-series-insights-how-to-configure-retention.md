@@ -1,6 +1,6 @@
 ---
 title: 환경에서 보존을 구성 하는 방법-Azure Time Series Insights | Microsoft Docs
-description: Azure Azure Time Series Insights 환경에서 보존을 구성 하는 방법에 대해 알아봅니다.
+description: Azure Time Series Insights 환경에서 보존을 구성 하는 방법에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9ee06501134515d9369e98e724e55a66f040fffa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 468b4f7ca7b0af4abc32df5d9ef64a74154d3de1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495128"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569400"
 ---
 # <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1에서 보존 구성
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 아티클에서는 Azure Time Series Insights의 **데이터 보존 시간** 및 **스토리지 제한을 초과하는 동작**을 구성하는 방법을 설명합니다.
 
@@ -32,7 +35,7 @@ ms.locfileid: "86495128"
 
 이러한 설정을 보다 잘 이해 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights 보존 이해](time-series-insights-concepts-retention.md)를 참조 하세요.  
 
-## <a name="configure-data-retention"></a>데이터 보존 구성
+## <a name="configure-data-retention"></a>데이터 보존 구성하기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

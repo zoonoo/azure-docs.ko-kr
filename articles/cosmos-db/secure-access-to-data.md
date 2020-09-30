@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 데이터에 대한 액세스를 보호하는 방법
-description: 마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 Azure Cosmos DB의 액세스 제어 개념에 대해 알아봅니다.
+description: 기본 키, 읽기 전용 키, 사용자 및 권한을 포함 하 여 Azure Cosmos DB의 액세스 제어 개념에 대해 알아봅니다.
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4714ec9773b98887de483b7353eea9f4416eec19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017756"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569580"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -22,10 +22,10 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 |키 유형|리소스|
 |---|---|
-|[마스터 키](#master-keys) |데이터베이스 계정, 데이터베이스, 사용자, 사용 권한을 비롯한 관리 리소스에 사용됩니다.|
+|[마스터 키](#primary-keys) |데이터베이스 계정, 데이터베이스, 사용자, 사용 권한을 비롯한 관리 리소스에 사용됩니다.|
 |[리소스 토큰](#resource-tokens)|컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF를 비롯한 애플리케이션 리소스에 사용됩니다.|
 
-<a id="master-keys"></a>
+<a id="primary-keys"></a>
 
 ## <a name="master-keys"></a>마스터 키
 
@@ -38,15 +38,15 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 각 계정은 두 개의 마스터 키(주 키와 보조 키)로 구성됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다.
 
-Cosmos DB 계정에 대한 두 개의 마스터 키 외에도 두 개의 읽기 전용 키가 있습니다. 이러한 읽기 전용 키는 계정에 대한 읽기 작업만 허용합니다. 읽기 전용 키는 읽기 권한 리소스에 대한 액세스를 제공하지 않습니다.
+Cosmos DB 계정의 두 가지 기본 키 외에도 두 개의 읽기 전용 키가 있습니다. 이러한 읽기 전용 키는 계정에 대한 읽기 작업만 허용합니다. 읽기 전용 키는 읽기 권한 리소스에 대한 액세스를 제공하지 않습니다.
 
-Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스터 키를 검색 및 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#regenerate-account-key)을 참조하세요.
+Azure Portal를 사용 하 여 기본, 보조, 읽기 전용 및 읽기/쓰기 기본 키를 검색 하 고 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#regenerate-account-key)을 참조하세요.
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명":::
 
 ### <a name="key-rotation"></a>키 회전<a id="key-rotation"></a>
 
-마스터 키를 회전하는 프로세스는 간단합니다. 
+기본 키를 회전 하는 프로세스는 간단 합니다. 
 
 1. Azure Portal로 이동 하 여 보조 키를 검색 합니다.
 2. 응용 프로그램에서 기본 키를 보조 키로 바꿉니다. 모든 배포에 대 한 모든 Cosmos DB 클라이언트가 즉시 다시 시작 되 고 업데이트 된 키를 사용 하 여 시작 되는지 확인 합니다.
@@ -54,11 +54,11 @@ Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스
 4. 새 기본 키가 모든 리소스에 대해 작동 하는지 확인 합니다. 키 회전 프로세스는 Cosmos DB 계정의 크기에 따라 1 분에서 몇 시간까지 걸릴 수 있습니다.
 5. 보조 키를 새 기본 키로 바꿉니다.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure Portal에서 마스터 키 회전 - NoSQL 데이터베이스 보안 설명" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명" border="false":::
 
-### <a name="code-sample-to-use-a-master-key"></a>마스터 키를 사용할 코드 샘플
+### <a name="code-sample-to-use-a-primary-key"></a>기본 키를 사용 하는 코드 샘플
 
-다음 코드 샘플에서는 Cosmos DB 계정 끝점 및 마스터 키를 사용 하 여 DocumentClient를 인스턴스화하고 데이터베이스를 만드는 방법을 보여 줍니다.
+다음 코드 샘플에서는 Cosmos DB 계정 끝점 및 기본 키를 사용 하 여 DocumentClient를 인스턴스화하고 데이터베이스를 만드는 방법을 보여 줍니다.
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -71,7 +71,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-다음 코드 샘플에서는 Azure Cosmos DB 계정 끝점 및 마스터 키를 사용 하 여 개체를 인스턴스화하는 방법을 보여 줍니다 `CosmosClient` .
+다음 코드 샘플에서는 Azure Cosmos DB 계정 끝점 및 기본 키를 사용 하 여 개체를 인스턴스화하는 방법을 보여 줍니다 `CosmosClient` .
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
@@ -84,17 +84,17 @@ CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 - POST, GET 또는 PUT 호출로 권한 리소스가 작동할 때 다시 생성됩니다.
 - 사용자, 리소스 및 사용 권한을 위해 특별히 구성된 해시 리소스 토큰을 사용합니다.
 - 시간은 사용자 지정 가능한 유효 기간으로 제한됩니다. 기본 유효한 시간 범위는 1 시간입니다. 하지만 토큰 수명은 최대 5시간까지 명시적으로 지정할 수 있습니다.
-- 마스터 키를 전달하기 위한 안전한 대안을 제공합니다.
+- 기본 키를 제공 하는 안전한 대안을 제공 합니다.
 - Cosmos DB 계정에서 클라이언트가 부여된 권한에 따라 리소스를 읽고 쓰고 삭제할 수 있도록 합니다.
 
-Cosmos DB 계정에 있는 리소스에 대한 액세스 권한을 마스터 키로 신뢰할 수 없는 클라이언트에 제공하려는 경우 Cosmos DB 사용자 및 권한을 만들어서 리소스 토큰을 사용할 수 있습니다.  
+기본 키를 사용 하 여 신뢰할 수 없는 클라이언트에 Cosmos DB 계정의 리소스에 대 한 액세스를 제공 하려는 경우 Cosmos DB 사용자 및 사용 권한을 만들어 리소스 토큰을 사용할 수 있습니다.  
 
-Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터 또는 읽기 전용 키에 대한 요구 없이 Cosmos DB 계정에서 클라이언트가 리소스를 읽고, 쓰고, 삭제할 수 있게 해주는 안전한 대안을 제공합니다.
+Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 기본 또는 읽기 전용 키 없이 클라이언트에서 Cosmos DB 계정의 리소스를 읽고, 쓰고, 삭제할 수 있게 해 주는 안전한 대안을 제공 합니다.
 
 다음은 리소스 토큰을 요청, 생성 및 클라이언트에 제공할 수 있는 일반적인 디자인 패턴이 있습니다.
 
 1. 중간 계층 서비스는 모바일 애플리케이션이 사용자 사진을 공유하도록 설정됩니다.
-2. 중간 계층 서비스는 Cosmos DB 계정의 마스터 키를 소유합니다.
+2. 중간 계층 서비스는 Cosmos DB 계정의 기본 키를 소유 합니다.
 3. 사진 앱은 최종 사용자 모바일 디바이스에 설치됩니다.
 4. 로그인하면 사진 앱이 중간 계층 서비스를 사용해서 사용자의 ID를 설정합니다. ID 설정 방식은 순전히 애플리케이션에 달려 있습니다.
 5. ID가 설정된 다음에는 중간 계층 서비스 요청 권한이 ID를 기반으로 합니다.
@@ -102,7 +102,7 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터 
 7. 전화 앱은 계속 리소스 토큰을 사용해서 리소스의 토큰으로 정의된 권한을 사용하여 리소스 토큰에서 허용하는 간격으로 Cosmos DB 리소스에 직접 액세스합니다.
 8. 리소스 토큰이 만료되면 후속 요청은 401 허가되지 않은 예외를 수신합니다.  이 지점에서는 전화 앱이 ID 를 다시 설정하고 새로운 리소스 토큰을 요청합니다.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Cosmos DB 리소스 토큰 워크플로" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명" border="false":::
 
 리소스 토큰 생성 및 관리는 네이티브 Cosmos DB 클라이언트 라이브러리에서 처리하지만 REST를 사용하는 경우 요청/인증 헤더를 구성해야 합니다. REST에 대 한 인증 헤더를 만드는 방법에 대 한 자세한 내용은 [Cosmos DB 리소스에](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) 대 한 Access Control 또는 [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) 또는 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts)의 소스 코드를 참조 하세요.
 
@@ -122,7 +122,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > 각 Cosmos DB 사용자에 게는 사용자와 연결 된 [사용 권한](#permissions) 목록을 검색 하는 데 사용할 수 있는 ReadAsync () 메서드가 있습니다.
 
-## <a name="permissions"></a>사용 권한<a id="permissions"></a>
+## <a name="permissions"></a>권한<a id="permissions"></a>
 
 권한 리소스는 사용자와 연결 되며 컨테이너 및 파티션 키 수준에서 할당 됩니다. 각 사용자는 0 개 이상의 권한을 포함할 수 있습니다. 권한 리소스는 특정 파티션 키의 특정 컨테이너 또는 데이터에 액세스 하려고 할 때 사용자가 필요로 하는 보안 토큰에 대 한 액세스를 제공 합니다. 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 

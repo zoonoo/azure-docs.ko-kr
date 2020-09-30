@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
-ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 09/29/2020
+ms.openlocfilehash: 6802e3f6c0892993f9ffe4373f43274362b8a003
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448535"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569679"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -210,6 +210,14 @@ aggregate(updates = countIf(isUpdate(), 1),
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="check-for-nulls-in-all-columns"></a>모든 열에서 Null 확인
+이 코드 조각은 일반적으로 모든 열에서 NULL 값을 확인 하기 위해 데이터 흐름에 붙여넣을 수 있는 코드 조각입니다. 이 기법은 스키마 드리프트를 활용 하 여 모든 행의 모든 열을 확인 하 고 조건부 분할을 사용 하 여 null이 없는 행의 행을 Null로 구분 합니다. 
+
+```
+CreateColumnArray split(contains(array(columns()),isNull(#item)),
+    disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## <a name="next-steps"></a>다음 단계

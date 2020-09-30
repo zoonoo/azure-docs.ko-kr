@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001539"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570762"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 
@@ -22,7 +22,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 > [!NOTE]
 > 이 페이지에서는 Azure Logic Apps의 EDIFACT 기능을 설명합니다. 자세한 내용은 [X12](logic-apps-enterprise-integration-x12.md)를 참조하세요.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 필요한 항목은 다음과 같습니다.
 
@@ -63,7 +63,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
    | 속성 | Description |
    | --- | --- |
-   | Name |규약 이름 |
+   | 이름 |규약 이름 |
    | 규약 유형 | EDIFACT여야 함 |
    | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
    | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -99,7 +99,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNB6.1(받는 사람 참조 암호) |1 ~ 14자 사이의 영숫자 값을 입력합니다. |
 | UNB6.2(받는 사람 참조 한정자) |1 ~ 2자의 영숫자 값을 입력합니다. |
 
-### <a name="acknowledgments"></a>감사의 글
+### <a name="acknowledgments"></a>승인
 
 | 속성 | Description |
 | --- | --- |
@@ -247,7 +247,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 계정 메뉴에서 **개요**를 선택한 다음, **규약** 타일을 선택합니다. 
 
-    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![규약 타일을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>커넥터 참조
 

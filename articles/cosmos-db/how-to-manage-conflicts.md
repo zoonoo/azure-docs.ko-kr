@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2ebe4fbf776ffb3b4568f996f20ba721b0cc5fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330517"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570686"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 
@@ -513,9 +513,9 @@ while conflict:
 다음 Azure Cosmos DB 개념에 대해 자세히 알아봅니다.
 
 - [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
-- [응용 프로그램에서 다중 마스터를 구성 하는 방법](how-to-multi-master.md)
+- [응용 프로그램에서 다중 지역 쓰기를 구성 하는 방법](how-to-multi-master.md)
 - [멀티 호 밍에 대 한 클라이언트 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
+- [응용 프로그램에서 지역 쓰기를 configuremulti 하는 방법](how-to-multi-master.md)입니다.
 - [분할 및 데이터 배포](partition-data.md)
 - [Azure Cosmos DB의 인덱싱](indexing-policies.md)

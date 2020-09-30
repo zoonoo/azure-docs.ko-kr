@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4a0d3c344d19d0831dd8525ddf3311e0ce7cd682
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2007e2dd2df959698e62ac753689556c2f17c005
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520820"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570255"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대한 통합 계정 만들기 및 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "86520820"
 * 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
 * 통합 계정을 삭제합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "86520820"
 
    ![통합 계정 세부 정보 제공](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **이름** | 예 | <*통합-계정 이름*> | 문자, 숫자, 하이픈 ( `-` ), 밑줄 ( `_` ), 괄호 ( `(` , `)` ) 및 마침표 ()만 포함할 수 있는 통합 계정의 이름 `.` 입니다. 이 예에서는 "Fabrikam-통합"을 사용 합니다. |
    | **구독** | 예 | <*Azure-subscription-name*> | Azure 구독의 이름 |
@@ -89,7 +89,7 @@ ms.locfileid: "86520820"
 
 1. 연결을 완료 하려면 **저장**을 선택 합니다.
 
-   ![통합 계정 선택](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
+   ![저장을 선택 하 여 통합 계정을 선택 하는 위치를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
    통합 계정이 성공적으로 연결 되 면 Azure에서 확인 메시지를 표시 합니다.
 
@@ -206,7 +206,7 @@ ms.locfileid: "86520820"
    },
    ```
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    !["IntegrationAccount" 개체 찾기](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

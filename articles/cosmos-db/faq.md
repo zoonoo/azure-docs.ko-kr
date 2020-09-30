@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213094"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570362"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 
 다음 조건은 Azure Cosmos DB 구독 사용에 적용됩니다.
 
-* 계정 액세스는 개인 Microsoft 계정(MSA)에 부여할 수 있습니다. AAD(Active Directory) 계정 또는 회사 AAD 테넌트에 속하는 계정을 사용하지 않는 것이 좋습니다. 이와 같은 계정에는 액세스 권한 부여를 차단하는 제한 사항이 있을 수 있습니다.
+* 계정 액세스는 개인 Microsoft 계정(MSA)에 부여할 수 있습니다. 회사 Azure AD 테 넌 트에 속한 계정 또는 계정 (Azure AD) 계정을 사용 하지 않도록 Azure Active Directory 하는 것은 액세스 허용을 차단할 수 있는 제한 사항이 있을 수 있습니다.
 * SQL, Gremlin API 및 테이블 계정에 대해 구독당 하나의 [처리량이 프로비저닝된 컨테이너](./set-throughput.md#set-throughput-on-a-container)
 * MongoDB 계정에 대해 구독당 최대 3개의 [처리량이 프로비저닝된 컬렉션](./set-throughput.md#set-throughput-on-a-container)
 * 구독당 하나의 [처리량이 프로비저닝된 데이터베이스](./set-throughput.md#set-throughput-on-a-database). 처리량이 프로비저닝된 데이터베이스에는 내부 컨테이너 수에 제한이 없습니다.
@@ -102,9 +102,9 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 
 Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure 구독에 등록합니다. 등록한 후 Azure 구독에 Azure Cosmos DB 계정을 추가할 수 있습니다.
 
-### <a name="what-is-a-master-key"></a>마스터 키란 무엇인가요?
+### <a name="what-is-a-primary-key"></a>기본 키 란?
 
-마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#list-account-keys)을 참조하세요.
+기본 키는 계정의 모든 리소스에 액세스 하는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 기본 키를 배포할 때는 주의 해야 합니다. 기본 기본 키 및 보조 기본 키는 [Azure Portal][azure-portal] **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#list-account-keys)을 참조하세요.
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>PreferredLocations를 설정할 수 있는 지역은 어디인가요?
 

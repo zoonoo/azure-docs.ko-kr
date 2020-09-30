@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400301"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570809"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법 
 
@@ -30,7 +30,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 
 ## <a name="slas-for-availability"></a>가용성 SLA
 
-전역적으로 분산 된 데이터베이스인 Azure Cosmos DB는 처리량, 대기 시간 (99 번째 백분위 수), 일관성 및 고가용성을 포함 하는 포괄적인 Sla를 제공 합니다. 아래 표에서는 단일 및 다중 지역 계정에 대해 Azure Cosmos DB에서 제공 하는 고가용성을 보장 합니다. 고가용성을 위해 항상 여러 쓰기 영역 (다중 마스터가 라고도 함)을 갖도록 Azure Cosmos 계정을 구성 합니다.
+전역적으로 분산 된 데이터베이스인 Azure Cosmos DB는 처리량, 대기 시간 (99 번째 백분위 수), 일관성 및 고가용성을 포함 하는 포괄적인 Sla를 제공 합니다. 아래 표에서는 단일 및 다중 지역 계정에 대해 Azure Cosmos DB에서 제공 하는 고가용성을 보장 합니다. 고가용성을 위해 항상 여러 쓰기 지역을 갖도록 Azure Cosmos 계정을 구성 합니다.
 
 |작업 유형  | 단일 지역 |다중 지역(단일 지역 쓰기)|다중 지역(다중 지역 쓰기) |
 |---------|---------|---------|-------|
@@ -46,7 +46,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 
 - Azure Cosmos DB를 사용 하는 경우 쓰기 작업이 클라이언트에 승인 되기 전에 쓰기 작업을 수락 하는 지역 내의 복제본 쿼럼에 의해 데이터가 지속적으로 커밋됩니다.
 
-- 다중 쓰기 지역/다중 마스터를 사용 하 여 구성 된 다중 지역 계정은 쓰기 및 읽기 모두에서 항상 사용 가능 합니다. 지역별 장애 조치(failover)는 즉각적이며, 애플리케이션에서 변경할 필요가 없습니다.
+- 다중 쓰기 지역으로 구성된 다중 지역 계정은 쓰기 및 읽기 모두에 대해 고가용성을 유지합니다. 지역별 장애 조치(failover)는 즉각적이며, 애플리케이션에서 변경할 필요가 없습니다.
 
 - 단일 지역 계정은 지역 중단으로 인해 가용성이 손실될 수도 있습니다. 항상 고가용성을 보장 하기 위해 **두 개 이상의 지역** (하나 이상의 쓰기 지역)을 Azure Cosmos 계정으로 설정 하는 것이 좋습니다.
 
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 Azure Cosmos 계정을 만들 때 Azure Portal를 사용 하 여 가용성 영역를 사용 하도록 설정할 수 있습니다. 계정을 만들 때 **지역 중복**, **다중 지역 쓰기**를 사용 하도록 설정 하 고 가용성 영역 지원 되는 지역을 선택 해야 합니다.
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Azure Portal를 사용 하 여 가용성 영역 사용"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="물리적 분할"::: 
 
 ## <a name="building-highly-available-applications"></a>고가용성 애플리케이션 빌드
 

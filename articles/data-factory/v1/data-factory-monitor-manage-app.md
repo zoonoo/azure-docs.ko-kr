@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846900"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570089"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 오른쪽 창에서 **활동 기간 탐색기** 탭으로 전환하여 자세한 내용을 봅니다.
 
-![작업 창 탐색기](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![작업 창 탐색기 탭에 액세스 하는 방법을 보여 주는 스크린샷](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 **Attempts**(시도) 섹션에서 활동의 각 실행 시도에 대한 **확인된 변수**도 볼 수 있습니다.
 
@@ -159,10 +159,10 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">Substatus</th><th align="left">설명</th>
+    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
+    <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
@@ -177,7 +177,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 활동 기간을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>재시도</td><td>활동 실행을 다시 시도 중입니다.</td>
+<td>다시 시도</td><td>활동 실행을 다시 시도 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -193,7 +193,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>작업 창을 처리 중입니다.</td>
 </tr>
 <tr>
-<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>취소됨</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
@@ -217,7 +217,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 목록에서 활동 기간을 클릭하면 오른쪽에 있는 **속성** 창 또는 **활동 기간 탐색기**에 자세한 내용이 표시됩니다.
 
-![작업 창 탐색기](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![작업 창에 대 한 세부 정보를 보는 방법을 보여 주는 스크린샷](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>작업 창 새로 고침
 세부 정보는 자동으로 새로 고쳐지지 않으므로 명령 모음에서 새로 고침 단추(두 번째 단추)를 사용하여 수동으로 활동 기간 목록을 새로 고칩니다.  

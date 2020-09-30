@@ -9,16 +9,19 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2d14d45a6cf7147514cf4fdfc2a3ede470c12835
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017637"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569390"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen 1 환경에 대 한 참조 데이터 관리
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 c #, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합 하 여 Azure Time Series Insights Gen 1 [참조 데이터 관리 api](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 만드는 방법을 보여 줍니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6b09c51c68586f6e55b4238b7420460f3f2b4ac3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330570"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570723"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 
@@ -69,7 +69,7 @@ ms.locfileid: "91330570"
 
 **전역적으로 데이터 복제** 탭을 열고 **사용**을 선택하여 다중 지역 쓰기를 사용하도록 설정합니다. 다중 지역 쓰기를 사용하도록 설정한 후에는 현재 계정에 있는 모든 읽기 지역이 읽기 및 쓰기 지역이 됩니다.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="다중 마스터를 구성하는 Azure Cosmos 계정 스크린샷":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -77,11 +77,11 @@ ms.locfileid: "91330570"
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-[PowerShell을 사용 하 여 다중 쓰기 지역 사용](manage-with-powershell.md#multi-master) 을 참조 하세요.
+[PowerShell을 사용 하 여 다중 쓰기 지역 사용](manage-with-powershell.md#multi-region-writes) 을 참조 하세요.
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Resource Manager 템플릿
 
-계정 및 설정 `enableMultipleWriteLocations: true`를 생성하는 데 사용되는 Resource Manager 템플릿을 배포하면 단일 마스터에서 다중 마스터로 계정을 마이그레이션할 수 있습니다. 다음 Azure Resource Manager 템플릿은 두 개의 지역 및 다중 쓰기 위치가 활성화된 SQL API용 Azure Cosmos 계정을 배포하는 최소 템플릿입니다.
+계정을 만들고 설정 하는 데 사용 되는 리소스 관리자 템플릿을 배포 하 여 단일 쓰기 지역에서 여러 쓰기 지역으로 계정을 마이그레이션할 수 있습니다 `enableMultipleWriteLocations: true` . 다음 Azure Resource Manager 템플릿은 두 개의 지역 및 다중 쓰기 위치가 활성화된 SQL API용 Azure Cosmos 계정을 배포하는 최소 템플릿입니다.
 
 ```json
 {
@@ -149,13 +149,13 @@ ms.locfileid: "91330570"
 
 2. 창의 위쪽에서 **자동 장애 조치**를 선택합니다.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="[전역적으로 데이터 복제] 메뉴":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 3. **자동 장애 조치** 창에서 **자동 장애 조치 사용**을 **켜기**로 설정합니다. 
 
 4. **저장**을 선택합니다.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="자동 장애 조치(failover) 포털 메뉴":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -178,7 +178,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 2. 창의 위쪽에서 **자동 장애 조치**를 선택합니다.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="[전역적으로 데이터 복제] 메뉴":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 3. **자동 장애 조치** 창에서 **자동 장애 조치 사용**을 **켜기**로 설정합니다.
 
@@ -186,7 +186,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 5. **저장**을 선택합니다.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="자동 장애 조치(failover) 포털 메뉴":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -204,7 +204,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 수동 장애 조치(failover)를 수행하기 위한 프로세스에는 계정의 쓰기 지역(장애 조치 우선 순위 = 0)을 계정에 대해 구성된 다른 지역으로 변경하는 것이 포함됩니다.
 
 > [!NOTE]
-> 다중 마스터 계정은 수동으로 장애 조치(failover)할 수 없습니다. Azure Cosmos SDK를 사용하는 애플리케이션의 경우 SDK는 지역을 사용할 수 없게 되는 시기를 감지한 다음, SDK에서 멀티 호밍 API를 사용할 경우 다음 가장 가까운 지역으로 자동 리디렉션합니다.
+> 쓰기 지역이 여러 개인 계정은 수동으로 장애 조치 (failover) 할 수 없습니다. Azure Cosmos SDK를 사용하는 애플리케이션의 경우 SDK는 지역을 사용할 수 없게 되는 시기를 감지한 다음, SDK에서 멀티 호밍 API를 사용할 경우 다음 가장 가까운 지역으로 자동 리디렉션합니다.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure Portal
 
@@ -212,13 +212,13 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 2. 메뉴의 위쪽에서 **수동 장애 조치**를 선택합니다.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="[전역적으로 데이터 복제] 메뉴":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 3. **수동 장애 조치** 메뉴에서 새 쓰기 지역을 선택합니다. 이 옵션이 쓰기 영역을 변경한다는 것을 알고 있음을 나타내는 확인란을 선택합니다.
 
 4. 장애 조치를 트리거하려면 **확인**을 선택합니다.
 
-   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="수동 장애 조치(failover) 포털 메뉴":::
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="지역 추가 또는 제거 메뉴":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 
