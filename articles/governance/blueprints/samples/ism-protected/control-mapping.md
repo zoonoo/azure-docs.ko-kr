@@ -1,14 +1,14 @@
 ---
-title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 개요
-description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 ISM PROTECTED 제어를 평가하는 데 도움이 됩니다.
-ms.date: 08/03/2020
+title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 컨트롤
+description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760433"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030109"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 제어 매핑
 
@@ -350,6 +350,10 @@ ms.locfileid: "87760433"
 ## <a name="next-steps"></a>다음 단계
 
 청사진 및 사용 방법에 대한 추가 문서:
+
+> [!div class="nextstepaction"]
+> [ISM PROTECTED 청사진 - 개요](./index.md)
+> [ISM PROTECTED 청사진 - 배포 단계](./deploy.md)
 
 - [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해

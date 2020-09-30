@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398804"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568607"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -25,7 +25,7 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>다중 지역 Azure Cosmos 계정에 대해 Synapse Link가 지원되나요?
 
-예, 다중 지역 Azure Cosmos 계정의 경우 분석 저장소에 저장된 데이터도 전역적으로 배포됩니다. 단일 쓰기 영역(단일 마스터) 또는 다중 쓰기 영역(다중 마스터라고도 함)에 관계없이 Azure Synapse Analytics에서 수행된 분석 쿼리는 가장 가까운 로컬 지역에서 제공될 수 있습니다.
+예, 다중 지역 Azure Cosmos 계정의 경우 분석 저장소에 저장된 데이터도 전역적으로 배포됩니다. 단일 쓰기 영역 또는 다중 쓰기 영역에 관계없이 Azure Synapse Analytics에서 수행된 분석 쿼리는 가장 가까운 로컬 지역에서 제공될 수 있습니다.
 
 분석 저장소를 지원하는 다중 지역 Azure Cosmos 계정을 구성할 때는 계정 생성 시 필요한 모든 지역을 추가하는 것이 좋습니다.
 
@@ -120,7 +120,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>분석 저장소로 인증하는 방법에는 무엇이 있나요?
 
-분석 저장소를 사용한 인증은 트랜잭션 저장소와 동일합니다. 지정된 데이터베이스에 대해 마스터 또는 읽기 전용 키를 사용하여 인증할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
+분석 저장소를 사용한 인증은 트랜잭션 저장소와 동일합니다. 지정 된 데이터베이스의 경우 기본 키 또는 읽기 전용 키를 사용 하 여 인증할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
 
 ## <a name="synapse-run-times"></a>Synapse 런타임
 
@@ -150,7 +150,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 트랜잭션 저장소 컨테이너는 다음 아이콘으로 표시됩니다.
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="트랜잭션 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Synapse Studio에서 Azure Cosmos DB 자격 증명을 어떻게 전달하나요?
 

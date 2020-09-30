@@ -4,12 +4,12 @@ description: Microsoft Azure의 자동 크기 조정
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073486"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567267"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -102,11 +102,14 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 | 가상 머신: 클래식 |[클래식 Virtual Machine 가용성 집합 크기 조정](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | 가상 머신: Windows 확장 세트 |[Windows에서 가상 머신 확장 집합 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | 가상 머신: Linux 확장 세트 |[Linux에서 가상 머신 확장 집합 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| 가상 머신: Windows 예제 |[Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](autoscale-virtual-machine-scale-sets.md) |
+| 가상 머신: Windows 예제 |[Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Azure App Service |[Azure App Service에서 앱 확대](../../app-service/manage-scale-up.md)|
 | API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](../../api-management/api-management-howto-autoscale.md)
 | Azure Data Explorer 클러스터|[변화하는 요구를 수용하기 위해 Azure Data Explorer 클러스터 크기 조정 관리](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Azure App Service에서 앱 확대](../../app-service/manage-scale-up.md)|
 | Logic Apps |[ISE(통합 서비스 환경) 용량 추가](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Service Bus |[Azure Service Bus 네임스페이스의 메시징 단위 자동 업데이트](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대한 자세한 내용은 앞에 나열된 자동 크기 조정 연습을 사용하거나 다음 리소스를 참조하세요.
 

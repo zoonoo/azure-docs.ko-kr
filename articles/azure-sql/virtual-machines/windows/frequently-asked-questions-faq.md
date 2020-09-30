@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483748"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566995"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ ms.locfileid: "89483748"
 
 1. **Azure VM에서 SQL Server를 일반화하고 이를 사용하여 새 VM을 배포하려면 어떻게 해야 하나요?**
 
-   Windows Server VM(SQL Server를 설치하지 않음)을 배포하고 [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) 프로세스를 사용하여 SQL Server 설치 미디어로 Azure VM(Windows)의 SQL Server를 일반화할 수 있습니다. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 설치 된 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
+   Windows Server VM(SQL Server를 설치하지 않음)을 배포하고 [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) 프로세스를 사용하여 SQL Server 설치 미디어로 Azure VM(Windows)의 SQL Server를 일반화할 수 있습니다. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 설치 된 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
 
    또는 Azure Marketplace의 SQL Server 이미지 중 하나를 사용 하 여 Azure VM에서 일반화 SQL Server 합니다. 사용자 이미지를 만들기 전에 원본 이미지에서 다음 레지스트리 키를 삭제해야 합니다. 이 방법에 실패하면 SQL Server 설치 부트스트랩 폴더 및/또는 SQL IaaS 확장이 블로트하여 실패 상태가 될 수 있습니다.
 
@@ -179,13 +179,21 @@ ms.locfileid: "89483748"
    
    예. 명명된 인스턴스가 SQL Server의 유일한 인스턴스이고 원래 기본 인스턴스가 [제대로 제거되지 않은](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance) 경우에는 가능합니다. 기본 인스턴스가 없고 단일 SQL Server VM에 명명된 인스턴스가 여러 개 있는 경우에는 SQL Server IaaS 에이전트 확장을 설치할 수 없습니다. 
 
-1. **SQL Server VM에서 SQL Server를 완전히 제거할 수 있나요?**
+1. **SQL Server VM에서 SQL Server 및 관련 라이선스 청구를 제거할 수 있나요?**
 
-   예, 그러나 SQL Server Azure VM에 대한 [가격 책정 지침](pricing-guidance.md)에 설명된 대로 SQL Server VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 애플리케이션을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
+   예, 하지만 [가격 책정 지침](pricing-guidance.md)에 설명 된 대로 SQL Server 인스턴스에 대 한 요금이 부과 되지 않도록 추가 단계를 수행 해야 합니다. SQL Server 인스턴스를 완전히 제거 하려는 경우 VM에 사전 설치 SQL Server 하지 않고 다른 Azure VM으로 마이그레이션하고 현재 SQL Server VM를 삭제할 수 있습니다. VM을 유지 하 되 SQL Server 대금 청구를 중지 하려는 경우 다음 단계를 수행 합니다. 
+
+   1. 필요한 경우 시스템 데이터베이스를 포함 하 여 모든 데이터를 백업 합니다. 
+   1. SQL IaaS 확장 (있는 경우)을 포함 하 여 SQL Server 완전히 제거 합니다.
+   1. 무료 [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads)을 설치 합니다.
+   1. [경량 모드](sql-vm-resource-provider-register.md)에서 SQL VM 리소스 공급자에 등록 합니다.
+   1. 필드 서비스 시작을 사용 하지 않도록 설정 하 여 Express SQL Server 서비스를 사용 하지 않도록 설정 합니다. 
 
 1. **Azure Portal을 사용하여 동일한 VM에서 여러 인스턴스를 관리할 수 있나요?**
+
    아니요. 포털 관리는 SQL Server IaaS 에이전트 확장을 사용 하는 SQL VM 리소스 공급자에 의해 제공 됩니다. 이와 같이 리소스 공급자에 대 한 동일한 제한이 확장으로 적용 됩니다. 포털은 하나의 기본 인스턴스 또는 명명 된 인스턴스 하나를 올바르게 구성 하기만 하면 관리할 수 있습니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md) 을 참조 하세요. 
-   
+
+
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
 1. **Azure VM에서 다른 버전/버전의 SQL Server 변경 어떻게 할까요??**

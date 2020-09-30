@@ -1,6 +1,6 @@
 ---
-title: 사용 가능한 Azure Files 프로토콜
-description: Azure 파일 공유를 만들기 전에 사용 가능한 프로토콜에 대해 알아보세요.
+title: 사용 가능한 Azure Files 프로토콜-NFS 및 SMB
+description: SMB (서버 메시지 블록) 및 NFS (네트워크 파일 시스템)를 포함 하 여 Azure 파일 공유를 만들기 전에 사용 가능한 프로토콜에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708141"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568474"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
 
@@ -25,10 +25,10 @@ Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 �
 |---------|---------|---------|
 |액세스 프로토콜     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |지원되는 OS     |Linux 커널 버전 4.3 이상         |Windows 2008 R2 이상, Linux 커널 버전 4.11 이상         |
-|사용 가능한 계층     |Premium Storage         |Premium storage, standard storage, 핫, 쿨         |
-|복제     |LRS         |LRS, ZRS, GRS         |
+|[사용 가능한 계층](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium storage, 트랜잭션 최적화, 핫, 쿨         |
+|[중복](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |인증     |호스트 기반 인증만        |Id 기반 인증, 사용자 기반 인증         |
-|사용 권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
+|권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
 |파일 시스템 의미 체계     |POSIX 규격         |POSIX 규격이 아님         |
 |대/소문자 구분     |대/소문자 구분         |대/소문자 구분하지 않음         |
 |하드 링크 지원     |지원됨         |지원되지 않음         |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230836"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567539"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -25,11 +25,11 @@ ms.locfileid: "89230836"
 
 전역 매개 변수를 만들려면 [ *관리* ] 섹션의 [ *전역 매개 변수* ] 탭으로 이동 하세요. **새로** 만들기를 선택 하 여 만들기-탐색을 엽니다.
 
-![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-1.png)
+![전역 매개 변수를 만들기 위해 선택한 새 단추를 강조 표시 하는 스크린샷](media/author-global-parameters/create-global-parameter-1.png)
 
 Side-by-side 탐색에서 이름을 입력 하 고, 데이터 형식을 선택 하 고, 매개 변수 값을 지정 합니다.
 
-![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-2.png)
+![새 전역 매개 변수에 대 한 이름, 데이터 형식 및 값을 추가 하는 위치를 보여 주는 스크린샷](media/author-global-parameters/create-global-parameter-2.png)
 
 전역 매개 변수를 만든 후에는 매개 변수의 이름을 클릭 하 여 해당 매개 변수를 편집할 수 있습니다. 한 번에 여러 매개 변수를 변경 하려면 **모두 편집**을 선택 합니다.
 

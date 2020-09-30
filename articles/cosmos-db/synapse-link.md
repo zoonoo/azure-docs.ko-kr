@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397337"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567998"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Microsoft Azure Cosmos DB용 Synapse Link(미리 보기)란?
 
@@ -56,7 +56,7 @@ Azure Synapse Link를 통해 운영 분석을 위한 비용에 최적화된 완�
 Microsoft Azure Cosmos DB 분석 저장소는 실행된 데이터 스토리지 및 분석 읽기/쓰기 작업과 쿼리를 기반으로 하는 소비 기반 가격 책정 모델을 따릅니다. 오늘날의 트랜잭션 워크로드와 마찬가지로 처리량을 프로비저닝할 필요가 없습니다. Azure Synapse Analytics의 매우 탄력적인 컴퓨팅 엔진으로 데이터에 액세스하면 스토리지와 컴퓨팅을 실행하는 데 드는 전체 비용을 매우 효율적으로 관리할 수 있습니다.
 
 
-### <a name="analytics-for-locally-available-globally-distributed-multi-master-data"></a>로컬로 사용 가능하고 전역적으로 분산된 다중 마스터 데이터에 대한 분석
+### <a name="analytics-for-locally-available-globally-distributed-multi-region-writes"></a>로컬에서 사용할 수 있고 전 세계적으로 분산 되어 있는 다중 지역 쓰기에 대 한 분석
 
 Microsoft Azure Cosmos DB에서 데이터의 가장 가까운 지역 복사본을 대상으로 분석 쿼리를 효과적으로 실행할 수 있습니다. Microsoft Azure Cosmos DB는 활성-활성 방식으로 트랜잭션 워크로드와 함께 전역적으로 분산된 분석 워크 로드를 실행하는 최신 기능을 제공합니다.
 

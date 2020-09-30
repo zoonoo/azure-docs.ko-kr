@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180289"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567437"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -23,6 +23,7 @@ ms.locfileid: "89180289"
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
 - Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA, MARS(Microsoft Azure Recovery Services) 에이전트, MABS(Microsoft Azure Backup Server) 및 System Center DPM(Data Protection Manager)에서 Backup 보고서가 지원됩니다. Azure 파일 공유 백업의 경우 2020 년 6 월 1 일 이후에 생성 된 모든 레코드에 대해 데이터가 표시 됩니다.
+- Azure 파일 공유 백업에서 보호 된 인스턴스의 데이터는 현재 보고서에 표시 되지 않습니다. 모든 백업 항목에 대해 기본값은 0입니다.
 - DPM 워크로드의 경우 DPM 버전 5.1.363.0 이상 및 에이전트 버전 2.0.9127.0 이상에서 Backup 보고서가 지원됩니다.
 - MABS 워크로드의 경우 MABS 버전 13.0.415.0 이상 및 에이전트 버전 2.0.9170.0 이상에서 Backup 보고서가 지원됩니다.
 - 사용자가 액세스할 수 있는 Log Analytics 작업 영역으로 데이터가 전송되는 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 Backup 보고서를 볼 수 있습니다. 자격 증명 모음 집합에 대한 보고서를 보려면 자격 증명 모음이 데이터를 보내는 Log Analytics 작업 영역에 대한 읽기 권한만 있으면 됩니다. 개별 자격 증명 모음에 대한 액세스 권한은 필요 없습니다.
@@ -82,7 +83,7 @@ Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후
 
    ![Backup 항목 탭](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>사용량
+##### <a name="usage"></a>사용
 
 이 탭을 사용 하 여 백업에 대 한 주요 청구 매개 변수를 볼 수 있습니다. 이 탭에 표시되는 정보는 청구 엔터티(보호된 컨테이너) 수준에 있습니다. 예를 들어 DPM 서버를 Azure에 백업 하는 경우 DPM 서버에 사용 되는 보호 된 인스턴스 및 클라우드 저장소의 추세를 볼 수 있습니다. 마찬가지로 Azure Backup에서 SQL을 사용하거나 Azure Backup에서 SAP HANA를 사용하는 경우 이 탭은 이러한 데이터베이스가 들어 있는 가상 머신 수준에서 사용 관련 정보를 제공합니다.
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e006dd690e9c008afada8a490da6c3238bc0791
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536473"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565414"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps의 통합 계정에 대 한 지역 간 재해 복구 설정
 
@@ -98,15 +98,15 @@ EDI X12 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합
 
 3. 연결 이름을 입력하고, 목록에서 *주 지역 통합 계정*을 선택하고, **만들기**를 선택합니다.   
 
-   ![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![연결 이름을 입력 하 고 주 지역 통합 계정을 선택할 수 있는 위치를 보여 주는 스크린샷 ](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
 4. **컨트롤 번호 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도****일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.   
 
-   ![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![컨트롤 번호 동기화를 시작 하는 날짜/시간 설정을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 5. **새 단계** > **작업 추가**를 선택합니다.
 
-   ![새 단계 후 작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![새 단계 단추와 작업 추가 옵션을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 6. **X12**를 검색하고 **X12 - 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
 
@@ -114,11 +114,11 @@ EDI X12 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합
 
 7. 작업을 보조 지역 통합 계정에 연결 하려면 **Change connection**  >  사용 가능한 통합 계정 목록에 대해 연결 변경**새 연결 추가** 를 선택 합니다. 연결 이름을 입력하고 목록에서 *보조 지역 통합 계정*을 선택한 후 **만들기**를 선택합니다. 
 
-   ![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![보조 지역 통합 계정 이름을 추가할 위치를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 8. 오른쪽 위 모서리에 있는 아이콘을 클릭하여 원시 입력으로 전환합니다.
 
-   ![원시 입력으로 전환](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Raw로 전환 하기 위해 선택할 아이콘을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
 9. 동적 콘텐츠 선택기에서 본문을 선택하고 논리 앱을 저장합니다.
 
@@ -140,7 +140,7 @@ EDI EDIFACT 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로
 
 인바운드 메시지에 대해 재해 복구를 사용하도록 설정하려면 EDIFACT 규약 수신 설정에서 중복 확인 설정을 선택합니다.
 
-![중복된 검사 설정 선택](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![EDIFACT 규약의 수신 설정에서 중복 확인 설정을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
 1. 보조 지역에 [논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 만듭니다.    
 
@@ -157,27 +157,27 @@ EDI EDIFACT 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로
 
 4. **컨트롤 번호 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도****일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.    
 
-   ![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![DateTime 및 Frequency 설정을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 6. **새 단계** > **작업 추가**를 선택합니다.    
 
-   ![새 단계 후 작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![작업 추가를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 7. **EDIFACT**를 검색하고 **EDIFACT - 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
 
-   ![제어 번호를 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![컨트롤 번호를 추가 하거나 업데이트할 위치를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. 작업을 보조 지역 통합 계정에 연결 하려면 **Change connection**  >  사용 가능한 통합 계정 목록에 대해 연결 변경**새 연결 추가** 를 선택 합니다. 연결 이름을 입력하고 목록에서 *보조 지역 통합 계정*을 선택한 후 **만들기**를 선택합니다.
 
-   ![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![보조 지역 통합 계정 이름을 만듭니다.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 9. 오른쪽 위 모서리에 있는 아이콘을 클릭하여 원시 입력으로 전환합니다.
 
-   ![원시 입력으로 전환](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![원시 입력으로 전환 하려는 경우 선택할 아이콘을 강조 표시 하는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. 동적 콘텐츠 선택기에서 본문을 선택하고 논리 앱을 저장합니다.   
 
-   ![동적 콘텐츠 필드](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![본문을 선택할 수 있는 동적 콘텐츠 선택기를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
    시간 간격에 따라 트리거는 주 지역 수신 컨트롤 번호 테이블을 폴링하고 새 레코드를 가져옵니다.
    작업은 레코드를 보조 지역 통합 계정에 업데이트합니다. 
@@ -205,7 +205,7 @@ AS2 프로토콜을 사용하는 문서에 대한 비즈니스 연속성은 메�
    
 3. 연결 이름을 입력하고, 목록에서 *주 지역 통합 계정*을 선택하고, **만들기**를 선택합니다.
 
-   ![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![MIC 값이 만들어질 때 연결 이름을 입력할 위치를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. **MIC 값 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도****일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.   
 

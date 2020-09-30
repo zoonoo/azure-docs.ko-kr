@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690139"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567165"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -23,7 +23,7 @@ ms.locfileid: "88690139"
 
 ## <a name="quotas-and-limits-quick-reference"></a>할당량 및 제한 빠른 참조
 [텍스트 음성 변환 할당량 및 한도](#text-to-speech-quotas-and-limits-per-speech-resource) 로 이동
-### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>음성 리소스 당 음성 텍스트 할당량 및 한도
+### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>음성 리소스당 음성 텍스트 변환 할당량 및 한도
 아래 테이블에서 "조정 가능한" 행이 없는 매개 변수는 모든 가격 책정 계층에 대해 조정할 **수 없습니다** .
 
 | 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
@@ -36,6 +36,7 @@ ms.locfileid: "88690139"
 | **일괄 처리 기록을 위한 최대 입력 blob 크기** | 해당 없음 | 2.5GB |
 | **일괄 처리 기록을 위한 최대 blob 컨테이너 크기** | 해당 없음 | 5GB |
 | **일괄 처리 기록을 위한 컨테이너 당 최대 blob 수** | 해당 없음 | 10000 |
+| **일괄 처리에 대 한 기록 요청당 최대 파일 수 (여러 콘텐츠 Url을 입력으로 사용 하는 경우)** | 해당 없음 | 1000  |
 | **일괄 처리 기록을 위해 동시에 실행 되는 최대 작업 수** | 해당 없음 | 2000  |
 
 <sup>1</sup> **무료 (F0)** 가격 책정 계층에 대해서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)에서 월간 허용량를 참조 하세요.<br/>
@@ -93,9 +94,9 @@ ms.locfileid: "88690139"
 #### <a name="have-the-required-information-ready"></a>필요한 정보가 준비 되어 있어야 합니다.
 - **기본 모델**의 경우:
   - 음성 리소스 ID
-  - 지역
+  - Region
 - **사용자 지정 모델**의 경우: 
-  - 지역
+  - Region
   - 사용자 지정 끝점 ID
 
 - **정보를 가져오는 방법 (기본 모델)**:  

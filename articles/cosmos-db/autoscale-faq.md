@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708005"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567590"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
 
@@ -37,14 +37,14 @@ ms.locfileid: "90708005"
 매 시간마다 시스템이 해당 시간 내에 크기 조정된 최고 처리량 `T`에 대해 요금이 청구됩니다. 해당 시간 동안 리소스에 요청이 없거나 `0.1 * Tmax` 이상으로 확장되지 않은 경우 최소값 `0.1 * Tmax`에 대해 요금이 청구됩니다. 자세한 내용은 Azure Cosmos DB [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>자동 크기 조정은 청구서에 어떻게 표시되나요?
-단일 마스터 계정에서 100RU/s당 자동 크기 조정 요금은 표준(수동) 프로비전된 처리량 요금의 1.5배입니다. 청구서에는 기존 표준 프로비전된 처리량 미터가 표시됩니다. 이 미터의 수량에 1.5를 곱합니다. 예를 들어 시스템이 특정 시간 중에 최고 6,000RU/s까지 크기 조정되었다면 해당 시간에 대해 미터의 60 * 1.5 = 90단위가 청구됩니다.
+단일 쓰기 지역 계정에서 100 r u/초 당 자동 크기 조정 속도는 1.5 x 표준 (수동) 프로 비전 된 처리량의 속도입니다. 청구서에는 기존 표준 프로비전된 처리량 미터가 표시됩니다. 이 미터의 수량에 1.5를 곱합니다. 예를 들어 시스템이 특정 시간 중에 최고 6,000RU/s까지 크기 조정되었다면 해당 시간에 대해 미터의 60 * 1.5 = 90단위가 청구됩니다.
 
-다중 마스터 계정에서 100RU/s당 자동 크기 조정 요금은 표준(수동) 프로비전된 다중 마스터 처리량의 요금과 동일합니다. 청구서에는 기존 다중 마스터 측정기가 표시됩니다. 요금은 동일하므로 자동 크기 조정을 사용하는 경우에도 표준 처리량과 동일한 수량이 표시됩니다.
+여러 쓰기 지역이 있는 계정에서 100 r u/초 당 자동 크기 조정 속도는 표준 (수동) 프로 비전 된 여러 쓰기 지역 처리량과 동일 합니다. 청구서에 기존 다중 쓰기 지역 측정기가 표시 됩니다. 요금은 동일하므로 자동 크기 조정을 사용하는 경우에도 표준 처리량과 동일한 수량이 표시됩니다.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>자동 크기 조정 기능은 예약된 용량에 적용되나요?
-예. 단일 마스터 예약된 용량을 구입하면 자동 크기 조정 리소스에 대한 예약 할인이 1.5 * [특정 지역 비율](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region)로 미터 사용량에 적용됩니다. 
+예. 여러 쓰기 지역이 있는 계정에 대해 예약 된 용량을 구매 하는 경우 자동 크기 조정 리소스에 대 한 예약 할인은 [특정 지역의 비율](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region)을 기준으로 미터 1.5 사용에 적용 됩니다. 
 
-다중 마스터 예약된 용량은 자동 크기 조정 프로비전된 처리량과 표준(수동) 프로비전된 처리량에서 동일하게 적용됩니다. [Azure Cosmos DB 예약된 용량](cosmos-db-reserved-capacity.md)을 참조하세요.
+다중 쓰기 지역 예약 용량은 자동 크기 조정 및 표준 (수동) 프로 비전 된 처리량에 대해 동일 하 게 작동 합니다. [Azure Cosmos DB 예약된 용량](cosmos-db-reserved-capacity.md)을 참조하세요.
 
 ### <a name="does-autoscale-work-with-free-tier"></a>자동 크기 조정은 무료 계층에 적용되나요?
 예. 무료 계층에서는 컨테이너에서 자동 크기 조정 처리량을 사용할 수 있습니다. 사용자 지정 최대 RU/s를 사용하는 자동 크기 조정 공유 처리량 데이터베이스에 대한 지원은 아직 사용할 수 없습니다. [무료 계층 청구가 자동 크기 조정에 적용되는 방식](understand-your-bill.md#billing-examples-with-free-tier-accounts)을 참조하세요.
@@ -52,7 +52,7 @@ ms.locfileid: "90708005"
 ### <a name="is-autoscale-supported-for-all-apis"></a>모든 API에 대해 자동 크기 조정이 지원되나요?
 예, 자동 크기 조정은 모든 API에 대해 지원됩니다. Core(SQL), Gremlin, Table, Cassandra 및 API for MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>다중 마스터 계정에 대해 자동 크기 조정이 지원되나요?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>다중 지역 쓰기 계정에 대해 자동 크기 조정이 지원 되나요?
 예. 최대 RU/s는 Azure Cosmos DB 계정에 추가된 각 지역에서 사용할 수 있습니다. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>새 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하려면 어떻게 해야 하나요??

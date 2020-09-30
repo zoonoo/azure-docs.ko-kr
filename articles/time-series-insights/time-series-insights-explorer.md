@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487303"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568639"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Gen1 탐색기 Azure Time Series Insights
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights Gen1 [Explorer 웹 앱](https://insights.timeseries.azure.com/)에 대 한 기능 및 옵션을 설명 합니다. Azure Time Series Insights 탐색기는 서비스에서 제공 하는 강력한 데이터 시각화 기능을 보여 주며 사용자 환경 내에서 액세스할 수 있습니다.
 
@@ -37,7 +40,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >이전 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Azure Time Series Insights 시작"을 재생 합니다.</a>
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 준비 사항
 
 Azure Time Series Insights 탐색기를 사용 하려면 먼저 다음을 수행 해야 합니다.
 
@@ -71,7 +74,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
 
       - **조건자**: 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 하려면 조건자를 사용 합니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
-         |작업(Operation)  |지원되는 형식  |참고  |
+         |작업(Operation)  |지원되는 형식  |메모  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=**, **!=**, **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
@@ -108,7 +111,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
 
 1. **열 지도** 를 사용 하 여 지정 된 쿼리에서 고유 하거나 비정상 데이터 계열을 빠르게 찾을 수 있습니다. 하나의 검색 기간만 열 지도로 시각화할 수 있습니다.
 
-    [![Time Series Insights 탐색기 열 지도 차트 ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series Insights 탐색기 열 지도 차트](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (미디어/시간 계열-insights-탐색기/tsi-ga-example-heatmap-charting.png # 작게 보기)
 
 1. 이벤트를 선택 하거나 마우스 오른쪽 단추로 클릭 하 여 이벤트를 탐색할 때 **이벤트** 패널을 사용할 수 있습니다. 여기에서 모든 원시 이벤트를 검토 하 고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Azure Time Series Insights 모든 원시 데이터를 저장 합니다.
 

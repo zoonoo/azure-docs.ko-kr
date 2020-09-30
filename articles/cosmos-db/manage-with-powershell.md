@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: fa3d044bbbce2a8c85f01517b918ffc57c10c759
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0792a885006cf3050002c0e275eff2850afb81c7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316208"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566808"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -109,7 +109,7 @@ Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName
 * 기본 일관성 정책 변경
 * IP 범위 필터 변경
 * Virtual Network 구성 변경
-* 다중 마스터 사용
+* 다중 지역 쓰기 사용
 
 > [!NOTE]
 > 영역(`locations`)을 추가하거나 제거하면서 동시에 Azure Cosmos 계정에 대한 다른 속성을 변경할 수 없습니다. 지역을 수정하는 작업은 계정에 대한 다른 변경과는 별도의 작업으로 수행해야 합니다.
@@ -166,7 +166,7 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
-### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a> Azure Cosmos 계정에 여러 쓰기 지역 사용
+### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-region-writes"></a> Azure Cosmos 계정에 여러 쓰기 지역 사용
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -175,13 +175,13 @@ $enableAutomaticFailover = $false
 $enableMultiMaster = $true
 
 # First disable automatic failover - cannot have both automatic
-# failover and multi-master on an account
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
     -EnableAutomaticFailover:$enableAutomaticFailover
 
-# Now enable multi-master
+# Now enable multi-region writes
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
@@ -219,7 +219,7 @@ Update-AzCosmosDBAccount `
 
 ### <a name="list-account-keys"></a><a id="list-keys"></a> 계정 키 나열
 
-Azure Cosmos 계정이 만들어지면 서비스에서 Azure Cosmos 계정에 액세스할 때 인증하는 데 사용할 수 있는 두 개의 마스터 액세스 키를 생성합니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 생성합니다.
+Azure Cosmos 계정을 만들 때 서비스는 Azure Cosmos 계정에 액세스할 때 인증에 사용할 수 있는 두 가지 기본 액세스 키를 생성 합니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 생성합니다.
 두 개의 액세스 키를 제공하면 Azure Cosmos DB를 통해 Azure Cosmos 계정을 중단하지 않고 한 번에 하나의 키를 다시 생성하고 회전시킬 수 있습니다.
 Cosmos DB 계정에는 두 개의 읽기-쓰기 키(기본 및 보조) 및 두 개의 읽기 전용 키(기본 및 보조)가 있습니다.
 
@@ -273,8 +273,8 @@ $accountName = "mycosmosaccount"
 $enableAutomaticFailover = $true
 $enableMultiMaster = $false
 
-# First disable multi-master - cannot have both automatic
-# failover and multi-master on an account
+# First disable multi-region writes - cannot have both automatic
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `

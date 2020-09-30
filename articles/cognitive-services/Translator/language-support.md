@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534065"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568100"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -38,6 +38,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |:-----|:-----:|
 |아프리칸스어| `af`|
 |아랍어|    `ar`    |
+|아삼어|  `as`    |
 |벵골어|    `bn`    |
 |보스니아어(라틴 문자)|   `bs`    |
 |불가리아어| `bg`    |

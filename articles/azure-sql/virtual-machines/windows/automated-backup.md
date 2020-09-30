@@ -13,21 +13,21 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa6a9114635ddc7935f7923a1552ad1583625ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299109"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565142"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
-> * [SQL Server 2016/2017](automated-backup.md)
+> * [SQL Server 2016 이상](automated-backup.md)
 
-자동화된 백업 v2에서는 SQL Server 2016/2017 Standard, Enterprise 또는 Developer 버전을 실행하는 Azure VM에서 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob Storage를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업 v2는 [SQL Server IaaS(서비스 제공 인프라) 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 따라 달라집니다.
+자동화 된 Backup v2는 SQL Server 2016 이상 Standard, Enterprise 또는 Developer edition을 실행 하는 Azure VM의 모든 기존 및 새 데이터베이스에 대 한 [Microsoft Azure에 대 한 관리 되는 백업을](https://msdn.microsoft.com/library/dn449496.aspx) 자동으로 구성 합니다. 이를 통해 지속형 Azure Blob Storage를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업 v2는 [SQL Server IaaS(서비스 제공 인프라) 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 따라 달라집니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -42,17 +42,14 @@ ms.locfileid: "91299109"
 
 - SQL Server 2016 이상: Developer, Standard 또는 Enterprise
 
-> [!IMPORTANT]
-> 자동화된 백업 v2는 SQL Server 2016 이상에서 작동합니다. SQL Server 2014를 사용하는 경우 자동화된 Backup v1을 사용하여 데이터베이스를 백업할 수 있습니다. 자세한 내용은 [SQL Server 2014 Azure 가상 머신에서 자동화된 백업](automated-backup-sql-2014.md)을 참조하세요.
+> [!NOTE]
+> SQL Server 2014의 경우 [SQL Server 2014에 대 한 자동화 된 백업](automated-backup-sql-2014.md)을 참조 하세요.
 
 **데이터베이스 구성**:
 
-- 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
-- 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다.
-- 대상 데이터베이스는 기본 SQL Server 인스턴스 또는 [제대로 설치된](frequently-asked-questions-faq.md#administration) 명명된 인스턴스에 있어야 합니다. 
-
-> [!NOTE]
-> 자동화된 Backup은 **SQL Server IaaS 에이전트 확장**에 의존합니다. 현재 SQL 가상 머신 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 참조하세요.
+- 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용 해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요. 
+- SQL Server VM는 [전체 관리 모드로](sql-vm-resource-provider-register.md#upgrade-to-full)SQL VM 리소스 공급자에 등록 되었습니다. 
+-  자동화 된 백업은 전체 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 의존 합니다. 따라서 자동화 된 백업은 기본 인스턴스의 대상 데이터베이스나 단일 명명 된 인스턴스로만 지원 됩니다. 기본 인스턴스 및 여러 개의 명명 된 인스턴스가 없는 경우 SQL IaaS 확장이 실패 하 고 자동화 된 백업이 작동 하지 않습니다. 
 
 ## <a name="settings"></a>설정
 다음 표에서는 자동화된 Backup v2에 대해 구성할 수 있는 옵션을 설명합니다. 실제 구성 단계는 Azure 포털 또는 Azure Windows PowerShell 명령 사용 여부에 따라 달라집니다.

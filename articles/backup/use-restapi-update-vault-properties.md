@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007114"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567828"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -30,20 +30,20 @@ ms.locfileid: "89007114"
 자격 증명 모음에 대 한 일시 삭제의 현재 상태를 인출 하려면 다음 *가져오기* 작업을 사용 합니다.
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 GET URI에는 `{subscriptionId}` , `{vaultName}` `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에 제공 되므로 별도의 요청 본문이 필요 하지 않습니다.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>응답
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|Name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
@@ -65,16 +65,16 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 상태 업데이트
 
-REST API를 사용 하 여 Recovery Services 자격 증명 모음의 일시 삭제 상태를 업데이트 하려면 다음 *패치* 작업을 사용 합니다.
+REST API를 사용 하 여 Recovery Services 자격 증명 모음의 일시 삭제 상태를 업데이트 하려면 다음 *PUT* 작업을 사용 합니다.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-패치 URI에는 `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. URI를 위의 값으로 바꾸면 URI가 다음과 같이 표시 됩니다.
+PUT URI에는 `{subscriptionId}` , `{vaultName}` `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. URI를 위의 값으로 바꾸면 URI가 다음과 같이 표시 됩니다.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>요청 본문 만들기
@@ -83,12 +83,12 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
-|Name  |필수  |Type  |설명  |
+|이름  |필수  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   문자열      |  선택적 eTag       |
-|위치     |  true       |문자열         |   리소스 위치      |
+|eTag     |         |   String      |  선택적 eTag       |
+|위치     |  true       |String         |   리소스 위치      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
-|tags     |         | Object        |     리소스 태그    |
+|tags     |         | 개체        |     리소스 태그    |
 
 #### <a name="example-request-body"></a>요청 본문 예제
 
@@ -107,7 +107,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|Name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 25f3b1e6a01ba190dffaa8c43534a5e23b7d9b23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299122"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565125"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 가상 머신에서 자동화된 백업(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,27 +34,24 @@ ms.locfileid: "91299122"
 ## <a name="prerequisites"></a>필수 구성 요소
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
+
 **운영 체제**:
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 이상 
 
 **SQL Server 버전**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> 자동화된 Backup은 SQL Server 2014에서 작동합니다. SQL Server 2016/2017을 사용하는 경우 자동화된 Backup v2를 사용하여 데이터베이스를 백업할 수 있습니다. 자세한 내용은 [SQL Server 2016 가상 머신의 자동화된 백업 v2](automated-backup.md)를 참조하세요.
+> [!NOTE]
+> SQL 2016 이상에 대 한 [SQL Server 2016의 자동화 된 백업](automated-backup.md)을 참조 하세요.
 
 **데이터베이스 구성**:
 
-- 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
-- 대상 데이터베이스는 기본 SQL Server 인스턴스에 있어야 합니다. SQL Server IaaS 에이전트 확장은 명명된 인스턴스를 지원하지 않습니다.
-
-> [!NOTE]
-> 자동화된 Backup은 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 머신 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 참조하세요.
+- 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용 해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요. 
+- SQL Server VM는 [전체 관리 모드로](sql-vm-resource-provider-register.md#upgrade-to-full)SQL VM 리소스 공급자에 등록 되었습니다. 
+-  자동화 된 백업은 전체 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 의존 합니다. 따라서 자동화 된 백업은 기본 인스턴스의 대상 데이터베이스나 단일 명명 된 인스턴스로만 지원 됩니다. 기본 인스턴스 및 여러 개의 명명 된 인스턴스가 없는 경우 SQL IaaS 확장이 실패 하 고 자동화 된 백업이 작동 하지 않습니다. 
 
 ## <a name="settings"></a>설정
 

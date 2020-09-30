@@ -3,12 +3,12 @@ title: 미디어 그래프 개념-Azure
 description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대 한 자세한 설명을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567941"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567081"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -41,7 +41,7 @@ IoT Edge의 Live Video Analytics를 사용 하면 "graph 토폴로지" 및 "grap
 그래프 토폴로지 및 그래프 인스턴스의 수명 주기는 다음 상태 다이어그램에 표시 됩니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="그래프 토폴로지 및 그래프 인스턴스 수명 주기":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="미디어 그래프":::
 
 [그래프 토폴로지를 만드는](direct-methods.md#graphtopologyset)것으로 시작 합니다. 그런 다음이 토폴로지에서 처리 하려는 각 라이브 비디오 피드에 대해 [그래프 인스턴스를 만듭니다](direct-methods.md#graphinstanceset). 
 
@@ -70,7 +70,7 @@ IoT Edge의 Live Video Analytics는 미디어 그래프 내에서 다음과 같�
 
 #### <a name="rtsp-source"></a>RTSP 원본 
 
-RTSP 원본 노드를 사용 하면 [RTSP] (서버에서 미디어를 수집할 수 있습니다 https://tools.ietf.org/html/rfc2326 . 감시 및 IP 기반 카메라는 휴대폰 및 비디오 카메라와 같은 다른 종류의 장치와 다른 RTSP (실시간 스트리밍 프로토콜) 라는 프로토콜에서 데이터를 전송 합니다. 이 프로토콜은 서버 (카메라)와 클라이언트 간의 미디어 세션을 설정 하 고 제어 하는 데 사용 됩니다. 미디어 그래프의 RTSP 원본 노드는 클라이언트 역할을 하며 RTSP 서버를 사용 하 여 세션을 설정할 수 있습니다. 대부분의 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera) 와 같은 장치에는 기본 제공 RTSP 서버가 있습니다. [Onvif](https://www.onvif.org/) 는 [프로필 G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) 규격 장치 정의에서 RTSP를 지원 하도록 요구 합니다. RTSP 원본 노드에서는 인증 된 연결을 사용 하도록 설정 하는 자격 증명과 함께 RTSP URL을 지정 해야 합니다.
+RTSP 원본 노드를 사용 하면 [rtsp](https://tools.ietf.org/html/rfc2326 server)에서 미디어를 수집할 수 있습니다. 감시 및 IP 기반 카메라는 휴대폰 및 비디오 카메라와 같은 다른 종류의 장치와 다른 RTSP (실시간 스트리밍 프로토콜) 라는 프로토콜에서 데이터를 전송 합니다. 이 프로토콜은 서버 (카메라)와 클라이언트 간의 미디어 세션을 설정 하 고 제어 하는 데 사용 됩니다. 미디어 그래프의 RTSP 원본 노드는 클라이언트 역할을 하며 RTSP 서버를 사용 하 여 세션을 설정할 수 있습니다. 대부분의 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera) 와 같은 장치에는 기본 제공 RTSP 서버가 있습니다. [Onvif](https://www.onvif.org/) 는 [프로필 G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) 규격 장치 정의에서 RTSP를 지원 하도록 요구 합니다. RTSP 원본 노드에서는 인증 된 연결을 사용 하도록 설정 하는 자격 증명과 함께 RTSP URL을 지정 해야 합니다.
 
 #### <a name="iot-hub-message-source"></a>IoT Hub 메시지 원본 
 

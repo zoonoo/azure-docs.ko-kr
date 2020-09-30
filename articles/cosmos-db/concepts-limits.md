@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400063"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567556"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -154,11 +154,11 @@ Azure Cosmos DB는 컨테이너, 항목, 데이터베이스 등의 리소스에 
 
 쿼리와 같은 작업은 실행 시간 제한 또는 응답 크기 제한에 도달하면 실행을 다시 시작하기 위해 결과 페이지와 연속 토큰을 클라이언트에 반환합니다. 단일 쿼리가 페이지/연속 작업에서 실행되는 시간에 대한 실질적인 제한은 없습니다.
 
-Cosmos DB는 권한 부여에 HMAC를 사용합니다. 마스터 키 또는 [리소스 토큰](secure-access-to-data.md)을 사용하여 컨테이너, 파티션 키 또는 항목과 같은 리소스에 대한 액세스 권한을 정교하게 제어할 수 있습니다. 다음 표에는 Cosmos DB의 권한 부여 토큰에 대한 제한이 나열되어 있습니다.
+Cosmos DB는 권한 부여에 HMAC를 사용합니다. 컨테이너, 파티션 키 또는 항목과 같은 리소스에 대 한 세분화 된 액세스 제어를 위해 기본 키 또는 [리소스 토큰](secure-access-to-data.md) 을 사용할 수 있습니다. 다음 표에는 Cosmos DB의 권한 부여 토큰에 대한 제한이 나열되어 있습니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 최대 마스터 토큰 만료 시간 | 15분  |
+| 최대 기본 토큰 만료 시간 | 15분  |
 | 최소 리소스 토큰 만료 시간 | 10분  |
 | 최대 리소스 토큰 만료 시간 | 기본값은 24시간입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다.|
 | 토큰 권한 부여의 최대 클럭 스큐| 15분 |
@@ -171,7 +171,7 @@ Azure Cosmos DB는 각 계정에 대 한 시스템 메타 데이터를 유지 �
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-|최대 컬렉션 만들기 빈도 rer 분| 5|
+|분당 최대 컬렉션 생성 률| 5|
 |분당 최대 데이터베이스 생성 율|   5|
 |분당 프로 비전 된 최대 처리량 업데이트 속도| 5|
 

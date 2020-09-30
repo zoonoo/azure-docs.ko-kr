@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090334"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565262"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>인증서를 사용하여 B2B 메시지에 대한 보안 강화
 
@@ -51,11 +51,11 @@ B2B 기능이 포함된 논리 앱에서 *공용 인증서*를 사용하려면 �
    | **MSSQLSERVER에 대한 프로토콜 속성** | <*인증서-파일 이름*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. |
    ||||
 
-   !["추가" 선택, 인증서 세부 정보 제공](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![추가를 선택 하 여 인증서 세부 정보를 제공 하는 위치를 보여 주는 스크린샷](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    Azure에서는 사용자의 선택 사항이 유효한지 확인한 후 인증서를 업로드합니다.
 
-   ![Azure에서 새 인증서 표시](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Azure에서 새 인증서를 표시 하는 위치를 보여 주는 스크린샷](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>프라이빗 인증서 업로드
 
@@ -86,7 +86,7 @@ B2B 기능이 포함된 논리 앱에서 *프라이빗 인증서*를 사용하�
    | 속성 | 값 | Description | 
    |----------|-------|-------------|
    | **이름** | <*인증서-이름*> | 사용자의 인증서 이름(이 예제의 "privateCert")입니다. | 
-   | **인증서 유형** | 프라이빗 | 인증서의 종류입니다. |
+   | **인증서 유형** | Private | 인증서의 종류입니다. |
    | **MSSQLSERVER에 대한 프로토콜 속성** | <*인증서-파일 이름*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. 개인 키에 대해 키 자격 증명 모음을 사용 하는 경우 업로드 된 파일은 공용 인증서가 됩니다. | 
    | **리소스 그룹** | <*통합-계정-리소스 그룹*> | 통합 계정의 리소스 그룹(이 예제의 "MyResourceGroup")입니다. | 
    | **Key Vault** | <*키 자격 증명 모음-이름*> | Azure Key Vault의 이름입니다. |

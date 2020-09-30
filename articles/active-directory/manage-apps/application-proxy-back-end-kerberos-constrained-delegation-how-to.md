@@ -2,26 +2,21 @@
 title: Kerberos 제한 위임 문제 해결-앱 프록시
 description: 애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760442"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568725"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -38,7 +33,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 - 서버 및 애플리케이션 호스트는 단일 Azure Active Directory 도메인에 상주합니다. 도메인 및 포리스트 간 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)를 참조하세요.
 - 주체 애플리케이션은 사전 인증을 사용하도록 설정하여 Azure 테넌트에 게시됩니다. 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않습니다. 나중에 특정 시점에 추가될 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환경에 배포할 수 있습니다. 아키텍처는 조직마다 다릅니다. KCD 관련 문제의 가장 일반적인 원인은 환경이 아닙니다. 대부분의 문제가 단순한 구성 오류나 일반적인 실수로 인해 발생합니다.
 
@@ -165,7 +160,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 ## <a name="other-scenarios"></a>기타 시나리오
 
-- Azure 애플리케이션 프록시는 애플리케이션에 요청을 보내기 전에 Kerberos 티켓을 요청합니다. 일부 타사 응용 프로그램은이 인증 방법을 원하지 않습니다. 이러한 애플리케이션은 보다 일반적인 협상이 수행될 것으로 예상합니다. 첫 번째 요청은 익명으로 처리되므로 애플리케이션이 401을 통해 지원하는 인증 유형으로 응답할 수 있습니다.
+- Azure 애플리케이션 프록시는 애플리케이션에 요청을 보내기 전에 Kerberos 티켓을 요청합니다. 일부 타사 응용 프로그램은이 인증 방법을 원하지 않습니다. 이러한 애플리케이션은 보다 일반적인 협상이 수행될 것으로 예상합니다. 첫 번째 요청은 익명으로 처리되므로 애플리케이션이 401을 통해 지원하는 인증 유형으로 응답할 수 있습니다. 이 유형의 Kerberos 협상은 [Single Sign-On에 대 한 Kerberos 제한 위임](application-proxy-configure-single-sign-on-with-kcd.md)문서에 설명 된 단계를 사용 하 여 설정할 수 있습니다.
 - 다중 홉 인증은 일반적으로 SQL Server Reporting Services와 같이 둘 다 인증이 필요한 백 엔드 및 프런트 엔드를 사용하여 애플리케이션이 계층화된 시나리오에서 사용됩니다. 다중 홉 시나리오를 구성 하려면 지원 문서 [멀티 홉 시나리오에서 Kerberos 제한 위임에 프로토콜 전환이 필요할 수 있음](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계

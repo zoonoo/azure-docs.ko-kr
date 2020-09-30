@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91529940"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565329"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 브로커 (미리 보기)
 
@@ -28,16 +28,6 @@ ms.locfileid: "91529940"
 
 설정 b는 암호 해시를 AAD와 동기화 할 필요 없이 OAuth (최신)에서 Kerberos (레거시)로의 프로토콜 전환을 가능 하 게 하는 인증 인프라를 제공 합니다. 이 인프라는 Windows Server VM (ID 브로커 노드)에서 실행 되는 구성 요소와 함께 클러스터 게이트웨이 노드와 함께 구성 됩니다.
 
-다음 다이어그램에서는 ID Broker를 사용 하도록 설정한 후 페더레이션된 사용자를 포함 하 여 모든 사용자에 대 한 최신 OAuth 기반 인증 흐름을 보여 줍니다.
-
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="ID Broker를 사용 하 여 인증 흐름":::
-
-이 다이어그램에서 클라이언트 (예: 브라우저 또는 앱)는 먼저 OAuth 토큰을 획득 한 다음 HTTP 요청에서 게이트웨이에 토큰을 제공 해야 합니다. Azure Portal와 같은 다른 Azure 서비스에 이미 로그인 한 경우에는 SSO (Single Sign-On) 환경을 사용 하 여 HDInsight 클러스터에 로그인 할 수 있습니다.
-
-기본 인증 (즉, 사용자 이름/암호)만 지 원하는 많은 레거시 응용 프로그램이 있을 수 있습니다. 이러한 시나리오의 경우 여전히 HTTP 기본 인증을 사용 하 여 클러스터 게이트웨이에 연결할 수 있습니다. 이 설정에서는 게이트웨이 노드에서 페더레이션 끝점 (ADFS 끝점)으로의 네트워크 연결을 확인 하 여 게이트웨이 노드에서 직접 시야를 확인 해야 합니다.
-
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="ID Broker를 사용 하 여 인증 흐름":::
-
 다음 표를 사용 하 여 조직 요구 사항에 따라 가장 적합 한 인증 옵션을 결정 합니다.
 
 |인증 옵션 |HDInsight 구성 | 고려해 야 할 요소 |
@@ -45,6 +35,18 @@ ms.locfileid: "91529940"
 | 완전 OAuth | ESP + 전 2 | 1. 가장 안전한 옵션 (MFA 지원 됨) 2.    패스 해시 동기화는 필요 하지 않습니다. 3.  온-프레미스 계정에 대 한 ssh/kinit/keytab 액세스는 없으며, AAD에 암호 해시가 없습니다. 4.   클라우드 전용 계정은 여전히 ssh/kinit/keytab 수 있습니다. 5. Oauth 6을 통한 Ambari에 대 한 웹 기반 액세스  OAuth를 지원 하려면 레거시 앱 (JDBC/ODBC 등)을 업데이트 해야 합니다.|
 | OAuth + 기본 인증 | ESP + 전 2 | 1. Oauth 2를 통한 Ambari에 대 한 웹 기반 액세스 레거시 앱은 계속 기본 인증을 사용 합니다. 3. 기본 인증 액세스에 대해 MFA를 사용 하지 않도록 설정 해야 합니다. 4. 패스 해시 동기화는 필요 하지 않습니다. 5. 온-프레미스 계정에 대 한 ssh/kinit/keytab 액세스는 없으며, AAD에 암호 해시가 없습니다. 6. 클라우드 전용 계정은 여전히 ssh/kinit 할 수 있습니다. |
 | 완전 한 기본 인증 | ESP | 1. 온-프레미스 설정과 가장 유사 합니다. 2. AAD에 암호 해시 동기화가 필요 합니다. 3. 온-프레미스 계정은 ssh/kinit 또는 keytab를 사용할 수 있습니다. 4. 백업 저장소를 ADLS Gen2 하는 경우 MFA를 사용 하지 않도록 설정 해야 합니다. |
+
+다음 다이어그램에서는 ID Broker를 사용 하도록 설정한 후 페더레이션된 사용자를 포함 하 여 모든 사용자에 대 한 최신 OAuth 기반 인증 흐름을 보여 줍니다.
+
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="ID Broker를 사용 하 여 인증 흐름":::
+
+이 다이어그램에서 클라이언트 (예: 브라우저 또는 앱)는 먼저 OAuth 토큰을 획득 한 다음 HTTP 요청에서 게이트웨이에 토큰을 제공 해야 합니다. Azure Portal와 같은 다른 Azure 서비스에 이미 로그인 한 경우에는 SSO (Single Sign-On) 환경을 사용 하 여 HDInsight 클러스터에 로그인 할 수 있습니다.
+
+기본 인증 (즉, 사용자 이름/암호)만 지 원하는 많은 레거시 응용 프로그램이 있을 수 있습니다. 이러한 시나리오의 경우 여전히 HTTP 기본 인증을 사용 하 여 클러스터 게이트웨이에 연결할 수 있습니다. 이 설정에서는 게이트웨이 노드에서 페더레이션 끝점 (AD FS 끝점)으로의 네트워크 연결을 확인 하 여 게이트웨이 노드에서 직접 시야를 확인 해야 합니다. 
+
+다음 다이어그램에서는 페더레이션된 사용자에 대 한 기본 인증 흐름을 보여 줍니다. 먼저 게이트웨이는 [Ropc flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) 를 사용 하 여 인증을 완료 하려고 시도 하며, Azure AD에 동기화 된 암호 해시가 없는 경우 AD FS 끝점을 검색 하 고 AD FS 끝점에 액세스 하 여 인증을 완료 합니다.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="ID Broker를 사용 하 여 인증 흐름":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>HDInsight ID Broker 사용

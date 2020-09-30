@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279566"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566954"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -30,7 +30,6 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 
 ### <a name="premium-ssds"></a>프리미엄 SSD
 
-- 현재 [지역의 하위 집합](#regional-availability)에서만 지원 됩니다.
 - 현재 Azure Resource Manager 또는 SDK 지원으로 제한 되어 있습니다. 
 - OS 디스크가 아닌 데이터 디스크에 대해서만 사용할 수 있습니다.
 - 에서 premium Ssd에는 **읽기 전용** 호스트 캐싱을 사용할 수 없습니다 `maxShares>1` .
@@ -42,24 +41,4 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 
 #### <a name="regional-availability"></a>국가별 가용성
 
-공유 premium Ssd는 다음 지역 에서만 지원 됩니다.
-
-- 미국 동부
-- 미국 동부 2
-- 미국 서부
-- 미국 서부 2
-- 미국 중서부
-- 미국 중남부
-- 미국 중북부
-- 미국 중부
-- 서유럽
-- 북유럽
-- 한국 중부
-- 캐나다 중부
-- 캐나다 동부
-- 일본 동부
-- 일본 서부
-- 동남아시아
-- 동아시아
-- US Gov 버지니아
-- US Gov 애리조나
+공유 premium Ssd는 관리 디스크를 사용할 수 있는 모든 지역에서 사용할 수 있습니다.

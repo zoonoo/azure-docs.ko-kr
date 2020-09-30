@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253194"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567148"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 
@@ -52,7 +52,7 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 
 다음 이미지에서는 Microsoft Azure Cosmos DB의 트랜잭션 행 저장소와 분석 열 저장소를 비교하여 보여줍니다.
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Microsoft Azure Cosmos DB의 트랜잭션 행 저장소와 분석 열 저장소" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="운영 테이블 예" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>분석 워크로드를 위한 분리된 성능
 
@@ -91,7 +91,7 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
 
 ##### <a name="schema-representation"></a>스키마 표현
 
-분석 저장소에는 두 가지 모드의 스키마 표현이 있습니다. 이러한 모드에는 열 표시의 단순성, 다형성 스키마 처리 및 쿼리 환경의 단순함 사이에 장단점이 있습니다.
+분석 저장소에는 두 가지 모드의 스키마 표현이 있습니다. 이러한 모드는 열 표시의 단순성, 다형성 스키마 처리 및 쿼리 환경의 단순함 간에 균형을 제공합니다.
 
 * 잘 정의 된 스키마 표현
 * 전체 충실도 스키마 표현
@@ -149,7 +149,7 @@ salary: 1000000
 | Double |  "float64" |    24.99|
 | 배열 | ". array" |    ["a", "b"]|
 |이진 | "binary" |0|
-|부울    | ". bool"   |참|
+|Boolean    | ". bool"   |참|
 |Int32  | ". int32"  |123|
 |Int64  | ". int64"  |255486129307|
 |Null   | ". null"   | null|
@@ -171,7 +171,7 @@ salary: 1000000
 
 ### <a name="security"></a>보안
 
-분석 저장소를 사용한 인증은 지정된 데이터베이스의 트랜잭션 저장소와 동일합니다. 인증을 위해 마스터 또는 읽기 전용 키를 사용할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Microsoft Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. 이 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
+분석 저장소를 사용한 인증은 지정된 데이터베이스의 트랜잭션 저장소와 동일합니다. 인증에 기본 또는 읽기 전용 키를 사용할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Microsoft Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. 이 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>여러 Azure Synapse Analytics 런타임 지원
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319239"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568049"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Microsoft Azure Cosmos DB용 Synapse Link: 근 실시간 분석 사용 사례
 
@@ -70,7 +70,7 @@ Microsoft Azure Cosmos DB용 [Azure Synapse Link](synapse-link.md)는 클라우�
 
 오늘날 소매업체는 고객 및 비즈니스의 요구를 모두 충족하는 안전하고 확장 가능한 전자 상거래 솔루션을 구축해야 합니다. 이러한 전자 상거래 솔루션은 사용자 지정 제품 및 제안을 통해 고객을 참여시키고, 빠르고 안전하게 트랜잭션을 처리하며, 이행 및 고객 서비스에 집중해야 합니다. Microsoft Azure Cosmos DB와 최신 Microsoft Azure Cosmos DB용 Synapse Link를 통해 소매업체는 고객을 위한 맞춤형 추천을 실시간으로 생성할 수 있습니다. 이들은 즉각적인 인사이트를 얻기 위해 다음 아키텍처와 같이 지연 시간이 짧고 조정 가능한 일관성 설정을 사용합니다.
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="실시간 개인 설정의 Microsoft Azure Cosmos DB용 Synapse Link" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false":::
 
 Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
@@ -82,7 +82,7 @@ Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
 다음은 IoT 예측 유지 관리에 Microsoft Azure Cosmos DB용 Azure Synapse Link의 클라우드 네이티브 HTAP 기능을 활용하는 아키텍처입니다.
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="IOT 예측 유지 관리의 Microsoft Azure Cosmos DB용 Synapse Link" border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false" :::
 
 Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
@@ -92,7 +92,7 @@ Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>샘플 시나리오: Microsoft Azure Cosmos DB용 HTAP
 
-10년 가까이 수천 명의 고객이 트랜잭션 워크로드에서 짧은 읽기 및 쓰기 대기 시간과 고가용성을 위해 탄력적 스케일링, 턴키 글로벌 배포, 다중 마스터 복제가 필요한 중요 업무용 애플리케이션에 Microsoft Azure Cosmos DB를 사용해 왔습니다.
+거의 10 년 동안에는 수천 명의 고객이 트랜잭션 작업에서 쓰기 & 쓰기를 위해 낮은 대기 시간 및 고가용성을 위해 다중 지역 쓰기 복제를 필요로 하는 업무에 중요 한 응용 프로그램에 대 한 Azure Cosmos DB를 사용 했습니다.
  
 다음 목록에서는 Microsoft Azure Cosmos DB를 사용하여 작동 데이터에서 지원되는 다양한 워크로드 패턴의 개요를 보여줍니다.
 
@@ -104,17 +104,17 @@ Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
 Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로드를 지원할 뿐만 아니라 기록 작동 데이터에 대해 근 실시간 분석 워크로드를 수행할 수도 있습니다. 이는 ETL 요구 사항이 없고 트랜잭션 워크로드에서 성능 격리가 보장되는 경우에 한합니다.
 
-다음 이미지에서는 Microsoft Azure Cosmos DB를 사용하는 워크로드 패턴을 보여줍니다. :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Microsoft Azure Cosmos DB용 Synapse Link 워크로드 패턴" border="false":::
+다음 이미지에서는 Microsoft Azure Cosmos DB를 사용하는 워크로드 패턴을 보여줍니다. :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false":::
 
 인벤토리 관리 플랫폼의 트랜잭션 및 분석 요구 사항을 모두 지원하는 단일 실시간 데이터베이스로 Microsoft Azure Cosmos DB를 선택하는 이점을 설명하기 위해 전 세계 20개 국가/지역에서 사업을 운영 중인 전자 상거래 회사 CompanyXYZ를 예로 들어 보겠습니다.
 
 * CompanyXYZ의 핵심 사업은 인벤토리 시스템에 의존하므로 가용성 및 신뢰성이 핵심 기둥 요구 사항입니다. Microsoft Azure Cosmos DB 사용의 이점:
 
-  * Microsoft Azure Cosmos DB는 Azure 인프라 및 투명 다중 마스터 글로벌 복제와의 긴밀한 통합을 통해 지역 중단이 발생하지 않도록 [99.999%에 달하는 업계 최고 수준의 고가용성](high-availability.md)을 제공합니다.
+  * Azure 인프라와의 긴밀 한 통합 및 투명 한 다중 지역 쓰기, Azure Cosmos DB 전역 복제는 지역 가동 중단에 대 한 업계 최고의 [99.999%](high-availability.md) 고가용성을 제공 합니다.
 
 * CompanyXYZ의 공급망 파트너는 서로 다른 지리적 위치에 있지만 현지 운영 지원을 위해 전 세계 제품 인벤토리의 단일 보기가 필요할 수 있습니다. 또한 다른 공급망 파트너가 작성한 업데이트를 실시간으로 읽을 수 있어야 합니다. 처리량이 높아 다른 파트너와의 충돌에 대해 걱정하지 않고 업데이트할 수도 있습니다. Microsoft Azure Cosmos DB 사용의 이점:
 
-  * Microsoft Azure Cosmos DB는 고유한 다중 마스터 복제 프로토콜과 쓰기에 최적화된 무제한 트랜잭션 저장소를 통해 전역적으로 인덱싱된 읽기 및 쓰기 작업 모두에 대해 99번째 백분위수에서 10밀리초 미만의 대기 시간을 보장합니다.
+  * 고유한 다중 지역 쓰기 복제 프로토콜 및 래치 없는 쓰기에 최적화 된 트랜잭션 저장소를 사용 하는 경우 99 번째 백분위 수에서 인덱싱된 읽기와 쓰기 모두에 대해 10 밀리초 미만의 대기 시간을 보장 Azure Cosmos DB.
 
   * 트랜잭션 저장소에서 [실시간 인덱싱](index-policy.md)을 사용하여 일괄 처리와 스트리밍 데이터 피드의 수집 처리량이 높습니다.
 

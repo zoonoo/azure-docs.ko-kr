@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e1121f1d1217ebd48c744135c976587545323f44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179235"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565169"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -62,75 +62,13 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
     >[!NOTE]
     >일단 사용 하도록 설정 하면 관리 되는 Id를 일시적으로 **사용 하지 않도록 설정 해야 합니다** . 관리 id를 사용 하지 않도록 설정 하면 일관 되지 않은 동작이 발생할 수 있습니다.
 
-## <a name="dns-changes"></a>DNS 변경
-
-개인 끝점을 사용 하려면 백업 확장에서 개인 Ip에 대 한 개인 링크 Fqdn을 확인할 수 있도록 사설 DNS 영역이 필요 합니다. 세 개의 개인 DNS 영역이 모두 필요 합니다. 이러한 영역 중 두 개를 mandatorily 만들어야 하는 반면, 세 번째 영역은 개인 끝점을 만드는 동안 개인 끝점과 통합 되도록 옵트인 하거나 별도로 만들 수 있습니다.
-
-사용자 지정 DNS 서버를 사용할 수도 있습니다. 사용자 지정 dns 서버를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 dns 서버의 DNS 변경 내용](#dns-changes-for-custom-dns-servers) 을 참조 하세요.
-
-### <a name="creating-mandatory-dns-zones"></a>필수 DNS 영역 만들기
-
-생성 해야 하는 필수 DNS 영역에는 다음 두 가지가 있습니다.
-
-- `privatelink.blob.core.windows.net` (데이터 백업/복원)
-- `privatelink.queue.core.windows.net` (서비스 통신용)
-
-1. **모든 서비스** 검색 표시줄에서 **사설 DNS 영역** 을 검색 하 고 드롭다운 목록에서 **사설 DNS 영역** 을 선택 합니다.
-
-    ![사설 DNS 영역 선택](./media/private-endpoints/private-dns-zone.png)
-
-1. **사설 DNS 영역** 창에서 **+ 추가** 단추를 선택 하 여 새 영역 만들기를 시작 합니다.
-
-1. **개인 DNS 영역 만들기** 창에서 필요한 세부 정보를 입력 합니다. 구독은 개인 끝점이 생성 될 위치와 동일 해야 합니다.
-
-    영역 이름을 다음과 같이 지정 해야 합니다.
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **영역**                           | **서비스** | **구독 및 리소스 그룹 (RG) 세부 정보**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다.  **rg**의 rg 또는 개인 끝점의 rg |
-    | `privatelink.queue.core.windows.net` | 큐       | **RG**: VNET의 RG 또는 개인 끝점의 rg |
-
-    ![사설 DNS 영역 만들기](./media/private-endpoints/create-private-dns-zone.png)
-
-1. 완료 되 면 검토 하 고 DNS 영역을 만듭니다.
-
-### <a name="optional-dns-zone"></a>선택적 DNS 영역
-
-서비스 통신을 위해 개인 끝점을 전용 DNS Azure Backup 영역과 통합 하도록 선택할 수 있습니다 ( [백업에 대 한 개인 끝점 만들기 및 사용](#creating-and-using-private-endpoints-for-backup)섹션에서 설명). 를 개인 DNS 영역과 통합 하지 않으려는 경우 자체 DNS 서버를 사용 하거나 개별적으로 개인 DNS 영역을 만들 수 있습니다. 이는 이전 섹션에서 설명한 두 가지 필수 개인 DNS 영역에 추가 된 것입니다.
-
-Azure에서 별도의 개인 DNS 영역을 만들려는 경우에는 필수 DNS 영역을 만드는 데 사용 된 것과 동일한 단계를 사용 하 여 동일한 작업을 수행할 수 있습니다. 이름 지정 및 구독 세부 정보는 아래와 같습니다.
-
-| **영역**                                                     | **서비스** | **구독 및 리소스 그룹 정보**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **참고**: *지역은 지역 코드* 를 참조 합니다. 예를 들어 미국 서 부 중부 및 유럽 서 부에 대 한 *wcus* 및 *ne* 가 각각 있습니다. | Backup      | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다.  **rg**: 구독 내 모든 RG |
-
-지역 코드는 [이 목록을](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) 참조 하십시오.
-
-국가 지역의 URL 명명 규칙:
-
-- [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [독일](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-### <a name="linking-private-dns-zones-with-your-virtual-network"></a>가상 네트워크와 개인 DNS 영역 연결
-
-위에서 만든 DNS 영역은 이제 백업할 서버가 있는 가상 네트워크에 연결 되어야 합니다. 사용자가 만든 모든 DNS 영역에 대해이 작업을 수행 해야 합니다.
-
-1. 이전 단계에서 만든 DNS 영역으로 이동 하 여 왼쪽 막대의 **가상 네트워크 링크** 로 이동 합니다. 이 경우 **+ 추가** 단추를 선택 합니다.
-1. 필요한 세부 정보를 입력 합니다. **구독** 및 **가상 네트워크** 필드는 서버가 있는 가상 네트워크의 해당 세부 정보로 채워야 합니다. 다른 필드는 그대로 유지 해야 합니다.
-
-    ![가상 네트워크 링크 추가](./media/private-endpoints/add-virtual-network-link.png)
-
 ## <a name="grant-permissions-to-the-vault-to-create-required-private-endpoints"></a>자격 증명 모음에 필요한 개인 끝점을 만들 수 있는 권한 부여
 
 Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모음 (자격 증명 모음의 관리 Id)에 다음 리소스 그룹에 대 한 권한이 있어야 합니다.
 
 - 대상 VNet을 포함 하는 리소스 그룹입니다.
 - 개인 끝점을 만들 리소스 그룹입니다.
-- 사설 DNS 영역을 포함 하는 리소스 그룹
+- [여기](#creating-private-endpoints-for-backup) 에 자세히 설명 된 대로 사설 DNS 영역을 포함 하는 리소스 그룹
 
 이러한 세 개의 리소스 그룹에 대 한 **참가자** 역할을 자격 증명 모음 (관리 id)에 부여 하는 것이 좋습니다. 다음 단계에서는 특정 리소스 그룹에 대해이 작업을 수행 하는 방법을 설명 합니다 .이 작업은 세 가지 리소스 그룹 각각에 대해 수행 해야 합니다.
 
@@ -173,6 +111,8 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 
         ![구성 탭 채우기](./media/private-endpoints/configuration-tab.png)
 
+        Azure 사설 DNS 영역과 통합 하는 대신 사용자 지정 DNS 서버를 사용 하려는 경우 [이 섹션](#dns-changes-for-custom-dns-servers) 을 참조 하세요.  
+
     1. 필요에 따라 개인 끝점에 대 한 **태그** 를 추가할 수 있습니다.
 
     1. 자세히 입력을 완료 한 후 계속 **검토 + 만들기** 를 계속 합니다. 유효성 검사가 완료 되 면 **만들기** 를 선택 하 여 개인 끝점을 만듭니다.
@@ -189,51 +129,6 @@ Azure Resource Manager 클라이언트를 사용 하 여 개인 끝점을 승인
 
     ![개인 끝점 승인](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="adding-dns-records"></a>DNS 레코드 추가
-
->[!NOTE]
-> 통합 DNS 영역을 사용 하는 경우에는이 단계가 필요 하지 않습니다. 그러나 사용자 고유의 Azure 사설 DNS 영역을 만들었거나 사용자 지정 개인 DNS 영역을 사용 하는 경우이 섹션에 설명 된 대로 항목이 생성 되었는지 확인 합니다.
-
-선택적 개인 DNS 영역 및 자격 증명 모음에 대 한 개인 끝점을 만들었으면 dns 레코드를 DNS 영역에 추가 해야 합니다. 수동으로 또는 PowerShell 스크립트를 사용 하 여이 작업을 수행할 수 있습니다. 이 작업은 백업 DNS 영역에 대해서만 수행 해야 하며 Blob 및 큐에 대 한 작업은 자동으로 업데이트 됩니다.
-
-### <a name="add-records-manually"></a>수동으로 레코드 추가
-
-이렇게 하려면 개인 끝점의 각 FQDN에 대 한 항목을 사설 DNS 영역으로 설정 해야 합니다.
-
-1. **개인 DNS 영역** 으로 이동 하 여 왼쪽 막대의 **개요** 옵션으로 이동 합니다. 그런 후에는 **+ 레코드 집합** 을 선택 하 여 레코드 추가를 시작 합니다.
-
-    ![레코드를 추가 하려면 + 레코드 집합을 선택 합니다.](./media/private-endpoints/select-record-set.png)
-
-1. 열리는 **레코드 집합 추가** 창에서 각 FQDN 및 개인 IP에 대 한 항목 하나를 **유형** 레코드로 추가 합니다. Fqdn 및 Ip 목록은 개인 끝점 ( **개요**)에서 가져올 수 있습니다. 아래 예제에서 볼 수 있듯이 개인 끝점의 첫 번째 FQDN은 개인 DNS 영역의 레코드 집합에 추가 됩니다.
-
-    ![Fqdn 및 Ip 목록](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![레코드 집합 추가](./media/private-endpoints/add-record-set.png)
-
-### <a name="add-records-using-powershell-script"></a>PowerShell 스크립트를 사용 하 여 레코드 추가
-
-1. Azure Portal에서 **Cloud Shell** 를 시작 하 고 PowerShell 창에서 **파일 업로드** 를 선택 합니다.
-
-    ![PowerShell 창에서 파일 업로드를 선택 합니다.](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. 이 스크립트를 업로드 합니다. [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. 홈 폴더로 이동 합니다 (예:). `cd /home/user`
-
-1. 다음 스크립트를 실행합니다.
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    매개 변수는 다음과 같습니다.
-
-    - **구독**: 리소스 (자격 증명 모음 개인 끝점 및 개인 DNS 영역)가 상주 하는 구독
-    - **vaultPEName**: 자격 증명 모음에 대해 만들어진 개인 끝점의 이름입니다.
-    - **vaultPEResourceGroup**: 자격 증명 모음의 개인 끝점을 포함 하는 리소스 그룹
-    - **Dnsresourcegroup**: 개인 DNS 영역을 포함 하는 리소스 그룹
-    - **Privatezone**: 개인 DNS 영역의 이름
-
 ## <a name="using-private-endpoints-for-backup"></a>백업에 전용 끝점 사용
 
 VNet에서 자격 증명 모음에 대해 만들어진 개인 끝점이 승인 되 면이를 사용 하 여 백업 및 복원을 수행할 수 있습니다.
@@ -243,12 +138,9 @@ VNet에서 자격 증명 모음에 대해 만들어진 개인 끝점이 승인 �
 >
 >1. (새) Recovery Services 자격 증명 모음을 만듦
 >1. 시스템 할당 관리 Id를 사용 하도록 자격 증명 모음 설정
->1. 3 개의 사설 DNS 영역을 만듦 (백업에 통합 DNS 영역을 사용 하는 경우 2 개)
->1. Azure Virtual Network에 사설 DNS 영역 연결
 >1. 자격 증명 모음의 관리 Id에 대 한 관련 권한 할당
 >1. 자격 증명 모음에 대 한 개인 끝점을 만들었습니다.
 >1. 자동 승인 되지 않은 경우 개인 끝점 승인 됨
->1. 백업에 대 한 개인 DNS 영역에 필요한 DNS 레코드를 추가 했습니다 (통합 된 사설 DNS 영역을 사용 하지 않는 경우에만 해당).
 
 ### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Azure VM에서 워크 로드의 백업 및 복원 (SQL, SAP HANA)
 
@@ -504,7 +396,11 @@ $privateEndpoint = New-AzPrivateEndpoint `
 >[!NOTE]
 >위의 텍스트에서 *geo* 는 지역 코드를 나타냅니다. 예를 들어 미국 서 부 중부 및 유럽 서 부에 대 한 *wcus* 및 *ne* 가 각각 있습니다.
 
-지역 코드는 [이 목록을](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) 참조 하십시오.
+지역 코드는 [이 목록을](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) 참조 하십시오. 국가별 지역에서 URL 명명 규칙은 다음 링크를 참조 하세요.
+
+- [중국](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [독일](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
+- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
 
 #### <a name="adding-dns-records-for-custom-dns-servers"></a>사용자 지정 DNS 서버에 대 한 DNS 레코드 추가
 
