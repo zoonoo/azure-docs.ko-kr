@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63db888419ee691e83ea456fcd7fc28a4d9909fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499174"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620327"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "86499174"
 
 이 문서에 설명 된 지원 되는 메서드를 사용 하 여 Azure Red Hat OpenShift. x의 기존 배포 하나 이상에 대 한 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정할 수 있습니다.
 
-기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create)를 실행 합니다.
+기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true)를 실행 합니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원 되거나 지원 되지 않는 기능
 
@@ -29,7 +29,7 @@ ms.locfileid: "86499174"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -138,7 +138,7 @@ ms.locfileid: "86499174"
 `azureAroV4ClusterResourceId`및 매개 변수의 값을 바꿉니다 `kubeContext` .
 
 ```bash
-export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 

@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b2729975db154fbaf4569afc5aa9b5eaab358146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 699434e89872b9525ea99883bc4fcbc86757ab8e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321357"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619851"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>TDE (투명한 데이터 암호화) 보호기 회전
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "84321357"
 > [!IMPORTANT]
 > 롤오버 후에는 이전 버전의 키를 삭제 하지 마십시오. 키가 롤오버될 때 구 데이터베이스 백업 같은 일부 데이터는 이전 키로 계속 암호화되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 방법 가이드에서는 Azure Key Vault의 키를 Azure SQL Database 또는 Azure Synapse Analytics의 TDE 보호기로 이미 사용 한다고 가정 합니다. [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
 - Azure PowerShell 설치 되 고 실행 중 이어야 합니다.

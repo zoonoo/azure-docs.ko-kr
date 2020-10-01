@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84033844"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619817"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 데이터베이스의 확장 이벤트 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 - [빠른 시작: SQL Server의 확장 이벤트](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [확장 이벤트](/sql/relational-databases/extended-events/extended-events)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
@@ -146,7 +146,7 @@ Azure SQL Database에서 이벤트 세션의 결과를 캡처할 수 있는 대�
 
 Azure SQL Database의 확장 이벤트에는 [ETW(Windows용 이벤트 추적) (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API를 사용할 수 없습니다.
 
-## <a name="restrictions"></a>제한 사항
+## <a name="restrictions"></a>제한
 
 Azure SQL Database 클라우드 환경에 대 한 몇 가지 보안 관련 차이점은 다음과 같습니다.
 

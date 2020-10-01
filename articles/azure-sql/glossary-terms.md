@@ -7,24 +7,24 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
-ms.openlocfilehash: f05871c41e2deec3f6a52446844c0b8fd2c9038d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220807"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619783"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-|Context|용어|추가 정보|
+|Context|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스|Azure SQL Database 또는 SQL Database|[Azure SQL Database](database/sql-database-paas-overview.md)|
 |구매 모델|DTU 기반 구매 모델|[DTU 기반 구매 모델](database/service-tiers-dtu.md)|
@@ -41,7 +41,7 @@ ms.locfileid: "84220807"
 
 ## <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
 
-|Context|용어|추가 정보|
+|Context|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스|Azure SQL Managed Instance|[SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md)|
 |구매 모델|vCore 기반 구매 모델|[vCore 기반 구매 모델](database/service-tiers-vcore.md)|

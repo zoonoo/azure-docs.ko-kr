@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425639"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619970"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -42,7 +42,7 @@ ms.locfileid: "89425639"
 ## <a name="august-2020"></a>2020년 8월
 
 ### <a name="dynamic-encryption"></a>동적 암호화
-레거시 PlayReady 보호 된 파일 형식 (PIFF 1.1) 암호화에 대 한 지원은 이제 동적 패키지 작성 도구에서 사용할 수 있습니다. Microsoft에서 게시 한 CENC (Common Encryption standard)의 초기 초안을 구현한 Samsung 및 LG에서 레거시 스마트 TV 집합을 지원 합니다.  PIFF 1.1 형식은 이전에 Silverlight 클라이언트 라이브러리에서 지 원하는 암호화 형식으로도 알려져 있습니다. 현재이 암호화 형식에 대 한 유일한 사용 사례 시나리오는 PIFF 1.1 암호화를 사용 하는 부드러운 스트리밍만 지 원하는 일부 지역에서 특수 한 수의 스마트 TV가 남아 있는 레거시 스마트 TV 시장을 대상으로 하는 것입니다. 
+레거시 PlayReady 보호 된 파일 형식 (PIFF 1.1) 암호화에 대 한 지원은 이제 동적 패키지 작성 도구에서 사용할 수 있습니다. Microsoft에서 게시 한 CENC (Common Encryption standard)의 초기 초안을 구현한 Samsung 및 LG에서 레거시 스마트 TV 집합을 지원 합니다.  PIFF 1.1 형식은 이전에 Silverlight 클라이언트 라이브러리에서 지 원하는 암호화 형식으로도 알려져 있습니다. 현재이 암호화 형식의 유일한 사용 사례 시나리오는 PIFF 1.1 암호화를 사용 하는 부드러운 스트리밍만을 지 원하는 일부 지역에서 특수 한 수의 스마트 Tv가 남아 있는 레거시 스마트 TV 시장을 대상으로 하는 것입니다. 
 
 새 PIFF 1.1 암호화 지원을 사용 하려면 스트리밍 로케이터의 URL 경로에서 암호화 값을 ' piff '로 변경 합니다. 자세한 내용은 [Content Protection 개요](content-protection-overview.md) 를 참조 하세요.
 예를 들어: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
@@ -60,7 +60,7 @@ ms.locfileid: "89425639"
 
 [AZURE AD를 사용 하 여 종단 간 콘텐츠 보호](./azure-ad-content-protection.md)라는 자습서를 게시 했습니다.
 
-### <a name="high-availablity"></a>높은 가용성
+### <a name="high-availability"></a>고가용성
 
 Media Services 및 VOD (주문형 비디오) [개요](./media-services-high-availability-encoding.md) 및 [샘플](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)을 사용 하 여 고가용성을 게시 했습니다.
 
@@ -135,13 +135,13 @@ RTMP 라이브 스트리밍에 다음과 같은 새로운 권장 파트너 인�
 ### <a name="file-encoding-enhancements"></a>파일 인코딩 기능 향상
 
 - 이제 새로운 콘텐츠 인식 인코딩 사전 설정을 사용할 수 있습니다. 이는 콘텐츠 인식 인코딩을 사용하여 GOP 맞춤 MP4 세트를 생성합니다. 입력 콘텐츠가 지정되면 이 서비스가 입력 콘텐츠에 대한 초기 경량 분석을 수행합니다. 이러한 결과를 사용하여 적응 스트리밍이 배달할 최적의 계층 수, 적절한 비트 전송률 및 해상도 설정을 결정합니다. 이 사전 설정은 복잡성이 낮거나 보통인 비디오에 특히 효과적입니다. 이러한 비디오의 출력 파일은 비트 전송률이 낮지만 여전히 좋은 화질로 제공됩니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다. 자세한 내용은 [개방형 API 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)을 참조하세요.
-- 표준 인코더 크기 조정기의 성능 및 다중 스레딩 개선 고객은 특정 조건에서 VOD 인코딩 성능이 5-40% 정도 향상된 것을 알 수 있습니다. 여러 비트 전송률로 인코딩된 복잡성이 낮은 콘텐츠의 성능 향상률이 가장 높습니다. 
-- 이제 표준 인코딩은 시간 기반 GOP 설정을 사용하는 경우 VOD 인코딩 중에 VFR(가변 프레임 속도) 콘텐츠에 일정한 GOP 케이던스를 유지합니다.  예를 들어 15-30fps 사이에서 가변하는 혼합 프레임 속도 콘텐츠를 제출하는 고객은 이제 적응 비트 전송률 스트리밍 MP4 파일에 대한 출력에 일정한 GOP 거리가 계산되는 것을 볼 수 있습니다. 그러면 HLS 또는 DASH를 통해 제공 시 트랙 간에 더욱 원활하게 전환할 수 있습니다. 
+- 표준 인코더의 크기 조정에 대 한 향상 된 성능 및 다중 스레딩 고객은 특정 조건에서 VOD 인코딩 성능이 5-40% 정도 향상된 것을 알 수 있습니다. 여러 비트 전송률로 인코딩된 복잡성이 낮은 콘텐츠의 성능 향상률이 가장 높습니다. 
+- 이제 표준 인코딩은 시간 기반 GOP 설정을 사용하는 경우 VOD 인코딩 중에 VFR(가변 프레임 속도) 콘텐츠에 일정한 GOP 케이던스를 유지합니다.  즉, 15-30 fps 마다 다른 혼합 프레임 속도 콘텐츠를 제출 하는 고객은 이제 적응 비트 전송률 스트리밍 MP4 파일에 대 한 출력에서 계산 되는 일반적인 GOP 거리가 표시 되어야 합니다. 그러면 HLS 또는 DASH를 통해 제공 시 트랙 간에 더욱 원활하게 전환할 수 있습니다. 
 -  VFR(가변 프레임 속도) 원본 콘텐츠의 AV 동기화 개선
 
 ### <a name="video-indexer-video-analytics"></a>Video Indexer, 비디오 분석
 
-- 이제 VideoAnalyzer 사전 설정을 사용하여 추출된 키 프레임이 크기가 조정되는 대신 비디오의 원래 해상도로 설정됩니다. 고해상도 키 프레임 추출은 원본 품질 이미지를 제공하고, Microsoft Computer Vision 및 Custom Vision 서비스에서 제공하는 이미지 기반 AI 모델을 사용하여 비디오에서 더 많은 정보를 얻을 수 있도록 합니다.
+- 이제 VideoAnalyzer 사전 설정을 사용하여 추출된 키 프레임이 크기가 조정되는 대신 비디오의 원래 해상도로 설정됩니다. 고해상도 키 프레임 추출은 원본 품질 이미지를 제공 하 고 Microsoft Computer Vision 및 Custom Vision 서비스에서 제공 하는 이미지 기반 인공 지능 모델을 사용 하 여 비디오에서 더 많은 정보를 얻을 수 있도록 합니다.
 
 ## <a name="september-2019"></a>2019년 9월
 
@@ -155,7 +155,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기*의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기*의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는  [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조하세요.
 
@@ -173,7 +173,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는 이 [레거시 구성 요소](../previous/legacy-components.md) 항목을 참조하세요.
+WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요.
 
 자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME에서 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조하세요.
  
@@ -223,8 +223,8 @@ WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프
 
 Media Services 성능 개선을 포함하는 업데이트가 추가되었습니다.
 
-* 처리에 지원되는 최대 파일 크기가 업데이트되었습니다. [할당량 및 한도](limits-quotas-constraints.md)를 참조하세요.
-* [인코딩 속도 향상](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)
+* 처리에 지원되는 최대 파일 크기가 업데이트되었습니다. , [할당량 및 제한](limits-quotas-constraints.md)을 참조 하세요.
+* [인코딩 속도 향상](concept-media-reserved-units.md)
 
 ## <a name="april-2019"></a>2019년 4월
 

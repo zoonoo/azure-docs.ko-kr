@@ -1,45 +1,45 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고 | Microsoft Docs
+title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.date: 09/24/2020
+ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019889"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619953"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
-최대 수요를 발생 시킬 때 시스템 리소스 문제에 대해 경고 하 고, 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Monitor 로그에 저장 된 성능 데이터를 기반으로 로그 경고를 만들 수 있습니다. 컨테이너에 대 한 Azure Monitor에는 이제 공개 미리 보기로 제공 되는 AKS 클러스터에 대 한 미리 구성 된 메트릭 경고 규칙이 포함 되어 있습니다.
+최대 수요를 발생 시킬 때 시스템 리소스 문제에 대해 경고 하 고, 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Monitor 로그에 저장 된 성능 데이터를 기반으로 로그 경고를 만들 수 있습니다. 컨테이너에 대 한 Azure Monitor에는 이제 공개 미리 보기로 제공 되는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 미리 구성 된 메트릭 경고 규칙이 포함 되어 있습니다.
 
 이 문서에서는 이러한 경고 규칙을 구성 하 고 관리 하는 방법에 대 한 지침을 제공 하며 환경을 검토 합니다.
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음을 확인 합니다.
 
-* 사용자 지정 메트릭은 Azure 지역의 하위 집합 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 [여기](../platform/metrics-custom-overview.md#supported-regions)에 설명 되어 있습니다.
+* 사용자 지정 메트릭은 Azure 지역의 하위 집합 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 지원 되는 [지역](../platform/metrics-custom-overview.md#supported-regions)에 설명 되어 있습니다.
 
-* 메트릭 경고 및 추가 메트릭의 도입을 지원 하기 위해 필요한 최소 에이전트 버전은 **microsoft/oms: ciprod05262020**입니다.
+* 메트릭 경고 및 추가 메트릭의 도입을 지원 하기 위해 필요한 최소 에이전트 버전은 **microsoft/oms: ciprod05262020** for AKS and **microsoft/oms: Ciprod09252020** For Azure Arc enabled Kubernetes cluster입니다.
 
     클러스터가 최신 버전의 에이전트를 실행 하 고 있는지 확인 하려면 다음 중 하나를 수행 합니다.
 
     * 명령을 실행 `kubectl describe <omsagent-pod-name> --namespace=kube-system` 합니다. 반환 된 상태에서 출력의 *컨테이너* 섹션에서 Omsagent의 **이미지** 아래에 있는 값을 확인 합니다. 
     * **노드** 탭에서 클러스터 노드를 선택 하 고 오른쪽의 **속성** 창에서 **에이전트 이미지 태그**아래의 값을 확인 합니다.
 
-    표시 된 값은 **ciprod05262020**보다 이후 버전 이어야 합니다. 클러스터에 이전 버전이 있는 경우 [AKS 클러스터의 업그레이드 에이전트](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) 단계를 수행 하 여 최신 버전을 가져옵니다.
-    
+    AKS에 대해 표시 된 값은 버전 **ciprod05262020** 이상 이어야 합니다. Azure Arc enabled Kubernetes 클러스터에 대해 표시 되는 값은 버전 **ciprod09252020** 이상 이어야 합니다. 클러스터에 이전 버전이 있는 경우 최신 버전을 다운로드 하는 단계는 [컨테이너 에이전트 Azure Monitor를 업그레이드 하는 방법](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) 을 참조 하세요.
+
     에이전트 릴리스와 관련 된 자세한 내용은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조 하세요. 메트릭이 수집 되 고 있는지 확인 하려면 메트릭 탐색기 Azure Monitor 사용 하 여 **정보** 를 표시 하는 **메트릭 네임 스페이스** 에서 확인할 수 있습니다. 이 경우 계속 진행 하 여 경고 설정을 시작할 수 있습니다. 수집 된 메트릭이 표시 되지 않으면 클러스터 서비스 주체 또는 MSI에 필요한 사용 권한이 없는 것입니다. SPN 또는 MSI가 **모니터링 메트릭 게시자** 역할의 구성원 인지 확인 하려면 [Azure CLI를 사용 하 여 클러스터당 업그레이드](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) 섹션에 설명 된 단계를 수행 하 여 역할 할당을 확인 하 고 설정 합니다.
 
 ## <a name="alert-rules-overview"></a>경고 규칙 개요
 
-중요 한 사항에 대해 경고 하기 위해 컨테이너에 대 한 Azure Monitor는 AKS 클러스터에 대해 다음과 같은 메트릭 경고를 포함 합니다.
+중요 한 사항에 대해 경고 하기 위해 컨테이너에 대 한 Azure Monitor에는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 다음과 같은 메트릭 경고가 포함 됩니다.
 
-|Name| Description |기본 임계값 |
+|Name| 설명 |기본 임계값 |
 |----|-------------|------------------|
 |평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산 합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우| 
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |
@@ -79,7 +79,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
 
-|메트릭 네임스페이스 |메트릭 |Description |
+|메트릭 네임스페이스 |메트릭 |설명 |
 |---------|----|------------|
 |정보. 컨테이너/노드 |cpuUsageMillicores |Millicores에서 호스트에의 한 CPU 사용률입니다.|
 |정보. 컨테이너/노드 |cpuUsagePercentage |노드당 CPU 사용량 백분율입니다.|

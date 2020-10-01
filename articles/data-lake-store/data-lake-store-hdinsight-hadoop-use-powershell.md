@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69cfe529f3d2b0f956bfbe9d002a5a220b37e19f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048856"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620014"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 스토리지로) 사용하는 HDInsight 클러스터 만들기
 
@@ -77,7 +77,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
     ```
 
    > [!NOTE]
-   > Data Lake Storage Gen1 리소스 공급자를 등록할 때 `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와 유사한 오류가 나타나는 경우 구독이 Data Lake Storage Gen1에 대한 허용 목록에 추가되지 않았을 수 있습니다. 이러한 [지침](data-lake-store-get-started-portal.md)에 따라 Data Lake Storage Gen1에 대해 Azure 구독을 활성화해야 합니다.
+   > Data Lake Storage Gen1 리소스 공급자를 등록 하는 경우와 유사한 오류가 표시 되 면 `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 구독이 Data Lake Storage Gen1에 대해 승인 되지 않은 것입니다. 이러한 [지침](data-lake-store-get-started-portal.md)에 따라 Data Lake Storage Gen1에 대해 Azure 구독을 활성화해야 합니다.
    >
    >
 2. Data Lake Storage Gen1 계정은 Azure 리소스 그룹과 연결됩니다. Azure 리소스 그룹을 만드는 작업부터 시작합니다.

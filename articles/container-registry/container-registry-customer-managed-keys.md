@@ -1,19 +1,19 @@
 ---
-title: 고객 관리형 키를 사용하여 저장 데이터 암호화
+title: 고객이 관리 하는 키를 사용 하 여 레지스트리 암호화
 description: Azure container registry의 미사용 암호화 및에 저장 된 고객 관리 키를 사용 하 여 Premium registry를 암호화 하는 방법에 대해 알아봅니다 Azure Key Vault
 ms.topic: article
-ms.date: 08/26/2020
+ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487235"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620344"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
-이미지 및 기타 아티팩트를 Azure 컨테이너 레지스트리에 저장하면 Azure에서 [서비스 관리형 키](../security/fundamentals/encryption-models.md)를 사용하여 저장된 레지스트리 콘텐츠를 자동으로 암호화합니다. Azure Key Vault에서 만들고 관리하는 키를 사용하여 추가 암호화 계층을 통해 기본 암호화를 보완할 수 있습니다. 이 문서에서는 Azure CLI 및 Azure Portal을 사용하는 단계를 안내합니다.
+이미지 및 기타 아티팩트를 Azure 컨테이너 레지스트리에 저장하면 Azure에서 [서비스 관리형 키](../security/fundamentals/encryption-models.md)를 사용하여 저장된 레지스트리 콘텐츠를 자동으로 암호화합니다. Azure Key Vault (고객이 관리 하는 키)에서 만들고 관리 하는 키를 사용 하 여 추가 암호화 계층으로 기본 암호화를 보완할 수 있습니다. 이 문서에서는 Azure CLI 및 Azure Portal을 사용하는 단계를 안내합니다.
 
 고객 관리형 키를 사용하는 서버 쪽 암호화는 [Azure Key Vault](../key-vault/general/overview.md)와의 통합을 통해 지원됩니다. 사용자 고유의 암호화 키를 만들어 키 자격 증명 모음에 저장하거나 Azure Key Vault의 API를 사용하여 키를 생성할 수 있습니다. Azure Key Vault를 사용하면 키 사용을 감사할 수도 있습니다.
 
@@ -84,7 +84,7 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 [az keyvault create][az-keyvault-create]를 사용하여 키 자격 증명 모음을 만들어 레지스트리 암호화를 위한 고객 관리형 키를 저장합니다.
 
-실수로 키 또는 키 자격 증명 모음을 삭제하여 발생하는 데이터 손실을 방지하려면 **일시 삭제** 및 **제거 보호** 설정을 사용하도록 설정해야 합니다. 다음 예제에는 이러한 설정에 대한 매개 변수가 포함되어 있습니다.
+실수로 키 또는 키 자격 증명 모음 삭제로 인 한 데이터 손실을 방지 하려면 **일시 삭제** 및 **보호 제거**를 사용 하도록 설정 합니다. 다음 예제에는 이러한 설정에 대한 매개 변수가 포함되어 있습니다.
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -93,7 +93,16 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-### <a name="add-key-vault-access-policy"></a>키 자격 증명 모음액세스 정책 추가
+> [!NOTE]
+> Azure CLI 버전 2.2에서는 `az keyvault create` 기본적으로 소프트 삭제를 사용 하도록 설정 합니다.
+
+이후 단계에서 사용 하기 위해 key vault의 리소스 Id를 가져옵니다.
+
+```azurecli
+keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
+```
+
+### <a name="enable-key-vault-access"></a>키 자격 증명 모음 액세스 사용
 
 ID에서 액세스할 수 있도록 키 자격 증명 모음에 대한 정책을 구성합니다. 다음 [az keyvault set-policy][az-keyvault-set-policy] 명령에서는 이전에 만들어 환경 변수에 저장한 관리 ID의 보안 주체 ID를 전달합니다. 키 권한을 **get**, **unwrapKey** 및 **wrapKey**로 설정합니다.  
 
@@ -103,6 +112,14 @@ az keyvault set-policy \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
   --key-permissions get unwrapKey wrapKey
+```
+
+또는 Key Vault (미리 보기) [용 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 [az role assign create](/cli/azure/az/role/assigment#az-role-assignment-create) 명령을 사용 하 여 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
+
+```azurecli 
+az role assignment create --assignee $identityPrincipalID \
+  --role "Key Vault Crypto Service Encryption (preview)" \
+  --scope $keyvaultID
 ```
 
 ### <a name="create-key-and-get-key-id"></a>키 만들기 및 키 ID 가져오기
@@ -199,7 +216,7 @@ ID 이름은 이후 단계에서 사용합니다.
 
 ![Azure Portal에서 키 자격 증명 모음 만들기](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
-### <a name="add-key-vault-access-policy"></a>키 자격 증명 모음액세스 정책 추가
+### <a name="enable-key-vault-access"></a>키 자격 증명 모음 액세스 사용
 
 ID에서 액세스할 수 있도록 키 자격 증명 모음에 대한 정책을 구성합니다.
 
@@ -210,6 +227,15 @@ ID에서 액세스할 수 있도록 키 자격 증명 모음에 대한 정책을
 1. **추가**, **저장**을 차례로 선택합니다.
 
 ![키 자격 증명 모음 액세스 정책 만들기](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
+
+ 또는 Key Vault (미리 보기) [용 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
+
+1. 키 자격 증명 모음으로 이동합니다.
+1. **액세스 제어 (IAM)**  >  **+ 추가**  >  **역할 할당**추가를 선택 합니다.
+1. **역할 할당 추가** 창에서 다음을 수행 합니다.
+    1. **Key Vault Crypto 서비스 암호화 (미리 보기)** 역할을 선택 합니다. 
+    1. **사용자 할당 관리 id**에 대 한 액세스 권한을 할당 합니다.
+    1. 사용자 할당 관리 id의 리소스 이름을 선택 하 고 **저장**을 선택 합니다.
 
 ### <a name="create-key"></a>키 만들기
 
@@ -381,7 +407,7 @@ az acr encryption show --name <registry-name>
 키를 회전시키는 경우 일반적으로 레지스트리를 만들 때 사용되는 것과 동일한 ID를 지정합니다. 필요에 따라 키 액세스를 위해 사용자가 할당한 새 ID를 구성하거나 레지스트리의 시스템이 할당한 ID를 사용하도록 설정하고 지정합니다.
 
 > [!NOTE]
-> 필요한 [키 자격 증명 모음 액세스 정책](#add-key-vault-access-policy)이 키 액세스를 위해 구성하는 ID에 설정되어 있는지 확인하세요.
+> 키 액세스용으로 구성 하는 id에 대 한 필수 [키 자격 증명 모음 액세스 권한이](#enable-key-vault-access) 설정 되어 있는지 확인 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -432,7 +458,7 @@ az acr encryption rotate-key \
 
 ## <a name="revoke-key"></a>키 철회
 
-키 자격 증명 모음의 액세스 정책을 변경하거나 키를 삭제하여 고객 관리형 암호화 키를 철회합니다. 예를 들어 [az keyvault delete-policy][az-keyvault-delete-policy] 명령을 사용하여 레지스트리에서 사용하는 관리 ID의 액세스 정책을 변경합니다.
+키 자격 증명 모음에 대 한 액세스 정책 또는 사용 권한을 변경 하거나 키를 삭제 하 여 고객이 관리 하는 암호화 키를 해지 합니다. 예를 들어 [az keyvault delete-policy][az-keyvault-delete-policy] 명령을 사용하여 레지스트리에서 사용하는 관리 ID의 액세스 정책을 변경합니다.
 
 ```azurecli
 az keyvault delete-policy \
@@ -478,7 +504,7 @@ ID를 사용하도록 레지스트리의 암호화 설정을 업데이트하려�
 
 ### <a name="enable-key-vault-bypass"></a>키 자격 증명 모음 바이패스 사용
 
-Key Vault 방화벽을 사용 하 여 구성 된 key vault에 액세스 하려면 레지스트리에서 방화벽을 무시 해야 합니다. [신뢰할 수 있는 서비스](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)에서 액세스할 수 있도록 키 자격 증명 모음을 구성합니다. Azure Container Registry는 신뢰할 수 있는 서비스 중 하나입니다.
+Key Vault 방화벽을 사용 하 여 구성 된 key vault에 액세스 하려면 레지스트리에서 방화벽을 무시 해야 합니다. 키 자격 증명 모음이 신뢰할 수 있는 [서비스](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)의 액세스를 허용 하도록 구성 되어 있는지 확인 합니다. Azure Container Registry는 신뢰할 수 있는 서비스 중 하나입니다.
 
 1. 포털에서 키 자격 증명 모음으로 이동 합니다.
 1. **설정**  >  **네트워킹**을 선택 합니다.
@@ -488,6 +514,24 @@ Key Vault 방화벽을 사용 하 여 구성 된 key vault에 액세스 하려�
 ### <a name="rotate-the-customer-managed-key"></a>고객 관리 키 회전
 
 이전 단계를 완료 한 후 키를 방화벽 뒤에 있는 key vault의 새 키로 회전 합니다. 단계는이 문서의 [회전 키](#rotate-key) 를 참조 하세요.
+
+## <a name="troubleshoot"></a>문제 해결
+
+### <a name="removing-user-assigned-identity"></a>사용자 할당 id 제거
+
+암호화에 사용 되는 레지스트리에서 사용자 할당 id를 제거 하려고 하면 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
+ 
+```
+Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
+```
+ 
+또한 암호화 키를 변경 (회전) 할 수 없습니다. 이 문제가 발생 하면 먼저 오류 메시지에 표시 된 GUID를 사용 하 여 id를 다시 할당 합니다. 예를 들면 다음과 같습니다.
+
+```azurecli
+az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+        
+그런 다음 키를 변경 하 고 다른 id를 할당 한 후에 원래 사용자 할당 id를 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

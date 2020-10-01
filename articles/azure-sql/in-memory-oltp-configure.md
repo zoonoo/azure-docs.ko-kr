@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
 ms.subservice: development
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: d31fd8cca9df2ea21bf19beed26810568fc6481e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345311"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619749"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>메모리 내 OLTP를 사용 하 여 Azure SQL Database 및 Azure SQL에서 응용 프로그램 성능을 향상 시킬 수 있습니다 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

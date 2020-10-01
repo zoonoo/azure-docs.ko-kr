@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284112"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619766"
 ---
-# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 병목 상태의 검색 가능한 유형
+# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 검색 가능한 쿼리 성능 병목 상태 유형
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 성능 병목 상태를 해결 하려는 경우 쿼리가 실행 중 상태 또는 대기 상태에 있는 동안 병목 현상이 발생 하는지 확인 하 여 시작 합니다. 이러한 결정에 따라 서로 다른 해결 방법이 적용 됩니다. 다음 다이어그램에서는 실행 중인 관련 문제 또는 대기 관련 문제를 일으킬 수 있는 요소를 이해 하는 데 도움을 줍니다. 각 문제 유형에 관련 된 문제 및 해결 방법은이 문서에 설명 되어 있습니다.

@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283822"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620106"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Managed Instance에 대 한 경고 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 경고 구성에 사용할 수 있는 관리 되는 인스턴스 메트릭은 다음과 같습니다.
 
-| 메트릭 | Description | 측정 단위 (가능한 값) |
+| 메트릭 | 설명 | 측정 단위 (가능한 값) |
 | :--------- | --------------------- | ----------- |
 | 평균 CPU 비율 | 선택한 기간의 평균 CPU 사용률입니다. | 0-100 (%) |
 | 읽은 IO 바이트 | 선택한 기간에서 읽은 IO 바이트 수입니다. | 바이트 |

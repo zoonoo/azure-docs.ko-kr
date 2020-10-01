@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441938"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619919"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -142,7 +142,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 ![게이트웨이가 있는 IPSec VPN](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>게이트웨이의 방화벽 구성 및 화이트리스트 IP 주소
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>방화벽 구성 및 게이트웨이의 IP 주소 필터링
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항  
 기업에서는 **기업 방화벽**이 중앙 라우터에서 실행됩니다. 그리고 **Windows 방화벽**은 게이트웨이가 설치된 로컬 시스템에서 데몬으로 실행됩니다. 
@@ -158,20 +158,20 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | `*.azuredatalakestore.net` | 443 | (선택 사항) 목적지가 Azure Data Lake 매장인 경우 필요 | 
 
 > [!NOTE] 
-> 각 데이터 원본에서 요구하는대로 회사 방화벽 수준에서 포트/허용 도메인을 관리해야 할 수 있습니다. 이 표에서는 Azure SQL Database Azure Synapse Analytics Azure Data Lake Store 예제로만 사용 합니다.   
+> 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 포트/필터링 도메인을 관리 해야 할 수 있습니다. 이 표에서는 Azure SQL Database Azure Synapse Analytics Azure Data Lake Store 예제로만 사용 합니다.   
 
 다음 표에서는 **Windows 방화벽**에 대한 **인바운드 포트** 요구 사항을 제공합니다.
 
-| 인바운드 포트 | Description | 
+| 인바운드 포트 | 설명 | 
 | ------------- | ----------- | 
 | 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 애플리케이션에서 필요합니다. | 
 
 ![게이트웨이 포트 요구 사항](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>데이터 저장소의 IP 구성/화이트리스트
-클라우드의 일부 데이터 저장소는 액세스하는 시스템의 IP 주소를 허용 목록에 포함해야 합니다. 게이트웨이 시스템의 IP 주소가 방화벽에서 허용 목록에 올바르게 구성되어 있는지 확인합니다.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>데이터 저장소의 IP 구성/필터링
+클라우드의 일부 데이터 저장소에도 액세스 하는 컴퓨터의 IP 주소를 승인 해야 합니다. 게이트웨이 컴퓨터의 IP 주소가 방화벽에서 적절 하 게 승인/구성 되었는지 확인 합니다.
 
-다음 클라우드 데이터 저장소에는 게이트웨이 시스템의 IP 주소를 허용 목록에 추가해야 합니다. 이러한 데이터 저장소 중 일부는 기본적으로 IP 주소의 허용 목록을 요구하지 않을 수 있습니다. 
+다음 클라우드 데이터 저장소는 게이트웨이 컴퓨터의 IP 주소를 승인 해야 합니다. 기본적으로 이러한 데이터 저장소 중 일부에는 IP 주소를 승인할 필요가 없습니다. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 **대답:** 이 기능은 아직 지원하지 않습니다. 적극적으로 노력하고 있습니다.
 
 **질문:** 게이트웨이가 작동하는 데 필요한 포트 요구 사항은 무엇입니까?
-**대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 애플리케이션의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure Synapse Analytics를 원본/대상으로 사용 하는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 
+**대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 애플리케이션의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure Synapse Analytics를 원본/대상으로 사용 하는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 IP 주소 필터링](#firewall-configurations-and-filtering-ip-address-of gateway) 섹션을 참조 하세요. 
 
 **질문:** 게이트웨이의 인증서 요구 사항은 무엇입니까?
 **대답:** 현재 게이트웨이에는 데이터 저장소 자격 증명을 안전하게 설정하기 위해 자격 증명 관리자 애플리케이션에서 사용하는 인증서가 필요합니다. 이 인증서는 게이트웨이 설정에 의해 생성되고 구성된 자체 서명된 인증서입니다. 대신 자체 TLS/SSL 인증서를 사용할 수 있습니다. 자세한 정보는 [클릭 한번 자격 증명 관리자 애플리케이션](#click-once-credentials-manager-app) 섹션을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 복사 활동의 성능에 대한 자세한 내용은 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
- 
