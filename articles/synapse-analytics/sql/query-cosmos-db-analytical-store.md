@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link에서 주문형 SQL을 사용 하 여 Azure Cosmos DB 데이터 쿼리 (미리 보기)
+title: Azure Synapse Link (미리 보기)에서 SQL server 서버를 사용 하 여 Azure Cosmos DB 데이터 쿼리
 description: 이 문서에서는 Azure Synapse Link (미리 보기)에서 SQL 주문형을 사용 하 여 Azure Cosmos DB를 쿼리 하는 방법에 대해 알아봅니다.
 services: synapse analytics
 author: jovanpop-msft
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8dd6ab5bcb42765c995e8cd767358be5e62aa0b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 028f47fcfb4a6a4d94d672e950b4c37d739e672b
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288396"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597322"
 ---
-# <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Azure Synapse Link에서 주문형 SQL을 사용 하 여 Azure Cosmos DB 데이터 쿼리 (미리 보기)
+# <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Azure Synapse Link (미리 보기)에서 SQL server 서버를 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
-SQL server 서버를 사용 하지 않는 경우 (이전에는 SQL 주문형) 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
+서버 리스 서버 (이전에는 SQL server를 사용 하지 않음)를 사용 하 여 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
 > [!NOTE]
-> SQL 주문형 Azure Cosmos DB 분석 저장소 쿼리에 대 한 지원은 현재 제어 된 미리 보기로 제공 됩니다. 
+> SQL server 서버를 사용 하지 않는 Azure Cosmos DB 분석 저장소 쿼리 지원은 현재 제어 된 미리 보기로 제공 됩니다. 
 
-Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 AZURE COSMOS DB에 SQL 요청 시 쿼리 결과를 저장할 수 없습니다.
+Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 SQL server가 아닌 쿼리 결과를 Azure Cosmos DB에 저장할 수 없습니다.
 
-이 문서에서는 Synapse 링크를 사용 하는 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 SQL 주문형을 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 SQL 주문형 뷰를 빌드하고 [이](./tutorial-data-analyst.md) 자습서의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 
+이 문서에서는 Synapse 링크를 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 SQL server를 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너에 대해 SQL server 서버를 사용 하지 않는 뷰를 빌드하고 [이](./tutorial-data-analyst.md) 자습서의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
 ## <a name="overview"></a>개요
 
-Azure Cosmos DB 분석 저장소에서 데이터 쿼리 및 분석을 지원 하기 위해 SQL 주문형은 다음 구문을 사용 합니다 `OPENROWSET` .
+Azure Cosmos DB 분석 저장소에서 데이터 쿼리 및 분석을 지원 하기 위해 SQL server 서버를 사용 하지 않는 경우 다음 구문을 사용 합니다 `OPENROWSET` .
 
 ```sql
 OPENROWSET( 
@@ -47,7 +47,7 @@ Azure Cosmos DB 연결 문자열은 Azure Cosmos DB 계정 이름, 데이터베�
 구문에서 따옴표 없이 Azure Cosmos DB 컨테이너 이름이 지정 됩니다 `OPENROWSET` . 컨테이너 이름에 특수 문자 (예: 대시 '-')가 있는 경우이 이름은 `[]` 구문에서 (대괄호) 안에 래핑됩니다 `OPENROWSET` .
 
 > [!NOTE]
-> 주문형 SQL은 트랜잭션 저장소 Azure Cosmos DB 쿼리를 지원 하지 않습니다.
+> SQL server 서버를 사용 하지 않는 Azure Cosmos DB 트랜잭션 저장소 쿼리를 지원 하지 않습니다.
 
 ## <a name="sample-data-set"></a>샘플 데이터 세트
 
@@ -55,14 +55,14 @@ Azure Cosmos DB 연결 문자열은 Azure Cosmos DB 계정 이름, 데이터베�
 
 이러한 페이지에서 데이터의 라이선스와 구조를 확인 하 고 [Ecdc](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) 및 [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) 데이터 집합에 대 한 샘플 데이터를 다운로드할 수 있습니다.
 
-이 문서와 함께 보여주는 SQL을 사용 하 여 Cosmos DB 데이터를 쿼리 하는 방법에 대 한 자세한 내용을 확인 하려면 다음 리소스를 만들어야 합니다.
+이 문서와 함께 수행 하려면 SQL server를 사용 하지 않는 Cosmos DB 데이터를 쿼리 하는 방법 보여주는 다음 리소스를 만들어야 합니다.
 * [Synapse Link가 설정](../../cosmos-db/configure-synapse-link.md) 된 Azure Cosmos DB 데이터베이스 계정
 * 이라는 Azure Cosmos DB 데이터베이스 `covid`
 * 라는 두 개의 Azure Cosmos DB 컨테이너 `EcdcCases` 와 `Cord19` 위의 예제 데이터 집합을 로드 했습니다.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>자동 스키마 유추를 사용 하 여 Azure Cosmos DB 데이터 탐색
 
-Azure Cosmos DB에서 데이터를 탐색 하는 가장 쉬운 방법은 자동 스키마 유추 기능을 활용 하는 것입니다. 문에서 절을 생략 하면 `WITH` `OPENROWSET` SQL 요청 시 Azure Cosmos DB 컨테이너의 분석 저장소 스키마를 자동으로 검색 (유추) 하도록 지시할 수 있습니다.
+Azure Cosmos DB에서 데이터를 탐색 하는 가장 쉬운 방법은 자동 스키마 유추 기능을 활용 하는 것입니다. 문에서 절을 생략 하면 `WITH` `OPENROWSET` SQL server 서버를 사용 하지 않는 Azure Cosmos DB 컨테이너의 분석 저장소 스키마를 자동으로 검색 (유추) 하도록 지시할 수 있습니다.
 
 ```sql
 SELECT TOP 10 *
@@ -71,7 +71,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-위의 예제에서는 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 SQL 요청 시 데이터베이스에 연결 하도록 지시 합니다. 그러면 `EcdcCases` 지역에서 컨테이너의 분석 저장소에 액세스 하 게 `West US 2` 됩니다. 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다.
+위의 예에서는 SQL server 서버를 사용 하지 않는 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 데이터베이스에 연결 하도록 지시 합니다. 그러면 `EcdcCases` 지역에서 컨테이너의 분석 저장소에 액세스 하 게 `West US 2` 됩니다. 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다.
 
 동일한 Azure Cosmos DB 데이터베이스의 다른 컨테이너에서 데이터를 탐색 해야 하는 경우 동일한 연결 문자열을 사용 하 고 세 번째 매개 변수로 필요한 컨테이너를 참조할 수 있습니다.
 
@@ -118,7 +118,7 @@ Azure Cosmos DB 값에 사용 해야 하는 SQL 형식에 대 한 자세한 내�
 
 ## <a name="querying-nested-objects-and-arrays"></a>중첩 된 개체 및 배열 쿼리
 
-Azure Cosmos DB를 사용 하면 중첩 된 개체 또는 배열로 작성 하 여 더 복잡 한 데이터 모델을 나타낼 수 있습니다. Azure Cosmos DB에 대 한 Synapse 링크의 autosync 기능은 분석 저장소에서 스키마 표현을 관리 하는 데 사용할 수 있습니다 .이는 중첩 된 데이터 유형 처리를 포함 하 여 SQL의 주문형 쿼리를 가능 하 게 합니다.
+Azure Cosmos DB를 사용 하면 중첩 된 개체 또는 배열로 작성 하 여 더 복잡 한 데이터 모델을 나타낼 수 있습니다. Azure Cosmos DB에 대 한 Synapse 링크의 autosync 기능은 SQL server 서버에서 다양 한 쿼리를 수행할 수 있도록 하는 중첩 된 데이터 형식 처리를 포함 하 여 분석 저장소에서 스키마 표현을 관리 합니다.
 
 예를 들어 [코드-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) 데이터 집합에는 다음 구조를 따라 JSON 문서가 있습니다.
 
@@ -170,7 +170,7 @@ FROM
     ) AS docs;
 ```
 
-[Synapse 링크의 복합 데이터 유형](../how-to-analyze-complex-schema.md) 분석 및 [주문형 SQL의 중첩 된 구조](query-parquet-nested-types.md)에 대해 자세히 알아보세요.
+[SQL server 서버](query-parquet-nested-types.md)를 사용 하지 않는 Synapse 링크 및 중첩 된 구조의 [복합 데이터 형식을](../how-to-analyze-complex-schema.md) 분석 하는 방법에 대해 자세히 알아보세요.
 
 > [!IMPORTANT]
 > 대신 텍스트에서 예기치 않은 문자가 표시 `MÃƒÂ©lade` `Mélade` 되는 경우 데이터베이스 데이터 정렬이 [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) 데이터 정렬로 설정 되지 않습니다. 
@@ -201,7 +201,7 @@ Azure Cosmos DB 데이터에는 [Cord19](https://azure.microsoft.com/services/op
 }
 ```
 
-경우에 따라 최상위 항목 (메타 데이터)의 속성을 배열 (작성자)의 모든 요소와 "조인" 해야 할 수도 있습니다. SQL 주문형 요청을 통해 `OPENJSON` 중첩 된 배열에 함수를 적용 하 여 중첩 된 구조를 평면화 할 수 있습니다.
+경우에 따라 최상위 항목 (메타 데이터)의 속성을 배열 (작성자)의 모든 요소와 "조인" 해야 할 수도 있습니다. SQL server 서버를 사용 하지 않으면 `OPENJSON` 중첩 된 배열에 함수를 적용 하 여 중첩 된 구조를 평면화 할 수 있습니다.
 
 ```sql
 SELECT
@@ -236,7 +236,7 @@ Epidemi에 대 한 보충 정보 ... | `[{"first":"Nicolas","last":"4#","suffix"
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>SQL 형식 매핑 Azure Cosmos DB
 
-Azure Cosmos DB 트랜잭션 저장소는 스키마에 관계 없이 분석 저장소는 분석 쿼리 성능을 최적화 하기 위해 스키마 화 된 됩니다. Synapse 링크의 autosync 기능을 사용 하 여 Azure Cosmos DB는 분석 저장소에서 중첩 된 데이터 형식 처리를 포함 하는 스키마 표현을 관리 합니다. SQL 주문형 요청은 분석 저장소를 쿼리 하므로 Azure Cosmos DB 입력 데이터 형식을 SQL 데이터 형식에 매핑하는 방법을 이해 하는 것이 중요 합니다.
+Azure Cosmos DB 트랜잭션 저장소는 스키마에 관계 없이 분석 저장소는 분석 쿼리 성능을 최적화 하기 위해 스키마 화 된 됩니다. Synapse 링크의 autosync 기능을 사용 하 여 Azure Cosmos DB는 분석 저장소에서 중첩 된 데이터 형식 처리를 포함 하는 스키마 표현을 관리 합니다. SQL server 서버를 사용 하지 않는 분석 저장소를 쿼리 하기 때문에 Azure Cosmos DB 입력 데이터 형식을 SQL 데이터 형식에 매핑하는 방법을 이해 하는 것이 중요 합니다.
 
 SQL (Core) API의 Azure Cosmos DB 계정은 숫자, 문자열, 부울, null, 중첩 된 개체 또는 배열의 JSON 속성 유형을 지원 합니다. 에서 절을 사용 하는 경우 이러한 JSON 형식과 일치 하는 SQL 형식을 선택 해야 `WITH` `OPENROWSET` 합니다. Azure Cosmos DB에서 다른 속성 유형에 사용 해야 하는 SQL 열 유형 아래를 참조 하십시오.
 

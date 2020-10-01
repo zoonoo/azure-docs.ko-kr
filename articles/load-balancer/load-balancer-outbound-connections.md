@@ -11,42 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 79399d0890f61d723f371528408d226f6a192ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336499"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595645"
 ---
 # <a name="outbound-connections"></a>아웃바운드 연결
 
 Azure Load Balancer는 다른 메커니즘을 통해 아웃 바운드 연결을 제공 합니다. 이 문서에서는 시나리오 및 시나리오를 관리 하는 방법을 설명 합니다. 
 
-## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>아웃 바운드 연결 시나리오 개요
 
-이러한 시나리오에서 사용 되는 용어입니다. 자세한 내용은 [용어](#terms):
+## <a name="scenarios"></a>시나리오
 
-* [원본 네트워크 주소 변환 (SNAT)](#snat)
-* [포트 가장 (PAT)](#pat)
-* TCP (전송 제어 프로토콜)
-* UDP (사용자 데이터 그램 프로토콜)
-* Network Address Translation
-* Internet Control 메시지 프로토콜
-* 캡슐화 보안 프로토콜
+* 공용 IP를 사용 하는 가상 컴퓨터.
+* 공용 IP를 사용 하지 않는 가상 컴퓨터.
+* 공용 IP가 없고 표준 부하 분산 장치를 사용 하지 않는 가상 컴퓨터.
 
-### <a name="scenarios"></a>시나리오
-
-* [시나리오 1](#scenario1) -공용 IP를 사용 하는 가상 컴퓨터
-* [시나리오 2](#scenario2) -공용 IP를 사용 하지 않는 가상 컴퓨터.
-* [시나리오 3](#scenario3) -공용 IP가 없고 표준 부하 분산 장치를 사용 하지 않는 가상 컴퓨터.
-
-### <a name="scenario-1---virtual-machine-with-public-ip"></a><a name="scenario1"></a>시나리오 1-공용 IP를 사용 하는 가상 컴퓨터
+### <a name="virtual-machine-with-public-ip"></a><a name="scenario1"></a>공용 IP를 사용 하는 가상 머신
 
 | 연결 | 방법 | IP 프로토콜 |
 | ---------- | ------ | ------------ |
-| 공용 부하 분산 장치 또는 독립 실행형 | [SNAT](#snat) </br> [포트](#pat) 를 가장 하는 데 사용 되지 않습니다. | TCP </br> UDP </br> ICMP </br> ESP |
+| 공용 부하 분산 장치 또는 독립 실행형 | [SNAT (원본 네트워크 주소 변환)](#snat) </br> [PAT (포트 가장)](#pat) 를 사용 하지 않았습니다. | TCP (전송 제어 프로토콜) </br> UDP (사용자 데이터 그램 프로토콜) </br> ICMP (Internet Control Message Protocol) </br> ESP (보안 페이로드 캡슐화) |
 
 #### <a name="description"></a>Description
 
@@ -54,11 +43,11 @@ Azure는 모든 아웃 바운드 흐름에 대해 인스턴스의 NIC IP 구성�
 
 VM에 할당된 공용 IP는 1:다가 아닌 1:1 관계이며 상태 비저장 1:1 NAT로 구현됩니다.
 
-### <a name="scenario-2---virtual-machine-without-public-ip"></a><a name="scenario2"></a>시나리오 2-공용 IP가 없는 가상 컴퓨터
+### <a name="virtual-machine-without-public-ip"></a><a name="scenario2"></a>공용 IP가 없는 가상 컴퓨터
 
 | 연결 | 방법 | IP 프로토콜 |
 | ------------ | ------ | ------------ |
-| 공용 부하 분산 장치 | [포트 가장 (PAT)](#pat)로 [SNAT](#snat) 에 부하 분산 장치 프런트 엔드를 사용 합니다.| TCP </br> UDP |
+| 공용 부하 분산 장치 | [PAT (포트 가장)](#pat)로 [SNAT](#snat) 에 부하 분산 장치 프런트 엔드를 사용 합니다.| TCP </br> UDP |
 
 #### <a name="description"></a>Description
 
@@ -74,15 +63,15 @@ VM이 아웃 바운드 흐름을 만들 때 Azure는 원본 IP 주소를 공용 
 
 이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 부릅니다. SNAT 포트는 [기본 snat 포트 할당 테이블](#snatporttable)에 설명 된 대로 미리 할당 됩니다.
 
-### <a name="scenario-3---virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a> 시나리오 3-공용 IP가 없고 표준 부하 분산 장치를 사용 하지 않는 가상 컴퓨터
+### <a name="virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a>공용 IP가 없고 표준 부하 분산 장치를 사용 하지 않는 가상 머신
 
 | 연결 | 방법 | IP 프로토콜 |
 | ------------ | ------ | ------------ |
-|없음 </br> 기본 부하 분산 장치 | 포트를 가장 하는 [SNAT](#snat) [(PAT)](#pat)| TCP </br> UDP | 
+|None </br> 기본 부하 분산 장치 | 포트를 가장 하는 [SNAT](#snat) [(PAT)](#pat)| TCP </br> UDP | 
 
 #### <a name="description"></a>Description
 
-VM이 아웃 바운드 흐름을 만들 때 Azure는 아웃 바운드 흐름의 원본 IP 주소를 공용 원본 IP 주소로 변환 합니다. 이 공용 IP 주소는 **구성할** 수 없으며 예약할 수 없습니다. 이 주소는 구독의 공용 IP 리소스 제한에 대해 계산 되지 않습니다. 
+VM이 아웃 바운드 흐름을 만들 때 Azure는 원본 IP 주소를 공용 원본 IP 주소로 변환 합니다. 이 공용 IP 주소는 **구성할** 수 없으며 예약할 수 없습니다. 이 주소는 구독의 공용 IP 리소스 제한에 대해 계산 되지 않습니다. 
 
 를 다시 배포 하는 경우 공용 IP 주소가 해제 되 고 새 공용 IP가 요청 됩니다. 
 
@@ -136,7 +125,7 @@ Azure는 사용 가능한 미리 할당 된 [SNAT](#snat) 포트 수를 결정 �
 > [!NOTE]
 > **Azure VIRTUAL NETWORK NAT** 는 가상 네트워크의 가상 머신에 대 한 아웃 바운드 연결을 제공할 수 있습니다.  자세한 내용은 [Azure VIRTUAL NETWORK NAT 란?을](../virtual-network/nat-overview.md) 참조 하세요.
 
-사용자 요구에 맞게이 기능을 확장 하 고 조정 하기 위해 아웃 바운드 연결에 대 한 모든 선언적 제어를 제공 합니다. 이 섹션에서는 위에서 설명한 대로 시나리오 2를 확장 합니다.
+사용자 요구에 맞게이 기능을 확장 하 고 조정 하기 위해 아웃 바운드 연결에 대 한 모든 선언적 제어를 제공 합니다.
 
 ![부하 분산 장치 아웃 바운드 규칙](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -196,24 +185,20 @@ Azure는 사용 가능한 미리 할당 된 [SNAT](#snat) 포트 수를 결정 �
 
 부하 분산 VM에 NSG를 적용할 때 [서비스 태그](../virtual-network/security-overview.md#service-tags) 및 [기본 보안 규칙](../virtual-network/security-overview.md#default-security-rules)에 주의해야 합니다. VM이 Azure Load Balancer에서 상태 프로브 요청을 받을 수 있는지 확인 합니다.
 
-NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 경우 VM 상태 프로브에 실패하고 VM가 표시됩니다. 부하 분산 장치는 해당 VM에 새 흐름을 보내는 작업을 중지합니다.
+NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단 하는 경우 VM 상태 프로브가 실패 하 고 VM을 사용할 수 없는 것으로 표시 합니다. 부하 분산 장치는 해당 VM에 새 흐름을 보내는 작업을 중지합니다.
 
 ## <a name="scenarios-with-outbound-rules"></a>아웃 바운드 규칙을 사용 하는 시나리오
 
 ### <a name="outbound-rules-scenarios"></a>아웃 바운드 규칙 시나리오
 
-* [시나리오 1](#scenario1out) -공용 ip 또는 접두사의 특정 집합에 대 한 아웃 바운드 연결을 구성 합니다.
-* [시나리오 2](#scenario2out) - [SNAT](#snat) 포트 할당을 수정 합니다.
-* [시나리오 3](#scenario3out) -아웃 바운드만 사용 합니다.
-* [시나리오 4](#scenario4out) -vm에 대 한 아웃 바운드 NAT만 (인바운드 없음)
-* [시나리오 5](#scenario5out) -내부 표준 부하 분산 장치에 대 한 아웃 바운드 NAT.
-* [시나리오 6](#scenario6out) -공용 표준 부하 분산 장치를 사용 하는 아웃 바운드 NAT에 TCP & UDP 프로토콜을 모두 사용 하도록 설정 합니다.
+* 공용 Ip 또는 접두사의 특정 집합에 대 한 아웃 바운드 연결을 구성 합니다.
+* [SNAT](#snat) 포트 할당을 수정 합니다.
+* 아웃 바운드만 사용 합니다.
+* Vm에 대 한 아웃 바운드 NAT만 (인바운드 없음)
+* 내부 표준 부하 분산 장치에 대 한 아웃 바운드 NAT.
+* 공용 표준 부하 분산 장치를 사용 하는 아웃 바운드 NAT에 TCP & UDP 프로토콜을 모두 사용 하도록 설정 합니다.
 
-### <a name="scenario-1"></a><a name="scenario1out"></a>시나리오 1
-
-| 시나리오 |
-| -------- |
-| 공용 Ip 또는 접두사의 특정 집합에 대 한 아웃 바운드 연결 구성|
+### <a name="configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>공용 Ip 또는 접두사의 특정 집합에 대 한 아웃 바운드 연결 구성
 
 #### <a name="details"></a>세부 정보
 
@@ -229,11 +214,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 4. 백 엔드 풀을 다시 사용 하거나 백 엔드 풀을 만들고 Vm을 공용 부하 분산 장치의 백 엔드 풀에 추가 합니다.
 5. 프런트 엔드를 사용 하 여 Vm에 대해 아웃 바운드 NAT를 사용 하도록 공용 부하 분산 장치에서 아웃 바운드 규칙을 구성 합니다. 아웃 바운드에 대해 부하 분산 규칙을 사용 하지 않으려면 부하 분산 규칙에 대해 아웃 바운드 SNAT를 사용 하지 않도록 설정 합니다.
 
-### <a name="scenario-2"></a><a name="scenario2out"></a>시나리오 2
-
-| 시나리오 |
-| -------- |
-| [SNAT](#snat) 포트 할당 수정 |
+### <a name="modify-snat-port-allocation"></a><a name="scenario2out"></a>[SNAT](#snat) 포트 할당 수정
 
 #### <a name="details"></a>세부 정보
 
@@ -251,26 +232,18 @@ SNAT 고갈를 발생 하는 경우 기본값 1024에서 제공 되는 [SNAT](#s
 
 VM 당 1만 포트를 제공 하 고 백 엔드 풀에서 7 개의 Vm이 단일 공용 IP를 공유 하는 경우 구성이 거부 됩니다. 7과 1만를 곱하여 64000 포트 제한을 초과 합니다. 아웃 바운드 규칙의 프런트 엔드에 공용 IP 주소를 더 추가 하 여 시나리오를 사용 하도록 설정 합니다. 
 
-포트 수에 0을 지정 하 여 [기본 포트 할당](load-balancer-outbound-connections.md#preallocatedports) 으로 되돌립니다. 첫 번째 50 VM 인스턴스는 1024 포트를 가져오며, 51-100 VM 인스턴스는 최대 인스턴스 수에 대 한 512을 받습니다.  기본 SNAT 포트 할당에 대 한 자세한 내용은 [위의](#snatporttable)항목을 참조 하세요.
+포트 수에 0을 지정 하 여 [기본 포트 할당](load-balancer-outbound-connections.md#preallocatedports) 으로 되돌립니다. 첫 번째 50 VM 인스턴스는 1024 포트를 가져오며, 51-100 VM 인스턴스는 최대 인스턴스 수에 대 한 512을 받습니다.  기본 SNAT 포트 할당에 대 한 자세한 내용은 [snat 포트 할당 표](#snatporttable)를 참조 하세요.
 
-### <a name="scenario-3"></a><a name="scenario3out"></a>시나리오 3
-
-| 시나리오 |
-| -------- |
-|  아웃바운드만 사용 |
+### <a name="enable-outbound-only"></a><a name="scenario3out"></a>아웃 바운드만 사용
 
 #### <a name="details"></a>세부 정보
 
-공용 표준 부하 분산 장치를 사용 하 여 Vm 그룹에 아웃 바운드 NAT를 제공할 수 있습니다. 이 시나리오에서는 추가 규칙을 요구 하지 않고 아웃 바운드 규칙을 단독으로 사용 합니다.
+공용 표준 부하 분산 장치를 사용 하 여 Vm 그룹에 아웃 바운드 NAT를 제공 합니다. 이 시나리오에서는 추가 규칙을 요구 하지 않고 아웃 바운드 규칙을 단독으로 사용 합니다.
 
 > [!NOTE]
 > **Azure VIRTUAL NETWORK NAT** 는 부하 분산 장치 없이도 가상 컴퓨터에 대 한 아웃 바운드 연결을 제공할 수 있습니다.  자세한 내용은 [Azure VIRTUAL NETWORK NAT 란?을](../virtual-network/nat-overview.md) 참조 하세요.
 
-### <a name="scenario-4"></a><a name="scenario4out"></a>시나리오 4
-
-| 시나리오 |
-| -------- |
-| VM 전용 아웃바운드 NAT(인바운드 없음) |
+### <a name="outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>VM 전용 아웃바운드 NAT(인바운드 없음)
 
 > [!NOTE]
 > **Azure VIRTUAL NETWORK NAT** 는 부하 분산 장치 없이도 가상 컴퓨터에 대 한 아웃 바운드 연결을 제공할 수 있습니다.  자세한 내용은 [Azure VIRTUAL NETWORK NAT 란?을](../virtual-network/nat-overview.md) 참조 하세요.
@@ -288,11 +261,7 @@ VM 당 1만 포트를 제공 하 고 백 엔드 풀에서 7 개의 Vm이 단일 
 
 접두사나 공용 IP를 사용 하 여 [SNAT](#snat) 포트의 크기를 조정 합니다. 허용 또는 거부 목록에 아웃 바운드 연결의 원본을 추가 합니다.
 
-### <a name="scenario-5"></a><a name="scenario5out"></a>시나리오 5
-
-| 시나리오 |
-| -------- |
-| 내부 표준 부하 분산 장치에 대 한 아웃 바운드 NAT |
+### <a name="outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>내부 표준 부하 분산 장치에 대 한 아웃 바운드 NAT
 
 > [!NOTE]
 > **Azure VIRTUAL NETWORK NAT** 는 내부 표준 부하 분산 장치를 활용 하는 가상 머신에 대 한 아웃 바운드 연결을 제공할 수 있습니다.  자세한 내용은 [Azure VIRTUAL NETWORK NAT 란?을](../virtual-network/nat-overview.md) 참조 하세요.
@@ -304,11 +273,7 @@ VM 당 1만 포트를 제공 하 고 백 엔드 풀에서 7 개의 Vm이 단일 
 자세한 내용은 [아웃 바운드 전용 부하 분산 장치 구성](https://docs.microsoft.com/azure/load-balancer/egress-only)을 참조 하세요.
 
 
-### <a name="scenario-6"></a><a name="scenario6out"></a>시나리오 6
-
-| 시나리오 |
-| -------- |
-| 공용 표준 부하 분산 장치를 사용 하는 아웃 바운드 NAT에 TCP & UDP 프로토콜 모두 사용 |
+### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>공용 표준 부하 분산 장치를 사용 하는 아웃 바운드 NAT에 TCP & UDP 프로토콜 모두 사용
 
 #### <a name="details"></a>세부 정보
 
@@ -360,7 +325,7 @@ Azure는 **SNAT (원본 네트워크 주소 변환)** 을 사용 하 여이 기�
 
 원본은 가상 네트워크 개인 IP 주소에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성 됩니다. 
 
-공용 IP 주소 공간에서 아래 흐름의 5 개 튜플은 고유 해야 합니다.
+공용 IP 주소 공간에서 흐름의 5 튜플은 고유 해야 합니다.
 
 * 원본 IP 주소
 * 원본 포트

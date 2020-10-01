@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461209"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597443"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -58,9 +58,9 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 | 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | Description |
 |--|--|--|--|
 | [변칙 탐지기][ad-containers] | F0, S0 | **변칙-탐지기** ([이미지](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청][request-access] |
-| [Computer Vision][cv-containers] | F0, S1 | **읽기** | 영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다. 또한 읽기 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF/TIFF/다중 페이지 지원을 제공 합니다.<br/><br/>**중요:** 읽기 컨테이너는 현재 영어로만 작동 합니다. |
-| [Face][fa-containers] | F0, S0 | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청][request-access] |
-| [폼 인식기][fr-containers] | F0, S0 | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다.<br>[액세스 요청][request-access] |
+| [Computer Vision][cv-containers] | F0, S1 | **읽기** OCR ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | 읽기 OCR 컨테이너를 사용 하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대 한 지원이 포함 된 이미지와 문서에서 인쇄 된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [READ API 설명서](./computer-vision/concept-recognizing-text.md)를 참조 하세요.<br>[액세스 요청][request-access] |
+| [Face][fa-containers] | F0, S0 | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. |
+| [폼 인식기][fr-containers] | F0, S0 | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다. |
 | [Speech Service API][sp-containers-stt] | F0, S0 | **음성 텍스트** ([이미지](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | 연속적인 실시간 음성을 텍스트로 변환합니다. |
 | [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech 텍스트** ([이미지](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | 사용자 지정 모델을 사용 하 여 연속 실시간 음성을 텍스트로 speech. |
@@ -82,7 +82,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 * Computer Vision
 * Face
 * LUIS
-* Text Analytics
+* 텍스트 분석
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -90,7 +90,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

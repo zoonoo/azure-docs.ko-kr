@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287420"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598114"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 계획
 
@@ -36,7 +36,6 @@ Azure Time Series Insights은 종 량 제 비즈니스 모델을 채택 합니�
 ## <a name="the-gen2-environment"></a>Gen2 환경
 
 Azure Time Series Insights Gen2 환경을 프로 비전 할 때 두 가지 Azure 리소스를 만듭니다.
-
 
 * Azure Time Series Insights Gen2 환경
 * Azure Storage 계정
@@ -94,8 +93,8 @@ Azure Time Series Insights에 이벤트를 전송 하는 방법을 확인할 수
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Advisor](../advisor/advisor-overview.md) 를 검토 하 여 비즈니스 복구 구성 옵션을 계획 합니다.
-- [Azure Advisor](../advisor/advisor-overview.md) 를 검토 하 여 비즈니스 복구 구성 옵션을 계획 합니다.
-- Azure Time Series Insights Gen2의 [데이터](./concepts-ingestion-overview.md) 수집에 대해 자세히 알아보세요.
-- Azure Time Series Insights Gen2의 [데이터 저장소](./concepts-storage.md) 에 대 한 문서를 검토 합니다.
-- Azure Time Series Insights Gen2의 [데이터 모델링](./concepts-model-overview.md) 에 대해 알아봅니다.
+* [Azure Advisor](../advisor/advisor-overview.md) 를 검토 하 여 비즈니스 복구 구성 옵션을 계획 합니다.
+* [Azure Advisor](../advisor/advisor-overview.md) 를 검토 하 여 비즈니스 복구 구성 옵션을 계획 합니다.
+* Azure Time Series Insights Gen2의 [데이터](./concepts-ingestion-overview.md) 수집에 대해 자세히 알아보세요.
+* Azure Time Series Insights Gen2의 [데이터 저장소](./concepts-storage.md) 에 대 한 문서를 검토 합니다.
+* Azure Time Series Insights Gen2의 [데이터 모델링](./concepts-model-overview.md) 에 대해 알아봅니다.

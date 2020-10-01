@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
-ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409853"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597783"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 또는 상태 비저장 워크플로 만들기
 
@@ -389,9 +389,11 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 1. 디자이너에서 항목을 삭제 해야 하는 경우 다음 단계를 수행 합니다.
 
-   1. 디자이너에서 항목을 선택 합니다.
+   1. 디자이너에서 항목을 선택 하면 오른쪽의 세부 정보 창이 열립니다.
 
-   1. 오른쪽에 열리는 항목의 세부 정보 창에서 줄임표 (**...**) 단추를 클릭 하 여 **>** **삭제**합니다. 삭제를 확인 하려면 **확인**을 선택 합니다.
+   1. 트리거 또는 작업 이름 옆의 오른쪽 위 모서리에 줄임표 (**...**) 단추가 표시 되도록 충분히 Visual Studio Code 창을 확장 합니다. 
+
+   1. 줄임표 (**...**) 메뉴를 열고 **삭제**를 선택 합니다. 삭제를 확인 하려면 **확인**을 선택 합니다.
 
       ![디자이너에서 선택한 항목을 표시 하 고 선택 된 줄임표 단추와 "삭제" 옵션을 사용 하 여 선택한 항목을 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 

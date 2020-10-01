@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c64c376e8f283336573500e69ac31989b5947961
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069631"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598256"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -524,13 +524,12 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
 초기 온보딩을 위한 추가 스토리지가 없으며 기존 공유에 연결하려는 경우 Azure 파일 공유의 데이터를 사전 시드할 수 있습니다. 이 접근 방법은 가동 중지 시간이 허용되고 초기 온보딩 프로세스 중에 서버 공유의 데이터가 변경되지 않는 것이 확실한 경우에만 사용하는 것이 좋습니다. 
  
 1. 온 보 딩 프로세스 중에 서버에 있는 데이터가 변경 되지 않도록 합니다.
-2. SMB를 통한 데이터 전송 도구 (예: Robocopy, 직접 SMB 복사)를 사용 하 여 Azure 파일 공유를 서버 데이터와 미리 시드 합니다. AzCopy는 SMB를 통해 데이터를 업로드하지 않으므로 사전 시드에 사용할 수 없습니다.
+2. SMB를 통한 데이터 전송 도구를 사용 하 여 서버 데이터를 통해 Azure 파일 공유를 미리 시드해야 합니다. 예를 들어 Robocopy입니다. REST를 통해 AzCopy을 사용할 수도 있습니다. Acl 타임 스탬프 및 특성을 유지 하려면 적절 한 스위치와 함께 AzCopy를 사용 해야 합니다.
 3. 원하는 서버 엔드포인트에서 기존 공유를 가리켜 Azure 파일 동기화 토폴로지를 만듭니다.
 4. 모든 엔드포인트에서 동기화가 조정 프로세스를 완료하도록 합니다. 
 5. 조정이 완료되면 변경 내용을 위해 공유를 열 수 있습니다.
  
 현재 사전 시드 방법에는 몇 가지 제한 사항이 있습니다. 
-- 파일의 전체 충실도가 유지되지 않습니다. 예를 들어 파일의 ACL과 타임스탬프가 유실됩니다.
 - 동기화 토폴로지가 완전히 작동되어 실행하기 전의 서버 데이터 변경으로 인해 서버 엔드포인트에서 충돌이 발생할 수 있습니다.  
 - 클라우드 끝점을 만든 후에는 초기 동기화를 시작 하기 전에 클라우드에서 파일을 검색 하는 프로세스를 실행 Azure File Sync. 이 프로세스를 완료 하는 데 걸리는 시간은 네트워크 속도, 사용 가능한 대역폭, 파일 및 폴더 수와 같은 다양 한 요소에 따라 다릅니다. 미리 보기 릴리스의 대략적인 추정에서 검색 프로세스는 약 10개 파일/초의 속도로 실행됩니다. 따라서 클라우드에 데이터를 사전 시드할 경우 사전 시드가 빠르게 실행되더라도 시스템이 정상적으로 실행되기까지 오랜 시간이 걸릴 수 있습니다.
 

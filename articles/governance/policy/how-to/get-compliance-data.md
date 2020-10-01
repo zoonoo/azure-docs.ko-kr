@@ -3,12 +3,12 @@ title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537953"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596035"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -46,7 +46,37 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 ### <a name="on-demand-evaluation-scan"></a>주문형 평가 검사
 
-구독 또는 리소스 그룹에 대 한 평가 검색은 Azure CLI, Azure PowerShell 또는 REST API에 대 한 호출을 사용 하 여 시작할 수 있습니다. 이 검사는 비동기 프로세스입니다.
+구독 또는 리소스 그룹에 대 한 평가 검사는 Azure CLI Azure PowerShell, REST API에 대 한 호출 또는 [Azure Policy 준수 검사 GitHub 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan)을 사용 하 여 시작할 수 있습니다.
+이 검사는 비동기 프로세스입니다.
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>주문형 평가 검사-GitHub 작업
+
+[Azure Policy 준수 검사 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan) 을 사용 하 여 하나 또는 여러 리소스, 리소스 그룹 또는 구독에 대 한 [GitHub 워크플로에서](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) 주문형 평가 검사를 트리거하고 리소스의 준수 상태에 따라 워크플로를 게이트 합니다. 또한 예약 된 시간에 실행 되도록 워크플로를 구성 하 여 편리한 시간에 최신 준수 상태를 가져올 수 있습니다. 필요에 따라이 GitHub 동작은 추가 분석 또는 보관을 위해 스캔 된 리소스의 준수 상태에 대 한 보고서를 생성할 수 있습니다.
+
+다음 예에서는 구독에 대 한 준수 검사를 실행 합니다. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+자세한 내용 및 워크플로 샘플은 [Azure Policy 준수 검사 리포지토리에 대 한 GitHub 작업](https://github.com/Azure/policy-compliance-scan)을 참조 하세요.
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>주문형 평가 검사-Azure CLI
 

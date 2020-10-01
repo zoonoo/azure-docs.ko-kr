@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336040"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597706"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구
 
@@ -43,7 +43,7 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
 1. Azure Cloud Shell 시작
 2. az extension add/update를 실행합니다.
 3. az vm repair create를 실행합니다.
-4. az vm repair run을 실행합니다.
+4. Az vm repair run을 실행 하거나 완화 단계를 수행 합니다.
 5. az vm repair restore를 실행합니다.
 
 추가 설명서 및 지침은 [az vm repair](/cli/azure/ext/vm-repair/vm/repair)를 참조하세요.
@@ -60,7 +60,7 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
 
    CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
    
-   현재 Azure Portal에 로그인 한 것과 다른 계정을 사용 하 여 Cloud Shell에 로그인 해야 하는 경우 ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login)를 사용할 수 있습니다.  계정과 연결 된 구독 간에 전환 하려면 ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set)를 사용할 수 있습니다.
+   현재 Azure Portal에 로그인 한 것과 다른 계정을 사용 하 여 Cloud Shell에 로그인 해야 하는 경우 ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)를 사용할 수 있습니다.  계정과 연결 된 구독 간에 전환 하려면 ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true)를 사용할 수 있습니다.
 
 2. `az vm repair` 명령을 처음 사용하는 경우 vm-repair CLI 확장을 추가합니다.
 
@@ -80,11 +80,13 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
-4. `az vm repair run`을 실행합니다. 이 명령은 복구 VM을 통해 연결된 디스크에서 지정된 복구 스크립트를 실행합니다. 사용 중인 문제 해결 가이드에서 run-id를 지정하는 경우 여기에서 사용합니다. 그렇지 않으면 `az vm repair list-scripts`를 사용하여 사용 가능한 복구 스크립트를 볼 수 있습니다. 여기에 사용 된 리소스 그룹 및 VM 이름은 3 단계에서 사용 되는 작동 하지 않는 VM에 대 한 것입니다.
+4. `az vm repair run`을 실행합니다. 이 명령은 복구 VM을 통해 연결된 디스크에서 지정된 복구 스크립트를 실행합니다. 사용 중인 문제 해결 가이드에서 run-id를 지정하는 경우 여기에서 사용합니다. 그렇지 않으면 `az vm repair list-scripts`를 사용하여 사용 가능한 복구 스크립트를 볼 수 있습니다. 여기에 사용 된 리소스 그룹 및 VM 이름은 3 단계에서 사용 되는 작동 하지 않는 VM에 대 한 것입니다. 복구 스크립트에 대 한 추가 정보는 [복구 스크립트 라이브러리](https://github.com/Azure/repair-script-library)에서 찾을 수 있습니다.
 
    ```azurecli-interactive
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
+   
+   필요에 따라 VM 복구를 사용 하 여 필요한 수동 완화 단계를 수행 하 고 5 단계를 진행할 수 있습니다.
 
 5. `az vm repair restore`을 실행합니다. 이 명령은 복구된 OS 디스크를 VM의 원래 OS 디스크와 교환합니다. 여기에 사용 된 리소스 그룹 및 VM 이름은 3 단계에서 사용 되는 작동 하지 않는 VM에 대 한 것입니다.
 

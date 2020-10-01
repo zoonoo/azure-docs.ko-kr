@@ -3,7 +3,7 @@ title: Azure Windows 가상 머신에 대 한 높은 CPU 문제 해결
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: v-miegge
+author: mnanda
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 1cc1b6cc6e678e30b2d66d67cdc4aa438cd2058b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542956"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596835"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Azure Windows 가상 머신에 대 한 높은 CPU 문제 해결
 

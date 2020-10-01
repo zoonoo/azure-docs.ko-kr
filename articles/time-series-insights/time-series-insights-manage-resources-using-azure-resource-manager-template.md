@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3e9075014863e653a986dc4dbec7b9bc5e9f31bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421198"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597859"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Time Series Insights Gen 1 리소스 만들기
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell 및 Azure Time Series Insights 리소스 공급자를 사용 하 여 Azure Time Series Insights 리소스를 만들고 배포 하는 방법을 설명 합니다.
 
@@ -49,7 +52,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) 템플릿을 복제하거나 복사합니다.
 
-   * 매개 변수 파일 만들기
+   - 매개 변수 파일 만들기
 
      매개 변수 파일을 만들려면 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) 파일을 복사합니다.
 
@@ -57,7 +60,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
     <div id="required-parameters"></div>
 
-   * 필수 매개 변수
+   - 필수 매개 변수
 
      | 매개 변수 | Description |
      | --- | --- |
@@ -69,7 +72,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
     <div id="optional-parameters"></div>
 
-   * 선택적 매개 변수
+   - 선택적 매개 변수
 
      | 매개 변수 | Description |
      | --- | --- |
@@ -84,7 +87,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
      | accessPolicyReaderObjectIds | Azure AD에서 환경에 대한 판독기 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzADUser** 또는 **Get-AzADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
      | accessPolicyContributorObjectIds | Azure AD에서 환경에 대한 참가자 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzADUser** 또는 **Get-AzADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
 
-   * 예를 들어, 다음 매개 변수 파일은 기존 Event Hub의 이벤트를 읽는 환경 및 이벤트 원본을 만드는 데 사용할 수 있습니다. 또한 환경에 대한 참가자 액세스 권한을 부여하는 두 개의 액세스 정책을 만듭니다.
+   - 예를 들어, 다음 매개 변수 파일은 기존 Event Hub의 이벤트를 읽는 환경 및 이벤트 원본을 만드는 데 사용할 수 있습니다. 또한 환경에 대한 참가자 액세스 권한을 부여하는 두 개의 액세스 정책을 만듭니다.
 
      ```JSON
      {
@@ -114,12 +117,12 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * 자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조하세요.
+   - 자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조하세요.
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>PowerShell을 사용하여 로컬로 빠른 시작 템플릿을 배포합니다
 
@@ -128,19 +131,19 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. PowerShell에서 Azure 계정에 로그인합니다.
 
-    * PowerShell 프롬프트에서 다음 명령을 실행합니다.
+    - PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
       ```powershell
       Connect-AzAccount
       ```
 
-    * Azure 계정에 로그온하라는 메시지가 표시됩니다. 로그온한 후 다음 명령을 실행하여 사용 가능한 구독을 확인합니다.
+    - Azure 계정에 로그온하라는 메시지가 표시됩니다. 로그온한 후 다음 명령을 실행하여 사용 가능한 구독을 확인합니다.
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * 이 명령은 사용 가능한 Azure 구독 목록을 반환합니다. 다음 명령을 실행하여 현재 세션에 대한 구독을 선택합니다. `<YourSubscriptionId>`는 사용할 Azure 구독의 GUID로 바꿉니다.
+    - 이 명령은 사용 가능한 Azure 구독 목록을 반환합니다. 다음 명령을 실행하여 현재 세션에 대한 구독을 선택합니다. `<YourSubscriptionId>`는 사용할 Azure 구독의 GUID로 바꿉니다.
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -148,13 +151,13 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 새 리소스 그룹이 아직 없으면 만듭니다.
 
-   * 기존 리소스 그룹이 없는 경우 **New-AzResourceGroup** 명령을 사용하여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예를 들면 다음과 같습니다.
+   - 기존 리소스 그룹이 없는 경우 **New-AzResourceGroup** 명령을 사용하여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예를 들면 다음과 같습니다.
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
      ```
 
-   * 성공하면 새 리소스 그룹에 대한 요약이 표시됩니다.
+   - 성공하면 새 리소스 그룹에 대한 요약이 표시됩니다.
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -166,7 +169,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 배포를 테스트합니다.
 
-   * `Test-AzResourceGroupDeployment` cmdlet을 실행하여 배포의 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다.
+   - `Test-AzResourceGroupDeployment` cmdlet을 실행하여 배포의 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -174,27 +177,27 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 배포 만들기
 
-    * 새 배포를 만들려면 `New-AzResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/templates/deployment-modes.md)를 참조하세요.
+    - 새 배포를 만들려면 `New-AzResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/templates/deployment-modes.md)를 참조하세요.
 
-    * 다음 명령은 PowerShell 창에서 다섯 개의 필수 매개 변수를 입력하라는 메시지를 표시합니다.
+    - 다음 명령은 PowerShell 창에서 다섯 개의 필수 매개 변수를 입력하라는 메시지를 표시합니다.
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * 그 대신에 매개 변수 파일을 지정하려면 다음 명령을 사용합니다.
+    - 그 대신에 매개 변수 파일을 지정하려면 다음 명령을 사용합니다.
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * 배포 cmdlet을 실행하면 인라인 매개 변수를 사용할 수도 있습니다. 이 명령은 다음과 같습니다.
+    - 배포 cmdlet을 실행하면 인라인 매개 변수를 사용할 수도 있습니다. 이 명령은 다음과 같습니다.
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * [전체](../azure-resource-manager/templates/deployment-modes.md) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
+    - [전체](../azure-resource-manager/templates/deployment-modes.md) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -202,7 +205,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 배포 확인
 
-    * 리소스가 성공적으로 배포되면 배포의 요약이 PowerShell 창에 표시됩니다.
+    - 리소스가 성공적으로 배포되면 배포의 요약이 PowerShell 창에 표시됩니다.
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -243,7 +246,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. Azure Portal을 통해 빠른 시작 템플릿을 배포합니다
 
-   * GitHub에서 빠른 시작 템플릿의 홈페이지에는 **Azure에 배포** 단추도 포함됩니다. 이 단추를 클릭하면 Azure Portal에서 사용자 지정 배포 페이지를 엽니다. 이 페이지의 [필수 매개 변수](#required-parameters) 또는 [선택적 매개 변수](#optional-parameters) 테이블에서 각 매개 변수에 대한 값을 입력하거나 선택할 수 있습니다. 설정을 입력한 후에 **구매** 단추를 클릭하면 템플릿 배포를 시작합니다.
+   - GitHub에서 빠른 시작 템플릿의 홈페이지에는 **Azure에 배포** 단추도 포함됩니다. 이 단추를 클릭하면 Azure Portal에서 사용자 지정 배포 페이지를 엽니다. 이 페이지의 [필수 매개 변수](#required-parameters) 또는 [선택적 매개 변수](#optional-parameters) 테이블에서 각 매개 변수에 대한 값을 입력하거나 선택할 수 있습니다. 설정을 입력한 후에 **구매** 단추를 클릭하면 템플릿 배포를 시작합니다.
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

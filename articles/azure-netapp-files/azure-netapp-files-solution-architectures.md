@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 9b44b27730fff888685ef7e0ad06d35e7bdc88c7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f6e38585e86dd962bc5f94a7c2a8a67c55f2a8fd
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439748"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595910"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -34,6 +34,7 @@ ms.locfileid: "91439748"
 
 ### <a name="oracle"></a>Oracle
 
+* [단일 볼륨 Azure NetApp Files Oracle 데이터베이스 성능](performance-oracle-single-volumes.md)
 * [Azure 배포 모범 사례 가이드의 Oracle Azure NetApp Files 사용](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Oracle VM 이미지 및 Microsoft Azure에 대 한 배포: 공유 저장소 구성 옵션](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점](solutions-benefits-azure-netapp-files-oracle-database.md)

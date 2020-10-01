@@ -1,25 +1,25 @@
 ---
-title: Azure AD 앱에 대 한 암호 기반 Single Sign-On를 구성 하는 방법
-description: Microsoft id 플랫폼 (Azure AD)에서 Azure AD 응용 프로그램에 대 한 SSO (암호 기반 Single Sign-On)를 구성 하는 방법
+title: Azure Active Directory 앱에 대 한 SSO (암호 기반 Single Sign-On) 이해
+description: Azure Active Directory 앱에 대 한 SSO (암호 기반 Single Sign-On) 이해
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049063"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598331"
 ---
-# <a name="configure-password-based-single-sign-on"></a>암호 기반 Single Sign-On 구성
+# <a name="understand-password-based-single-sign-on"></a>암호 기반 Single Sign-On 이해
 
-응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 SSO를 설정 합니다. 또 다른 옵션은 암호 기반 SSO입니다. 이 문서에서는 암호 기반 SSO 옵션에 대해 자세히 설명 합니다. 
+응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 또는 OIDC 기반 SSO를 구성 합니다. 또 다른 옵션은 암호 기반 SSO입니다. 이 문서에서는 암호 기반 SSO 옵션에 대해 자세히 설명 합니다. 
 
 이 옵션은 HTML 로그인 페이지가 있는 모든 웹 사이트에 사용할 수 있습니다. 암호 기반 SSO는 암호 보관이 라고도 합니다. 암호 기반 SSO를 사용 하면 id 페더레이션을 지원 하지 않는 웹 응용 프로그램에 대 한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유 해야 하는 경우에도 유용 합니다.
 
@@ -39,12 +39,12 @@ ms.locfileid: "89049063"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 하는 것은 사용 중인 응용 프로그램에 따라 단순 하거나 복잡할 수 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 설정할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속 하 게 진행 하려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 사용자 지정 구성이 필요 하 고 암호 기반 SSO를 사용 해야 하는 경우이 문서를 참조 하세요.
+IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 구성 하는 것은 사용 중인 응용 프로그램에 따라 간단 하거나 복잡할 수 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 구성할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속히 정보를 증가 시키려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 사용자 지정 구성이 필요 하 고 암호 기반 SSO를 사용 해야 하는 경우이 문서를 참조 하세요.
 
 > [!IMPORTANT] 
 > **엔터프라이즈 응용**프로그램의 응용 프로그램을 탐색 하는 데에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 
 >
-> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 설정 됩니다. 이 경우 **Enterprise 응용 프로그램**에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
+> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 구성 됩니다. 이 경우 **Enterprise 응용 프로그램**에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
 >
 > 응용 프로그램이 다른 테 넌 트에 호스트 되거나 사용자 계정에 필요한 권한 (전역 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single sign-on** 이 누락 되는 경우도 있습니다. 사용 권한은 **Single sign-on** 을 열 수는 있지만 저장할 수 없는 시나리오를 일으킬 수도 있습니다. Azure AD 관리 역할에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 하세요.
 
@@ -60,7 +60,7 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 
 
 URL을 입력 한 후 **저장**을 선택 합니다. Azure AD는 사용자 이름 및 암호 입력 필드에 대 한 로그인 페이지의 HTML을 구문 분석 합니다. 시도가 성공 하면 완료 된 것입니다.
  
-다음 단계는 [응용 프로그램에 사용자 또는 그룹을 할당](methods-for-assigning-users-and-groups.md)하는 것입니다. 사용자 및 그룹을 할당 한 후 사용자가 응용 프로그램에 로그인 할 때 사용할 자격 증명을 제공할 수 있습니다. **사용자 및 그룹**을 선택 하 고 사용자 또는 그룹의 행에 대 한 확인란을 선택한 다음 **자격 증명 업데이트**를 선택 합니다. 마지막으로 사용자 또는 그룹에 사용할 사용자 이름 및 암호를 입력 합니다. 이렇게 하지 않으면 시작할 때 자격 증명을 입력 하 라는 메시지가 사용자에 게 표시 됩니다.
+다음 단계는 [응용 프로그램에 사용자 또는 그룹을 할당](methods-for-assigning-users-and-groups.md)하는 것입니다. 사용자 및 그룹을 할당 한 후 사용자가 응용 프로그램에 로그인 할 때 사용할 자격 증명을 제공할 수 있습니다. **사용자 및 그룹**을 선택 하 고 사용자 또는 그룹의 행에 대 한 확인란을 선택한 다음 **자격 증명 업데이트**를 선택 합니다. 마지막으로 사용자 또는 그룹에 사용할 사용자 이름 및 암호를 입력 합니다. 그렇지 않으면 시작할 때 자격 증명을 입력 하 라는 메시지가 사용자에 게 표시 됩니다.
  
 
 ## <a name="manual-configuration"></a>수동 구성

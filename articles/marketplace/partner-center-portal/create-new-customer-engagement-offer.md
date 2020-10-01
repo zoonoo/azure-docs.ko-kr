@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: c488daeafefce23d1fc65fe61e8c0f39cd1c0490
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 106ad6c1669506b5a8086afc1a74d967478e556c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646715"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597294"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
@@ -36,7 +36,8 @@ ms.locfileid: "89646715"
 **제품 ID**를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
 - 이 ID는 Marketplace 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
-- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 **test-offer-1**을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+- 게시자 ID와 결합 된 제품 ID의 길이는 40 자 미만 이어야 합니다.
+- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없습니다. 예를 들어 게시자 ID가 testpublisherid이 고 **테스트-1**을 입력 하는 경우 제품 웹 주소는가 됩니다 `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
 - **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
 **제품 별칭**을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
@@ -56,11 +57,11 @@ ms.locfileid: "89646715"
 
 #### <a name="get-it-now-free"></a>지금 받기(무료)
 
-앱에 액세스할 수 있는 올바른 URL(*http* 또는 *https*로 시작)을 제공하여 고객에게 제품을 무료로 제공합니다.  `https://contoso.com/my-app`)을 입력합니다.
+고객에 게 제품을 무료로 나열 합니다.
 
 #### <a name="free-trial-listing"></a>평가판(목록)
 
-`http`평가판을 받을 수 있는 올바른 URL (또는부터 시작)을 제공 하 여 고객에 게 제품을 나열 `https` 합니다.  `https://contoso.com/trial/my-app`)을 입력합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
+무료 평가판 링크를 사용 하 여 고객에 게 제품을 나열 합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 애플리케이션에서 수신하는 토큰은 앱에서 자동으로 계정을 만드는 Azure AD(Active Directory)를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에 Microsoft 계정이 지원되지 않습니다.
@@ -132,7 +133,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. 제품
+2. Products
 3. 범주
 4. 지원 주소 (링크)
 5. 사용 약관 주소 (링크)

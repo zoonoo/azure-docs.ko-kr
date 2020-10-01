@@ -1,26 +1,26 @@
 ---
-title: Azure Active Directory에서 연결 된 로그온 구성
-description: Azure AD에서 연결 된 로그온을 구성 합니다.
+title: Azure Active Directory에서 연결 된 로그온 이해
+description: Azure Active Directory에서 연결 된 로그온을 이해 합니다.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: bad4fe7f0cf090e5d61506e775fccf677df45fa5
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641979"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597834"
 ---
-# <a name="configure-linked-sign-on"></a>연결된 로그온 구성
+# <a name="understand-linked-sign-on"></a>연결 된 로그온 이해
 
-응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 SSO를 설정 합니다. 다른 옵션을 **연결**합니다. 이 문서에서는 연결 된 옵션에 대해 자세히 설명 합니다.
+응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 또는 OIDC 기반 SSO를 구성 합니다. 다른 옵션을 **연결**합니다. 이 문서에서는 연결 된 옵션에 대해 자세히 설명 합니다.
 
 **연결** 된 옵션을 사용 하면 사용자가 조직의 [내 앱](https://myapps.microsoft.com/) 또는 Office 365 포털에서 앱을 선택할 때 대상 위치를 구성할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "88641979"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-신속 하 게 진행 하려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. Single Sign-On를 구성 하는 빠른 시작에서 **연결 된** 옵션도 찾을 수 있습니다. 
+신속히 정보를 증가 시키려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. Single Sign-On를 구성 하는 빠른 시작에서 **연결 된** 옵션도 찾을 수 있습니다. 
 
 **연결** 된 옵션은 Azure AD를 통해 로그인 기능을 제공 하지 않습니다. 옵션은 사용자가 앱에서 앱을 선택 [Microsoft 365 하거나 앱](https://myapps.microsoft.com/) 시작 관리자를 선택 하는 경우 사용자가 전송 되는 위치를 설정 합니다.
 

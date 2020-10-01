@@ -1,14 +1,14 @@
 ---
 title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019736"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596941"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
@@ -35,6 +35,9 @@ Azure 센티널을 사용 하 여 보안 서비스 제공 서비스를 빌드하
 - Azure 센티널 (예: Azure AD 활동 로그, Office 365 로그 또는 Microsoft 위협 방지 경고)과 통합 된 모든 데이터 원본 및 데이터 커넥터의 데이터는 각 고객 테 넌 트 내에 유지 됩니다.
 - 네트워크 대기 시간을 줄입니다.
 - 새 자회사 또는 고객을 쉽게 추가 하거나 제거할 수 있습니다.
+
+> [!NOTE]
+> 다른 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임 된 리소스를 관리할 수 있습니다. 그러나 [국가 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 공용 클라우드 또는 별도의 두 국가에서 구독을 위임 하는 것은 지원 되지 않습니다.
 
 ## <a name="granular-role-based-access-control-rbac"></a>세분화 된 역할 기반 액세스 제어 (RBAC)
 

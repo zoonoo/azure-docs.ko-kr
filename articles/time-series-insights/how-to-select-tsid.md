@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289875"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595531"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -23,7 +23,7 @@ ms.locfileid: "87289875"
 
 ## <a name="choose-a-time-series-id"></a>시계열 ID 선택
 
-적절 한 시계열 ID를 선택 하는 것이 중요 합니다. 시계열 ID 선택은 데이터베이스에 대한 파티션 키를 선택하는 것과 같습니다. Azure Time Series Insights Gen2 환경을 만들 때 필요 합니다. 
+적절 한 시계열 ID를 선택 하는 것이 중요 합니다. 시계열 ID 선택은 데이터베이스에 대한 파티션 키를 선택하는 것과 같습니다. Azure Time Series Insights Gen2 환경을 만들 때 필요 합니다.
 
 > [!IMPORTANT]
 > 시계열 Id는 다음과 같습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "87289875"
 * 시계열 ID는 [시계열 모델](./concepts-model-overview.md)의 리프 노드 수준에서 고유해야 합니다.
 * 시계열 ID의 속성 이름 문자열에 대 한 문자 제한은 128입니다. 시계열 ID의 속성 값에 대 한 문자 제한은 1024입니다.
 * 시계열 ID의 고유한 속성 값이 누락 된 경우 null 값으로 처리 되 고 고유성 제약 조건의 동일한 규칙을 따릅니다.
-* 시계열 ID가 복잡 한 JSON 개체 내에 중첩 된 경우 속성 이름을 제공할 때 수신 [평면화 규칙](./concepts-json-flattening-escaping-rules.md) 을 따라야 합니다. 예제 [B](concepts-json-flattening-escaping-rules.md#example-b)를 확인 합니다. 
+* 시계열 ID가 복잡 한 JSON 개체 내에 중첩 된 경우 속성 이름을 제공할 때 수신 [평면화 규칙](./concepts-json-flattening-escaping-rules.md) 을 따라야 합니다. 예제 [B](concepts-json-flattening-escaping-rules.md#example-b)를 확인 합니다.
 * 시계열 ID로 최대 *세 개의* 키 속성을 선택할 수도 있습니다. 해당 조합은 시계열 ID를 나타내는 복합 키가 됩니다.  
   > [!NOTE]
   > 세 가지 주요 속성은 문자열 이어야 합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "87289875"
 ```
 
 Azure Portal에서 다음과 같이 복합 키를 입력할 수 있습니다.
- 
+
 [![환경에 대한 시계열 ID를 구성합니다.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
   > [!NOTE]

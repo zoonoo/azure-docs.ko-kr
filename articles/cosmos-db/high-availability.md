@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570809"
+ms.locfileid: "91597280"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법 
 
@@ -81,9 +81,6 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 
 이 기능은 *영국 남부, 동남 아시아, 미국 동부, 미국 동부 2, 미국 중부, 유럽 서부, 미국 서 부 2, 일본 동부, 북아메리카 유럽, 프랑스 중부, 오스트레일리아 동부, 미국 동부 2 EUAP* 지역에서 사용할 수 있습니다.
 
-> [!NOTE]
-> 단일 지역 Azure Cosmos 계정에 대해 가용성 영역를 사용 하도록 설정 하면 계정에 추가 지역을 추가 하는 것과 동일한 요금이 부과 됩니다. 가격 책정에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 및 [Azure Cosmos DB 문서의 다중 지역 비용](optimize-cost-regions.md) 을 참조 하세요.
-
 다음 표에는 다양 한 계정 구성의 고가용성 기능이 요약 되어 있습니다.
 
 |KPI  |가용성 영역 없는 단일 영역 (AZ)  |가용성 영역 있는 단일 지역 (AZ)  |가용성 영역 (AZ, 2 regions)를 사용 하 여 다중 지역 작성-가장 권장 되는 설정 |
@@ -97,7 +94,7 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 |쓰기 대기 시간 | 지역 간 | 지역 간 | 낮음 |
 |지역 가동 중단-데이터 손실 | 데이터 손실 |  데이터 손실 | 데이터 손실 <br/><br/> 여러 쓰기 지역과 둘 이상의 지역에서 제한 된 부실 일관성을 사용 하는 경우 데이터 손실은 계정에 구성 된 제한 된 부실 항목으로 제한 됩니다. <br /><br />여러 지역에서 강력한 일관성을 구성 하 여 지역 가동 중단 중에 데이터 손실을 방지할 수 있습니다. 이 옵션은 가용성 및 성능에 영향을 주는 장단점을 제공 합니다. 단일 지역 쓰기에 대해 구성 된 계정에만 구성할 수 있습니다. |
 |지역 가동 중단-가용성 | 가용성 손실 | 가용성 손실 | 가용성 손실 없음 |
-|처리량 | X r u/초 프로 비전 된 처리량 | X r u/초 프로 비전 된 처리량 | 프로 비전 된 처리량 2 배 <br/><br/> 이 구성 모드를 사용 하려면 두 개의 지역이 있기 때문에 가용성 영역를 사용 하는 단일 지역과 비교할 때 처리량의 두 배가 필요 합니다. |
+|처리량 | X r u/초 프로 비전 된 처리량 | X r u/초 프로 비전 된 처리량 * 1.25 | 프로 비전 된 처리량 2 배 <br/><br/> 이 구성 모드를 사용 하려면 두 개의 지역이 있기 때문에 가용성 영역를 사용 하는 단일 지역과 비교할 때 처리량의 두 배가 필요 합니다. |
 
 > [!NOTE]
 > 다중 지역 Azure Cosmos 계정에 대 한 가용성 영역 지원을 사용 하도록 설정 하려면 계정에 다중 지역 쓰기 쓰기가 활성화 되어 있어야 합니다.

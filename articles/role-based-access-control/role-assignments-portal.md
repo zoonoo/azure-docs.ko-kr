@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5c13c635091988f299d31c67795916e709d51a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362250"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597616"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]이 문서에서는 Azure Portal를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 Azure Portal를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
 Azure Active Directory에서 관리자 역할을 할당 해야 하는 경우 [Azure Active Directory에서 관리자 역할 보기 및 할당](../active-directory/users-groups-roles/directory-manage-roles-portal.md)을 참조 하세요.
 
@@ -35,19 +35,15 @@ Azure Active Directory에서 관리자 역할을 할당 해야 하는 경우 [Az
 
 ![구독의 액세스 제어 (IAM) 페이지](./media/role-assignments-portal/access-control-subscription.png)
 
-액세스 제어 (IAM) 페이지에서 가장 효과적으로 사용 하려면 역할을 할당 하려고 할 때 다음 세 가지 질문에 답할 수 있습니다.
+액세스 제어 (IAM) 페이지에서 가장 효과적으로 사용 하려면 다음 단계를 수행 하 여 역할을 할당 하는 것이 좋습니다.
 
-1. **누가 액세스 해야 하나요?**
+1. 액세스 권한이 필요한 사용자를 결정 합니다. 사용자, 그룹, 서비스 주체 또는 관리 id에 역할을 할당할 수 있습니다.
 
-    사용자, 그룹, 서비스 주체 또는 관리 id를 참조 하는 사용자 이를 *보안 주체*라고도 합니다.
+1. 적절 한 역할을 찾습니다. 사용 권한은 역할에 함께 그룹화 됩니다. 여러 [Azure 기본 제공 역할](built-in-roles.md) 목록에서 선택 하거나 고유한 사용자 지정 역할을 사용할 수 있습니다.
 
-1. **어떤 역할이 필요 한가요?**
+1. 필요한 범위를 식별 합니다. Azure는 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 범위를 제공 합니다. 범위에 대 한 자세한 내용은 [범위 이해](scope-overview.md)를 참조 하세요.
 
-    사용 권한은 역할에 함께 그룹화 됩니다. 여러 [기본 제공 역할](built-in-roles.md) 목록에서 선택 하거나 고유한 사용자 지정 역할을 사용할 수 있습니다.
-
-1. **어디서 액세스 해야 하나요?**
-
-    여기서는 액세스가 적용 되는 리소스 집합을 나타냅니다. 여기서는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스 (예: 저장소 계정) 일 수 있습니다. 이를 *범위*라고 합니다.
+1. 다음 섹션 중 하나의 단계를 수행 하 여 역할을 할당 합니다.
 
 ## <a name="add-a-role-assignment"></a>역할 할당 추가
 
@@ -67,7 +63,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 부여 하려면
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-   ![역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
+   ![역할 할당 추가 메뉴](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 창이 열립니다.
 
@@ -83,7 +79,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 부여 하려면
 
     ![역할 할당 추가 저장 됨](./media/role-assignments-portal/add-role-assignment-save.png)
 
-## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>구독 관리자로서 사용자 할당
+## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>구독의 관리자로 사용자 할당
 
 특정 사용자를 Azure 구독의 관리자로 지정하려면 해당 사용자에게 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할은 사용자에 게 다른 사용자에 게 액세스 권한을 부여할 수 있는 권한을 포함 하 여 구독에 있는 모든 리소스에 대 한 모든 권한을 부여 합니다. 이러한 단계는 다른 역할 할당과 동일합니다.
 
@@ -101,11 +97,11 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 부여 하려면
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-   ![역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
+   ![구독에 대 한 역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 창이 열립니다.
 
-   ![역할 할당 추가 창](./media/role-assignments-portal/add-role-assignment.png)
+   ![구독에 대 한 역할 할당 창 추가](./media/role-assignments-portal/add-role-assignment.png)
 
 1. **역할** 드롭다운 목록에서 **소유자** 역할을 선택합니다.
 
@@ -150,7 +146,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 부여 하려면
 
 1. **역할** 드롭다운 목록에서 **Virtual Machine 기여자** 같은 역할을 선택합니다.
 
-   ![역할 할당 추가 창](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![시스템 할당 관리 id에 대 한 역할 할당 창 추가](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. **저장**을 클릭하여 역할을 할당합니다.
 
@@ -166,7 +162,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 부여 하려면
 
     선택한 사용자 할당 관리 id에 역할이 이미 할당 된 경우 역할 할당 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
 
-    ![시스템 할당 관리 id에 대 한 역할 할당](./media/shared/role-assignments-user-assigned.png)
+    ![사용자 할당 관리 id에 대 한 역할 할당](./media/shared/role-assignments-user-assigned.png)
 
 1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
 
@@ -178,7 +174,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 부여 하려면
 
 1. **역할** 드롭다운 목록에서 **Virtual Machine 기여자** 같은 역할을 선택합니다.
 
-   ![역할 할당 추가 창](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![사용자 할당 관리 id에 대 한 역할 할당 창 추가](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. **저장**을 클릭하여 역할을 할당합니다.
 
@@ -194,7 +190,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 제거 하려면
 
 1. 역할 할당 목록에서, 제거할 역할 할당이 있는 보안 주체 옆에 확인란을 추가합니다.
 
-   ![역할 할당 제거 메시지](./media/role-assignments-portal/remove-role-assignment-select.png)
+   ![제거 하도록 선택한 역할 할당](./media/role-assignments-portal/remove-role-assignment-select.png)
 
 1. **제거**를 클릭합니다.
 
@@ -204,7 +200,7 @@ Azure RBAC에서 Azure 리소스에 대 한 액세스 권한을 제거 하려면
 
     상속 된 역할 할당을 제거할 수 없다는 메시지가 표시 되 면 자식 범위에서 역할 할당을 제거 하려고 시도 하는 것입니다. 역할이 할당 된 범위에서 액세스 제어 (IAM)를 열고 다시 시도 해야 합니다. 올바른 범위에서 액세스 제어 (IAM)를 빠르게 여는 것은 **범위** 열을 확인 하 고 **(상속 됨)** 옆의 링크를 클릭 하는 것입니다.
 
-   ![역할 할당 제거 메시지](./media/role-assignments-portal/remove-role-assignment-inherited.png)
+   ![상속 된 역할 할당에 대 한 역할 할당 메시지 제거](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
 ## <a name="next-steps"></a>다음 단계
 

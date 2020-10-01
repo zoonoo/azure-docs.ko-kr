@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461158"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596122"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Multi-factor Azure Active Directory 인증 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -27,14 +27,12 @@ Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics는 *A
 
 **최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://aka.ms/ssms)에서 다운로드합니다. 
 
-> [!Note]
-> 12 월 2021 18.6 이전 SSMS 릴리스는 MFA를 사용 하 여 Azure Active Directory를 통해 더 이상 인증 하지 않습니다. MFA를 사용 하 여 Azure Active Directory 인증을 계속 활용 하려면 SSMS 18.6 이상 버전을 설치 하거나 업데이트 하세요.
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 이 문서에서 설명하는 모든 기능에 대해 2017년 7월 버전 17.2 이상을 사용합니다. 가장 최근의 연결 대화 상자는 다음 이미지와 유사하게 표시됩니다.
 
   ![서버 유형, 서버 이름 및 인증에 대 한 설정을 보여 주는 SQL Server Management Studio의 서버에 연결 대화 상자 스크린샷](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
-  
-    
 
 ## <a name="authentication-options"></a>인증 옵션
 

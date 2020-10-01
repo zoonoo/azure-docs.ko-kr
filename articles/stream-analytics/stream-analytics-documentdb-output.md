@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870836"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596574"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Azure Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
@@ -72,7 +72,9 @@ Azure Cosmos DB는 워크로드에 따라 파티션 크기를 자동으로 조�
 
 여러 고유 값을 갖는 파티션 키 속성을 선택하여 이러한 값에서 워크로드를 균일하게 분산하도록 하는 것이 중요합니다. 자연스러운 분할 아티팩트로서, 동일한 파티션 키를 포함하는 요청이 단일 파티션의 최대 처리량으로 제한됩니다. 
 
-동일한 파티션 키에 속하는 문서의 스토리지 크기는 20GB로 제한됩니다. 이상적인 파티션 키는 쿼리에서 자주 필터로 표시되며 솔루션 확장에 충분한 카디널리티가 있는 키입니다.
+동일한 파티션 키 값에 속하는 문서의 저장소 크기는 20gb로 제한 됩니다 ( [실제 파티션 크기 제한은](../cosmos-db/partition-data.md) 50 gb). [이상적인 파티션 키는](../cosmos-db/partitioning-overview.md#choose-partitionkey) 쿼리에서 필터로 자주 표시 되 고 솔루션을 확장할 수 있는 충분 한 카디널리티를 포함 하는 키입니다.
+
+Stream Analytics 쿼리 및 Cosmos DB에 사용 되는 파티션 키는 동일할 필요가 없습니다. 완전히 병렬 토폴로지에서는 Stream Analytics 쿼리의 파티션 키로 *입력 파티션 키*를 사용 하는 것이 좋지만 `PartitionId` 이는 Cosmos DB 컨테이너의 파티션 키에 권장 되는 선택이 아닐 수 있습니다.
 
 파티션 키는 Azure Cosmos DB의 저장 프로시저 및 트리거에서 트랜잭션에 대한 경계이기도 합니다. 트랜잭션에서 함께 발생하는 문서가 동일한 파티션 키 값을 공유하도록 파티션 키를 선택해야 합니다. [Azure Cosmos DB의 분할](../cosmos-db/partitioning-overview.md) 문서에서는 파티션 키 선택에 대한 자세한 정보를 제공합니다.
 

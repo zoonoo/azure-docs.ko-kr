@@ -1,14 +1,14 @@
 ---
 title: 코드 제공 정책 워크플로 설계
 description: Azure Policy 정의를 코드로 배포하고 리소스의 유효성을 자동으로 검사하는 워크플로를 설계하는 방법을 알아봅니다.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651883"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598216"
 ---
 # <a name="design-policy-as-code-workflows"></a>코드 제공 정책 워크플로 설계
 
@@ -38,6 +38,8 @@ Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 �
 
 - 정책 정의: [리소스에 태그 추가](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - 이니셔티브 정의: [청구 태그](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+또한 [Azure Policy 리소스 내보내기](../how-to/export-resources.md) 를 검토 하 여 기존 정의 및 할당을 원본 코드 관리 환경 [GitHub](https://www.github.com)로 가져옵니다.
 
 ## <a name="workflow-overview"></a>워크플로 개요
 

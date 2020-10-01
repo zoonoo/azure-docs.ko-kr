@@ -10,18 +10,18 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 17a32b27fba4fcde2e148e44e9db768cc9270e01
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441989"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597650"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 Azure CLI를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
@@ -95,7 +95,7 @@ az role definition list --name "{roleName}"
  
 ### <a name="step-3-identify-the-needed-scope"></a>3 단계: 필요한 범위 확인
 
-Azure는 리소스, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups), 구독 및 [관리 그룹](../governance/management-groups/overview.md)의 네 가지 범위 수준을 제공 합니다. 필요한 최소 권한을 사용 하 여 액세스 권한을 부여 하는 것이 가장 좋습니다. 따라서 더 광범위 한 범위에서 역할을 할당 하지 마십시오.
+Azure는 리소스, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups), 구독 및 [관리 그룹](../governance/management-groups/overview.md)의 네 가지 범위 수준을 제공 합니다. 필요한 최소 권한을 사용 하 여 액세스 권한을 부여 하는 것이 가장 좋습니다. 따라서 더 광범위 한 범위에서 역할을 할당 하지 마십시오. 범위에 대 한 자세한 내용은 [범위 이해](scope-overview.md)를 참조 하세요.
 
 **리소스 범위**
 

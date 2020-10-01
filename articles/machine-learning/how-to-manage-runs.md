@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 5a38aa5200ac8d498d2bc296a46b4b98357ab0b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322294"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596445"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
-
 
 Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azure Machine Learning STUDIO](https://ml.azure.com) [용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
 
@@ -49,151 +48,160 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 
 * [Azure Machine Learning에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) 및 CLI 확장입니다.
 
-## <a name="start-a-run-and-its-logging-process"></a>실행 및 해당 로깅 프로세스를 시작 합니다.
+## <a name="monitor-run-performance"></a>실행 성능 모니터링
 
-### <a name="using-the-sdk"></a>SDK 사용
+* 실행 및 해당 로깅 프로세스를 시작 합니다.
 
-[Azureml](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) 패키지에서 [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)및 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 가져와서 실험을 설정 합니다.
-
-```python
-import azureml.core
-from azureml.core import Workspace, Experiment, Run
-from azureml.core import ScriptRunConfig
-
-ws = Workspace.from_config()
-exp = Experiment(workspace=ws, name="explore-runs")
-```
-
-메서드를 사용 하 여 실행 및 해당 로깅 프로세스를 시작 [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) 합니다.
-
-```python
-notebook_run = exp.start_logging()
-notebook_run.log(name="message", value="Hello from run!")
-```
-
-### <a name="using-the-cli"></a>CLI 사용
-
-실험 실행을 시작 하려면 다음 단계를 사용 합니다.
-
-1. 셸 또는 명령 프롬프트에서 Azure CLI를 사용 하 여 Azure 구독에 인증 합니다.
-
-    ```azurecli-interactive
-    az login
-    ```
+    # <a name="python"></a>[Python](#tab/python)
     
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    1. [Azureml](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) 패키지에서 [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)및 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 가져와서 실험을 설정 합니다.
+    
+        ```python
+        import azureml.core
+        from azureml.core import Workspace, Experiment, Run
+        from azureml.core import ScriptRunConfig
+        
+        ws = Workspace.from_config()
+        exp = Experiment(workspace=ws, name="explore-runs")
+        ```
+    
+    1. 메서드를 사용 하 여 실행 및 해당 로깅 프로세스를 시작 [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) 합니다.
+    
+        ```python
+        notebook_run = exp.start_logging()
+        notebook_run.log(name="message", value="Hello from run!")
+        ```
+        
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    실험 실행을 시작 하려면 다음 단계를 사용 합니다.
+    
+    1. 셸 또는 명령 프롬프트에서 Azure CLI를 사용 하 여 Azure 구독에 인증 합니다.
+    
+        ```azurecli-interactive
+        az login
+        ```
+        
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    
+    1. 학습 스크립트를 포함 하는 폴더에 작업 영역 구성을 연결 합니다. `myworkspace`을 Azure Machine Learning 작업 영역으로 바꿉니다. `myresourcegroup`을 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
+    
+        ```azurecli-interactive
+        az ml folder attach -w myworkspace -g myresourcegroup
+        ```
+    
+        이 명령은 예제 runconfig 및 conda 환경 파일을 포함하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신하는 데 사용되는 `config.json` 파일을 포함합니다.
+    
+        자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
+    
+    2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용하는 경우 -c 매개 변수 가까이에 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
+    
+        ```azurecli-interactive
+        az ml run submit-script -c sklearn -e testexperiment train.py
+        ```
+    
+        > [!TIP]
+        > `az ml folder attach`명령은 `.azureml` .runconfig 파일의 두 예제를 포함 하는 하위 디렉터리를 만들었습니다.
+        >
+        > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-)를 사용하여 runconfig 파일로 저장합니다.
+        >
+        > .Runconfig 파일 예제에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
+    
+        자세한 내용은 [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
+    
+    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+    
+    디자이너에서 파이프라인 전송 실행을 시작 하려면 다음 단계를 사용 합니다.
+    
+    1. 파이프라인의 기본 계산 대상을 설정 합니다.
+    
+    1. 파이프라인 캔버스 위쪽에서 **실행** 을 선택 합니다.
+    
+    1. 파이프라인 실행을 그룹화 할 실험을 선택 합니다.
+    
+    ---
 
-1. 학습 스크립트를 포함 하는 폴더에 작업 영역 구성을 연결 합니다. `myworkspace`을 Azure Machine Learning 작업 영역으로 바꿉니다. `myresourcegroup`을 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
+* 실행 상태 모니터링
 
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
-
-    이 명령은 예제 runconfig 및 conda 환경 파일을 포함하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신하는 데 사용되는 `config.json` 파일을 포함합니다.
-
-    자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
-
-2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용하는 경우 -c 매개 변수 가까이에 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
-
-    ```azurecli-interactive
-    az ml run submit-script -c sklearn -e testexperiment train.py
-    ```
-
-    > [!TIP]
-    > `az ml folder attach`명령은 `.azureml` .runconfig 파일의 두 예제를 포함 하는 하위 디렉터리를 만들었습니다.
-    >
-    > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-)를 사용하여 runconfig 파일로 저장합니다.
-    >
-    > .Runconfig 파일 예제에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
-
-    자세한 내용은 [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
-
-### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
-
-디자이너에서 파이프라인 전송 실행을 시작 하려면 다음 단계를 사용 합니다.
-
-1. 파이프라인의 기본 계산 대상을 설정 합니다.
-
-1. 파이프라인 캔버스 위쪽에서 **실행** 을 선택 합니다.
-
-1. 파이프라인 실행을 그룹화 할 실험을 선택 합니다.
-
-## <a name="monitor-the-status-of-a-run"></a>실행 상태 모니터링
-
-### <a name="using-the-sdk"></a>SDK 사용
-
-메서드를 사용 하 여 실행의 상태를 가져옵니다 [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) .
-
-```python
-print(notebook_run.get_status())
-```
-
-실행 ID, 실행 시간 및 실행에 대 한 추가 세부 정보를 가져오려면 메서드를 사용 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) 합니다.
-
-```python
-print(notebook_run.get_details())
-```
-
-실행이 성공적으로 완료 되 면 메서드를 사용 하 여 완료 된 것 [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) 으로 표시 합니다.
-
-```python
-notebook_run.complete()
-print(notebook_run.get_status())
-```
-
-Python의 디자인 패턴을 사용 하는 경우 실행 `with...as` 이 범위를 벗어나는 경우 자동으로 실행이 완료로 표시 됩니다. 실행을 완료 된 것으로 수동으로 표시할 필요가 없습니다.
-
-```python
-with exp.start_logging() as notebook_run:
-    notebook_run.log(name="message", value="Hello from run!")
-    print(notebook_run.get_status())
-
-print(notebook_run.get_status())
-```
-
-### <a name="using-the-cli"></a>CLI 사용
-
-1. 실험에 대 한 실행 목록을 보려면 다음 명령을 사용 합니다. `experiment`를 실험의 이름으로 바꿉니다.
-
-    ```azurecli-interactive
-    az ml run list --experiment-name experiment
-    ```
-
-    이 명령은이 실험의 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
-
-    자세한 내용은 [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
-
-2. 특정 실행에 대 한 정보를 보려면 다음 명령을 사용 합니다. 을 `runid` 실행 ID로 바꿉니다.
-
-    ```azurecli-interactive
-    az ml run show -r runid
-    ```
-
-    이 명령은 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
-
-    자세한 내용은 [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
-
-
-### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
-
-스튜디오에서 실험에 대 한 활성 실행 수를 확인 합니다.
-
-1. **실험** 섹션으로 이동 합니다. 
-
-1. 실험을 선택 합니다.
-
-    실험 페이지에서 활성 계산 대상 수와 각 실행에 대 한 기간을 볼 수 있습니다. 
-
-1. 특정 실행 번호를 선택 합니다.
-
-1. **로그** 탭에서 파이프라인 실행에 대 한 진단 및 오류 로그를 찾을 수 있습니다.
-
-
+    # <a name="python"></a>[Python](#tab/python)
+    
+    * 메서드를 사용 하 여 실행의 상태를 가져옵니다 [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) .
+    
+        ```python
+        print(notebook_run.get_status())
+        ```
+    
+    * 실행 ID, 실행 시간 및 실행에 대 한 추가 세부 정보를 가져오려면 메서드를 사용 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) 합니다.
+    
+        ```python
+        print(notebook_run.get_details())
+        ```
+    
+    * 실행이 성공적으로 완료 되 면 메서드를 사용 하 여 완료 된 것 [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) 으로 표시 합니다.
+    
+        ```python
+        notebook_run.complete()
+        print(notebook_run.get_status())
+        ```
+    
+    * Python의 디자인 패턴을 사용 하는 경우 실행 `with...as` 이 범위를 벗어나는 경우 자동으로 실행이 완료로 표시 됩니다. 실행을 완료 된 것으로 수동으로 표시할 필요가 없습니다.
+        
+        ```python
+        with exp.start_logging() as notebook_run:
+            notebook_run.log(name="message", value="Hello from run!")
+            print(notebook_run.get_status())
+        
+        print(notebook_run.get_status())
+        ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    * 실험에 대 한 실행 목록을 보려면 다음 명령을 사용 합니다. `experiment`를 실험의 이름으로 바꿉니다.
+    
+        ```azurecli-interactive
+        az ml run list --experiment-name experiment
+        ```
+    
+        이 명령은이 실험의 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
+    
+        자세한 내용은 [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
+    
+    * 특정 실행에 대 한 정보를 보려면 다음 명령을 사용 합니다. 을 `runid` 실행 ID로 바꿉니다.
+    
+        ```azurecli-interactive
+        az ml run show -r runid
+        ```
+    
+        이 명령은 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
+    
+        자세한 내용은 [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
+    
+    
+    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+    
+    스튜디오에서 실험에 대 한 활성 실행 수를 확인 합니다.
+    
+    1. **실험** 섹션으로 이동 합니다.
+    
+    1. 실험을 선택 합니다.
+    
+        실험 페이지에서 활성 계산 대상 수와 각 실행에 대 한 기간을 볼 수 있습니다. 
+    
+    1. 결과를 비교 하거나 차트를 추가 하거나 필터를 적용 하려면 실행을 선택 하 여 실험에 대 한 사용자 지정을 수행 합니다. 이러한 변경 내용을 **사용자 지정 보기로** 저장할 수 있으므로 작업으로 쉽게 돌아갈 수 있습니다. 작업 영역 권한이 있는 사용자는 사용자 지정 보기를 편집 하거나 볼 수 있습니다. 또한 브라우저에서 URL을 복사 하 여 붙여넣어 사용자 지정 보기를 다른 사용자와 공유 합니다.  
+    
+        :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="스크린샷: 사용자 지정 보기 만들기":::
+    
+    1. 특정 실행 번호를 선택 합니다.
+    
+    1. **로그** 탭에서 파이프라인 실행에 대 한 진단 및 오류 로그를 찾을 수 있습니다.
+    
+    ---
+    
 ## <a name="cancel-or-fail-runs"></a>취소 또는 실패 실행
 
 오류가 발생 하거나 실행을 완료 하는 데 시간이 너무 오래 걸리는 경우 실행을 취소할 수 있습니다.
 
-### <a name="using-the-sdk"></a>SDK 사용
+# <a name="python"></a>[Python](#tab/python)
 
 SDK를 사용 하 여 실행을 취소 하려면 메서드를 사용 합니다 [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecancel--) .
 
@@ -214,7 +222,7 @@ local_run.fail()
 print(local_run.get_status())
 ```
 
-### <a name="using-the-cli"></a>CLI 사용
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 CLI를 사용 하 여 실행을 취소 하려면 다음 명령을 사용 합니다. `runid`실행 ID로 대체 합니다.
 
@@ -224,7 +232,7 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 
 자세한 내용은 [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-cancel)을 참조 하십시오.
 
-### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
+# <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
 스튜디오에서 실행을 취소 하려면 다음 단계를 사용 합니다.
 
@@ -234,6 +242,7 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 
 1. 도구 모음에서 **취소** 를 선택 합니다.
 
+---
 
 ## <a name="create-child-runs"></a>자식 실행 만들기
 
@@ -319,87 +328,95 @@ print(parent_run.get_children())
 
 Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정보에 대 한 실행을 구성 하 고 쿼리 하는 데 도움이 됩니다.
 
-### <a name="add-properties-and-tags"></a>속성 및 태그 추가
+* 속성 및 태그 추가
 
-#### <a name="using-the-sdk"></a>SDK 사용
+    # <a name="python"></a>[Python](#tab/python)
+    
+    실행에 검색할 수 있는 메타 데이터를 추가 하려면 [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) 메서드를 사용 합니다. 예를 들어 다음 코드는 `"author"` 실행에 속성을 추가 합니다.
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    속성은 변경할 수 없으므로 감사를 위해 영구 레코드를 만듭니다. 다음 코드 예제에서는 `"azureml-user"` `"author"` 이전 코드에서 속성 값으로 이미를 추가 했으므로 오류가 발생 합니다.
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 메서드를 사용 [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) 합니다.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    간단한 문자열 태그를 추가할 수도 있습니다. 이러한 태그가 태그 사전에 키로 표시 되는 경우 값은 `None` 입니다.
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    > [!NOTE]
+    > CLI를 사용 하 여 태그를 추가 하거나 업데이트할 수만 있습니다.
+    
+    태그를 추가 하거나 업데이트 하려면 다음 명령을 사용 합니다.
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    자세한 내용은 [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
+    
+    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+    
+    스튜디오에서 속성 및 태그를 볼 수 있지만 수정할 수는 없습니다.
+    
+    ---
 
-실행에 검색할 수 있는 메타 데이터를 추가 하려면 [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) 메서드를 사용 합니다. 예를 들어 다음 코드는 `"author"` 실행에 속성을 추가 합니다.
+* 쿼리 속성 및 태그
 
-```Python
-local_run.add_properties({"author":"azureml-user"})
-print(local_run.get_properties())
-```
+    특정 속성 및 태그와 일치 하는 실행 목록을 반환 하기 위해 실험 내에서 실행을 쿼리할 수 있습니다.
 
-속성은 변경할 수 없으므로 감사를 위해 영구 레코드를 만듭니다. 다음 코드 예제에서는 `"azureml-user"` `"author"` 이전 코드에서 속성 값으로 이미를 추가 했으므로 오류가 발생 합니다.
-
-```Python
-try:
-    local_run.add_properties({"author":"different-user"})
-except Exception as e:
-    print(e)
-```
-
-속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 메서드를 사용 [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) 합니다.
-
-```Python
-local_run.tag("quality", "great run")
-print(local_run.get_tags())
-
-local_run.tag("quality", "fantastic run")
-print(local_run.get_tags())
-```
-
-간단한 문자열 태그를 추가할 수도 있습니다. 이러한 태그가 태그 사전에 키로 표시 되는 경우 값은 `None` 입니다.
-
-```Python
-local_run.tag("worth another look")
-print(local_run.get_tags())
-```
-
-#### <a name="using-the-cli"></a>CLI 사용
-
-> [!NOTE]
-> CLI를 사용 하 여 태그를 추가 하거나 업데이트할 수만 있습니다.
-
-태그를 추가 하거나 업데이트 하려면 다음 명령을 사용 합니다.
-
-```azurecli-interactive
-az ml run update -r runid --add-tag quality='fantastic run'
-```
-
-자세한 내용은 [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
-
-### <a name="query-properties-and-tags"></a>쿼리 속성 및 태그
-
-특정 속성 및 태그와 일치 하는 실행 목록을 반환 하기 위해 실험 내에서 실행을 쿼리할 수 있습니다.
-
-#### <a name="using-the-sdk"></a>SDK 사용
-
-```Python
-list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-```
-
-#### <a name="using-the-cli"></a>CLI 사용
-
-Azure CLI는 속성 및 태그를 기준으로 실행을 필터링 하는 데 사용할 수 있는 [JMESPath](http://jmespath.org) 쿼리를 지원 합니다. Azure CLI와 함께 JMESPath 쿼리를 사용 하려면 매개 변수를 사용 하 여 지정 `--query` 합니다. 다음 예에서는 속성 및 태그를 사용 하는 몇 가지 쿼리를 보여 줍니다.
-
-```azurecli-interactive
-# list runs where the author property = 'azureml-user'
-az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-# list runs where the tag contains a key that starts with 'worth another look'
-az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-# list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-```
-
-Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조 하세요.
-
-### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
-
-1. **파이프라인** 섹션으로 이동 합니다.
-
-1. 검색 표시줄을 사용 하 여 태그, 설명, 실험 이름 및 제출자 이름을 사용 하 여 파이프라인을 필터링 합니다.
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    Azure CLI는 속성 및 태그를 기준으로 실행을 필터링 하는 데 사용할 수 있는 [JMESPath](http://jmespath.org) 쿼리를 지원 합니다. Azure CLI와 함께 JMESPath 쿼리를 사용 하려면 매개 변수를 사용 하 여 지정 `--query` 합니다. 다음 예에서는 속성 및 태그를 사용 하는 몇 가지 쿼리를 보여 줍니다.
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조 하세요.
+    
+    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+    
+    1. **파이프라인** 섹션으로 이동 합니다.
+    
+    1. 검색 표시줄을 사용 하 여 태그, 설명, 실험 이름 및 제출자 이름을 사용 하 여 파이프라인을 필터링 합니다.
+    
+    ---
 
 ## <a name="example-notebooks"></a>노트북 예제
 

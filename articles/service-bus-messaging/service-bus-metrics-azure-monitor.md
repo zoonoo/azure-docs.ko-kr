@@ -2,13 +2,13 @@
 title: Azure Monitor에서 Azure Service Bus 메트릭 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 Service Bus 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320441"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598122"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 Azure Service Bus 메트릭
 
@@ -93,7 +93,7 @@ Azure Monitor에 대한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 | 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|활성 연결 수|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
+|활성 연결 수|네임 스페이스 및 네임 스페이스에 있는 엔터티의 활성 연결 수입니다. 이 메트릭의 값은 지정 시간 값입니다. 해당 시점 직후에 활성화 된 연결은 메트릭에 반영 되지 않을 수 있습니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
 |열린 연결 |열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
 |닫힌 연결 |닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
 

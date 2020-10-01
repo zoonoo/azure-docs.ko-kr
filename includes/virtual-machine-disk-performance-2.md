@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540026"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91605795"
 ---
 ![Dsv3 설명서](media/vm-disk-performance/dsv3-documentation.jpg)
 
-최대 **캐시 되지 않은** 디스크 처리량은 가상 머신에서 처리할 수 있는 기본 저장소 최대 한도입니다. 호스트 캐싱을 사용 하도록 설정 하는 경우 **캐시** 된 최대 저장소 처리량 제한은 별도의 제한입니다. 호스트 캐싱은 저장소를 신속 하 게 작성 하거나 읽을 수 있는 VM에 더 가깝게 배치 하는 방식으로 작동 합니다. 호스트 캐싱에 대해 VM에서 사용할 수 있는 저장소 크기는 설명서에 있습니다. 예를 들어 Standard_D8s_v3가 200 GiB 캐시 저장소와 함께 제공 되는 것을 볼 수 있습니다. 이제 
+최대 **캐시 되지 않은** 디스크 처리량은 가상 머신에서 처리할 수 있는 기본 저장소 최대 한도입니다. 호스트 캐싱을 사용 하도록 설정 하는 경우 **캐시** 된 최대 저장소 처리량 제한은 별도의 제한입니다. 호스트 캐싱은 저장소를 신속 하 게 작성 하거나 읽을 수 있는 VM에 더 가깝게 배치 하는 방식으로 작동 합니다. 호스트 캐싱에 대해 VM에서 사용할 수 있는 저장소 크기는 설명서에 있습니다. 예를 들어 Standard_D8s_v3가 200 GiB 캐시 저장소와 함께 제공 되는 것을 볼 수 있습니다.
 
 가상 컴퓨터를 만들고 디스크를 연결할 때 호스트 캐싱을 사용 하도록 설정할 수 있습니다. 또한 기존 VM에서 디스크를 캐시 하는 호스트를 설정 및 해제 하도록 조정할 수 있습니다.
 
@@ -94,7 +94,7 @@ Standard_D8s_v3 가상 머신에 대 한 예제를 계속 살펴보겠습니다.
     - 호스트 캐싱: 읽기/쓰기
 - 2 P30 데이터 디스크 X 2
     - IOPS: 5000
-    - 호스트 캐싱: 읽기/쓰기
+    - 호스트 캐싱: 사용 안 함
 
 ![원격 저장소를 사용 하는 호스트 캐싱 예제](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 

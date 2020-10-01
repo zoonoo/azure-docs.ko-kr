@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333089"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596975"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,13 +25,16 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 데이터베이스의 �
 
 Azure SQL Database는 지능형 성능 튜닝 권장 사항 및 성능 향상을 위한 자동 조정 옵션을 제공 하기 위한 다양 한 데이터베이스 관리자를 제공 합니다. 또한 Query Performance Insight에는 단일 및 풀링된 데이터베이스에 대 한 가장 많은 CPU 및 IO 사용을 담당 하는 쿼리에 대 한 세부 정보가 표시 됩니다.
 
-Azure SQL Database 및 Azure SQL Managed Instance 인공 지능을 통해 지원 되는 고급 모니터링 및 튜닝 기능을 제공 하 여 데이터베이스 및 솔루션의 성능 문제를 해결 하 고이를 최대화 합니다. 이러한 [Intelligent Insights](intelligent-insights-overview.md) 및 기타 데이터베이스 리소스 로그 및 메트릭의 [스트리밍 내보내기를](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 사용 및 분석을 위해 특히 [SQL 분석](../../azure-monitor/insights/azure-sql.md)을 사용 하 여 여러 대상 중 하나로 구성 하도록 선택할 수 있습니다. Azure SQL 분석는 단일 보기의 여러 구독에서 규모에 상관 없이 모든 데이터베이스의 성능을 모니터링 하기 위한 고급 클라우드 모니터링 솔루션입니다. 내보낼 수 있는 로그 및 메트릭 목록은 [내보내기에 대 한 진단 원격 분석](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export) 을 참조 하세요.
+Azure SQL Database 및 Azure SQL Managed Instance 인공 지능을 통해 지원 되는 고급 모니터링 및 튜닝 기능을 제공 하 여 데이터베이스 및 솔루션의 성능 문제를 해결 하 고이를 최대화 합니다. 특히 [SQL 분석](../../azure-monitor/insights/azure-sql.md)을 사용 하 여 이러한 [Intelligent Insights](intelligent-insights-overview.md) 및 기타 데이터베이스 리소스 로그 및 메트릭의 [스트리밍 내보내기를](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 사용 및 분석을 위한 여러 대상 중 하나로 구성할 수 있습니다. Azure SQL 분석는 단일 보기의 여러 구독에서 규모에 상관 없이 모든 데이터베이스의 성능을 모니터링 하기 위한 고급 클라우드 모니터링 솔루션입니다. 내보낼 수 있는 로그 및 메트릭 목록은 [내보내기에 대 한 진단 원격 분석](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export) 을 참조 하세요.
 
-마지막으로 SQL Server에는 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 및 [dmv (동적 관리 뷰)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)와 같이 SQL Database 및 SQL Managed Instance 활용 하는 자체 모니터링 및 진단 기능이 있습니다. 다양 한 성능 문제를 모니터링 하려면 스크립트에 대해 [dmv를 사용 하 여 모니터링](monitoring-with-dmvs.md) 을 참조 하세요.
+SQL Server에는 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 및 [dmv (동적 관리 뷰)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)와 같이 SQL Database 및 SQL Managed Instance 활용 하는 자체 모니터링 및 진단 기능이 있습니다. 다양 한 성능 문제를 모니터링 하려면 스크립트에 대해 [dmv를 사용 하 여 모니터링](monitoring-with-dmvs.md) 을 참조 하세요.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Azure Portal의 모니터링 및 튜닝 기능
 
-Azure Portal에서 Azure SQL Database 및 Azure SQL Managed Instance 리소스 메트릭 모니터링을 제공 합니다. 또한 Azure SQL Database는 데이터베이스 관리자와 쿼리 튜닝 권장 사항 및 쿼리 성능 분석을 제공 하는 Query Performance Insight 제공 합니다. 마지막으로, Azure Portal에서 [논리 SQL server](logical-servers.md) 와 해당 단일 및 풀링된 데이터베이스에 대해 자동을 사용 하도록 설정할 수 있습니다.
+Azure Portal에서 Azure SQL Database 및 Azure SQL Managed Instance 리소스 메트릭 모니터링을 제공 합니다. Azure SQL Database는 데이터베이스 관리자를 제공 하 고 쿼리 튜닝 권장 사항 및 쿼리 성능 분석을 제공 Query Performance Insight 합니다. Azure Portal에서 [논리 SQL server](logical-servers.md) 와 해당 단일 및 풀링된 데이터베이스에 대해 자동 조정을 사용 하도록 설정할 수 있습니다.
+
+> [!NOTE]
+> 사용량이 매우 적은 데이터베이스는 포털에서 실제 사용량 보다 적게 표시 될 수 있습니다. Double 값을 가장 가까운 정수로 변환 하는 경우 원격 분석을 내보내는 방식 때문에 0.5 보다 작은 특정 사용 양은 0으로 반올림 되어 내보낸 원격 분석의 세분성이 손실 됩니다. 자세한 내용은 [낮은 데이터베이스 및 탄력적 풀 메트릭 반올림 (0)](#low-database-and-elastic-pool-metrics-rounding-to-zero)을 참조 하세요.
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Azure SQL Database 및 Azure SQL Managed Instance 리소스 모니터링
 
@@ -46,6 +49,33 @@ Azure SQL Database는 단일 및 풀링된 데이터베이스에 대 한 성능 
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Azure SQL Database Query Performance Insight
 
 [Query Performance Insight](query-performance-insight-use.md) 는 단일 및 풀링된 데이터베이스에 대해 가장 많이 사용 되 고 가장 오래 실행 되는 쿼리의 Azure Portal 성능을 보여 줍니다.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>낮은 데이터베이스 및 탄력적 풀 메트릭이 0으로 반올림 됩니다.
+
+2020 년 9 월부터 사용량이 매우 적은 데이터베이스가 포털에서 실제 사용량 보다 적게 표시 될 수 있습니다. Double 값을 가장 가까운 정수로 변환 하는 경우 원격 분석을 내보내는 방식 때문에 0.5 보다 작은 특정 사용 양은 0으로 반올림 되어 내보낸 원격 분석의 세분성이 손실 됩니다.
+
+예: 다음 네 가지 데이터 요소를 포함 하는 1 분 기간을 고려 합니다. 0.1, 0.1, 0.1, 0.1, 이러한 낮은 값은 0, 0, 0, 0으로 반올림 되며 평균 0을 표시 합니다. 0.5 보다 큰 데이터 요소 (예: 0.1, 0.1, 0.9, 0.1)가 0, 0, 1, 0으로 반올림 되 고 평균 0.25이 표시 됩니다.
+
+영향을 받는 데이터베이스 메트릭:
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+영향을 받는 탄력적 풀 메트릭:
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>성능 문제에 대 한 지능형 평가 생성
 

@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: e7f5750d89c661cad7616cf1c56157c6e92e1175
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7dd67387a541ff62bfa85a7afc2f1bbf31c6180
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654466"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596423"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen1 환경에서 데이터 쿼리
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 c # 예제에서는 [Gen1 쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) 를 사용 하 여 Azure Time Series Insights Gen1 환경에서 데이터를 쿼리 하는 방법을 보여 줍니다.
 
@@ -75,7 +78,7 @@ ms.locfileid: "88654466"
 
 ## <a name="c-sample-code"></a>C# 샘플 코드
 
-C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] 리포지토리를 참조 하세요. 
+C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] 리포지토리를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

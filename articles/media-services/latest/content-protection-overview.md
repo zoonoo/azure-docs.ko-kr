@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401387"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595970"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 콘텐츠가 AES 암호화 되지 않은 키로 암호화 되 고 HTTPS를 통해 전송 되는 경우 클라이언트에 도달할 때까지 명확 하지 않습니다. 
+Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 콘텐츠가 AES 암호화 되지 않은 키로 암호화 되 고 HTTPS를 통해 전송 되는 경우 클라이언트에 도달할 때까지 명확 하지 않습니다.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 Media Services v 3에서 콘텐츠 키가 스트리밍 로케이터와 연결 되어 있습니다 ( [이 예제](protect-with-aes128.md)참조). Media Services 키 배달 서비스를 사용 하는 경우 콘텐츠 키를 Azure Media Services 생성 하도록 할 수 있습니다. 고유한 키 배달 서비스를 사용 하는 경우 또는 두 데이터 센터에서 동일한 콘텐츠 키를 가져야 하는 고가용성 시나리오를 처리 해야 하는 경우 콘텐츠 키를 직접 생성 해야 합니다.
 
@@ -136,7 +138,7 @@ HLS/CMAF + FairPlay (HEVC/265 포함)는 다음 장치에서 지원 됩니다.
 
 * iOS 11 이상
 * iPhone 8 이상
-* MacOS는 Intel 7 세대 CPU를 포함 하 고 있습니다.
+* macOS는 Intel 7 세대 CPU를 포함 하 고 있습니다.
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
@@ -242,7 +244,7 @@ Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토�
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";

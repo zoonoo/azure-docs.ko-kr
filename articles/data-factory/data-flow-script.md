@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 6802e3f6c0892993f9ffe4373f43274362b8a003
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569679"
+ms.locfileid: "91598091"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 데이터 흐름 스크립트에서 다음 코드를 사용 하 여 ```DWhash``` 세 개의 열에 대 한 해시를 생성 하는 라는 새 파생 열을 만듭니다 ```sha1``` .
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 아래 스크립트를 사용 하 여 각 열의 이름을 지정할 필요 없이 스트림에 있는 모든 열을 사용 하 여 행 해시를 생성할 수도 있습니다.
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg 동일
@@ -191,7 +191,7 @@ derive(DWhash = sha1(columns()))
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>업데이트 수, upsert, 삽입, 삭제 수
@@ -216,7 +216,7 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 이 코드 조각은 일반적으로 모든 열에서 NULL 값을 확인 하기 위해 데이터 흐름에 붙여넣을 수 있는 코드 조각입니다. 이 기법은 스키마 드리프트를 활용 하 여 모든 행의 모든 열을 확인 하 고 조건부 분할을 사용 하 여 null이 없는 행의 행을 Null로 구분 합니다. 
 
 ```
-CreateColumnArray split(contains(array(columns()),isNull(#item)),
+split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 

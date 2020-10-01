@@ -3,17 +3,17 @@ title: Azure IaaS VM에 대한 디스크 유형 선택 - 관리 디스크
 description: 울트라 디스크, 프리미엄 SSD, 표준 SSD, 표준 HDD를 포함하여 가상 머신에 사용 가능한 Azure 디스크 유형을 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088496"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596781"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -57,7 +57,7 @@ Azure ultra disks는Azure IaaS VM에 대해 높은 처리량, 높은 IOPS 및 �
 |64     |19,200         |2,000         |
 |128     |38,400         |2,000         |
 |256     |76,800         |2,000         |
-|512     |80,000         |2,000         |
+|512     |153600         |2,000         |
 |1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |2,000         |
 
 ### <a name="ga-scope-and-limitations"></a>GA 범위 및 제한 사항

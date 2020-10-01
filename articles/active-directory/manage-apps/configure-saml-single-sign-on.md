@@ -1,38 +1,38 @@
 ---
-title: Azure AD에서 앱에 대 한 SAML 기반 SSO (Single Sign-On) 구성
-description: Azure AD에서 앱에 대 한 SAML 기반 SSO (Single Sign-On) 구성
+title: Azure Active Directory 앱에 대 한 SAML 기반 SSO (Single Sign-On) 이해
+description: Azure Active Directory 앱에 대 한 SAML 기반 SSO (Single Sign-On) 이해
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605144"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597913"
 ---
-# <a name="configure-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 구성
+# <a name="understand-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 이해
 
 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 이 문서에서는 Single Sign-On에 대 한 SAML 기반 옵션에 대해 자세히 설명 합니다. 
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 하는 것은 사용 중인 응용 프로그램에 따라 단순 하거나 복잡할 수 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 설정할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속 하 게 진행 하려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 SAML 기반 SSO에 대 한 사용자 지정 구성이 필요한 경우이 문서를 참조 하세요.
+IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 구성 하는 것은 사용 중인 응용 프로그램에 따라 간단 하거나 복잡할 수 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 구성할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속히 정보를 증가 시키려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 SAML 기반 SSO에 대 한 사용자 지정 구성이 필요한 경우이 문서를 참조 하세요.
 
 [퀵 스타트 시리즈](add-application-portal-setup-sso.md)에는 Single Sign-On를 구성 하는 문서가 있습니다. 여기서는 앱에 대 한 SAML 구성 페이지에 액세스 하는 방법을 알아봅니다. SAML 구성 페이지에는 5 개의 섹션이 포함 되어 있습니다. 이러한 섹션은이 문서에 자세히 설명 되어 있습니다.
 
 > [!IMPORTANT] 
 > **엔터프라이즈 응용**프로그램의 응용 프로그램 탐색에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 
 >
-> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 설정 됩니다. 이 경우 **Enterprise 응용 프로그램**에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
+> **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 구성 됩니다. 이 경우 **Enterprise 응용 프로그램**에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조 하세요. SSO 표준에 대해 자세히 알아보려면 [Microsoft id 플랫폼을 사용한 인증 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform)를 참조 하세요. 
 >
 > 응용 프로그램이 다른 테 넌 트에 호스트 되거나 사용자 계정에 필요한 권한 (전역 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single sign-on** 이 누락 되는 경우도 있습니다. 사용 권한은 **Single sign-on** 을 열 수는 있지만 저장할 수 없는 시나리오를 일으킬 수도 있습니다. Azure AD 관리 역할에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 하세요.
 
@@ -42,7 +42,7 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 
 이 값은 애플리케이션 공급업체에서 받아야 합니다. 필드 값을 추출하려면 수동으로 값을 입력하거나 메타데이터 파일을 업로드할 수 있습니다.
 
 > [!TIP]
-> 많은 앱이 이미 Azure AD와 함께 작동 하도록 미리 구성 되어 있습니다. 이러한 앱은 Azure AD 테 넌 트에 앱을 추가할 때 찾아볼 수 있는 앱 갤러리에 나열 됩니다. [퀵 스타트 시리즈](add-application-portal-setup-sso.md) 는이 과정을 안내 합니다. 갤러리의 앱에 대 한 자세한 단계별 지침을 확인할 수 있습니다. 단계에 액세스 하려면 퀵 스타트 시리즈에 설명 된 대로 앱에 대 한 SAML 구성 페이지의 링크를 클릭 하거나 [SaaS 앱 구성 자습서](../saas-apps/tutorial-list.md)의 모든 앱 구성 자습서 목록을 찾아볼 수 있습니다.
+> 많은 앱이 이미 Azure AD와 함께 작동 하도록 미리 구성 되어 있습니다. 이러한 앱은 Azure AD 테 넌 트에 앱을 추가할 때 찾아볼 수 있는 앱 갤러리에 나열 됩니다. [퀵 스타트 시리즈](add-application-portal-setup-sso.md) 는이 과정을 안내 합니다. 갤러리의 앱에 대 한 자세한 단계별 지침을 찾을 수 있습니다. 단계에 액세스 하려면 퀵 스타트 시리즈에 설명 된 대로 앱에 대 한 SAML 구성 페이지의 링크를 클릭 하거나 [SaaS 앱 구성 자습서](../saas-apps/tutorial-list.md)의 모든 앱 구성 자습서 목록을 찾아볼 수 있습니다.
 
 | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | Description |
 |:--|:--|:--|:--|
@@ -76,7 +76,7 @@ SAML 클레임을 사용자 지정 하는 방법에 대 한 자세한 내용은 
 
 ## <a name="saml-signing-certificate"></a>SAML 서명 인증서
 
-Azure AD는 인증서를 사용하여 애플리케이션에 보내는 SAML 토큰에 서명합니다. Azure AD 및 애플리케이션 간 신뢰를 설정하려면 이 인증서가 필요합니다. 인증서 형식에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 자세한 내용은 [페더레이션된 Single Sign-On 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [SAML 토큰의 고급 인증서 서명 옵션](certificate-signing-options.md)을 참조하세요.
+Azure AD는 인증서를 사용하여 애플리케이션에 보내는 SAML 토큰에 서명합니다. Azure AD와 응용 프로그램 간의 트러스트를 구성 하려면이 인증서가 필요 합니다. 인증서 형식에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 자세한 내용은 [페더레이션된 Single Sign-On 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [SAML 토큰의 고급 인증서 서명 옵션](certificate-signing-options.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 많은 앱은 이미 미리 구성 되어 있으며 앱 갤러리에서 인증서를 사용할 필요가 없습니다. [퀵 스타트 시리즈](add-application-portal.md) 는 앱을 추가 하 고 구성 하는 과정을 안내 합니다.
@@ -99,7 +99,7 @@ Azure AD에서는 Base64 또는 원시 형식의 활성 인증서를 기본 **SA
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Azure AD를 사용하도록 애플리케이션 설정
 
-**설정 \<applicationName> ** 섹션에는 SAML ID 공급자로 Azure AD를 사용 하도록 응용 프로그램에 구성 해야 하는 값이 나열 됩니다. 응용 프로그램 웹 사이트의 구성 페이지에서 값을 설정 합니다. 예를 들어 GitHub를 설정 하는 경우 github.com 사이트로 이동 하 여 값을 설정 합니다. 응용 프로그램이 이미 미리 구성 되어 있는 경우 Azure AD 갤러리에서 단계별 **지침을 볼**수 있는 링크를 찾을 수 있습니다. 그렇지 않으면 설정 중인 응용 프로그램에 대 한 설명서를 확인 해야 합니다. 
+**설정 \<applicationName> ** 섹션에는 SAML ID 공급자로 Azure AD를 사용 하도록 응용 프로그램에 구성 해야 하는 값이 나열 됩니다. 응용 프로그램 웹 사이트의 구성 페이지에서 값을 설정 합니다. 예를 들어 GitHub를 구성 하는 경우 github.com 사이트로 이동 하 여 값을 설정 합니다. 응용 프로그램이 이미 미리 구성 되어 있는 경우 Azure AD 갤러리에서 단계별 **지침을 볼**수 있는 링크를 찾을 수 있습니다. 그렇지 않으면 구성 중인 응용 프로그램에 대 한 설명서를 확인 해야 합니다. 
 
 **로그인 url** 및 **로그 아웃 url** 값은 모두 동일한 끝점 (Azure AD 테 넌 트의 SAML 요청 처리 끝점)으로 확인 됩니다. 
 

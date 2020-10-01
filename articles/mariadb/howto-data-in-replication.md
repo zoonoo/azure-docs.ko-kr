@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 6836461e9f1d4f14bc39161a99ad9d151caafaa5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540798"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598192"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -54,9 +54,40 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 1. 계속 하기 전에 [마스터 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토 하십시오. 
 
-   예를 들어 원본 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS**를 공개적으로 액세스할 수 있거나 FQDN (정규화 된 도메인 이름)을 포함 하는지 확인 합니다. 
+2. 원본 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS가 공개적으로 액세스할**수 있거나 FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다. 
    
    다른 컴퓨터에서 호스트 되는 MySQL 명령줄 또는 Azure Portal에서 사용할 수 있는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 와 같은 도구에서 연결을 시도 하 여 원본 서버에 대 한 연결을 테스트 합니다.
+
+   조직에서 엄격한 보안 정책을 사용 하 고 원본 서버의 모든 IP 주소가 Azure에서 원본 서버로의 통신을 사용 하도록 허용 하지 않는 경우, 아래 명령을 사용 하 여 Azure Database for MariaDB 서버의 IP 주소를 확인할 수 있습니다.
+    
+   1. MySQL 명령줄과 같은 도구를 사용 하 여 Azure Database for MariaDB에 로그인 합니다.
+   2. 아래 쿼리를 실행합니다.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      다음은 몇 가지 샘플 출력입니다.
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. MySQL 명령줄에서 종료 합니다.
+   4. Ping 유틸리티에서 아래를 실행 하 여 IP 주소를 가져옵니다.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      예를 들면 다음과 같습니다. 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. 이전 단계의 출력 된 IP 주소를 포트 3306에 포함 하도록 원본 서버의 방화벽 규칙을 구성 합니다.
+
+   > [!NOTE]
+   > 이 IP 주소는 유지 관리/배포 작업으로 인해 변경 될 수 있습니다. 이 연결 방법은 3306 포트에서 모든 IP 주소를 허용 하지 않는 고객만을 위한 것입니다.
 
 2. 이진 로깅을 설정 합니다.
     
