@@ -3,12 +3,12 @@ title: 컨테이너용 Azure Monitor 에이전트를 관리하는 방법 | Micro
 description: 이 문서에서는 컨테이너용 Azure Monitor에서 사용되는 컨테이너화된 Log Analytics 에이전트를 통해 가장 일반적인 유지 관리 작업을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 1a397dbc5ebc4952b09c504b70df6ad99c00b216
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b656b0cc89e40dd732def4ebf56dceae69a033b0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041259"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618440"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 
@@ -75,23 +75,25 @@ $ helm upgrade --name myrelease-1 \
 >
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
+
+이 명령을 사용 하 여 서비스 주체를 사용 하는 방법에 대 한 자세한 내용은 [Azure Arc 사용 Kubernetes 클러스터 모니터링 사용](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) 에서 **서비스 주체 사용** 을 참조 하세요.
 
 ### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Azure Arc의 업그레이드 에이전트 사용 Kubernetes
 
-다음 명령을 수행 하 여 프록시 끝점 없이 Azure Arc 사용 Kubernetes 클러스터에서 에이전트를 업그레이드 합니다.
+다음 명령을 수행 하 여 Azure Arc enabled Kubernetes 클러스터에서 에이전트를 업그레이드 합니다.
 
 ```console
-$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
 ```
 
-다음 명령을 수행 하 여 프록시 끝점이 지정 된 경우 에이전트를 업그레이드 합니다. 프록시 끝점에 대 한 자세한 내용은 [프록시 끝점 구성](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint)을 참조 하세요.
+이 명령을 사용 하 여 서비스 주체를 사용 하는 방법에 대 한 자세한 내용은 [Azure Arc 사용 Kubernetes 클러스터 모니터링 사용](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) 에서 **서비스 주체 사용** 을 참조 하세요.
 
-```console
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
-```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하는 방법
 

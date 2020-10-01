@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323110"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617641"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 필수 서브넷 크기 & 범위 확인
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ VNet의 서브넷에 배포할 수 있는 관리 되는 인스턴스 수는 서�
 
 관리 되는 인스턴스를 만들 때 Azure는 프로 비전 중에 선택한 계층에 따라 여러 가상 머신을 할당 합니다. 이러한 가상 머신이 서브넷에 연결되어 있기 때문에 IP 주소가 필요합니다. 일반 작업 및 서비스 유지 관리 중에 고가용성을 보장하기 위해 Azure에서는 가상 머신을 추가로 할당할 수 있습니다. 따라서 서브넷의 필수 IP 주소 수가 해당 서브넷에 있는 관리 되는 인스턴스의 수보다 큽니다.
 
-기본적으로 관리 되는 인스턴스의 서브넷에는 최소 32의 IP 주소가 필요 합니다. 따라서 서브넷 IP 범위를 정의할 때 최소 서브넷 마스크/27을 사용할 수 있습니다. 관리 되는 인스턴스 배포에 대 한 서브넷 크기를 신중 하 게 계획 하는 것이 좋습니다. 계획 중에 고려해 야 하는 입력은 다음과 같습니다.
+기본적으로 Managed Instance의 서브넷에는 최소 32개의 IP 주소가 필요합니다. 따라서 서브넷 IP 범위를 정의할 때 최소 서브넷 마스크 /27을 사용할 수 있습니다. Managed Instance 배포에 대한 서브넷 크기를 신중하게 계획하는 것이 좋습니다. 계획 중에 고려해 야 하는 입력은 다음과 같습니다.
 
 - 다음 인스턴스 매개 변수를 포함 하는 관리 되는 인스턴스 수:
   - 서비스 계층

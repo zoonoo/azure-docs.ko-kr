@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1b9aacf96249c3e102c6a3dbf87d8ac1ff20be6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533318"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616910"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -461,7 +461,13 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>예: 기존 Azure Databricks 대화형 클러스터 ID 매개 변수화
@@ -553,7 +559,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 -   **배포 전 및 배포 후 스크립트**. CI/CD의 Resource Manager 배포 단계 전에 트리거를 중지, 다시 시작, 정리를 수행하는 등의 특정 작업을 완료해야 합니다. 배포 작업 전후에 PowerShell 스크립트를 사용하는 것이 좋습니다. 자세한 내용은 [활성 트리거 업데이트](#updating-active-triggers)를 참조하세요. 이 페이지의 맨 아래에 있는 Data Factory 팀에서 [제공한 스크립트](#script)를 사용할 수 있습니다.
 
 -   **통합 런타임 및 공유**. 통합 런타임은 자주 변경되지 않으며 CI/CD의 모든 단계에서 유사합니다. 따라서 Data Factory에서는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용해야 합니다. 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다.
+
+-   **관리 되는 개인 끝점 배포**. 개인 끝점이 이미 팩터리에 존재 하 고 이름이 같지만 수정 된 속성이 있는 개인 끝점을 포함 하는 ARM 템플릿을 배포 하려고 하면 배포에 실패 합니다. 즉, 팩터리에 이미 있는 것과 동일한 속성이 있는 한 개인 끝점을 성공적으로 배포할 수 있습니다. 환경 간에 다른 속성이 있는 경우 해당 속성을 매개 변수화 하 고 배포 중에 해당 값을 제공 하 여 재정의할 수 있습니다.
 
 -   **Key Vault**. 연결 정보가 Azure Key Vault에 저장되어 있는 연결된 서비스를 사용하는 경우 다른 환경에 대해 별도의 키 자격 증명 모음을 유지하는 것이 좋습니다. 또한 각각의 키 자격 증명 모음에 대해 개별 권한 수준을 구성할 수도 있습니다. 예를 들어 팀 멤버에게 프로덕션 비밀에 대한 사용 권한을 부여하지 않을 수 있습니다. 이 접근 방식을 따를 경우 모든 단계에서 동일한 비밀 이름을 유지하는 것이 좋습니다. 동일한 비밀 이름을 유지하는 경우, 별도의 매개 변수인 키 자격 증명 모음 이름이 유일하게 변경되므로 CI/CD 환경에서 각 연결 문자열을 매개 변수화할 필요가 없습니다.
 

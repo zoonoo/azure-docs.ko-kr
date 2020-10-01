@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 5311d6504e98c107b6ceb893babb6db31c9aff51
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08adfd7b69d580f6a231f13f9fb2793d828e16a3
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325048"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618168"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>TDE로 보호 되는 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ TDE로 보호 되는 데이터베이스와 해당 인증서를 원활 하 게 �
 > [!IMPORTANT]
 > 마이그레이션된 인증서는 TDE로 보호 되는 데이터베이스에만 복원 하는 데 사용 됩니다. 복원이 완료 된 후에도 마이그레이션된 인증서는 인스턴스에 대해 설정 된 TDE의 유형에 따라 서비스 관리 인증서 또는 키 자격 증명 모음의 비대칭 키와 같은 다른 보호기로 대체 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 

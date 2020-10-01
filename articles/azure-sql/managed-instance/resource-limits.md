@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: c563862c777dd9b5bf4c9f31155aa65c430acd1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323244"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618117"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 > [!Important]
 > 중요 비즈니스용 서비스 계층은 읽기 전용 작업에 사용할 수 있는 SQL Managed Instance (보조 복제본)의 추가 기본 복사본을 제공 합니다. 읽기/쓰기 쿼리와 읽기 전용/분석/보고 쿼리를 구분할 수 있는 경우 동일한 가격에 대 한 vCores와 메모리의 두 배를 얻을 수 있습니다. 보조 복제본은 주 인스턴스에서 몇 초 정도 지연 될 수 있으므로 데이터의 정확한 현재 상태를 필요로 하지 않는 보고/분석 워크 로드를 오프 로드 하도록 설계 되었습니다. 아래 표에서 **읽기 전용 쿼리** 는 보조 복제본에서 실행 되는 쿼리입니다.
 
-| **기능** | **일반 용도** | **중요 비즈니스용** |
+| **기능** | **범용** | **중요 비즈니스용** |
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*동일한 수의 vCores는 읽기 전용 쿼리에 전용으로 사용할 수 있습니다. |
 | 최대 메모리 | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5:20.4 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5: 읽기-쓰기 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)<br/>+ 읽기 전용 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)가 추가 되었습니다.<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
@@ -110,7 +110,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 
 최대 로그 쓰기 처리량 (22 m b/초)에도 인스턴스 수준 제한이 있으므로 인스턴스 처리량 제한에 도달 하 여 로그 파일 전체에서 최대 파일에 도달 하지 못할 수 있습니다.
 
-## <a name="supported-regions"></a>지원되는 지역
+## <a name="supported-regions"></a>지원되는 Azure 지역
 
 SQL Managed Instance은 [지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)에서만 만들 수 있습니다. 현재 지원 되지 않는 지역에서 SQL Managed Instance를 만들려면 [Azure Portal를 통해 지원 요청을 보낼](../database/quota-increase-request.md)수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널을 사용 하 여 위협을 검색 하는 사용자 지정 분석 규칙 만들기 | Microsoft Docs
-description: 이 자습서를 사용 하 여 Azure 센티널에서 보안 위협을 검색 하는 사용자 지정 분석 규칙을 만드는 방법을 알아봅니다.
+description: 이 자습서를 사용 하 여 Azure 센티널에서 보안 위협을 검색 하는 사용자 지정 분석 규칙을 만드는 방법을 알아봅니다. 이벤트 그룹화 및 경고 그룹화를 활용 하 고 자동 사용 안 함을 이해 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605889"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617182"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>자습서: 위협 검색을 위한 사용자 지정 분석 규칙 만들기
 
@@ -53,13 +53,15 @@ ms.locfileid: "88605889"
 
       Azure 활동에서 비정상 리소스를 만들 때 경고를 표시 하는 샘플 쿼리는 다음과 같습니다.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > 쿼리 길이는 1 ~ 007e; 1만 자 여야 하며 "search \* " 또는 "union"을 포함할 수 없습니다 \* .
+        > [!NOTE]
+        > 쿼리 길이는 1 ~ 007e; 1만 자 여야 하며 "search \* " 또는 "union"을 포함할 수 없습니다 \* .
 
     1. **엔터티 매핑** 섹션을 사용 하 여 쿼리 결과의 매개 변수를 Azure 센티널에서 인식할 수 있는 엔터티로 연결 합니다. 이러한 엔터티는 **인시던트 설정** 탭에서 인시던트에 경고를 그룹화 하는 등 추가 분석을 위한 기반을 형성 합니다.
   
@@ -69,8 +71,12 @@ ms.locfileid: "88605889"
 
        1. **마지막에서 조회 데이터** 를 설정 하 여 쿼리가 적용 되는 데이터의 기간을 결정 합니다. 예를 들어 지난 10 분의 데이터 또는 지난 6 시간의 데이터를 쿼리할 수 있습니다.
 
-       > [!NOTE]
-       > 이러한 두 설정은 한 지점까지 서로 독립적입니다. 간격 보다 긴 시간 동안 쿼리를 실행할 수 있지만 (겹치는 쿼리를 포함 하는 경우), 검사 기간을 초과 하는 간격으로 쿼리를 실행할 수 없습니다. 그렇지 않으면 전체 쿼리 범위에서 간격이 발생할 수 있습니다.
+          > [!NOTE]
+          > **쿼리 간격 및 lookback 기간**
+          > - 이러한 두 설정은 한 지점까지 서로 독립적입니다. 간격 보다 긴 시간 동안 쿼리를 실행할 수 있지만 (겹치는 쿼리를 포함 하는 경우), 검사 기간을 초과 하는 간격으로 쿼리를 실행할 수 없습니다. 그렇지 않으면 전체 쿼리 범위에서 간격이 발생할 수 있습니다.
+          >
+          > **수집 지연**
+          > - 원본에서 이벤트를 생성 하 고 Azure 센티널에 수집 하는 동안 발생할 수 있는 **대기 시간** 을 고려 하 여 데이터 중복 없이 전체 검사를 보장 하기 위해 azure 센티널은 예약 된 시간부터 **5 분 지연** 시간에 예약 된 분석 규칙을 실행 합니다.
 
     1. **경고 임계값** 섹션을 사용 하 여 기준을 정의 합니다. 예를 들어 쿼리가 실행 될 때마다 반환 되는 결과 수를 1000 반환 하 **는 경우에** 만 경고를 생성 하는 경우 1000에만 경고를 생성 하는 경우에 **경고 생성** 을 설정 합니다. 이 필드는 필수 필드 이므로 기준을 설정 하지 않으려는 경우 (즉, 경고에서 모든 이벤트를 등록 하려는 경우) 숫자 필드에 0을 입력 합니다.
     
@@ -134,6 +140,43 @@ ms.locfileid: "88605889"
 
 > [!NOTE]
 > Azure 센티널에서 생성 된 경고는 [Microsoft Graph 보안](https://aka.ms/securitygraphdocs)을 통해 사용할 수 있습니다. 자세한 내용은 [Microsoft Graph 보안 경고 설명서](https://aka.ms/graphsecurityreferencebetadocs)를 참조 하세요.
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>예약 된 규칙을 실행 하지 못했거나 이름에 자동 사용 안 함이 추가 된 상태로 표시 됩니다.
+
+예약 된 쿼리 규칙이 실행 되지 않지만 발생할 수 있는 드문 경우입니다. Azure 센티널은 실패의 특정 유형과 그 원인이 되는 상황을 기반으로 하 여 일시적 또는 영구적으로 오류를 분류 합니다.
+
+#### <a name="transient-failure"></a>일시적인 오류
+
+일시적인 오류는 일시적인 상황으로 인해 발생 합니다 .이는 곧 정상적으로 돌아가서 규칙 실행이 성공 합니다. Azure 센티널에서 임시로 분류 하는 오류에 대 한 몇 가지 예는 다음과 같습니다.
+
+- 규칙 쿼리를 실행 하는 데 시간이 너무 오래 걸리고 시간이 초과 되었습니다.
+- 데이터 원본 및 Log Analytics 간의 연결 문제 또는 Log Analytics와 Azure 센티널 사이
+- 다른 모든 신규 및 알 수 없는 오류는 일시적인 것으로 간주 됩니다.
+
+일시적인 오류가 발생 하는 경우 Azure 센티널은 미리 결정 된 후 계속 해 서 규칙을 다시 실행 하려고 합니다. 그런 다음이 규칙은 다음에 예약 된 시간에만 다시 실행 됩니다. 일시적인 오류로 인해 규칙이 자동으로 사용 하지 않도록 설정 되지 않습니다.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>영구 오류-규칙 자동 사용 안 함
+
+규칙 실행을 허용 하는 조건의 변경으로 인해 영구적인 오류가 발생 하며,이는 사용자의 개입 없이 이전 상태로 돌아오지 않습니다. 영구 분류 된 오류의 몇 가지 예는 다음과 같습니다.
+
+- 규칙 쿼리가 작동 하는 대상 작업 영역이 삭제 되었습니다.
+- 규칙 쿼리가 작동 하는 대상 테이블은 삭제 되었습니다.
+- Azure 센티널이 대상 작업 영역에서 제거 되었습니다.
+- 규칙 쿼리에서 사용 되는 함수가 더 이상 유효 하지 않습니다. 수정 되었거나 제거 되었습니다.
+- 규칙 쿼리의 데이터 원본 중 하나에 대 한 권한이 변경 되었습니다.
+- 규칙 쿼리의 데이터 원본 중 하나가 삭제 되거나 연결 해제 되었습니다.
+
+동일한 **유형 및 동일한 규칙의 연속 영구 오류 수를 미리 결정** 한 경우 Azure 센티널은 규칙의 실행을 중지 하 고 다음 단계를 수행 합니다.
+
+- 규칙을 사용 하지 않도록 설정 합니다.
+- 규칙 이름의 시작 부분에 **"자동 사용 안 함"** 이라는 단어를 추가 합니다.
+- 오류의 원인 (및 비활성화)을 규칙의 설명에 추가 합니다.
+
+규칙 목록을 이름별로 정렬 하 여 자동 사용 하지 않도록 설정 된 규칙이 있는지 쉽게 확인할 수 있습니다. 자동 사용 안 함 규칙은 목록의 맨 위 또는 맨 위에 표시 됩니다.
+
+SOC 관리자는 자동 사용 하지 않도록 설정 된 규칙이 있는지 정기적으로 규칙 목록을 확인 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

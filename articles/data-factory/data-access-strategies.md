@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484955"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616859"
 ---
 # <a name="data-access-strategies"></a>데이터 액세스 전략
 
@@ -38,10 +38,10 @@ ms.locfileid: "89484955"
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Azure Data Factory를 통한 데이터 액세스 전략
 
 * **[개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)** -관리 되는 Azure Data Factory Virtual Network 내에 Azure Integration Runtime를 만들 수 있으며, 개인 끝점을 활용 하 여 지원 되는 데이터 저장소에 안전 하 게 연결 합니다. 관리 되는 Virtual Network와 데이터 원본 간의 트래픽은 Microsoft 백본 네트워크로 이동 하며 공용 네트워크에는 노출 되지 않습니다.
-* **[신뢰할 수 있는 서비스](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - Azure Storage(Blob, ADLS Gen2)는 신뢰할 수 있는 Azure 플랫폼 서비스를 사용하여 스토리지 계정에 안전하게 액세스할 수 있는 방화벽 구성을 지원합니다. 신뢰할 수 있는 서비스는 관리 ID 인증을 강제로 적용하며, 관리 ID를 사용하여 스토리지 연결을 수행하도록 허용 목록에 포함되지 않는 한 다른 데이터 팩터리가 이 스토리지에 연결할 수 없습니다. 자세한 내용은 **[이 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** 에서 확인할 수 있습니다. 따라서 이 방법은 매우 안전하며 권장됩니다. 
+* **[신뢰할 수 있는 서비스](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - Azure Storage(Blob, ADLS Gen2)는 신뢰할 수 있는 Azure 플랫폼 서비스를 사용하여 스토리지 계정에 안전하게 액세스할 수 있는 방화벽 구성을 지원합니다. 신뢰할 수 있는 서비스는 관리 되는 Id 인증을 강제 적용 하 여 관리 되는 id를 사용 하도록 승인 하지 않는 한 다른 데이터 팩터리가이 저장소에 연결할 수 없도록 합니다. 자세한 내용은 **[이 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** 에서 확인할 수 있습니다. 따라서 이 방법은 매우 안전하며 권장됩니다. 
 * **고유한 고정 IP** - Data Factory 커넥터에 대한 고정 IP를 가져오려면 자체 호스팅 통합 런타임을 설정해야 합니다. 이 메커니즘을 사용하면 다른 모든 IP 주소에서 액세스를 차단할 수 있습니다. 
 * **[고정 IP 범위](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - Azure Integration Runtime의 IP 주소를 사용하여 스토리지(예를 들면 S3, Salesforce 등)에 이 범위를 나열할 수 있습니다. 또한 데이터 저장소에 연결할 수 있는 IP 주소를 제한할 뿐만 아니라 인증/권한 부여 규칙도 사용합니다.
-* **[서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - 서비스 태그는 (Azure Data Factory 같은) 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 이는 Virtual Network의 IaaS 호스팅 데이터 저장소에 대한 데이터 액세스를 허용 목록에 포함시킬 때 유용합니다.
+* **[서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - 서비스 태그는 (Azure Data Factory 같은) 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. Virtual Network의 IaaS 호스트 된 데이터 저장소에서 데이터 액세스를 필터링 할 때 유용 합니다.
 * **Azure 서비스 허용** - 이 옵션을 선택하는 경우, 일부 서비스를 사용하면 모든 Azure 서비스를 연결할 수 있습니다. 
 
 Azure Integration Runtime 및 자체 호스팅 통합 런타임의 데이터 저장소에서 지원되는 네트워크 보안 메커니즘에 관한 자세한 내용은 다음 두 개의 표를 참조하세요.  

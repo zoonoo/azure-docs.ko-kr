@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976567"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617501"
 ---
 # <a name="limitations"></a>제한 사항
 
@@ -28,10 +28,12 @@ ms.locfileid: "90976567"
 
 ## <a name="geometry"></a>기하 도형
 
-* 자산에서 허용되는 총 재질: 65,535. 자세한 내용은 [자료 중복](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) 제거를 참조 하세요.
-* 단일 질감의 최대 차원: 16384 x 16384. 변환 프로세스를 통해 큰 소스 질감이 축소 됩니다.
+* **애니메이션:** 애니메이션은 게임 개체의 개별 변환에 애니메이션으로 제한 됩니다. 스키닝 또는 꼭 짓 점 애니메이션의 골격 애니메이션은 지원 되지 않습니다. 원본 자산 파일의 애니메이션 트랙은 유지 되지 않습니다. 대신, 개체 변환 애니메이션은 클라이언트 코드에서 구동 되어야 합니다.
+* **사용자 지정 셰이더:** 사용자 지정 셰이더 작성은 지원 되지 않습니다. 기본 제공 [색 자료](../overview/features/color-materials.md) 또는 [.pbr 자료](../overview/features/pbr-materials.md) 만 사용할 수 있습니다.
+* 자산의 **최대 고유 재질 수** : 65535. 자동 자료 개수 감소에 대 한 자세한 내용은 [자료 중복](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) 제거 챕터를 참조 하세요.
+* **단일 질감의 최대 차원**: 16384 x 16384. 변환 프로세스에 따라 더 큰 원본 질감이 크기가 줄어듭니다.
 
-## <a name="overall-number-of-polygons"></a>전체 다각형 수
+### <a name="overall-number-of-polygons"></a>전체 다각형 수
 
 모든 로드된 모델의 허용 가능한 다각형 수는 [세션 관리 REST API](../how-tos/session-rest-api.md#create-a-session)에 전달된 VM의 크기에 따라 다릅니다.
 
@@ -48,6 +50,6 @@ ms.locfileid: "90976567"
 
 * Win32/x64는 유일 하 게 지원 되는 Win32 플랫폼입니다. Win32/x86은 지원 되지 않습니다.
 
-**Hololens 2**
+**HoloLens 2**
 
 * [PV 카메라에서 렌더링](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) 기능은 지원되지 않습니다.

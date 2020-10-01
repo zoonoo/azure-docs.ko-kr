@@ -6,16 +6,16 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: b88740c71db6ae56621410ef41975a4616ff8ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711377"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618016"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 서비스-사용 서브넷 구성 사용
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "84711377"
 > 서비스 제공 서브넷 구성은 SLA를 유지 관리 하기 위한 필수 기능이 며, 2020 년 5 월 1 일부 터 관리 되는 인스턴스 리소스 공급자에 게 위임 되지 않은 서브넷에 관리 되는 인스턴스를 배포할 수 없습니다. 2020 7 월 1 일에 관리 되는 인스턴스를 포함 하는 모든 서브넷은 관리 되는 인스턴스 리소스 공급자에 자동으로 위임 됩니다. 
 
 ## <a name="enabling-subnet-delegation-for-new-deployments"></a>새 배포에 대 한 서브넷 위임 사용
-에서 관리 되는 인스턴스를 빈 서브넷에 배포 하려면 `Microsoft.Sql/managedInstances` 다음 [문서](../../virtual-network/manage-subnet-delegation.md)에 설명 된 대로 리소스 공급자에 위임 해야 합니다. _참조 된 문서에서는 `Microsoft.DBforPostgreSQL/serversv2` 리소스 공급자를 사용 합니다 (예:). `Microsoft.Sql/managedInstances`대신 리소스 공급자를 사용 해야 합니다._
+에서 관리 되는 인스턴스를 빈 서브넷에 배포 하려면 `Microsoft.Sql/managedInstances` 다음 [문서](../../virtual-network/manage-subnet-delegation.md)에 설명 된 대로 리소스 공급자에 위임 해야 합니다. _참조 된 문서에서는 `Microsoft.DBforPostgreSQL/serversv2` 리소스 공급자를 사용 합니다 (예:). `Microsoft.Sql/managedInstances` 대신 리소스 공급자를 사용 해야 합니다._
 
 ## <a name="enabling-subnet-delegation-for-existing-deployments"></a>기존 배포에 대 한 서브넷 위임 사용
 
@@ -62,7 +62,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-관리 되는 인스턴스 서브넷을 찾은 후 `Microsoft.Sql/managedInstances` 에는 다음 [문서](../../virtual-network/manage-subnet-delegation.md)에 설명 된 대로 리소스 공급자에 위임 해야 합니다. _참조 된 문서에서는 `Microsoft.DBforPostgreSQL/serversv2` 리소스 공급자를 사용 합니다 (예:). `Microsoft.Sql/managedInstances`대신 리소스 공급자를 사용 해야 합니다._
+관리 되는 인스턴스 서브넷을 찾은 후 `Microsoft.Sql/managedInstances` 에는 다음 [문서](../../virtual-network/manage-subnet-delegation.md)에 설명 된 대로 리소스 공급자에 위임 해야 합니다. _참조 된 문서에서는 `Microsoft.DBforPostgreSQL/serversv2` 리소스 공급자를 사용 합니다 (예:). `Microsoft.Sql/managedInstances` 대신 리소스 공급자를 사용 해야 합니다._
 
 
 > [!IMPORTANT]

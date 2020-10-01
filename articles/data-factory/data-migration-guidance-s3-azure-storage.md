@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984897"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616927"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure Data Factory를 사용하여 Amazon S3에서 Azure Storage로 데이터 마이그레이션 
 
@@ -74,7 +74,7 @@ S3에서 Blob으로, S3에서 ADLS Gen2로 이진 복사를 수행하면 ADF는 
 
 - 이 아키텍처에서 데이터 마이그레이션은 데이터가 퍼블릭 인터넷을 통해 트래버스되지 않도록 AWS Direct Connect와 Azure Express 경로 간의 프라이빗 피어링 링크를 통해 수행됩니다.  AWS VPC 및 Azure Virtual Network를 사용해야 합니다. 
 - 이 아키텍처를 구현하려면 Azure Virtual Network 내의 Windows VM에 ADF 자체 호스팅 Integration Runtime을 설치해야 합니다.  자체 호스팅 IR VM을 수동으로 스케일 업하거나 여러 VM(최대 4개 노드)으로 스케일 아웃하여 네트워크 및 스토리지 IOPS/대역폭을 최대한 활용할 수 있습니다. 
-- HTTPS를 통해 데이터를 전송하는 것이 허용되지만, 원본 S3에 대한 네트워크 액세스를 특정 IP 범위로 잠그려는 경우 AWS VPC를 제거하고 프라이빗 링크를 HTTPS로 바꾸어 이 아키텍처의 변형을 채택할 수 있습니다.  허용 목록에 추가하기 위해 공개적으로 라우팅 가능한 정적 IP를 유지할 수 있도록 Azure VM에서 Azure 가상 및 자체 호스팅 IR을 유지합니다. 
+- HTTPS를 통해 데이터를 전송하는 것이 허용되지만, 원본 S3에 대한 네트워크 액세스를 특정 IP 범위로 잠그려는 경우 AWS VPC를 제거하고 프라이빗 링크를 HTTPS로 바꾸어 이 아키텍처의 변형을 채택할 수 있습니다.  필터링 목적으로 공개적으로 라우팅할 수 있는 고정 IP를 사용할 수 있도록 azure VM에서 Azure 가상 및 자체 호스팅 IR을 유지 하려고 합니다. 
 - 초기 스냅샷 데이터 마이그레이션과 델타 데이터 마이그레이션은 모두 이 아키텍처를 사용하여 달성할 수 있습니다. 
 
 ## <a name="implementation-best-practices"></a>구현 모범 사례 

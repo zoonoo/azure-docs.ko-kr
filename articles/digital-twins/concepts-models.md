@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042635"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616553"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -28,8 +28,10 @@ Azure Digital Twins의 모델은 DTDL (디지털 Twins 정의 언어)를 사용 
 
 Azure Digital Twins는 **Dtdl _버전 2_** 를 사용 합니다. 이 DTDL 버전에 대 한 자세한 내용은 GitHub의 사양 설명서 [*(dtdl)-버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 참조 하세요. 이제 Azure Digital Twins에서 DTDL _버전 1_ 을 사용 하는 것은 더 이상 사용 되지 않습니다.
 
-> [!TIP] 
-> DTDL을 사용 하는 모든 서비스는 동일한 DTDL 기능을 구현 하지 않습니다. 예를 들어 IoT 플러그 앤 플레이는 그래프에 해당 하는 DTDL 기능을 사용 하지 않지만 Azure Digital Twins는 현재 DTDL 명령을 구현 하지 않습니다. Azure Digital Twins와 관련 된 DTDL 기능에 대 한 자세한 내용은이 문서의 뒷부분에 나오는 [Azure Digital TWINS dtdl 구현 세부](#azure-digital-twins-dtdl-implementation-specifics)사항 섹션을 참조 하세요.
+> [!NOTE] 
+> DTDL을 사용 하는 모든 서비스는 동일한 DTDL 기능을 구현 하지 않습니다. 예를 들어 IoT 플러그 앤 플레이는 그래프에 해당 하는 DTDL 기능을 사용 하지 않지만 Azure Digital Twins는 현재 DTDL 명령을 구현 하지 않습니다.
+>
+> Azure Digital Twins와 관련 된 DTDL 기능에 대 한 자세한 내용은이 문서의 뒷부분에 나오는 [Azure Digital TWINS dtdl 구현 세부](#azure-digital-twins-dtdl-implementation-specifics)사항 섹션을 참조 하세요.
 
 ## <a name="elements-of-a-model"></a>모델 요소
 
@@ -75,6 +77,8 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 * Azure Digital Twins 용 DTDL은 *명령을*정의 하지 않아야 합니다.
 * Azure Digital Twins는 단일 수준의 구성 요소 중첩만 허용 합니다. 즉, 구성 요소로 사용 되는 인터페이스는 구성 요소를 포함할 수 없습니다. 
 * 인터페이스는 다른 DTDL 인터페이스 내에서 인라인으로 정의 될 수 없습니다. 자체 Id를 사용 하 여 별도의 최상위 엔터티로 정의 해야 합니다. 그런 다음 다른 인터페이스가 해당 인터페이스를 구성 요소나 상속을 통해 포함 하려는 경우 해당 ID를 참조할 수 있습니다.
+
+또한 Azure Digital Twins는 `writable` 속성 또는 관계에 대 한 특성을 관찰 하지 않습니다. 이 값은 DTDL 사양에 따라 설정할 수 있지만 Azure Digital Twins에서 사용 되지 않습니다. 대신 항상 Azure Digital Twins 서비스에 대 한 일반 쓰기 권한이 있는 외부 클라이언트에서 쓰기 가능으로 처리 됩니다.
 
 ## <a name="example-model-code"></a>예제 모델 코드
 

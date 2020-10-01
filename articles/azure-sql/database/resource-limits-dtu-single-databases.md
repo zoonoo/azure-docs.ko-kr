@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fa15a5f95c2163309ecfd9cc0130d1860eb3b634
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0bcc26c637e8ef6043589d963cfa9708b599a456
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542690"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619069"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "87542690"
 | 최대 DTU | 5 |
 | 포함된 스토리지(GB) | 2 |
 | 최대 저장소 (GB) | 2 |
-| 최대 메모리 내 OLTP 스토리지(GB) |해당 없음 |
+| 최대 메모리 내 OLTP 스토리지(GB) |N/A |
 | 최대 동시 작업자(요청) | 30 |
 | 최대 동시 세션 | 300 |
 |||
@@ -57,7 +57,7 @@ ms.locfileid: "87542690"
 | 최대 DTU | 10 | 20 | 50 | 100 |
 | 포함 된 저장소 (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
 | 최대 저장소 (GB) | 250 | 250 | 250 | 1024 |
-| 최대 메모리 내 OLTP 스토리지(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
+| 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |
 | 최대 동시 작업자(요청)| 60 | 90 | 120 | 200 |
 | 최대 동시 세션 |600 | 900 | 1200 | 2400 |
 ||||||
@@ -77,7 +77,7 @@ ms.locfileid: "87542690"
 | 최대 DTU | 200 | 400 | 800 | 1600 | 3000 |
 | 포함 된 저장소 (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
 | 최대 저장소 (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
-| 최대 메모리 내 OLTP 스토리지(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |해당 없음 |
+| 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |N/A |
 | 최대 동시 작업자(요청)| 400 | 800 | 1600 | 3200 |6000 |
 | 최대 동시 세션 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
