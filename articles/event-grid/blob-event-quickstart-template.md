@@ -3,14 +3,14 @@ title: Blob 스토리지 이벤트를 웹 엔드포인트에 전송 - 템플릿
 description: Azure Event Grid 및 Azure Resource Manager 템플릿을 사용하여 Blob 스토리지 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 Webhook에 보냅니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661268"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598359"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>ARM 템플릿을 사용하여 Blob 스토리지 이벤트를 웹 엔드포인트로 라우팅
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Blob 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Blob 스토리지 계정을 만들고, 해당 Blob 스토리지에 대한 이벤트를 구독하고, 결과를 보기 위한 이벤트를 트리거합니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
