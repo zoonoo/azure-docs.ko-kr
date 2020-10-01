@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b96902603deca4b7a184659e6274d65f02ac712d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570073"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613529"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>다른 Azure Cosmos DB 일관성 수준에 대 한 대기 시간, 가용성 및 성능 절충
 
@@ -65,12 +65,12 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 
 |**개 지역**|**복제 모드**|**일관성 수준**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|단일 또는 다중 마스터|일관성 수준|< 240분|< 1주|
-|>1|단일 마스터|세션, 일관된 접두사, 최종|< 15분|< 15분|
-|>1|단일 마스터|제한된 부실|*K*  &  *T*|< 15분|
-|>1|단일 마스터|강력|0|< 15분|
-|>1|다중 마스터|세션, 일관된 접두사, 최종|< 15분|0|
-|>1|다중 마스터|제한된 부실|*K*  &  *T*|0|
+|1|단일 또는 여러 쓰기 지역|일관성 수준|< 240분|< 1주|
+|>1|단일 쓰기 지역|세션, 일관된 접두사, 최종|< 15분|< 15분|
+|>1|단일 쓰기 지역|제한된 부실|*K*  &  *T*|< 15분|
+|>1|단일 쓰기 지역|강력|0|< 15분|
+|>1|여러 쓰기 지역|세션, 일관된 접두사, 최종|< 15분|0|
+|>1|여러 쓰기 지역|제한된 부실|*K*  &  *T*|0|
 
 *K* = 항목의 *"K"* 버전 (즉, 업데이트) 수입니다.
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447726"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612747"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가
 
@@ -52,6 +52,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### <a name="managed-identities"></a>관리 ID
+
+관리 id의 ID를 가져오려면 [AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) 또는 [az ad sp](/cli/azure/ad/sp) 명령을 사용 하면 됩니다.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### <a name="application"></a>애플리케이션
 
 서비스 주체의 ID(애플리케이션에서 사용하는 ID)를 가져오려면 [AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) 또는 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) 명령을 사용할 수 있습니다. 서비스 주체의 경우 애플리케이션 ID가 **아니라** 개체 ID를 사용합니다.
@@ -77,7 +89,7 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가
 템플릿을 사용하려면 다음을 수행해야 합니다.
 
 - 새 JSON 파일을 만들고 템플릿 복사
-- `<your-principal-id>`를 역할을 할당할 사용자, 그룹 또는 애플리케이션의 ID로 바꾸기
+- `<your-principal-id>`역할을 할당할 사용자, 그룹, 관리 id 또는 응용 프로그램의 id로 대체 합니다.
 
 ```json
 {
@@ -120,7 +132,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.
 
-- 역할을 할당할 사용자, 그룹 또는 애플리케이션의 ID
+- 역할을 할당할 사용자, 그룹, 관리 id 또는 응용 프로그램의 ID입니다.
 - 역할 할당에 사용되는 고유 ID. 기본 ID를 사용할 수도 있습니다.
 
 ```json
@@ -214,7 +226,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.
 
-- 역할을 할당할 사용자, 그룹 또는 애플리케이션의 ID
+- 역할을 할당할 사용자, 그룹, 관리 id 또는 응용 프로그램의 ID입니다.
 
 ```json
 {

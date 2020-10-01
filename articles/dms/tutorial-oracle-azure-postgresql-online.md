@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: a5047e4e63f71c482cd1bcc98152ae35e10e94b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291642"
+ms.locfileid: "91363174"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS를 사용하여 Oracle을 Azure Database for PostgreSQL로 온라인 마이그레이션(미리 보기)
 
@@ -214,11 +214,11 @@ Azure Database Migration Service를 통해 데이터 이동을 시작하기 전�
 
 1. Azure Database for PostgreSQL 마이그레이션 프로젝트를 새로 만들 때 스키마 선택 단계에서 대상 데이터베이스와 대상 스키마를 선택하라는 메시지가 표시됩니다. 대상 데이터베이스와 대상 스키마를 채우세요.
 
-   ![포털 구독 표시](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![스크린샷은 대상 데이터베이스에 매핑을 보여줍니다.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. **마이그레이션 설정** 화면에는 Oracle 원본에 있는 테이블 목록이 표시됩니다. Azure Database Migration Service는 테이블 이름을 기반으로 원본 테이블과 대상 테이블의 테이블을 매칭하려고 합니다. 일치하지만 대/소문자가 다른 대상 테이블이 여러 개 있으면 매핑할 대상 테이블을 선택할 수 있습니다.
 
-    ![포털 구독 표시](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![스크린샷은 마이그레이션 설정을 보여줍니다.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > 원본 테이블 이름을 이름이 다른 테이블에 매핑해야 하는 경우 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com)에 이메일을 보내면 프로세스를 자동화하는 스크립트를 제공받을 수 있습니다.

@@ -1,32 +1,28 @@
 ---
-title: AAD 및 API Management에서 OAuth 2.0을 사용 하 여 API 보호
+title: OAuth 2.0 및 Azure AD를 사용 하 여 API Management에서 API 백 엔드 보호
 titleSuffix: Azure API Management
-description: Azure Active Directory 및 API Management로 웹 API 백 엔드를 보호하는 방법에 대해 알아봅니다.
+description: OAuth 2.0 사용자 권한 부여 및 Azure Active Directory를 사용 하 여 Azure API Management의 웹 API 백 엔드에 대 한 액세스를 보호 하는 방법을 알아봅니다.
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243412"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612339"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Azure AD에서 OAuth 2.0 권한 부여를 사용 하 여 Azure API Management에서 web API 백 엔드 보호 
 
-이 가이드에서는 Azure AD(Azure Active Directory)에서 OAuth 2.0 프로토콜을 사용하여 API를 보호하도록 Azure API Management 인스턴스를 구성하는 방법을 보여 줍니다. 
+이 가이드에서는 [Azure Active Directory (AZURE AD)에서 OAuth 2.0 프로토콜](../active-directory/develop/active-directory-v2-protocols.md)을 사용 하 여 API를 보호 하도록 [azure API Management](api-management-key-concepts.md) 인스턴스를 구성 하는 방법을 보여 줍니다. 
 
 > [!NOTE]
 > 이 기능은 API Management **개발자**, **기본**, **표준**및 **프리미엄** 계층에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 
@@ -46,9 +42,9 @@ ms.locfileid: "86243412"
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>API를 나타내기 위해 Azure AD에 애플리케이션 등록
 
-Azure AD를 사용 하 여 API를 보호 하려면 먼저 API를 나타내는 응용 프로그램을 Azure AD에 등록 합니다. 
+Azure AD를 사용 하 여 API를 보호 하려면 먼저 API를 나타내는 응용 프로그램을 Azure AD에 등록 합니다. 다음 단계에서는 Azure Portal를 사용 하 여 응용 프로그램을 등록 합니다. 앱 등록에 대 한 자세한 내용은 [빠른 시작: 웹 API를 노출 하도록 응용 프로그램 구성](../active-directory/develop/quickstart-configure-app-expose-web-apis.md)을 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 응용 프로그램을 등록 합니다. **앱 등록**을 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 응용 프로그램을 등록 합니다. **앱 등록**를 검색 하 고 선택 합니다.
 
 1. **새 등록**을 선택합니다. 
 
@@ -79,7 +75,7 @@ API를 호출 하는 모든 클라이언트 응용 프로그램을 Azure AD의 �
 
 1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 응용 프로그램을 등록 합니다.
 
-1.  **앱 등록**을 검색 하 고 선택 합니다.
+1. **앱 등록**를 검색 하 고 선택 합니다.
 
 1. **새 등록**을 선택합니다.
 
@@ -106,7 +102,7 @@ API를 호출 하는 모든 클라이언트 응용 프로그램을 Azure AD의 �
 
 API 및 개발자 콘솔을 나타내기 위해 두 개의 응용 프로그램을 등록 했으므로 클라이언트 앱이 백 엔드 앱을 호출할 수 있도록 권한을 부여 합니다.  
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 클라이언트 응용 프로그램에 사용 권한을 부여 합니다. **앱 등록**을 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 클라이언트 응용 프로그램에 사용 권한을 부여 합니다. **앱 등록**를 검색 하 고 선택 합니다.
 
 1. 클라이언트 앱을 선택 합니다. 그런 다음 앱에 대 한 페이지 목록에서 **API 권한**을 선택 합니다.
 
@@ -168,7 +164,7 @@ OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azur
 
 1. API Management 인스턴스로 이동하고 **API**로 이동합니다.
 
-1. 보호하려는 API를 선택합니다. 정의합니다(예: `Echo API`).
+1. 보호하려는 API를 선택합니다. 예들 들어 `Echo API`입니다.
 
 1. **설정**으로 이동합니다.
 

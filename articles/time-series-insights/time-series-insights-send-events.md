@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3a5ee1cc8efead7c29dadaf64adb8e2686a10621
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168085"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611829"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>이벤트 허브를 사용 하 여 Azure Time Series Insights Gen1 환경으로 이벤트 보내기
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 Azure Event Hubs에서 이벤트 허브를 만들고 구성 하는 방법을 설명 합니다. 또한 Event Hubs에서 Azure Time Series Insights 하는 이벤트를 푸시하는 샘플 응용 프로그램을 실행 하는 방법을 설명 합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우이 자습서를 건너뛰고 [Azure Time Series Insights](./time-series-insights-update-create-environment.md)에서 환경을 확인 합니다.
 

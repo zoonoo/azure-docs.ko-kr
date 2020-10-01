@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166317"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612815"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Azure AD에서 필요한 클레임은 다음과 같습니다.
+[AZURE AD에서 필요한 클레임](active-directory-certificate-credentials.md) 은 다음과 같습니다.
 
 클레임 유형 | 값 | Description
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD) [RFC 7519, 섹션 4.1.3]을 참조 하세요.
-exp | 27 2019 15:04:17 GMT + 0200 (결혼 전 일광 절약 시간) | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, Section 4.1.4]를 참조 하세요.
-iss | ClientID | "Iss" (발급자) 클레임은 JWT를 발급 한 보안 주체를 식별 합니다. 이 클레임의 처리는 응용 프로그램 마다 다릅니다. "Iss" 값은 StringOrURI 값을 포함 하는 대/소문자를 구분 하는 문자열입니다. [RFC 7519, 섹션 4.1.1]
-jti | (Guid) | "Jti" (JWT ID) 클레임은 JWT에 대 한 고유 식별자를 제공 합니다. 식별자 값은 동일한 값이 다른 데이터 개체에 실수로 할당 될 확률이 무시 되도록 하는 방식으로 할당 되어야 합니다. 응용 프로그램에서 여러 발급자를 사용 하는 경우 여러 발급자가 생성 한 값 사이에서 충돌을 방지 해야 합니다. "Jti" 클레임은 JWT 재생을 방지 하는 데 사용할 수 있습니다. "Jti" 값은 대/소문자를 구분 하는 문자열입니다. [RFC 7519, 섹션 4.1.7]
-nbf | 27 2019 14:54:17 GMT + 0200 (결혼 전 일광 절약 시간) | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다. [RFC 7519, 섹션 4.1.5]
-sub | ClientID | "Sub" (주체) 클레임은 JWT의 주체를 식별 합니다. JWT의 클레임은 일반적으로 주체에 대 한 문입니다. 주체 값의 범위는 발급자의 컨텍스트에서 로컬로 고유 하거나 전역적으로 고유 해야 합니다. 자세한 내용은 [RFC 7519, Section 4.1.2]를 참조 하십시오.
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD). [RFC 7519, 섹션 4.1.3을](https://tools.ietf.org/html/rfc7519#section-4.1.3)참조 하세요.  이 경우 해당 수신자는 로그인 서버 (login.microsoftonline.com)입니다.
+exp | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 4.1.4 섹션을](https://tools.ietf.org/html/rfc7519#section-4.1.4)참조 하세요.  이렇게 하면 어설션을 사용할 때까지 사용할 수 있으므로 잠시 후에 짧은 5-10 분을 유지 `nbf` 합니다.  Azure AD는 현재 시간에 제한을 두지 않습니다 `exp` . 
+iss | ClientID | "Iss" (발급자) 클레임은 JWT를 발급 한 보안 주체 (이 경우 클라이언트 응용 프로그램)를 식별 합니다.  GUID 응용 프로그램 ID를 사용 합니다.
+jti | (Guid) | "Jti" (JWT ID) 클레임은 JWT에 대 한 고유 식별자를 제공 합니다. 식별자 값은 동일한 값이 다른 데이터 개체에 실수로 할당 될 확률이 무시 되도록 하는 방식으로 할당 되어야 합니다. 응용 프로그램에서 여러 발급자를 사용 하는 경우 여러 발급자가 생성 한 값 사이에서 충돌을 방지 해야 합니다. "Jti" 값은 대/소문자를 구분 하는 문자열입니다. [RFC 7519, 섹션 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  현재 시간을 사용 하는 것이 좋습니다. 
+sub | ClientID | "Sub" (주체) 클레임은 JWT의 주체 (이 경우에는 응용 프로그램)도 식별 합니다. 와 동일한 값을 사용 `iss` 합니다. 
 
 이러한 클레임을 작성 하는 방법의 예는 다음과 같습니다.
 
@@ -181,7 +181,7 @@ string GetSignedClientAssertion()
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`기본적으로는 Azure AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다. 다음은이 작업을 수행 하는 방법에 대 한 코드 조각입니다.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` 기본적으로는 Azure AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다. 다음은이 작업을 수행 하는 방법에 대 한 코드 조각입니다.
 
 ```csharp
 string ipAddress = "192.168.1.2";

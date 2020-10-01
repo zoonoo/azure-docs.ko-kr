@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 2fc869448bac8303acee902b5d8819fdd3f26138
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258523"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611659"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Portal를 사용 하 여 Azure Data Box를 관리 하 고 Azure Data Box Heavy
 
@@ -202,7 +202,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 또한 감사 로그와 BOM 파일을 포함하는 커스터디 로그 체인도 볼 수 있습니다.
 
-![스토리지 계정 로그](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![저장소 계정 2의 로그](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## <a name="view-order-status"></a>주문 상태 보기
 
@@ -212,7 +212,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 가져오기 순서의 상태는 다음과 같습니다.
 
-|주문 상태 |설명 |
+|주문 상태 |Description |
 |---------|---------|
 |주문됨     | 주문을 성공적으로 배치했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
 |처리됨     | 주문 처리가 완료되었습니다. 주문에 따라 데이터 센터에서 디바이스 배송이 준비됩니다.         |
@@ -231,7 +231,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 내보내기 주문의 상태는 다음과 같습니다.
 
-|주문 상태 |설명 |
+|주문 상태 |Description |
 |---------|---------|
 |주문됨     | 내보내기 순서를 성공적으로 배치 했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
 |취소됨            |주문이 취소되었습니다. <br> 순서를 취소 했거나 (주문이 처리 되기 전에만 취소할 수 있음) 오류가 발생 하 여 서비스가 주문을 취소 한 것입니다. 90일 이내에 처리할 수 없는 주문도 취소되며 취소 알림이 전송됩니다.     |
@@ -254,7 +254,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 자체 관리 전달 기능을 사용 하는 경우 복사가 완료 된 후 장치를 받기 전에 다음 상태가 표시 됩니다 (위의 표에 설명 된 것 대신).
 
-|주문 상태 |설명 |
+|주문 상태 |Description |
 |---------|---------|
 |Azure 데이터 센터에서 픽업 준비 완료      |Azure 데이터 센터에서 장치를 선택할 수 있습니다.        |
 |선택됨    |장치를 선택 했습니다.         |

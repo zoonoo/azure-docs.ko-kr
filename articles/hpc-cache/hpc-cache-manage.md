@@ -4,14 +4,14 @@ description: Azure Portal 또는 Azure CLI를 사용 하 여 Azure HPC 캐시를
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497229"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613056"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -28,6 +28,7 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 * **시작** 및 [**중지**](#stop-the-cache) -캐시 작업을 다시 시작 하거나 일시 중지 합니다.
 * [**플러시**](#flush-cached-data) -변경 된 데이터를 저장소 대상에 기록 합니다.
 * [**업그레이드**](#upgrade-cache-software) -캐시 소프트웨어를 업데이트 합니다.
+* [**진단 수집**](#collect-diagnostics) -디버깅 정보 업로드
 * **새로 고침** -개요 페이지를 다시 로드 합니다.
 * [**삭제**](#delete-the-cache) -캐시를 영구적으로 삭제 합니다.
 
@@ -196,6 +197,16 @@ $
 ```
 
 ---
+
+## <a name="collect-diagnostics"></a>진단 수집
+
+**진단 수집** 단추는 수동으로 시스템 정보를 수집 하 고 Microsoft 서비스에 업로드 하는 프로세스를 시작 하 고 문제 해결을 지원 합니다. 캐시는 심각한 캐시 문제가 발생 하는 경우 동일한 진단 정보를 자동으로 수집 하 고 업로드 합니다.
+
+Microsoft 서비스 및 지원에서 요청 하는 경우이 컨트롤을 사용 합니다.
+
+단추를 클릭 한 후 **예** 를 클릭 하 여 업로드를 확인 합니다.
+
+![' 진단 컬렉션 시작 ' 팝업 확인 메시지의 스크린샷 기본 단추 ' 예 '가 강조 표시 됩니다.](media/diagnostics-confirm.png)
 
 ## <a name="delete-the-cache"></a>캐시 삭제
 

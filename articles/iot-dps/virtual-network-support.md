@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534603"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612781"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대 한 DPS (Azure IoT Hub 장치 프로 비전 서비스) 지원
 
@@ -43,7 +43,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 개인 끝점은 Azure 리소스에 액세스할 수 있는 고객 소유의 VNET 내에 할당 된 개인 IP 주소입니다. DPS 리소스에 대 한 개인 끝점을 사용 하 여 VNET 내에서 작동 하는 장치가 공용 끝점에 대 한 트래픽을 허용 하지 않고 DPS 리소스에의 한 프로 비전을 요청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 계속하기 전에 다음과 같은 전제 조건을 충족하는지 확인하세요.
 
@@ -75,7 +75,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 2. _개인 끝점_ 기본 사항 만들기 페이지에서 아래 표에 설명 된 정보를 입력 합니다.
 
-    ![새 개인 끝점이 매핑되는 리소스를 구성 합니다.](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![개인 끝점 만들기 기본 사항](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | 필드 | 값 |
     | :---- | :-----|
@@ -88,7 +88,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 3. _개인 끝점 리소스 만들기_ 페이지에서 아래 표에 설명 된 정보를 입력 합니다.
 
-    ![새 개인 끝점이 매핑되는 리소스를 구성 합니다.](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![개인 끝점 리소스 만들기](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | 필드 | 값 |
     | :---- | :-----|
@@ -107,7 +107,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
  
     **다음: 태그**를 클릭 하 고 필요에 따라 리소스에 대 한 태그를 제공 합니다.
 
-    ![새 개인 끝점이 매핑되는 리소스를 구성 합니다.](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![개인 끝점 구성](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. **검토 + 만들기** 를 클릭 한 다음 **만들기** 를 클릭 하 여 개인 끝점 리소스를 만듭니다.
 
@@ -141,7 +141,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 5. Dps 소유자는 DPS 네트워킹 탭의 **개인 끝점 연결** 목록에서 개인 끝점 요청을 볼 수 있습니다. 해당 페이지에서 소유자는 아래와 같이 개인 끝점 요청을 **승인** 하거나 **거부할** 수 있습니다.
 
-    ![DPS 속성 탭](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![DPS 승인](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>가격 책정 개인 끝점

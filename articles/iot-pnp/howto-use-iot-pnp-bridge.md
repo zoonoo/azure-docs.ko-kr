@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b952c2663750c055ec6838bf66df31fec5a0d730
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580415"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613478"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법
 
@@ -88,7 +88,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 선택한 디렉터리에서 명령 프롬프트를 엽니다. 다음 명령을 실행 하 여 [IoT 플러그 앤 플레이 bridge](https://aka.ms/iotplugandplaybridge) GitHub 리포지토리를이 위치에 복제 합니다.
 
 ```cmd
-git clone https://github.com/Azure/AzurePnPBridgePreview.git
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 ```
 
 IoT 플러그 앤 플레이 브리지 리포지토리를 컴퓨터에 복제 한 후 관리 cmd 프롬프트를 열고 복제 된 리포지토리의 디렉터리로 이동 합니다.

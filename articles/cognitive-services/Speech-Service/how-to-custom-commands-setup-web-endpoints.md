@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: HT
+ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362113"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "86027684"
 ## <a name="prerequisites"></a>사전 요구 사항
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * Speech Service에 대한 Azure 구독 키: [Azure Portal](https://portal.azure.com)에서 [체험 계정을 가져오거나](get-started.md) 새로 만듭니다.
+> * Speech Service에 대한 Azure 구독 키: [Azure Portal](https://portal.azure.com)에서 [체험 계정을 가져오거나](overview.md#try-the-speech-service-for-free) 새로 만듭니다.
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 > * Speech SDK 사용 클라이언트 앱: [방법: 클라이언트 애플리케이션에 작업 보내기](./how-to-custom-commands-setup-speech-sdk.md)
 

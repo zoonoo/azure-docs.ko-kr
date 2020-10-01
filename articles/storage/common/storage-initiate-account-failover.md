@@ -10,13 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 74f4c30f7aa018502f3437fd4a577f8c2a9de491
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077947"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610061"
 ---
 # <a name="initiate-a-storage-account-failover"></a>저장소 계정 장애 조치 (failover) 시작
 
@@ -54,7 +54,7 @@ Azure Portal에서 계정 장애 조치(failover)를 시작하려면 다음 단�
 1. **장애 조치 (failover) 준비를**선택 합니다.
 1. 확인 대화 상자를 검토합니다. 준비되면 **예**를 입력하여 장애 조치(failover)를 확인하고 시작합니다.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="계정 장애 조치(failover)에 대한 확인 대화 상자가 표시된 스크린샷":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="지역 복제 및 장애 조치(failover) 상태가 표시된 스크린샷":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

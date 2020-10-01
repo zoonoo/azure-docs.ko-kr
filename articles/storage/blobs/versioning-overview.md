@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297673"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613512"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -79,11 +79,11 @@ Blob을 삭제 하면 현재 blob 버전이 이전 버전이 되 고 기본 blob
 
 다음 다이어그램은 버전이 지정 된 blob에 대 한 삭제 작업의 영향을 보여 줍니다.
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="버전이 지정 된 blob의 삭제를 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 새 데이터를 blob에 쓰면 blob의 새 버전이 만들어집니다. 다음 다이어그램에 표시 된 것 처럼 기존 버전은 영향을 받지 않습니다.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="삭제 후 버전이 지정 된 blob의 다시 생성을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 ### <a name="blob-types"></a>Blob 형식
 
@@ -122,7 +122,7 @@ Blob 버전 관리를 사용 하지 않도록 설정 해도 기존 blob, 버전 
 
 다음 다이어그램에서는 버전 관리를 사용 하지 않도록 설정한 후 blob을 수정 하는 방법을 보여 줍니다. Blob와 연결 된 모든 기존 버전은 유지 됩니다.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="버전 관리를 사용 하지 않도록 설정한 후 수정 된 기본 blob을 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Blob 버전 관리 및 일시 삭제
 
@@ -138,7 +138,7 @@ Blob 버전 관리 및 blob 일시 삭제는 함께 작동 하 여 최적의 데
 
 다음 다이어그램에서는 blob 또는 blob 버전을 삭제할 때 발생 하는 상황을 보여 줍니다.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="일시 삭제를 사용 하도록 설정한 버전의 삭제를 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 저장소 계정에서 버전 관리와 일시 삭제를 모두 사용 하는 경우 blob 또는 blob 버전이 수정 되거나 삭제 될 때 일시 삭제 된 스냅숏은 생성 되지 않습니다.
 
@@ -150,7 +150,7 @@ Blob 버전 관리 및 blob 일시 삭제는 함께 작동 하 여 최적의 데
 
 다음 다이어그램 **에서는 blob 삭제** 작업을 사용 하 여 일시 삭제 된 blob 버전을 복원 하는 방법과 blob **복사** 작업을 사용 하 여 blob의 현재 버전을 복원 하는 방법을 보여 줍니다.
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="일시 삭제 된 버전을 복원 하는 방법을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 일시 삭제 보존 기간이 경과한 후에는 일시 삭제 된 blob 버전이 영구적으로 삭제 됩니다.
 
@@ -169,7 +169,7 @@ Blob 스냅숏은 특정 시점에서 수행 되는 blob의 읽기 전용 복사
 
 다음 다이어그램에서는 버전이 지정 된 blob의 스냅숏을 만들 때 발생 하는 상황을 보여 줍니다. 다이어그램에서 버전 ID가 2 및 3 인 blob 버전 및 스냅숏에는 동일한 데이터가 포함 되어 있습니다.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="버전이 지정 된 blob의 스냅숏을 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Blob 버전에 대 한 작업 권한 부여
 
@@ -185,7 +185,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 RBAC 동작을 보여 줍니다.
 
-| 설명 | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
+| Description | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -269,7 +269,7 @@ Blob 또는 버전 (또는 스냅숏)에 대 한 blob 계층을 명시적으로 
 
 다음 다이어그램에서는 버전이 지정 된 blob을 다른 계층으로 이동할 때 개체의 요금을 청구 하는 방법을 보여 줍니다.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="버전이 지정 된 blob이 명시적으로 계층화 된 경우 개체의 요금을 청구 하는 방법을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="쓰기 작업이 버전이 지정 된 blob에 미치는 영향을 보여 주는 다이어그램":::
 
 Blob, 버전 또는 스냅숏에 대 한 계층을 명시적으로 설정 하는 작업은 취소할 수 없습니다. 새 계층으로 blob을 이동한 다음 원래 계층으로 다시 이동 하는 경우 원본 계층의 다른 개체와 블록을 공유 하는 경우에도 개체의 전체 콘텐츠 길이에 대 한 요금이 청구 됩니다.
 
@@ -291,7 +291,7 @@ Blob 일시 삭제를 사용 하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용 하는 경우 | 계층에 관계 없이 모든 기존 버전은 전체 콘텐츠 길이입니다. |
 | Blob 일시 삭제를 사용 하도록 설정 했지만 버전 관리를 사용 하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅숏이 전체 콘텐츠 길이에 있습니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

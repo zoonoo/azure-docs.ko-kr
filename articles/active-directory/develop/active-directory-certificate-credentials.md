@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853375"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612123"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
-Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 인증에 자체 자격 증명을 사용할 수 있습니다. 예를 들어 OAuth 2.0  [클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md) 흐름 및 obo ( [on of](v2-oauth2-on-behalf-of-flow.md) ) 흐름에서 사용할 수 있습니다.
+Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 클라이언트 암호를 사용할 수 있는 모든 곳에서 인증에 자체 자격 증명을 사용할 수 있습니다. 예를 들어 OAuth 2.0  [클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md) 흐름 및 obo ( [온-시](v2-oauth2-on-behalf-of-flow.md) ) 흐름에서 사용할 수 있습니다.
 
 응용 프로그램이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램이 소유 하는 인증서로 서명 된 JWT ( [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) ) 어설션입니다.
 
 ## <a name="assertion-format"></a>어설션 형식
 
-어설션을 계산 하기 위해 원하는 언어의 많은 JWT 라이브러리 중 하나를 사용할 수 있습니다. 이 정보는 [헤더](#header), [클레임](#claims-payload)및 [시그니처의](#signature)토큰에 의해 전달 됩니다.
+어설션을 계산 하기 위해 선택한 언어로 된 많은 JWT 라이브러리 중 하나를 사용할 수 있습니다.- [Msal은를 사용 하 `.WithCertificate()` 여이를 지원 ](msal-net-client-assertions.md)합니다. 이 정보는 [헤더](#header), [클레임](#claims-payload)및 [시그니처의](#signature)토큰에 의해 전달 됩니다.
 
 ### <a name="header"></a>헤더
 
@@ -40,14 +40,14 @@ Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 인증에 자�
 
 ### <a name="claims-payload"></a>클레임(페이로드)
 
-| 매개 변수 |  설명 |
-| --- | --- |
-| `aud` | 대상: `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
-| `exp` | 만료 날짜: 토큰이 만료 되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다. 짧은 만료 시간 (10 분 ~ 1 시간)을 사용 하는 것이 좋습니다.|
-| `iss` | 발급자: 클라이언트 서비스의 client_id (*응용 프로그램 (클라이언트) id* ) 여야 합니다. |
-| `jti` | GUID: JWT ID |
-| `nbf` | 이전이 아님: 토큰을 사용할 수 없는 날짜입니다. 시간은 어설션이 생성 될 때까지 1970 년 1 월 1 일 (1970-01-01T0:0: 0Z) UTC의 초 수로 표시 됩니다. |
-| `sub` | Subject:의 경우 `iss` , client_id (클라이언트 서비스의*응용 프로그램 (클라이언트) id* ) 여야 합니다. |
+클레임 유형 | 값 | Description
+---------- | ---------- | ----------
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD). [RFC 7519, 섹션 4.1.3을](https://tools.ietf.org/html/rfc7519#section-4.1.3)참조 하세요.  이 경우 해당 수신자는 로그인 서버 (login.microsoftonline.com)입니다.
+exp | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 4.1.4 섹션을](https://tools.ietf.org/html/rfc7519#section-4.1.4)참조 하세요.  이렇게 하면 어설션을 사용할 때까지 사용할 수 있으므로 잠시 후에 짧은 5-10 분을 유지 `nbf` 합니다.  Azure AD는 현재 시간에 제한을 두지 않습니다 `exp` . 
+iss | ClientID | "Iss" (발급자) 클레임은 JWT를 발급 한 보안 주체 (이 경우 클라이언트 응용 프로그램)를 식별 합니다.  GUID 응용 프로그램 ID를 사용 합니다.
+jti | (Guid) | "Jti" (JWT ID) 클레임은 JWT에 대 한 고유 식별자를 제공 합니다. 식별자 값은 동일한 값이 다른 데이터 개체에 실수로 할당 될 확률이 무시 되도록 하는 방식으로 할당 되어야 합니다. 응용 프로그램에서 여러 발급자를 사용 하는 경우 여러 발급자가 생성 한 값 사이에서 충돌을 방지 해야 합니다. "Jti" 값은 대/소문자를 구분 하는 문자열입니다. [RFC 7519, 섹션 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  현재 시간을 사용 하는 것이 좋습니다. 
+sub | ClientID | "Sub" (주체) 클레임은 JWT의 주체 (이 경우에는 응용 프로그램)도 식별 합니다. 와 동일한 값을 사용 `iss` 합니다. 
 
 ### <a name="signature"></a>서명
 
@@ -126,7 +126,18 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 3. 애플리케이션 매니페스트에 편집 내용을 저장한 다음, 매니페스트를 Microsoft ID 플랫폼에 업로드합니다.
 
    `keyCredentials` 속성은 다중 값이므로 풍부한 키 관리를 위해 여러 인증서를 업로드할 수 있습니다.
+   
+## <a name="using-a-client-assertion"></a>클라이언트 어설션 사용
+
+클라이언트 어설션은 클라이언트 암호를 사용 하는 모든 위치에서 사용할 수 있습니다.  예를 들어 [인증 코드 흐름](v2-oauth2-auth-code-flow.md)에서를 전달 하 여 요청이 앱에서 제공 되는 것을 입증할 수 있습니다 `client_secret` . 이를 `client_assertion` 및 매개 변수로 바꿀 수 있습니다 `client_assertion_type` . 
+
+| 매개 변수 | 값 | Description|
+|-----------|-------|------------|
+|`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| 인증서 자격 증명을 사용 중임을 나타내는 고정 값입니다. |
+|`client_assertion`| JWT |위에서 만든 JWT입니다. |
 
 ## <a name="next-steps"></a>다음 단계
+
+MSAL.NET 라이브러리는 단일 코드 줄에서 [이 시나리오를 처리](msal-net-client-assertions.md) 합니다.
 
 GitHub의 [Microsoft identity platform code 샘플을 사용 하는 .Net Core 디먼 콘솔 응용 프로그램](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 은 응용 프로그램에서 인증에 자체 자격 증명을 사용 하는 방법을 보여 줍니다. PowerShell cmdlet을 사용 하 여 [자체 서명 된 인증서를 만드는](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) 방법도 보여 줍니다 `New-SelfSignedCertificate` . 샘플 리포지토리의 [앱 생성 스크립트](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) 를 사용 하 여 인증서를 만들고 지문을 계산 하는 등의 작업도 수행할 수 있습니다.

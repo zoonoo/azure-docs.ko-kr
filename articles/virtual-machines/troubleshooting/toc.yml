@@ -224,6 +224,8 @@
           href: troubleshoot-performance-virtual-machine-linux-windows.md
         - name: 성능 진단
           href: performance-diagnostics.md
+        - name: Azure Windows Virtual Machine의 높은 CPU 문제 해결
+          href: troubleshoot-high-cpu-issues-azure-windows-vm.md
     - name: PerfInsights
       items:
         - name: Windows
@@ -232,8 +234,6 @@
               href: how-to-use-perfinsights.md
             - name: 성능 진단 확장
               href: performance-diagnostics-vm-extension.md
-            - name: Azure Windows Virtual Machine의 높은 CPU 문제 해결
-              href: troubleshoot-high-cpu-issues-azure-windows-vm.md
         - name: Linux
           items:
             - name: PerfInsights를 사용하는 방법

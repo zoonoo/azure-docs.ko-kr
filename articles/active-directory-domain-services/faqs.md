@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 6a18dbf5c00c3f3aba2b2d58f060856aba9fb080
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 6e2daa60e99eb7aab34b11f240a2e2fb03c98582
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722900"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612407"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>AD (Azure Active Directory) 도메인 서비스에 대 한 Faq (질문과 대답)
 
 이 페이지는 Azure Active Directory Domain Services에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 * [단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -34,7 +34,7 @@ ms.locfileid: "88722900"
 * [PowerShell을 사용하여 Azure AD 도메인 서비스를 사용할 수 있나요?](#can-i-enable-azure-ad-domain-services-using-powershell)
 * [Resource Manager 템플릿을 사용하여 Azure AD Domain Services를 사용할 수 있나요?](#can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
 * [Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
-* [내 디렉터리에 초대된 게스트 사용자가 Azure AD Domain Services를 사용할 수 있나요?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
+* [게스트 사용자가 내 디렉터리 사용 Azure AD Domain Services에 초대할 수 있나요?](#can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services)
 * [기존 Azure AD Domain Services 관리 되는 도메인을 다른 구독, 리소스 그룹, 지역 또는 가상 네트워크로 이동할 수 있나요?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
 * [고가용성 옵션을 포함 Azure AD Domain Services?](#does-azure-ad-domain-services-include-high-availability-options)
 
@@ -72,7 +72,7 @@ ms.locfileid: "88722900"
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?
 아니요. Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로 비전, 구성 또는 관리 하지 않아도 됩니다. 이러한 관리 활동은 Microsoft에서 서비스로 제공 됩니다. 따라서 관리 되는 도메인에 대 한 추가 도메인 컨트롤러 (읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.
 
-### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>내 디렉터리에 초대된 게스트 사용자가 Azure AD Domain Services를 사용할 수 있나요?
+### <a name="can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services"></a>게스트 사용자가 내 디렉터리 사용 Azure AD Domain Services에 초대할 수 있나요?
 아니요. [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) 초대 프로세스를 사용하여 Azure AD 디렉터리에 초대된 게스트 사용자는 Azure AD Domain Services 관리되는 도메인과 동기화됩니다. 그러나 이러한 사용자에 대 한 암호는 Azure AD 디렉터리에 저장 되지 않습니다. 따라서 Azure AD Domain Services는 이러한 사용자에 대 한 NTLM 및 Kerberos 해시를 관리 되는 도메인으로 동기화 할 방법이 없습니다. 이러한 사용자는 컴퓨터에 로그인 하거나 관리 되는 도메인에 컴퓨터를 가입 시킬 수 없습니다.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>기존 Azure AD Domain Services 관리 되는 도메인을 다른 구독, 리소스 그룹, 지역 또는 가상 네트워크로 이동할 수 있나요?
@@ -94,6 +94,7 @@ ms.locfileid: "88722900"
 * [관리되는 도메인에 대한 암호 수명 정책은 무엇인가요?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Azure AD Domain Services에서 AD 계정 잠금 보호를 제공하나요?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
 * [Azure AD Domain Services 내에서 분산 파일 시스템 (DFS) 및 복제를 구성할 수 있나요?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
+* [Azure AD Domain Services에서 Windows 업데이트를 적용 하는 방법은 무엇입니까?](#how-are-windows-updates-applied-in-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>원격 데스크톱을 사용하여 관리되는 도메인의 도메인 컨트롤러에 연결할 수 있습니까?
 아니요. 원격 데스크톱을 사용 하 여 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 있는 권한이 없습니다. *AAD DC 관리자* 그룹의 멤버는 adac (Active Directory 관리 센터) 또는 ad PowerShell과 같은 ad 관리 도구를 사용 하 여 관리 되는 도메인을 관리할 수 있습니다. 이러한 도구는 관리 되는 도메인에 가입 된 Windows Server에서 *원격 서버 관리 도구* 기능을 사용 하 여 설치 됩니다. 자세한 내용은 [관리 VM을 만들어 Azure AD Domain Services 관리 되는 도메인 구성 및](tutorial-create-management-vm.md)관리를 참조 하세요.
@@ -129,13 +130,16 @@ Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일
 ### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Azure AD Domain Services 내에서 분산 파일 시스템 및 복제를 구성할 수 있나요?
 아니요. Azure AD Domain Services를 사용 하는 경우 분산 파일 시스템 (DFS) 및 복제를 사용할 수 없습니다.
 
+### <a name="how-are-windows-updates-applied-in-azure-ad-domain-services"></a>Azure AD Domain Services에서 Windows 업데이트를 적용 하는 방법은 무엇입니까?
+관리 되는 도메인의 도메인 컨트롤러는 필요한 Windows 업데이트를 자동으로 적용 합니다. 여기에서 구성 하거나 관리할 필요가 없습니다. Windows 업데이트로의 아웃 바운드 트래픽을 차단 하는 네트워크 보안 그룹 규칙을 만들지 않았는지 확인 합니다. 관리 되는 도메인에 가입 된 Vm의 경우 필요한 OS 및 응용 프로그램 업데이트를 구성 하 고 적용 해야 합니다.
+
 ## <a name="billing-and-availability"></a>요금 청구 및 가용성
 
 * [Azure AD Domain Services는 유료 서비스인가요?](#is-azure-ad-domain-services-a-paid-service)
 * [서비스에 대한 무료 평가판이 있습니까?](#is-there-a-free-trial-for-the-service)
 * [Azure AD Domain Services 관리되는 도메인을 일시 중지할 수 있나요?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
-* [Azure AD Domain Services를 DR 이벤트의 다른 지역으로 장애 조치(failover)할 수 있나요?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
-* [EMS (Enterprise Mobility Suite)의 일부로 Azure AD Domain Services를 가져올 수 있나요? Azure AD Domain Services을 사용 하는 Azure AD Premium 필요 합니까?](#can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event)
+* [DR 이벤트의 다른 지역으로 Azure AD Domain Services 장애 조치 (failover) 할 수 있나요?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
+* [EMS (Enterprise Mobility Suite)의 일부로 Azure AD Domain Services를 가져올 수 있나요? Azure AD Domain Services을 사용 하는 Azure AD Premium 필요 합니까?](#can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event)
 * [어떤 Azure 지역에서 서비스를 사용할 수 있습니까?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
 
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD Domain Services는 유료 서비스인가요?
@@ -147,7 +151,7 @@ Azure AD Domain Services는 Azure 무료 평가판에 포함 되어 있습니다
 ### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인을 일시 중지할 수 있나요?
 아니요. Azure AD Domain Services 관리 되는 도메인을 사용 하도록 설정 하면 관리 되는 도메인을 삭제할 때까지 선택한 가상 네트워크 내에서 서비스를 사용할 수 있습니다. 서비스를 일시 중지할 수 있는 방법은 없습니다. 관리되는 도메인을 삭제할 때까지 시간 기준으로 계속 청구됩니다.
 
-### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Azure AD Domain Services를 DR 이벤트의 다른 지역으로 장애 조치(failover)할 수 있나요?
+### <a name="can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>DR 이벤트의 다른 지역으로 Azure AD Domain Services 장애 조치 (failover) 할 수 있나요?
 아니요. Azure AD Domain Services은 현재 지역 중복 배포 모델을 제공 하지 않습니다. Azure 지역의 단일 가상 네트워크로 제한 됩니다. 여러 Azure 지역을 사용하려면 Azure IaaS VM에서 Active Directory 도메인 컨트롤러를 실행해야 합니다. 아키텍처 지침은 [온-프레미스 Active Directory 도메인을 Azure로 확장](/azure/architecture/reference-architectures/identity/adds-extend-domain)을 참조 하세요.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Enterprise Mobility Suite(EMS)의 일부로 Azure AD 도메인 서비스를 가져올 수 있습니까? Azure AD Domain Services를 사용하려면 Azure AD Premium이 필요합니까?

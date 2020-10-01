@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 53176114e8236ac8d8d38b1cf4c7472b0c18c08d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305599"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611353"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Cofense 받는 사람 동기화 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "91305599"
 > * 더 이상 액세스할 필요가 없는 경우 Cofense 받는 사람 동기화에서 사용자 제거
 > * Azure AD와 Cofense 받는 사람 동기화 간에 사용자 특성을 동기화 상태로 유지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -53,12 +53,12 @@ ms.locfileid: "91305599"
 
     ![에서 받는 사람의 Sync tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. **URL** 및 **토큰 필드**에서 값을 복사 합니다.
+3. **URL** 및 **토큰** 필드에서 값을 복사 합니다.
 
     ![에서 받는 사람의 동기화](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
-## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Cofense 받는 사람 동기화 추가
+## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Cofense 받는 사람 동기화 추가
 
 Azure AD 응용 프로그램 갤러리에서 Cofense 받는 사람 동기화를 추가 하 여 Cofense 받는 사람 동기화로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Cofense 받는 사람 동기화를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

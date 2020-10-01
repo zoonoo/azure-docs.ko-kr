@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7731839d23ec49ddfee814cc6b2f6b3459372f03
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613984"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612985"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -36,9 +36,6 @@ Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용�
 ## <a name="azure-subscription"></a>Azure 구독
 
 유료 구독을 권장 합니다.
-<!-- 
-> [!NOTE]
-> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.  -->
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
 
@@ -70,7 +67,7 @@ Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기�
 
 Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)의 azure virtual NETWORK 및 DNS 서버 구성에 대해 자세히 알아보세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 캐시 만들기를 시작 하기 전에 이러한 사용 권한 관련 필수 구성 요소를 확인 하십시오.
 

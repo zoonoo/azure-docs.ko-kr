@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a5b826bd76eb7e56620bcb5b5eec9464ebacffc6
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580420"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610078"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>제한 된 장치에서 IoT 플러그 앤 플레이 구현
 
@@ -39,7 +39,7 @@ Embedded C 용 SDK는 [iot 플러그 앤 플레이 규칙](concepts-convention.m
 
 ## <a name="using-azure-rtos"></a>Azure RTOS 사용
 
-Azure RTOS에는 Azure IoT 클라우드 서비스에 대 한 기본 연결을 추가 하는 경량 계층이 포함 되어 있습니다. 이 계층은 Azure RTOS의 고급 기능을 사용 하는 동안 제한 된 장치를 Azure IoT에 연결 하는 간단한 메커니즘을 제공 합니다.
+Azure RTOS에는 Azure IoT 클라우드 서비스에 대 한 기본 연결을 추가 하는 경량 계층이 포함 되어 있습니다. 이 계층은 Azure RTOS의 고급 기능을 사용 하는 동안 제한 된 장치를 Azure IoT에 연결 하는 간단한 메커니즘을 제공 합니다. 자세한 내용은 [Microsoft Azure RTOS 정의](https://docs.microsoft.com/azure/rtos/overview-rtos)를 참조 하세요.
 
 ### <a name="toolchains"></a>도구 체인
 

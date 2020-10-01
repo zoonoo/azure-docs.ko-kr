@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b25f2691646192faf4d4c133835b456038abd94
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269202"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611931"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Azure Portal에서 관리 ID의 서비스 주체 보기
 
@@ -43,7 +43,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 1. **Azure Active Directory**를 클릭한 다음 **Enterprise 애플리케이션**을 클릭합니다.
 2. **응용 프로그램 종류**아래에서 **모든 응용 프로그램** 을 선택 하 고 **적용**을 클릭 합니다.
-3. 검색 필터 상자에서 관리 ID를 사용하도록 설정된 VM 또는 애플리케이션의 이름을 입력하거나 표시된 목록에서 선택합니다.
+3. 검색 필터 상자에 관리 id가 활성화 된 Azure 리소스의 이름을 입력 하거나 표시 된 목록에서 선택 합니다.
 
    ![포털에서 관리 ID 서비스 주체 보기](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 

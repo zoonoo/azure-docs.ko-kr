@@ -4,15 +4,15 @@ description: Azure 활동 로그의 각 범주에 대 한 이벤트 스키마를
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 06/09/2020
+ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829512"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612764"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 범주와 각 항목에 대 한 스키마를 설명 합니다. 
@@ -23,6 +23,17 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 - Azure Storage 또는 Azure Event Hubs에 활동 로그를 보내는 [진단 설정을](diagnostic-settings.md) 사용 하는 경우 [저장소 계정 및](#schema-from-storage-account-and-event-hubs) 스키마에 대 한 event Hubs의 마지막 섹션 스키마를 참조 하세요.
 - 작업 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을](diagnostic-settings.md) 사용 하는 경우 스키마에 대 한 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/) 를 참조 하세요.
 
+## <a name="severity-level"></a>심각도
+활동 로그의 각 항목에는 심각도 수준이 있습니다. 심각도 수준에는 다음 값 중 하나를 사용할 수 있습니다.  
+
+| 심각도 | 설명 |
+|:---|:---|
+| 위험 | 시스템 관리자의 즉각적인 주의가 필요한 이벤트입니다. 응용 프로그램 또는 시스템이 응답 하지 않거나 응답을 중지 했음을 나타낼 수 있습니다.
+| 오류 | 문제를 나타내는 이벤트 이며 즉각적인 주의가 필요 하지 않습니다.
+| 경고 | 실제 오류는 아니지만 잠재적인 문제를 forewarning 제공 하는 이벤트입니다. 리소스가 이상적인 상태가 아니고 나중에 오류 또는 중요 한 이벤트를 표시 하는 데 영향을 줄 수 있음을 표시 합니다.  
+| 정보 제공 | 중요 하지 않은 정보를 관리자에 게 전달 하는 이벤트입니다. "정보에 대 한"와 유사 합니다. 
+
+각 리소스 공급자의 developers 리소스 항목의 심각도 수준을 선택 합니다. 결과적으로 응용 프로그램을 빌드하는 방법에 따라 실제 심각도가 달라질 수 있습니다. 예를 들어 isloation에서 수행 되는 특정 리소스에 대 한 "위험" 항목은 Azure 응용 프로그램의 핵심이 되는 리소스 종류의 "오류" 만큼 중요 하지 않을 수 있습니다. 경고할 이벤트를 결정할 때이 사실을 고려해 야 합니다.  
 
 ## <a name="categories"></a>범주
 활동 로그의 각 이벤트에는 다음 표에서 설명하는 특정 범주가 있습니다. 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 각 범주 및 해당 스키마에 대 한 자세한 내용은 아래 섹션을 참조 하세요. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](./resource-logs.md#send-to-azure-event-hubs)때 스키마가 다릅니다. [리소스 로그 스키마](./resource-logs-schema.md) 에 대 한 속성 매핑은 문서의 마지막 섹션에 제공 됩니다.
@@ -130,7 +141,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
 | caller |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. |
@@ -277,7 +288,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 "Admin, Operation"입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -370,7 +381,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | caller | Always Microsoft.Insights/alertRules |
 | channels | 항상 "Admin, Operation"입니다. |
@@ -396,7 +407,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 속성 필드에는 경고 이벤트의 원본에 따라 다른 값이 포함됩니다. 일반적으로 사용되는 두 경고 이벤트 공급자는 활동 로그 경고와 메트릭 경고입니다.
 
 #### <a name="properties-for-activity-log-alerts"></a>활동 로그 경고의 속성
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | properties.subscriptionId | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 구독 ID입니다. |
 | properties.eventDataId | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 이벤트 데이터 ID입니다. |
@@ -407,7 +418,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | properties.status | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 상태입니다.|
 
 #### <a name="properties-for-metric-alerts"></a>메트릭 경고의 속성
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | properties.RuleUri | 메트릭 경고 규칙 자체의 리소스 ID입니다. |
 | properties.RuleName | 메트릭 경고 규칙의 이름입니다. |
@@ -480,7 +491,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | caller | 항상 Microsoft.Insights/autoscaleSettings입니다. |
 | channels | 항상 "Admin, Operation"입니다. |
@@ -570,7 +581,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -651,7 +662,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 
 ```
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -761,7 +772,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 
 ### <a name="policy-event-property-descriptions"></a>Policy 이벤트 속성 설명
 
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | 권한 부여 | 이벤트의 RBAC 속성 배열입니다. 새 리소스의 경우 평가를 트리거한 요청의 작업 및 범위입니다. 기존 리소스의 경우 작업은 "Microsoft.Resources/checkPolicyCompliance/read"입니다. |
 | caller | 새 리소스의 경우 배포를 시작한 ID입니다. 기존 리소스의 경우 Microsoft Azure Policy Insights RP의 GUID입니다. |

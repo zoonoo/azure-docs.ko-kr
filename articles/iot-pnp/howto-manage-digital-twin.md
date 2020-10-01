@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577597"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613393"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 관리
 
@@ -179,11 +179,11 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>디지털 쌍 업데이트 API 오류 문제 해결
 
-공개 미리 보기 동안 업데이트 디지털 쌍 API는 다음과 같은 일반 오류 메시지를 throw 합니다.
+디지털 쌍 API는 다음과 같은 일반 오류 메시지를 throw 합니다.
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-업데이트 패치가 [디지털 쌍 속성의 원하는 값을 설정](#rules-for-setting-the-desired-value-of-a-digital-twin-property) 하는 규칙을 따르는지 확인 합니다.
+이 오류가 표시 되 면 업데이트 패치가 [디지털 쌍 속성의 원하는 값을 설정](#rules-for-setting-the-desired-value-of-a-digital-twin-property) 하는 규칙을 따르는지 확인 합니다.
 
 구성 요소를 업데이트할 때 [빈 개체 $metadata 표식이](#add-replace-or-remove-a-component) 설정 되어 있는지 확인 합니다.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569580"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611642"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -22,21 +22,21 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 |키 유형|리소스|
 |---|---|
-|[마스터 키](#primary-keys) |데이터베이스 계정, 데이터베이스, 사용자, 사용 권한을 비롯한 관리 리소스에 사용됩니다.|
+|[기본 키](#primary-keys) |데이터베이스 계정, 데이터베이스, 사용자, 사용 권한을 비롯한 관리 리소스에 사용됩니다.|
 |[리소스 토큰](#resource-tokens)|컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF를 비롯한 애플리케이션 리소스에 사용됩니다.|
 
 <a id="primary-keys"></a>
 
-## <a name="master-keys"></a>마스터 키
+## <a name="primary-keys"></a>기본 키
 
-마스터 키는 데이터베이스 계정에 대 한 모든 관리 리소스에 대 한 액세스를 제공 합니다. 마스터 키:
+기본 키는 데이터베이스 계정에 대 한 모든 관리 리소스에 대 한 액세스를 제공 합니다. 기본 키:
 
 - 계정, 데이터베이스, 사용자 및 사용 권한에 대한 액세스를 제공합니다. 
 - 컨테이너 및 문서에 대한 세분화된 액세스를 제공하는 데 사용할 수 없습니다.
 - 계정 생성 중에 만들어집니다.
 - 언제든지 다시 생성할 수 있습니다.
 
-각 계정은 두 개의 마스터 키(주 키와 보조 키)로 구성됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다.
+각 계정은 기본 키와 보조 키의 두 가지 기본 키로 구성 됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다.
 
 Cosmos DB 계정의 두 가지 기본 키 외에도 두 개의 읽기 전용 키가 있습니다. 이러한 읽기 전용 키는 계정에 대한 읽기 작업만 허용합니다. 읽기 전용 키는 읽기 권한 리소스에 대한 액세스를 제공하지 않습니다.
 

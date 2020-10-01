@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20418dbc7432000116dcbe73a64987d83f38419d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585069"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612186"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 
@@ -28,8 +28,7 @@ Key Vault 관리형 스토리키 계정 키 기능을 사용하여 키를 나열
 - 키 값은 호출자에게 응답으로 반환되지 않습니다.
 - Key Vault에서만 스토리지 계정 키를 관리해야 합니다. 키를 직접 관리하거나 Key Vault 프로세스를 방해하지 마세요.
 - 단일 Key Vault 개체에서만 스토리지 계정 키를 관리해야 합니다. 여러 개체에서 키를 관리하도록 허용하지 마세요.
-- 사용자 계정을 사용하여 스토리지 계정을 관리하도록 Key Vault에 요청할 수 있지만, 서비스 주체를 사용하여 관리하도록 요청할 수는 없습니다.
-- Key Vault만 사용하여 키를 다시 생성해야 합니다. 스토리지 계정 키를 수동으로 다시 생성하지 않습니다.
+- Key Vault만을 사용하여 키를 다시 생성해야 합니다. 스토리지 계정 키를 수동으로 다시 생성하지 않습니다.
 
 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure AD(Azure Active Directory)와 Azure Storage를 통합하여 사용하는 것이 좋습니다. Azure AD 통합은 [Azure BLOB 및 큐](../../storage/common/storage-auth-aad.md)에 사용할 수 있으며, Azure Key Vault와 마찬가지로 Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공합니다.
 

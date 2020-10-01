@@ -3,17 +3,17 @@ title: PowerShell을 사용 하 여 Azure Service Fabric 배포
 description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 배포 하는 방법과 Powershell에서 이러한 작업을 수행 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699841"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611455"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
 > [!div class="op_single_selector"]
-> * [리소스 관리자](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -135,7 +135,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 저장됩니다. 애플리케이션을 실행하기 전에 패키지는 노드에서 압축되지 않습니다.
+압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축 된 패키지와 압축 되지 않은 패키지에 대해 동일 합니다. 압축된 패키지는 클러스터 이미지 저장소에 저장됩니다. 애플리케이션을 실행하기 전에 패키지는 노드에서 압축되지 않습니다.
 
 
 다음 예제에서는 패키지를 이미지 저장소의 "MyApplicationV1"이라는 폴더에 업로드합니다.

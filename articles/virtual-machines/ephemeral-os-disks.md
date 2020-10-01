@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837111"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611523"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
 
@@ -40,7 +40,7 @@ ms.locfileid: "87837111"
 | **지역 지원**              | 모든 지역                                                                                  | 모든 지역                              |
 | **데이터 지속성**            | Os 디스크에 작성 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 되는 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |
 | **중지-할당 취소 됨 상태**      | Vm 및 확장 집합 인스턴스는 중지-할당 취소 되 고 중지-할당 취소 됨 상태에서 다시 시작 될 수 있습니다. | Vm 및 확장 집합 인스턴스는 중지-할당 취소할 수 없습니다.                                  |
-| **특수 OS 디스크 지원** | 예                                                                                          | 아니요                                                                                 |
+| **특수 OS 디스크 지원** | 예                                                                                          | 예                                                                                 |
 | **OS 디스크 크기 조정**              | VM을 만드는 동안 및 VM이 중지 되 고 할당이 취소 된 후에 지원 됨                                | VM을 만드는 동안에만 지원 됨                                                  |
 | **새 VM 크기로 크기 조정**   | OS 디스크 데이터가 보존 됩니다.                                                                    | Os 디스크의 데이터가 삭제 되 고 OS가 다시 프로 비전 됩니다.                                      |
 
@@ -51,7 +51,7 @@ Vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니�
 또한 임시 디스크는 VM 크기가 Premium storage를 지원 해야 합니다. 크기 (항상 그렇지는 않음) `s` 에는 이름에 DSv2 및 EsV3와 같은가 있습니다. 자세한 내용은 프리미엄 저장소를 지 원하는 크기에 대 한 자세한 내용은 [AZURE VM 크기](sizes.md) 를 참조 하세요.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>미리 보기-이제 임시 디스크에 임시 OS 디스크를 저장할 수 있습니다.
-이제 삭제 된 OS 디스크를 vm 캐시 외에도 VM 임시/리소스 디스크에 저장할 수 있습니다. 따라서 이제 캐시가 없거나 캐시 공간이 부족 하지만 Dav3, Dav4, Eav4 및 Eav3와 같은 사용 후 삭제 OS 디스크를 저장 하기 위한 temp/resource 디스크가 있는 VM에서 사용 후 삭제 OS 디스크를 사용할 수 있습니다. VM에 캐시 및 임시 공간이 충분 한 경우 이제는 [Diffdiskplacement](/rest/api/compute/virtualmachines/list#diffdiskplacement)라는 새 속성을 사용 하 여 임시 OS 디스크를 저장 하려는 위치도 지정할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 시작 하려면 액세스를 [요청](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)하세요.
+이제 삭제 된 OS 디스크를 vm 캐시 외에도 VM 임시/리소스 디스크에 저장할 수 있습니다. 따라서 이제 캐시가 없거나 캐시 공간이 부족 하지만 Dav3, Dav4, Eav4 및 Eav3와 같은 사용 후 삭제 OS 디스크를 저장 하기 위한 temp/resource 디스크가 있는 VM에서 사용 후 삭제 OS 디스크를 사용할 수 있습니다. VM에 캐시 및 임시 공간이 충분 한 경우 이제는 [Diffdiskplacement](/rest/api/compute/virtualmachines/list#diffdiskplacement)라는 새 속성을 사용 하 여 임시 OS 디스크를 저장 하려는 위치도 지정할 수 있습니다. 이 기능을 사용 하 여 Windows VM이 프로 비전 되 면 OS 디스크에 있는 페이지 파일을 구성 합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 시작 하려면 액세스를 [요청](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)하세요.
 
 ## <a name="powershell"></a>PowerShell
 
