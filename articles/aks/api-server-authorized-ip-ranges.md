@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 API 서버에 액세스 하�
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 5dbe5061253fb18222a476a88a1ec94a5ce4b0fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299666"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613733"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 대 한 액세스 보호
 
@@ -129,6 +129,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>`--api-server-authorized-ip-ranges`에 포함할 IP를 찾는 방법
+
+여기에서 API 서버에 액세스 하기 위해 개발 컴퓨터, 도구 또는 automation IP 주소를 승인 된 IP 범위의 AKS 클러스터 목록에 추가 해야 합니다. 
+
+또 다른 옵션은 Firewall의 가상 네트워크에서 별도의 서브넷 내에 필요한 도구를 사용하여 jumpbox를 구성하는 것입니다. 사용자 환경에 해당 네트워크를 사용 하는 방화벽이 있고 인증 된 범위에 방화벽 Ip를 추가 했다고 가정 합니다. 마찬가지로, AKS 서브넷에서 방화벽 서브넷으로 강제 터널링 하는 경우 클러스터 서브넷에 jumpbox가 없어도 됩니다.
+
+다음 명령을 사용 하 여 승인 된 범위에 다른 IP 주소를 추가 합니다.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> 위의 예에서는 클러스터에 API server 권한 있는 IP 범위를 추가 합니다. 권한 있는 IP 범위를 사용 하지 않도록 설정 하려면 az aks update를 사용 하 고 빈 범위 ""를 지정 합니다. 
+
+또 다른 옵션은 Windows 시스템에서 아래 명령을 사용 하 여 공용 IPv4 주소를 가져오거나, [IP 주소 찾기](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address)의 단계를 사용할 수 있습니다.
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+인터넷 브라우저에서 "내 IP 주소는 무엇입니까"를 검색 하 여이 주소를 찾을 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

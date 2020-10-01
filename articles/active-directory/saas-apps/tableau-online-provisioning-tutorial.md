@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533442"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613930"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Tableau Online 구성
 
@@ -133,7 +133,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Tableau Online으로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Tableau Online의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 저장하려면 **저장**을 선택합니다.
 
-    ![Tableau Online 일치 사용자 특성](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Tableau Online 일치 사용자 특성](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. **매핑** 섹션에서 **Azure Active Directory 그룹을 Tableau에 동기화**를 선택합니다.
 
@@ -162,6 +162,9 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비저닝 활동 보고서를 확인할 수 있습니다. 이 보고서는 Tableau Online에서 Azure AD 프로 비전 서비스가 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
+
+## <a name="change-log"></a>로그 변경
+* 09/30/2020-사용자에 대 한 "authSetting" 특성에 대 한 지원이 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

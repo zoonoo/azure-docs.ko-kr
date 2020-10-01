@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325762"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613767"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -111,6 +111,10 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용하여 Azure 경고를 기반으로 ITSM 도구에서 작업 항목을 만들 수 있습니다.
 
 작업 그룹은 Azure Alerts를 위해 모듈 방식으로 다시 사용할 수 있는 방법을 제공합니다. Azure Portal에서 메트릭 경고, 활동 로그 경고 및 Azure Log Analytics 알림과 함께 작업 그룹을 사용할 수 있습니다.
+
+> [!NOTE]
+> ITSM 연결을 만든 후에는 동기화 프로세스에 대해 만든 커넥터가 완료 된 후 30 분 동안 대기 해야 합니다.
+> 
 
 이렇게 하려면 다음 절차를 수행합니다.
 

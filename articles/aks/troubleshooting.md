@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068832"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614022"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -183,6 +183,14 @@ AKS 클러스터를 만드는 경우 사용자를 대신하여 리소스를 만�
 ## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>`"AADSTS7000215: Invalid client secret is provided."`AKS API를 사용 하는 경우   어떻게 해야 합니까?
 
 이는 일반적으로 서비스 주체 자격 증명이 만료 되었기 때문에 발생 합니다. [AKS 클러스터에 대 한 자격 증명을 업데이트 합니다.](update-credentials.md)
+
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>API server 권한 있는 IP 범위를 사용 하는 경우 automation/dev 컴퓨터/도구에서 내 클러스터 API에 액세스할 수 없습니다. 이 문제를 어떻게 해결하나요?
+
+이렇게 `--api-server-authorized-ip-ranges` 하려면 사용 중인 자동화/개발/도구 시스템의 ip 또는 ip 범위를 포함 해야 합니다. [권한 있는 ip 주소 범위를 사용 하 여 API 서버에 대 한 보안 액세스](api-server-authorized-ip-ranges.md)에서 ' 내 IP를 찾는 방법 ' 섹션을 참조 하세요.
+
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>API server 권한 있는 IP 범위로 구성 된 클러스터에 대 한 Azure Portal의 Kubernetes 리소스 뷰어에서 리소스를 볼 수 없습니다. 이 문제를 어떻게 해결하나요?
+
+[Kubernetes 리소스 뷰어에](kubernetes-portal.md) 는 포털을 검색 하는 `--api-server-authorized-ip-ranges` 로컬 클라이언트 컴퓨터 또는 IP 주소 범위에 대 한 액세스 권한이 있어야 합니다. [권한 있는 ip 주소 범위를 사용 하 여 API 서버에 대 한 보안 액세스](api-server-authorized-ip-ranges.md)에서 ' 내 IP를 찾는 방법 ' 섹션을 참조 하세요.
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>송신 트래픽을 제한한 후에 오류가 발생했습니다.
 

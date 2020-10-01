@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906372"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613648"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>이미 Azure Monitor 로그를 사용 하는 고객에 대 한 FAQ<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ Security Center 솔루션은 아직 없는 경우 데이터 수집 화면에서 
 Security Center에서 만든 작업 영역에 VM이 이미 연결 되어 있음을 확인 하는 경우 가격 책정 구성에 따라이 작업 영역에서 솔루션을 사용 하도록 설정 Security Center. 솔루션이 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
 - **Azure Defender off** – Security Center 작업 영역에 ' 보안 센터 무료 ' 솔루션을 설치 합니다. 요금은 청구 되지 않습니다.
-- 
 - **Azure Defender on** – Security Center 작업 영역에 ' Security ' 솔루션을 설치 합니다.
 
    ![기본 작업 영역의 솔루션](./media/security-center-platform-migration-faq/solutions.png)

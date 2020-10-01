@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986489"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614005"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -35,7 +35,7 @@ Azure Backup은 온-프레미스 컴퓨터 및 Azure VM (가상 컴퓨터) 인�
 
 ## <a name="where-is-data-backed-up"></a>데이터는 어디에 백업되나요?
 
-Azure Backup는 자격 증명 모음-복구 서비스 자격 증명 모음 및 백업 자격 증명 모음에 백업 된 데이터를 저장 합니다. 자격 증명 모음은 백업 복사본, 복구 시점 및 백업 정책과 같은 데이터를 저장 하는 데 사용 되는 Azure의 온라인 저장소 엔터티입니다.
+Azure Backup는 자격 증명 모음 Recovery Services 자격 증명 모음 및 백업 자격 증명 모음에 백업 된 데이터를 저장 합니다. 자격 증명 모음은 백업 복사본, 복구 시점 및 백업 정책과 같은 데이터를 저장 하는 데 사용 되는 Azure의 온라인 저장소 엔터티입니다.
 
 자격 증명 모음에는 다음과 같은 기능이 있습니다.
 
@@ -99,8 +99,8 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 **기능** | **파일 및 폴더에 대 한 직접 백업 (MARS 에이전트 사용)** | **Azure VM 백업** | **DPM/MABS를 사용 하는 컴퓨터 또는 앱**
 --- | --- | --- | ---
 자격 증명 모음에 백업 | ![예][green] | ![예][green] | ![예][green]
-DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
-백업을 위해 전송된 데이터 압축 | ![예][green] | 데이터를 전송할 때 압축이 사용되지 않습니다. 스토리지가 약간 증가하지만 복원 속도가 더 빠릅니다.  | ![예][green]
+DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![Yes][green]
+백업을 위해 전송된 데이터 압축 | ![Yes][green] | 데이터를 전송할 때 압축이 사용되지 않습니다. 스토리지가 약간 증가하지만 복원 속도가 더 빠릅니다.  | ![Yes][green]
 증분 백업 실행 |![예][green] |![예][green] |![예][green]
 중복 제거된 디스크 백업 | | | ![부분적으로][yellow]<br/><br/> 온-프레미스에 배포된 DPM/MABS 서버에만 해당합니다.
 

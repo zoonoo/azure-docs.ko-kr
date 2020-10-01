@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281253"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613903"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -38,7 +38,7 @@ ms.locfileid: "91281253"
 
 프라이빗 엔드포인트는 Azure 리소스에 연결할 수 있는 고객 소유의 VNet 내에 할당된 프라이빗 IP 주소입니다. Azure Private Link를 통해 IoT 허브의 프라이빗 엔드포인트를 설정하여 VNet 내부 서비스가 IoT Hub의 퍼블릭 엔드포인트로 트래픽을 보내지 않아도 IoT Hub에 도달하도록 허용할 수 있습니다. 마찬가지로, 온-프레미스 디바이스는 [VPN(가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 피어링을 사용하여 VNet 및 IoT Hub(프라이빗 엔드포인트를 통해)에 연결할 수 있습니다. 따라서 [IoT Hub IP 필터](./iot-hub-ip-filtering.md)를 사용하고 [기본 제공 엔드포인트에 데이터를 보내지 않도록 라우팅을 구성](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint)하여 IoT 허브의 퍼블릭 엔드포인트에 대한 연결을 제한하거나 완전히 차단할 수 있습니다. 이 방법은 디바이스의 프라이빗 엔드포인트를 사용하여 허브에 대한 연결을 유지합니다. 이 설정은 주요 온-프레미스 네트워크에 있는 디바이스에 적용되며, 광역 네트워크에 배포된 디바이스에는 권장되지 않습니다.
 
-![IoT Hub 퍼블릭 엔드포인트](./media/virtual-network-support/virtual-network-ingress.png)
+![IoT Hub 가상 네트워크 engress](./media/virtual-network-support/virtual-network-ingress.png)
 
 계속하기 전에 다음과 같은 전제 조건을 충족하는지 확인하세요.
 
@@ -92,7 +92,7 @@ IoT Hub는 Azure Blob Storage, 이벤트 허브, 서비스 버스 리소스에 �
 
 1. **상태**에서 **켜기**를 선택하고 **저장**을 클릭합니다.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="IoT Hub의 관리 ID를 켜는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="IoT Hub의 프라이빗 엔드포인트를 추가할 곳을 보여 주는 스크린샷":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>ARM 템플릿을 사용 하 여 만들 때 IoT Hub에 관리 id 할당
 

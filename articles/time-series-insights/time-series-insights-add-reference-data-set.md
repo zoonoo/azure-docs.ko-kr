@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168187"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614243"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Time Series Insights Gen1 환경에 대 한 참조 데이터 집합 만들기
+
+> [!CAUTION]
+> Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법을 설명합니다. 참조 데이터는 값을 확장하기 위해 원본 데이터에 연결하는 데 유용합니다.
 
@@ -26,7 +29,7 @@ ms.locfileid: "88168187"
 
 참조 데이터는 소급되어 조인되지 않습니다. 따라서 데이터를 구성 하 고 업로드 한 후에는 현재 및 이후의 수신 데이터만 일치 하 고 참조 날짜 집합에 조인 합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>시계열 정보에 대 한 참조 데이터 모델에 대해 알아봅니다.</br>
 

@@ -3,13 +3,13 @@ title: 리소스 그룹 및 리소스 삭제
 description: 리소스 그룹 및 리소스를 삭제 하는 방법을 설명 합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager 리소스 삭제를 정렬 하는 방법을 설명 합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2720a9ae8c0a67d8e6f9c1105b33c0a3c343cf47
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: seodec18
+ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498500"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614413"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>리소스 그룹 및 리소스 삭제 Azure Resource Manager
 
@@ -75,13 +75,13 @@ az group delete --name ExampleResourceGroup
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [포털](https://portal.azure.com)에서 삭제 하려는 리소스 그룹을 선택 합니다.
+1. [포털](https://portal.azure.com)에서 삭제하려는 리소스 그룹을 선택합니다.
 
 1. **리소스 그룹 삭제**를 선택합니다.
 
    ![리소스 그룹 삭제](./media/delete-resource-group/delete-group.png)
 
-1. 삭제를 확인 하려면 리소스 그룹의 이름을 입력 합니다.
+1. 삭제를 확인하기 위해 리소스 그룹의 이름을 입력합니다.
 
 ---
 
@@ -123,4 +123,4 @@ az resource delete \
 ## <a name="next-steps"></a>다음 단계
 
 * Resource Manager의 개념을 이해하려면 [Azure Resource Manager 개요](overview.md)를 참조하세요.
-* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.
+* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.

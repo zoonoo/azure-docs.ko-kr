@@ -3,12 +3,12 @@ title: Event Hubs-Azure Portal를 사용 하 여 스트리밍 이벤트 캡처
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315727"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613580"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 
@@ -17,6 +17,9 @@ Azure [Event Hubs 캡처][capture-overview] 를 사용 하면 Event Hubs의 스�
 이벤트 허브 생성 시 [Azure Portal](https://portal.azure.com)을 사용하여 캡처를 구성할 수 있습니다. Azure [Blob storage](https://azure.microsoft.com/services/storage/blobs/) 컨테이너 또는 [Azure Data Lake Storage Gen 1 또는 gen 2](https://azure.microsoft.com/services/data-lake-store/) 계정으로 데이터를 캡처할 수 있습니다.
 
 자세한 내용은 [Event Hubs 캡처 개요][capture-overview]를 참조하세요.
+
+> [!IMPORTANT]
+> 대상 저장소 (Azure Storage 또는 Azure Data Lake Storage) 계정은 이벤트 허브와 동일한 구독에 있어야 합니다.
 
 ## <a name="capture-data-to-azure-storage"></a>Azure Storage 데이터 캡처
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 08/14/2020
-ms.openlocfilehash: ceb1c9711d67b32f9a31e6105df0e0e0eec42907
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321376"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614430"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,10 +31,10 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용 하는 가상 코
 
 VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및 Hyperscale이 포함 됩니다. 서비스 계층은 일반적으로 가용성 및 재해 복구와 관련 된 저장소 아키텍처, 공간 및 i/o 제한 및 비즈니스 연속성 옵션을 정의 합니다.
 
-|-|**일반 용도**|**중요 비즈니스용**|**하이퍼스케일**|
+|-|**범용**|**중요 비즈니스용**|**하이퍼스케일**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산에 맞게 균형 있고 확장 가능한 컴퓨팅 및 스토리지 옵션을 제공합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
-|스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
+|Storage|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
 |IOPS 및 처리량 (근사치)|**SQL Database**: [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.<br/>**Sql Managed Instance**: [개요 Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md#service-tier-characteristics)을 참조 하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크 로드에 따라 달라 집니다.|
 |가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](read-scale-out.md)|
 |Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
@@ -91,7 +91,11 @@ Fsv2 시리즈는 일반적인 용도의 계층 에서만 지원 됩니다. Fsv2
 - M 시리즈는 Gen5에서 제공 하는 것 보다 더 많은 메모리를 필요로 하는 워크 로드에 대 한 메모리 액세스에 최적화 된 하드웨어 옵션입니다.
 - M 시리즈는 vCore 당 30GB를 제공 하 고 최대 128 Vcore를 제공 하 여 Gen5 by 8x를 기준으로 약 4 TB까지 메모리 제한을 늘립니다.
 
-M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중복성은 지원 하지 않습니다.  구독은 종 량 제 또는 기업계약 (EA)를 포함 한 유료 제안 유형 이어야 합니다. M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series-1)을 참조 하세요.
+M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중복성은 지원 하지 않습니다.  M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series-1)을 참조 하세요.
+
+#### <a name="azure-offer-types-supported-by-m-series"></a>M 시리즈에서 지원 되는 Azure 제품 유형
+
+M 시리즈에 액세스 하려면 구독은 종 량 제 또는 기업계약 (EA)를 포함 한 유료 제안 유형 이어야 합니다.  M 시리즈에서 지원 되는 Azure 제품 형식의 전체 목록은 [지출 한도가 없는 현재 제품](https://azure.microsoft.com/support/legal/offer-details)을 참조 하세요.
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -100,7 +104,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
 
 
-|하드웨어 세대  |컴퓨팅  |메모리  |
+|하드웨어 세대  |Compute  |메모리  |
 |:---------|:---------|:---------|
 |Gen4     |-Intel® E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
 |5세대     |**프로비저닝된 컴퓨팅**<br>-Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake) \* 및 intel® 8272CL (케스케이드 Lake) 2.5 GHz \* 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel® E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel® SP-8160 (Skylake) * 프로세서<br>-최대 40 vCores 자동 확장 (1 Vcores = 1 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 120 GB까지 자동 확장|

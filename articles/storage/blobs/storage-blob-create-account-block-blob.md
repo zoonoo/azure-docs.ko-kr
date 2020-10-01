@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0e312cf49ee54020d0feb8d8e2f4c7a9bb77215a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0af98993cc4b3c7d19cdaa61cd7a35e3b444a3df
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074545"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613801"
 ---
 # <a name="create-a-blockblobstorage-account"></a>BlockBlobStorage 계정 만들기
 
@@ -111,7 +111,7 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
 
    |필드     |값  |
    |---------|---------|
-   |**성능**    |  **프리미엄**을 선택 합니다.   |
+   |**성능**    |  **프리미엄**을 선택합니다.   |
    |**계정 종류**    | **Blockblobstorage**를 선택 합니다.      |
    |**복제**    |  **LRS (로컬 중복 저장소)** 의 기본 설정을 그대로 둡니다.      |
 

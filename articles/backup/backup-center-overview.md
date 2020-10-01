@@ -2,13 +2,13 @@
 title: 백업 센터 개요
 description: 이 문서에서는 Azure에 대 한 백업 센터의 개요를 제공 합니다.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997011"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614288"
 ---
 # <a name="overview-of-backup-center"></a>백업 센터 개요
 
@@ -25,7 +25,7 @@ ms.locfileid: "90997011"
 * 백업 센터는 현재 Azure VM 백업 및 Azure Database for PostgreSQL 서버 백업에 대해 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센터** 를 검색 하 고 **Backup 센터 (미리 보기)** 대시보드로 이동 합니다.
 
@@ -39,7 +39,11 @@ Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센
 
 백업 **인스턴스** 타일의 백업 공간에 있는 모든 백업 인스턴스의 요약 된 보기를 볼 수 있습니다. 예를 들어 보호를 위해 여전히 구성 된 인스턴스 수와 비교할 때 일시 삭제 된 상태의 백업 인스턴스 수를 확인할 수 있습니다. 이 타일에서 숫자 중 하나를 선택 하면 특정 데이터 원본 유형 및 보호 상태에 대 한 백업 인스턴스에 대 한 자세한 정보를 볼 수 있습니다.
 
-아래 단계에 따라 백업 센터에서 제공 하는 다양 한 기능을 이해 하 고 이러한 기능을 사용 하 여 백업 공간을 효율적으로 관리 하는 방법을 알아보세요.
+백업 센터의 기능을 이해 하려면 다음 비디오를 시청 하세요.
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+[다음 단계](#next-steps) 를 수행 하 여 백업 센터에서 제공 하는 다양 한 기능을 이해 하 고 이러한 기능을 사용 하 여 백업 공간을 효율적으로 관리 하는 방법을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

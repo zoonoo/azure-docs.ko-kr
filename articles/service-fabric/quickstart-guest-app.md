@@ -4,18 +4,18 @@ description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에�
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314286"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614107"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
 이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 애플리케이션(이 예제에서는 Node.js)을 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2019 또는 2015 설치를 포함 합니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 **새 프로젝트** 대화 상자에서 **클라우드 &gt; Service Fabric 애플리케이션**을 선택합니다.
 
-애플리케이션의 이름을 **MyGuestApp**으로 지정하고 **확인**을 누릅니다.
+응용 프로그램 이름을 **MyGuestApp** 하 고 **만들기**를 누릅니다.
 
 >[!IMPORTANT]
 >Node.js는 Windows에 있는 경로에 대한 260자 제한을 쉽게 초과할 수 있습니다. **c:\code\svc1**과 같은 프로젝트 자체에 짧은 경로를 사용합니다. 경우에 따라 **[이러한 지침](https://stackoverflow.com/a/41687101/1664231)** 을 따라 Windows 10에서 긴 파일 경로를 활성화할 수 있습니다.

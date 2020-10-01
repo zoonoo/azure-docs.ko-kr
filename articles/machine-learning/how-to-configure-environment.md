@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 54c607ebac02a9d7e534d24656a8687e9ff39725
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533182"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613716"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 개발 환경 설정
 
@@ -228,7 +228,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 | 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
-| Databricks Runtime |always|비 ML 런타임 6.5 (scala 2.11, spark 2.4.3) |
+| Databricks Runtime |always|비 ML 런타임 7.1 (scala 2.21, spark 3.0.0) |
 | Python 버전 |always| 3 |
 | 작업자 |always| 2 이상 |
 | 작업자 노드 VM 유형 <br>(최대 동시 반복 횟수를 결정 합니다.) |자동화된 ML<br>전용| 메모리 최적화 VM 기본 설정 |
@@ -238,19 +238,18 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Databricks 라이브러리에 올바른 SDK 설치
 
-클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다.
+클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다. 자동화 된 ML의 경우 [자동화 된 기계 학습을 사용 하는 Databricks SDK 섹션](#sdk-for-databricks-with-automated-machine-learning)으로 건너뜁니다.
 
 1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기**  >  **Library**를 선택 합니다.
 
-1. 옵션을 **하나만** 선택 하십시오. 다른 SDK 설치는 지원 되지 않습니다.
+1. 다음 옵션을 선택 합니다 (다른 SDK 설치는 지원 되지 않음).
 
    |SDK &nbsp; 패키지 추가 기능 &nbsp;|원본|PyPi &nbsp; 이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks의 경우| Python 업로드 Egg 또는 PyPI | azureml-sdk[databricks]|
-   |Databricks-<br> 자동화 된 ML 기능| Python 업로드 Egg 또는 PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > 다른 SDK 추가 기능을 설치할 수 없습니다. 위의 [ `databricks` ] 또는 [] 옵션 중 하나만 선택 `automl` 하십시오.
+   > 다른 SDK 추가 기능을 설치할 수 없습니다. [ `databricks` ] 옵션만 선택 합니다.
 
    * **모든 클러스터에 자동으로 연결을**선택 하지 않습니다.
    * 클러스터 이름 옆에 있는  **연결** 을 선택 합니다.
@@ -270,9 +269,17 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 설치에 성공 하면 가져온 라이브러리는 다음 중 하 나와 같아야 합니다.
 
-Databricks 용 자동화 된 machine learning Azure Machine Learning SDK를 사용 **_하지 않는_** DATABRICKS 용 sdk ![](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+#### <a name="sdk-for-databricks"></a>Databricks SDK
+![Databricks 용 Azure Machine Learning SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-Databricks에 자동화 된 machine learning이 설치 된 자동화 된 machine learning sdk를 **사용 하** 는 DATABRICKS 용 sdk ![](./media/how-to-configure-environment/automlonadb.png)
+#### <a name="sdk-for-databricks-with-automated-machine-learning"></a>자동화 된 기계 학습을 사용 하는 Databricks 용 SDK
+Databricks이 아닌 ML runtime 7.1 이상으로 클러스터를 만든 경우 노트북의 첫 번째 셀에서 다음 명령을 실행 하 여 AML SDK를 설치 합니다.
+
+```
+%pip install -r https://aka.ms/automl_linux_requirements.txt
+```
+Databricks이 아닌 ML runtime 7.0 이하의 경우 [init 스크립트](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md)를 사용 하 여 AML SDK를 설치 합니다.
+
 
 ### <a name="start-exploring"></a>다양한 콘텐츠 살펴보기
 
