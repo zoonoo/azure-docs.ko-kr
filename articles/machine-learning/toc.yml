@@ -137,7 +137,7 @@
         - name: 데이터 처리
           href: concept-optimize-data-processing.md
     - name: 모델 학습
-      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      displayName: 'run config, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
     - name: 분산 학습
       displayName: 'parallellization, deep learning, deep neural network, dnn'
@@ -319,16 +319,12 @@
               href: how-to-differential-privacy.md
     - name: 모델 학습
       items:
-        - name: 교육 실행 제출
-          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+        - name: 학습 실행 구성 및 제출
+          displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
-        - name: ML용 추정기 사용
-          items:
-            - name: 학습에서 추정 만들기
-              href: how-to-train-ml-models.md
-            - name: hyperparameters 조정
-              displayName: parameter
-              href: how-to-tune-hyperparameters.md
+        - name: hyperparameters 조정
+          displayName: 'parameter, hyperparameter, hyperdrive'
+          href: how-to-tune-hyperparameters.md
         - name: MLflow 작업
           items:
             - name: MLflow로 실험 추적

@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 9447cec55c53861ca57d5416a91ffefd35fdd20b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182670"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91571920"
 ---
 ## <a name="repeatability-during-copy"></a>복사 중 반복성
 다른 데이터 저장소에서 Azure SQL/SQL Server로 데이터를 복사할 때 의도치 않은 결과를 방지하려면 반복성을 유지해야 합니다. 
@@ -74,7 +74,7 @@ ID    Product        Quantity    ModifiedDate
 
 ### <a name="mechanism-2"></a>메커니즘 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName은 이번에 Azure SQL Data Warehouse에 지원되지 않습니다. 
+> sliceIdentifierColumnName은 이번에 Azure Synapse Analytics에 지원되지 않습니다. 
 
 반복성을 유지하는 또 다른 메커니즘은 대상 테이블에 전용 열(**sliceIdentifierColumnName**)을 만드는 것입니다. 이 열은 Azure 데이터 팩터리에서 원본 및 대상을 동기화 상태로 유지하도록 할 때 사용됩니다. 이 방법은 대상 SQL 테이블 스키마를 유연하게 변경하거나 정의할 수 있을 때 작동됩니다. 
 

@@ -4,6 +4,8 @@
   items:
     - name: Azure DB for PostgreSQL이란?
       href: overview.md
+    - name: 선택할 PostgreSQL 배포 옵션은 무엇인가요?
+      href: overview-postgres-choose-server-options.md
     - name: 서비스 업데이트
       items:
         - name: SSL 루트 인증서 만료

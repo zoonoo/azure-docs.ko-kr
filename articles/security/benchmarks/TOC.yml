@@ -97,6 +97,8 @@
       href: ../../azure-functions/security-baseline.md
     - name: Azure IoT Hub 보안 기준
       href: ../../iot-hub/security-baseline.md
+    - name: Azure Load Balancer 보안 기준
+      href: ../../load-balancer/security-baseline.md
     - name: Azure Monitor 보안 기준
       href: ../../azure-monitor/security-baseline.md
     - name: Azure Machine Learning 보안 기준

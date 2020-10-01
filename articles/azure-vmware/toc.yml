@@ -40,6 +40,8 @@
   items:
     - name: Azure VMware 솔루션 사용
       href: enable-azure-vmware-solution.md
+    - name: 예약 인스턴스 비용 절감
+      href: reserved-instance.md
     - name: 마이그레이션 평가
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: HCX 설정

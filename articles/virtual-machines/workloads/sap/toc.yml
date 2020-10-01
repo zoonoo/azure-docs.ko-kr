@@ -96,6 +96,8 @@
       href: hana-vm-operations.md
     - name: SAP HANA Azure 가상 머신 스토리지 구성
       href: hana-vm-operations-storage.md
+    - name: SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
+      href: hana-vm-operations-netapp.md
     - name: Azure Virtual Machines의 SAP HANA 가용성
       items:
         - name: Azure의 SAP HANA 가용성 개요

@@ -78,6 +78,8 @@
                   href: security-baseline.md
                 - name: 보안 검토
                   href: data-box-security.md
+            - name: ACL 및 메타데이터 전송
+              href: data-box-file-acls-preservation.md
             - name: FAQ
               href: data-box-faq.md
         - name: 방법
