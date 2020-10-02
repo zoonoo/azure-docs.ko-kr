@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705897"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631310"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -97,7 +97,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
     https://sts.windows.net/{tenantid}/
 ```
 
-따라서 다중 테넌트 애플리케이션은 메타데이터의 발급자 값을 토큰의 `issuer` 값과 맞춰보는 것만으로는 토큰의 유효성을 검사할 수 없습니다. 다중 테넌트 애플리케이션에는 발급자 값이 유효하고 발급자 값의 테넌트 ID 부분을 기반으로 하고 있지 않은지 결정하는 논리가 필요합니다. 
+따라서 다중 테넌트 애플리케이션은 메타데이터의 발급자 값을 토큰의 `issuer` 값과 맞춰보는 것만으로는 토큰의 유효성을 검사할 수 없습니다. 다중 테넌트 애플리케이션에는 발급자 값이 유효하고 발급자 값의 테넌트 ID 부분을 기반으로 하고 있지 않은지 결정하는 논리가 필요합니다.
 
 예를 들어, 다중 테넌트 애플리케이션이 해당 서비스에 등록한 특정 테넌트로부터의 로그인 만을 허용한다면, 테넌트가 구독자 목록에 들어 있는지 확인하기 위해 발급자 값 또는 토큰의 `tid` 클레임 값을 확인해야 합니다. 다중 테넌트 애플리케이션이 개인만을 다루고 테넌트 기반으로 어떠한 액세스 결정도 하지 않는다면, 발급자 값 전체를 무시할 수 있습니다.
 
@@ -116,7 +116,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 * 위임된 권한은 애플리케이션에 사용자가 할 수 있는 작업의 하위 집합에 대해 로그인한 사용자 역할을 할 기능을 부여합니다. 예를 들어 애플리케이션에 위임된 권한을 부여하여 로그인한 사용자의 일정을 읽게 할 수 있습니다.
 * 애플리케이션 전용 권한은 애플리케이션의 ID에 직접 부여됩니다. 예를 들어 누가 애플리케이션에 로그인했는지에 상관없이 애플리케이션에 애플리케이션 전용 권한을 부여하여 테넌트의 사용자 목록을 읽게 할 수 있습니다.
 
-일부 사용 권한은 일반 사용자가 동의할 수 있는 반면 또 다른 사용 권한은 테넌트 관리자의 동의가 필요합니다. 
+일부 사용 권한은 일반 사용자가 동의할 수 있는 반면 또 다른 사용 권한은 테넌트 관리자의 동의가 필요합니다.
 
 ### <a name="admin-consent"></a>관리자 동의
 
@@ -179,10 +179,6 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 
 다중 테넌트 애플리케이션은 또한 Azure AD로 보호되는 API를 호출하는 액세스 토큰을 가져올 수도 있습니다. 다중 테넌트 애플리케이션에서 ADAL(Active Directory 인증 라이브러리)을 사용하는 경우의 일반적인 오류는 먼저 /common을 사용하여 사용자에 대한 토큰을 요청하고 응답을 받은 다음, 또 다시 /common을 사용하여 동일한 사용자에 대한 후속 토큰을 요청하는 것입니다. Azure AD의 응답은 /common이 아닌 테넌트에서 제공되므로 ADAL은 토큰을 테넌트에서 가져온 것으로 캐시합니다. 사용자에 대한 액세스 토큰을 가져오기 위한 /common에 대한 후속 호출은 캐시 항목이 누락되어, 사용자에게 다시 로그인하라는 메시지가 표시됩니다. 캐시 누락을 방지하려면 이미 로그인한 사용자에 대한 후속 호출이 테넌트의 엔드포인트에 대해 있었는지 확인합니다.
 
-## <a name="next-steps"></a>다음 단계
-
-이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 애플리케이션을 빌드하는 방법을 알아보았습니다. 앱과 Azure AD 간에 SSO (Single Sign-on)를 사용 하도록 설정한 후 Microsoft 365와 같은 Microsoft 리소스에 의해 노출 되는 Api에 액세스 하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Exchange, SharePoint, OneDrive, OneNote 등의 Microsoft 365 서비스에 대 한 API 호출을 수행 하는 방법에 대 한 자세한 내용을 보려면 [MICROSOFT GRAPH api][MSFT-Graph-overview]를 방문 하세요.
-
 ## <a name="related-content"></a>관련 콘텐츠
 
 * [다중 테 넌 트 응용 프로그램 샘플](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 * [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
 * [동의 프레임워크 개요][AAD-Consent-Overview]
 * [Microsoft Graph API 권한 범위][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 애플리케이션을 빌드하는 방법을 알아보았습니다. 앱과 Azure AD 간에 SSO (Single Sign-on)를 사용 하도록 설정한 후 Microsoft 365와 같은 Microsoft 리소스에 의해 노출 되는 Api에 액세스 하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Exchange, SharePoint, OneDrive, OneNote 등의 Microsoft 365 서비스에 대 한 API 호출을 수행 하는 방법에 대 한 자세한 내용을 보려면 [MICROSOFT GRAPH api][MSFT-Graph-overview]를 방문 하세요.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

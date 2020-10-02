@@ -7,16 +7,22 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 2ee20035fbb7b417897290caba4500f2c3862fee
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611812"
+ms.locfileid: "91627598"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos 에뮬레이터 설치 및 사용
 
-Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. Azure Cosmos 에뮬레이터를 사용 하 여 Azure 구독을 만들거나 비용을 발생 시 키 지 않고도 로컬에서 응용 프로그램을 개발 하 고 테스트할 수 있습니다. Azure Cosmos emulator에서 응용 프로그램이 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure Cosmos 계정을 사용 하도록 전환할 수 있습니다. 시작 하려면 로컬 컴퓨터에 최신 버전의 [Azure Cosmos 에뮬레이터](https://aka.ms/cosmosdb-emulator) 를 다운로드 하 여 설치 합니다. 이 문서에서는 Windows, Linux, macOS 및 Windows docker 환경에서 에뮬레이터를 설치 하 고 사용 하는 방법을 설명 합니다.
+Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. Azure Cosmos 에뮬레이터를 사용 하 여 Azure 구독을 만들거나 비용을 발생 시 키 지 않고도 로컬에서 응용 프로그램을 개발 하 고 테스트할 수 있습니다. Azure Cosmos emulator에서 응용 프로그램이 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure Cosmos 계정을 사용 하도록 전환할 수 있습니다. 이 문서에서는 Windows, Linux, macOS 및 Windows docker 환경에서 에뮬레이터를 설치 하 고 사용 하는 방법을 설명 합니다.
+
+## <a name="download-the-emulator"></a>에뮬레이터 다운로드
+
+시작 하려면 로컬 컴퓨터에 최신 버전의 Azure Cosmos 에뮬레이터를 다운로드 하 여 설치 합니다. [Emulator 릴리스 정보](local-emulator-release-notes.md) 문서에서는 사용 가능한 모든 버전 및 각 릴리스에 적용 된 기능 업데이트를 나열 합니다.
+
+:::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Azure Cosmos 에뮬레이터 다운로드](https://aka.ms/cosmosdb-emulator)**
 
 [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api)및 [Table](local-emulator.md#table-api) API 계정을 사용 하 여 Azure Cosmos emulator를 사용 하 여 응용 프로그램을 개발할 수 있습니다. 현재 에뮬레이터의 데이터 탐색기는 SQL 데이터 보기만을 완벽 하 게 지원 합니다. MongoDB, Gremlin/Graph 및 Cassandra client 응용 프로그램을 사용 하 여 만든 데이터는 현재 볼 수 없습니다. 자세한 내용은 다양 한 Api에서 [emulator 끝점에 연결 하는 방법](#connect-with-emulator-apis) 을 참조 하세요.
 
@@ -38,7 +44,7 @@ Azure Cosmos 에뮬레이터는 로컬 개발자 워크스테이션에서 실행
 
 * 에뮬레이터를 사용 하면 [프로 비전 된 처리량](set-throughput.md) 모드 에서만 Azure Cosmos 계정을 만들 수 있습니다. 현재는 [서버](serverless.md) 를 사용 하지 않는 모드를 지원 하지 않습니다.
 
-* 에뮬레이터는 확장 가능한 서비스가 아니므로 많은 수의 컨테이너를 지원 하지 않습니다. Azure Cosmos 에뮬레이터를 사용 하는 경우 기본적으로 400 r u/초에 최대 25 개의 고정 크기 컨테이너를 만들 수 있습니다 (Azure Cosmos DB Sdk 에서만 지원 됨) 또는 5 개의 무제한 컨테이너를 만들 수 있습니다. 이 값을 변경 하는 방법에 대 한 자세한 내용은 [파티션 개수 값 설정] 에뮬레이터-명령줄-매개 변수. md # 집합-파티션 수 문서를 참조 하세요.
+* 에뮬레이터는 확장 가능한 서비스가 아니므로 많은 수의 컨테이너를 지원 하지 않습니다. Azure Cosmos 에뮬레이터를 사용 하는 경우 기본적으로 400 r u/초에 최대 25 개의 고정 크기 컨테이너를 만들 수 있습니다 (Azure Cosmos DB Sdk 에서만 지원 됨) 또는 5 개의 무제한 컨테이너를 만들 수 있습니다. 이 값을 변경 하는 방법에 대 한 자세한 내용은 [파티션 개수 값 설정](emulator-command-line-parameters.md#set-partitioncount) 문서를 참조 하세요.
 
 * 에뮬레이터는 클라우드 서비스와 같은 다양 한 [Azure Cosmos DB 일관성 수준을](consistency-levels.md) 제공 하지 않습니다.
 
@@ -64,7 +70,7 @@ Azure Cosmos 에뮬레이터는 로컬 개발자 워크스테이션에서 실행
 
 시작 하려면 로컬 컴퓨터에 최신 버전의 [Azure Cosmos 에뮬레이터](https://aka.ms/cosmosdb-emulator) 를 다운로드 하 여 설치 합니다. 에뮬레이터를 설치할 때 문제가 발생할 경우 디버깅 하려면 [에뮬레이터 문제 해결](troubleshoot-local-emulator.md) 문서를 참조 하세요.
 
-시스템 요구 사항에 따라이 문서의 다음 섹션에 설명 된 대로 [Windows](#run-on-windows), [Windows용 Docker](#run-on-windows-docker), [Linux 또는 [macos](#run-on-linux-macos) 에서 에뮬레이터를 실행할 수 있습니다.
+시스템 요구 사항에 따라이 문서의 다음 섹션에 설명 된 대로 [Windows](#run-on-windows), [Windows용 Docker](#run-on-windows-docker), [Linux 또는 macos](#run-on-linux-macos) 에서 에뮬레이터를 실행할 수 있습니다.
 
 ## <a name="check-for-emulator-updates"></a>에뮬레이터 업데이트 확인
 

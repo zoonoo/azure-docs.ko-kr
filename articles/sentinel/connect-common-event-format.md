@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: cd84a4b50ba32ee3f562ace9b2583cf5e561be84
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320390"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630511"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
-
 
 CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure 센티널에 연결 하는 세 가지 단계가 있습니다.
 
@@ -43,29 +42,28 @@ CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure �
 
  ![온-프레미스의 CEF](./media/connect-cef/cef-syslog-onprem.png)
 
-
 ## <a name="security-considerations"></a>보안 고려 사항
 
 조직의 보안 정책에 따라 컴퓨터의 보안을 구성 해야 합니다. 예를 들어 회사 네트워크 보안 정책에 맞게 네트워크를 구성 하 고, 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다. 다음 지침을 사용 하 여 컴퓨터 보안 구성을 향상 시킬 수 있습니다.  [Azure에서 VM 보안](../virtual-machines/security-policy.md), [네트워크 보안에 대 한 모범 사례](../security/fundamentals/network-best-practices.md)를 참조 하세요.
 
 Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에서 통신 하도록 Syslog 데몬 (rsyslog 또는 syslog 기능)을 구성 해야 합니다. tls [-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), tls를 [사용 하 여 로그 메시지 암호화 – syslog](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)를 사용 합니다.
-
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
+
 프록시로 사용 하는 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
 - 64비트
-  - CentOS 6 및 7
+  - CentOS 7 및 하위 버전 이상 (6 아님)
   - Amazon Linux 2017.09
   - Oracle Linux 6 및 7
-  - Red Hat Enterprise Linux Server 6 및 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 및 하위 버전 이상 (6 아님)
   - Debian GNU/Linux 8 및 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32비트
-   - CentOS 6
+   - CentOS 7
    - Oracle Linux 6
-   - Red Hat Enterprise Linux Server 6
+   - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 및 9
    - Ubuntu Linux 14.04 LTS 및 16.04 LTS
  
@@ -78,14 +76,13 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
    - Syslog RFC 5424
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
-- 사용 권한
+- 권한
     - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
 - 소프트웨어 요구 사항
-    - 컴퓨터에서 Python을 실행 하 고 있는지 확인 합니다.
-
-
+    - 컴퓨터에서 Python (2.7 이상)이 실행 되 고 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.

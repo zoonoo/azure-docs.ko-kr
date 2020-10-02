@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360653"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630154"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터를 위한 음성 서비스
 
@@ -121,7 +121,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
  음성 서비스는 기본 제공 모델에서 잘 작동 합니다. 그러나 제품 또는 환경에 대 한 환경을 추가로 사용자 지정 하 고 조정할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성 한 후에는 실시간 또는 일괄 처리 모드에서 음성 서비스 기능에 사용할 수 있습니다.
 
-| Speech Service | 모델 | Description |
+| Speech Service | 모델 | 설명 |
 | -------------- | ----- | ----------- |
 | 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 |                | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
@@ -142,7 +142,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 - [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
-- [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
+- [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>다음 단계
 

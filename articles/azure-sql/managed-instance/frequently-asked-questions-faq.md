@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325218"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627621"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 제품 오류 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 
 **공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?**
 
@@ -277,7 +277,7 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 
 **인스턴스 업데이트 작업을 수행 하는 데 충분 한 IP 주소가 없는 경우 어떻게 되나요?**
 
-관리 되는 인스턴스가 프로 비전 되는 서브넷의 [IP 주소가](connectivity-architecture-overview.md#network-requirements) 충분 하지 않은 경우 새 서브넷과 그 안에 새 관리 되는 인스턴스를 만들어야 합니다. 또한 향후 업데이트 작업에서 유사한 상황을 방지 하기 위해 더 많은 IP 주소를 할당 하 여 새 서브넷을 만드는 것이 좋습니다. 새 인스턴스를 프로 비전 한 후에는 이전 인스턴스와 새 인스턴스 사이에서 수동으로 데이터를 백업 및 복원 하거나 인스턴스 간 지정 [시간 복원을](point-in-time-restore.md?tabs=azure-powershell)수행할 수 있습니다.
+관리 되는 인스턴스가 프로 비전 되는 서브넷의 [IP 주소가](connectivity-architecture-overview.md#network-requirements) 충분 하지 않은 경우 새 서브넷과 그 안에 새 관리 되는 인스턴스를 만들어야 합니다. 또한 향후 업데이트 작업에서 유사한 상황을 방지하기 위해 더 많은 IP 주소를 할당하여 새 서브넷을 만드는 것이 좋습니다. 새 인스턴스를 프로 비전 한 후에는 이전 인스턴스와 새 인스턴스 사이에서 수동으로 데이터를 백업 및 복원 하거나 인스턴스 간 지정 [시간 복원을](point-in-time-restore.md?tabs=azure-powershell)수행할 수 있습니다.
 
 **Managed Instance를 만들기 위해 빈 서브넷이 필요 한가요?**
 
@@ -334,9 +334,12 @@ Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝
 
 **다른 지역에 배치 된 관리 되는 인스턴스를 연결 하는 데 권장 되는 방법은 무엇 인가요?**
 
-Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입니다. 이는 내부 부하 분산 장치 관련 [제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)으로 인해 지원 되지 않는 지역 간 가상 네트워크 피어 링과 혼합 되지 않습니다.
+Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입니다. 전역 가상 네트워크 피어 링은 아래 참고에 설명 된 제한 사항으로 지원 됩니다.  
 
-Express 경로 회로 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli))을 만드는 것입니다.
+> [!IMPORTANT]
+> [9/22/2020에서는 새로 만든 가상 클러스터에 대 한 글로벌 가상 네트워크 피어 링을 발표 했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 글로벌 가상 네트워크 피어 링은 알림 날짜 이후에 빈 서브넷에 생성 된 SQL 관리 되는 인스턴스에 대해 지원 되며, 해당 서브넷에서 만들어진 모든 후속 관리 되는 인스턴스의 경우에도 지원 됩니다. 다른 모든 SQL 관리 되는 인스턴스의 경우에는 [글로벌 가상 네트워크 피어 링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크에 대 한 피어 링 지원이 제한 됩니다. 자세한 내용은 [Azure Virtual network faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
+
+Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli))을 만드는 것입니다.
 
 ## <a name="mitigate-data-exfiltration-risks"></a>데이터 반출 위험 완화  
 

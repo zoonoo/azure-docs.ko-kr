@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948966"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630705"
 ---
 # <a name="networking"></a>네트워킹
 
@@ -59,20 +59,20 @@ Azure [Service Fabric 네트워킹 패턴](./service-fabric-patterns-networking.
 
 ## <a name="network-security-rules"></a>네트워크 보안 규칙
 
-여기서 기본 규칙은 Azure 관리 Service Fabric 클러스터의 보안 잠금에 대 한 최소값입니다. 다음 포트를 열거나 IP/URL을 허용 목록 하는 데 실패 하면 클러스터의 적절 한 작동이 방지 되며 지원 되지 않을 수 있습니다. 이 규칙 집합을 사용 하는 경우에는 [자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 사용 해야 합니다. 그렇지 않으면 추가 포트를 열어야 합니다.
+여기서 기본 규칙은 Azure 관리 Service Fabric 클러스터의 보안 잠금에 대 한 최소값입니다. 다음 포트를 열거나 IP/URL을 승인 하지 않으면 클러스터의 적절 한 작동이 방지 되며 지원 되지 않을 수 있습니다. 이 규칙 집합을 사용 하는 경우에는 [자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 사용 해야 합니다. 그렇지 않으면 추가 포트를 열어야 합니다.
 
 ### <a name="inbound"></a>인바운드 
 |우선 순위   |Name               |포트        |프로토콜  |원본             |대상       |작업   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Azure              |19080       |TCP       |인터넷           |VirtualNetwork    |Allow
-|3910       |클라이언트             |19000       |TCP       |인터넷           |VirtualNetwork    |Allow
-|3920       |클러스터            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3930       |임시          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3940       |애플리케이션        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3960       |RDP                |3389-3488   |TCP       |인터넷           |VirtualNetwork    |Deny
-|3970       |SSH                |22          |TCP       |인터넷           |VirtualNetwork    |Deny
-|3980       |사용자 지정 끝점    |80          |TCP       |인터넷           |VirtualNetwork    |Allow
+|3900       |Azure              |19080       |TCP       |인터넷           |VirtualNetwork    |허용
+|3910       |클라이언트             |19000       |TCP       |인터넷           |VirtualNetwork    |허용
+|3920       |클러스터            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |허용
+|3930       |임시          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |허용
+|3940       |애플리케이션        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |허용
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |허용
+|3960       |RDP                |3389-3488   |TCP       |인터넷           |VirtualNetwork    |거부
+|3970       |SSH                |22          |TCP       |인터넷           |VirtualNetwork    |거부
+|3980       |사용자 지정 끝점    |80          |TCP       |인터넷           |VirtualNetwork    |허용
 |4100       |인바운드 차단      |443         |모두       |모두                |모두               |Allow
 
 인바운드 보안 규칙에 대 한 자세한 내용:
@@ -99,10 +99,10 @@ Azure [Service Fabric 네트워킹 패턴](./service-fabric-patterns-networking.
 
 |우선 순위   |Name               |포트        |프로토콜  |원본             |대상       |작업   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |네트워크            |모두         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3910       |리소스 공급자  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
-|3920       |업그레이드            |443         |TCP       |VirtualNetwork     |인터넷          |Allow
-|3950       |아웃 바운드 차단     |모두         |모두       |모두                |모두               |Deny
+|3900       |네트워크            |모두         |TCP       |VirtualNetwork     |VirtualNetwork    |허용
+|3910       |리소스 공급자  |443         |TCP       |VirtualNetwork     |ServiceFabric     |허용
+|3920       |업그레이드            |443         |TCP       |VirtualNetwork     |인터넷          |허용
+|3950       |아웃 바운드 차단     |모두         |모두       |모두                |모두               |거부
 
 아웃 바운드 보안 규칙에 대 한 자세한 정보:
 

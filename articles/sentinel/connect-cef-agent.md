@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a7d7c7b7236841835866ccb7786e7e4eab767c1f
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565590"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631497"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "88565590"
     - TCP 포트 514의 보안 솔루션에서 Syslog 메시지 수신 대기
     - TCP 포트 25226를 사용 하 여 로컬 호스트의 Log Analytics 에이전트에 대 한 CEF로 식별 되는 메시지만 전달
  
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 - Linux 컴퓨터에 python이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
@@ -71,74 +71,131 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
 1. **Log Analytics 에이전트 다운로드 및 설치:**
 
-    - Log Analytics (OMS) Linux 에이전트에 대 한 설치 스크립트를 다운로드 합니다.<br>
-        `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`
+    - Log Analytics (OMS) Linux 에이전트에 대 한 설치 스크립트를 다운로드 합니다.
 
-    - Log Analytics 에이전트를 설치 합니다.<br>
-        `sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com`
+        ```bash
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+            onboard_agent.sh
+        ```
+
+    - Log Analytics 에이전트를 설치 합니다.
+    
+        ```bash
+        sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com
+        ```
+
+1. **Log Analytics 에이전트 구성이 포트 25226에서 수신 대기 하도록 설정 하 고 CEF 메시지를 Azure 센티널로 전달 합니다.**
+
+    - Log Analytics agent GitHub 리포지토리에서 구성을 다운로드 합니다.
+
+        ```bash
+        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+            https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
+            omsagent.d/security_events.conf
+        ```
 
 1. **Syslog 디먼 구성:**
 
-    1. Syslog 구성 파일을 사용 하 여 TCP 통신용 포트 514를 엽니다 `/etc/rsyslog.conf` .
+    - Syslog 구성 파일을 사용 하 여 TCP 통신용 포트 514를 엽니다 `/etc/rsyslog.conf` .
 
-    1. Syslog 디먼 디렉터리에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 `security-config-omsagent.conf` `/etc/rsyslog.d/` 합니다.
+    - Syslog 디먼 디렉터리에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 `security-config-omsagent.conf` `/etc/rsyslog.d/` 합니다.
 
         파일의 내용 `security-config-omsagent.conf` :
 
-        ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        ```bash
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
         ```
 
-1. **Syslog 데몬 다시 시작**
+1. **Syslog 디먼 및 Log Analytics 에이전트를 다시 시작 하는 중:**
 
-    `service rsyslog restart`
+    - Rsyslog 디먼을 다시 시작 합니다.
+    
+        ```bash
+        service rsyslog restart
+        ```
 
-1. **포트 25226에서 수신 대기 하도록 Log Analytics 에이전트 구성 설정 및 Azure 센티널로 CEF 메시지 전달**
+    - Log Analytics 에이전트를 다시 시작 합니다.
 
-    1. Log Analytics agent GitHub 리포지토리에서 구성을 다운로드 합니다.<br>
-        `wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/omsagent.d/security_events.conf`
+        ```bash
+        /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
+1. **예상 대로 *컴퓨터* 필드의 매핑을 확인 하는 중:**
 
-    1. Log Analytics 에이전트를 다시 시작 합니다.<br>
-        `/opt/microsoft/omsagent/bin/service_control restart [workspaceID]`
+    - 이 명령을 실행 하 고 에이전트를 다시 시작 하 여 syslog 원본의 *컴퓨터* 필드가 Log Analytics 에이전트에서 올바르게 매핑되는지 확인 합니다.
+
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 # <a name="syslog-ng-daemon"></a>[syslog-기능 데몬](#tab/syslogng)
 
 1. **Log Analytics 에이전트 다운로드 및 설치:**
 
-    - Log Analytics (OMS) Linux 에이전트에 대 한 설치 스크립트를 다운로드 합니다.<br>`wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`
+    - Log Analytics (OMS) Linux 에이전트에 대 한 설치 스크립트를 다운로드 합니다.
 
-    - Log Analytics 에이전트를 설치 합니다.<br>`sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com`
+        ```bash
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+            onboard_agent.sh
+        ```
+
+    - Log Analytics 에이전트를 설치 합니다.
+    
+        ```bash
+        sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com
+        ```
+
+1. **Log Analytics 에이전트 구성이 포트 25226에서 수신 대기 하도록 설정 하 고 CEF 메시지를 Azure 센티널로 전달 합니다.**
+
+    - Log Analytics agent GitHub 리포지토리에서 구성을 다운로드 합니다.
+
+        ```bash
+        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+            https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
+            omsagent.d/security_events.conf
+        ```
 
 1. **Syslog 디먼 구성:**
 
-    1. Syslog 구성 파일을 사용 하 여 TCP 통신용 포트 514를 엽니다 `/etc/syslog-ng/syslog-ng.conf` .
+    - Syslog 구성 파일을 사용 하 여 TCP 통신용 포트 514를 엽니다 `/etc/syslog-ng/syslog-ng.conf` .
 
-    1. Syslog 디먼 디렉터리에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 `security-config-omsagent.conf` `/etc/syslog-ng/conf.d/` 합니다.
+    - Syslog 디먼 디렉터리에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 `security-config-omsagent.conf` `/etc/syslog-ng/conf.d/` 합니다.
 
         파일의 내용 `security-config-omsagent.conf` :
 
-        ```console
+        ```bash
         filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
         destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
-1. **Syslog 데몬 다시 시작**
+1. **Syslog 디먼 및 Log Analytics 에이전트를 다시 시작 하는 중:**
 
-    `service syslog-ng restart`
+    - Syslog를 다시 시작 합니다.
+    
+        ```bash
+        service syslog-ng restart
+        ```
 
-1. **포트 25226에서 수신 대기 하도록 Log Analytics 에이전트 구성 설정 및 Azure 센티널로 CEF 메시지 전달**
+    - Log Analytics 에이전트를 다시 시작 합니다.
 
-    1. Log Analytics agent GitHub 리포지토리에서 구성을 다운로드 합니다.<br>
-        `wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/omsagent.d/security_events.conf`
+        ```bash
+        /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. **예상 대로 *컴퓨터* 필드의 매핑을 확인 하는 중:**
+
+    - 이 명령을 실행 하 고 에이전트를 다시 시작 하 여 syslog 원본의 *컴퓨터* 필드가 Log Analytics 에이전트에서 올바르게 매핑되는지 확인 합니다.
+
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 
-    1. Log Analytics 에이전트를 다시 시작 합니다.<br>
-        `/opt/microsoft/omsagent/bin/service_control restart [workspaceID]`
-
----
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 Log Analytics 에이전트를 배포 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

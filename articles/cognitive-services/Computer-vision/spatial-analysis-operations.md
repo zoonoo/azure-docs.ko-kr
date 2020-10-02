@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254009"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628216"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -23,7 +23,7 @@ ms.locfileid: "91254009"
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -32,18 +32,18 @@ ms.locfileid: "91254009"
 
 위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
 | cognitiveservices account spatialanalysis-personcrossingpolygon | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br> 사용자가 영역을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. |
 | cognitiveservices account spatialanalysis-persondistance | 사용자가 거리 규칙을 위반 하는 경우를 추적 합니다. <br> 각 거리 위반의 위치를 사용 하 여 주기적으로 _personDistanceEvent_ 을 내보냅니다. |
 
-비디오 AI 모듈로 [라이브 비디오 분석](https://azure.microsoft.com/services/media-services/live-video-analytics/) 으로 공간 분석을 실행할 수도 있습니다. 
+비디오 AI 모듈로 [라이브 비디오 분석](https://aka.ms/lva-spatial-analysis) 으로 공간 분석을 실행할 수도 있습니다. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "91254009"
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
-| 조작 매개 변수| Description|
+| 조작 매개 변수| 설명|
 |---------|---------|
 | OperationID | 위의 테이블에 있는 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
@@ -88,7 +88,7 @@ ms.locfileid: "91254009"
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -121,7 +121,7 @@ ms.locfileid: "91254009"
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -152,7 +152,7 @@ ms.locfileid: "91254009"
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -184,7 +184,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -328,7 +328,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -341,7 +341,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -421,7 +421,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -623,7 +623,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -725,7 +725,7 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
 

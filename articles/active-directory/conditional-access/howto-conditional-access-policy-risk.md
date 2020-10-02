@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049046"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628267"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>조건부 액세스: 로그인 위험 기반 조건부 액세스
 
@@ -32,12 +32,12 @@ ms.locfileid: "89049046"
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
+1. **할당**에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업**  >  **포함**아래에서 **모든 클라우드 앱**을 선택 합니다.
-1. **조건**  >  **사용자 위험**에서 **구성** 을 **예**로 설정 합니다. **이 정책이 적용 될 로그인 위험 수준 선택에서 다음을 적용** 합니다. 
+1. **조건**  >  **로그인 위험**에서 **구성** 을 **예**로 설정 합니다. **이 정책이 적용 될 로그인 위험 수준 선택에서 다음을 적용** 합니다. 
    1. **높음** 및 **보통**을 선택 합니다.
    1. **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택**을 차례로 선택합니다.

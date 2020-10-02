@@ -3,12 +3,12 @@ title: Azure Lab Services를 사용 하 여 윤리적 해킹 랩 설정 Microsof
 description: Azure Lab Services를 사용 하 여 랩을 설정 하는 방법에 대해 알아봅니다. 윤리적 해킹을 학습 합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297589"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631684"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>윤리적 해킹 클래스를 학습 하기 위한 랩 설정 
 이 문서에서는 윤리적 해킹의 법적 고 지에 초점을 맞춘 클래스를 설정 하는 방법을 보여 줍니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다. 
@@ -70,26 +70,23 @@ Kali는 침투 테스트 및 보안 감사에 대 한 도구를 포함 하는 Li
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Metasploitable 이미지를 사용 하 여 중첩 된 VM 설정  
 Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성 된 이미지입니다. 이 이미지를 사용 하 여 문제를 테스트 하 고 확인 합니다. 다음 지침에서는 미리 만든 Metasploitable 이미지를 사용 하는 방법을 보여 줍니다. 그러나 최신 버전의 Metasploitable 이미지가 필요한 경우를 참조 [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3) 하세요.
 
-1. [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html)으로 이동합니다. 양식을 작성 하 여 이미지를 다운로드 하 고 **제출** 단추를 선택 합니다.
-1. **Metasploitable 지금 다운로드** 단추를 선택 합니다.
-1. Zip 파일이 다운로드 되 면 zip 파일의 압축을 풀고 위치를 저장 합니다.
-1. Hyper-v와 함께 사용할 수 있도록 추출 된 .vmdk 파일을 vhdx 파일로 변환 합니다. 이렇게 하려면 관리자 권한으로 PowerShell을 열고 .vmdk 파일이 있는 폴더로 이동 하 여 다음 지침을 따르세요.
-    1. [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)를 다운로드 하 고 메시지가 표시 되 면 mvmc_setup.msi 파일을 실행 합니다.
-    1. PowerShell 모듈을 가져옵니다.  모듈이 설치 되는 기본 위치는 C:\Program Files\Microsoft 가상 컴퓨터 변환기 \입니다.
-
-        ```powershell
-        Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
-        ```
-    1. .Vmdk을 Hyper-v에서 사용할 수 있는 vhd 파일로 변환 합니다. 이 작업에는 몇 분 정도 걸릴 수 있습니다.
-    
-        ```powershell
-        ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
-        ```
-    1. 새로 만든 metasploitable을 C:\Users\Public\Documents\Hyper-V\Virtual 하드 디스크에 복사 합니다. 
+1. Metasploitable 이미지를 다운로드 합니다.
+    1. [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html)으로 이동합니다. 양식을 작성 하 여 이미지를 다운로드 하 고 **제출** 단추를 선택 합니다.
+    2. **Metasploitable 지금 다운로드** 단추를 선택 합니다.
+    3. Zip 파일이 다운로드 되 면 zip 파일의 압축을 풀고 Metasploitable. .vmdk 파일의 위치를 저장 합니다.
+1. Hyper-v에서 vhdx 파일을 사용할 수 있도록 추출 된 .vmdk 파일을 vhdx 파일로 변환 합니다. VMware 이미지를 Hyper-v 이미지로 변환 하거나 그 반대로 변환 하는 데 사용할 수 있는 몇 가지 도구가 있습니다.  [Starwind V2V 변환기](https://www.starwindsoftware.com/starwind-v2v-converter)를 사용 합니다.  다운로드 하려면 [Starwind V2V 변환기 다운로드 페이지](https://www.starwindsoftware.com/starwind-v2v-converter#download)를 참조 하세요.
+    1. **Starwind V2V 변환기**를 시작 합니다.
+    1. **변환할 이미지의 위치 선택** 페이지에서 **로컬 파일**을 선택 합니다.  **다음**을 선택합니다.
+    1. **원본 이미지** 페이지에서로 이동 하 고 **파일 이름** 설정에 대해 이전 단계에서 추출한 .vmdk Metasploitable를 선택 합니다.  **다음**을 선택합니다.
+    1. **대상 이미지 위치 선택**에서 **로컬 파일**을 선택 합니다.  **다음**을 선택합니다.
+    1. **대상 이미지 형식 선택** 페이지에서 **VHD/VHDX**를 선택 합니다.  **다음**을 선택합니다.
+    1. **VHD/vhdx 이미지 형식에 대 한 옵션 선택** 페이지에서 **VHDX growable 이미지**를 선택 합니다.  **다음**을 선택합니다.
+    1. **대상 파일 이름 선택** 페이지에서 기본 파일 이름을 그대로 적용 합니다.  **변환**을 선택합니다.
+    1. **변환** 페이지에서 이미지가 변환 될 때까지 기다립니다.  이 작업은 몇 분 정도 걸릴 수 있습니다.  변환이 완료 되 면 **마침** 을 선택 합니다.
 1. 새 Hyper-v 가상 컴퓨터를 만듭니다.
     1. **Hyper-v 관리자**를 엽니다.
     1. **작업**  ->  **새**  ->  **가상 컴퓨터**를 선택 합니다.
-    1. **새 가상 컴퓨터 마법사**의 **시작 하기 전** 페이지에서 **다음**을 클릭 합니다.
+    1. **새 가상 컴퓨터 마법사**의 **시작 하기 전** 페이지에서 **다음**을 선택 합니다.
     1. **이름 및 위치 지정** 페이지에서 **이름**에 **Metasploitable** 를 입력 하 고 **다음**을 선택 합니다.
 
         ![새 VM 이미지 마법사](./media/class-type-ethical-hacking/new-vm-wizard-1.png)

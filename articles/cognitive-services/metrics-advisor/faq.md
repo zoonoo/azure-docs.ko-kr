@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939044"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631745"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>메트릭 관리자에 게 질문과 대답
 
@@ -74,9 +74,26 @@ ms.locfileid: "90939044"
 
 ### <a name="more-concepts-and-technical-terms"></a>추가 개념 및 기술 조건
 
-자세한 내용을 보려면 [용어집](glossary.md) 으로 이동 하세요.
+자세한 내용은 [용어집](glossary.md) 을 참조 하십시오.
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>이러한 종류의 변칙을 검색 어떻게 할까요?? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>수집 내 데이터에 대 한 올바른 쿼리를 작성 어떻게 할까요?  
+
+메트릭 관리자가 데이터를 수집 하려면 단일 타임 스탬프에서 데이터의 크기를 반환 하는 쿼리를 만들어야 합니다. 메트릭 관리자는이 쿼리를 여러 번 실행 하 여 각 타임 스탬프에서 데이터를 가져옵니다. 
+
+쿼리는 지정 된 타임 스탬프에서 각 차원 조합에 대해 최대 하나의 레코드를 반환 해야 합니다. 반환 된 모든 레코드의 타임 스탬프는 동일 해야 합니다. 쿼리에서 반환 된 중복 레코드가 없어야 합니다.
+
+예를 들어 일별 메트릭에 대해 아래 쿼리를 만든다고 가정 합니다. 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+시계열에 대해 정확한 세분성을 사용 해야 합니다. 시간별 메트릭에 대해 다음을 사용 합니다. 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+이러한 쿼리는 단일 타임 스탬프로 데이터만 반환 하 고 메트릭 관리자가 수집 하는 모든 차원 조합을 포함 합니다. 
+
+:::image type="content" source="media/query-result.png" alt-text="F0 리소스가 이미 있는 경우의 메시지" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>비정상 상태에서 급증 & dip를 검색 어떻게 할까요??
 

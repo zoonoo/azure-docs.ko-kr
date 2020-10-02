@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 53ba3c71679ebda1e8e2bf0a59a6ef69d051df4f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 9d0b6865c7fb5b59f379568d15bd9b96883202e9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120418"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626431"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 서버 매개 변수 구성
 
 Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수 있습니다. 이 문서에서는 Azure Portal을 사용하여 이러한 매개 변수를 구성하는 방법을 설명합니다. 일부 서버 매개 변수를 조정할 수 있습니다.
+
+>[!Note]
+> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트할 수 있으며 [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)또는 [Azure Portal](./howto-server-parameters.md)를 사용할 수 있습니다.
 
 ## <a name="configure-server-parameters"></a>서버 매개 변수 구성
 
@@ -34,7 +37,7 @@ Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수
 업데이트 하려는 서버 매개 변수가 Azure Portal에 나열 되어 있지 않으면를 사용 하 여 연결 수준에서 매개 변수를 선택적으로 설정할 수 있습니다 `init_connect` . 서버에 연결 하는 각 클라이언트에 대 한 서버 매개 변수를 설정 합니다. 
 
 1. **설정** 섹션에서 **서버 매개 변수**를 클릭하여 Azure Database for MariaDB 서버의 매개 변수 페이지를 엽니다.
-2. 검색`init_connect`
+2. 검색 `init_connect`
 3. 서버 매개 변수를 다음 형식으로 추가 합니다. 값 열에 값을 추가 `SET parameter_name=YOUR_DESIRED_VALUE` 합니다.
 
     예를 들어를로 설정 하 여 서버의 문자 집합을 변경할 수 있습니다. `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`

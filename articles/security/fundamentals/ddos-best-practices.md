@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c817608a9e015c69b252f69000d78437e918b8f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287806"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631514"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
 
@@ -54,7 +54,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현하는 것이 좋습니다.
 
-예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 부하 분산 장치([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 및 [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal))에 필요하지 않은 노출된 IP 주소 공간 및 수신 대기 포트를 종료하기 위해 허용 목록을 사용하여 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](/azure/virtual-network/security-overview)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
+예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 및 [Azure 애플리케이션 Gateway](/azure/application-gateway/application-gateway-create-probe-portal))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](/azure/virtual-network/security-overview)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
 [서비스 태그](/azure/virtual-network/security-overview#service-tags) 및 [애플리케이션 보안 그룹](/azure/virtual-network/security-overview#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 
 가능하면 [가상 네트워크](/azure/virtual-network/virtual-networks-overview)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 개인 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. [서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)를 사용하던 기존 방식에서 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 프라이빗 주소를 원본 IP 주소로 사용하도록 전환됩니다.

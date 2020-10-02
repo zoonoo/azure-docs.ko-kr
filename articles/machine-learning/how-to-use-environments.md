@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0932e86494fdd1444e069f9d6fcac532cc3ace0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 488f48275fa511ea69939563496beaaa709d9bf0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250728"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631667"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "91250728"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -179,6 +179,12 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 
 ```python
 details = environment.get_image_details(workspace=ws)
+```
+
+실행 실행 중에 저장 된 환경에서 이미지 세부 정보를 가져오려면 다음 코드를 사용 합니다.
+
+```python
+details = run.get_environment().get_image_details(workspace=ws)
 ```
 
 ### <a name="use-existing-environments"></a>기존 환경 사용

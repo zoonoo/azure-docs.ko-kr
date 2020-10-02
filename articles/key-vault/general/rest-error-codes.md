@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: b6e4845ca626dc8805b9bec6ca50076371d35b55
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419132"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631225"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 오류 코드
  
@@ -128,7 +128,7 @@ resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secr
 HTTP 403은 요청이 인증 되었지만 (요청 id를 알고 있음을 의미 함), id에는 요청 된 리소스에 대 한 액세스 권한이 없습니다. 다음과 같은 두 가지 원인이 있습니다.
 
 - Id에 대 한 액세스 정책이 없습니다.
-- 요청 하는 리소스의 IP 주소는 key vault의 방화벽 설정에서 허용 목록 되지 않습니다.
+- 요청 하는 리소스의 IP 주소는 key vault의 방화벽 설정에서 승인 되지 않습니다.
 
 HTTP 403은 고객의 응용 프로그램이 고객이 생각 하는 클라이언트 ID를 사용 하지 않는 경우 종종 발생 합니다. 이는 일반적으로 액세스 정책이 실제 호출 id에 대해 올바르게 설정 되지 않았음을 의미 합니다.
 
@@ -166,5 +166,3 @@ Azure 웹 사이트의 IP 주소를 Key Vault에 추가 하 여 작동 하도록
 - 캐싱을 통해 요청 수를 줄일 수 없고 시간 제한이 백오프 작동 하지 않는 경우 여러 키 자격 증명 모음으로 키를 분할 하는 것이 좋습니다. 단일 구독에 대 한 서비스 제한은 개별 Key Vault 제한 보다 5 배입니다. 키 자격 증명 모음을 5 개 이상 사용 하는 경우 여러 구독을 사용 하도록 고려해 야 합니다. 
 
 제한 증가 요청을 포함 한 자세한 지침은 다음을 참조 하세요. [Key Vault 제한 지침](overview-throttling.md)
-
-

@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658368"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628675"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Azure Active Directory Connect 클라우드 프로 비전 FAQ
 
@@ -83,6 +83,18 @@ Exchange 하이브리드 배포 기능을 사용 하면 온-프레미스와 Micr
 **Q: 클라우드 프로 비전 에이전트에서 준비 서버를 사용할 수 있나요?**
 
 아니요, 스테이징 서버는 지원 되지 않습니다.
+
+**Q: 게스트 사용자 계정을 동기화 할 수 있습니까?**
+
+아니요, 게스트 사용자 계정 동기화는 지원 되지 않습니다.
+
+**Q: 클라우드 프로 비전 범위가 지정 된 OU에서 Azure AD Connect 범위가 지정 된 OU로 사용자를 이동 하는 경우 어떤 일이 발생 하나요?**
+
+사용자가 삭제 되 고 다시 생성 됩니다.  클라우드 프로 비전 범위가 지정 된 OU에서 사용자를 이동 하는 작업은 삭제 작업으로 표시 됩니다.  사용자가 Azure AD Connect에서 관리 하는 OU로 이동 하는 경우 Azure AD에 다시 프로 비전 되 고 새 사용자가 생성 됩니다.
+
+**Q: 클라우드 프로 비전 필터에 대 한 범위에 있는 OU의 이름을 바꾸거나 이동 하는 경우 Azure AD에서 만들어진 사용자는 어떻게 되나요?**
+
+아무 일도 일어나지 않습니다.  OU의 이름을 바꾸거나 이동 하는 경우에는 사용자가 삭제 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

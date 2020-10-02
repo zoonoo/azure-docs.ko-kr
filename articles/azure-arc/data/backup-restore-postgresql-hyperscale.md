@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569707"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630426"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 백업 및 복원
 
@@ -94,16 +94,14 @@ azdata arc postgres backup create [--name <backup name>] --server-name <server g
 - __서버 이름__ 은 서버 그룹을 나타냅니다.
 - __대기 안 함__ 은 명령줄에서이 명령줄 창을 계속 사용할 수 있도록 백업이 완료 될 때까지 기다리지 않음을 나타냅니다.
 
->**참고**: 복원에 사용할 수 있는 백업을 나열 하는 데 사용할 수 있는 명령은 아직 백업이 수행 된 날짜/시간을 표시 하지 않습니다. 즉,--name 매개 변수를 사용 하 여 날짜/시간 정보를 포함 하는 백업에 이름을 지정 하는 것이 좋습니다.
-
 이 명령은 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 노드에서 분산 된 전체 백업을 조정 합니다. 즉, 코디네이터 및 작업자 노드의 모든 데이터를 백업 합니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
 ```
 
-백업이 완료 되 면 백업 ID, 이름 및 상태가 반환 됩니다. 다음은 그 예입니다.
+백업이 완료 되 면 백업 ID, 이름 및 상태가 반환 됩니다. 예를 들면 다음과 같습니다.
 ```console
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
@@ -127,7 +125,7 @@ azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name 
 azdata arc postgres backup list --server-name <servergroup name>
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres backup list --server-name postgres01
 ```
@@ -153,7 +151,7 @@ azdata arc postgres backup restore --server-name <server group name> --backup-id
 - __백업 id__ 는 백업 나열 명령에 표시 된 백업의 id입니다 (3 단계 참조).
 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 노드에서 분산 된 전체 복원을 조정 합니다. 즉, 코디네이터와 작업자 노드의 모든 데이터를 복원 합니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```

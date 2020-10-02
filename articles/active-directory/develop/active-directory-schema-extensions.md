@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115614"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631276"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>클레임에서 디렉터리 스키마 확장 특성 사용
 
@@ -35,7 +35,7 @@ ms.locfileid: "88115614"
 다음 두 가지 방법 중 하나로 디렉터리 스키마 확장 특성을 등록 하 고 채울 수 있습니다.
 
 - AD Connect를 구성 하 여 해당 항목을 만들고 온-프레미스 AD에서 데이터를 동기화 합니다. [Azure AD Connect 디렉터리 확장 동기화](../hybrid/how-to-connect-sync-feature-directory-extensions.md)를 참조 하세요.
-- Microsoft Graph를 사용 하 여 등록 하 고, 값을 설정 하 고, 디렉터리 스키마 확장 특성 [디렉터리 스키마 확장에서 읽기 ](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) [AzureAD powershell cmdlet을 사용 하 여](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0)개념 및/또는 powershell + 확장 특성 관리를 Graph API 합니다.
+- Microsoft Graph를 사용 하 여 등록 하 고, 값을 설정 하 고, [스키마 확장](/graph/extensibility-overview)에서 읽습니다. [PowerShell cmdlet](/powershell/azure/active-directory/using-extension-attributes-sample) 을 사용할 수도 있습니다.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>AD Connect를 사용 하 여 만든 디렉터리 스키마 확장 특성의 데이터를 사용 하 여 클레임 내보내기
 AD Connect를 사용 하 여 생성 및 동기화 된 디렉터리 스키마 확장 특성은 항상 AD Connect에서 사용 하는 응용 프로그램 ID와 연결 됩니다. 이러한 구성 요소는 갤러리를 사용 하 여 등록 된 SAML 응용 프로그램의 포털 UI에 있는 **엔터프라이즈** 응용 프로그램 구성에서 클레임으로 구성 하거나, **엔터프라이즈 응용**프로그램에서 비 갤러리 응용 프로그램 구성 환경으로 구성 하 고, 응용 프로그램 등록 환경을 통해 등록 된 응용 프로그램에 대 한 클레임 매핑 정책을 통해 클레임의 원본으로 사용할 수 있습니다.  AD Connect를 통해 만든 디렉터리 확장 특성이 디렉터리에 있으면 SAML SSO 클레임 구성 UI에 표시 됩니다.
@@ -58,7 +58,7 @@ Microsoft Graph 또는 PowerShell을 사용 하 여 응용 프로그램에 대 �
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Microsoft Graph 또는 PowerShell을 사용 하 여 응용 프로그램에 대 �
 > 기본 제공 디렉터리 특성에 사용 되는 클레임 스키마의 "Id" 매개 변수는 디렉터리 확장 특성에 대 한 "ExtensionID"입니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [SAML 2.0 및 JWT (JSON 웹 토큰) 토큰에 사용자 지정 또는 추가 클레임을 추가](active-directory-optional-claims.md)하는 방법에 대해 알아봅니다. 
+- [SAML 2.0 및 JWT (JSON 웹 토큰) 토큰에 사용자 지정 또는 추가 클레임을 추가](active-directory-optional-claims.md)하는 방법에 대해 알아봅니다.
 - [특정 앱에 대 한 토큰에서 내보낸 클레임을 사용자 지정](active-directory-claims-mapping.md)하는 방법을 알아봅니다.

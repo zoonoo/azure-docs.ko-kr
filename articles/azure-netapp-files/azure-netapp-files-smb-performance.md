@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01ab9787f86e6905f8d25ad4609385e3f6b6a5a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460452"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628499"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Azure NetApp Files의 SMB 성능에 대 한 Faq
 
@@ -46,7 +46,7 @@ Windows는 최상의 성능을 사용할 수 있도록 Windows 2012 이후 SMB �
 
 Azure 가상 머신 Nic에서 RSS를 지원 하는지 확인 하려면 `Get-SmbClientNetworkInterface` 다음과 같이 명령을 실행 하 고 필드를 확인 합니다 `RSS Capable` . 
 
-![Azure 가상 컴퓨터에 대 한 RSS 지원](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Azure 가상 컴퓨터에 대 한 RSS 출력을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
 ## <a name="does-azure-netapp-files-support-smb-direct"></a>SMB 다이렉트를 지원할 Azure NetApp Files 있나요?
 
@@ -60,9 +60,9 @@ SMB 다중 채널 기능을 사용 하면 SMB3 클라이언트에서 단일 NIC 
 
 아니요. Smb 클라이언트는 SMB 서버에서 반환 되는 NIC 수와 일치 합니다.  각 저장소 볼륨은 하나의 저장소 끝점에서 액세스할 수 있습니다.  즉, 지정 된 SMB 관계에 하나의 NIC만 사용 됩니다.  
 
-아래 출력에 표시 된 것 처럼 `Get-SmbClientNetworkInterace` 가상 머신에는 두 개의 네트워크 인터페이스인-15와 12가 있습니다.  아래에 표시 된 것 처럼 `Get-SmbMultichannelConnection` 두 개의 RSS 지원 nic가 있더라도 SMB 공유와의 연결에는 인터페이스 12만 사용 됩니다. 인터페이스 15는 사용 되지 않습니다.
+아래 출력에 표시 된 것 처럼 `Get-SmbClientNetworkInterace` 가상 컴퓨터에는 2 개의 네트워크 인터페이스 (-15, 12)가 있습니다.  다음 명령에 표시 된 것 처럼 `Get-SmbMultichannelConnection` 두 개의 RSS 지원 nic가 있더라도 SMB 공유와의 연결에는 인터페이스 12만 사용 됩니다. 인터페이스 15는 사용 되지 않습니다.
 
-![RSS 지원 NIC](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![RSS 지원 NIC의 출력을 표시 하는 스크린샷에서입니다.](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
 ## <a name="is-nic-teaming-supported-in-azure"></a>Azure에서 NIC 팀이 지원 되나요?
 
@@ -74,25 +74,61 @@ NIC 팀은 Azure에서 지원 되지 않습니다. 여러 네트워크 인터페
 
 ### <a name="random-io"></a>임의 i/o  
 
-클라이언트에서 SMB 다중 채널을 사용 하지 않도록 설정 하면 FIO 및 40 GiB 작업 집합을 사용 하 여 순수 8 KiB 읽기 및 쓰기 테스트를 수행 했습니다.  ,,,,의 RSS 네트워크 인터페이스 설정 당 SMB 클라이언트 연결 수를 증가 시켜 각 테스트 간에 SMB 공유가 분리 `1` 되었습니다 `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . 테스트는 i/o를 많이 사용 하는 워크 로드에 대 한의 기본 설정이 충분 하다는 것을 보여 줍니다 `4` .이 경우에는에 대 `8` 한 증분 `16` 효과가 없습니다. 
+클라이언트에서 SMB 다중 채널을 사용 하지 않도록 설정 하면 FIO 및 40 GiB 작업 집합을 사용 하 여 순수 4 KiB 읽기 및 쓰기 테스트를 수행 했습니다.  ,,,,의 RSS 네트워크 인터페이스 설정 당 SMB 클라이언트 연결 수를 증가 시켜 각 테스트 간에 SMB 공유가 분리 `1` 되었습니다 `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . 테스트는 i/o `4` 를 많이 사용 하는 워크 로드에 대 한의 기본 설정이 충분 함을 보여 `8` 줍니다 `16` 
 
 명령은 `netstat -na | findstr 445` 에서로 또는에서로의 증분을 사용 하 여 추가 연결이 설정 되었음을 입증 했습니다 `1` `4` `8` `16` .  CPU 코어 4 개는 perfmon `Per Processor Network Activity Cycles` 통계 (이 문서에 포함 되지 않음)에 의해 확인 된 각 테스트 중에 SMB에 대해 완전히 활용 되었습니다.
 
-![임의 i/o 테스트](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![SMB 다중 채널의 임의 i/o 비교를 표시 하는 차트입니다.](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-Azure 가상 머신은 SMB (또는 NFS) 저장소 i/o 제한에 영향을 주지 않습니다.  아래 표시 된 것 처럼 D16 인스턴스 유형은 캐시 된 저장소 IOPS의 경우 32000, 캐시 되지 않은 저장소 IOPS의 경우 25600입니다.  그러나 위의 그래프는 SMB를 통해 훨씬 더 많은 i/o를 보여 줍니다.
+Azure 가상 머신은 SMB (또는 NFS) 저장소 i/o 제한에 영향을 주지 않습니다.  다음 차트에 표시 된 것 처럼 D32ds 인스턴스 유형은 캐시 된 저장소 IOPS의 경우 308000, 캐시 되지 않은 저장소 IOPS의 경우 51200입니다.  그러나 위의 그래프는 SMB를 통해 훨씬 더 많은 i/o를 보여 줍니다.
 
-![임의 i/o 비교](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![임의 i/o 비교 테스트를 표시 하는 차트입니다.](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
 ### <a name="sequential-io"></a>순차 IO 
 
-위에서 설명한 임의 i/o 테스트와 유사한 테스트는 64-KiB 순차 i/o를 사용 하 여 수행 되었습니다. 4 개 이상의 RSS 네트워크 인터페이스로 클라이언트 연결 수를 늘리는 것은 임의 i/o에 뚜렷한 영향을 주지 않지만 순차적 i/o에는 동일 하 게 적용 되지 않습니다. 다음 그래프에서 볼 수 있듯이 각 증가는 읽기 처리량의 해당 증가와 연결 됩니다. 각 인스턴스 형식/크기에 대해 Azure에 의해 배치 된 네트워크 대역폭 제한으로 인해 쓰기 처리량이 플랫으로 유지 되었습니다. 
+이전에 설명한 임의 i/o 테스트와 유사한 테스트는 64-KiB 순차 i/o를 사용 하 여 수행 되었습니다. 4 개 이상의 RSS 네트워크 인터페이스로 클라이언트 연결 수를 늘리는 것은 임의 i/o에 뚜렷한 영향을 주지 않지만 순차적 i/o에는 동일 하 게 적용 되지 않습니다. 다음 그래프에서 볼 수 있듯이 각 증가는 읽기 처리량의 해당 증가와 연결 됩니다. 각 인스턴스 형식/크기에 대해 Azure에 의해 배치 된 네트워크 대역폭 제한으로 인해 쓰기 처리량이 플랫으로 유지 되었습니다. 
 
-![순차 i/o 테스트](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![처리량 테스트 비교를 표시 하는 차트입니다.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Azure는 각 가상 머신 유형/크기에 대해 네트워크 요금 제한을 배치 합니다. 요금 제한은 아웃 바운드 트래픽에만 적용 됩니다. 가상 컴퓨터에 있는 Nic의 수는 컴퓨터에 사용할 수 있는 총 대역폭 크기와는 관련이 없습니다.  예를 들어 D16 인스턴스 유형은 네트워크 제한이 8000 Mbps (1000 MiB/s)로 부과 됩니다.  위의 순차 그래프에서 볼 수 있듯이 제한은 아웃 바운드 트래픽 (쓰기)에 영향을 주지만 다중 채널 읽기는 영향을 받지 않습니다.
+Azure는 각 가상 머신 유형/크기에 대해 네트워크 요금 제한을 배치 합니다. 요금 제한은 아웃 바운드 트래픽에만 적용 됩니다. 가상 컴퓨터에 있는 Nic의 수는 컴퓨터에 사용할 수 있는 총 대역폭 크기와는 관련이 없습니다.  예를 들어 D32ds 인스턴스 유형은 네트워크 제한이 16000 Mbps (2000 MiB/s)로 부과 됩니다.  위의 순차 그래프에서 볼 수 있듯이 제한은 아웃 바운드 트래픽 (쓰기)에 영향을 주지만 다중 채널 읽기는 영향을 받지 않습니다.
 
-![순차 i/o 비교](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![순차 i/o 비교 테스트를 표시 하는 차트입니다.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+
+## <a name="what-performance-is-expected-with-a-single-instance-with-a-1-tb-dataset"></a>단일 인스턴스와 1TB 데이터 집합을 사용 하는 경우 예상 되는 성능은 무엇 인가요?
+
+읽기/쓰기 믹스를 사용 하 여 워크 로드에 대 한 보다 자세한 정보를 제공 하기 위해 다음 두 차트는 1tb 데이터 집합을 사용 하 고 SMB 다중 채널이 4 인 50 TB의 단일 Ultra 서비스 수준 클라우드 볼륨의 성능을 보여 줍니다. 최적의 IODepth 사용 되었으며, FIO (유연한 IO) 매개 변수를 사용 하 여 네트워크 대역폭 ()의 전체 사용을 보장 했습니다 `numjobs=16` .
+
+다음 차트에서는 단일 VM 인스턴스와 읽기/쓰기 조합의 10% 간격으로 4k 임의 i/o에 대 한 결과를 보여 줍니다.
+
+![Windows 2019 standard _D32ds_v4 4K 임의 IO 테스트를 표시 하는 차트입니다.](../media/azure-netapp-files/smb-performance-standard-4k-random-io.png)
+
+다음 차트에서는 순차적 i/o의 결과를 보여 줍니다.
+
+![Windows 2019 standard _D32ds_v4 64K 순차 처리량을 보여 주는 차트입니다.](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
+
+## <a name="what-performance-is-expected-when-scaling-out-using-5-vms-with-a-1-tb-dataset"></a>1TB 데이터 집합을 포함 하는 5 개의 Vm을 사용 하 여 규모를 확장 하는 경우 어떤 성능이 필요 한가요?
+
+5 개의 Vm이 있는 이러한 테스트는 단일 VM과 동일한 테스트 환경을 사용 하며 각 프로세스는 자체 파일에 기록 합니다.
+
+다음 차트는 임의의 i/o에 대 한 결과를 보여 줍니다.
+
+![Windows 2019 standard _D32ds_v4 4K 5 인스턴스 randio IO 테스트를 표시 하는 차트입니다.](../media/azure-netapp-files/smb-performance-standard-4k-random-io-5-instances.png)
+
+다음 차트에서는 순차적 i/o의 결과를 보여 줍니다.
+
+![Windows 2019 standard _D32ds_v4 64K 5 인스턴스 순차적 처리량을 보여 주는 차트입니다.](../media/azure-netapp-files/smb-performance-standard-64k-throughput-5-instances.png)
+
+## <a name="how-do-you-monitor-hyper-v-ethernet-adapters-and-ensure-that-you-maximize-network-capacity"></a>Hyper-v 이더넷 어댑터를 모니터링 하 고 네트워크 용량을 최대화 하려면 어떻게 해야 하나요?  
+
+FIO로 테스트 하는 데 사용 되는 한 가지 전략은를 설정 하는 것입니다 `numjobs=16` . 이렇게 하면 각 작업을 16 개의 특정 인스턴스로 포크 하 여 Microsoft Hyper-V 네트워크 어댑터를 최대화 합니다.
+
+성능 모니터 > 선택 하 여 Windows 성능 모니터의 각 어댑터에서 작업을 확인할 수 있습니다 **> 네트워크 인터페이스 > Microsoft Hyper-V 네트워크 어댑터를 추가**합니다.
+
+![성능 모니터 카운터 추가 인터페이스를 보여 주는 스크린샷](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
+
+볼륨에서 데이터 트래픽이 실행 된 후에는 Windows 성능 모니터에서 어댑터를 모니터링할 수 있습니다. 이러한 16 개의 가상 어댑터를 모두 사용 하지 않는 경우 네트워크 대역폭 용량을 극대화 하지 못할 수 있습니다.
+
+![성능 모니터 출력을 보여 주는 스크린샷](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
 ## <a name="is-accelerated-networking-recommended"></a>가속화 된 네트워킹을 권장 하나요?
 
@@ -115,7 +151,7 @@ SMB 서명은 Azure NetApp Files에서 지 원하는 모든 SMB 프로토콜 버
 
 Smb 서명은 SMB 성능에 영향을 주지 않습니다. 성능 저하가 발생할 수 있는 다른 원인 중에서 각 패킷의 디지털 서명은 아래에 표시 된 perfmon 출력과 함께 추가 클라이언트 쪽 CPU를 사용 합니다. 이 경우 SMB 서명을 포함 하 여 SMB를 담당 하는 Core 0이 표시 됩니다.  이전 섹션에서 비 다중 채널 순차 읽기 처리량 번호와 비교 하는 경우 SMB 서명이 875MiB/s에서 약 250MiB/s로 전체 처리량을 줄이는 것을 보여 줍니다. 
 
-![SMB 서명 성능 영향](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![SMB 서명 성능 영향을 보여 주는 차트입니다.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
 ## <a name="next-steps"></a>다음 단계  

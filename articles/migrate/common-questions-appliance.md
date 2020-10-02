@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526564"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630494"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -42,7 +42,7 @@ Azure Migrate 어플라이언스에 대 한 자세한 내용은 다음과 같습
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결 되나요?
 
-어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다. 어플라이언스에서 Azure에 연결 하기 위해 이러한 [url](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) 이 허용 목록 확인 합니다.
+어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다. Azure에 연결 하기 위해 기기가 이러한 [url](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) 을 승인 하는지 확인 합니다.
 
 - Azure Migrate 복제 트래픽에 대해 Azure Express 경로를 사용 하려면 Microsoft 피어 링 또는 기존 공용 피어 링이 필요 합니다 (공용 피어 링은 새 ER 생성에 사용 되지 않음).
 - (만 해당) 개인 피어 링을 사용 하는 Azure Express 경로를 통한 복제는 지원 되지 않습니다.

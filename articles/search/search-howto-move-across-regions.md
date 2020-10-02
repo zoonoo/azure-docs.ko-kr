@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
-ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007046"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629814"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Azure Cognitive Search 서비스를 다른 Azure 지역으로 이동
 
@@ -23,11 +23,11 @@ ms.locfileid: "90007046"
 > [!NOTE]
 > Azure Portal 모든 서비스에는 **내보내기 템플릿** 명령이 있습니다. Azure Cognitive Search의 경우이 명령은 서비스의 기본 정의 (이름, 위치, 계층, 복제본 및 파티션 수)를 생성 하지만 서비스의 콘텐츠를 인식 하지 않으며 키, 역할 또는 로그를 전달 하지 않습니다. 명령이 존재 하지만 검색 서비스를 이동 하는 데 사용 하지 않는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 
-+ 미리 보기 기능의 경우 구독이 대상 지역에 대한 허용 목록에 추가되었는지 확인합니다.
++ 미리 보기 기능의 경우 대상 지역에 대 한 구독이 승인 되었는지 확인 합니다.
 
 ## <a name="prepare-and-move"></a>준비 및 이동
 

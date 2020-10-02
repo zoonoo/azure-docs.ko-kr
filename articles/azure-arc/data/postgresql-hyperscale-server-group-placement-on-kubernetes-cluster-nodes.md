@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5da00916a3f7a6a3685b1de1c56dd032355e28fa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938744"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628420"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 배치
 
@@ -46,7 +46,7 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 아키텍처는 다음과 같이 나타낼 수 있습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Kubernetes 클러스터에 그룹화 된 4 개 노드의 논리적 표현":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
 
 Kubernetes 클러스터는 하나의 Azure Arc 데이터 컨트롤러와 하나의 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 호스팅합니다. 이 서버 그룹은 하나의 코디네이터와 두 작업자 라는 세 개의 PostgreSQL 인스턴스를 구성 된 합니다.
 
@@ -129,7 +129,7 @@ Azure Arc enabled PostgreSQL Hyperscale 서버 그룹의 일부인 각 pod는 �
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 pod 개별 노드에 배치 됩니다.":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
 
 즉,이 시점에서 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 백업을 위해 각 PostgreSQL 인스턴스는 Kubernetes 컨테이너 내의 특정 실제 호스트에서 호스팅됩니다. 각 역할 (코디네이터 및 작업자)이 각 실제 노드의 리소스를 사용 하기 때문에 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에서 가장 높은 성능을 얻는 데 도움이 되는 최상의 구성입니다. 이러한 리소스는 여러 PostgreSQL 역할 간에 공유 되지 않습니다.
 
@@ -207,35 +207,22 @@ Node:         aks-agentpool-42715708-vmss000000
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="코디네이터와 동일한 노드의 네 번째 pod":::
-
-Kubernetes cluster aks-42715708-vmss000003의 나머지 실제 노드에 새로운 worker/pod가 배치 되지 않는 이유는 무엇 인가요?
-
-그 이유는 Kubernetes 클러스터의 마지막 실제 노드가 Azure Arc 사용 데이터 서비스를 실행 하는 데 필요한 추가 구성 요소를 호스트 하는 몇 가지 pod를 실제로 호스팅하는 것입니다. Kubernetes가 추가 작업자를 호스트 하는 데 가장 적합 한 후보는 42715708 aks-vmss000000 실제 노드입니다. 
-
-위와 동일한 명령을 사용 하 여 각 실제 노드가 호스트 하는 항목을 볼 수 있습니다.
-
-|기타 pod 이름\* |사용량|Pod를 호스트 하는 Kubernetes 실제 노드
-|----|----|----
-|부트스트래퍼-jh48b||aks-agentpool-42715708-vmss000003
-|제어-gwmbs||aks-agentpool-42715708-vmss000002
-|controldb-0||aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7||aks-agentpool-42715708-vmss000000
-|logsdb-0|Elasticsearch, `Fluentbit` 각 pod의 컨테이너에서 데이터를 수신 합니다.|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5||aks-agentpool-42715708-vmss000003
-|metricsdb-0|InfluxDB는 `Telegraf` 각 pod의 컨테이너에서 데이터를 수신 합니다.|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47||aks-agentpool-42715708-vmss000002
-|metricsdc-864kj||aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf||aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l||aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l||aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp||aks-agentpool-42715708-vmss000002
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Azure Portal의 4 노드 AKS 클러스터" 서비스입니다.|aks-agentpool-42715708-vmss000000
+|logsdb-0|모든 Arc data services pod에서 수집 된 모든 로그를 저장 하는 데 사용 되는 탄력적 검색 인스턴스입니다. Elasticsearch, `Fluentbit` 각 pod의 컨테이너에서 데이터를 수신 합니다.|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5|이 인스턴스는 log analytics GUI를 제공 하기 위해 탄력적 검색 데이터베이스 위에 있는 Kibana 인스턴스입니다.|aks-agentpool-42715708-vmss000003
+|metricsdb-0|모든 Arc data services pod에서 수집 된 모든 메트릭을 저장 하는 데 사용 되는 InfluxDB 인스턴스입니다. InfluxDB는 `Telegraf` 각 pod의 컨테이너에서 데이터를 수신 합니다.|aks-agentpool-42715708-vmss000000
+|metricsdc-47d47|이는 노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 daemonset입니다.|aks-agentpool-42715708-vmss000002
+|metricsdc-864kj|이는 노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 daemonset입니다.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|이는 노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 daemonset입니다.|aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|이는 노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 daemonset입니다.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|이 인스턴스는 모니터링 대시보드 GUI를 제공 하기 위해 InfluxDB 데이터베이스 위에 있는 Grafana 인스턴스입니다.|aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Grafana 및 Kibana 인스턴스 앞에 있는 웹 응용 프로그램 프록시 계층입니다.|aks-agentpool-42715708-vmss000002
 
 > \* Pod 이름의 접미사는 다른 배포에 따라 달라 집니다. 또한 Azure Arc 데이터 컨트롤러의 Kubernetes 네임 스페이스 내에서 호스트 되는 pod 여기에 나열 됩니다.
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="다양 한 노드의 네임 스페이스에 있는 모든 pod":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
 
 즉, Azure Arc enabled Postgres Hyperscale server 그룹의 코디네이터 노드 (Pod 1)는 서버 그룹의 세 번째 작업자 노드 (Pod 4)와 동일한 물리적 리소스를 공유 합니다. 코디네이터 노드가 일반적으로 작업자 노드에 사용 되는 것과 비교 하 여 매우 적은 리소스를 사용 하기 때문에 허용 됩니다. 이를 통해 신중 하 게 선택 해야 한다는 것을 유추할 수 있습니다.
 - Kubernetes 클러스터의 크기 및 각 실제 노드의 특성 (메모리, vCore)
@@ -259,16 +246,16 @@ AKS 클러스터에 다섯 번째 노드를 추가 해 보겠습니다.
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="이전 Azure Portal 레이아웃":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="다음 이후 레이아웃 Azure Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
     :::column-end:::
 :::row-end:::
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="업데이트 후 Kubernetes 클러스터의 논리적 레이아웃":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
 
 명령을 실행 하 여 new AKS 실제 노드에 호스트 되는 Arc Data Controller 네임 스페이스의 pod을 살펴보겠습니다.
 
@@ -278,7 +265,7 @@ kubectl describe node aks-agentpool-42715708-vmss000004
 
 시스템 아키텍처의 표현을 업데이트 해 보겠습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="클러스터의 논리적 다이어그램에 대 한 모든 pod":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
 
 Kubernetes 클러스터의 새 실제 노드가 Azure Arc data services에 필요한 메트릭 pod만 호스트 하 고 있음을 확인할 수 있습니다. 이 예제에서는 Arc 데이터 컨트롤러의 네임 스페이스에만 중점을 두고 있으며, 다른 pod를 나타내지 않습니다.
 
@@ -353,7 +340,7 @@ Pod이 실행 되는 항목을 확인 합니다.
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes 가장 낮은 사용량으로 노드의 최신 pod를 예약 합니다.":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
 
 Kubernetes는 Kubernetes 클러스터의 최소 로드 된 실제 노드에서 새 PostgreSQL pod를 예약 했습니다.
 

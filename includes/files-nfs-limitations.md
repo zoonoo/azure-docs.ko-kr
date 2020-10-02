@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8901f54c4802766eb3f12830d98d29fb47337ae5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705217"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91640886"
 ---
 미리 보기로 제공 되는 동안 NFS에는 다음과 같은 제한 사항이 있습니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "90705217"
 - NFS 공유를 만들려면 새 저장소 계정을 만들어야 합니다.
 - 관리 평면 REST Api만 지원 됩니다. 데이터 평면 REST Api를 사용할 수 없습니다. 즉, 저장소 탐색기와 같은 도구가 NFS 공유에서 작동 하지 않거나 Azure Portal에서 NFS 공유 데이터를 검색할 수 없게 됩니다.
 - 프리미엄 계층에 대해서만 사용할 수 있습니다.
-- 현재는 로컬 중복 저장소 에서만 사용할 수 있습니다.
+- 현재 LRS (로컬 중복 저장소) 에서만 사용할 수 있습니다.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>아직 지원 되지 않는 Azure Storage 기능
 
