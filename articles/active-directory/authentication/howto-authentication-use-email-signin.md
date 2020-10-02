@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419532"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650309"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>대체 로그인 ID (미리 보기)로 전자 메일을 사용 하 여 Azure Active Directory 로그인
 
@@ -28,6 +28,8 @@ ms.locfileid: "87419532"
 * 비즈니스 또는 규정 준수 때문에 조직은 온-프레미스 UPN을 사용 하 여 Azure AD에 로그인 하지 않으려고 합니다.
 
 하이브리드 인증으로 이동 하는 데 도움이 되도록 이제 사용자가 확인 된 도메인에서 대체 로그인 ID로 전자 메일에 로그인 할 수 있도록 Azure AD를 구성할 수 있습니다. 예를 들어 *Contoso*가 레거시 `balas@contoso.com` UPN을 사용한 로그인을 지원하는 대신 *Fabrikam*으로 리브랜딩되었다면 이제 메일을 대체 로그인 ID로 사용할 수 있습니다. 응용 프로그램 또는 서비스에 액세스 하기 위해 사용자는 할당 된 전자 메일 (예:)을 사용 하 여 Azure AD에 로그인 `balas@fabrikam.com` 합니다.
+
+이 문서에서는 대체 로그인 ID로 전자 메일을 사용 하도록 설정 하 고 사용 하는 방법을 보여 줍니다. 이 기능은 Azure AD Free 버전 이상에서 사용할 수 있습니다.
 
 > [!NOTE]
 > 메일을 대체 로그인 ID로 사용하여 Azure AD에 로그인하는 것은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -45,6 +47,8 @@ Azure AD에 로그인 하려면 사용자에 게 계정을 고유 하 게 식별
 다른 방법은 Azure AD와 온-프레미스 Upn을 동일한 값으로 동기화 한 다음 사용자가 확인 된 전자 메일을 사용 하 여 Azure AD에 로그인 할 수 있도록 Azure AD를 구성 하는 것입니다. 이 기능을 제공 하기 위해 온-프레미스 디렉터리의 사용자 *ProxyAddresses* 특성에 하나 이상의 전자 메일 주소를 정의 합니다. *ProxyAddresses* 는 Azure AD Connect을 사용 하 여 Azure AD에 자동으로 동기화 됩니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
+
+대체 로그인 ID로 전자 메일을 사용 하 여 Azure AD에 로그인 Azure AD Free 버전 이상에서 사용할 수 있습니다.
 
 현재 미리 보기 상태에서는 UPN이 아닌 전자 메일을 대체 로그인 ID로 사용 하 여 사용자가 로그인 할 때 다음과 같은 제한 사항이 적용 됩니다.
 

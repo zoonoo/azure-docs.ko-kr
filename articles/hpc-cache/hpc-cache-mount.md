@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613012"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651431"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Azure HPC Cache 마운트
 
@@ -79,7 +79,7 @@ Mount 명령을 만들려면 다음 절차를 따르세요.
 
 1. 클라이언트에 사용할 **가상 네임 스페이스 경로** 를 선택 합니다. 이러한 경로는 백 엔드 저장소 시스템의 내보내기에 연결 됩니다.
 
-   ![선택기를 연 네임 스페이스 경로 필드의 스크린샷](media/mount-select-target.png)
+   ![선택기를 연 상태로 "가상 네임 스페이스 경로" 필드를 표시 하는 스크린샷](media/mount-select-target.png)
 
    **네임 스페이스** 포털 페이지에서 가상 네임 스페이스 경로를 확인 하 고 변경할 수 있습니다. [집계 된 네임 스페이스를 설정](add-namespace-paths.md) 하 여 방법을 확인 합니다.
 

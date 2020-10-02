@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: 충돌 유형 및 해결 정책
-          displayName: 'last write wins, custom, multi master, multi-master'
+          displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: 글로벌 배포 - 내부 살펴보기
           href: global-dist-under-the-hood.md
@@ -584,7 +584,7 @@
         - name: 데이터 암호화.
           href: database-encryption-at-rest.md
         - name: 데이터에 안전하게 액세스
-          displayName: 'master key, resource token, users, roles'
+          displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
         - name: IP 방화벽
           href: firewall-support.md
@@ -977,7 +977,7 @@
           href: how-to-move-regions.md
     - name: 글로벌 분포
       items:
-        - name: 다중 마스터 구성
+        - name: 다중 지역 쓰기 구성
           href: how-to-multi-master.md
         - name: 일관성 수준 관리
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'

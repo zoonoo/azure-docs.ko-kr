@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 775b296185f9f0f0e967ada2688e24158f36360e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f95ffb662d830c432d3286eca8c935e2737f8043
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648363"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649561"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4 및 Easv4 시리즈
 
@@ -20,15 +20,13 @@ Eav4 시리즈 및 Easv4 시리즈는 최대 256MB L3 캐시가 포함 된 다�
 
 ## <a name="eav4-series"></a>Eav4 시리즈
 
-ACU: 230-260
-
-Premium Storage: 지원 되지 않음
-
-Premium Storage 캐싱: 지원 되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용 하려면 Easv4 시리즈 크기를 사용 합니다. Easv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
 
@@ -46,15 +44,13 @@ Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 �
 
 ## <a name="easv4-series"></a>Easv4 시리즈
 
-ACU: 230-260
-
-Premium Storage: 지원됨
-
-Premium Storage 캐싱: 지원 됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 Easv4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
 

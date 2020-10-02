@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 05/04/2020
-  ms.openlocfilehash: aad6bc60066d76c96dd38fa3ba1e94069bb9e25a
-  ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+  ms.date: 09/21/2020
+  ms.openlocfilehash: 76a879f1c2c228fd509f0b0725b7ff3ddac4fa41
+  ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/22/2020
-  ms.locfileid: "88752107"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91574911"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -22,15 +22,61 @@ landingContent:
     links:
     - text: Azure VMware Solution이란?
       url: introduction.md
+  - linkListType: concept
+    links:
+    - text: 프라이빗 클라우드 및 클러스터
+      url: concepts-private-clouds-clusters.md
+    - text: 프라이빗 클라우드 네트워킹 및 상호 연결
+      url: concepts-networking.md
+    - text: 프라이빗 클라우드의 스토리지
+      url: concepts-storage.md
+    - text: 프라이빗 클라우드의 액세스 및 ID
+      url: concepts-identity.md
+    - text: 역할 기반 액세스 제어
+      url: concepts-role-based-access-control.md
+    - text: 프라이빗 클라우드 업그레이드
+      url: concepts-upgrades.md
+- title: Azure VMware Solution 배포
+  linkLists:
   - linkListType: get-started
     links:
-    - text: 네트워크 검사 목록
-      url: tutorial-network-checklist.md
+    - text: 배포 전 프로세스
+      url: production-ready-deployment-steps.md
+    - text: 배포 전 검사 목록
+      url: pre-deployment-checklist.md
+    - text: 1 - Azure VMware Solution 배포
+      url: deploy-azure-vmware-solution.md
+    - text: 2- 온-프레미스에 연결
+      url: azure-vmware-solution-on-premises.md
+    - text: 3 - HCX 배포 및 구성
+      url: tutorial-deploy-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: AVS 프라이빗 클라우드 만들기
+    - text: 네트워크 계획 검사 목록
+      url: tutorial-network-checklist.md
+    - text: 프라이빗 클라우드 만들기
       url: tutorial-create-private-cloud.md
+    - text: 프라이빗 클라우드에 액세스
+      url: tutorial-access-private-cloud.md
     - text: 네트워킹 구성
       url: tutorial-configure-networking.md
-    - text: 프라이빗 클라우드 액세스
-      url: tutorial-access-private-cloud.md
+    - text: NSX-T 네트워크 세그먼트 만들기
+      url: tutorial-nsx-t-network-segment.md
+    - text: 온-프레미스에서 프라이빗 클라우드로 피어링
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - text: VMware HCX 배포 및 구성
+      url: tutorial-deploy-vmware-hcx.md
+    - text: 프라이빗 클라우드 스케일링
+      url: tutorial-scale-private-cloud.md
+- title: Azure VMware Solution 확장
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 마이그레이션 평가
+      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - text: DHCP 관리
+      url: manage-dhcp.md
+    - text: VM에 대한 재해 복구 배포
+      url: disaster-recovery-for-virtual-machines.md
+    - text: 콘텐츠 라이브러리를 통해 VM 배포
+      url: tutorial-deploy-vm-content-library.md

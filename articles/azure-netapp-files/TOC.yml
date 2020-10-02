@@ -4,6 +4,8 @@
   items:
     - name: Azure NetApp Files란?
       href: azure-netapp-files-introduction.md
+    - name: 새로운 기능
+      href: whats-new.md
     - name: Azure NetApp Files의 스토리지 계층 구조
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: 빠른 시작
@@ -27,6 +29,8 @@
           href: azure-netapp-files-performance-metrics-volumes.md
         - name: Linux용 성능 벤치마크
           href: performance-benchmarks-linux.md
+        - name: Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능
+          href: performance-oracle-single-volumes.md
         - name: SMB 성능에 대한 FAQ
           href: azure-netapp-files-smb-performance.md
     - name: Azure NetApp Files 비용 모델

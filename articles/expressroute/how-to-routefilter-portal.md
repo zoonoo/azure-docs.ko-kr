@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 37f8903adbc676ae2e48e2ef5841d8f5b122842c
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 468c7a0113a4603f4f47bb529145261ff50d96d4
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566248"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650547"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure Portal
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "89566248"
 
 Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Microsoft 365 서비스와 저장소 및 SQL DB와 같은 Azure 서비스는 Microsoft 피어 링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
 
-모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음 작업을 수행할 수 있습니다.
+모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음을 수행할 수 있습니다.
 
 - BGP 커뮤니티에 라우팅 필터를 적용하여 필요 없는 접두사를 필터링합니다. 표준 네트워킹 방법은 많은 네트워크 내에서 일반적으로 사용됩니다.
 
@@ -88,33 +88,33 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 ### <a name="1-create-a-route-filter"></a>1. 경로 필터 만들기
 새 리소스를 만드는 옵션을 선택하여 경로 필터를 만들 수 있습니다. **Create a resource**  >  **Networking**  >  다음 그림에 표시 된 것 처럼 리소스 만들기 네트워킹**RouteFilter**를 클릭 합니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
+!["경로 필터" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 경로 필터를 리소스 그룹에 배치해야 합니다. 
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/CreateRouteFilter.png)
+![예제 값이 입력 된 "경로 필터 만들기" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. 필터 규칙 만들기
 
 경로 필터에 대한 관리 규칙 탭을 선택하여 규칙을 추가하고 업데이트할 수 있습니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+!["규칙 관리" 작업이 강조 표시 된 "개요" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 드롭다운 목록에서 연결 하려는 서비스를 선택 하 고 완료 되 면 규칙을 저장할 수 있습니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
+!["허용 된 서비스 커뮤니티" 드롭다운 목록에서 서비스를 선택 하 고 "규칙 관리" 창을 보여 주는 스크린샷](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결
 
 "회로 추가" 단추를 선택 하 고 드롭다운 목록에서 Express 경로 회로를 선택 하 여 경로 필터를 회로에 연결할 수 있습니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
+!["회로 추가" 작업이 선택 된 "개요" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 연결 공급자가 ExpressRoute 회로에 대해 피어링을 구성하는 경우 "회로 추가" 단추를 선택하기 전에 ExpressRoute 회로 블레이드에서 회로를 새로 고칩니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
+!["새로 고침" 작업이 선택 된 "개요" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="common-tasks"></a><a name="tasks"></a>일반 작업
 
@@ -122,7 +122,7 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 
 포털에서 리소스를 열 때 경로 필터의 속성을 볼 수 있습니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/ViewRouteFilter.png)
+!["개요" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>경로 필터의 속성을 업데이트하려면
@@ -130,16 +130,16 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 “관리 규칙” 단추를 선택하여 회로에 연결된 BGP 커뮤니티 값 목록을 업데이트할 수 있습니다.
 
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+!["규칙 관리" 작업이 강조 표시 된 "개요" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
+![서비스가 선택 된 "규칙 관리" 창을 보여 주는 스크린샷](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>ExpressRoute 회로에서 경로 필터를 분리하려면
 
 회로를 경로 필터에서 분리 하려면 회로를 마우스 오른쪽 단추로 클릭 하 고 "연관 해제"를 클릭 합니다.
 
-![경로 필터 만들기](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
+!["분리" 작업이 강조 표시 된 "개요" 페이지를 보여 주는 스크린샷](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="to-delete-a-route-filter"></a><a name="delete"></a>경로 필터를 삭제하려면

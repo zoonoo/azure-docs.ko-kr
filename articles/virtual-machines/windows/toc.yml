@@ -145,7 +145,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -407,7 +407,7 @@
           href: ps-template.md
         - name: VM에 연결
           href: connect-logon.md
-        - name: Linux VM에 연결
+        - name: Linux VM에 대한 SSH
           displayName: ssh keygen ssk-key putty
           items:
             - name: 포털에서
@@ -595,7 +595,7 @@
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
               href: disk-encryption-faq.md
-            - name: 디스크 암호화 - 이전 버전(Azure AD)
+            - name: 디스크 암호화 - 이전 버전
               items:
                 - name: 개요
                   href: disk-encryption-overview-aad.md

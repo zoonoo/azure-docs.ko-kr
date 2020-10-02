@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/2/2020
+ms.openlocfilehash: c3bef7a368c6c0f2a08acdfd8da9236899a51a27
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032682"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650989"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다.
@@ -25,6 +25,8 @@ Azure Database for MariaDB 서버 매개 변수 값의 튜닝을 지원 합니�
 
 초기 배포 시 Azure for MariaDB 서버는 표준 시간대 정보에 대 한 시스템 테이블을 포함 하지만 이러한 테이블은 채워지지 않습니다. MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하여 표준 시간대 테이블을 채울 수 있습니다. 저장 프로시저를 호출하고 글로벌 또는 세션 수준 표준 시간대를 설정하는 방법은 [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) 문서를 참조하세요.
 
+"Validate_password" 및 "caching_sha2_password"와 같은 암호 플러그 인은 서비스에서 지원 되지 않습니다.
+
 ## <a name="storage-engine-support"></a>스토리지 엔진 지원
 
 ### <a name="supported"></a>지원됨
@@ -36,21 +38,25 @@ Azure Database for MariaDB 서버 매개 변수 값의 튜닝을 지원 합니�
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
+## <a name="privileges--data-manipulation-support"></a>데이터 조작 지원 & 권한
+
+많은 서버 매개 변수 및 설정으로 인해 실수로 서버 성능이 저하 되거나 MariaDB 서버의 ACID 속성이 무효화 될 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지 하기 위해이 서비스는 여러 역할을 노출 하지 않습니다. 
+
+MariaDB 서비스는 기본 파일 시스템에 대 한 직접 액세스를 허용 하지 않습니다. 일부 데이터 조작 명령은 지원 되지 않습니다. 
+
 ## <a name="privilege-support"></a>권한 지원
 
 ### <a name="unsupported"></a>지원되지 않음
-- DBA 역할: 서버 매개 변수 및 설정이 많으면 실수로 서버 성능이 저하되거나 DBMS의 ACID 속성이 무효화될 수 있습니다. 따라서 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스에서는 DBA 역할이 노출되지 않습니다. 사용자는 새 데이터베이스 인스턴스를 만들 때 생성되는 기본 사용자 계정을 통해 관리되는 데이터베이스 인스턴스에서 대부분의 DDL 및 DML 문을 수행할 수 있습니다.
-- SUPER 권한: 마찬가지로 [SUPER 권한](https://mariadb.com/kb/en/library/grant/#global-privileges)도 제한됩니다.
-- DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
-- 시스템 데이터베이스: Azure Database for MariaDB에서 [mysql 시스템 데이터베이스](https://mariadb.com/kb/en/the-mysql-database-tables/) 는 다양 한 PaaS 서비스 기능을 지 원하는 데 사용 되므로 읽기 전용입니다. 시스템 데이터베이스의 항목은 변경할 수 없습니다 `mysql` .
 
-## <a name="data-manipulation-statement-support"></a>데이터 조작 명령문 지원
+지원 되지 않는 기능은 다음과 같습니다.
+- DBA 역할: 제한 됨 또는 새 서버를 만드는 동안 만들어진 관리자 사용자를 사용 하 여 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
+- SUPER 권한: 마찬가지로 [슈퍼 권한도](https://mariadb.com/kb/en/library/grant/#global-privileges) 제한 됩니다.
+- DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
+- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://mariadb.com/kb/en/the-mysql-database-tables/) 는 읽기 전용 이며 다양 한 PaaS 기능을 지 원하는 데 사용 됩니다. 시스템 데이터베이스를 변경할 수 없습니다 `mysql` .
+- `SELECT ... INTO OUTFILE`: 서비스에서 지원 되지 않습니다.
 
 ### <a name="supported"></a>지원됨
 - `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다.
-
-### <a name="unsupported"></a>지원되지 않음
-- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 

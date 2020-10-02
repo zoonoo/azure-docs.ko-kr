@@ -10,6 +10,10 @@
       href: language-support.md
     - name: 지역 지원
       href: regions.md
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: 할당량 및 제한
+      href: speech-services-quotas-and-limits.md
     - name: Docs의 새로운 기능
       href: whats-new.md
 - name: 음성 텍스트 변환
@@ -347,6 +351,8 @@
       items:
         - name: 음성 도우미란?
           href: voice-assistants.md
+        - name: 음성 도우미 샘플(GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
     - name: 사용자 지정 명령
       items:
         - name: 사용자 지정 명령이란?
@@ -459,11 +465,58 @@
       items:
         - name: Speaker Recognition REST API
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Hosting
+- name: 도구
   items:
-    - name: 호스팅 설명서
-      href: index-hosting.yml
-    - name: 방법 가이드
+    - name: Speech SDK
+      items:
+        - name: Speech SDK 개요
+          href: speech-sdk.md
+        - name: Speech SDK 설치
+          href: quickstarts/setup-platform.md
+        - name: 음성 SDK 릴리스 정보
+          href: releasenotes.md
+        - name: 참조
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: C#
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+    - name: Speech CLI
+      displayName: SPX
+      items:
+        - name: Speech CLI 개요
+          displayName: What is SPX?
+          href: spx-overview.md
+        - name: Speech CLI 기본 사항
+          displayName: SPX basics
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Speech Studio 개요
+          href: 'https://speech.microsoft.com'
+        - name: Speech Studio를 사용하여 사용자 지정 명령 앱 만들기
+          href: quickstart-custom-speech-commands-create-new.md
+- name: 배포
+  items:
+    - name: 로깅 사용
+      href: how-to-use-logging.md
+    - name: 메모리 사용량 추적
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Linux용 OpenSSL 구성
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: RHEL/CentOS 7 구성
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: 컨테이너
       items:
         - name: 음성 컨테이너 설치 및 실행
           displayName: 'containers,install container,run container'
@@ -479,53 +532,8 @@
         - name: Azure 컨테이너 인스턴스의 음성 컨테이너
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
-    - name: 리소스
-      items:
         - name: 컨테이너 FAQ
           href: speech-container-faq.md
-- name: Speech SDK
-  items:
-    - name: Speech SDK 개요
-      href: speech-sdk.md
-    - name: Speech SDK 설치
-      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-      href: quickstarts/setup-platform.md
-    - name: 방법 가이드
-      items:
-        - name: 로깅 사용
-          href: how-to-use-logging.md
-        - name: 메모리 사용량 추적
-          href: how-to-track-speech-sdk-memory-usage.md
-        - name: Linux용 OpenSSL 구성
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-          href: how-to-configure-openssl-linux.md
-        - name: RHEL/CentOS 7 구성
-          href: how-to-configure-rhel-centos-7.md
-          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
-    - name: 샘플
-      items:
-        - name: Speech SDK 샘플(GitHub)
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: 음성 디바이스 SDK 샘플(GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-        - name: 음성 도우미 샘플(GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
-    - name: 참조
-      items:
-        - name: C++
-          href: 'https://aka.ms/csspeech/cppref'
-        - name: C#
-          href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java
-          href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript
-          href: 'https://aka.ms/csspeech/javascriptref'
-        - name: Objective-C
-          href: 'https://aka.ms/csspeech/objectivecref'
-        - name: Python
-          href: 'https://aka.ms/csspeech/pythonref'
-        - name: 음성 SDK 릴리스 정보
-          href: releasenotes.md
 - name: 디바이스
   items:
     - name: 음성 디바이스 설명서
@@ -536,6 +544,8 @@
           href: speech-devices-sdk.md
         - name: 음성 디바이스 SDK 가져오기
           href: get-speech-devices-sdk.md
+        - name: 음성 디바이스 SDK 샘플(GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: 하드웨어
       items:
         - name: 마이크 배열 권장 사항
@@ -560,23 +570,6 @@
       items:
         - name: 음성 디바이스 SDK 릴리스 정보
           href: devices-sdk-release-notes.md
-- name: 도구
-  items:
-    - name: Speech CLI
-      displayName: SPX
-      items:
-        - name: Speech CLI란?
-          displayName: What is SPX?
-          href: spx-overview.md
-        - name: Speech CLI 기본 사항
-          displayName: SPX basics
-          href: spx-basics.md
-    - name: Speech Studio
-      items:
-        - name: Speech Studio란?
-          href: 'https://speech.microsoft.com'
-        - name: Speech Studio를 사용하여 사용자 지정 명령 앱 만들기
-          href: quickstart-custom-speech-commands-create-new.md
 - name: 마이그레이션
   items:
     - name: Bing Speech에서
@@ -595,12 +588,8 @@
     - name: 소버린 클라우드
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: 할당량 및 한도
-      href: speech-services-quotas-and-limits.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화

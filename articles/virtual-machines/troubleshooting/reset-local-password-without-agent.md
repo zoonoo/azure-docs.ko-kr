@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: c7e6772799d98cd2997a1fe6b48efe1c7632cfaa
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598371"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650599"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM 오프라인의 로컬 Windows 암호 재설정
 Azure 게스트 에이전트 설치가 제공되는 [Azure Portal 또는 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure에서 VM의 로컬 Windows 암호를 재설정할 수 있습니다. 이 방법은 Azure VM의 암호를 재설정하는 기본 방법입니다. Azure 게스트 에이전트가 응답하지 않거나 사용자 지정 이미지를 업로드한 후 설치에 실패하는 문제가 발생하는 경우 Windows 암호를 수동으로 재설정할 수 있습니다. 이 문서에는 다른 VM에 원본 OS 가상 디스크를 연결하여 로컬 계정 암호를 재설정하는 방법을 자세히 설명합니다. 이 문서에 설명된 단계는 Windows 도메인 컨트롤러에는 적용되지 않습니다. 
@@ -59,7 +59,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 4. `\Windows\System32\GroupPolicy\Machine\Scripts\`에 `scripts.ini`를 만듭니다. 숨겨진 폴더가 표시되어 있는지 확인합니다. 필요한 경우 `Machine` 또는 `Scripts` 폴더를 만듭니다. 
    
@@ -71,10 +71,10 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="gpt.ini 만들기" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="gpt.ini 만들기":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
    
     새 암호를 정의하는 경우 VM에 대해 구성된 암호 복잡성 요구 사항을 충족해야 합니다.
 
@@ -106,31 +106,31 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
    
    * Azure Portal에서 VM을 선택한 다음, *삭제*를 클릭합니다.
      
-     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 2. 문제 해결 VM에 원본 VM의 OS 디스크를 연결합니다. 문제 해결 VM은 원본 VM의 OS 디스크와 동일한 지역에 있어야 합니다(예: `West US`).
    
    1. Azure Portal에서 문제 해결 VM을 선택합니다. *디스크* | *기존 연결*을 클릭합니다.
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
      
    2. *VHD 파일*을 선택한 다음 원본 VM을 포함하는 스토리지 계정을 선택합니다.
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
      
    3. *클래식 스토리지 계정 표시*라고 되어 있는 상자를 선택한 다음, 원본 컨테이너를 선택합니다. 원본 컨테이너는 일반적으로 *vhds*입니다.
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
      
    4. 연결할 OS vhd를 선택합니다. *선택*을 클릭하여 프로세스를 완료합니다.
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
    5. 확인을 클릭하여 디스크 연결
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 3. 원격 데스크톱을 사용하여 문제 해결 VM에 연결하고 원본 VM의 OS 디스크가 표시되는지 확인합니다.
 
@@ -140,7 +140,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
 
    3. 파일 탐색기에서 연결한 데이터 디스크를 찾습니다. 원본 VM의 VHD가 문제 해결 VM에 연결된 유일한 데이터 디스크인 경우 F: 드라이브여야 합니다.
      
-      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="gpt.ini 만들기":::
+      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 4. 원본 VM 드라이브의 `\Windows\System32\GroupPolicy`에서 `gpt.ini` 생성(`gpt.ini`가 있을 경우 `gpt.ini.bak`으로 이름 변경):
    
@@ -156,7 +156,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 5. `\Windows\System32\GroupPolicy\Machine\Scripts\`에 `scripts.ini`를 만듭니다. 숨겨진 폴더가 표시되어 있는지 확인합니다. 필요한 경우 `Machine` 또는 `Scripts` 폴더를 만듭니다.
    
@@ -168,10 +168,10 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="gpt.ini 만들기" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="gpt.ini 만들기":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
    
     새 암호를 정의하는 경우 VM에 대해 구성된 암호 복잡성 요구 사항을 충족해야 합니다.
 
@@ -181,17 +181,17 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
    
    2. 2단계에서 연결된 데이터 디스크를 선택하고 **분리**를 클릭한 다음, **확인**을 클릭합니다.
 
-     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
      
-     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 8. 원본 VM의 OS 디스크에서 VM을 만듭니다.
    
-     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="gpt.ini 만들기":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="gpt.ini 파일에 대 한 업데이트를 보여 주는 스크린샷":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>가상 머신 환경 생성 완료
 

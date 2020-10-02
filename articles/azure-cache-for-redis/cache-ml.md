@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 268293fc1391346090c1423a4290e25a57fbe666
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91637434"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650190"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 Azure Functions에 machine learning 모델 배포 
 
@@ -23,7 +23,7 @@ Redis 용 Azure Cache는 매우 성능이 뛰어나고 확장 가능 합니다. 
 > Azure Machine Learning와 Azure Functions를 모두 사용할 수 있지만 함수에 대 한 Machine Learning 서비스에서 모델을 패키징하는 기능은 미리 보기 상태입니다.  
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독- [무료로 하나를 만듭니다](https://azure.microsoft.com/free/).
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) 문서를 참조 하세요.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
@@ -318,5 +318,5 @@ print(model_package.location)
 * [Redis 용 Azure 캐시](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) 에 대 한 자세한 정보
 * [함수](/azure/azure-functions/functions-create-function-linux-custom-image) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
 * [API 참조](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* [Azure Cache for Redis를 사용하는 Python 앱 만들기](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
+* [Redis 용 Azure Cache를 사용 하는 Python 앱](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started) 만들기
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016251"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651159"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 재무 및 운영 기능 유효성 검사
 
@@ -58,7 +58,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 �
 
     | 필드 | 이미지 <img src="" width="400px">|
     | --- | --- |
-    | 패키지 개요 | [![패키지 개요 화면](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | 패키지 개요 | [!["패키지 개요" 창을 보여 주는 스크린샷](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>솔루션 승인자</li></ul> | [![패키지 개요 화면](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | 패키지 내용<ul><li>모델</li><li>소프트웨어 배포 가능 패키지</li></ul> | [![패키지 콘텐츠 화면 1](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>GER 구성</li><li>데이터베이스 백업</li></ul><br>**GER 구성** 섹션에는 아티팩트가 필요 하지 않습니다. | [![패키지 콘텐츠 화면 2](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

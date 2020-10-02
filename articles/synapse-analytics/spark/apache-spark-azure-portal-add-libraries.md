@@ -9,12 +9,12 @@ ms.date: 07/22/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: b815dd9218ac395786e7ab7ed3a02ba440fe2807
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad3231652056244fdfc814251e6caad025db77e5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260175"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649901"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
@@ -85,7 +85,7 @@ Azure Portal에서 직접 Spark 풀 (미리 보기)에 라이브러리를 설치
 
  4. 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다.
 
-![Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Python 라이브러리 추가")
+![환경 구성 파일 업로드 단추를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Python 라이브러리 추가")
 
 ### <a name="verify-installed-libraries"></a>설치 된 라이브러리 확인
 

@@ -28,6 +28,10 @@
       href: tutorial-custom-role-cli.md
 - name: 개념
   items:
+    - name: 역할 정의
+      href: role-definitions.md
+    - name: 범위
+      href: scope-overview.md
     - name: 모범 사례
       href: best-practices.md
     - name: Azure 관리에 대한 조건부 액세스
@@ -40,11 +44,7 @@
 - name: 방법 가이드
   items:
     - name: 역할 정의 나열
-      items:
-        - name: 개요
-          href: role-definitions.md
-        - name: 역할 정의 나열
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: 역할 할당 나열
       items:
         - name: 포털
@@ -57,6 +57,8 @@
           href: role-assignments-list-rest.md
     - name: 역할 할당 추가 또는 제거
       items:
+        - name: 역할 할당을 추가하는 단계
+          href: role-assignments-steps.md
         - name: 포털
           href: role-assignments-portal.md
         - name: 포털 - 게스트 사용자

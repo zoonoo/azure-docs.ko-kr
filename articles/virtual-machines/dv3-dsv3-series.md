@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: db85774dd1cf1e7dd5a284182faf354004671618
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891773"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649646"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
 
@@ -28,15 +28,13 @@ Dv3 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake
 
 Dv3 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
 
-ACU: 160-190
-
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 Nic/네트워크 대역폭 |
 |---|---|---|---|---|---|---|
@@ -54,15 +52,13 @@ Dsv3 시리즈 크기는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lak
 
 Dsv3 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
 
-ACU: 160-190
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>1</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

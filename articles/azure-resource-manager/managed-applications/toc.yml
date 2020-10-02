@@ -116,6 +116,8 @@
               href: microsoft-common-passwordbox.md
             - name: 섹션
               href: microsoft-common-section.md
+            - name: ServicePrincipalSelector
+              href: microsoft-common-serviceprincipalselector.md
             - name: 슬라이더
               href: microsoft-common-slider.md
             - name: TagsByResource
@@ -168,4 +170,4 @@
     - name: Resource Manager 템플릿 모범 사례
       href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
+      href: 'https://stackoverflow.com/questions/tagged/azure-managedapps'

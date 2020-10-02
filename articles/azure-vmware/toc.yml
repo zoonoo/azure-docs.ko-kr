@@ -4,22 +4,36 @@
   items:
     - name: Azure VMware Solution 정보
       href: introduction.md
+- name: 빠른 시작
+  items:
+    - name: 배포 전 프로세스
+      href: production-ready-deployment-steps.md
+    - name: 배포 전 검사 목록
+      href: pre-deployment-checklist.md
+    - name: 1 - Azure VMware Solution 배포
+      href: deploy-azure-vmware-solution.md
+    - name: 2- 온-프레미스에 연결
+      href: azure-vmware-solution-on-premises.md
+    - name: 3 - VMware HCX 배포 및 구성
+      href: tutorial-deploy-vmware-hcx.md
 - name: 자습서
   items:
-    - name: 1 - 네트워크 계획
+    - name: 1- 네트워크 계획 검사 목록
       href: tutorial-network-checklist.md
     - name: 2 - 프라이빗 클라우드 만들기
       href: tutorial-create-private-cloud.md
-    - name: 3 - 네트워킹 구성
-      href: tutorial-configure-networking.md
-    - name: 4 - 프라이빗 클라우드 액세스
+    - name: 3 - 프라이빗 클라우드에 액세스
       href: tutorial-access-private-cloud.md
-    - name: 5 - 프라이빗 클라우드 스케일링
-      href: tutorial-scale-private-cloud.md
-    - name: 6 - NSX-T 네트워크 세그먼트 만들기
+    - name: 4 - 네트워킹 구성
+      href: tutorial-configure-networking.md
+    - name: 5 - NSX-T 네트워크 세그먼트 만들기
       href: tutorial-nsx-t-network-segment.md
-    - name: 7 - 온-프레미스와 프라이빗 클라우드 간 피어링
+    - name: 6 - 온-프레미스에서 프라이빗 클라우드로 피어링
       href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 7 - VMware HCX 배포 및 구성
+      href: tutorial-deploy-vmware-hcx.md
+    - name: 8 - 프라이빗 클라우드 크기 조정
+      href: tutorial-scale-private-cloud.md
 - name: 개념
   items:
     - name: 프라이빗 클라우드 및 클러스터
@@ -31,11 +45,9 @@
     - name: 프라이빗 클라우드의 액세스 및 ID
       href: concepts-identity.md
     - name: 역할 기반 액세스 제어
-      href: concepts-rbac.md
+      href: concepts-role-based-access-control.md
     - name: 프라이빗 클라우드 업그레이드
       href: concepts-upgrades.md
-    - name: 프라이빗 클라우드 모니터링 및 복구
-      href: concepts-monitor-repair-private-cloud.md
 - name: 방법 가이드
   items:
     - name: Azure VMware 솔루션 사용
@@ -44,46 +56,34 @@
       href: reserved-instance.md
     - name: 마이그레이션 평가
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
-    - name: HCX 설정
-      href: hybrid-cloud-extension-installation.md
     - name: DHCP 관리
       href: manage-dhcp.md
-    - name: 재해 복구
-      href: disaster-recovery.md
+    - name: VM에 대한 재해 복구 배포
+      href: disaster-recovery-for-virtual-machines.md
     - name: 콘텐츠 라이브러리를 통해 VM 배포
-      href: deploy-vm-content-library.md
+      href: tutorial-deploy-vm-content-library.md
     - name: Azure 네이티브 통합
       items:
         - name: API Management
           href: concepts-api-management.md
         - name: 허브 및 스포크
-          href: concepts-avs-hub-and-spoke-integration.md
+          href: concepts-hub-and-spoke.md
         - name: Azure Backup 서버
           items:
             - name: Backup 서버 설정
-              href: set-up-mabs-for-avs.md
+              href: set-up-backup-server-for-azure-vmware-solution.md
             - name: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
-              href: backup-avs-vms-with-mabs.md
+              href: backup-azure-vmware-solution-virtual-machines.md
         - name: VM의 수명 주기 관리
           href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Application Gateway
-          href: protect-avs-web-apps-with-app-gateway.md
+          href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Traffic Manager
-          href: deploy-traffic-manager-to-balance-avs-workloads.md
-        - name: NetApp Files
-          href: net-app-files.md
-    - name: GitHub Enterprise 서버
-      href: github-enterprise-server.md
+          href: deploy-traffic-manager-balance-workloads.md
     - name: VMware 솔루션
       items:
         - name: vRealize Operations 설정
-          href: vrealize-operations-for-avs.md
-    - name: VMware 에코시스템
-      items:
-        - name: VM용 백업 솔루션
-          href: ecosystem-back-up-vms.md
-- name: 참조
-  items: null
+          href: vrealize-operations-for-azure-vmware-solution.md
 - name: 리소스
   items:
     - name: 문제 해결

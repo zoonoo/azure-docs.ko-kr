@@ -76,6 +76,8 @@
       href: upgrade-virtual-wan.md
     - name: 가상 허브에서 NVA 만들기
       href: How-to-nva-hub.md
+    - name: 테넌트 간 VNet 연결 만들기
+      href: cross-tenant-vnet.md
     - name: ExpressRoute
       items:
         - name: ExpressRoute 연결 만들기

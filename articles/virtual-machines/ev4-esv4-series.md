@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8a6e1013c131778bacb11bd885b9280fb6c6077
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182176"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649510"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
@@ -29,15 +29,13 @@ Ev4 시리즈 크기는 Intel Xeon &reg; Platinum 8272CL (캐스케이드 Lake)�
 
 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Esv4 크기를 사용 합니다. Esv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Ev4 시리즈와 동일 합니다.
 
-ACU: 195 - 210
-
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
@@ -55,15 +53,13 @@ Premium Storage 캐싱:  지원되지 않음
 
 Esv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Esv4 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. Evs4 시리즈 Vm은 Intel &reg; 하이퍼 스레딩 기술을 특징으로 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
 
-ACU: 195-210
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619970"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651193"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -37,7 +37,6 @@ ms.locfileid: "91619970"
 > [Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md) 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업 관리)은 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 >
 > 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
-
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -264,21 +263,21 @@ V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
 
 ## <a name="november-2018"></a>2018년 11월
 
-현재 CLI 2.0 모듈이 [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50에 제공됩니다.
+현재 CLI 2.0 모듈이 [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50에 제공됩니다.
 
 ### <a name="new-commands"></a>새 명령
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다. 자세한 내용은 [미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
+- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - 미디어 예약 단위를 관리할 수 있습니다. 자세한 내용은 [미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
 
 ### <a name="new-features-and-breaking-changes"></a>새 기능과 주요 변경 내용
 

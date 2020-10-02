@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 15a53ddaa669f0720632901edfd58eb273518867
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 5b0301a57c4223666ac612b997c87c87271fe49b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049624"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649527"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4 및 Edsv4 시리즈
 
@@ -24,15 +24,13 @@ Edv4 및 Edsv4 시리즈는 하이퍼 스레드 구성에서 Intel&reg; Xeon&reg
 
 Edv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프로세서에서 실행됩니다. Edv4 가상 머신 크기는 대용량 고속 로컬 SSD 스토리지(최대 2,400GiB) 외에 RAM 504GiB가 탑재됩니다. 이 가상 머신은 메모리 집약적인 엔터프라이즈 애플리케이션과 지연이 낮은 고속 로컬 스토리지가 필요한 애플리케이션에 이상적입니다. 표준 SSD 및 표준 HDD 디스크 스토리지를 Edv4 VM에 연결할 수 있습니다. 
 
-ACU: 195 - 210
-
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -50,15 +48,13 @@ Premium Storage 캐싱:  지원되지 않음
 
 Edsv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프로세서에서 실행됩니다. Edsv4 가상 머신 크기는 대용량 고속 로컬 SSD 스토리지(최대 2,400GiB) 외에 RAM 504GiB가 탑재됩니다. 이 가상 머신은 메모리 집약적인 엔터프라이즈 애플리케이션과 지연이 낮은 고속 로컬 스토리지가 필요한 애플리케이션에 이상적입니다.
 
-ACU: 195-210
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|

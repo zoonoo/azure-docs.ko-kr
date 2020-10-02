@@ -17,6 +17,9 @@
     - name: 정책 할당 - Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: 정책 할당 - .NET
+      displayName: 'assign, compliance'
+      href: ./assign-policy-dotnet.md
     - name: 정책 할당 - JavaScript
       displayName: 'assign, compliance'
       href: ./assign-policy-javascript.md
@@ -139,6 +142,9 @@
     - name: 배열 속성에 대한 작성자 정책
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Azure Policy 리소스 내보내기
+      displayName: 'github, json, definition'
+      href: ./how-to/export-resources.md
     - name: 게스트 구성
       items:
         - name: Windows에서 게스트 구성 정책 만들기
@@ -282,7 +288,7 @@
           href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
         - name: 게스트 구성 비디오
           items:
-            - name: 시작하기
+            - name: 시작
               href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
             - name: 해석 이니셔티브
               href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'

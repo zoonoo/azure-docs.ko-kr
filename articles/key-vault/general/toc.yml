@@ -43,6 +43,8 @@
       href: basic-concepts.md
     - name: 보안
       items:
+        - name: Key Vault 인증 기본 사항
+          href: authentication-fundamentals.md
         - name: Azure Key Vault 보안
           href: overview-security.md
         - name: Key Vault 사용에 대한 모범 사례 - Azure Key Vault
@@ -130,6 +132,8 @@
           href: access-behind-firewall.md
     - name: 일시 삭제
       items:
+        - name: Key Vault 복구(일시 삭제 및 보호 제거)
+          href: key-vault-recovery.md
         - name: CLI에서 일시 삭제 사용
           href: soft-delete-cli.md
         - name: PowerShell에서 일시 삭제 사용

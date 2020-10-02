@@ -172,7 +172,7 @@
           href: connect-azure-stack.md
     - name: 사용자 및 엔터티 동작 분석 사용
       href: enable-entity-behavior-analytics.md
-    - name: 다중 테넌트 작업(MSSP)
+    - name: 다중 테넌트 관리(MSSP)
       href: multiple-tenants-service-providers.md
     - name: 여러 작업 영역에서 인시던트 작업
       href: multiple-workspace-view.md

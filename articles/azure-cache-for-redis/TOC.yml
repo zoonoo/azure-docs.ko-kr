@@ -43,6 +43,8 @@
           href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: 순위표 만들기
       href: cache-web-app-cache-aside-leaderboard.md
+    - name: 기계 학습 모델 배포
+      href: cache-ml.md
     - name: Azure PowerShell로 관리
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI로 관리
@@ -68,6 +70,8 @@
       items:
         - name: 캐시 계층 선택
           href: cache-overview.md#choosing-the-right-tier
+        - name: Redis 버전 설정
+          href: cache-how-to-version.md
         - name: 클러스터링을 통해 캐시 배포
           href: cache-how-to-premium-clustering.md
         - name: Redis 데이터 지속성을 통해 캐시 지속

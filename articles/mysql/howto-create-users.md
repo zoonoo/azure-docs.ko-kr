@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 9b79a0f21135e91ab72a4c8a9e604b84b67df0a9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: ed653ffb6fc24a75170d51d345c0c64724ff90f1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902821"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651024"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 데이터베이스 및 사용자 만들기
 
@@ -35,7 +35,8 @@ Azure Database for MySQL을 처음으로 만들면 서버 관리자 로그인 �
 Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계정을 사용하여 추가 사용자를 만들고 관리 사용자 권한을 부여할 수 있습니다. 또한 서버 관리자 계정은 개별 데이터베이스 스키마에 액세스할 수 있는 권한의 사용자가 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> SUPER 권한 및 DBA 역할은 지원 되지 않습니다. 제한 사항 문서의 [권한](concepts-limits.md#privilege-support) 을 검토 하 여 서비스에서 지원 되지 않는 기능을 파악 합니다.
+> SUPER 권한 및 DBA 역할은 지원 되지 않습니다. 제한 사항 문서의 [권한](concepts-limits.md#privileges--data-manipulation-support) 을 검토 하 여 서비스에서 지원 되지 않는 기능을 파악 합니다.<br><br>
+> "Validate_password" 및 "caching_sha2_password"와 같은 암호 플러그 인은 서비스에서 지원 되지 않습니다.
 
 ## <a name="how-to-create-database-with-non-admin-user-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 관리자가 아닌 사용자로 데이터베이스를 만드는 방법
 
@@ -74,7 +75,7 @@ Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계�
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-# <a name="flexible-server"></a>[유연한 서버](#tab/flexible-server)
+# <a name="flexible-server"></a>[유동 서버](#tab/flexible-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
@@ -106,6 +107,10 @@ Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계�
 
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
+
+## <a name="azure_superuser"></a>azure_superuser
+
+"Azure_superuser" 라는 사용자를 사용 하 여 모든 Azure Database for MySQL 서버를 만듭니다. 모니터링, 백업 및 기타 정기 유지 관리를 수행 하기 위해 서버를 관리 하기 위해 Microsoft에서 만든 시스템 계정입니다. 또한 콜 공학 엔지니어가 인증서 인증을 사용 하 여 인시던트 중에이 계정을 사용 하 여 서버에 액세스 하 고 JIT (just-in-time) 프로세스를 사용 하 여 액세스를 요청 해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

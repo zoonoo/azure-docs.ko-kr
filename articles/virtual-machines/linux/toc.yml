@@ -595,10 +595,6 @@
                   href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Bastion을 사용하여 연결
               href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-              items:
-                - name: Bastion SSH 연결
-            - name: Bastion RDP 연결
-              href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Encrypt
           items:
             - name: Linux용 디스크 암호화 시나리오
@@ -625,7 +621,7 @@
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
               href: disk-encryption-faq.md
-            - name: 디스크 암호화 - 이전 버전(Azure AD)
+            - name: 디스크 암호화 - 이전 버전
               items:
                 - name: 개요
                   href: disk-encryption-overview-aad.md
@@ -640,6 +636,7 @@
         - name: 주요 자격 증명 모음 만들기
           href: key-vault-setup.md
         - name: SSH 키 생성 및 사용
+          displayName: ssh keys ssh openssh
           items:
             - name: Linux 또는 macOS
               href: mac-create-ssh-keys.md
@@ -1157,7 +1154,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 유휴 시 Load Balancer TCP 재설정
+title: Azure에서 TCP 다시 설정 및 유휴 시간 제한 Load Balancer
 titleSuffix: Azure Load Balancer
 description: 이 문서에서는 유휴 시간 제한에 양방향 TCP RST 패킷을 사용 하는 Azure Load Balancer에 대해 알아봅니다.
 services: load-balancer
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2019
+ms.date: 11/09/2019
 ms.author: allensu
-ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808473"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651278"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>유휴 상태에서 TCP를 재설정하는 Load Balancer
+# <a name="load-balancer-tcp-reset-and-idle-timeout"></a>TCP 다시 설정 및 유휴 시간 제한 Load Balancer
 
 [표준 Load Balancer](load-balancer-standard-overview.md)를 지정된 규칙에 대해 TCP Reset on Idle을 사용하도록 설정하여 시나리오용으로 예측 가능성이 더 높은 애플리케이션 동작을 만들 수 있습니다. Load Balancer의 기본 동작은 흐름의 유휴 시간이 초과되면 흐름을 자동으로 끊는 것입니다.  이 기능을 사용하도록 설정하면 Load Balancer가 유휴 시간 초과 시 양방향 TCP Reset(TCP RST 패킷)을 전송합니다.  이 패킷은 연결 시간이 초과되어 더 이상 연결을 사용할 수 없음을 애플리케이션 엔드포인트에 알립니다.  엔드포인트는 필요한 경우 새 연결을 즉시 설정할 수 있습니다.
 
 ![Load Balancer TCP 재설정](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
+## <a name="tcp-reset"></a>TCP 다시 설정
+
 이 기본 동작을 변경하고 인바운드 NAT 규칙, 부하 분산 규칙 및 [아웃바운드 규칙](https://aka.ms/lboutboundrules)에서 유휴 시간 초과 시 TCP 재설정 보내기를 사용하도록 설정합니다.  규칙에서 사용하도록 설정하면 Load Balancer는 모든 일치 흐름의 유휴 시간 초과 시 클라이언트 및 서버 엔드포인트 둘 다에 양방향 TCP 재설정(TCP RST 패킷)을 보냅니다.
 
 TCP RST 패킷을 수신하는 엔드포인트는 즉시 해당 소켓을 닫습니다. 그러면 연결 해제가 발생했으며 동일한 TCP 연결의 이후 통신은 실패할 것이라는 알림이 곧바로 엔드포인트에 제공됩니다.  애플리케이션은 소켓이 닫히면 연결을 제거할 수 있으며 필요에 따라 TCP 연결 시간이 초과될 때까지 기다리지 않고 연결을 다시 설정할 수 있습니다.
@@ -36,41 +38,24 @@ TCP RST 패킷을 수신하는 엔드포인트는 즉시 해당 소켓을 닫습
 
 종단 간 시나리오 전체를 신중하게 검토하여 TCP 재설정을 사용하도록 설정하고 유휴 시간 초과를 조정하는 것이 유리한지, 애플리케이션이 원하는 대로 동작하게 하려면 추가 조치가 필요한지 여부를 결정합니다.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>유휴 시간 초과 시 TCP 재설정 사용
+## <a name="configurable-tcp-idle-timeout"></a>구성 가능한 TCP 유휴 시간 제한
 
-API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시간 초과 시 양방향 TCP 재설정 보내기를 사용하도록 설정할 수 있습니다.
+Azure Load Balancer의 유휴 시간 제한 설정은 4 분 120 분입니다. 기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다.
 
-```json
-      "loadBalancingRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+연결이 닫혀 있는 경우 클라이언트 애플리케이션이 다음 오류 메시지를 수신할 수 있습니다. “기본 연결이 닫혔습니다. 활성 상태로 유지될 것으로 예상된 연결이 서버에서 닫혔습니다.”
 
-```json
-      "inboundNatRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 이러한 [.NET 예제](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)를 참조하세요. 연결 유지를 사용하면 연결 비활성화 기간 동안 패킷이 전송됩니다. 연결 유지 패킷은 유휴 시간 제한 값에 도달하지 않고 연결이 장기간 유지되도록 합니다.
 
-```json
-      "outboundRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+이 설정은 인바운드 연결에서만 작동합니다. 연결 끊김을 방지하려면 유휴 시간 제한 설정보다 낮은 간격으로 TCP 연결 유지를 구성하거나 유휴 시간 제한 값을 늘립니다. 이러한 시나리오를 지원하기 위해 구성 가능한 유휴 시간 제한에 대한 지원이 추가되었습니다.
 
-## <a name="region-availability"></a><a name="regions"></a>지역 가용성
+TCP 연결 유지는 배터리 수명이 제한되지 않는 시나리오에서 작동합니다. 모바일 애플리케이션에는 권장되지 않습니다. 모바일 애플리케이션에서 TCP 연결 유지를 사용하면 디바이스 배터리가 더 빨리 방전될 수 있습니다.
 
-모든 지역에서 사용 가능합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- Tcp RST 설정 된 상태에서 TCP 연결 중에만 전송 됩니다.
+- Tcp는 설정 된 상태에서 TCP를 연결 하는 동안에만 전송 됩니다.
+- HA 포트가 구성 된 내부 부하 분산 장치에 대해서는 TCP 다시 설정이 전송 되지 않습니다.
+- TCP 유휴 시간 제한은 UDP 프로토콜의 부하 분산 규칙에 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
