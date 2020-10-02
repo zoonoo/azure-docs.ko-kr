@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244672"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604294"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>자습서: IoT 디바이스에서 Custom Vision을 사용하여 시각적 상태 보고
 
@@ -52,7 +52,7 @@ IoT 시각적 경고 앱은 연속 루프에서 실행되며, 다음과 같은 �
 * **학습된 모델 대기**: 이 상태에서 앱은 매초 Custom Vision API를 호출하여 대상 프로젝트에 학습된 반복이 포함되어 있는지 여부를 확인합니다. 학습된 반복을 찾으면 해당 ONNX 모델을 로컬 파일에 다운로드하고 **점수 매기기** 상태로 전환합니다.
 * **점수 매기기**: 이 상태에서 앱은 Windows ML을 사용하여 로컬 ONNX 모델에 대해 카메라에서 단일 프레임을 평가합니다. 결과 이미지 분류가 화면에 표시되고 IoT Hub에 메시지로 전송됩니다. 그러면 앱은 새 이미지의 점수를 매기기 전에 1초 동안 대기합니다.
 
-## <a name="understand-the-code-structure"></a>코드 구조 이해
+## <a name="examine-the-code-structure"></a>코드 구조 검사
 
 다음 파일은 앱의 주요 기능을 처리합니다.
 
@@ -98,13 +98,13 @@ ARM 프로세서를 사용하여 IoT 디바이스에 배포하는 경우 대상 
 
 ## <a name="train-the-custom-vision-model"></a>Custom Vision 모델 학습
 
-앱은 이미지 캡처를 완료한 후 해당 이미지를 업로드한 다음 **학습된 모델 대기** 상태로 전환합니다. 이제 [Custom Vision 포털](https://www.customvision.ai/)로 이동하여 새 학습 이미지를 기반으로 모델을 작성해야 합니다. 다음 애니메이션은 이 프로세스의 예를 보여 줍니다.
+앱은 이미지 캡처를 완료한 후 해당 이미지를 업로드한 다음 **학습된 모델 대기** 상태로 전환합니다. 이제 [Custom Vision 웹 사이트](https://www.customvision.ai/)로 이동하여 새 학습 이미지를 기반으로 모델을 빌드해야 합니다. 다음 애니메이션은 이 프로세스의 예를 보여 줍니다.
 
 ![애니메이션: 바나나의 여러 이미지에 태그 지정](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 사용자 고유의 시나리오를 사용하여 이 프로세스를 반복하려면 다음을 수행합니다.
 
-1. [Custom Vision 포털](http://customvision.ai)에 로그인합니다.
+1. [Custom Vision 웹 사이트](http://customvision.ai)에 로그인합니다.
 1. 이제 앱에서 업로드한 모든 학습 이미지를 포함하는 대상 프로젝트를 찾습니다.
 1. 식별하려는 각 시각적 상태에 대해 적절한 이미지를 선택하고 태그를 수동으로 적용합니다.
     * 예를 들어, 빈 방과 사람이 있는 방을 구분하려면 사람이 있는 5개 이상의 이미지에 새 클래스 **People**로 태그를 지정하고 사람이 없는 5개 이상의 이미지에 **Negative** 태그를 지정하는 것이 좋습니다. 이렇게 하면 모델을 두 상태로 구분할 수 있습니다.

@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77426363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972429"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>자습서: IoT Central에서 연결된 폐기물 관리 애플리케이션 만들기
 
@@ -131,13 +131,13 @@ Azure IoT Central의 디바이스 템플릿은 원격 분석, 속성 또는 명�
 
 1. IoT Central에서 애플리케이션의 왼쪽 창에 있는 **디바이스 템플릿**을 클릭합니다. 
 
-    ![디바이스 템플릿](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![애플리케이션의 디바이스 템플릿 목록을 보여주는 스크린샷](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. 디바이스 템플릿 목록에 **연결된 폐기물 수집통**이 표시됩니다. 이름을 클릭하여 엽니다.
 
 3. 디바이스 템플릿 기능을 숙지합니다. *충전 수준*, *냄새 측정기*, *중량*, *위치* 등의 센서가 정의된 것을 알 수 있습니다.
 
-   ![디바이스 템플릿](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![연결된 휴지통 디바이스 템플릿의 세부 정보를 보여주는 스크린샷](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -265,8 +265,9 @@ IoT Central 작업을 사용하면 여러 디바이스에서 디바이스 또는
 1. IoT Central 애플리케이션의 왼쪽 창에서 [관리] 탭을 엽니다.
 2. [애플리케이션 설정]을 선택하고 페이지 아래쪽에서 [삭제] 단추를 클릭합니다.
 
-  
-
 ## <a name="next-steps"></a>다음 단계
 
-* [연결된 폐기물 관리 개념](./concepts-connectedwastemanagement-architecture.md)에 대해 자세히 알아보기
+* 자세히 알아보기
+ 
+> [!div class="nextstepaction"]
+> [연결된 폐기물 관리 개념](./concepts-connectedwastemanagement-architecture.md)
