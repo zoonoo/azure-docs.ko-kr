@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252694"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652626"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -29,11 +29,11 @@ ms.locfileid: "86252694"
 | 예제 시나리오 | 트리거 | 입력 바인딩 | 출력 바인딩 |
 |-------------|---------|---------------|----------------|
 | 새 큐 메시지가 도착 하면 함수를 실행 하 여 다른 큐에 기록 합니다. | 큐<sup>*</sup> | *없음* | 큐<sup>*</sup> |
-|예약 된 작업은 Blob Storage 내용을 읽고 새 Cosmos DB 문서를 만듭니다. | 타이머 | Blob Storage | Cosmos DB |
+|예약 된 작업은 Blob Storage 내용을 읽고 새 Cosmos DB 문서를 만듭니다. | Timer | Blob Storage | Cosmos DB |
 |Event Grid은 Blob Storage에서 이미지를 읽고 Cosmos DB의 문서에서 전자 메일을 보내는 데 사용 됩니다. | Event Grid | Blob Storage 및 Cosmos DB | SendGrid |
 | Microsoft Graph를 사용 하 여 Excel 시트를 업데이트 하는 webhook입니다. | HTTP | *없음* | Microsoft Graph |
 
-<sup>\*</sup>다른 큐를 나타냄
+<sup>\*</sup> 다른 큐를 나타냄
 
 이러한 예제는 완전 하지는 않지만 트리거와 바인딩을 함께 사용할 수 있는 방법을 설명 하기 위해 제공 됩니다.
 
@@ -73,11 +73,21 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 
 [클래스 라이브러리의 특성](functions-dotnet-class-library.md)을 사용하여 트리거 및 바인딩을 구성하는 경우 방향은 특성 생성자에서 제공되거나 매개 변수 형식에서 유추됩니다.
 
+## <a name="add-bindings-to-a-function"></a>함수에 바인딩 추가
+
+입력 또는 출력 바인딩을 사용 하 여 함수를 다른 서비스에 연결할 수 있습니다. 함수에 특정 정의를 추가 하 여 바인딩을 추가 합니다. 방법에 대 한 자세한 내용은 [Azure Functions에서 기존 함수에 바인딩 추가](add-bindings-existing-function.md)를 참조 하세요.  
+
 ## <a name="supported-bindings"></a>지원되는 바인딩
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
+
+## <a name="bindings-code-examples"></a>바인딩 코드 예제
+
+다음 표를 사용 하 여 함수에서 바인딩을 사용 하는 방법을 보여 주는 특정 바인딩 유형에 대 한 예제를 찾을 수 있습니다. 먼저 프로젝트에 해당 하는 언어 탭을 선택 합니다. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>리소스
 - [바인딩 식 및 패턴](./functions-bindings-expressions-patterns.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510350"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653250"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -119,7 +119,7 @@ StorSimple을 사용 하면 볼륨 클론의 형태로 백업을 수행할 수 �
 
 :::row:::
     :::column:::
-        ![문서의이 하위 섹션에 집중 하는 데 도움이 되는 이전 개요 이미지의 일부를 보여 주는 이미지입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+        ![이제 VM을 프로 비전 하 고 iSCSI를 통해 해당 VM에 볼륨 클론 (또는 여러 개)을 노출 하는 방법을 보여 주는 그림입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         Azure의 StorSimple 8020 가상 어플라이언스에서 초기 복제본을 사용할 수 있게 되 면 이제 VM을 프로 비전 하 고 iSCSI를 통해 해당 VM에 볼륨 클론 (또는 여러 개)을 노출 합니다.
@@ -175,7 +175,7 @@ Azure의 Windows Server 가상 머신은 마이그레이션하는 동안에만 �
 
 :::row:::
     :::column:::
-        ![문서의이 하위 섹션에 집중 하는 데 도움이 되는 이전 개요 이미지의 일부를 보여 주는 이미지입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+        ![다양 한 Azure 파일 공유를 결정 및 프로 비전 하 고 StorSimple 어플라이언스 교체로 Windows Server 온-프레미스를 만드는 데 필요한 필요성을 보여 주는 그림입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         이 단계에서는 다양 한 Azure 파일 공유를 결정 하 고 프로 비전 하며, Windows Server 온-프레미스를 StorSimple 어플라이언스 교체로 만들고 Azure File Sync에 대해 해당 서버를 구성 합니다. 
@@ -225,7 +225,7 @@ Windows 서버에서 저장소를 추가 하거나 제거할 수 있습니다. �
 
 :::row:::
     :::column:::
-        ![문서의이 하위 섹션에 집중 하는 데 도움이 되는 이전 개요 이미지의 일부를 보여 주는 이미지입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        ![Azure File Sync을 통해 VM을 연결 하 고 StorSimple 볼륨 클론에서 파일을 처음으로 이동 하는 방법을 보여 주는 그림입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         이 단계에서는 iSCSI 탑재 된 첫 번째 볼륨 클론을 사용 하 여 Azure VM에 대해 다룹니다. 이 단계에서는 Azure File Sync을 통해 VM을 연결 하 고 StorSimple 볼륨 클론에서 파일을 처음으로 이동 하는 작업을 시작 합니다.
@@ -252,10 +252,10 @@ Azure File Sync은 탑재 된 iSCSI StorSimple 볼륨에서 대상 Azure 파일 
 > [!IMPORTANT]
 > 이렇게 하려면 Azure File Sync를 구성 하기 전에 서버에서 레지스트리 키를 설정 해야 합니다.
 
-1. VM의 시스템 드라이브에 새 디렉터리를 만듭니다. 탑재 된 볼륨 클론 대신 Azure File Sync 정보를 유지 해야 합니다. 예: `"C:\syncmetadata"`
-2. Regedit를 열고 다음 레지스트리 하이브를 찾습니다.`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
+1. VM의 시스템 드라이브에 새 디렉터리를 만듭니다. 탑재 된 볼륨 클론 대신 Azure File Sync 정보를 유지 해야 합니다. `"C:\syncmetadata"`
+2. Regedit를 열고 다음 레지스트리 하이브를 찾습니다. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. String 형식의 새 키를 만듭니다. ***MetadataRootPath***
-4. 시스템 볼륨에서 만든 디렉터리에 대 한 전체 경로를 설정 합니다. 예를 들면 다음과 같습니다.`C:\syncmetadata"`
+4. 시스템 볼륨에서 만든 디렉터리에 대 한 전체 경로를 설정 합니다. 예를 들면 다음과 같습니다. `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Azure VM에서 Azure File Sync 구성
 
@@ -281,7 +281,7 @@ Azure VM을 통해 Azure 파일 공유로 이동 하는 초기 볼륨 복제 데
 
 :::row:::
     :::column:::
-        ![문서의이 하위 섹션에 집중 하는 데 도움이 되는 이전 개요 이미지의 일부를 보여 주는 이미지입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+        ![여러 볼륨 클론을 사용 하 여 가동 중지 시간을 최소화 하 고 동기화가 완료 되 면 표시 하는 방법을 보여 주는 그림입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         이전 단계에서 설명한 대로 초기 동기화는 시간이 오래 걸릴 수 있습니다. 사용자와 응용 프로그램이 여전히 온-프레미스 StorSimple 8100 또는 8600 어플라이언스에 액세스 하 고 있습니다. 즉, 변경 내용이 누적 되며 매일 라이브 데이터와 초기 볼륨 클론 사이에 더 큰 델타를 사용 하는 것은 현재 마이그레이션, 폼입니다. 이 섹션에서는 여러 볼륨 클론을 사용 하 고 동기화가 완료 되 면이를 알리는 방법으로 가동 중지 시간을 최소화 하는 방법을 알아봅니다.
@@ -338,7 +338,7 @@ Azure VM을 통해 Azure 파일 공유로 이동 하는 초기 볼륨 복제 데
 1. 동기화 되지 않은 파일이 있을 수 있습니다 (위의 이벤트 로그에서 **Peritemerrors** 참조).
 2. StorSimple 어플라이언스에는 채워진 캐시와 Windows Server가 현재 로컬에 저장 된 파일 콘텐츠가 없는 네임 스페이스만 있습니다.
 
-![문서의이 하위 섹션에 집중 하는 데 도움이 되는 이전 개요 이미지의 일부를 보여 주는 이미지입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+![Windows Server의 캐시를 어플라이언스의 상태로 전환 하 고 최종 RoboCopy를 사용 하 여 남은 파일이 없는지 확인 하는 방법을 보여 주는 그림입니다.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 Windows Server의 캐시를 어플라이언스의 상태로 전환 하 고 최종 RoboCopy를 사용 하 여 파일이 남아 있지 않은지 확인할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959060"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652043"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -264,13 +264,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. 큐에 대한 이름으로 *queue*를 입력한 다음, **확인**을 선택합니다.
 
-   ![큐 만들기](./media/webjobs-sdk-get-started/create-queue.png)
+   ![큐를 만들고 이름을 "queue"로 하는 위치를 보여 주는 스크린샷 ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. 새 큐에 대한 노드를 마우스 오른쪽 단추로 클릭한 다음, **큐 보기**를 선택합니다.
 
 1. **메시지 추가** 아이콘을 선택합니다.
 
-   ![큐 만들기](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![메시지 추가 아이콘을 강조 표시 하는 스크린샷](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. **메시지 추가** 대화 상자에서 *Hello World!* 를 **메시지 텍스트**로 입력한 다음, **확인**을 선택합니다. 이제 큐에 메시지가 있습니다.
 

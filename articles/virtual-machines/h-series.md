@@ -8,28 +8,26 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: b1f30e91b9ce96daf8b2eb8ac6c8cb38b86b347f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 56112107bbd1bb506fcbff615ec524e043d54d1a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594410"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653726"
 ---
 # <a name="h-series"></a>H 시리즈
 
 H 시리즈 Vm은 높은 CPU 주파수 또는 핵심 요구 사항 당 대용량 메모리를 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. H 시리즈 Vm은 8 또는 16 Intel Xeon E5 2667 v3 프로세서 코어, CPU 코어 당 최대 14gb RAM, 하이퍼스레딩을 갖지 않습니다. H 시리즈 기능은 일관 된 RDMA 성능을 위해 비 블로킹 된 fat 트리 구성에서 56 g b/초 Mellanox Mellanox DR InfiniBand을 제공 합니다. H 시리즈 Vm은 현재 SR-IOV를 사용 하도록 설정 되지 않으며 Intel MPI 5.x 및 MS MPI를 지원 합니다.
 
-ACU: 290-300
+[Acu](acu.md): 290-300<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱: 지원되지 않음
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
-
-| 크기 | vCPU | 프로세서 | 메모리(GB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 저장소 (GB) | 최대 데이터 디스크 수 | 최대 디스크 처리량: IOPS | 최대 이더넷 Nic |
+| 크기 | vCPU | 프로세서 | 메모리(GiB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 디스크 처리량: IOPS | 최대 이더넷 Nic |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8   | 8  | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
 | Standard_H16  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |

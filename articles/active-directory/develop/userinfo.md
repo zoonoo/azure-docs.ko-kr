@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119643"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653233"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft id 플랫폼 UserInfo 끝점
 
@@ -28,7 +28,7 @@ ms.locfileid: "88119643"
 
 에서 Openid connect Connect 검색 문서를 사용 하 여 사용자 정보 끝점을 프로그래밍 방식으로 검색할 수 있습니다 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . `userinfo_endpoint`이 패턴은 필드에 나열 되며이 패턴은 올바른 끝점을 가리키는 데 도움이 되는 클라우드 전체에서 사용할 수 있습니다.  앱에서 사용자 정보 끝점을 하드 코딩 하는 것은 권장 되지 않습니다. 대신 OIDC 검색 문서를 사용 하 여이 끝점을 대신 찾습니다.
 
-Openid connect Connect 사양의 일부로 사용자 정보 끝점은 사용자에 대 한 정보를 얻기 위해 [Oidc 규격 라이브러리](https://openid.net/developers/certified/) 에서 자동으로 호출 되는 경우가 많습니다.  이러한 끝점을 호스팅하지 않고 Microsoft id 플랫폼은 표준 규격이 아니고 일부 라이브러리가 실패 합니다.  [OIDC 표준에서 식별 된 클레임 목록](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) 에서 동의한에 대 한 이름 클레임, 주체 클레임 및 전자 메일을 생성 합니다.  
+Openid connect Connect 사양의 일부로 사용자 정보 끝점은 사용자에 대 한 정보를 얻기 위해 [Oidc 규격 라이브러리](https://openid.net/developers/certified/)  에서 자동으로 호출 되는 경우가 많습니다.  이러한 끝점을 호스팅하지 않고 Microsoft id 플랫폼은 표준 규격이 아니고 일부 라이브러리가 실패 합니다.  [OIDC 표준에서 식별 된 클레임 목록](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) 에서 동의한에 대 한 이름 클레임, 주체 클레임 및 전자 메일을 생성 합니다.  
 
 ## <a name="consider-use-an-id-token-instead"></a>고려 사항: ID 토큰을 대신 사용 합니다.
 
@@ -42,7 +42,7 @@ UserInfo는 Microsoft Graph에 대 한 토큰을 가져올 때 받은 액세스 
 
 ### <a name="permissions"></a>사용 권한
 
-다음 [Oidc 사용 권한을](v2-permissions-and-consent.md#openid-connect-scopes) 사용 하 여 UserInfo API를 호출 합니다. `openid`는 필수 이며 `profile` 및 범위는 `email` 응답에 추가 정보가 제공 되도록 합니다.
+다음 [Oidc 사용 권한을](v2-permissions-and-consent.md#openid-connect-scopes) 사용 하 여 UserInfo API를 호출 합니다. `openid` 는 필수 이며 `profile` 및 범위는 `email` 응답에 추가 정보가 제공 되도록 합니다.
 
 |사용 권한 유형      | 사용 권한    |
 |:--------------------|:---------------------------------------------------------|
@@ -81,7 +81,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-을 포함 하 여 여기에 나열 된 클레임은 앱에 대해 `sub` 발급 된 [ID 토큰](id-tokens.md) 에서 앱이 표시 하는 것과 동일한 클레임입니다.  
+여기에 나열 된 클레임은 UserInfo 끝점이 반환할 수 있는 모든 클레임입니다.  앱에 발급 된 [ID 토큰](id-tokens.md) 에서 앱이 표시 하는 것과 동일한 값입니다.  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>UserInfo 끝점에 대 한 참고 사항 및 주의 사항
 

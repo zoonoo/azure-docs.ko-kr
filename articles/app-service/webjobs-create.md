@@ -8,14 +8,14 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085147"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652009"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs를 사용 하 여 백그라운드 작업 실행
 
 이 문서에서는 실행 파일 또는 스크립트를 업로드하기 위해 [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법을 보여줍니다. Visual Studio를 사용하여 WebJobs를 개발하고 배포하는 방법에 대한 정보는 [Visual Studio를 사용하여 WebJobs 배포](webjobs-dotnet-deploy-vs.md)를 참조하세요.
 
@@ -73,14 +73,14 @@ when making changes in one don't forget the other two.
 
 3. 표에 지정된 대로 **WebJob 추가** 설정을 사용합니다.
 
-   ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![구성 해야 하는 WebJob 추가 설정을 보여 주는 스크린샷](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **Type** | 계속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **크기 조정** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
+   | **형식** | 계속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **규모** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
 
 4. **확인**을 클릭합니다.
 
@@ -111,14 +111,14 @@ when making changes in one don't forget the other two.
 
 3. 표에 지정된 대로 **WebJob 추가** 설정을 사용합니다.
 
-   ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![수동으로 트리거된 WebJob을 만들기 위해 설정 해야 하는 설정을 보여 주는 스크린샷](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myTriggeredWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.|
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **Type** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **트리거** | Manual | |
+   | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **트리거** | 설명서 | |
 
 4. **확인**을 클릭합니다.
 
@@ -155,8 +155,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **이름** | myScheduledWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **Type** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **트리거** | 예약됨 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
+   | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **트리거** | 예약 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
    | **CRON 식** | 0 0/20 * * * * | [CRON 식](#ncrontab-expressions)이 다음 섹션에 설명되어 있습니다. |
 
 4. **확인**을 클릭합니다.
@@ -179,7 +179,7 @@ when making changes in one don't forget the other two.
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>작업 기록 보기
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> 작업 기록 보기
 
 1. 기록을 확인하려는 WebJob을 선택하고 **로그** 단추를 선택합니다.
    

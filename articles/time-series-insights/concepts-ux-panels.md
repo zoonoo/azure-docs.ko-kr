@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488170"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653794"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
 이 문서에서는 Azure Time Series Insights Gen2 [Demo 환경](https://insights.timeseries.azure.com/preview/demo)에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Time Series Insights 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 

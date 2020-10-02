@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320084"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651636"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>스토리지 리소스 삭제 오류 문제 해결
 
@@ -95,7 +95,7 @@ VHD가 데이터 디스크인 경우 VM에서 VHD를 분리하여 임대를 제�
 7. **디스크** 창 상단에서 **편집**을 선택합니다.
 8. 삭제할 데이터 디스크의 **분리 아이콘**을 클릭합니다.
 
-     ![스토리지 &quot;Blob 메타 데이터&quot; 창이 열린 포털 스크린샷](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![저장소 "Blob 메타 데이터" 창이 열려 있는 포털의 스크린샷 및 삭제할 데이터 디스크의 분리 아이콘을 강조 표시 합니다.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. **저장**을 선택합니다. 이제 디스크가 VM에서 분리되고 VHD가 더 이상 임대되지 않습니다. 임대를 해제하는 데는 몇 분 정도 걸릴 수 있습니다. 임대 해제를 확인하려면 Blob 위치로 이동한 다음 **Blob 속성** 창에서 **임대 상태**가 **잠금 해제** 또는 **사용 가능**인지 확인합니다.
 

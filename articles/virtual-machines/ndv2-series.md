@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286209"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653450"
 ---
 # <a name="updated-ndv2-series"></a>업데이트 된 NDv2 시리즈
 
@@ -24,6 +24,7 @@ NDv2 인스턴스는 TensorFlow, Pytorch, Caffe, RAPIDS 및 기타 프레임 워
 
 NDv2는 계산에 강한 확장 (VM 당 활용 8 Gpu) 및 규모 확장 (여러 Vm이 함께 작동 하는 활용)에 대해 빌드 되었습니다. 이제 NDv2 시리즈는 AI 및 ML에 대 한 분산 학습을 포함 하 여 병렬 시나리오에 고성능 클러스터링을 허용 하기 위해 HPC VM의 HB 시리즈에서 사용할 수 있는 것과 유사한 100 기가 비트 InfiniBand EDR 백 엔드 네트워킹을 지원 합니다. 이 백 엔드 네트워크는 NVIDIA의 NCCL2 라이브러리에서 사용 되는 프로토콜을 포함 하 여 모든 주요 InfiniBand 프로토콜을 지원 하므로 Gpu의 원활한 클러스터링이 가능 합니다.
 
+> [!IMPORTANT]
 > ND40rs_v2 VM에서 [InfiniBand을 사용 하도록 설정](./workloads/hpc/enable-infiniband.md) 하는 경우 4.7-1.0.0.1 Mellanox OFED 드라이버를 사용 하세요.
 >
 > GPU 메모리가 늘어남에 따라 새 ND40rs_v2 VM은 [2 세대 vm](./windows/generation-2.md) 및 마켓플레이스 이미지를 사용 해야 합니다. 
@@ -32,15 +33,13 @@ NDv2는 계산에 강한 확장 (VM 당 활용 8 Gpu) 및 규모 확장 (여러 
 
 <br>
 
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
-
-InfiniBand: 지원 됨
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+InfiniBand: 지원 됨<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|

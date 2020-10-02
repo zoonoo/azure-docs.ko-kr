@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
-ms.openlocfilehash: 4291e0df9f3a99cb45d4f96d4a316f9bb29a9c79
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cc96a8183e07a17ae880549cdc2b8bdca516322
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396151"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651499"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 > 
 > 
 
-![공존](media/expressroute-howto-coexist-classic/scenario1.jpg)
+![사이트 간 VPN 연결을 Express 경로에 대 한 백업으로 표시 하는 다이어그램입니다.](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
 ### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>사이트 간 VPN을 구성하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결
 일부 사이트는 사이트 간 VPN을 통해 Azure에 직접 연결하고 일부 사이트는 ExpressRoute를 통해 연결된 네트워크를 구성할 수 있습니다. 

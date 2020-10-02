@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157928"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653335"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
@@ -56,13 +56,13 @@ Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure P
 
 응용 프로그램으로 이동 하려면 **IoT Central 응용 프로그램 URL**을 선택 합니다.
 
-![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image3.png)
+!["IoT Central 응용 프로그램 URL"이 강조 표시 된 "개요" 페이지를 보여 주는 스크린샷](media/howto-manage-iot-central-from-portal/image3.png)
 
 응용 프로그램을 다른 리소스 그룹으로 이동 하려면 리소스 그룹 옆에서 **변경** 을 선택 합니다. **리소스 이동** 페이지에서이 응용 프로그램을 이동 하려는 리소스 그룹을 선택 합니다.
 
-![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image4a.png)
+!["리소스 그룹 (변경)"이 강조 표시 된 "개요" 페이지를 보여 주는 스크린샷](media/howto-manage-iot-central-from-portal/image4a.png)
 
-응용 프로그램을 다른 구독으로 이동 하려면 구독 옆에서 **변경** 을 선택 합니다. **리소스 이동** 페이지에서이 응용 프로그램을 이동 하려는 구독을 선택 합니다.
+응용 프로그램을 다른 구독으로 이동 하려면 구독 옆에서  **변경** 을 선택 합니다. **리소스 이동** 페이지에서이 응용 프로그램을 이동 하려는 구독을 선택 합니다.
 
 ![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image5a.png)
 

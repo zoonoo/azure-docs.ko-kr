@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540305"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653760"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -43,17 +43,17 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 
 - 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
-  * IoT hub의 경우 **서비스 연결** 권한이 있는 키를 제공 해야 합니다.
+  - IoT hub의 경우 **서비스 연결** 권한이 있는 키를 제공 해야 합니다.
 
     [![IoT hub 사용 권한을 확인 합니다.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * 정책 **iothubowner** 및 **서비스** 는 **서비스 연결** 권한이 있으므로 모두 작동 합니다.
+    - 정책 **iothubowner** 및 **서비스** 는 **서비스 연결** 권한이 있으므로 모두 작동 합니다.
 
-  * 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
+  - 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
   
     [![이벤트 허브 사용 권한을 검토 합니다.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * **읽기** 및 **관리** 정책은 모두 **수신** 사용 권한이 있기 때문에 작동 합니다.
+    - **읽기** 및 **관리** 정책은 모두 **수신** 사용 권한이 있기 때문에 작동 합니다.
 
 - 제공된 소비자 그룹이 Time Series Insights에 배타적으로 적용되지 않습니다.
 
@@ -77,9 +77,9 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 
 - 이벤트 원본 키를 다시 생성 했을 수 있으며, Gen2 환경에 새 이벤트 원본 키가 있어야 합니다.
 
-이 문제는 이벤트 원본을 만들 때 제공 된 키가 더 이상 유효 하지 않을 때 발생 합니다. 허브에 원격 분석이 표시 되지만 수신 수신 메시지는 Time Series Insights에 표시 되지 않습니다. 키가 다시 생성 되었는지 확실 하지 않을 경우 Event Hubs ' 활동 로그에서 "네임 스페이스 권한 부여 규칙 만들기 또는 업데이트"를 검색 하거나 IoT hub에 대 한 "IotHub 리소스 만들기 또는 업데이트"를 검색할 수 있습니다. 
+이 문제는 이벤트 원본을 만들 때 제공 된 키가 더 이상 유효 하지 않을 때 발생 합니다. 허브에 원격 분석이 표시 되지만 수신 수신 메시지는 Time Series Insights에 표시 되지 않습니다. 키가 다시 생성 되었는지 여부를 확신할 수 없는 경우 Event Hubs의 활동 로그에서 "네임 스페이스 권한 부여 규칙 만들기 또는 업데이트"를 검색 하거나 IoT hub에 대 한 "IotHub 리소스 만들기 또는 업데이트"를 검색할 수 있습니다.
 
-새 키를 사용 하 여 Time Series Insights Gen2 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. TSI 리소스로 이동 하 여 이벤트 원본을 클릭 합니다. 
+새 키를 사용 하 여 Time Series Insights Gen2 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. TSI 리소스로 이동 하 여 이벤트 원본을 클릭 합니다.
 
    [![스크린샷 이라는 이벤트 원본 메뉴 항목이 포함 된 T 리소스를 보여 주는 스크린샷](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
@@ -91,14 +91,14 @@ Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우�
 
 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 
-* 타임스탬프 속성 이름은 대/소문자를 구분합니다.
-* 이벤트 소스에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값은 형식 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` 입니다. 이러한 문자열의 예는 `"2008-04-12T12:53Z"`입니다.
+- 타임스탬프 속성 이름은 대/소문자를 구분합니다.
+- 이벤트 소스에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값은 형식 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` 입니다. 이러한 문자열의 예는 `"2008-04-12T12:53Z"`입니다.
 
 타임 스탬프 속성 이름이 캡처되고 제대로 작동 하는지 확인 하는 가장 쉬운 방법은 Time Series Insights Gen2 탐색기를 사용 하는 것입니다. Time Series Insights Gen2 탐색기 내에서 차트를 사용 하 여 타임 스탬프 속성 이름을 제공한 후의 기간을 선택 합니다. 선택 영역을 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색** 옵션을 선택합니다. 첫 번째 열 머리글은 타임스탬프 속성 이름입니다. `Timestamp` 단어 옆에 다음 대신 `($ts)`가 있어야 합니다.
 
-* `(abc)`는 Time Series Insights가 데이터 값을 문자열로 읽고 있음을 나타냅니다.
-* **달력** 아이콘-Time Series Insights에서 데이터 값을 datetime으로 읽도록 지정 합니다.
-* `#`은 Time Series Insights가 데이터 값을 정수로 읽고 있음을 나타냅니다.
+- `(abc)`는 Time Series Insights가 데이터 값을 문자열로 읽고 있음을 나타냅니다.
+- **달력** 아이콘-Time Series Insights에서 데이터 값을 datetime으로 읽도록 지정 합니다.
+- `#`은 Time Series Insights가 데이터 값을 정수로 읽고 있음을 나타냅니다.
 
 Timestamp 속성을 명시적으로 지정 하지 않으면 이벤트의 IoT hub 또는 이벤트 허브의 큐에 넣은 시간이 기본 타임 스탬프로 사용 됩니다.
 
@@ -131,7 +131,7 @@ Power BI Desktop에서 Power BI 커넥터의 최신 버전을 사용 하지 않�
 
 [![연결할 수 없음 대화 상자를 보여 주는 스크린샷](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
-* Power BI Desktop 버전을 확인 하 고 7 월 2020 버전을 사용 하 고 있는지 확인 합니다. 그렇지 않으면 Power BI Desktop를 업데이트 하 고 커넥터를 다시 실행 합니다. 
+- Power BI Desktop 버전을 확인 하 고 7 월 2020 버전을 사용 하 고 있는지 확인 합니다. 그렇지 않으면 Power BI Desktop를 업데이트 하 고 커넥터를 다시 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

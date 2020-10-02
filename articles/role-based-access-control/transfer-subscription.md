@@ -1,5 +1,5 @@
 ---
-title: Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
+title: Azure 구독을 다른 Azure AD 디렉터리에 전송
 description: Azure 구독 및 알려진 관련 리소스를 다른 Azure Active Directory (Azure AD) 디렉터리에 전송 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: rolyon
@@ -10,19 +10,14 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6d0c0333186655d4f105337021164814453ab47a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400547"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652387"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
-
-> [!IMPORTANT]
-> 다른 Azure AD 디렉터리로 구독을 전송 하는 다음 단계는 현재 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Azure 구독을 다른 Azure AD 디렉터리에 전송
 
 조직에는 여러 Azure 구독이 있을 수 있습니다. 각 구독은 특정 Azure Active Directory (Azure AD) 디렉터리와 연결 됩니다. 관리를 용이 하 게 하려면 다른 Azure AD 디렉터리로 구독을 전송 하는 것이 좋습니다. 다른 Azure AD 디렉터리로 구독을 전송 하는 경우 일부 리소스는 대상 디렉터리에 전송 되지 않습니다. 예를 들어 Azure RBAC (역할 기반 액세스 제어)의 모든 역할 할당 및 사용자 지정 역할은 원본 디렉터리에서 **영구적으로** 삭제 되며 대상 디렉터리로 전송 되지 않습니다.
 
@@ -74,24 +69,24 @@ ms.locfileid: "89400547"
 | 시스템 할당 관리 id | 예 | 예 | [관리 id 나열](#list-role-assignments-for-managed-identities) | 관리 되는 id를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | 사용자 할당 관리 id | 예 | 예 | [관리 id 나열](#list-role-assignments-for-managed-identities) | 관리 되는 id를 삭제 하 고 다시 만든 다음 적절 한 리소스에 연결 해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | Azure Key Vault | 예 | 예 | [Key Vault 액세스 정책 나열](#list-key-vaults) | 키 자격 증명 모음과 연결 된 테 넌 트 ID를 업데이트 해야 합니다. 새 액세스 정책을 제거 하 고 추가 해야 합니다. |
-| Azure AD 인증 통합이 사용 되는 azure SQL database | 예 | 아니요 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure AD 인증 통합이 사용 되는 azure SQL database | 예 | 예 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage 및 Azure Data Lake Storage Gen2 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure Data Lake Storage Gen1 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 동기화 | 예 | 예 |  |  |
 | Azure Managed Disks | 예 | 해당 없음 |  |  |
 | Kubernetes 용 Azure Container Service | 예 | 예 |  |  |
-| Azure Active Directory Domain Services | 예 | 아니요 |  |  |
+| Azure Active Directory Domain Services | 예 | 예 |  |  |
 | 앱 등록 | 예 | 예 |  |  |
 
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
-- Azure Cloud Shell 또는 [Azure CLI](https://docs.microsoft.com/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
 - 원본 디렉터리에서 전송 하려는 구독의 계정 관리자
 - 대상 디렉터리의 [소유자](built-in-roles.md#owner) 역할
 
@@ -101,13 +96,13 @@ ms.locfileid: "89400547"
 
 1. 관리자 권한으로 Azure에 로그인 합니다.
 
-1. [Az account list](/cli/azure/account#az-account-list) 명령을 사용 하 여 구독 목록을 가져옵니다.
+1. [Az account list](/cli/azure/account#az_account_list) 명령을 사용 하 여 구독 목록을 가져옵니다.
 
     ```azurecli
     az account list --output table
     ```
 
-1. [Az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) 을 사용 하 여 전송 하려는 활성 구독을 설정 합니다.
+1. [Az account set](/cli/azure/account#az_account_set) 을 사용 하 여 전송 하려는 활성 구독을 설정 합니다.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -115,9 +110,9 @@ ms.locfileid: "89400547"
 
 ### <a name="install-the-resource-graph-extension"></a>리소스 그래프 확장을 설치 합니다.
 
- 리소스 그래프 확장을 사용 하면 [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) 명령을 사용 하 여 Azure Resource Manager에서 관리 하는 리소스를 쿼리할 수 있습니다. 이후 단계에서이 명령을 사용 합니다.
+ 리소스 그래프 확장을 사용 하면 [az graph](/cli/azure/ext/resource-graph/graph) 명령을 사용 하 여 Azure Resource Manager에서 관리 하는 리소스를 쿼리할 수 있습니다. 이후 단계에서이 명령을 사용 합니다.
 
-1. [Az extension list](https://docs.microsoft.com/cli/azure/extension#az-extension-list) 를 사용 하 여 *리소스 그래프* 확장이 설치 되어 있는지 확인 합니다.
+1. [Az extension list](/cli/azure/extension#az_extension_list) 를 사용 하 여 *리소스 그래프* 확장이 설치 되어 있는지 확인 합니다.
 
     ```azurecli
     az extension list
@@ -131,7 +126,7 @@ ms.locfileid: "89400547"
 
 ### <a name="save-all-role-assignments"></a>모든 역할 할당 저장
 
-1. [Az role 할당 목록을](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) 사용 하 여 모든 역할 할당 (상속 된 역할 할당 포함)을 나열 합니다.
+1. [Az role 할당 목록을](/cli/azure/role/assignment#az_role_assignment_list) 사용 하 여 모든 역할 할당 (상속 된 역할 할당 포함)을 나열 합니다.
 
     목록을 보다 쉽게 검토할 수 있도록 출력을 JSON, TSV 또는 테이블로 내보낼 수 있습니다. 자세한 내용은 [AZURE RBAC를 사용 하 여 역할 할당 나열 및 Azure CLI](role-assignments-list-cli.md)을 참조 하세요.
 
@@ -149,7 +144,7 @@ ms.locfileid: "89400547"
 
 ### <a name="save-custom-roles"></a>사용자 지정 역할 저장
 
-1. [Az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) 를 사용 하 여 사용자 지정 역할을 나열 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
+1. [Az role definition list](/cli/azure/role/definition#az_role_definition_list) 를 사용 하 여 사용자 지정 역할을 나열 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -193,7 +188,7 @@ ms.locfileid: "89400547"
 
 1. 관리 id를 [지 원하는 Azure 서비스 목록을](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) 검토 하 여 관리 되는 id를 사용할 수 있는 위치를 확인 합니다.
 
-1. [Az ad sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) 를 사용 하 여 시스템 할당 및 사용자 할당 관리 id를 나열 합니다.
+1. [Az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) 를 사용 하 여 시스템 할당 및 사용자 할당 관리 id를 나열 합니다.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -207,7 +202,7 @@ ms.locfileid: "89400547"
     | `alternativeNames` 속성에 포함 되지 않는 내용 `isExplicit` | 시스템 할당 |
     | `alternativeNames` 속성 포함 `isExplicit=True` | 사용자 할당 |
 
-    [Az identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) 를 사용 하 여 사용자 할당 관리 id만 나열할 수도 있습니다. 자세한 내용은 [Azure CLI를 사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 참조 하세요.
+    [Az identity list](/cli/azure/identity#az_identity_list) 를 사용 하 여 사용자 할당 관리 id만 나열할 수도 있습니다. 자세한 내용은 [Azure CLI를 사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 참조 하세요.
 
     ```azurecli
     az identity list
@@ -224,7 +219,7 @@ ms.locfileid: "89400547"
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-- 키 자격 증명 모음을 사용 하는 경우 [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) 를 사용 하 여 액세스 정책을 나열 합니다. 자세한 내용은 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-cli.md)을 참조 하세요.
+- 키 자격 증명 모음을 사용 하는 경우 [az keyvault show](/cli/azure/keyvault#az_keyvault_show) 를 사용 하 여 액세스 정책을 나열 합니다. 자세한 내용은 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-cli.md)을 참조 하세요.
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -232,7 +227,7 @@ ms.locfileid: "89400547"
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 나열
 
-- [Az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) 및 [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension을 사용 하 여 azure ad 인증 통합이 사용 하도록 설정 된 azure sql database를 사용 하 고 있는지 확인 합니다. 자세한 내용은 [SQL을 사용 하 여 Azure Active Directory 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)를 참조 하세요.
+- [Az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) 및 [az graph](/cli/azure/ext/resource-graph/graph) extension을 사용 하 여 azure ad 인증 통합이 사용 하도록 설정 된 azure sql database를 사용 하 고 있는지 확인 합니다. 자세한 내용은 [SQL을 사용 하 여 Azure Active Directory 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)를 참조 하세요.
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -248,13 +243,13 @@ ms.locfileid: "89400547"
 
 ### <a name="list-other-known-resources"></a>기타 알려진 리소스 나열
 
-1. [Az account show](https://docs.microsoft.com/cli/azure/account#az-account-show) 를 사용 하 여 구독 ID를 가져옵니다.
+1. [Az account show](/cli/azure/account#az_account_show) 를 사용 하 여 구독 ID를 가져옵니다.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. [Az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension을 사용 하 여 알려진 azure AD 디렉터리 종속성이 있는 다른 azure 리소스를 나열 합니다.
+1. [Az graph](/cli/azure/ext/resource-graph/graph) extension을 사용 하 여 알려진 azure AD 디렉터리 종속성이 있는 다른 azure 리소스를 나열 합니다.
 
     ```azurecli
     az graph query -q \
@@ -286,13 +281,13 @@ ms.locfileid: "89400547"
 
     전송 요청을 수락한 새 계정의 사용자 에게만 리소스를 관리할 수 있는 권한이 있습니다.
 
-1. [Az account list](https://docs.microsoft.com/cli/azure/account#az-account-list) 명령을 사용 하 여 구독 목록을 가져옵니다.
+1. [Az account list](/cli/azure/account#az_account_list) 명령을 사용 하 여 구독 목록을 가져옵니다.
 
     ```azurecli
     az account list --output table
     ```
 
-1. [Az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) 를 사용 하 여 사용 하려는 활성 구독을 설정 합니다.
+1. [Az account set](/cli/azure/account#az_account_set) 를 사용 하 여 사용 하려는 활성 구독을 설정 합니다.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +295,7 @@ ms.locfileid: "89400547"
 
 ### <a name="create-custom-roles"></a>사용자 지정 역할 만들기
         
-- [Az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) 를 사용 하 여 이전에 만든 파일에서 각 사용자 지정 역할을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
+- [Az role definition create](/cli/azure/role/definition#az_role_definition_create) 를 사용 하 여 이전에 만든 파일에서 각 사용자 지정 역할을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +303,7 @@ ms.locfileid: "89400547"
 
 ### <a name="create-role-assignments"></a>역할 할당 만들기
 
-- [Az role 할당 create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) 를 사용 하 여 사용자, 그룹 및 서비스 사용자에 대 한 역할 할당을 만듭니다. 자세한 내용은 [AZURE RBAC 및 Azure CLI를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-cli.md)를 참조 하세요.
+- [Az role 할당 create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 사용자, 그룹 및 서비스 사용자에 대 한 역할 할당을 만듭니다. 자세한 내용은 [AZURE RBAC 및 Azure CLI를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-cli.md)를 참조 하세요.
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +319,7 @@ ms.locfileid: "89400547"
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | 기타 서비스 | [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. [Az role 할당 create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) 를 사용 하 여 시스템 할당 관리 id에 대 한 역할 할당을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
+1. [Az role 할당 create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 시스템 할당 관리 id에 대 한 역할 할당을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +335,7 @@ ms.locfileid: "89400547"
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | 기타 서비스 | [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. [Az role 할당 create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) 를 사용 하 여 사용자 할당 관리 id에 대 한 역할 할당을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
+1. [Az role 할당 create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 사용자 할당 관리 id에 대 한 역할 할당을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

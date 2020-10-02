@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649910"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652995"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 및 Ddsv4 시리즈
 
@@ -28,15 +28,13 @@ Ddv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 
 새 Ddv4 VM 크기는 빠르고, 더 큰 로컬 SSD 스토리지(최대 2,400GiB)를 포함하며, 임시 스토리지에 대한 빠른 읽기/쓰기를 필요로 하는 애플리케이션이나 캐시 또는 임시 파일에 대한 임시 스토리지를 필요로 하는 애플리케이션처럼 짧은 대기 시간과 고속 로컬 스토리지를 활용하는 애플리케이션용으로 설계되었습니다. 표준 SSD 및 표준 HDD 스토리지를 Ddv4 VM에 연결할 수 있습니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
 
-ACU: 195-210
-
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br> 
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -57,15 +55,13 @@ Ddsv4 시리즈는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실�
  > [!NOTE]
  >Ddsv4 크기의 가격 및 요금 청구 기준은 Ddv4 시리즈와 동일합니다.
 
-ACU: 195-210
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+<br> 
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|

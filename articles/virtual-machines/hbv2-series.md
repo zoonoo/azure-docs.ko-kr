@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: bf6828ff96f5bff8a65b5f62793df8bf0e65a309
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 6be01bdd94d5fb9f5e6ea62bbd41b73d57734ea9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595158"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652944"
 ---
 # <a name="hbv2-series"></a>HBv2 시리즈
 
@@ -21,13 +21,14 @@ HBv2 시리즈 Vm은 유체 dynamics, 유한 요소 분석 및 저수지 시뮬�
 
 HBv2 시리즈 Vm 기능 200 g b/초 Mellanox HDR InfiniBand. 이러한 Vm은 최적화 되 고 일관 된 RDMA 성능을 위해 차단 되지 않는 fat 트리에 연결 됩니다. 이러한 Vm은 적응 라우팅 및 DCT (표준 RC 및 UD 전송에 대 한 추가)를 지원 합니다. 이러한 기능은 응용 프로그램의 성능, 확장성 및 일관성을 향상 시키고 이러한 기능을 사용 하는 것이 좋습니다.
 
-Premium Storage: 지원됨
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
-
-| 크기 | vCPU | 프로세서 | 메모리(GB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 저장소 (GB) | 최대 데이터 디스크 수 | 최대 이더넷 Nic |
+| 크기 | vCPU | 프로세서 | 메모리(GiB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 이더넷 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | 모두 | 480 + 960 | 8 | 1 |
 

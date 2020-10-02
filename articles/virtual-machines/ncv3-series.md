@@ -7,24 +7,22 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: de118f7a4a29d306fe351199795a5a8cacb38fcd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ab08d23fe7448e50db42ea126e8158ad284b3320
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289744"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653471"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 
 NCv3 시리즈 VM은 NVIDIA Tesla V100 GPU로 구동됩니다. 이러한 GPU는 NCv2 시리즈보다 1.5배의 계산 성능을 제공할 수 있습니다. 고객은 저수지 모델링, DNA 배열, 단백질 분석, 몬테카를로 시뮬레이션 등 기존 HPC 워크로드에 이러한 업데이트된 GPU를 활용할 수 있습니다. NC24rs v3 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화된 짧은 대기 시간과 높은 처리량의 네트워크 인터페이스를 제공합니다. Gpu 외에도 NCv3 시리즈 Vm은 Intel Xeon E5-2690 v4 (Broadwell) Cpu로 구동 됩니다.
 
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 
 > [!IMPORTANT]
 > 이 VM 시리즈의 경우 구독에서 vCPU (코어) 할당량은 초기에 각 지역에서 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md) 합니다.

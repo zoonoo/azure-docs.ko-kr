@@ -19,6 +19,12 @@
     - name: 관리 그룹 만들기 - Azure PowerShell
       displayName: hierarchy
       href: ./create-management-group-powershell.md
+    - name: 관리 그룹 만들기 - .NET
+      displayName: hierarchy
+      href: ./create-management-group-dotnet.md
+    - name: 관리 그룹 만들기 - JavaScript
+      displayName: hierarchy
+      href: ./create-management-group-javascript.md
     - name: 관리 그룹 만들기 - REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md

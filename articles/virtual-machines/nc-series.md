@@ -7,24 +7,23 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bd62d7f7c04896a8a62ab1290ddbc9370934d333
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 38365cc144bbffbedfa1416112c5f8eca2b5fc13
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286243"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653522"
 ---
 # <a name="nc-series"></a>NC 시리즈
 
 NC 시리즈 Vm은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) 카드 및 Intel Xeon E5-2690 V3 (haswell) 프로세서를 기반으로 합니다. 사용자는 에너지 탐색 애플리케이션, 충돌 시뮬레이션, 광선 추적 렌더링, 딥러닝 등에 CUDA를 활용하여 데이터를 더 빠르게 처리할 수 있습니다. NC24r 구성은, 긴밀하게 결합된 병렬 컴퓨팅 워크로드용으로 최적화된 대기 시간이 짧고 처리량이 높은 네트워크 인터페이스를 제공합니다.
 
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|

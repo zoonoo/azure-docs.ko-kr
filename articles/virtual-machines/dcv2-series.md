@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 41dbb42637db98dcd97e3487f252e88f2ba5f9a3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649893"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653012"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -21,17 +21,13 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 
 사용 사례로는 기밀 단체 데이터 공유, 사기 감지, 자금 세탁 방지, 블록체인, 비밀 사용 분석, 인텔리전스 분석 및 기밀 기계 학습이 있습니다.
 
-Premium Storage: 지원됨*
-
-Premium Storage 캐싱: 지원됨*
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Premium Storage](premium-storage-performance.md): 지원 됨 *<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 
 *Standard_DC8_v2 제외
-
-
 
 | 크기             | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) | EPC 메모리(MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

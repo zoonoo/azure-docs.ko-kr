@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: duau
-ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ccbd9645ac7d331c06e528298b3a45a184c6cc49
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395726"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652230"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -60,12 +60,12 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
 
    **회로 공급자 상태: 프로 비전 되지 않음**
 
-   [!["프로 비전 되지 않음"으로 설정 된 공급자 상태를 강조 표시 하는 빨강 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![공급자 상태를 "프로 비전 되지 않음"으로 표시 하는 빨간색 상자가 표시 된 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
 
    **회로 공급자 상태: 프로 비전 됨**
 
-   [!["프로 비전 됨"으로 설정 된 공급자 상태를 강조 표시 하는 빨강 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![공급자 상태를 "프로 비전 됨"으로 표시 하는 빨간색 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 
 2. 회로에 Microsoft 피어링을 구성합니다. 진행하기 전에 다음 정보가 있는지 확인합니다.
 

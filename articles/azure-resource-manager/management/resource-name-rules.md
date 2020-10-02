@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447526"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653369"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -174,7 +174,7 @@ ms.locfileid: "91447526"
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Windows Vm에는 마침표를 포함 하거나 하이픈으로 끝날 수 없습니다.<br><br>Linux Vm은 마침표 또는 하이픈으로 종료할 수 없습니다. |
 > | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 
 > [!NOTE]

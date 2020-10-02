@@ -8,30 +8,29 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320169"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653505"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 시리즈 (미리 보기) 
 
 NCasT4_v3 시리즈 가상 머신은 [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU 및 AMD Epyc 7V12 (로마) cpu로 구동 됩니다. Vm은 각각 16gb의 메모리를 포함 하는 최대 4 개의 NVIDIA T4 Gpu를 포함 하 고 있으며,이는 최대 64 비 다중 스레드 AMD EPYC 7V12 (로마) 프로세서 코어 및 440 GiB의 시스템 메모리입니다. 이러한 가상 머신은 AI 서비스를 배포 하는 데 적합 합니다. 예를 들어 사용자가 생성 한 요청의 실시간 추론 NVIDIA의 그리드 드라이버 및 가상 GPU 기술을 사용 하는 대화형 그래픽 및 시각화 작업에 적합 합니다. TensorRT, Caffe, ONNX 및 기타 프레임 워크를 기반으로 하는 표준 GPU 계산 워크 로드 또는 GPU 가속 그래픽 응용 프로그램을 기반으로 하는 OpenGL 및 DirectX는 NCasT4_v3 시리즈에서 사용자에 게 근접 한 경제적으로 배포할 수 있습니다.
 
-미리 보기 프로그램의 일부로 [요청을 제출할](https://aka.ms/NCT4v3Preview) 수 있습니다.
+> [!NOTe]
+> 미리 보기 프로그램의 일부가 될 [요청을 제출](https://aka.ms/NCT4v3Preview) 합니다.
 
 <br>
 
-ACU: 230-260
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Acu](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | --- | --- |

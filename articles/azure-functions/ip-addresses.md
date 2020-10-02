@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874081"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652468"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 함수 앱의 크기를 조정하는 경우 새로운 아웃바운드 IP 주소 범위를 할당할 수 있습니다. 소비 계획에서 실행 하는 경우 전체 데이터 센터를 허용 목록에 추가 해야 할 수 있습니다.
+> [소비 계획](functions-scale.md#consumption-plan) 또는 [프리미엄 계획](functions-scale.md#premium-plan) 에서 실행 되는 함수 앱의 크기가 조정 되 면 아웃 바운드 IP 주소의 새 범위가 할당 될 수 있습니다. 이러한 계획 중 하나에서 실행할 때 전체 데이터 센터를 허용 목록에 추가 해야 할 수 있습니다.
 
 ## <a name="data-center-outbound-ip-addresses"></a>데이터 센터 아웃바운드 IP 주소
 
@@ -89,7 +89,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 - 리소스 그룹 및 지역 조합에서 마지막 함수 앱을 삭제하고 다시 만듭니다.
 - [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-certificate)중과 같은 TLS 바인딩을 삭제 합니다.
 
-함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 인바운드 IP 주소가 변경 될 수도 있습니다.
+함수 앱이 [소비 계획이](functions-scale.md#consumption-plan) 나 [프리미엄 계획](functions-scale.md#premium-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 인바운드 IP 주소가 변경 될 수도 있습니다.
 
 ## <a name="outbound-ip-address-changes"></a>아웃바운드 IP 주소 변경
 
@@ -98,7 +98,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 * 인바운드 IP 주소를 변경할 수 있는 작업을 수행합니다.
 * App Service 계획의 가격 책정 계층을 변경합니다. 모든 가격 책정 계층에 대해 앱에서 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 목록은 `possibleOutboundIPAddresses` 속성에 있습니다. [아웃바운드 IP 찾기](#find-outbound-ip-addresses)를 참조하세요.
 
-함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 아웃 바운드 IP 주소가 변경 될 수도 있습니다.
+함수 앱이 [소비 계획이](functions-scale.md#consumption-plan) 나 [프리미엄 계획](functions-scale.md#premium-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 아웃 바운드 IP 주소가 변경 될 수도 있습니다.
 
 의도적으로 아웃바운드 IP 주소를 강제로 변경하려면 다음을 수행합니다.
 

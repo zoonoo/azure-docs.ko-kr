@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 34fcb8d28ae8deda88a6ce91261301ab5d08a743
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104557"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653063"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 사용자 만들기 
 이 문서에서는 Azure Database for MariaDB 서버에서 사용자를 만드는 방법을 설명합니다.
 
 > [!NOTE]
-> 바이어스-무료 통신
+> 바이어스 없는 통신
 >
 > Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
 >
@@ -29,7 +29,8 @@ Azure Database for MariaDB를 처음으로 만든 경우 서버 관리자 로그
 Azure Database for MariaDB 서버가 생성되면 첫 번째 서버 관리 사용자 계정을 사용하여 추가 사용자를 만들어 이들에게 관리자 액세스 권한을 부여할 수 있습니다. 또한 서버 관리자 계정은 개별 데이터베이스 스키마에 액세스할 수 있는 권한의 사용자가 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> SUPER 권한 및 DBA 역할은 지원 되지 않습니다. 제한 사항 문서의 [권한](concepts-limits.md#privilege-support) 을 검토 하 여 서비스에서 지원 되지 않는 기능을 파악 합니다.
+> SUPER 권한 및 DBA 역할은 지원 되지 않습니다. 제한 사항 문서의 [권한](concepts-limits.md#privileges--data-manipulation-support) 을 검토 하 여 서비스에서 지원 되지 않는 기능을 파악 합니다.<br><br>
+> "Validate_password" 및 "caching_sha2_password"와 같은 암호 플러그 인은 서비스에서 지원 되지 않습니다.
 
 ## <a name="create-additional-admin-users"></a>추가 관리 사용자 만들기
 1. 연결 정보 및 관리 사용자 이름을 가져옵니다.
@@ -90,6 +91,10 @@ Azure Database for MariaDB 서버가 생성되면 첫 번째 서버 관리 사�
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
    사용자 계정 관리에 대한 자세한 내용은 [사용자 계정 관리](https://mariadb.com/kb/en/library/user-account-management/), [GRANT 구문](https://mariadb.com/kb/en/library/grant/) 및 [권한](https://mariadb.com/kb/en/library/grant/#privilege-levels)에 대한 MariaDB 설명서를 참조하세요.
+
+## <a name="azure_superuser"></a>azure_superuser
+
+"Azure_superuser" 라는 사용자를 사용 하 여 모든 Azure Database for MySQL 서버를 만듭니다. 모니터링, 백업 및 기타 정기 유지 관리를 수행 하기 위해 서버를 관리 하기 위해 Microsoft에서 만든 시스템 계정입니다. 또한 콜 공학 엔지니어가 인증서 인증을 사용 하 여 인시던트 중에이 계정을 사용 하 여 서버에 액세스 하 고 JIT (just-in-time) 프로세스를 사용 하 여 액세스를 요청 해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 새 사용자의 머신 IP 주소에 대한 방화벽을 열고 연결하도록 설정합니다: [Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리](howto-manage-firewall-portal.md)  

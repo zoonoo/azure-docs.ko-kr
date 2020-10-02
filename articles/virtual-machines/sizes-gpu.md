@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 711bcc06a65483921492aaad819b961fc09740d4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 87314e38225d6e08f81ce6c3855f70a13db9c6bf
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067038"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653182"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
@@ -21,7 +21,7 @@ GPU 최적화 VM 크기는 단일 또는 여러 개의 Gpu에서 사용할 수 �
 
 - [NC 시리즈](nc-series.md), [NCv2 시리즈](ncv2-series.md), [NCv3 시리즈](ncv3-series.md) 및 [NCT4_v3 시리즈](nct4-v3-series.md) 크기는 계산 집약적 및 네트워크 집약적인 응용 프로그램 및 알고리즘에 최적화 되어 있습니다. 몇 가지 예로는 OpenCL 기반 응용 프로그램 및 시뮬레이션, AI, 심층 학습 등이 있습니다. NCT4v3 시리즈는 NVIDIA의 Tesla T4 GPU 및 AMD EPYC2 로마 프로세서를 갖춘 유추 작업에 초점을 맞추고 있습니다. NCv3 시리즈는 NVIDIA의 Tesla V100 GPU를 지원하는 고성능 컴퓨팅 워크로드에 중점을 둡니다. NC 시리즈는 Intel Xeon E5-2690 v3 2.60 GHz v3 (Haswell) 프로세서를 사용 하 고 NCv2 시리즈 및 NCv3 시리즈 Vm은 Intel Xeon E5-2690 v4 (Broadwell) 프로세서를 사용 합니다.
 
-- [ND 시리즈](nd-series.md)및 [NDv2 시리즈](ndv2-series.md) 크기는 심층 학습을 위한 학습 및 유추 시나리오에 중점을 두었습니다. NVIDIA Tesla P40 GPU 및 Intel Xeon E5-2690 v4 (Broadwell) 프로세서를 사용 합니다. NDv2 시리즈는 Intel Xeon Platinum 8168 (Skylake) 프로세서를 사용 합니다.
+- [ND 시리즈](nd-series.md)및 [NDv2 시리즈](ndv2-series.md) 크기는 심층 학습을 위한 학습 및 유추 시나리오에 중점을 두었습니다. ND 시리즈는 NVIDIA Tesla P40 GPU 및 Intel Xeon E5-2690 v4 (Broadwell) 프로세서를 사용 합니다. NDv2 시리즈는 Nvidia Volta V100 및 Intel Xeon Platinum 8168 (Skylake) 프로세서를 사용 합니다.
 
 - [NV 시리즈](nv-series.md) 및 [NVv3 시리즈](nvv3-series.md) 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화 되 고 설계 되었습니다. 이러한 VM은 NVIDIA Tesla M60 GPU의 지원을 받습니다.
 

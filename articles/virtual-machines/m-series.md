@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654789"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653658"
 ---
 # <a name="m-series"></a>M 시리즈
 
@@ -20,17 +20,14 @@ M 시리즈는 높은 vCPU 수(최대 128개의 vCPU)와 많은 양의 메모리
 
 M 시리즈 VM의 기능 Intel &reg; 하이퍼 스레딩 기술입니다.
 
-ACU: 160-180
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
-
-Write Accelerator: [지원됨](./how-to-enable-write-accelerator.md)
+[Acu](acu.md): 160-180<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[쓰기 가속기](./how-to-enable-write-accelerator.md): 지원 됨<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 62f27a07c868cc9cc7f37a7b26ab38127946e3c2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284781"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652876"
 ---
 # <a name="nv-series"></a>NV 시리즈
 
@@ -20,13 +20,12 @@ NV 시리즈 가상 머신은 고객이 해당 데이터 또는 시뮬레이션�
 
 NV 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
 
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
 |---|---|---|---|---|---|---|---|---|---|

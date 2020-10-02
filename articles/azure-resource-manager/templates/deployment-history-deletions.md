@@ -2,13 +2,13 @@
 title: 배포 기록 삭제
 description: Azure Resource Manager 배포 기록에서 배포를 자동으로 삭제 하는 방법을 설명 합니다. 기록은 800 제한을 초과 하는 경우에만 삭제 됩니다.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284736"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652485"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>배포 기록에서 자동 삭제
 
@@ -23,7 +23,7 @@ Azure Resource Manager은 한도 근처에서 자동으로 기록에서 배포�
 
 ## <a name="when-deployments-are-deleted"></a>배포가 삭제 된 경우
 
-775 이상의 배포에 도달 하면 배포는 기록에서 삭제 됩니다. Azure Resource Manager은 기록이 750까지 중단 될 때까지 배포를 삭제 합니다. 가장 오래 된 배포는 항상 먼저 삭제 됩니다.
+배포는 775 배포를 초과할 때 기록에서 삭제 됩니다. Azure Resource Manager은 기록이 750까지 중단 될 때까지 배포를 삭제 합니다. 가장 오래 된 배포는 항상 먼저 삭제 됩니다.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="배포 기록에서 삭제":::
 

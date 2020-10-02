@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298949"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651755"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2와 v3 비교
 
@@ -30,18 +30,17 @@ ms.locfileid: "89298949"
 
 ## <a name="general-changes-from-v2"></a>V2의 일반 변경 내용
 
-* V3로 생성 된 자산의 경우 Media Services는 [Azure Storage 서버 쪽 저장소 암호화](../../storage/common/storage-service-encryption.md)만 지원 합니다.
-    * Media Services에서 제공하는 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)(AES 256)를 사용하는 v2 API로 만든 자산에 v3 API를 사용할 수 있습니다.
-    * v3 API를 사용하는 레거시 AES 256 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)로는 새 자산을 만들 수 없습니다.
-* V3의 [자산](assets-concept.md)속성은 v 2와 다릅니다. [속성 매핑 방법](#map-v3-asset-properties-to-v2)을 참조 하세요.
+* 자산 관련 변경 내용에 대해서는 다음에 나오는 [asset 관련 변경](#asset-specific-changes) 섹션을 참조 하세요.
 * v3 SDK가 Storage SDK에서 분리되었으며, 따라서 사용하고 싶은 Storage SDK를 보다 철저하게 제어하고 버전 문제를 피할 수 있게 되었습니다. 
 * v3 API에서 모든 인코딩 비트 전송률은 비트/초입니다. 이것은 v2 Media Encoder Standard 미리 설정과 다른 점입니다. 예를 들어 v2의 비트 전송률은 128(kbps)로 지정되지만 v3에서는 128000(비트/초)이 됩니다. 
 * Entities AssetFiles, AccessPolicies 및 IngestManifests는 v3에 없습니다.
-* v3에서 IAsset.ParentAssets 속성이 없습니다.
 * ContentKeys는 더 이상 엔터티가 아닌 스트리밍 로케이터의 속성입니다.
 * Event Grid 지원은 NotificationEndpoints를 대체합니다.
-* 다음 엔터티의 이름이 바뀌었습니다.
-    * Job Output은 Task를 대체하며, 이제 Job의 일부입니다.
+* 이름이 바뀐 엔터티는 다음과 같습니다.
+
+   * v3 JobOutput은 v2 작업을 대체 하며 이제 작업의 일부입니다. 현재 입력 및 출력은 작업 수준에 있습니다. 자세한 내용은 [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)를 참조 하세요. 
+
+       작업 진행률 기록을 가져오려면 EventGrid 이벤트를 수신 합니다. 자세한 내용은 [Event Grid 이벤트 처리](reacting-to-media-services-events.md)를 참조 하세요.
     * Streaming Locator는 Locator를 대체합니다.
     * Live Event는 Channel을 대체합니다.<br/>라이브 이벤트 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [대금 청구](live-event-states-billing.md) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
     * Live Output은 Program을 대체합니다.
@@ -89,6 +88,12 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 
 ## <a name="asset-specific-changes"></a>Asset 관련 변경 내용
 
+* V3로 생성 된 자산의 경우 Media Services는 [Azure Storage 서버 쪽 저장소 암호화](../../storage/common/storage-service-encryption.md)만 지원 합니다.
+    * Media Services에서 제공하는 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)(AES 256)를 사용하는 v2 API로 만든 자산에 v3 API를 사용할 수 있습니다.
+    * v3 API를 사용하는 레거시 AES 256 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)로는 새 자산을 만들 수 없습니다.
+* V3의 [자산](assets-concept.md)속성은 v 2와 다릅니다. [속성 매핑 방법](#map-v3-asset-properties-to-v2)을 참조 하세요.
+* v3에서 IAsset.ParentAssets 속성이 없습니다.
+
 ### <a name="map-v3-asset-properties-to-v2"></a>V2에 v3 자산 속성 매핑
 
 다음 표에서는 v3의 [자산](/rest/api/media/assets/createorupdate#asset)속성이 v 2의 자산 속성에 매핑되는 방법을 보여 줍니다.
@@ -110,7 +115,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 
 미사용 자산을 보호하려면 스토리지 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 관리 하는 키입니다.|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨|지원됨|
@@ -124,7 +129,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 
 다음 표는 일반적인 시나리오에서 v2와 v3의 코드가 어떻게 다른지 보여줍니다.
 
-|시나리오|V2 API|V3 API|
+|시나리오|v2 API|v3 API|
 |---|---|---|
 |자산 만들기 및 파일 업로드 |[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |작업 제출|[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>먼저 변환을 만든 후 작업을 제출하는 방법을 보여줍니다.|

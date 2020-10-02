@@ -7,27 +7,24 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437270"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650751"
 ---
 # <a name="av2-series"></a>Av2 시리즈
 
 다양한 하드웨어 유형 및 프로세서에 Av2 시리즈 VM을 배포할 수 있습니다. Av2 시리즈 Vm에는 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 크기는 배포 된 하드웨어에 관계 없이 실행 중인 인스턴스에 대 한 일관 된 프로세서 성능을 제공 하도록 제한 됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 Virtual Machine 내에서 가상 하드웨어를 쿼리합니다. 사용 사례에는 개발 및 테스트 서버, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스, 개념 증명 및 코드 리포지토리가 있습니다.
 
-ACU: 100
-
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
-
+[Acu](acu.md): 100<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음 <br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음 <br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨 <br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨 <br>
+[VM 생성 지원](generation-2.md): 1 세대 <br>
+<br>
 
 | 크기 | vCore | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
 |---|---|---|---|---|---|---|---|

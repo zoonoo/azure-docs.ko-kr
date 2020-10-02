@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395233"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653386"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute 라우팅 최적화
 여러 개의 ExpressRoute 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 애플리케이션 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
@@ -27,7 +27,7 @@ Microsoft 또는 공용 피어 링을 활용 하는 경우 하나 이상의 Expr
 
 다음 예제 시나리오를 살펴보십시오.
 
-![ExpressRoute 사례 1 문제 - 고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Express 경로 케이스 1 문제를 보여 주는 다이어그램-고객에서 Microsoft로의 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 위의 예제에서 Express 경로 경로를 선호 하려면 로컬 기본 설정을 다음과 같이 구성 합니다. 
 

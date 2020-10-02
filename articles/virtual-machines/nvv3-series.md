@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7fcc8d89df6ac346a44e0356a4416e4168933fd8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543914"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652825"
 ---
 # <a name="nvv3-series"></a>NVv3 시리즈
 
@@ -21,11 +21,12 @@ NVv3 시리즈 가상 머신은 Intel E5-2690 v4 (Broadwell) Cpu 및 Intel 하�
 
 NVv3 인스턴스의 각 GPU는 그리드 라이선스로 제공 됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
 
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 가상 워크스테이션 | 가상 애플리케이션 |
 |---|---|---|---|---|---|---|---|---|---|---|

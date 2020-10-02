@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370180"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653216"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -187,6 +187,7 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
 Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 된 Windows 10 장치에서 Azure AD 조인 된 장치로 원격 데스크톱을 사용할 수도 있습니다. 
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
+**참고**: 시스템 준비 도구 (Sysprep) 또는 이와 유사한 이미징 도구를 사용 하 여 Azure AD 가입 장치를 배포할 수 없음
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
 

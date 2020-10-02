@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2548f002b2006b5d241c323ae880704bbe95301e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6ab532e3d824aa857a35bf2898aea2efba28df71
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649927"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653029"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4 및 Dasv4 시리즈
 
@@ -20,15 +20,13 @@ Dav4 시리즈 및 Dasv4 시리즈는 전체 스레드 구성에서 AMD의 2.35 
 
 ## <a name="dav4-series"></a>Dav4 시리즈
 
-ACU: 230-260
-
-Premium Storage: 지원 되지 않음
-
-Premium Storage 캐싱: 지원 되지 않음
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
 
 Dav4 시리즈 크기는 3.35 GHz의 승격 된 최대 빈도를 달성할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Dav4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 임시 저장소의 조합을 제공 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용 하려면 Dasv4 크기를 사용 합니다. Dasv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Dav4 시리즈와 동일 합니다.
 
@@ -45,15 +43,13 @@ Dav4 시리즈 크기는 3.35 GHz의 승격 된 최대 빈도를 달성할 수 �
 
 ## <a name="dasv4-series"></a>Dasv4 시리즈
 
-ACU: 230-260
-
-Premium Storage: 지원됨
-
-Premium Storage 캐싱: 지원 됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+<br>
 
 Dasv4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Dasv4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 임시 저장소의 조합을 제공 합니다.
 

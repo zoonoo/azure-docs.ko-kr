@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396678"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653641"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. Express 경로는 Azure에서 서비스에 대 한 고속 개인 통신 연결입니다. 
@@ -34,18 +34,18 @@ Microsoft는 고유한 서비스 관리 시스템과의 프로그래밍 방식 �
 고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 해당 Microsoft Azure 구독에서 리소스 생성을 관리 하는 경우 "*연결*" 모델 또는 "*직접*" 모델 중 하나를 사용 합니다. 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
 
 ### <a name="connect-through-model"></a>Connect-through 모델
-![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+!["연결" 모델을 표시 하는 다이어그램입니다.](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 Connect-through 모델에서 CSP는 데이터 센터 및 고객의 Azure 구독 간 직접 연결을 만듭니다. 직접 연결은 ExpressRoute를 사용하여 이루어지며 Azure와 함께 네트워크에 연결됩니다. 그런 다음 고객이 네트워크에 연결됩니다. 이 시나리오에서는 고객이 Azure 서비스에 액세스하려면 CSP 네트워크를 통과해야 합니다. 
 
 고객이 다른 Azure 구독을 관리 하지 않는 경우에는 공용 인터넷 또는 자신의 개인 연결을 사용 하 여 비 CSP 구독으로 프로 비전 된 서비스에 연결 합니다. 
 
-Azure 서비스를 관리 하는 CSP의 경우 CSP에 이전에 설정 된 고객 id 저장소가 있다고 가정 합니다 .이 저장소는 AOBO (관리-')를 통해 CSP 구독을 관리 하기 위해 Azure Active Directory에 복제 됩니다. 이 시나리오에 대 한 주요 드라이버에는 지정 된 파트너 또는 서비스 공급자가 고객과의 관계를 설정 하거나, 고객이 현재 공급자 서비스를 사용 하 고 있거나, CSP를 사용 하 여 유연 하 게 충족 될 수 없는 고객 과제를 해결 하기 위해 공급자 호스트 및 Azure에서 호스트 되는 솔루션의 조합을 제공 하고자 하는 경우를 들 수 있습니다. 이 모델은 아래 **그림**에 설명되어 있습니다.
+Azure 서비스를 관리 하는 CSP의 경우 CSP에 이전에 설정 된 고객 id 저장소가 있다고 가정 합니다 .이 저장소는 AOBO (관리-')를 통해 CSP 구독을 관리 하기 위해 Azure Active Directory에 복제 됩니다. 이 시나리오에 대 한 주요 드라이버에는 지정 된 파트너 또는 서비스 공급자가 고객과의 관계를 설정 하거나, 고객이 현재 공급자 서비스를 사용 하 고 있거나, CSP를 사용 하 여 유연 하 게 충족 될 수 없는 고객 과제를 해결 하기 위해 공급자 호스트 및 Azure에서 호스트 되는 솔루션의 조합을 제공 하고자 하는 경우를 들 수 있습니다. 이 모델은 아래 **그림** 에 나와 있습니다.
 
-![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+!["연결" 모델에 대 한 자세한 시나리오를 보여 주는 다이어그램입니다.](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Connect-to 모델
-![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+!["연결" 모델을 표시 하는 다이어그램입니다.](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 Connect-To 모델에서 서비스 공급자는 고객의 네트워크를 통해 ExpressRoute를 사용하여 고객의 데이터 센터와 CSP 프로비전된 Azure 구독 간의 직접 연결을 만듭니다.
 
@@ -56,7 +56,7 @@ Connect-To 모델에서 서비스 공급자는 고객의 네트워크를 통해 
 
 이 연결 시나리오에서는 고객이 완전히 또는 부분적으로 생성, 소유 및 관리 되는 직접 네트워크 연결을 사용 하 여 고객이 네트워크를 통해 직접 연결 하 여 CSP에서 관리 하는 Azure 구독에 액세스 해야 합니다. 이러한 고객의 경우 공급자는 현재 고객 id 저장소를 설정 하지 않은 것으로 가정 하 고, 공급자는 고객이 현재 id 저장소를 AOBO를 통해 구독을 관리 하기 위해 Azure Active Directory로 복제 하는 데 도움을 줍니다. 이 시나리오의 핵심 추진력은 지정된 파트너 또는 서비스 공급자가 고객과의 관계를 설정한 경우가 포함되며 고객은 현재 공급자 서비스를 사용 중이고 파트너는 기존 공급자 데이터 센터 또는 인프라 없이 전적으로 Azure 호스팅 솔루션을 기반으로 서비스를 제공하기를 원합니다.
 
-![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+!["연결" 모델에 대 한 자세한 시나리오를 보여 주는 다이어그램입니다.](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 이러한 두 옵션 중에서 선택 하는 항목은 고객의 요구 사항을 기반으로 하며 현재 Azure 서비스를 제공 해야 합니다. 이러한 모델 및 연결된 역할 기반 액세스 제어, 네트워킹, ID 디자인 패턴에 대한 자세한 내용은 다음 링크에서 자세히 설명합니다.
 
@@ -109,7 +109,7 @@ Azure Virtual Network를 만들면 vNet에서 vNet 서브넷 간의 직접 트�
 * VPN 게이트웨이를 사용하여 가상 네트워크-가상 네트워크
 * VPN 또는 ExpressRoute 게이트웨이를 사용하여 가상 네트워크-온-프레미스 네트워크
 
-![대체 텍스트](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![기본 라우팅 옵션을 보여 주는 다이어그램입니다.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>UDR(사용자 정의 라우팅)
 사용자 정의 경로를 사용하여 가상 네트워크의 할당된 서브넷에서 다른 서브넷으로 또는 기타 미리 정의된 게이트웨이 중 하나를 통한 트래픽 아웃바운드를 제어할 수 있습니다(ExpressRoute, 인터넷 또는 VPN). 기본 시스템 라우팅 테이블을 기본 라우팅 테이블을 사용자 지정 경로로 대체하는 사용자 정의 라우팅 테이블로 대체할 수 있습니다. 사용자 정의 라우팅을 사용하면 고객은 방화벽, 침입 탐지 어플라이언스와 같은 어플라이언스로 특정 경로를 만들거나 사용자 정의 경로를 호스팅하는 서브넷에서 특정 서브넷으로 액세스를 차단할 수 있습니다. 사용자 정의 경로에 대 한 개요는 [여기](../virtual-network/virtual-networks-udr-overview.md)를 참조 하세요. 

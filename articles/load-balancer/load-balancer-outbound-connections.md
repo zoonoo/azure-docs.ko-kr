@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595645"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649799"
 ---
 # <a name="outbound-connections"></a>아웃바운드 연결
 
@@ -67,7 +67,7 @@ VM이 아웃 바운드 흐름을 만들 때 Azure는 원본 IP 주소를 공용 
 
 | 연결 | 방법 | IP 프로토콜 |
 | ------------ | ------ | ------------ |
-|None </br> 기본 부하 분산 장치 | 포트를 가장 하는 [SNAT](#snat) [(PAT)](#pat)| TCP </br> UDP | 
+|없음 </br> 기본 부하 분산 장치 | 포트를 가장 하는 [SNAT](#snat) [(PAT)](#pat)| TCP </br> UDP | 
 
 #### <a name="description"></a>Description
 
@@ -160,7 +160,7 @@ Azure는 사용 가능한 미리 할당 된 [SNAT](#snat) 포트 수를 결정 �
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> 아웃 바운드 흐름 유휴 시간 제한 및 TCP 다시 설정
 
-아웃바운드 규칙은 아웃바운드 흐름 유휴 시간 제한을 제어하고 이를 애플리케이션의 요구와 일치시키는 구성 매개 변수를 제공합니다. 아웃바운드 유휴 시간 제한은 기본적으로 4분입니다. 자세한 내용은 [유휴 시간 제한 구성](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)을 참조 하세요. 
+아웃바운드 규칙은 아웃바운드 흐름 유휴 시간 제한을 제어하고 이를 애플리케이션의 요구와 일치시키는 구성 매개 변수를 제공합니다. 아웃바운드 유휴 시간 제한은 기본적으로 4분입니다. 자세한 내용은 [유휴 시간 제한 구성](load-balancer-tcp-idle-timeout.md)을 참조 하세요. 
 
 부하 분산 장치의 기본 동작은 아웃 바운드 유휴 시간 제한에 도달 했을 때 흐름을 자동으로 삭제 하는 것입니다. `enableTCPReset`매개 변수를 사용 하면 예측 가능한 응용 프로그램 동작 및 컨트롤을 사용할 수 있습니다. 매개 변수는 아웃 바운드 유휴 시간 제한의 제한 시간에 양방향 TCP 다시 설정 (TCP RST)을 보낼지 여부를 결정 합니다. 
 
@@ -375,7 +375,7 @@ UDP SNAT 포트는 TCP SNAT 포트와는 다른 알고리즘을 통해 관리됩
 
 | 적용 가능한 프로토콜 |
 |------------------------|
-| 해당 없음 |
+| N/A |
 
 #### <a name="details"></a>세부 정보
 

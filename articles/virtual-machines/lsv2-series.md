@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654755"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652927"
 ---
 # <a name="lsv2-series"></a>Lsv2 시리즈
 
@@ -25,17 +25,14 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 >
 > 자세히 알아보려면 [Windows](../virtual-machines/windows/storage-performance.md) 또는 [Linux](../virtual-machines/linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능 최적화를 참조 하세요.  
 
-ACU: 150-175
-
-버스트: 지원 됨
-
-Premium Storage: 지원됨
-
-Premium Storage 캐싱: 지원 되지 않음
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Acu](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+버스트: 지원 됨<br>
+<br>
 
 | 크기 | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup> (읽기 IOPS/MBps) | 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>4</sup> | 최대 버스트 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>5</sup>| 최대 데이터 디스크 수 | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/01/2020
+ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535980"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653318"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>상업용 Marketplace 제품의 잠재 고객
 
@@ -44,7 +44,7 @@ ms.locfileid: "86535980"
 
 ## <a name="connect-to-your-crm-system"></a>CRM 시스템에 연결
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Links to lead configuration for different CRM systems](./includes/connect-lead-management.md)]
 
 ## <a name="understand-lead-data"></a>잠재 고객 데이터 이해
 
@@ -94,78 +94,8 @@ ms.locfileid: "86535980"
 - **후속**작업: 24 시간 이내에 후속 조치를 잊지 마세요. 고객이 테스트 드라이브를 배포한 후 즉시 CRM에서 선택 하는 잠재 고객을 받게 됩니다. 여전히 웜 인 동안 내에서 전자 메일을 보냅니다. 전화 통화 예약을 요청 하 여 제품이 문제를 해결 하는 데 적합 한 솔루션 인지 파악 합니다. 일반적인 트랜잭션은 많은 추가 호출이 필요 합니다.
 - **육성**: 더 높은 이익률을 얻을 수 있도록 잠재 고객을 육성하세요. 체크 인 하지만이를 포 격 하지 않습니다. 닫기 전에 전자 메일을 몇 번 이상 전자 메일로 보내는 것이 좋습니다. 첫 번째 시도 후에는 포기 하지 마십시오. 이러한 고객은 제품을 직접 사용 하 고 무료 평가판으로 시간을 소비 한다는 점에 주의 하세요. 매우 중요 합니다.
 
-## <a name="common-questions-about-lead-management"></a>잠재 고객 관리에 대한 일반적인 질문
-
-### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>잠재 고객 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?
-
-[CRM 시스템에 연결](#connect-to-your-crm-system) 섹션의 단계를 따르거나 [파트너 센터 도움말 및 지원](https://aka.ms/marketplacepublishersupport)을 통해 지원 티켓을 제출합니다. 그런 다음, **제품 만들기** > **제품 유형** > **잠재 고객 관리 구성**을 선택합니다.
-
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 제품을 게시하기 위해 잠재 고객 대상을 구성해야 하나요?
-
-답변은 게시하는 제품의 유형에 따라 달라집니다. SaaS(Software as a Service) 및 Dynamics 365 Customer Engagement에서는 **연락처**를 사용하여 Dynamics 365 for Finance and Operations 제품, 모든 Dynamics 365 Business Central 제품 및 모든 컨설팅 서비스 제품을 나열합니다. 따라서 이러한 제품은 잠재 고객 대상에 연결되어야 합니다. 제품 유형이 나열되지 않은 경우에는 잠재 고객 대상에 대한 연결이 필요하지 않습니다. 비즈니스 기회를 놓치지 않도록 잠재 고객 대상을 구성하는 것이 좋습니다.
-
-### <a name="how-can-i-find-the-test-lead"></a>테스트 잠재 고객을 찾으려면 어떻게 해야 하나요?
-
-잠재 고객 대상에서 `"MSFT_TEST"`를 검색합니다. 다음은 Microsoft의 샘플 테스트 책임자입니다. 테스트 리드의 형식은 리드 대상에 따라 다릅니다.
-
-```
-{
-    "UserDetails": {
-      "FirstName": "MSFT_TEST_636573304831318844",
-      "LastName": "MSFT_TEST_636573304831318844",
-      "Email": "MSFT_TEST_636573304831318844@test.com",
-      "Phone": "1234567890",
-      "Country": "US",
-      "Company": "MSFT_TEST_636573304831318844",
-      "Title": "MSFT_TEST_636573304831318844"
-    },
-    "LeadSource": "AzureMarketplace",
-    "ActionCode": "INS",
-    "OfferTitle": "Contoso Test"
-    "Description": "MSFT_TEST_636573304831318844"
-}
-```
-
-### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>라이브 제품이 있지만 잠재 고객이 보이지 않는 이유는 무엇인가요?
-
-잠재 고객 대상에 대한 연결이 올바른지 확인합니다. Microsoft는 파트너 센터에서 제품에 대해 **게시**를 선택한 후에 테스트 잠재 고객을 보내 드립니다. 테스트 잠재 고객이 표시되면 연결이 올바른 것입니다. 미리 보기 단계에서 제품 미리 보기를 가져와 잠재 고객 연결을 테스트할 수도 있습니다. 상업용 Marketplace의 목록에서 **지금 가져오기**, **연락처** 또는 **평가판**을 선택합니다.
-
-또한 올바른 데이터를 검색하고 있는지 확인합니다. 이 문서의 [잠재 고객 데이터 이해](#understand-lead-data) 섹션에서는 잠재 고객 대상으로 전송하는 잠재 고객 데이터에 대해 설명합니다.
-
-### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>Azure Blob 스토리지를 잠재 고객 대상으로 구성했는데 잠재 고객이 표시되지 않는 이유는 무엇인가요?
-
-Azure Blob 스토리지는 더 이상 잠재 고객 대상으로 지원되지 않으므로 제품에서 생성된 잠재 고객이 누락됩니다. 다른 [잠재 고객 대상 옵션](./commercial-marketplace-get-customer-leads.md)으로 전환합니다. 
-
-### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>상업용 Marketplace에서 메일을 받았으나 CRM에서 리드를 찾을 수 없는 이유는 무엇인가요?
-
-최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인의 개인 정보를 전달하지 않습니다. [파트너 센터 도움말 및 지원](https://aka.ms/marketplacepublishersupport)을 통해 지원 티켓을 제출합니다.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Azure 테이블을 잠재 고객 대상으로 구성했습니다. 잠재 고객을 보려면 어떻게 해야 하나요?
-
-Azure Portal에서 Azure 테이블에 저장된 잠재 고객 데이터에 액세스할 수 있습니다. 또한 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 다운로드한 후 설치하여 Azure Storage 계정의 테이블 데이터를 무료로 볼 수 있습니다.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>Azure 테이블을 잠재 고객 대상으로 구성했습니다. 새 상업용 Marketplace 잠재 고객이 전송될 때마다 알림 메시지를 받을 수 있나요?
-
-예. [Azure 테이블을 사용하여 잠재 고객 관리 구성](./commercial-marketplace-lead-management-instructions-azure-table.md)의 지침에 따라 잠재 고객이 Azure 테이블에 추가될 경우 메일을 전송하는 Microsoft 흐름을 설정합니다.
-
-### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>Salesforce를 내 잠재 고객 대상으로 구성했으나 잠재 고객을 찾을 수 없는 이유는 무엇인가요?
-
-선택 목록에서 웹-잠재 고객 양식이 필수 필드인지 확인합니다. 그런 경우 해당 필드를 비필수 텍스트 필드로 전환합니다.
-
-### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>잠재 고객 대상에 문제가 있으며 일부 잠재 고객이 누락되었습니다. 메일로 보내줄 수 있나요?
-
-개인 정보 정책으로 인해 안전하지 않은 메일을 통해 잠재 고객 정보를 공유할 수 없습니다.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Azure 테이블을 잠재 고객 대상으로 구성했습니다. 비용은 얼마인가요?
-
-잠재 고객 생성 데이터가 부족합니다. 거의 모든 게시자에서 1GB 미만입니다. 비용은 받은 잠재 고객 수에 따라 달라집니다. 예를 들어 1달에 1,000명의 잠재 고객이 수신되면 비용은 50센트입니다. 스토리지 가격 책정에 대한 자세한 내용은 [Azure Storage 개요 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
-
-질문에 대한 답변을 얻지 못할 경우 [파트너 센터 도움말 및 지원](https://aka.ms/marketplacepublishersupport)을 통해 Microsoft 지원 서비스에 문의하세요. 그런 다음, **제품 만들기** > **제품 유형** > **잠재 고객 관리 구성**을 선택합니다.
-
-### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>새 잠재 고객이 수신되면 메일 알림이 수신됩니다. 다른 사람이 이러한 메일을 받도록 구성하려면 어떻게 해야 하나요?
-
-파트너 센터에서 제품에 액세스하고 **제품 설정** 페이지 > **잠재 고객 관리** > **편집**으로 이동합니다. **연락처 메일** 필드에서 메일 주소를 업데이트합니다.
+기술 설정이 완료되면 이러한 잠재 고객을 현재 영업 및 마케팅 전략과 운영 프로세스에 통합합니다. Microsoft는 전반적인 판매 프로세스를 보다 잘 이해하고 고품질 리드와 충분한 데이터를 제공하여 궁극적으로는 고객이 성공하도록 지원하기 위해 노력하고 있습니다. 이렇게 고객의 성공을 지원할 수 있도록, 추가 데이터를 제공하여 리드를 최적화하고 향상시킬 수 있는 방법에 대한 의견을 환영합니다. 영업 팀이 상업용 Marketplace 잠재 고객을 더 많이 확보하는 데 도움이 되는 [피드백](mailto:AzureMarketOnboard@microsoft.com)과 제안 사항을 제공하려면 메일을 보내 주시기 바랍니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-기술 설정이 완료되면 이러한 잠재 고객을 현재 영업 및 마케팅 전략과 운영 프로세스에 통합합니다. Microsoft는 전반적인 판매 프로세스를 보다 잘 이해하고 고품질 리드와 충분한 데이터를 제공하여 궁극적으로는 고객이 성공하도록 지원하기 위해 노력하고 있습니다. 이렇게 고객의 성공을 지원할 수 있도록, 추가 데이터를 제공하여 리드를 최적화하고 향상시킬 수 있는 방법에 대한 의견을 환영합니다. 영업 팀이 상업용 Marketplace 잠재 고객을 더 많이 확보하는 데 도움이 되는 [피드백](mailto:AzureMarketOnboard@microsoft.com)과 제안 사항을 제공하려면 메일을 보내 주시기 바랍니다.
+- [리드 관리 FAQ 및 문제 해결](../lead-management-faq.md)

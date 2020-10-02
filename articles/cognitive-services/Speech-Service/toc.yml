@@ -581,8 +581,6 @@
     - name: 지원
       displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
       href: support.md
-    - name: 영역
-      href: regions.md
     - name: Swagger 설명서
       href: swagger-documentation.md
     - name: 소버린 클라우드

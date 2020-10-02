@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268658"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652961"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -48,6 +48,18 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="september-2020"></a>2020년 9월
+
+다음 v2 속성은 더 이상 기록 작업 진행률 데이터로 채워지지 않습니다.
+
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+작업 기록을 가져오려면 웹 후크를 통해 v2 작업 알림을 사용 하거나 알림 끝점을 사용 하 여 메시지를 큐에 두어야 합니다. 자세한 내용은 다음을 참조하세요.
+
+* [Azure Queue Storage를 사용하여 Media Services 작업 알림을 모니터링합니다.](media-services-dotnet-check-job-progress-with-queues.md)
+* [Azure 웹 후크를 사용 하 여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>2020년 2월
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567556"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653590"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -216,7 +216,7 @@ Cosmos DB는 MongoDB에 대해 작성된 애플리케이션에 MongoDB 유선 �
 | MongoDB 작업의 최대 실행 시간| 30초 |
 | 서버 쪽 연결을 종료하는 유휴 연결 시간 제한* | 30분 |
 
-\* [Azure LoadBalancer의 기본 시간 제한은 4분](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)이므로 클라이언트 애플리케이션의 드라이버 설정에서 유휴 연결 시간 제한을 2-3분으로 설정하는 것이 좋습니다.  이 시간 제한은 클라이언트 머신과 Azure Cosmos DB 사이에 있는 중간 부하 분산 장치가 유휴 연결을 종료하지 않게 합니다.
+\* [Azure LoadBalancer의 기본 시간 제한은 4분](../load-balancer/load-balancer-tcp-idle-timeout.md)이므로 클라이언트 애플리케이션의 드라이버 설정에서 유휴 연결 시간 제한을 2-3분으로 설정하는 것이 좋습니다.  이 시간 제한은 클라이언트 머신과 Azure Cosmos DB 사이에 있는 중간 부하 분산 장치가 유휴 연결을 종료하지 않게 합니다.
 
 ## <a name="try-cosmos-db-free-limits"></a>Cosmos DB 평가판의 제한
 

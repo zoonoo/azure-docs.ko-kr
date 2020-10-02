@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651134"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653556"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -20,15 +20,13 @@ Mv2 시리즈는 2.5 GHz의 모든 코어 기본 주파수와 3.8 g h z의 최�
 
 Mv2 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술
 
-Premium Storage: 지원됨
-
-Premium Storage 캐싱: 지원 됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
-
-쓰기 가속기: [지원 됨](./how-to-enable-write-accelerator.md)
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[쓰기 가속기](./how-to-enable-write-accelerator.md): 지원 됨<br>
+<br>
 
 |크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f7d4403fa480aa03868df5a0daa09e54ce8ecda7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 19ed565cbc68cc49da9daa5460e4dca41ce01cbc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286226"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653488"
 ---
 # <a name="ncv2-series"></a>NCv2 시리즈
 
@@ -20,13 +20,11 @@ NCv2 시리즈 VM은 NVIDIA Tesla P100 GPU로 구동됩니다. 이러한 GPU는 
 
 NC24rs v2 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화된 짧은 대기 시간과 높은 처리량의 네트워크 인터페이스를 제공합니다.
 
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원되지 않음
-
-메모리 보존 업데이트: 지원되지 않음
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 
 > [!IMPORTANT]
 > 이 VM 시리즈의 경우 구독에서 vCPU (코어) 할당량은 초기에 각 지역에서 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md) 합니다.
