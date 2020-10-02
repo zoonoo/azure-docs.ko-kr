@@ -42,8 +42,10 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: 가용성 영역의 영역 중복 게이트웨이 정보
       href: about-zone-redundant-vnet-gateways.md
-    - name: 기본 제공 보안 컨트롤
-      href: vpn-gateway-security-controls.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 백 엔드 연결 상호 운용성
       items:
         - name: 접두사 및 테스트 설정

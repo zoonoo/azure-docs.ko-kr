@@ -135,7 +135,7 @@
                       href: partner-center-portal/common-sas-uri-issues.md
         - name: 컨설팅 서비스
           items:
-            - name: 사전 요구 사항
+            - name: 필수 구성 요소
               href: partner-center-portal/consulting-service-prerequisites.md
             - name: 컨설팅 서비스 제품 만들기
               href: partner-center-portal/create-consulting-service-offer.md
@@ -294,7 +294,7 @@
       items:
         - name: 개요
           href: cloud-partner-portal-api-overview.md
-        - name: 사전 요구 사항
+        - name: 필수 구성 요소
           href: cloud-partner-portal-api-prerequisites.md
         - name: 고려 사항
           href: cloud-partner-portal-api-considerations.md
@@ -327,7 +327,7 @@
     - name: 정책 및 사용 약관 정보
       href: policies-terms.md
     - name: 상업용 Marketplace 인증 정책
-      href: /legal/marketplace/offer-policies-change-history?context=/azure/marketplace/context/context
+      href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
     - name: 상용 마켓플레이스 검토 정책
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
     - name: Azure Marketplace 참가 정책
