@@ -3,16 +3,16 @@ title: Azure 이미지 작성기 서비스 문제 해결
 description: Azure VM 이미지 작성기 서비스를 사용할 때 발생 하는 일반적인 문제 해결
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459932"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661111"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Azure 이미지 작성기 서비스 문제 해결
 
@@ -209,7 +209,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
     ```
 5. 프로 비전 해제 단계입니다. Azure 이미지 작성기는 숨겨진 사용자 지정자를 추가 합니다. 이 프로 비전 해제 단계는 프로 비전 해제를 위해 VM을 준비 하는 일을 담당 합니다. Windows Sysprep (c:\DeprovisioningScript.ps1 사용) 또는 Linux waagent 프로 비전 해제 (/tmp/DeprovisioningScript.sh 사용)를 실행 합니다. 
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -247,7 +247,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 로그를 검토 하 여 오류 지정자를 찾습니다. *(원격 분석)* 를 검색 합니다. 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -591,6 +591,18 @@ Azure DevOps 기능 및 제한 사항에 대 한 자세한 내용은 [Microsoft 
 #### <a name="solution"></a>솔루션
 
 사용자 고유의 DevOps 에이전트를 호스팅하거나 빌드 시간을 줄일 수 있습니다. 예를 들어 공유 이미지 갤러리에 배포 하는 경우 한 지역에 복제 합니다. 비동기식으로 복제 하려는 경우 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>저속 Windows 로그온: ' Windows 모듈 설치 관리자를 기다려 주세요. '
+
+#### <a name="error"></a>Error
+이미지 작성기를 사용 하 여 Windows 10 이미지를 만든 다음, RDP를 사용 하 여 이미지에서 VM을 만들고, 첫 번째 로그온 시 다음 메시지와 함께 파란색 화면을 표시 하는 데 몇 분 정도 기다려야 합니다.
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>솔루션
+먼저 이미지 빌드에서 마지막 사용자 지정으로 Windows 다시 시작 사용자 지정을 추가 하 고 모든 소프트웨어 설치가 완료 되었는지 확인 하는 데 필요한 미해결 다시 부팅이 없는지 확인 합니다. 마지막으로 [/mode: vm](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) 옵션을 AIB에서 사용 하는 기본 sysprep에 추가 합니다. 아래를 참조 하십시오. ' AIB 이미지에서 만든 vm은 ' > ' 명령을 재정의 하지 않습니다. '  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>AIB 이미지에서 만든 Vm을 만들지 못했습니다.
 

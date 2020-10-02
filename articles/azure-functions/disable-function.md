@@ -4,18 +4,18 @@ description: Azure Functions에서 함수를 사용하지 않도록 설정하고
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4d93f728103aabdd1bd5557033a8bd36ffac2d42
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213154"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661026"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
 이 문서에서는 Azure Functions에서 함수를 사용하지 않도록 설정하는 방법을 설명합니다. 함수를 *사용하지 안도록 설정*하는 것은 함수에 대해 정의된 자동 트리거를 런타임에서 무시하도록 하는 것입니다. 이렇게 하면 전체 함수 앱을 중지하지 않고도 특정 함수가 실행되지 않도록 할 수 있습니다.
 
-함수를 사용하지 않도록 설정하는 권장 방법은 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 형식으로 앱 설정을 사용하는 것입니다. [Azure CLI](/cli/azure/)를 사용하고 [Azure Portal](https://portal.azure.com)의 함수 **관리** 탭에서 다양한 방법으로 이 애플리케이션 설정을 만들고 수정할 수 있습니다. 
+함수를 사용 하지 않도록 설정 하는 권장 방법은로 설정 된 형식의 앱 설정을 사용 하는 것입니다 `AzureWebJobs.<FUNCTION_NAME>.Disabled` `true` . [Azure CLI](/cli/azure/)를 사용하고 [Azure Portal](https://portal.azure.com)의 함수 **관리** 탭에서 다양한 방법으로 이 애플리케이션 설정을 만들고 수정할 수 있습니다. 
 
 > [!NOTE]  
 > 이 문서에서 설명하는 방법을 사용하여 HTTP 트리거 함수를 사용하지 않도록 설정하면 로컬 컴퓨터에서 실행 중일 때도 엔드포인트에 계속 액세스할 수 있습니다.  
@@ -40,7 +40,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>포털 사용
 
-함수의 **개요** 페이지에서**사용** 및 **사용 안 함** 단추를 사용할 수도 있습니다. 이러한 단추는 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 앱 설정을 만들고 삭제하는 방식으로 작동합니다.
+함수의 **개요** 페이지에서**사용** 및 **사용 안 함** 단추를 사용할 수도 있습니다. 이러한 단추는 앱 설정 값을 변경 하는 방식으로 작동 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 합니다. 이 함수 관련 설정은 처음 사용 하지 않도록 설정할 때 생성 됩니다.
 
 ![함수 상태 스위치](media/disable-function/function-state-switch.png)
 

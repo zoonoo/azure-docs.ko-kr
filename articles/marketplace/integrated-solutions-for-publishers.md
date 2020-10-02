@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119534"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660907"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
@@ -52,7 +52,7 @@ ms.locfileid: "86119534"
 
 ## <a name="submit-a-nomination"></a>추천 제출
 
-프로그램에 참여하려는 파트너는 함께 작업할 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 양식](https://aka.ms/AA5qicu)을 작성해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 기준 10일 이내에 처리합니다. 팀에서 승인하고 다음 단계로 진행합니다.
+프로그램에 참여하려는 파트너는 함께 작업할 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 기준 10일 이내에 처리합니다. 팀에서 승인하고 다음 단계로 진행합니다.
 
 ## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발
 
@@ -114,4 +114,4 @@ ms.locfileid: "86119534"
 
 ## <a name="next-steps"></a>다음 단계
 
-Marketplace에서 통합 솔루션을 구매하는 방법에 대한 자세한 내용은 [통합 솔루션](./integrated-solutions.md)을 참조하세요.
+- [통합 솔루션 추천 양식](https://aka.ms/AA5qicu)

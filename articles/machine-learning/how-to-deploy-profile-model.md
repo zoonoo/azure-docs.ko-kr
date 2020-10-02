@@ -10,20 +10,24 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935588"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660992"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>모델을 프로 파일링 하 여 리소스 사용률 확인
 
 이 문서에서는 모델에 기계 학습을 프로 파일링 하 여 모델을 웹 서비스로 배포할 때 모델에 할당 해야 하는 CPU 및 메모리 양을 결정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 모델을 학습 하 고 등록 했다고 가정 합니다. Azure Machine Learning를 사용 하 여 scikit 모델을 학습 하 고 등록 하는 방법에 대 한 예제는 [여기의 샘플 자습서](how-to-train-scikit-learn.md) 를 참조 하세요.
+
+## <a name="limitations"></a>제한 사항
+
+* 작업 영역의 ACR (Azure Container Registry)이 가상 네트워크 뒤에 있으면 프로 파일링이 작동 하지 않습니다.
 
 ## <a name="run-the-profiler"></a>프로파일러 실행
 
