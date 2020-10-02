@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53db53f60166c3b5afa117a60a99e3429a14576d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488561"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630664"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
@@ -97,7 +97,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 인스턴스는 **Timeseriesid**, **typeId**, **name**, **description**, **계층 id**및 **instancefields**에 의해 정의 됩니다. 각 인스턴스는 한 가지 *유형*및 하나 이상의 *계층*에 매핑됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | ---|
 | timeSeriesId | 인스턴스가 연결 된 시계열의 고유 ID입니다. 대부분의 경우 인스턴스는 deviceId 또는 assetId와 같은 속성으로 고유 하 게 식별 됩니다. 경우에 따라 최대 3 개의 속성을 결합 하는 보다 구체적인 복합 ID를 사용할 수 있습니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 유형의 고유 문자열 ID (대/소문자 구분)입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.

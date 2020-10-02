@@ -3,12 +3,12 @@ title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1e90a7cbc4f817f5dd6c854020e2711e8ac097b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284978"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627111"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -1416,7 +1416,7 @@ ms.locfileid: "91284978"
 > | frontdoors | 예 | 예 |
 > | ipallocations | 예 | 예 |
 > | ipgroups | 예 | 예 |
-> | loadbalancers | 예 - 기본 SKU<br>아니요 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
+> | loadbalancers | 예 - 기본 SKU<br> 예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | localnetworkgateways | 예 | 예 |
 > | natgateways | 예 | 예 |
 > | networkexperimentprofiles | 예 | 예 |
@@ -1435,7 +1435,7 @@ ms.locfileid: "91284978"
 > | privateendpointredirectmaps | 예 | 예 |
 > | privateendpoints | 예 | 예 |
 > | privatelinkservices | 예 | 예 |
-> | publicipaddresses | 예 - 기본 SKU<br>아니요 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
+> | publicipaddresses | 예 - 기본 SKU<br>예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | publicipprefixes | 예 | 예 |
 > | routefilters | 예 | 예 |
 > | routetables | 예 | 예 |

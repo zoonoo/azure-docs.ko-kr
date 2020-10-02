@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 5ffa5398143bff4e24d81a28a541e16c44700c99
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254026"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628197"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 웹 응용 프로그램을 계산 하는 사용자 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "91254026"
 * 웹 응용 프로그램에서 IoT Hub 연결 구성
 * 웹 응용 프로그램 배포 및 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure IoT Edge 배포 구성 및 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 에 대 한 기본적인 이해
@@ -127,14 +127,13 @@ Edge 장치에 GPU가 둘 이상 있는 경우이 작업을 실행할 GPU를 선
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 필수 매개 변수를 입력 합니다.
 
-* 배포 이름:이 배포에 대 한 이름을 선택 합니다.
 * IoT Hub 이름: Azure IoT Hub 이름입니다.
-* Deployment.js: 배포 파일의 이름
+* DeploymentManifest.js: 배포 파일의 이름
 * IoT Edge 장치 이름: 호스트 컴퓨터의 IoT Edge 장치 이름입니다.
 * 구독: 구독 ID 또는 이름입니다.
 

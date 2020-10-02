@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: c1d351cf7a3d66f6051bf5c9d17672b054c2d862
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538385"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631191"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "91538385"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
@@ -80,19 +80,7 @@ ms.locfileid: "91538385"
 ### <a name="limitations"></a>제한 사항
 
 가상 네트워크 내에서 작업 영역 및 연결 된 리소스를 보호 하는 경우 다음과 같은 제한 사항이 있습니다.
-- 작업 영역 개인 링크는 다음 지역 에서만 사용할 수 있습니다.
-    - **미국 동부**
-    - **미국 중남부**
-    - **미국 서부**
-    - **미국 서부 2**
-    - **캐나다 중부**
-    - **동남 아시아**
-    - **일본 동부**
-    - **북유럽**
-    - **동부 오스트레일리아**
-    - **영국 남부**
-    
-    연결 된 리소스에는이 제한이 적용 되지 않습니다. 예를 들어 모든 Azure Machine Learning 지역에서 저장소에 대해 VNet을 사용 하도록 설정할 수 있습니다.
+- 개인 링크로 Azure Machine Learning 작업 영역을 사용 하는 것은 Azure Government 또는 Azure 중국 21Vianet 지역에서 사용할 수 없습니다.
 - 모든 리소스는 동일한 VNet 뒤에 있어야 합니다. 그러나 동일한 VNet 내의 서브넷은 허용 됩니다.
 
 ## <a name="secure-the-training-environment"></a>교육 환경 보안

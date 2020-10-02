@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853044"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629083"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Azure Active Directory에서 공용 클라이언트 응용 프로그램 등록
 
@@ -45,7 +45,8 @@ ms.locfileid: "87853044"
 
 1. **API 사용 권한을**엽니다.
 
-    FHIR 용 Azure API를 사용 하는 경우 **조직에서 사용 하는 api** (아래 이미지)에서 Azure 의료 api를 검색 하 여 Azure 의료 api에 대 한 사용 권한을 추가 합니다.
+    FHIR 용 Azure API를 사용 하는 경우 **조직에서 사용 하는 api**에서 Azure 의료 api를 검색 하 여 Azure 의료 api에 대 한 사용 권한을 추가 합니다. [FHIR 용 AZURE API를 이미 배포한](fhir-paas-powershell-quickstart.md)경우에만이를 찾을 수 있습니다.
+
     
     다른 리소스 응용 프로그램을 참조 하는 경우 이전에 **내 api**에서 만든 [Fhir Api 리소스 응용 프로그램 등록](register-resource-azure-ad-client-app.md) 을 선택 합니다.
 

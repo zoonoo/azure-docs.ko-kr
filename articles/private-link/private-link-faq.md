@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349930"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629950"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
 
@@ -65,7 +65,7 @@ Service 백 엔드는 가상 네트워크에 있고 표준 Load Balancer 뒤에 
 개인 링크 서비스에서 표시 유형 구성을 사용 하 여 노출을 제어할 수 있습니다. 표시 유형은 세 가지 설정을 지원 합니다.
 
 - **None** -RBAC 액세스 권한이 있는 구독만 서비스를 찾을 수 있습니다. 
-- 허용 목록 및 RBAC 액세스 권한이 있는 **제한적** 전용 구독은 서비스를 찾을 수 있습니다. 
+- 승인 되 고 RBAC 액세스 권한이 있는 **제한적** 전용 구독은 서비스를 찾을 수 있습니다. 
 - **모두** -모든 사용자가 서비스를 찾을 수 있습니다. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>기본 Load Balancer를 사용 하 여 개인 링크 서비스를 만들 수 있나요? 

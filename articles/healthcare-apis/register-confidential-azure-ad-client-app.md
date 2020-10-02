@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 756645d2df22f1222c3004a44e5a46c7a3bc1a2f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852551"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629147"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Azure Active Directory에서 기밀 클라이언트 응용 프로그램 등록
 
@@ -23,51 +23,53 @@ ms.locfileid: "87852551"
 
 포털에서 새 기밀 응용 프로그램을 등록 하려면 다음 단계를 수행 합니다.
 
-## <a name="app-registrations-in-azure-portal"></a>Azure Portal 앱 등록
+## <a name="register-a-new-application"></a>새 애플리케이션 등록
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**로 이동 합니다.
 
-2. **Azure Active Directory** 블레이드에서 **앱 등록**를 클릭 합니다.
+1. **앱 등록**을 선택합니다.
 
     ![Azure Portal. 새 앱 등록.](media/how-to-aad/portal-aad-new-app-registration.png)
 
-3. **새 등록**을 클릭 합니다.
-
-## <a name="register-a-new-application"></a>새 애플리케이션 등록
+1. **새 등록**을 선택합니다.
 
 1. 응용 프로그램에 표시 이름을 지정 합니다.
 
-2. 회신 URL을 제공 합니다. 이러한 세부 정보는 나중에 변경할 수 있지만 응용 프로그램의 회신 URL을 알고 있는 경우 지금 입력 하세요.
+1. 회신 URL을 제공 합니다. 이러한 세부 정보는 나중에 변경할 수 있지만 응용 프로그램의 회신 URL을 알고 있는 경우 지금 입력 하세요.
 
     ![새 비밀 클라이언트 앱 등록.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+1. **등록**을 선택합니다.
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-다음 API 추가 권한 추가:
+응용 프로그램을 등록 했으므로 이제이 응용 프로그램이 사용자를 대신 하 여 요청할 수 있는 API 권한을 선택 해야 합니다.
 
-1. **API 권한**을 엽니다.
+1. **API 사용 권한**을 선택합니다.
 
     ![기밀 클라이언트. API 사용 권한](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
-2. **권한 추가를 클릭 합니다** .
+1. **사용 권한 추가**를 선택합니다.
 
-3. 적절 한 리소스 API를 선택 합니다.
+    FHIR 용 Azure API를 사용 하는 경우 **조직에서 사용 하는 api**에서 **azure 의료 api** 를 검색 하 여 azure 의료 api에 대 한 사용 권한을 추가 합니다. 
 
-    Azure API for FHIR (관리 서비스)의 경우 **내 조직에서 사용** 하는 api를 클릭 하 고 "Azure 의료 api"를 검색 합니다. Azure 용 오픈 소스 FHIR 서버에 대해 [FHIR API 리소스 응용 프로그램 등록](register-resource-azure-ad-client-app.md)을 선택 합니다.
+    다른 리소스 응용 프로그램을 참조 하는 경우 이전에 **내 api**에서 만든 [Fhir Api 리소스 응용 프로그램 등록](register-resource-azure-ad-client-app.md) 을 선택 합니다.
 
-    ![기밀 클라이언트. 내 Api](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-MyApis.png)
 
-4. 기밀 응용 프로그램이 사용자를 대신 하 여 요청할 수 있어야 하는 범위 (권한)를 선택 합니다.
+    :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="기밀 클라이언트. 내 조직 Api" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
+    
 
-    ![기밀 클라이언트. 위임된 권한](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-DelegatedPermissions.png)
+3. 기밀 응용 프로그램이 사용자를 대신 하 여 요청할 수 있어야 하는 범위 (권한)를 선택 합니다.
+
+    :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="기밀 클라이언트. 내 조직 Api":::
 
 ## <a name="application-secret"></a>애플리케이션 암호
 
-1. 응용 프로그램 암호 (클라이언트 암호)를 만듭니다.
+1. **인증서 & 암호**를 선택 합니다.
+1. **새 클라이언트 비밀**을 선택합니다. 
 
     ![기밀 클라이언트. 응용 프로그램 암호](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
 
-2. 비밀의 설명 및 기간을 제공 합니다.
+2. 비밀의 설명 및 기간 (1 년, 2 년 또는 안 함)을 제공 합니다.
 
 3. 일단 생성 되 면 포털에서 한 번만 표시 됩니다. 이를 기록해 두고 안전 하 게 저장 합니다.
 

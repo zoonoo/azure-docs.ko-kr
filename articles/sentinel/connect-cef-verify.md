@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: f6892f4ebb250290a0faad546fd000530baf4479
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038174"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631633"
 ---
 # <a name="step-3-validate-connectivity"></a>3 단계: 연결 유효성 검사
 
 로그 전달자 (1 단계)를 배포 하 고 보안 솔루션을 구성 하 여 (2 단계)이 지침에 따라 보안 솔루션과 Azure 센티널 간의 연결을 확인 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 로그 전달자 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "87038174"
 
 1. 파일에 다음 텍스트가 포함 되어 있는지 확인 합니다.
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -72,24 +72,59 @@ ms.locfileid: "87038174"
     </filter>
     ```
 
+1. 방화벽 이벤트에 대 한 Cisco GLOBAL.ASA 구문 분석이 예상 대로 구성 되었는지 확인 합니다.
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Log Analytics 에이전트에서 syslog 원본에 있는 *컴퓨터* 필드가 제대로 매핑 되었는지 확인 합니다.
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
 1. 네트워크 트래픽 (예: 호스트 방화벽)을 차단할 수 있는 보안 강화 기능이 컴퓨터에 있는지 확인 합니다.
 
-1. Syslog 데몬 (rsyslog)이 TCP 포트 25226의 Log Analytics 에이전트에 대 한 CEF (regex 사용)로 식별 되는 메시지를 보내도록 올바르게 구성 되어 있는지 확인 합니다.
+1. Syslog 디먼 (rsyslog)이 TCP 포트 25226의 Log Analytics 에이전트에 메시지 (CEF로 식별 됨)를 보내도록 올바르게 구성 되어 있는지 확인 합니다.
 
-    - 구성 파일:`/etc/rsyslog.d/security-config-omsagent.conf`
+    - 구성 파일: `/etc/rsyslog.d/security-config-omsagent.conf`
 
-        ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        ```bash
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
         ```
-  
-1. Syslog 데몬이 포트 514에서 데이터를 수신 하는지 확인 합니다.
 
-1. 필요한 연결이 설정 되어 있는지 확인 합니다. 즉, 데이터를 받기 위한 tcp 514, syslog 디먼과 Log Analytics 에이전트 간의 내부 통신을 위한 tcp 25226
+1. Syslog 디먼 및 Log Analytics 에이전트를 다시 시작 합니다.
+
+    ```bash
+    service rsyslog restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. 필요한 연결이 설정 되었는지 확인 합니다. tcp 514: 데이터를 수신 하 고, syslog 디먼과 Log Analytics 에이전트 간의 내부 통신에 tcp 25226를 설정 합니다.
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Syslog 데몬이 포트 514에서 데이터를 받고 있고 에이전트가 포트 25226에서 데이터를 수신 하 고 있는지 확인 합니다.
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
 
 1. 호스트 \에서 모의 데이터를 514 포트에 보냅니다. 이 데이터는 다음 쿼리를 실행 하 여 Azure 센티널 작업 영역에서 관찰 가능 해야 합니다.
 
-    ```console
+    ```kusto
     CommonSecurityLog
     | where DeviceProduct == "MOCK"
     ```
@@ -102,7 +137,7 @@ ms.locfileid: "87038174"
 
 1. 파일에 다음 텍스트가 포함 되어 있는지 확인 합니다.
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -120,25 +155,61 @@ ms.locfileid: "87038174"
     </filter>
     ```
 
+1. 방화벽 이벤트에 대 한 Cisco GLOBAL.ASA 구문 분석이 예상 대로 구성 되었는지 확인 합니다.
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Log Analytics 에이전트에서 syslog 원본에 있는 *컴퓨터* 필드가 제대로 매핑 되었는지 확인 합니다.
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
 1. 네트워크 트래픽 (예: 호스트 방화벽)을 차단할 수 있는 보안 강화 기능이 컴퓨터에 있는지 확인 합니다.
 
 1. Syslog 데몬 (syslog 사용)이 TCP 포트 25226의 Log Analytics 에이전트에 대 한 CEF (regex 사용)로 식별 되는 메시지를 보내도록 올바르게 구성 되어 있는지 확인 합니다.
 
-    - 구성 파일:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+    - 구성 파일: `/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
-        ```console
+        ```bash
         filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
         destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
-1. Syslog 데몬이 포트 514에서 데이터를 수신 하는지 확인 합니다.
+1. Syslog 디먼 및 Log Analytics 에이전트를 다시 시작 합니다.
 
-1. 필요한 연결이 설정 되어 있는지 확인 합니다. 즉, 데이터를 받기 위한 tcp 514, syslog 디먼과 Log Analytics 에이전트 간의 내부 통신을 위한 tcp 25226
+    ```bash
+    service syslog-ng restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. 필요한 연결이 설정 되었는지 확인 합니다. tcp 514: 데이터를 수신 하 고, syslog 디먼과 Log Analytics 에이전트 간의 내부 통신에 tcp 25226를 설정 합니다.
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Syslog 데몬이 포트 514에서 데이터를 받고 있고 에이전트가 포트 25226에서 데이터를 수신 하 고 있는지 확인 합니다.
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
 
 1. 호스트 \에서 모의 데이터를 514 포트에 보냅니다. 이 데이터는 다음 쿼리를 실행 하 여 Azure 센티널 작업 영역에서 관찰 가능 해야 합니다.
 
-    ```console
+    ```kusto
     CommonSecurityLog
     | where DeviceProduct == "MOCK"
     ```

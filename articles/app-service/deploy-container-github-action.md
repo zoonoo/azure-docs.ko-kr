@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6808117728569ba6fd0b094c7330ce9a1baa24c4
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618610"
+ms.locfileid: "91631786"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -23,7 +23,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 
 |섹션  |작업  |
 |---------|---------|
-|**인증** | 1. 서비스 사용자 또는 게시 프로필입니다. <br /> 2. GitHub 비밀을 만듭니다. |
+|**인증** | 1. 서비스 주체 또는 게시 프로필을 검색 합니다. <br /> 2. GitHub 비밀을 만듭니다. |
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: bf87a61633706cb5db384e8a8ab957fa6a3f37f1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533726"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627349"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -54,6 +54,12 @@ MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 �
 
 > [!IMPORTANT]
 > 프로덕션 환경에서 설정 하기 전에 스레드 풀을 테스트 하세요. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Azure Database for MySQL 이진 로그는 항상 사용 하도록 설정 되어 있습니다. 즉, `log_bin` 가 ON으로 설정 되어 있습니다. 트리거를 사용 하려는 경우에는 *슈퍼 권한이 없고 이진 로깅이 사용 하도록 설정 된 `log_bin_trust_function_creators` *것과 유사한 오류가 발생 합니다. 즉, 안전 하지 않은 변수를 사용 하는 것이 좋습니다. 
+
+이진 로깅 형식은 항상 **행** 이며 서버에 대 한 모든 연결은 **항상** 행 기반 이진 로깅을 사용 합니다. 행 기반 이진 로깅을 사용할 경우 보안 문제가 존재 하지 않으며 이진 로깅이 중단 되지 않으므로 안전 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 하 게를 **TRUE**로 설정할 수 있습니다.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

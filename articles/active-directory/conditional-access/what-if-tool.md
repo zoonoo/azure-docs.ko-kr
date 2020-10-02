@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948201"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631429"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용하여 문제 해결
 
@@ -30,13 +30,13 @@ ms.locfileid: "88948201"
 
 **What If** 도구는 특정 사용자에 게 적용 되는 정책을 신속 하 게 결정 하는 방법을 제공 합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 **조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
-- 클라우드 구성 앱에 대한 액세스가 수행되는 조건
+- 구성 된 클라우드 앱에 대 한 액세스를 수행 하는 조건
      
 다음 단계로, 설정을 평가하는 시뮬레이션 실행을 시작할 수 있습니다. 사용하도록 설정된 정책만 평가 실행에 속합니다.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e518a66ae2eedd952f521e0a67769b6e08de87
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 22f35d88f3bb36d63d533941d27f72336714077c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450429"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630281"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
 
@@ -97,6 +97,7 @@ Azure Portal에서 다음을 수행 하 여 사용자의 프로필을 열 수 �
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
+참고: AzureADAdministrativeUnitMember는 100 멤버만 반환 합니다.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851141"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628998"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>아웃 바운드 연결 오류 문제 해결
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 아웃 바운드 연결 오류 문제 해결
 
 이 문서는 Azure Load Balancer의 아웃 바운드 연결에서 일반적인 문제에 대 한 해결 방법을 제공 하기 위한 것입니다. 고객이 경험 하는 아웃 바운드 연결에 대 한 대부분의 문제는 SNAT 포트 소모 및 연결 시간 제한으로 인해 삭제 된 패킷이 전달 되기 때문입니다. 이 문서에서는 이러한 각 문제를 완화 하는 단계를 제공 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "85851141"
 삭제 포트의 유휴 시간 제한은 4분입니다(조정 불가능). 다시 시도 횟수가 너무 엄격하면 고갈이 스스로 지울 수 있는 기회가 없습니다. 따라서 디자인할 때 애플리케이션이 트랜잭션을 어떤 방식으로 얼마나 자주 다시 시도하는지 고려하는 것이 중요합니다.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>각 VM에 공용 IP 할당
-공용 IP 주소를 할당하면 시나리오가 [VM에 대한 공용 IP](load-balancer-outbound-connections.md)로 변경됩니다. 각 VM에 사용되는 공용 IP의 모든 삭제 포트를 VM에 사용할 수 있습니다. (공용 IP의 삭제 포트가 해당 백 엔드 풀과 연결된 모든 VM과 공유되는 시나리오와는 반대입니다.) 공용 IP 주소의 추가 비용 및 많은 수의 개별 IP 주소를 허용 목록에 포함할 때 나타날 수 있는 잠재적 영향 등이 상충되는 고려 사항일 수 있습니다.
+공용 IP 주소를 할당하면 시나리오가 [VM에 대한 공용 IP](load-balancer-outbound-connections.md)로 변경됩니다. 각 VM에 사용되는 공용 IP의 모든 삭제 포트를 VM에 사용할 수 있습니다. (공용 IP의 삭제 포트가 해당 백 엔드 풀과 연결 된 모든 Vm과 공유 되는 시나리오와는 반대) 공용 IP 주소의 추가 비용 및 많은 수의 개별 IP 주소 필터링으로 인 한 잠재적인 영향 등을 고려해 야 할 장단점이 있습니다.
 
 >[!NOTE] 
 >이 옵션은 웹 작업자 역할에는 사용할 수 없습니다.

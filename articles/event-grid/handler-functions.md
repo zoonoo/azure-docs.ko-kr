@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Azure �
 description: Event Grid 이벤트에 대한 이벤트 처리기로 Azure 함수를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 87aeb78729dcc7bec9f193fab389e5c0952e63d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270327"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629691"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Event Grid 이벤트에 대한 이벤트 처리기로서의 Azure 함수
 
@@ -60,7 +60,7 @@ UI에서 구독을 만들 때 **이벤트 구독 만들기** 페이지에서 **�
 
 **Event Grid 항목** 페이지의 **기능** 탭에서 기존 구독에 대해 이러한 값을 업데이트할 수 있습니다. 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="만든 후 일괄 처리 사용":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="구독을 만들 때 일괄 처리 사용":::
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 Azure Resource Manager 템플릿에서 **maxEventsPerBatch** 및 **preferredBatchSizeInKilobytes** 를 설정할 수 있습니다. 자세한 내용은 [Microsoft EventGrid Eventgrid 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions)를 참조 하세요.
@@ -70,9 +70,6 @@ Azure Resource Manager 템플릿에서 **maxEventsPerBatch** 및 **preferredBatc
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 [AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) 또는 [AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet을 사용 하 여 또는와 같은 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 있습니다. `-MaxEventsPerBatch` `-PreferredBatchSizeInKiloBytes`
-
-> [!NOTE]
-> **다른 테 넌 트** 의 Azure 함수에 이벤트를 전달 하는 것은 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

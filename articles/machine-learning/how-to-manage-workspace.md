@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 6462226436aa7976f5293a5c271258be8a340cd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322339"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631252"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리
 
@@ -43,9 +43,9 @@ ms.locfileid: "91322339"
    필드|설명 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
-   구독 |사용할 Azure 구독을 선택합니다.
-   리소스 그룹 | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
-   지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
+   Subscription |사용할 Azure 구독을 선택합니다.
+   Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
+   Azure 지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
    Workspace Edition | **기본** 또는 **엔터프라이즈**를 선택 합니다.  이 작업 영역 버전은 액세스 및 가격 책정을 사용할 수 있는 기능을 결정 합니다. [Azure Machine Learning](overview-what-is-azure-ml.md)에 대해 자세히 알아보세요. 
 
     ![작업 영역 구성](./media/how-to-manage-workspace/select-edition.png)
@@ -64,17 +64,15 @@ ms.locfileid: "91322339"
 ### <a name="networking"></a>네트워킹  
 
 > [!IMPORTANT]  
-> 작업 영역에서 개인 끝점 및 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 [네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md)를 참조 하세요.  
-1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __공용 끝점__을 사용 하는 것입니다. 만든 Azure Virtual Network 작업 영역에 대 한 액세스를 제한 하려면 __연결 방법__으로 __개인 끝점__ (미리 보기)을 선택 하 고 __+ 추가__ 를 사용 하 여 끝점을 구성 하면 됩니다.   
-
-   > [!IMPORTANT]   
-   > Azure Machine Learning 작업 영역에서 개인 끝점을 사용 하는 것은 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.  
-   > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
+> 작업 영역에서 개인 끝점 및 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 [네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md)를 참조 하세요.
+    
+1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __공용 끝점__을 사용 하는 것입니다. 만든 Azure Virtual Network 작업 영역에 대 한 액세스를 제한 하려면 대신 __연결 방법__으로 __개인 끝점__ 을 선택 하 고 __+ 추가__ 를 사용 하 여 끝점을 구성 하면 됩니다. 
+    
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="개인 끝점 선택":::  
 
 1. __개인 끝점 만들기__ 양식에서 사용할 위치, 이름 및 가상 네트워크를 설정 합니다. 사설 DNS 영역에서 끝점을 사용 하려면 __개인 DNS 영역과 통합__ 을 선택 하 고 __사설 DNS 영역__ 필드를 사용 하 여 영역을 선택 합니다. __확인__ 을 선택 하 여 끝점을 만듭니다.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="개인 끝점 만들기":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="개인 끝점 선택":::   
 
 1. 네트워킹 구성을 완료 한 후 __검토 + 만들기__를 선택 하거나 __고급__ 구성 (선택 사항)으로 이동할 수 있습니다. 
 
@@ -112,14 +110,15 @@ __엔터프라이즈__ 버전의 Azure Machine Learning을 사용 하는 경우 
 >   
 >     Azure Cosmos DB 인스턴스를 수동으로 만들 필요는 없으며 작업 영역을 만드는 동안 생성 됩니다. 이 Azure Cosmos DB 인스턴스는이 패턴을 기반으로 하는 이름을 사용 하 여 별도의 리소스 그룹에 만들어집니다 `<your-workspace-resource-name>_<GUID>` .   
 >   
-> 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다. 작업 영역에서 사용 하는 Azure Cosmos DB를 삭제 하는 경우 해당 작업 영역을 사용 하는 작업 영역도 삭제 해야 합니다.   
+> 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다. 작업 영역에서 사용 하는 Azure Cosmos DB를 삭제 하는 경우 해당 작업 영역을 사용 하는 작업 영역도 삭제 해야 합니다.
+
 1. __고객 관리 키__를 선택 하 고 __키를 선택 하려면 클릭__하십시오 .를 선택 합니다.   
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="고객 관리형 키":::   
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="개인 끝점 선택":::   
 
 1. __Azure Key Vault에서 키 선택__ 양식에서 기존 Azure Key Vault, 포함 된 키 및 키의 버전을 선택 합니다. 이 키는 Azure Cosmos DB에 저장 된 데이터를 암호화 하는 데 사용 됩니다. 마지막으로, __선택__ 단추를 사용 하 여이 키를 사용 합니다. 
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="키 선택":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="개인 끝점 선택":::
 
 ### <a name="download-a-configuration-file"></a>구성 파일 다운로드
 
@@ -148,7 +147,7 @@ __엔터프라이즈__ 버전의 Azure Machine Learning을 사용 하는 경우 
 
 [Azure Portal](https://portal.azure.com/)에서 삭제 하려는 작업 영역의 맨 위에 있는 **삭제** 를 선택 합니다.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="작업 영역 삭제":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="개인 끝점 선택":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

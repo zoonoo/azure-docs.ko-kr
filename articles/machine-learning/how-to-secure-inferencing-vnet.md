@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: df3872f5675b55d845bc88e704b1dc4932091ac7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532417"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630851"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -32,10 +32,11 @@ ms.locfileid: "91532417"
 > [!div class="checklist"]
 > - 기본 AKS (Azure Kubernetes Service) 클러스터
 > - 개인 AKS 클러스터
+> - 개인 링크를 사용 하는 AKS 클러스터
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 

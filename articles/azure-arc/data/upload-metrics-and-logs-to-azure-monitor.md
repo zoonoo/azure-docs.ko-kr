@@ -9,16 +9,37 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317279"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630001"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드
 
-모니터링은 Azure Arc에서 사용 하는 데이터 서비스에서 제공 하는 다양 한 기본 제공 기능 중 하나입니다. 
+정기적으로 청구 목적, 모니터링 메트릭 및 로그에 대 한 사용 정보를 내보낸 후 Azure에 업로드할 수 있습니다.  이러한 세 가지 유형의 데이터를 내보내기와 업로드 하면 Azure에서 데이터 컨트롤러, SQL 관리 되는 인스턴스 및 PostgreSQL Hyperscale 서버 그룹 리소스도 생성 및 업데이트 됩니다.
+
+> [!NOTE] 
+미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+Azure CLI (az) 및 Azure Data CLI (azdata)가 설치 되어 있어야 합니다.  [도구를 설치](./install-client-tools.md)합니다.
+
+Azure에 데이터를 업로드 하기 전에 Azure 구독에 Microsoft AzureData 리소스 공급자가 등록 되어 있는지 확인 해야 합니다.
+
+다음 명령을 실행 하 여이를 확인할 수 있습니다.
+
+```console
+az provider show -n Microsoft.AzureData -o table
+```
+
+리소스 공급자가 현재 구독에 등록 되어 있지 않은 경우 다음 명령을 실행 하 여 등록할 수 있습니다.  이 명령을 완료 하려면 1 ~ 2 분이 소요 됩니다.
+
+```console
+az provider register -n Microsoft.AzureData --wait
+```
 
 ## <a name="upload-usage-data"></a>사용 현황 데이터 업로드
 

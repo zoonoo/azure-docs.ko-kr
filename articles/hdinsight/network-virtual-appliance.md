@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650864"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630936"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 가상 어플라이언스 구성
 
@@ -23,7 +23,7 @@ Azure 방화벽은 몇 가지 일반적인 중요 시나리오에 대 한 트래
 
 * 서비스 끝점을 사용 하 여 서비스 끝점을 구성할 수 있습니다. 이러한 서비스 끝점은 일반적으로 비용 또는 성능 고려 사항에 대해 NVA를 우회 합니다.
 * IP 주소 종속성은 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)을 위한 것입니다.
-* NVA 장치에서 FQDN HTTP/HTTPS 끝점을 허용 목록 수 있습니다.
+* NVA 장치에서 FQDN HTTP/HTTPS 끝점을 승인할 수 있습니다.
 * 만든 경로 테이블을 HDInsight 서브넷에 할당 합니다.
 
 ## <a name="service-endpoint-capable-dependencies"></a>서비스 끝점 지원 종속성

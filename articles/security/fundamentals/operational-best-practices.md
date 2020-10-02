@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279502"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629797"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -53,7 +53,7 @@ Azure 운영 보안은 사용자가 Azure에서 자신의 데이터, 애플리�
 Azure 등록 포털에서 보안 작업에 알리는 세부 정보를 관리 담당자 정보에 포함할 수 있습니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Azure 구독을 관리 그룹으로 구성
-조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속한 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
+조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
 
 관리 그룹 및 구독의 유연한 구조를 디렉터리에 빌드할 수 있습니다. 각 디렉터리에는 루트 관리 그룹 이라는 단일 최상위 관리 그룹이 제공 됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 루트 관리 그룹을 사용 하면 글로벌 정책과 Azure 역할 할당을 디렉터리 수준에서 적용할 수 있습니다.
 
@@ -185,7 +185,7 @@ Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../../c
 [Azure Virtual Machines](../../virtual-machines/windows/overview.md)의 경우 VM 아키텍처가 둘 이상의 VM을 포함하는지와 각 VM이 [가용성 집합](../../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 활용할 수 있는 Virtual Machine Scale Sets를 사용하는 것이 좋습니다.
 
 **모범 사례**: 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현합니다.  
-**세부 정보**: 애플리케이션의 크기(노출 영역)가 커지면 공격 위험도 증가합니다. 부하 분산 장치([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 및 [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal))에 필요하지 않은 노출된 IP 주소 공간 및 수신 대기 포트를 종료하기 위해 허용 목록을 사용하여 노출 영역을 줄일 수 있습니다.
+**세부 정보**: 애플리케이션의 크기(노출 영역)가 커지면 공격 위험도 증가합니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 및 [Azure 애플리케이션 Gateway](/azure/application-gateway/application-gateway-create-probe-portal))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다.
 
 [네트워크 보안 그룹](../../virtual-network/security-overview.md)은 공격 표면을 줄이기 위한 또 다른 방법입니다. [서비스 태그](../../virtual-network/security-overview.md#service-tags) 및 [애플리케이션 보안 그룹](../../virtual-network/security-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40fb5a1623175445065f0546403661a1f6eb399f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249589"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629440"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux (SMB)의 Azure Files 문제 해결
 
@@ -298,6 +298,32 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 
 ### <a name="solution"></a>솔루션
 이 오류는 무시해도 됩니다.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>이름에 공백이 있거나 끝에 점이 있는 폴더 또는 파일에 액세스할 수 없습니다.
+
+Linux에 탑재 된 상태에서 Azure 파일 공유의 폴더 또는 파일에 액세스할 수 없으며, 공유에 액세스 하는 동안 du, ls 및/또는 타사 응용 프로그램과 같은 명령이 실패 하 고 해당 폴더에 파일을 업로드할 수 있습니다.
+
+### <a name="cause"></a>원인
+
+이름 끝의 문자를 다른 문자로 인코딩하는 시스템에서 폴더 또는 파일을 업로드 했습니다. Macintosh 컴퓨터에서 업로드 한 파일에는 0x20 (space) 또는 0X2E (점) 대신 "0xF028" 또는 "0Xf028" 문자가 있을 수 있습니다.
+
+### <a name="solution"></a>솔루션
+
+Linux에서 공유를 탑재 하는 동안 공유에서 mapchars 옵션을 사용 합니다. 
+
+대신에:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+사용
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

@@ -2,13 +2,13 @@
 title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532451"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630953"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -22,6 +22,7 @@ ms.locfileid: "91532451"
 * 이미지를 푸시 또는 끌어올 수 없습니다. 오류 Azure CLI 수신 됩니다. `Could not connect to the registry login server`
 * 레지스트리에서 Azure Kubernetes Service 또는 다른 Azure 서비스로 이미지를 끌어올 수 없습니다.
 * HTTPS 프록시 뒤에 있는 레지스트리에 액세스할 수 없어서 오류가 발생 했습니다. `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* 가상 네트워크 설정을 구성할 수 없습니다. 오류가 발생 했습니다. `Failed to save firewall and virtual network settings for container registry`
 * Azure Portal 또는 Azure CLI를 사용 하 여 레지스트리 설정을 확인 하거나 볼 수 없습니다.
 * 가상 네트워크 설정 또는 공용 액세스 규칙을 추가 하거나 수정할 수 없습니다.
 * ACR 작업에서 이미지를 푸시 하거나 끌어올 수 없습니다.
@@ -47,7 +48,7 @@ ms.locfileid: "91532451"
 
 ### <a name="configure-client-firewall-access"></a>클라이언트 방화벽 액세스 구성
 
-클라이언트 방화벽이 나 프록시 서버 뒤에서 레지스트리에 액세스 하려면 레지스트리의 REST 및 데이터 끝점에 액세스 하는 방화벽 규칙을 구성 합니다. [전용 데이터 끝점](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) 을 사용 하는 경우 다음에 액세스할 수 있는 규칙이 필요 합니다.
+클라이언트 방화벽이 나 프록시 서버 뒤에서 레지스트리에 액세스 하려면 레지스트리의 공용 REST 및 데이터 끝점에 액세스 하는 방화벽 규칙을 구성 합니다. [전용 데이터 끝점](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) 을 사용 하는 경우 다음에 액세스할 수 있는 규칙이 필요 합니다.
 
 * REST 끝점: `<registryname>.azurecr.io`
 * 데이터 끝점: `<registry-name>.<region>.data.azurecr.io`
@@ -85,6 +86,8 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 네트워크의 다른 리소스에서 레지스트리로의 트래픽을 제한 하는 데 사용 되는 NSG 규칙 및 서비스 태그를 검토 합니다. 
 
 레지스트리에 대 한 서비스 끝점이 구성 된 경우 해당 네트워크 서브넷의 액세스를 허용 하는 네트워크 규칙이 레지스트리에 추가 되어 있는지 확인 합니다. 서비스 끝점은 네트워크의 가상 컴퓨터 및 AKS 클러스터 에서만 액세스할 수 있도록 지원 합니다.
+
+다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려면 `Microsoft.ContainerRegistry` 해당 구독에 리소스 공급자를 등록 해야 합니다. Azure Portal, Azure CLI 또는 다른 Azure 도구를 사용 하 여 Azure Container Registry에 대 한 [리소스 공급자를 등록](../azure-resource-manager/management/resource-providers-and-types.md) 합니다.
 
 네트워크에서 Azure 방화벽 또는 유사한 솔루션을 구성 하는 경우 AKS 클러스터와 같은 다른 리소스의 송신 트래픽이 레지스트리 끝점에 도달 하도록 설정 되었는지 확인 합니다.
 

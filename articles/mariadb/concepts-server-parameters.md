@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392729"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626397"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 서버 매개 변수
 
@@ -28,6 +28,12 @@ Azure Database for MariaDB는 [Azure Portal](./howto-server-parameters.md), [Azu
 지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용 하 여 전체 목록을 보고 서버 매개 변수 값을 구성할 수 있습니다.
 
 다음 섹션을 참조 하 여 일반적으로 업데이트 되는 여러 서버 매개 변수의 제한에 대해 자세히 알아보세요. 제한은 서버의 가격 책정 계층 및 vCores에 의해 결정 됩니다.
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Azure Database for MariaDB 이진 로그는 항상 사용 하도록 설정 되어 있습니다. 즉, `log_bin` 가 ON으로 설정 되어 있습니다. 트리거를 사용 하려는 경우에는 *슈퍼 권한이 없고 이진 로깅이 사용 하도록 설정 된 `log_bin_trust_function_creators` *것과 유사한 오류가 발생 합니다. 즉, 안전 하지 않은 변수를 사용 하는 것이 좋습니다.
+
+이진 로깅 형식은 항상 **행** 이며 서버에 대 한 모든 연결은 **항상** 행 기반 이진 로깅을 사용 합니다. 행 기반 이진 로깅을 사용할 경우 보안 문제가 존재 하지 않으며 이진 로깅이 중단 되지 않으므로 안전 [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) 하 게를 **TRUE**로 설정할 수 있습니다.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -72,7 +78,7 @@ Azure Database for MariaDB는 [Azure Portal](./howto-server-parameters.md), [Azu
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 업데이트할 수 있습니다.
+> `innodb_file_per_table` 은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 업데이트할 수 있습니다.
 
 MariaDB는 테이블 생성 중에 제공한 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://mariadb.com/kb/en/innodb-system-tablespaces/)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 그렇지 않으면 InnoDB는 file-per-table 테이블스페이스에 테이블을 만듭니다.
 
@@ -84,7 +90,7 @@ Azure Database for MariaDB는 단일 데이터 파일에서 가장 큰 **1TB**�
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|262144|128|268435455|
 |범용|4|262144|128|536870912|
@@ -133,7 +139,7 @@ MariaDB에 대한 새 클라이언트 연결을 만들려면 시간이 오래 �
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|16777216|16384|268435455|
 |범용|4|16777216|16384|536870912|
@@ -155,7 +161,7 @@ MariaDB에 대한 새 클라이언트 연결을 만들려면 시간이 오래 �
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|* * 최대 값 * *|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|0|0|16777216|
 |범용|4|0|0|33554432|
@@ -175,7 +181,7 @@ MariaDB에 대한 새 클라이언트 연결을 만들려면 시간이 오래 �
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|524288|32768|4194304|
 |범용|4|524288|32768|8388608|
@@ -195,7 +201,7 @@ MariaDB에 대한 새 클라이언트 연결을 만들려면 시간이 오래 �
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|16777216|1024|67108864|
 |범용|4|16777216|1024|134217728|

@@ -4,35 +4,35 @@ description: VPN Gateway 보안 기준은 Azure 보안 벤치 마크에 지정 �
 author: msmbaldwin
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2ad40f83ece1a68fe49be39551aaa1a3b93ea064
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614590"
+ms.locfileid: "91626261"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>VPN Gateway에 대 한 Azure 보안 기준
 
-이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview) 의 지침을 VPN Gateway 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 Azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 VPN Gateway에 적용 되는 관련 지침에 따라 그룹화 됩니다. VPN Gateway에 적용할 수 없는 **컨트롤** 은 제외 되었습니다.
+이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](../security/benchmarks/overview-v1.md) 의 지침을 VPN Gateway 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 Azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 VPN Gateway에 적용 되는 관련 지침에 따라 그룹화 됩니다. VPN Gateway에 적용할 수 없는 **컨트롤** 은 제외 되었습니다.
 
 VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보려면 [전체 VPN Gateway 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
 **지침**: VPN gateway 서브넷을 사용 하는 경우 게이트웨이 서브넷에 nsg (네트워크 보안 그룹)를 연결 하지 마세요. 이 서브넷에 네트워크 보안 그룹을 연결하면 VPN Gateway가 정상적으로 작동하지 않을 수 있습니다.  그러나 Virtual Network에서 VPN이 아닌 다른 게이트웨이 서브넷에 대 한 네트워크 보안 그룹을 사용 하도록 설정 합니다.
 
-- [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) 
+- [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md) 
 
-- [보안 구성을 사용 하 여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic) 
+- [보안 구성을 사용 하 여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md) 
 
-- [Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
+- [Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기](create-routebased-vpn-gateway-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -42,7 +42,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure Security Center을 사용 하 고 네트워크 보호 권장 사항을 따라 Azure에서 네트워크 리소스를 보호 합니다. 
 
-- [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -52,7 +52,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: 요구 사항에 따라 게이트웨이에서 또는 특정 연결에서 VPN gateway 패킷 캡처를 사용 하도록 설정 합니다.
 
-- [VPN gateway에 대 한 패킷 캡처 구성](https://docs.microsoft.com/azure/vpn-gateway/packet-capture)
+- [VPN gateway에 대 한 패킷 캡처 구성](packet-capture.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -64,11 +64,11 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, Azure RBAC 할당 및 Azure Policy 할당과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 새 구독 또는 기존 구독에 청사진을 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정할 수 있습니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md) 
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/#network) 
+- [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network) 
 
-- [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -78,9 +78,9 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 가상 네트워크 리소스에 대 한 변경 내용을 검색 합니다. VPN 게이트웨이와 관련 된 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
 
-- [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -88,7 +88,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조 하세요.*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
@@ -96,11 +96,11 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-- [VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+- [VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -112,9 +112,9 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: 감사, 보안 및 진단 로그에 대 한 액세스를 위해 VPN Gateway 리소스에 대 한 진단 설정을 사용 하도록 설정 합니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -124,9 +124,9 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다. 
 
-- [Log Analytics에서 데이터 보존 기간 변경](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -138,11 +138,11 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 또는 Azure 센티널 또는 타사 SIEM에 대 한 온보드 데이터를 사용 하도록 설정할 수 있습니다. 
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 
+- [Log Analytics 쿼리 시작](../azure-monitor/log-query/get-started-portal.md) 
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -154,11 +154,11 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 또는 온보드 데이터를 Azure 센티널로 설정할 수 있습니다.
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Security Center에서 경고를 관리 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -174,7 +174,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -194,7 +194,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 Just-in-time 액세스를 사용 하도록 설정할 수도 있습니다. 
 
-- [Privileged Identity Management에 대 한 자세한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
 
 **Azure Security Center 모니터링**: 예
 
@@ -204,7 +204,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: 가능 하면 서비스 별로 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center id 및 액세스 권장 사항을 사용 합니다. 
 
-- [Azure AD를 사용 하 여 SSO 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Azure AD를 사용 하 여 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -214,9 +214,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: AZURE AD MFA를 사용 하도록 설정 하 고 Azure Security Center id 및 액세스 권장 사항에 따릅니다. 
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) 
+- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md) 
 
-- [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -226,9 +226,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: 높은 권한이 필요한 관리 작업에 대해 Azure에서 관리 하는 안전한 워크스테이션 (권한 있는 액세스 워크스테이션 또는 PAW 라고도 함)을 사용 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 이해](../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [Azure AD MFA를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Azure AD MFA를 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -238,9 +238,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory 보안 보고서 및 모니터링을 사용 하 여 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 시기를 검색 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -250,7 +250,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure AD 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 액세스할 수 있도록 합니다. 
 
-- [Azure AD 명명 된 위치를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Azure AD 명명 된 위치를 구성 하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -260,7 +260,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. 
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -270,9 +270,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. 
 
-- [Azure AD 보고 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/) 
+- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/) 
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -284,7 +284,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다. 
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -294,11 +294,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD ID 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다. 
 
-- [Azure AD 위험한 로그인을 확인하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies) 
+- [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -306,17 +306,17 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
 **지침**: VPN gateway에는 각 고객 가상 네트워크에 대 한 전용 VM 인스턴스가 있습니다. 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 가상 네트워크, 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure Active Directory 역할 기반 액세스 제어를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -328,7 +328,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 고 고객 데이터 손실 및 노출을 방지 합니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다. 
 
-- [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -340,15 +340,15 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 가상 네트워크의 해당 리소스에 대해 미사용 암호화 및 전송 중인 암호화에 대 한 Azure Security Center 권장 사항을 따릅니다.
 
-- [VPN 유형 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#vpntype)
+- [VPN 유형 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)
 
-- [사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec)
+- [사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보](vpn-gateway-about-vpn-devices.md#ipsec)
 
-- [암호화 요구 사항 및 Azure VPN Gateway 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)
+- [암호화 요구 사항 및 Azure VPN Gateway 정보](vpn-gateway-about-compliance-crypto.md)
 
-- [S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell)
+- [S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
-- [Azure를 사용 하 여 전송 중인 암호화 이해](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Azure Security Center 모니터링**: 예
 
@@ -366,9 +366,9 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: AZURE AD RBAC를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않으면 서비스별 액세스 제어 방법을 사용 합니다. 소유자, 참가자 또는 네트워크 참가자와 같은 기본 제공 역할 기반 액세스 제어 역할을 사용한 다음 적절 한 범위에 역할을 할당 합니다. 사용자 지정 역할을 만들고 가상 네트워크, 서브넷, VPN 게이트웨이, 네트워크 인터페이스, 네트워크 보안 그룹 및 경로 테이블에 필요한 특정 사용 권한을 역할에 할당 하 여 가상 네트워크 기능 하위 집합에 대 한 특정 권한을 할당 합니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
-- [가상 네트워크 계획](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm#permissions)
+- [가상 네트워크 계획](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -378,11 +378,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: VPN 게이트웨이와 같은 중요 한 azure 리소스에 변경 내용이 발생 하는 경우 Azure 활동 로그를 트리거하기 위해 Azure Monitor 경고를 구성 합니다. 
 
-- [VPN Gateway 메트릭에 대 한 경고 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric)
+- [VPN Gateway 메트릭에 대 한 경고 설정](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)
 
-- [VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+- [VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -390,7 +390,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조 하세요.*
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: 위험 등급 프로세스를 사용하여 검색된 취약성의 수정 우선 순위 지정
 
@@ -404,19 +404,19 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조 하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내에서 VPN 게이트웨이와 관련 된 모든 리소스를 쿼리하고 검색 합니다. 테 넌 트에서 적절 한 (읽기) 권한이 있는지 확인 하 고 구독의 모든 리소스를 열거할 수 있습니다. 또한 Azure CLI를 사용 하 여 VPN Gateway 리소스를 열거할 수도 있습니다.
 
-- [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 - [VPN gateway에 대 한 Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway?view=azure-cli-latest)
 
 - [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -426,7 +426,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: VPN Gateway 리소스에 태그를 적용 하 여 정의 된 분류에 따라 논리적으로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -436,11 +436,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: 해당 하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 VPN Gateway 리소스를 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다. 
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription) 
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create) 
+- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create) 
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -464,11 +464,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 또한 Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리하고 검색 합니다. 
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Virtual network에 대 한 Azure policy 샘플 기본 제공](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Virtual network에 대 한 Azure policy 샘플 기본 제공](/azure/virtual-network/policy-samples)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -478,7 +478,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: 고객은 조직의 보안 요구 사항에 따라 필요에 따라 Azure Policy 정의를 할당 하 여 리소스를 만들거나 사용 하지 못하게 할 수 있습니다. 그러나 승인 되지 않았거나 권한이 없는 리소스를 제거 하는 고유한 프로세스를 구현 해야 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -492,11 +492,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - 허용되는 리소스 유형
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
 
-- [Virtual network에 대 한 Azure policy 샘플 기본 제공](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Virtual network에 대 한 Azure policy 샘플 기본 제공](/azure/virtual-network/policy-samples)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -506,7 +506,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure 리소스 관리자와 상호 작용 하는 기능을 제한 합니다. 
 
-- [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -514,7 +514,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조 하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -526,13 +526,13 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-- [Virtual network에 대 한 Azure policy 샘플 기본 제공](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Virtual network에 대 한 Azure policy 샘플 기본 제공](/azure/virtual-network/policy-samples)
 
-- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-- [보안 권장 사항 - 참조 가이드](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [보안 권장 사항 - 참조 가이드](../security-center/recommendations-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -542,15 +542,15 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure Resource Manager 템플릿 및 Azure Policy 할당을 사용 하 여 VPN Gateway 및 관련 리소스와 연결 된 Azure 리소스를 안전 하 게 구성 합니다. Azure Resource Manager 템플릿은 Azure 리소스와 함께 가상 머신을 배포 하는 데 사용 되는 JSON 기반 파일 이며 사용자 지정 템플릿은 유지 관리 해야 합니다. Microsoft는 기본 템플릿에 대 한 유지 관리를 수행 합니다.  [거부] 및 [없는 경우 배포] 모드의 Azure Policy를 사용 하 여 Azure 리소스에서 보안 설정을 적용 합니다.
 
-- [Azure Resource Manager 템플릿 만들기에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- [Azure Resource Manager 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-- [가상 네트워크용 Azure Resource Manager 템플릿 샘플](https://docs.microsoft.com/azure/virtual-network/template-samples)
+- [가상 네트워크용 Azure Resource Manager 템플릿 샘플](../virtual-network/template-samples.md)
 
-- [Virtual network에 대 한 Azure policy 샘플 기본 제공](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Virtual network에 대 한 Azure policy 샘플 기본 제공](/azure/virtual-network/policy-samples)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -562,7 +562,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
-- [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -572,9 +572,9 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure Policy을 사용 하 여 Azure 리소스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. Azure Policy 별칭을 사용 하 여 Azure 리소스의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 특정 리소스와 관련 된 기본 제공 정책 정의를 사용할 수도 있습니다. 또한 Azure Automation를 사용 하 여 구성 변경 내용을 배포할 수 있습니다. 
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md) 
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -584,9 +584,9 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure Policy 정의를 할당 하 여 리소스 VPN Gateway와 관련 된 리소스 구성을 측정 합니다. Azure Policy insights를 사용 하 여 리소스 구성을 감사 하 고 중요 한 구성 변경에 대 한 경고를 생성 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Virtual network에 대 한 Azure policy 샘플 기본 제공](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Virtual network에 대 한 Azure policy 샘플 기본 제공](/azure/virtual-network/policy-samples)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -610,15 +610,15 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 됩니다.
 
-- [테넌트 구성](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant)
+- [테넌트 구성](openvpn-azure-ad-tenant.md)
 
-- [여러 클라이언트 앱을 사용하여 테넌트 구성](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app)
+- [여러 클라이언트 앱을 사용하여 테넌트 구성](openvpn-azure-ad-tenant-multi-app.md)
 
-- [Multi-Factor Authentication 구성](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-mfa)
+- [Multi-Factor Authentication 구성](openvpn-azure-ad-mfa.md)
 
-- [VPN 클라이언트 구성](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client)
+- [VPN 클라이언트 구성](openvpn-azure-ad-client.md)
 
-- [관리 Id를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+- [관리 Id를 구성 하는 방법](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -636,19 +636,19 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조 하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
 
 **지침**: Azure Resource Manager을 사용 하 여 VPN Gateway 리소스를 배포할 수 있습니다. Azure Resource Manager는 VPN Gateway 리소스를 복원 하기 위해 백업으로 사용할 수 있는 템플릿을 내보내는 기능을 제공 합니다. Azure Automation를 사용 하 여 정기적으로 Azure Resource Manager 템플릿 내보내기 API를 호출 합니다.
 
-- [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+- [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)
 
-- [가상 네트워크용 Azure Resource Manager 템플릿 샘플](https://docs.microsoft.com/azure/virtual-network/template-samples)
+- [가상 네트워크용 Azure Resource Manager 템플릿 샘플](../virtual-network/template-samples.md)
 
-- [리소스 그룹-템플릿 내보내기](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+- [리소스 그룹-템플릿 내보내기](/rest/api/resources/resourcegroups/exporttemplate)
 
-- [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Azure Automation 소개](../automation/automation-intro.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -658,11 +658,11 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 **지침**: Azure Resource Manager을 사용 하 여 VPN Gateway 리소스를 배포할 수 있습니다. Azure Resource Manager은 VPN gateway 및 관련 리소스를 복원 하기 위해 백업으로 사용할 수 있는 템플릿을 내보내는 기능을 제공 합니다. Azure Automation를 사용 하 여 정기적으로 Azure Resource Manager 템플릿 내보내기 API를 호출 합니다.
 
-- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-- [리소스 그룹-템플릿 내보내기](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+- [리소스 그룹-템플릿 내보내기](/rest/api/resources/resourcegroups/exporttemplate)
 
-- [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Azure Automation 소개](../automation/automation-intro.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -672,7 +672,7 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 **지침**: 필요한 경우 격리 된 구독에 정기적으로 Azure Resource Manager 템플릿 배포를 정기적으로 수행할 수 있는지 확인 합니다.
 
-- [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+- [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
 - [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -686,7 +686,7 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 - [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
 - [Azure Storage Blob에 대한 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
@@ -696,7 +696,7 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -718,9 +718,9 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 또한 태그를 사용 하 여 구독을 표시 하 고, 특히 중요 한 데이터를 처리 하는 Azure 리소스를 식별 하 고 분류 하는 명명 시스템을 만듭니다.  사고가 발생 한 Azure 리소스 및 환경의 중요도에 따라 경고 수정의 우선 순위를 지정 하는 것은 사용자의 책임입니다. 
 
-- [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview) 
+- [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md) 
 
-- [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
 
 **Azure Security Center 모니터링**: 예
 
@@ -740,7 +740,7 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다. 
 
-- [Azure Security Center 보안 연락처를 설정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Azure Security Center 보안 연락처를 설정 하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -750,9 +750,9 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 **지침**: Azure 리소스에 대 한 위험을 식별 하는 데 도움이 되도록 연속 내보내기 기능을 사용 하 여 Azure Security Center 경고 및 권장 사항을 내보냅니다. 연속 내보내기를 사용 하면 경고 및 권장 사항을 수동으로 또는 지속적인 지속적인 방식으로 내보낼 수 있습니다. Azure Security Center data connector를 사용 하 여 경고를 Azure 센티널로 스트리밍할 수 있습니다. 
 
-- [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export) 
+- [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md) 
 
-- [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -762,7 +762,7 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 **지침**: 워크플로 자동화 기능 Azure Security Center 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 응답을 자동으로 트리거합니다. 
 
-- [Security Center에서 워크플로 자동화를 구성 하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Security Center에서 워크플로 자동화를 구성 하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -770,7 +770,7 @@ Azure AD를 사용 하면 관리 되는 id를 활용할 수 있으므로 권장 
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조 하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 

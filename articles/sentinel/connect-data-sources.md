@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895794"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627145"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -45,17 +45,22 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 
 - **서비스 간 통합**:<br> AWS 및 Microsoft 서비스와 같은 일부 서비스는 기본적으로 연결되어 있으며, 이러한 서비스는 기본 통합을 위한 Azure 토대를 활용합니다. 다음 솔루션은 클릭 몇 번으로 연결할 수 있습니다.
     - [Amazon Web Services - CloudTrail](connect-aws.md)
-    - [Azure 활동](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) -감사 로그 및 로그인 로그
+    - [Azure 활동](connect-azure-activity.md)
     - [Azure AD ID 보호](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender For Identity](connect-azure-atp.md) (이전의 Azure Advanced Threat Protection)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Iot 용 Azure Defender](connect-asc-iot.md) (이전의 iot 용 Azure Security Center)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Firewall](connect-azure-firewall.md)
     - [Azure Security Center](connect-azure-security-center.md) -Azure Defender 솔루션의 경고
+    - [AZURE waf (웹 응용 프로그램 방화벽](connect-azure-waf.md) ) (이전의 Microsoft waf)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [도메인 이름 서버](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) -MDATP 원시 데이터를 포함 합니다.
     - [Microsoft defender For Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (이전의 Microsoft Defender Advanced Threat Protection)
-    - [Microsoft 웹 애플리케이션 방화벽](connect-microsoft-waf.md)
+    - [Microsoft Defender For Identity](connect-azure-atp.md) (이전의 Azure Advanced Threat Protection)
+    - [Microsoft Defender For office 365](connect-office-365-advanced-threat-protection.md) (이전의 Office 365 Advanced Threat Protection)
+    - [Office 365](connect-office-365.md) (현재 팀 포함)
     - [Windows 방화벽](connect-windows-firewall.md)
     - [Windows 보안 이벤트](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - [Citrix Analytics(보안)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Okta SSO](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 로그](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 
     실제로 Log Analytics 에이전트 인 Azure 센티널 에이전트는 CEF 형식의 로그를 Log Analytics 하 여 수집 수 있는 형식으로 변환 합니다. 어플라이언스 유형에 따라 에이전트는 어플라이언스에 직접 설치 되거나 전용 Linux 기반 로그 전달자에 설치 됩니다. Linux용 에이전트는 UDP를 통해 Syslog 디먼에서 이벤트를 수신하지만, Linux 머신이 대량의 Syslog 이벤트를 수집할 것으로 예상대는 경우, TCP를 통해 Syslog 디먼에서 에이전트로, 에이전트에서 Log Analytics로 전송됩니다.
 
-    - **방화벽, 프록시 및 엔드포인트:**
+    - **방화벽, 프록시 및 끝점-CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,15 +97,23 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
         - [F5 ASM](connect-f5.md)
         - [Forcepoint 제품](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [기타 CEF 어플라이언스](connect-common-event-format.md)
-        - [기타 Syslog 어플라이언스](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [기타 CEF 기반 어플라이언스](connect-common-event-format.md)
+    - **방화벽, 프록시 및 끝점-Syslog:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [기타 Syslog 기반 어플라이언스](connect-syslog.md)
     - DLP 솔루션
     - [위협 인텔리전스 공급자](connect-threat-intelligence.md)
     - [DNS 컴퓨터](connect-dns.md) - 에이전트가 DNS 컴퓨터에 직접 설치됨
+    - [Vm Azure Stack](connect-azure-stack.md)
     - Linux 서버
     - 기타 클라우드
     

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235539"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629015"
 ---
 # <a name="on-demand-provisioning"></a>주문형 프로 비전
 요청 시 프로 비전을 사용 하 여 몇 초 안에 응용 프로그램에 사용자를 프로 비전 합니다. 무엇 보다도이 기능을 사용 하 여 다음을 수행할 수 있습니다.
@@ -28,12 +28,15 @@ ms.locfileid: "88235539"
 ## <a name="how-to-use-on-demand-provisioning"></a>주문형 프로 비전을 사용 하는 방법
 
 1. **Azure Portal**에 로그인합니다.
-2. **모든 서비스**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다.
-3. 응용 프로그램을 선택한 다음 프로 비전 구성 페이지로 이동 합니다.
-4. 관리자 자격 증명을 제공 하 여 프로 비전을 구성 합니다.
-5. **주문형 프로 비전을**선택 합니다.
-6. 이름, 성, 표시 이름, 사용자 계정 이름 또는 전자 메일 주소를 사용 하 여 사용자를 검색 합니다.
-7. 페이지 맨 아래에서 **프로 비전** 을 선택 합니다.
+1. **모든 서비스**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다.
+1. 응용 프로그램을 선택한 다음 프로 비전 구성 페이지로 이동 합니다.
+1. 관리자 자격 증명을 제공 하 여 프로 비전을 구성 합니다.
+1. **주문형 프로 비전을**선택 합니다.
+1. 이름, 성, 표시 이름, 사용자 계정 이름 또는 전자 메일 주소를 사용 하 여 사용자를 검색 합니다.
+   > [!NOTE]
+   > 클라우드 HR 프로 비전 앱 (Workday/SuccessFactors에서 AD/Azure AD로)의 경우 입력 값이 다릅니다. Workday 시나리오의 경우 Workday에서 사용자의 "WID"를 제공 하십시오. SuccessFactors 시나리오의 경우 SuccessFactors에 사용자의 "personIdExternal"을 제공 하세요. 
+ 
+1. 페이지 맨 아래에서 **프로 비전** 을 선택 합니다.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="요청 시 사용자를 프로 비전 하기 위한 Azure Portal UI를 보여 주는 스크린샷":::
 
@@ -121,7 +124,7 @@ ms.locfileid: "88235539"
 
 다음은 사용자의 요청 시 프로 비전이 성공한 후 표시 될 수 있는 작업의 예입니다.
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="사용자의 성공적인 주문형 프로 비전을 보여 주는 스크린샷":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="요청 시 사용자를 프로 비전 하기 위한 Azure Portal UI를 보여 주는 스크린샷":::
 
 #### <a name="view-details"></a>세부 정보 보기
 
@@ -144,7 +147,7 @@ ms.locfileid: "88235539"
 > [!NOTE]
 > 다음 제한 사항은 주문형 프로 비전 기능과 관련이 있습니다. 응용 프로그램에서 프로 비전 그룹, 삭제 또는 다른 기능을 지원 하는지 여부에 대 한 자세한 내용은 해당 응용 프로그램에 대 한 자습서를 확인 하세요.
 
-* Workday, Amazon Web Services (AWS) 및 SuccessFactors 응용 프로그램은 주문형 프로 비전을 지원 하지 않습니다. 
+* Amazon Web Services (AWS) 응용 프로그램은 주문형 프로 비전을 지원 하지 않습니다. 
 * 그룹 및 역할의 주문형 프로 비전이 지원 되지 않습니다.
 * 주문형 프로 비전은 응용 프로그램에서 할당 되지 않은 사용자를 사용 하지 않도록 설정할 수 있습니다. 그러나 Azure AD에서 사용 하지 않도록 설정 되거나 삭제 된 사용자를 사용 하지 않도록 설정 하거나 삭제 하는 것은 지원 되지 않습니다. 사용자를 검색 하면 해당 사용자가 나타나지 않습니다.
 

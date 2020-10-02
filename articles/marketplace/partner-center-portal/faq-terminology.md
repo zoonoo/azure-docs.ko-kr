@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317555"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631803"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>상업용 마켓플레이스 분석 용어 및 일반적인 질문
 
@@ -45,6 +45,7 @@ ms.locfileid: "87317555"
 | Azure 라이선스 유형: Enterprise | 고객, 주문 | Microsoft와 직접 체결하는 기업계약을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
 | Azure 라이선스 유형: 재판매인을 통한 Enterprise  | 고객, 주문 | Microsoft와의 기업계약을 진행해주는 재판매인을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
 | Azure 라이선스 유형: 종량제| 고객, 주문 | Microsoft와 직접 체결하는 "종량제" 계약을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
+| 청구 계정 ID| 고객, 주문, 사용| 청구를 생성 하는 계정의 식별자입니다. 이 특성을 사용 하 여 지급 트랜잭션 보고서와 분석 보고서를 연결 합니다.|
 | 클라우드 인스턴스 이름| 주문| VM이 배포된 Microsoft Cloud입니다.|
 | 클라우드 인스턴스 이름: Azure 글로벌| 주문| 공용 글로벌 Microsoft 클라우드|
 | 클라우드 인스턴스 이름: Azure Government | 주문| 다음 정부 중 하나인 정부 관련 Microsoft 클라우드: 중국, 독일 또는 미국| |
@@ -70,8 +71,8 @@ ms.locfileid: "87317555"
 | Marketplace 구독 ID | 고객, 주문 | 고객이 Marketplace 제품을 구매하는 데 사용한 Azure 구독과 연결된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다.|
 | 제품 이름  | 주문| Marketplace 제품의 이름입니다.|
 | 제품 유형  | 주문| Microsoft Marketplace 제품 유형입니다.|
-| 제품 유형: 관리형 애플리케이션  | 순서 | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. 사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. |
-| 제품 유형: Azure 애플리케이션| 순서 | 솔루션에 단순 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우, Azure 애플리케이션 솔루션 템플릿 제품 유형을 사용합니다.|
+| 제품 유형: 관리형 애플리케이션  | 주문 | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. 사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. |
+| 제품 유형: Azure 애플리케이션| 주문 | 솔루션에 단순 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우, Azure 애플리케이션 솔루션 템플릿 제품 유형을 사용합니다.|
 | 제품 유형: 컨설팅 서비스| 주문| Azure Marketplace의 컨설팅 서비스는 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대하는 데 유용합니다.|
 | 제품 유형: 컨테이너 | 주문| 솔루션이 Kubernetes 기반 Azure Container Service로 프로비전된 Docker 컨테이너 이미지인 경우 컨테이너 제품 유형을 사용합니다.|
 | 제품 유형: Dynamics 365 Business Central| 주문| 솔루션이 재무 및 운영을 위한 Dynamics 365와 통합된 경우 이 제품 유형을 사용합니다.|

@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 19b2ec283619df0cc8d3c880cb2df6f53f6fb332
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 58386786266c48c6e721094f9f2837709bb684e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939103"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631769"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에서 PostgreSQL 확장 사용
 
@@ -30,6 +30,7 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 - `pg_cron`, v: 1.2
 - `plpgsql`, v: 1.0
 - `postgis`, v: 3.0.2
+- `plv8`, v: 2.3.14
 
 이 목록에는 초과 시간이 진화 하 고 업데이트가이 문서에 게시 됩니다. 아직 위에 나열 된 확장 이외의 확장을 추가할 수는 없습니다.
 
@@ -60,7 +61,7 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 ```console
 azdata arc postgres server show -n <server group name>
 ```
-출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 다음은 그 예입니다. 
+출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 ```console
 "engine": {
       "extensions": [
@@ -77,7 +78,7 @@ azdata arc postgres server show -n <server group name>
 ```console
 kubectl describe postgresql-12s/postgres02
 ```
-출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 다음은 그 예입니다. 
+출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 ```console
 Engine:
     Extensions:
@@ -240,3 +241,7 @@ SELECT * FROM the_best_coffee_shop;
 >[!NOTE]
 >확장을 삭제 하는 것은 지원 되지 않습니다 `citus` . 확장은 하이퍼 `citus` 규모 환경을 제공 하기 위해 필요 합니다.
 
+## <a name="next-steps"></a>다음 단계:
+- [Plv8](https://plv8.github.io/) 설명서 읽기
+- [Postgis](https://postgis.net/) 에서 설명서 읽기
+- 설명서 읽기 [`pg_cron`](https://github.com/citusdata/pg_cron)

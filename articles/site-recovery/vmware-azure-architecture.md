@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314116"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626499"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 
@@ -50,7 +50,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 | 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
 
-온-프레미스 Azure Site Recovery 인프라와 Azure 서비스 간의 통신에 허용 목록 Url의 전체 목록은 [전제 조건 문서에서 네트워크 요구 사항 섹션](vmware-azure-deploy-configuration-server.md#prerequisites)을 참조 하세요.
+온-프레미스 Azure Site Recovery 인프라와 Azure 서비스 간의 통신을 위해 필터링 할 Url의 전체 목록은 [전제 조건 문서에서 네트워크 요구 사항 섹션](vmware-azure-deploy-configuration-server.md#prerequisites)을 참조 하세요.
 
 ## <a name="replication-process"></a>복제 프로세스
 

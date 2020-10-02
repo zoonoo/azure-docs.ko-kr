@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210697"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627077"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Azure Synapse Analytics SQL 풀을 업그레이드 하 여 성능 최적화
 
@@ -114,7 +114,7 @@ SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업
 
    > [!NOTE]
    > [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다.
-   > [지원 티켓을 제출](sql-data-warehouse-get-started-create-support-ticket.md)하여 구독을 허용 목록으로 가져옵니다.
+   > [지원 티켓을 제출](sql-data-warehouse-get-started-create-support-ticket.md) 하 여 구독을 승인 하세요.
 
 3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. SQL 풀이 계산에 최적화 된 Gen2 계층 SQL 풀로 다시 온라인 상태가 될 때까지 몇 분 동안 가동 중지 시간이 발생 합니다. **업그레이드를 선택합니다**.
 
