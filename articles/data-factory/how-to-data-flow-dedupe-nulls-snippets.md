@@ -8,18 +8,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 683d7ffe5549b86a587cd2dc3c9a86a36aee1bba
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 841484a647d2737d621c75ebe63f65f2de829a26
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91637398"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666503"
 ---
 # <a name="dedupe-rows-and-find-nulls-using-data-flow-snippets"></a>데이터 흐름 조각을 사용 하 여 행 중복 제거 및 null 찾기
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 데이터 흐름 매핑에서 코드 조각을 사용 하 여 데이터 중복 제거 및 null 필터링과 같은 일반적인 작업을 매우 쉽게 수행할 수 있습니다. 이 방법 가이드에서는 데이터 흐름 스크립트 조각을 사용 하 여 파이프라인에 이러한 함수를 매우 쉽게 추가 하는 방법을 설명 합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409564"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667200"
 ---
 # <a name="what-is-virtual-network-nat"></a>Virtual Network NAT란?
 
@@ -43,7 +43,7 @@ Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대�
 
 NAT를 사용하여 각 서브넷에 대한 아웃바운드 연결을 정의할 수 있습니다.  동일한 가상 네트워크 내의 여러 서브넷에는 서로 다른 NAT가 있을 수 있습니다. 서브넷은 사용할 NAT 게이트웨이 리소스를 지정하여 구성됩니다. 모든 가상 머신 인스턴스의 모든 UDP 및 TCP 아웃바운드 흐름은 NAT를 사용합니다. 
 
-NAT는 표준 SKU 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 이 둘의 조합과 호환됩니다.  공용 IP 접두사를 직접 사용하거나 접두사의 공용 IP 주소를 여러 NAT 게이트웨이 리소스에 배포할 수 있습니다. NAT는 모든 트래픽을 접두사의 IP 주소 범위로 그루밍합니다.  이제 배포의 모든 IP를 허용 목록에 쉽게 추가할 수 있습니다.
+NAT는 표준 SKU 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 이 둘의 조합과 호환됩니다.  공용 IP 접두사를 직접 사용하거나 접두사의 공용 IP 주소를 여러 NAT 게이트웨이 리소스에 배포할 수 있습니다. NAT는 모든 트래픽을 접두사의 IP 주소 범위로 그루밍합니다.  이제 배포의 모든 IP 필터링이 쉽습니다.
 
 고객이 구성하지 않고도 NAT에서 서브넷의 모든 아웃바운드 트래픽을 자동으로 처리합니다.  사용자 정의 경로는 필요하지 않습니다. NAT는 다른 아웃바운드 시나리오보다 우선적으로 적용되며 서브넷의 기본 인터넷 대상을 대체합니다.
 
@@ -145,4 +145,3 @@ Virtual Network NAT와 NAT 게이트웨이 리소스는 모든 Azure 클라우�
 
 * [NAT 게이트웨이 리소스](./nat-gateway-resource.md)에 대해 알아봅니다.
 * [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려줍니다](https://aka.ms/natuservoice).
-

@@ -4,17 +4,17 @@ description: Azure Time Series Insights의 고객 데이터 요청 기능에 대
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501698"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665908"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
@@ -54,13 +54,13 @@ Time Series Insights는 Azure Portal에서 정책 블레이드와 통합됩니�
 
 개인 데이터는 사용자 및 관리자 데이터와 다르게 Time Series Insights 스토리지로 이동할 수도 있습니다. Time Series Insights에 저장된 데이터를 개인 데이터로 간주하는 경우 다음 단계를 사용하여 이 데이터를 내보내고 삭제할 수 있습니다.
 
-**데이터 보기 및 내보내기**
+### <a name="view-and-export-data"></a>데이터 보기 및 내보내기
 
 Time Series Insights 내에 저장된 데이터를 보고 내보내려면 해당 데이터를 검색해야 합니다. Time Series Insights 탐색기 또는 Time Series Insights 쿼리 API를 사용하여 데이터를 보고 내보낼 수 있습니다. Time Series Insights 탐색기를 사용하여 데이터를 보고 내보내려면 먼저 검색을 수행하여 해당 사용자 데이터를 찾습니다. 검색 후 차트를 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색**을 선택합니다. 이벤트 눈금이 표시되고 데이터를 CSV 및 JSON으로 내보낼 수 있는 옵션이 제공됩니다.
 
 자세한 내용은 [Azure Time Series Insights 탐색기](time-series-insights-explorer.md)를 참조 하세요.
 
-**데이터 삭제**
+### <a name="delete-data"></a>데이터 삭제
 
 현재 Time Series Insights는 세분화된 데이터 삭제를 지원하지 않습니다. 그러나 보존 정책을 구성하여 Time Series Insights 내에 저장된 고객 데이터를 제거하는 기능을 제공합니다. 삭제 요구 사항에 적합한 날짜 수로 전체 Time Series Insights 환경의 보존 기간을 조정할 수 있습니다.
 

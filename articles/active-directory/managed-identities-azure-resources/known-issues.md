@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969154"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665296"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -129,7 +129,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
  - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 
-자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
+자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>사용자가 할당한 관리 ID를 다른 리소스 그룹/구독으로 이동
 

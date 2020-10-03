@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 PowerShell 만들기 - Azure
 description: PowerShell cmdlet을 사용하여 Windows Virtual Desktop에서 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287290"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667166"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
 
@@ -99,6 +99,9 @@ Windows Virtual Desktop 에이전트를 설치하고 가상 머신을 Windows Vi
 
     >[!NOTE]
     > Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
+
+>[!IMPORTANT]
+>Windows Installer를 사용 하지 않도록 설정 하는 정책이 나 구성은 사용 하지 않는 것이 좋습니다. Windows Installer를 사용 하지 않도록 설정 하면 서비스에서 세션 호스트에 에이전트 업데이트를 설치할 수 없고 세션 호스트가 제대로 작동 하지 않습니다.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
 

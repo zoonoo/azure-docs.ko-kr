@@ -8,14 +8,14 @@ ms.author: lyhughes
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 9a345661a50b18d53411d073ccf12375fe17cdb9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088598"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667812"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>새 환경에 대 한 예정 된 JSON 평면화 및 이스케이프 규칙 변경
 
@@ -47,8 +47,9 @@ Azure Time Series Insights Gen2 환경에서는 특정 명명 규칙 집합에 �
 ### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>페이로드에서 중첩 된 JSON 또는 특수 문자를 포함 하 고 [시계열 모델](.\time-series-insights-update-tsm.md) 변수 식을 자동으로 작성 하는 경우
 
 새 수집 규칙과 일치 하도록 [유형 Batchput](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) 을 실행 하는 클라이언트 코드를 업데이트 합니다. 예를 들어의 이전 [시계열 식을](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 다음 옵션 중 하나로 업데이트 해야 합니다 `"value": {"tsx": "$event.series_value.Double"}` .
-  * `"value": {"tsx": "$event.series.value.Double"}`
-  * `"value": {"tsx": "$event['series']['value'].Double"}`
+
+* `"value": {"tsx": "$event.series.value.Double"}`
+* `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>다음 단계
 

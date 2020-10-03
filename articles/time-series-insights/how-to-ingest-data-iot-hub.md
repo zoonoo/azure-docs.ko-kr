@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e963c092b968476d20e25482cbe165234f7e86f0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531444"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665925"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Azure Time Series insights 환경에 IoT hub 이벤트 원본 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "86531444"
 > [!NOTE]
 > 이 문서의 지침은 Azure Time Series Insights Gen 1 및 Azure Time Series insights Gen 2 환경에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure Time Series Insights 환경을](time-series-insights-update-create-environment.md)만듭니다.
 * [Azure Portal을 사용하여 IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
@@ -65,40 +65,39 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 1. **가져오기 옵션** 값을 선택합니다.
 
    * 구독 중 하나에 IoT Hub가 이미 있는 경우 **사용 가능한 구독에서 IoT Hub 사용**을 선택합니다. 이 옵션이 가장 쉬운 방법입니다.
-   
+
      [![새 이벤트 원본 창에서 옵션 선택](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png#lightbox)
 
-    * 다음 표에서는 **사용 가능한 구독에서 IoT Hub 사용** 옵션에 필요한 속성에 대해 설명합니다.
+   * 다음 표에서는 **사용 가능한 구독에서 IoT Hub 사용** 옵션에 필요한 속성에 대해 설명합니다.
 
        [![새 이벤트 원본 창 - 사용 가능한 구독에서 IoT Hub 사용에서 설정하는 속성](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
-       | 구독 | 원하는 iot hub가 속한 구독입니다. |
+       | Subscription | 원하는 iot hub가 속한 구독입니다. |
        | IoT Hub 이름 | 선택한 iot hub의 이름입니다. |
        | IoT Hub 정책 이름 | 공유 액세스 정책을 선택합니다. IoT hub 설정 탭에서 공유 액세스 정책을 찾을 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다. |
        | IoT Hub 정책 키 | 키는 미리 채워져 있습니다. |
 
-    * IoT Hub가 구독 외부에 있거나 고급 옵션을 선택하려는 경우 **수동으로 IoT Hub 설정 제공**을 선택합니다.
+   * IoT Hub가 구독 외부에 있거나 고급 옵션을 선택하려는 경우 **수동으로 IoT Hub 설정 제공**을 선택합니다.
 
       다음 표에서는 **수동으로 IoT Hub 설정 제공**에 대한 필수 속성을 설명합니다.
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | 구독 ID | 원하는 iot hub가 속한 구독입니다. |
-       | 리소스 그룹 | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다. |
+       | Resource group | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다. |
        | IoT Hub 이름 | IoT Hub의 이름입니다. IoT Hub를 만들 때 IoT Hub에 대해 입력한 이름입니다. |
        | IoT Hub 정책 이름 | 공유 액세스 정책입니다. IoT hub 설정 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다. |
        | IoT Hub 정책 키 | Azure Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. 기본 키 또는 보조 키를 여기에 입력합니다. |
 
-    * 두 옵션 모두 다음 구성 옵션을 공유 합니다.
+   * 두 옵션 모두 다음 구성 옵션을 공유 합니다.
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | IoT Hub 소비자 그룹 | IoT Hub에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |
        | 타임스탬프 속성 이름 | 이 값을 확인하려면 IoT Hub로 전송되는 메시지 데이터의 메시지 형식을 이해해야 합니다. 이 값은 이벤트 타임스탬프로 사용하려는 메시지 데이터에 있는 특정 이벤트 속성의 **이름**입니다. 이 값은 대/소문자를 구분합니다. 이 값을 비워 두면 이벤트 원본의 **이벤트를 큐에 넣는 시간**이 이벤트 타임스탬프로 사용됩니다. |
-
 
 1. IoT hub에 추가한 전용 Azure Time Series 정보 소비자 그룹 이름을 추가 합니다.
 

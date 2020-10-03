@@ -1,18 +1,18 @@
 ---
 title: Azure의 Vm에 대 한 격리
 description: Azure에서 VM 격리 작동에 대해 알아봅니다.
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
-ms.author: ayshak
-ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: sttsinar
+ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831450"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666843"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 머신 격리
 
@@ -39,10 +39,10 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 | 크기 | 격리 사용 중지 날짜 | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 5 월 15 일, 2020 |
-| Standard_D15_v2<sup>1</sup>  | 5 월 15 일, 2020 |
+| Standard_DS15_v2<sup>1</sup> | 2020년 5월 15일 |
+| Standard_D15_v2<sup>1</sup>  | 2020년 5월 15일 |
 
-<sup>1</sup> Standard_DS15_v2 및 Standard_D15_v2 격리 사용 중지 프로그램에 대 한 자세한 내용은 faq를 참조 하세요.
+<sup>1</sup>  Standard_DS15_v2 및 Standard_D15_v2 격리 사용 중지 프로그램에 대 한 자세한 내용은 faq를 참조 하세요.
 
 
 ## <a name="faq"></a>FAQ
@@ -68,7 +68,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 |---|---| 
 | 2019년 11월 18일 | D/DS15i_v2의 가용성 (PAYG, 1 년 RI) | 
 | 5 월 14 일, 2020 | D/DS15i_v2 1 년 RI의 최근 구매 날짜 | 
-| 5 월 15 일, 2020 | D/DS15_v2 격리 보장 제거 | 
+| 2020년 5월 15일 | D/DS15_v2 격리 보장 제거 | 
 | 5 월 15 일, 2021 | D/DS15i_v2 사용 중지 (2019 년 11 월 18 일 이전에 3 년 DS15_v2 RI를 구매한 사용자를 제외한 모든 고객)| 
 | 2022 년 11 월 17 일 | 3 년 RIs가 완료 될 때 D/DS15i_v2 사용 중지 (2019 년 11 월 18 일 이전에 3 년 RI의 D/DS15_v2를 구매한 고객의 경우) |
 

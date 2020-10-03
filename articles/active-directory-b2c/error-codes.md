@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388530"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664854"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>오류 코드: Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90013` | 요청에 제공 된 요청 된 응답 유형 ' {0} '이 (가) 지원 되지 않습니다. |
 | `AADB2C90014` | 요청에 제공 된 요청 된 응답 모드 ' {0} '이 (가) 지원 되지 않습니다. |
 | `AADB2C90016` | 요청 된 클라이언트 어설션 형식 ' ' {0} 이 (가) 필요한 형식 ' '과 (와) 일치 하지 않습니다 {1} . |
-| `AADB2C90017` | 요청에 제공 된 클라이언트 어설션이 잘못 되었습니다.{0} |
+| `AADB2C90017` | 요청에 제공 된 클라이언트 어설션이 잘못 되었습니다. {0} |
 | `AADB2C90018` | {0}요청에 지정 된 클라이언트 id ' '이 (가) 테 넌 트 ' '에 등록 되어 있지 않습니다 {1} . |
 | `AADB2C90019` | ' ' 테 넌 트의 id가 ' ' 인 키 컨테이너에 {0} {1} 올바른 키가 없습니다. 이유: {2} . |
 | `AADB2C90021` | 기술 프로필 ' '이 (가) ' ' {0} {1} 테 넌 트의 정책 ' '에 없습니다 {2} . |
@@ -73,7 +73,8 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90085` | 서비스에서 내부 오류가 발생 했습니다. 다시 인증 한 후 다시 시도 하세요. |
 | `AADB2C90086` | 제공 된 grant_type [ {0} ]은 (는) 지원 되지 않습니다. |
 | `AADB2C90087` | 제공 된 권한 부여가이 버전의 프로토콜 끝점에 대해 발급 되지 않았습니다. |
-| `AADB2C90088` | 제공 된 grant가이 끝점에 대해 발급 되지 않았습니다. 실제 값: {0} 및 예상 값:{1} |
+| `AADB2C90088` | 제공 된 grant가이 끝점에 대해 발급 되지 않았습니다. 실제 값: {0} 및 예상 값: {1} |
+| `AADB2C90091` | 사용자 취소. |
 | `AADB2C90092` | ' ' 테 넌 트에 대해 ID가 ' ' 인 제공 된 응용 프로그램을 {0} 사용할 수 없습니다 {1} . 응용 프로그램을 사용 하도록 설정 하 고 다시 시도 하세요. |
 | `AADB2C90107` | {0}Openid connect 범위가 요청에 제공 되지 않았거나 응용 프로그램에 대해 권한이 없어 id가 ' ' 인 응용 프로그램에서 id 토큰을 가져올 수 없습니다. |
 | `AADB2C90108` | 오케스트레이션 단계 ' '이 (가) {0} 필요한 경우 CpimIssuerTechnicalProfileReferenceId를 지정 하지 않습니다. |

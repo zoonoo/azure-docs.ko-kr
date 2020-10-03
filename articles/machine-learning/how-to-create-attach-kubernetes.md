@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: db14670d19bf6bf0019e1533ebefdc5a47436a1c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/02/2020
+ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302369"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667863"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -184,9 +184,9 @@ aks_target.wait_for_completion(show_output = True)
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
+* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -247,7 +247,7 @@ aks_target.wait_for_completion(show_output = True)
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [AksCompute () attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
 
@@ -278,6 +278,31 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 포털에서 AKS 클러스터를 연결 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning studio에서 계산 대상 만들기](how-to-create-attach-compute-studio.md#inference-clusters)를 참조 하세요.
 
 ---
+
+## <a name="detach-an-aks-cluster"></a>AKS 클러스터 분리
+
+작업 영역에서 클러스터를 분리 하려면 다음 방법 중 하나를 사용 합니다.
+
+> [!WARNING]
+> 기계 학습을 위해 Azure Machine Learning studio, SDK 또는 Azure CLI 확장을 사용 하 여 AKS 클러스터를 분리 **해도 AKS 클러스터는 삭제 되지 않습니다**. 클러스터를 삭제 하려면 [AKS와 함께 Azure CLI 사용](/azure/aks/kubernetes-walkthrough#delete-the-cluster)을 참조 하세요.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+aks_target.detach()
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+기존 클러스터를 작업 영역으로 분리 하려면 다음 명령을 사용 합니다. `myaks`AKS 클러스터가 작업 영역에 연결 된 이름으로 대체 합니다. 을 `myresourcegroup` 작업 영역을 포함 하는 리소스 그룹으로 바꿉니다. `myworkspace`을 작업 영역 이름으로 바꿉니다.
+
+```azurecli
+az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
+```
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+Azure Machine Learning studio에서 __계산__, __유추 클러스터__및 제거 하려는 클러스터를 선택 합니다. __분리__ 링크를 사용 하 여 클러스터를 분리 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

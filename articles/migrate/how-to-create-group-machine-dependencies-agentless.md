@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석 �
 description: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석을 설정 합니다.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275594"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667472"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>머신 종속성 분석(에이전트 없음)
 
@@ -137,12 +137,12 @@ Timeslot | 종속성이 관찰 된 timeslot입니다. <br/> 종속성 데이터�
 여러 컴퓨터에 대 한 종속성을 중지 하려는 경우 [PowerShell](#start-or-stop-dependency-discovery-using-powershell) 을 사용 하 여이 작업을 수행할 수 있습니다.
 
 
-### <a name="start-or-stop-dependency-discovery-using-powershell"></a>PowerShell을 사용 하 여 종속성 검색 시작 또는 중지
+## <a name="start-or-stop-dependency-discovery-using-powershell"></a>PowerShell을 사용 하 여 종속성 검색 시작 또는 중지
 
 GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) 리포지토리에서 PowerShell 모듈을 다운로드 합니다.
 
 
-#### <a name="log-in-to-azure"></a>Azure에 로그인
+### <a name="log-in-to-azure"></a>Azure에 로그인
 
 1. AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
@@ -166,7 +166,7 @@ GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershe
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-#### <a name="enable-or-disable-dependency-data-collection"></a>종속성 데이터 수집 사용 또는 사용 안 함
+### <a name="enable-or-disable-dependency-data-collection"></a>종속성 데이터 수집 사용 또는 사용 안 함
 
 1. 다음 명령을 사용 하 여 Azure Migrate 프로젝트에서 검색 된 VMware Vm 목록을 가져옵니다. 아래 예제에서 프로젝트 이름은 FabrikamDemoProject이 고, 속한 리소스 그룹은 FabrikamDemoRG입니다. 컴퓨터의 목록이 FabrikamDemo_VMs.csv에 저장 됩니다.
 

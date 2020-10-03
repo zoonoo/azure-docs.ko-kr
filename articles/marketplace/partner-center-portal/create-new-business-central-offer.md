@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: d92dc562136ef20dac19e7ddfa4339c565793308
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531822"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665241"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
 
@@ -122,14 +122,14 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. Products
+2. 제품
 3. 범주
 4. 지원 주소 (링크)
 5. 사용 약관
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -256,9 +256,8 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 제품을 마켓플레이스에 게시되지 않는 다른 확장과 함께 설치해야 하는 경우에 필요합니다. 이 경우 해당 .app 파일을 여기에 업로드합니다.
 
-#### <a name="dependency-package-file"></a>종속성 패키지 파일
-
-제품을 마켓플레이스에 이미 게시된 다른 확장과 함께 설치해야 하는 경우에 필요합니다. 이 경우 `.app` 또는 `.zip` 파일을 여기에 업로드합니다.
+>[!NOTE]
+>종속성 패키지 파일은 더 이상 사용 되지 않습니다. 대신 라이브러리 패키지 파일을 업로드 하십시오.
 
 ### <a name="url-to-app-installation"></a>앱 설치 URL
 

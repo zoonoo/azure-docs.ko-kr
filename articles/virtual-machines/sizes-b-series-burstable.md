@@ -3,17 +3,17 @@ title: B-시리즈 간 급수 안정화-Azure Virtual Machines
 description: 버스터블 Azure VM 크기의 B-시리즈에 대해 설명합니다.
 services: virtual-machines
 ms.subservice: sizes
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ayshak
-ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.author: sttsinar
+ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653420"
+ms.locfileid: "91666639"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -21,12 +21,14 @@ B 시리즈 Vm은 웹 서버, 개념 증명, 소규모 데이터베이스 및 �
 
 B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 
+[ACU (Azure Compute Unit)](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): 다름 *<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 <br>
+* B 시리즈 Vm은 안정적으로 변화 하므로 ACU 숫자는 워크 로드 및 코어 사용량에 따라 다릅니다.
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

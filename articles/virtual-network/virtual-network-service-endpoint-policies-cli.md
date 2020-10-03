@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708215"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666775"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 계정을 Azure Storage 하는 데이터 반출 관리
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 Azure 서비스 끝점 정책은 Azure Storage에만 사용할 수 있습니다. 따라서이 예제 설치에서는이 서브넷의 *Microsoft 저장소* 에 대 한 서비스 끝점을 사용 하도록 설정 합니다.
 
-서비스 끝점 정책은 서비스 끝점에 적용 됩니다. 서비스 끝점 정책을 만들어 시작 합니다. 그런 다음이 서브넷에 대 한 허용 목록 계정이이 정책 Azure Storage에 정책 정의를 만듭니다.
+서비스 끝점 정책은 서비스 끝점에 적용 됩니다. 서비스 끝점 정책을 만들어 시작 합니다. 그런 다음이 서브넷에 대해 승인 될 Azure Storage 계정을 위해이 정책에 정책 정의를 만듭니다.
 
 서비스 엔드포인트 정책 만들기
 

@@ -9,14 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcb38f761a72bf2c6e5dee8bb993cec9143e7241
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 99cde78f0944544941224927e84e117bd0e660d8
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998954"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667846"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리
 
@@ -71,7 +71,7 @@ ms.locfileid: "88998954"
 
 ## <a name="c-sample-code"></a>C# 샘플 코드
 
-C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) 리포지토리를 참조 하세요. 
+C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) 리포지토리를 참조 하세요.
 
 > [!NOTE]
 >

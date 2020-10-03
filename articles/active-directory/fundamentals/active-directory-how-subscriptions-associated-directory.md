@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426098"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666435"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -50,7 +50,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
   - 키 자격 증명 모음이 있는 경우 액세스할 수 없게 되며 연결 후 수정 해야 합니다.
   - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 관리 id가 있는 경우 연결 후 다시 사용 하도록 설정 하거나 다시 만들어야 합니다.
   - 등록 된 Azure Stack 있는 경우 연결 후 다시 등록 해야 합니다.
-  - 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
+  - 자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
 
 - 다음 조건을 충족하는 계정을 사용하여 로그인해야 합니다.
 
@@ -93,7 +93,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 - 이 구독을 사용 하 여 Azure Stack를 등록 한 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure를 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)을 참조 하세요.
 
-- 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
+- 자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

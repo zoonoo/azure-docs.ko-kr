@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298915"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666622"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -163,7 +163,7 @@ A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. �
 <sup>1</sup>MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.  
 
 > [!NOTE]
-> A8 ~ A11 VM은 2021년 3월에 사용 중지될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
+> A8 ~ A11 VM은 2021년 3월에 사용 중지될 예정입니다. 새 A8 – A11 Vm을 만들지 않는 것이 좋습니다. 더 나은 가격을 위해 D, E, F 등의 범용 계산 VM 크기 뿐만 아니라 H, HB, HC, HBv2 등의 강력 하 고 강력한 고성능 컴퓨팅 VM 크기로 기존 A8 – A11 Vm을 마이그레이션합니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
 
 <br>
 

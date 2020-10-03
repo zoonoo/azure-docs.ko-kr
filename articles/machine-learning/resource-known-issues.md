@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
-ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/02/2020
+ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450053"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667268"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -387,9 +387,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   
 * **AutoMLConfig 가져오기 실패**: 자동화 된 machine learning 버전 1.0.76에서 패키지 변경 내용이 있습니다 .이는 새 버전으로 업데이트 하기 전에 이전 버전을 제거 해야 합니다. `ImportError: cannot import name AutoMLConfig`V 1.0.76에서 v 1.0.76 이상으로 업그레이드 한 후에이 발생 하면을 실행 하 여 오류를 해결 한 다음를 실행 `pip uninstall azureml-train automl` `pip install azureml-train-auotml` 합니다. Automl_setup 스크립트는이를 자동으로 수행 합니다. 
 
-* **작업 영역. from_config 실패**: Ws = 작업 영역. from_config () ' 호출이 실패 합니다.
+* **workspace.from_config 실패**: ws = Workspace.from_config () ' 호출이 실패 하면
   1. 구성. ipynb 노트북이 성공적으로 실행 되었는지 확인 합니다.
-  2. 가 실행 된 폴더에 없는 폴더에서 노트북을 실행 하는 경우 `configuration.ipynb` 폴더 aml_config 폴더를 복사 하 고 해당 폴더에 포함 된 config.js파일을 새 폴더에 복사 합니다. 작업 영역. from_config 노트북 폴더 또는 해당 부모 폴더에 대 한 config.js를 읽습니다.
+  2. 가 실행 된 폴더에 없는 폴더에서 노트북을 실행 하는 경우 `configuration.ipynb` 폴더 aml_config 폴더를 복사 하 고 해당 폴더에 포함 된 config.js파일을 새 폴더에 복사 합니다. Workspace.from_config 노트북 폴더 또는 해당 부모 폴더에 대 한 config.js를 읽습니다.
   3. 새 구독, 리소스 그룹, 작업 영역 또는 지역이 사용 중인 경우에는 다시 노트북을 실행 해야 `configuration.ipynb` 합니다. 지정 된 구독에서 지정 된 리소스 그룹에 작업 영역이 이미 있는 경우에만 config.js의 변경 내용이 적용 됩니다.
   4. 지역을 변경 하려면 작업 영역, 리소스 그룹 또는 구독을 변경 하세요. `Workspace.create` 는 이미 있는 경우 작업 영역을 만들거나 업데이트 하지 않습니다. 지정 된 지역이 다른 경우에도 마찬가지입니다.
   
@@ -449,6 +449,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. `cert.pem` `key.pem` 에 제공 하기 전에 비밀의 및 구성 요소를 64으로 디코드 해야 `attach_config.enable_ssl` 합니다. 
+
+### <a name="detaching-azure-kubernetes-service"></a>Azure Kubernetes 서비스 분리
+
+기계 학습을 위해 Azure Machine Learning studio, SDK 또는 Azure CLI 확장을 사용 하 여 AKS 클러스터를 분리 해도 AKS 클러스터는 삭제 되지 않습니다. 클러스터를 삭제 하려면 [AKS와 함께 Azure CLI 사용](/azure/aks/kubernetes-walkthrough#delete-the-cluster)을 참조 하세요.
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices
 

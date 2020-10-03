@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631803"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665144"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>상업용 마켓플레이스 분석 용어 및 일반적인 질문
 
@@ -45,7 +45,7 @@ ms.locfileid: "91631803"
 | Azure 라이선스 유형: Enterprise | 고객, 주문 | Microsoft와 직접 체결하는 기업계약을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
 | Azure 라이선스 유형: 재판매인을 통한 Enterprise  | 고객, 주문 | Microsoft와의 기업계약을 진행해주는 재판매인을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
 | Azure 라이선스 유형: 종량제| 고객, 주문 | Microsoft와 직접 체결하는 "종량제" 계약을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
-| 청구 계정 ID| 고객, 주문, 사용| 청구를 생성 하는 계정의 식별자입니다. 이 특성을 사용 하 여 지급 트랜잭션 보고서와 분석 보고서를 연결 합니다.|
+| 청구 계정 ID| 고객, 주문, 사용| 청구를 생성 하는 계정의 식별자입니다. **청구 계정 ID** 를 **CustomerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결 합니다.|
 | 클라우드 인스턴스 이름| 주문| VM이 배포된 Microsoft Cloud입니다.|
 | 클라우드 인스턴스 이름: Azure 글로벌| 주문| 공용 글로벌 Microsoft 클라우드|
 | 클라우드 인스턴스 이름: Azure Government | 주문| 다음 정부 중 하나인 정부 관련 Microsoft 클라우드: 중국, 독일 또는 미국| |

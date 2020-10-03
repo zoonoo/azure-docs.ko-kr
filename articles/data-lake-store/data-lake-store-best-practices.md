@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440833"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667744"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -33,7 +33,7 @@ Azure Data Lake Storage Gen1은 Azure AD(Azure Active Directory) 사용자, 그�
 
 Data Lake Storage Gen1에서 빅 데이터로 작업할 때는 대부분의 경우 Azure HDInsight와 같은 서비스가 데이터 작업을 수행할 수 있도록 서비스 사용자가 사용됩니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 이 경우 개별 사용자를 폴더 및 파일에 할당하는 대신 Azure Active Director [보안 그룹](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory)을 사용해야 합니다.
 
-보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Storage Gen1을 업데이트할 필요가 없습니다. 이렇게 하면 [32개의 액세스 및 기본 ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) 제한을 초과하지 않는 데 도움이 됩니다(여기에는 항상 모든 파일 및 폴더과 연결된 4개의 POSIX 스타일 ACL, 즉 [소유 사용자](data-lake-store-access-control.md#the-owning-user), [소유 그룹](data-lake-store-access-control.md#the-owning-group), [마스크](data-lake-store-access-control.md#the-mask) 및 기타가 포함됨).
+보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Storage Gen1을 업데이트할 필요가 없습니다. 이렇게 하면 [32개의 액세스 및 기본 ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) 제한을 초과하지 않는 데 도움이 됩니다(여기에는 항상 모든 파일 및 폴더과 연결된 4개의 POSIX 스타일 ACL, 즉 [소유 사용자](data-lake-store-access-control.md#the-owning-user), [소유 그룹](data-lake-store-access-control.md#the-owning-group), [마스크](data-lake-store-access-control.md#the-mask) 및 기타가 포함됨).
 
 ### <a name="security-for-groups"></a>그룹에 대한 보안
 

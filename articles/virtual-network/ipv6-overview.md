@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653307"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666826"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크용 IPv6란?
 
@@ -61,7 +61,7 @@ Azure VNet용 IPv6에는 다음과 같은 기능이 포함되어 있습니다.
     - 참고: IPv6은 Azure VM의 기본 NIC(네트워크 인터페이스)로만 부하를 분산할 수 있습니다. 
 - [표준 IPv6 내부 부하 분산 장치](ipv6-dual-stack-standard-internal-load-balancer-powershell.md)를 지원하여 Azure VNET 내에서 복원력 있는 다중 계층 애플리케이션을 만들 수 있습니다.   
 - 레거시 배포와 호환을 위해 기본 IPv6 공용 Load Balancer를 지원합니다.
-- [예약된 IPv6 공용 IP 주소 및 주소 범위](ipv6-public-ip-address-prefix.md)가 안정적이고 예측 가능한 IPv6 주소를 제공하여 회사 및 고객에 대한 Azure 호스팅 애플리케이션 허용 목록을 용이하게 작성할 수 있습니다.
+- [예약 된 Ipv6 공용 IP 주소 및 주소 범위](ipv6-public-ip-address-prefix.md) 는 회사와 고객에 대해 azure에서 호스트 되는 응용 프로그램을 쉽게 필터링 하는 안정적이 고 예측 가능한 ipv6 주소를 제공 합니다.
 - 인스턴스 수준 공용 IP가 개별 VM에 대한 직접 IPv6 인터넷 연결을 제공합니다.
 - [기존 IPv4 전용 배포에 IPv6 추가](ipv6-add-to-existing-vnet-powershell.md) - 이 기능을 사용하면 배포를 다시 만들 필요 없이 기존 IPv4 전용 배포에 IPv6 연결을 쉽게 추가할 수 있습니다.  이 과정에서 IPv4 네트워크 트래픽은 영향을 받지 않으므로 애플리케이션 및 OS에 따라 라이브 서비스에도 IPv6을 추가할 수 있습니다.    
 - IPv6(AAAA) 레코드에 대한 Azure DNS 지원으로 인터넷 클라이언트가 선택한 프로토콜을 사용하여 이중 스택 애플리케이션에 원활하게 액세스할 수 있도록 합니다. 

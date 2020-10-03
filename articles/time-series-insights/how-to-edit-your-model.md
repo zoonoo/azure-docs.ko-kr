@@ -8,26 +8,27 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: ac5322b93fc5f804292cfbff2c2e7eeb79b5989f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098427"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667882"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 데이터 모델링
 
 이 문서에서는 Azure Time Series Insights Gen2에서 시계열 모델을 사용 하는 방법을 설명 합니다. 몇 가지 일반적인 데이터 시나리오를 자세히 설명합니다.
 
 > [!TIP]
+>
 > * [시계열 모델](concepts-model-overview.md)에 대해 자세히 알아보세요.
 > * [Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md)탐색에 대해 자세히 알아보세요.
 
 ## <a name="instances"></a>인스턴스
 
-Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
+Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다.
 
 시작 하려면 Azure Time Series Insights 탐색기 **분석** 보기에서 **모델** 뷰를 선택 합니다.
 
@@ -57,7 +58,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **�
 
 ### <a name="edit-a-single-instance"></a>단일 인스턴스 편집
 
-1. 인스턴스를 선택 하 고 **편집** 또는 **연필 아이콘**을 선택 합니다. 
+1. 인스턴스를 선택 하 고 **편집** 또는 **연필 아이콘**을 선택 합니다.
 1. 필요에 따라 변경하고 **저장**을 선택합니다.
 
     [![단일 인스턴스를 편집 합니다.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
@@ -75,7 +76,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **�
 
 ## <a name="hierarchies"></a>계층 구조
 
-Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
+Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다.
 
 시작 하려면 Azure Time Series Insights 탐색기 **분석** 보기에서 **모델** 뷰를 선택 합니다.
 
@@ -117,15 +118,15 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들�
 
 ### <a name="delete-a-hierarchy"></a>계층 구조 삭제
 
-1. 계층을 선택 하 고 **삭제** 또는 **폐기물 저장 아이콘**을 선택 합니다. 
+1. 계층을 선택 하 고 **삭제** 또는 **폐기물 저장 아이콘**을 선택 합니다.
 
     [![삭제 단추를 선택 하 여 계층을 삭제 합니다.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
 
 1. **삭제**를 선택 하 여 삭제를 확인 합니다.
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
-Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
+Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다.
 
 시작 하려면 Azure Time Series Insights 탐색기 **분석** 보기에서 **모델** 뷰를 선택 합니다.
 
@@ -136,7 +137,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들�
     [![시계열 모델 유형 창](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
 
 1. **+ 추가** 를 선택 하 여 **새 형식 추가** 팝업 모달을 표시 합니다.
-1. 형식에 대 한 속성 및 변수를 입력 합니다. 입력 한 후 **저장**을 선택 합니다. 
+1. 형식에 대 한 속성 및 변수를 입력 합니다. 입력 한 후 **저장**을 선택 합니다.
 
     [![유형을 추가 하는 구성 설정입니다.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
 
@@ -168,8 +169,8 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시계열 모델에 대 한 자세한 내용은 [데이터 모델링](./concepts-model-overview.md)을 참조 하세요.
+* 시계열 모델에 대 한 자세한 내용은 [데이터 모델링](./concepts-model-overview.md)을 참조 하세요.
 
-- Gen2에 대 한 자세한 내용을 보려면 [Azure Time Series Insights Gen2 탐색기에서 데이터 시각화](./time-series-insights-update-explorer.md)를 참조 하세요.
+* Gen2에 대 한 자세한 내용을 보려면 [Azure Time Series Insights Gen2 탐색기에서 데이터 시각화](./time-series-insights-update-explorer.md)를 참조 하세요.
 
-- 지원 되는 JSON 셰이프에 대 한 자세한 내용은 [지원 되는 json 셰이프](./time-series-insights-send-events.md#supported-json-shapes)를 참조 하세요.
+* 지원 되는 JSON 셰이프에 대 한 자세한 내용은 [지원 되는 json 셰이프](./time-series-insights-send-events.md#supported-json-shapes)를 참조 하세요.

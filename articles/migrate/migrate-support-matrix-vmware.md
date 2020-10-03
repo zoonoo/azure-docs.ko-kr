@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate:Server Assessment 도구를 사용하여 VM을 평가하기 위한 VMware에 대한 지원을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660279"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667795"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
@@ -45,7 +45,7 @@ VMware VM을 Azure로 마이그레이션하려면 [마이그레이션 지원 매
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
 
-Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](migrate-appliance.md)를 사용합니다. vCenter Server로 가져온 OVA 템플릿을 사용하거나 [PowerShell 스크립트](deploy-appliance-script.md)를 사용하여 어플라이언스를 VMWare VM으로 배포할 수 있습니다.
+Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](migrate-appliance.md)를 사용합니다. VCenter Server로 가져오거나 [PowerShell 스크립트](deploy-appliance-script.md)를 사용 하 여 ova 템플릿을 사용 하 여 장치를 VMware VM으로 배포할 수 있습니다.
 
 - VMware에 대한 [어플라이언스 요구 사항](migrate-appliance.md#appliance---vmware)에 대해 알아봅니다.
 - Azure Government에서는 [스크립트](deploy-appliance-script-government.md)를 사용하여 어플라이언스를 배포해야 합니다.
@@ -85,16 +85,15 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 --- | --- 
 **배포 전** | Azure Migrate 프로젝트가 준비되어 있고 서버 평가 도구가 프로젝트에 추가되어 있어야 합니다.<br/><br/>  온-프레미스 VMware 컴퓨터를 검색 하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포 합니다.<br/><br/> 처음으로 프로젝트를 만드는 [방법을 알아봅니다](create-manage-projects.md).<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다](how-to-assess.md).<br/> VMware VM의 평가를 위해 Azure Migrate 어플라이언스를 설정하는 [방법을 알아봅니다](how-to-set-up-appliance-vmware.md).
 **지원되는 머신** | 현재 VMware VM에만 지원됩니다.
-**Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2(64비트)
+**Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2(64비트)<br/>Microsoft Windows Server 2008 (32 비트) PowerShell이 설치 되어 있는지 확인 합니다.
 **vCenter Server 자격 증명** | 종속성 시각화에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 가상 머신 > 게스트 작업에 대해 사용하도록 설정된 권한이 필요합니다.
 **Windows VM 권한** |  종속성 분석의 경우 Azure Migrate 어플라이언스에는 도메인 관리자 계정 또는 로컬 관리자 계정이 있어야 Windows VM에 액세스할 수 있습니다.
-**Linux VM** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7
-**Linux 계정** | 종속성 분석의 경우 Linux 머신에서 Azure Migrate 어플라이언스는 루트 권한이 있는 사용자 계정이 필요합니다.<br/><br/> 또는 사용자 계정에 /bin/netstat 및 /bin/ls 파일에 대한 CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE 권한이 필요합니다. 다음 명령을 사용 하 여 이러한 기능을 설정 합니다. <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = ep/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = ep/bin/netstat
+**Linux VM** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7<br/> SUSE Linux Enterprise Server 11 이상
+**Linux 계정** | 종속성 분석의 경우 Linux 컴퓨터에서 Azure Migrate 어플라이언스에 루트 사용자 계정이 필요 합니다.<br/><br/> 또는 사용자 계정에 /bin/netstat 및 /bin/ls 파일에 대한 CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE 권한이 필요합니다. 다음 명령을 사용 하 여 이러한 기능을 설정 합니다. <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = ep/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = ep/bin/netstat
 **필요한 에이전트** | 분석하려는 머신에 에이전트가 필요하지 않습니다.
 **VMware 도구** | 분석하려는 각 VM에 VMware 도구(10.2 이상)를 설치하고 실행해야 합니다.
-
-**PowerShell** | Windows Vm에는 PowerShell 버전 2.0 이상이 설치 되어 있어야 합니다.
-**포트 액세스** | 분석 하려는 Vm을 실행 하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
+**PowerShell** | Windows VM에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
+**포트 액세스** | 분석하려는 VM을 실행하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>종속성 분석 요구 사항 (에이전트 기반)

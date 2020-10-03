@@ -4,17 +4,17 @@ description: 스토리지 분석, 클라이언트 쪽 로깅 기타 타사 도�
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031486"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667914"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -256,6 +256,14 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리�
 >
 >
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+아래 코드 샘플은 사용자 지정 클라이언트 요청 ID를 사용 하는 방법을 보여 줍니다. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 스토리지 클라이언트 라이브러리가 클라이언트에서 **StorageException**을 throw하는 경우 **RequestInformation** 속성은 **RequestResult** 개체를 포함하며, 이 개체에는 **ServiceRequestID** 속성이 포함됩니다. **OperationContext** 인스턴스에서 **RequestResult** 개체에 액세스할 수도 있습니다.
 
 아래의 코드 샘플은 요청의 **OperationContext** 개체를 스토리지 서비스에 연결하여 사용자 지정 **ClientRequestId** 값을 설정하는 방법을 보여 줍니다. 또한 응답 메시지에서 **ServerRequestId** 값을 검색하는 방법도 보여 줍니다.
@@ -291,6 +299,8 @@ catch (StorageException storageException)
     }
 }
 ```
+
+---
 
 ### <a name="timestamps"></a><a name="timestamps"></a>타임스탬프
 타임스탬프를 사용하여 관련 로그 항목을 찾을 수는 있지만 이 경우 클라이언트와 서버 간의 클럭 오차 가능성에 주의해야 합니다. 일치하는 서버 측 항목을 클라이언트의 타임 스탬프를 기반으로 15분 더 검색하거나 15분 덜 검색합니다. 메트릭이 포함된 Blob의 Blob 메타데이터는 Blob에 저장된 메트릭의 시간 범위를 나타냅니다. 이 시간 범위는 동일한 분 또는 시간에 대해 메트릭 Blob이 많은 경우에 유용합니다.
@@ -358,13 +368,19 @@ catch (StorageException storageException)
 
 테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 애플리케이션에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application_Start** 메서드 예제가 나와 있습니다.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-tableServicePoint.UseNagleAlgorithm = false;
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
 queueServicePoint.UseNagleAlgorithm = false;
 ```
+
+---
 
 클라이언트 쪽 로그를 통해 클라이언트 애플리케이션이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 애플리케이션 문제 해결을 시작하려면 [디버깅, 추적 및 프로파일링](https://msdn.microsoft.com/library/7fe0dd2y)을 참조하세요.
 
@@ -594,6 +610,12 @@ JavaScript 문제를 해결하려면 클라이언트가 액세스하는 스토�
 
 다음 코드 샘플에서는 Contoso 도메인에서 실행되는 JavaScript가 Blob Storage 서비스의 Blob에 액세스할 수 있도록 Blob 서비스를 구성하는 방법을 보여 줍니다.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
 // Set the service properties.
@@ -609,6 +631,8 @@ sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
+
+---
 
 #### <a name="network-failure"></a><a name="network-failure"></a>네트워크 오류
 네트워크 패킷 손실로 인해 스토리지 서비스가 HTTP 404 메시지를 클라이언트에 반환하는 경우가 있습니다. 예를 들어 클라이언트 애플리케이션이 테이블 서비스의 엔터티를 삭제할 때 클라이언트가 스토리지 예외를 throw하고 테이블 서비스에서 &quot;HTTP 404(찾을 수 없음)&quot; 상태 메시지를 보고할 수 있습니다. 그런데 Table Storage 서비스에서 테이블을 조사하면 서비스가 요청대로 엔터티를 삭제했음이 확인됩니다.

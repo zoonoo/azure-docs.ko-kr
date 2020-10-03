@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c331334df64ea1bea45949152a34241a73fa5bb9
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602043"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666163"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -38,14 +38,14 @@ Azure Multi-Factor Authentication는 사용자가 로그인 할 때 암호를 �
 
 | 인증 방법          | 보안 | 사용 편의성 | 가용성 |
 |--------------------------------|:--------:|:---------:|:------------:|
-| 비즈니스용 Windows Hello     | 높은     | 높은      | 높은         |
-| Microsoft Authenticator 앱    | 높은     | 높은      | 높은         |
-| FIDO2 보안 키 (미리 보기)   | 높은     | 높은      | 높은         |
-| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높은         |
-| OATH 소프트웨어 토큰           | 중간   | 중간    | 높은         |
+| 비즈니스용 Windows Hello     | 높음     | 높음      | 높음         |
+| Microsoft Authenticator 앱    | 높음     | 높음      | 높음         |
+| FIDO2 보안 키 (미리 보기)   | 높음     | 높음      | 높음         |
+| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높음         |
+| OATH 소프트웨어 토큰           | 중간   | 중간    | 높음         |
 | SMS                            | 중간   | 높음      | 중간       |
 | 음성                          | 중간   | 중간    | 중간       |
-| 암호                       | 낮음      | 높음      | 높은         |
+| 암호                       | 낮음      | 높음      | 높음         |
 
 보안에 대 한 자세한 내용은 [인증 취약성 및 공격 벡터](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)를 참조 하세요.
 
@@ -100,6 +100,8 @@ SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재�
 MFA 옵션에 대해 자세히 알아보려면 [Azure Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
 
 [Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 사용 하 여 인증 방법 구성에 대해 자세히 알아보세요.
+
+사용 중인 인증 방법을 검토 하려면 PowerShell을 사용 하 [여 Azure Multi-Factor Authentication 인증 방법 분석](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/)을 참조 하세요.
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

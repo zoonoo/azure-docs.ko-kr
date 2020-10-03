@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597443"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665415"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -29,7 +29,8 @@ Azure Cognitive Services는 Azure, 온-프레미스에서 사용할 수 있는 �
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
-> * [Computer Vision][cv-containers]
+> * [OCR 읽기 (광학 문자 인식) ][cv-containers]
+> * [공간 분석][spa-containers]
 > * [Face][fa-containers]
 > * [Form Recognizer][fr-containers]
 > * [언어 이해(LUIS)][lu-containers]
@@ -90,7 +91,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

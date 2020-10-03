@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 02/03/2020
-ms.openlocfilehash: b2e86a92c253bc1926386269e289cdb7ae578746
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/02/2020
+ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080774"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665817"
 ---
 1. [Azure portal](https://ms.portal.azure.com/)에서 **Azure Active Directory** > **앱 등록** > **새 등록**을 선택합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "87080774"
 
     등록한 후에 앱이 여기 나열됩니다.
 
-1. 애플리케이션 이름을 지정하고 **이 조직 디렉터리의 계정만**을 선택하여 API에 액세스할 수 있는 **지원되는 계정 유형**을 지정합니다. 인증된 후 사용자를 리디렉션할 유효한 URI를 선택한 다음, **등록**을 선택합니다.
+1. 애플리케이션 이름을 지정하고 **이 조직 디렉터리의 계정만**을 선택하여 API에 액세스할 수 있는 **지원되는 계정 유형**을 지정합니다. [공용 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri)을 만드는 경우 유효한 리디렉션 URI를 추가 하 고 **등록**합니다.
 
    [![Azure Active Directory에서 애플리케이션 만들기](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
@@ -32,7 +32,7 @@ ms.locfileid: "87080774"
 
    클라이언트 애플리케이션에서 사용하도록 **애플리케이션(클라이언트) ID**를 복사합니다.
 
-1. **인증** 블레이드에서는 중요한 인증 구성 설정을 지정합니다. 
+1. **인증** 블레이드에서는 중요한 인증 구성 설정을 지정합니다.
 
     1. **리디렉션 URI**를 추가하고 **+ 플랫폼 추가**를 선택하여 **액세스 토큰**을 구성합니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "87080774"
    > [!NOTE]
    > 대신 인증서를 가져올 수 있습니다. 보안을 강화하기 위해 인증서를 사용하는 것이 좋습니다. 인증서를 사용하려면 **인증서 업로드**를 선택합니다.
 
-1. Azure Active Directory 앱 Azure Time Series Insights 연결 합니다. **API 사용 권한** > **사용 권한 추가** > **내 조직에서 사용하는 API**를 선택합니다. 
+1. Azure Active Directory 앱 Azure Time Series Insights 연결 합니다. **API 사용 권한** > **사용 권한 추가** > **내 조직에서 사용하는 API**를 선택합니다.
 
     [![Azure Active Directory 앱을 사용하여 API에 연결](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

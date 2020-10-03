@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564052"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664876"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
-Azure Standard Load Balancer는 내부 부하 분산 장치를 사용하는 경우 모든 포트에서 TCP 및 UDP 흐름의 부하를 동시에 분산하도록 도와줍니다. 
+Azure 표준 Load Balancer는 HA 포트를 통해 내부 Load Balancer를 사용 하는 경우 **모든** 포트에서 **모든 프로토콜 흐름** 의 부하를 동시에 분산 하는 데 도움이 됩니다.
 
-HA (고가용성) 포트 부하 분산 규칙은 내부 표준 Load Balancer 구성 된 부하 분산 규칙의 변형입니다. 내부 Standard Load Balancer의 모든 포트에 도달하는 모든 TCP 및 UDP 흐름의 부하를 분산하기 위한 단일 규칙을 제공하여 부하 분산 장치 사용을 간소화할 수 있습니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트 및 프로토콜의 5 튜플 연결을 기준으로 합니다.
+HA (고가용성) 포트는 내부 표준 Load Balancer의 **모든** 포트에 도착 하는 **모든** 흐름을 부하 분산 하는 간편한 방법을 제공 하는 부하 분산 규칙의 한 유형입니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트 및 프로토콜의 5 튜플 연결을 기준으로 합니다.
 
 HA 포트 부하 분산 규칙은 가상 네트워크 내 NVA(네트워크 가상 어플라이언스)의 고가용성 및 확장과 같은 중요한 시나리오를 지원합니다. 이 기능은 많은 수의 포트에서 부하를 분산시켜야 할 때도 도움이 될 수 있습니다. 
 

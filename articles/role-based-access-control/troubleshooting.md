@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441824"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665994"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>다른 디렉터리로 구독 전송
 
-- 다른 Azure AD 디렉터리로 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [다른 AZURE ad 디렉터리에 azure 구독 전송 (미리 보기)](transfer-subscription.md)을 참조 하세요.
+- 다른 Azure AD 디렉터리로 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [azure 구독을 다른 AZURE ad 디렉터리에 전송](transfer-subscription.md)을 참조 하세요.
 - 다른 Azure AD 디렉터리로 구독을 전송 하는 경우 모든 역할 할당은 원본 Azure AD 디렉터리에서 **영구적으로** 삭제 되며 대상 azure ad 디렉터리로 마이그레이션되지 않습니다. 대상 디렉터리에서 역할 할당을 다시 만들어야 합니다. 또한 Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 만들어야 합니다. 자세한 내용은 [관리 id의 faq 및 알려진 문제](../active-directory/managed-identities-azure-resources/known-issues.md)를 참조 하세요.
 - Azure AD 전역 관리자이 고 디렉터리 간에 전송 된 후 구독에 대 한 액세스 권한이 없는 경우 **azure 리소스에 대 한 액세스 관리** 를 사용 하 여 구독에 대 한 액세스 권한을 일시적으로 [상승](elevate-access-global-admin.md) 시킬 수 있습니다.
 
