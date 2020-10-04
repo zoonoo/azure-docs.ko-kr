@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 028f47fcfb4a6a4d94d672e950b4c37d739e672b
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 9d36cee1ebf9f58991db6fd40fd6aa9422546b61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597322"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710756"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Azure Synapse Link (미리 보기)에서 SQL server 서버를 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
-서버 리스 서버 (이전에는 SQL server를 사용 하지 않음)를 사용 하 여 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
+Synapse SQL server 서버를 사용 하지 않는 경우 (이전에는 SQL 주문형) 트랜잭션 워크 로드의 성능에 영향을 주지 않고 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 거의 실시간으로 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
 > [!NOTE]
 > SQL server 서버를 사용 하지 않는 Azure Cosmos DB 분석 저장소 쿼리 지원은 현재 제어 된 미리 보기로 제공 됩니다. 
@@ -245,7 +245,7 @@ SQL (Core) API의 Azure Cosmos DB 계정은 숫자, 문자열, 부울, null, 중
 | 부울 | bit |
 | 정수 | bigint |
 | Decimal | float |
-| String | varchar (UTF8 데이터베이스 데이터 정렬) |
+| 문자열 | varchar (UTF8 데이터베이스 데이터 정렬) |
 | 날짜/시간 (ISO 형식 문자열) | varchar (30) |
 | 날짜 시간 (unix 타임 스탬프) | bigint |
 | Null | `any SQL type` 

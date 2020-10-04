@@ -1,17 +1,17 @@
 ---
 title: 논리적 디코딩-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL 단일 서버에서 변경 데이터 캡처에 대 한 논리적 디코딩 및 wal2json에 대해 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903899"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708614"
 ---
 # <a name="logical-decoding"></a>논리 디코딩
  
@@ -38,7 +38,7 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
-1. Azure. replication_support를로 설정 `logical` 합니다.
+1. Azure.replication_support를로 설정 `logical` 합니다.
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
@@ -56,7 +56,7 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
 
 2. **예**를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-복제-다시 시작 확인":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-복제-Azure 복제 지원":::
 
 
 ## <a name="start-logical-decoding"></a>논리적 디코딩 시작
@@ -79,7 +79,7 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. SQL 명령을 실행 합니다. 다음은 그 예입니다. 
+2. SQL 명령을 실행 합니다. 예:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,
@@ -159,7 +159,7 @@ SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> 논리적 디코딩 사용을 중지 하는 경우 azure. replication_support을 다시 또는로 변경 합니다. `replica` `off` 에서 보유 하 고 있는 WAL 세부 정보는 더 자세한 정보 `logical` 를 사용 하 여 논리적 디코딩을 사용 하지 않을 때 사용 하지 않도록 설정 해야 합니다. 
+> 논리적 디코딩 사용을 중지 하는 경우 azure.replication_support를 다시 `replica` 또는로 변경 `off` 합니다. 에서 보유 하 고 있는 WAL 세부 정보는 더 자세한 정보 `logical` 를 사용 하 여 논리적 디코딩을 사용 하지 않을 때 사용 하지 않도록 설정 해야 합니다. 
 
  
 ## <a name="next-steps"></a>다음 단계

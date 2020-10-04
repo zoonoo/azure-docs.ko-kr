@@ -1,17 +1,17 @@
 ---
 title: 논리적 복제 및 논리적 디코딩-Azure Database for PostgreSQL 유연한 서버
 description: Azure Database for PostgreSQL 유연한 서버에서 논리적 복제 및 논리적 디코딩을 사용 하는 방법에 대해 알아봅니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: dd7aed0d23dd657b655e473565611ef36c592562
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336329"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707866"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 논리적 복제 및 논리적 디코딩
 
@@ -105,7 +105,7 @@ PostgreSQL의 논리적 복제 및 논리적 디코딩 기능은 Postgres 버전
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. SQL 명령을 실행 합니다. 예를 들면 다음과 같습니다.
+2. SQL 명령을 실행 합니다. 예:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

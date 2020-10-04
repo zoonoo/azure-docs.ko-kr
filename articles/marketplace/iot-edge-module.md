@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420611"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708546"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -54,11 +54,11 @@ Marketplace는 현재 IoT Edge 모듈에 대해 **무료** 하 고 **BYOL(Bring 
 
 IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 모든 약관이 적용됩니다.  또한 IoT Edge 모듈 관련 필수 구성 요소와 기술 요구 사항도 적용됩니다.  
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
-- 파트너 센터에 액세스합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](marketplace-publishers-guide.md)를 참조하세요.
+- 파트너 센터에 액세스합니다. 자세한 내용은 [파트너 센터에서 상용 마켓플레이스 계정 만들기](partner-center-portal/create-account.md)를 참조 하세요.
 - Azure Container Registry에서 IoT Edge 모듈 호스팅
 - 다음과 같은 IoT Edge 모듈 메타데이터 준비(아래 목록에는 일부 메타데이터만 나와 있음)
     - 제목

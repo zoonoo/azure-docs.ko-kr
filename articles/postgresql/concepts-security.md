@@ -1,17 +1,17 @@
 ---
 title: Azure Database for PostgreSQL의 보안-단일 서버
 description: Azure Database for PostgreSQL 단일 서버에서 보안 기능에 대 한 개요입니다.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375793"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710484"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 보안-단일 서버
 
@@ -38,7 +38,7 @@ IP 방화벽 규칙은 각 요청의 원래 IP 주소에 따라 서버에 대 �
 가상 네트워크 서비스 끝점은 Azure 백본을 통해 가상 네트워크 연결을 확장 합니다. 가상 네트워크 규칙을 사용 하 여 가상 네트워크에서 선택한 서브넷의 연결을 허용 하도록 Azure Database for PostgreSQL 서버를 설정할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점 개요](concepts-data-access-and-security-vnet.md)를 참조 하세요.
 
 ### <a name="private-ip"></a>프라이빗 IP
-개인 링크를 사용 하면 개인 끝점을 통해 Azure에서 Azure Database for PostgreSQL 단일 서버에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용 하 여 액세스할 수 있습니다. 자세한 내용은 [개인 링크 개요](concepts-data-access-and-security-private-link.md) 를 참조 하세요.
+개인 링크를 사용 하면 개인 끝점을 통해 Azure에서 Azure Database for PostgreSQL 단일 서버에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용하여 액세스할 수 있습니다. 자세한 내용은 [개인 링크 개요](concepts-data-access-and-security-private-link.md) 를 참조 하세요.
 
 
 ## <a name="access-management"></a>액세스 관리
@@ -54,6 +54,9 @@ Azure Database for PostgreSQL 서버를 만드는 동안 관리자 역할에 대
 
 [감사 로깅은](concepts-audit.md) 데이터베이스의 활동을 추적 하는 데 사용할 수 있습니다. 
 
+## <a name="migrating-from-oracle"></a>Oracle에서 마이그레이션
+
+Oracle은 TDE (투명한 데이터 암호화)를 지원 하 여 테이블 및 테이블 스페이스 데이터를 암호화 합니다. Azure for PostgreSQL에서는 데이터가 다양 한 계층에서 자동으로 암호화 됩니다. 이 페이지의 "rest" 섹션을 참조 하 고 [고객 관리 키](./concepts-data-encryption-postgresql.md) 및 [인프라 이중 암호화](./concepts-infrastructure-double-encryption.md)를 비롯 한 다양 한 보안 항목을 참조 하세요. [PostgreSQL 용 Azure](./concepts-extensions.md)에서 지원 되는 [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) 확장을 사용 하는 것을 고려할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Ip](concepts-firewall-rules.md) 또는 [가상 네트워크](concepts-data-access-and-security-vnet.md) 에 대 한 방화벽 규칙 사용

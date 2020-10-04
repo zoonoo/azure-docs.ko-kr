@@ -1,19 +1,19 @@
 ---
 title: 방화벽 규칙 관리-Azure CLI-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure CLI 명령줄을 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 방화벽 규칙을 만들고 관리 하는 방법을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 17a41030adeb302f2c85b1bd4576caad9e723544
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: cd96a4e8af5faab618f3302c423675b2dadca79a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489761"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710858"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for PostgreSQL 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database for PostgreSQL 방화벽 규칙에 대 한 개요는 [Azure Database for PostgreSQL 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조 하세요.

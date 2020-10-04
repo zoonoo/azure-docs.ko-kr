@@ -1,17 +1,17 @@
 ---
 title: 감사 로깅-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL의 pgAudit 감사 로깅에 대 한 개념-단일 서버.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131238"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708988"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
@@ -74,7 +74,7 @@ pgAudit를 사용 하면 세션 또는 개체 감사 로깅을 구성할 수 있
 ### <a name="audit-log-format"></a>감사 로그 형식
 각 감사 항목은 `AUDIT:` 로그 줄의 시작 부분에 표시 됩니다. 항목의 나머지 형식은 [Pgaudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)에 자세히 설명 되어 있습니다.
 
-감사 요구 사항을 충족 하는 다른 필드가 필요한 경우 Postgres 매개 변수를 사용 `log_line_prefix` 합니다. `log_line_prefix`모든 Postgres 로그 줄의 시작 부분에 출력 되는 문자열입니다. 예를 들어 다음 `log_line_prefix` 설정은 타임 스탬프, 사용자 이름, 데이터베이스 이름 및 프로세스 ID를 제공 합니다.
+감사 요구 사항을 충족 하는 다른 필드가 필요한 경우 Postgres 매개 변수를 사용 `log_line_prefix` 합니다. `log_line_prefix` 모든 Postgres 로그 줄의 시작 부분에 출력 되는 문자열입니다. 예를 들어 다음 `log_line_prefix` 설정은 타임 스탬프, 사용자 이름, 데이터베이스 이름 및 프로세스 ID를 제공 합니다.
 
 ```
 t=%m u=%u db=%d pid=[%p]:

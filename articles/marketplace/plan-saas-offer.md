@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420441"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708121"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -57,7 +57,7 @@ _지금 가져오기 (무료)_, _무료 평가판_및 Microsoft 목록 옵션을
 
 이러한 추가 기술 요구 사항은 Microsoft에서 _판매_ (불가능) 목록 옵션에만 적용 됩니다.
 
-- SSO (Single Sign-On) id 관리 및 인증을 사용 하는 Azure AD가 필요 합니다. 자세한 지침은 [상업적 marketplace의 AZURE AD 및 불가능 SaaS 제품](azure-ad-saas.md)을 참조 하세요.
+- 방문 페이지에 액세스 하는 구매 사용자는 SSO (Single Sign-On) id 관리 및 인증을 사용 하 여 Azure AD가 필요 합니다. 자세한 지침은 [상업적 marketplace의 AZURE AD 및 불가능 SaaS 제품](azure-ad-saas.md)을 참조 하세요.
 - [SaaS 처리 api](./partner-center-portal/pc-saas-fulfillment-api-v2.md) 를 사용 하 여 Azure Marketplace 및 Microsoft AppSource와 통합 해야 합니다. 사용자 계정 및 서비스 계획을 만들고, 업데이트 하 고, 삭제할 수 있도록 SaaS 구독과 상호 작용할 수 있는 서비스를 노출 해야 합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. 수집 된 필드 사용을 설명 하는 다이어그램 및 자세한 설명은 [api](./partner-center-portal/pc-saas-fulfillment-api-v2.md)에 대 한 설명서에서 확인할 수 있습니다.
 - 제품에 대 한 계획을 하나 이상 만들어야 합니다. 요금제는 게시 하기 전에 선택 하는 가격 책정 모델을 기준으로 가격이 책정 됩니다 _per-user_ _._ [요금제](#plans) 에 대 한 자세한 내용은이 문서의 뒷부분에 제공 됩니다.
 - 고객은 언제 든 지 제품을 취소할 수 있습니다.
@@ -79,7 +79,7 @@ _지금 가져오기 (무료)_, _무료 평가판_및 Microsoft 목록 옵션을
   제공 하는 웹 후크는 24/7을 실행 해야 하며,이는 상업적 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
 
   > [!NOTE]
-  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성**을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성**을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`
 
 - **Azure Active Directory 테 넌 트 id**: (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
@@ -90,7 +90,7 @@ _지금 가져오기 (무료)_, _무료 평가판_및 Microsoft 목록 옵션을
   > [!NOTE]
   > 게시자의 파트너 센터에 두 개 이상의 다른 계정이 있는 경우 각 계정에 대해 둘 이상의 서로 다른 Azure AD 앱 Id를 사용 해야 합니다. 파트너 센터의 각 파트너 계정은이 계정을 통해 게시 되는 모든 SaaS 제품에 대해 고유한 Azure AD 앱 ID를 사용 해야 합니다.
 
-## <a name="test-drives"></a>테스트 드라이브
+## <a name="test-drives"></a>시험 사용
 SaaS 앱에 대해 테스트 드라이브를 사용 하도록 선택할 수 있습니다. 시험 사용을 통해 고객은 고정 된 시간 동안 미리 구성 된 환경에 액세스할 수 있습니다. 모든 게시 옵션에 대해 테스트 드라이브를 사용 하도록 설정할 수 있지만이 기능에는 추가 요구 사항이 있습니다. 테스트 드라이브에 대 한 자세한 내용은 [test drive 란?](what-is-test-drive.md)을 참조 하세요. 다양 한 종류의 테스트 드라이브를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](test-drive-technical-configuration.md)을 참조 하세요.
 
 > [!TIP]
@@ -100,7 +100,7 @@ SaaS 앱에 대해 테스트 드라이브를 사용 하도록 선택할 수 있�
 
 제품을 CRM (고객 관계 관리) 시스템에 연결 하 여 고객 정보를 수집 해야 합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 제품을 찾은 제품 이름, ID 및 온라인 스토어와 함께 이러한 고객 세부 정보는 구성 된 CRM 시스템으로 전송 됩니다. 상업적 marketplace는 Azure 테이블을 사용 하거나 전원 자동화를 사용 하 여 HTTPS 끝점을 구성 하는 옵션과 함께 다양 한 CRM 시스템을 지원 합니다.
 
-제공을 만든 후 또는 후에 언제 든 지 CRM 연결을 추가 하거나 수정할 수 있습니다. 자세한 지침은 [상업적 marketplace에 대 한 리드 관리](lead-management-for-cloud-marketplace.md)를 참조 하세요.
+제공을 만든 후 또는 후에 언제 든 지 CRM 연결을 추가 하거나 수정할 수 있습니다. 자세한 지침은 [상용 marketplace 제품의 고객 리드](partner-center-portal/commercial-marketplace-get-customer-leads.md)를 참조 하세요.
 
 ## <a name="selecting-an-online-store"></a>온라인 스토어 선택
 
@@ -131,9 +131,9 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
-11. Documents
+11. 문서
 
 다음 예에서는 Azure Portal의 제품 목록을 보여 줍니다.
 
@@ -142,7 +142,7 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 
@@ -194,7 +194,7 @@ SaaS 제안을 게시할 때 Microsoft AppSource, Azure Marketplace 또는 둘 �
 미리 보기 대상 사용자는 온라인 상점에 게시 하기 전에 제품에 액세스 하 여 종단 간 기능을 실시간으로 게시할 수 있습니다. **대상 미리 보기** 페이지에서 제한 된 미리 보기 대상 그룹을 정의할 수 있습니다. Microsoft를 통해 제품을 판매 하지 않고 독립적으로 트랜잭션을 처리 하도록 선택 하는 경우이 설정을 사용할 수 없습니다. 이 경우이 섹션을 건너뛰고 [추가 판매 기회](#additional-sales-opportunities)로 이동할 수 있습니다.
 
 > [!NOTE]
-> 미리 보기 대상 그룹은 개인 계획과 다릅니다. 비공개 요금제는 사용자가 선택 하는 특정 대상에만 사용할 수 있도록 하는 계획입니다. 이렇게 하면 사용자 지정 요금제를 특정 고객과 협상할 수 있습니다. 자세한 내용은 다음 섹션인 계획을 참조 하십시오.
+> 미리 보기 대상 그룹은 개인 계획과 다릅니다. 비공개 요금제는 사용자가 선택 하는 특정 대상에만 사용할 수 있도록 하는 계획입니다. 이렇게 하면 사용자 지정 요금제를 특정 고객과 협상할 수 있습니다. 자세한 내용은 다음 섹션인 계획을 참조 하세요.
 
 Microsoft 계정 (MSA) 또는 Azure Active Directory (Azure AD) 전자 메일 주소로 초대를 보낼 수 있습니다. 전자 메일 주소를 최대 10 개까지 수동으로 추가 하거나 .csv 파일을 사용 하 여 최대 20 개까지 가져오세요. 제품이 이미 라이브 상태인 경우 제품에 대 한 변경 내용 또는 업데이트를 테스트 하기 위한 미리 보기 대상을 계속 정의할 수 있습니다.
 

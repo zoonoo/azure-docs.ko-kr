@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
-ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317755"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708438"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics 출력
 
@@ -26,11 +26,11 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 | 출력 형식 | 분할 | 보안 | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|예, 사용하도록 설정해야 합니다.|SQL 사용자 인증 </br> MSI (미리 보기)|
+|[Azure SQL Database](sql-database-output.md)|예, 선택 사항입니다.|SQL 사용자 인증 </br> MSI (미리 보기)|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증|
 |[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|예|MSI </br> 액세스 키|
-|[Azure Event Hubs](event-hubs-output.md)|예|액세스 키|
-|[Power BI](power-bi-output.md)|예|Azure Active Directory 사용자 </br> MSI|
+|[Azure Event Hubs](event-hubs-output.md)|예, 출력 구성에서 파티션 키 열을 설정 해야 합니다.|액세스 키|
+|[Power BI](power-bi-output.md)|아니요|Azure Active Directory 사용자 </br> MSI|
 |[Azure Table Storage](table-storage-output.md)|예|계정 키|
 |[Azure Service Bus 큐](service-bus-queues-output.md)|예|액세스 키|
 |[Azure Service Bus 항목](service-bus-topics-output.md)|예|액세스 키|
@@ -41,7 +41,7 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 
 Stream Analytics는 Power BI를 제외 하 고 모든 출력에 대 한 파티션을 지원 합니다. 파티션 키 및 출력 작성기 수에 대 한 자세한 내용은 관심 있는 특정 출력 형식에 대 한 문서를 참조 하세요. 모든 출력 아티클은 이전 섹션에서 연결 됩니다.  
 
-쿼리에서 (INTO INTO) 절을 사용 하 여 출력 기록기의 수를 제어할 수 있습니다 `INTO <partition count>` .이 절은 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있습니다. [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 출력 어댑터가 분할 되지 않은 경우 하나의 입력 파티션에 데이터가 없으면 지연 도착 시간이 지연 됩니다. 이러한 경우 출력이 단일 기록기에 병합되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대해 알아보려면 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조하세요.
+또한 파티션의 고급 튜닝을 위해 쿼리에서 (INTO INTO) 절을 사용 하 여 출력 기록기의 수를 제어할 수 있습니다 `INTO <partition count>` .이는 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있습니다. [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 출력 어댑터가 분할 되지 않은 경우 하나의 입력 파티션에 데이터가 없으면 지연 도착 시간이 지연 됩니다. 이러한 경우 출력이 단일 기록기에 병합되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대해 알아보려면 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조하세요.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 

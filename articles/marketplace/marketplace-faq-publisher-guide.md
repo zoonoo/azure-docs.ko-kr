@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369725"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707985"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -311,9 +311,8 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 다음과 같이 시작하는 데 도움이 되는 몇 가지 리소스가 있습니다.
 
-- [Microsoft 상업용 마켓플레이스 소개](/azure/marketplace/marketplace-publishers-guide)
+- [Microsoft 상업적 marketplace 란 무엇 인가요?](overview.md)
 - [Microsoft 상업용 마켓플레이스 파트너 허브](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [상업용 마켓플레이스 시작](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Microsoft 및 다른 파트너에 어떻게 참여할 수 있나요?
 
@@ -324,7 +323,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>파트너 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?
 
-- [파트너 센터 설명서](https://docs.microsoft.com/partner-center/)
+- [파트너 센터 설명서](/partner-center/)
 - [상업용 마켓플레이스 시작](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Microsoft 관리 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?

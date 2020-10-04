@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815779"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708342"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -78,9 +78,9 @@ ms.locfileid: "88815779"
 
 다음은 추가 잠재 고객 관리 리소스입니다.
 
-- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
-- [리드 관리 faq](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [일반적인 리드 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [상업용 Marketplace 제품의 잠재 고객](commercial-marketplace-get-customer-leads.md)
+- [잠재 고객 관리에 대한 일반적인 질문](../lead-management-faq.md#common-questions-about-lead-management)
+- [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
 - [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
 계속하기 전에 **초안 저장**을 선택합니다.
@@ -194,7 +194,7 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 흐린 이미지는 거부됩니다.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
@@ -236,13 +236,13 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 5. 개인 정보 취급 방침 주소 (링크)
 6. Name
 7. 요약
-8. Description
+8. 설명
 9. 유용한 링크
 10. 스크린샷/비디오
 
 <br>다음은 Azure Marketplace 검색 결과에 제품 정보가 표시 되는 방법의 예입니다.
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="이 제품이 Azure Marketplace 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -252,18 +252,18 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. Name
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
 <br>Azure Portal 검색 결과에 제품 정보가 표시 되는 방법의 예는 다음과 같습니다.
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="이 제품이 Azure Portal 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -362,7 +362,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 다음은 Azure Marketplace 계획 세부 정보에 대 한 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Azure Marketplace 계획 정보를 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -372,7 +372,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 <br>다음은 Azure Portal 계획 정보에 대 한 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Azure Portal 계획 정보를 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -393,7 +393,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 ## <a name="technical-configuration"></a>기술 구성
 
-**IoT Edge 모듈** 제품 유형은 IoT Edge 디바이스에서 실행되는 특정 유형의 컨테이너입니다. **기술 구성** 탭에서는 고객이 모듈을 쉽게 사용할 수 있도록 하는 구성 설정과 함께 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 내 컨테이너 이미지 리포지토리에 대한 참조 정보를 제공합니다.
+**IoT Edge 모듈** 제품 유형은 IoT Edge 디바이스에서 실행되는 특정 유형의 컨테이너입니다. **기술 구성** 탭에서는 고객이 모듈을 쉽게 사용할 수 있도록 하는 구성 설정과 함께 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)내의 컨테이너 이미지 리포지토리에 대 한 참조 정보를 제공 합니다.
 
 제품이 게시된 후에는 IoT Edge 컨테이너 이미지가 특정 공용 컨테이너 레지스트리의 Azure Marketplace로 복사됩니다. Azure 사용자의 모듈 사용에 대한 모든 요청은 프라이빗 컨테이너 레지스트리가 아닌 Azure Marketplace 공용 컨테이너 레지스트리에서 제공됩니다.
 
@@ -413,7 +413,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 **Azure Container Registry에 대 한 관리자 사용자 이름**: 컨테이너 이미지를 포함 하는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True**로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자**를 **사용**으로 설정할 수 있습니다.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-description"></a>호출 설명
 
@@ -421,7 +421,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 <br>**Azure Container Registry에 대한 암호**: Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키**로 이동하거나 Azure CLI에서 [show 명령](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다.
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Azure Portal의 선택 키 화면을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -429,7 +429,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 2. 사용자 이름
 3. 암호
 
-**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 지정합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지**로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요. 이름이 설정되면 나중에 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.
+**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 지정합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지**로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요. 이름이 설정되면 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>제품의 새 버전에 대한 이미지 태그
 
@@ -466,7 +466,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 - 이름 #1: ACCEPT_EULA
 - 값 #1: Y
 
-**기본 컨테이너 만들기 옵션**. 컨테이너 만들기 옵션을 사용하여 IoT Edge 모듈 Docker 컨테이너를 만듭니다. IoT Edge는 Docker 엔진 API 만들기 컨테이너 옵션을 지원합니다. [컨테이너 나열](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList)에 있는 모든 옵션을 확인하세요. 만들기 옵션 필드는 유효한 JSON이고 이스케이프되지 않아야 하며 512자 미만이어야 합니다.
+**기본 컨테이너 만들기 옵션**. 컨테이너 만들기 옵션을 사용하여 IoT Edge 모듈 Docker 컨테이너를 만듭니다. IoT Edge는 Docker 엔진 API 만들기 컨테이너 옵션을 지원합니다. [컨테이너 나열](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList)에 있는 모든 옵션을 확인하세요. 만들기 옵션 필드는 유효한 JSON, 이스케이프 되지 않음 및 512 자 미만 이어야 합니다.
 
 예를 들어 모듈에 포트 바인딩이 필요한 경우 다음 만들기 옵션을 정의합니다.
 

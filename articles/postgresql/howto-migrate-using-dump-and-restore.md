@@ -1,17 +1,17 @@
 ---
 title: 덤프 및 복원-Azure Database for PostgreSQL-단일 서버
 description: PostgreSQL 데이터베이스를 덤프 파일로 추출 하 고 Azure Database for PostgreSQL 단일 서버에서 pg_dump으로 만든 파일에서 복원 하는 방법에 대해 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 529573bd18dbdbd16a795619d488beedfb532b11
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4fe15d1bd23f36b7289c54bedf575ae4760600e0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902675"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710807"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
@@ -73,7 +73,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 >
 
 ### <a name="for-the-backup"></a>백업
-- 복원을 병렬로 수행하여 시간을 단축할 수 있도록 -Fc 스위치를 사용해 백업을 가져옵니다. 다음은 그 예입니다. 
+- 복원을 병렬로 수행하여 시간을 단축할 수 있도록 -Fc 스위치를 사용해 백업을 가져옵니다. 예:
 
     ```bash
     pg_dump -h my-source-server-name -U source-server-username -Fc -d source-databasename -f Z:\Data\Backups\my-database-backup.dump
@@ -84,7 +84,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 - create index 문이 이미 기본적으로 포함되어 있겠지만, 덤프 파일을 열어 create index 문이 데이터 삽입 부분 뒤에 있는지 확인합니다. 해당 위치에 문이 없으면 create index 문을 데이터 삽입 부분 뒤로 이동합니다.
 
-- 스위치-Fc 및-j로 복원 *#* 하 여 복원을 병렬화 합니다. *#* 대상 서버의 코어 수입니다. 또한 *#* 대상 서버의 코어 수를 두 배로 설정 하 여 영향을 확인할 수 있습니다. 다음은 그 예입니다. 
+- 스위치-Fc 및-j로 복원 *#* 하 여 복원을 병렬화 합니다. *#* 대상 서버의 코어 수입니다. 또한 *#* 대상 서버의 코어 수를 두 배로 설정 하 여 영향을 확인할 수 있습니다. 예:
 
 **단일 서버**에이 **pg_restore** 를 사용 하는 방법에 대 한 예제는 다음과 같습니다.
 ```bash

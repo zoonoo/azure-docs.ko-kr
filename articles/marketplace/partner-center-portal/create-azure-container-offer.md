@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649265"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709107"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure Container 제품 만들기
 
@@ -80,10 +80,10 @@ ms.locfileid: "89649265"
 
 몇 가지 추가 잠재 고객 관리 리소스는 다음과 같습니다.
 
-- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
-- [잠재 고객 관리 FAQ](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [일반적인 잠재 고객 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
+- [상업용 Marketplace 제품의 잠재 고객](commercial-marketplace-get-customer-leads.md)
+- [잠재 고객 관리에 대한 일반적인 질문](../lead-management-faq.md#common-questions-about-lead-management)
+- [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
+- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "89649265"
 
 ##### <a name="your-own-terms-and-conditions"></a>사용자 고유의 사용 약관
 
-사용자 고유의 사용자 지정 약관을 제공하려면 **사용 약관** 상자에 입력합니다. 이 상자에는 텍스트 문자를 제한 없이 입력할 수 있습니다. 고객은 이러한 약관에 동의해야 제품을 사용할 수 있습니다.
+사용자 고유의 사용자 지정 약관을 제공하려면 **사용 약관** 상자에 입력합니다. 이 상자에는 문자를 무제한으로 입력할 수 있습니다. 고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
 
 다음 섹션인 제품 목록으로 진행하기 전에 **초안 저장**을 선택합니다.
 
@@ -190,7 +190,7 @@ ms.locfileid: "89649265"
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 흐린 이미지는 거부됩니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
@@ -223,19 +223,19 @@ ms.locfileid: "89649265"
 
 Azure Marketplace의 **제품 목록** 페이지를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Azure Marketplace의 제품 목록 페이지를 보여 줍니다." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다." :::
 
 Azure Marketplace의 검색 결과를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Azure Marketplace의 검색 결과를 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 Azure Portal의 **제품 목록** 페이지를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Azure Portal의 제품 목록 페이지를 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 Azure Portal의 검색 결과를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Azure Portal의 검색 결과를 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 ## <a name="preview"></a>미리 보기
 
@@ -328,11 +328,11 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 플랜 세부 정보를 볼 때 Azure Marketplace의 필드는 다음과 같습니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Azure Marketplace에서 플랜 세부 정보를 볼 때 표시되는 필드를 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Azure Portal에 대한 플랜 정보를 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 ### <a name="plan-availability"></a>플랜 가용성
 
@@ -363,11 +363,11 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 **Azure Container Registry에 대 한 관리자 사용자 이름** – 컨테이너 이미지가 있는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True**로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자**를 **사용**으로 설정할 수 있습니다.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 **Azure Container Registry의 암호** – Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키**로 이동하거나 Azure CLI에서 [show 명령](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="액세스 키 메뉴를 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
 
 **Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지**로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요.
 

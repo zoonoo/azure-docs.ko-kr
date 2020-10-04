@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 46572853cf882df4d6909297dd058d5ccaf782e1
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144773"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708971"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
 이 문서에서는 팀에 대 한 DSVMs (데이터 과학 Virtual Machines)의 공유 풀을 만드는 방법에 대해 알아봅니다. 공유 풀을 사용할 경우의 이점에는 더 나은 리소스 사용률, 더 쉬워진 공유 및 공동 작업, DSVM 리소스에 대 한 보다 효과적인 관리 등이 있습니다.
 
-다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서는 대화형 Vm (가상 머신)에 대 한 풀을 중심으로 설명 합니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [PYTHON SDK를 사용 하 여 계산 대상 만들기](../how-to-create-attach-compute-sdk.md)를 참조 하세요.
+다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서는 대화형 Vm (가상 머신)에 대 한 풀을 중심으로 설명 합니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [계산 클러스터 만들기](../how-to-create-attach-compute-cluster.md)를 참조 하세요.
 
 ## <a name="interactive-vm-pool"></a>대화형 VM 풀
 

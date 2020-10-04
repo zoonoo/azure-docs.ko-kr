@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420934"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708648"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -20,7 +20,7 @@ ms.locfileid: "89420934"
 
 ## <a name="online-store-offer-details"></a>온라인 스토어 제품 세부 정보
 
-| 설정 | 모범 사례 |
+| Setting | 모범 사례 |
 |:--- |:--- |  
 | Offer name | 앱의 경우 고객이 제품을 검색 하는 데 도움이 되는 검색 키워드를 포함 하는 명확한 제목을 제공 합니다. <br> <br> 컨설팅 서비스의 경우 [제품 이름: [기간] [제안 유형] (예: Contoso: 2 주 구현) 형식을 따릅니다. |
 | 제품 설명 | 처음 몇 개의 문장에서 제안 값 제안을 설명 하는 명확한 설명을 제공 합니다.  이러한 문장은 검색 엔진 결과에 사용 될 수 있다는 점에 유의 하세요. 가치 제안의 핵심 구성 요소에는 다음이 포함 되어야 합니다. <ul> <li>제품 또는 솔루션에 대 한 설명입니다. </li> <li> 제품 또는 솔루션을 활용 하는 사용자의 가상 사용자입니다. </li> <li> 고객이 제품 또는 솔루션 주소를 요구 하거나 불만을가지고 있습니다. </li> </ul> <br> 가능 하면 업계 표준 어휘 또는 혜택 기반 단어를 사용 합니다.  제품을 판매하는 특징과 기능에 의존하지 않습니다.  대신, 전달하는 가치에 중점을 둡니다. <br> <br> 컨설팅 서비스 목록의 경우 제공 하는 전문 서비스를 명확 하 게 명시 합니다. |
@@ -61,7 +61,8 @@ Microsoft AppSource 및 Azure Marketplace는 다른 솔루션 유형을 제공 �
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>중요: SaaS 제공 및 Microsoft 365 추가 기능
 
-Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 자세한 내용은 [제품 유형별 가이드](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) 를 참조 하세요. SaaS 제품의 경우 제품의 트랜잭션 기능 뿐만 아니라 범주 선택도 제품을 게시할 온라인 상점을 결정 합니다.
+Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 자세한 내용은 [상용 marketplace의 거래](marketplace-commercial-transaction-capabilities-and-considerations.md) 를 참조 하세요. SaaS 제품의 경우 제품의 트랜잭션 기능 뿐만 아니라 범주 선택도 제품을 게시할 온라인 상점을 결정 합니다.
+
 
 | SaaS 제품    | SaaS 제품   | SaaS 제품  | SaaS 제품   | SaaS 제품   | SaaS 제품   | SaaS 제품    | 적용 가능한 온라인 저장소| 적용 가능한 온라인 저장소 |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
@@ -92,7 +93,7 @@ Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 �
 | **아키텍처 & 생성** | |
 | **자동차** | |
 | **배포** | 도매 <br> Parcel & 패키지 전달 |  
-| **Education** | 높은 교육 <br> 기본 & 보조 .Edu/K-12 <br> 라이브러리 & Museums |
+| **교육** | 높은 교육 <br> 기본 & 보조 .Edu/K-12 <br> 라이브러리 & Museums |
 | **금융 서비스** | 은행 & 자본 시장 <br> 보험 | 
 | **정부** |  방어 & 인텔리전스 <br> Civilian 정부 <br> 공용 안전 & |
 | **의료** | 상태 보험사 <br> 상태 제공자 <br> 제약 | 
@@ -118,7 +119,7 @@ Microsoft AppSource에 대 한 산업:
 키워드는 고객이 검색 시 제품을 찾을 수 있도록 도와줍니다. 제품의 최상위 검색 키워드를 식별하고 제품 요약 및 설명 뿐만 아니라 제품 목록 세부 정보 섹션의 키워드 섹션에 포함합니다.
 
 ## <a name="online-store-marketing-details"></a>온라인 스토어 마케팅 정보
-| 설정 | 모범 사례 |
+| Setting | 모범 사례 |
 |:--- |:--- |  
 | 제공 로고 (216 × 216에서 350 x 350 px로 제공 되는 PNG 형식): 앱 세부 정보 페이지 | 로고는 디지털 매체에 맞게 설계하고 최적화합니다.<br>제품의 앱 세부 정보 목록 페이지에 PNG 형식의 로고를 업로드합니다. 파트너 센터는 필요한 로고 크기로 크기를 조정 합니다. |
 | 제품 로고 (PNG 형식, 48 x 48 픽셀): 검색 페이지 | 파트너 센터는 업로드 한 긴 로고에서이 로고를 생성 합니다. 필요에 따라 나중에 다른 이미지로이를 바꿀 수 있습니다. |

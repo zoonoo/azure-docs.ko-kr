@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398017"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709073"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
@@ -76,10 +76,10 @@ ms.locfileid: "91398017"
 
 몇 가지 추가 잠재 고객 관리 리소스는 다음과 같습니다.
 
-- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
-- [리드 관리 faq](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [일반적인 리드 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
+- [상업용 Marketplace 제품의 잠재 고객](commercial-marketplace-get-customer-leads.md)
+- [잠재 고객 관리에 대한 일반적인 질문](../lead-management-faq.md#common-questions-about-lead-management)
+- [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
+- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -141,12 +141,12 @@ ms.locfileid: "91398017"
 4. 산업
 5. Offer name
 6. 요약
-7. Description
+7. 설명
 8. 스크린샷/비디오
 
 <br>다음은 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="이 제품이 Microsoft AppSource 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -156,7 +156,7 @@ ms.locfileid: "91398017"
 4. 산업
 5. Offer name
 6. 요약
-7. Description
+7. 설명
 8. 스크린샷/비디오
 9. 문서
 
@@ -202,7 +202,7 @@ ms.locfileid: "91398017"
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 .png 형식이어야 합니다. 흐린 이미지는 거부됩니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
@@ -247,7 +247,7 @@ ms.locfileid: "91398017"
 
 제품의 필수 섹션을 모두 완료한 후에는 제품을 제출하여 검토하고 게시할 수 있습니다.
 
-1. 컨설팅 서비스 제품을 게시할 준비가 되면 **검토 및 게시**를 클릭합니다.
+1. 컨설팅 서비스 제품을 게시할 준비가 되 면 **검토 및 게시**를 선택 합니다.
 2. 최종 제출 페이지에서 세부 정보를 검토합니다.
 3. 필요한 경우 제품의 세부 정보에 대한 설명이 필요하다고 생각되면 인증 팀에게 메모를 남깁니다.
 4. 준비가 되면 **제출**을 선택합니다.

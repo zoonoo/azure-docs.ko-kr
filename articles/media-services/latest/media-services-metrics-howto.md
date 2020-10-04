@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f5a3488be3fdc0eb3bc8956db66c06df25ff18c0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296624"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707713"
 ---
 # <a name="monitor-media-services-metrics"></a>Media Services 메트릭 모니터링
 
@@ -48,7 +48,7 @@ Azure Monitor는 포털에서 차트를 작성 하거나 REST API를 통해 액�
 
     리소스를 선택 하 고 **적용**을 누릅니다. 지원 되는 리소스 및 메트릭에 대 한 자세한 내용은 [Media Services 메트릭 모니터링](media-services-metrics-diagnostic-logs.md)을 참조 하세요.
 
-    ![메트릭](media/media-services-metrics/metrics02.png)
+    ![선택한 리소스를 표시 하 고 적용 단추를 강조 표시 하는 스크린샷](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > 메트릭을 모니터링 하려는 리소스를 전환 하려면 **리소스** 상자를 다시 클릭 하 고이 단계를 반복 합니다.
@@ -70,7 +70,7 @@ az monitor metrics list --resource \
 
 다른 메트릭을 가져오려면 관심 있는 메트릭 이름으로 "송신"을 대체 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)

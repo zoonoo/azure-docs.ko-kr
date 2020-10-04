@@ -4,14 +4,14 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294228"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710297"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -76,6 +76,9 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 > [!NOTE] 
 > Log Analytics 작업 영역으로 전송 되도록 게스트 메트릭을 구성한 경우 메트릭은 Log Analytics 작업 영역 리소스 아래에 표시 되 고이를 모니터링 하는 경고 규칙을 만든 후에 **만** 데이터를 표시 하기 시작 합니다. 이렇게 하려면 [로그에 대한 메트릭 경고를 구성](./alerts-metric-logs.md#configuring-metric-alert-for-logs)하는 단계를 수행합니다.
 
+> [!NOTE] 
+> 단일 경고 규칙을 사용 하 여 여러 가상 컴퓨터에 대 한 게스트 메트릭을 모니터링 하는 것은 현재 메트릭 경고에서 지원 되지 않습니다. [로그 경고 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)을 사용 하 여이를 달성할 수 있습니다. 이렇게 하려면 게스트 메트릭이 Log Analytics 작업 영역으로 수집 되는지 확인 하 고 작업 영역에서 로그 경고 규칙을 만듭니다.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>경고에 대 한 메트릭을 찾을 수 없음
 
 특정 메트릭에 대 한 경고를 찾고 리소스에 대 한 메트릭을 볼 수 없는 경우에는 해당 [리소스 유형이 메트릭 경고에 대해 지원 되는지 확인](./alerts-metric-near-real-time.md)합니다.
@@ -108,7 +111,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>아직 내보내지 않은 사용자 지정 메트릭에 대 한 경고 규칙을 정의 합니다.
 
-메트릭 경고 규칙을 만들 때 메트릭 [정의 API](/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 리소스 관리자 템플릿을 사용 하 여 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들고 해당 메트릭을 모니터링 하는 경고 규칙을 사용할 수 있습니다.
+메트릭 경고 규칙을 만들 때 메트릭 [정의 API](/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 리소스 관리자 템플릿을 사용 하 여 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들고 해당 메트릭을 모니터링 하는 경고 규칙을 만들 수 있습니다.
 
 사용자 지정 메트릭의 정의 유효성을 검사 하는 동안 배포가 실패 하지 않도록 하려면 경고 규칙의 조건 섹션에서 *skipMetricValidation* 매개 변수를 사용할 수 있습니다. 그러면 메트릭 유효성 검사가 생략 됩니다. 리소스 관리자 템플릿에서이 매개 변수를 사용 하는 방법은 아래 예제를 참조 하세요. 자세한 내용은 [메트릭 경고 규칙을 만들기 위한 전체 리소스 관리자 템플릿 예제](./alerts-metric-create-templates.md)를 참조 하세요.
 
@@ -245,13 +248,19 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-예를 들면 다음과 같습니다.
+예:
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초
     - 첫 번째 조건을 업데이트 하 고 **Apiname** 차원이 *"getblob"* 과 일치 하는 트랜잭션만 모니터링 하 고 싶습니다.
     - **트랜잭션과** **SuccessE2ELatency** 메트릭은 모두 **apiname** 차원을 지원 하므로 두 조건을 모두 업데이트 해야 하며 둘 다 *"Getblob"* 값을 가진 **apiname** 차원을 지정 해야 합니다.
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>경고 규칙의 기간 및 빈도 설정
+
+다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도*보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
+-   여러 차원을 모니터링 하는 메트릭 경고 규칙-새 차원 값 조합이 추가 된 경우
+-   여러 리소스를 모니터링 하는 메트릭 경고 규칙-범위에 새 리소스를 추가 하는 경우
+-   연속으로 내보내지 않는 메트릭을 모니터링 하는 메트릭 경고 규칙 (스파스 메트릭) – 시간을 내보내지 않은 24 시간 보다 오래 된 메트릭을 내보내는 경우
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647651"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708189"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -80,7 +80,7 @@ ms.locfileid: "89647651"
     
 1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **파트너 설정**  >  **프로그램**을 선택 합니다.
 
-이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 자세한 내용은 [상용 마켓플레이스 개요](./commercial-marketplace-overview.md)를 참조 하세요. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
+이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>기존 Microsoft 파트너 센터 등록를 사용 하 여 계정 만들기
 
@@ -129,7 +129,7 @@ Microsoft 파트너 네트워크 계정으로 [파트너 센터](https://partner
     
 1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **파트너 설정**  >  **프로그램**을 선택 합니다.
 
-이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 자세한 내용은 [상용 마켓플레이스 개요](./commercial-marketplace-overview.md)를 참조 하세요. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
+이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>개발자 프로그램에 이미 등록 된 경우는 어떻게 되나요?
 
@@ -157,7 +157,7 @@ Microsoft 파트너 센터 계정으로 [파트너 센터](https://partner.micro
     
 1. 상용 marketplace 계정이 등록 된 것으로 표시 되는지 확인 하려면 **설정**  >  **파트너 설정**  >  **프로그램**을 선택 합니다.
 
-이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 자세한 내용은 [상용 마켓플레이스 개요](./commercial-marketplace-overview.md)를 참조 하세요. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
+이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 이동한 게시자의 경우
 
@@ -190,4 +190,5 @@ Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Microsoft 상업적 marketplace 란 무엇 인가요?](../overview.md)
 - [파트너 센터에서 상업용 Marketplace 계정 관리](./manage-account.md)

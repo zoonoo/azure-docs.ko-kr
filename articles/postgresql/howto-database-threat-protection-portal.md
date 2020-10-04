@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection 사용-Azure Database for PostgreSQL-단일 서버
 description: Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 25f263a5c9ccdc67f1ab8353e616a6dded0c7f7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6aa0a0f798df2fd69d6f69badd0dcbbb92a0cf39
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901657"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708223"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대 한 Advanced Threat Protection-단일 서버
 
@@ -42,15 +42,15 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
     
 1. 이메일에서 **최근 경고 보기** 링크를 클릭하여 Azure Portal을 시작하고, SQL 데이터베이스에서 검색된 활성 SQL 위협을 대략적으로 보여주는 Azure Security Center 경고 페이지를 표시합니다.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="비정상적인 활동 보고서":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="위협 감지 설정":::
 
     활성 위협 보기:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="활성 위협":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="위협 감지 설정":::
 
 2. 특정 경고를 클릭하여 이 위협을 조사하고 향후 위협을 수정하기 위한 추가 세부 정보 및 조치를 확인합니다.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="특정 경고":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="위협 감지 설정":::
 
 ## <a name="explore-threat-detection-alerts"></a>위협 검색 경고 살펴보기
 
@@ -58,7 +58,7 @@ Advanced Threat Protection의 경고는 [Azure Security Center](https://azure.mi
 
 **Threat Protection** 아래에서 **보안 경고**를 클릭하여 Azure Security Center 경고 페이지를 시작한 다음 데이터베이스에서 검색된 활성 SQL 위협의 개요를 확인합니다.
 
-  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="위협 보호 asc":::
+  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="위협 감지 설정":::
 
 ## <a name="next-steps"></a>다음 단계
 

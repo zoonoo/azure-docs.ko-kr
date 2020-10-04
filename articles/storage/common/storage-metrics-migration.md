@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: f0357c153a068b1f857e4595fa17a9ac6bc22104
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500269"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708580"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Azure Monitor에서 메트릭으로 전환
 
@@ -116,4 +116,4 @@ Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure Monitor의 스토리지 메트릭](./storage-metrics-in-azure-monitor.md)
+

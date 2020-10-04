@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 67c924c350fa2bc69f724d44a1b43c7e878e493a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940528"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708682"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션 (미리 보기)
 
@@ -20,10 +20,10 @@ ms.locfileid: "90940528"
 
 서로 다른 세 가지 계산 계층 중 하나에서 유연 하 게 사용할 수 있는 Azure Database for MySQL 서버를 만들 수 있습니다. 계산 계층은 B 시리즈, D 시리즈 및 E 시리즈를 사용 하는 기본 VM SKU로 구분 됩니다. 계산 계층과 크기를 선택 하면 서버에서 사용할 수 있는 메모리 및 vCores가 결정 됩니다. 모든 계산 계층에서 동일한 저장소 기술이 사용 됩니다. 모든 리소스는 MySQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-| 리소스/계층 | **버스터 블** | **일반 용도** | **메모리 액세스에 최적화** |
+| 리소스/계층 | **버스터 블** | **범용** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | VM 시리즈| B 시리즈 | Ddsv4 시리즈 | Edsv4 시리즈|
-| vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | vCore 메모리 | 변수 | 4 GiB | 8 GiB * |
 | 스토리지 크기 | 5 GiB ~ 16 TiB | 5 GiB ~ 16 TiB | 5 GiB ~ 16 TiB |
 | 데이터베이스 백업 보존 기간 | 1 ~ 35 일 | 1 ~ 35 일 | 1 ~ 35 일 |
@@ -52,7 +52,7 @@ ms.locfileid: "90940528"
 | B1s                  | 1      | 1                 |  
 | B1ms                 | 1      | 2                 | 
 | B2s                  | 2      | 4                 |  
-| **일반 용도**  |        |                   | 
+| **범용**  |        |                   | 
 | D2ds_v4              | 2      | 8                 |  
 | D4ds_v4              | 4      | 16                | 
 | D8ds_v4              | 8      | 32                | 
@@ -113,7 +113,7 @@ ms.locfileid: "90940528"
 | B1s                  | 320                 |
 | B1ms                 | 640                 |
 | B2s                  | 1280                | 
-| **일반 용도**  |                     |
+| **범용**  |                     |
 | D2ds_v4              | 3200                |
 | D4ds_v4              | 6400                |
 | D8ds_v4              | 12800               |

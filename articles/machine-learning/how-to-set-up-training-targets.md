@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 2f05ab2bc7e514f3e58f383faf47a74ef69f94b6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 53d821809820b11a9a126a826db79726dd43e382
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535096"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708240"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -26,14 +26,12 @@ ms.locfileid: "91535096"
 
 **스크립트 실행 구성**내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)`ws`
-* 계산 대상인 `my_compute_target` 입니다.  다음을 사용 하 여 계산 대상을 만듭니다.
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+* 계산 대상인 `my_compute_target` 입니다.  [컴퓨팅 대상 만들기](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>스크립트 실행 구성 이란?
 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 은 실험의 일부로 학습 실행을 제출 하는 데 필요한 정보를 구성 하는 데 사용 됩니다.
@@ -94,7 +92,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 환경에 대 한 자세한 내용 및 세부 정보는 [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](how-to-use-environments.md)을 참조 하세요.
   
-### <a name="local-compute-target"></a>로컬 컴퓨팅 대상
+### <a name="local-compute-target"></a><a name="local"></a>로컬 계산 대상
 
 계산 대상이 **로컬 컴퓨터**이면 스크립트가 실행 되는 Python 환경에서 필요한 모든 패키지를 사용할 수 있는지 확인 해야 합니다.  `python.user_managed_dependencies`를 사용 하 여 현재 python 환경 또는 지정 된 경로에서 python을 사용 합니다.
 
@@ -119,6 +117,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 환경을 지정 하지 않으면 기본 환경이 생성 됩니다.

@@ -1,17 +1,17 @@
 ---
 title: 로그-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL 단일 서버에서 로깅 구성, 저장 및 분석에 대해 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902702"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710501"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 
@@ -103,7 +103,7 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| 형식 | 로그의 형식 항상 `AzureDiagnostics`입니다. |
+| Type | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL`입니다. |

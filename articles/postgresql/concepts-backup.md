@@ -1,17 +1,17 @@
 ---
 title: 백업 및 복원-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL 서버-단일 서버를 자동 백업 하 고 복원 하는 방법에 대해 알아봅니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: d3630b631944befaf8a8c3d32e90e775dd6d63fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292870"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708457"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
 
@@ -27,14 +27,14 @@ Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백�
 
 #### <a name="servers-with-up-to-4-tb-storage"></a>최대 2TB 저장소를 포함 하는 서버
 
-최대 5TB의 저장소를 지 원하는 서버의 경우 전체 백업은 매주 한 번 수행 됩니다. 차등 백업은 하루에 두 번 발생 합니다. 트랜잭션 로그 백업은 5 분 마다 발생 합니다.
+최대 5TB의 저장소를 지 원하는 서버의 경우 전체 백업은 매주 한 번 수행 됩니다. 차등 백업은 하루에 두 번 발생 합니다. 트랜잭션 로그 백업은 5분마다 발생합니다.
 
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>최대 16TB의 저장소를 포함 하는 서버
 
-[Azure 지역의](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 최대 16tb의 저장소를 지원할 수 있습니다. 이러한 대량 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅숏 백업은 서버를 만든 후 즉시 예약 됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅숏 백업은 차등 백업만 수행 합니다. 차등 스냅숏 백업은 고정 일정에서 발생 하지 않습니다. 하루에는 세 개의 차등 스냅숏 백업이 수행 됩니다. 트랜잭션 로그 백업은 5 분 마다 발생 합니다. 
+[Azure 지역의](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 최대 16tb의 저장소를 지원할 수 있습니다. 이러한 대량 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다. 차등 스냅샷 백업은 정해진 일정으로 발생하지 않습니다. 하루에는 세 개의 차등 스냅숏 백업이 수행 됩니다. 트랜잭션 로그 백업은 5분마다 발생합니다. 
 
-### <a name="backup-retention"></a>Backup 보존
+### <a name="backup-retention"></a>백업 보존
 
 백업은 서버의 백업 보존 기간 설정에 따라 보존 됩니다. 7 일에서 35 일의 보존 기간을 선택할 수 있습니다. 기본 보존 기간은 7 일입니다. [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) 또는 [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration)를 사용 하 여 백업 구성을 업데이트 하 여 서버를 만드는 동안 또는 나중에 보존 기간을 설정할 수 있습니다. 
 
@@ -53,7 +53,7 @@ Azure Database for PostgreSQL은 범용 및 메모리 최적화 계층에서 로
 
 Azure Database for PostgreSQL은 추가 비용 없이 최대 100%의 프로비전된 서버 스토리지를 백업 스토리지로 제공합니다. 사용 되는 추가 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GB의 저장소로 서버를 프로 비전 한 경우 추가 비용 없이 서버 백업에 250 GB의 추가 저장소를 사용할 수 있습니다. 250 GB 보다 많은 백업에 사용 된 저장소는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/postgresql/)에 따라 요금이 청구 됩니다.
 
-Azure Portal에서 사용할 수 있는 Azure Monitor [백업 저장소 사용](concepts-monitoring.md) 메트릭을 사용 하 여 서버에서 사용 하는 백업 저장소를 모니터링할 수 있습니다. 백업 저장소 사용 메트릭은 서버에 설정 된 백업 보존 기간에 따라 유지 되는 모든 전체 데이터베이스 백업, 차등 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 백업 빈도는 서비스에서 관리 되며 앞에서 설명한 것입니다. 서버에서 많은 트랜잭션 작업을 수행 하면 전체 데이터베이스 크기에 관계 없이 백업 저장소 사용량이 증가할 수 있습니다. 지역 중복 저장소의 경우 백업 저장소 사용량이 로컬 중복 저장소의 두 배가 됩니다. 
+Azure Portal에서 사용할 수 있는 Azure Monitor [백업 저장소 사용](concepts-monitoring.md) 메트릭을 사용 하 여 서버에서 사용 하는 백업 저장소를 모니터링할 수 있습니다. 백업 저장소 사용 메트릭은 서버에 설정 된 백업 보존 기간에 따라 유지 되는 모든 전체 데이터베이스 백업, 차등 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 백업 빈도는 서비스에서 관리 되며 앞에서 설명한 것입니다. 서버에서 과도한 트랜잭션 작업을 수행하면 전체 데이터베이스 크기에 관계없이 백업 스토리지 사용량이 증가할 수 있습니다. 지역 중복 저장소의 경우 백업 저장소 사용량이 로컬 중복 저장소의 두 배가 됩니다. 
 
 백업 저장소 비용을 제어 하는 기본적인 방법은 적절 한 백업 보존 기간을 설정 하 고 원하는 복구 목표를 충족 하는 올바른 백업 중복성 옵션을 선택 하는 것입니다. 7 일에서 35 일 사이의 보존 기간을 선택할 수 있습니다. 범용 및 메모리 액세스에 최적화 된 서버는 백업에 대 한 지역 중복 저장소를 선택할 수 있습니다.
 
@@ -79,7 +79,7 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 마지막 5분 내의 특정 시점으로 복원하려면, 다음 트랜잭션 로그 백업이 완료될 때까지 기다려야 할 수도 있습니다.
 
-### <a name="geo-restore"></a>지리적 복원
+### <a name="geo-restore"></a>지역 복원
 
 지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 4tb의 저장소를 지 원하는 서버는 지리적으로 쌍을 이루는 지역 또는 최대 16TB의 저장소를 지 원하는 지역으로 복원할 수 있습니다. 최대 16tb의 저장소를 지 원하는 서버의 경우 16 TB 서버를 지 원하는 모든 지역에서 지역 백업을 복원할 수 있습니다. 지원 되는 지역 목록은 [PostgeSQL 가격 책정 계층에 대 한 Azure Database를](concepts-pricing-tiers.md) 검토 합니다.
 

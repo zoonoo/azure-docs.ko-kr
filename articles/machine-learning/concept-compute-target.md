@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 09/29/2020
+ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446773"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707740"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -28,18 +28,31 @@ ms.locfileid: "91446773"
 계산 대상에 사용 하는 계산 리소스는 [작업 영역](concept-workspace.md)에 연결 됩니다. 로컬 컴퓨터 이외의 계산 리소스는 작업 영역의 사용자가 공유 합니다.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> 계산 대상 학습
-
-Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을 제공 합니다.  다양 한 시나리오에 대 한 지원이 다를 수 있지만 고유한 계산 리소스를 연결할 수도 있습니다.
+Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 포함되어 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 스케일링되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-[모델 학습에 계산 대상 사용](how-to-set-up-training-targets.md)에 대해 자세히 알아보세요.
+[계산 대상에 학습 실행을 제출](how-to-set-up-training-targets.md)하는 방법에 대해 자세히 알아보세요.
 
-## <a name="deployment-targets"></a><a name="deploy"></a>배포 대상
+## <a name="compute-targets-for-inference"></a><a name="deploy"></a> 유추를 위한 계산 대상
 
 다음 계산 리소스를 사용 하 여 모델 배포를 호스트할 수 있습니다.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+유추를 수행 하는 경우 Azure Machine Learning 사용 하는 데 필요한 모델 및 관련 리소스를 호스팅하는 Docker 컨테이너를 만듭니다. 이 컨테이너는 다음 배포 시나리오 중 하나에서 사용 됩니다.
+
+* 실시간 유추에 사용 되는 __웹 서비스__ 입니다. 웹 서비스 배포는 다음 계산 대상 중 하나를 사용 합니다.
+
+    * [로컬 컴퓨터](how-to-attach-compute-targets.md#local)
+    * [Azure Machine Learning 컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
+    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (미리 보기). Azure Functions에 배포 하는 경우에만 Docker 컨테이너를 빌드하는 Azure Machine Learning에 의존 합니다. 여기에서 Azure Functions를 사용 하 여 배포 됩니다. 자세한 내용은 [Azure Functions에 machine learning 모델 배포 (미리 보기)](how-to-deploy-functions.md)를 참조 하세요.
+
+* 데이터 일괄 처리를 주기적으로 처리 하는 데 사용 되는 __일괄 처리 유추__ 끝점입니다. Batch 추론는 [Azure Machine Learning 계산 클러스터](how-to-create-attach-compute-cluster.md)를 사용 합니다.
+
+* __IoT 장치로__ (미리 보기). IoT 장치에 배포 하는 Azure Machine Learning에만 Docker 컨테이너를 빌드하는 데 사용 됩니다. 여기에서 Azure IoT Edge를 사용 하 여 배포 됩니다. 자세한 내용은 [IoT Edge 모듈로 배포 (미리 보기)](/azure/iot-edge/tutorial-deploy-machine-learning)를 참조 하세요.
 
 [계산 대상에 모델을 배포 하는 위치 및 방법](how-to-deploy-and-where.md)에 대해 알아봅니다.
 
@@ -49,9 +62,10 @@ Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을
 Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터와 [계산 인스턴스](concept-compute-instance.md) 는 유일 하 게 관리 되는 계산 Azure Machine Learning. 
 
 다음에서 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
-* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
-* Azure portal
-* Python SDK 계산 [Einstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) 및 [amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) 클래스
+* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* Python SDK 및 CLI:
+    * [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
+    * [계산 클러스터](how-to-create-attach-compute-cluster.md)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (미리 보기)
 * 리소스 관리자 템플릿입니다. 예제 템플릿은 [create Azure Machine Learning compute 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)을 참조 하세요.
 * [Azure CLI에 대 한](reference-azure-machine-learning-cli.md#resource-management)Machine learning 확장입니다.  
@@ -68,7 +82,7 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 
 
 > [!NOTE]
-> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](concept-compute-instance.md#managing-a-compute-instance) 해야 합니다. 
+> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](how-to-create-manage-compute-instance.md#manage) 해야 합니다. 
 
 ### <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
 

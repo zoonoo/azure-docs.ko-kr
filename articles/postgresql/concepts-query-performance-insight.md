@@ -1,17 +1,17 @@
 ---
 title: Query Performance Insight-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 Query Performance Insight 기능에 대해 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906520"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710263"
 ---
 # <a name="query-performance-insight"></a>쿼리 
 
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL 서버의 포털 페이지에서 메뉴 모음의 
 
 서버의 대기 쿼리를 시각화하려면 **대기 통계** 탭을 선택합니다.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 대기 통계":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 장기 실행 쿼리":::
 
 ## <a name="considerations"></a>고려 사항
 * [읽기 복제본](concepts-read-replicas.md)에 Query Performance Insight를 사용할 수 없습니다.

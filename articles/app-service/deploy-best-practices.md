@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961876"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708155"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -47,7 +47,7 @@ Azure Pipelines, Jenkins 및 편집기 플러그 인 같은 배포 도구는 이
 
 프로덕션 슬롯에 대해 연속 배포를 사용 하도록 설정 하면 안 됩니다. 대신 프로덕션 분기 (종종 마스터)를 비프로덕션 슬롯에 배포 해야 합니다. 기본 분기를 릴리스할 준비가 되 면 프로덕션 슬롯으로 바꿉니다. 프로덕션에 배포 하는 대신 프로덕션으로 교체 하면 가동 중지 시간을 방지 하 고 다시 교환 하 여 변경 내용을 롤백할 수 있습니다. 
 
-![슬롯 사용 시각적 개체](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![개발, 스테이징 및 마스터 분기와 배포 되는 슬롯 간의 흐름을 보여 주는 다이어그램입니다.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>계속 컨테이너 배포
 

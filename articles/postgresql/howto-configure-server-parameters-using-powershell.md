@@ -1,19 +1,19 @@
 ---
 title: 서버 매개 변수 구성-Azure PowerShell-Azure Database for PostgreSQL
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for PostgreSQL에서 서비스 매개 변수를 구성 하는 방법을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2948e0b916eab75f0e0cf1d0ba1b5be1fcf188f4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0fa49714365c00060ef7f11f5c9646141f707f4b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87493485"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707815"
 ---
 # <a name="customize-azure-database-for-postgresql-server-parameters-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버 매개 변수 사용자 지정
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 106ad6c1669506b5a8086afc1a74d967478e556c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597294"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710688"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
@@ -133,12 +133,12 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. Products
+2. 제품
 3. 범주
 4. 지원 주소 (링크)
 5. 사용 약관 주소 (링크)
 6. Offer name
-7. Description
+7. 설명
 8. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -191,7 +191,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 제품의 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.

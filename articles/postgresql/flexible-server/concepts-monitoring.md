@@ -1,17 +1,17 @@
 ---
 title: 모니터링 및 메트릭-Azure Database for PostgreSQL 유연한 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 유연한 서버에서 모니터링 및 메트릭 기능을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314677"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707849"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 메트릭 모니터링
 
@@ -27,7 +27,7 @@ Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 
 PostgreSQL 유연한 서버에 사용할 수 있는 메트릭은 다음과 같습니다.
 
 
-|메트릭|메트릭 표시 이름|단위|Description|
+|메트릭|메트릭 표시 이름|단위|설명|
 |---|---|---|---|
 | active_connections | 활성 연결 수 | 개수 | 서버에 대 한 연결 수입니다. | 
 | backup_storage_used | 사용된 백업 스토리지 | 바이트 | 사용 된 백업 저장소의 양입니다. 이 메트릭은 서버에 대해 설정 된 백업 보존 기간에 따라 유지 되는 모든 전체 데이터베이스 백업, 차등 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 백업 빈도는 서비스에서 관리 됩니다. 지역 중복 저장소의 경우 백업 저장소 사용량이 로컬 중복 저장소의 두 배가 됩니다. |

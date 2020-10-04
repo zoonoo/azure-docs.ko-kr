@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461564"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708376"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 계산 인스턴스에 연결 (미리 보기)
 
@@ -68,7 +68,7 @@ Visual Studio Code에서 계산 인스턴스에 연결 하는 방법에는 두 �
 모든 기능을 갖춘 원격 개발 환경을 구현 하려면 몇 가지 필수 구성 요소가 필요 합니다.
 
 * [원격 SSH 확장을 Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)합니다.
-* SSH 사용 계산 인스턴스입니다. 자세한 내용은 [compute 인스턴스 만들기 가이드를 참조](concept-compute-instance.md#create)하세요.
+* SSH 사용 계산 인스턴스입니다. 자세한 내용은 [compute 인스턴스 만들기 가이드를 참조](how-to-create-manage-compute-instance.md)하세요.
 
 > [!NOTE]
 > Windows 플랫폼에서 아직 없는 경우 [OpenSSH 호환 SSH 클라이언트를 설치](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) 해야 합니다. Ssh 명령이 경로에 있어야 하므로 PuTTY는 Windows에서 지원 되지 않습니다.
@@ -130,7 +130,7 @@ Host azmlci1
 
 필드에 대 한 자세한 내용은 다음과 같습니다.
 
-|필드|Description|
+|필드|설명|
 |----|---------|
 |호스트|계산 인스턴스에 대해 원하는 약어를 사용 합니다. |
 |HostName|계산 인스턴스의 IP 주소입니다. |

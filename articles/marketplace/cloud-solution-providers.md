@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400743"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708597"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
 
-이 문서에서는 CSP(클라우드 솔루션 공급자) 프로그램에서 사용할 수 있도록 제품을 구성하는 방법을 설명합니다. [상용 marketplace online 스토어](comparing-appsource-azure-marketplace.md)를 통해 제품을 게시 하는 것 외에도 CSP 프로그램을 통해 판매 하 여 프로그램에서 사용 하는 수백만 개의 Microsoft 고객에 게 연락할 수 있습니다.
+이 문서에서는 CSP(클라우드 솔루션 공급자) 프로그램에서 사용할 수 있도록 제품을 구성하는 방법을 설명합니다. [상용 marketplace online 스토어](overview.md#commercial-marketplace-online-stores)를 통해 제품을 게시 하는 것 외에도 CSP 프로그램을 통해 판매 하 여 프로그램에서 사용 하는 수백만 개의 Microsoft 고객에 게 연락할 수 있습니다.
 
 옵트인 (opt in) 하 여 CSP 프로그램의 가용성에 대 한 신규 또는 기존 제안을 구성할 수 있습니다 .이를 통해 CSP 파트너가 제품을 판매 하 고 고객을 위한 번들 솔루션을 만들 수 있습니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "91400743"
 
 이 옵션을 선택하면 제품을 재판매할 수 있는 CSP 프로그램의 파트너에게 권한을 부여합니다.
 
-파트너에게 권한을 부여하려면 **CSP 파트너 선택**을 클릭하여 파트너 이름이나 CSP Azure Active Directory(AAD) 테넌트 ID로 검색할 수 있는 메뉴를 엽니다.
+파트너에 게 권한을 부여 하려면 **Csp 파트너 선택** 을 선택 합니다. 그러면 파트너 이름 또는 CSP Azure Active Directory (Azure AD) 테 넌 트 ID로 검색할 수 있는 메뉴가 나타납니다.
 
 ![CSP 선택 메뉴](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "91400743"
 이 제품이 게시되지 않은 경우 선택한 파트너가 사용할 수 있게 제품을 게시해야 합니다.
 
 >[!NOTE]
->지정된 지역의 CSP 프로그램의 파트너에게 권한을 부여하는 경우 해당하는 특정 지역에 속하는 고객에게 제품을 판매할 수 있습니다. 지역별로 CSP 제품을 분류하는 방법에 대한 자세한 내용은 [클라우드 솔루션 공급자 프로그램 지역 시장 및 통화](https://docs.microsoft.com/partner-center/regional-authorization-overview)를 참조 하세요.
+>지정된 지역의 CSP 프로그램의 파트너에게 권한을 부여하는 경우 해당하는 특정 지역에 속하는 고객에게 제품을 판매할 수 있습니다. CSP 제품을 지역에서 분류 하는 방법에 대 한 자세한 내용은 [클라우드 솔루션 공급자 프로그램 지역 시장 및 통화](https://docs.microsoft.com/partner-center/regional-authorization-overview)를 참조 하세요.
 
 이미 게시된 제품의 CSP 목록을 업데이트하는 경우 파트너를 더 추가하고 **CSP 대상 그룹 동기화**를 선택합니다.
 
@@ -147,7 +147,7 @@ CSP 프로그램의 파트너가 고객에게 제품을 판매하지 않았으�
 5. **다음**을 선택하여 문제에 대한 세부 정보를 입력할 수 있는 **문제 세부 정보 페이지**로 이동합니다.
 6. **CSP 권한 부여 취소**를 문제 제목으로 사용하고 나머지 필수 섹션을 입력합니다.
 
- 제품이 현재 **옵션 2: 선택한 CSP 프로그램의 특정 파트너**이고 **옵션 3: CSP 프로그램에 파트너 없음**으로 이동하려면 이전에 권한을 부여한 CSP 프로그램의 파트너가 최종 고객에게 제품을 재판매하지 않은 경우에만 해당 옵션으로 이동할 수 있습니다. 다음 지침에 따라 요청을 만듭니다.
+ 제품이 현재 **옵션 2: 선택한 CSP 프로그램의 특정 파트너**이고 **옵션 3: CSP 프로그램에 파트너 없음**으로 이동하려면 이전에 권한을 부여한 CSP 프로그램의 파트너가 최종 고객에게 제품을 재판매하지 않은 경우에만 해당 옵션으로 이동할 수 있습니다. 요청을 만들려면 다음 지침을 따르십시오.
 
 1. [지원 요청 페이지](https://aka.ms/marketplacepublishersupport)로 이동합니다. 처음 몇 개의 드롭다운 메뉴는 자동으로 채워집니다.
 
@@ -170,14 +170,11 @@ CSP 프로그램의 파트너가 고객에게 제품을 판매하지 않았으�
 
 ### <a name="partner-center-csp-channel"></a>파트너 센터 CSP 채널
 
-파트너 센터에서 CSP 채널에 옵트인한 경우 게시자는 제품 목록 모듈 아래에 있는 CSP 채널에 관련 마케팅 자료를 호스팅하는 URL과 채널 연락처 정보를 입력해야 합니다.
+파트너 센터에서 CSP 채널을 옵트인 (opt in) 한 경우, 게시자는 해당 마케팅 자료를 호스트 하는 URL과 제품 목록 모듈 아래에 채널 연락처 정보를 입력 해야 합니다.
 
 ![파트너 센터 CSP 참고 자료 정보](media/marketplace-publishers-guide/pc-csp-channel.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Marketplace 및 AppSource 게시자 가이드](marketplace-publishers-guide.md)를 방문합니다.
-
-마켓플레이스 GTM 서비스에 대해 자세히 알아보려면 [Go-To-Market 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조하세요.
-
-[파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)에 로그인하여 제품을 만들고 구성합니다.
+- [시장 출시 서비스](https://partner.microsoft.com/reach-customers/gtm)에 대해 자세히 알아보세요.
+- [파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)에 로그인하여 제품을 만들고 구성합니다.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e14995b92e99e1a9695f81fb71bcab6dd62303a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011670"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708699"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
 이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 애플리케이션이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
@@ -30,19 +30,19 @@ ms.locfileid: "89011670"
 3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *애플리케이션* **fabric:/App1**을 만든다고 가정합니다. 이 애플리케이션 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
 
 
-![배포된 애플리케이션의 노드 보기 다이어그램][node-view-one]
+![이 응용 프로그램의 뷰가 노드에 배포 되는 것으로 표시 되는 다이어그램입니다.][node-view-one]
 
 
 Service Fabric은 'MyServicePackage'를 활성화했으며, 이 서비스 패키지가 두 파티션의 복제본을 호스트하는 'MyCodePackage'를 시작했습니다. 파티션당 복제본 수를 클러스터의 노드 수와 같도록 선택했기 때문에 클러스터에 있는 모든 노드 보기가 같습니다. 애플리케이션 **fabric:/App1**에서 **fabric:/App1/ServiceB**라는 다른 서비스를 만들어 보겠습니다. 이 서비스에는 한 개의 파티션(예: **P3**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 새로운 노드 보기를 보여 줍니다.
 
 
-![배포된 애플리케이션의 노드 보기 다이어그램][node-view-two]
+![노드의 새 뷰를 표시 하는 다이어그램입니다.][node-view-two]
 
 
 Service Fabric이 **fabric:/App1/ServiceB** 서비스의 **P3** 파티션에 대한 새 복제본을 기존 'MyServicePackage' 활성화에 배치했습니다. 이제부터는 'MyAppType' 형식의 다른 애플리케이션 **fabric:/App2**를 만들어 보겠습니다. **fabric:/App2** 내에서 **fabric:/App2/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(**P4** 및 **P5**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 새 노드 보기를 보여줍니다.
 
 
-![배포된 애플리케이션의 노드 보기 다이어그램][node-view-three]
+![새 노드 뷰를 표시 하는 다이어그램입니다.][node-view-three]
 
 
 Service Fabric은 'MyCodePackage'의 새 복사본을 시작하는 'MyServicePackage'의 새 복사본을 활성화합니다. **fabric:/App2/ServiceA** 서비스의 두 파티션에서 복제본(**P4** 및 **P5**)은 이 새 복사본 'MyCodePackage'에 배치됩니다.
@@ -157,7 +157,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 지정된 노드에서 두 서비스에 각각 복제본 2개가 있습니다. 단독 프로세스 모델을 사용하여 서비스를 만들었기 때문에 Service Fabric은 각 복제본에 대해 새로운 'MyServicePackage' 복사본을 활성화합니다. 'MultiTypeServicePackage'를 활성화할 때마다 'MyCodePackageA' 및 'MyCodePackageB'의 복사본이 시작됩니다. 그러나 'MyCodePackageA' 또는 'MyCodePackageB' 중 하나만 'MultiTypeServicePackage'가 활성화된 복제본을 호스트합니다. 다음 다이어그램은 노드 보기를 보여줍니다.
 
 
-![배포된 애플리케이션의 노드 보기 다이어그램][node-view-five]
+![노드 뷰를 표시 하는 다이어그램입니다.][node-view-five]
 
 
 **fabric:/SpecialApp/ServiceA** 서비스의 **P1** 파티션 복제본에 대한 'MultiTypeServicePackage' 활성화에서 'MyCodePackageA'는 복제본을 호스트합니다. 'MyCodePackageB'는 실행됩니다. 비슷하게 **fabric:/SpecialApp/ServiceB** 서비스의 **P3** 파티션 복제본에 대한 'MultiTypeServicePackage' 활성화에서 'MyCodePackageB'는 복제본을 호스트합니다. 'MyCodePackageA'는 실행됩니다. 따라서 *ServicePackage*당 다른 *ServiceTypes*를 등록하는 *CodePackages* 수가 많을수록 중복 리소스 사용량이 증가합니다. 

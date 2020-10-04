@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653590"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708954"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -137,6 +137,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 | 속성 값의 최대 길이 | 실질적인 제한 없음 |
 | 문자열 속성 값의 최대 길이 | 실질적인 제한 없음 |
 | 숫자 속성 값의 최대 길이 | IEEE754 이중 정밀도 64비트 |
+| 포함 된 개체/배열의 최대 중첩 수준 | 128 |
 | 최대 TTL 값 |2147483647|
 
 파티션 키와 ID 값의 길이 제한 및 전체 크기 2MB 제한을 제외하고, 속성 수나 중첩 깊이와 같은 항목 페이로드에 대한 제한은 없습니다. RU 사용을 줄이기 위해 항목 구조가 거대하거나 복잡한 컨테이너의 인덱싱 정책을 구성해야 할 수도 있습니다. 실제 예제와 대형 항목을 관리하는 패턴은 [Cosmos DB의 항목 모델링](how-to-model-partition-example.md)을 참조하세요.

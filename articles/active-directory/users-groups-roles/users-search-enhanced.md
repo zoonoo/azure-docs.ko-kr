@@ -10,27 +10,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e0c8e6fb3bab179483d03320e6d90ab712ec528
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: be0d428120f53a4edb9763199a78b0e50409b19a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493350"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708743"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Azure Active Directory의 사용자 관리 향상 된 기능 (미리 보기)
 
-이 문서에서는 Azure AD (Azure Active Directory) 포털에서 향상 된 사용자 관리 미리 보기를 사용 하는 방법을 설명 합니다. **모든 사용자** 및 **삭제 된 사용자** 페이지는 추가 정보를 제공 하 고 사용자를 쉽게 찾을 수 있도록 업데이트 되었습니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+이 문서에서는 Azure AD (Azure Active Directory) 포털에서 사용자 관리 향상 된 미리 보기를 사용 하는 방법을 설명 합니다. **모든 사용자** 및 **삭제 된 사용자** 페이지는 추가 정보를 제공 하 고 사용자를 쉽게 찾을 수 있도록 업데이트 되었습니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 미리 보기의 변경 내용은 다음과 같습니다.
 
 - 개체 ID, 디렉터리 동기화 상태, 생성 유형 및 id 발급자를 비롯 한 더 보이는 사용자 속성
 - 이제 검색에서 이름, 전자 메일 및 개체 Id의 결합 된 검색을 허용 합니다.
-- 사용자 유형별 고급 필터링 (구성원 및 게스트), 디렉터리 동기화 상태 및 생성 유형
+- 사용자 유형별 고급 필터링 (구성원, 게스트, 없음), 디렉터리 동기화 상태, 생성 유형, 회사 이름 및 도메인 이름
+- 이름 및 사용자 계정 이름과 같은 속성에 대 한 새로운 정렬 기능
+- 검색 또는 필터를 사용 하 여 업데이트 되는 새 총 사용자 수
 
 > [!NOTE]
 > 이 미리 보기는 현재 Azure AD B2C 테 넌 트에 사용할 수 없습니다.
@@ -66,7 +68,7 @@ ms.locfileid: "89493350"
 - 초대 상태: 게스트 사용자의 초대 상태입니다.
 - Mail: 사용자의 전자 메일입니다.
 
-   ![모든 사용자 및 삭제 된 사용자 페이지에 표시 되는 새 사용자 속성](./media/users-search-enhanced/user-properties.png)
+![모든 사용자 및 삭제 된 사용자 페이지에 표시 되는 새 사용자 속성](./media/users-search-enhanced/user-properties.png)
 
 ### <a name="deleted-users-page"></a>삭제 된 사용자 페이지
 
@@ -96,22 +98,36 @@ ms.locfileid: "89493350"
 
 **모든 사용자** 페이지에서 필터링 가능한 속성은 다음과 같습니다.
 
-- 사용자 형식-멤버 또는 게스트
-- 디렉터리 동기화 상태-예
-- 생성 유형-초대, 전자 메일 확인 됨, 로컬 계정
+- 사용자 유형: 구성원, 게스트, 없음
+- 디렉터리 동기화 상태: 예, 아니요
+- 만들기 유형: 초대, 전자 메일 확인 됨, 로컬 계정
 - 초대 상태 – 수락 보류 중, 수락 됨
-- 관리 단위-보려는 사용자의 범위를 단일 관리 단위로 제한 하려면이 옵션을 선택 합니다. 자세한 내용은 [관리 단위 관리 미리 보기](directory-administrative-units.md)를 참조 하세요.
+- 도메인 이름: 도메인 이름을 입력 합니다.
+- 회사 이름: 회사 이름을 입력 합니다.
+- 관리 단위: 단일 관리 단위로 볼 수 있는 사용자의 범위를 제한 하려면이 옵션을 선택 합니다. 자세한 내용은 [관리 단위 관리 미리 보기](directory-administrative-units.md)를 참조 하세요.
 
-## <a name="filtering-deleted-users-list"></a>삭제 된 사용자 목록 필터링
+### <a name="filtering-deleted-users-list"></a>삭제 된 사용자 목록 필터링
 
 **삭제 된 사용자** 페이지에는 **모든 사용자** 페이지에 없는 추가 필터가 있습니다. 다음은 **삭제 된 사용자** 페이지에서 필터링 가능한 속성입니다.
 
-- 사용자 형식-멤버 또는 게스트
-- 디렉터리 동기화 상태-예
-- 생성 유형-초대, 전자 메일 확인 됨, 로컬 계정
-- 초대 상태 – 수락 보류 중, 수락 됨
-- 삭제 날짜-지난 7, 14 또는 30 일
-- 영구 삭제 날짜-지난 7, 14 또는 30 일
+- 사용자 유형: 구성원, 게스트, 없음
+- 디렉터리 동기화 상태: 예, 아니요
+- 만들기 유형: 초대, 전자 메일 확인 됨, 로컬 계정
+- 초대 상태: 보류 중인 승인, 수락 됨
+- 삭제 날짜: 지난 7, 14 또는 30 일
+- 도메인 이름: 도메인 이름을 입력 합니다.
+- 회사 이름: 회사 이름을 입력 합니다.
+- 영구 삭제 날짜: 지난 7, 14 또는 30 일
+
+## <a name="user-list-sorting"></a>사용자 목록 정렬
+
+이제 **모든 사용자** 및 **삭제 된 사용자** 페이지에서 이름 및 사용자 계정 이름을 기준으로 정렬할 수 있습니다. **삭제 된 사용자** 목록에서 삭제 날짜별로 정렬할 수도 있습니다.
+
+## <a name="user-list-counts"></a>사용자 목록 개수
+
+**모든** 사용자 및 **삭제 된 사용자** 페이지에서 총 사용자 수를 볼 수 있습니다. 목록을 검색 하거나 필터링 할 때 발견 된 총 사용자 수를 반영 하도록 개수가 업데이트 됩니다.
+
+![모든 사용자 페이지에서 사용자 목록 개수에 대 한 그림](./media/users-search-enhanced/user-list-sorting.png)
 
 ## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
 
@@ -121,8 +137,6 @@ ms.locfileid: "89493350"
 원본 열이 어떻게 되었습니까? | **원본** 열은 비슷한 정보를 제공 하는 다른 열로 대체 되었지만 이러한 값을 독립적으로 필터링 할 수 있습니다. 예를 들면 **생성 유형**, **디렉터리 동기화** 및 **id 발급자**가 있습니다.
 사용자 이름 열이 어떻게 되었습니까? | **사용자 이름** 열은 여전히 있지만 **사용자 계정 이름**으로 이름이 바뀌었습니다. 이는 해당 열에 포함 된 정보를 더 잘 반영 합니다. 이제 B2B 게스트에 대해 전체 사용자 계정 이름이 표시 되는 것을 알 수 있습니다. MS Graph에서 얻을 수 있는 것과 일치 합니다.  
 "포함" 검색이 아니라 "시작" 검색만 수행할 수 있는 이유는 무엇 인가요? | "포함" 검색을 수행할 수 없도록 하는 몇 가지 제한 사항이 있습니다. 의견을 보내 주시기 바랍니다.
-열을 정렬할 수 없는 이유는 무엇입니까? | 열을 정렬할 수 없도록 하는 몇 가지 제한 사항이 있습니다. 의견을 보내 주시기 바랍니다.
-**디렉터리 동기화** 열을 예로만 필터링 할 수 있는 이유는 무엇 인가요? | 이 속성을 No 값으로 필터링 하는 것을 허용 하지 않는 몇 가지 제한 사항이 있습니다. 의견을 보내 주시기 바랍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

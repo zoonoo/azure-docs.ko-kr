@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251442"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710722"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -153,7 +153,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 **속성** 페이지에서는 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주, 앱 버전 및 제품을 지 원하는 법적 계약을 정의 합니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
@@ -188,17 +188,17 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. Description
+8. 설명
 9. 스크린샷/비디오
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -242,7 +242,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 이미지가 흐리면 제출이 거부됩니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419757"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708359"
 ---
 # <a name="consulting-service-offers"></a>컨설팅 서비스 제품
 
@@ -22,7 +22,7 @@ ms.locfileid: "89419757"
 
 ## <a name="compare-consulting-services"></a>컨설팅 서비스 비교
 
-상용 marketplace online 매장, Microsoft AppSource 및 Azure Marketplace은 고객이 필요한 항목을 찾을 수 있도록 솔루션 유형과 클라우드 제품에 맞춰 조정 됩니다. 각 온라인 스토어에는 게시 투자를 극대화 하는 데 도움이 되는 특수 게시 옵션이 있습니다. 두 온라인 상점 간의 차이점에 대 한 자세한 내용은 [Microsoft AppSource 비교 및 Azure Marketplace](comparing-appsource-azure-marketplace.md)를 참조 하세요.
+상용 marketplace online 매장, Microsoft AppSource 및 Azure Marketplace은 고객이 필요한 항목을 찾을 수 있도록 솔루션 유형과 클라우드 제품에 맞춰 조정 됩니다. 각 온라인 스토어에는 게시 투자를 극대화 하는 데 도움이 되는 특수 게시 옵션이 있습니다. AppSource와 Azure Marketplace 간의 차이점에 대 한 자세한 내용은 [상용 Marketplace online 스토어](overview.md#commercial-marketplace-online-stores)를 참조 하세요.
 
 Dynamics 365, Power Apps 및 Power BI를 기반으로 하는 컨설팅 서비스 제품은 AppSource에 나열될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 나열 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF 파일을 다운로드하세요.
 

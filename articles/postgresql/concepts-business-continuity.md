@@ -1,17 +1,17 @@
 ---
 title: 비즈니스 연속성-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원, 복제본)을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612024"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710909"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
@@ -19,16 +19,20 @@ ms.locfileid: "89612024"
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 
-Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. ERT (예상 복구 시간)는 복원/장애 조치 (failover) 요청 후 데이터베이스가 완전 하 게 작동 하는 데 예상 되는 기간입니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
+비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
 
-다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
+Azure Database for PostgreSQL는 지역에서 복원을 시작 하 고 다른 지역에 읽기 복제본을 배포할 수 있는 지역 중복 백업을 포함 하는 비즈니스 연속성 기능을 제공 합니다. 각에는 복구 시간과 잠재적 데이터 손실에 대 한 다양 한 특성이 있습니다. [지역 복원](concepts-backup.md) 기능을 사용 하면 다른 지역에서 복제 된 백업 데이터를 사용 하 여 새 서버를 만들 수 있습니다. 복원 및 복구 하는 데 걸리는 전체 시간은 데이터베이스의 크기와 복구할 로그의 양에 따라 달라 집니다. 서버를 설정 하는 전체 시간은 몇 분에서 몇 시간까지 다릅니다. [읽기 복제본](concepts-read-replicas.md)을 사용 하는 경우 주 데이터베이스의 트랜잭션 로그는 복제본으로 비동기적으로 스트리밍됩니다. 주 복제본과 복제본 사이의 지연은 사이트 간 대기 시간 및 전송 되는 데이터의 양에 따라 달라 집니다. 가용성 영역 오류와 같은 기본 사이트 오류가 발생 하는 경우 복제본을 승격 하면 더 짧은 RTO와 데이터 손실이 줄어듭니다. 
 
-| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
+다음 표에서는 일반적인 시나리오에서 RTO 및 RPO를 비교 합니다.
+
+| **기능** | **기본** | **범용** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
-| 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
+| 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | RTO-다양 <br/>RPO < 1시간 | RTO-다양 <br/>RPO < 1시간 |
+| 읽기 복제본 | RTO-분 <br/>RPO < 5 분 | RTO-분 <br/>RPO < 5 분| RTO-분 <br/>RPO < 5 분|
 
-또한 [읽기 복제본](concepts-read-replicas.md)을 사용 하는 것을 고려할 수 있습니다.
+> [!IMPORTANT]
+> 여기에 언급 된 예상 RTO 및 RPO는 참조용 으로만 사용 됩니다. 이러한 메트릭에 대해서는 Sla가 제공 되지 않습니다.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>사용자 또는 애플리케이션 오류가 발생한 후 서버 복구
 

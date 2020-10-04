@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333837"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708257"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
@@ -242,7 +242,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     ```bash
     pip install azureml-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예들 들어 `train_explain.py`입니다.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예: `train_explain.py`
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -273,7 +273,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. 계산 대상으로 Azure Machine Learning 계산을 설정 하 고 학습 실행을 제출 합니다. 지침은 [PYTHON SDK를 사용 하 여 계산 대상 만들기](how-to-create-attach-compute-sdk.md#amlcompute) 를 참조 하세요. 또한 [예제 노트북이](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) 도움이 될 것입니다.
+1. 계산 대상으로 Azure Machine Learning 계산을 설정 하 고 학습 실행을 제출 합니다. 지침은 [계산 클러스터 Azure Machine Learning 만들기 및 관리](how-to-create-attach-compute-cluster.md) 를 참조 하세요. 또한 [예제 노트북이](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) 도움이 될 것입니다.
 
 1. 로컬 Jupyter 노트북에서 설명을 다운로드 합니다.
 
@@ -302,7 +302,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체 보기를 제공 합니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시 합니다.|
 |글로벌 중요도|개별 datapoints의 기능 중요도 값을 집계 하 여 모델의 전체 상위 K (구성 가능 K) 중요 기능을 표시 합니다. 기본 모델의 전반적인 동작을 이해 하는 데 도움이 됩니다.|
@@ -316,7 +316,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 전체 플롯에서 개별 데이터 요소 중 하나를 클릭 하 여 모든 데이터 요소에 대 한 개별 기능 중요도 그림을 로드할 수 있습니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |로컬 중요도|개별 예측에 대 한 최상위 K (구성 가능 K) 중요 기능을 보여 줍니다. 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 보여 줍니다.|
 |Perturbation 탐색 (what-if 분석)|선택한 데이터 요소의 기능 값에 대 한 변경 내용을 허용 하 고 그 결과 예측 값에 대 한 변경 내용을 관찰 합니다.|

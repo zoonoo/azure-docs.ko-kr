@@ -1,17 +1,17 @@
 ---
 title: 확장-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL 단일 서버에서 사용 가능한 Postgres 확장에 대해 알아봅니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 3f7796dd565238eb853fcea431a6bcb7d18ee05a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530236"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707951"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용하여 데이터베이스에서 로드하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드한 확장은 기본 제공 기능처럼 작동합니다.
@@ -26,7 +26,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 11이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다. 
 
 > [!div class="mx-tableFixed"]
-> | **내선 번호**| **확장 버전** | **설명** |
+> | **확장명**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
@@ -71,7 +71,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 10이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **내선 번호**| **확장 버전** | **설명** |
+> | **확장명**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
@@ -117,7 +117,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 9.6이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **내선 번호**| **확장 버전** | **설명** |
+> | **확장명**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US 데이터 집합 예제|
@@ -163,7 +163,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 9.5이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **내선 번호**| **확장 버전** | **설명** |
+> | **확장명**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US 데이터 집합 예제|

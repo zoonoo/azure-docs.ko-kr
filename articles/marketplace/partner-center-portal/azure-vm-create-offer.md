@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f48c06f075ccdc3c3c212e1ba7912707565cd87
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405057"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709019"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -242,7 +242,7 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 제품에 사용할 로고와 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 이미지가 흐리면 제출이 거부됩니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >파일을 업로드하는 데 문제가 있으면 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스가 로컬 네트워크에서 차단되지 않는지 확인합니다.
@@ -541,13 +541,13 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
-7. Description
+7. 설명
 8. 유용한 링크
 9. 스크린샷/비디오
 
 <br>다음은 Azure Marketplace 검색 결과에 제품 정보가 표시 되는 방법의 예입니다.
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="이 제품이 Azure Marketplace 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -558,7 +558,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 <br>Azure Marketplace 계획 정보의 예는 다음과 같습니다.
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Azure Marketplace 계획 정보를 보여 줍니다.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -568,18 +568,18 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. Name
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷/비디오
 
 <br>Azure Portal 검색 결과에 제품 정보가 표시 되는 방법의 예는 다음과 같습니다.
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="이 제품이 Azure Portal 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -589,7 +589,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 <br>Azure Portal 계획 정보의 예는 다음과 같습니다.
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Azure Portal 계획 정보를 보여 줍니다.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 

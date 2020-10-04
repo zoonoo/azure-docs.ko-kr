@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 93b47d2147a7438ebd38a5ae36363950639ba414
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380965"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708903"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품을 만드는 방법
 
@@ -49,8 +49,8 @@ ms.locfileid: "89380965"
 1. Microsoft를 통해 판매 하 고 사용자의 트랜잭션을 용이 하 게 하려면 **예**를 선택 합니다. [테스트 드라이브](#enable-a-test-drive-optional)를 계속 사용 하도록 설정 합니다.
 
 1. 상업적 marketplace를 통해 제품을 나열 하 고 트랜잭션을 독립적으로 나열 하려면 **아니요**를 선택 하 고 다음 중 하나를 수행 합니다.
-   + 제안에 대 한 무료 구독을 제공 하려면 **지금 받기 (무료)** 를 선택 합니다. 그런 다음 표시 되는 **제품 url** 상자에서 고객이 [AZURE ACTIVE DIRECTORY (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 URL ( *http* 또는 *https*로 시작)을 입력 합니다. 예: `https://contoso.com/saas-app`.
-   + 30 일 무료 평가판을 제공 하려면 **무료 평가판**을 선택한 다음 표시 되는 **평가판 url** 상자에서 고객이 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 무료 평가판에 액세스할 수 있는 URL ( *http* 또는 *https*로 시작)을 입력 합니다. 예: `https://contoso.com/trial/saas-app`.
+   + 제안에 대 한 무료 구독을 제공 하려면 **지금 받기 (무료)** 를 선택 합니다. 그런 다음 표시 되는 **제품 url** 상자에서 고객이 [AZURE ACTIVE DIRECTORY (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 URL ( *http* 또는 *https*로 시작)을 입력 합니다. 예: `https://contoso.com/saas-app`
+   + 30 일 무료 평가판을 제공 하려면 **무료 평가판**을 선택한 다음 표시 되는 **평가판 url** 상자에서 고객이 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 무료 평가판에 액세스할 수 있는 URL ( *http* 또는 *https*로 시작)을 입력 합니다. 예: `https://contoso.com/trial/saas-app`
    + 잠재 고객이 제품을 구매할 수 있도록 하려면 **연락처**를 선택 합니다.
 
 ### <a name="enable-a-test-drive-optional"></a>테스트 드라이브 사용 (선택 사항)
@@ -69,7 +69,7 @@ ms.locfileid: "89380965"
 고객이 관심을 표시 하거나 제품을 배포할 때 고객 연락처 정보를 받을 수 있도록 CRM (고객 관계 관리) 시스템을 상용 marketplace 제품에 연결 합니다. 제품을 만들고 나 서 언제 든 지이 연결을 수정할 수 있습니다.
 
 > [!NOTE]
-> Microsoft를 통해 제품을 판매 하 고 있거나 연락처 목록 옵션을 선택한 경우 **에** 는 리드 관리를 구성 해야 합니다. 자세한 지침은 [상업적 marketplace에 대 한 리드 관리](lead-management-for-cloud-marketplace.md)를 참조 하세요.
+> Microsoft를 통해 제품을 판매 하 고 있거나 연락처 목록 옵션을 선택한 경우 **에** 는 리드 관리를 구성 해야 합니다. 자세한 지침은 [상용 marketplace 제품의 고객 리드](partner-center-portal/commercial-marketplace-get-customer-leads.md)를 참조 하세요.
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>파트너 센터에서 연결 정보를 구성 하려면
 

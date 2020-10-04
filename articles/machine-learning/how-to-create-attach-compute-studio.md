@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898110"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708398"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 모델 학습 및 배포를 위한 계산 대상 만들기
 
 이 문서에서는 Azure Machine studio에서 계산 대상을 만들고 관리 하는 방법에 대해 알아봅니다.  다음을 사용 하 여 계산 대상을 만들고 관리할 수도 있습니다.
 
-* [Azure Machine Learning LEARNING SDK](how-to-create-attach-compute-sdk.md), 
-* Azure Machine Learning에 대 한 [CLI 확장](reference-azure-machine-learning-cli.md#resource-management)
+* Azure Machine Learning에 대 한 Azure Machine Learning Learning SDK 또는 CLI 확장
+  * [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
+  * [계산 클러스터](how-to-create-attach-compute-cluster.md)
+  * [Azure Kubernetes 서비스 클러스터](how-to-create-attach-kubernetes.md)
+  * [기타 계산 리소스](how-to-attach-compute-targets.md)
 * Azure Machine Learning [VS Code 확장](how-to-manage-resources-vscode.md#compute-clusters) 입니다.
 
 
@@ -56,11 +59,11 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 1. 계산 대상이 없으면 페이지 중간에서  **만들기** 를 선택 합니다.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="컴퓨팅 대상 만들기":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="계산 대상 목록 보기":::
 
 1. 계산 리소스 목록이 표시 되 면 목록 위에서 **+ 새로 만들기** 를 선택 합니다.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="새로 만들기 선택":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="계산 대상 목록 보기":::
 
 
 1. 계산 형식에 대 한 양식을 작성 합니다.
@@ -74,14 +77,14 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 1. 목록에서 컴퓨팅 대상을 선택하여 만들기 작업의 상태를 봅니다.
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="목록에서 계산 상태 보기":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="계산 대상 목록 보기":::
 
 
 ### <a name="compute-instance"></a>컴퓨팅 인스턴스
 
 [위의 단계](#portal-create) 를 사용 하 여 계산 인스턴스를 만듭니다.  그런 다음 양식을 다음과 같이 입력 합니다.
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="새 계산 인스턴스 만들기":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="계산 대상 목록 보기":::
 
 
 |필드  |Description  |
@@ -107,7 +110,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |최대 노드 수 | 프로 비전 하려는 최대 노드 수입니다. 작업이 제출 되 면 계산은이 노드 수의 최대값으로 자동 조정 됩니다. |
 |고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> 관리 id 설정
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> 관리 id 설정
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

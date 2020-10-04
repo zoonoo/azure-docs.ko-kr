@@ -1,17 +1,17 @@
 ---
 title: 로그 관리-Azure Portal-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 있는 서버 로그 (.log 파일)를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: cf22a165e9a6eadcd2e5d4cdb0efa301538be7e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907525"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704282"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL 단일 서버 로그 구성 및 액세스
 
@@ -37,7 +37,7 @@ Azure Portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.m
 
    매개 변수를 변경한 후 **저장**을 선택 합니다. 또는 변경 내용을 취소할 수 있습니다. 
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="서버 매개 변수 옵션의 스크린샷":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="서버 로그 옵션의 스크린샷":::
 
 **서버 매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
 
@@ -50,18 +50,18 @@ Azure Portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.m
 
 3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택 합니다. 이 페이지에는 로그 파일의 목록이 표시 됩니다.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="로그 목록이 강조 표시 된 서버 로그 페이지의 스크린샷":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="서버 로그 옵션의 스크린샷":::
 
    > [!TIP]
    > 로그의 명명 규칙은 **postgresql-yyyy-mm-dd_hh0000.log**입니다. 파일 이름에 사용 되는 날짜와 시간은 로그가 발급 된 시간입니다. 로그 파일은 1 시간 마다 또는 100 MB 중 먼저 도달 하는 것으로 회전 합니다.
 
 4. 필요한 경우 검색 상자를 사용 하 여 날짜 및 시간에 따라 특정 로그에 빠르게 범위를 좁힙니다. 로그의 이름이 검색됩니다.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="검색 상자 및 결과가 강조 표시 된 서버 로그 페이지의 스크린샷":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="서버 로그 옵션의 스크린샷":::
 
 5. 개별 로그 파일을 다운로드 하려면 테이블 행의 각 로그 파일 옆에 있는 아래쪽 화살표 아이콘을 선택 합니다.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="아래쪽 화살표 아이콘이 강조 표시 된 서버 로그 페이지의 스크린샷":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="서버 로그 옵션의 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 - 프로그래밍 방식으로 로그를 다운로드 하는 방법을 알아보려면 [CLI에서 서버 로그 액세스](howto-configure-server-logs-using-cli.md) 를 참조 하세요.

@@ -1,25 +1,25 @@
 ---
 title: 백업 및 복원-Azure PowerShell-Azure Database for PostgreSQL
 description: Azure PowerShell를 사용 하 여 Azure Database for PostgreSQL에서 서버를 백업 및 복원 하는 방법에 대해 알아봅니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902034"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708104"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for PostgreSQL 서버를 백업 및 복원하는 방법
 
 Azure Database for PostgreSQL 서버는 정기적으로 백업 되어 복원 기능을 사용 하도록 설정 합니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -78,7 +78,7 @@ Cmdlet의 **PointInTimeRestore** 매개 변수 집합에는 `Restore-AzPostgreSq
 | 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| Name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00**과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z**). |
 | UsePointInTimeRestore | `<SwitchParameter>` | 지정 시간 모드를 사용 하 여 복원 합니다. |
 
@@ -120,7 +120,7 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzPostgreSqlServer`
 | 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 새 서버가 속한 리소스 그룹의 이름입니다.|
-|이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
+|Name | mydemoserver-georestored | 새 서버의 이름입니다. |
 |위치 | eastus | 새 서버의 위치입니다. |
 |UseGeoRestore | `<SwitchParameter>` | 지역 모드를 사용 하 여 복원 합니다. |
 

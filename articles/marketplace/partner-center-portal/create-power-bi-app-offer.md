@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646676"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710654"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
-이 문서에서는 Power BI 앱 제품을 만들고 Microsoft [AppSource](https://appsource.microsoft.com/)에 게시하는 방법을 설명합니다.
+이 문서에서는 [Microsoft AppSource](https://appsource.microsoft.com/)에 Power BI 앱 제품을 만들고 게시 하는 방법을 설명 합니다.
 
 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
@@ -55,10 +55,10 @@ ms.locfileid: "89646676"
 
 사용자의 선택에 따라 이 제품에 대한 작업을 수행할 수 있는 링크가 포함되어 있습니다. 다음은 그 예입니다.
 
-- 제안이 초안 [삭제 제안](update-existing-offer.md#delete-a-draft-offer)인 경우
-- 제품이 live의 제품 판매를 [중지](update-existing-offer.md#stop-selling-an-offer-or-plan)하는 경우
-- 제품이 미리 보기 상태 이면 [라이브로 전환](publishing-status.md#publisher-approval)합니다.
-- 게시자 로그 아웃을 완료 하지 않은 경우 [게시 취소](update-existing-offer.md#cancel-publishing)
+- 제품이 초안 상태인 경우 - [초안 제품 삭제](update-existing-offer.md#delete-a-draft-offer)
+- 제품이 라이브 상태인 경우 - [제품 판매 중지](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- 제품이 미리 보기 상태인 경우 - [라이브 상태로 전환](publishing-status.md#publisher-approval)
+- 게시를 완료 하지 않은 경우 [게시 취소](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>제품 설정
 
@@ -73,7 +73,7 @@ ms.locfileid: "89646676"
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [Https 엔드포인트](commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장한 다음 CRM 시스템으로 데이터를 내보냅니다.
+    > CRM 시스템이이 목록에 없는 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 및 [HTTPS 끝점](commercial-marketplace-lead-management-instructions-https.md) 을 사용 하 여 고객 리드 데이터를 저장 합니다. CRM 시스템으로 데이터를 내보냅니다.
 
 2. 파트너 센터에 게시할 때 제품을 잠재 고객 대상에 연결합니다.
 3. 잠재 고객 대상에 대한 연결이 제대로 구성되어 있는지 확인합니다. 파트너 센터에 게시하면 연결의 유효성이 검사되고 테스트 잠재 고객을 받을 수 있습니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리 보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -81,10 +81,10 @@ ms.locfileid: "89646676"
 
 다음은 몇 가지 추가 잠재 고객 관리 리소스입니다.
 
-- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
-- [리드 관리 faq](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [일반적인 리드 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
+- [상업용 Marketplace 제품의 잠재 고객](commercial-marketplace-get-customer-leads.md)
+- [잠재 고객 관리에 대한 일반적인 질문](../lead-management-faq.md#common-questions-about-lead-management)
+- [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
+- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "89646676"
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. Description
+10. 설명
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -202,7 +202,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 흐린 이미지는 거부됩니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 `https://upload.xboxlive.com` 서비스를 차단하지 않는지 확인하세요.
@@ -218,7 +218,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 
