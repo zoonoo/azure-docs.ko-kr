@@ -2,17 +2,17 @@
 title: 일시적인 연결 오류 처리-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL 단일 서버에 대 한 일시적인 연결 오류를 처리 하는 방법을 알아봅니다.
 keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 026a0edf24d349c4b445d6229d3b1ad73decf87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c70c82615df111f265604ff0984aa452d68565f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82097832"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704353"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대한 일시적 연결 오류 처리 - 단일 서버
 

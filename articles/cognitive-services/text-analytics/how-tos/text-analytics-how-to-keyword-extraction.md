@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: c1ca14b8471ef6257c0603e61d78e789e846f0ae
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142404"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704381"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법
 
@@ -29,6 +29,8 @@ ms.locfileid: "84142404"
 > Text Analytics는 핵심 구 추출을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
 
 ## <a name="preparation"></a>준비
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 핵심 구 추출은 사용할 텍스트를 더 많이 제공할 때 가장 적합합니다. 이는 작은 양의 텍스트에서 더 효율적으로 수행되는 감정 분석과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
 
@@ -74,7 +76,7 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 + **POST** 요청을 만듭니다. 이 요청에 대 한 API 설명서를 검토 합니다. [핵심 구 api](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. URL에 `/text/analytics/v3.0/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. URL에 `/text/analytics/v3.0/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 + Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
@@ -95,57 +97,66 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
-핵심 구 추출에 대한 출력 예제는 다음과 같습니다.
+V 3.1-preview. 2 끝점에서 키 구 추출에 대 한 출력의 예는 다음과 같습니다.
 
 ```json
     {
-        "documents": [
-            {
-                "keyPhrases": [
-                    "year",
-                    "trail",
-                    "trip",
-                    "views"
-                ],
-                "id": "1"
-            },
-            {
-                "keyPhrases": [
-                    "marked trails",
-                    "Worst hike",
-                    "goners"
-                ],
-                "id": "2"
-            },
-            {
-                "keyPhrases": [
-                    "trail",
-                    "small children",
-                    "family"
-                ],
-                "id": "3"
-            },
-            {
-                "keyPhrases": [
-                    "spectacular views",
-                    "trail",
-                    "area"
-                ],
-                "id": "4"
-            },
-            {
-                "keyPhrases": [
-                    "places",
-                    "beautiful views",
-                    "favorite trail"
-                ],
-                "id": "5"
-            }
-        ],
-        "errors": []
+       "documents":[
+          {
+             "id":"1",
+             "keyPhrases":[
+                "year",
+                "trail",
+                "trip",
+                "views",
+                "hike"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"2",
+             "keyPhrases":[
+                "marked trails",
+                "Worst hike",
+                "goners"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"3",
+             "keyPhrases":[
+                "trail",
+                "small children",
+                "family"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"4",
+             "keyPhrases":[
+                "spectacular views",
+                "trail",
+                "Worth",
+                "area"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"5",
+             "keyPhrases":[
+                "places",
+                "beautiful views",
+                "favorite trail",
+                "rest"
+             ],
+             "warnings":[]
+          }
+       ],
+       "errors":[],
+       "modelVersion":"2020-07-01"
     }
-```
 
+```
 앞에서 설명한 것 처럼, 분석기는 중요 하지 않은 단어를 찾아서 삭제 하 고, 문장의 제목이 나 개체에 표시 되는 단일 용어나 구를 유지 합니다.
 
 ## <a name="summary"></a>요약
@@ -157,7 +168,7 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 + POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)를 사용하여 `/keyphrases` 엔드포인트에 대해 수행됩니다.
 + 각 문서 ID에 대 한 키워드와 구를 구성 하는 응답 출력은 Excel 및 Power BI Microsoft Office를 포함 하 여 JSON을 허용 하는 모든 앱으로 스트리밍하 고 몇 가지 이름을 지정할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
  [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712)

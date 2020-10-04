@@ -4,14 +4,14 @@ description: 여러 시계열에 대 한 단일 경고 규칙을 사용 하 여 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187000"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704483"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>단일 메트릭 경고 규칙에서 여러 시간 계열 모니터링
 
@@ -21,7 +21,7 @@ ms.locfileid: "88187000"
 
 메트릭 시계열은 일정 기간 동안 캡처된 일련의 측정값 (또는 "메트릭 값")입니다. 
 
-예를 들어:
+예:
 
 - 가상 컴퓨터의 CPU 사용률
 - 저장소 계정에 대 한 수신 바이트 (수신)
@@ -87,7 +87,7 @@ ms.locfileid: "88187000"
 
 단일 메트릭 경고 규칙은 경고 규칙에 따라 최대 5 개의 조건을 모니터링할 수도 있습니다. 
 
-예를 들어:
+예:
 
 - 대상 리소스: *myVM1*
 - Condition1
@@ -174,6 +174,11 @@ ms.locfileid: "88187000"
 메트릭 경고 규칙을 만들 때 제공 된 가격 예측은 선택한 기능 및 모니터링 되는 시계열 수를 기준으로 합니다 .이는 규칙 구성 및 현재 메트릭 값에서 결정 됩니다. 그러나 월별 요금은 시계열의 실제 평가를 기반으로 하므로 특정 시계열에 평가할 데이터가 없거나 경고 규칙이 동적으로 확장 될 수 있는 기능을 사용 하는 경우 원래 예측과 차이가 있습니다.
 
 예를 들어 경고 규칙은 다중 차원 기능을 활용 하 고 많은 수의 차원 값 조합을 선택 하 여 많은 시계열을 모니터링 하는 경우 높은 가격의 예측을 표시할 수 있습니다. 그러나 차원 값 조합에서 발생 하는 모든 시계열이 실제로 평가할 데이터가 없는 경우에는 해당 경고 규칙에 대 한 실제 요금이 낮아질 수 있습니다.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>단일 경고 규칙에 의해 모니터링 되는 시계열 수
+
+과도 한 비용을 방지 하기 위해 각 경고 규칙은 기본적으로 최대 5000 시간 시리즈를 모니터링할 수 있습니다. 구독에서이 한도를 리프트 하려면 지원 티켓을 엽니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

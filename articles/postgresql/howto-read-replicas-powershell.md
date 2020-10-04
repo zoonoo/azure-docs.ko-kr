@@ -1,18 +1,18 @@
 ---
 title: 읽기 복제본 관리-Azure PowerShell-Azure Database for PostgreSQL
 description: PowerShell을 사용 하 여 Azure Database for PostgreSQL에서 읽기 복제본을 설정 하 고 관리 하는 방법을 알아봅니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b57fe5879c45225f8ba22e2c94aceeb5b38369e3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539455"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704806"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "91539455"
 
 PowerShell을 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -54,7 +54,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 | 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  복제본 서버가 생성 되는 리소스 그룹입니다.  |
-| 속성 | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
+| Name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 
 지역 간 읽기 복제본을 만들려면 **Location** 매개 변수를 사용 합니다. 다음 예에서는 **미국 서 부** 지역에 복제본을 만듭니다.
 

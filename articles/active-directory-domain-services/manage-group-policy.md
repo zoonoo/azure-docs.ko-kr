@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c5ee162a78ac5e8c3080cd33c89fcee507ecfe92
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040081"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704857"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 그룹 정책 관리
 
@@ -90,7 +90,7 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 
 1. *계정 정책과*같이 GPO를 사용자 지정할 수 있는 그룹 정책 관리 편집기 도구가 열립니다.
 
-    ![필요에 따라 설정을 구성 하도록 GPO 사용자 지정](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![그룹 정책 관리 편집기의 스크린샷](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     완료 되 면 **파일 > 저장** 을 선택 하 여 정책을 저장 합니다. 컴퓨터는 기본적으로 90 분 마다 그룹 정책 새로 고침을 수행 하 고 변경 내용을 적용 합니다.
 

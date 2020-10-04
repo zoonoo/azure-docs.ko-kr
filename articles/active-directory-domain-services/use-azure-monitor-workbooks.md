@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722741"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704602"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 
@@ -58,7 +58,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 1. 관리 되는 도메인 (예: *aaddscontoso.com* )을 선택 합니다.
 1. 왼쪽의 메뉴에서 **> 통합 문서 모니터링** 을 선택 합니다.
 
-    ![Azure Portal에서 통합 문서 메뉴 옵션을 선택 합니다.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![보안 개요 보고서와 계정 활동 보고서를 선택할 수 있는 위치를 선택 하는 스크린샷](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. **보안 개요 보고서**를 선택 합니다.
 1. 통합 문서의 맨 위에 있는 드롭다운 메뉴에서 Azure 구독을 선택 하 고 Azure Monitor 작업 영역을 선택 합니다.

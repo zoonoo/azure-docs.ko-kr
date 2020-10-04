@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 872775df82d609a640346ddef2f77381c2160fcf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276070"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704731"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -69,7 +69,7 @@ Machine Learning에 대 한 별도의 서비스 영역은 표시 되지 않습�
 
 Azure Machine Learning 사용자는 AmlCompute 라고도 하는 관리 되는 Azure Machine Learning 계산 클러스터를 사용할 수 있습니다. AmlCompute는 다양 한 GPU 및 CPU 옵션을 지원 합니다. AmlCompute는 Azure Machine Learning 하 여 구독을 대신 하 여 내부적으로 호스팅됩니다. Azure IaaS 클라우드 규모에서 동일한 엔터프라이즈급 보안, 규정 준수 및 거 버 넌 스를 제공 합니다.
 
-이러한 계산 풀이 Azure의 IaaS 인프라 내에 있으므로 인프라의 나머지 부분과 동일한 보안 및 규정 준수 요구 사항을 사용 하 여 교육을 배포, 확장 및 관리할 수 있습니다.  이러한 배포는 구독에서 발생 하 고 거 버 넌 스 규칙을 준수 합니다. [Azure Machine Learning 계산](how-to-create-attach-compute-sdk.md#amlcompute)에 대해 자세히 알아보세요.
+이러한 계산 풀이 Azure의 IaaS 인프라 내에 있으므로 인프라의 나머지 부분과 동일한 보안 및 규정 준수 요구 사항을 사용 하 여 교육을 배포, 확장 및 관리할 수 있습니다.  이러한 배포는 구독에서 발생 하 고 거 버 넌 스 규칙을 준수 합니다. [Azure Machine Learning 계산](how-to-create-attach-compute-cluster.md)에 대해 자세히 알아보세요.
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>자동 크기 조정을 위한 학습 클러스터 구성
 
@@ -127,4 +127,4 @@ Azure Machine Learning Compute는 기본적으로 예약 된 인스턴스를 지
 다음에 대해 자세히 알아봅니다.
 * [리소스 할당량 관리 및 증가](how-to-manage-quotas.md)
 * [비용 분석을 사용 하 여 비용 관리](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* [SDK](how-to-create-attach-compute-sdk.md#amlcompute) 또는 [스튜디오](how-to-create-attach-compute-studio.md#amlcompute)를 사용 하 여 Azure Machine Learning 계산을 만듭니다.
+* [SDK](how-to-create-attach-compute-cluster.md) 또는 [스튜디오](how-to-create-attach-compute-studio.md#amlcompute)를 사용 하 여 Azure Machine Learning 계산을 만듭니다.

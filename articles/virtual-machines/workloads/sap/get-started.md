@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 450bd87c6dd1f55c58f4c8a620dbddcfdf42ec7f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 15581178dc1c00b6905763e8552062869f8378ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596541"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704959"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -83,6 +83,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 ## <a name="change-log"></a>변경 로그
 
 - 09/30/2020: RHEL의 [Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md)변경, RHEL의 [anf를 사용 하 여 SAP HANA 확장을 위한 HA](./sap-hana-high-availability-netapp-files-red-hat.md) , [azure에서 RHEL를 설정](./high-availability-guide-rhel-pacemaker.md) 하 여 RHEL 8.1에 대 한 지침 적용
+- 09/29/2020: [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 문서에서 ppg 사용에 대 한 제한 사항 및 권장 사항을 만듭니다. 
 - 09/28/2020: [Azure NetApp Files에서 NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) 문서와 함께 Azure NetApp Files를 사용 하 SAP HANA에 대 한 새 저장소 작업 가이드를 추가 SAP HANA
 - 09/23/2020: hli에 [대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 에 hli 용 인증 된 새 sku를 추가 합니다. 
 - 09/20/2020: 문서에서 변경 된 내용은 [sap SQL Server 워크 로드에 대 한 azure VIRTUAL MACHINES dbms 배포에 대 한 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), sap 용 AZURE [Virtual Machines dbms](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver)배포, sap 워크 [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) 로드에 대 한 azure Virtual Machines Oracle dbms 배포, sap 워크 로드에 대 한 [AZURE Oracle DBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)배포의 경우 Dbms 이진 파일과 sap 이진 파일을 다른 Azure 디스크로 분리 하는 것이 좋습니다. 또한 다양 한 가이드에 Ultra disk 권장 사항을 추가 합니다.

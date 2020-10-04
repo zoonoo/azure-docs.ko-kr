@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024386"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705061"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 
@@ -38,11 +38,11 @@ ms.locfileid: "86024386"
 * [Azure 관리를 위한 MFA 필요](howto-conditional-access-policy-azure-management.md)\*
 * [모든 사용자에 대해 MFA 필요](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*이러한 네 가지 정책은 함께 구성 된 경우 [보안 기본값으로](../fundamentals/concept-fundamentals-security-defaults.md)사용 하도록 설정 된 기능을 모방 합니다.
+\* 이러한 네 가지 정책은 함께 구성 된 경우 [보안 기본값으로](../fundamentals/concept-fundamentals-security-defaults.md)사용 하도록 설정 된 기능을 모방 합니다.
 
 ## <a name="additional-policies"></a>추가 정책
 
-* [로그온 위험 기반 조건부 액세스 (P2 Azure AD Premium 필요)](howto-conditional-access-policy-risk.md)
+* [로그인 위험 기반 조건부 액세스 (P2 Azure AD Premium 필요)](howto-conditional-access-policy-risk.md)
 * [사용자 위험 기반 조건부 액세스 (P2 Azure AD Premium 필요)](howto-conditional-access-policy-risk-user.md)
 * [MFA 등록을 위해 신뢰할 수 있는 위치 필요](howto-conditional-access-policy-registration.md)
 * [위치별 액세스 차단](howto-conditional-access-policy-location.md)

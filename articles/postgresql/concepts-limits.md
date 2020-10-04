@@ -1,18 +1,18 @@
 ---
 title: 한도 Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 연결 수 및 저장소 엔진 옵션과 같은 Azure Database for PostgreSQL 단일 서버에 대 한 제한을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665260"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707526"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 제한-단일 서버
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 알아보려면 [가격 책정 계층](concepts-pricing-tiers.md) 문서를 참조 하세요.
