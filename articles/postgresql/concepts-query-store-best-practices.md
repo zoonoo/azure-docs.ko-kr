@@ -1,17 +1,17 @@
 ---
 title: Azure Database for PostgreSQL에서 쿼리 저장소 모범 사례-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 쿼리 저장소에 대 한 모범 사례를 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70764229"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708835"
 ---
 # <a name="best-practices-for-query-store"></a>쿼리 저장소의 모범 사례
 
@@ -25,8 +25,8 @@ ms.locfileid: "70764229"
 |**pg_qs.query_capture_mode** | **시나리오**|
 |---|---|
 |_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 작업에서 새 쿼리를 식별합니다. 임시 쿼리가 사용자 또는 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되는지 검색 합니다. _모두_는 리소스 사용 비용이 증가합니다. |
-|_맨 위로_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
-|_없음_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_은 환경 테스트 및 벤치마킹에 적합합니다. _없음_을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
+|_상위_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
+|_없음_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_ 은 테스트 및 도구 표시 환경에 적합 합니다. _없음_을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
 
 쿼리 저장소 역시 대기 통계에 대한 저장소를 포함할 수 있습니다. 대기 통계를 제어하는 추가 캡처 모드 쿼리 **pgms_wait_sampling.query_capture_mode**가 있으며 _없음_ 또는 _모두_로 설정할 수 있습니다. 
 

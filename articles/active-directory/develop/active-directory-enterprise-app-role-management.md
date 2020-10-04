@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116090"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704551"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
@@ -62,7 +62,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
+    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
 
       ![권한 목록 및 "권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
@@ -159,7 +159,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     a. **편집** 아이콘을 클릭 하 여 **클레임 & 사용자 특성** 대화 상자를 엽니다.
 
-      !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![클레임 & 사용자 특성 대화 상자를 여는 데 사용 되는 편집 아이콘을 강조 표시 하는 스크린샷](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. **사용자 클레임 관리** 대화 상자에서 **새 클레임 추가**를 클릭 하 여 SAML 토큰 특성을 추가 합니다.
 
@@ -167,7 +167,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["특성 추가" 창](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    다. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
+    c. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
 
     d. **네임스페이스** 상자를 비워 둡니다.
 
@@ -211,7 +211,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     b. 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
-    다. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
+    c. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
 
     d. 모든 필요한 역할을 업데이트 한 후 **쿼리 실행**을 선택합니다.
 
@@ -249,7 +249,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     b. 애플리케이션에서 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
-    다. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
+    c. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
 
     d. **쿼리 실행**을 선택합니다.
 

@@ -1,17 +1,17 @@
 ---
 title: 복제본 읽기-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 복제본 읽기 기능에 대해 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530943"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710518"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -83,7 +83,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ## <a name="monitor-replication"></a>복제 모니터링
 Azure Database for PostgreSQL는 복제를 모니터링 하기 위한 두 가지 메트릭을 제공 합니다. 두 메트릭은 복제본의 **최대 지연** 및 **복제본 지연**입니다. 이러한 메트릭을 보는 방법에 대 한 자세한 내용은 [복제본 모니터링 방법 문서의](howto-read-replicas-portal.md) **복제본 모니터링** 섹션을 참조 하세요.
 
-**복제본 간 최대 지연** 수 메트릭은 주 복제본과 가장 지연 복제본 사이의 지연 시간 (바이트)을 보여 줍니다. 이 메트릭은 주 서버 에서만 사용할 수 있습니다.
+**복제본 간 최대 지연** 수 메트릭은 주 복제본과 가장 지연 복제본 사이의 지연 시간 (바이트)을 보여 줍니다. 이 메트릭은 주 서버 에서만 사용할 수 있으며, 하나 이상의 읽기 복제본이 주 복제본에 연결 된 경우에만 사용할 수 있습니다.
 
 **복제본 지연** 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 보여 줍니다. 주 서버에서 발생 하는 트랜잭션이 없으면 메트릭은이 지연 시간을 반영 합니다. 이 메트릭은 복제본 서버에만 사용할 수 있습니다. 복제본 지연 시간은 보기에서 계산 됩니다 `pg_stat_wal_receiver` .
 
@@ -141,12 +141,15 @@ AS total_log_delay_in_bytes from pg_stat_replication;
     
 응용 프로그램이 읽기 및 쓰기를 성공적으로 처리 하면 장애 조치 (failover)를 완료 한 것입니다. 응용 프로그램의 가동 중지 시간은 문제를 감지 하 고 위의 1 단계와 2 단계를 완료 하는 시기에 따라 달라 집니다.
 
+### <a name="disaster-recovery"></a>재해 복구
+
+가용성 영역 수준 또는 지역 오류와 같은 주요 재해 이벤트가 발생 하는 경우 읽기 복제본을 승격 하 여 재해 복구 작업을 수행할 수 있습니다. UI 포털에서 읽기 복제 서버로 이동할 수 있습니다. 그런 다음 복제 탭을 클릭 하 고 복제본을 중지 하 여 독립 서버로 승격 시킬 수 있습니다. 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) 를 사용 하 여 복제본 서버를 중지 하 고 승격할 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 읽기 복제본과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 Postgres write 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
 
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.
@@ -165,7 +168,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 복제본을 만들 때 방화벽 규칙, 가상 네트워크 규칙 및 매개 변수 설정이 주 서버에서 복제본으로 상속 되지 않습니다.
 
-### <a name="scaling"></a>크기 조정
+### <a name="scaling"></a>확장
 VCores 크기 조정 또는 일반 용도와 메모리 액세스에 최적화 됨:
 * PostgreSQL를 사용 하려면 `max_connections` 보조 서버의 설정이 [주 서버의 설정 보다 크거나 같아야](https://www.postgresql.org/docs/current/hot-standby.html)합니다. 그렇지 않으면 보조 서버가 시작 되지 않습니다.
 * Azure Database for PostgreSQL에서 연결이 메모리를 점유 하므로 각 서버에 허용 되는 최대 연결이 계산 sku에 고정 됩니다. [Max_connections와 계산 sku 간의 매핑에](concepts-limits.md)대해 자세히 알아볼 수 있습니다.
