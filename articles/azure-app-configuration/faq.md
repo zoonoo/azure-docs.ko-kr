@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335384"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715438"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
 
@@ -94,7 +94,7 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
     표준 계층 저장소의 경우 매일 최초로 20만 요청이 매일 요금으로 포함 됩니다. 추가 요청은 초과분로 청구 됩니다.
 
 - **서비스 수준 계약**: 표준 계층의 SLA는 99.9%입니다. 무료 계층에는 SLA가 없습니다.
-- **보안 기능**: 두 계층에는 Microsoft에서 관리 하는 키로 암호화, HMAC 또는 Azure Active Directory를 통한 인증, RBAC 지원 및 관리 되는 id를 비롯 한 기본 보안 기능이 포함 되어 있습니다. 표준 계층은 개인 링크 지원 및 고객 관리 키를 통한 암호화를 비롯 한 고급 보안 기능을 제공 합니다.
+- **보안 기능**: 두 계층에는 Microsoft에서 관리 하는 키를 통한 암호화, HMAC 또는 Azure Active Directory를 통한 인증, Azure RBAC 지원 및 관리 되는 id를 비롯 한 기본 보안 기능이 포함 되어 있습니다. 표준 계층은 개인 링크 지원 및 고객 관리 키를 통한 암호화를 비롯 한 고급 보안 기능을 제공 합니다.
 - **비용**: 표준 계층 저장소에는 일일 사용 요금이 청구 됩니다. 또한 일일 할당을 지난 요청에 대해서는 초과분 요금이 부과 됩니다. 무료 계층 저장소를 사용 하는 것은 비용이 없습니다.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>무료 계층에서 표준 계층으로 저장소를 업그레이드할 수 있나요? 저장소를 표준 계층에서 무료 계층으로 다운 그레이드할 수 있나요?

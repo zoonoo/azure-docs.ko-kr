@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653803"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714981"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -111,7 +111,7 @@ Azure Storage는 여러 유형의 저장소 계정을 제공 합니다. 각각�
 
 Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azure Storage는 다음과 같은 권한 부여 방법을 지원 합니다.
 
-- **Blob 및 큐 데이터를 위한 Azure Active Directory (Azure AD) 통합** Azure Storage는 RBAC (역할 기반 액세스 제어)를 통해 Blob 및 큐 서비스에 대해 Azure AD를 사용 하 여 인증 및 권한 부여를 지원 합니다. Azure AD를 사용 하 여 요청을 권한 부여 하는 것이 뛰어난 보안과 사용 편의성을 위해 권장 됩니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
+- **Blob 및 큐 데이터를 위한 Azure Active Directory (Azure AD) 통합** Azure AD (역할 기반 액세스 제어)를 통해 Blob 및 큐 서비스에 대해 Azure AD를 사용 하 여 인증 및 권한 부여를 지원 Azure Storage. Azure AD를 사용 하 여 요청을 권한 부여 하는 것이 뛰어난 보안과 사용 편의성을 위해 권장 됩니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 - **Azure Files에 대 한 SMB를 통한 Azure AD 권한 부여.** Azure Files은 Azure Active Directory Domain Services (Azure AD DS) 또는 온-프레미스 Active Directory Domain Services (미리 보기)를 통해 SMB (서버 메시지 블록)를 통한 id 기반 권한 부여를 지원 합니다. 도메인에 가입 된 Windows Vm은 Azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 id 기반 인증 지원 Azure Files 개요](../files/storage-files-active-directory-overview.md) 및 [Azure Files 배포에 대 한 계획](../files/storage-files-planning.md#identity)을 참조 하세요.
 - **공유 키를 사용 하는 권한 부여입니다.** Azure Storage Blob, 파일, 큐 및 테이블 서비스는 공유 키를 사용 하 여 권한 부여를 지원 합니다. 공유 키 인증을 사용 하는 클라이언트는 저장소 계정 액세스 키를 사용 하 여 서명 된 모든 요청과 함께 헤더를 전달 합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 - **SAS (공유 액세스 서명)를 사용 하는 권한 부여** SAS (공유 액세스 서명)는 저장소 리소스에 대 한 URI에 추가할 수 있는 보안 토큰을 포함 하는 문자열입니다. 보안 토큰은 권한 및 액세스 간격과 같은 제약 조건을 캡슐화 합니다. 자세한 내용은 [SAS (공유 액세스 서명) 사용](storage-sas-overview.md)을 참조 하세요.
@@ -121,7 +121,7 @@ Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azur
 
 핵심 저장소 서비스에는 두 가지 기본 암호화 종류를 사용할 수 있습니다. 보안 및 암호화에 대한 자세한 내용은 [Azure Storage 보안 가이드](../blobs/security-recommendations.md)를 참조하세요.
 
-### <a name="encryption-at-rest"></a>휴지 상태의 암호화
+### <a name="encryption-at-rest"></a>미사용 암호화
 
 Azure Storage 암호화는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. Azure Storage는 저장소 계정에 유지 하기 전에 모든 데이터를 자동으로 암호화 하 고 검색 하기 전에 암호를 해독 합니다. 암호화, 암호 해독 및 키 관리 프로세스는 사용자에 게 투명 합니다. 또한 고객은 Azure Key Vault를 사용 하 여 자신의 키를 관리 하도록 선택할 수 있습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)를 참조하세요.
 

@@ -3,12 +3,12 @@ title: Azure에 하이브리드 머신을 대규모로 연결
 description: 이 문서에서는 서비스 주체를 사용 하 여 Azure Arc 사용 서버를 통해 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5976e2ff9aef5f68d119a5fdf5f7d4d4345287a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254944"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713418"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
 
@@ -67,7 +67,7 @@ PowerShell을 사용하여 서비스 주체를 만들려면 다음을 수행합�
 > **Id** 속성이 아닌 서비스 주체 **ApplicationId** 속성을 사용해야 합니다.
 >
 
-**Azure Connected Machine 온보딩** 역할은 머신을 온보딩하는 데 필요한 사용 권한만 포함합니다. 해당 범위에 리소스 그룹 또는 구독을 포함할 수 있도록 서비스 주체 권한을 할당할 수 있습니다. 역할 할당을 추가하려면 [Azure RBAC 및 Azure Portal을 사용하여 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)를 참조하세요.
+**Azure Connected Machine 온보딩** 역할은 머신을 온보딩하는 데 필요한 사용 권한만 포함합니다. 해당 범위에 리소스 그룹 또는 구독을 포함할 수 있도록 서비스 주체 권한을 할당할 수 있습니다. 역할 할당을 추가 하려면 [Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>에이전트를 설치하고 Azure에 연결
 

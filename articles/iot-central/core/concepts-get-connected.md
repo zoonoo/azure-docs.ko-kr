@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018192"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714254"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -99,13 +99,13 @@ X.509 인증서가 있는 장치를 응용 프로그램에 연결 하려면 다�
 
 1. **기본 인증서 페이지**에서 기본 x.509 인증서를 업로드 합니다. 루트 또는 중간 인증서는 다음과 같습니다.
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="기본 인증서 스크린샷":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="X.509 등록 그룹 스크린샷 추가":::
 
-1. **확인 코드** 를 사용 하 여 사용 중인 도구에서 확인 코드를 생성 합니다. 그런 다음 **확인** 을 선택 하 여 확인 인증서를 업로드 합니다.
+1. 확인 **코드 생성** 을 클릭 하 여 확인 인증서를 생성 하는 데 사용 중인 도구에 대 한 코드를 생성 합니다. 그런 다음 **확인** 을 선택 하 여 확인 인증서를 업로드 합니다.
 
 1. 확인에 성공 하면 다음과 같은 확인 메시지가 표시 됩니다.
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="확인 된 기본 인증서 스크린샷":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="X.509 등록 그룹 스크린샷 추가":::
 
 인증서 소유권을 확인 하면 인증서를 업로드 하는 사용자에 게 인증서의 개인 키가 포함 됩니다.
 
@@ -147,7 +147,7 @@ X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 �
 
 1. **SAS-IoT-장치** 등록 그룹에서 그룹 기본 키를 복사 합니다.
 
-    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="SAS의 그룹 기본 키-IoT-장치 등록 그룹":::
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="X.509 등록 그룹 스크린샷 추가":::
 
 1. 명령을 사용 `az iot central device compute-device-key` 하 여 장치 SAS 키를 생성 합니다. 이전 단계의 그룹 기본 키를 사용 합니다. 장치 Id는 소문자 여야 합니다.
 
@@ -253,7 +253,7 @@ IoT Central의 주요 기능 중 하나는 장치 연결 시 장치 템플릿을
 
     운영자는 **마이그레이션** 단추를 사용 하 **여 장치를 장치 페이지에서** 장치 템플릿에 연결할 수 있습니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 장치를 처음 연결할 때 DPS에서 반환 하는 장치 연결 문자열을 유지 하거나 캐시 하지 마십시오. 장치를 다시 연결 하려면 표준 장치 등록 흐름을 진행 하 여 올바른 장치 연결 문자열을 가져옵니다. 장치에서 연결 문자열을 캐시 하는 경우 장치 소프트웨어에서 사용 하는 기본 Azure IoT hub를 업데이트 IoT Central 경우 오래 된 연결 문자열을 사용 하 게 될 위험이 있습니다.
 

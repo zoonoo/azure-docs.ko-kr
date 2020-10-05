@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333854"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713362"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "91333854"
 > 대부분의 스튜디오는 가상 네트워크에 저장 된 데이터와 함께 작동 하지만 통합 된 노트북은 __그렇지 않습니다__. 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 하지 않습니다. 대신, 계산 인스턴스에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스]() 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 + [네트워크 보안 개요](how-to-network-security-overview.md) 를 읽고 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 합니다.
 
@@ -102,7 +102,7 @@ __Azure blob storage__의 경우 blob storage에서 데이터를 읽을 수 있�
 
 RBAC 및 POSIX 스타일의 Acl (액세스 제어 목록)을 모두 사용 하 여 가상 네트워크 내에서 데이터 액세스를 제어할 수 있습니다.
 
-RBAC를 사용 하려면 작업 영역 관리 id를 [Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할에 추가 합니다. 자세한 내용은 [역할 기반 액세스 제어](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control)를 참조하세요.
+RBAC를 사용 하려면 작업 영역 관리 id를 [Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할에 추가 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control)를 참조 하세요.
 
 Acl을 사용 하려면 다른 보안 원칙과 마찬가지로 작업 영역 관리 id에 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조 하세요.
 

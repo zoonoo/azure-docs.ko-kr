@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358375"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716068"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -21,7 +21,7 @@ Azure 파일 공유에 대해 온-프레미스 Active Directory Domain Services 
 
 Azure 파일 공유에 대해 Azure AD DS 인증을 사용 하도록 설정 하는 방법을 알아보려면 [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)을 참조 하세요.
 
-## <a name="glossary"></a>용어 
+## <a name="glossary"></a>용어집 
 Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증과 관련 된 몇 가지 주요 용어를 이해 하는 것이 유용 합니다.
 
 -   **Kerberos 인증**
@@ -46,7 +46,7 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
 -   **Azure RBAC(Azure 역할 기반 액세스 제어)**
 
-    Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 한 액세스 관리가 가능 합니다. RBAC를 사용하면 사용자에게 작업을 수행하는 데 필요한 최소한의 권한을 부여하여 리소스에 대한 액세스를 관리할 수 있습니다. RBAC에 대 한 자세한 내용은 azure [의 AZURE RBAC (역할 기반 액세스 제어) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+    Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 한 액세스 관리가 가능 합니다. Azure RBAC를 사용 하면 사용자에 게 작업을 수행 하는 데 필요한 최소 권한을 부여 하 여 리소스에 대 한 액세스를 관리할 수 있습니다. Azure RBAC에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 ## <a name="common-use-cases"></a>일반 사용 예
 

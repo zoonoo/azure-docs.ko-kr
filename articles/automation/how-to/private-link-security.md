@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423799"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714359"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Azure 개인 링크를 사용 하 여 네트워크를 Azure Automation (미리 보기)에 안전 하 게 연결
 
@@ -53,7 +53,7 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 
 ### <a name="webhook-scenario"></a>Webhook 시나리오
 
-웹 후크 URL에 게시를 수행 하 여 runbook을 시작할 수 있습니다. 예를 들어 URL은 다음과 같습니다.`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+웹 후크 URL에 게시를 수행 하 여 runbook을 시작할 수 있습니다. 예를 들어 URL은 다음과 같습니다. `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>상태 구성 (agentsvc) 시나리오
 
@@ -128,7 +128,7 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
 
 마찬가지로, 상태 구성 (agentsvc)에 대 한 고유 FQDN (정규화 된 도메인 이름)과 jrds (Hybrid Runbook Worker 작업 런타임)에 대 한 고유 FQDN (정규화 된 도메인 이름)이 만들어집니다. 각 컴퓨터에는 VNet과 별도의 IP가 할당 되며 **연결 상태** 는 **승인**됨으로 표시 됩니다.
 
-서비스 소비자에 게 Automation 리소스에 대 한 RBAC 권한이 있는 경우 자동 승인 방법을 선택할 수 있습니다. 이 경우 요청이 자동화 공급자 리소스에 도달 하면 서비스 공급자의 작업이 필요 하지 않으며 연결이 자동으로 승인 됩니다.
+서비스 소비자에 게 Automation 리소스에 대 한 Azure RBAC 권한이 있는 경우 자동 승인 방법을 선택할 수 있습니다. 이 경우 요청이 자동화 공급자 리소스에 도달 하면 서비스 공급자의 작업이 필요 하지 않으며 연결이 자동으로 승인 됩니다.
 
 ## <a name="set-public-network-access-flags"></a>공용 네트워크 액세스 플래그 설정
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 47f4085ff01526853fab29da2c1bc1a3e8998d23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937653"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714895"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Azure Policy을 통해 가상 컴퓨터에 Automanage 사용
 
@@ -28,7 +28,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 > 평가판 계정은 이 자습서에서 사용되는 가상 머신에 액세스할 수 없습니다. 종량제 구독으로 업그레이드하세요.
 
 > [!IMPORTANT]
-> 자동 관리를 사용 하도록 설정 하려면 **소유자** 역할 또는 **참가자** 와 **사용자 액세스 관리자** 역할을 사용 하도록 설정 하려면 다음 RBAC 권한이 필요 합니다.
+> 자동 관리를 사용 하도록 설정 하려면 **소유자** 역할 또는 **참가자** 와 **사용자 액세스 관리자** 역할을 함께 사용 하도록 설정 하려면 다음과 같은 Azure RBAC 권한이 필요 합니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인

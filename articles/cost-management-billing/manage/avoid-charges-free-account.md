@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 203a3b93f200a54ec40c96ee79c7fc822fac140b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270613"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Azure 체험 계정으로 요금 청구 방지
 
@@ -31,7 +31,7 @@ Azure 무료 계정으로 매월 제한된 양의 무료 서비스를 얻습니�
 
 ## <a name="you-used-some-services-that-arent-free"></a>무료로 제공되지 않는 일부 서비스를 사용했습니다.
 
-계정을 업그레이드한 후에는 Azure 체험 계정에 체험용으로 포함되지 않은 서비스를 사용하면 종량제 요금이 청구됩니다. 체험 계정에 포함되는 서비스에 대해 알아보려면 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. Azure Portal에서 서비스 사용량을 확인할 수 있습니다. 자세히 알아보려면 [포털에서 정기적으로 비용 분석 및 진행 속도 확인](getting-started.md#costs)을 참조하세요.
+계정을 업그레이드한 후에는 Azure 체험 계정에 체험용으로 포함되지 않은 서비스를 사용하면 종량제 요금이 청구됩니다. 체험 계정에 포함되는 서비스에 대해 알아보려면 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. Azure Portal에서 서비스 사용량을 확인할 수 있습니다. 자세한 내용은 [예기치 않은 요금 분석](../understand/analyze-unexpected-charges.md)을 참조하세요.
 
 ## <a name="you-reached-the-end-of-your-free-12-months"></a>12개월 무료 사용 기간이 만료되었습니다.
 

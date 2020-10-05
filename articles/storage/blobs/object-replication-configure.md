@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707920"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715623"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "90707920"
 
 개체 복제를 구성 하는 경우 Azure Storage 리소스 공급자를 통해 대상 계정에 대 한 복제 정책을 만듭니다. 복제 정책을 만든 후에는 Azure Storage에 정책 ID를 할당 합니다. 그런 다음 정책 ID를 사용 하 여 해당 복제 정책을 원본 계정과 연결 해야 합니다. 복제를 수행 하려면 원본 및 대상 계정의 정책 ID가 동일 해야 합니다.
 
-저장소 계정에 대 한 개체 복제 정책을 구성 하려면 저장소 계정 수준으로 범위가 지정 된 Azure Resource Manager **참여자** 역할을 할당 받아야 합니다. 자세한 내용은 Azure 역할 기반 Access Control (RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
+저장소 계정에 대 한 개체 복제 정책을 구성 하려면 저장소 계정 수준으로 범위가 지정 된 Azure Resource Manager **참여자** 역할을 할당 받아야 합니다. 자세한 내용은 azure 역할 기반 access control (Azure RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>두 저장소 계정 모두에 액세스할 수 있는 경우 개체 복제 구성
 
@@ -65,19 +65,19 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
     다음 이미지는 복제 규칙의 일부로 복사할 blob을 제한하는 필터를 보여 줍니다.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="복제 규칙에 대한 필터를 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
 
 1. 기본적으로 복사 범위는 새 개체만 복사하도록 설정됩니다. 컨테이너의 모든 개체를 복사하거나 사용자 지정 날짜 및 시간에 시작된 개체를 복사하려면 **변경** 링크를 선택하고 컨테이너 쌍의 복사 범위를 구성합니다.
 
     다음 이미지는 지정 된 날짜와 시간 이후 개체를 복사 하는 사용자 지정 복사 범위를 보여 줍니다.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="개체 복제에 대한 사용자 지정 복사 범위를 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
 
 1. **저장 및 적용**을 선택하여 복제 정책을 만들고 데이터 복제를 시작합니다.
 
 개체 복제를 구성한 후에는 다음 그림에 표시 된 것 처럼 Azure Portal에 복제 정책 및 규칙이 표시 됩니다.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Azure Portal의 개체 복제 정책을 보여 주는 스크린샷":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 원본 저장소 계정에 대 한 권한이 없는 경우 대상 계정에 대 한 개체 복제를 구성 하 고 다른 사용자에 게 정책 정의가 포함 된 JSON 파일을 제공 하 여 원본 계정에 동일한 정책을 만들 수 있습니다. 예를 들어 원본 계정이 대상 계정과 다른 Azure AD 테 넌 트에 있는 경우이 방법을 사용 하 여 개체 복제를 구성할 수 있습니다.
 
-정책을 만들려면 대상 저장소 계정 이상의 수준으로 범위가 지정 된 Azure Resource Manager **참가자** 역할을 할당 해야 합니다. 자세한 내용은 Azure 역할 기반 Access Control (RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
+정책을 만들려면 대상 저장소 계정 이상의 수준으로 범위가 지정 된 Azure Resource Manager **참가자** 역할을 할당 해야 합니다. 자세한 내용은 azure 역할 기반 access control (Azure RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
 
 다음 표에는 각 시나리오에서 JSON 파일의 정책 ID 및 규칙 Id에 사용할 값이 요약 되어 있습니다.
 
@@ -284,7 +284,7 @@ Azure Portal의 JSON 파일을 사용 하 여 대상 계정에서 개체 복제�
 1. **복제 규칙 업로드**를 선택 합니다.
 1. JSON 파일을 업로드 합니다. Azure Portal는 다음 이미지와 같이 생성 될 정책 및 규칙을 표시 합니다.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="JSON 파일을 업로드 하 여 복제 정책을 정의 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
 
 1. **업로드** 를 선택 하 여 대상 계정에 대 한 복제 정책을 만듭니다.
 
@@ -293,7 +293,7 @@ Azure Portal의 JSON 파일을 사용 하 여 대상 계정에서 개체 복제�
 1. Azure Portal에서 대상 계정에 대 한 **개체 복제** 설정으로 이동 합니다.
 1. 다음 그림에 표시 된 것 처럼 다운로드 하려는 정책 옆에 있는 **자세히** 단추를 선택 하 고 **규칙 다운로드**를 선택 합니다.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="JSON 파일에 복제 규칙을 다운로드 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
 
 1. 로컬 컴퓨터에 JSON 파일을 저장 하 여 다른 사용자와 공유 하 여 원본 계정에 정책을 구성 합니다.
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ddfa12bd758ffc362c51e10f63800665109d54a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 453eaa816ad48626b476fa392999f44e3c1a10cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534076"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714555"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -36,7 +36,7 @@ Azure CLI를 사용 하 여 사용자 위임 SAS를 만들려면 버전 2.0.78 �
 
 Azure AD 자격 증명을 사용 하 여 Azure CLI에 로그인 합니다. 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
-## <a name="assign-permissions-with-rbac"></a>RBAC를 사용 하 여 권한 할당
+## <a name="assign-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 사용 권한 할당
 
 Azure PowerShell에서 사용자 위임 SAS를 만들려면 Azure CLI에 로그인 하는 데 사용 되는 Azure AD 계정에 **Microsoft Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 역할을 할당 해야 합니다. 이 사용 권한을 통해 Azure AD 계정에서 *사용자 위임 키*를 요청할 수 있습니다. 사용자 위임 키는 사용자 위임 SAS에 서명 하는 데 사용 됩니다. 저장소 계정, 리소스 그룹 또는 구독 수준에서 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 제공 하는 역할을 할당 해야 합니다.
 

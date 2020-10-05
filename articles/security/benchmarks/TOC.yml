@@ -97,6 +97,8 @@
       href: ../../azure-functions/security-baseline.md
     - name: Azure IoT Hub 보안 기준
       href: ../../iot-hub/security-baseline.md
+    - name: Azure Kubernetes Service 보안 기준
+      href: ../../aks/security-baseline.md
     - name: Azure Load Balancer 보안 기준
       href: ../../load-balancer/security-baseline.md
     - name: Azure Monitor 보안 기준
@@ -117,6 +119,8 @@
       href: ../../sql-database/security-baseline.md
     - name: Azure Storage 보안 기준
       href: ../../storage/common/security-baseline.md
+    - name: Azure Traffic Manager 보안 기준
+      href: ../../traffic-manager/security-baseline.md
     - name: Batch 보안 기준
       href: ../../batch/security-baseline.md
     - name: Cognitive Services 보안 기준
@@ -163,3 +167,7 @@
       href: ../../virtual-machines/linux/security-baseline.md
     - name: Virtual Machines Windows 보안 기준
       href: ../../virtual-machines/windows/security-baseline.md
+    - name: Virtual Network 보안 옵션
+      href: ../../virtual-network/security-baseline.md
+    - name: VPN Gateway 보안 기준
+      href: ../../vpn-gateway/security-baseline.md

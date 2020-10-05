@@ -5,13 +5,13 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
-ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: ca075414b234b65f15b82847a112104f6fbe3cc1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061804"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597900"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -114,7 +114,7 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
 
 SecretProviderClass YAML 파일 샘플에서 누락된 매개 변수를 입력합니다. 필수 매개 변수는 다음과 같습니다.
 
-* **userAssignedIdentityID**: # [필수] 서비스 주체를 사용하는 경우 클라이언트 ID를 사용하여 사용할 사용자 할당 관리 ID를 지정합니다. 사용자 할당 ID를 VM의 관리 ID로 사용하는 경우 ID의 클라이언트 ID를 지정합니다. 값이 비어 있는 경우 기본적으로 VM에서 시스템 할당 ID를 사용합니다. 
+* **userAssignedIdentityID**: # [필수] 서비스 주체를 사용하는 경우 클라이언트 ID를 사용하여 사용할 사용자가 할당한 관리 ID를 지정합니다. 사용자가 할당한 ID를 VM의 관리 ID로 사용하는 경우 ID의 클라이언트 ID를 지정합니다. 값이 비어 있는 경우 기본적으로 VM에서 시스템 할당 ID를 사용합니다. 
 * **keyvaultName**: 키 자격 증명 모음의 이름
 * **objects**: 탑재하려는 모든 비밀 콘텐츠에 대한 컨테이너
     * **objectName**: 비밀 콘텐츠의 이름

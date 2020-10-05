@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088802"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715122"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Azure Storage 계정에 대 한 공유 키 권한 부여 방지 (미리 보기)
 
@@ -67,7 +67,7 @@ Azure Storage 계정에 대 한 모든 보안 요청에는 권한이 있어야 �
 
 메트릭을 구성한 후에는 저장소 계정에 대 한 요청이 그래프에 표시 되기 시작 합니다. 다음 이미지는 공유 키로 권한이 부여 되었거나 SAS 토큰을 사용 하 여 만든 요청을 보여 줍니다. 요청은 지난 30 일 동안 하루에 집계 됩니다.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="공유 키로 권한이 부여 된 집계 된 요청을 보여 주는 스크린샷":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="공유 키 또는 SAS를 사용 하 여 만든 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 또한 공유 키로 권한이 부여 된 특정 개수의 요청이 저장소 계정에 대해 수행 되는 경우 알리도록 경고 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
@@ -93,7 +93,7 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. **범주 세부 정보**의 **로그** 섹션에서 **StorageRead**, **storagewrite**및 **storagewrite** 를 선택 하 여 선택한 서비스에 모든 데이터 요청을 기록 합니다.
 1. **대상 세부 정보**에서 **Log Analytics 보내기를**선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="공유 키 또는 SAS를 사용 하 여 만든 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 저장소 계정의 각 Azure Storage 리소스 유형에 대 한 진단 설정을 만들 수 있습니다.
 
@@ -133,7 +133,7 @@ Azure Portal에서 저장소 계정에 대 한 공유 키 인증을 허용 하�
 1. **설정**에서 **구성** 설정을 찾습니다.
 1. **공유 키 액세스 허용** 을 **사용 안 함**으로 설정 합니다.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="계정에 대 한 공유 키 액세스를 허용 하지 않는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="공유 키 또는 SAS를 사용 하 여 만든 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ resources
 | Azure PowerShell | 지원됨. Azure AD를 사용 하 여 blob 또는 큐 작업에 대 한 PowerShell 명령에 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE ad 자격 증명을 사용 하 여 powershell 명령을 실행 하 여 blob 데이터에 액세스](../blobs/authorize-active-directory-powershell.md) 또는 [azure ad 자격 증명을 사용 하 여 powershell 명령 실행](../queues/authorize-active-directory-powershell.md) |
 | Azure CLI | 지원됨. Blob 및 큐 데이터에 액세스 하기 위해 Azure AD를 사용 하 여 Azure CLI 명령에 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE ad 자격 증명을 사용 하 여 Azure CLI 명령 실행](authorize-data-operations-cli.md)을 참조 하세요. |
 | Azure IoT Hub | 지원됨. 자세한 내용은 [가상 네트워크에 대 한 지원 IoT Hub](../../iot-hub/virtual-network-support.md)를 참조 하세요. |
-| Azure Cloud Shell | Azure Cloud Shell은 Azure Portal의 통합 셸입니다. Azure Cloud Shell는 저장소 계정의 Azure 파일 공유에서 지 속성 파일을 호스트 합니다. 이러한 파일은 해당 저장소 계정에 대해 공유 키 권한이 허용 되지 않는 경우 액세스할 수 없게 됩니다. 자세한 내용은 [연결 Microsoft Azure 파일 저장소](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage)를 참조 하세요. <br /><br /> 공유 키 액세스가 허용 되지 않는 저장소 계정을 관리 하기 위해 Azure Cloud Shell에서 명령을 실행 하려면 먼저 RBAC (역할 기반 액세스 제어)를 통해 이러한 계정에 필요한 사용 권한이 부여 되었는지 확인 합니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요. |
+| Azure Cloud Shell | Azure Cloud Shell은 Azure Portal의 통합 셸입니다. Azure Cloud Shell는 저장소 계정의 Azure 파일 공유에서 지 속성 파일을 호스트 합니다. 이러한 파일은 해당 저장소 계정에 대해 공유 키 권한이 허용 되지 않는 경우 액세스할 수 없게 됩니다. 자세한 내용은 [연결 Microsoft Azure 파일 저장소](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage)를 참조 하세요. <br /><br /> 공유 키 액세스가 허용 되지 않는 저장소 계정을 관리 하기 위해 Azure Cloud Shell에서 명령을 실행 하려면 먼저 Azure RBAC (역할 기반 액세스 제어)를 통해 이러한 계정에 필요한 사용 권한을 부여 받았는지 확인 합니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요. |
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 

@@ -7,16 +7,16 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577801"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715062"
 ---
 # <a name="azure-iot-model-repository"></a>Azure IoT 모델 리포지토리
 
-Azure IoT 모델 리포지토리를 사용 하면 장치 빌더가 IoT 플러그 앤 플레이 장치 모델을 관리 하 고 공유할 수 있습니다. 장치 모델은 [DTDL (디지털 Twins 모델링 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)을 사용 하 여 정의 된 JSON LD 문서입니다. 모델 리포지토리 서비스에 저장 된 모델은 IoT 플러그 앤 플레이 클라우드 솔루션을 통합 하 고 개발 하는 인증을 요구 하지 않고도 액세스 제어 또는 공개적으로 솔루션 개발자와 공유할 수 있습니다.
+Azure IoT 모델 리포지토리를 사용하면 디바이스 빌더가 IoT 플러그 앤 플레이 디바이스 모델을 관리하고 공유할 수 있습니다. 장치 모델은 [DTDL (디지털 Twins 모델링 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)을 사용 하 여 정의 된 JSON LD 문서입니다. 모델 리포지토리 서비스에 저장 된 모델은 IoT 플러그 앤 플레이 클라우드 솔루션을 통합 하 고 개발 하는 인증을 요구 하지 않고도 액세스 제어 또는 공개적으로 솔루션 개발자와 공유할 수 있습니다.
 
 > [!NOTE]
 > 장치 빌더는 장치에서 직접 또는 모듈을 사용 하거나 IoT Edge 모듈에서 IoT 플러그 앤 플레이 장치 모델을 구현 하도록 선택할 수 있습니다.
@@ -48,7 +48,7 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 CLI를 사용 하 여 공용 모델을 보려면 Azure CLI [모델 가져오기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) 명령을 참조 하세요.
@@ -71,7 +71,7 @@ Azure AD 테 넌 트를 설정 하는 방법과 Azure AD 테 넌 트에서 사�
 
 다음 표에서는 회사 모델 리포지토리에서 지원 되는 기능과 관련 사용 권한을 요약 하 여 보여 줍니다.
 
-| 기능  | 사용 권한| Description|
+| 기능  | 사용 권한| 설명|
 |-------------|-----------|------------|
 |모델 읽기|모델 읽기|기본적으로 회사 테 넌 트의 모든 사용자는 회사 모델을 볼 수 있습니다. 또한 사용자는 다른 회사에서 공유 하는 개인 모델만 볼 수 있습니다.|
 |액세스 관리|액세스 관리|조직의 다른 사용자에 대 한 사용자 역할 할당 (추가 또는 제거)을 관리 합니다.|
@@ -118,7 +118,7 @@ REST API를 사용 하 여 회사 또는 공유 모델을 보려면 [모델 가�
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 CLI를 사용 하 여 회사 모델 또는 공유 모델을 보려면 Azure CLI [모델 가져오기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) 명령을 참조 하세요.
@@ -164,22 +164,22 @@ REST API를 사용 하 여 모델을 업로드 하려면 [모델 만들기](http
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
 ```
 
 CLI를 사용 하 여 모델을 업로드 하려면 모델 Azure CLI [만들기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) 명령을 참조 하세요.
 
 ### <a name="publish-a-model"></a>모델 게시
 
-모델을 게시 하려면 다음 요구 사항을 충족 해야 합니다.
+모델을 게시하려면 다음 요구 사항을 충족해야 합니다.
 
-1. 조직에서 모델을 게시 하려면 [Microsoft 파트너 네트워크](https://docs.microsoft.com/partner-center/) 의 멤버 여야 합니다. 파트너 센터 계정을 만들려면 [파트너 센터 계정 만들기](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account)를 참조 하세요. 계정이 승인 되 면 모델을 게시할 수 있습니다. 자세한 내용은 [파트너 센터 FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs)를 참조 하세요.
+1. 모델을 게시하려면 조직이 [Microsoft 파트너 네트워크](https://docs.microsoft.com/partner-center/)의 멤버여야 합니다. 파트너 센터 계정을 만들려면 [파트너 센터 계정 만들기](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account)를 참조하세요. 계정이 승인되면 모델을 게시할 수 있습니다. 자세한 내용은 [파트너 센터 FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs)를 참조하세요.
 
 2. 사용자는 저장소 테 넌 트의 *게시자* 역할의 멤버 여야 합니다.
 
 조직 내 사용자가 만들고 게시 한 모델은 *게시 된 모델로*표시 됩니다. 이러한 모델은 공용 이며 **공용 모델**의 모든 사용자가 찾을 수 있습니다.
 
-포털을 사용 하 여 모델을 게시 하려면:
+포털을 사용하여 모델을 게시하려면:
 
 1. [Azure IoT 모델 리포지토리 포털](https://aka.ms/iotmodelrepo)에 로그인 합니다.
 

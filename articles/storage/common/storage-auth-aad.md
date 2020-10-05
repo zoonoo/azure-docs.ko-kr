@@ -10,16 +10,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2fd0269744c7ee49c72806e3cb0e1227035de4f0
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f681a271dcd64468cb471c81496e489f0ce8413f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019175"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713663"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
-Azure Storage에서는 Azure Active Directory (Azure AD)를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 그런 다음 토큰을 사용 하 여 Blob 또는 큐 저장소에 대 한 요청을 인증할 수 있습니다.
+Azure Storage에서는 Azure Active Directory (Azure AD)를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 그런 다음 토큰을 사용 하 여 Blob 또는 큐 저장소에 대 한 요청을 인증할 수 있습니다.
 
 Azure AD를 사용 하 여 Azure Storage에 대 한 요청을 승인 하면 공유 키 권한 부여를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. 가능 하면 blob 및 큐 응용 프로그램에 Azure AD 권한 부여를 사용 하 여 공유 키에 내재 된 잠재적 보안 취약성을 최소화 하는 것이 좋습니다.
 
@@ -37,7 +37,7 @@ Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되�
 
 인증 단계에서는 응용 프로그램이 런타임에 OAuth 2.0 액세스 토큰을 요청 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 blob 또는 큐에 액세스할 수 있습니다. 관리 id를 사용 하 여 Azure Blob 또는 큐 서비스에 대 한 요청을 인증 하는 방법을 알아보려면 [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad-msi.md)를 참조 하세요.
 
-권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure Storage는 blob 및 큐 데이터에 대 한 일반적인 사용 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Storage에 대 한 Azure 역할 할당에 대해 자세히 알아보려면 [RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
+권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure Storage는 blob 및 큐 데이터에 대 한 일반적인 사용 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Storage에 대 한 Azure 역할 할당에 대해 자세히 알아보려면 [AZURE RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
 
 Azure Blob 또는 큐 서비스에 요청 하는 네이티브 응용 프로그램 및 웹 응용 프로그램은 Azure AD를 사용 하 여 액세스 권한을 부여할 수도 있습니다. 액세스 토큰을 요청 하 고이를 사용 하 여 blob 또는 큐 데이터에 대 한 요청을 인증 하는 방법을 알아보려면 [Azure Storage 응용 프로그램에서 AZURE AD를 사용 하 여 Azure Storage에 대 한 액세스 권한 부여](storage-auth-aad-app.md)를 참조 하세요.
 
@@ -53,9 +53,9 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 
 Azure 기본 제공 역할을 보안 주체에 할당 하는 방법을 알아보려면 다음 문서 중 하나를 참조 하세요.
 
-- [Azure Portal에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
-- [Azure CLI에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-cli.md)
-- [PowerShell에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-powershell.md)
+- [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](storage-auth-aad-rbac-portal.md)
+- [Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](storage-auth-aad-rbac-cli.md)
+- [Azure PowerShell 모듈을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](storage-auth-aad-rbac-powershell.md)
 
 기본 제공 역할을 Azure Storage에 정의하는 방법에 대한 자세한 내용은 [역할 정의 이해](../../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조 하세요.
 
@@ -77,7 +77,7 @@ Azure Portal는 azure AD 계정 또는 계정 액세스 키를 사용 하 여 Az
 
 Blob 또는 큐 데이터에 액세스 하려고 하면 Azure Portal는 먼저 **Microsoft. Storage/storageAccounts/listkeys/action**을 사용 하 여 Azure 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할을 할당 한 경우 Azure Portal는 공유 키 인증을 통해 blob 및 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업에 역할을 할당 하지 않은 경우 Azure Portal는 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
 
-Azure AD 계정을 사용 하 여 Azure Portal에서 blob 또는 큐 데이터에 액세스 하려면 blob 및 큐 데이터에 액세스할 수 있는 권한이 필요 하며, Azure Portal 저장소 계정 리소스를 탐색할 수 있는 권한도 필요 합니다. Azure Storage에서 제공 하는 기본 제공 역할은 blob 및 큐 리소스에 대 한 액세스 권한을 부여 하지만 저장소 계정 리소스에 대 한 사용 권한은 부여 하지 않습니다. 이러한 이유로 포털에 대 한 액세스에는 저장소 계정 수준으로 범위가 지정 된 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할과 같은 Azure Resource Manager 역할의 할당도 필요 합니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다. Azure AD 계정으로 Azure Portal에서 데이터 액세스를 위해 사용자에 게 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](storage-auth-aad-rbac-portal.md)에 추가를 참조 하세요.
+Azure AD 계정을 사용 하 여 Azure Portal에서 blob 또는 큐 데이터에 액세스 하려면 blob 및 큐 데이터에 액세스할 수 있는 권한이 필요 하며, Azure Portal 저장소 계정 리소스를 탐색할 수 있는 권한도 필요 합니다. Azure Storage에서 제공 하는 기본 제공 역할은 blob 및 큐 리소스에 대 한 액세스 권한을 부여 하지만 저장소 계정 리소스에 대 한 사용 권한은 부여 하지 않습니다. 이러한 이유로 포털에 대 한 액세스에는 저장소 계정 수준으로 범위가 지정 된 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할과 같은 Azure Resource Manager 역할의 할당도 필요 합니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다. Azure AD 계정으로 Azure Portal에서 데이터 액세스에 대 한 사용 권한을 사용자에 게 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스할 수 있도록 azure 역할 할당](storage-auth-aad-rbac-portal.md)을 참조 하세요.
 
 Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 부여 체계를 나타냅니다. 포털의 데이터 액세스에 대 한 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-blob-access-portal.md) 및 [Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../queues/authorize-queue-access-portal.md)을 참조 하세요.
 

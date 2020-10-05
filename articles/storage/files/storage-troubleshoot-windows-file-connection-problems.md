@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598029"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715981"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
 
@@ -173,7 +173,7 @@ Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [RBAC(역할 기반 액세스 제어)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)을 참조하세요.
+Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어를 사용 하 여 저장소 계정을 보호 하는 방법 (AZURE RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)을 참조 하세요.
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유의 파일 또는 디렉터리를 삭제할 수 없음

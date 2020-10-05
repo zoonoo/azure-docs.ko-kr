@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088674"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715511"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
@@ -24,11 +24,11 @@ ms.locfileid: "90088674"
 
 ## <a name="permissions-needed-to-access-queue-data"></a>큐 데이터에 액세스 하는 데 필요한 권한
 
-Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하려는 방법에 따라 특정 권한이 필요 합니다. 대부분의 경우 이러한 권한은 RBAC (역할 기반 액세스 제어)를 통해 제공 됩니다. RBAC에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하려는 방법에 따라 특정 권한이 필요 합니다. 대부분의 경우 이러한 권한은 Azure 역할 기반 access control (Azure RBAC)을 통해 제공 됩니다. Azure RBAC에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
-계정 액세스 키를 사용 하 여 큐 데이터에 액세스 하려면 RBAC 작업을 포함 하는 Azure 역할을 사용자에 게 할당 해야 합니다 **. Storage/storageAccounts/listkeys/action**. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
+계정 액세스 키를 사용 하 여 큐 데이터에 액세스 하려면 Azure RBAC 동작 **Microsoft. Storage/storageAccounts/listkeys/action**을 포함 하는 azure 역할을 할당 받아야 합니다. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
 
 - Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
 - Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
@@ -74,11 +74,11 @@ Azure AD 계정을 사용 하 여 Azure Portal에서 큐 데이터에 액세스 
 
 계정 액세스 키를 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **액세스 키** 가 표시 됩니다.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="계정 키를 사용 하 여 현재 큐에 액세스 하는 사용자를 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 Azure AD 계정을 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 사용자에 게 할당 된 Azure 역할을 통해 적절 한 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 적절 한 권한이 없으면 다음과 같은 오류 메시지가 표시 됩니다.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Azure AD 계정이 액세스를 지원 하지 않는 경우 표시 되는 오류":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 큐가 표시 되지 않습니다. 액세스 키를 사용 하 여 인증 **키로 전환** 링크를 클릭 하 여 인증에 대 한 액세스 키를 다시 사용 합니다.
 
@@ -86,7 +86,7 @@ Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 큐가
 
 Azure AD 계정을 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **AZURE Ad 사용자 계정이** 표시 됩니다.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="현재 Azure AD 계정을 사용 하 여 큐에 액세스 하는 사용자를 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 계정 액세스 키를 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 계정 키에 대 한 액세스 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 계정 키에 대 한 액세스 권한이 없는 경우 Azure Portal는 오류 메시지를 표시 합니다.
 
@@ -95,6 +95,6 @@ Azure AD 계정을 사용 하 여 인증 하는 경우 포털에서 인증 방�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 인증](../common/storage-auth-aad.md)
-- [Azure Portal에서 RBAC를 사용 하 여 Azure 컨테이너 및 큐에 대 한 액세스 권한 부여](../common/storage-auth-aad-rbac-portal.md)
-- [Azure CLI에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-rbac-cli.md)
-- [PowerShell에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-rbac-powershell.md)
+- [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-portal.md)
+- [Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-cli.md)
+- [Azure PowerShell 모듈을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-powershell.md)

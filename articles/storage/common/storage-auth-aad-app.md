@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78c25afe69565840ca1af013d29dd512550241b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280248"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714764"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
@@ -31,7 +31,7 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Azure AD 보안 주체에 역할 할당
 
-Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage는 컨테이너 및 큐에 대 한 사용 권한을 포함 하는 기본 제공 역할을 정의 합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [Azure Blob에 대 한 액세스 권한 관리 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
+Azure Storage 응용 프로그램에서 보안 주체를 인증 하려면 먼저 해당 보안 주체에 대 한 Azure RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Storage는 컨테이너 및 큐에 대 한 사용 권한을 포함 하는 기본 제공 역할을 정의 합니다. Azure 역할이 보안 주체에 할당 되 면 해당 보안 주체에 게 해당 리소스에 대 한 액세스 권한이 부여 됩니다. 자세한 내용은 azure [Blob에 대 한 액세스 권한 관리 및 AZURE RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
@@ -46,7 +46,7 @@ Azure AD를 사용 하 여 저장소 리소스에 대 한 액세스 권한을 �
 
 애플리케이션을 등록한 후에 **설정** 아래에 애플리케이션 ID(또는 클라이언트 ID)가 표시됩니다.
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="클라이언트 ID를 보여 주는 스크린샷":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
 Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-v2-register-an-app.md)을 참조하세요.
 
@@ -59,13 +59,13 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 1. **요청 API 권한** 창에서 **응용 프로그램에 필요한 사용 권한 유형**아래에서 사용 가능한 권한 유형이 **위임 된 권한**인지 확인 합니다. 이 옵션은 기본적으로 선택 되어 있습니다.
 1. **사용 권한**아래에서 **user_impersonation**옆의 확인란을 선택 하 고 **사용 권한 추가** 단추를 선택 합니다.
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="저장소 API에 대 한 사용 권한을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
 1. 다음으로, **기본 디렉터리에 대 한 관리자 동의 부여**를 클릭 하 여 이러한 권한에 대해 관리자 동의를 부여 합니다.
 
 이제 **api 권한** 창에는 등록 된 Azure AD 응용 프로그램이 Microsoft Graph 및 Azure Storage api 모두에 대 한 액세스 권한이 있고 기본 디렉터리에 대 한 동의가 부여 되어 있음을 보여 줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 Microsoft Graph에 대한 사용 권한이 부여됩니다.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="등록 된 앱에 대 한 API 사용 권한을 보여 주는 스크린샷":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
 ### <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
@@ -87,7 +87,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 1. **관리** 섹션에서 **인증** 설정을 선택 합니다.
 1. **암시적 권한 부여** 섹션에서 다음 이미지와 같이 ID 토큰을 사용 하도록 설정 하는 확인란을 선택 합니다.
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="암시적 권한 부여 흐름에 대 한 설정을 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>토큰 획득을 위한 클라이언트 라이브러리
 
@@ -127,7 +127,7 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 
 코드 샘플을 실행 하려면 Azure Active Directory와 동일한 구독 내에 저장소 계정을 만듭니다. 그런 다음 해당 저장소 계정 내에 컨테이너를 만듭니다. 샘플 코드는이 컨테이너에 블록 blob을 만듭니다.
 
-그런 다음, 샘플 코드를 실행 하는 사용자 계정에 **저장소 Blob 데이터 참가자** 역할을 명시적으로 할당 합니다. Azure Portal에서이 역할을 할당 하는 방법에 대 한 지침은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](storage-auth-aad-rbac-portal.md)지정을 참조 하세요.
+그런 다음, 샘플 코드를 실행 하는 사용자 계정에 **저장소 Blob 데이터 참가자** 역할을 명시적으로 할당 합니다. Azure Portal에서이 역할을 할당 하는 방법에 대 한 지침은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](storage-auth-aad-rbac-portal.md)을 참조 하세요.
 
 > [!NOTE]
 > Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 대 한 Azure 역할을 명시적으로 할당 해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
@@ -291,5 +291,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)
-- [RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)
+- [Azure RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)
 - [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 인증](storage-auth-aad-msi.md)

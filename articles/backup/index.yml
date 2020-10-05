@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
+  ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90974440"
+  ms.lasthandoff: 10/01/2020
+  ms.locfileid: "91620123"
 landingContent:
 - title: Azure Backup에 대해 알아보기
   linkLists:
@@ -60,6 +60,12 @@ landingContent:
       url: backup-center-overview.md
     - text: Azure Database for PostgreSQL 백업
       url: backup-azure-database-postgresql.md
+    - text: Azure VM의 선택적 디스크 백업 및 복원
+      url: selective-disk-backup-restore.md
+    - text: Azure VM에서 SQL Server 데이터베이스에 대한 지역 간 복원
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: 최대 32개의 디스크가 있는 VM의 백업 지원
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Azure Backup의 일시 삭제
       url: backup-azure-security-feature-cloud.md
     - text: Azure VM의 SQL Server에서 파일로 복원

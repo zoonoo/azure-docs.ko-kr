@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368722"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -123,7 +123,7 @@ Azure 구독 요금을 결제하는 방법에 따라 조직의 다음 사용자�
 EA 구독을 사용하는 고객의 경우:
 
 - 알림이 EA 알림 연락처로만 전송됩니다.
-- RBAC(IAM) 권한을 사용하여 예약에 추가된 사용자에게는 이메일 알림이 전달되지 않습니다.
+- Azure RBAC(IAM) 권한을 사용하여 예약에 추가된 사용자에게는 이메일 알림이 전달되지 않습니다.
 
 개별 구독을 사용하는 고객의 경우:
 

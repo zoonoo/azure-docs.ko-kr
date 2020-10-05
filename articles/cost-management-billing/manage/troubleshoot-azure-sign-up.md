@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 86f9f92810cff241f816dadfc6e1e8ca120f1f4a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686652"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326609"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
@@ -131,7 +131,7 @@ InPrivate 브라우징 방법
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>평가판 계정에 요금이 부과되었습니다.
 
-등록한 후에는 신용 카드 계정에 소액의 확인용 금액이 표시될 수 있습니다. 이 표시는 3~5일 내에 제거됩니다. 비용 관리가 염려되는 경우 [예상치 못한 비용 방지](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started)에 대해 자세히 알아봅니다.
+등록한 후에는 신용 카드 계정에 소액의 확인용 금액이 표시될 수 있습니다. 이 표시는 3~5일 내에 제거됩니다. 비용 관리가 염려되는 경우 [예상치 못한 요금 분석](../understand/analyze-unexpected-charges.md)에 대해 자세히 알아봅니다.
 
 ## <a name="agreement"></a>규약
 

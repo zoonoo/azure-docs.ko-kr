@@ -1,7 +1,7 @@
 ---
 title: Azure AD B2C에 대 한 ISV 파트너 갤러리
 titleSuffix: Azure AD B2C
-description: ISV 파트너와 통합 하 여 사용자의 요구에 맞게 최종 사용자 환경을 조정 하는 방법을 알아봅니다. 파트너 네트워크는 솔루션 기능을 확장 합니다. MFA 사용, 보안 고객 인증, 역할 기반 Access Control Id 확인 교정을 통해 사기 행위를 방지 합니다.
+description: ISV 파트너와 통합 하 여 사용자의 요구에 맞게 최종 사용자 환경을 조정 하는 방법을 알아봅니다. 파트너 네트워크는 솔루션 기능을 확장 합니다. MFA, 보안 고객 인증, 역할 기반 액세스 제어를 사용 하도록 설정 Id 확인 교정을 통해 사기 행위를 방지 합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706697"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713190"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
-ISV 파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는 데 도움이 되는 솔루션 기능을 확장 합니다. Azure AD B2C를 사용 하면 ISV 파트너와 통합 하 여 multi-factor authentication 방법을 사용 하도록 설정 하 고, SCA (Secure Customer Authentication)를 사용 하도록 설정 하 고, 역할 기반 Access Control를 수행 하 고, id 확인 및 교정을 통해 사기 행위를 수행할 수 있습니다. 아래에 나열 된 ISV 파트너와 앱을 통합 하는 방법을 알아보려면 자세한 샘플 연습을 사용 하세요.
+ISV 파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는 데 도움이 되는 솔루션 기능을 확장 합니다. Azure AD B2C를 통해 ISV 파트너와 통합 하 여 multi-factor authentication 방법을 사용 하도록 설정 하 고, SCA (Secure Customer Authentication)를 사용 하도록 설정 하 고, 역할 기반 액세스 제어를 수행 하 고, id 확인 및 교정을 통해 사기 행위를 수행할 수 있습니다. 아래에 나열 된 ISV 파트너와 앱을 통합 하는 방법을 알아보려면 자세한 샘플 연습을 사용 하세요.
 
 >[!NOTE]
 >[GitHub의 Azure Active Directory B2C 커뮤니티 사이트](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) 는 커뮤니티의 샘플 사용자 지정 정책을 제공 합니다.

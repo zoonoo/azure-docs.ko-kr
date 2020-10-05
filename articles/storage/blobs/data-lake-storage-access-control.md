@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017237"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716114"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-RBAC는 역할 할당을 사용 하 여 *보안 주체*에 대 한 권한 집합을 효과적으로 적용 합니다. *보안 주체* 는 Azure 리소스에 대 한 액세스를 요청 하는 AD (Azure Active Directory)에 정의 된 사용자, 그룹, 서비스 주체 또는 관리 id를 나타내는 개체입니다.
+Azure RBAC는 역할 할당을 사용 하 여 *보안 주체*에 대 한 권한 집합을 효과적으로 적용 합니다. *보안 주체* 는 Azure 리소스에 대 한 액세스를 요청 하는 AD (Azure Active Directory)에 정의 된 사용자, 그룹, 서비스 주체 또는 관리 id를 나타내는 개체입니다.
 
 일반적으로 이러한 Azure 리소스는 최상위 리소스 (예: Azure Storage 계정)로 제한 됩니다. Azure Data Lake Storage Gen2 Azure Storage 경우에는이 메커니즘이 컨테이너 (파일 시스템) 리소스로 확장 되었습니다.
 
-저장소 계정 범위에서 보안 주체에 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)지정을 참조 하세요.
+저장소 계정의 범위에서 보안 주체에 역할을 할당 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당을](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)참조 하세요.
 
 > [!NOTE]
 > 게스트 사용자는 역할 할당을 만들 수 없습니다.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>파일 및 디렉터리 수준 액세스 제어 목록에 대 한 역할 할당의 영향
 
-Azure 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. RBAC에 대 한 가장 작은 세분성은 컨테이너 수준에서 이며 Acl 보다 높은 우선 순위로 평가 됩니다. 따라서 컨테이너 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 컨테이너의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
+Azure 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. Azure RBAC에 대 한 최소 세분성은 컨테이너 수준 이며 Acl 보다 높은 우선 순위로 평가 됩니다. 따라서 컨테이너 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 컨테이너의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
 
-보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 Azure 역할 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 게 Azure 역할 할당이 없거나 요청의 작업이 할당 된 권한과 일치 하지 않는 경우에는 ACL 검사를 수행 하 여 보안 주체가 요청 된 작업을 수행할 수 있는 권한을 부여 받았는지 확인 합니다.
+보안 주체에 게 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 Azure RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 Azure 역할 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 게 Azure 역할 할당이 없거나 요청의 작업이 할당 된 권한과 일치 하지 않는 경우에는 ACL 검사를 수행 하 여 보안 주체가 요청 된 작업을 수행할 수 있는 권한을 부여 받았는지 확인 합니다.
 
 > [!NOTE]
 > 보안 주체가 저장소 Blob 데이터 소유자 기본 제공 역할 할당을 할당 한 경우에는 보안 주체가 *슈퍼 사용자* 로 간주 되 고 디렉터리 또는 파일의 소유자를 설정 하거나 소유자가 아닌 디렉터리와 파일에 대 한 acl을 설정 하는 등 모든 변경 작업에 대 한 모든 권한을 부여 받습니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
@@ -102,7 +102,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
 
 > [!NOTE]
-> Acl만 사용 하 여 권한을 부여 하는 경우 (RBAC 없음) 보안 주체에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너에 대 한 보안 주체 실행 권한과 파일을 받는 폴더 계층의 각 폴더에 보안 주체 **실행** 권한을 부여 해야 합니다.
+> Acl만 사용 하 여 권한을 부여 하는 경우 (Azure RBAC 없음) 보안 주체에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너에 대 한 보안 주체 실행 권한과 파일을 받는 폴더 계층의 각 폴더에 대 한 보안 주체 **실행** 권한을 부여 해야 합니다.
 
 #### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
@@ -280,7 +280,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-아닙니다. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
+아니요. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
 
 HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적용됩니다.
 
@@ -292,7 +292,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 - 호출자에 게 ' 슈퍼 사용자 ' 권한이 있습니다.
 
-Or
+또는
 
 - 부모 디렉터리에 쓰기 + 실행 권한이 있어야 합니다.
 - 삭제할 디렉터리와 그 안의 모든 디렉터리에 읽기 + 쓰기 + 실행 권한이 필요합니다.

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4364ed916e2b2783ab09f9d61ae63197d001ad42
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9c1dd6f628e87792808d14db2c7bcc7f050923a3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273184"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713195"
 ---
 # <a name="connectivity-modes-and-requirements"></a>연결 모드 및 요구 사항
 
@@ -52,9 +52,9 @@ Azure Arc 사용 데이터 서비스는 직접 연결 되 고 간접적으로 �
 |**재고 관리**|지원됨<br/>인벤토리 데이터는 주기적으로 내보내고 Azure로 전송 됩니다.|지원됨<br/>인벤토리 데이터는 자동으로 Azure로 전송 되 고 거의 실시간으로 반영 됩니다. **직접 연결 모드의 보류 중인 가용성**|
 |**자동 업그레이드 및 패치**|지원됨<br/>데이터 컨트롤러는 MCR (Microsoft Container Registry)에 직접 액세스 하거나, MCR에서 컨테이너 이미지를 가져와서 데이터 컨트롤러에서 액세스할 수 있는 로컬 개인 컨테이너 레지스트리로 푸시 해야 합니다.|지원됨<br/>**직접 연결 모드의 보류 중인 가용성**|
 |**자동 백업 및 복원**|지원됨<br/>자동 로컬 백업 및 복원|지원됨<br/>자동 로컬 백업 및 복원 외에도 장기 오프 사이트 보존을 위해 _필요에 따라_ Azure Backup에 백업을 보낼 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
-|**모니터링**|지원됨<br/>Grafana 및 Kibana 대시보드를 사용 하 여 로컬 모니터링|지원됨<br/>로컬 모니터링 대시보드 외에도 _선택적_ 으로 모니터링 데이터와 로그를 전송 하 여 한 곳에서 여러 사이트에 대 한 규모 규모 모니터링을 Azure Monitor 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
+|**Monitoring**|지원됨<br/>Grafana 및 Kibana 대시보드를 사용 하 여 로컬 모니터링|지원됨<br/>로컬 모니터링 대시보드 외에도 _선택적_ 으로 모니터링 데이터와 로그를 전송 하 여 한 곳에서 여러 사이트에 대 한 규모 규모 모니터링을 Azure Monitor 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**인증**|데이터 컨트롤러 및 대시보드 인증에 로컬 사용자 이름/암호를 사용 합니다. SQL 및 Postgres 로그인 또는 Active Directory를 사용 하 여 데이터베이스 인스턴스에 연결 합니다.  Kubernetes API에 대 한 인증에 K8s 인증 공급자를 사용 합니다.|간접적으로 연결 된 모드에 대 한 인증 방법 외에도 _선택적_ 으로 Azure Active Directory를 사용할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
-|**RBAC (역할 기반 Access Control)**|Kubernetes API에서 Kubernetes RBAC를 사용 합니다. 데이터베이스 인스턴스에 SQL 및 Postgres RBAC를 사용 합니다.|필요에 따라 RBAC에 대 한 Azure Active Directory와 통합할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
+|**RBAC(역할 기반 액세스 제어)**|Kubernetes API에서 Kubernetes RBAC를 사용 합니다. 데이터베이스 인스턴스에 SQL 및 Postgres RBAC를 사용 합니다.|필요에 따라 Azure Active Directory 및 Azure RBAC와 통합할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**Azure Defender**|지원되지 않음|미래 예정|
 
 ## <a name="connectivity-requirements"></a>연결 요구 사항
@@ -65,11 +65,11 @@ Azure Arc 사용 데이터 서비스는 직접 연결 되 고 간접적으로 �
 
 |**데이터 형식**|**방향**|**필수/선택**|**추가 비용**|**모드 필요**|**참고**|
 |---|---|---|---|---|---|
-|**컨테이너 이미지**|Microsoft Container Registry-> 고객|필수|예|간접 또는 직접|컨테이너 이미지는 소프트웨어를 배포 하는 방법입니다.  인터넷을 통해 MCR (Microsoft Container Registry)에 연결할 수 있는 환경에서는 MCR에서 직접 컨테이너 이미지를 끌어올 수 있습니다.  배포 환경에 직접 연결 되지 않은 경우 MCR에서 이미지를 가져와서 배포 환경의 개인 컨테이너 레지스트리로 푸시할 수 있습니다.  만든 시간에 MCR 대신 개인 컨테이너 레지스트리에서 가져오도록 생성 프로세스를 구성할 수 있습니다. 이는 자동화 된 업데이트에도 적용 됩니다.|
-|**리소스 인벤토리**|고객 환경-Azure >|필수|예|간접 또는 직접|데이터 컨트롤러, 데이터베이스 인스턴스 (PostgreSQL 및 SQL)의 인벤토리는 청구를 위해 Azure에 유지 되며, 모든 데이터 컨트롤러 및 데이터베이스 인스턴스의 인벤토리를 한 곳에 만드는 목적으로 azure Arc data services를 사용 하는 환경이 둘 이상인 경우에 특히 유용 합니다.  인스턴스가 프로 비전 되 면 프로 비전 해제, 규모 확장/축소, Azure에서 인벤토리가 업데이트 됩니다.|
-|**청구 원격 분석 데이터**|고객 환경-Azure >|필수|예|간접 또는 직접|청구를 위해 데이터베이스 인스턴스 사용률을 Azure로 보내야 합니다.  미리 보기 기간에는 Azure Arc 사용 데이터 서비스에 대 한 비용이 없습니다.|
+|**컨테이너 이미지**|Microsoft Container Registry-> 고객|필수|아니요|간접 또는 직접|컨테이너 이미지는 소프트웨어를 배포 하는 방법입니다.  인터넷을 통해 MCR (Microsoft Container Registry)에 연결할 수 있는 환경에서는 MCR에서 직접 컨테이너 이미지를 끌어올 수 있습니다.  배포 환경에 직접 연결 되지 않은 경우 MCR에서 이미지를 가져와서 배포 환경의 개인 컨테이너 레지스트리로 푸시할 수 있습니다.  만든 시간에 MCR 대신 개인 컨테이너 레지스트리에서 가져오도록 생성 프로세스를 구성할 수 있습니다. 이는 자동화 된 업데이트에도 적용 됩니다.|
+|**리소스 인벤토리**|고객 환경-Azure >|필수|아니요|간접 또는 직접|데이터 컨트롤러, 데이터베이스 인스턴스 (PostgreSQL 및 SQL)의 인벤토리는 청구를 위해 Azure에 유지 되며, 모든 데이터 컨트롤러 및 데이터베이스 인스턴스의 인벤토리를 한 곳에 만드는 목적으로 azure Arc data services를 사용 하는 환경이 둘 이상인 경우에 특히 유용 합니다.  인스턴스가 프로 비전 되 면 프로 비전 해제, 규모 확장/축소, Azure에서 인벤토리가 업데이트 됩니다.|
+|**청구 원격 분석 데이터**|고객 환경-Azure >|필수|아니요|간접 또는 직접|청구를 위해 데이터베이스 인스턴스 사용률을 Azure로 보내야 합니다.  미리 보기 기간에는 Azure Arc 사용 데이터 서비스에 대 한 비용이 없습니다.|
 |**데이터 및 로그 모니터링**|고객 환경-Azure >|선택 사항|데이터 볼륨에 따라 달라질 수도 있습니다 ( [Azure Monitor 가격 책정](https://azure.microsoft.com/en-us/pricing/details/monitor/)참조).|간접 또는 직접|여러 환경에서 데이터를 한 곳으로 집계 하는 Azure Monitor에 로컬로 수집 되는 모니터링 데이터와 로그를 전송 하 고 Azure Machine Learning의 데이터를 사용 하 여 경고와 같은 Azure Monitor 서비스를 사용할 수도 있습니다.|
-|**Azure 역할 기반 Access Control (RBAC)**|고객 환경-Azure > 고객 환경 >|선택 사항|아니요|직접만|RBAC에 대해 Azure를 사용 하려는 경우 항상 Azure를 사용 하 여 연결을 설정 해야 합니다.  RBAC에 Azure를 사용 하지 않으려는 경우 로컬 Kubernetes RBAC를 사용할 수 있습니다.  **직접 연결 모드의 보류 중인 가용성**|
+|**Azure 역할 기반 Access Control (Azure RBAC)**|고객 환경-Azure > 고객 환경 >|선택 사항|아니요|직접만|Azure RBAC를 사용 하려는 경우 항상 Azure를 사용 하 여 연결을 설정 해야 합니다.  Azure RBAC를 사용 하지 않으려는 경우 로컬 Kubernetes RBAC를 사용할 수 있습니다.  **직접 연결 모드의 보류 중인 가용성**|
 |**Azure AD(Active Directory)**|고객 환경-Azure > 고객 환경 >|선택 사항|가능 하지만 Azure AD에 대 한 비용을 이미 지불 했을 수 있습니다.|직접만|인증에 Azure AD를 사용 하려는 경우 항상 Azure를 사용 하 여 연결을 설정 해야 합니다. 인증에 Azure AD를 사용 하지 않으려는 경우 Active Directory를 통해 ADFS (Active Directory Federation Services)를 사용할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**백업/복원**|고객 환경-Azure > 고객 환경 >|선택 사항|저장소 비용에 대 한 예|직접만|장기 오프 사이트 백업의 경우에는 Azure Backup 로컬로 사용 되는 백업을 전송 하 고 복원에 대 한 로컬 환경으로 다시 가져올 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**Azure Defender 보안 서비스**|고객 환경-Azure > 고객 환경 >|선택 사항|예|직접만|**직접 연결 모드의 보류 중인 가용성**|
@@ -80,9 +80,9 @@ Azure Arc 사용 데이터 서비스는 직접 연결 되 고 간접적으로 �
 
 현재 미리 보기 단계에서는 간접적으로 연결 된 모드만 지원 됩니다.  이 모드에는 인터넷에서 사용할 수 있는 서비스에 대 한 세 개의 연결만 필요 합니다.  Azure에 대 한 모든 HTTPS 연결과 Microsoft Container Registry는 공식적으로 서명 되 고 검증 가능한 인증서를 사용 하 여 SSL/TLS를 사용 하 여 암호화 됩니다.
 
-|**Name**|**연결 원본**|**연결 대상**|**프로토콜**|**포트**|**프록시 사용 가능**|**인증**|**참고**|
+|**이름**|**연결 원본**|**연결 대상**|**프로토콜**|**포트**|**프록시 사용 가능**|**인증**|**참고**|
 |---|---|---|---|---|---|---|---|
-|**MCR (Microsoft Container Registry)**|컨테이너 이미지를 끌어오는 각 Kubernetes 노드의 Kubernetes kubelet입니다.|`mcr.microsoft.com`|HTTPS|443|예|없음|Microsoft Container Registry는 Azure Arc 사용 데이터 서비스 컨테이너 이미지를 호스팅합니다.  MCR에서 이러한 이미지를 가져와서 개인 컨테이너 레지스트리에 푸시하고 해당 개인 컨테이너 레지스트리에서 컨테이너 이미지를 가져오도록 데이터 컨트롤러 배포 프로세스를 구성할 수 있습니다.|
+|**MCR (Microsoft Container Registry)**|컨테이너 이미지를 끌어오는 각 Kubernetes 노드의 Kubernetes kubelet입니다.|`mcr.microsoft.com`|HTTPS|443|예|None|Microsoft Container Registry는 Azure Arc 사용 데이터 서비스 컨테이너 이미지를 호스팅합니다.  MCR에서 이러한 이미지를 가져와서 개인 컨테이너 레지스트리에 푸시하고 해당 개인 컨테이너 레지스트리에서 컨테이너 이미지를 가져오도록 데이터 컨트롤러 배포 프로세스를 구성할 수 있습니다.|
 |**Azure Resource Manager Api**|Azure에 연결 하는 Azure Data Studio, Azure Data CLI 또는 Azure CLI를 실행 하는 컴퓨터입니다.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|예|Azure Active Directory|Azure Data Studio Azure Data CLI 및 Azure CLI Azure Resource Manager Api에 연결 하 여 일부 기능을 위해 Azure에서 데이터를 보내고 검색 합니다.|
 |**Azure Monitor Api**|Azure 데이터 CLI를 실행 하는 컴퓨터 또는 Azure Monitor에 대 한 모니터링 메트릭 또는 로그를 업로드 하는 Azure CLI.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|예|Azure Active Directory|Azure Data Studio Azure Data CLI 및 Azure CLI Azure Resource Manager Api에 연결 하 여 일부 기능을 위해 Azure에서 데이터를 보내고 검색 합니다.|
 

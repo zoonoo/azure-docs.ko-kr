@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door와 WAF를 사용하여 웹앱 크기 조정 및 보호
+title: '자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹앱 확장 및 보호'
 description: 이 자습서는 Azure Front Door Service에서 Azure Web Application Firewall을 사용하는 방법을 보여줍니다.
 services: frontdoor
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276275"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626482"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
-최근 몇 주 동안 COVID-19로 인해 많은 웹 애플리케이션의 트래픽이 급증했습니다. 이러한 웹 애플리케이션에는 서비스 거부 공격을 비롯한 악성 트래픽이 급증하는 현상도 나타나고 있습니다. 트래픽 급증에 맞춰 확장하고, 공격으로부터 보호하는 효과적인 방법은 Azure WAF를 사용하는 Azure Front Door를 웹앱 앞에 가속, 캐싱 및 보안 계층으로 설정하는 것입니다. 이 문서는 Azure 내부 또는 외부에서 실행되는 모든 웹앱에 대해 Azure WAF 설정을 통해 Azure Front Door를 빠르게 확보하는 방법에 대한 지침을 제공합니다. 
+최근 몇 주 동안 COVID-19로 인해 많은 웹 애플리케이션의 트래픽이 급증했습니다. 이러한 웹 애플리케이션에는 서비스 거부 공격을 비롯한 악성 트래픽이 급증하는 현상도 나타나고 있습니다. 트래픽 급증에 맞게 애플리케이션을 확장하고, 공격으로부터 보호하는 효과적인 방법은 Azure WAF를 사용하는 Azure Front Door를 웹앱 앞에 가속, 캐싱 및 보안 계층으로 설정하는 것입니다. 이 문서는 Azure 내부 또는 외부에서 실행되는 모든 웹앱에 대해 Azure WAF를 구성하여 Azure Front Door를 확보하는 방법에 대한 지침을 제공합니다. 
 
-이 자습서에서는 Azure CLI를 사용하여 WAF를 설정합니다. Azure Portal, Azure PowerShell, Azure Resource Manager 또는 Azure REST API를 사용하여 동일한 작업을 수행할 수 있습니다. 
+이 자습서에서는 Azure CLI를 사용하여 WAF를 구성합니다. Azure Portal, Azure PowerShell, Azure Resource Manager 또는 Azure REST API를 사용하여 동일한 작업을 수행할 수 있습니다. 
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ ms.locfileid: "91276275"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 이 자습서의 지침은 Azure CLI를 사용합니다. [이 가이드를 참조](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)하여 Azure CLI를 시작하세요.
+- 이 자습서의 지침은 Azure CLI를 사용합니다. [이 가이드를 참조](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true)하여 Azure CLI를 시작하세요.
 
   > [!TIP] 
   > Azure CLI를 시작하는 쉽고 빠른 방법 [Azure Cloud Shell의 Bash](https://docs.microsoft.com/azure/cloud-shell/quickstart)를 사용하는 것입니다.
@@ -48,7 +48,7 @@ ms.locfileid: "91276275"
    ```
 
 > [!NOTE] 
-> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest)를 참조하세요.
+> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="create-an-azure-front-door-resource"></a>Azure Front Door 리소스 만들기
 
@@ -136,7 +136,7 @@ DNS 레코드를 업데이트하는 구체적인 단계는 DNS 서비스 공급�
 
 또한 매핑을 인식할 수 있도록 Azure Front Door 구성을 업데이트하여 [사용자 지정 도메인을 추가](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain)해야 합니다.
 
-마지막으로 사용자 지정 도메인을 사용하여 웹 애플리케이션에 연결하고 HTTPS 프로토콜을 사용하도록 설정하려면, [Azure Front Door에 사용자 지정 도메인에 대한 인증서를 설정](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https)해야 합니다. 
+마지막으로, 사용자 지정 도메인을 사용하여 웹 애플리케이션에 도달하고 HTTPS 프로토콜을 사용하려는 경우입니다. [Azure Front Door에서 사용자 지정 도메인에 대한 인증서를 설정](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https)해야 합니다. 
 
 ## <a name="lock-down-your-web-application"></a>웹 애플리케이션 잠금
 
@@ -144,7 +144,7 @@ Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
+이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
 
 ```azurecli-interactive
   az group delete \
@@ -158,6 +158,3 @@ Front Door의 문제를 해결하는 방법을 알아보려면 문제 해결 가
 
 > [!div class="nextstepaction"]
 > [일반적인 라우팅 문제 해결](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [허용된 인증 기관](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

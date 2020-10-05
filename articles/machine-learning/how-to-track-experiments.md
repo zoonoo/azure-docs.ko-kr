@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
-ms.translationtype: HT
+ms.openlocfilehash: 7eaa2fbe6033f801a252f6f2c7afa5eb726bce2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650625"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318248"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Azure ML 학습 실행에서 로깅 사용
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning Python SDK를 사용하면 기본 Python 로깅 패키지와 SDK 관련 기능을 모두 사용하여 실시간 정보를 기록할 수 있습니다. 로컬로 로그인하고 로그를 포털의 작업 영역에 보낼 수 있습니다.
 
@@ -37,17 +37,17 @@ Azure Machine Learning Python SDK를 사용하면 기본 Python 로깅 패키지
 
 ## <a name="data-types"></a>데이터 형식
 
-스칼라 값, 목록, 테이블, 이미지, 디렉터리 등을 포함한 여러 데이터 형식을 기록할 수 있습니다. 다양한 데이터 형식에 대한 자세한 내용과 Python 코드 예제는 [Run 클래스 참조 페이지](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)를 참조하세요.
+스칼라 값, 목록, 테이블, 이미지, 디렉터리 등을 포함한 여러 데이터 형식을 기록할 수 있습니다. 다양한 데이터 형식에 대한 자세한 내용과 Python 코드 예제는 [Run 클래스 참조 페이지](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)를 참조하세요.
 
 ## <a name="interactive-logging-session"></a>대화형 로깅 세션
 
-대화형 로깅 세션은 일반적으로 Notebook 환경에서 사용됩니다. [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) 메서드는 대화형 로깅 세션을 시작합니다. 세션 중에 기록된 모든 메트릭은 실험의 실행 기록에 추가됩니다. [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) 메서드는 세션을 종료하고 실행을 완료됨으로 표시합니다.
+대화형 로깅 세션은 일반적으로 Notebook 환경에서 사용됩니다. [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) 메서드는 대화형 로깅 세션을 시작합니다. 세션 중에 기록된 모든 메트릭은 실험의 실행 기록에 추가됩니다. [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) 메서드는 세션을 종료하고 실행을 완료됨으로 표시합니다.
 
-## <a name="scriptrunconfig-logs"></a>ScriptRunConfig 로그
+## <a name="scriptrun-logs"></a>ScriptRun 로그
 
-이 섹션에서는 로깅 코드를 ScriptConfig 실행 내에 추가하는 방법에 대해 알아봅니다. [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 사용하여 반복 가능한 실행에 대한 스크립트 및 환경을 캡슐화할 수 있습니다. 또한 이 옵션을 사용하여 모니터링을 위한 시각적 Jupyter Notebook 위젯을 표시할 수 있습니다.
+이 섹션에서는 ScriptRunConfig로 구성할 때 생성된 실행 내부에 로깅 코드를 추가하는 방법을 알아봅니다. [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 사용하여 반복 가능한 실행에 대한 스크립트 및 환경을 캡슐화할 수 있습니다. 또한 이 옵션을 사용하여 모니터링을 위한 시각적 Jupyter Notebook 위젯을 표시할 수 있습니다.
 
-다음 예제에서는 [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----) 메서드를 사용하여 알파 값에 대한 매개 변수 스윕을 수행하고 결과를 캡처합니다.
+다음 예제에서는 [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truelog-name--value--description----) 메서드를 사용하여 알파 값에 대한 매개 변수 스윕을 수행하고 결과를 캡처합니다.
 
 1. 로깅 논리가 포함된 학습 스크립트(`train.py`)를 만듭니다.
 
@@ -83,7 +83,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning은 학습 중에 자동화된 Machine Learning 실행 또는 작업을 실행하는 Docker 컨테이너와 같은 다른 원본의 정보를 기록할 수도 있습니다. 이러한 로그는 문서화되어 있지 않지만 문제가 발생하여 Microsoft 지원에 문의하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
 
-Azure Machine Learning 디자이너(미리 보기)의 메트릭 로깅에 대한 자세한 내용은 [디자이너에서 메트릭을 기록하는 방법(미리 보기)](how-to-track-designer-experiments.md)을 참조하세요.
+Azure Machine Learning 디자이너의 메트릭 로깅에 대한 자세한 내용은 [디자이너에서 메트릭을 기록하는 방법](how-to-track-designer-experiments.md)을 참조하세요.
 
 ## <a name="example-notebooks"></a>노트북 예제
 
@@ -97,6 +97,6 @@ Azure Machine Learning 디자이너(미리 보기)의 메트릭 로깅에 대한
 
 Azure Machine Learning을 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Machine Learning 디자이너에서 메트릭을 기록하는 방법(미리 보기)](how-to-track-designer-experiments.md)을 알아봅니다.
+* [Azure Machine Learning 디자이너에서 메트릭을 기록하는 방법](how-to-track-designer-experiments.md)을 알아봅니다.
 
 * 최상의 모델을 등록하고 배포하는 방법에 대한 예제는 [Azure Machine Learning으로 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.

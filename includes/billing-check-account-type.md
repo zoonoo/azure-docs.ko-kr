@@ -4,18 +4,18 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6787983421285122834479cb652fec52ee7bf72b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75987786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360697"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
  
 2. **Cost Management + 청구**에서 검색합니다.
  
-   ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
+   ![Cost Management + Billing에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
 3. 하나의 청구 범위에만 액세스할 수 있는 경우, 왼쪽에서 **속성**을 선택합니다.
  

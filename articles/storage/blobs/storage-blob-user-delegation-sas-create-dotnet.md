@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e499b27124ed5723fb19fecbe4091f17364aea5a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 05ab666eff39412c1b169178e7ea4c68f3a81ca9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533991"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714544"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "87533991"
 
 ## <a name="assign-azure-roles-for-access-to-data"></a>데이터 액세스를 위한 Azure 역할 할당
 
-Azure AD 보안 주체가 blob 데이터에 액세스 하려고 할 때 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 데이터에 대 한 액세스 권한을 부여 하는 Azure 역할을 할당 받아야 합니다. RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 azure blob 및 큐에](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 azure 역할 할당** 섹션을 참조 하세요.
+Azure AD 보안 주체가 blob 데이터에 액세스 하려고 할 때 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 데이터에 대 한 액세스 권한을 부여 하는 Azure 역할을 할당 받아야 합니다. Azure RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 azure blob 및 큐에](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 azure 역할 할당** 섹션을 참조 하세요
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
@@ -235,7 +235,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223485"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713013"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>기존 Azure Active Directory Domain Services 관리 되는 도메인에 대해 일치 하지 않는 디렉터리 오류 해결
 
@@ -28,11 +28,11 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에 
 
 Azure AD DS 관리 되는 도메인 및 가상 네트워크가 서로 다른 두 Azure AD 테 넌 트에 속할 경우 디렉터리 불일치 오류가 발생 합니다. 예를 들어 Contoso의 Azure AD 테 넌 트에서 실행 되는 *aaddscontoso.com* 라는 관리 되는 도메인이 있을 수 있습니다. 그러나 관리 되는 도메인에 대 한 Azure 가상 네트워크는 Fabrikam Azure AD 테 넌 트의 일부입니다.
 
-Azure는 RBAC (역할 기반 액세스 제어)를 사용 하 여 리소스에 대 한 액세스를 제한 합니다. Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 하면 자격 증명 해시가 관리 되는 도메인에 동기화 됩니다. 이 작업을 수행 하려면 Azure AD 디렉터리의 테 넌 트 관리자 여야 하며 자격 증명에 대 한 액세스를 제어 해야 합니다.
+Azure RBAC (역할 기반 액세스 제어)는 리소스에 대 한 액세스를 제한 하는 데 사용 됩니다. Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 하면 자격 증명 해시가 관리 되는 도메인에 동기화 됩니다. 이 작업을 수행 하려면 Azure AD 디렉터리의 테 넌 트 관리자 여야 하며 자격 증명에 대 한 액세스를 제어 해야 합니다.
 
 Azure 가상 네트워크에 리소스를 배포 하 고 트래픽을 제어 하려면 관리 되는 도메인을 배포 하는 가상 네트워크에 대 한 관리 권한이 있어야 합니다.
 
-RBAC가 일관 되 게 작동 하 고 Azure AD DS에서 사용 하는 모든 리소스에 안전 하 게 액세스할 수 있도록 관리 되는 도메인과 가상 네트워크는 동일한 Azure AD 테 넌 트에 속해야 합니다.
+Azure RBAC가 일관 되 게 작동 하 고 Azure AD DS에서 사용 하는 모든 리소스에 안전 하 게 액세스할 수 있도록 관리 되는 도메인과 가상 네트워크는 동일한 Azure AD 테 넌 트에 속해야 합니다.
 
 배포에 적용 되는 규칙은 다음과 같습니다.
 

@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308965"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
 
@@ -32,7 +32,7 @@ Azure 체험 계정에 등록하면 30일 동안 사용할 수 있는 $200의 Az
 > [!NOTE]
 > 평가판 구독을 사용하고 지출 한도를 제거한 경우 평가판이 끝날 때 구독은 종량제 요금을 사용하는 개별 구독으로 변환됩니다. 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
 
-Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](getting-started.md)를 참조하세요.
+Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 비용 관리 계획](../understand/plan-manage-costs.md)을 참조하세요.
 
 
 ## <a name="your-bill-is-past-due"></a>청구 기한 경과
@@ -60,4 +60,4 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청�
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure에 대한 청구 작업을 모니터링하고 관리](getting-started.md)하는 방법을 알아봅니다.
+- [Azure 비용 관리 계획](../understand/plan-manage-costs.md) 방법을 알아봅니다.

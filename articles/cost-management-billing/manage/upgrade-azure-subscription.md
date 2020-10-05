@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7223d33f8f26897d24841f84454405f91cf3bc49
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e758a886e32c5a3f7cd3c744ac451b948a74802
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308863"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Azure 체험 계정 또는 Azure for Students Starter 계정 업그레이드
 
@@ -80,4 +80,4 @@ Azure 체험 계정을 업그레이드할 때 가입할 때부터 30일 동안 �
 
 ## <a name="next-steps"></a>다음 단계
 
-계정을 업그레이드했으므로 [Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지](getting-started.md)를 참조하세요.
+계정을 업그레이드했으므로 이제 [Azure 비용 관리 계획](../understand/plan-manage-costs.md)을 참조하세요.

@@ -73,7 +73,7 @@
           href: time-series-insights-update-query-data-csharp.md
         - name: C#을 사용하여 데이터 쿼리 - Gen1
           href: time-series-insights-query-data-csharp.md
-        - name: C#으로 작성된 참조 데이터 관리
+        - name: C#으로 작성된 참조 데이터 관리 - Gen1
           href: time-series-insights-manage-reference-data-csharp.md
         - name: 사용자 지정 보기 공유
           href: time-series-insights-parameterized-urls.md

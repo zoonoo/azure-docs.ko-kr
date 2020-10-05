@@ -450,6 +450,8 @@
               href: how-to-enable-data-collection.md
             - name: Application Insights로 모니터링
               href: how-to-enable-app-insights.md
+        - name: Triton을 사용한 고성능 서비스 제공
+          href: how-to-deploy-with-triton.md
         - name: 지속적으로 모델 배포
           displayName: ci cd azure devops models
           href: how-to-deploy-continuously-deploy.md

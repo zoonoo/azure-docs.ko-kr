@@ -39,6 +39,7 @@
         - name: App Service용 Azure Defender
           href: defender-for-app-service-introduction.md
         - name: 스토리지용 Azure Defender
+          displayName: 'blob, adls, files'
           href: defender-for-storage-introduction.md
         - name: SQL용 Azure Defender
           displayName: database
@@ -46,7 +47,7 @@
         - name: IoT용 Azure Defender
           href: defender-for-iot-introduction.md
         - name: Key Vault용 Azure Defender
-          displayName: KV
+          displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Kubernetes용 Azure Defender
           displayName: 'clusters, k8s'
@@ -65,13 +66,13 @@
   items:
     - name: 시작하기
       href: security-center-get-started.md
-    - name: Azure 이외 머신 연결
-      displayName: 'azure stack, windows, linux'
-      href: quickstart-onboard-machines.md
-    - name: AWS 및 GCP 계정 연결
+    - name: 하이브리드 환경 설정
       items:
+        - name: Azure 이외 머신 연결
+          displayName: 'azure stack, ash, windows, linux, hybrid, arc'
+          href: quickstart-onboard-machines.md
         - name: AWS 계정 연결
-          displayName: 'hybrid, multicloud, amazon'
+          displayName: 'hybrid, multicloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: GCP 계정 연결
           displayName: 'hybrid, multicloud, google'
@@ -90,7 +91,7 @@
       href: security-center-planning-and-operations-guide.md
     - name: 리소스 보호
       href: tutorial-protect-resources.md
-    - name: 인시던트에 대응
+    - name: 보안 경고 조사 및 대응
       href: tutorial-security-incident.md
     - name: 규정 준수 개선
       href: security-center-compliance-dashboard.md
@@ -206,6 +207,7 @@
       items:
         - name: Azure VM에 SQL용 Azure Defender 구성
           href: defender-for-sql-usage.md
+          displayName: 'hybrid, arc'
         - name: 정보 보호 정책 사용자 지정
           href: security-center-info-protection-policy.md
     - name: 컨테이너 레지스트리용 Azure Defender 사용
@@ -218,6 +220,7 @@
         - name: 경고 억제 규칙 만들기 및 관리
           href: alerts-suppression-rules.md
         - name: Key Vault용 Azure Defender 경고에 응답
+          displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
         - name: 보안 인시던트 관리
           href: security-center-incident.md

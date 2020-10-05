@@ -18,6 +18,8 @@
       items:
         - name: 스토리지 대상 추가
           href: hpc-cache-add-storage.md
+        - name: 네임스페이스 경로 추가
+          href: add-namespace-paths.md
         - name: 스토리지 대상으로 데이터 이동(필요한 경우)
           items:
             - name: 새 Blob 스토리지 사전 로드
@@ -42,8 +44,6 @@
   items:
     - name: Azure CLI
       href: /cli/azure/ext/hpc-cache/hpc-cache
-    - name: Azure PowerShell
-      href: /powershell/module/Az.HPCCache
 - name: 리소스
   items:
     - name: 지원 티켓 열기

@@ -9,12 +9,12 @@ ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 794e89e75505d3c1c34bf2a15209c3218dfa3582
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280371"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714098"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "91280371"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -138,7 +138,7 @@ Select-AzSubscription -SubscriptionId <subscription-id>
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>옵션 1: Azure Active Directory (AD)를 사용 하 여 권한 부여 가져오기
 
-이 방법을 사용 하면 시스템에서 사용자 계정에 적절 한 RBAC (역할 기반 액세스 제어) 할당 및 ACL 권한이 있는지 확인 합니다. 
+이 접근 방식을 사용 하는 경우 시스템은 사용자 계정에 적절 한 Azure RBAC (역할 기반 액세스 제어) 할당 및 ACL 권한이 있는지 확인 합니다. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -153,7 +153,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>옵션 2: 저장소 계정 키를 사용 하 여 권한 부여 가져오기
 
-이 방법을 사용 하면 시스템에서 RBAC 또는 ACL 사용 권한을 확인 하지 않습니다.
+이 방법을 사용 하면 시스템에서 Azure RBAC 또는 ACL 사용 권한을 확인 하지 않습니다.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -174,7 +174,7 @@ $ctx = $storageAccount.Context
 using Azure.Identity;
 ```
 
-클라이언트 ID, 클라이언트 암호 및 테 넌 트 ID를 가져옵니다. 이렇게 하려면 [클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 AZURE AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조 하세요. 해당 프로세스의 일부로 보안 주체에 다음의 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 역할 중 하나를 할당 해야 합니다. 
+클라이언트 ID, 클라이언트 암호 및 테 넌 트 ID를 가져옵니다. 이렇게 하려면 [클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 AZURE AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조 하세요. 해당 프로세스의 일부로 다음 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 역할 중 하나를 보안 주체에 할당 해야 합니다. 
 
 |역할|ACL 설정 기능|
 |--|--|
@@ -229,7 +229,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 [Python 용 azure identity client 라이브러리](https://pypi.org/project/azure-identity/) 를 사용 하 여 azure AD로 응용 프로그램을 인증할 수 있습니다.
 
-이 예에서는 클라이언트 ID, 클라이언트 암호 및 테 넌 트 ID를 사용 하 여 **DataLakeServiceClient** 인스턴스를 만듭니다.  이러한 값을 얻으려면 [클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 AZURE AD에서 토큰 획득](../common/storage-auth-aad-app.md)을 참조 하세요. 해당 프로세스의 일부로 보안 주체에 다음의 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 역할 중 하나를 할당 해야 합니다. 
+이 예에서는 클라이언트 ID, 클라이언트 암호 및 테 넌 트 ID를 사용 하 여 **DataLakeServiceClient** 인스턴스를 만듭니다.  이러한 값을 얻으려면 [클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 AZURE AD에서 토큰 획득](../common/storage-auth-aad-app.md)을 참조 하세요. 해당 프로세스의 일부로 다음 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 역할 중 하나를 보안 주체에 할당 해야 합니다. 
 
 |역할|ACL 설정 기능|
 |--|--|
@@ -345,7 +345,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-**Set_access_control_recursive DataLakeDirectoryClient** 메서드를 호출 하 여 ACL을 재귀적으로 설정 합니다.
+**DataLakeDirectoryClient.set_access_control_recursive** 메서드를 호출 하 여 ACL을 재귀적으로 설정 합니다.
 
 이 예에서는 라는 디렉터리의 ACL을 설정 합니다 `my-parent-directory` . 이러한 항목은 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고, 소유 그룹만 읽기 및 실행 권한을 부여 하 고, 다른 모든 사용자에 게 액세스 권한을 부여 하지는 않습니다. 이 예제의 마지막 ACL 항목은 개체 ID "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "읽기 및 실행 권한이 있는 특정 사용자를 제공 합니다.
 
@@ -423,7 +423,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-**Update_access_control_recursive DataLakeDirectoryClient** 메서드를 호출 하 여 ACL을 재귀적으로 업데이트 합니다. 
+**DataLakeDirectoryClient.update_access_control_recursive** 메서드를 호출 하 여 ACL을 재귀적으로 업데이트 합니다. 
 
 이 예에서는 write 권한이 있는 ACL 항목을 업데이트 합니다. 
 
@@ -498,7 +498,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-**Remove_access_control_recursive DataLakeDirectoryClient** 메서드를 호출 하 여 ACL 항목을 제거 합니다. 
+**DataLakeDirectoryClient.remove_access_control_recursive** 메서드를 호출 하 여 ACL 항목을 제거 합니다. 
 
 이 예에서는 라는 디렉터리의 ACL에서 ACL 항목을 제거 `my-parent-directory` 합니다. 
 

@@ -4,14 +4,14 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/04/2020
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710297"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715324"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -81,8 +81,10 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>경고에 대 한 메트릭을 찾을 수 없음
 
-특정 메트릭에 대 한 경고를 찾고 리소스에 대 한 메트릭을 볼 수 없는 경우에는 해당 [리소스 유형이 메트릭 경고에 대해 지원 되는지 확인](./alerts-metric-near-real-time.md)합니다.
-리소스에 대 한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우 [해당 메트릭을 사용할 수 있는지 여부를 확인](./metrics-supported.md)하 고, 해당 메트릭을 사용할 수 있는지 확인 하려면 메트릭 설명을 참조 하 여 리소스의 특정 버전이 나 버전 에서만 사용할 수 있는지 확인 합니다.
+특정 메트릭에 대 한 경고를 찾고 있지만 경고 규칙을 만들 때이를 볼 수 없는 경우 다음을 확인 합니다.
+- 리소스에 대 한 메트릭이 표시 [되지 않는 경우 메트릭 경고에 대해 리소스 유형이 지원 되는지 확인](./alerts-metric-near-real-time.md)합니다.
+- 리소스에 대 한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우 [해당 메트릭을 사용할 수 있는지 여부를 확인](./metrics-supported.md)하 고, 해당 메트릭을 사용할 수 있는지 확인 하려면 메트릭 설명을 참조 하 여 리소스의 특정 버전이 나 버전 에서만 사용할 수 있는지 확인 합니다.
+- 리소스에 대해 메트릭을 사용할 수 없는 경우 리소스 로그에서 메트릭을 사용할 수 있으며 로그 경고를 사용 하 여 모니터링할 수 있습니다. [Azure 리소스에서 리소스 로그를 수집 하 고 분석](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)하는 방법에 대 한 자세한 내용은 여기를 참조 하세요.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>경고에 대 한 메트릭 차원을 찾을 수 없습니다.
 
@@ -248,7 +250,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-예:
+다음은 그 예입니다.
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초
