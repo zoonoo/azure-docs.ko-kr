@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: carlr
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436785"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450346"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -249,7 +249,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 **예제 4**는 탄력적 풀을 대상으로 포함하는 대상 그룹을 보여줍니다. *예제 2*와 비슷하게, 풀에 있는 데이터베이스 목록을 확인하기 위해 런타임에 풀이 동적으로 열거됩니다.
 <br><br>
 
-![대상 그룹 예제](./media/job-automation-overview/targetgroup-examples2.png)
+![추가 대상 그룹 예제](./media/job-automation-overview/targetgroup-examples2.png)
 
 **예제 5** 및 **예제 6**은 포함 및 제외 규칙을 사용하여 서버, 탄력적 풀, 데이터베이스를 결합할 수 있는 고급 시나리오를 보여줍니다.<br>
 **예제 7**은 분할된 데이터베이스 맵의 분할된 데이터베이스를 런타임에도 평가할 수 있음을 보여줍니다.

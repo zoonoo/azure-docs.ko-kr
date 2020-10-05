@@ -6,29 +6,29 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: b53e37384ba85770b445f834c440075cd35b6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026584"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442644"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 [Elastic Database 도구](elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 애플리케이션의 변경 내용을 보여줍니다. Entity Framework **Code First** 방법을 사용 하 여 분할 된 데이터 [맵 관리](elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅을](elastic-scale-data-dependent-routing.md) 작성 하는 데 중점을 둡니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
+이 문서에서는 [Elastic Database 도구](elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 애플리케이션의 변경 내용을 보여줍니다. 여기서는 Entity Framework **Code First** 접근 방식으로 [공유된 데이터베이스 맵 관리](elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅](elastic-scale-data-dependent-routing.md)을 작성하는 데 집중합니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
 
 ## <a name="downloading-and-running-the-sample-code"></a>샘플 코드 다운로드 및 실행
 
 이 기사의 코드를 다운로드하려면:
 
 * Visual Studio 2012 이상이 필요합니다.
-* [AZURE SQL 용 탄력적 DB 도구-Entity Framework 통합 샘플](https://github.com/Azure/elastic-db-tools/)을 다운로드 합니다. 선택한 위치에 샘플의 압축을 풉니다.
+* [Azure SQL의 탄력적 DB 도구 - Entity Framework 통합 샘플](https://github.com/Azure/elastic-db-tools/)을 다운로드합니다. 선택한 위치에 샘플의 압축을 풉니다.
 * Visual Studio를 시작합니다.
 * Visual Studio에서 [파일] -> [프로젝트/솔루션 열기]를 선택합니다.
 * **프로젝트 열기** 대화 상자에서 다운로드한 샘플로 이동하고 **EntityFrameworkCodeFirst.sln**을 선택하여 샘플을 엽니다.
@@ -39,7 +39,7 @@ ms.locfileid: "84026584"
 * 분할 1 데이터베이스
 * 분할 2 데이터베이스
 
-이러한 데이터베이스를 만든 후에는 **Program.cs** 의 자리 표시자를 서버 이름, 데이터베이스 이름 및 데이터베이스에 연결 하기 위한 자격 증명으로 입력 합니다. Visual Studio에서 솔루션을 빌드합니다. Visual Studio는 탄력적 데이터베이스 클라이언트 라이브러리, Entity Framework 및 일시적인 오류 처리를 위해 필요한 NuGet 패키지를 빌드 프로세스 중에 다운로드합니다. 사용 중인 솔루션에 대해 NuGet 패키지를 복원할 수 있는지 확인합니다. Visual Studio 솔루션 탐색기에서 솔루션 파일을 마우스 오른쪽 단추로 클릭하여 이 설정을 사용할 수 있습니다.
+이러한 데이터베이스를 만든 후 서버 이름, 데이터베이스 이름 및 데이터베이스에 연결하는 자격 증명을 **Program.cs**의 자리 표시자에 입력합니다. Visual Studio에서 솔루션을 빌드합니다. Visual Studio는 탄력적 데이터베이스 클라이언트 라이브러리, Entity Framework 및 일시적인 오류 처리를 위해 필요한 NuGet 패키지를 빌드 프로세스 중에 다운로드합니다. 사용 중인 솔루션에 대해 NuGet 패키지를 복원할 수 있는지 확인합니다. Visual Studio 솔루션 탐색기에서 솔루션 파일을 마우스 오른쪽 단추로 클릭하여 이 설정을 사용할 수 있습니다.
 
 ## <a name="entity-framework-workflows"></a>Entity Framework 워크플로
 
@@ -81,7 +81,7 @@ Entity Framework를 사용하는 데이터베이스 연결은 대개 **DbContext
 
 규모 확장을 위해 **DbContexts** 를 데이터 종속 라우팅과 통합하려면
 
-1. 분할 된 데이터베이스 맵 관리자의 탄력적 데이터베이스 클라이언트 인터페이스를 통해 물리적 데이터베이스 연결을 만듭니다.
+1. 분할된 데이터베이스 맵 관리자의 탄력적 데이터베이스 클라이언트 인터페이스를 통해 실제 데이터베이스 연결을 만듭니다.
 2. 연결을 **DbContext** 서브클래스로 래핑합니다.
 3. 연결을 **DbContext** 기본 클래스로 전달하여 EF 쪽의 모든 처리가 제대로 수행되는지 확인합니다.
 
@@ -191,7 +191,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 위의 코드 예제는 애플리케이션에서 Entity Framework와 함께 데이터 종속 라우팅을 사용하는 데 필요한 기본 생성자 다시 작성 방법을 보여 줍니다. 다음 표에서는 다른 생성자에 대한 이 접근 방식을 일반화합니다.
 
-| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 참고 |
+| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 메모 |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능이어야 합니다. EF를 통한 자동 연결 생성을 무시하고 분할된 데이터베이스 맵을 사용하여 연결을 조정해야 합니다. |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능입니다. 고정 데이터베이스 이름 또는 연결 문자열은 분할된 데이터베이스 맵에 의한 유효성 검사를 무시하므로 작동하지 않습니다. |
@@ -276,7 +276,7 @@ new CreateDatabaseIfNotExists<ElasticScaleContext<T>>());
 
 ## <a name="conclusion"></a>결론
 
-이 문서에 설명된 단계를 통해 EF 애플리케이션은 EF 애플리케이션에 사용된 **DbContext** 서브클래스의 생성자를 리팩터링하여 데이터 종속 라우팅을 위한 탄력적 데이터베이스 클라이언트 라이브러리 기능을 사용할 수 있습니다. 이렇게 하면 **DbContext** 클래스가 이미 있는 위치에 필요한 변경 내용이 제한 됩니다. 또한 EF 애플리케이션은 분할된 데이터베이스 맵에 새 분할된 데이터베이스 및 매핑을 등록하는 단계와 필요한 EF 마이그레이션을 호출하는 단계를 결합하여 자동 스키마 배포의 이점을 계속 활용할 수 있습니다.
+이 문서에 설명된 단계를 통해 EF 애플리케이션은 EF 애플리케이션에 사용된 **DbContext** 서브클래스의 생성자를 리팩터링하여 데이터 종속 라우팅을 위한 탄력적 데이터베이스 클라이언트 라이브러리 기능을 사용할 수 있습니다. 이 경우 **DbContext** 클래스가 이미 있는 위치에서만 응용 프로그램을 변경해야 합니다. 또한 EF 애플리케이션은 분할된 데이터베이스 맵에 새 분할된 데이터베이스 및 매핑을 등록하는 단계와 필요한 EF 마이그레이션을 호출하는 단계를 결합하여 자동 스키마 배포의 이점을 계속 활용할 수 있습니다.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

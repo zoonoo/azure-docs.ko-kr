@@ -1,29 +1,29 @@
 ---
 title: Azure Security Center의 추가 위협 방지
-description: Azure Defender Azure Security Center 이상에서 제공 되는 위협 방지에 대해 알아봅니다.
+description: Azure Security Center에서 Azure Defender 이외에 사용 가능한 다른 위협 방지에 대해 알아보기
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4a849af2be9f02187dc3cda526c9c4727cab1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938654"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438898"
 ---
-# <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 보호
-또한 Azure Security Center는 기본 제공 [Azure Defender](azure-defender.md)보호 뿐만 아니라 다음과 같은 위협 방지 기능을 제공 합니다.
+# <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 방지
+또한 Azure Security Center는 기본 제공 [Azure Defender 보호](azure-defender.md)뿐만 아니라 다음과 같은 위협 방지 기능도 제공합니다.
 
 > [!TIP]
-> Security Center의 위협 방지 기능을 사용 하도록 설정 하려면 해당 하는 작업을 포함 하는 구독에서 Azure Defender를 사용 하도록 설정 해야 합니다.
+> Security Center의 위협 방지 기능을 사용하도록 설정하려면 해당 워크로드가 포함된 구독에서 Azure Defender를 사용하도록 설정해야 합니다.
 >
-> 리소스 수준 에서만 **Azure Database for MariaDB/MySQL/PostgreSQL** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
+> **Azure Database for MariaDB/MySQL/PostgreSQL**에 대한 위협 방지는 리소스 수준에서만 사용하도록 설정할 수 있습니다.
 
 
 ## <a name="threat-protection-for-azure-network-layer"></a>Azure 네트워크 계층에 대한 위협 방지 <a name="network-layer"></a>
@@ -37,7 +37,7 @@ Security Center 네트워크 계층 분석은 Azure 핵심 라우터에서 수�
 Azure 네트워크 계층 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-azurenetlayer)를 참조하세요.
 
 
-## <a name="threat-protection-for-azure-resource-manager-preview"></a>Azure Resource Manager에 대 한 위협 방지 (미리 보기)<a name ="management-layer"></a>
+## <a name="threat-protection-for-azure-resource-manager-preview"></a>Azure Resource Manager에 대한 위협 방지(미리 보기)<a name ="management-layer"></a>
 Azure Resource Manager를 기반으로 하는 Security Center의 보호 계층은 현재 미리 보기에 있습니다.
 
 Security Center는 Azure Resource Manager 이벤트를 사용하여 추가 보호 계층을 제공하며, 이는 Azure의 제어 평면으로 간주됩니다. Security Center는 Azure Resource Manager 레코드를 분석하여 Azure 구독 환경에서 비정상적이거나 잠재적으로 유해한 작업을 탐지합니다.
@@ -51,18 +51,18 @@ Azure Resource Manager(미리 보기) 경고 목록은 [경고 참조 표](alert
 > 1. Security Center 메뉴에서 **가격 책정 및 설정**을 선택합니다.
 > 1. 변경하려는 구독을 선택합니다.
 > 1. **위협 탐지**를 선택합니다.
-> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스 하도록 허용**을 선택 취소 하 고 **저장**을 선택 합니다.
+> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장**을 선택합니다.
 
 
 >[!NOTE]
 >Security Center는 보안과 관련된 고객 데이터를 리소스와 동일한 지역에 저장합니다. Microsoft에서 Security Center를 해당 리소스의 지역에 아직 배포하지 않은 경우 데이터는 미국에 저장됩니다. Cloud App Security를 사용하도록 설정되는 경우 이 정보는 Cloud App Security의 지리적 위치 규칙에 따라 저장됩니다. 자세한 내용은 [비지역 서비스에 대한 데이터 저장](https://azuredatacentermap.azurewebsites.net/)을 참조하세요.
 
-1. 에이전트를 설치 하는 작업 영역을 설정 합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
+1. 에이전트를 설치할 작업 영역을 설정합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
 
-1. **Azure Defender**를 사용 하도록 설정 하 고 **저장**을 선택 합니다.
+1. **Azure Defender**를 사용하도록 설정하고 **저장**을 선택합니다.
 
 
-## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 위협 방지 (미리 보기)<a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 위협 방지(미리 보기)<a name="cosmos-db"></a>
 
 Azure Cosmos DB 경고는 Azure Cosmos DB 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도로 인해 생성됩니다.
 

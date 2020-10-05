@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905483"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447216"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
@@ -71,7 +71,7 @@ Security Center는 데이터를 저장할 기본 작업 영역을 자동으로 �
 Security Center가 만든 작업 영역을 선택하려면:
 
 1. **기본 작업 영역 구성** 아래에서 [Security Center가 만든 작업 영역 사용]을 선택합니다.
-   ![가격 책정 계층 선택][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용"::: 
 
 1. **저장**을 클릭합니다.<br>
     Security Center는 해당 지리적 위치에 새 리소스 그룹 및 기본 작업 영역을 만들고 에이전트를 해당 작업 영역에 연결합니다. 작업 영역 및 리소스 그룹에 대한 명명 규칙은 다음과 같습니다.<br>
@@ -81,7 +81,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 1. Security Center는 구독에 설정된 가격 책정 계층에 따라 작업 영역에서 자동으로 Security Center 솔루션을 사용합니다. 
 
 > [!NOTE]
-> Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. Azure Defender가 없는 구독의 경우 기본 작업 영역에서 *Securitycenter 무료* 솔루션을 사용 하도록 설정 Security Center. Azure Defender에 대 한 구독의 경우 기본 작업 영역에서 *보안* 솔루션을 사용 하도록 설정 Security Center.
+> Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. Azure Defender가 없는 구독의 경우 Security Center는 기본 작업 영역에서 *SecurityCenterFree* 솔루션을 사용하도록 설정합니다. Azure Defender가 있는 구독의 경우 Security Center는 기본 작업 영역에서 *Security* 솔루션을 사용하도록 설정합니다.
 > Log Analytics의 데이터를 저장하면 데이터 스토리지에 대한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 기존 Log Analytics 계정에 대한 자세한 내용은 [기존 Log Analytics 고객](./faq-azure-monitor-logs.md)을 참조하세요.
@@ -99,8 +99,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 기존 Log Analytics 작업 영역을 선택하려면 다음을 수행합니다.
 
 1. **기본 작업 영역 구성** 아래에서 **다른 작업 영역 사용**을 선택합니다.
-
-   ![다른 작업 영역 사용][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용"::: 
 
 2. 풀다운 메뉴에서 수집된 데이터를 저장할 작업 영역을 선택합니다.
 
@@ -122,17 +121,17 @@ Security Center가 만든 작업 영역을 선택하려면:
 
    - 작업을 취소하려면 **취소**를 선택합니다.
 
-     ![모니터링 되는 Vm을 다시 구성 하는 옵션 검토][3]
+     ![모니터링되는 VM을 다시 구성하는 옵션 검토][3]
 
-5. 작업 영역에서 Azure Defender를 사용 하도록 설정할지 여부를 선택 합니다.
+5. 작업 영역에 Azure Defender를 사용하도록 설정할지 여부를 선택합니다.
 
     기존 작업 영역을 사용하려면 작업 영역의 가격 책정 계층을 설정합니다. 그러면 아직 Security Center 솔루션이 없는 경우 작업 영역에 설치됩니다.
 
     1. Security Center 주 메뉴에서 **가격 책정 및 설정**을 선택합니다.
      
-    1. 에이전트를 연결할 작업 영역을 선택 합니다.
+    1. 에이전트를 연결할 작업 영역을 선택합니다.
 
-    1. **Azure defender on** 또는 **azure defender off**를 선택 합니다.
+    1. **Azure Defender 켜기** 또는 **Azure Defender 끄기**를 선택합니다.
 
    
    >[!NOTE]
@@ -158,7 +157,7 @@ Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytic
 
 
 > [!NOTE]
-> 이러한 보안 이벤트 집합은 Azure Defender 에서만 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+> 이러한 보안 이벤트 세트는 Azure Defender에서만 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
 이러한 집합은 일반적인 시나리오를 해결하도록 설계되었습니다. 특정 집합을 구현하기 전에 요구에 적합한 집합을 평가하세요.
 >
 >
@@ -191,10 +190,10 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 >
 
 필터링 정책을 선택하려면 다음을 수행합니다.
-1. **데이터 수집** 페이지의 **보안 이벤트**에서 필터링 정책을 선택합니다.
-2. **저장**을 선택합니다.
-
-   ![필터링 정책 선택][5]
+1. **데이터 수집** 페이지의 **추가 원시 데이터 저장 - Windows 보안 이벤트**에서 필터링 정책을 선택합니다.
+ 
+1. **저장**을 선택합니다.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용":::
 
 ### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>기존 에이전트 설치 시 자동 프로비저닝 <a name="preexisting"></a> 
 
@@ -207,7 +206,7 @@ Log Analytics 에이전트가 VM에 직접 설치되어 있는 경우(Azure 확�
 <br>
 Linux 컴퓨터의 경우 에이전트 멀티 호밍은 아직 지원되지 않습니다. 따라서 기존 에이전트 설치가 탐지되면 자동 프로비저닝이 발생하지 않고 컴퓨터의 구성이 변경되지 않습니다.
 <br>
-Security Center 등록 구독에 있는 기존 컴퓨터의 경우 2019 3 월 이전에는 기존 에이전트가 검색 될 때 Log Analytics 에이전트 확장이 설치 되지 않으며 컴퓨터에는 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결하려면 "컴퓨터의 모니터링 에이전트 상태 문제 해결" 권장 사항을 참조하세요
+기존 에이전트가 탐지되면 2019년 3월 17일 이전에 Security Center에 등록된 구독 중인 기존 머신의 경우 Log Analytics 에이전트 확장이 설치되지 않고 머신에 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결하려면 "컴퓨터의 모니터링 에이전트 상태 문제 해결" 권장 사항을 참조하세요
 
   
 - System Center Operations Manager 에이전트가 컴퓨터에 설치되어 있음<br>
@@ -219,15 +218,15 @@ Security Center는 Log Analytics 에이전트 확장을 기존 Operations Manage
     - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치되어 있고 기존 Log Analytics 작업 영역에 보고하는 환경을 갖고 있는 경우 [Azure Security Center에서 지원하는 운영 체제](security-center-os-coverage.md) 목록을 검토하여 현재 운영 체제가 지원되는지 확인하세요. 자세한 내용은 [기존 Log Analytics 고객](./faq-azure-monitor-logs.md)을 참조하세요.
  
 ### <a name="turn-off-automatic-provisioning"></a>자동 프로비전 끄기 <a name="offprovisioning"></a>
-Log Analytics 에이전트의 자동 프로 비전을 해제 하려면 다음을 수행 합니다.
+Log Analytics 에이전트의 자동 프로비저닝을 끄려면 다음을 수행합니다.
 
 1. 포털의 Security Center 메뉴에서 **가격 책정 & 설정**을 선택합니다.
 2. 관련 구독을 선택합니다.
 
-   ![구독 선택][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용":::
 
 3. **데이터 수집**을 선택합니다.
-4. 자동 프로 **비전**에서 **끄기** 를 선택 하 여 자동 프로비저닝을 사용 하지 않도록 설정 합니다.
+4. **자동 프로비저닝** 아래에서 **끄기**를 선택하여 자동 프로비저닝을 사용하지 않도록 설정합니다.
 5. **저장**을 선택합니다. 
 
 
@@ -248,26 +247,26 @@ Log Analytics 에이전트를 수동으로 설치하는 방법에는 여러 가�
 
 Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Log Analytics 에이전트를 수동으로 설치할 수 있습니다.
 
-1. 자동 프로비저닝을 사용 하지 않도록 설정 합니다.
+1. 자동 프로비저닝을 사용하지 않도록 설정합니다.
 
 1. 필요에 따라 작업 영역을 만듭니다.
 
-1. Log Analytics 에이전트를 설치 하는 작업 영역에서 Azure Defender를 사용 하도록 설정 합니다.
+1. Log Analytics 에이전트를 설치할 작업 영역에서 Azure Defender를 사용하도록 설정합니다.
 
     1. Security Center 메뉴에서 **가격 책정 및 설정**을 선택합니다.
 
-    1. 에이전트를 설치 하는 작업 영역을 설정 합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
+    1. 에이전트를 설치할 작업 영역을 설정합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
 
-    1. Azure Defender를 켜기로 설정 하 고 **저장**을 선택 합니다.
+    1. Azure Defender를 켜기로 설정하고 **저장**을 선택합니다.
 
        >[!NOTE]
        >작업 영역에서 **보안** 또는 **SecurityCenterFree** 솔루션이 이미 설정된 경우 가격 책정이 자동으로 설정됩니다. 
 
-1. 리소스 관리자 템플릿을 사용 하 여 새 Vm에 에이전트를 배포 하려는 경우 Log Analytics 에이전트를 설치 합니다.
+1. Resource Manager 템플릿을 사용하여 새 VM에 에이전트를 배포하려면 Log Analytics 에이전트를 설치합니다.
 
-   a.  [Windows 용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-windows.md)
+   a.  [Windows용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Linux 용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-linux.md)
+   b.  [Linux용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-linux.md)
 
 1. 기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
 
@@ -275,11 +274,11 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
    > **이벤트 및 성능 데이터 수집**은 선택 사항입니다.
    >
 
-1. PowerShell을 사용 하 여 확장을 배포 하려면 virtual machines 설명서의 지침을 사용 합니다.
+1. PowerShell을 사용하여 확장을 배포하려면 가상 머신 설명서의 지침을 참고하세요.
 
     - [Windows 컴퓨터의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-    - [Linux 컴퓨터의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [Linux 머신의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
 
 
 
@@ -309,13 +308,7 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png
