@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 33bc52d3c334919a9e93d9666a24d85e3fe158b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91376312"
 ---
 Metrics Monitor는 시계열 변칙 검색, 진단 및 분석을 위한 서비스입니다. AI 지원 서비스로, 데이터를 사용하여 사용 모델을 학습시킵니다. 이 서비스는 다음 열을 사용하여 집계된 데이터의 테이블을 허용합니다.
