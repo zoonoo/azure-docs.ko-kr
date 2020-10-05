@@ -4,10 +4,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 5/17/2020
 ms.openlocfilehash: 79a45825be66b44d869ef741917436de87a1f5d0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83653157"
 ---
 정규화의 [개념](../luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation)과 [버전](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API를 사용하여 이러한 설정을 업데이트하거나 LUIS 포털의 **관리** 섹션, **설정** 페이지를 사용하는 방법에 대해 알아봅니다.

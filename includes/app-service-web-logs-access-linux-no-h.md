@@ -9,10 +9,10 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
-ms.translationtype: MT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84905627"
 ---
 컨테이너 내부에서 생성된 콘솔 로그에 액세스할 수 있습니다. 먼저 Cloud Shell에서 다음 명령을 실행하여 컨테이너 로깅을 설정합니다.

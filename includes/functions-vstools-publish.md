@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: db6f5927e1cbdb3527014ccbb277c7ec20b02600
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84231523"
 ---
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
@@ -51,6 +51,6 @@ ms.locfileid: "84231523"
     
 1.  게시 탭에서 **클라우드 탐색기에서 관리**를 선택합니다. 그러면 클라우드 탐색기에서 새 함수 앱 Azure 리소스가 열립니다. 
     
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="게시 성공 메시지":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="게시 프로필 만들기":::
     
     클라우드 탐색기를 통해 Visual Studio를 사용하여 사이트의 콘텐츠를 확인하고, 함수 앱을 시작 및 중지하고, Azure 및 Azure Portal에서 함수 앱 리소스를 직접 찾아볼 수 있습니다. 
