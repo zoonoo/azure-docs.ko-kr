@@ -9,10 +9,10 @@ ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
 ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88639116"
 ---
 이 문서에서 만든 리소스를 계속 사용하지 않으려면 여기에서 만든 리소스 그룹을 삭제하여 요금이 부과되지 않도록 하세요.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88586718"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Azure Load Balancer의 새로운 기능
@@ -27,7 +27,7 @@ Azure Load Balancer는 정기적으로 업데이트됩니다. 최신 공지 사�
 
 ## <a name="recent-releases"></a>최근 릴리스
 
-| Type |속성 |Description  |추가된 날짜  |
+| Type |Name |Description  |추가된 날짜  |
 | ------ |---------|---------|---------|
 | 기능 | IP 기반 백 엔드 풀 관리 지원(미리 보기) | Azure Load Balancer는 IPv4 또는 IPv6 주소를 통해 백 엔드 풀에서 리소스 추가 및 제거를 지원합니다. 이렇게 하면 Load Balancer와 연결된 컨테이너, 가상 머신 및 가상 머신 확장 집합을 쉽게 관리할 수 있습니다. 또한 관련 리소스를 만들기 전에 IP 주소를 백 엔드 풀의 일부로 예약할 수 있습니다. [여기](backend-pool-management.md)에서 자세히 알아보세요.|2020년 7월 |
 | 기능| Azure Monitor를 사용하는 Azure Load Balancer Insights | 네트워크용 Azure Monitor의 일부로 빌드된 고객은 이제 Azure Portal에서 메트릭으로 미리 구성된 표준 Load Balancers용 모든 Load Balancer 구성과 상태 대시보드에 대한 토폴로지 맵을 보유하고 있습니다. [시작 및 자세한 정보](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | 2020년 6월 |
