@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086779"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597974"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>SAS 정의를 만들고 코드에서 공유 액세스 서명 토큰 가져오기
 
@@ -42,6 +42,9 @@ SAS 정의가 만들어지면 `SecretClient`를 사용하여 비밀과 같은 SA
 공유 액세스 서명 토큰이 곧 만료되는 경우 동일한 비밀을 다시 가져와서 새 토큰을 생성할 수 있습니다.
 
 Key Vault SAS 토큰에서 검색을 사용하여 Azure Storage 서비스에 액세스하는 방법에 대한 가이드는 [계정 SAS를 사용하여 Blob 서비스에 액세스](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)를 참조하세요.
+
+> [!NOTE]
+> 앱은 Storage에서 403 오류가 발생할 경우 키가 손상되어 일반 회전 기간보다 더 빠르게 회전시켜야 하는 상황에 대비할 수 있도록 SAS를 새로 고칠 준비가 되어 있어야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [SAS를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../../storage/common/storage-sas-overview.md) 방법을 알아보세요.

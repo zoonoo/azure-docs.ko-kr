@@ -1,21 +1,21 @@
 ---
 title: Azure Automation에서 역할 권한 및 보안 관리
-description: 이 문서에서는 Azure 리소스에 대 한 액세스 관리를 가능 하 게 하는 RBAC (역할 기반 액세스 제어)를 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 azure 리소스에 대 한 액세스 관리를 가능 하 게 하는 azure RBAC (역할 기반 액세스 제어)를 사용 하는 방법을 설명 합니다.
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528671"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716158"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
-RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../role-based-access-control/overview.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 애플리케이션에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
+Azure RBAC (역할 기반 액세스 제어)는 Azure 리소스에 대 한 액세스 관리를 가능 하 게 합니다. [AZURE RBAC](../role-based-access-control/overview.md)를 사용 하면 팀 내에서 업무를 분리 하 고 사용자, 그룹 및 응용 프로그램에 대 한 액세스 권한만 부여 하 여 작업을 수행 해야 할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
 
 ## <a name="roles-in-automation-accounts"></a>Automation 계정의 역할
 
@@ -267,14 +267,14 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |Automation 계정    | 가상 머신 참가자        | 계정의 리소스 그룹        |
 |Log Analytics 작업 영역     | Log Analytics 참가자| Log Analytics 작업 영역        |
 |Log Analytics 작업 영역 |Log Analytics 독자| Subscription|
-|솔루션     |Log Analytics 참가자         | 해결 방법|
+|해결 방법     |Log Analytics 참가자         | 해결 방법|
 |Virtual Machine     | 가상 머신 참가자        | Virtual Machine        |
 
-## <a name="configure-rbac-for-your-automation-account"></a>Automation 계정에 대한 RBAC 구성
+## <a name="configure-azure-rbac-for-your-automation-account"></a>Automation 계정에 대 한 Azure RBAC 구성
 
-다음 섹션에서는 [Azure Portal](#configure-rbac-using-the-azure-portal) 및 [PowerShell](#configure-rbac-using-powershell)을 통해 Automation 계정에서 RBAC를 구성하는 방법을 보여 줍니다.
+다음 섹션에서는 [Azure Portal](#configure-azure-rbac-using-the-azure-portal) 및 [PowerShell](#configure-azure-rbac-using-powershell)을 통해 AUTOMATION 계정에서 Azure RBAC를 구성 하는 방법을 보여 줍니다.
 
-### <a name="configure-rbac-using-the-azure-portal"></a>Azure Portal을 사용한 RBAC 구성
+### <a name="configure-azure-rbac-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure RBAC 구성
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Automation 계정 페이지에서 Automation 계정을 엽니다.
 2. **액세스 제어(IAM)** 를 클릭하여 액세스 제어(IAM) 페이지를 엽니다. 이 페이지에서는 새 사용자, 그룹 및 애플리케이션을 추가하여 Automation 계정을 관리하고 Automation 계정에 대해 구성할 수 있는 기존 역할을 볼 수 있습니다.
@@ -315,7 +315,7 @@ Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에�
 
    ![사용자 제거](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-### <a name="configure-rbac-using-powershell"></a>PowerShell을 사용한 RBAC 구성
+### <a name="configure-azure-rbac-using-powershell"></a>PowerShell을 사용 하 여 Azure RBAC 구성
 
 다음 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
 
@@ -398,9 +398,9 @@ Automation 계정 범위에서 Automation 운영자 역할이 할당된 사용�
 
 ![리소스에 대한 액세스 권한 없음](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
-## <a name="configure-rbac-for-runbooks"></a>Runbook에 대해 RBAC 구성
+## <a name="configure-azure-rbac-for-runbooks"></a>Runbook에 대 한 Azure RBAC 구성
 
-Azure Automation에서는 특정 Runbook에 RBAC를 할당할 수 있습니다. 이렇게 하려면 다음 스크립트를 실행하여 특정 Runbook에 사용자를 추가합니다. 이 스크립트는 Automation 계정 관리자 또는 테넌트 관리자가 실행할 수 있습니다.
+Azure Automation를 사용 하면 Azure 역할을 특정 runbook에 할당할 수 있습니다. 이렇게 하려면 다음 스크립트를 실행하여 특정 Runbook에 사용자를 추가합니다. 이 스크립트는 Automation 계정 관리자 또는 테넌트 관리자가 실행할 수 있습니다.
 
 ```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation account
@@ -423,7 +423,7 @@ New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook O
 
 스크립트가 실행되면 사용자가 Azure Portal에 로그인하고 **모든 리소스**를 선택하도록 합니다. 사용자는 목록에서 본인이 Automation Runbook 운영자로 추가된 Runbook을 볼 수 있습니다.
 
-![포털의 Runbook RBAC](./media/automation-role-based-access-control/runbook-rbac.png)
+![포털에서 Azure RBAC Runbook](./media/automation-role-based-access-control/runbook-rbac.png)
 
 ### <a name="user-experience-for-automation-operator-role---runbook"></a>Automation 운영자 역할에 대한 사용자 환경 - Runbook
 
@@ -433,6 +433,6 @@ Runbook 범위에서 Automation 운영자 역할이 할당된 사용자가 할�
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell RBAC에 대한 자세한 내용은 [Azure PowerShell을 사용하여 RBAC 관리](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
+* PowerShell을 사용 하 여 Azure RBAC에 대해 자세히 알아보려면 [Azure PowerShell를 사용 하 여 azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-powershell.md)를 참조 하세요.
 * Runbook 유형에 대한 자세한 내용은 [Azure Automation Runbook 유형](automation-runbook-types.md)을 참조하세요.
 * Runbook을 시작하려면 [Azure Automation에서 Runbook 시작](start-runbooks.md)을 참조하세요.

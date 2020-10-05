@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 지원 클러스터 구성에 GitOps 사용(미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541631"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714182"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster (Preview)에서 GitOps를 사용 하 여 구성 배포
 
@@ -23,7 +23,7 @@ GitOps는 Git 리포지토리에서 Kubernetes 구성 (배포, 네임 스페이�
 
 `config-agent`클러스터에서 실행 되는는 `sourceControlConfiguration` Azure Arc enabled Kubernetes 리소스에서 새로운 또는 업데이트 된 확장 리소스를 감시 하 고, flux 운영자를 배포 하 여 Git 리포지토리를 시청 하 고,에 대 한 모든 업데이트를 전파 하는 작업을 담당 합니다 `sourceControlConfiguration` . `sourceControlConfiguration` `namespace` 다중 테 넌 트를 얻기 위해 동일한 Azure Arc 사용 Kubernetes 클러스터에서 범위를 사용 하 여 여러 리소스를 만들 수도 있습니다. 이러한 경우 각 연산자는 해당 네임 스페이스에만 구성을 배포할 수 있습니다.
 
-Git 리포지토리에는 네임스페이스, ConfigMaps, 배포, DaemonSets 등을 비롯한 모든 유효한 Kubernetes 리소스가 포함될 수 있습니다.  애플리케이션 배포용 Helm 차트가 포함될 수도 있습니다. 공통적인 시나리오 집합에는 조직의 기본 구성을 정의하는 것이 포함됩니다. 여기에는 일반적인 RBAC 역할 및 바인딩, 모니터링 또는 로깅 에이전트, 또는 클러스터 전체 서비스가 포함될 수 있습니다.
+Git 리포지토리에는 네임스페이스, ConfigMaps, 배포, DaemonSets 등을 비롯한 모든 유효한 Kubernetes 리소스가 포함될 수 있습니다.  애플리케이션 배포용 Helm 차트가 포함될 수도 있습니다. 일반적인 시나리오 집합에는 조직에 대 한 기본 구성을 정의 하는 것이 포함 됩니다. 여기에는 일반적인 Azure 역할 및 바인딩, 모니터링 또는 로깅 에이전트 또는 클러스터 전체 서비스가 포함 될 수 있습니다.
 
 동일한 패턴을 사용 하 여 더 큰 클러스터 컬렉션을 관리할 수 있습니다 .이는 다른 유형의 환경에서 배포 될 수 있습니다. 예를 들어 조직의 기준 구성을 정의하고 수십 개의 Kubernetes 클러스터에 한 번에 적용하는 하나의 리포지토리가 있을 수 있습니다. [Azure 정책은](use-azure-policy.md) `sourceControlConfiguration` 범위 (구독 또는 리소스 그룹)의 모든 Azure Arc 사용 Kubernetes 리소스에서 특정 매개 변수 집합을 사용 하 여 만들기를 자동화할 수 있습니다.
 

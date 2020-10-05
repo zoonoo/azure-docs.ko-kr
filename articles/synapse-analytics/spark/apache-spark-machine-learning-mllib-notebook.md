@@ -1,24 +1,24 @@
 ---
-title: Apache Spark MLlib를 사용 하 여 machine learning 앱 빌드
-description: 로지스틱 회귀를 통한 분류를 사용하여 데이터 세트를 분석하는 기계 학습 앱을 만드는 데 Apache Spark MLlib을 사용하는 방법에 대해 알아봅니다.
+title: '자습서: Apache Spark MLlib를 사용하여 기계 학습 앱 빌드'
+description: Apache Spark MLlib에서 로지스틱 회귀를 통한 분류를 사용하여 데이터 세트를 분석하는 기계 학습 앱을 만드는 방법에 대한 자습서입니다.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.reviewer: jrasnick
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 2b641075a45db29c07b96c1934d4540f4c3292dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259988"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540322"
 ---
-# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
+# <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>자습서: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 
-이 문서에서는 Apache Spark [Mllib](https://spark.apache.org/mllib/) 를 사용 하 여 Azure open 데이터 집합에 대 한 간단한 예측 분석을 수행 하는 기계 학습 응용 프로그램을 만드는 방법에 대해 알아봅니다. Spark는 기본 제공 기계 학습 라이브러리를 제공합니다. 이 예제에서는 로지스틱 회귀를 통한 *분류*를 사용합니다.
+이 문서에서는 Apache Spark [MLlib](https://spark.apache.org/mllib/)를 사용하여 Azure 공개 데이터 세트에 대한 간단한 예측 분석을 수행하는 기계 학습 애플리케이션을 만드는 방법에 대해 알아봅니다. Spark는 기본 제공 기계 학습 라이브러리를 제공합니다. 이 예제에서는 로지스틱 회귀를 통한 *분류*를 사용합니다.
 
 MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 태스크에 유용한 여러 유틸리티를 제공하는 핵심 Spark 라이브러리입니다.
 
@@ -71,7 +71,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 
 원시 데이터는 Parquet 형식이기 때문에 Spark 컨텍스트를 사용하여 직접 데이터 프레임으로 파일을 메모리로 풀할 수 있습니다. 아래 코드에서는 기본 옵션을 사용하지만 필요에 따라 데이터 형식 및 기타 스키마 특성을 강제로 매핑할 수도 있습니다.
 
-1. 다음 줄을 실행하여 새 셀에 코드를 붙여넣어 Spark 데이터 프레임을 만듭니다. 그러면 개방형 데이터 집합 API를 통해 데이터를 검색 합니다. 이 데이터를 모두 풀하면 약 15억 행이 생성됩니다. Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 이 데이터를 더 작은 값으로 필터링할 수 있습니다. 다음 코드 예제에서는 start_date 및 end_date를 사용 하 여 한 달 동안의 데이터를 반환 하는 필터를 적용 합니다.
+1. 다음 줄을 실행하여 새 셀에 코드를 붙여넣어 Spark 데이터 프레임을 만듭니다. Open Datasets API를 통해 데이터를 검색합니다. 이 데이터를 모두 풀하면 약 15억 행이 생성됩니다. Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 이 데이터를 더 작은 값으로 필터링할 수 있습니다. 다음 코드 예제에서는 start_date 및 end_date를 사용하여 한 달 분량의 데이터를 반환하는 필터를 적용합니다.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -96,7 +96,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
     display(sampled_taxi_df)
     ```
 
-4. 생성 된 데이터 집합 크기와 노트북을 여러 번 실험 하거나 실행 해야 하는 경우에 따라 작업 영역에서 로컬로 데이터 집합을 캐시 하는 것이 좋습니다. 다음 세 가지 방법으로 명시적 캐싱을 수행할 수 있습니다.
+4. 생성된 데이터 세트 크기와 Notebook을 여러 번 실험하거나 실행해야 하는 필요성에 따라 작업 영역에서 데이터 세트를 로컬로 캐시하는 것이 좋습니다. 명시적 캐싱은 다음 세 가지 방법으로 수행할 수 있습니다.
 
    - 로컬로 데이터 프레임을 파일로 저장
    - 데이터 프레임을 임시 테이블 또는 보기로 저장
@@ -157,7 +157,7 @@ plt.show()
 - 필터링을 통해 이상값/잘못된 값을 제거
 - 필요하지 않은 열을 제거
 - 모델이 더 효율적으로 작동하도록 원시 데이터에서 파생된 새 열을 생성(기능화라고도 함)
-- 레이블 지정-이진 분류를 수행 하 고 있기 때문에 (지정 된 여행에 대 한 팁이 있거나 그렇지 않음) tip amount를 0 또는 1 값으로 변환 해야 합니다.
+- 레이블 지정 - 이진 분류(지정된 이동에 팁이 있는지 여부)를 수행하므로 팁 금액(tip amount)을 0 또는 1 값으로 변환해야 합니다.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>로지스틱 회귀 모델 만들기
 
-마지막 작업은 레이블이 지정된 데이터를 로지스틱 회귀로 분석할 수 있는 형식으로 변환하는 것입니다. 로지스틱 회귀 알고리즘에 대한 입력은 *레이블-기능 벡터 쌍* 세트여야 하며, 여기서 *기능 벡터*는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 범주 열을 숫자로 변환해야 합니다. `trafficTimeBins`및 `weekdayString` 열은 정수 표현으로 변환 해야 합니다. 변환을 수행하는 방법에는 여러 가지가 있지만, 이 예제에서 사용되는 방법은 일반적인 방법인 *OneHotEncoding*입니다.
+마지막 작업은 레이블이 지정된 데이터를 로지스틱 회귀로 분석할 수 있는 형식으로 변환하는 것입니다. 로지스틱 회귀 알고리즘에 대한 입력은 *레이블-기능 벡터 쌍* 세트여야 하며, 여기서 *기능 벡터*는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 범주 열을 숫자로 변환해야 합니다. `trafficTimeBins` 및 `weekdayString` 열을 정수 표현으로 변환해야 합니다. 변환을 수행하는 방법에는 여러 가지가 있지만, 이 예제에서 사용되는 방법은 일반적인 방법인 *OneHotEncoding*입니다.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-이 작업을 수행 하면 모델을 학습 하는 데 적합 한 형식의 모든 열이 포함 된 새 데이터 프레임이 생성 됩니다.
+이 작업을 수행하면 모델을 학습시키는 데 적합한 형식의 모든 열이 포함된 새 데이터 프레임이 생성됩니다.
 
 ## <a name="train-a-logistic-regression-model"></a>로지스틱 회귀 모델 학습
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 이제 두 개의 DataFrame이 있으므로 다음 작업은 모델 수식을 만들고 학습 DataFrame에 대해 실행한 다음, DataFrame 테스트에 대해 유효성을 검사하는 것입니다. 모델 수식의 여러 버전을 실험하여 다양한 조합의 영향을 확인해야 합니다.
 
 > [!Note]
-> 모델을 저장 하려면 저장소 Blob 데이터 참가자 Azure 역할이 필요 합니다. 저장소 계정에서 Access Control (IAM)로 이동 하 여 **역할 할당 추가**를 선택 합니다. 저장소 Blob 데이터 참가자 Azure 역할을 SQL Database 서버에 할당 합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
+> 모델을 저장하려면 Storage Blob 데이터 기여자 Azure 역할이 필요합니다. 스토리지 계정 아래에서 [액세스 제어(IAM)]로 이동하여 **역할 할당 추가**를 선택합니다. Storage Blob 데이터 기여자 Azure 역할을 SQL Database 서버에 할당합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
 
 ```python
 ## Create a new LR object for the model

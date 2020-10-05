@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperfq1
-ms.openlocfilehash: 4a9f243ce32dee9948cd2f2410b5c7f1382bf7c8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a4c32877ddb260e90fb4121b16a9b318616c2a4d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088853"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715838"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
@@ -26,11 +26,11 @@ Azure Portal에서 개별 blob 업로드 작업에 권한을 부여 하는 방�
 
 ## <a name="permissions-needed-to-access-blob-data"></a>Blob 데이터에 액세스 하는 데 필요한 권한
 
-Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하려는 방법에 따라 특정 권한이 필요 합니다. 대부분의 경우 이러한 권한은 RBAC (역할 기반 액세스 제어)를 통해 제공 됩니다. RBAC에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하려는 방법에 따라 특정 권한이 필요 합니다. 대부분의 경우 이러한 권한은 Azure 역할 기반 access control (Azure RBAC)을 통해 제공 됩니다. Azure RBAC에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
-계정 액세스 키를 사용 하 여 blob 데이터에 액세스 하려면 RBAC 작업을 포함 하는 Azure 역할을 사용자에 게 할당 해야 합니다 **. Storage/storageAccounts/listkeys/action**. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
+계정 액세스 키를 사용 하 여 blob 데이터에 액세스 하려면 Azure RBAC 동작 **Microsoft. Storage/storageAccounts/listkeys/action**을 포함 하는 azure 역할을 할당 받아야 합니다. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
 
 - Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
 - Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
@@ -75,11 +75,11 @@ Blob 데이터에 대 한 액세스를 지 원하는 기본 제공 역할은 다
 
 계정 액세스 키를 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **액세스 키** 가 표시 됩니다.
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-method-access-key.png" alt-text="계정 키를 사용 하 여 현재 컨테이너에 액세스 하는 사용자를 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-method-access-key.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 Azure AD 계정을 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 사용자에 게 할당 된 Azure 역할을 통해 적절 한 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 적절 한 권한이 없으면 다음과 같은 오류 메시지가 표시 됩니다.
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-error-azure-ad.png" alt-text="Azure AD 계정이 액세스를 지원 하지 않는 경우 표시 되는 오류":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-error-azure-ad.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 blob이 표시 되지 않습니다. 액세스 키를 사용 하 여 인증 **키로 전환** 링크를 클릭 하 여 인증에 대 한 액세스 키를 다시 사용 합니다.
 
@@ -87,11 +87,11 @@ Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 blob�
 
 Azure AD 계정을 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **AZURE Ad 사용자 계정이** 표시 됩니다.
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-method-azure-ad.png" alt-text="현재 Azure AD 계정을 사용 하 여 컨테이너에 액세스 하는 사용자를 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-method-azure-ad.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 계정 액세스 키를 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 계정 키에 대 한 액세스 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 계정 키에 대 한 액세스 권한이 없는 경우 다음과 같은 오류 메시지가 표시 됩니다.
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-error-access-key.png" alt-text="계정 키에 대 한 액세스 권한이 없는 경우 표시 되는 오류":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-error-access-key.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 계정 키에 대 한 액세스 권한이 없는 경우 목록에 blob이 표시 되지 않습니다. Azure ad **사용자 계정으로 전환** 링크를 클릭 하 여 인증에 azure ad 계정을 다시 사용 합니다.
 
@@ -106,11 +106,11 @@ Blob 업로드 작업에 권한을 부여 하는 방법을 지정 하려면 다�
 1. **고급** 섹션을 확장 하 여 blob에 대 한 고급 속성을 표시 합니다.
 1. 다음 그림에 표시 된 것 처럼 **인증 유형** 필드에서 Azure AD 계정 또는 계정 액세스 키를 사용 하 여 업로드 작업에 권한을 부여할 것인지 여부를 지정 합니다.
 
-    :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Blob 업로드에 대 한 권한 부여 방법을 변경 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 인증](../common/storage-auth-aad.md)
-- [Azure Portal에서 RBAC를 사용 하 여 Azure 컨테이너 및 큐에 대 한 액세스 권한 부여](../common/storage-auth-aad-rbac-portal.md)
-- [Azure CLI에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-rbac-cli.md)
-- [PowerShell에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-rbac-powershell.md)
+- [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-portal.md)
+- [Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-cli.md)
+- [Azure PowerShell 모듈을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-powershell.md)

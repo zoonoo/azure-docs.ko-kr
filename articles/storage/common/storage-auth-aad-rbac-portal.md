@@ -1,7 +1,7 @@
 ---
 title: Azure Portal를 사용 하 여 데이터 액세스를 위한 Azure 역할을 할당 합니다.
 titleSuffix: Azure Storage
-description: Azure Portal를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 보안 주체에 권한을 할당 하는 방법에 대해 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 Azure 사용자 지정 역할을 지원 합니다.
+description: Azure RBAC (역할 기반 액세스 제어)를 통해 Azure Portal를 사용 하 여 Azure Active Directory 보안 주체에 권한을 할당 하는 방법을 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 Azure 사용자 지정 역할을 지원 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249667"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715852"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.
 
@@ -64,11 +64,11 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 1. **역할 할당 추가** 단추를 클릭하여 새 역할을 추가합니다.
 1. **역할 할당 추가** 창에서 할당 하려는 Azure Storage 역할을 선택 합니다. 그런 다음 검색 하 여 해당 역할을 할당 하려는 보안 주체를 찾습니다.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Azure 역할을 할당 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="컨테이너 액세스 제어 설정을 보여 주는 스크린샷":::
 
 1. **저장**을 클릭합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="역할에 할당 된 사용자 목록을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="컨테이너 액세스 제어 설정을 보여 주는 스크린샷":::
 
 비슷한 단계를 수행 하 여 저장소 계정, 리소스 그룹 또는 구독에 범위가 지정 된 역할을 할당할 수 있습니다.
 
@@ -98,9 +98,9 @@ Azure Storage에 대 한 기본 제공 또는 사용자 지정 역할을 보안 
 ## <a name="next-steps"></a>다음 단계
 
 - 저장소 리소스의 Azure 역할에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 azure blob 및 큐에 대 한 액세스 인증](storage-auth-aad.md)을 참조 하세요. 
-- RBAC에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+- Azure RBAC에 대해 자세히 알아보려면 azure [역할 기반 액세스 제어 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 - Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure 역할 할당을 할당 하 고 관리 하는 방법을 알아보려면 다음 문서를 참조 하세요.
-    - [Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) 관리](../../role-based-access-control/role-assignments-powershell.md)
-    - [Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../../role-based-access-control/role-assignments-cli.md)
-    - [REST API를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../../role-based-access-control/role-assignments-rest.md)
+    - [Azure PowerShell 모듈을 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)
+    - [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)
+    - [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-rest.md)
 - 스토리지 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [Azure Storage 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.

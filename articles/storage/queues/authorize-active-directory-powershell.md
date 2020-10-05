@@ -10,22 +10,22 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 1dc8009792163730602827a995c4b6900a0ef08d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 27a742b5f683a7e542ca8d51a711d903b00bda61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108604"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715478"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 큐 데이터 액세스
 
 Azure Storage는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 로그인 하 고 스크립팅 명령을 실행할 수 있는 PowerShell에 대 한 확장을 제공 합니다. Azure AD 자격 증명을 사용 하 여 PowerShell에 로그인 하면 OAuth 2.0 액세스 토큰이 반환 됩니다. 이 토큰은 PowerShell에서 자동으로 사용 되어 큐 저장소에 대해 후속 데이터 작업에 권한을 부여 합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
-RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 데이터를 큐에 추가할 수 있는 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대 한 자세한 내용은 [RBAC를 사용 하 여 데이터 Azure Storage에 대 한 액세스 권한 관리](../common/storage-auth-aad-rbac.md)를 참조 하세요.
+Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 데이터를 큐에 추가할 수 있는 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대 한 자세한 내용은 [AZURE RBAC를 사용 하 여 데이터 Azure Storage에 대 한 액세스 권한 관리](../common/storage-auth-aad-rbac.md)를 참조 하세요.
 
 ## <a name="supported-operations"></a>지원되는 작업
 
-Azure Storage 확장은 큐 데이터 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. Azure Storage 큐에 대 한 사용 권한은 RBAC를 통해 할당 됩니다. 예를 들어 **큐 데이터 판독기** 역할이 할당 된 경우 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **큐 데이터 참가자** 역할이 할당 된 경우 큐 또는 큐에 포함 된 데이터를 읽거나 쓰거나 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
+Azure Storage 확장은 큐 데이터 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. Azure Storage 큐에 대 한 사용 권한은 Azure RBAC를 통해 할당 됩니다. 예를 들어 **큐 데이터 판독기** 역할이 할당 된 경우 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **큐 데이터 참가자** 역할이 할당 된 경우 큐 또는 큐에 포함 된 데이터를 읽거나 쓰거나 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
 
 큐의 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 [OAuth 토큰을 사용 하 여 저장소 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조 하세요.  
 
@@ -68,7 +68,7 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 큐를 만들기 전에 [저장소 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에 게 할당 합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. Azure 역할 할당에 대 한 자세한 내용은 [Azure Portal에서 azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](../common/storage-auth-aad-rbac.md)지정을 참조 하세요.
+1. 큐를 만들기 전에 [저장소 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에 게 할당 합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 azure 역할 할당](../common/storage-auth-aad-rbac.md)을 참조 하세요.
 
     > [!IMPORTANT]
     > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b4d74e7ba869e0438a936817d824e841823d472
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826520"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715716"
 ---
 # <a name="security-controls-for-azure-storage"></a>Azure Storage에 대 한 보안 제어
 
@@ -38,7 +38,7 @@ ms.locfileid: "87826520"
 |---|---|--|
 | 서비스 엔드포인트 지원| 예 |  |
 | 서비스 태그 지원| 예 | Azure Storage에서 지 원하는 서비스 태그에 대 한 자세한 내용은 [Azure 서비스 태그 개요](../../virtual-network/service-tags-overview.md) 를 참조 하세요. |
-| VNet 삽입 지원| 해당 없음 |  |
+| VNet 삽입 지원| N/A |  |
 | 네트워크 격리 및 방화벽 지원| 예 | |
 | 강제 터널링 지원| 해당 없음 |  |
 
@@ -55,7 +55,7 @@ ms.locfileid: "87826520"
 | 보안 컨트롤 | 예/아니요 | 메모|
 |---|---|--|
 | 인증| 예 | Azure Active Directory, 공유 키, 공유 액세스 토큰입니다. |
-| 권한 부여| 예 | RBAC, POSIX Acl 및 SAS 토큰을 통한 인증 지원 |
+| 권한 부여| 예 | Azure RBAC, POSIX Acl 및 SAS 토큰을 통해 권한 부여 지원 |
 
 ## <a name="configuration-management"></a>구성 관리
 

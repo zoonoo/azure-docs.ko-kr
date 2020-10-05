@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614063"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715455"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -115,11 +115,11 @@ ms.locfileid: "89614063"
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>포털이 Azure Resource Manager 템플릿을 지원 하나요? 아니면 API Management DevOps Resource Kit와 호환 되나요?
 
-아닙니다.
+아니요.
 
 ### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>포털 콘텐츠가 API Management의 백업/복원 기능과 함께 저장 되나요?
 
-아닙니다.
+아니요.
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>관리 되는 포털 종속성에 대 한 추가 VNet 연결을 사용 하도록 설정 해야 하나요?
 
@@ -172,7 +172,7 @@ CORS를 수동으로 사용 하도록 설정할 수도 있습니다.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>개발자 포털을 편집 하는 데 필요한 권한은 무엇 인가요?
 
-`Oops. Something went wrong. Please try again later.`관리 모드에서 포털을 열 때 오류가 표시 되 면 필요한 권한 (RBAC)이 없을 수 있습니다.
+`Oops. Something went wrong. Please try again later.`관리 모드에서 포털을 열 때 오류가 표시 되는 경우 필요한 권한 (AZURE RBAC)이 없을 수 있습니다.
 
 이전 포털에서는 `Microsoft.ApiManagement/service/getssotoken/action` `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` 사용자가 포털에 액세스할 수 있도록 서비스 범위 ()에서 사용 권한이 필요 했습니다. 새 포털에는 범위에서 사용 권한이 필요 합니다 `Microsoft.ApiManagement/service/users/token/action` `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 

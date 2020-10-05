@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 68b5946cb21bef1c8979a94c8780682cfe9defa6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376576"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631378"
 ---
-쿼리 내에서 `@StartTime` 매개 변수를 사용하여 특정 타임스탬프에 대한 메트릭 데이터를 가져옵니다. 이는 `yyyy-MM-ddTHH:mm:ss` 형식 문자열로 바뀝니다. 
+쿼리 내에서 `@StartTime` 매개 변수를 사용하여 단일 타임스탬프에 대한 메트릭 데이터를 가져옵니다. 메트릭 관리자가 쿼리를 실행할 때 매개 변수를 `yyyy-MM-ddTHH:mm:ss` 형식 문자열로 바꿉니다.
 
 > [!IMPORTANT]
-> 쿼리에서 **단일 타임스탬프**의 메트릭 데이터만 반환됩니다. Metrics Advisor는 모든 타임스탬프에 대해 쿼리를 실행하여 해당 메트릭 데이터를 가져옵니다. 예를 들어 세분성이 *매일*인 메트릭에 대한 쿼리는 쿼리를 한 번 실행할 때 `2020-06-21T00:00:00Z` 같은 단일 타임스탬프를 하나만 포함해야 합니다. 
+> 각 타임스탬프에서 쿼리는 각 차원 조합에 대해 최대 하나의 레코드를 반환해야 합니다. 그리고 쿼리에서 반환된 모든 레코드의 타임스탬프는 동일해야 합니다. 메트릭 관리자는 각 타임스탬프에 대해 이 쿼리를 실행하여 데이터를 수집합니다. 자세한 정보와 예는 [쿼리에 대한 FAQ 섹션](../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data)을 참조하세요. 

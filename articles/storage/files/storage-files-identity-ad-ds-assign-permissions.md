@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320356"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716046"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>2 부: id에 공유 수준 권한 할당
 
@@ -52,7 +52,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 
 
 ### <a name="powershell"></a>PowerShell
 
-다음 PowerShell 샘플은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. PowerShell로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
+다음 PowerShell 샘플은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. PowerShell로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈을 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)를 참조 하세요.
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 사용자의 값으로 대체 합니다.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-다음 CLI 2.0 명령은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 합니다. Azure CLI와 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC 및 Azure CLI를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
+다음 CLI 2.0 명령은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 합니다. Azure CLI로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 

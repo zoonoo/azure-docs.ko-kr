@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85701f3d073b8f743ddf48910822f152420c4fc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001385"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714815"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 스토리지에 대한 성능 및 확장성 검사 목록
 
@@ -66,7 +66,7 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장�
 특정 구독/지역 조합에 허용 되는 최대 저장소 계정 수에 도달 하는 경우 시나리오를 평가 하 고 다음 조건이 적용 되는지 확인 합니다.
 
 - 저장소 계정을 사용 하 여 관리 되지 않는 디스크를 저장 하 고 해당 디스크를 Vm (가상 컴퓨터)에 추가 하나요? 이 시나리오에서는 Microsoft에서 관리 디스크를 사용 하는 것이 좋습니다. 관리 디스크는 개별 저장소 계정을 만들고 관리할 필요 없이 자동으로 확장 됩니다. 자세한 내용은 [Azure managed Disks 소개](../../virtual-machines/managed-disks-overview.md) 를 참조 하세요.
-- 데이터 격리를 위해 고객 당 하나의 저장소 계정을 사용 하 고 있나요? 이 시나리오에서는 전체 저장소 계정 대신 각 고객에 대해 blob 컨테이너를 사용 하는 것이 좋습니다. 이제 Azure Storage를 사용 하 여 컨테이너 별로 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [Azure Portal에서 RBAC로 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-rbac-portal.md)를 참조하세요.
+- 데이터 격리를 위해 고객 당 하나의 저장소 계정을 사용 하 고 있나요? 이 시나리오에서는 전체 저장소 계정 대신 각 고객에 대해 blob 컨테이너를 사용 하는 것이 좋습니다. 이제 Azure Storage를 사용 하 여 컨테이너 별로 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)을 참조 하세요.
 - 여러 저장소 계정을 분할 하 여 수신, 송신, IOPS (초당 i/o 작업 수) 또는 용량을 늘릴 수 있나요? 이 시나리오에서는 가능한 경우 워크로드에 필요한 스토리지 계정 수를 줄이기 위해 스토리지 계정에 대한 제한을 늘리는 것이 좋습니다. 스토리지 계정에 대한 제한을 늘리도록 요청하려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자세한 내용은 [더 크고 더 높은 규모의 스토리지 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조하세요.
 
 ### <a name="capacity-and-transaction-targets"></a>용량 및 트랜잭션 목표
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 다른 프로그래밍 언어의 경우 연결 제한을 설정 하는 방법을 확인 하려면 설명서를 참조 하세요.  
 
-자세한 내용은 블로그 게시물 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)을 참조 하세요.  
+자세한 내용은 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/) 블로그 게시물을 참조하세요.  
 
 ### <a name="increase-minimum-number-of-threads"></a>최소 스레드 수 늘리기
 

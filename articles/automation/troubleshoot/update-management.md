@@ -5,12 +5,12 @@ services: automation
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359242"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713513"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -226,7 +226,7 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 #### <a name="incorrect-access-on-selected-scopes"></a>선택한 범위에 대한 잘못된 액세스
 
-Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대한 올바른 액세스 권한이 없는 경우 [자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](../../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조하세요.
+Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대 한 올바른 액세스 권한이 없는 경우 [자습서: Azure Portal을 사용 하 여 Azure 리소스에 대 한 사용자 액세스 권한 부여](../../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조 하세요.
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>ARG 쿼리가 예상 머신을 반환하지 않음
 

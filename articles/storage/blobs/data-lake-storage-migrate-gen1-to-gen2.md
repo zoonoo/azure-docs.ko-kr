@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fcd59cb3bf42dc843387043d982e6c43d665784d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486844"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716146"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -98,7 +98,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 |데이터 구성|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>파일 및 폴더 지원|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>컨테이너, 파일 및 폴더 지원 |
 |지리적 중복| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |인증|[AAD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)<br>[공유 액세스 키](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
-|권한 부여|관리- [RBAC](../../role-based-access-control/overview.md)<br>데이터- [acl](data-lake-storage-access-control.md)|관리 – [RBAC](../../role-based-access-control/overview.md)<br>데이터-  [acl](data-lake-storage-access-control.md), [RBAC](../../role-based-access-control/overview.md) |
+|권한 부여|관리- [AZURE RBAC](../../role-based-access-control/overview.md)<br>데이터- [acl](data-lake-storage-access-control.md)|관리- [AZURE RBAC](../../role-based-access-control/overview.md)<br>데이터  [acl](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |암호화 – 미사용 데이터|서버 쪽 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|서버 쪽 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|
 |VNET 지원|[VNET 통합](../../data-lake-store/data-lake-store-network-security.md)|[서비스 끝점](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [개인 끝점](../common/storage-private-endpoints.md)|
 |개발자 환경|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.net](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|일반적으로 사용 가능한 [REST](/rest/api/storageservices/data-lake-storage-gen2), [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>공개 미리 보기- [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|

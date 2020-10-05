@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 781d76cb80dd375c54d1283ecf27f543765f5ddb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077027"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714531"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -75,9 +75,9 @@ Connect-AzAccount
 
 PowerShell을 사용 하 여 로그인 하는 방법에 대 한 자세한 내용은 [Azure PowerShell를 사용 하 여 로그인](/powershell/azure/authenticate-azureps)을 참조 하세요.
 
-## <a name="assign-permissions-with-rbac"></a>RBAC를 사용 하 여 권한 할당
+## <a name="assign-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 사용 권한 할당
 
-Azure PowerShell에서 사용자 위임 SAS를 만들려면 PowerShell에 로그인 하는 데 사용 되는 Azure AD 계정에 **Microsoft Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 역할을 할당 해야 합니다. 이 사용 권한을 통해 Azure AD 계정에서 *사용자 위임 키*를 요청할 수 있습니다. 사용자 위임 키는 사용자 위임 SAS에 서명 하는 데 사용 됩니다. 저장소 계정, 리소스 그룹 또는 구독 수준에서 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 제공 하는 역할을 할당 해야 합니다. 사용자 위임 SAS를 만드는 RBAC 권한에 대 한 자세한 내용은 [사용자 위임 Sas 만들기](/rest/api/storageservices/create-user-delegation-sas)의 **rbac를 사용 하 여 권한 할당** 섹션을 참조 하세요.
+Azure PowerShell에서 사용자 위임 SAS를 만들려면 PowerShell에 로그인 하는 데 사용 되는 Azure AD 계정에 **Microsoft Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 역할을 할당 해야 합니다. 이 사용 권한을 통해 Azure AD 계정에서 *사용자 위임 키*를 요청할 수 있습니다. 사용자 위임 키는 사용자 위임 SAS에 서명 하는 데 사용 됩니다. 저장소 계정, 리소스 그룹 또는 구독 수준에서 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 제공 하는 역할을 할당 해야 합니다. 사용자 위임 SAS를 만들기 위한 Azure RBAC 권한에 대 한 자세한 내용은 [사용자 위임 Sas 만들기](/rest/api/storageservices/create-user-delegation-sas)의 **azure rbac를 사용 하 여 권한 할당** 섹션을 참조 하세요.
 
 Azure AD 보안 주체에 Azure 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 필요한 권한을 할당 하도록 요청 해야 할 수 있습니다.
 

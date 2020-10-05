@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360698"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Azure Portal의 청구 계정 및 범위
 
@@ -80,7 +80,7 @@ Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니�
 
 2. **Cost Management + 청구**를 검색합니다.
 
-   ![Azure Portal 검색을 보여 주는 스크린샷](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Cost Management + Billing에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. 개요 페이지에서 **범위를 전환하세요**를 선택합니다.
 
@@ -92,7 +92,7 @@ Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니�
 
 4. 세부 정보를 볼 범위를 선택합니다.
 
-   ![청구 범위를 보여주는 스크린샷](./media/view-all-accounts/list-of-scopes.png)
+   ![선택하여 세부 정보를 볼 수 있는 청구 범위를 보여 주는 스크린샷](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>계정 유형 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

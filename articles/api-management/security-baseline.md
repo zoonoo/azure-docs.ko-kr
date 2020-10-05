@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d6c954d6336a0b88f57ba1f70571263af5d1c583
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229806"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713770"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -187,7 +187,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 **지침**: Azure API Management 배포와 관련된 네트워크 설정에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 및 "Microsoft.Network" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 배포 및 관련 리소스에 대한 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. Azure Virtual Networks에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
-또한 Azure Blueprints에서 주요 환경 아티팩트(예: Azure Resource Manager 템플릿, RBAC(역할 기반 액세스 제어) 및 정책)를 단일 청사진 정의로 패키지하여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
+또한 Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 단일 청사진 정의의 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987274"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714648"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -22,7 +22,7 @@ Azure Portal에서 Automation 계정을 만드는 경우 **실행** 계정이 �
 
 * Azure AD(Azure Active Directory)에서 서비스 주체 만들기
 * 인증서 만들기
-* Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 참가자 RBAC(역할 기반 액세스 제어)를 할당합니다.
+* Runbook을 사용 하 여 Azure Resource Manager 리소스를 관리 하는 참가자 역할을 할당 합니다.
 
 이 계정을 만들면 Runbook을 신속하게 빌드하고 배포하기 시작하여 자동화 요구 사항을 지원할 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    > [!NOTE]
    > **Azure 실행 계정 만들기**에서 **아니요**를 선택하여 실행 계정을 만들지 않는 경우 Automation 계정 추가 창에 메시지가 표시됩니다. Azure Portal에서 계정이 생성되지만 계정에는 클래식 모델 구독 또는 Azure Resource Manager 구독 디렉터리 서비스에서 해당하는 인증 ID가 없습니다. 따라서 Automation 계정에는 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="' 실행 계정을 만들지 않기로 선택 했습니다. ' 메시지가 표시 된 프롬프트 스크린샷":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="' Azure Active directory에 실행 계정을 만들 수 있는 권한이 없습니다. ' 라는 프롬프트의 스크린샷":::
    >
    > 서비스 주체가 생성되지 않은 경우 참여자 역할은 할당되지 않습니다.
    >

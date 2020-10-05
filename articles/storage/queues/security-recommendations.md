@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986630"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715400"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Queue storage에 대 한 보안 권장 사항
 
@@ -29,7 +29,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 
 | 권장 | 주석 | Security Center |
 |-|----|--|
-| Azure Resource Manager 배포 모델 사용 | Azure Resource Manager 배포 모델을 사용 하 여 새로운 저장소 계정을 만듭니다 .이를 통해 RBAC (고급 액세스 제어) 및 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id에 대 한 액세스, 암호에 대 한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대 한 액세스 권한 부여를 비롯 한 중요 한 보안 향상을 위해 가능 하면 클래식 배포 모델을 사용 하는 기존 저장소 계정을 Azure Resource Manager를 사용 하 여 마이그레이션합니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)를 참조 하세요. | - |
+| Azure Resource Manager 배포 모델 사용 | Azure RBAC (역할 기반 액세스 제어) 및 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id 액세스, 암호에 대 한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대 한 액세스 권한 부여를 비롯 하 여 중요 한 보안 향상을 위해 Azure Resource Manager 배포 모델을 사용 하 여 새 저장소 계정을 만듭니다. 가능 하면 클래식 배포 모델을 사용 하는 기존 저장소 계정을 Azure Resource Manager를 사용 하 여 마이그레이션합니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)를 참조 하세요. | - |
 | 모든 저장소 계정에 대해 advanced threat protection 사용 | Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Advanced threat protection](../common/azure-defender-storage-configure.md)을 참조 하세요. | [예](../../security-center/security-center-sql-service-recommendations.md) |
 | SAS (공유 액세스 서명) 토큰을 HTTPS 연결로만 제한 | 클라이언트에서 SAS 토큰을 사용 하 여 큐 데이터에 액세스 하는 경우 도청의 위험을 최소화 하는 데 도움이 되는 HTTPS 필요 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요. | - |
 
@@ -38,7 +38,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 권장 | 주석 | Security Center |
 |-|----|--|
 | Azure AD (Azure Active Directory)를 사용 하 여 큐 데이터에 대 한 액세스 권한 부여 | Azure AD는 큐 저장소에 대 한 요청에 권한을 부여 하기 위해 공유 키를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여](../common/storage-auth-aad.md)를 참조 하세요. | - |
-| RBAC를 통해 Azure AD 보안 주체에 사용 권한을 할당 하는 경우 최소 권한의 원칙을 염두에 두어야 합니다. | 사용자, 그룹 또는 응용 프로그램에 역할을 할당 하는 경우 해당 보안 주체에 게 해당 작업을 수행 하는 데 필요한 권한만 부여 합니다. 리소스에 대 한 액세스를 제한 하면 의도 하지 않은 데이터의 악의적인 오용을 방지할 수 있습니다. | - |
+| Azure RBAC를 통해 Azure AD 보안 주체에 사용 권한을 할당 하는 경우 최소 권한의 원칙을 염두에 두어야 합니다. | 사용자, 그룹 또는 응용 프로그램에 역할을 할당 하는 경우 해당 보안 주체에 게 해당 작업을 수행 하는 데 필요한 권한만 부여 합니다. 리소스에 대 한 액세스를 제한 하면 의도 하지 않은 데이터의 악의적인 오용을 방지할 수 있습니다. | - |
 | Azure Key Vault를 사용 하 여 계정 액세스 키 보호 | Microsoft는 Azure AD를 사용 하 여 Azure Storage 요청에 권한을 부여 하는 것을 권장 합니다. 그러나 공유 키 인증을 사용 해야 하는 경우에는 Azure Key Vault를 사용 하 여 계정 키를 보호 해야 합니다. 응용 프로그램을 사용 하 여 키를 저장 하는 대신 런타임에 키 자격 증명 모음에서 키를 검색할 수 있습니다. | - |
 | 정기적으로 계정 키 다시 생성 | 정기적으로 계정 키를 회전 하면 악의적인 행위자에 게 데이터를 노출 하는 위험을 줄일 수 있습니다. | - |
 | SAS에 사용 권한을 할당 하는 경우 최소 권한의 원칙을 염두에 두어야 합니다. | SAS를 만들 때 클라이언트에서 해당 기능을 수행 하는 데 필요한 사용 권한만 지정 합니다. 리소스에 대 한 액세스를 제한 하면 의도 하지 않은 데이터의 악의적인 오용을 방지할 수 있습니다. | - |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228276"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715150"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -380,13 +380,13 @@ Microsoft 서비스 및 Azure ARM에 대해 Azure AD Privileged Identity Managem
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 스토리지 계정의 리소스에 대한 클라이언트 액세스를 자세히 제어하기 위해 RBAC(역할 기반 액세스 제어)를 제공합니다.  가능 하면 계정 키를 사용 하는 대신 보안 모범 사례로 Azure AD 자격 증명을 사용 하 여 더 쉽게 손상 시킬 수 있습니다. 응용 프로그램 디자인에 Blob 저장소에 대 한 액세스를 위해 공유 액세스 서명이 필요한 경우 Azure AD 자격 증명을 사용 하 여 뛰어난 보안을 위해 가능한 경우 사용자 위임 공유 액세스 서명 (SAS)을 만듭니다.
+**지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure는 저장소 계정의 리소스에 대 한 클라이언트 액세스를 세부적으로 제어할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 제공 합니다.  가능 하면 계정 키를 사용 하는 대신 보안 모범 사례로 Azure AD 자격 증명을 사용 하 여 더 쉽게 손상 시킬 수 있습니다. 응용 프로그램 디자인에 Blob 저장소에 대 한 액세스를 위해 공유 액세스 서명이 필요한 경우 Azure AD 자격 증명을 사용 하 여 뛰어난 보안을 위해 가능한 경우 사용자 위임 공유 액세스 서명 (SAS)을 만듭니다.
 
 - [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Azure Portal에서 RBAC를 사용 하 여 Azure Blob 및 큐 데이터에 대 한 액세스를 구성 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Azure Portal에서 azure RBAC를 사용 하 여 azure Blob에 대 한 액세스를 구성 하 고 데이터를 큐에 대기](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Azure Storage 데이터에 대 한 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: 환경, 데이터 민감도 등의 개별 보안 도메인에 대해 별도의 구독, 관리 그룹 및 저장소 계정을 사용 하 여 격리를 구현 합니다.  사용 되는 네트워크의 유형 및 하위 집합에 따라 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 저장소 계정에 대 한 액세스 수준을 제어 하도록 저장소 계정을 제한할 수 있습니다. 네트워크 규칙이 구성되면 지정된 네트워크 세트를 통해 데이터를 요청하는 애플리케이션만 스토리지 계정에 액세스할 수 있습니다. Azure AD RBAC를 통해 Azure Storage에 대 한 액세스를 제어할 수 있습니다. 또한 가상 네트워크와 서비스 간의 트래픽이 Microsoft 백본 네트워크를 통해 이동 하 여 공용 인터넷에서 노출을 제거 하도록 개인 끝점을 구성 하 여 보안을 향상 시킬 수 있습니다. 
+**지침**: 환경, 데이터 민감도 등의 개별 보안 도메인에 대해 별도의 구독, 관리 그룹 및 저장소 계정을 사용 하 여 격리를 구현 합니다.  사용 되는 네트워크의 유형 및 하위 집합에 따라 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 저장소 계정에 대 한 액세스 수준을 제어 하도록 저장소 계정을 제한할 수 있습니다. 네트워크 규칙이 구성되면 지정된 네트워크 세트를 통해 데이터를 요청하는 애플리케이션만 스토리지 계정에 액세스할 수 있습니다. Azure RBAC를 통해 Azure Storage에 대 한 액세스를 제어할 수 있습니다. 또한 가상 네트워크와 서비스 간의 트래픽이 Microsoft 백본 네트워크를 통해 이동 하 여 공용 인터넷에서 노출을 제거 하도록 개인 끝점을 구성 하 여 보안을 향상 시킬 수 있습니다. 
 
 - [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -502,7 +502,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 - [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Azure Storage에 대 한 가상 네트워크 서비스 끝점 정책](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
 
 - [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -534,13 +534,13 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: Azure Active Directory (Azure AD)는 RBAC (역할 기반 액세스 제어)를 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. 
+**지침**: azure AD (Azure Active Directory)는 azure 역할 기반 access control (azure RBAC)을 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. 
 
 - [Azure Storage 계정에 대 한 Azure 역할을 할당 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Azure Portal에서 RBAC를 사용 하 여 Azure Blob 및 큐 데이터에 대 한 액세스를 구성 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Azure Portal에서 azure RBAC를 사용 하 여 azure Blob에 대 한 액세스를 구성 하 고 데이터를 큐에 대기](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [AAD 인스턴스를 만들고 구성하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

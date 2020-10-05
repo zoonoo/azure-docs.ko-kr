@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 89a12be047a3571c1d85febc246a1ed8a3c8b720
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297864"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -150,7 +150,7 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-비용 분석을 고정하려면 오른쪽 위 모서리에 있는 핀 아이콘을 선택합니다. 비용 분석이 고정되면 기본 차트 또는 테이블 보기만 저장합니다. 다른 사용자가 타일에 액세스할 수 있도록 대시보드를 공유합니다. 이는 대시보드 구성만 공유하며, 다른 사용자에게 기본 데이터에 대한 액세스 권한을 부여하지 않습니다. 비용에 대한 액세스 권한이 없지만 공유 대시보드에 대한 액세스은 있는 경우 “액세스 거부” 메시지가 표시됩니다.
+비용 분석을 고정하려면 오른쪽 위 모서리나 "<Subscription Name> | 비용 분석" 바로 뒤에 있는 핀 아이콘을 선택합니다. 비용 분석이 고정되면 기본 차트 또는 테이블 보기만 저장합니다. 다른 사용자가 타일에 액세스할 수 있도록 대시보드를 공유합니다. 이는 대시보드 구성만 공유하며, 다른 사용자에게 기본 데이터에 대한 액세스 권한을 부여하지 않습니다. 비용에 대한 액세스 권한이 없지만 공유 대시보드에 대한 액세스은 있는 경우 “액세스 거부” 메시지가 표시됩니다.
 
 비용 분석에 대한 링크를 공유하려면 블레이드 위쪽에 있는 **공유**를 선택합니다. 그러면 해당 특정 범위의 해당 특정 보기가 열리는 사용자 지정 URL이 표시됩니다. 비용에 대한 액세스 권한이 없고 이 URL이 없으면 "액세스 거부" 메시지가 표시됩니다.
 

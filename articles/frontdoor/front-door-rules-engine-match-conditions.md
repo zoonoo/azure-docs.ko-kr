@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569760"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Azure Front Door 규칙 엔진 일치 조건
 
-[AFD 규칙 엔진](front-door-rules-engine.md)에서 규칙은 0개 이상의 일치 조건과 작업으로 구성됩니다. 이 문서에서는 AFD 규칙 엔진에서 사용할 수 있는 일치 조건에 대해 자세히 설명합니다.
+[AFD 규칙 엔진](front-door-rules-engine.md)에서 규칙은 0개 이상의 일치 조건과 하나의 작업으로 구성됩니다. 이 문서에서는 AFD 규칙 엔진에서 사용할 수 있는 일치 조건에 대해 자세히 설명합니다.
 
-규칙의 첫 번째 파트는 일치 조건 또는 일치 조건 세트입니다. 최대 10개의 일치 조건으로 규칙을 구성할 수 있습니다. 일치 조건은 정의된 작업을 수행할 특정 유형의 요청을 식별합니다. 여러 일치 조건을 사용하면 AND 논리를 사용하여 일치 조건이 그룹화됩니다. 여러 값을 지원하는 모든 일치 조건(아래의 "공백으로 구분됨")에서는 "OR" 연산자를 가정합니다.
+규칙의 첫 번째 파트는 일치 조건 또는 일치 조건 세트입니다. 최대 10개의 일치 조건으로 규칙을 구성할 수 있습니다. 일치 조건은 정의된 작업이 수행되는 특정 유형의 요청을 식별합니다. 여러 일치 조건을 사용하면 AND 논리를 사용하여 일치 조건이 그룹화됩니다. 여러 값("공백으로 구분"으로 표시)을 지원하는 모든 일치 조건에 대해 "OR" 연산자를 사용합니다.
 
 예를 들어 다음을 수행하는 데 일치 조건을 사용할 수 있습니다.
 
@@ -84,7 +84,7 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
   - **IPv6 예제**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80*은 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 요청과 일치합니다.
 - IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들면 다음과 같습니다.
   - **IPv4 예제**: *5.5.5.64/26*은 5.5.5.64~5.5.5.127 주소에서 도착하는 요청과 일치합니다.
-  - **IPv6 예제**: *1:2:3:/48*은 1:2:3:0:0:0:0:0~1:2:3:ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
+  - **IPv6 예제**: *1:2:3:/48*은 1:2:3:0:0:0:0:0~1:2:3: ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
 
 ## <a name="request-body"></a>요청 본문
 
@@ -204,11 +204,11 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 - 보다 크지 않음
 - 보다 작거나 같음
 
-*작거나 같음*이나 *크거나 같음*처럼 숫자 연산자의 경우 길이를 기준으로 비교합니다. 여기서 일치 조건의 값은 비교하려는 길이와 일치하는 정수여야 합니다. 
+*작거나 같음*이나 *크거나 같음*처럼 숫자 연산자의 경우 길이를 기준으로 비교합니다. 일치 조건의 값은 비교하려는 길이와 일치하는 정수여야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 첫 번째 [규칙 엔진 구성](front-door-tutorial-rules-engine.md)을 설정하는 방법을 알아봅니다. 
+- 첫 번째 [규칙 엔진](front-door-tutorial-rules-engine.md)을 구성하는 방법을 알아봅니다. 
 - [규칙 엔진 작업](front-door-rules-engine-actions.md)에 대해 자세히 알아봅니다.
 - [Azure Front Door 규칙 엔진](front-door-rules-engine.md)에 대해 자세히 알아봅니다.

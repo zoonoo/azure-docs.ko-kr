@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534858"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714453"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -21,13 +21,13 @@ Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage
 
 이 가이드에는 Storage 탐색기에서 일반적으로 발생 하는 문제에 대 한 해결 방법이 요약 되어 있습니다.
 
-## <a name="rbac-permissions-issues"></a>RBAC 권한 문제
+## <a name="azure-rbac-permissions-issues"></a>Azure RBAC 사용 권한 문제
 
-역할 기반 액세스 제어 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 를 사용 하면 권한 집합을 _역할로_결합 하 여 Azure 리소스의 매우 세분화 된 액세스 관리를 가능 하 게 합니다. Storage 탐색기에서 RBAC를 최적으로 작동 하는 몇 가지 전략은 다음과 같습니다.
+Azure 역할 기반 access control [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 는 권한 집합을 _역할로_결합 하 여 azure 리소스의 매우 세부적인 액세스 관리를 가능 하 게 합니다. Storage 탐색기에서 가장 적합 한 Azure RBAC를 얻기 위한 몇 가지 전략이 있습니다.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Storage 탐색기에서 내 리소스에 액세스 어떻게 할까요??
 
-RBAC를 통해 저장소 리소스에 액세스 하는 데 문제가 발생 하는 경우 적절 한 역할이 할당 되지 않았을 수 있습니다. 다음 섹션에서는 현재 저장소 리소스에 액세스 하는 데 필요한 권한을 Storage 탐색기 설명 합니다. 적절 한 역할 또는 권한이 있는지 확실 하지 않은 경우 Azure 계정 관리자에 게 문의 하세요.
+Azure RBAC를 통해 저장소 리소스에 액세스 하는 데 문제가 발생 하는 경우 적절 한 역할이 할당 되지 않았을 수 있습니다. 다음 섹션에서는 현재 저장소 리소스에 액세스 하는 데 필요한 권한을 Storage 탐색기 설명 합니다. 적절 한 역할 또는 권한이 있는지 확실 하지 않은 경우 Azure 계정 관리자에 게 문의 하세요.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>"읽기: 저장소 계정 나열/가져오기" 권한 문제
 
@@ -65,7 +65,7 @@ Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명�
 3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 클릭합니다.
 4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음을 클릭합니다. 연결을 클릭합니다.
 
-다른 리소스 유형의 경우 현재 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
+다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
 ### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 

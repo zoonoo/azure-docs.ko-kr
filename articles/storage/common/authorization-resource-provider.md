@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3d0ef8a8641c3814fa7c9964786a7f24f5e54a01
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534943"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714696"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
@@ -26,13 +26,13 @@ Azure Storage 리소스 공급자를 사용 하 여 저장소 계정 만들기 �
 
 Microsoft는 Azure Storage 리소스를 사용 하기 위한 두 가지 REST Api를 제공 합니다. 이러한 Api는 Azure Storage에 대해 수행할 수 있는 모든 작업의 기본을 형성 합니다. Azure Storage REST API를 사용 하 여 blob, 큐, 파일 및 테이블 데이터를 비롯 하 여 저장소 계정에서 데이터를 사용할 수 있습니다. Azure Storage 리소스 공급자 REST API를 사용 하 여 저장소 계정 및 관련 리소스를 사용할 수 있습니다.
 
-Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행 하는 요청과 다른 권한이 필요 합니다. RBAC는 두 종류의 리소스에 대 한 권한을 보다 세부적으로 제어할 수 있도록 합니다. 보안 주체에 게 Azure 역할을 할당 하는 경우 해당 보안 주체에 부여 될 권한을 이해 해야 합니다. 각 Azure 기본 제공 역할에 연결 된 작업을 설명 하는 자세한 참조는 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행 하는 요청과 다른 권한이 필요 합니다. Azure RBAC는 두 종류의 리소스에 대 한 권한을 보다 세부적으로 제어할 수 있습니다. 보안 주체에 게 Azure 역할을 할당 하는 경우 해당 보안 주체에 부여 될 권한을 이해 해야 합니다. 각 Azure 기본 제공 역할에 연결 된 작업을 설명 하는 자세한 참조는 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여 합니다. Blob 및 큐 데이터 작업의 Azure 역할에 대 한 자세한 내용은 [Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 
-## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 권한 할당
+## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 액세스 제어를 사용 하 여 관리 권한 할당 (Azure RBAC)
 
-모든 Azure 구독에는 사용자, 그룹 및 응용 프로그램을 관리 하는 Azure Active Directory 연결 되어 있습니다. 사용자, 그룹 또는 응용 프로그램을 [Microsoft id 플랫폼](/azure/active-directory/develop/)의 컨텍스트에서 보안 주체 라고도 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Active Directory에 정의 된 보안 주체에 대 한 구독의 리소스에 대 한 액세스 권한을 부여할 수 있습니다.
+모든 Azure 구독에는 사용자, 그룹 및 응용 프로그램을 관리 하는 Azure Active Directory 연결 되어 있습니다. 사용자, 그룹 또는 응용 프로그램을 [Microsoft id 플랫폼](/azure/active-directory/develop/)의 컨텍스트에서 보안 주체 라고도 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Active Directory에 정의 된 보안 주체에 대 한 구독의 리소스에 대 한 액세스 권한을 부여할 수 있습니다.
 
 Azure 역할을 보안 주체에 할당 하는 경우 역할에서 부여 된 사용 권한이 적용 되는 범위를 표시 합니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 Azure 역할을 보안 주체에 할당할 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure는 관리 작업을 호출 하는 권한을 부여 하는 기본 제공 �
 
 저장소 관리 작업을 호출 하는 권한을 부여 하는 기본 제공 역할에는 다음 표에 설명 된 역할이 포함 됩니다.
 
-|    Azure 역할    |    설명    |    계정 키에 대 한 액세스를 포함 하나요?    |
+|    Azure 역할    |    Description    |    계정 키에 대 한 액세스를 포함 하나요?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **소유자** | 모든 저장소 리소스를 관리 하 고 리소스에 액세스할 수 있습니다.  | 예, 저장소 계정 키를 확인 하 고 다시 생성할 수 있는 권한을 제공 합니다. |
 | **기여자**  | 모든 저장소 리소스를 관리할 수 있지만 리소스에 대 한 할당을 관리할 수 없습니다. | 예, 저장소 계정 키를 확인 하 고 다시 생성할 수 있는 권한을 제공 합니다. |

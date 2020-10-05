@@ -366,7 +366,7 @@
           href: connector-presto.md
         - name: QuickBooks Online
           href: connector-quickbooks.md
-        - name: REST (영문)
+        - name: REST
           href: connector-rest.md
         - name: Salesforce
           href: connector-salesforce.md
@@ -700,6 +700,8 @@
               href: how-to-data-flow-error-rows.md
             - name: Azure SQL DB에서 Azure Cosmos DB로
               href: how-to-sqldb-to-cosmosdb.md
+            - name: 코드 조각을 사용하여 중복 제거 및 NULL 검사
+              href: how-to-data-flow-dedupe-nulls-snippets.md
         - name: 온-프레미스에서 SSIS 마이그레이션
           items:
             - name: SSIS 마이그레이션 개요

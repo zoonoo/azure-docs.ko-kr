@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594325"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597376"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -79,6 +79,7 @@ Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수
 
 - 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md)를 구성하여 사용자에게 Microsoft 365에 대한 라이선스를 제공할 수 있습니다.
 - 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 만들어 사용자에게 Azure 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다.
+- 액세스 패키지에서 Azure AD 역할에 할당할 수 있는 그룹을 사용하여 Azure AD 역할을 관리하고 [해당 그룹에 Azure AD 역할을 할당](../users-groups-roles/roles-groups-assign-role.md)하여 Azure AD 역할을 관리하는 액세스 권한을 사용자에게 부여할 수 있습니다.
 
 ## <a name="how-do-i-control-who-gets-access"></a>액세스 권한을 얻는 사용자를 제어하려면 어떻게 할까요?
 

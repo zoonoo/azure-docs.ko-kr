@@ -34,6 +34,10 @@
           href: how-to-install.md
         - name: 클라우드 프로비저닝 구성
           href: how-to-configure.md
+        - name: 주문형 프로비저닝
+          href: how-to-on-demand-provision.md
+        - name: 특성 매핑
+          href: how-to-attribute-mapping.md
         - name: Single Sign-On 사용
           href: how-to-sso.md
     - name: 계획 및 디자인

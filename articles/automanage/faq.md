@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449775"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714963"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
@@ -35,7 +35,7 @@ Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소�
 - Vm은 다른 구독의 log analytics 작업 영역에 연결 하면 안 됩니다.
 - 지금은 automanage에서 샌드박스 구독을 지원 하지 않습니다.
 
-**Automanage를 사용 하도록 설정 하는 데 필요한 RBAC 권한은 무엇입니까?**
+**Automanage를 사용 하도록 설정 하는 데 필요한 Azure RBAC 권한은 무엇입니까?**
 
 기존 Automanage 계정을 사용 하 여 VM에서 Automanage를 사용 하도록 설정 하는 경우 VM이 있는 리소스 그룹에 대 한 참가자 역할이 필요 합니다.
 

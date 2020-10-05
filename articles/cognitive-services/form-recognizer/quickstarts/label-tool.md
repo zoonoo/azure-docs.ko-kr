@@ -1,28 +1,30 @@
 ---
 title: '빠른 시작: 샘플 레이블 지정 도구를 사용하여 양식 레이블 지정, 모델 학습 및 양식 분석 - Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 레이블을 양식 문서에 수동으로 지정합니다. 그런 다음, 레이블이 지정된 문서를 사용하여 사용자 지정 모델을 학습시키고, 모델을 사용하여 키/값 쌍을 추출합니다.
+description: 이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 레이블을 양식 문서에 수동으로 지정합니다. 그런 다음, 레이블이 지정된 문서를 사용하여 사용자 지정 문서 처리 모델을 학습시키고, 모델을 사용하여 키/값 쌍을 추출합니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: 문서 처리
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418962"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597734"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
-이 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 모델을 학습시킵니다. 이 기능에 대한 자세한 내용은 개요의 [레이블로 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
+이 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 문서 처리 모델을 학습시킵니다. Form Recognizer를 사용한 감독 학습에 대한 자세한 내용은 개요의 [레이블을 사용하여 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
@@ -137,7 +139,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 * **API 키** - Form Recognizer 구독 키
 * **설명**(선택 사항) - 프로젝트 설명
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="샘플 레이블 지정 도구의 새 프로젝트 페이지.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
 ## <a name="label-your-forms"></a>양식 레이블 지정
 
@@ -153,7 +155,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 또한 자동으로 추출된 테이블을 보여줍니다. 문서의 왼쪽에 있는 테이블/그리드 아이콘을 클릭하여 추출된 테이블을 확인합니다. 이 빠른 시작에서는 테이블 콘텐츠가 자동으로 추출되므로 테이블 콘텐츠의 레이블을 지정하지 않고 자동화된 추출을 사용합니다.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="샘플 레이블 지정 도구의 테이블 시각화.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
 ### <a name="apply-labels-to-text"></a>텍스트에 레이블 적용
 
@@ -199,7 +201,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="샘플 레이블 지정 도구의 주 편집기 창.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
 
 위의 단계에 따라 5개 이상의 양식에 레이블을 지정합니다.
@@ -254,7 +256,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 * 태그 목록 및 태그당 예상 정확도
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="학습 보기.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
 학습이 완료되면 **평균 정확도** 값을 검사합니다. 낮은 경우 더 많은 입력 문서를 추가하고 위의 단계를 반복해야 합니다. 이미 레이블이 지정된 문서는 프로젝트 인덱스에서 유지됩니다.
 
@@ -273,7 +275,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 샘플 레이블 지정 도구에서 모델을 작성하려면 왼쪽에 있는 모델 작성(병합 화살표) 아이콘을 클릭합니다. 왼쪽에서 함께 작성할 모델을 선택합니다. 화살표 아이콘이 있는 모델은 이미 작성된 모델입니다. "작성" 단추를 클릭합니다. 팝업에서 새로 작성된 모델의 이름을 지정하고 "작성"을 클릭합니다. 작업이 완료되면 새로 작성된 모델이 목록에 표시됩니다. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="모델 작성 UX 뷰.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
 ---
 
@@ -306,7 +308,10 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습하는 방법을 알아보았습니다. 레이블 지정 도구를 사용자 고유의 애플리케이션에 통합하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용합니다.
+이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습하는 방법을 알아보았습니다. 고유한 유틸리티를 빌드하여 학습 데이터에 레이블을 지정하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용하세요.
 
 > [!div class="nextstepaction"]
 > [Python을 사용하여 레이블로 학습](./python-labeled-data.md)
+
+* [Form Recognizer란?](../overview.md)
+* [Form Recognizer 클라이언트 라이브러리 빠른 시작](client-library.md)

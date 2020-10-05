@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ea818cd14e6052da2bbcf2a4473e95c68cd5e4a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671312"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713045"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 개인 링크 구성 문제 진단
 
@@ -34,7 +34,7 @@ ms.locfileid: "91671312"
 ### <a name="symptoms-not-covered-by-this-article"></a>이 문서에서 다루지 않는 증상
 
 - 간헐적 연결 문제가 있습니다. 지정 된 클라이언트에서 일부 요청이 작동 중이 고 일부는 작동 하지 않는 것을 볼 수 있습니다. *일시적인 문제는 일반적으로 개인 링크 구성의 문제로 인해 발생 하지 않습니다. 네트워크 또는 클라이언트 오버 로드의 부호입니다.*
-- BYOK (Bring Your Own Key) 또는 CMK (고객 관리 키)를 지 원하는 및 Azure 제품을 사용 하 고 있으므로 해당 제품이 키 자격 증명 모음에 액세스할 수 없습니다. *다른 제품 설명서를 확인 합니다. 방화벽이 사용 하도록 설정 된 key vault에 대 한 지원이 명시적으로 명시 되어 있는지 확인 합니다. 필요한 경우 해당 특정 제품에 대 한 기술 지원 서비스에 문의 하십시오.*
+- BYOK (Bring Your Own Key) 또는 CMK (고객 관리 키)를 지 원하는 Azure 제품을 사용 하 고 있으며 해당 제품에서 키 자격 증명 모음에 액세스할 수 없습니다. *다른 제품 설명서를 확인 합니다. 방화벽이 사용 하도록 설정 된 key vault에 대 한 지원이 명시적으로 명시 되어 있는지 확인 합니다. 필요한 경우 해당 특정 제품에 대 한 기술 지원 서비스에 문의 하십시오.*
 
 ### <a name="how-to-read-this-article"></a>이 문서를 읽는 방법
 
@@ -46,7 +46,7 @@ ms.locfileid: "91671312"
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>가상 네트워크에서 클라이언트가 실행 되는지 확인
 
-이 문제 해결 가이드는 응용 프로그램 코드에서 시작 하는 주요 자격 증명 모음에 대 한 연결에 적용 됩니다. 예를 들어 가상 머신, Azure Service Fabric 클러스터, Azure App Service, AKS (Azure Kubernetes Service) 등에서 실행 되는 응용 프로그램 및 스크립트가 있습니다.
+이 가이드는 응용 프로그램 코드에서 발생 하는 key vault에 대 한 연결을 수정 하는 데 도움을 주기 위해 작성 되었습니다. 예제는 Azure Virtual Machines, Azure Service Fabric 클러스터, Azure App Service, Azure Kubernetes Service (AKS) 등에서 실행 되는 응용 프로그램 및 스크립트입니다.
 
 개인 링크를 정의 하 여 응용 프로그램 또는 스크립트는 컴퓨터, 클러스터 또는 [개인 끝점 리소스가](../../private-link/private-endpoint-overview.md) 배포 된 Virtual Network에 연결 된 환경에서 실행 되어야 합니다. 응용 프로그램이 임의의 인터넷 연결 네트워크에서 실행 되는 경우이 가이드는 적용 되지 않으며 개인 링크를 사용할 수 없습니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "91671312"
 IP 주소는 Vm 및 *동일한 Virtual Network에서 실행* 되는 다른 장치에서 키 자격 증명 모음에 연결 하는 데 사용 합니다. 추가 조사를 수행 하는 동안 IP 주소를 기록 하거나 브라우저 탭을 열어 둡니다.
 
 >[!NOTE]
-> 키 자격 증명 모음에 여러 개인 끝점이 있는 경우 여러 개인 IP 주소를 갖게 됩니다. 이는 각각 고유한 개인 끝점을 통해 동일한 키 자격 증명 모음에 액세스 하는 여러 가상 네트워크가 있는 경우에만 유용 합니다 (개인 끝점이 단일 Virtual Network에 속함). 올바른 Virtual Network에 대 한 문제를 진단 하 고 위의 절차에서 올바른 개인 끝점 연결을 선택 했는지 확인 합니다. 또한 동일한 Virtual Network 동일한 Key Vault에 대해 여러 개인 끝점을 만들지 **마십시오** . 이는 필요 하지 않으며 혼동의 원인입니다.
+> 키 자격 증명 모음에 여러 개인 끝점이 있는 경우 개인 IP 주소를 여러 개 포함 합니다. 이는 각각 고유한 개인 끝점을 통해 동일한 키 자격 증명 모음에 액세스 하는 여러 가상 네트워크가 있는 경우에만 유용 합니다 (개인 끝점이 단일 Virtual Network에 속함). 올바른 Virtual Network에 대 한 문제를 진단 하 고 위의 절차에서 올바른 개인 끝점 연결을 선택 했는지 확인 합니다. 또한 동일한 Virtual Network 동일한 Key Vault에 대해 여러 개인 끝점을 만들지 **마십시오** . 이는 필요 하지 않으며 혼동의 원인입니다.
 
 ## <a name="5-validate-the-dns-resolution"></a>5. DNS 확인의 유효성을 검사 합니다.
 
@@ -158,11 +158,11 @@ Linux:
 
 이름이 공용 IP 주소로 확인 되 고 별칭이 없는 것을 볼 수 있습니다 `privatelink` . 별칭은 나중에 설명 합니다. 지금은 걱정 하지 마세요.
 
-위의 결과는 컴퓨터에 연결 되어 있거나 인터넷에 연결 되어 있는 임의의 컴퓨터에 Virtual Network에 관계 없이 예상 됩니다. 이는 키 자격 증명 모음에 승인 된 상태의 개인 링크가 없으므로 키 자격 증명 모음이 개인 링크 연결을 지원할 필요가 없기 때문에 발생 합니다.
+위의 결과는 컴퓨터에 연결 되어 있거나 인터넷에 연결 되어 있는 임의의 컴퓨터에 Virtual Network에 관계 없이 예상 됩니다. 주요 자격 증명 모음에는 승인 된 상태에서 개인 끝점 연결이 없기 때문에 발생 하므로 key vault에서 개인 링크를 지원할 필요가 없습니다.
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>임의의 인터넷 컴퓨터에서 확인 되는 개인 링크가 있는 Key vault
 
-키 자격 증명 모음에 하나 이상의 개인 끝점 연결이 승인 된 상태에 있고 인터넷에 연결 된 임의의 컴퓨터에서 호스트 이름을 확인 하는 경우 (개인 끝점이 있는 Virtual Network에 연결 **되지** 않은 컴퓨터) 다음을 찾을 수 있습니다.
+키 자격 증명 모음에 하나 이상의 개인 끝점 연결이 승인 된 상태에 있고 인터넷에 연결 된 임의의 컴퓨터에서 호스트 이름을 확인 하는 경우 (개인 끝점이 있는 Virtual Network에 연결 *되지* 않은 컴퓨터) 다음을 찾을 수 있습니다.
 
 Windows:
 
@@ -253,7 +253,7 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 또한 `A` 레코드 값 (IP 주소)은 [키 자격 증명 모음 개인 IP 주소](#find-the-key-vault-private-ip-address-in-the-virtual-network)여야 합니다. 레코드를 찾을 수 `A` 있지만 잘못 된 ip 주소를 포함 하는 경우 잘못 된 ip 주소를 제거 하 고 새 주소를 추가 해야 합니다. 전체 레코드를 제거 하 `A` 고 새 레코드를 추가 하는 것이 좋습니다.
 
 >[!NOTE]
-> 레코드를 제거 하거나 수정할 때마다 `A` TTL (Time To Live) 값이 아직 만료 되지 않았기 때문에 컴퓨터가 여전히 이전 IP 주소로 확인 될 수 있습니다. TTL 값은 항상 60 초 (1 분) 보다 작은 값으로 지정 하 고 600 초 (10 분) 보다 크게 지정 하는 것이 좋습니다. 너무 긴 값을 지정 하면 클라이언트에서 작동 중단에서 복구 하는 문제가 발생 합니다.
+> 레코드를 제거 하거나 수정할 때마다 `A` TTL (Time To Live) 값이 아직 만료 되지 않았기 때문에 컴퓨터가 여전히 이전 IP 주소로 확인 될 수 있습니다. TTL 값은 항상 60 초 (1 분) 보다 작은 값으로 지정 하 고 600 초 (10 분) 보다 크게 지정 하는 것이 좋습니다. 너무 긴 값을 지정 하는 경우 클라이언트는 가동 중단에서 복구 하는 데 너무 오래 걸릴 수 있습니다.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>두 개 이상의 Virtual Network에 대 한 DNS 확인
 
@@ -261,15 +261,13 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 고급 시나리오에는 피어 링을 사용 하는 여러 가상 네트워크가 있습니다. 이 경우에는 하나의 Virtual Network 전용 끝점 리소스가 필요 하지만 둘 다 사설 DNS 영역 리소스에 연결 해야 할 수 있습니다. 이 시나리오는이 문서에서 직접 다루지 않습니다.
 
-### <a name="fact-the-user-controls-dns-resolution"></a>사실: 사용자가 DNS 확인을 제어 합니다.
+### <a name="fact-you-have-control-over-dns-resolution"></a>사실: DNS 확인을 제어할 수 있습니다.
 
-네트워크 전문가 이거나 사용자의 경우 DNS 확인이 작동 하는 방식을 현실화 했을 수 있습니다. [이전 섹션](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)에서 설명한 것 처럼 개인 링크를 포함 하는 주요 자격 증명 모음에는 `{vaultname}.privatelink.vaultcore.azure.net` 해당 *공용* 등록에 별칭이 포함 됩니다. Virtual Network에서 사용 하는 DNS 서버는 *개인* 이름 등록에 대 한 모든 별칭을 확인 하 고, 검색 된 경우 공용 등록의 별칭에 따라 중지 됩니다.
+[이전 섹션](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)에서 설명한 것 처럼 개인 링크를 포함 하는 주요 자격 증명 모음에는 `{vaultname}.privatelink.vaultcore.azure.net` *공용* 등록에 별칭이 있습니다. Virtual Network에서 사용 하는 DNS 서버는 공용 등록을 사용 하지만 *개인* 등록에 대 한 모든 별칭을 확인 하 고, 검색 한 경우 공용 등록 시 정의 된 다음 별칭을 중지 합니다.
 
-예를 들어 Virtual Network 이름이 있는 사설 DNS 영역에 연결 되어 `privatelink.vaultcore.azure.net` 있고 key vault에 대 한 공용 DNS 등록에 별칭이 있는 경우를 가정 `fabrikam.privatelink.vaultcore.azure.net` 합니다. 접미사는 사설 DNS 영역 이름과 정확히 일치 합니다. 즉, 확인은 `A` 사설 DNS 영역에서 이름이 있는 레코드에 대해 먼저 검색 됩니다 `fabrikam` . 레코드가 있는 경우 `A` 해당 IP 주소는 DNS 쿼리에서 반환 됩니다. 그리고 해당 IP 주소는 키 자격 증명 모음의 개인 IP 주소일 경우에만 발생 합니다.
+이 논리는 Virtual Network 이름이 있는 사설 DNS 영역에 연결 되 `privatelink.vaultcore.azure.net` 고 키 자격 증명 모음에 대 한 공용 DNS 등록에 별칭이 있는 경우 `fabrikam.privatelink.vaultcore.azure.net` (키 자격 증명 모음 접미사는 사설 DNS 영역 이름과 정확 하 게 일치) DNS 쿼리는 `A` `fabrikam` *사설 DNS 영역에서*이름이 있는 레코드를 검색 함을 의미 합니다. `A`레코드가 발견 되 면 DNS 쿼리에서 해당 IP 주소가 반환 되 고 공용 dns 등록에서 추가 조회가 수행 되지 않습니다.
 
-여기에서 볼 수 있듯이 전체 이름 확인은 사용자 제어 아래에 있습니다.
-
-이 디자인에는 두 가지 이유가 있습니다.
+여기에서 볼 수 있듯이 이름 확인은 사용자의 제어를 받고 있습니다. 이 디자인의 rationales은 다음과 같습니다.
 
 - 사용자 지정 DNS 서버와 온-프레미스 네트워크와의 통합을 포함 하는 복잡 한 시나리오가 있을 수 있습니다. 이 경우 이름을 IP 주소로 변환 하는 방법을 제어 해야 합니다.
 - 개인 링크 없이 키 자격 증명 모음에 액세스 해야 할 수 있습니다. 이 경우 Virtual Network에서 호스트 이름을 확인 하는 것은 공용 IP 주소를 반환 해야 하며, 개인 링크가 없는 키 자격 증명 모음에는 `privatelink` 이름 등록에 별칭이 없는 경우에 발생 합니다.

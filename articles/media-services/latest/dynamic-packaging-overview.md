@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: v-myoung
-ms.openlocfilehash: 3607ecb7d1ef01b968b67c704e12136cc1888b69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.author: inhenkel
+ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296232"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598284"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -56,6 +56,9 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+> [!NOTE]
+> Apple의 이전 지침에서는 낮은 대역폭 네트워크 대체를 권장했는데, 이는 오디오 전용 스트림을 제공하기 위한 것이었습니다.  현재 Media Services 인코더는 오디오 전용 트랙을 자동으로 생성합니다.  이제 Apple 지침에서는 Apple TV 배포의 경우 특히 오디오 전용 트랙을 포함하지 *않아야* 한다고 명시합니다.  플레이어가 기본적으로 오디오 전용 트랙을 사용하지 않도록 하려면 HLS에서 오디오 전용 렌디션을 제거하는 "audio-only=false" 태그를 URL에 사용하거나 HLS-V3를 사용하는 것이 좋습니다. 예들 들어 `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`입니다.
 
 ### <a name="mpeg-dash-protocol"></a>MPEG-DASH 프로토콜
 

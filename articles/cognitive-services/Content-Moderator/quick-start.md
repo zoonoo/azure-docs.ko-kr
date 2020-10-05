@@ -1,31 +1,34 @@
 ---
-title: '빠른 시작: 웹에서 Content Moderator 사용해 보기 - Content Moderator'
+title: '빠른 시작: 웹에서 Content Moderator 사용해 보기'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다.
+description: 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 09/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 7be14c07a08d58f02890a48d39dd0a8010101374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: cog-serv-seo-aug-2020
+keywords: 콘텐츠 조정자, 콘텐츠 조정
+ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332630"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596805"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
-이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다. 이 서비스를 앱에 보다 신속하게 통합하려면 [다음 단계](#next-steps) 섹션에서 다른 빠른 시작을 참조하세요.
+이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다. 이 서비스를 콘텐츠 조정 앱에 보다 신속하게 통합하려면 [다음 단계](#next-steps) 섹션에서 다른 빠른 시작을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 웹 브라우저
 
 ## <a name="set-up-the-review-tool"></a>검토 도구 설정
+
 Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 인식 서비스를 지원할 수 있는 웹 기반 도구입니다. 이 가이드에서는 검토 도구를 설정하는 간단한 프로세스를 통해 Content Moderator 서비스의 작동 원리를 알아보겠습니다. [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트로 이동하여 가입합니다.
 
 ![Content Moderator 홈페이지](images/homepage.PNG)
@@ -82,6 +85,6 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 ## <a name="next-steps"></a>다음 단계
 
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
-- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [.NET SDK 빠른 시작](dotnet-sdk-quickstart.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
-- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [.NET SDK 빠른 시작](dotnet-sdk-quickstart.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 기계 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
+- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [클라이언트 라이브러리 빠른 시작](client-libraries.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
+- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [클라이언트 라이브러리 빠른 시작](client-libraries.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 머신 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
 - 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

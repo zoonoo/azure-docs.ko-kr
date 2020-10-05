@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450316"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715038"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Azure Automanage for Vm에서 사용자 지정 기본 설정 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 > 평가판 계정은 이 자습서에서 사용되는 가상 머신에 액세스할 수 없습니다. 종량제 구독으로 업그레이드하세요.
 
 > [!IMPORTANT]
-> 자동 관리: **소유자** 역할 또는 **참가자** 를 **사용자 액세스 관리자** 역할과 함께 사용 하도록 설정 하려면 다음 RBAC 권한이 필요 합니다.
+> 자동 관리: **소유자** 역할 또는 **참가자** 를 **사용자 액세스 관리자** 역할과 함께 사용 하도록 설정 하려면 다음 Azure RBAC 권한이 필요 합니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -69,7 +69,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
         1. Subscription
         1. Resource group
         1. 기본 설정 이름
-        1. Region
+        1. 지역
 
     :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="사용 가능한 VM 목록에서 기존 VM 선택":::
 

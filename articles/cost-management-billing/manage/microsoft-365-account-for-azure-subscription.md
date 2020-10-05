@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5fef68c9de4dae8063799255fcc7d68ff6b1e6b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370337"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Microsoft 365 계정을 사용하여 Azure 구독에 등록
 
-Microsoft 365 구독을 보유하는 경우 Microsoft 365 계정을 사용하여 Azure 구독을 만들 수 있습니다. Microsoft 365 사용자 이름과 암호를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 가상 머신을 설정하거나 다른 Azure 서비스를 사용하려는 경우 Azure 구독에 가입해야 합니다. 다른 사람과 Azure 구독을 공유하고 [역할 기반 Access Control을 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)할 수 있습니다.
+Microsoft 365 구독을 보유하는 경우 Microsoft 365 계정을 사용하여 Azure 구독을 만들 수 있습니다. Microsoft 365 사용자 이름과 암호를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 가상 머신을 설정하거나 다른 Azure 서비스를 사용하려는 경우 Azure 구독에 가입해야 합니다. 다른 사람과 Azure 구독을 공유하고 [Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)할 수 있습니다.
 
 Microsoft 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독에 Microsoft 365 테넌트 연결](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
@@ -57,4 +57,4 @@ Microsoft 365 및 Azure는 Azure AD 서비스를 사용하여 사용자와 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다른 사람과 Azure 구독을 공유하고 [역할 기반 Access Control을 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)합니다.
+- 다른 사람과 Azure 구독을 공유하고 [Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)하세요.

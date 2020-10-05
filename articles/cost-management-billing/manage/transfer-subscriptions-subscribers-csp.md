@@ -5,19 +5,19 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371408"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
-이 문서에서는 CSP(클라우드 솔루션 공급자) 파트너와 고객 간에 Azure 구독을 전송하는 데 사용되는 고급 단계를 제공합니다.
+이 문서에서는 CSP(클라우드 솔루션 공급자) 파트너와 고객 간에 Azure 구독을 전송하는 데 사용되는 고급 단계를 제공합니다. 여기에서 제공하는 정보는 Azure 구독자가 파트너와 잘 협력하도록 돕기 위한 것입니다. Microsoft 파트너가 양도 프로세스에 사용하는 정보는 [다른 파트너에게 고객의 Azure 구독을 양도하는 방법 알아보기](/partner-center/switch-azure-subscriptions-to-a-different-partner)에 설명되어 있습니다.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>CSP 파트너에게 EA 구독 전송
 
@@ -38,7 +38,7 @@ ms.locfileid: "88997577"
     > [!IMPORTANT]
     > - 구독을 다른 Azure AD 디렉터리에 연결하는 경우 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
     > - 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
-1. 전송하는 데 사용하는 사용자 계정에는 두 구독 모두에 대한 [RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
+1. 양도하는 데 사용하는 사용자 계정에는 두 구독 모두에 대한 [Azure RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
 1. 시작하기 전에 모든 Azure 리소스를 원본 구독에서 대상 구독으로 이동할 수 있는지 [유효성을 검사](/rest/api/resources/resources/validatemoveresources)합니다.  
     일부 Azure 리소스는 구독 간에 이동할 수 없습니다. 이동할 수 있는 Azure 리소스의 전체 목록을 보려면 [리소스에 대한 이동 작업 지원](../../azure-resource-manager/management/move-support-resources.md)을 참조하세요.
     > [!IMPORTANT]
@@ -57,10 +57,10 @@ ms.locfileid: "88997577"
     변경 디렉터리는 CSP 구독이 아닙니다. 예를 들어 CSP에서 종량제 구독으로 전송하고 있습니다. 디렉터리와 일치하도록 종량제 구독의 디렉터리를 변경해야 합니다.
 
     > [!IMPORTANT]
-    >  - 구독을 다른 디렉터리에 연결하는 경우 [RBAC](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
+    >  - 구독을 다른 디렉터리에 연결하면 [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자가 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
     >  - 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
 
-1. 전송하는 데 사용하는 사용자 계정에는 두 구독 모두에 대한 [RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
+1. 양도하는 데 사용하는 사용자 계정에는 두 구독 모두에 대한 [Azure RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
 1. 시작하기 전에 모든 Azure 리소스를 원본 구독에서 대상 구독으로 이동할 수 있는지 [유효성을 검사](/rest/api/resources/resources/validatemoveresources)합니다.
     > [!IMPORTANT]
     >  - 일부 Azure 리소스는 구독 간에 이동할 수 없습니다. 이동할 수 있는 Azure 리소스의 전체 목록을 보려면 [리소스에 대한 이동 작업 지원](../../azure-resource-manager/management/move-support-resources.md)을 참조하세요.

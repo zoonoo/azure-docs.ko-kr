@@ -1,6 +1,6 @@
 ---
 title: MPA(Microsoft 파트너 계약)에 대한 Azure 구독의 청구 소유권 가져오기
-description: 다른 사용자에게 Azure 구독의 청구 소유권을 요청하는 방법을 알아봅니다.
+description: MPA(Microsoft 파트너 계약)의 다른 사용자에게 Azure 구독의 청구 소유권을 요청하는 방법을 알아봅니다.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371017"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -35,7 +35,7 @@ ms.locfileid: "88684952"
 
 1. CSP 테넌트에서 CSP 관리 에이전트 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.  
-    ![비용 관리 + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/mpa-request-ownership/search-cmb.png)
+    ![Azure Portal에서 청구 소유권 요청을 위한 비용 관리 + 청구 검색을 보여 주는 스크린샷](./media/mpa-request-ownership/search-cmb.png)
 1. 왼쪽에서 **고객**을 선택한 다음, 목록에서 고객을 선택합니다.  
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. 왼쪽 아래에서 **전송 요청**을 선택한 다음, **새 요청 추가**를 선택합니다.  
@@ -56,7 +56,7 @@ ms.locfileid: "88684952"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.  
-    ![비용 관리 + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Azure Portal에서 양도 상태 요청을 위한 비용 관리 + 청구 검색을 보여 주는 스크린샷](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. 왼쪽에서 **고객**을 선택합니다.  
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. 목록에서 전송 요청을 보낸 고객을 선택합니다.
@@ -127,7 +127,7 @@ Azure Reservations는 구독과 함께 자동으로 이동되지 않습니다. �
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 
-[Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 사용자에 대한 액세스는 전환 중에 영향을 받지 않습니다. 파트너는 구독에 대한 새 RBAC 액세스 권한을 얻지 못합니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 사용자에 대한 액세스 권한은 전환 중에 영향을 받지 않습니다. 파트너는 구독에 대한 새 Azure RBAC 액세스 권한을 얻지 못합니다.
 
 파트너는 고객과 협력하여 구독에 대한 액세스 권한을 얻어야 합니다. 파트너는 [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 또는 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) 액세스 오픈 지원 티켓을 가져와야 합니다.
 
@@ -174,4 +174,4 @@ SaaS 제품은 구독과 함께 전송되지 않습니다. [Azure 지원에 문�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 구독의 청구 소유권이 사용자에게 이전됩니다. [Azure Portal](https://portal.azure.com)에서 이러한 구독에 대한 요금을 추적합니다.
-* 전송된 Azure 구독에 대한 액세스 권한을 얻으려면 고객에게 문의하세요. [RBAC를 사용하여 Azure 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* 전송된 Azure 구독에 대한 액세스 권한을 얻으려면 고객에게 문의하세요. [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

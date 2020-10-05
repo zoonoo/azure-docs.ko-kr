@@ -1,25 +1,27 @@
 ---
-title: Azure 계정의 연락처 정보 변경
-description: Azure 관리 계정의 연락처 정보를 변경하는 방법 설명
+title: Azure 청구 계정의 연락처 정보 변경
+description: Azure 청구 계정의 연락처 정보를 변경하는 방법 설명
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6045afba230fa204dd5f93adc11b67ff0e3e209f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: contperfq1
+ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297728"
 ---
-# <a name="change-the-contact-information-for-your-azure-account"></a>Azure 계정의 연락처 정보 변경
+# <a name="change-contact-information-for-an-azure-billing-account"></a>Azure 청구 계정의 연락처 정보 변경
 
-이 문서는 Azure Portal에서 계정의 연락처 정보를 업데이트하는 데 도움이 됩니다. 연락처 정보를 업데이트하는 지침은 청구 계정 유형에 따라 다릅니다. 청구 계정에 대해 자세히 알아보고 청구 계정 유형을 확인하려면 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.
+이 문서는 Azure Portal에서 *청구 계정*의 연락처 정보를 업데이트하는 데 도움이 됩니다. 연락처 정보를 업데이트하는 지침은 청구 계정 유형에 따라 다릅니다. 청구 계정에 대해 자세히 알아보고 청구 계정 유형을 확인하려면 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요. Azure 청구 계정은 Azure 사용자 계정 및 [Microsoft 계정](https://account.microsoft.com/)과 별개입니다.
+
+Azure Active Directory 사용자 프로필 정보를 업데이트하려는 경우 사용자 관리자만 변경 권한이 있습니다. 사용자 관리자 역할이 할당되지 않은 경우 사용자 관리자에게 문의하세요. 사용자 프로필 변경에 대한 자세한 내용은 [Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)를 참조하세요.
 
 *구매자 주소* - 구매자 주소는 청구 계정을 관리하는 조직 또는 개인의 주소와 연락처 정보입니다. 청구 계정에 대해 생성되는 모든 청구서에 표시됩니다.
 
@@ -31,21 +33,21 @@ ms.locfileid: "88684901"
 
 1. 계정에 대한 계정 관리자 권한이 있는 이메일 주소를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.  
-    ![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/change-azure-account-profile/search-cmb.png)
+    ![Cost Management + Billing에 대한 Azure Portal 내 검색 위치를 보여 주는 스크린샷](./media/change-azure-account-profile/search-cmb.png)
 1. 왼쪽에서 **속성**을 선택합니다.  
-    ![주소 업데이트 페이지를 보여주는 스크린샷](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    ![MOSP 청구 계정 속성을 보여 주는 스크린샷](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 1. **청구 주소 업데이트**를 선택하여 구매자 주소 및 청구 주소를 업데이트합니다. 새 주소를 입력한 다음, **저장**을 선택합니다.  
-    ![주소 업데이트 페이지를 보여주는 스크린샷](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    ![MOSP 청구 계정의 주소 업데이트를 보여 주는 스크린샷](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>MCA 청구 계정 구매자 주소 업데이트
 
 1. Microsoft 고객 계약의 청구 계정에 대한 소유자 또는 기여자 역할이 있는 이메일 주소를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.  
-    ![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/change-azure-account-profile/search-cmb.png)
+    ![Azure Portal 내 검색 위치를 보여 주는 스크린샷](./media/change-azure-account-profile/search-cmb.png)
 1. 왼쪽에서 **속성**을 선택한 다음, **구매자 업데이트**를 선택합니다.  
-    ![구매자 업데이트 선택을 보여주는 스크린샷](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    ![수령지 주소를 수정할 수 있는 MCA 청구 계정의 속성을 보여 주는 스크린샷](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
 1. 새 주소를 입력하고 **저장**을 선택합니다.  
-    ![주소 업데이트를 보여주는 스크린샷](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    ![MCA 계정의 수령지 주소를 업데이트하는 방법을 보여 주는 스크린샷](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
     > 일부 계정은 구매자 주소를 업데이트하기 전에 추가 확인이 필요합니다. 계정에서 수동 승인이 필요한 경우 Azure 지원에 문의하라는 메시지가 표시됩니다.
@@ -54,15 +56,14 @@ ms.locfileid: "88684901"
 
 1. MCA의 청구 계정에 대한 소유자 또는 기여자 역할이 있는 이메일 주소를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.  
-    ![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/change-azure-account-profile/search-cmb.png)
 1. 왼쪽에서 **청구 프로필**을 선택합니다.
 1. 청구 프로필을 선택하여 청구 주소를 업데이트합니다.  
-    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    ![청구 프로필을 선택하는 청구 프로필 페이지를 보여 주는 스크린샷](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. 왼쪽에서 **속성**을 선택합니다.
 1. **주소 업데이트**를 선택합니다.  
-    ![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    ![주소를 업데이트하는 위치를 보여 주는 스크린샷](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. 새 주소를 입력한 다음, **저장**을 선택합니다.  
-    ![주소 업데이트를 보여주는 스크린샷](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+    ![주소 업데이트를 보여 주는 스크린샷](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## <a name="service-and-marketing-emails"></a>서비스 및 마케팅 이메일
 
@@ -83,11 +84,9 @@ ms.locfileid: "88684901"
 
 다음 방법 중 하나를 사용하여 연락처 이메일 주소를 변경할 수 있습니다. 연락처 이메일 주소를 업데이트해도 로그인에 사용하는 이메일 주소는 업데이트되지 않습니다.
 
-* MOSP 계정의 계정 관리자인 경우 [MOSP 청구 계정 주소 업데이트](#update-an-mosp-billing-account-address)의 지침에 따르고 마지막 단계에서 **연락처 정보 업데이트**를 선택합니다. 그리고 새 이메일 주소를 입력합니다.
-
-* Azure Portal의 [연락처 정보](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) 영역으로 이동하여 새 이메일 주소를 입력합니다. 
-
-* [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)에서 이니셜이나 그림이 있는 아이콘을 선택합니다. 그런 다음, 상황에 맞는 메뉴( **...** )를 선택합니다. 다음으로, 메뉴에서 **내 연락처 정보**를 선택하고 새 이메일 주소를 입력합니다.
+1. MOSP 계정의 계정 관리자인 경우 [MOSP 청구 계정 주소 업데이트](#update-an-mosp-billing-account-address)의 지침에 따르고 마지막 단계에서 **연락처 정보 업데이트**를 선택합니다. 그리고 새 이메일 주소를 입력합니다.
+1. Azure Portal의 [연락처 정보](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) 영역으로 이동하여 새 이메일 주소를 입력합니다. 
+1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)에서 이니셜이나 그림이 있는 아이콘을 선택합니다. 그런 다음, 상황에 맞는 메뉴( **...** )를 선택합니다. 다음으로, 메뉴에서 **내 연락처 정보**를 선택하고 새 이메일 주소를 입력합니다.
 
 ![Azure에서 이메일 주소를 업데이트 하는 예](./media/change-azure-account-profile/azure-contact-information.png)
 
