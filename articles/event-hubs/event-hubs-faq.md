@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aa108d961fca3819b0747332c363b324c05b7994
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318503"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729103"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -270,6 +270,20 @@ Event Hubs는 두 가지 유형의 [진단 로그](event-hubs-diagnostic-logs.md
 Event Hubs에 대한 기술 지원은 [Azure Service Bus에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-service-bus.html)를 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
 
 SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 페이지를 참조하세요.
+
+## <a name="azure-stack-hub"></a>Azure Stack Hub
+
+### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
+Azure Stack 허브에서이 코드를 실행 하는 경우 특정 저장소 API 버전을 대상으로 하지 않는 한 런타임 오류가 발생 합니다. Event Hubs SDK는 Azure에서 사용 가능한 최신 Azure Storage API를 사용 하므로 Azure Stack 허브 플랫폼에서 사용할 수 없습니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure 블로그 저장소를 검사점 저장소로 사용 하는 경우 [Azure Stack 허브 빌드에 대해 지원 되는 AZURE STORAGE API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version) 을 확인 하 고 코드에서 해당 버전을 대상으로 합니다. 
+
+예를 들어 Azure Stack 허브 버전 2005에서를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 최고 버전을 사용 합니다 (SDK 출시 시점에 2019-07-07). 이 경우에는이 섹션의 다음 단계 외에도 저장소 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
+
+코드에서 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
+- Python- [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
 
 ## <a name="next-steps"></a>다음 단계
 

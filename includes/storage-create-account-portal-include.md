@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91376381"
 ---
 Azure Portal에서 범용 v2 스토리지 계정을 만들려면 다음 단계를 수행합니다.

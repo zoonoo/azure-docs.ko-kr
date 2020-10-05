@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654483"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631446"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -54,7 +54,9 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 
 - SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.
 - 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 또는 가상 머신 확장 집합 리소스는 하나의 SKU만 참조할 수 있습니다.
-- 표준 Load Balancer 및 표준 공용 IP 리소스에는 [구독 이동 작업](../azure-resource-manager/management/move-resource-group-and-subscription.md)이 지원되지 않습니다.
+- [이동 작업](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - 리소스 그룹 이동 작업(동일한 구독 내)은 표준 Load Balancer 및 표준 공용 IP에 대해 **지원됩니다.** 
+  - 표준 Load Balancer 및 표준 공용 IP 리소스에는 [구독 그룹 이동 작업](../azure-resource-manager/management/move-support-resources.md)이 지원되지 **않습니다**.
 
 ## <a name="next-steps"></a>다음 단계
 

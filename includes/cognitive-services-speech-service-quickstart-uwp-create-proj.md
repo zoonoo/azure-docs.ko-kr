@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 2dcc018c65625825436bd1050cdf7f3b9d3131e2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 134c9996690d629ad8acb348d1928904741b6b2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374712"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654454"
 ---
 UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 대상 아키텍처를 선택하고, 오디오 캡처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -19,13 +19,13 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 1. Visual Studio 2019를 열어 **시작** 창을 표시합니다.
 
-   ![시작 창 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
+   !["코드 없이 계속" 작업이 강조 표시된 "시작" 창을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
 
 1. **코드를 사용하지 않고 계속**을 선택하여 Visual Studio IDE로 이동합니다.
 
 1. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 열고 **수정** 대화 상자를 봅니다.
 
-   ![워크로드 탭, 수정 대화 상자, Visual Studio 설치 관리자](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
+   !["유니버설 Windows 플랫폼 개발"이 강조 표시된 "수정" 대화 상자의 "워크로드" 탭을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
 
 1. **작업** 탭의 **Windows**에서 **유니버설 Windows 플랫폼 개발** 작업을 찾습니다. 해당 작업 옆의 확인란이 이미 선택되어 있으면 **수정** 대화 상자를 닫고 6단계로 이동합니다.
 
@@ -39,13 +39,13 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 1. Visual Studio 메뉴 모음에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 **새 프로젝트 만들기** 창을 표시합니다.
 
-   ![새 프로젝트 만들기 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
+   !["빈 앱(유니버설 Windows)"이 선택되고 "다음" 단추가 강조 표시된 "새 프로젝트 만들기" 창이 표시된 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
 1. **비어 있는 앱(유니버설 Windows)** 을 찾고 선택합니다. 이 프로젝트 형식의 C# 버전을 선택했는지 확인합니다(Visual Basic이 아닌).
 
 1. **다음**을 선택하여 **새 프로젝트 구성** 화면을 표시합니다.
 
-   ![새 프로젝트 구성 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
+   !["프로젝트 이름" 및 "위치" 필드와 "만들기" 단추가 강조 표시된 "새 프로젝트 구성" 화면을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
 1. **프로젝트 이름**에서 `helloworld`를 입력합니다.
 
@@ -53,7 +53,7 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 1. **만들기**를 선택하여 **새 유니버설 Windows 플랫폼 프로젝트** 창으로 이동합니다.
 
-   ![새 유니버설 Windows 플랫폼 프로젝트 대화 상자 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+   !["새 유니버설 Windows 플랫폼 프로젝트"대화 상자를 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
 1. **최소 버전**(두 번째 드롭다운 상자)에서 **Windows 10 Fall Creators Update(10.0; 빌드 16299)** 를 선택합니다. 이는 Speech SDK의 최소 요구 사항입니다.
 
@@ -90,13 +90,13 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 1. **찾아보기**를 선택합니다.
 
-   ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   !["찾아보기" 탭, "검색" 상자 및 "패키지 소스"가 강조 표시된 "솔루션 패키지 관리" 대화 상자를 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. **패키지 원본**에서 **nuget.org**를 선택합니다.
 
 1. **검색** 상자에 `Microsoft.CognitiveServices.Speech`를 입력한 다음, 검색 결과에 표시된 후에 해당 패키지를 선택합니다.
 
-   ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
+   !["Microsoft.CognitiveServices.Speech"가 선택되고 프로젝트 및 "설치" 단추가 강조 표시된 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
 
 1. 검색 결과 옆의 패키지 상태 창에서 **helloworld** 프로젝트를 선택합니다.
 

@@ -14,19 +14,19 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600948"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728984"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 응용 프로그램 인증 이동
 
 [Azure Active Directory (AZURE AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 는 사용자, 파트너 및 고객에 게 응용 프로그램에 액세스 하 고 모든 플랫폼과 장치에서 공동 작업 하는 단일 id를 제공 하는 범용 id 플랫폼을 제공 합니다. Azure AD에는 [완전 한 id 관리 기능이](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)포함 되어 있습니다. 응용 프로그램 (앱) 인증 및 권한 부여를 Azure AD로 표준화 하면 이러한 기능이 제공 하는 이점을 누릴 수 있습니다. 
 
-> [!NOTE]
-> 이 문서에서는 온-프레미스 Active Directory에서 응용 프로그램 인증을 이동 하 고 Azure AD로 Active Directory Federation Services 하는 방법을 집중적으로 설명 합니다. 이 이동 계획에 대 한 개요는 [응용 프로그램 인증을 AZURE AD로 마이그레이션](https://aka.ms/migrateapps/whitepaper) 백서를 참조 하세요. 백서는 마이그레이션, 테스트 및 정보를 계획 하는 방법을 설명 합니다.
+> [!TIP]
+> 이 문서는 개발자를 대상으로 작성 되었습니다. 프로젝트 관리자와 관리자가 Azure AD로 응용 프로그램 이동을 계획 하는 것은 [AZURE ad로 응용 프로그램 인증 마이그레이션](https://aka.ms/migrateapps/whitepaper) 백서 (PDF)를 참조 하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -141,7 +141,7 @@ SaaS 앱을 등록 하는 데 문제가 있는 경우 [Saas 응용 프로그램 
 
 * 사용자 계정 이름
 
-* 전자 메일 주소
+* 메일 주소
 
 * 이름
 

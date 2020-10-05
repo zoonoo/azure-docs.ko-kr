@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89300190"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징

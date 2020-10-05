@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719396"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728933"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -23,8 +23,6 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
-> 게스트 구성이 포함된 사용자 지정 정책은 미리 보기 기능입니다.
->
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다.
 > 모든 Windows 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
@@ -138,7 +136,7 @@ class ResourceName : OMI_BaseResource
 
 ### <a name="configuration-requirements"></a>구성 요구 사항
 
-사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
+사용자 지정 구성의 이름은 모든 위치에서 일관적이어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>게스트 구성 프로젝트 스캐폴딩
 
@@ -229,13 +227,13 @@ Test-GuestConfigurationPackage `
   -Path ./AuditBitlocker.zip
 ```
 
-cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet으로 파이프합니다.
+cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet에 파이프합니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-다음 단계는 Blob Storage에 파일을 게시하는 과정입니다. 아래 스크립트에는 이 작업을 자동화하는 데 사용할 수 있는 함수가 포함되어 있습니다. `publish` 함수에 사용되는 명령에는 `Az.Storage` 모듈이 필요합니다.
+다음 단계는 Blob Storage에 파일을 게시하는 것입니다. 아래 스크립트는 이 작업을 자동화하는 데 사용할 수 있는 함수를 포함합니다. `publish` 함수에 사용되는 명령에는 `Az.Storage` 모듈이 필요합니다.
 
 ```azurepowershell-interactive
 function publish {
@@ -294,14 +292,14 @@ $uri = publish `
 
 게스트 구성 사용자 지정 정책 패키지를 만들고 업로드한 후에는 게스트 구성 정책 정의를 만듭니다. `New-GuestConfigurationPolicy` cmdlet은 사용자 지정 정책 패키지를 사용하고 정책 정의를 만듭니다.
 
-`New-GuestConfigurationPolicy` cmdlet의 매개 변수는 다음과 같습니다.
+`New-GuestConfigurationPolicy` cmdlet의 매개 변수:
 
 - **ContentUri**: 게스트 구성 콘텐츠 패키지의 공용 http(s) uri입니다.
 - **DisplayName**: 정책 표시 이름입니다.
 - **설명**: 정책 설명입니다.
 - **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
 - **버전**: 정책 버전입니다.
-- **경로**: 정책 정의가 만들어지는 대상 경로입니다.
+- **경로**: 정책 정의가 생성되는 대상 경로입니다.
 - **Platform**: 게스트 구성 정책 및 콘텐츠 패키지용 대상 플랫폼(Windows/Linux)입니다.
 - **Tag**는 정책 정의에 하나 이상의 태그 필터를 추가합니다.
 - **Category**는 정책 정의의 범주 메타데이터 필드를 설정합니다.
@@ -403,13 +401,22 @@ Cmdlet은 `New-GuestConfigurationPolicy` `Test-GuestConfigurationPolicyPackage` 
 다음 예에서는 서비스를 감사할 정책 정의를 만듭니다. 사용자는 정책 할당 시 이를 목록에서 선택할 수 있습니다.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)

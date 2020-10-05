@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 73815e793357dd38244dd429f9056c4c6a0bfff1
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410333"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729001"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Service Fabric 관리 클러스터에 대 한 질문과 대답
 
@@ -41,7 +41,7 @@ SLA는 현재 Service Fabric 리소스 모델에서 변경 되지 않습니다.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>기본 및 표준 SKU 클러스터 간의 차이점은 무엇 인가요?
 
-기본 SKU 클러스터는 대부분의 구성이 Service Fabric 리소스 공급자에 의해 제공 됨을 의미 합니다. 기본 SKU 클러스터는 테스트 및 사전 프로덕션 환경에 사용 하기 위한 것입니다. 사용자는 표준 SKU 클러스터를 사용 하 여 사용자의 요구를 충족 하도록 클러스터를 구성할 수 있습니다. 자세한 내용은 [관리 되는 클러스터 sku Service Fabric](overview-managed-cluster.md#service-fabric-managed-cluster skus.md) 를 참조 하세요.
+기본 SKU 클러스터는 대부분의 구성이 Service Fabric 리소스 공급자에 의해 제공 됨을 의미 합니다. 기본 SKU 클러스터는 테스트 및 사전 프로덕션 환경에 사용 하기 위한 것입니다. 사용자는 표준 SKU 클러스터를 사용 하 여 사용자의 요구를 충족 하도록 클러스터를 구성할 수 있습니다. 자세한 내용은 [관리 되는 클러스터 sku Service Fabric](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) 를 참조 하세요.
 
 ## <a name="cluster-deployment-and-management"></a>클러스터 배포 및 관리
 
