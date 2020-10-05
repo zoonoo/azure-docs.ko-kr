@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f59bae9864e533270b0bfea829f64ccf541a8a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301434"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712275"
 ---
 # <a name="harden-your-docker-hosts"></a>Docker 호스트 강화
 
@@ -30,9 +30,9 @@ Security Center에는 CIS Docker 벤치 마크의 전체 규칙 집합이 포함
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
+|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
 |필요한 역할 및 사용 권한:|호스트에서 연결 하는 작업 영역에 대 한 **읽기 권한자**|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Docker 구성에서 보안 취약점 식별 및 해결
@@ -50,11 +50,11 @@ Security Center에는 CIS Docker 벤치 마크의 전체 규칙 집합이 포함
     > [!TIP]
     > 자산 인벤토리 페이지에서 시작 하 여이 권장 사항에 도달한 경우 권장 사항 페이지의 **작업 수행** 단추를 선택 (.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="작업 단추를 사용 하 여 시작 Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="컨테이너 보안 구성의 취약성을 해결 하기 위한 권장 사항 ":::
 
     사용자 지정 작업을 실행할 준비가 되 면 Log Analytics 열립니다. 기본 사용자 지정 쿼리는 문제를 해결 하는 데 도움이 되는 지침과 함께 평가 된 모든 실패 한 규칙의 목록을 포함 합니다.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="실패 한 모든 CI 컨트롤을 표시 하는 쿼리가 있는 Log Analytics 페이지":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="컨테이너 보안 구성의 취약성을 해결 하기 위한 권장 사항 ":::
 
 1. 필요한 경우 쿼리 매개 변수를 조정 합니다.
 
