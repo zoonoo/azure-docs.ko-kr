@@ -2,20 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: da9388a3bd5f4d46ec34ed226e3ee23a96b2f494
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: fda9df6c7e9651bbd3b0b70ad9d47f23c0c19d01
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375422"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91541437"
 ---
 ## <a name="sign-in-to-luis-portal"></a>LUIS 포털에 로그인
 
@@ -29,7 +27,7 @@ LUIS에 대한 새 사용자는 다음 절차를 수행해야 합니다.
 
 1. 리소스에 대한 세부 정보를 입력합니다.
 
-    ![제작 리소스 만들기](../media/migrate-authoring-key/choose-authoring-resource-form.png)
+    ![제작을 위한 새 리소스 만들기 창을 보여주는 스크린샷](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
     **새 제작 리소스를 만들** 때 다음 정보를 제공합니다.
 
@@ -42,8 +40,8 @@ LUIS에 대한 새 사용자는 다음 절차를 수행해야 합니다.
 
 1. 만들 리소스에 대한 요약이 표시됩니다. **다음**을 선택합니다.
 
-    ![제작 리소스 만들기](../media/sign-in/sign-in-confirm-key-selection.png)
+    ![Azure 계정에 연결하는 옵션이 있는 시작 페이지를 보여주는 스크린샷](../media/sign-in/sign-in-confirm-key-selection.png)
 
 1. **계속**을 선택하여 확인합니다.
 
-    ![제작 리소스 만들기](../media/sign-in/sign-in-confirm-continue.png)
+    ![Azure 계정에 연결한 후의 시작 페이지를 보여주는 스크린샷](../media/sign-in/sign-in-confirm-continue.png)
