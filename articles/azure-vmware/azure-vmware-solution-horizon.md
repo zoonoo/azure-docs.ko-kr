@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 60207b0ed9e1df805ac667752b55f14a693ec25c
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91492572"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729052"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -84,7 +84,7 @@ Azure VMware 솔루션은 SDDC 서비스이 고 azure는 azure VMware 솔루션�
 
 Azure 사설 클라우드/SDDC 최대 한도를 고려 하 여 Azure Virtual Network 내에서 수평 연결 서버 및 VMware UAGs (통합 액세스 게이트웨이)를 실행 하는 배포 아키텍처를 사용 하는 것이 좋습니다. 이렇게 하면 각 Azure 사설 클라우드/SDDC이 블록으로 효과적으로 전환 됩니다. 이렇게 하면 Azure VMware 솔루션에서 실행 되는 규모의 확장성이 극대화 됩니다.
 
-Azure Virtual Network에서 Azure 사설 클라우드/SDDCs로의 연결은 ExpressPath Fast 경로를 사용 하 여 구성 해야 합니다. 다음 다이어그램에서는 기본 수평 pod 배포를 보여 줍니다.
+Azure Virtual Network에서 Azure 사설 클라우드/SDDCs로의 연결은 Express 경로 FastPath를 사용 하 여 구성 해야 합니다. 다음 다이어그램에서는 기본 수평 pod 배포를 보여 줍니다.
 
 :::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Azure의 Azure VMware 솔루션 및 수평 클라우드의 수평 간 차이" border="false":::
 
@@ -92,7 +92,7 @@ Azure Virtual Network에서 Azure 사설 클라우드/SDDCs로의 연결은 Expr
 
 이 섹션에서는 몇 가지 일반적인 배포 예제를 사용 하 여 Azure VMware 솔루션의 규모를 조정 하기 위한 높은 수준의 네트워크 아키텍처를 배치 합니다. 여기에는 중요 한 네트워킹 요소에 대 한 포커스가 특히 있습니다.
 
-### <a name="single-horizon-pd-on-azure-vmware-solution"></a>Azure VMware 솔루션의 단일 수평 pd
+### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Azure VMware 솔루션의 단일 수평 pod
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Azure의 Azure VMware 솔루션 및 수평 클라우드의 수평 간 차이" border="false":::
 
@@ -197,7 +197,7 @@ Azure VMware 솔루션과 함께 사용할 수 있는 두 가지 라이선스가
 
 표준 배포 아키텍처에 따라 수평 인프라 Vm은 연결 서버, UAGs, 앱 볼륨 관리자로 구성 되며 고객의 Azure Virtual Network에 배포 됩니다. Azure에서 HA (고가용성), Microsoft SQL 또는 AD (Microsoft Active Directory) 서비스를 지원 하려면 추가 Azure 네이티브 인스턴스가 필요 합니다. 다음은 2000-데스크톱 배포 예제를 기반으로 하는 Azure 인스턴스 목록입니다. 
 
-| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 설명  |
+| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 의견  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
 | 연결 서버                | D4sv3          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |    
 | UAG                              | F2sv2          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |

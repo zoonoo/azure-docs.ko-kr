@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3b9acc3f91a91527e96f450d825d06f6b909e15d
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707971"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729154"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결
 
-내 앱은 azure ad (Azure Active Directory)에서 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. 
+내 앱은 azure ad (Azure Active Directory)에서 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. 내 앱은에서 웹 브라우저를 사용 하 여 액세스할 수 [https://myapps.microsoft.com](https://myapps.microsoft.com) 있습니다.
 
 앱에 대 한 id 공급자로 Azure AD를 사용 하는 방법에 대 한 자세한 내용은 [AZURE ad의 응용 프로그램 관리 란?](what-is-application-management.md)을 참조 하세요. 신속 하 게 속도를 높이려면 [응용 프로그램 관리에서 빠른 시작 시리즈](view-applications-portal.md)를 확인 하세요.
 

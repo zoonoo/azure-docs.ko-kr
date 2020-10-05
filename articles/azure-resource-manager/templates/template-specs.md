@@ -2,21 +2,21 @@
 title: 템플릿 사양 개요
 description: 템플릿 사양을 만들고 조직의 다른 사용자와 공유 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448817"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728474"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure Resource Manager 템플릿 사양 (미리 보기)
 
-템플릿 사양은 나중에 배포할 수 있도록 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿)을 저장 하기 위한 새로운 리소스 형식입니다. 이 리소스 종류를 사용 하 여 ARM 템플릿을 조직의 다른 사용자와 공유할 수 있습니다. 다른 Azure 리소스와 마찬가지로 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양을 공유할 수 있습니다.
+템플릿 사양은 나중에 배포할 수 있도록 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿)을 저장 하는 리소스 형식입니다. 이 리소스 종류를 사용 하 여 ARM 템플릿을 조직의 다른 사용자와 공유할 수 있습니다. 다른 Azure 리소스와 마찬가지로 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양을 공유할 수 있습니다.
 
-**TemplateSpecs/** 는 템플릿 사양에 대 한 새 리소스 형식입니다. 주 템플릿과 연결 된 템플릿 수에 관계 없이 구성 됩니다. Azure는 리소스 그룹에 템플릿 사양을 안전 하 게 저장 합니다. 템플릿 사양에서 [버전 관리](#versioning)를 지원 합니다.
+**TemplateSpecs/** 는 템플릿 사양에 대 한 리소스 형식입니다. 주 템플릿과 연결 된 템플릿 수에 관계 없이 구성 됩니다. Azure는 리소스 그룹에 템플릿 사양을 안전 하 게 저장 합니다. 템플릿 사양에서 [버전 관리](#versioning)를 지원 합니다.
 
 템플릿 사양을 배포 하려면 PowerShell, Azure CLI, Azure Portal, REST 및 기타 지원 되는 Sdk와 클라이언트와 같은 표준 Azure 도구를 사용 합니다. 템플릿과 동일한 명령을 사용 합니다.
 

@@ -3,20 +3,20 @@ title: 인증 설정
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 다양한 리소스 및 워크플로에 대한 인증을 설정하고 구성하는 방법을 알아봅니다. 개발 또는 테스트 목적의 간단한 UI 기반 인증부터 전체 Azure Active Directory 서비스 주체 인증에 이르기까지 서비스 내에서 인증을 구성하고 사용하는 방법에는 여러 가지가 있습니다.
 services: machine-learning
-author: larryfr
-ms.author: larryfr
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 0650b1c6364a187447ea3a378675df9d76eef4d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275730"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729035"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 

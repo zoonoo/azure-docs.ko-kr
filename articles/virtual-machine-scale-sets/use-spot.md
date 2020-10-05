@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 61f82cf907ef861307a907f6cd2b9b13f043b9a0
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91709047"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729018"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -163,7 +163,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:**  자동 크기 조정은 제거 정책 (할당 취소 및 삭제) 모두에서 작동 하나요?
 
-**A:** 자동 크기 조정을 사용 하는 경우 삭제 하도록 제거 정책을 설정 하는 것이 좋습니다. 할당 취소된 인스턴스가 확장 집합에서 용량 수에 따라 계산되기 때문입니다. 자동 크기 조정을 사용할 때 할당 취소되고 제거된 인스턴스로 인해 신속하게 대상 인스턴스 수를 달성할 수 있을 것 같습니다. 또한 크기 조정 작업은 스폿 제거의 영향을 받을 수 있습니다. 예를 들어 VMSS 인스턴스는 크기 조정 작업 중 여러 지점 제거로 인해 설정 된 최소 개수 보다 작을 수 있습니다. 
+**A:** 예. 그러나 자동 크기 조정을 사용 하는 경우 삭제 하도록 제거 정책을 설정 하는 것이 좋습니다. 할당 취소된 인스턴스가 확장 집합에서 용량 수에 따라 계산되기 때문입니다. 자동 크기 조정을 사용할 때 할당 취소되고 제거된 인스턴스로 인해 신속하게 대상 인스턴스 수를 달성할 수 있을 것 같습니다. 또한 크기 조정 작업은 스폿 제거의 영향을 받을 수 있습니다. 예를 들어 VMSS 인스턴스는 크기 조정 작업 중 여러 지점 제거로 인해 설정 된 최소 개수 보다 작을 수 있습니다. 
 
 **Q:** 지점 Vm을 지 원하는 채널은 무엇 인가요?
 

@@ -3,15 +3,16 @@ title: GitHub 작업의 사용자 지정 컨테이너 CI/CD
 description: GitHub 작업을 사용 하 여 CI/CD 파이프라인에서 App Service 하는 사용자 지정 Linux 컨테이너를 배포 하는 방법을 알아봅니다.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: github-actions-azure
+ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631786"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728491"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -27,7 +28,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  

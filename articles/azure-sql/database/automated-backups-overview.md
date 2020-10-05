@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 09/25/2020
-ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/05/2020
+ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535103"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728661"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -50,7 +50,7 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 > 영역 중복 저장소는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다. 
 
 > [!NOTE]
-> 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. Azure SQL Database  
+> Azure SQL Database에 대 한 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. 이 기능은 아직 Hyperscale 계층에 사용할 수 없습니다. 
 
 ### <a name="backup-usage"></a>백업 사용
 
@@ -439,9 +439,9 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 
 지역 중복 백업 저장소를 사용 하 여 새 데이터베이스 또는 인스턴스 만들기를 차단 하기 위해 구독 또는 리소스 그룹 수준에서 할당 될 수 있는 새로운 기본 제공 정책이 추가 됩니다. 
 
-[GRS 백업 중복성을 사용 하지 않아야 SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
+[SQL Database는 GRS 백업 중복을 사용하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
 
-[SQL 관리 되는 인스턴스는 GRS 백업 중복성을 사용 하지 않아야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
+[SQL Managed Instance는 GRS 백업 중복을 사용하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
 SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전체 목록은 [여기](https://docs.microsoft.com/azure/azure-sql/database/policy-reference)에서 찾을 수 있습니다.
 

@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905471"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728440"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
-Azure Security Center에는 다양한 리소스 유형에 대한 광범위한 경고가 있습니다. Security Center는 Azure에 배포된 리소스와, 온-프레미스 및 하이브리드 클라우드 환경에 배포된 리소스에 대해 경고를 생성합니다.
+Security Center에는 다양 한 리소스 유형에 대 한 다양 한 경고가 있습니다. Security Center는 Azure에 배포된 리소스와, 온-프레미스 및 하이브리드 클라우드 환경에 배포된 리소스에 대해 경고를 생성합니다.
 
 보안 경고는 고급 검색에서 트리거되고 Azure Defender 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 대해 자세히 알아보세요.
 
@@ -84,6 +84,14 @@ Azure Security Center는 위협 환경의 변화를 지속적으로 모니터링
 * **탐지 튜닝**: 알고리즘은 실제 고객 데이터 세트에 대해 실행되며, 보안 연구원은 고객과 협력하여 결과의 유효성을 검사합니다. 기계 학습 알고리즘을 구체화하기 위해 참 및 거짓 긍정이 사용됩니다.
 
 이러한 결합된 노력은 즉시 활용할 수 있는 새롭고 향상된 감지에 누적됩니다. 수행해야 할 작업이 없습니다.
+
+## <a name="export-alerts"></a>경고 내보내기
+
+다음을 포함 하 여 Security Center 외부에서 경고를 볼 수 있는 다양 한 옵션이 있습니다.
+
+- 경고 대시보드에서 **csv 보고서 다운로드** 는 csv로 일회성 내보내기를 제공 합니다.
+- 가격 책정에서 **연속 내보내기** & 설정을 사용 하면 작업 영역 및 Event Hubs에 Log Analytics 대 한 보안 경고 및 권장 사항 스트림을 구성할 수 있습니다. [연속 내보내기에 대 한 자세한 정보](continuous-export.md)
+- **Azure 센티널 커넥터** 는 Azure Security Center에서 azure 센티널로 azure Defender 경고를 스트리밍합니다. [센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>다음 단계
