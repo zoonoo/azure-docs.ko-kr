@@ -3,17 +3,17 @@ title: Azure Database for PostgreSQL 설명서
 summary: Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 관계형 데이터베이스 서비스입니다. 예측 가능한 성능, 보안, 고가용성 및 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database-as-a-Service입니다.
 metadata:
   description: Azure Database for PostgreSQL은 오픈 소스 PostgreSQL 데이터베이스 엔진을 기반으로 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: c14cab875ab017feb913269e277e8b5c12a3ee08
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 4931a50d2258902c551cb276a8b47b129a176551
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90895655"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91704296"
 landingContent:
 - title: Azure Database for PostgreSQL 정보
   linkLists:
