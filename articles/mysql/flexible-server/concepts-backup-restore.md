@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939304"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756537"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 백업 및 복원 (미리 보기)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL 유연한 서버는 자동으로 서버 백업을 만�
 
 유연한 서버는 데이터 파일의 스냅숏 백업을 사용 하 여 로컬 중복 저장소에 저장 합니다. 또한 서버는 트랜잭션 로그 백업을 수행 하 고 로컬 중복 저장소에도 저장 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 데이터베이스 백업을 1 ~ 35 일로 구성할 수 있습니다. 모든 백업은 미사용 데이터에 대 한 AES 256 비트 암호화를 사용 하 여 암호화 됩니다.
 
-이러한 백업 파일은 내보낼 수 없습니다. 백업은 유연한 서버에서 복원 작업에만 사용할 수 있습니다. MySQL 클라이언트에서 [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore)를 사용 하 여 데이터베이스를 복사할 수도 있습니다   .
+이러한 백업 파일은 내보낼 수 없습니다. 백업은 유연한 서버에서 복원 작업에만 사용할 수 있습니다. MySQL 클라이언트에서 [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)를 사용 하 여 데이터베이스를 복사할 수도 있습니다   .
 
 ## <a name="backup-frequency"></a>Backup 주기
 

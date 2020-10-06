@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15581178dc1c00b6905763e8552062869f8378ce
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: eb7d7d6296432146e6e4390b0df62964ffe6f8da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704959"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758101"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -82,6 +82,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>변경 로그
 
+- 10/05/2020: RHEL 구성 가이드의 [Azure vm에서 Pacemaker을 사용 하는 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 릴리스
 - 09/30/2020: RHEL의 [Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md)변경, RHEL의 [anf를 사용 하 여 SAP HANA 확장을 위한 HA](./sap-hana-high-availability-netapp-files-red-hat.md) , [azure에서 RHEL를 설정](./high-availability-guide-rhel-pacemaker.md) 하 여 RHEL 8.1에 대 한 지침 적용
 - 09/29/2020: [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 문서에서 ppg 사용에 대 한 제한 사항 및 권장 사항을 만듭니다. 
 - 09/28/2020: [Azure NetApp Files에서 NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) 문서와 함께 Azure NetApp Files를 사용 하 SAP HANA에 대 한 새 저장소 작업 가이드를 추가 SAP HANA

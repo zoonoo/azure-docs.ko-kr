@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 559c596ed9b7412b277fbfc1cf30cad15e852cef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253159"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757846"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 
-Azure Cosmos DB용 Synapse Link는 클라우드 네이티브 HTAP(하이브리드 트랜잭션 및 분석 처리) 기능으로, 이를 통해 Azure Cosmos DB의 작동 데이터에 대해 근 실시간 분석을 실행할 수 있습니다. Synapse Link를 통해 Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
+[Azure Cosmos DB에 대 한 Azure Synapse 링크](synapse-link.md) 는 Azure Cosmos DB에서 작업 데이터에 대해 거의 실시간 분석을 실행할 수 있게 해 주는 클라우드 기본 HTAP (하이브리드 트랜잭션 및 분석 처리) 기능입니다. Synapse Link를 통해 Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
 
 > [!IMPORTANT]
 > Azure Synapse 링크를 사용 하려면 지원 되는 지역 중 하나에서 Azure Synapse Analytics 작업 영역 & Azure Cosmos DB 계정을 프로 비전 해야 합니다. Azure Synapse 링크는 현재 미국 서 부, 미국 동부, 서 부 미국, 유럽 서 부, 유럽 서부, 남부 중부, 동남 아시아, 오스트레일리아 동부, 동부 U2, 영국 남부의 Azure 지역에서 사용할 수 있습니다.
@@ -46,7 +46,7 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 
 1. 그런 다음, 계정에서 synapse link를 사용하도록 설정하라는 메시지를 표시합니다. **사용**을 선택합니다. 이 프로세스는 완료 하는 데 1 ~ 5 분 정도 걸릴 수 있습니다.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Synapse Link 기능 사용":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Synapse Link 미리 보기 기능 찾기":::
 
 1. 이제 계정이 Synapse Link를 사용하도록 설정되었습니다. 다음으로 트랜잭션 저장소에서 분석 저장소로 작업 데이터 복제를 자동으로 시작하도록 분석 저장소 사용 컨테이너를 만드는 방법을 참조하세요.
 
@@ -68,7 +68,7 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 
 1. **새 컨테이너**를 선택하고 데이터베이스, 컨테이너, 파티션 키 및 처리량 정보에 대한 이름을 입력합니다. **분석 저장소** 옵션을 설정합니다. 분석 저장소를 사용하도록 설정하면 `AnalyicalTTL` 속성이 기본값 -1(무한 보존)로 설정된 컨테이너가 만들어집니다. 레코드의 모든 기록 버전을 유지하는 분석 저장소입니다.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Azure Cosmos 컨테이너에 대한 분석 저장소 설정":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Synapse Link 미리 보기 기능 찾기":::
 
 1. 이 계정에 대해 이전에 Synapse Link를 사용하도록 설정하지 않은 경우 분석 저장소를 사용하도록 설정된 컨테이너를 만들기 위한 필수 구성 요소이므로 그렇게 하라는 메시지가 표시됩니다. 메시지가 표시되면 **Synapse Link 사용**을 선택합니다. 이 프로세스는 완료 하는 데 1 ~ 5 분 정도 걸릴 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998427"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757795"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>자습서: 푸시 API를 사용하여 인덱싱 최적화
 
@@ -325,7 +325,7 @@ do
 
 여기서는 쉽게 호출할 수 있도록 지수 백오프 코드를 함수로 래핑합니다.
 
-그런 다음, 활성 스레드를 관리하는 다른 함수를 만듭니다. 간단히 하기 위해 이 함수는 여기에 포함되지 않았지만 [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs)에서 확인할 수 있습니다. 이 함수는 다음 명령을 사용하여 호출할 수 있습니다. 여기서 `hotels`는 업로드하려는 데이터이고, `1000`은 일괄 처리 크기이며, `8`은 동시 스레드 수입니다.
+그런 다음, 활성 스레드를 관리하는 다른 함수를 만듭니다. 간단히 하기 위해 이 함수는 여기에 포함되지 않았지만 [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs)에서 확인할 수 있습니다. 이 함수는 다음 명령을 사용하여 호출할 수 있습니다. 여기서 `hotels`는 업로드하려는 데이터이고, `1000`은 일괄 처리 크기이며, `8`은 동시 스레드 수입니다.
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();

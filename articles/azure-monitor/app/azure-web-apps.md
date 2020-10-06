@@ -4,12 +4,12 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321818"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759461"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -391,7 +391,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 이는 APPINSIGHTS_JAVASCRIPT_ENABLED 응용 프로그램 설정이 true로 설정 되 고 콘텐츠 인코딩이 동시에 표시 되기 때문입니다. 이 시나리오는 아직 지원 되지 않습니다. 해결 방법은 응용 프로그램 설정에서 APPINSIGHTS_JAVASCRIPT_ENABLED를 제거 하는 것입니다. 그러나이는 클라이언트/브라우저 쪽 JavaScript 계측이 여전히 필요한 경우 웹 페이지에 대 한 수동 SDK 참조가 필요 함을 의미 합니다. JavaScript SDK를 사용한 수동 계측에 대 한 [지침](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) 을 따르세요.
 
-Application Insights 에이전트/확장에 대 한 최신 정보는 [릴리스](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)정보를 확인 하세요.
+Application Insights 에이전트/확장에 대 한 최신 정보는 [릴리스](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)정보를 확인 하세요.
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>웹 앱으로 배포 된 기본 웹 사이트에서 자동 클라이언트 쪽 모니터링을 지원 하지 않음
 

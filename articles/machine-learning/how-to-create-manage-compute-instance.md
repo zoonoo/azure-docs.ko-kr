@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743559"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756622"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -40,13 +40,13 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>만들기
+## <a name="create"></a>생성
 
 **예상 시간**: 약 5 분.
 
 계산 인스턴스를 만드는 작업은 작업 영역에 대 한 일회성 프로세스입니다. 이 계산을 개발 워크스테이션으로 다시 사용 하거나 학습을 위한 계산 대상으로 재사용할 수 있습니다. 여러 계산 인스턴스를 작업 영역에 연결할 수 있습니다.
 
-VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생성에 적용 되는 총 지역 할당량은 통합 되 고 Azure Machine Learning 교육 계산 클러스터 할당량과 공유 됩니다. 계산 인스턴스를 중지 하는 경우에는 계산 인스턴스를 다시 시작할 수 있도록 할당량을 해제 하지 않습니다.
+VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생성에 적용 되는 총 지역 할당량은 통합 되 고 Azure Machine Learning 교육 계산 클러스터 할당량과 공유 됩니다. 계산 인스턴스를 중지 하는 경우에는 계산 인스턴스를 다시 시작할 수 있도록 할당량을 해제 하지 않습니다. 계산 인스턴스를 만든 후에는 가상 컴퓨터 크기를 변경할 수 없습니다.
 
 다음 예에서는 계산 인스턴스를 만드는 방법을 보여 줍니다.
 

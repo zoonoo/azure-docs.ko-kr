@@ -8,20 +8,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 23ac1e241c0811944a943c3c3fef3116eff68a67
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937905"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757761"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Azure DevOps를 사용 하 여 Stream Analytics 작업에 대 한 CI/CD 파이프라인 만들기
 
-이 문서에서는 Azure Stream Analytics CI/CD 도구를 사용 하 여 Azure DevOps [빌드](/devops/pipelines/get-started-designer) 및 [릴리스](/devops/pipelines/release/define-multistage-release-process) 파이프라인을 만드는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Stream Analytics CI/CD 도구를 사용 하 여 Azure DevOps [빌드](/azure/devops/pipelines/get-started/pipelines-get-started) 및 [릴리스](/azure/devops/pipelines/release/define-multistage-release-process) 파이프라인을 만드는 방법에 대해 알아봅니다.
 
 ## <a name="commit-your-stream-analytics-project"></a>Stream Analytics 프로젝트 커밋
 
-시작 하기 전에 전체 Stream Analytics 프로젝트를 원본 파일로 [Azure DevOps](/devops/user-guide/source-control) 리포지토리에 커밋합니다. Azure Pipelines에서이 [샘플 리포지토리](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) 및 [Stream Analytics 프로젝트 소스 코드](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) 를 참조할 수 있습니다.
+시작 하기 전에 전체 Stream Analytics 프로젝트를 원본 파일로 [Azure DevOps](/azure/devops/user-guide/source-control) 리포지토리에 커밋합니다. Azure Pipelines에서이 [샘플 리포지토리](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) 및 [Stream Analytics 프로젝트 소스 코드](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) 를 참조할 수 있습니다.
 
 이 문서의 단계에서는 Stream Analytics Visual Studio Code 프로젝트를 사용 합니다. Visual Studio 프로젝트를 사용 하는 경우 [CI/CD 도구를 사용 하 여 Azure Stream Analytics 작업의 빌드, 테스트 및 배포 자동화](cicd-tools.md)의 단계를 따르세요.
 
@@ -39,7 +39,7 @@ ms.locfileid: "90937905"
 
 1. 원본 유형, 팀 프로젝트 및 리포지토리를 선택 합니다. 그런 다음 **계속**을 선택 합니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Azure Stream Analytics 프로젝트 선택":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="새 Azure 파이프라인 만들기":::
 
 1. **템플릿 선택** 페이지에서 **빈 작업**을 선택 합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "90937905"
 
 1. **작업** 페이지에서 **에이전트 작업 1**옆에 있는 더하기 기호를 선택 합니다. 작업 검색에서 *npm* 를 입력 하 고 **npm**를 선택 합니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Npm 작업 선택":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="새 Azure 파이프라인 만들기":::
 
 2. 작업에 **표시 이름을**지정 합니다. **명령** 옵션을 *사용자 지정* 으로 변경 하 고 **명령 및 인수**에 다음 명령을 입력 합니다. 나머지 기본 옵션은 그대로 둡니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "90937905"
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Npm 작업에 대 한 구성 입력":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="add-a-build-task"></a>빌드 작업 추가
 
@@ -77,7 +77,7 @@ ms.locfileid: "90937905"
 
    아래 이미지는 Stream Analytics Visual Studio Code 프로젝트를 예로 사용 합니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="명령줄 작업에 대 한 구성 입력 visual studio code":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="add-a-test-task"></a>테스트 작업 추가
 
@@ -87,7 +87,7 @@ ms.locfileid: "90937905"
    |-|-|
    |Microsoft.vsts.test.testpath|테스트|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="파이프라인 변수 추가":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="새 Azure 파이프라인 만들기":::
 
 2. **작업** 페이지에서 **에이전트 작업 1**옆에 있는 더하기 기호를 선택 합니다. **명령줄**을 검색 합니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "90937905"
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="명령줄 작업에 대 한 구성 입력":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="add-a-copy-files-task"></a>파일 복사 태스크 추가
 
@@ -116,7 +116,7 @@ ms.locfileid: "90937905"
 
 2. **제어 옵션**을 확장 합니다. **이 작업 실행**에서 **빌드가 취소 되지 않은 경우에도 이전 작업에 실패 한 경우에도를** 선택 합니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="복사 작업에 대 한 구성 입력":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>빌드 아티팩트 게시 작업 추가
 
@@ -124,7 +124,7 @@ ms.locfileid: "90937905"
 
 2. **제어 옵션**을 확장 합니다. **이 작업 실행**에서 **빌드가 취소 되지 않은 경우에도 이전 작업에 실패 한 경우에도를** 선택 합니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="게시 작업에 대 한 구성 입력":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="save-and-run"></a>저장 및 실행
 
@@ -134,9 +134,9 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
 
 **게시** 된 폴더에서 테스트 요약 파일 및 Azure Resource Manager 템플릿 파일을 찾을 수 있습니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="빌드 및 테스트 결과 확인":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="새 Azure 파이프라인 만들기":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="아티팩트 확인":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="release-with-azure-pipelines"></a>Azure Pipelines으로 릴리스
 
@@ -150,7 +150,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
 
 3. **아티팩트** 상자에서 **+ 아티팩트 추가**를 선택 합니다. **원본**에서 만든 빌드 파이프라인을 선택 하 고 **추가**를 선택 합니다.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="빌드 파이프라인 아티팩트 입력":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="새 Azure 파이프라인 만들기":::
 
 4. **1 단계의** 이름을 변경 하 여 **작업을 테스트 환경에 배포**합니다.
 
@@ -168,7 +168,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
    |Azure 구독| 구독을 선택합니다.|
    |작업| *리소스 그룹을 만들기 또는 업데이트*|
    |Resource group| Stream Analytics 작업을 포함할 테스트 리소스 그룹의 이름을 선택 합니다.|
-   |Location|테스트 리소스 그룹의 위치를 선택 합니다.|
+   |위치|테스트 리소스 그룹의 위치를 선택 합니다.|
    |템플릿 위치| 연결 된 아티팩트|
    |템플릿| $ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.js |
    |템플릿 매개 변수|$ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.parameters.js |
@@ -185,7 +185,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
    |Azure 구독| 구독을 선택합니다.|
    |작업| *리소스 그룹을 만들기 또는 업데이트*|
    |Resource group| Stream Analytics 작업을 포함할 프로덕션 리소스 그룹의 이름을 선택 합니다.|
-   |Location|프로덕션 리소스 그룹의 위치를 선택 합니다.|
+   |위치|프로덕션 리소스 그룹의 위치를 선택 합니다.|
    |템플릿 위치| *연결 된 아티팩트*|
    |템플릿| $ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.js |
    |템플릿 매개 변수|$ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.parameters.js |
@@ -196,7 +196,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
 
 릴리스를 만들려면 오른쪽 위 모서리에서 **릴리스 만들기** 를 선택 합니다.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Azure Pipelines를 사용 하 여 릴리스 만들기":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="새 Azure 파이프라인 만들기":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 62ca7ea885605b3b5590342b6786dcdc63f3a00b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6beab6f470a39c281020bfdfb7d43c4b6c5e3b70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938534"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756503"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)를 통한 비즈니스 연속성 개요
 
@@ -56,7 +56,7 @@ ms.locfileid: "90938534"
 | :---------- | ---------- | ------- |
 | **데이터베이스 서버 오류** | 일부 기본 하드웨어 오류로 인해 데이터베이스 서버 작동이 중지 되 면 활성 연결이 삭제 되 고 모든 처리 중인 트랜잭션이 중단 됩니다. Azure에서 데이터베이스 서버를 다시 시작 하려고 합니다. 성공할 경우 데이터베이스 복구가 수행 됩니다. 다시 시작이 실패 하면 다른 실제 노드에서 데이터베이스 서버를 다시 시작 하려고 시도 합니다.  <br /> <br /> RTO (복구 시간)는 오류가 발생 한 시점의 작업 (예: 대용량 트랜잭션 및 데이터베이스 서버 시작 프로세스 중에 수행할 복구 용량)을 비롯 한 다양 한 요인에 따라 달라 집니다. <br /> <br /> MySQL 데이터베이스를 사용 하는 응용 프로그램은 삭제 된 연결과 실패 한 트랜잭션을 검색 하 고 다시 시도 하는 방식으로 빌드해야 합니다.  응용 프로그램을 다시 시도 하면 연결이 새로 만든 데이터베이스 서버로 전송 됩니다. | 데이터베이스 서버 오류가 검색 되 면 대기 데이터베이스 서버가 활성화 되어 가동 중지 시간을 줄일 수 있습니다. 자세한 내용은 [HA 개념 페이지](concepts-high-availability.md) 를 참조 하세요. RTO는 60-120 s, RPO = 0 이어야 합니다. |
 | **저장소 오류** | 응용 프로그램에는 디스크 오류 또는 물리적 블록 손상과 같은 저장소 관련 문제에 대 한 영향이 표시 되지 않습니다. 데이터는 3 개의 복사본에 저장 되므로 데이터의 복사본은 활성 저장소로 제공 됩니다. 블록 손상이 자동으로 수정 됩니다. 데이터의 복사본이 손실 되 면 데이터의 새 복사본이 자동으로 생성 됩니다. | 복구할 수 없는 오류의 경우에는 가동 중지 시간을 줄이기 위해 유연한 서버가 대기 복제본으로 장애 조치 (failover) 됩니다. 자세한 내용은 [HA 개념 페이지](../concepts-high-availability.md) 를 참조 하세요. |
-| **논리적/사용자 오류** | 실수로 삭제 된 테이블 또는 잘못 업데이트 된 데이터와 같은 사용자 오류 로부터 복구 하려면 오류가 발생 하기 직전까지 데이터를 복원 및 복구 하 여 PITR (지정 [시간 복구](https://docs.microsoft.com/azure/MySQL/concepts-backup) )를 수행 해야 합니다.<br> <br>  데이터베이스 서버의 모든 데이터베이스가 아니라 데이터베이스 또는 특정 테이블의 하위 집합만 복원 하려면 새 인스턴스에서 데이터베이스 서버를 복원 하 고 [pg_dump](https://www.MySQL.org/docs/11/app-pgdump.html)를 통해 테이블을 내보낸 다음 [pg_restore](https://www.MySQL.org/docs/11/app-pgrestore.html) 를 사용 하 여 해당 테이블을 데이터베이스로 복원할 수 있습니다. | 이러한 사용자 오류는 모든 사용자 작업이 대기에도 복제 되기 때문에 고가용성으로 보호 되지 않습니다. |
+| **논리적/사용자 오류** | 실수로 삭제 된 테이블 또는 잘못 업데이트 된 데이터와 같은 사용자 오류 로부터 복구 하려면 오류가 발생 하기 직전까지 데이터를 복원 및 복구 하 여 PITR (지정 [시간 복구](https://docs.microsoft.com/azure/MySQL/concepts-backup) )를 수행 해야 합니다.<br> <br>  데이터베이스 서버의 모든 데이터베이스가 아니라 데이터베이스 또는 특정 테이블의 하위 집합만 복원 하려면 새 인스턴스에서 데이터베이스 서버를 복원 하 고 [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)를 통해 테이블을 내보낸 다음 [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) 를 사용 하 여 해당 테이블을 데이터베이스로 복원할 수 있습니다. | 이러한 사용자 오류는 모든 사용자 작업이 대기에도 복제 되기 때문에 고가용성으로 보호 되지 않습니다. |
 | **가용성 영역 실패** | 드문 이벤트 이지만 영역 수준 오류 로부터 복구 하려는 경우 백업을 사용 하 여 지정 시간 복구를 수행 하 고 사용자 지정 복원 지점을 선택 하 여 최신 데이터를 가져올 수 있습니다. 새 유연한 서버는 다른 영역에 배포 됩니다. 복원 하는 데 걸리는 시간은 이전 백업 및 복구할 트랜잭션 로그의 수에 따라 달라 집니다. | 유연한 서버는 대기 사이트로 자동 장애 조치 (failover)를 수행 합니다. 자세한 내용은 [HA 개념 페이지](../concepts-high-availability.md) 를 참조 하세요. |
 | **지역 오류** | 영역 간 복제본 및 지역 복원 기능은 미리 보기에서 아직 지원 되지 않습니다. | |
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741410"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757939"
 ---
 # <a name="security-control-v2-identity-management"></a>보안 제어 V2: Id 관리
 
@@ -169,7 +169,7 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../../security-center/security-center-identity-access.md)
 
-- [Azure Security Center의 위협 인텔리전스 보호 모듈의 경고](//azure/security-center/alerts-reference)
+- [Azure Security Center의 위협 인텔리전스 보호 모듈의 경고](/azure/security-center/alerts-reference)
 
 - [Azure Monitor에 Azure 활동 로그를 통합 하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 

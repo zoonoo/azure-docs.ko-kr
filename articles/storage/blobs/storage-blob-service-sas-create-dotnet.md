@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/05/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16179ae730e81ff1ff7c107e3af70b5ce24e8813
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6ebb81e6f5adce1dbc301ac905fed5af1ee6a825
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001947"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758308"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "89001947"
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder)을 만듭니다. 그런 다음 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다. 
+서비스 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
 
@@ -86,7 +86,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder)을 만듭니다. 그런 다음 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다. 
+서비스 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
 
@@ -136,6 +136,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     return blob.Uri + sasBlobToken;
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

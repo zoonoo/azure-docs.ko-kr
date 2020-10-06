@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 7cf3371dc60f97b8bba61012e87b7b4bd4899aa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2bf9b50c9b378d8624c311af5935b8cd0a28a31a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936472"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757982"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -246,7 +246,7 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 
 자세한 내용은,
 - [PerfView를 사용하여 성능 추적 기록](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
-- [Application Insights 이벤트 원본](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Application Insights 이벤트 원본](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>dotnet-trace를 사용하여 로그 수집
 

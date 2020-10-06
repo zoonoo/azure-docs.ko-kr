@@ -4,12 +4,12 @@ description: SDK에 대 한 원격 분석 프로세서 및 원격 분석 이니�
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d2a0c348eda569e95a3029b9dce76aa981989ddf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264034"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758033"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -229,7 +229,7 @@ public void Process(ITelemetry item)
 
 **이니셜라이저 정의**
 
-*C#*
+C.[
 
 ```csharp
 using System;
@@ -292,7 +292,7 @@ protected void Application_Start()
 }
 ```
 
-[이 샘플](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)을 참조 하세요.
+[이 샘플](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)을 참조 하세요.
 
 ASP.NET **Core/Worker 서비스 앱: 이니셜라이저 로드**
 

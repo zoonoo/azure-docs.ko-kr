@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 2e1c7c1ca15d7c47ec8973ac8e93f7391916f5e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6aacc2778e02b96f31c633671da014ced30778fd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302403"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756673"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -179,7 +179,7 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 
 ## <a name="call-the-service-c"></a>서비스 호출(C#)
 
-이 예제에서는 C#을 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
+이 예제에서는 C#을 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
 
 ```csharp
 using System;

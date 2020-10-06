@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 9ffc134c2bded747346f3639119dde4a6f14231b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250711"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757778"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -61,13 +61,20 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >서비스 개선을 위해 노력하므로 azureml.contrib 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
 
-pandas 데이터 프레임으로 변환할 때 파일 스트림에 대해 다음과 같은 파일 처리 옵션을 제공합니다.
+Azure Machine Learning pandas 데이터 프레임로 변환할 때 파일 스트림에 대해 다음과 같은 파일 처리 옵션을 제공 합니다.
 * 다운로드: 데이터 파일을 로컬 경로로 다운로드합니다.
 * 탑재: 탑재 지점에 데이터 파일을 탑재합니다. 탑재는 Azure Machine Learning Notebook VM 및 Azure Machine Learning 컴퓨팅을 포함한 Linux 기반 컴퓨팅에서만 작동합니다.
 
+다음 코드에서 `animal_labels` 데이터 집합은 이전에 작업 영역에 저장 된 레이블 지정 프로젝트의 출력입니다.
+
 ```Python
+import azureml.core
 import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -82,8 +89,18 @@ imgplot = plt.imshow(img)
 
 `azureml-contrib-dataset` 클래스에서도 [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 Torchvision 데이터 세트에 로드할 수 있습니다. 이 방법을 사용하려면 [PyTorch](https://pytorch.org/)가 설치되어 있어야 합니다. 
 
+다음 코드에서 `animal_labels` 데이터 집합은 이전에 작업 영역에 저장 된 레이블 지정 프로젝트의 출력입니다.
+
 ```python
+import azureml.core
+import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
+from azureml.contrib.dataset import FileHandlingOption
+
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d36cee1ebf9f58991db6fd40fd6aa9422546b61
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710756"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757598"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Azure Synapse Link (미리 보기)에서 SQL server 서버를 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -23,7 +23,7 @@ Synapse SQL server 서버를 사용 하지 않는 경우 (이전에는 SQL 주�
 > [!NOTE]
 > SQL server 서버를 사용 하지 않는 Azure Cosmos DB 분석 저장소 쿼리 지원은 현재 제어 된 미리 보기로 제공 됩니다. 
 
-Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 SQL server가 아닌 쿼리 결과를 Azure Cosmos DB에 저장할 수 없습니다.
+Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 SQL server가 아닌 쿼리 결과를 Azure Cosmos DB에 저장할 수 없습니다.
 
 이 문서에서는 Synapse 링크를 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 SQL server를 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너에 대해 SQL server 서버를 사용 하지 않는 뷰를 빌드하고 [이](./tutorial-data-analyst.md) 자습서의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
@@ -245,7 +245,7 @@ SQL (Core) API의 Azure Cosmos DB 계정은 숫자, 문자열, 부울, null, 중
 | 부울 | bit |
 | 정수 | bigint |
 | Decimal | float |
-| 문자열 | varchar (UTF8 데이터베이스 데이터 정렬) |
+| String | varchar (UTF8 데이터베이스 데이터 정렬) |
 | 날짜/시간 (ISO 형식 문자열) | varchar (30) |
 | 날짜 시간 (unix 타임 스탬프) | bigint |
 | Null | `any SQL type` 

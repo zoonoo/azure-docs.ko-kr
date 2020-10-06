@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b5315b4d2ec8b757f7fa1075a438419679f5e798
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317976"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758373"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
@@ -126,7 +126,7 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [보안 작업 (SecOps)](//azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## <a name="pa-5-automate-entitlement-management"></a>PA-5: 자격 관리 자동화
 

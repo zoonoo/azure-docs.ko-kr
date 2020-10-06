@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: fd80f7b4a62380b62acb52543b49f5640cc5d365
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: bb408c762c33e4d146a2f0ef36f32e525b3859bd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627979"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758271"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요-Azure 파일 공유에 대 한 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
 
@@ -54,7 +54,9 @@ Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 �
 
     파일 공유가 포함 된 저장소 계정이 Azure AD DS 인증에 대해 아직 구성 되지 않았는지 확인 합니다. 저장소 계정에서 Azure AD DS 인증을 사용 하도록 설정한 Azure Files 경우 온-프레미스 AD DS를 사용 하도록 변경 하기 전에 사용 하지 않도록 설정 해야 합니다. 이는 Azure AD DS 환경에서 구성 된 기존 Acl을 적절 한 사용 권한을 적용 하도록 다시 구성 해야 함을 의미 합니다.
 
-    Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 된 문제 해결 도구](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) 을 제공 합니다. 
+
+    Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 된 문제 해결 도구](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) 을 제공 합니다. 
+
 
 - Azure 파일 공유에 대 한 AD DS 인증을 설정 하 고 구성 하기 전에 관련 네트워킹 구성을 수행 합니다. 자세한 내용은 [Azure Files 네트워킹 고려 사항](storage-files-networking-overview.md) 을 참조 하세요.
 

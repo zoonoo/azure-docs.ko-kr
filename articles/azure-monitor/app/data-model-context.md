@@ -4,12 +4,12 @@ description: Application Insights 원격 분석 컨텍스트 데이터 모델
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cbd717243ed35fc90772cb2b727f7670bb77ee70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322672"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757302"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -113,7 +113,7 @@ ms.locfileid: "87322672"
 
 ## <a name="internal-sdk-version"></a>내부: SDK 버전
 
-SDK 버전입니다. 자세한 내용은 [이 문서](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) 를 참조 하세요.
+SDK 버전입니다. 자세한 내용은 [이 문서](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) 를 참조 하세요.
 
 최대 길이: 64
 

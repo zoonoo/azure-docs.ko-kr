@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650991"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759094"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
@@ -166,7 +166,7 @@ ms.locfileid: "89650991"
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-\* 브라질에 있는 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 통신에는 USD가 사용 됩니다.
+\* 브라질 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 상용 marketplace에서는 USD를 사용 합니다.
 
 \** 무료 및 BYOL VM 이미지만 해당합니다.
 
@@ -181,7 +181,7 @@ ms.locfileid: "89650991"
 
 제품 가격은 항상 현지 통화로 고객에 게 표시 됩니다. 파트너 센터에서 선택한 가격은 파트너 센터에 가격을 저장할 때의 환율에 따라 고객의 현지 통화로 변환 됩니다. 제품을 다시 게시 하지 않는 한 온라인 상점에서 고객에 게 표시 되는 가격은 변경 되지 않습니다.
 
-Microsoft는 현지 통화로 고객의 지불을 받고 현지 통화로 사용자를 지불 합니다. Microsoft는 구매한 날의 환율을 사용 하 여 고객 현지 통화를 현지 통화로 변환 합니다.
+Microsoft는 현지 통화로 고객 으로부터 지불액을 받고 파트너 센터에서 선택한 통화로 사용자를 지불 합니다. Microsoft는 구매 날짜의 환율을 사용 하 여 고객 현지 통화를 변환 합니다.
 
 > [!NOTE]
 > Microsoft는 Microsoft 국채 요금을 사용 하 여 제품 가격을 변환 합니다.

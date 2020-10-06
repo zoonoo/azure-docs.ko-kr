@@ -9,24 +9,24 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532698"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758577"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Custom Vision 프로젝트 복사 및 이동
 
 Custom Vision 프로젝트를 만들고 학습 한 후에는 프로젝트를 다른 리소스로 복사할 수 있습니다. 예를 들어 개발 환경에서 프로덕션 환경으로 프로젝트를 이동 하거나 데이터 보안을 강화 하기 위해 다른 Azure 지역의 계정에 프로젝트를 백업할 수 있습니다.
 
-**[Exportproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** 및 **[importproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** api는 한 Custom Vision 계정에서 다른 계정으로 프로젝트를 복사할 수 있도록 하 여이 시나리오를 가능 하 게 합니다. 이 가이드에서는 이러한 REST Api를 사용 하는 방법을 보여 줍니다. Postman과 같은 HTTP 요청 서비스를 사용 하 여 요청을 실행할 수도 있습니다.
+**[Exportproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** 및 **[importproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** api는 한 Custom Vision 계정에서 다른 계정으로 프로젝트를 복사할 수 있도록 하 여이 시나리오를 가능 하 게 합니다. 이 가이드에서는 이러한 REST Api를 사용 하는 방법을 보여 줍니다. Postman과 같은 HTTP 요청 서비스를 사용 하 여 요청을 실행할 수도 있습니다.
 
 ## <a name="business-scenarios"></a>비즈니스 시나리오
 
 앱 또는 비즈니스가 Custom Vision 프로젝트 사용에 따라 달라 지는 경우 다른 지역의 다른 Custom Vision 계정으로 모델을 복사 하는 것이 좋습니다. 그런 다음 지역 중단이 발생 하면 복사 된 지역에서 프로젝트에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>사전 요구 사항
+##  <a name="prerequisites"></a>필수 구성 요소
 
 - 두 개의 Azure Custom Vision 리소스 없는 경우 Azure Portal으로 이동 하 여 [새 Custom Vision 리소스를 만듭니다](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Custom Vision 리소스의 학습 키 및 끝점 Url입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.
