@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6242e593171bd8a01d01739b884ae8a1ca7beb4d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629763"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761161"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Service Bus에 대 한 Azure 보안 기준
 
@@ -273,7 +273,7 @@ Service Bus에 대 한 데이터 평면 액세스는 관리 되는 Id, 앱 등�
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: SSO (Azure Active Directory Single Sign-On)를 사용 하십시오.
 
-**지침**: Microsoft Azure에서는 Azure Active Directory (Azure AD) 기반 리소스 및 응용 프로그램에 대 한 통합 액세스 제어 관리 기능을 제공 합니다. Azure Service Bus에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은 https://servicebus.azure.net/ 입니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 리소스 Azure Service Bus 요청에 권한을 부여할 수 있습니다.
+**지침**: Microsoft Azure에서는 Azure Active Directory (Azure AD) 기반 리소스 및 응용 프로그램에 대 한 통합 액세스 제어 관리 기능을 제공 합니다. Azure Service Bus에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은 https://azure.microsoft.com/services/service-bus/ 입니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 리소스 Azure Service Bus 요청에 권한을 부여할 수 있습니다.
 
 - [Service Bus 리소스에 액세스 하기 위해 Azure AD로 응용 프로그램을 인증 하는 방법](authenticate-application.md)
 

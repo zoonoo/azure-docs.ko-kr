@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940768"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761484"
 ---
 # <a name="sizing-guidance"></a>크기 조정 지침
 
@@ -27,7 +27,7 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 ## <a name="general-sizing-requirements"></a>일반 크기 조정 요구 사항
 
 > [!NOTE]
-> 이 문서의 개념을 잘 모르는 경우 [Kubernetes 리소스 관리](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) 및 [Kubernetes 크기 표기법](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes)에 대해 자세히 알아볼 수 있습니다.
+> 이 문서의 개념을 잘 모르는 경우 [Kubernetes 리소스 관리](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) 및 [Kubernetes 크기 표기법](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)에 대해 자세히 알아볼 수 있습니다.
 
 코어 수는 1 보다 크거나 같은 정수 값 이어야 합니다.
 

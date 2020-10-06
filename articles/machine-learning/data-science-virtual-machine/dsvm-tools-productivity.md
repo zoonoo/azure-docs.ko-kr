@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: f26b02755c68b4ece4edca8cbbd90ec3330c5d1d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 97381a58cdb759dec30e75860505b3a260223d76
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032506"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761195"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine의 생산성 도구
 
@@ -24,6 +24,6 @@ DSVM에는 데이터 과학 및 프로그래밍 도구 외에도 동료와의 �
 
 | 도구 | Windows DSVM | Linux DSVM | Windows 2019 서버 DSVM | Ubuntu 18.04 DSVM | 사용 메모 |
 |---|:-:|:-:|:-:|:-:|:--|
-| 공유 활성화가 있는 [enterprise 용 Microsoft 365 앱](/microsoft-365/business/microsoft-365-apps-for-enterprise-product) : Excel, Word 및 PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | Enterprise 용 Microsoft 365 앱을 활성화할 수 있습니다.<br/><ul><li>[공유 컴퓨터 정품 인증](/deployoffice/overview-shared-computer-activation) 을 참조 하세요.</ul> |
+| 공유 활성화가 있는 [enterprise 용 Microsoft 365 앱](https://www.microsoft.com/microsoft-365/business/microsoft-365-apps-for-enterprise) : Excel, Word 및 PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | Enterprise 용 Microsoft 365 앱을 활성화할 수 있습니다.<br/><ul><li>[공유 컴퓨터 정품 인증](/deployoffice/overview-shared-computer-activation) 을 참조 하세요.</ul> |
 | [Power BI Desktop](https://powerbi.microsoft.com/) | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | |
 | Microsoft Edge Browser | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | |

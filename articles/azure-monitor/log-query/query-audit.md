@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285063"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760164"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 감사 쿼리 (미리 보기)
 로그 쿼리 감사 로그는 Azure Monitor에서 실행 되는 로그 쿼리에 대 한 원격 분석을 제공 합니다. 여기에는 쿼리가 실행 된 시간, 실행 한 사람, 사용 된 도구, 쿼리 텍스트, 쿼리 실행을 설명 하는 성능 통계 등의 정보가 포함 됩니다.
@@ -68,6 +68,9 @@ ms.locfileid: "91285063"
 - Azure 데이터 탐색기 프록시에서 들어오는 쿼리에는 성능 통계를 사용할 수 없습니다. 이러한 쿼리에 대 한 다른 모든 데이터는 계속 채워집니다.
 - [문자열 리터럴을 난독 처리](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) 는 문자열에 대 한 *h* 힌트는 쿼리 감사 로그에 영향을 주지 않습니다. 쿼리는 난독 처리 되는 문자열 없이 전송 된 그대로 캡처됩니다. 이 데이터를 볼 수 있는 규정 준수 권한이 있는 사용자만 Log Analytics 작업 영역에서 사용 가능한 다양 한 RBAC 모드를 사용 하 여이 작업을 수행할 수 있도록 해야 합니다.
 - 여러 작업 영역의 데이터를 포함 하는 쿼리의 경우에는 사용자가 액세스할 수 있는 작업 영역 에서만 쿼리를 캡처할 수 있습니다.
+
+## <a name="costs"></a>비용  
+Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한 요금이 발생할 수 있습니다. 데이터를 수집하는 대상에 대한 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

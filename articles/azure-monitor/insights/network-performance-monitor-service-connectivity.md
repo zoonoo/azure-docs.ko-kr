@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403707"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761042"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -29,7 +29,7 @@ ms.locfileid: "91403707"
 ![서비스 연결 모니터](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Configuration 
+## <a name="configuration"></a>구성 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
@@ -99,7 +99,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 네트워크로 인한 문제인지 확인한 후에 **토폴로지** 보기 링크를 선택하여 토폴로지 맵에서 문제가 있는 홉을 식별합니다. 예제가 다음 이미지에 표시됩니다. 노드와 애플리케이션 엔드포인트 사이의 총 105ms 대기 시간 중에서 96ms가 빨간색으로 표시된 홉 때문입니다. 문제가 있는 홉을 식별한 후에 정정 작업을 수행할 수 있습니다. 
 
-![서비스 연결 모니터 테스트](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![서비스 연결 모니터 끝점 토폴로지](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>진단 
 

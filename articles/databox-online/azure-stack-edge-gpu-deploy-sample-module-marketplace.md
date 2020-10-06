@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace에서 Microsoft Azure Stack Edge Pro 장치에 GPU 모듈을 배포 합니다. Microsoft Docs
-description: 계산을 사용 하도록 설정 하 고 로컬 UI를 통해 Azure Stack Edge Pro 장치를 계산 하도록 설정 하는 방법을 설명 합니다.
+description: Azure Stack Edge Pro GPU 장치에서 GPU 사용 IoT 모듈을 배포 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: a15e74dd2a1a2737675ef66284f348f33cd753dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899944"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760062"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "90899944"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "90899944"
 
 4.  **계속** 을 선택 하 여 공급자의 사용 약관 및 개인 정보 취급 방침을 승인 합니다. 
 
-    ![샘플 모듈 가져오기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![샘플 모듈 2 가져오기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Azure Stack Edge Pro 장치를 배포 하는 데 사용 하는 구독을 선택 합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "90899944"
 
 13. 모듈이 Azure Portal의 IoT Hub에 배포 되었는지 확인 합니다. 장치를 선택 하 고 모듈 **설정**을 선택 하면   모듈은 **IoT Edge 모듈**섹션에 나열 됩니다   .
 
-    ![만들기 선택](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![만들기 2 선택](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## <a name="monitor-the-module"></a>모듈 모니터링  
 

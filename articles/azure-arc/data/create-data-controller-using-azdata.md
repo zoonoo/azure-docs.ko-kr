@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8651921dafd5727f79e4ab3919e188d4b8612465
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939941"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761688"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Azure Data CLI를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 (azdata)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -155,7 +155,7 @@ Azure Red Hat OpenShift에서 데이터 컨트롤러를 만들려면 클러스�
 > [!NOTE]
 >   아래 명령에서 같은 네임 스페이스를 사용 `azdata arc dc create` 합니다. 예를 들면 `arc` 입니다.
 
-먼저 [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) 에서 사용자 지정 SCC (보안 컨텍스트 제약 조건)를 다운로드 하 여 클러스터에 적용 합니다.
+먼저 [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) 에서 사용자 지정 SCC (보안 컨텍스트 제약 조건)를 다운로드 하 여 클러스터에 적용 합니다.
 
 다음 명령을 실행 하 여 데이터 컨트롤러를 만들 수 있습니다.
 > [!NOTE]

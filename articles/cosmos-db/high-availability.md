@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 85ffff1a38d42aac00ce122a1e51d79515b0c51b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597280"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762028"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법 
 
@@ -97,7 +97,7 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 |처리량 | X r u/초 프로 비전 된 처리량 | X r u/초 프로 비전 된 처리량 * 1.25 | 프로 비전 된 처리량 2 배 <br/><br/> 이 구성 모드를 사용 하려면 두 개의 지역이 있기 때문에 가용성 영역를 사용 하는 단일 지역과 비교할 때 처리량의 두 배가 필요 합니다. |
 
 > [!NOTE]
-> 다중 지역 Azure Cosmos 계정에 대 한 가용성 영역 지원을 사용 하도록 설정 하려면 계정에 다중 지역 쓰기 쓰기가 활성화 되어 있어야 합니다.
+> 다중 지역 Azure Cosmos 계정에 대 한 가용성 영역 지원을 사용 하도록 설정 하려면 계정에 다중 지역 쓰기가 활성화 되어 있어야 합니다.
 
 새 또는 기존 Azure Cosmos 계정에 영역을 추가할 때 영역 중복성을 사용 하도록 설정할 수 있습니다. Azure Cosmos 계정에서 영역 중복성을 사용 하도록 설정 하려면 `isZoneRedundant` `true` 특정 위치에 대 한 플래그를로 설정 해야 합니다. 이 플래그는 위치 속성 내에서 설정할 수 있습니다. 예를 들어 다음 PowerShell 코드 조각은 "동남 아시아" 지역에 대해 영역 중복성을 사용 하도록 설정 합니다.
 

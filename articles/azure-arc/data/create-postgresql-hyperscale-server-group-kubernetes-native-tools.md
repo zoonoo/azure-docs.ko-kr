@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bbf41cf48f4891814fa0c2baa750783f98d8574b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347472"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761671"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Kubernetes tools를 사용 하 여 PostgreSQL Hyperscale 서버 그룹 만들기
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure Arc data controller](./create-data-controller.md)를 이미 만들어야 합니다.
 
@@ -34,7 +34,7 @@ PostgreSQL Hyperscale 서버 그룹을 만들려면 Kubernetes 암호를 만들�
 
 ## <a name="create-a-yaml-file"></a>Yaml 파일 만들기
 
-[템플릿 yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postgresql.yaml) 파일을 시작 지점으로 사용 하 여 고유한 사용자 지정 PostgreSQL hyperscale 서버 그룹 yaml 파일을 만들 수 있습니다.  이 파일을 로컬 컴퓨터에 다운로드 하 여 텍스트 편집기에서 엽니다.  Lint 등의 텍스트 [VS Code](https://code.visualstudio.com/download) 편집기를 사용 하 여 구문 강조 표시를 지원 하 고 yaml 파일에 대해를 사용 하는 것이 유용 합니다.
+[템플릿 yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) 파일을 시작 지점으로 사용 하 여 고유한 사용자 지정 PostgreSQL hyperscale 서버 그룹 yaml 파일을 만들 수 있습니다.  이 파일을 로컬 컴퓨터에 다운로드 하 여 텍스트 편집기에서 엽니다.  Lint 등의 텍스트 [VS Code](https://code.visualstudio.com/download) 편집기를 사용 하 여 구문 강조 표시를 지원 하 고 yaml 파일에 대해를 사용 하는 것이 유용 합니다.
 
 예제 yaml 파일입니다.
 

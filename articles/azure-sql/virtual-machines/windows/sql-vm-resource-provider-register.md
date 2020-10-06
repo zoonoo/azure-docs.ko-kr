@@ -10,21 +10,27 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a197f8a11186d799f320c03a5bbe980b1f38e126
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b48f0429525822d09f08965128df0ceb1e32898a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272075"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761314"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>SQL VM 리소스 공급자 (RP)를 사용 하 여 Azure에 SQL Server VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 SQL VM 리소스 공급자 (RP)를 사용 하 여 Azure에 SQL Server VM (가상 머신)을 등록 하는 방법을 설명 합니다. 리소스 공급자에 등록하면 가상 머신 리소스와는 별도의 리소스인 구독 내에서 **SQL 가상 머신** _리소스_가 만들어집니다. 리소스 공급자에서 SQL Server VM 등록을 취소하면 **SQL 가상 머신** _리소스_가 제거되지만 실제 가상 머신은 삭제되지 않습니다. 
+이 문서에서는 SQL VM 리소스 공급자 (RP)를 사용 하 여 Azure에 SQL Server VM (가상 머신)을 등록 하는 방법을 설명 합니다. 
+
+이 문서에서는 SQL VM 리소스 공급자를 사용 하 여 단일 SQL Server VM를 등록 하는 방법을 설명 합니다. 또는 모든 SQL Server Vm을 [자동으로](sql-vm-resource-provider-automatic-registration.md) 등록 하거나 [대량으로 스크립팅할](sql-vm-resource-provider-bulk-register.md)수 있습니다.
+
+## <a name="overview"></a>개요
+
+리소스 공급자에 등록하면 가상 머신 리소스와는 별도의 리소스인 구독 내에서 **SQL 가상 머신** _리소스_가 만들어집니다. 리소스 공급자에서 SQL Server VM 등록을 취소하면 **SQL 가상 머신** _리소스_가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
 
 Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 리소스 공급자에 등록됩니다. 그러나 Azure 가상 머신에서 SQL Server를 자동으로 설치하거나 사용자 지정 VHD에서 Azure 가상 머신을 프로비저닝하도록 선택하는 경우 사용자가 SQL Server VM을 리소스 공급자에 등록해야 합니다.
 
@@ -58,7 +64,7 @@ SQL VM 리소스 공급자를 활용 하려면 먼저 리소스 공급자에 [�
 리소스 공급자에 SQL Server VM을 등록하려면 다음이 필요합니다. 
 
 - [Azure 구독](https://azure.microsoft.com/free/).
-- 공용 또는 Azure Government 클라우드에 배포된 Azure 리소스 모델 [SQL Server VM](create-sql-vm-portal.md). 
+- [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) 를 사용 하는 Azure 리소스 모델 [Windows 가상 머신은](../../../virtual-machines/windows/quick-create-portal.md) 공용 또는 Azure Government 클라우드에 배포 됩니다. 
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 또는 [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>관리 모드
@@ -328,11 +334,11 @@ Azure Portal을 사용하여 SQL Server VM을 리소스 공급자에서 등록 �
 
 1. **삭제**를 선택합니다. 
 
-   ![SQL VM 리소스 공급자 삭제](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
+   ![위쪽 탐색에서 삭제를 선택 합니다.](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
 1. SQL 가상 컴퓨터의 이름을 입력 하 고 **가상 컴퓨터 옆에 있는 확인란의 선택을 취소**합니다.
 
-   ![SQL VM 리소스 공급자 삭제](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
+   ![실제 가상 컴퓨터를 삭제 하지 않도록 VM을 선택 취소 하 고 삭제를 선택 하 여 SQL VM 리소스 삭제를 계속 합니다.](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > 가상 머신 이름 옆의 확인란 선택을 취소하지 않으면 가상 머신이 완전히 *삭제*됩니다. 이 확인란 선택을 취소하여 SQL Server VM을 리소스 공급자에서 등록 취소하되 *실제 가상 머신은 삭제하지 않습니다*. 
@@ -342,7 +348,7 @@ Azure Portal을 사용하여 SQL Server VM을 리소스 공급자에서 등록 �
 ### <a name="command-line"></a>명령 줄
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server VM 등록을 취소 하려면 [az SQL VM delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) 명령을 사용 합니다. 그러면 SQL Server VM *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
+Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server VM 등록을 취소 하려면 [az SQL VM delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) 명령을 사용 합니다. 그러면 SQL Server VM *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
 
 
 ```azurecli-interactive
@@ -400,7 +406,7 @@ SQL VM 리소스 공급자에 등록할 때 기본 SQL 관리 모드는 _전체_
 
 예, SQL VM 리소스 공급자를 사용 하 여 등록 하면 VM에 에이전트가 설치 됩니다.
 
-SQL Server IaaS 확장은 에이전트를 사용 하 여 SQL Server 메타 데이터를 쿼리 합니다. SQL VM 리소스 공급자가 NoAgent 모드의 경우에만 에이전트가 설치 되지 않습니다.
+SQL Server IaaS 확장은 에이전트를 사용 하 여 SQL Server 메타 데이터를 쿼리 합니다. SQL VM 리소스 공급자가 NoAgent 모드에서 등록 된 경우에만 에이전트가 설치 되지 않습니다.
 
 **내 VM에서 SQL VM 리소스 공급자를 다시 시작 SQL Server를 등록 하 시겠습니까?**
 

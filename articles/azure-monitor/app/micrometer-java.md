@@ -6,12 +6,12 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: b4042e65fb9f7dbff6566bd497f782c3e6d591cb
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707852"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761603"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 
@@ -24,7 +24,7 @@ Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코�
 
 ## <a name="using-spring-boot-15x"></a>Spring Boot 1.5x 사용
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다. 
-* [Application Insights 스프링-부팅-스타터](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 이상
+* [Application Insights 스프링-부팅-스타터](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter) 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 이상(Spring 프레임워크의 자동 구성 코드 지원)
 * [ApplicationInsights 리소스](./create-new-resource.md)
@@ -57,7 +57,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. 애플리케이션 빌드 및 실행
-2. 미리 집계된 메트릭이 Azure Monitor에 자동 수집된 상태로 가동 및 실행되어야 합니다. Application Insights Spring Boot Starter를 미세 조정하는 자세한 방법은 [GitHub에 대한 readme](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md)를 참조하세요.
+2. 미리 집계된 메트릭이 Azure Monitor에 자동 수집된 상태로 가동 및 실행되어야 합니다. Application Insights Spring Boot Starter를 미세 조정하는 자세한 방법은 [GitHub에 대한 readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/README.md)를 참조하세요.
 
 ## <a name="using-spring-2x"></a>Spring 2.x 사용
 

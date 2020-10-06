@@ -13,12 +13,12 @@ ms.date: 09/17/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: 2bb48971e86c2b61742735020469865fa969bee3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5042bfad2cfe06c7c368c6b476aa1b02d67bcc9c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258413"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760757"
 ---
 # <a name="brokered-authentication-in-android"></a>Android에서 조정 된 인증
 
@@ -95,7 +95,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 *Keytool*을 사용 하 여 서명 해시를 생성 한 후에는 Azure Portal를 사용 하 여 리디렉션 URI를 생성 합니다.
 
-1. [Azure Portal](https://protal.azure.com) 에 로그인 하 고 **앱 등록**에서 Android 앱을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **앱 등록**에서 Android 앱을 선택 합니다.
 1. **인증**  >  **플랫폼 Android 추가를**선택  >  **Android**합니다.
 1. 열리는 **Android 앱 구성** 창에서 앞서 생성 한 **서명 해시** 와 **패키지 이름을**입력 합니다.
 1. **구성** 단추를 선택 합니다.

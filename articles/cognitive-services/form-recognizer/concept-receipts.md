@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262351"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761450"
 ---
 # <a name="receipt-concepts"></a>수신 개념
 
@@ -88,7 +88,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 분석 작업이 진행 중입니다. |
@@ -459,4 +459,4 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+* [REST API 참조 문서](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

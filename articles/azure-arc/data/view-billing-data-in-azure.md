@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 375191bbe6f45189fba50ea927454c0ec4f64678
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939084"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760309"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>청구 데이터를 Azure에 업로드 하 고 Azure Portal에서 확인
 
@@ -30,7 +30,7 @@ ms.locfileid: "90939084"
 - **간접적으로 연결** 됨-Azure에 직접 연결 되지 않습니다. 데이터는 내보내기/업로드 프로세스를 통해서만 Azure에 전송 됩니다. 모든 Azure Arc 데이터 서비스 배포는 현재 미리 보기로 제공 됩니다.
 - **직접 연결** -이 모드에서는 azure Arc enabled Kubernetes 서비스에 대 한 종속성이 있어 azure arc 사용 데이터 서비스가 실행 되는 Kubernetes 클러스터와 azure 간에 직접 연결을 제공 합니다. 이렇게 하면 더 많은 기능을 사용할 수 있으며 Azure PaaS에서 데이터 서비스를 관리 하는 것 처럼 Azure Portal 및 Azure CLI를 사용 하 여 Azure Arc 사용 가능 데이터 서비스를 관리할 수도 있습니다.  이 연결 모드는 미리 보기에서 아직 사용할 수 없지만 곧 제공 될 예정입니다.
 
-[연결 모드](/docs/connectivity.md)의 차이점에 대해 자세히 알아볼 수 있습니다.
+[연결 모드](https://docs.microsoft.com/azure/azure-arc/data/connectivity)의 차이점에 대해 자세히 알아볼 수 있습니다.
 
 간접적으로 연결 된 모드에서 청구 데이터는 주기적으로 Azure Arc 데이터 컨트롤러에서 보안 파일로 내보낸 다음 Azure에 업로드 되 고 처리 됩니다.  예정 된 직접 연결 모드에서 청구 데이터는 서비스 비용을 거의 실시간으로 확인 하기 위해 Azure로 자동으로 전송 됩니다. 간접적으로 연결 된 모드에서 데이터를 내보내고 업로드 하는 프로세스는 스크립트를 사용 하 여 자동화할 수도 있고 사용자에 게이 작업을 수행 하는 서비스를 빌드할 수도 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "90939084"
 
 1. 아직 없는 경우 Azure Arc 사용 가능 데이터 서비스를 만듭니다. 예를 들어 다음 중 하나를 만듭니다.
    - [Azure Arc에서 Azure SQL 관리 되는 인스턴스 만들기](create-sql-managed-instance.md)
-   - [Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md)
+   - [Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md)
 1. 아직 없는 경우 [리소스 인벤토리, 사용 현황 데이터, 메트릭 및 로그를 Azure Monitor에 업로드](upload-metrics-and-logs-to-azure-monitor.md) 합니다.
 1. 청구 원격 분석 수집 프로세스에서 일부 청구 데이터를 수집할 수 있도록 데이터 서비스를 만든 후 2 시간 이상 기다립니다.
 

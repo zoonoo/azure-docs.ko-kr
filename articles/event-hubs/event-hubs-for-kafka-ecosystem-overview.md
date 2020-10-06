@@ -3,12 +3,12 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2c552c9f901fdb886a7ddc3e71505e8e46717c03
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 5c49f8f87d8d399cda33a332f7464ed340ae3a0f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371493"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761501"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행 하는 대신 대부분의 기존 Apache Kafka 클라이언트 응용 프로그램에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 Api와 호환 되는 끝점을 제공 합니다. Event Hubs는 1.0 이상 버전에서 Apache Kafka의 생산자 및 소비자 Api 클라이언트를 지원 합니다.
@@ -100,7 +100,7 @@ Apache Kafka에 대 한 Event Hubs의 목표는 Apache Kafka API로 잠긴 응�
 
 [위에서](#is-apache-kafka-the-right-solution-for-your-workload)설명한 것 처럼 Azure Messaging는 수많은 메시징 시나리오에 대 한 풍부 하 고 강력한 검사를 제공 하 고, 다음 기능은 현재 Apache Kafka API에 대 한 Event Hubs 지원을 통해 지원 되지 않지만 원하는 기능을 사용할 수 있는 위치와 방법을 확인 합니다.
 
-### <a name="transactions"></a>의
+### <a name="transactions"></a>트랜잭션
 
 [Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) 에는 메시지 처리에서 발생 하는 아웃 바운드 메시지를 트랜잭션 일관성 보호를 통해 여러 대상 엔터티로 보내는 동시에 메시지 및 세션을 수신 하 고 정착 수 있는 강력한 트랜잭션 지원이 있습니다. 기능 집합은 시퀀스에서 각 메시지를 정확히 한 번만 처리 하도록 허용할 뿐만 아니라 Apache Kafka의 경우와 같이 다른 소비자가 실수로 동일한 메시지를 다시 처리 하는 위험을 방지 합니다. Service Bus은 트랜잭션 메시지 작업에 권장 되는 서비스입니다.
 
@@ -128,7 +128,7 @@ Azure Event Hubs 고객이 Kafka Stream 지원을 요청 하는 가장 일반적
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Azure Synapse Analytics (Event Hubs 캡처를 통해)](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](/databricks/scenarios/databricks-stream-from-eventhubs)
+- [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)

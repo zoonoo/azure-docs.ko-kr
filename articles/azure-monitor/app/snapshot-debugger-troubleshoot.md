@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707835"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760515"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅샷이 생성되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
@@ -62,7 +62,7 @@ Azure App Service 또는 가상 머신의 IIS에 호스트 된 ASP.NET 응용 �
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
 
-[포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 Nuget 패키지 관리자를 사용 하 여 microsoft.applicationinsights.snapshotcollector의 최신 버전을 사용 하 고 있는지 확인 합니다. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167에 있습니다.
+[포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 Nuget 패키지 관리자를 사용 하 여 microsoft.applicationinsights.snapshotcollector의 최신 버전을 사용 하 고 있는지 확인 합니다.
 
 ## <a name="check-the-uploader-logs"></a>업로더 로그 확인
 

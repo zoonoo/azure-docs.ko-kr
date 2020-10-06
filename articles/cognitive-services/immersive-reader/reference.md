@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330607"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761552"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>몰입 형 판독기 JavaScript SDK 참조 (v. 1.1)
 
 몰입 형 판독기 SDK에는 몰입 형 판독기를 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리가 포함 되어 있습니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 SDK는 함수를 노출 합니다.
 
@@ -43,7 +43,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="launchasync-parameters"></a>launchAsync 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
 | `token` | 문자열 | Azure AD 인증 토큰입니다. 자세한 내용은 [몰입 형 판독기 리소스를 만드는 방법을](./how-to-create-immersive-reader.md) 참조 하세요. |
 | `subdomain` | 문자열 | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. 자세한 내용은 [몰입 형 판독기 리소스를 만드는 방법을](./how-to-create-immersive-reader.md) 참조 하세요. |
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderButtons 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
 | `options` | [renderButtons 옵션](#renderbuttons-options) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. 선택 사항입니다. |
 
@@ -135,7 +135,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 | ------- | ---- | ----------- |
 | 요소 | HTMLDivElement[] | 몰입 형 판독기 단추를 렌더링할 요소입니다. |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -161,7 +161,7 @@ Required: false
 | container | HTMLDivElement | 몰입 형 판독기 iframe을 포함 하는 HTML 요소입니다. |
 | sessionID | String | 이 세션의 guid (Globally unique identifier)로, 디버깅에 사용 됩니다. |
  
-## <a name="error"></a>Error
+## <a name="error"></a>오류
 
 오류에 대 한 정보를 포함 합니다.
 
@@ -192,7 +192,7 @@ Required: false
 
 ## <a name="types"></a>형식
 
-### <a name="content"></a>콘텐츠
+### <a name="content"></a>Content
 
 몰입 형 판독기에 표시할 콘텐츠를 포함 합니다.
 
@@ -205,19 +205,19 @@ Required: false
 
 #### <a name="content-parameters"></a>콘텐츠 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
 | title | String | 몰입 형 판독기의 위쪽에 표시 되는 제목 텍스트입니다 (선택 사항). |
 | 청크 | [청크 []](#chunk) | 청크 배열 |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -240,27 +240,27 @@ Default value: null
 
 #### <a name="chunk-parameters"></a>청크 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
 | 콘텐츠 | String | 몰입 형 판독기로 전송 된 콘텐츠를 포함 하는 문자열입니다. |
 | lang | String | 텍스트의 언어 값은 IETF BCP 47 언어 태그 형식 (예: en, es)에 있습니다. 지정 하지 않으면 언어가 자동으로 검색 됩니다. [지원되는 언어](#supported-languages)를 참조하세요. |
 | mimeType | 문자열 | 일반 텍스트, MathML, HTML & Microsoft Word .DOCX 형식이 지원 됩니다. 자세한 내용은 [지원 되는 MIME 형식](#supported-mime-types) 을 참조 하세요. |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -273,7 +273,7 @@ Default value: "text/plain"
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
 | 텍스트/html | HTML 콘텐츠입니다. [자세한 정보](#html-support)|
-| application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](./how-to/display-math.md).
+| application/mathml + xml | MathML (수학 Markup Language). [자세한 정보](./how-to/display-math.md) 
 | 응용 프로그램/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx 형식 문서입니다.
 
 
@@ -305,13 +305,13 @@ Default value: "text/plain"
 
 #### <a name="options-parameters"></a>옵션 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
 | uiLang | String | UI의 언어, 값은 IETF BCP 47 언어 태그 형식 (예: en, es)으로 되어 있습니다. 지정 하지 않으면 기본적으로 브라우저 언어가 지정 됩니다. |
-| 시간 제한 | 번호 | 시간 초과 오류가 발생 하 여 [launchAsync](#launchasync) 가 실패 하기 전 까지의 기간 (밀리초)입니다 (기본값은 15000 밀리초). 이 시간 제한은 판독기 페이지의 초기 시작에만 적용 되며 판독기 페이지가 열리고 회전자가 시작 될 때 성공률이 관찰 됩니다. 제한 시간을 조정 해야 하는 것은 아닙니다. |
-| uiZIndex | 번호 | Z-생성 될 iframe의 인덱스입니다 (기본값은 1000). |
+| 시간 제한 | 숫자 | 시간 초과 오류가 발생 하 여 [launchAsync](#launchasync) 가 실패 하기 전 까지의 기간 (밀리초)입니다 (기본값은 15000 밀리초). 이 시간 제한은 판독기 페이지의 초기 시작에만 적용 되며 판독기 페이지가 열리고 회전자가 시작 될 때 성공률이 관찰 됩니다. 제한 시간을 조정 해야 하는 것은 아닙니다. |
+| uiZIndex | 숫자 | Z-생성 될 iframe의 인덱스입니다 (기본값은 1000). |
 | useWebview 보기 | 부울| Chrome 앱과의 호환성을 위해 iframe 대신 웹 보기 태그를 사용 합니다 (기본값은 false). |
-| onExit | 함수 | 몰입 형 판독기가 종료 될 때 실행 됩니다. |
+| onExit | 기능 | 몰입 형 판독기가 종료 될 때 실행 됩니다. |
 | allowFullscreen | 부울 | 전체 화면을 토글할 수 있습니다 (기본값은 true 임). |
 | hideExitButton | 부울 | 몰입 형 판독기의 종료 단추 화살표 (기본값은 false)를 숨길지 여부입니다. 이는 몰입 형 판독기를 종료 하기 위해 다른 메커니즘이 제공 된 경우에만 적용 됩니다 (예: 모바일 도구 모음의 뒤로 화살표). |
 | cookiePolicy | [CookiePolicy](#cookiepolicy-options) | 몰입 형 판독기의 쿠키 사용에 대 한 설정입니다 (기본값은 *CookiePolicy*). EU 쿠키 준수 정책에 따라 필요한 사용자 동의를 얻으려면 호스트 응용 프로그램의 책임입니다. [쿠키 정책 옵션](#cookiepolicy-options)을 참조 하세요. |
@@ -320,41 +320,41 @@ Default value: "text/plain"
 | translationOptions | [TranslationOptions](#translationoptions) | 번역을 구성 하는 옵션입니다. |
 | displayOptions | [DisplayOptions](#displayoptions) | 텍스트 크기, 글꼴 등을 구성 하는 옵션입니다. |
 | ... | String | 몰입 형 판독기에서 사용자의 기본 설정을 나타내는 onPreferencesChanged에서 반환 된 문자열입니다. 자세한 내용은 [설정 매개 변수](#settings-parameters) 및 [방법 저장 방법을](./how-to-store-user-preferences.md) 참조 하세요. |
-| onPreferencesChanged | 함수 | 사용자의 기본 설정이 변경 될 때 실행 됩니다. 자세한 내용은 [사용자 기본 설정을 저장 하는 방법을](./how-to-store-user-preferences.md) 참조 하세요. |
+| onPreferencesChanged | 기능 | 사용자의 기본 설정이 변경 될 때 실행 됩니다. 자세한 내용은 [사용자 기본 설정을 저장 하는 방법을](./how-to-store-user-preferences.md) 참조 하세요. |
 | customDomain | String | 내부용으로 예약된 속성입니다. 몰입 형 판독기 webapp 호스트 되는 사용자 지정 도메인입니다 (기본값은 null). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **중요** 몰입 형 판독기 응용 프로그램에서 전송 된 문자열의 값을 프로그래밍 방식으로 변경 하지 마십시오 `-preferences` .이로 인해 예기치 않은 동작이 발생할 수 있으므로 고객에 대 한 사용자 환경이 저하 될 수 있습니다.
+> **중요** 몰입 형 판독기 응용 프로그램에서 전송 된 문자열의 값을 프로그래밍 방식으로 변경 하지 마십시오 `-preferences` .이로 인해 예기치 않은 동작이 발생할 수 있으므로 고객에 대 한 사용자 환경이 저하 될 수 있습니다. 호스트 응용 프로그램은 사용자 지정 값을 할당 하거나 문자열을 조작 하면 안 됩니다 `-preferences` . 문자열 옵션을 사용 하는 경우 `-preferences` 콜백 옵션에서 반환 된 정확한 값만 사용 합니다 `-onPreferencesChanged` .
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -390,13 +390,13 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>ReadAloudOptions 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
 | voice | String | 음성, "여성" 또는 "남성" 중 하나입니다. 모든 언어가 성별을 지 원하는 것은 아닙니다. |
-| speed | 번호 | 재생 속도는 0.5에서 2.5 (포함) 사이 여야 합니다. |
+| speed | 숫자 | 재생 속도는 0.5에서 2.5 (포함) 사이 여야 합니다. |
 | 재생 | 부울 | 몰입 형 판독기가 로드 되 면 자동으로 소리내어 읽기가 시작 됩니다. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -429,13 +429,13 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>TranslationOptions 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
-| language | String | 변환 언어를 설정 합니다. 값은 IETF BCP 47 언어 태그 형식 (예: fr-fr, es-MX, zh-cn-Hans)에 있습니다. Word 또는 문서 번역을 자동으로 활성화 하는 데 필요 합니다. |
+| 언어 | String | 변환 언어를 설정 합니다. 값은 IETF BCP 47 언어 태그 형식 (예: fr-fr, es-MX, zh-cn-Hans)에 있습니다. Word 또는 문서 번역을 자동으로 활성화 하는 데 필요 합니다. |
 | autoEnableDocumentTranslation | 부울 | 전체 문서를 자동으로 변환 합니다. |
 | autoEnableWordTranslation | 부울 | 자동으로 단어 번역을 사용 하도록 설정 합니다. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -457,13 +457,13 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>DisplayOptions 매개 변수
 
-| Name | Type | Description |
+| 속성 | Type | Description |
 | ---- | ---- |------------ |
-| textSize | 번호 | 선택한 텍스트 크기를 설정 합니다. |
+| textSize | 숫자 | 선택한 텍스트 크기를 설정 합니다. |
 | increaseSpacing | 부울 | 텍스트 간격을 설정 또는 해제할지 여부를 설정 합니다. |
 | fontFamily | String | 선택한 글꼴 ("맑은 고딕", "ComicSans" 또는 "Sitka")을 설정 합니다. |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false
@@ -493,9 +493,9 @@ enum CookiePolicy { Disable, Enable }
 
 | 설정 | Type | Description |
 | ------- | ---- | ----------- |
-| textSize | 번호 | 선택한 텍스트 크기를 설정 합니다. |
+| textSize | 숫자 | 선택한 텍스트 크기를 설정 합니다. |
 | fontFamily | String | 선택한 글꼴 ("맑은 고딕", "ComicSans" 또는 "Sitka")을 설정 합니다. |
-| textSpacing | 번호 | 텍스트 간격을 설정 또는 해제할지 여부를 설정 합니다. |
+| textSpacing | 숫자 | 텍스트 간격을 설정 또는 해제할지 여부를 설정 합니다. |
 | formattingEnabled | 부울 | HTML 서식 지정의 설정 또는 해제 여부를 설정 합니다. |
 | 테마(theme) | String | 선택한 테마 (예: "Light", "진한" ...)를 설정 합니다. |
 | syllabificationEnabled | 부울 | Syllabification 설정/해제 여부를 설정 합니다. |

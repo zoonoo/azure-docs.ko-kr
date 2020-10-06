@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: eba08211355b0f57dd9dd11ec4c18d5912208ec8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 9f8fba617eb0274a8db7adc5d36c6ff50be10924
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962216"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761382"
 ---
 # <a name="security-recommendations-for-app-service"></a>App Service에 대 한 보안 권장 사항
 
@@ -56,7 +56,7 @@ ms.locfileid: "88962216"
 
 | 권장 | 주석 |
 |-|-|
-|Azure Security Center 표준 계층 사용 | [Azure Security Center](../security-center/security-center-app-services.md) 은 기본적으로 Azure App Service와 통합 됩니다. 평가를 실행 하 고 보안 권장 사항을 제공할 수 있습니다. |
+|Azure Security Center 표준 계층 사용 | [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction) 은 기본적으로 Azure App Service와 통합 됩니다. 평가를 실행 하 고 보안 권장 사항을 제공할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

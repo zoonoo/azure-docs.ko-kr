@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 15119a76e1e59b339a9012896a525a0ecc91f34d
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: e8d8f2af0350a8b4457f70632341f070c890cba0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761533"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761059"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 myday 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 myday와 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [myday](https://www.mydaycloud.com) 에 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 myday와 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [myday](https://go.mydaycloud.com) 에 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
@@ -35,7 +35,7 @@ ms.locfileid: "90761533"
 > * Myday에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Myday에 대 한 Single sign-on (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "90761533"
 
 **테 넌 트 URL** 및 **암호 토큰**을 받으려면 myday 담당자나 지원 팀에 문의 하세요.
 
-## <a name="step-3-add-myday-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 myday 추가
+## <a name="step-3-add-myday-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 myday 추가
 
 Azure AD 응용 프로그램 갤러리에서 myday를 추가 하 여 myday로의 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 myday를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -125,7 +125,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |phoneNumbers[type eq "work"].value|String|
    |역할 [primary eq "True"]. display|String|
    |역할 [primary eq "True"]. 형식|String|
-   |역할 [primary eq "True"]. 값|String|
+   |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|

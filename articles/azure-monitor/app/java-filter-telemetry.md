@@ -4,12 +4,12 @@ description: 모니터링하지 않아도 되는 이벤트를 필터링하여 �
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372181"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761008"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -78,10 +78,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 
 ```
 
-
-
-
-[전체 기본 제공 프로세서 집합을 검사](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor)합니다.
+[전체 기본 제공 프로세서 집합을 검사](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal)합니다.
 
 ## <a name="built-in-filters"></a>기본 제공 필터
 

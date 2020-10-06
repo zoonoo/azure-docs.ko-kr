@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461532"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760566"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용하여 HPC 솔루션 빌드 및 배포
 
@@ -291,7 +291,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 인프라와 소프트웨어는 코드로 정의하여 동일한 리포지토리에 공동 배치할 수 있습니다.
 
-이 솔루션에서 ffmpeg는 애플리케이션 패키지로 사용됩니다. ffmpeg 패키지는 [여기](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip)에서 다운로드할 수 있습니다.
+이 솔루션에서 ffmpeg는 애플리케이션 패키지로 사용됩니다. ffmpeg 패키지는 [여기](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip)에서 다운로드할 수 있습니다.
 
 ![예제 Git 리포지토리 구조](media/batch-ci-cd/git-repository.jpg)
 

@@ -10,20 +10,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cf1fdd3feff76454f0e801d7bd53c63702000014
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271990"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761263"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Azure의 여러 SQL 가상 머신을 SQL VM 리소스 공급자에 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 문서에서는 `Register-SqlVMs` PowerShell cmdlet을 사용하여 Azure의 SQL Server VM(가상 머신)을 SQL VM 리소스 공급자에 대량 등록하는 방법을 설명합니다.
+
+이 문서에서는 SQL Server Vm을 대량 등록 하는 방법을 설명 합니다. 또는 [모든 SQL Server vm을 자동으로](sql-vm-resource-provider-automatic-registration.md) 또는 [개별 SQL Server vm](sql-vm-resource-provider-register.md)에 등록할 수 있습니다. 
+
+## <a name="overview"></a>개요
 
 `Register-SqlVMs` cmdlet을 사용하여 지정된 구독, 리소스 그룹 목록 또는 특정 가상 머신 목록에 있는 모든 가상 머신을 등록할 수 있습니다. 이 cmdlet은 ‘단순’ 관리 모드에서 가상 머신을 등록한 다음, [보고서 및 로그 파일](#output-description)을 둘 다 생성합니다. 
 

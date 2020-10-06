@@ -5,18 +5,17 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df8ebd97ed9e34e0fce85a50297c595732057115
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041394"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761467"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
 모니터링을 사용 하도록 설정 하면 데이터 수집을 방해 하는 문제가 발생할 수 있습니다.
 이 문서에서는 알려진 모든 문제를 나열 하 고 문제 해결 예제를 제공 합니다.
-여기에 나열 되지 않은 문제를 해결 하는 경우 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -72,12 +71,10 @@ Enable 명령을 실행 한 후 다음 단계를 완료 합니다.
 ### <a name="iis-nested-applications"></a>IIS 중첩 응용 프로그램
 
 1.0 버전에서 IIS의 중첩 된 응용 프로그램을 계측 하지 않습니다.
-[여기](https://github.com/microsoft/ApplicationInsights-Home/issues/369)에서이 문제를 추적 하 고 있습니다.
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>고급 SDK 구성을 사용할 수 없습니다.
 
 SDK 구성은 버전 1.0에서 최종 사용자에 게 노출 되지 않습니다.
-[여기](https://github.com/microsoft/ApplicationInsights-Home/issues/375)에서이 문제를 추적 하 고 있습니다.
 
     
     
@@ -131,7 +128,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>PerfView를 사용 하 여 ETW 로그 수집
 
-#### <a name="setup"></a>설정
+#### <a name="setup"></a>설치 프로그램
 
 1. [GitHub](https://github.com/Microsoft/perfview/releases)에서 PerfView.exe 및 PerfView64.exe를 다운로드 합니다.
 2. PerfView64.exe를 시작 합니다.
@@ -140,7 +137,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
     - **우편번호**
     - **병합**
     - **.NET 기호 컬렉션**
-5. 다음과 같은 **추가 공급자**를 설정 합니다.`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. 다음과 같은 **추가 공급자**를 설정 합니다. `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>로그 수집
@@ -156,4 +153,3 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ## <a name="next-steps"></a>다음 단계
 
 - [API 참조](status-monitor-v2-overview.md#powershell-api-reference) 를 검토 하 여 누락 된 매개 변수에 대해 알아보세요.
-- 여기에 나열 되지 않은 문제를 해결 하는 경우 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.

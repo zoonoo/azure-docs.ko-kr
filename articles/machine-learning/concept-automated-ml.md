@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886387"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760972"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -39,7 +39,7 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 분류 모델의 주요 목표는 학습 데이터로부터의 학습을 기반으로 하여 새 데이터가 분류될 범주를 예측하는 것입니다. 일반적인 분류 예로 사기 탐지, 필기 인식 및 개체 검색이 있습니다. [자동화 된 ML을 사용 하 여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)에 대 한 자세한 내용 및 예제를 참조 하세요.
 
-분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) Python Notebook을 참조하세요.
+분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b) Python Notebook을 참조하세요.
 
 ### <a name="regression"></a>회귀
 

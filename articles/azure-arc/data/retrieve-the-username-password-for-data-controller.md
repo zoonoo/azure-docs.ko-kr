@@ -1,6 +1,6 @@
 ---
-title: 사용자 이름 및 암호를 검색 하 여 Arc 데이터 컨트롤러에 연결 합니다.
-description: 사용자 이름 및 암호를 검색 하 여 Arc 데이터 컨트롤러에 연결 합니다.
+title: 사용자 이름 및 암호를 검색하여 Arc 데이터 컨트롤러에 연결
+description: 사용자 이름 및 암호를 검색하여 Arc 데이터 컨트롤러에 연결
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1c33cf21be0b4b1ea39a568d6df9fd90507dd454
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8cabb48e3620f1a17d1bb9b87e1646ce2793143b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938954"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761705"
 ---
-# <a name="retrieve-the-user-name-and-password-to-connect-to-the-arc-data-controller"></a>사용자 이름 및 암호를 검색 하 여 Arc 데이터 컨트롤러에 연결 합니다.
+# <a name="retrieve-the-user-name-and-password-to-connect-to-the-arc-data-controller"></a>사용자 이름 및 암호를 검색하여 Arc 데이터 컨트롤러에 연결
 
 데이터 컨트롤러에 대 한 사용자 이름 및 암호를 검색 해야 하는 경우가 있을 수 있습니다. 을 실행할 때 필요한 명령입니다. 
 
@@ -61,4 +61,4 @@ kubectl -n arc get secret controller-login-secret -o=jsonpath="{.data['password'
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 [시나리오](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/tree/master/scenarios) 사용해 보기
+다른 [시나리오](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory-domain-services/scenarios.md) 사용해 보기

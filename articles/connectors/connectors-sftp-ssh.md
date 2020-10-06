@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286617"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761127"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -86,7 +86,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -219,7 +219,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 1. 완료되면 **완료**를 선택합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 <a name="file-added-modified"></a>
 
@@ -252,6 +252,22 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 1. **파일 만들기** 작업에서 **새 매개 변수 추가** 목록을 열고 **모든 파일 메타 데이터 가져오기** 속성을 선택 하 고 값을 **아니요**로 설정 합니다.
 
 1. 나중에이 파일 메타 데이터가 필요한 경우 **파일 메타 데이터 가져오기** 작업을 사용할 수 있습니다.
+
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504 오류: "연결 된 호스트가 일정 시간 후에 제대로 응답 하지 않거나 연결 된 호스트가 응답 하지 않아 연결에 실패 했거나 SFTP 서버에 대 한 요청이 ' 00:00:30 ' 초 이상 걸렸습니다."
+
+논리 앱에서 SFTP 서버와의 연결을 설정할 수 없는 경우이 오류가 발생할 수 있습니다. 여러 가지 이유가 있을 수 있으며, 다음과 같은 측면에서 문제를 해결 하는 것이 좋습니다. 
+
+1. 연결 제한 시간은 20 초입니다. SFTP 서버에 뛰어난 성능 및 방화벽 (예: 방화벽)이 많은 오버 헤드가 추가 되지 않았는지 확인 하세요. 
+
+2. 방화벽이 있는 경우 관리 되는 **커넥터 IP** 주소가 허용 목록 인지 확인 하세요. 논리 앱 지역에 대해 이러한 IP 주소를 찾을 수 있습니다 [**여기**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. 이 문제가 간헐적으로 발생 하는 경우 다시 시도 설정을 테스트 하 여 기본값 4 보다 더 높은 다시 시도 횟수를 확인할 수 있는지 확인 하십시오.
+
+4. SFTP 서버가 각 IP 주소의 연결 수에 제한을 설정 하는지 확인 하세요. 그렇다면 동시 논리 앱 인스턴스 수를 제한 해야 할 수 있습니다. 
+
+5. SFTP 서버의 SSH 구성에서 1 시간 처럼 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 높여 연결 설정 비용을 줄입니다.
+
+6. SFTP 서버 로그를 확인 하 여 논리 앱의 요청이 SFTP 서버에 도달 했는지 여부를 확인할 수 있습니다. 또한 방화벽 및 SFTP 서버에서 몇 가지 네트워크 추적을 사용 하 여 연결 문제를 더 자세히 살펴볼 수 있습니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

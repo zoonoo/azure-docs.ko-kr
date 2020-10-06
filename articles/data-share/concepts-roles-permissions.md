@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/02/2020
+ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513768"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761518"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
 
@@ -35,11 +35,10 @@ Azure 데이터 저장소에서 데이터를 공유 하거나 받으려면 사�
 |Azure Blob Storage| Storage Blob 데이터 읽기 권한자 | Storage Blob 데이터 기여자
 |Azure Data Lake Gen1 | 소유자 | 지원되지 않음
 |Azure Data Lake Gen2 | Storage Blob 데이터 읽기 권한자 | Storage Blob 데이터 기여자
-|Azure SQL Server | SQL DB 참가자 | SQL DB 참가자
 |Azure Data Explorer 클러스터 | 참가자 | 참가자
 |
 
-SQL 기반 공유의 경우 Azure 데이터 공유 리소스와 동일한 이름을 가진 Azure SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 다음은 SQL 사용자가 요구 하는 사용 권한에 대 한 요약입니다.
+SQL 기반 공유의 경우 Azure 데이터 공유 리소스와 동일한 이름을 가진 Azure SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자를 만들려면 관리자 권한이 필요 Azure Active Directory. 다음은 SQL 사용자가 요구 하는 사용 권한에 대 한 요약입니다.
 
 |**SQL Database 형식**|**Data Provider SQL 사용자 권한**|**Data Consumer SQL 사용자 권한**|
 |---|---|---|

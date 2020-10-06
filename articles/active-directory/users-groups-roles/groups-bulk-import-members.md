@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: add8a533f2b4fba9a9e881442e43030adb7e2b53
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421674"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762011"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Azure Active Directory에서 대량으로 그룹 구성원 추가
 
@@ -75,7 +75,7 @@ Azure AD(Azure Active Directory) 포털에서 CSV(쉼표로 구분된 값) 파�
 
 ## <a name="bulk-import-service-limits"></a>대량 가져오기 서비스 제한
 
-그룹 구성원 목록을 가져오는 각 대량 활동은 최대 1시간 동안 실행될 수 있습니다. 이에 따라 구성원 40,000명 이상의 명단을 가져올 수 있습니다.
+그룹 구성원 목록을 가져오는 각 대량 활동은 최대 1시간 동안 실행될 수 있습니다. 이를 통해 최대 4만 개의 멤버 목록을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

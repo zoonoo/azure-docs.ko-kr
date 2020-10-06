@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 0cfd1e0ce16008c6f7fd128d561ad361bcc53b87
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 22bd12bbdcccef2fd0e9010f926cd18e95d42967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939464"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761858"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>개요: Azure RTOS 용 IoT 보안 모듈 (미리 보기)
 
@@ -46,7 +46,7 @@ IoT에 권장 되는 인프라 Defender를 활용 하면 장치의 보안 상태
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Azure RTOS 장치 보호 시작 하기
 
-Azure RTOS의 보안 모듈은 장치에 대 한 무료 다운로드로 제공 됩니다. IoT 클라우드 서비스용 Defender는 Azure 구독 당 30 일 평가판으로 사용할 수 있습니다. 시작 하려면 [Azure RTOS 용 보안 모듈](https://github.com/azure-rtos/iot-security-module-preview) 을 다운로드 하세요. 
+Azure RTOS의 보안 모듈은 장치에 대 한 무료 다운로드로 제공 됩니다. IoT 클라우드 서비스용 Defender는 Azure 구독 당 30 일 평가판으로 사용할 수 있습니다. 시작 하려면 [Azure RTOS 용 보안 모듈](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md) 을 다운로드 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계
