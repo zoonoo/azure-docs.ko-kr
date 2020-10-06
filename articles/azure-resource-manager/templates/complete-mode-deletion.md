@@ -2,13 +2,13 @@
 title: 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/06/2020
+ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372464"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766721"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -19,6 +19,11 @@ ms.locfileid: "91372464"
 로 표시 된 리소스 종류는 템플릿에 없을 때 자동으로 삭제 **되지 않습니다.** 그러나 부모 리소스를 삭제 하는 경우 삭제 됩니다. 동작에 대한 전체 설명은 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 
 [템플릿에서 둘 이상의 리소스 그룹](cross-scope-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
+
+리소스는 리소스 공급자 네임 스페이스 별로 나열 됩니다. 리소스 공급자 네임 스페이스를 해당 Azure 서비스 이름과 일치 시키려면 [azure 서비스의 리소스 공급자](../management/azure-services-resource-providers.md)를 참조 하세요.
+
+> [!NOTE]
+> 템플릿을 전체 모드로 배포 하기 전에 항상 [가상 작업](template-deploy-what-if.md) 을 사용 합니다. 대상-생성, 삭제 또는 수정 되는 리소스를 표시 합니다. 리소스를 실수로 삭제 하지 않도록 하려면 가상-if를 사용 합니다.
 
 리소스 공급자 네임스페이스로 이동합니다.
 > [!div class="op_single_selector"]

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: c78132ca85b87486e2fa8f41da6ae430c6eabba0
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667631"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767659"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -141,7 +141,7 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 
 필수 조건:
 
-- PowerShell Az Module. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
+- PowerShell Az Module. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps) 의 지침을 따르세요.
 
 다음 스크립트를 실행합니다.
 

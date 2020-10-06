@@ -3,12 +3,12 @@ title: Azure Service Bus에 대 한 네트워크 보안
 description: 이 문서에서는 서비스 태그, IP 방화벽 규칙, 서비스 끝점, 개인 끝점 등의 네트워크 보안 기능에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341134"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766398"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Azure Service Bus에 대 한 네트워크 보안 
 이 문서에서는 Azure Service Bus에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -16,7 +16,7 @@ ms.locfileid: "85341134"
 - 서비스 태그
 - IP 방화벽 규칙
 - 네트워크 서비스 끝점
-- 프라이빗 엔드포인트(미리 보기)
+- 프라이빗 엔드포인트
 
 
 ## <a name="service-tags"></a>서비스 태그
@@ -81,8 +81,6 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 
 > [!NOTE]
 > 이 기능은 Azure Service Bus의 **프리미엄** 계층에서 지원됩니다. 프리미엄 계층에 대한 자세한 내용은 [Service Bus 프리미엄 및 표준 메시징 계층](service-bus-premium-messaging.md) 문서를 참조하세요.
->
-> 이 기능은 현재 **미리 보기**로 제공됩니다. 
 
 
 자세한 내용은 [Service Bus 네임 스페이스에 대 한 개인 끝점을 구성 하는 방법](private-link-service.md) 을 참조 하세요.

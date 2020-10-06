@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290301"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767199"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>장치-클라우드 IoT Hub 메시지의 메시지 강화
 
@@ -60,7 +60,7 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 강화는 다음 메서드를 사용 하 여 구성할 수 있습니다.
 
-| **방법** | **명령** |
+| **메서드** | **명령** |
 | ----- | -----| 
 | 포털 | [Azure Portal](https://portal.azure.com) | [메시지 강화 자습서](tutorial-message-enrichments.md) 를 참조 하세요. | 
 | Azure CLI   | [az iot hub message-보강](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
@@ -86,7 +86,7 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 * 강화를 포함 하 여 총 메시지 크기는 256 KB를 초과할 수 없습니다. 메시지 크기가 256 KB를 초과 하면 IoT Hub 메시지를 삭제 합니다. [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 메시지를 삭제할 때 오류를 식별 하 고 디버그할 수 있습니다. 예를 들어 d2c를 모니터링할 수 있습니다.
 
-* 강화 메시지는 디지털 쌍 변경 이벤트 ( [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부)에 적용 되지 않습니다.
+* 메시지 강화는 디지털 쌍 변경 이벤트에 적용 되지 않습니다.
 
 ## <a name="pricing"></a>가격 책정
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2b4a572abec8007fe6f1c7e963be19d28c7b48d6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7dfd6bddd19e5559918889da5f6ef38dbe6eef15
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028166"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767511"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Core(SQL) API 리소스 관리
 
@@ -24,6 +24,7 @@ ms.locfileid: "86028166"
 > * 계정 이름은 44자(모두 소문자)로 제한됩니다.
 > * 처리량 값을 변경하려면 업데이트된 RU/s로 템플릿을 다시 배포합니다.
 > * Azure Cosmos 계정에 위치를 추가하거나 제거하면 다른 속성을 동시에 수정할 수 없습니다. 이러한 작업은 별도로 수행해야 합니다.
+> * Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
 
 아래의 Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 새 json 파일에 복사합니다. 필요에 따라 이름 및 값이 다른 동일한 리소스의 여러 인스턴스를 배포할 때 매개 변수 json 파일을 만들 수 있습니다. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) 및 [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md)를 비롯한 Azure Resource Manager 템플릿을 배포할 수 있는 여러 가지 방법이 있습니다.
 

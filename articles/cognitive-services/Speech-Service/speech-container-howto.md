@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460053"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766461"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech service Api 용 Docker 컨테이너 설치 및 실행 
 
@@ -39,7 +39,7 @@ ms.locfileid: "91460053"
 >
 > 음성 컨테이너를 사용 하려면 온라인 요청을 제출 하 고 승인 해야 합니다. 자세한 내용은 아래의 **컨테이너 실행 섹션에 대 한 승인 요청 섹션을** 참조 하세요.
 
-| 컨테이너 | 기능 | 최신 |
+| 컨테이너 | 기능 | 최신 버전 |
 |--|--|--|
 | 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.5.0 |
 | Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.5.0 |
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
-| 필수 | 용도 |
+| 필수 | 목적 |
 |--|--|
 | Docker 엔진 | [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br> |
 | Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다. |
@@ -107,7 +107,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 다음 Container Registry에서 음성을 위한 컨테이너 이미지를 사용할 수 있습니다.
 
-# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -139,6 +139,9 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 # <a name="speech-language-detection"></a>[음성 언어 감지](#tab/lid)
 
+> [!TIP]
+> 최상의 결과를 위해 음성 언어 검색 컨테이너를 음성 텍스트 또는 사용자 지정 음성-텍스트 컨테이너와 함께 사용 하는 것이 좋습니다. 
+
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
 | 음성 언어 감지 | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
@@ -149,7 +152,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="docker-pull-for-the-speech-containers"></a>음성 컨테이너에 대 한 Docker 풀
 
-# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>음성-텍스트 컨테이너를 위한 Docker 풀
 
@@ -291,7 +294,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-d
 
 [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. 명령의 추가 [예](speech-container-configuration.md#example-docker-run-commands) `docker run` 도 사용할 수 있습니다.
 
-# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 표준 *음성-텍스트* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
@@ -313,7 +316,7 @@ ApiKey={API_KEY}
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 출력에서 감정 분석 
 
-음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 다음은 그 예입니다. 
+음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예를 들면 다음과 같습니다. 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -360,7 +363,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -441,7 +444,7 @@ Docker run 명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** 
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -675,7 +678,7 @@ speech_config.set_service_property(
 이 문서에서는 음성 컨테이너 다운로드, 설치 및 실행에 대한 개념 및 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
 * Speech는 다양 한 기능을 캡슐화 하는 Docker 용 Linux 컨테이너 4 개를 제공 합니다.
-  * *음성 텍스트*
+  * *음성 텍스트 변환*
   * *Custom Speech 텍스트*
   * *텍스트 음성 변환*
   * *사용자 지정 텍스트 음성 변환*

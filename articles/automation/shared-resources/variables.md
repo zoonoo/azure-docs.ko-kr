@@ -3,14 +3,14 @@ title: Azure Automation의 변수 관리
 description: 이 문서에서는 Runbook 및 DSC 구성에서 변수를 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004566"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766202"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -43,7 +43,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다.
 
-Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject)로 검색됩니다.
+Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복합 형식은Newtonsoft.Js로 검색 됩니다 [ . ](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) PSObject 형식 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject)대신 복합 개체 형식에 대 한 Linq. j 속성입니다.
 
 배열 또는 해시 테이블을 만들어 변수에 저장하여 여러 값을 단일 변수에 저장할 수 있습니다.
 
@@ -56,7 +56,7 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:**  이 cmdlet을 사용하여 암호화된 변수의 값을 검색할 수는 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:** 이 cmdlet을 사용 하 여 암호화 된 변수의 값을 검색할 수 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | 새 변수를 만들고 해당 값을 설정합니다.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| 기존 변수를 제거합니다.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| 기존 변수의 값을 설정합니다. |
@@ -74,7 +74,7 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 > Runbook 또는 DSC 구성에서 `Get-AutomationVariable`의 `Name` 매개 변수에 변수를 사용하지 마세요. 변수를 사용하면 디자인 타임에 Runbook과 Automation 변수 간의 종속성 검색이 복잡해질 수 있습니다.
 
 `Get-AutomationVariable`은 PowerShell에서 작동하지 않으며 Runbook 또는 DSC 구성에서만 작동합니다. 예를 들어 암호화된 변수의 값을 보려면 Runbook을 만들어 변수를 가져온 다음, 출력 스트림에 쓸 수 있습니다.
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -123,18 +123,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 예제에서는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM)의 가상 머신 개체가 사용되었습니다.
+다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 경우 [new-azvm](/powershell/module/Az.Compute/Get-AzVM) 의 가상 컴퓨터 개체가 해당 속성의 하위 집합을 지정 하는 데 사용 됩니다.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## <a name="textual-runbook-examples"></a>텍스트 Runbook 예제
 
 ### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>변수에서 단순 값 검색 및 설정

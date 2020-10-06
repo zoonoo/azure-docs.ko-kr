@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ebb7f1d9440bc7a8b75afe64403762532213c1d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496148"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767572"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 복제
 
@@ -64,11 +64,11 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
 
       선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
    
-      ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![백업 세트 목록 2](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. 백업 세트를 확장하여 연결된 볼륨을 보고 백업 세트에서 볼륨을 선택합니다. 마우스 오른쪽 단추를 클릭하고 상황에 맞는 메뉴에서 **복제**를 선택합니다.
 
-   ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![백업 세트 목록 3](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
 3. **복제** 블레이드에서 다음 단계를 수행합니다.
    
@@ -84,17 +84,17 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
           
    3. **연결된 호스트** 아래에서 클론에 대한 ACR(액세스 제어 레코드)을 지정합니다. 새 ACR을 추가하거나 기존 목록에서 선택할 수 있습니다. ACR은 이 클론에 액세스할 수 있는 호스트를 결정합니다.
       
-       ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![백업 세트 목록 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
    4. **복제**를 클릭하여 작업을 완료합니다.
 
 4. 클론 작업이 시작되고 클론이 성공적으로 만들어지면 알림이 표시됩니다. 작업 알림을 클릭하거나 **작업** 블레이드로 이동하여 복제 작업을 모니터링합니다.
 
-    ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![백업 세트 목록 5](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
 7. 복제 작업이 완료되면 디바이스로 이동한 다음 **볼륨**을 클릭합니다. 볼륨의 목록에서 원본 볼륨이 있는 동일한 볼륨 컨테이너에서 방금 만든 클론이 표시되어야 합니다.
 
-    ![Backup 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![백업 세트 목록 6](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
 이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs-permanent-clones)를 참조하세요.
 

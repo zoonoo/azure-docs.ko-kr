@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021241"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766944"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -126,7 +126,7 @@ Azure Portal >메시지 라우팅 블레이드에서 대체 경로를 사용 하
 
 ## <a name="non-telemetry-events"></a>비-원격 분석 이벤트
 
-장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트 (공개 미리 보기)를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 IoT Hub 이벤트** 로 설정된 데이터 원본이 있는 경로를 만들고 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md)이 설정 되거나 변경 될 때마다 디지털 쌍으로 메시지를 보낼 수 있습니다. [digital twin](../iot-pnp/iot-plug-and-play-glossary.md)이 대체 되거나 기본 장치 쌍에 대해 변경 이벤트가 발생하는 경우
+장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 이벤트** 로 설정 된 데이터 원본을 사용 하 여 경로를 만들 수 있습니다. 또한 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md) 을 설정 하거나 변경 하거나, [디지털](../iot-pnp/iot-plug-and-play-glossary.md) 쌍이 바뀌거나, 기본 장치 쌍에 대해 변경 이벤트가 발생할 때마다 메시지를 보냅니다 IoT Hub.
 
 또한 IoT Hub는 이러한 이벤트를 기반으로 워크플로의 실시간 통합 및 자동화를 지 원하는 장치 이벤트를 게시 하 [는 Azure Event Grid와 통합](iot-hub-event-grid.md) 됩니다. [메시지 라우팅과 Event Grid 간의 주요 차이점](iot-hub-event-grid-routing-comparison.md)을 확인하고 내 시나리오에 무엇이 가장 적합한지 알아보세요.
 

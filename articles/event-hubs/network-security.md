@@ -3,12 +3,12 @@ title: Azure Event Hubs에 대 한 네트워크 보안
 description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521856"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767789"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 네트워크 보안 
 이 문서에서는 Azure Event Hubs에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -16,7 +16,7 @@ ms.locfileid: "86521856"
 - 서비스 태그
 - IP 방화벽 규칙
 - 네트워크 서비스 끝점
-- 프라이빗 엔드포인트(미리 보기)
+- 프라이빗 엔드포인트
 
 
 ## <a name="service-tags"></a>서비스 태그
@@ -74,9 +74,6 @@ Azure [개인 링크 서비스](../private-link/private-link-overview.md) 를 �
 
 > [!NOTE]
 > 이 기능은 **전용** 계층에서만 지원됩니다. 전용 계층에 대한 자세한 내용은 [Event Hubs Dedicated 개요](event-hubs-dedicated-overview.md)를 참조하세요. 
->
-> 이 기능은 현재 **미리 보기**로 제공됩니다. 
-
 
 자세한 내용은 [이벤트 허브에 대 한 개인 끝점을 구성 하는 방법](private-link-service.md) 을 참조 하세요.
 

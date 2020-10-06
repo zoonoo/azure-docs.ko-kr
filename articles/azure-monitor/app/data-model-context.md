@@ -4,12 +4,12 @@ description: Application Insights 원격 분석 컨텍스트 데이터 모델
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: cbd717243ed35fc90772cb2b727f7670bb77ee70
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 76f3be510494a1f005b0080ee8f2390a3fbc3622
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757302"
+ms.locfileid: "91767836"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -85,7 +85,7 @@ ms.locfileid: "91757302"
 
 ## <a name="authenticated-user-id"></a>인증된 사용자 ID
 
-인증 된 사용자 id입니다. 익명 사용자 id와 반대 되는이 필드는 친숙 한 이름을 가진 사용자를 나타냅니다. PII 정보이므로 기본적으로 대부분의 SDK에서 수집되지 않습니다.
+인증 된 사용자 id입니다. 익명 사용자 id와 반대 되는이 필드는 친숙 한 이름을 가진 사용자를 나타냅니다. 이는 기본적으로 ASP.NET Framework SDK를 사용 하 여 수집 됩니다 [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) .  
 
 최대 길이: 1024
 

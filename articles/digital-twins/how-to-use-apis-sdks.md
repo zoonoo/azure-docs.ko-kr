@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9812724b62717440160b9db8604a65ab787f3a9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2af4f2e2148c96a6059836f861cf56d4a4ac005b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252666"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766185"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -61,8 +61,9 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 * **JavaScript** SDK를 사용할 수 있습니다. JavaScript SDK를 사용 하려면 ...
    - npm: [Azure Azure Digital Twins client library For JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)에서 패키지를 보고 설치할 수 있습니다.
    - [SDK 참조 설명서](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true)를 볼 수 있습니다.
-* **JavaScript** SDK를 사용할 수 있습니다. JavaScript SDK를 사용 하려면 ...
+* **Java** SDK를 사용할 수 있습니다. Java SDK를 사용 하려면 ...
    - Maven에서 패키지를 보고 설치할 수 있습니다. [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - [SDK 참조 설명서](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true) 를 볼 수 있습니다.
 * AutoRest를 사용 하 여 다른 언어용 SDK를 생성할 수 있습니다. [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 지침을 따릅니다.
 
 [CLI](how-to-use-cli.md)를 통해 Azure Digital twins와 상호 작용 하 여 날짜 평면 api를 연습할 수도 있습니다.

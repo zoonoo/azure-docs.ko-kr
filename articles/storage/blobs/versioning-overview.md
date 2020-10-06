@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714930"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767243"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -36,13 +36,13 @@ Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [
 
 버전은 지정 된 시점에 blob의 상태를 캡처합니다. 저장소 계정에 blob 버전 관리를 사용 하도록 설정 하면 Azure Storage는 blob이 수정 되거나 삭제 될 때마다 blob의 새 버전을 자동으로 만듭니다.
 
-버전 관리를 사용 하도록 설정 된 blob을 만들 때 새 blob은 blob (또는 기본 blob)의 현재 버전입니다. 이후에 해당 blob을 수정 하면 Azure Storage는 blob의 상태를 수정 하기 전에 캡처하는 버전을 만듭니다. 수정 된 blob은 새로운 현재 버전이 됩니다. 새 버전은 blob를 수정할 때마다 생성 됩니다.
+버전 관리를 사용 하도록 설정 된 blob을 만들 때 새 blob은 blob (또는 기본 blob)의 현재 버전입니다. 이후에 해당 blob을 수정 하면 Azure Storage는 blob의 상태를 수정 하기 전에 캡처하는 버전을 만듭니다. 수정 된 blob은 새로운 현재 버전이 됩니다. 새 버전은 blob를 수정할 때마다 생성 됩니다. Blob에는 연결 된 버전이 최대 1000 개 있을 수 있습니다.
 
 버전 관리를 사용 하는 blob을 삭제 하면 Azure Storage는 blob의 상태를 삭제 하기 전에 캡처하는 버전을 만듭니다. 그러면 blob의 현재 버전이 삭제 되지만 blob의 버전은 유지 되므로 필요한 경우 다시 만들 수 있습니다. 
 
 Blob 버전은 변경할 수 없습니다. 기존 blob 버전의 콘텐츠나 메타 데이터는 수정할 수 없습니다.
 
-Blob 버전 관리는 범용 v2, 블록 blob 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Data Lake Storage Gen2에서 사용 하도록 설정 된 계층적 네임 스페이스를 사용 하는 저장소 계정은 현재 지원 되지 않습니다.
+Blob 버전 관리는 범용 v2, 블록 blob 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Data Lake Storage Gen2에서 사용 하도록 설정 된 계층적 네임 스페이스를 사용 하는 저장소 계정은 현재 지원 되지 않습니다. 
 
 2019-10-10 이상의 Azure Storage REST API는 blob 버전 관리를 지원 합니다.
 
@@ -185,7 +185,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 Azure RBAC 작업을 보여 줍니다.
 
-| 설명 | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| 설명: | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -198,7 +198,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| 삭제         | x              | Blob 버전을 삭제 합니다. |
+| DELETE         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -291,7 +291,7 @@ Blob 일시 삭제를 사용 하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용 하는 경우 | 계층에 관계 없이 모든 기존 버전은 전체 콘텐츠 길이입니다. |
 | Blob 일시 삭제를 사용 하도록 설정 했지만 버전 관리를 사용 하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅숏이 전체 콘텐츠 길이에 있습니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

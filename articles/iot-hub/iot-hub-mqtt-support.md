@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 0a5cf5ad4a7cbf7d732d1fafdcafd434cba20d13
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664939"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767309"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -119,7 +119,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * DeviceTwinMQTTWin32: Windows 컴퓨터에서 Azure IoT Hub의 디바이스에 관련된 디바이스 쌍 이벤트를 쿼리 및 구독하는 코드를 포함합니다.
 
-* PnPMQTTWin32: Windows 컴퓨터에서 빌드 및 실행되며 IoT 플러그 앤 플레이 미리 보기 디바이스 기능을 통해 원격 분석 메시지를 Azure IoT Hub에 전송하는 코드를 포함합니다. [IoT 플러그 & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) 에서 자세히 알아볼 수 있습니다.
+* PnPMQTTWin32: IoT 플러그 앤 플레이 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT에서 자세히 알아볼 수 있습니다 [플러그 앤 플레이](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Linux의 경우:**
 
@@ -312,7 +312,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
-| 속성 값 | 표현 | Description |
+| 속성 값 | 표현 | 설명: |
 |----|----|----|
 | `null` | `key` | 키만 속성 모음에 표시 됩니다. |
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |

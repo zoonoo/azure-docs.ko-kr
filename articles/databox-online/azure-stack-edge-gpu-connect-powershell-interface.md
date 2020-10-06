@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 3a61bd16d127afadc2dc4d968b3492f3c8491d29
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 59b2307bb2e1f4effce9f68530be86e9ca625c9c
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743219"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766304"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
 
@@ -212,7 +212,7 @@ Commands:
 
 다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
 
-|명령을 사용합니다.  |설명 |
+|명령을 사용합니다.  |설명: |
 |---------|---------|
 |`list`     | 모듈 목록 표시         |
 |`logs`     | 모듈의 로그 가져오기        |
@@ -430,7 +430,16 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터링 하 고 관리 하는 데 사용 됩니다. 이 섹션에서는 BMC 구성을 관리 하는 데 사용할 수 있는 cmdlet에 대해 설명 합니다. 이러한 cmdlet을 실행 하기 전에 [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
 
 - `Get-HcsNetBmcInterface`:이 cmdlet을 사용 하 여 BMC의 네트워크 구성 속성 (예:,,,)을 가져옵니다 `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
-
+    
+    샘플 출력은 다음과 같습니다.
+    
+    ```powershell
+    [10.100.10.10]: PS>Get-HcsNetBmcInterface
+    IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+    -----------   ----------- -------------- -----------
+    10.128.53.186 10.128.52.1 255.255.252.0        False
+    [10.100.10.10]: PS>
+    ```
 - `Set-HcsNetBmcInterface`:이 cmdlet은 다음 두 가지 방법으로 사용할 수 있습니다.
 
     - Cmdlet을 사용 하 여 매개 변수에 적절 한 값을 사용 하 여 BMC에 DHCP 구성을 사용 하거나 사용 하지 않도록 설정할 수 `UseDhcp` 있습니다. 

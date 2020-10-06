@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569427"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767367"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 인증서 사용
 
@@ -52,7 +52,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 
 인증서 또는 서명 인증 기관에 서명 하는 인증 기관에 대 한 인증서입니다. 
 
-### <a name="types"></a>유형
+### <a name="types"></a>형식
 
 이러한 인증서는 루트 인증서 또는 중간 인증서 일 수 있습니다. 루트 인증서는 항상 자체 서명 되거나 자체 서명 됩니다. 중간 인증서는 자체 서명 되지 않고 서명 기관에서 서명 됩니다.
 
@@ -77,7 +77,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - DNS 도메인이 변경 되어도 장치 이름이 변경 되지 않으면 노드 인증서를 변경 해야 합니다. 사용자 고유의 노드 인증서를 가져오는 경우 장치 일련 번호를 변경할 수 없으며, 도메인 이름만 변경할 수 있습니다.
 - 다음 표를 사용 하 여 노드 인증서를 만들 때 안내 합니다.
    
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |노드|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,7 +98,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 끝점 인증서의 속성은 일반적인 SSL 인증서의 속성과 유사 합니다. 
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -114,7 +114,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 로컬 UI 인증서는 `.pfx` 내보낼 수 있는 개인 키를 사용 하 여 형식으로도 업로드 됩니다.
 - 로컬 UI 인증서를 업로드 한 후 브라우저를 다시 시작 하 고 캐시를 지워야 합니다. 브라우저에 대 한 구체적인 지침을 참조 하세요.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
@@ -392,7 +392,6 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 3. .Cer 형식 파일을 내보낼 위치를 찾아 선택 합니다.
 
     ![인증서 DER 3 내보내기](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
 
 4. **마침**을 선택합니다.
 

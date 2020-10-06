@@ -8,30 +8,32 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331865"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767825"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
 [Azure Digital Twins 인스턴스와 인증을 설정한](how-to-set-up-instance-portal.md)후에는 인스턴스와 상호 작용 하는 데 사용할 클라이언트 응용 프로그램을 만들 수 있습니다. 시작 클라이언트 프로젝트를 설정 하면이 문서에서는 **해당 클라이언트 앱에서 코드를 작성** 하 여 Azure Digital twins 인스턴스에 대해 인증 하는 방법을 보여 줍니다.
 
 이 문서의 샘플 코드에는 두 가지 방법이 있습니다. 선택한 언어에 따라 사용자에 게 적합 한 항목을 사용할 수 있습니다.
-* 샘플 코드의 첫 번째 섹션에서는 Azure Digital Twins .NET (c #) SDK를 사용 합니다. SDK는 .NET 용 Azure SDK의 일부 이며, [*.net 용 Azure IoT 디지털 쌍 클라이언트 라이브러리*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)에 있습니다.
-* 샘플 코드의 두 번째 섹션은 .NET SDK를 사용 하지 않고 다른 언어로 AutoRest 생성 된 Sdk를 사용 하는 사용자를 위한 것입니다. 이 전략에 대 한 자세한 내용은 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)를 참조 하세요.
+* 샘플 코드의 첫 번째 섹션에서는 Azure Digital Twins .NET (c #) SDK를 사용 합니다. SDK는 .NET 용 Azure SDK의 일부 이며, [*.net 용 Azure IoT 디지털 쌍 클라이언트 라이브러리*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)에 있습니다. 비슷한 방식으로 사용할 수 있는 [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) 및 [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)용 sdk도 지원 됩니다.
+* 샘플 코드의 두 번째 섹션은 제공 된 SDK를 사용 하지 않고 다른 언어로 AutoRest 생성 된 sdk를 사용 하는 사용자를 위한 것입니다. 이 전략에 대 한 자세한 내용은 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)를 참조 하세요.
 
 Azure digital Twins의 Api 및 Sdk에 대 한 자세한 내용은 [*방법: Azure 디지털 쌍 api 및 Sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
 
 계속 하려면 코드를 작성 하는 클라이언트 앱 프로젝트가 필요 합니다. 클라이언트 앱 프로젝트를 아직 설정 하지 않은 경우이 자습서에서 사용할 수 있도록 선택한 언어로 기본 프로젝트를 만듭니다.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>인증 및 클라이언트 만들기: .NET (c #) SDK
+
+이 섹션에서는 제공 된 .NET SDK를 사용 하기 위한 c #의 예제를 보여 줍니다.
 
 먼저 .NET SDK 및 인증 도구를 사용 하기 위해 프로젝트에 다음 패키지를 포함 합니다.
 * `Azure.DigitalTwins.Core`
@@ -100,11 +102,11 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>AutoRest 생성 SDK를 사용 하 여 인증
 
-.NET을 사용 하지 않는 경우 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)에 설명 된 대로 원하는 언어로 SDK 라이브러리를 빌드할 수 있습니다.
+제공 된 Sdk (.NET, Java, JavaScript) 중 하나를 사용 하지 않는 경우 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)에 설명 된 대로 원하는 언어로 SDK 라이브러리를 빌드할 수 있습니다.
 
 이 섹션에서는이 경우 인증 하는 방법을 설명 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 먼저 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 단계에 따라 AutoRest를 사용 하 여 사용자 지정 sdk를 만드는 단계를 완료 해야 합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512048"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766251"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스에서 디바이스 요약 사용
 
@@ -86,7 +86,7 @@ Essentials 영역은 상태, 모델, 대상 IQN 및 소프트웨어 버전과 �
 
 * **용량** 타일에서는 동일한 경우에 사용 가능한 총 스토리지를 기준으로 디바이스에 프로비전하고 남아있는 기본 스토리지를 표시합니다. **프로비전**은 사용하도록 준비되고 할당된 스토리지의 양을 나타내며 **나머지**는 이 디바이스에 프로비전될 수 있는 남은 용량을 가리킵니다. 
 
-    ![사용량 타일](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![사용 타일 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     계층화된 볼륨 및 로컬로 고정된 볼륨에서 용량이 프로비전된 방식을 보려면 이 타일을 클릭합니다. **나머지 계층** 용량은 클라우드를 포함하여 프로비전될 수 있는 사용 가능한 용량인 반면 **나머지 로컬**은 이 디바이스에 연결된 디스크에 남아 있는 용량입니다.
 

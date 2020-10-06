@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0792a885006cf3050002c0e275eff2850afb81c7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 77c91d96beb2722b7fce54be8a1db32d66be6196
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566808"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767530"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -28,6 +28,9 @@ Azure Cosmos DB의 플랫폼 간 관리를 위해 [플랫폼 간 PowerShell](htt
 ## <a name="getting-started"></a>시작하기
 
 [Azure PowerShell을 설치하고 구성하는 방법][powershell-install-configure]의 지침에 따라 PowerShell에서 Azure 계정을 설치하고 로그인합니다.
+
+> [!IMPORTANT]
+> Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 계정
 

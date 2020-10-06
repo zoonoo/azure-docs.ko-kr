@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 05b582e24afddf25b7f50d4c8cd1a029684a2d4f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fa5c4bc1aae91e9e40b6d14ad5c12b8d1aee68f6
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023808"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767606"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>IoT Hub에 대한 메시지 라우팅과 Event Grid 비교
 
@@ -32,9 +32,9 @@ Azure IoT Hub는 연결 된 장치에서 데이터를 스트리밍하는 기능�
 
 | 기능 | IoT Hub 메시지 라우팅 | Event Grid와 IoT Hub 통합 |
 | ------- | --------------- | ---------- |
-| **장치 메시지 및 이벤트** | 예, 메시지 라우팅은 원격 분석 데이터, 보고서 장치 쌍 변경, 장치 수명 주기 이벤트에 사용할 수 있습니다 (예: 장치를 만들고, 삭제 하 고, 연결 하 고, 연결을 끊을 때 IoT Hub) 및 디지털 쌍 변경 이벤트 ( [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부) | 예, Event Grid 원격 분석 데이터 및 장치 수명 주기 이벤트에 사용할 수 있습니다. 그러나 Event grid는 장치 쌍 변경 이벤트 및 디지털 쌍 변경 이벤트에 사용할 수 없습니다. |
+| **장치 메시지 및 이벤트** | 예, 메시지 라우팅은 원격 분석 데이터, 보고서 장치 쌍 변경, 장치 수명 주기 이벤트에 사용할 수 있습니다 (예: 장치를 만들고, 삭제 하 고, 연결 하 고, 연결을 끊고, 디지털 쌍 변경 이벤트를 IoT Hub 합니다. | 예, Event Grid 원격 분석 데이터 및 장치 수명 주기 이벤트에 사용할 수 있습니다. 그러나 Event grid는 장치 쌍 변경 이벤트 및 디지털 쌍 변경 이벤트에 사용할 수 없습니다. |
 | **순서 지정** | 예, 이벤트 순서가 유지 관리됩니다.  | 아니요, 이벤트 순서가 보장되지 않습니다. | 
-| **Filtering** | 메시지 애플리케이션 속성, 메시지 시스템 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성에 대한 다양한 필터링입니다. 필터링은 디지털 쌍 변경 이벤트에 적용 되지 않습니다. 예를 보려면 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)을 참조하세요. | 각 이벤트의 이벤트 유형, 주제 유형 및 특성을 기준으로 필터링 합니다. 예제는 [Event Grid 구독의 필터링 이벤트 이해](../event-grid/event-filtering.md)를 참조 하세요. 원격 분석 이벤트를 구독할 때 데이터에 추가 필터를 적용 하 여 Event Grid에 게시 하기 전에 IoT Hub의 메시지 속성, 메시지 본문 및 장치 쌍을 필터링 할 수 있습니다. [이벤트를 필터링 하는 방법을](../iot-hub/iot-hub-event-grid.md#filter-events)참조 하세요. |
+| **필터링** | 메시지 애플리케이션 속성, 메시지 시스템 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성에 대한 다양한 필터링입니다. 필터링은 디지털 쌍 변경 이벤트에 적용 되지 않습니다. 예를 보려면 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)을 참조하세요. | 각 이벤트의 이벤트 유형, 주제 유형 및 특성을 기준으로 필터링 합니다. 예제는 [Event Grid 구독의 필터링 이벤트 이해](../event-grid/event-filtering.md)를 참조 하세요. 원격 분석 이벤트를 구독할 때 데이터에 추가 필터를 적용 하 여 Event Grid에 게시 하기 전에 IoT Hub의 메시지 속성, 메시지 본문 및 장치 쌍을 필터링 할 수 있습니다. [이벤트를 필터링 하는 방법을](../iot-hub/iot-hub-event-grid.md#filter-events)참조 하세요. |
 | **엔드포인트** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus 큐</li> <li>Service Bus 토픽</li></ul><br>유료 IoT Hub SKU(S1, S2, S3)은 사용자 지정 엔드포인트 10개로 제한됩니다. IoT Hub당 100 경로를 만들 수 있습니다. | <ul><li>Azure 기능</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>스토리지 Blob</li> <li>사용자 지정 토픽</li> <li>Queue storage</li> <li>Microsoft Flow</li> <li>Webhook 통한 다른 공급 업체 서비스</li></ul><br>500 IoT Hub 당 끝점이 지원 됩니다. 엔드포인트 최신 목록은 [Event Grid 이벤트 처리기](../event-grid/overview.md#event-handlers)를 참조하세요. |
 | **비용** | 메시지 라우팅에 대한 별도의 요금은 없습니다. IoT Hub로의 원격 분석 수신만 청구됩니다. 예를 들어 세 가지 다른 엔드포인트로 라우팅되는 메시지가 있을 경우 하나의 메시지에 대해서만 요금이 청구됩니다. | IoT Hub는 무료입니다. Event Grid은 매월 처음 10만 작업을 무료로 제공 하 고, 그 이후에는 백만 개 작업당 $0.60를 제공 합니다. |
 

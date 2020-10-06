@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 808320f89c4dbeca835fc5a710ea1566199f6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791846"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767623"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
@@ -22,7 +22,7 @@ IoT Hub 메트릭은 Azure 구독에서 Azure IoT 리소스의 상태에 대 한
 메트릭은 기본적으로 사용하도록 설정됩니다. Azure Portal에서 IoT Hub 메트릭을 볼 수 있습니다.
 
 > [!NOTE]
-> IoT Hub 메트릭을 사용 하 여 IoT Hub에 연결 된 IoT 플러그 앤 플레이 장치에 대 한 정보를 볼 수 있습니다. IoT 플러그 앤 플레이 장치는 [iot 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부입니다.
+> IoT Hub 메트릭을 사용 하 여 IoT Hub에 연결 된 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 장치에 대 한 정보를 볼 수 있습니다.
 
 ## <a name="how-to-view-iot-hub-metrics"></a>IoT Hub 메트릭을 보는 방법
 
@@ -44,9 +44,9 @@ IoT Hub 메트릭은 Azure 구독에서 Azure IoT 리소스의 상태에 대 한
 
 IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개요를 제공하는 몇 가지 메트릭을 제공합니다. IoT Hub 상태의 큰 그림을 그리기 위해 여러 가지 메트릭의 정보를 결합할 수 있습니다. 다음 테이블에는 각 IoT Hub가 추적하는 메트릭과 각 메트릭이 IoT hub의 전반적인 상태와 어떤 관련성이 있는지 설명합니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명:|차원|
 |---|---|---|---|---|---|
-|RoutingDeliveries | 라우팅 배달 시도 (미리 보기) | 개수 | 합계 |라우팅 배달 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 배달 상태를 식별할 수 있습니다.| ResourceID<br>만들어집니다<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*차원에 대 한 자세한 내용은 [**여기**](#dimensions)* 를 참조 하세요. |
+|RoutingDeliveries | 라우팅 배달 시도 (미리 보기) | 개수 | 합계 |라우팅 배달 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 배달 상태를 식별할 수 있습니다.| ResourceID<br>결과,<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*차원에 대 한 자세한 내용은 [**여기**](#dimensions)* 를 참조 하세요. |
 |RoutingDeliveryLatency| 라우팅 대기 시간 (미리 보기) | 밀리초 | 평균 |라우팅 전달 대기 시간 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 대기 시간을 확인 합니다.| ResourceID<br>RoutingSource,<br>EndpointType<br>EndpointName<br>*차원에 대 한 자세한 내용은 [**여기**](#dimensions)* 를 참조 하세요.|
 |RoutingDataSizeInBytesDelivered| 라우팅 배달 데이터 크기 (바이트) (미리 보기)| 바이트 | 합계 |사용자 지정 끝점과 기본 제공 끝점에 IoT Hub 의해 라우팅되는 총 바이트 수입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본에 대해 라우팅되는 데이터 크기를 식별할 수 있습니다.| ResourceID<br>RoutingSource,<br>EndpointType<br>EndpointName<br>*차원에 대 한 자세한 내용은 [**여기**](#dimensions)* 를 참조 하세요.|
 |d2c.<br>allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|없음|
@@ -74,7 +74,7 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |d2c.<br>스토리지|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|메시지 수신 간의 평균 대기 시간 (밀리초)을 IoT Hub 하 고 저장소 끝점으로 메시지를 수신 합니다.|없음|
 |d2c.<br>저장소 바이트|라우팅: 스토리지에 배달된 데이터|바이트|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|없음|
 |d2c.<br>저장소. blob|라우팅: 스토리지에 배달된 Blob|개수|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|없음|
-|EventGridDeliveries|Event Grid 배달(미리 보기)|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()을 표시 합니다 https://aka.ms/ioteventgrid) .|ResourceId<br/>만들어집니다<br/>EventType|
+|EventGridDeliveries|Event Grid 배달(미리 보기)|개수|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()을 표시 합니다 https://aka.ms/ioteventgrid) .|ResourceId<br/>결과,<br/>EventType|
 |EventGridLatency|Event Grid 대기 시간(미리 보기)|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|ResourceId<br/>EventType|
 |d2c.twin.read.success|디바이스에서의 성공한 쌍 읽기|개수|합계|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|없음|
 |d2c.twin.read.failure|디바이스에서의 실패한 쌍 읽기|개수|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|없음|

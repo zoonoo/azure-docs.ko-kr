@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: e546963a7ca90c7494164af7afefbb4e78b2259b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651941"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766666"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -52,7 +52,7 @@ ms.locfileid: "91651941"
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>계정 만들기 및 구성
 
-Azure Portal에서 Automation 계정을 만드는 경우 [실행](../automation/manage-runas-account.md#types-of-run-as-accounts) 계정이 자동으로 만들어집니다. 이 계정은 다음 작업을 수행 합니다.
+Azure Portal에서 Automation 계정을 만드는 경우 [실행](../automation/automation-security-overview.md#run-as-accounts) 계정이 자동으로 만들어집니다. 이 계정은 다음 작업을 수행 합니다.
 
 * 자체 서명 된 인증서를 사용 하 여 Azure Active Directory (Azure AD) 응용 프로그램을 만듭니다. 실행 계정 자체에는 기본적으로 매년 갱신 해야 하는 인증서가 있습니다.
 

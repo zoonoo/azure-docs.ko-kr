@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: c248755c1f32d41b6926d4492dcc3d0eea2869b8
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: c8726801e8becd6533ae5fec099d6c535b63261a
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566876"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767559"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
 
@@ -20,6 +20,9 @@ ms.locfileid: "91566876"
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.9.1 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 계정
 
