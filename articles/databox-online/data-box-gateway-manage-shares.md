@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883548"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743882"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 공유 관리 
 
@@ -94,7 +94,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
 1. Azure Portal에서 **공유**로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
 
-   ![공유 선택](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![공유 2 선택](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. **새로 고침**을 클릭합니다. 
 
@@ -124,11 +124,11 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 1. 리소스에서 **개요**로 이동합니다. 
 2. 공유 목록에서 동기화 해야 하는 저장소 계정과 연결 된 공유를 선택 하 고 클릭 합니다. **저장소 키 동기화**를 클릭 합니다. 
 
-     ![스토리지 키 동기화 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![스토리지 키 동기화](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. 확인 메시지가 표시되면 **예**를 클릭합니다. 동기화가 완료되면 대화 상자를 종료합니다.
 
-     ![스토리지 키 동기화 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![저장소 키 동기화 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > 이 작업은 지정된 스토리지 계정에 대해 한 번만 수행하면 됩니다. 동일한 스토리지 계정에 연결된 모든 공유에 대해 이 작업을 반복할 필요가 없습니다.

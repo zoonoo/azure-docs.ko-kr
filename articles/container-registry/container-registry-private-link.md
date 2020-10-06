@@ -2,13 +2,13 @@
 title: 프라이빗 링크 설정
 description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 통해 액세스를 사용 하도록 설정 합니다. 개인 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/01/2020
+ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488748"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743644"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결
 
@@ -79,7 +79,7 @@ az network vnet subnet update \
 
 ### <a name="configure-the-private-dns-zone"></a>프라이빗 DNS 영역 구성
 
-프라이빗 Azure Container Registry 도메인에 대한 개인 DNS 영역을 만듭니다. 이후 단계에서는 이 DNS 영역에서 레지스트리 도메인에 대한 DNS 레코드를 만듭니다.
+개인 Azure container registry 도메인에 대 한 [개인 DNS 영역](../dns/private-dns-privatednszone.md) 을 만듭니다. 이후 단계에서는 이 DNS 영역에서 레지스트리 도메인에 대한 DNS 레코드를 만듭니다.
 
 프라이빗 영역을 사용하여 Azure Container Registry에 대한 기본 DNS 확인을 재정의하려면 영역 이름을 **privatelink.azurecr.io**로 지정해야 합니다. 다음과 같은 [az network private-dns zone create][az-network-private-dns-zone-create] 명령을 실행하여 프라이빗 영역을 만듭니다.
 
@@ -306,28 +306,46 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 프라이빗 링크 연결의 유효성을 검사하려면 가상 네트워크에서 설정한 가상 머신에 대해 SSH를 수행합니다.
 
-`nslookup` 명령을 실행하여 프라이빗 링크를 통해 레지스트리의 IP 주소를 확인합니다.
+또는와 같은 유틸리티를 `nslookup` 실행 `dig` 하 여 개인 링크를 통해 레지스트리의 IP 주소를 조회 합니다. 예를 들면 다음과 같습니다.
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.io
+dig $REGISTRY_NAME.azurecr.io
 ```
 
 예제 출력은 서브넷의 주소 공간에 있는 레지스트리의 IP 주소를 다음과 같이 표시합니다.
 
 ```console
 [...]
-myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
-Name:   myregistry.privatelink.azurecr.io
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.io.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.io.  1783    IN      CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-이 결과를 공용 엔드포인트에서 동일한 레지스트리에 대한 `nslookup` 출력의 공용 IP 주소와 다음과 같이 비교합니다.
+이 결과를 공용 엔드포인트에서 동일한 레지스트리에 대한 `dig` 출력의 공용 IP 주소와 다음과 같이 비교합니다.
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.westeurope.cloudapp.azure.com
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.io.  2881    IN  CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 2881 IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.westeurope.cloudapp.azure.com.
+xxxx.westeurope.cloudapp.azure.com. 10  IN A 20.45.122.144
+
+[...]
 ```
 
 ### <a name="registry-operations-over-private-link"></a>프라이빗 링크를 통한 레지스트리 작업
@@ -361,9 +379,15 @@ az acr private-endpoint-connection list \
 
 ## <a name="add-zone-records-for-replicas"></a>복제본에 대한 영역 레코드 추가
 
-이 문서에 나와 있는 것처럼 레지스트리에 프라이빗 엔드포인트 연결을 추가하면 레지스트리가 [복제되는](container-registry-geo-replication.md) 지역 내에서 레지스트리 및 그 데이터 엔드포인트에 대해 `privatelink.azurecr.io` 영역의 DNS 레코드가 생성됩니다. 
+이 문서에 표시 된 것 처럼 레지스트리에 개인 끝점 연결을 추가 하는 경우 레지스트리에 `privatelink.azurecr.io` 대 한 영역 및 레지스트리가 [복제](container-registry-geo-replication.md)된 지역에서 해당 데이터 끝점에 DNS 레코드를 만듭니다. 
 
 나중에 새 복제본을 추가하는 경우, 해당 지역에서 데이터 엔드포인트에 대한 새 영역 레코드를 수동으로 추가해야 합니다. 예를 들어 *northeurope* 위치에서 *myregistry*의 복제본을 만드는 경우, `myregistry.northeurope.data.azurecr.io`에 대한 영역 레코드를 추가합니다. 단계에 관한 설명은 이 문서의 [프라이빗 영역에서 DNS 레코드 만들기](#create-dns-records-in-the-private-zone)를 참조하세요.
+
+## <a name="dns-configuration-options"></a>DNS 구성 옵션
+
+이 예제의 개인 끝점은 기본 가상 네트워크와 연결 된 개인 DNS 영역과 통합 됩니다. 이 설치 프로그램은 Azure에서 제공 하는 DNS 서비스를 직접 사용 하 여 레지스트리의 공용 FQDN을 가상 네트워크의 개인 IP 주소에 대해 확인 합니다. 
+
+개인 링크는 사용자 지정 DNS 솔루션을 포함 하 여 개인 영역을 사용 하는 추가 DNS 구성 시나리오를 지원 합니다. 예를 들어 가상 네트워크에 배포 된 사용자 지정 DNS 솔루션이 있거나 네트워크의 온-프레미스에서 VPN gateway를 사용 하 여 가상 네트워크에 연결 하는 경우가 있을 수 있습니다. 이러한 시나리오에서 레지스트리의 공용 FQDN을 개인 IP 주소로 확인 하려면 Azure DNS 서비스 (168.63.129.16)에 대 한 서버 수준 전달자를 구성 해야 합니다. 정확한 구성 옵션 및 단계는 기존 네트워크 및 DNS에 종속 됩니다. 예제는 [Azure 개인 끝점 DNS 구성](../private-link/private-endpoint-dns.md)을 참조 하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

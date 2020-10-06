@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338977"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743831"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 사용자 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "84338977"
  - **전체 권한 사용자** - 전체 액세스 권한이 있는 로컬 사용자입니다.
  - **읽기 전용 사용자** - 읽기 전용 액세스 권한이 있는 로컬 사용자입니다. 이러한 사용자는 읽기 전용 작업을 허용하는 공유와 연결됩니다.
 
-사용자 권한은 공유를 생성하는 동안 사용자를 만들 때 처음 정의됩니다. 공유 수준 권한 수정은 현재 지원 되지 않습니다.
+사용자 권한은 공유를 생성하는 동안 사용자를 만들 때 처음 정의됩니다. 공유 수준 권한 수정은 현재 지원되지 않습니다.
 
 ## <a name="add-a-user"></a>사용자 추가
 
@@ -45,7 +45,7 @@ ms.locfileid: "84338977"
 
 2. 추가하려는 사용자에 대한 사용자 이름 및 암호를 지정합니다. 암호를 확인하고 **추가**를 클릭합니다.
 
-    ![사용자 추가 클릭](media/data-box-gateway-manage-users/add-user-2.png)
+    ![사용자 추가 2를 클릭 합니다.](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > 다음과 같은 사용자는 시스템에 예약되어 있으므로 사용하지 말아야 합니다. Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
@@ -70,11 +70,11 @@ ms.locfileid: "84338977"
 
 2. 메시지가 표시되면 삭제를 확인합니다. 
 
-   ![사용자 삭제](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![사용자 삭제 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 사용자 목록이 업데이트되어 삭제된 사용자가 반영됩니다.
 
-![사용자 삭제](media/data-box-gateway-manage-users/delete-user-3.png)
+![사용자 삭제 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## <a name="next-steps"></a>다음 단계

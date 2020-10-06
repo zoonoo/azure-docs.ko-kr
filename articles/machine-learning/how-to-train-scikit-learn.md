@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 28401b5900640ed7228d7c7caad0cebbabf00a65
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f0c923bcb7df930ed4b1380d487ededc6c160844
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532723"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743746"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>학습 scikit-Azure Machine Learning를 사용 하 여 대규모로 모델 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "91532723"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
@@ -66,9 +66,17 @@ ws = Workspace.from_config()
 
 학습 스크립트의 종속성을 캡슐화 하는 Azure ML [환경을](concept-environments.md) 정의 하기 위해 사용자 지정 환경을 정의 하거나 및 azure ml 큐 레이트 환경을 사용할 수 있습니다.
 
+#### <a name="use-a-curated-environment"></a>큐 레이트 환경 사용
+필요에 따라 사용자 고유의 환경을 정의 하지 않으려는 경우 Azure ML은 미리 빌드된 큐 레이트 환경을 제공 합니다. 자세한 내용은 [여기](resource-curated-environments.md)를 참조 하세요.
+큐 레이트 환경을 사용 하려는 경우 다음 명령을 대신 실행할 수 있습니다.
+
+```python
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
+```
+
 #### <a name="create-a-custom-environment"></a>사용자 지정 환경 만들기
 
-사용자 고유의 사용자 지정 환경을 만들려면 YAML 파일에 conda 종속성을 정의 합니다. 이 예제에서 파일의 이름은 `conda_dependencies.yml` 입니다.
+사용자 고유의 사용자 지정 환경을 직접 만들 수도 있습니다. YAML 파일에서 conda 종속성을 정의 합니다. 이 예제에서 파일의 이름은 `conda_dependencies.yml` 입니다.
 
 ```yaml
 dependencies:
@@ -87,14 +95,6 @@ sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path
 ```
 
 환경을 만들고 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조 하세요.
-
-#### <a name="use-a-curated-environment"></a>큐 레이트 환경 사용
-필요에 따라 사용자 고유의 이미지를 빌드하지 않으려는 경우 Azure ML은 미리 빌드된 큐 레이트 환경을 제공 합니다. 자세한 내용은 [여기](resource-curated-environments.md)를 참조 하세요.
-큐 레이트 환경을 사용 하려는 경우 다음 명령을 대신 실행할 수 있습니다.
-
-```python
-sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
-```
 
 ## <a name="configure-and-submit-your-training-run"></a>학습 실행 구성 및 제출
 

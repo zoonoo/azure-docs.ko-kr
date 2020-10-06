@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61436497"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744107"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
 
@@ -26,44 +26,31 @@ Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 �
 
 |     기능                                             |     Azure Storage                                     |     Data Box Blob Storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
+|    Azure File 스토리지                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
 |    미사용 데이터에 대한 서비스 암호화                  |    256비트 AES 암호화                             |    256비트 AES 암호화 |
-|    Storage 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
+|    스토리지 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
-|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Data Box v 1.8 이상의 경우 4.75TB(100MB x 50,000개 블록)|
+|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    4.75 TB (100 MB x 5만 블록) Azure Data Box v 3.0 이상|
 |    페이지 Blob 최대 크기                               |    8 TB                                               |    1TB                   |
 |    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KB                   |
 
 ## <a name="supported-api-versions"></a>지원되는 API 버전
 
-Data Box Blob Storage에서 지원되는 Azure Storage 서비스 API 버전은 다음과 같습니다.
+Data Box Blob Storage에서 지원 되는 Azure Storage 서비스 Api 버전은 다음과 같습니다.
 
-Azure Data Box 1.8 이상
+### <a name="azure-data-box-30-onwards"></a>Azure Data Box 3.0 이상
 
-- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
-- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
-- [2017-04-17](/rest/api/storageservices/version-2017-04-17)
-- [2016-05-31](/rest/api/storageservices/version-2016-05-31)
-- [2015-12-11](/rest/api/storageservices/version-2015-12-11)
-- [2015-07-08](/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](/rest/api/storageservices/version-2015-04-05)|
+[!INCLUDE [data-box-rest-supported-api-versions](../../includes/data-box-rest-supported-api-versions.md)]
+
 ## <a name="supported-azure-client-libraries"></a>지원되는 Azure 클라이언트 라이브러리
 
-Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 엔드포인트 접미사 요구 사항이 있습니다. Data Box Blob 스토리지 엔드포인트는 최신 버전의 Azure Blob Storage REST API와 완전히 동일하지는 않습니다. [Azure Data Box 1.8 이상에 지원되는 버전](#supported-api-versions)을 참조하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
+Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 엔드포인트 접미사 요구 사항이 있습니다. Data Box Blob 저장소 끝점은 최신 버전의 Azure Blob Storage REST API를 사용 하 여 전체 패리티를 갖지 않습니다. [Azure Data Box 3.0에 대해 지원 되는 버전](#supported-api-versions)을 참조 하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
 
-### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1.8 이상
+### <a name="azure-data-box-30-onwards"></a>Azure Data Box 3.0 이상
 
-| 클라이언트 라이브러리     |Data Box Blob Storage 지원되는 버전     | 링크   |     엔드포인트 사양      |
-|--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    9.2.0                                           |    NuGet 패키지: https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub 릴리스: https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config 파일                 |
-|    Java                |    7.0.0                                           |    Maven 패키지: https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    연결 문자열 설정         |
-|    Node.js             |    2.8.3                                           |    NPM 링크: https://www.npmjs.com/package/azure-storage (실행: `npm install azure-storage@2.7.0` )   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    서비스 인스턴스 선언    |
-|    C++                 |    5.2.0                                           |    NuGet 패키지: https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    연결 문자열 설정         |
-|    PHP                 |    1.2.0                                           |    GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>작성기를 통해 설치( 자세한 내용은 아래 세부 정보 참조)                                                                                                             |    연결 문자열 설정         |
-|    Python              |    1.1.0                                           |    GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob: https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    서비스 인스턴스 선언    |
-|    Ruby                |    1.0.1                                           |    RubyGems 패키지:<br>일반: https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    연결 문자열 설정         |
+Data Box Blob storage에 대해 지원 되는 Azure 클라이언트 라이브러리 버전은 다음과 같습니다.
 
-
+[!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
 ### <a name="install-php-client-via-composer---current"></a>작성기를 통해 PHP 클라이언트 설치 - 현재
 
@@ -83,7 +70,7 @@ Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 �
 
 ### <a name="endpoint-declaration"></a>엔드포인트 선언
 
-Azure Data Box Blob Storage 엔드포인트에는 지역 이름과 Data Box 도메인의 두 부분이 포함됩니다. Data Box Blob storage SDK에서 기본 끝점은 `\<serial no. of the device>.microsoftdatabox.com` 입니다.  Blob 서비스 엔드포인트에 대한 자세한 내용은 [Data Box Blob Storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)을 참조하세요.
+Data Box Blob storage SDK에서 끝점 접미사-는 `<device serial number>.microsoftdatabox.com` Data Box 도메인을 식별 합니다. Blob service 끝점에 대 한 자세한 내용은 [Data Box blob storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)로 이동 합니다.
  
 ## <a name="examples"></a>예
 

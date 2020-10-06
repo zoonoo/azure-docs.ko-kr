@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 1a1ce22cd700368d630d70912ea266d16fd772bf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925212"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744171"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box의 케이블 연결 옵션
 
@@ -105,7 +105,7 @@ ms.locfileid: "87925212"
    - **IP 주소**를 192.168.100.5로 설정
    - **서브넷**을 255.255.255.0으로 설정
 
-     ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![스위치 2를 사용 하는 두 개의 포트 설정](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
@@ -125,7 +125,7 @@ ms.locfileid: "87925212"
 
 1. DHCP 서버에 액세스할 수 있는 스위치를 통해 RJ45 또는 SFP+ 케이블을 서버에 연결합니다.
 
-    ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-dhcp-data-only.png)
+    ![스위치 3을 사용 하는 두 개의 포트 설정](media/data-box-cable-options/cabling-dhcp-data-only.png)
 2. IP 주소를 식별하려면 DHCP 서버 또는 DNS 서버를 사용합니다.
 3. 동일한 네트워크의 서버에서 DHCP 서버가 할당한 IP 주소를 사용하는 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 

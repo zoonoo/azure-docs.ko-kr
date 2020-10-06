@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 지역 추가, 처리량 업데이트, 지역
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462448"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743899"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
 
@@ -69,17 +69,17 @@ Azure Portal를 사용 하 여 제어 평면 작업에 대 한 진단 로그를 
 
 다음 스크린샷은 Azure Cosmos 계정에 대 한 일관성 수준이 변경 될 때 로그를 캡처합니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="VNet이 추가 될 때의 제어 평면 로그":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="제어 평면 요청 로깅 사용":::
 
 다음 스크린샷은 Cassandra 계정의 keyspace 또는 테이블이 만들어지고 처리량이 업데이트 될 때 로그를 캡처합니다. 다음 스크린샷에 표시 된 것 처럼 데이터베이스 및 컨테이너에 대 한 만들기 및 업데이트 작업의 제어 평면 로그는 별도로 기록 됩니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="처리량이 업데이트 되는 경우의 제어 평면 로그":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="제어 평면 요청 로깅 사용":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>특정 작업에 연결 된 id를 식별 합니다.
 
 추가로 디버깅 하려는 경우 작업 ID 또는 작업 타임 스탬프를 사용 하 여 **활동 로그** 에서 특정 작업을 식별할 수 있습니다. 타임 스탬프는 활동 ID가 명시적으로 전달 되지 않은 일부 리소스 관리자 클라이언트에 사용 됩니다. 활동 로그는 작업이 시작 된 id에 대 한 세부 정보를 제공 합니다. 다음 스크린샷에서는 활동 ID를 사용 하 고 활동 로그에서 활동 ID와 연결 된 작업을 찾는 방법을 보여 줍니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="작업 ID를 사용 하 여 작업을 찾습니다.":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="제어 평면 요청 로깅 사용":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 제어 평면 작업
 
@@ -209,6 +209,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+인덱스 또는 ttl 업데이트를 가져오기 위한 쿼리입니다. 그런 다음이 쿼리의 출력을 이전 업데이트와 비교 하 여 인덱스 또는 ttl의 변경 내용을 확인할 수 있습니다.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**출력**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>다음 단계

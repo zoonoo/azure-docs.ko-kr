@@ -8,20 +8,20 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 852ff5e6ad847ff33f8e32b4c3d9f8b325b80716
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664520"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743695"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>지점 및 사이트 간 사용자 지정 IPsec 정책 만들기 및 설정
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>지점 및 사이트 간 (미리 보기)에 대 한 사용자 지정 IPsec 정책 만들기 및 설정
 
 사용자 환경에 암호화를 위한 사용자 지정 IPsec 정책이 필요한 경우 필요한 설정을 사용 하 여 정책 개체를 쉽게 구성할 수 있습니다. 이 문서에서는 사용자 지정 정책 개체를 만들고 PowerShell을 사용 하 여 설정 하는 방법을 설명 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 사용자 환경이 다음과 같은 필수 구성 요소를 충족 하는지 확인 합니다.
 

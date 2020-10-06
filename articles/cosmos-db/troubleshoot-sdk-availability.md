@@ -3,17 +3,17 @@ title: 다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문�
 description: 다중 지역 환경에서 작동 하는 경우 Azure Cosmos SDK 가용성 동작에 대 한 모든 것을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/24/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd7ced2dfcfd3c555555d6f0a197623bd8726f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330437"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743967"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "91330437"
 * .NET V2 SDK의 [Connectionpolicy](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) 속성입니다.
 * .NET V3 SDK의 [CosmosClientOptions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) 또는 [CosmosClientOptions ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) 속성
 * Java V4 SDK의 preferredRegions 메서드를 [CosmosClientBuilder.](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions)
-* Node SDK의 [Preferred_locations CosmosClient](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 매개 변수입니다.
+* Python SDK의 [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 매개 변수입니다.
 * JS SDK의 preferredLocations 매개 변수를 [CosmosClientOptions](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) .
 
 국가별 기본 설정을 지정 하는 경우 클라이언트는 다음 표에 설명 된 대로 지역에 연결 됩니다.
@@ -49,6 +49,8 @@ ms.locfileid: "91330437"
 * .NET V2 SDK의 응답에 대 한 *RequestDiagnosticsString* 속성입니다.
 * .NET V3 SDK의 응답 및 예외에 대 한 *진단* 속성입니다.
 * Java V4 SDK의 응답 및 예외에 대 한 *Getdiagnostics ()* 메서드입니다.
+
+우선 순위에 따라 다음 지역을 결정 하는 경우 SDK 클라이언트는 계정 지역 목록을 사용 하 여 기본 설정 영역 (있는 경우)의 우선 순위를 지정 합니다.
 
 이러한 이벤트 중 SLA 보증에 대 한 포괄적인 정보는 [가용성에 대 한 sla](high-availability.md#slas-for-availability)를 참조 하세요.
 

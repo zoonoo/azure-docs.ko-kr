@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713045"
+ms.locfileid: "91744222"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 개인 링크 구성 문제 진단
 
@@ -22,7 +22,7 @@ ms.locfileid: "91713045"
 
 이 기능을 처음 사용 하는 경우 [Azure 개인 링크와 Key Vault 통합](private-link-service.md)을 참조 하세요.
 
-### <a name="symptoms-covered-by-this-article"></a>이 문서에서 다루는 증상
+### <a name="problems-covered-by-this-article"></a>이 문서에서 다루는 문제
 
 - DNS 쿼리는 개인 링크 기능을 사용 하는 것으로 간주 되는 개인 IP 주소 대신 키 자격 증명 모음에 대 한 공용 IP 주소를 계속 반환 합니다.
 - 개인 링크를 사용 하는 지정 된 클라이언트에서 수행 하는 모든 요청에는 시간 초과 또는 네트워크 오류로 인해 오류가 발생 하 고 문제가 간헐적으로 발생 하지 않습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "91713045"
 - 키 자격 증명 모음에는 두 개의 개인 끝점이 있습니다. 하나를 사용 하는 요청은 정상적으로 작동 하지만 다른 요청은 실패 합니다.
 - 개인 링크를 사용 하는 다른 구독, 주요 자격 증명 모음 또는 가상 네트워크가 있습니다. 비슷한 배포를 새로 만들려고 하지만 여기에서 작업 하기 위한 개인 링크를 가져올 수 없습니다.
 
-### <a name="symptoms-not-covered-by-this-article"></a>이 문서에서 다루지 않는 증상
+### <a name="problems-not-covered-by-this-article"></a>이 문서에서 다루지 않는 문제
 
 - 간헐적 연결 문제가 있습니다. 지정 된 클라이언트에서 일부 요청이 작동 중이 고 일부는 작동 하지 않는 것을 볼 수 있습니다. *일시적인 문제는 일반적으로 개인 링크 구성의 문제로 인해 발생 하지 않습니다. 네트워크 또는 클라이언트 오버 로드의 부호입니다.*
 - BYOK (Bring Your Own Key) 또는 CMK (고객 관리 키)를 지 원하는 Azure 제품을 사용 하 고 있으며 해당 제품에서 키 자격 증명 모음에 액세스할 수 없습니다. *다른 제품 설명서를 확인 합니다. 방화벽이 사용 하도록 설정 된 key vault에 대 한 지원이 명시적으로 명시 되어 있는지 확인 합니다. 필요한 경우 해당 특정 제품에 대 한 기술 지원 서비스에 문의 하십시오.*
@@ -188,7 +188,7 @@ Linux:
 
 Virtual Network *외부* 의 컴퓨터에서 수행 된 요청 (예: 방금 사용한 요청)은 개인 링크를 사용 하는 것을 의미 하지 않습니다. 호스트 이름이 여전히 공용 IP 주소로 확인 된다는 사실을 알 수 있습니다. *Virtual Network에 연결* 된 컴퓨터 에서만 개인 링크를 사용할 수 있습니다. 이에 대 한 자세한 내용은 다음을 참조 하세요.
 
-별칭이 표시 되지 않으면 `privatelink` 키 자격 증명 모음에 상태에서 0 개인 끝점 연결이 있음을 의미 `Approved` 합니다. 이 문서를 계속 읽습니다.
+별칭이 표시 되지 않으면 `privatelink` 키 자격 증명 모음에 상태에서 0 개인 끝점 연결이 있음을 의미 `Approved` 합니다. 다시 시도 하기 전에 [이 섹션](#2-confirm-that-the-connection-is-approved-and-succeeded) 으로 돌아갑니다.
 
 ### <a name="key-vault-with-private-link-resolving-from-virtual-network"></a>Virtual Network에서 확인 되는 개인 링크가 있는 Key vault
 

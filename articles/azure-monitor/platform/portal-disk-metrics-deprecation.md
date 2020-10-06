@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
-ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 623d9385b9ae6b13c8964f655fb973fe67a0918a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79299804"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743712"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Azure Portal에서 디스크 메트릭 사용 중단
 
@@ -44,38 +44,38 @@ ms.locfileid: "79299804"
 1. Azure Portal에서 **경고**를 검색 합니다. 그런 다음 **서비스** 섹션에서 **경고**를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
+   > ![경고 서비스](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
 
 2. **경고** 페이지에서 **경고 규칙 관리** 단추를 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
+   > ![경고 규칙 관리](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
 
 3. **리소스 그룹** 드롭다운 목록에서 **Virtual Machines** 확인란을 선택 하 고 **신호 형식** 드롭다운 목록에서 **메트릭** 확인란을 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/filter-alerts.png)
+   > ![경고 필터링](./media/portal-disk-metrics-deprecation/filter-alerts.png)
 
 4. 메트릭 목록에서 디스크와 관련 된 조건을 식별 합니다. 규칙의 이름을 클릭 합니다. 
 
    이름은 테이블의 **이름** 열에 하이퍼링크로 나타납니다.
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
+   > ![디스크 조건 찾기](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
 
 5. **규칙 관리** 페이지의 **조건** 섹션에서 경고의 조건을 클릭 합니다. 
 
    조건이 하이퍼링크로 표시 됩니다.  
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/adjust-condition.png)
+   > ![조건 조정](./media/portal-disk-metrics-deprecation/adjust-condition.png)
 
    **신호 논리 구성** 페이지가 표시 되 고 해당 페이지의 **경고 논리** 섹션에 조건 설정이 표시 됩니다.
 
 6. 더 이상 사용 되지 않는 메트릭을 제거할 때 이러한 설정이 사라질 때 이러한 설정을 기록해 둡니다.
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/condition-rules.png)
+   > ![조건 규칙](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
    > [!TIP] 
    > 스크린샷 또는 텍스트 파일에서 이러한 설정을 캡처할 것을 고려 합니다. 
@@ -83,7 +83,7 @@ ms.locfileid: "79299804"
 7. **신호 선택 영역으로 돌아가기 링크를** 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
+   > ![신호 선택으로 돌아가기](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
 8. **신호 논리 구성** 페이지에서 적절 한 대체 메트릭 (새 메트릭)을 선택 합니다. 이 문서 앞부분에 표시 된 [표](#update-metrics) 를 사용 하 여 새 메트릭의 이름을 식별할 수 있습니다.
 
@@ -91,17 +91,17 @@ ms.locfileid: "79299804"
    > 검색 창에서 입력을 시작 하 여 메트릭 이름 목록을 좁힙니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
+   > ![새 메트릭 선택](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
 
 9. **완료** 단추를 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![이미지 설명](./media/portal-disk-metrics-deprecation/set-new-metric.png)
+   > ![새 메트릭 설정](./media/portal-disk-metrics-deprecation/set-new-metric.png)
 
 10. **저장** 단추를 선택 하 여 변경 내용을 커밋합니다. 
 
     > [!div class="mx-imgBorder"]
-    > ![이미지 설명](./media/portal-disk-metrics-deprecation/save-new-metric.png)
+    > ![새 메트릭 저장](./media/portal-disk-metrics-deprecation/save-new-metric.png)
 
 
 
