@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255253"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739915"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -144,7 +144,7 @@ VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 �
 
 다음의 세 가지 가격이 필수 게이트웨이 VNet 통합 기능 사용과 관련된 가격입니다.
 
-* **App Service 계획 가격 계층별 책정** 앱은 표준, 프리미엄, 또는 프리미엄 V2 App Service 계획에 속해야 합니다. 가격 책정에 대한 자세한 내용은 [App Service 가격 책정][ASPricing]을 참조하세요.
+* **App Service 계획 가격 책정 계층 요금**: 앱이 표준, 프리미엄, PremiumV2 또는 PremiumV3 App Service 계획에 있어야 합니다. 가격 책정에 대한 자세한 내용은 [App Service 가격 책정][ASPricing]을 참조하세요.
 * **데이터 전송 비용** VNet이 동일한 데이터 센터에 있더라도 데이터 송신 요금이 있습니다. 이러한 요금은 [데이터 전송 가격 정보][DataPricing]에서 설명합니다.
 * **VPN 게이트웨이 비용** 지점 및 사이트 간 VPN에 필요한 가상 네트워크 게이트웨이 관련 비용이 발생합니다. 자세한 내용은 [VPN 게이트웨이 가격 책정][VNETPricing]을 참조하세요.
 

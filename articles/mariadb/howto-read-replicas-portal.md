@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542532"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742862"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -116,7 +116,7 @@ Azure Portal에서 원본 서버를 삭제 하려면 다음 단계를 사용 합
 
 3. 원본 서버의 이름을 입력 하 고 **삭제** 를 클릭 하 여 원본 서버 삭제를 확인 합니다.  
 
-   ![Azure Database for MariaDB-마스터 삭제](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Azure Database for MariaDB-마스터 확인 삭제](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>복제 모니터링
 
@@ -134,7 +134,7 @@ Azure Portal에서 원본 서버를 삭제 하려면 다음 단계를 사용 합
 
 5. 선택한 시간 범위의 복제 지연 시간을 확인합니다. 아래 이미지는 대량 작업의 최근 30 분을 표시 합니다.
 
-   ![시간 범위 선택](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![시간 범위 30 분 선택](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>다음 단계
 

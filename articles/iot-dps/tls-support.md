@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
-ms.openlocfilehash: bf221797926b1776852e7474071f5dcca3249bc7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2adda858e6d39d41de49fa843d1ba226b300f8e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084518"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743542"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Azure IoT Hub 장치 프로 비전 서비스 (DPS)의 TLS 지원
 
@@ -80,6 +80,8 @@ TLS 1.2만 허용 하도록 구성 된 DPS 인스턴스는 다음 암호 그룹�
 
 ### <a name="legacy-cipher-suites"></a>레거시 암호 그룹 
 
+이러한 암호 그룹은 현재 DPS에서 계속 지원 되지만 사용 됩니다. 가능 하면 위의 권장 암호 그룹을 사용 하세요.
+
 | 옵션 #1 (보안 강화) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
@@ -87,18 +89,6 @@ TLS 1.2만 허용 하도록 구성 된 DPS 인스턴스는 다음 암호 그룹�
 | 옵션 #2 (성능 향상) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
-
-
-### <a name="device-authentication"></a>디바이스 인증
-
-| DPS는 다음 암호화를 사용 하 여 클라이언트 인증에 대 한 ECC 인증서를 지원 합니다. |
-| :--- |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256` |
-
-| 레거시 암호화: |
-| :--- |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384 (uses SHA-1)`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256 (uses SHA-1)` |
-
 
 
 ## <a name="use-tls-12-in-the-iot-sdks"></a>IoT Sdk에서 TLS 1.2 사용

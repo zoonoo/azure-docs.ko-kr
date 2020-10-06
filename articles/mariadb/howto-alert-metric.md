@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120078"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742845"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Azure Portal을 사용하여 Azure Database for MariaDB의 메트릭에 대한 경고를 설정합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "86120078"
    
    완료되면 **완료**를 선택합니다.
 
-   ![메트릭 선택](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![메트릭 2 선택](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. **작업 그룹** 섹션에서 **새로 만들기**를 선택하여 경고 알림을 받을 새 그룹을 만듭니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "86120078"
 
 11. 경고 규칙 이름, 설명 및 심각도를 지정합니다.
 
-    ![작업 그룹](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![작업 그룹 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
 

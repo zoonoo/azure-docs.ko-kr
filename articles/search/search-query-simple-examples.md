@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294869"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740686"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 간단한 쿼리 만들기
 
@@ -37,13 +37,13 @@ Azure Cognitive Search에서는 [단순 쿼리 구문이](query-simple-syntax.md
 
 요청 헤더를 지정한 후 **search=** 문자열만 교환하여 이 문서의 모든 쿼리에 다시 사용할 수 있습니다. 
 
-  ![Postman 요청 헤더 집합 매개 변수](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
 Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
-  ![Postman 요청 헤더 가져오기](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 URL 구성에는 다음 요소가 있습니다.
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 이 쿼리에 대한 응답은 다음 스크린샷과 비슷하게 표시됩니다.
 
-  ![Postman 샘플 응답](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 이러한 항목을 함께 사용하는 경우 필터가 전체 인덱스에 먼저 적용된 다음 필터의 결과에 검색이 수행됩니다. 따라서 필터는 검색 쿼리가 처리해야 하는 일련의 문서를 감소시키기 때문에 쿼리 성능을 개선하는 데 유용한 기술일 수 있습니다.
 
-  ![쿼리 응답 필터링](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 GET을 사용하여 Postman에서 이 필터링을 시도하려는 경우 이 문자열에 붙여넣을 수 있습니다.
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![숫자 범위에 대한 범위 필터](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![텍스트 범위에 대한 범위 필터](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 GET을 사용하여 Postman에서 이러한 필터를 시도해 볼 수 있습니다.
 
@@ -251,14 +251,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![모든 검색 모드](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 searchMode를 `all`로 변경하면 조건에 대해 누적 효과가 적용되고 전체 구인 "fire department"를 포함하는 문서에서 Metrotech Center 주소에 직장이 있는 경우를 제외하여 더 적은 결과 집합인 21개 문서가 반환됩니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![모든 검색 모드](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 ## <a name="example-8-structuring-results"></a>예제 8: 결과 구성
 

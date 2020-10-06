@@ -3,12 +3,12 @@ title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630953"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743372"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -90,6 +90,8 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려면 `Microsoft.ContainerRegistry` 해당 구독에 리소스 공급자를 등록 해야 합니다. Azure Portal, Azure CLI 또는 다른 Azure 도구를 사용 하 여 Azure Container Registry에 대 한 [리소스 공급자를 등록](../azure-resource-manager/management/resource-providers-and-types.md) 합니다.
 
 네트워크에서 Azure 방화벽 또는 유사한 솔루션을 구성 하는 경우 AKS 클러스터와 같은 다른 리소스의 송신 트래픽이 레지스트리 끝점에 도달 하도록 설정 되었는지 확인 합니다.
+
+개인 끝점이 구성 된 경우 DNS가 레지스트리의 개인 IP 주소에 대 한 *myregistry.azurecr.io* 와 같은 레지스트리의 공용 FQDN을 확인 하는지 확인 합니다. `dig`DNS 조회를 위해 또는와 같은 네트워크 유틸리티를 사용 `nslookup` 합니다.
 
 관련 링크:
 

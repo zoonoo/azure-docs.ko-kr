@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bc6e72a5e5ab9f95ec88b1e8ed711f00b8051208
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531278"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741720"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -41,11 +41,13 @@ Azure AD에 로그인 하는 모든 계정에는 계정과 연결 된 고유한 
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Azure AD 암호 정책
 
-Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 정책이 적용 됩니다. [AZURE AD 암호 보호에 대 한 사용자 지정 금지 된 암호를 구성할](tutorial-configure-custom-password-protection.md)수 있지만이 암호 정책은 수정할 수 없습니다.
+Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 정책이 적용 됩니다. Azure AD 암호 보호 또는 계정 잠금 매개 변수에 [대 한 사용자 지정 금지 된 암호를 구성할](tutorial-configure-custom-password-protection.md) 수 있지만 이러한 암호 정책 설정 중 일부는 수정할 수 없습니다.
 
-EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하지 않으면 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 사용자 계정에 암호 정책이 적용 되지 않습니다.
+기본적으로 잘못 된 암호를 사용 하 여 로그인 시도를 10 번 실패 한 후 계정이 잠깁니다. 사용자는 1 분 동안 잠깁니다. 잘못된 로그인을 더 시도하면 사용자가 잠기는 시간이 더 늘어납니다. [스마트 잠금은](howto-password-smart-lockout.md) 마지막 3 개의 잘못 된 암호 해시를 추적 하 여 동일한 암호에 대 한 잠금 카운터가 증가 하지 않도록 합니다. 누군가가 동일한 잘못 된 암호를 여러 번 입력 하는 경우이 동작으로 인해 계정이 잠기지 않습니다. 스마트 잠금 임계값 및 기간을 정의할 수 있습니다.
 
-정의 되는 암호 정책 옵션은 다음과 같습니다.
+*EnforceCloudPasswordPolicyForPasswordSyncedUsers*를 사용 하도록 설정 하지 않으면 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 사용자 계정에 Azure AD 암호 정책이 적용 되지 않습니다.
+
+다음 Azure AD 암호 정책 옵션이 정의 됩니다. 별도로 언급 하지 않는 한 이러한 설정은 변경할 수 없습니다.
 
 | 속성 | 요구 사항 |
 | --- | --- |
@@ -57,7 +59,6 @@ EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하�
 | 암호 만료 (암호 사용 기간 제한 없음) |<ul><li>기본값: **false** (암호의 만료 날짜를 나타냄).</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |
 | 암호 변경 기록 | 사용자 암호를 변경할 때 마지막 암호를 다시 사용할 수 *없습니다*. |
 | 암호 재설정 기록 | 사용자가 잊어버린 암호를 재설정할 때 마지막 암호를 다시 사용할 수 *있습니다*. |
-| 계정 잠금 | 로그인 시도를 10번 실패하면(잘못된 암호) 1분 동안 사용자가 잠기게 됩니다. 잘못된 로그인을 더 시도하면 사용자가 잠기는 시간이 더 늘어납니다. [스마트 잠금은](howto-password-smart-lockout.md) 마지막 3 개의 잘못 된 암호 해시를 추적 하 여 동일한 암호에 대 한 잠금 카운터가 증가 하지 않도록 합니다. 누군가가 동일한 잘못 된 암호를 여러 번 입력 하는 경우이 동작으로 인해 계정이 잠기지 않습니다. |
 
 ## <a name="administrator-reset-policy-differences"></a>관리자 재설정 정책의 차이점
 

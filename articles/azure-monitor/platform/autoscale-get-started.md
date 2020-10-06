@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294252"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743525"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -51,7 +51,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
     b. **연산자**를 **보다 작음**으로 설정합니다.
 
-    다. **임계값**을 **20**으로 설정합니다.
+    c. **임계값**을 **20**으로 설정합니다.
 
     d. **작업**을 **다음을 기준으로 개수 줄이기**로 설정합니다.
 
@@ -116,6 +116,8 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅 (App Service)
 
 여러 인스턴스로 확장 하는 경우 인스턴스에 대 한 상태 검사를 수행 하 여 트래픽을 정상 인스턴스로만 라우팅할 수 App Service. 이렇게 하려면 App Service 포털을 열고 **모니터링**아래에서 **상태 확인** 을 선택 합니다. **사용** 을 선택 하 고 응용 프로그램에서 또는와 같은 올바른 URL 경로를 제공 `/health` `/api/health` 합니다. **저장**을 클릭합니다.
+
+ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `healthcheckpath` 리소스의 속성을 `Microsoft.Web/sites` 사이트의 health check 경로 (예:)로 설정 `"/api/health/"` 합니다. 기능을 사용 하지 않도록 설정 하려면 속성을 다시 빈 문자열인로 설정 `""` 합니다.
 
 ### <a name="health-check-path"></a>상태 검사 경로
 

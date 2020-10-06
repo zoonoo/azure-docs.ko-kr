@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514931"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743610"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
@@ -41,7 +41,7 @@ ms.locfileid: "85514931"
 
 2. 새 Automation 계정을 추가하려면 **+ 추가**를 클릭합니다.
 
-    ![Automation 실행 계정 만들기](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![실행 automation 계정 만들기 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. **Automation 추가**에서
 
@@ -52,7 +52,7 @@ ms.locfileid: "85514931"
    5. 기본 **실행 계정 만들기** 옵션을 선택된 상태로 둡니다.
    6. 대시보드에 빠른 액세스에 대한 링크를 표시하려면 **대시보드에 고정**을 선택합니다. **만들기**를 클릭합니다.
 
-      ![Automation 실행 계정 만들기](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![실행 automation 계정 만들기 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       Automation 계정이 생성되면 알림이 표시됩니다.
     

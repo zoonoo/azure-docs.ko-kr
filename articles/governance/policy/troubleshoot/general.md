@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 SDK 및 추가 기능 만들기와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545542"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743440"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -52,7 +52,7 @@ Azure Policy [별칭](../concepts/definition-structure.md#aliases) 을 사용 �
 
 먼저 평가를 완료 하는 데 적절 한 시간을 기다린 후 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 합니다. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
 
-### <a name="scenario-evaluation-not-as-expected"></a>시나리오: 평가가 예상과 다른 경우
+### <a name="scenario-compliance-not-as-expected"></a>시나리오: 호환성이 예상과 일치 하지 않음
 
 #### <a name="issue"></a>문제
 
@@ -64,10 +64,21 @@ Azure Policy [별칭](../concepts/definition-structure.md#aliases) 을 사용 �
 
 #### <a name="resolution"></a>해결 방법
 
-- 호환 되는 것으로 예상 되는 비준수 리소스의 경우 먼저 [비준수의 이유를 확인](../how-to/determine-non-compliance.md)합니다. 정의를 평가 된 속성 값과 비교 하면 리소스가 비규격 인 이유를 알 수 있습니다.
-- 규격이 아닌 것으로 예상 되는 규격 리소스의 경우 조건에 따라 정책 정의 조건을 읽고 리소스 속성을 평가 합니다. 논리 연산자가 올바른 조건을 함께 그룹화 하 고 조건이 반전 되지 않도록 합니다.
+정책 정의 문제를 해결 하려면 다음 단계를 따르세요.
 
-정책 할당에 대 한 규정 준수 `0/0` 에서 리소스를 표시 하는 경우 할당 범위 내에서 적용 가능한 리소스가 결정 되지 않습니다. 정책 정의와 할당 범위를 모두 확인 합니다.
+1. 먼저 평가를 완료 하는 데 적절 한 시간을 기다린 후 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 합니다. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
+1. 할당 매개 변수와 할당 범위가 올바르게 설정 되어 있는지 확인 하십시오.
+1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인 합니다.
+   - 모든 리소스 종류의 ' 모두 ' 모드입니다.
+   - 정책 정의가 태그나 위치를 확인 하는 경우 ' 인덱싱된 ' 모드입니다.
+1. 리소스의 범위가 [제외](../concepts/assignment-structure.md#excluded-scopes) [되거나 제외](../concepts/exemption-structure.md)되지 않았는지 확인 합니다.
+1. 정책 할당에 대 한 규정 준수 `0/0` 에서 리소스를 표시 하는 경우 할당 범위 내에서 적용 가능한 리소스가 결정 되지 않습니다. 정책 정의와 할당 범위를 모두 확인 합니다.
+1. 호환 되는 것으로 예상 되는 비준수 리소스의 경우 [비준수의 원인을](../how-to/determine-non-compliance.md)확인 하세요. 정의를 평가 된 속성 값과 비교 하면 리소스가 비규격 인 이유를 알 수 있습니다.
+   - **대상 값** 이 잘못 된 경우 정책 정의를 수정 합니다.
+   - **현재 값** 이 잘못 된 경우을 통해 리소스 페이로드의 유효성을 검사 `resources.azure.com` 합니다.
+1. 문제 해결: 다른 일반적인 문제 및 해결 방법에 대해 [예상 대로 적용 되지 않습니다](#scenario-enforcement-not-as-expected) .
+
+중복 되 고 사용자 지정 된 기본 제공 정책 정의 또는 사용자 지정 정의에 문제가 계속 발생 하는 경우 **정책을 작성** 하 여 지원 티켓을 만들어 문제를 올바르게 라우팅합니다.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>시나리오: 예상 대로 적용 되지 않음
 
@@ -81,7 +92,18 @@ Azure Policy에 의해 처리 될 것으로 예상 되는 리소스는 [Azure �
 
 #### <a name="resolution"></a>해결 방법
 
-**EnforcementMode** 를 _사용_으로 업데이트 합니다. 이렇게 변경 하면이 정책 할당의 리소스에 대해 작업을 수행 하 고 활동 로그에 항목을 보낼 Azure Policy 있습니다. **EnforcementMode** 를 이미 사용 하도록 설정한 경우에는 작업 과정에 대해 [예상 대로 평가](#scenario-evaluation-not-as-expected) 를 참조 하세요.
+정책 할당의 적용 문제를 해결 하려면 다음 단계를 따르세요.
+
+1. 먼저 평가를 완료 하는 데 적절 한 시간을 기다린 후 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 합니다. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
+1. 할당 매개 변수 및 할당 범위를 올바르게 설정 하 고 **enforcementMode** 를 _사용 하도록_설정 했는지 확인 합니다. 
+1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인 합니다.
+   - 모든 리소스 종류의 ' 모두 ' 모드입니다.
+   - 정책 정의가 태그나 위치를 확인 하는 경우 ' 인덱싱된 ' 모드입니다.
+1. 리소스의 범위가 [제외](../concepts/assignment-structure.md#excluded-scopes) [되거나 제외](../concepts/exemption-structure.md)되지 않았는지 확인 합니다.
+1. 리소스 페이로드가 정책 논리와 일치 하는지 확인 합니다. [HAR 추적을 캡처하거나](../../../azure-portal/capture-browser-trace.md) ARM 템플릿 속성을 검토 하 여이 작업을 수행할 수 있습니다.
+1. 문제 해결 확인: 다른 일반적인 문제 및 해결 방법에 대해 [예상 대로 준수 하지 않습니다](#scenario-compliance-not-as-expected) .
+
+중복 되 고 사용자 지정 된 기본 제공 정책 정의 또는 사용자 지정 정의에 문제가 계속 발생 하는 경우 **정책을 작성** 하 여 지원 티켓을 만들어 문제를 올바르게 라우팅합니다.
 
 ### <a name="scenario-denied-by-azure-policy"></a>시나리오: Azure Policy에 의해 거부 됨
 

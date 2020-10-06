@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 60e621b34250b036888b233b084ba1ddff939048
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087801"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739938"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용
 
@@ -23,7 +23,7 @@ Azure Data Box는 암호화 키를 통해 장치를 잠그는 데 사용 되는 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)의 Azure Data Box에서 고객이 관리 하는 키를 사용 하는 방법을 보여 줍니다. 이 문서는 Azure Data Box 장치와 Azure Data Box Heavy 장치에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -61,7 +61,7 @@ Azure Data Box에 대 한 고객 관리 키를 구성 하는 것은 선택 사�
 
     **새로 만들기**를 선택하여 새로운 키 자격 증명 모음을 만들 수도 있습니다. **키 자격 증명 모음 만들기 블레이드**에서 리소스 그룹 및 주요 자격 증명 모음 이름을 입력합니다. **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 했는지 확인 합니다. 그 외에는 기본값을 적용합니다. **검토 + 만들기**를 선택합니다.
 
-    ![새 Azure Key Vault 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![새 Azure Key Vault 만들기 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
 7. 키 자격 증명 모음과 연결된 정보를 검토하고**만들기**를 선택합니다. 키 자격 증명 모음 만들기가 완료될 때까지 몇 분 정도 기다립니다.
 
@@ -69,11 +69,11 @@ Azure Data Box에 대 한 고객 관리 키를 구성 하는 것은 선택 사�
 
 8. **Azure Key Vault에서 키 선택**에서 기존 키 자격 증명 모음의 키를 선택할 수 있습니다.
 
-    ![Azure Key Vault에서 새 키 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Azure Key Vault 3에서 새 키 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
 9. 새 키를 만들려는 경우 **새로 만들기** 를 선택 하 여 키를 만듭니다. RSA 키 크기는 2048 이상이어야 합니다.
 
-    ![Azure Key Vault에서 새 키 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Azure Key Vault 4에서 새 키 만들기](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
 
 10. 키 이름을 입력하고 나머지는 기본값을 적용한 다음, **만들기**를 선택합니다. 
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 818b3b59b1113875b6486ffe64bc8d2d30d613d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b5c576211fe7bb202e7a27bee5ee3bfd90d74cf9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325466"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743100"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
 서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당 된 할당량을 기준으로 용량 풀의 볼륨에 허용 되는 최대 처리량으로 정의 되 고 구분 됩니다.
@@ -66,7 +66,7 @@ SAP HANA 시스템의 경우이 용량 풀을 사용 하 여 다음 볼륨을 �
 * SAP HANA 데이터 볼륨: 크기 4tb, 최대 704 m b/초
 * SAP HANA 로그 볼륨: 크기 0.5 TB, 최대 256 MiB/s
 * SAP HANA 공유 볼륨: 크기 1tb, 최대 64 m b/초
-* SAP HANA 백업 볼륨: 크기 4.5 TB, 최대 256 MiB/s
+* SAP HANA 백업 볼륨: 크기 6.5 TB, 최대 256 MiB/s
 
 아래 다이어그램은 SAP HANA 볼륨의 시나리오를 보여 줍니다.
 

@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 618889f40816ec8ccc64487778bf1f6fbdd3b886
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 21a0672db5a7038fbcdeb01e4cf07bcd760cf7ef
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536548"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742998"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 모델 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "91536548"
 
 TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-existing-model.md) 을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 오픈 소스 학습 작업을 확장 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -127,45 +127,10 @@ except ComputeTargetException:
 
 ### <a name="define-your-environment"></a>환경 정의
 
-학습 스크립트의 종속성을 캡슐화 하는 Azure ML [환경을](concept-environments.md) 정의 하기 위해 사용자 지정 환경을 정의 하거나 및 azure ml 큐 레이트 환경을 사용할 수 있습니다.
-
-#### <a name="create-a-custom-environment"></a>사용자 지정 환경 만들기
-
-학습 스크립트의 종속성을 캡슐화 하는 Azure ML 환경을 정의 합니다.
-
-먼저, YAML 파일에서 conda 종속성을 정의 합니다. 이 예제에서 파일의 이름은 `conda_dependencies.yml` 입니다.
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - tensorflow-gpu==2.2.0
-```
-
-이 conda 환경 사양에서 Azure ML 환경을 만듭니다. 환경은 런타임에 Docker 컨테이너에 패키지 됩니다.
-
-기본적으로 기본 이미지가 지정 되지 않은 경우 Azure ML은 CPU 이미지를 `azureml.core.runconfig.DEFAULT_CPU_IMAGE` 기본 이미지로 사용 합니다. 이 예제에서는 GPU 클러스터에서 학습을 실행 하므로 필요한 GPU 드라이버 및 종속성이 있는 GPU 기본 이미지를 지정 해야 합니다. Azure ML은 사용자가 사용할 수 있는 Microsoft Container Registry (MCR)에 게시 된 기본 이미지 집합을 유지 관리 합니다. 자세한 내용은 [azure/AzureML 컨테이너](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조 하세요.
-
-```python
-from azureml.core import Environment
-
-tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
-
-# Specify a GPU base image
-tf_env.docker.enabled = True
-tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
-```
-
-> [!TIP]
-> 필요에 따라 사용자 지정 Docker 이미지 또는 Dockerfile에서 모든 종속성을 직접 캡처하고 해당 환경에서 환경을 만들 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용 하 여 학습](how-to-train-with-custom-image.md)을 참조 하세요.
-
-환경을 만들고 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조 하세요.
+학습 스크립트의 종속성을 캡슐화 하는 Azure ML [환경을](concept-environments.md) 정의 하려면 사용자 지정 환경을 정의 하거나 azure ml 큐 레이트 환경을 사용할 수 있습니다.
 
 #### <a name="use-a-curated-environment"></a>큐 레이트 환경 사용
-필요에 따라 사용자 고유의 이미지를 빌드하지 않으려는 경우 Azure ML은 미리 빌드된 큐 레이트 환경을 제공 합니다. Azure ML에는 다양 한 버전의 TensorFlow에 해당 하는 TensorFlow에 대 한 몇 가지 CPU 및 GPU 큐 레이트 환경이 있습니다. 자세한 내용은 [여기](resource-curated-environments.md)를 참조 하세요.
+사용자 고유의 환경을 정의 하지 않으려는 경우 Azure ML은 미리 빌드된 큐 레이트 환경을 제공 합니다. Azure ML에는 다양 한 버전의 TensorFlow에 해당 하는 TensorFlow에 대 한 몇 가지 CPU 및 GPU 큐 레이트 환경이 있습니다. 자세한 내용은 [여기](resource-curated-environments.md)를 참조 하세요.
 
 큐 레이트 환경을 사용 하려는 경우 다음 명령을 대신 실행할 수 있습니다.
 
@@ -188,6 +153,41 @@ tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_pa
 ```python
 tf_env = tf_env.clone(new_name='tensorflow-2.2-gpu')
 ```
+
+#### <a name="create-a-custom-environment"></a>사용자 지정 환경 만들기
+
+또한 학습 스크립트의 종속성을 캡슐화 하는 Azure ML 환경을 직접 만들 수 있습니다.
+
+먼저, YAML 파일에서 conda 종속성을 정의 합니다. 이 예제에서 파일의 이름은 `conda_dependencies.yml` 입니다.
+
+```yaml
+channels:
+- conda-forge
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-defaults
+  - tensorflow-gpu==2.2.0
+```
+
+이 conda 환경 사양에서 Azure ML 환경을 만듭니다. 환경은 런타임에 Docker 컨테이너에 패키지 됩니다.
+
+기본적으로 기본 이미지가 지정 되지 않은 경우 Azure ML은 CPU 이미지를 `azureml.core.environment.DEFAULT_CPU_IMAGE` 기본 이미지로 사용 합니다. 이 예제에서는 GPU 클러스터에서 학습을 실행 하므로 필요한 GPU 드라이버 및 종속성이 있는 GPU 기본 이미지를 지정 해야 합니다. Azure ML은 사용자가 사용할 수 있는 Microsoft Container Registry (MCR)에 게시 된 기본 이미지 집합을 유지 관리 합니다. 자세한 내용은 [azure/AzureML 컨테이너](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조 하세요.
+
+```python
+from azureml.core import Environment
+
+tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
+
+# Specify a GPU base image
+tf_env.docker.enabled = True
+tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
+```
+
+> [!TIP]
+> 필요에 따라 사용자 지정 Docker 이미지 또는 Dockerfile에서 모든 종속성을 직접 캡처하고 해당 환경에서 환경을 만들 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용 하 여 학습](how-to-train-with-custom-image.md)을 참조 하세요.
+
+환경을 만들고 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조 하세요.
 
 ## <a name="configure-and-submit-your-training-run"></a>학습 실행 구성 및 제출
 

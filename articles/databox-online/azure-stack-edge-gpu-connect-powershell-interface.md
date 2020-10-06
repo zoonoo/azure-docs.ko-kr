@@ -1,19 +1,19 @@
 ---
-title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro 장치에 연결 및 관리 | Microsoft Docs
-description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack Edge Pro를 관리 하는 방법을 설명 합니다.
+title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro GPU 장치에 연결 하 고 관리 합니다. | Microsoft Docs
+description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack Edge Pro GPU를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3a61bd16d127afadc2dc4d968b3492f3c8491d29
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903517"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743219"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
 
@@ -127,7 +127,7 @@ Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 �
 
 이 단계에서 Kubernetes 클러스터를 만들 때 Azure Portal에서 compute를 구성 하기 전에이 구성을 수행 하려고 합니다.
 
-1. 장치의 PowerShell 인터페이스에 연결 합니다.
+1. [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
 1. 장치의 PowerShell 인터페이스에서 다음을 실행 합니다.
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
@@ -425,7 +425,56 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
+## <a name="connect-to-bmc"></a>BMC에 연결
 
+BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터링 하 고 관리 하는 데 사용 됩니다. 이 섹션에서는 BMC 구성을 관리 하는 데 사용할 수 있는 cmdlet에 대해 설명 합니다. 이러한 cmdlet을 실행 하기 전에 [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
+
+- `Get-HcsNetBmcInterface`:이 cmdlet을 사용 하 여 BMC의 네트워크 구성 속성 (예:,,,)을 가져옵니다 `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
+
+- `Set-HcsNetBmcInterface`:이 cmdlet은 다음 두 가지 방법으로 사용할 수 있습니다.
+
+    - Cmdlet을 사용 하 여 매개 변수에 적절 한 값을 사용 하 여 BMC에 DHCP 구성을 사용 하거나 사용 하지 않도록 설정할 수 `UseDhcp` 있습니다. 
+
+        ```powershell
+        Set-HcsNetBmcInterface -UseDhcp $true
+        ```
+
+        샘플 출력은 다음과 같습니다. 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -UseDhcp $true
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address IPv4Gateway IPv4SubnetMask DhcpEnabled
+        ----------- ----------- -------------- -----------
+        10.128.54.8 10.128.52.1 255.255.252.0         True
+        [10.100.10.10]: PS>
+        ```
+
+    - 이 cmdlet을 사용 하 여 BMC에 대 한 정적 구성을 구성할 수 있습니다. , 및에 대 한 값을 지정할 수 있습니다 `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` . 
+    
+        ```powershell
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        ```        
+        
+        샘플 출력은 다음과 같습니다. 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -IPv4Address 10.128.53.186 -IPv4Gateway 10.128.52.1 -IPv4SubnetMask 255.255.252.0
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+        -----------   ----------- -------------- -----------
+        10.128.53.186 10.128.52.1 255.255.252.0        False
+        [10.100.10.10]: PS>
+        ```    
+
+- `Set-HcsBmcPassword`:이 cmdlet을 사용 하 여에 대 한 BMC 암호를 수정할 수 `EdgeUser` 있습니다. 
+
+    샘플 출력은 다음과 같습니다. 
+
+    ```powershell
+    [10.100.10.10]: PS> Set-HcsBmcPassword -NewPassword "Password1"
+    [10.100.10.10]: PS>
+    ```
 
 ## <a name="exit-the-remote-session"></a>원격 세션 종료
 

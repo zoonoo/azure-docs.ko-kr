@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294784"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740635"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스에 대 한 api 키 만들기 및 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "89294784"
 
 키는 서비스를 프로비전하는 동안 검색 서비스를 사용하여 생성됩니다. [Azure Portal](https://portal.azure.com)에서 키 값을 살펴보고 얻을 수 있습니다.
 
-![포털 페이지, 설정 검색, 키 섹션](media/search-manage/azure-search-view-keys.png)
+:::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="포털 페이지, 설정 검색, 키 섹션" border="false":::
 
 ## <a name="what-is-an-api-key"></a>api-key란?
 
@@ -29,7 +29,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 
 검색 서비스에 액세스하는 데 사용되는 두 가지 키 유형은 다음과 같습니다. 관리자(읽기-쓰기) 및 쿼리(읽기 전용)
 
-|키|Description|제한|  
+|키|설명|제한|  
 |---------|-----------------|------------|  
 |관리자|서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다.<br /><br /> 포털에서 *기본* 및 *보조* 키라고 하는 두 개의 관리자 키는 서비스를 만들 때 생성되고 요청 시 개별적으로 다시 생성할 수 있습니다. 키가 두 개이면 서비스에 대해 액세스를 지속하는 데 하나의 키를 사용하는 동안 다른 키를 롤오버할 수 있습니다.<br /><br /> 관리자 키는 HTTP 요청 헤더에서만 지정됩니다. URL에 관리자 api-key를 배치할 수 없습니다.|서비스당 최대 2개|  
 |쿼리|인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 수행하는 클라이언트 애플리케이션에 배포됩니다.<br /><br /> 쿼리 키는 요청 시 생성됩니다. 포털에서 수동으로 만들거나 [관리 REST API](/rest/api/searchmanagement/)를 통해 프로그래밍 방식으로 만들 수 있습니다.<br /><br /> 검색, 제안 또는 조회 작업의 HTTP 요청 헤더에서 쿼리 키를 지정할 수 있습니다. 또는 쿼리 키를 URL에 매개 변수로 전달할 수 있습니다. 클라이언트 애플리케이션이 요청을 생성하는 방법에 따라 키를 쿼리 매개 변수로 전달하는 것이 쉬울 수 있습니다.<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|서비스당 50개|  
@@ -47,7 +47,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 2. 구독에 대한 [검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 나열합니다.
 3. 서비스를 선택 하 고 개요 페이지에서 **설정**  > **키** 를 클릭 하 여 관리자 및 쿼리 키를 봅니다.
 
-   ![포털 페이지, 설정 보기, 키 섹션](media/search-security-overview/settings-keys.png)
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="포털 페이지, 설정 검색, 키 섹션" border="false":::
 
 ## <a name="create-query-keys"></a>쿼리 키 만들기
 
@@ -61,7 +61,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 4. **쿼리 키 관리**를 클릭 합니다.
 5. 서비스에 대해 이미 생성 된 쿼리 키를 사용 하거나 최대 50 개의 새 쿼리 키를 만듭니다. 기본 쿼리 키의 이름은 지정 되지 않지만 관리를 위해 추가 쿼리 키의 이름을 지정할 수 있습니다.
 
-   ![쿼리 키 만들기 또는 사용](media/search-security-overview/create-query-key.png) 
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="포털 페이지, 설정 검색, 키 섹션" border="false":::
 
 > [!Note]
 > 쿼리 키 사용을 보여 주는 코드 예제는 [c #에서 Azure Cognitive Search 인덱스 쿼리](./search-get-started-dotnet.md)에서 찾을 수 있습니다.

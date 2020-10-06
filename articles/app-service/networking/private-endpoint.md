@@ -9,19 +9,19 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 16ce03ad8d6af1908a9ea4d3b7759bb5eb3c1139
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961553"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743015"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Azure 웹앱용 프라이빗 엔드포인트 사용(미리 보기)
 
 > [!Note]
 > Microsoft에서는 미리 보기 새로 고침으로 데이터 반출 방지 기능을 출시했습니다.
 >
-> 미리 보기는 PremiumV2 Windows 및 Linux Web Apps 및 탄력적 프리미엄 기능에 대 한 모든 공용 지역에서 사용할 수 있습니다. 
+> 미리 보기는 PremiumV2 and PremiumV3 Windows 및 Linux 앱 및 탄력적 프리미엄 기능을 위한 모든 공용 지역에서 사용할 수 있습니다. 
 
 Azure 웹앱용 프라이빗 엔드포인트를 사용하여 프라이빗 네트워크에 있는 클라이언트가 Private Link를 통해 앱에 안전하게 액세스할 수 있도록 할 수 있습니다. 프라이빗 엔드포인트는 Azure VNet 주소 공간의 IP 주소를 사용합니다. 프라이빗 네트워크에 있는 클라이언트와 웹앱 간의 네트워크 트래픽은 VNet을 통해 이동하고 Microsoft 백본 네트워크의 Private Link를 통해 공용 인터넷 노출을 방지합니다.
 

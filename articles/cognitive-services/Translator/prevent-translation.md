@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 37d2e4c0131569ab50ebf49ff73b6adf7a420713
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ec39b3692a90f22409e85b5502d3ea874e3282d6
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996179"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742063"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>변환기를 사용 하 여 콘텐츠 번역을 방지 하는 방법
 
-변환기를 사용 하면 번역 되지 않도록 콘텐츠에 태그를 지정할 수 있습니다. 예를 들어 번역하면 끝이 통하지 않는 코드, 브랜드 이름, 단어/문구 등에 태그를 지정할 수 있습니다.
+변환기를 사용 하면 번역 되지 않도록 콘텐츠에 태그를 지정할 수 있습니다. 예를 들어 지역화하면 의미가 맞지 않게 되는 코드, 브랜드 이름 또는 단어/구에 태그를 지정할 수 있습니다.
 
 ## <a name="methods-for-preventing-translation"></a>번역을 방지하는 메서드
 
@@ -37,13 +37,26 @@ ms.locfileid: "83996179"
    <div>This will be translated. </div>
    ```
 
-2. [동적 사전](dynamic-dictionary.md)을 사용하여 특정 번역을 규정합니다.
+2. 콘텐츠에 `translate="no"`를 태그로 지정합니다. 입력 textType이 HTML로 설정 된 경우에만 작동 합니다.
 
-3. 번역을 위해 문자열을 변환기에 전달 하지 마세요.
+   예제:
 
-4. 사용자 지정 변환기: [사용자 지정 변환기에서 사전을](custom-translator/what-is-dictionary.md) 사용 하 여 100% 확률의 구에 대 한 변환을 규정 합니다.
+   ```html
+   <span translate="no">This will not be translated.</span>
+   <span>This will be translated. </span>
+   ```
+   
+   ```html
+   <div translate="no">This will not be translated.</div>
+   <div>This will be translated. </div>
+
+3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+
+4. Don't pass the string to the Translator for translation.
+
+5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
 
-## <a name="next-steps"></a>다음 단계
+## Next steps
 > [!div class="nextstepaction"]
-> [변환기 호출에서 번역 방지](reference/v3-0-translate.md)
+> [Use the Translate operation to translate text](reference/v3-0-translate.md)

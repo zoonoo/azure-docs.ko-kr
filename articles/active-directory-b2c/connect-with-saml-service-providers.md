@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 10/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611614"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740380"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -252,6 +252,9 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+> [!NOTE]
+> 다른 유형의 사용자 흐름 (예: 로그인, 암호 재설정 또는 프로필 편집)을 구현할 때 프로세스는 기본적으로이 섹션에 설명 된 것과 동일 합니다. 위의 4 단계에서 사용자 경험의 마지막 단계를에서로 변경 합니다 `JWTIssuer` `Saml2AssertionIssuer` . 위의 6 단계에서 신뢰 당사자 섹션의 **프로토콜** 을에서 `OpenIdConnect` 로 변경 `SAML2` 합니다.
 
 ### <a name="32-upload-and-test-your-policy-metadata"></a>3.2 정책 메타데이터 업로드 및 테스트
 

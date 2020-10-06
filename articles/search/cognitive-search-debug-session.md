@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936166"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743185"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Azure Cognitive Search의 디버그 세션
 
@@ -35,8 +35,7 @@ ms.locfileid: "88936166"
 
 디버그 세션을 시작하려면 데이터 원본, 기술 세트, 인덱서 및 인덱스가 포함된 기존 AI 보강 파이프라인이 있어야 합니다. 디버그 세션을 구성하려면 세션의 이름을 지정하고 인덱서 실행 중에 기술 실행을 캐시하는 데 사용될 범용 스토리지 계정을 제공해야 합니다. 실행할 인덱서도 선택해야 합니다. 인덱서에는 데이터 원본, 기술 세트 및 인덱스에 저장된 참조가 있습니다. 디버그 세션에서 데이터 원본의 첫 번째 문서가 기본적으로 지정되거나 데이터 원본에서 문서를 단계별로 지정할 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![디버그 세션 만들기](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="디버그 세션 만들기":::
 
 ## <a name="debug-session-features"></a>디버그 세션 기능
 
@@ -52,8 +51,7 @@ ms.locfileid: "88936166"
 
 그래프에서 기술을 선택하면 연결되어 있는 기술, 입력을 만드는 노드, 출력을 받아들이는 노드가 강조 표시됩니다. 각 기술 노드에는 해당 유형, 오류 또는 경고, 실행 수가 표시됩니다. **기술 그래프**에서는 디버그 또는 개선할 기술을 선택할 수 있습니다. 기술을 선택하면 해당 세부 정보가 그래프 오른쪽의 기술 세부 정보 창에 표시됩니다.
 
-> [!div class="mx-imgBorder"]
-> ![기술 그래프](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="디버그 세션 만들기":::
 
 ## <a name="skill-details"></a>기술 세부 정보
 
@@ -75,8 +73,7 @@ ms.locfileid: "88936166"
 
 **보강 데이터 구조** 창에는 기술 세트를 통해 문서의 보강이 표시되며, 각 보강 및 원래 기술에 대한 컨텍스트가 자세히 설명되어 있습니다. **식 계산기**를 사용하여 각 보강에 대한 내용을 볼 수도 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![보강된 데이터 구조](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="디버그 세션 만들기":::
 
 ## <a name="expression-evaluator"></a>식 계산기
 

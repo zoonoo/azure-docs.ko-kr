@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904527"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743304"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Azure Stack Edge Pro 및 Azure Data Box Gateway에 대 한 지원 티켓을 엽니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "90904527"
 
 4. **검토 + 만들기** 탭에서 지원 티켓과 관련된 정보를 검토합니다. **만들기**를 선택합니다. 
 
-    ![문제](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
+    ![문제 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
     지원 티켓을 만든 후에 지원 엔지니어가 요청을 계속 진행하기 위해 최대한 빨리 연락할 것입니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070700"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742182"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>StorSimple 가상 배열의 백업에서 복제
 
@@ -44,7 +44,7 @@ ms.locfileid: "87070700"
    
    c.    **확인**을 클릭합니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![백업 복제 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. **복제** 블레이드에서 **대상 설정**을 클릭하고 다음을 수행합니다.
    
    a.    공유 이름을 입력합니다. 공유 이름은 3자에서 127자 사이여야 합니다.
@@ -59,13 +59,13 @@ ms.locfileid: "87070700"
    
    f.    **확인**을 클릭합니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![백업 복제 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. **복제**를 클릭하여 복제 작업을 시작합니다. 작업이 완료되면 복제 작업이 시작되고 메시지가 표시됩니다. 복제본의 진행률을 모니터링하려면 **작업** 블레이드로 이동하고 작업을 클릭하여 작업 세부 정보를 봅니다.
 5. 복제본이 성공적으로 만들어지면 디바이스에서 **공유** 블레이드로 돌아갑니다.
 6. 디바이스의 공유 목록에서 새로 복제된 공유를 볼 수 있습니다. 계층화된 공유는 계층화된 공유로 복제되고 로컬로 고정된 공유는 로컬로 고정된 공유로 복제됩니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![백업 복제 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>백업 세트에서 볼륨 복제
 
@@ -84,7 +84,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    
    c.    **확인**을 클릭합니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![볼륨 복제 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. **복제** 블레이드에서 **대상 볼륨 설정**을 클릭하고 다음을 수행합니다.
    
    a. 디바이스 이름은 자동으로 채워집니다.
@@ -95,16 +95,16 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    
    d. **연결된 호스트**에서 **선택**을 클릭합니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![볼륨 복제 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. **연결된 호스트** 블레이드에서 기존 ACR에서 선택하거나 새 ACR을 추가합니다. 새 ACR을 추가하려면 ACR 이름 및 호스트 IQN을 제공해야 합니다. **선택**을 클릭합니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![볼륨 4 복제](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. **복제**를 클릭하여 복제 작업을 시작합니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![볼륨 5 복제](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. 복제 작업을 만든 후에 복제가 시작됩니다. 복제본이 만들어지면 디바이스의 볼륨 블레이드에 표시됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복제되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복제됩니다.
    
-   ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![볼륨 6 복제](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. 볼륨 목록에 볼륨이 온라인 상태로 표시되면 볼륨을 사용할 수 있게 됩니다. iSCSI 초기자 호스트에서 iSCSI 초기자 속성 창의 대상 목록을 새로 고칩니다. 복제된 볼륨 이름이 포함된 새 대상은 상태 열 아래에 '비활성'으로 표시됩니다.
 8. 대상을 선택하고 **연결**을 클릭합니다. 초기자가 대상에 연결되면 상태가 **연결됨**으로 변경됩니다.
 9. **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)하고 **온라인**을 클릭합니다.

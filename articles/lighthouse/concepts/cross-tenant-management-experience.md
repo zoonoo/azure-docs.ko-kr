@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336635"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739734"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -120,6 +120,7 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
   - 적응형 네트워크 강화로 네트워크 보안 그룹 구성을 강화합니다.
   - 적응형 애플리케이션 제어를 사용하여 서버가 필요한 애플리케이션 및 프로세스만 실행하는지 확인합니다.
   - FIM(파일 무결성 모니터링)을 사용하여 중요한 파일 및 레지스트리 항목의 변경 내용을 모니터링합니다.
+- 전체 구독을 관리 되는 테 넌 트에 위임 해야 합니다. Azure Security Center 시나리오는 위임 된 리소스 그룹에서 지원 되지 않습니다.
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

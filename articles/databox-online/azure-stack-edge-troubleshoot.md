@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903657"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742029"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Azure Stack Edge Pro 문제 해결
 
@@ -55,7 +55,7 @@ ms.locfileid: "90903657"
 
 2. 지원 패키지를 만든 후 **지원 패키지 다운로드**를 선택 합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지의 압축을 풀면 시스템 로그 파일을 볼 수 있습니다.
 
-    ![사용자 추가 클릭](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
+    ![사용자 추가 2를 클릭 합니다.](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>로그를 사용하여 문제 해결
 

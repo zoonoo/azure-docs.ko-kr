@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704593"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742420"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "84704593"
 
 여기서 설명된 프로시저를 완료하려면 30분에서 1시간 정도가 소요됩니다. 이 문서에 게시된 정보는 StorSimple 가상 배열에만 적용됩니다.
 
-## <a name="setup-prerequisites"></a>설정 필수 조건
+## <a name="setup-prerequisites"></a>Setup prerequisites
 
 StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
@@ -66,7 +66,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     ![로그인 페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
 3. **홈** 페이지로 이동합니다. 이 페이지는 StorSimple 디바이스 관리자 서비스에 가상 디바이스를 구성하고 등록하는 데 필요한 다양한 설정을 설명합니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 필요한 설정은 **디바이스 설정** 및 **클라우드 설정**입니다.
    
-    ![홈페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
+    ![홈 페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. **네트워크 설정** 페이지의 **네트워크 인터페이스**에서 DATA 0이 자동으로 구성됩니다. 각 네트워크 인터페이스는 IP 주소를 자동으로 가져오도록(DHCP) 기본 설정됩니다. 따라서 IP 주소, 서브넷 및 게이트웨이가 자동으로 할당됩니다(IPv4 및 IPv6 모두에 대해).
    
     디바이스를 iSCSI 서버(블록 스토리지를 프로비전하기 위해)로 배포할 계획이므로, **자동으로 IP 주소 받기** 옵션을 사용하지 않도록 설정하고 고정 IP 주소를 구성하는 것이 좋습니다.
@@ -125,7 +125,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 11. 서비스의 **디바이스** 블레이드를 탐색합니다. 리소스가 많이 있는 경우 **모든 리소스**를 클릭하고 서비스 이름(필요한 경우 검색)을 클릭한 다음, **디바이스**를 클릭합니다.
 12. **디바이스** 블레이드에서 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **설정할 준비 완료**여야 합니다.
     
-    ![디바이스 등록](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
+    ![장치 배포](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
 ## <a name="step-2-configure-the-device-as-iscsi-server"></a>2단계: iSCSI 서버로 디바이스 구성
 
@@ -138,7 +138,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     ![iSCSI 서버로 디바이스 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
 2. 디바이스를 클릭하고 디바이스를 설치할 준비가 되었음을 나타내는 배너 메시지가 표시됩니다.
    
-    ![iSCSI 서버로 디바이스 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
+    ![장치를 iSCSI 서버로 구성 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
 3. 디바이스 명령 모음에서 **구성**을 클릭합니다. 그러면 **구성** 블레이드가 열립니다. **구성** 블레이드에서 다음을 수행합니다.
    
    * iSCSI 서버 이름은 자동으로 채워집니다.
@@ -146,13 +146,13 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    * 32자 암호화 키를 지정하고 나중에 참조할 수는 키 관리 앱에 기록합니다.
    * 디바이스에 사용할 스토리지 계정을 선택합니다. 구독에서 기존 스토리지 계정을 선택하거나 **추가**를 클릭하여 다른 구독에서 계정을 선택할 수 있습니다.
      
-     ![iSCSI 서버로 디바이스 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
+     ![장치를 iSCSI 서버로 구성 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
 4. **구성**을 클릭하여 iSCSI 서버 설정을 완료합니다.
    
-    ![iSCSI 서버로 디바이스 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
+    ![장치를 iSCSI 서버로 구성 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
 5. iSCSI 서버 만들기가 진행 중이라는 알림이 표시됩니다. iSCSI 서버를 성공적으로 만든 후에 **디바이스** 블레이드가 업데이트되고 해당 디바이스가 **온라인** 상태가 됩니다.
    
-    ![iSCSI 서버로 디바이스 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
+    ![장치를 iSCSI 서버 5로 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
 
 ## <a name="step-3-add-a-volume"></a>3단계: 볼륨 추가
 
@@ -169,17 +169,17 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
      
      반면에 계층화된 본륨은 씬 프로비전됩니다. 계층화된 볼륨을 만들 때 공간의 약 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 이것은 디바이스의 로컬 공간이 부족하면 계층화된 공유를 프로비전할 수 없다는 것을(10%를 사용할 수 없기 때문에) 의미합니다.
      
-     ![볼륨 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
+     ![볼륨 2 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
    * **호스트 연결**을 클릭하고 이 볼륨에 연결하려는 iSCSI 초기자에 해당하는 ACR(액세스 제어 레코드)를 선택한 다음 **선택**을 클릭합니다. <br><br> 
 3. 새롭게 연결된 호스트를 추가하려면 **새로 추가**를 클릭하고 호스트의 이름 및 해당 IQN(iSCSI 정규화 이름)을 입력한 다음 **추가**를 클릭합니다. IQN이 없는 경우 [부록 A: Windows Server 호스트의 IQN 가져오기](#appendix-a-get-the-iqn-of-a-windows-server-host)로 이동합니다.
    
-      ![볼륨 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
+      ![볼륨 3 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
 4. 볼륨 구성을 완료했다면 **확인**을 클릭합니다. 볼륨이 지정된 설정으로 만들어지면 알림이 표시됩니다. 기본적으로 볼륨에 대한 모니터링 및 백업을 사용하도록 설정됩니다.
    
-     ![볼륨 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
+     ![볼륨 4 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
 5. 볼륨이 성공적으로 만들어졌는지 확인하려면 **볼륨** 블레이드로 이동합니다. 볼륨이 목록으로 표시되어야 합니다.
    
-   ![볼륨 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
+   ![볼륨 5 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
 ## <a name="step-4-mount-initialize-and-format-a-volume"></a>4단계: 볼륨 탑재, 초기화 및 포맷
 

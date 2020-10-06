@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962097"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743049"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
 Azure App Service의 응용 프로그램은 여러 가지 방법으로 배포할 수 있습니다. 기본적으로 App Service 호스팅된 앱은 인터넷에 직접 액세스할 수 있으며 인터넷에 호스트 된 끝점에만 연결할 수 있습니다. 그러나 많은 고객 응용 프로그램에서 인바운드 및 아웃 바운드 네트워크 트래픽을 제어 해야 합니다. 이러한 요구를 충족 하기 위해 App Service에서 사용할 수 있는 몇 가지 기능이 있습니다. 문제는 지정 된 문제를 해결 하는 데 사용 해야 하는 기능을 파악 하는 것입니다. 이 문서는 고객이 몇 가지 예제 사용 사례에 따라 어떤 기능을 사용 해야 하는지 결정 하는 데 도움이 됩니다.
 
-Azure App Service에 대 한 두 가지 기본 배포 유형이 있습니다. 무료, 공유, 기본, 표준, 프리미엄 및 Premiumv2 가격 책정 Sku에서 App Service 계획을 호스트 하는 다중 테 넌 트 공용 서비스가 있습니다. 그런 다음 Azure Virtual Network (VNet)에서 직접 격리 된 SKU App Service 계획을 호스트 하는 ASE (단일 테 넌 트 App Service Environment)가 있습니다. 다중 테 넌 트 서비스 또는 ASE에 있는 경우 사용 하는 기능이 달라 집니다. 
+Azure App Service에 대 한 두 가지 기본 배포 유형이 있습니다. 무료, 공유, 기본, 표준, 프리미엄, PremiumV2 및 PremiumV3 가격 책정 Sku에서 App Service 계획을 호스트 하는 다중 테 넌 트 공용 서비스가 있습니다. 그런 다음 Azure Virtual Network (VNet)에서 직접 격리 된 SKU App Service 계획을 호스트 하는 ASE (단일 테 넌 트 App Service Environment)가 있습니다. 다중 테 넌 트 서비스 또는 ASE에 있는 경우 사용 하는 기능이 달라 집니다. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>다중 테 넌 트 App Service 네트워킹 기능 
 
@@ -62,7 +62,7 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 
 ### <a name="default-networking-behavior"></a>기본 네트워킹 동작
 
-Azure App Service 배율 단위는 각 배포에서 많은 고객을 지원 합니다. 무료 및 공유 SKU 요금제는 다중 테 넌 트 작업자에 대 한 고객 작업을 호스팅합니다. 기본 및 위의 계획은 하나의 ASP (App Service 계획)만을 전담 하는 고객 작업을 호스팅합니다. 표준 App Service 계획이 있는 경우 해당 계획의 모든 앱이 동일한 작업자에서 실행 됩니다. 작업자를 규모 확장 하는 경우 asp의 각 인스턴스에 대해 해당 ASP의 모든 앱이 새 작업자에 복제 됩니다. Premiumv2에 사용 되는 작업자는 다른 계획에 사용 되는 작업자와 다릅니다. 각 App Service 배포에는 해당 App Service 배포에서 앱에 대 한 모든 인바운드 트래픽에 사용 되는 IP 주소가 하나 있습니다. 그러나 아웃 바운드 호출에 사용 되는 주소는 4 ~ 11입니다. 이러한 주소는 해당 App Service 배포의 모든 앱에서 공유 됩니다. 아웃 바운드 주소는 다른 작업자 유형에 따라 다릅니다. 즉, 무료, 공유, 기본, 표준 및 프리미엄 Asp에서 사용 되는 주소는 Premiumv2 Asp의 아웃 바운드 호출에 사용 되는 주소와 다릅니다. 앱에 대 한 속성을 살펴보면 앱에서 사용 하는 인바운드 및 아웃 바운드 주소를 볼 수 있습니다. IP ACL을 사용 하 여 종속성을 잠가야 하는 경우 possibleOutboundAddresses를 사용 합니다. 
+Azure App Service 배율 단위는 각 배포에서 많은 고객을 지원 합니다. 무료 및 공유 SKU 요금제는 다중 테 넌 트 작업자에 대 한 고객 작업을 호스팅합니다. 기본 및 위의 계획은 하나의 ASP (App Service 계획)만을 전담 하는 고객 작업을 호스팅합니다. 표준 App Service 계획이 있는 경우 해당 계획의 모든 앱이 동일한 작업자에서 실행 됩니다. 작업자를 규모 확장 하는 경우 asp의 각 인스턴스에 대해 해당 ASP의 모든 앱이 새 작업자에 복제 됩니다. PremiumV2 및 PremiumV3에 사용 되는 작업자는 다른 계획에 사용 되는 작업자와 다릅니다. 각 App Service 배포에는 해당 App Service 배포에서 앱에 대 한 모든 인바운드 트래픽에 사용 되는 IP 주소가 하나 있습니다. 그러나 아웃 바운드 호출에 사용 되는 주소는 4 ~ 11입니다. 이러한 주소는 해당 App Service 배포의 모든 앱에서 공유 됩니다. 아웃 바운드 주소는 다른 작업자 유형에 따라 다릅니다. 즉, 무료, 공유, 기본, 표준 및 프리미엄 Asp에서 사용 하는 주소가 PremiumV2 및 PremiumV3 Asp의 아웃 바운드 호출에 사용 되는 주소와 다릅니다. 앱에 대 한 속성을 살펴보면 앱에서 사용 하는 인바운드 및 아웃 바운드 주소를 볼 수 있습니다. IP ACL을 사용 하 여 종속성을 잠가야 하는 경우 possibleOutboundAddresses를 사용 합니다. 
 
 ![앱 속성](media/networking-features/app-properties.png)
 

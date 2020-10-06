@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d3378b08ace73b2bc9a10286abf5a48f3063ba7f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904543"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743508"
 ---
 # <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 Edge storage 계정 관리
 
@@ -93,7 +93,7 @@ Edge 저장소 계정을 삭제 하려면 다음 단계를 수행 합니다.
 
 2. 확인하라는 메시지가 표시되면 **예**를 선택합니다.
 
-    ![동기화 저장소 키 선택](media/azure-stack-edge-j-series-manage-storage-accounts/sync-storage-key-2.png)
+    ![동기화 저장소 키 2 선택](media/azure-stack-edge-j-series-manage-storage-accounts/sync-storage-key-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,15 +1,15 @@
 ---
 title: 지원 되는 Azure Resource Manager 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600605"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740006"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -119,6 +119,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.cdn/profiles
 - microsoft.cdn/profiles/endpoints
 - microsoft.certificateregistration/certificateorders
+- microsoft. 비정상/chaosexperiments
 - microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
@@ -400,6 +401,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.operationalinsights/workspaces
 - microsoft.operationsmanagement/solutions
 - microsoft.operationsmanagement/views
+- microsoft. 궤도/연락처 프로필
+- microsoft. 궤도/spacecrafts
 - microsoft.peering/peerings
 - microsoft.peering/peeringservices
 - microsoft.portal/dashboards
@@ -420,6 +423,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.resources/templatespecs/versions
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- microsoft scvmm/클라우드
+- microsoft scvmm/virtualmachines
+- microsoft scvmm/virtualmachinetemplates
+- microsoft scvmm/virtualnetworks
 - microsoft scvmm/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
@@ -436,6 +443,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.servicefabricmesh/volumes
 - microsoft.serviceshub/connectors
 - microsoft.signalrservice/signalr
+- 특이성/계정
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
 - microsoft.solutions/applicationdefinitions
@@ -531,6 +539,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 - wandisco/migrators
+- wandisco/migrators/livedatamigrations
 - wandisco/migrators/targets
 
 ## <a name="securityresources"></a>securityresources

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183227"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742250"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
 
@@ -76,7 +76,7 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
    
     요청 시 백업이 시작되면 백업 작업이 시작되었다고 표시됩니다.
    
-    ![백업 시작](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![백업 시작 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     작업이 성공적으로 완료되면 다시 알림을 받습니다. 그러면 백업 프로세스를 시작합니다.
    

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002626"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740873"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 필터를 작성 하는 방법 
 
@@ -29,7 +29,8 @@ ms.locfileid: "89002626"
 
 패싯은 동적이며 쿼리에서 반환됩니다. 검색 응답은 결과를 탐색하는 데 사용되는 패싯 범주를 가져옵니다. 패싯에 익숙하지 않은 경우 다음 예제는 패싯 탐색 구조를 보여줍니다.
 
-  ![필터링 된 검색 결과가 비즈니스 제목별로 그룹화 된 검색 대화 상자를 표시 하는 이미지입니다. 화살표는 결과가 패싯 탐색 구조에 표시 되는 패싯 임을 나타냅니다.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="필터링 된 검색 결과":::
+"비즈니스 제목별로 그룹화 된 필터링 된 검색 결과가 있는 검색 대화 상자를 표시 하는 이미지입니다. 화살표는 결과가 패싯 탐색 구조에 표시 되는 패싯 임을 나타냅니다. :::image-end:::
 
 패싯 탐색이 생소하여 자세한 정보가 필요한가요? [Azure Cognitive Search에서 패싯 탐색을 구현 하는 방법을](search-faceted-navigation.md)참조 하세요.
 

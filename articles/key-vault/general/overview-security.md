@@ -3,19 +3,18 @@ title: Azure Key Vault 보안
 description: Azure Key Vault, 키 및 비밀에 대한 액세스 권한을 관리합니다. Key Vault의 인증 및 권한 부여 모델과 키 자격 증명 모음을 보호하는 방법을 설명합니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596358"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739693"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
@@ -76,29 +75,16 @@ Key Vault 액세스 정책은 키, 비밀 또는 인증서에 대해 개별적�
 
 Azure Key Vault 네트워크 주소에 대한 자세한 내용은 [Azure Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)를 참조하세요.
 
-### <a name="tls-and-https"></a>TLS 및 HTTPS
+## <a name="tls-and-https"></a>TLS 및 HTTPS
 
 *   Key Vault 프런트 엔드 (데이터 평면)는 다중 테 넌 트 서버입니다. 즉, 서로 다른 고객의 키 자격 증명 모음이 동일한 공용 IP 주소를 공유할 수 있습니다. 격리를 위해 각 HTTP 요청은 다른 요청과 독립적으로 인증 되 고 권한이 부여 됩니다.
 *   이전 버전의 TLS는 취약성을 보고할 수 있지만 공용 IP 주소는 공유 되므로 key vault 서비스 팀은 전송 수준에서 개별 키 자격 증명 모음에 대해 이전 버전의 TLS를 사용 하지 않도록 설정할 수 없습니다.
 *   HTTPS 프로토콜을 사용 하면 클라이언트가 TLS 협상에 참여할 수 있습니다. **클라이언트는 최신 버전의 TLS를 적용할 수**있으며, 클라이언트에서이를 수행할 때마다 전체 연결에서 해당 하는 수준 보호를 사용 합니다. 이전 TLS 버전을 지 원하는 Key Vault 사실은 최신 TLS 버전을 사용 하는 연결 보안을 약화 하지 않습니다.
 *   TLS 프로토콜의 알려진 취약성에도 불구 하 고 공격자가 취약성이 있는 TLS 버전과의 연결을 시작할 때 악의적인 에이전트가 키 자격 증명 모음에서 모든 정보를 추출할 수 있도록 하는 알려진 공격은 없습니다. 공격자는 자신을 인증 하 고 권한을 부여 해야 하며 합법적인 클라이언트가 항상 최신 TLS 버전에 연결 하는 한 이전 TLS 버전의 취약성으로 인해 자격 증명이 누출 되지 않을 수 있습니다.
 
+## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-## <a name="monitoring"></a>모니터링
-
-Key Vault 로깅은 자격 증명 모음에서 수행된 작업에 대한 정보를 저장합니다. Key Vault에서 로깅하는 항목은 다음과 같습니다.
-
-- 인증된 모든 REST API 요청(실패한 요청 포함)
-  - 키 자격 증명 모음 자체에서 이루어지는 작업 이러한 작업에는 만들기, 삭제, 액세스 정책 설정, 태그와 같은 키 자격 증명 모음 특성 업데이트가 포함됩니다.
-  - 다음을 포함하여 키 자격 증명 모음의 키 및 비밀에 대한 작업
-    - 이러한 키 또는 비밀 만들기, 수정 또는 삭제
-    - 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
-- 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.
-
-로깅 정보는 키 자격 증명 모음 작업 후 10분 이내에 액세스할 수 있습니다. 스토리지 계정의 로그를 관리하는 방식은 관리자가 정할 수 있습니다.
-
-- 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
-- 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
+Key Vault 로깅은 자격 증명 모음에서 수행된 작업에 대한 정보를 저장합니다. 자세한 내용은 [Key Vault 로깅](logging.md)을 참조 하세요.
 
 저장소 계정을 안전 하 게 관리 하는 방법에 대 한 권장 사항은 [Azure Storage 보안 가이드](../../storage/blobs/security-recommendations.md) 를 검토 하세요.
 
@@ -106,4 +92,3 @@ Key Vault 로깅은 자격 증명 모음에서 수행된 작업에 대한 정보
 
 - [Azure Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)
 - [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
-

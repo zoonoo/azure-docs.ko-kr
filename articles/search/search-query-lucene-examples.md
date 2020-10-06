@@ -8,13 +8,13 @@ ms.author: heidist
 tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297997"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740703"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>"Full" Lucene 검색 구문 사용 (Azure Cognitive Search의 고급 쿼리)
 
@@ -40,13 +40,13 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 검색, 중 위 및 접미�
 
 요청 헤더를 지정한 후 **search=** 문자열만 교환하여 이 문서의 모든 쿼리에 다시 사용할 수 있습니다. 
 
-  ![Postman 요청 헤더 집합 매개 변수](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
 Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
-  ![Postman 요청 헤더 가져오기](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 URL 구성에는 다음 요소가 있습니다.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Postman 샘플 응답 검색 식](media/search-query-lucene-examples/intrafieldfilter.png)
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 **FieldName: searchexpression** 구문을 사용 하 여 필드 지정 search 작업을 정의할 수 있습니다. 여기서 검색 식은 단일 단어나 구 또는 괄호 안의 보다 복잡 한 식입니다. 선택적으로 부울 연산자를 사용할 수 있습니다. 몇 가지 예는 다음과 같습니다.
 
@@ -199,7 +199,7 @@ searchFields=business_title&$select=business_title&search=business_title:%22seni
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  ![근접 쿼리](media/search-query-lucene-examples/proximity-before.png)
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 "senior analyst"라는 용어 사이에 단어를 제거하여 다시 시도합니다. 이전 쿼리에서는 10개 문장이 반환되지만 이번 쿼리에서는 8개 문서이 반환됩니다.
 
@@ -217,7 +217,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  ![before 용어 상승](media/search-query-lucene-examples/termboostingbefore.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 "after" 쿼리에서는 검색을 반복합니다. 이번에는 두 단어가 존재하지 않을 경우 용어 *computer*보다 용어 *analyst*가 포함된 결과를 상승시킵니다. 
 
@@ -226,7 +226,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 위의 쿼리에서 인간이 이해하기 쉬운 버전은 `search=business_title:computer analyst^2`입니다. 작동 가능한 쿼리를 위해 `^2`가 이해하기 좀 더 어려운 `%5E2`로 인코딩됩니다.
 
-  ![after 용어 상승](media/search-query-lucene-examples/termboostingafter.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 용어 상승은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다. 다음 예제는 차이점을 설명하는 데 도움이 됩니다.
 
@@ -253,7 +253,7 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  ![Regex 쿼리](media/search-query-lucene-examples/regex.png)
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 > [!Note]
 > 정규식 쿼리는 [분석](./search-lucene-query-architecture.md#stage-2-lexical-analysis)되지 않습니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다.
@@ -275,7 +275,7 @@ searchFields=business_title&$select=business_title&search=business_title:prog*
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  ![와일드카드 쿼리](media/search-query-lucene-examples/wildcard.png)
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Postman 요청 헤더 집합 매개 변수" border="false":::
 
 > [!Note]
 > 와일드카드 쿼리는 [분석](./search-lucene-query-architecture.md#stage-2-lexical-analysis)되지 않습니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다.

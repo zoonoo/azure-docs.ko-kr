@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81312819"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739914"
 ---
 * 격리를 제외한 모든 가격 책정 계획을 지 원하는 다중 테 넌 트 시스템
 * App Service Environment는 VNet에 배포 되 고 격리 된 가격 책정 계획 앱을 지원 합니다.
@@ -23,7 +23,7 @@ VNet 통합은 vnet의 리소스에 대 한 앱 액세스를 제공 하지만 VN
 
 VNet 통합 기능:
 
-* Standard, Premium, PremiumV2 또는 탄력적 프리미엄 요금제가 필요 합니다.
+* Standard, Premium, PremiumV2, PremiumV3 또는 탄력적 프리미엄 요금제가 필요 합니다.
 * TCP 및 UDP를 지원 합니다.
 * Azure App Service 앱 및 함수 앱을 사용 합니다.
 

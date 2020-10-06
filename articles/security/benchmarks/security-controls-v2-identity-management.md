@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a007b8e85440faab6f3d9f35c49ee207ee1597ff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295501"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741410"
 ---
 # <a name="security-control-v2-identity-management"></a>보안 제어 V2: Id 관리
 
 Id 관리는 Azure Active Directory를 사용 하 여 보안 id 및 액세스 제어를 설정 하는 컨트롤을 포함 합니다. 여기에는 응용 프로그램, 조건부 액세스 및 계정 변칙 모니터링에 대 한 Single Sign-On, 강력한 인증, 관리 되는 id (및 서비스 원칙)의 사용이 포함 됩니다.
 
-## <a name="id-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>ID-1: 중앙 id 및 인증 시스템으로 Azure Active Directory 표준화
+## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: 중앙 id 및 인증 시스템으로 Azure Active Directory 표준화
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-1 | 16.1, 16.2, 16.4, 16.5 | IA-2, IA-8, AC-2, AC-3 |
+| IM-1 | 16.1, 16.2, 16.4, 16.5 | IA-2, IA-8, AC-2, AC-3 |
 
 Azure AD (Azure Active Directory)는 Azure의 기본 id 및 액세스 관리 서비스입니다. 에서 조직의 id 및 액세스 관리를 관리 하려면 Azure AD를 표준화 해야 합니다.
 - Azure Portal, Azure Storage, Azure Virtual Machines (Linux 및 Windows), Azure Key Vault, PaaS 및 SaaS 응용 프로그램과 같은 Microsoft 클라우드 리소스
@@ -55,11 +55,11 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-2-manage-application-identities-securely-and-automatically"></a>ID-2: 응용 프로그램 id를 안전 하 게 자동으로 관리
+## <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: 응용 프로그램 id를 안전 하 게 자동으로 관리
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-2 | 해당 없음 | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| IM-2 | N/A | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 서비스 또는 자동화와 같은 비 사용자 계정의 경우 리소스에 액세스 하거나 코드를 실행 하는 데 더 강력한 인간 계정을 만드는 대신 Azure 관리 id를 사용 합니다. Azure 관리 되는 id는 azure AD 인증을 지 원하는 Azure 서비스 및 리소스에 인증할 수 있습니다. 소스 코드 또는 구성 파일에서 하드 코드 된 자격 증명을 방지 하기 위해 미리 정의 된 액세스 권한 부여 규칙을 통해 인증을 사용할 수 있습니다. 
 
@@ -83,11 +83,11 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>ID 3: 응용 프로그램 액세스에 Azure AD Single Sign-On (SSO) 사용
+## <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: 응용 프로그램 액세스에 Azure AD Single Sign-On (SSO) 사용
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-3 | 4.4. | IA-2, IA-4 |
+| IM-3 | 4.4. | IA-2, IA-4 |
 
 Azure AD는 Azure 리소스, 클라우드 응용 프로그램 및 온-프레미스 응용 프로그램에 id 및 액세스 관리를 제공 합니다. Id 및 액세스 관리는 파트너, 공급 업체 및 공급 업체와 같은 외부 id 뿐만 아니라 직원 등의 엔터프라이즈 id에 적용 됩니다.
 
@@ -105,11 +105,11 @@ Azure AD Single Sign-On (SSO)를 사용 하 여 온-프레미스 및 클라우�
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>ID-4: 모든 Azure Active Directory 기반 액세스에 대해 강력한 인증 제어를 사용 합니다.
+## <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: 모든 Azure Active Directory 기반 액세스에 대해 강력한 인증 제어 사용
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-4 | 4.2, 4.4 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
+| IM-4 | 4.2, 4.4 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
 
 Azure AD는 MFA (multi-factor authentication) 및 강력한 암호 없는 메서드를 통한 강력한 인증 제어를 지원 합니다.  
 - Multi-factor authentication: Azure AD MFA를 사용 하도록 설정 하 고 MFA 설정에 대 한 Azure Security Center id 및 액세스 관리 권장 사항을 따릅니다. MFA는 모든 사용자에 게 적용 하거나, 사용자를 선택 하거나, 로그인 조건 및 위험 요소에 따라 사용자 단위 수준에서 적용할 수 있습니다. 
@@ -140,11 +140,11 @@ Azure AD 인증에 레거시 암호 기반 인증을 여전히 사용 하는 경
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-5-monitor-and-alert-on-account-anomalies"></a>ID-5: 계정 비정상 상황 모니터링 및 경고
+## <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: 계정 변칙에 대 한 모니터링 및 경고
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AU-6 |
+| IM-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AU-6 |
 
 Azure AD는 다음과 같은 데이터 원본을 제공 합니다. 
 -   로그인 – 로그인 보고서는 관리되는 애플리케이션 및 사용자 로그인 활동의 사용 정보를 제공합니다.
@@ -185,11 +185,11 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-6-restrict-azure-resource-access-based-on-conditions"></a>ID-6: 조건에 따라 Azure 리소스 액세스 제한
+## <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: 조건에 따라 Azure 리소스 액세스 제한
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-6 | 해당 없음 | AC-2, AC-3 |
+| IM-6 | N/A | AC-2, AC-3 |
 
 사용자 정의 조건에 따라 보다 세부적인 액세스 제어를 위해 Azure AD 조건부 액세스를 사용 합니다 (예: 특정 IP 범위의 사용자 로그인에 MFA를 사용 하도록 요구). 다양 한 사용 사례에 대 한 Azure AD 조건부 액세스 정책을 통해 세부적인 인증 세션 관리를 사용할 수도 있습니다. 
 
@@ -211,11 +211,11 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="id-7-eliminate-unintended-credential-exposure"></a>ID-7: 의도 하지 않은 자격 증명 노출 제거
+## <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: 의도 하지 않은 자격 증명 노출 제거
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-7 | 18.1, 18.7 | IA-5 |
+| IM-7 | 18.1, 18.7 | IA-5 |
 
 Azure DevOps 자격 증명 스캐너를 구현 하 여 코드 내에서 자격 증명을 식별 합니다. 또한 자격 증명 스캐너는 검색 된 자격 증명을 Azure Key Vault와 같은 보다 안전한 위치로 이동 하는 것을 권장 합니다.
 
@@ -233,11 +233,11 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용 하 여 코드 내�
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-8-secure-user-access-to-legacy-applications"></a>ID-8: 레거시 응용 프로그램에 대 한 사용자 액세스 보안
+## <a name="im-8-secure-user-access-to-legacy-applications"></a>IM-8: 레거시 응용 프로그램에 대 한 보안 사용자 액세스
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| ID-8 | 14.6 | AC-2, AC-3, SC-11 |
+| IM-8 | 14.6 | AC-2, AC-3, SC-11 |
 
 레거시 응용 프로그램 및 저장 하 고 처리 하는 데이터에 대 한 최신 액세스 제어 및 세션 모니터링이 있는지 확인 합니다. Vpn은 일반적으로 레거시 응용 프로그램에 액세스 하는 데 사용 되지만 기본 액세스 제어 및 제한 된 세션 모니터링만 포함 하는 경우가 많습니다.
 
@@ -258,4 +258,3 @@ Azure AD 응용 프로그램 프록시를 사용 하면 Azure AD 조건부 액�
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
-

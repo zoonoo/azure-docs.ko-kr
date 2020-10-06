@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399655"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742335"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -70,7 +70,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
@@ -86,7 +86,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 잘못된 애플리케이션 성능을 일으킬 수 있는 네트워크상 핫 스폿 확인
 * Microsoft 365, Dynamics 365, 비즈니스용 Skype 및 기타 Microsoft 서비스에 대 한 기본 제공 테스트를 사용 하 여 Microsoft 365 응용 프로그램에 대 한 연결성을 모니터링 합니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)
@@ -103,7 +103,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 
 트래픽 분석은 조직의 네트워크 활동을 감사하고, 애플리케이션 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 되는 실행 가능한 정보를 제공합니다.
 
-![전체 지역의 트래픽을 보여주는 지역 지도](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![지역 간 트래픽을 보여 주는 지역 지도 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 관련 링크:
 * [블로그 게시물](https://aka.ms/trafficanalytics), [설명서](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)

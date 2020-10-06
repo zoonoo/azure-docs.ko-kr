@@ -6,18 +6,18 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183720"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743576"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
 StorSimple 데이터 관리자 서비스가 데이터를 변환하는 경우, 기본적으로 대상 리포지토리를 만드는 동안 지정된 대로, 변환된 Blob를 스토리지 컨테이너에 배치합니다. Blob이 이 위치에 도달하면 이러한 Blob을 다른 위치로 이동하려고 할 수 있습니다. 이 문서에서는 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구성했는지 확인합니다.
 
@@ -69,7 +69,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
      
 10. 함수 창에서 _.csx_ 파일을 실행합니다.
 
-    ![새 C# 함수 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![새 c # 함수 2 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     다음 단계를 수행합니다.
 
@@ -191,7 +191,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
     2. **+ 추가**를 클릭합니다.
         
-        ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![새 함수 추가 파일 추가](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. **에project.js**을 입력 하 고 **enter**키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
 
@@ -211,7 +211,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
     
     4. **저장**을 클릭합니다.
 
-        ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![새 함수 프로젝트 json](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Azure Function이 만들어졌습니다. 이 함수는 데이터 변환 작업에서 새 Blob이 생성될 때마다 트리거됩니다.
 

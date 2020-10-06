@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891556"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743202"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 문제 해결 
 
@@ -51,7 +51,7 @@ ms.locfileid: "90891556"
  
 2. 지원 패키지를 만든 후 **지원 패키지 다운로드**를 선택 합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지의 압축을 풀면 시스템 로그 파일을 볼 수 있습니다.
 
-    ![사용자 추가 선택](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![사용자 추가 2 선택](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## <a name="gather-advanced-security-logs"></a>고급 보안 로그 수집
 
@@ -167,7 +167,7 @@ ms.locfileid: "90891556"
 
 2. [여기](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client)에 설명 된 대로 올바른 PowerShell 모듈이 설치 되어 있는지 확인 합니다.
 
-3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 다음은 그 예입니다. 
+3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 예를 들면 다음과 같습니다.
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -196,7 +196,7 @@ Azure Stack Edge Pro/Data Box Gateway 장치의 blob 저장소와 관련 된 오
 |이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
 |다음 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다 `Error parsing source location… The SSL connection could not be established` .|장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|Data Box에서 Python 용 Microsoft Azure Storage 라이브러리의 설치 된 버전이 지원 되지 않습니다. 지원 되는 버전에 대 한 Azure Data Box Blob 저장소 요구 사항을 참조 하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)하는 방법을 참조 하세요. 다음은 그 예입니다. <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)하는 방법을 참조 하세요. 예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |연결 시간이 초과 되었습니다.|Azure Stack Edge Pro에 로그인 한 후 잠금 해제 되어 있는지 확인 합니다. 장치가 다시 시작 될 때마다 사용자가 로그인 할 때까지 잠긴 상태로 유지 됩니다.|
 
 
