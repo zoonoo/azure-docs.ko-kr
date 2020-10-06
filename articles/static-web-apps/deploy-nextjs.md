@@ -69,7 +69,7 @@ Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함
 
 `npm run build`를 사용하여 Next.js를 빌드하면 앱은 정적 사이트가 아닌 기존 웹앱으로 빌드됩니다. 정적 사이트를 생성하려면 다음 애플리케이션 구성을 사용합니다.
 
-1. 정적 경로를 구성하려면 프로젝트 루트에 _next.config.js_라는 파일을 만들고 다음 코드를 추가합니다.
+1. 정적 경로를 구성하려면 프로젝트 루트에 _next.config.js_ 라는 파일을 만들고 다음 코드를 추가합니다.
 
     ```javascript
     module.exports = {
@@ -84,7 +84,7 @@ Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함
     
       이 구성은 `/`를 `/` 경로에 대해 제공되는 Next.js 페이지와 _pages/index.js_ 페이지 파일에 매핑합니다.
 
-1. `next export` 명령을 사용하여 빌드 후 정적 사이트도 생성하도록 _package.json_의 빌드 스크립트를 업데이트합니다. `export` 명령은 정적 사이트를 생성합니다.
+1. `next export` 명령을 사용하여 빌드 후 정적 사이트도 생성하도록 _package.json_ 의 빌드 스크립트를 업데이트합니다. `export` 명령은 정적 사이트를 생성합니다.
 
     ```json
     "scripts": {
