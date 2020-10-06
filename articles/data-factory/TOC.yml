@@ -544,6 +544,8 @@
           href: data-flow-new-branch.md
         - name: 피벗
           href: data-flow-pivot.md
+        - name: 순위
+          href: data-flow-rank.md
         - name: 선택
           href: data-flow-select.md
         - name: sink

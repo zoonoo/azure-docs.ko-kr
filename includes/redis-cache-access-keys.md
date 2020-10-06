@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73720412"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Azure Portal에서 호스트 이름, 포트 및 액세스 키를 검색합니다.
@@ -23,7 +23,7 @@ Azure Cache for Redis 인스턴스에 연결하려면 캐시 클라이언트에 
   
   ![Azure Cache for Redis 키](media/redis-cache-access-keys/redis-cache-keys.png)
 
-- 호스트 이름 및 포트를 가져오려면 캐시의 왼쪽 탐색 영역에서 **속성**을 선택합니다. 호스트 이름은 *\<DNS 이름>.redis.cache.windows.net* 형식입니다.
+- 호스트 이름 및 포트를 가져오려면 캐시의 왼쪽 탐색 영역에서 **속성**을 선택합니다. 호스트 이름은 *\<DNS name>.redis.cache.windows.net* 형식입니다.
 
   ![Azure Cache for Redis 속성](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
