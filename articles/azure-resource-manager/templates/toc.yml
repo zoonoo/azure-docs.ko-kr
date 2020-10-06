@@ -362,7 +362,7 @@
           href: deployment-history.md
     - name: 범위가 지정된 배포
       items:
-        - name: 구독
+        - name: Subscription
           href: deploy-to-subscription.md
         - name: 관리 그룹
           href: deploy-to-management-group.md
@@ -379,7 +379,7 @@
           href: key-vault-parameter.md
     - name: CI/CD
       items:
-        - name: 파이프라인이 있는 VS 프로젝트
+        - name: 파이프라인을 사용하는 ARM 템플릿
           href: add-template-to-azure-pipelines.md
         - name: 배포 - GitHub Actions
           href: deploy-github-actions.md

@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: 액세스 문제 해결
           href: troubleshooting-access-issues.md
+    - name: 로깅을 사용 설정하는 방법
+      href: howto-logging.md
     - name: 개발
       items:
         - name: Azure Key Vault 개발자 가이드
@@ -146,6 +148,10 @@
           href: move-subscription.md
         - name: 다른 영역으로 Key Vault 이동
           href: move-region.md
+    - name: 네트워킹
+      items:
+        - name: Private Link 구성 문제 진단
+          href: private-link-diagnostics.md
 - name: 참조
   items:
     - name: 새로운 기능
@@ -170,7 +176,7 @@
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

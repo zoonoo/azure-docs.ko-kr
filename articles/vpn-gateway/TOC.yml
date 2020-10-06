@@ -170,7 +170,7 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 이동
               href: ikev2-openvpn-from-sstp.md
-        - name: P2S 세션 관리 구성
+        - name: P2S 세션 관리
           href: p2s-session-management.md
         - name: P2S용 공용 CA 게이트웨이 인증서로 전환
           href: vpn-gateway-point-to-site-gateway-public-ca.md

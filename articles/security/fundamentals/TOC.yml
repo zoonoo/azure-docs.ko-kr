@@ -80,6 +80,8 @@
       href: encryption-overview.md
     - name: 이중 암호화
       href: double-encryption.md
+    - name: TLS 인증서 변경 내용
+      href: tls-certificate-changes.md
     - name: 디스크 암호화
       items:
         - name: 모범 사례

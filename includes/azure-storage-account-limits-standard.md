@@ -5,17 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
-ms.translationtype: MT
+ms.openlocfilehash: 8c908b7f72e5581122427a7d711ae9cf61d2d90f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145950"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665615"
 ---
 다음 표에서는 Azure 범용 v1, v2, Blob 스토리지 및 블록 Blob 스토리지 계정의 기본 제한에 대해 설명합니다. *수신* 제한은 스토리지 계정에 보내는 모든 데이터를 나타냅니다. *송신* 제한은 스토리지 계정에서 받는 모든 데이터를 나타냅니다.
+
+> [!NOTE]
+> 더 높은 용량과 수신 한도를 요청할 수 있습니다. 한도 증가를 요청하려면 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하세요.
 
 | 리소스 | 제한 |
 | --- | --- |
@@ -38,6 +41,5 @@ ms.locfileid: "86145950"
 > [!NOTE]
 > 대부분의 시나리오에서는 범용 v2 스토리지 계정을 사용하는 것이 좋습니다. 가동 중지 시간이 없고 데이터를 복사할 필요 없이 범용 v1 또는 Azure Blob 스토리지 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다. 자세한 내용은 [범용 v2 스토리지 계정으로 업그레이드](../articles/storage/common/storage-account-upgrade.md)를 참조하세요.
 
-애플리케이션의 요구가 단일 스토리지 계정의 확장성 목표를 초과하는 경우 여러 스토리지 계정을 사용하도록 애플리케이션을 빌드하면 됩니다. 그런 다음 해당 스토리지 계정 간에 데이터 개체를 분할할 수 있습니다. 볼륨 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
-
 모든 스토리지 계정은 만들어진 시기와 관계없이 플랫 네트워크 토폴로지에서 실행됩니다. Azure Storage 플랫 네트워크 아키텍처 및 확장성에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 스토리지 서비스](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets) 문서를 참조하세요. 
+

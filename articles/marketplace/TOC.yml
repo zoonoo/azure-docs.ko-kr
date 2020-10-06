@@ -1,121 +1,117 @@
 - name: 상용 마켓플레이스 설명서
   href: index.yml
+  items: null
+- name: 상업용 Marketplace 정보
+  href: overview.md
+- name: 계정 관리
   items:
-    - name: 상용 마켓플레이스 업데이트
-      href: marketplace-roadmap.md
-    - name: 상용 마켓플레이스 개요 및 혜택
-      href: marketplace-publishers-guide.md
+    - name: 새 파트너 센터 계정 만들기
+      href: partner-center-portal/create-account.md
+    - name: 계정 관리
+      href: partner-center-portal/manage-account.md
+    - name: 회사 작업 계정 찾기 또는 만들기
+      href: partner-center-portal/company-work-accounts.md
+    - name: 계정을 CPP에서 파트너 센터로 마이그레이션
+      href: partner-center-portal/account-migration-from-cpp-to-pc.md
+- name: 개념
+  items:
+    - name: 옵션 및 고려 사항 게시
+      href: determine-your-listing-type.md
+    - name: 상용 마켓플레이스에서의 거래
+      href: marketplace-commercial-transaction-capabilities-and-considerations.md
+    - name: 프라이빗 제품
+      href: private-offers.md
+    - name: 플랜 및 가격 책정
+      href: plans-pricing.md
+    - name: 표준 계약
+      href: standard-contract.md
+    - name: Azure Marketplace 목록 요구 사항
+      href: marketplace-criteria-content-validation.md
+    - name: 잠재 고객 관리
+      href: partner-center-portal/commercial-marketplace-get-customer-leads.md
+    - name: 시험 사용
       items:
-        - name: '한 개의 마켓플레이스, 두 개의 온라인 스토어'
-          href: comparing-appsource-azure-marketplace.md
-        - name: 옵션 및 고려 사항 게시
-          href: determine-your-listing-type.md
-          items:
-            - name: 잠재 고객 관리
-              href: lead-management-for-cloud-marketplace.md
-            - name: 상용 마켓플레이스에서의 거래
-              href: marketplace-commercial-transaction-capabilities-and-considerations.md
-            - name: 플랜 및 가격 책정
-              href: plans-pricing.md
-            - name: 프라이빗 제품
-              href: private-offers.md
-            - name: 표준 계약
-              href: standard-contract.md
-            - name: Azure 파트너 고객 사용량 특성
-              href: azure-partner-customer-usage-attribution.md
-            - name: 지원되는 국가 및 지역
-              href: sell-from-countries.md
-        - name: 제품 형식별 게시 가이드
-          href: publisher-guide-by-offer-type.md
-          items:
-            - name: SaaS 제품 계획
-              href: plan-saas-offer.md
-            - name: 가상 머신
-              href: marketplace-virtual-machines.md
-            - name: Azure 앱 솔루션 템플릿
-              href: marketplace-solution-templates.md
-            - name: Azure 앱 관리형 애플리케이션
-              href: marketplace-managed-apps.md
-            - name: 컨테이너
-              href: marketplace-containers.md
-            - name: IoT Edge 모듈
-              href: iot-edge-module.md
-            - name: 컨설팅 서비스
-              href: consulting-services.md
-            - name: 'Microsoft 365, Dynamics 365 및 Power BI'
-              href: appsource-offer-publishing-guide.md
-            - name: Azure AD를 사용하여 인증 제안 사용
-              href: enable-appsource-marketplace-using-azure-ad.md
-            - name: 통합된 솔루션
-              href: integrated-solutions-for-publishers.md
-        - name: 마케팅 모범 사례
-          href: gtm-marketing-best-practices.md
-          items:
-            - name: 목록에 제품 추가 모범 사례
-              href: gtm-offer-listing-best-practices.md
-            - name: 기능 가져오기
-              href: gtm-how-to-get-featured.md
-            - name: Marketplace 콘텐츠 유효성 검사
-              href: marketplace-criteria-content-validation.md
-            - name: 클라우드 솔루션 공급자
-              href: cloud-solution-providers.md
-            - name: 프로그램 온보딩 연결 가이드
-              href: business-applications-isv-program.md
+        - name: 시험 사용이란?
+          href: what-is-test-drive.md
+        - name: 시험 사용 기술 구성
+          href: test-drive-technical-configuration.md
+        - name: Azure Resource Manager 시험 사용
+          href: azure-resource-manager-test-drive.md
+    - name: Azure 파트너 고객 사용량 특성
+      href: azure-partner-customer-usage-attribution.md
+    - name: 출시 옵션
+      items:
         - name: Marketplace 혜택
           href: gtm-your-marketplace-benefits.md
-          items:
-            - name: Azure 사용량 약정 혜택
-              href: azure-consumption-commitment-benefit.md
-            - name: 공동 판매 파트너 참여
-              href: marketplace-co-sell.md
-            - name: 기본 설정 솔루션
-              href: preferred-solutions.md
-            - name: 통합된 솔루션
-              href: integrated-solutions.md
-        - name: 상용 마켓플레이스 지원
-          href: support-azure-marketplace.md
-          items:
-            - name: 상용 마켓플레이스 FAQ
-              href: marketplace-faq-publisher-guide.md
-            - name: 지리적 가용성 및 통화
-              href: marketplace-geo-availability-currencies.md
-- name: 파트너 센터의 상용 마켓플레이스
+        - name: 공동 판매 파트너 참여
+          href: marketplace-co-sell.md
+        - name: 파트너 센터의 공동 판매 옵션
+          href: partner-center-portal/commercial-marketplace-co-sell.md
+        - name: CSP 파트너를 통한 재판매
+          href: cloud-solution-providers.md
+        - name: 프로그램 온보딩 연결 가이드
+          href: business-applications-isv-program.md
+        - name: Azure 사용량 약정 혜택
+          href: azure-consumption-commitment-benefit.md
+        - name: 기본 설정 솔루션
+          href: preferred-solutions.md
+        - name: 통합된 솔루션
+          href: integrated-solutions-for-publishers.md
+    - name: 마켓플레이스 보상 활성화
+      href: partner-center-portal/marketplace-rewards.md
+    - name: 지급 받기
+      items:
+        - name: 지급 받기
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
+        - name: 지급 계정 및 세금 양식 설정
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: 결제 임계값 및 시간 프레임
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: 지급 명세서
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
+        - name: 지급 정책 세부 정보
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
+        - name: 세금 세부 정보
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: 지급 FAQ
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
+- name: 제품 생성 및 관리
   items:
-    - name: 상용 마켓플레이스 개요
-      href: partner-center-portal/commercial-marketplace-overview.md
-    - name: 마이그레이션 FAQ
-      href: cloud-partner-portal-migration-faq.md
-    - name: 계정 관리
+    - name: 제품 형식별 게시 가이드
+      href: publisher-guide-by-offer-type.md
+    - name: Azure AD를 사용하여 인증 제안 사용
+      href: enable-appsource-marketplace-using-azure-ad.md
+    - name: Azure 애플리케이션 제품
       items:
-        - name: 새 파트너 센터 계정 만들기
-          href: partner-center-portal/create-account.md
-        - name: 새 파트너 센터 계정 관리
-          href: partner-center-portal/manage-account.md
-        - name: 회사 작업 계정 찾기 또는 만들기
-          href: partner-center-portal/company-work-accounts.md
-        - name: 계정을 CPP에서 파트너 센터로 마이그레이션
-          href: partner-center-portal/account-migration-from-cpp-to-pc.md
-    - name: 새 제안 만들기
+        - name: 솔루션 템플릿 제품 계획
+          href: marketplace-solution-templates.md
+        - name: 관리형 애플리케이션 제품 계획
+          href: marketplace-managed-apps.md
+        - name: Azure 애플리케이션 제품 생성 및 게시
+          href: partner-center-portal/create-new-azure-apps-offer.md
+        - name: Azure 애플리케이션 요금 청구
+          href: partner-center-portal/azure-app-metered-billing.md
+        - name: 검토 피드백 처리
+          href: partner-center-portal/azure-apps-review-feedback.md
+        - name: Azure 애플리케이션 API
+          href: partner-center-portal/azure-app-apis.md
+    - name: Azure Container 제품
       items:
-        - name: Azure 애플리케이션 제품
-          items:
-            - name: Azure 애플리케이션 제품 만들기
-              href: partner-center-portal/create-new-azure-apps-offer.md
-            - name: Azure 애플리케이션 요금 청구
-              href: partner-center-portal/azure-app-metered-billing.md
-            - name: 검토 피드백 처리
-              href: partner-center-portal/azure-apps-review-feedback.md
-            - name: 온보딩용 API
-              href: partner-center-portal/azure-app-apis.md
-        - name: Azure Container 제품
+        - name: Azure 컨테이너 제품 계획
+          href: marketplace-containers.md
+        - name: Azure 컨테이너 제품 생성 및 게시
           items:
             - name: 기술 자산 준비
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Azure Container 제품 만들기
               href: partner-center-portal/create-azure-container-offer.md
-        - name: Virtual Machine 제품
+    - name: Azure 가상 머신 제품
+      items:
+        - name: 가상 머신 제품 계획
+          href: marketplace-virtual-machines.md
+        - name: 가상 머신 제품 생성 및 게시
           items:
-            - name: Azure Virtual Machine 제품 만들기
+            - name: Azure 가상 머신 제품 만들기
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Azure VM 기술 자산 만들기
               items:
@@ -133,15 +129,23 @@
                       href: partner-center-portal/get-sas-uri.md
                     - name: SAS URI FAQ
                       href: partner-center-portal/common-sas-uri-issues.md
-        - name: 컨설팅 서비스
+    - name: 컨설팅 서비스
+      items:
+        - name: 컨설팅 서비스 제품 계획
+          href: consulting-services.md
+        - name: 컨설팅 서비스 제품 생성 및 게시
           items:
             - name: 필수 구성 요소
               href: partner-center-portal/consulting-service-prerequisites.md
             - name: 컨설팅 서비스 제품 만들기
               href: partner-center-portal/create-consulting-service-offer.md
-        - name: Dynamics 365 제품
+    - name: Dynamics 365 제품
+      items:
+        - name: Dynamics 365 제품 계획
+          href: appsource-offer-publishing-guide.md
+        - name: Dynamics 365 제품 생성 및 게시
           items:
-            - name: Dynamics 365 for Customer Engagement 및 Power Apps 제품 만들기
+            - name: Dynamics 365 Customer Engagement 및 Power Apps 제품 만들기
               href: partner-center-portal/create-new-customer-engagement-offer.md
             - name: Dynamics 365 for Operations 제품 만들기
               items:
@@ -153,150 +157,123 @@
               href: partner-center-portal/create-new-business-central-offer.md
         - name: IoT Edge 모듈 제품
           items:
+            - name: IoT Edge 모듈 제품 계획
+              href: iot-edge-module.md
             - name: IoT Edge 모듈 제품 만들기
               href: partner-center-portal/azure-iot-edge-module-creation.md
             - name: IoT Edge 모듈 기술 자산 준비
               href: partner-center-portal/create-iot-edge-module-asset.md
-        - name: 관리되는 서비스 제품
+    - name: 관리되는 서비스 제품
+      items:
+        - name: 관리되는 서비스 제품 만들기
+          href: partner-center-portal/create-new-managed-service-offer.md
+    - name: Power BI 앱 제품
+      items:
+        - name: Power BI 앱 제품 계획
+          href: partner-center-portal/create-power-bi-app-overview.md
+        - name: Power BI 앱 제품 만들기
+          href: partner-center-portal/create-power-bi-app-offer.md
+    - name: SaaS 제품
+      items:
+        - name: SaaS 제품 계획
+          href: plan-saas-offer.md
+        - name: SaaS에 대한 Azure AD 인증
           items:
-            - name: 관리되는 서비스 제품 만들기
-              href: partner-center-portal/create-new-managed-service-offer.md
-        - name: Power BI 앱 제품
+            - name: Azure AD 및 SaaS 개요
+              href: azure-ad-saas.md
+            - name: 거래 가능한 제품의 방문 페이지
+              href: azure-ad-transactable-saas-landing-page.md
+            - name: 체험 또는 평가판의 방문 페이지
+              href: azure-ad-free-or-trial-landing-page.md
+        - name: SaaS 요금 청구
+          href: partner-center-portal/saas-metered-billing.md
+        - name: SaaS 제품 만들기 및 게시
           items:
-            - name: 게시 개요
-              href: partner-center-portal/create-power-bi-app-overview.md
-            - name: Power BI 앱 제품 만들기
-              href: partner-center-portal/create-power-bi-app-offer.md
-        - name: SaaS 제품
-          items:
-            - name: SaaS 제품 계획
-              href: plan-saas-offer.md
-            - name: SaaS에 대한 Azure AD 인증
-              items:
-                - name: Azure AD 및 SaaS 개요
-                  href: azure-ad-saas.md
-                - name: 거래 가능한 제품의 방문 페이지
-                  href: azure-ad-transactable-saas-landing-page.md
-                - name: 체험 또는 평가판의 방문 페이지
-                  href: azure-ad-free-or-trial-landing-page.md
-            - name: SaaS 요금 청구
-              href: partner-center-portal/saas-metered-billing.md
-            - name: SaaS 제품 만들기 및 게시
-              items:
-                - name: SaaS 제품 만들기
-                  href: create-new-saas-offer.md
-                - name: SaaS 제품 속성 구성
-                  href: create-new-saas-offer-properties.md
-                - name: SaaS 제품 목록 구성
-                  href: create-new-saas-offer-listing.md
-                - name: 미리 보기 대상 추가
-                  href: create-new-saas-offer-preview.md
-                - name: 기술 세부 정보 추가
-                  href: create-new-saas-offer-technical.md
-                - name: 플랜 만들기
-                  href: create-new-saas-offer-plans.md
-                - name: SaaS 제품 테스트 및 게시
-                  href: test-publish-saas-offer.md
-            - name: SaaS 제품 마케팅
-              href: create-new-saas-offer-marketing.md
-            - name: SaaS 처리 API
-              href: partner-center-portal/pc-saas-fulfillment-apis.md
-              items:
-                - name: SaaS 애플리케이션 등록
-                  href: partner-center-portal/pc-saas-registration.md
-                - name: SaaS 처리 API v2
-                  href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-                - name: SaaS 처리 API v1(사용되지 않음)
-                  href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-                - name: SaaS 처리 API - FAQ
-                  href: partner-center-portal/saas-fulfillment-apis-faq.md
-        - name: 잠재 고객 관리 개요
-          href: partner-center-portal/commercial-marketplace-get-customer-leads.md
-          items:
-            - name: Azure Blob
-              href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
-            - name: Azure 테이블
-              href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
-            - name: Dynamics 365 for Customer Engagement
-              href: partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
-            - name: Https 엔드포인트
-              href: partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
-            - name: Marketo
-              href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
-            - name: Salesforce
-              href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
-        - name: Marketplace 계량 서비스
-          items:
-            - name: 인증 전략
-              href: partner-center-portal/marketplace-metering-service-authentication.md
-            - name: Marketplace 계량 서비스 API
-              href: partner-center-portal/marketplace-metering-service-apis.md
-            - name: Marketplace 계량 서비스 API - FAQ
-              href: partner-center-portal/marketplace-metering-service-apis-faq.md
-        - name: 시험 사용
-          items:
-            - name: 시험 사용이란?
-              href: what-is-test-drive.md
-            - name: 시험 사용 기술 구성
-              href: test-drive-technical-configuration.md
-            - name: Azure Resource Manager 시험 사용
-              href: azure-resource-manager-test-drive.md
-        - name: 공동 판매 옵션
-          href: partner-center-portal/commercial-marketplace-co-sell.md
-          items:
-            - name: 국가 및 지역 코드
-              href: partner-center-portal/commercial-marketplace-co-sell-countries.md
-            - name: 상태 코드
-              href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 검토 및 게시
+            - name: SaaS 제품 만들기
+              href: create-new-saas-offer.md
+            - name: SaaS 제품 속성 구성
+              href: create-new-saas-offer-properties.md
+            - name: SaaS 제품 목록 구성
+              href: create-new-saas-offer-listing.md
+            - name: 미리 보기 대상 추가
+              href: create-new-saas-offer-preview.md
+            - name: 기술 세부 정보 추가
+              href: create-new-saas-offer-technical.md
+            - name: 플랜 만들기
+              href: create-new-saas-offer-plans.md
+            - name: SaaS 제품 테스트 및 게시
+              href: test-publish-saas-offer.md
+        - name: SaaS 제품 마케팅
+          href: create-new-saas-offer-marketing.md
+    - name: 제품 검토 및 게시
       href: review-publish-offer.md
     - name: 기존 제품 업데이트
       href: partner-center-portal/update-existing-offer.md
-    - name: 마켓플레이스 보상 활성화
-      href: partner-center-portal/marketplace-rewards.md
-    - name: 파트너 센터 분석
+- name: 제품 판매 및 마케팅
+  items:
+    - name: 마케팅 모범 사례
+      href: gtm-marketing-best-practices.md
+    - name: 목록에 제품 추가 모범 사례
+      href: gtm-offer-listing-best-practices.md
+    - name: 기능 가져오기
+      href: gtm-how-to-get-featured.md
+    - name: 잠재 고객 관리 구성
       items:
-        - name: 상용 마켓플레이스 분석
-          href: partner-center-portal/analytics.md
-        - name: 요약 대시보드
-          href: partner-center-portal/summary-dashboard.md
-        - name: 주문 대시보드
-          href: partner-center-portal/orders-dashboard.md
-        - name: 사용량 대시보드
-          href: partner-center-portal/usage-dashboard.md
-        - name: 고객 대시보드
-          href: partner-center-portal/customer-dashboard.md
-        - name: Marketplace 인사이트 대시보드
-          href: partner-center-portal/insights-dashboard.md
-        - name: 다운로드 대시보드
-          href: partner-center-portal/downloads-dashboard.md
-        - name: 평점 및 리뷰 대시보드
-          href: partner-center-portal/ratings-reviews.md
-        - name: 질문과 대답 및 용어
-          href: partner-center-portal/faq-terminology.md
-    - name: 지급 받기
-      items:
-        - name: 지급 받기
-          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
-        - name: 지급 계정 및 세금 양식 설정
-          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
-        - name: 결제 임계값 및 시간 프레임
-          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
-        - name: 지급 명세서
-          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
-        - name: 지급 정책 세부 정보
-          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
-        - name: 세금 세부 정보
-          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
-        - name: 지급 FAQ
-          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
+        - name: Azure Blob
+          href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+        - name: Azure 테이블
+          href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+        - name: Dynamics 365 for Customer Engagement
+          href: partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+        - name: Https 엔드포인트
+          href: partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+        - name: Marketo
+          href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+        - name: Salesforce
+          href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: 잠재 고객 관리 FAQ
+          href: lead-management-faq.md
+- name: 데이터 및 분석
+  items:
+    - name: 상업용 마켓플레이스 분석
+      href: partner-center-portal/analytics.md
+    - name: 요약 대시보드
+      href: partner-center-portal/summary-dashboard.md
+    - name: 주문 대시보드
+      href: partner-center-portal/orders-dashboard.md
+    - name: 사용량 대시보드
+      href: partner-center-portal/usage-dashboard.md
+    - name: 고객 대시보드
+      href: partner-center-portal/customer-dashboard.md
+    - name: Marketplace 인사이트 대시보드
+      href: partner-center-portal/insights-dashboard.md
+    - name: 다운로드 대시보드
+      href: partner-center-portal/downloads-dashboard.md
+    - name: 평점 및 리뷰 대시보드
+      href: partner-center-portal/ratings-reviews.md
+    - name: 파트너 센터 분석 용어
+      href: partner-center-portal/faq-terminology.md
+- name: 정책 및 용어
+  items:
+    - name: 정책 및 사용 약관 정보
+      href: policies-terms.md
+    - name: 상업용 Marketplace 인증 정책
+      href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
+    - name: 상용 마켓플레이스 검토 정책
+      href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
+    - name: Azure Marketplace 참가 정책
+      href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
+    - name: Azure Marketplace 약관
+      href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+- name: 참조
+  items:
     - name: CPP API 참조
       items:
-        - name: 개요
+        - name: CPP API 개요
           href: cloud-partner-portal-api-overview.md
-        - name: 필수 구성 요소
+        - name: API 사전 요구 사항
           href: cloud-partner-portal-api-prerequisites.md
-        - name: 고려 사항
+        - name: API 고려 사항
           href: cloud-partner-portal-api-considerations.md
         - name: 동시성 제어
           href: cloud-partner-portal-api-concurrency-control.md
@@ -320,21 +297,44 @@
           href: cloud-partner-portal-api-setting-price.md
         - name: 인증 오류 문제 해결
           href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
-    - name: 지원 옵션
-      href: partner-center-portal/support.md
-- name: 상용 마켓플레이스 정책 및 용어
-  items:
-    - name: 정책 및 사용 약관 정보
-      href: policies-terms.md
-    - name: 상업용 Marketplace 인증 정책
-      href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
-    - name: 상용 마켓플레이스 검토 정책
-      href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-    - name: Azure Marketplace 참가 정책
-      href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
-    - name: Azure Marketplace 약관
-      href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+    - name: Marketplace 계량 서비스
+      items:
+        - name: 인증 전략
+          href: partner-center-portal/marketplace-metering-service-authentication.md
+        - name: Marketplace 계량 서비스 API
+          href: partner-center-portal/marketplace-metering-service-apis.md
+        - name: Marketplace 계량 서비스 API - FAQ
+          href: partner-center-portal/marketplace-metering-service-apis-faq.md
+    - name: SaaS 처리 API
+      items:
+        - name: SaaS 처리 API 개요
+          href: partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: SaaS 애플리케이션 등록
+              href: partner-center-portal/pc-saas-registration.md
+            - name: SaaS 처리 API v2
+              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS 처리 API v1(사용되지 않음)
+              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+            - name: SaaS 처리 API - FAQ
+              href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: 리소스
   items:
+    - name: 상용 마켓플레이스 FAQ
+      href: marketplace-faq-publisher-guide.md
+    - name: Cloud 파트너 포털 마이그레이션 FAQ
+      href: cloud-partner-portal-migration-faq.md
+    - name: 파트너 센터 지원 옵션
+      href: partner-center-portal/support.md
+    - name: 지리적 가용성 및 통화
+      href: marketplace-geo-availability-currencies.md
+    - name: 지원되는 국가 및 지역
+      href: sell-from-countries.md
     - name: 지원되는 HTML 태그
       href: supported-html-tags.md
+    - name: 공동 판매 국가 및 지역 코드
+      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+    - name: 공동 판매 상태 코드
+      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    - name: '포럼, 블로그 및 빠른 링크'
+      href: marketplace-roadmap.md
