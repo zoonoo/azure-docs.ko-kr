@@ -1,17 +1,17 @@
 ---
-title: '빠른 시작: 템플릿을 사용하여 새 정책 할당'
+title: 템플릿을 사용하여 새 정책 할당
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689850"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651422"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>ARM 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다.
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만드는 과정을 단계별로 안내합니다. 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_합니다.
@@ -20,7 +20,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -45,11 +45,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 _mypolicyquickstart\<Date in MMDD\>rg_입니다. |
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 페이지 왼쪽에서 **준수**를 선택합니다. 그런 다음, 앞에서 만든 _관리 디스크를 사용하지 않는 감사 VM_ 정책 할당을 찾습니다.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="정책 규정 준수 개요 페이지" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false":::
 
 이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
 
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. _관리 디스크를 사용하지 않는 VM 감사_ 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제**를 선택합니다.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="규정 준수 요약 페이지에서 할당 삭제" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

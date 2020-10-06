@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 005068c8e81adb9a79a4e6dc7e86a9bfb39902a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505825"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088632"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -42,23 +42,23 @@ Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [�
 
 많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프나 클릭하면 Azure Portal의 [메트릭 탐색기](platform/metrics-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
 
-![메트릭](media/overview/metrics.png)
+![시각화에 사용할 메트릭 탐색기로 흐르는 메트릭 데이터를 보여주는 다이어그램입니다.](media/overview/metrics.png)
 
 Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](./log-query/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트한 후, 다음 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
 Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
-![로그](media/overview/logs.png)
+![분석을 위해 Log Analytics로 흐르는 로그 데이터를 보여주는 다이어그램입니다.](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure Monitor는 어떤 데이터를 수집하나요?
 
 Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다. 애플리케이션, 애플리케이션에서 사용하는 운영 체제 및 서비스부터 플랫폼 자체까지, 계정의 애플리케이션에 대한 모든 데이터를 모니터링한다고 생각하시면 됩니다. Azure Monitor는 다음과 같은 각 계층에서 데이터를 수집합니다.
 
-- **애플리케이션 모니터링 데이터**: 플랫폼에 관계없이, 작성한 코드의 성능 및 기능에 대한 데이터입니다.
-- **게스트 OS 모니터링 데이터**: 애플리케이션이 실행되고 있는 운영 체제에 대한 데이터입니다. Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다. 
-- **Azure 리소스 모니터링 데이터**: Azure 리소스의 작업에 대한 데이터입니다.
-- **Azure 구독 모니터링 데이터**: Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
-- **Azure 테넌트 모니터링 데이터**: Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
+- **애플리케이션 모니터링 데이터:** 플랫폼에 관계없이, 작성한 코드의 성능 및 기능에 대한 데이터입니다.
+- **게스트 OS 모니터링 데이터:** 애플리케이션이 실행되고 있는 운영 체제에 대한 데이터입니다. Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다. 
+- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다.
+- **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
+- **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
 Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/platform-logs-overview.md)가 기록됩니다. [메트릭](platform/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
@@ -103,12 +103,12 @@ Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 애플리�
 
 Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 간에 공유할 수 있는 작업을 포함하는 [작업 그룹](platform/action-groups.md)을 사용합니다. 요구 사항에 따라, 웹후크를 사용하여 경고가 외부 작업을 시작하도록 하거나 ITSM 도구와 통합하는 등의 작업을 작업 그룹이 수행할 수 있습니다.
 
-![경고](media/overview/alerts.png)
+![Azure Monitor의 경고를 심각도, 총 경고 수 및 기타 정보와 함께 보여주는 스크린샷입니다.](media/overview/alerts.png)
 
 ### <a name="autoscale"></a>자동 크기 조정
 자동 크기 조정을 사용하면 애플리케이션의 부하를 처리하기 위해 적절한 양의 리소스가 실행되도록 할 수 있습니다. Azure Monitor에서 수집한 메트릭을 사용하여 부하 증가를 처리하는 데 필요한 리소스를 자동으로 추가하고 유휴 상태인 리소스를 제거하여 비용을 절약하는 시기를 결정하는 규칙을 만들 수 있습니다. 리소스를 늘리거나 줄이는 시기를 결정하기 위한 최대/최소 인스턴스 수 및 논리를 지정할 수 있습니다.
 
-![자동 크기 조정](media/overview/autoscale.png)
+![다이어그램은 '프로세서 시간> 80%'라는 레이블이 붙은 라인에 여러 대의 서버가 있으며, 서버 2대는 최소, 서버 3대는 현재 용량, 5대는 최대라고 표시된 자동 크기 조정을 보여줍니다.](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>모니터링 데이터 시각화
 차트 및 표 같은 [시각화](visualizations.md)는 모니터링 데이터를 요약하여 여러 대상에게 보여주는 효과적인 도구입니다. Azure Monitor는 모니터링 데이터를 시각화하는 고유의 기능을 갖고 있으며 다른 Azure 서비스를 활용하여 모니터링 데이터를 여러 대상에 게시합니다.
@@ -116,12 +116,12 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 ### <a name="dashboards"></a>대시보드
 [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)를 사용하면 메트릭 및 로그를 포함한 여러 종류의 데이터를 [Azure Portal](https://portal.azure.com)의 단일 창으로 결합할 수 있습니다. 필요에 따라 대시보드를 다른 Azure 사용자와 공유할 수 있습니다. 로그 쿼리 또는 메트릭 차트의 출력 외에도 Azure Monitor 전체의 요소를 Azure 대시보드에 추가할 수 있습니다. 예를 들어 메트릭 그래프, 활동 로그 표, Application Insights의 사용량 차트, 로그 쿼리를 나타내는 타일이 조합된 대시보드를 만들 수 있습니다.
 
-![대시보드](media/overview/dashboard.png)
+![스크린샷은 Azure Dashboard를 보여주며, Application 및 Security 보안 타일이 사용자 지정 가능한 다른 정보와 함께 포함되어 있습니다.](media/overview/dashboard.png)
 
 ### <a name="views"></a>보기
-[보](./platform/view-designer.md)기는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
+[보](./platform/view-designer.md)기는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.   각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
 
-![보기](media/overview/view.png)
+![컨테이너 모니터링 솔루션의 타일 및 타일을 선택하면 열리는 상세 보기가 스크린샷에 표시됩니다.](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com)는 다양한 데이터 원본에서 대화형 시각화를 제공하는 비즈니스 분석 서비스이며, 조직 내부 및 외부의 사람들에게 데이터를 제공하는 효과적인 수단입니다. [Azure Monitor에서 자동으로 로그 데이터를 가져오도록](./platform/powerbi.md) Power BI를 구성하여 이러한 추가 시각화를 활용할 수 있습니다.

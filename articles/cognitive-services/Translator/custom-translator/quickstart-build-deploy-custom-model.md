@@ -6,17 +6,17 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bb4e3be621e83ed66748e3eba683b983dbac98d7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964382"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528540"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
 
 이 문서에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 지침을 제공합니다.
 
@@ -24,23 +24,23 @@ ms.locfileid: "85964382"
 
 1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
 
-2. Azure Portal을 통한 Translator 구독. Custom Translator에서 작업 영역과 연결할 Translator 구독 키가 필요합니다. [Translator에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
+2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
 
 3. 위의 두 가지가 모두 있는 경우 [사용자 지정 변환기](https://portal.customtranslator.azure.ai) 포털에 로그인하여 작업 영역, 프로젝트, 파일 업로드 및 모델 만들기/배포를 만듭니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-첫 사용자인 경우 서비스 약관에 동의하여 작업 영역을 만들고, 작업 영역을 Translator 구독과 연결하라는 메시지가 표시됩니다.
+첫 사용자인 경우 서비스 약관에 동의하여 작업 영역을 만들고, 작업 영역을 Microsoft Translator Text API 구독과 연결하라는 메시지가 표시됩니다.
 
 ![작업 영역 만들기](media/quickstart/terms-of-service.png)
-![작업 영역 만들기](media/quickstart/create-workspace-1.png)
-![작업 영역 만들기](media/quickstart/create-workspace-2.png)
-![작업 영역 만들기](media/quickstart/create-workspace-3.png)
-![작업 영역 만들기](media/quickstart/create-workspace-4.png)
-![작업 영역만들기](media/quickstart/create-workspace-5.png)
-![작업 영역 만들기](media/quickstart/create-workspace-6.png)
+![작업 영역 만들기 이미지 1](media/quickstart/create-workspace-1.png)
+![작업 영역 만들기 이미지 2](media/quickstart/create-workspace-2.png)
+![작업 영역 만들기 이미지 3](media/quickstart/create-workspace-3.png)
+![작업 영역 만들기 이미지 4](media/quickstart/create-workspace-4.png)
+![작업 영역 만들기 이미지 5](media/quickstart/create-workspace-5.png)
+![작업 영역 만들기 이미지 6](media/quickstart/create-workspace-6.png)
 
-이후에 Custom Translator 포털 방문 시 작업 영역을 관리하고, 추가 작업 영역을 만들고, Translator 구독 키를 작업 영역에 연결하고, 공동 소유자를 추가하고, 구독 키를 변경할 수 있는 설정 페이지로 이동합니다.
+이후에 Custom Translator 포털 방문 시 작업 영역을 관리하고, 추가 작업 영역을 만들고, Microsoft Translator Text API 구독 키를 작업 영역에 연결하고, 공동 소유자를 추가하고, 구독 키를 변경할 수 있는 설정 페이지로 이동합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -81,9 +81,15 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 ![학습된 모델 배포](media/quickstart/ct-how-to-deploy.png)
 
+## <a name="swap-deployed-model"></a>배포된 모델 교환
+
+배포된 모델을 프로젝트 내에서 다른 모델과 교환하려면 원하는 모델 옆에 표시된 "교환" 단추를 클릭합니다. 교환 프로세스가 진행되는 동안 배포된 모델은 번역 요청을 처리하는 데 계속 사용할 수 있습니다. 
+
+![배포된 모델 교환](media/quickstart/ct-how-to-swap-model.png)
+
 ## <a name="use-a-deployed-model"></a>배포된 모델 사용
 
-배포된 모델은 CategoryID(https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) )를 지정하여 Translator를 통해 액세스할 수 있습니다. Translator에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
+배포된 모델은 [CategoryID를 검사하여 Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -65,7 +65,7 @@
       href: load-balancer-multivip-overview.md
     - name: 아웃바운드 연결
       href: load-balancer-outbound-connections.md
-    - name: 유휴 시간 제한에 도달하면 TCP 재설정
+    - name: TCP 초기화 및 TCP 유휴 시간 제한
       href: load-balancer-tcp-reset.md
     - name: 표준 Load Balancer 및 가용성 영역
       href: load-balancer-standard-availability-zones.md

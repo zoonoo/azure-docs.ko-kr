@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Java를 사용하여 Text Analytics REST API 호출'
+title: Java를 사용하여 Text Analytics REST API 호출
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 Java를 사용하여 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: f8f9d76e5f1584ce54897950d7e35e2b22ba958e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c3c613f8733c8f786d121ab33b09afab244b09e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319782"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532276"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>빠른 시작: Java를 사용하여 Azure Text Analytics Cognitive Service 호출
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Java를 사용하여 Azure Text Analytics Cognitive Service 호출
 <a name="HOLTop"></a>
 
 이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Java를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.
@@ -322,7 +322,7 @@ public class GetSentiment {
 
 ### <a name="sentiment-analysis-response"></a>감정 분석 응답
 
-1\.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
+1.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json

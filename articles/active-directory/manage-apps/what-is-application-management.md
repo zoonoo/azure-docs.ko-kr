@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 293aa80336b259a760a835e3ece56d50287f06ed
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299884"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604124"
 ---
 # <a name="what-is-application-management"></a>애플리케이션 관리란?
 
@@ -49,7 +49,7 @@ Azure Active Directory 포털의 관리 섹션에 있는 **엔터프라이즈 �
 
 ## <a name="how-does-azure-ad-work-with-applications"></a>Azure AD는 애플리케이션에서 어떻게 작동하나요?
 
-Azure AD는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID 시스템을 제공하여 애플리케이션을 관리하는 방법을 단순화합니다. SaaS 애플리케이션, 온-프레미스 애플리케이션 및 LOB(기간 업무) 앱을 Azure AD에 추가할 수 있습니다. 그런 다음, 사용자는 한 번 로그인하여 Office 365는 물론, Microsoft의 다른 비즈니스 애플리케이션과 함께 이러한 애플리케이션에 안전하고 원활하게 액세스합니다. [사용자 프로비저닝을 자동화](../app-provisioning/user-provisioning.md)하여 관리 비용을 절감할 수 있습니다. 또한 다단계 인증 및 조건부 액세스 정책을 사용하여 보안 애플리케이션 액세스를 제공할 수도 있습니다.
+Azure AD는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID 시스템을 제공하여 애플리케이션을 관리하는 방법을 단순화합니다. SaaS 애플리케이션, 온-프레미스 애플리케이션 및 LOB(기간 업무) 앱을 Azure AD에 추가할 수 있습니다. 그런 다음, 사용자는 한 번 로그인하여 Microsoft 365는 물론, Microsoft의 다른 비즈니스 애플리케이션과 함께 이러한 애플리케이션에 안전하고 원활하게 액세스합니다. [사용자 프로비저닝을 자동화](../app-provisioning/user-provisioning.md)하여 관리 비용을 절감할 수 있습니다. 또한 다단계 인증 및 조건부 액세스 정책을 사용하여 보안 애플리케이션 액세스를 제공할 수도 있습니다.
 
 ![Azure AD를 통해 페더레이션된 애플리케이션을 보여주는 다이어그램](media/what-is-application-management/app-management-overview.png)
 
@@ -59,7 +59,7 @@ Azure AD는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID �
 
 - **Azure AD Gallery 애플리케이션** – Azure AD에는 Azure AD과의 Single Sign-On을 위해 사전 통합된 수천 개의 애플리케이션이 포함된 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 이 갤러리에 있을 것입니다. [앱 통합 계획에 대해 알아보거나](plan-an-application-integration.md), [SaaS 애플리케이션 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/)에서 개별 앱에 대한 자세한 통합 단계를 확인하세요.
 
-- **애플리케이션 프록시 지원 온-프레미스 애플리케이션** – Azure AD 애플리케이션 프록시를 통해 Azure AD와 온-프레미스 웹앱을 통합하여 Single Sign-On을 지원할 수 있습니다. 그런 다음, 최종 사용자가 Office 365 및 기타 SaaS 앱에 액세스하는 것과 같은 방식으로 온-프레미스 웹앱에 액세스할 수 있습니다. [Azure AD의 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 대한 원격 액세스 제공](application-proxy.md)을 참조하세요.
+- **애플리케이션 프록시 지원 온-프레미스 애플리케이션** – Azure AD 애플리케이션 프록시를 통해 Azure AD와 온-프레미스 웹앱을 통합하여 Single Sign-On을 지원할 수 있습니다. 그런 다음, 최종 사용자가 Microsoft 365 및 기타 SaaS 앱에 액세스하는 것과 같은 방식으로 온-프레미스 웹앱에 액세스할 수 있습니다. [Azure AD의 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 대한 원격 액세스 제공](application-proxy.md)을 참조하세요.
 
 - **사용자 지정 개발 애플리케이션** - 고유한 기간 업무 애플리케이션을 빌드할 경우 Azure AD와 통합하여 Single Sign-On을 지원할 수 있습니다. Azure AD에 애플리케이션을 등록하여 애플리케이션에 대한 인증 정책을 제어할 수 있습니다. 자세한 내용은 [개발자를 위한 지침](developer-guidance-for-integrating-applications.md)을 참조하세요.
 
@@ -77,9 +77,9 @@ Azure AD SSO(Single Sign-On)를 [조건부 액세스](../conditional-access/conc
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Single Sign-On으로 생산성 개선
 
-애플리케이션 및 Office 365에서 SSO(Single Sign-On)를 사용하도록 설정하면 로그인 프롬프트가 감소하거나 제거되어 기존 사용자를 위한 우수한 환경이 제공됩니다. 사용자 환경은 더 응집력이 있는 것으로 느껴지고 여러 프롬프트가 없거나 여러 암호를 관리할 필요가 없어 덜 산만합니다. 비즈니스 그룹은 셀프 서비스 및 동적 멤버 자격을 통해 액세스를 관리하고 승인할 수 있습니다. 비즈니스에서 적합한 사용자가 애플리케이션에 대한 액세스를 관리하도록 하면 ID 시스템의 보안이 향상됩니다.
+애플리케이션 및 Microsoft 365에서 SSO(Single Sign-On)를 사용하도록 설정하면 로그인 프롬프트가 감소하거나 제거되어 기존 사용자를 위한 우수한 환경이 제공됩니다. 사용자 환경은 더 응집력이 있는 것으로 느껴지고 여러 프롬프트가 없거나 여러 암호를 관리할 필요가 없어 덜 산만합니다. 비즈니스 그룹은 셀프 서비스 및 동적 멤버 자격을 통해 액세스를 관리하고 승인할 수 있습니다. 비즈니스에서 적합한 사용자가 애플리케이션에 대한 액세스를 관리하도록 하면 ID 시스템의 보안이 향상됩니다.
 
-SSO는 보안을 개선합니다. ‘Single Sign-On을 사용하지 않으면’ 관리자가 각 개별 애플리케이션의 사용자 계정을 만들고 업데이트해야 하며 이 작업에는 시간이 걸립니다. 또한, 사용자는 애플리케이션에 액세스하기 위해 여러 자격 증명을 추적해야 합니다. 결과적으로 사용자는 암호를 적어 두거나 다른 암호 관리 솔루션을 사용하기 쉬우므로 데이터 보안 위험이 도입될 수 있습니다. [Single Sign-On에 대해 자세히 읽어보세요](what-is-single-sign-on.md).
+SSO는 보안을 개선합니다. ‘Single Sign-On을 사용하지 않으면’ 관리자가 각 개별 애플리케이션의 사용자 계정을 만들고 업데이트해야 하며 이 작업에는 시간이 걸립니다.** 또한, 사용자는 애플리케이션에 액세스하기 위해 여러 자격 증명을 추적해야 합니다. 결과적으로 사용자는 암호를 적어 두거나 다른 암호 관리 솔루션을 사용하기 쉬우므로 데이터 보안 위험이 도입될 수 있습니다. [Single Sign-On에 대해 자세히 읽어보세요](what-is-single-sign-on.md).
 
 ## <a name="address-governance-and-compliance"></a>거버넌스 및 규정 준수 처리
 

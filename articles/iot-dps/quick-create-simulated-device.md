@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: C를 사용하여 Azure IoT Hub에 시뮬레이트된 TPM 디바이스 프로비저닝'
+title: 빠른 시작 - C#을 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 디바이스 프로비저닝
 description: 이 빠른 시작에서는 개별 등록을 사용합니다. 이 빠른 시작에서는 Azure IoT Hub DPS(Device Provisioning Service)의 C 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스를 만들고 프로비저닝합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: 5d52cd134c8c0f1702f57bff1f60bffa12ef6f4d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5d594aeaee7b80bcac28f060a1d86e6c08d2cf05
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687235"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524728"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 디바이스 프로비전
 
@@ -25,7 +25,7 @@ ms.locfileid: "81687235"
 
 이 빠른 시작에서는 Windows 개발 머신에서 TPM(신뢰할 수 있는 플랫폼 모듈) 디바이스 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. Device Provisioning Service 인스턴스를 사용하여 이 시뮬레이션된 디바이스를 IoT Hub에 연결합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드를 사용하여 Device Provisioning Service 인스턴스에 디바이스를 등록하고 디바이스에 대한 부팅 시퀀스를 시뮬레이션할 수 있습니다.
 
-자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 이 빠른 시작을 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
+자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 이 빠른 시작을 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
 
 Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
 - [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
@@ -35,11 +35,11 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -74,7 +74,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="build-the-sdk-and-run-the-tpm-device-simulator"></a>SDK를 빌드하고 TPM 디바이스 시뮬레이터를 실행합니다.
 
-이 섹션에서는 TPM 디바이스 시뮬레이터 샘플 코드를 포함하는 Azure IoT C SDK를 빌드합니다. 이 샘플에서는 SAS(공유 액세스 서명) 토큰 인증을 통해 TPM [증명 메커니즘](concepts-security.md#attestation-mechanism)을 제공합니다.
+이 섹션에서는 TPM 디바이스 시뮬레이터 샘플 코드를 포함하는 Azure IoT C SDK를 빌드합니다. 이 샘플에서는 SAS(공유 액세스 서명) 토큰 인증을 통해 TPM [증명 메커니즘](concepts-service.md#attestation-mechanism)을 제공합니다.
 
 1. azure-iot-sdk-c git 리포지토리에서 만든 `cmake` 하위 디렉터리에서 다음 명령을 실행하여 샘플을 빌드합니다. 또한 시뮬레이션된 디바이스에 대한 Visual Studio 솔루션도 이 빌드 명령에 의해 생성됩니다.
 
@@ -209,7 +209,8 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. 시뮬레이션된 디바이스를 프로비저닝 서비스별로 IoT 허브에 프로비저닝하면 장치 ID가 허브의 **IoT 디바이스**에 표시됩니다. 
+8. 시뮬레이션된 디바이스를 프로비저닝 서비스별로 IoT 허브에 프로비저닝하면 장치 ID가 허브의 **IoT 디바이스**에 표시됩니다.
+ 
 
     ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
 

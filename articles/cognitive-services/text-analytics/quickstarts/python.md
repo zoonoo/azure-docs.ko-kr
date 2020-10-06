@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python을 사용하여 텍스트 분석 API 호출'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 Python을 사용하여 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 34d1b62ed97b966c000ff81e8f7676c30338b6a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0ef870b6b2d3b88b13c16c8c2acbfcee7ed551c1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876770"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527244"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
 <a name="HOLTop"></a>
 
 이 빠른 시작을 사용하여 Text Analytics REST API 및 Python을 통해 언어 분석을 시작합니다. 이 문서에서는 [언어 검색](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여줍니다.
@@ -65,7 +65,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## <a name="detect-languages"></a>언어 감지
 
-Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/languages`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`
+Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/languages`를 추가하여 언어 검색 URL을 형성합니다. 예를 들어 다음과 같습니다.
     
 ```python
 language_api_url = endpoint + "/text/analytics/v3.0/languages"
@@ -132,7 +132,7 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>감정 분석
 
-문서 세트의 감정(양수 또는 음수 사이의 범위)을 검색하려면 Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/sentiment`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
+문서 세트의 감정(양수 또는 음수 사이의 범위)을 검색하려면 Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/sentiment`를 추가하여 언어 검색 URL을 형성합니다. 예를 들어 다음과 같습니다.
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v3.0/sentiment"
@@ -221,7 +221,7 @@ pprint(sentiments)
 
 ## <a name="extract-key-phrases"></a>핵심 구 추출
  
-문서 세트에서 핵심 구를 추출하려면 Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/keyPhrases`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+문서 세트에서 핵심 구를 추출하려면 Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/keyPhrases`를 추가하여 언어 검색 URL을 형성합니다. 예를 들어 다음과 같습니다.
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v3.0/keyphrases"
@@ -295,7 +295,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>엔터티 식별
 
-텍스트 문서에서 잘 알려진 엔터티(사람, 장소 및 사물)를 식별하려면 Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/entities/recognition/general`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+텍스트 문서에서 잘 알려진 엔터티(사람, 장소 및 사물)를 식별하려면 Text Analytics 기본 엔드포인트에 `/text/analytics/v3.0/entities/recognition/general`를 추가하여 언어 검색 URL을 형성합니다. 예를 들어 다음과 같습니다.
     
 ```python
 entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general"

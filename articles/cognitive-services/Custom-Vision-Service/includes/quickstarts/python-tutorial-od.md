@@ -2,17 +2,20 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: f54b5c7bec7d2b9af67b967ff34ab43bd1818a7d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511328"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604910"
 ---
-이 문서에서는 Python과 함께 Custom Vision 클라이언트 라이브러리를 사용하여 개체 검색 모델을 빌드하는 방법을 보여줍니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 게시된 예측 엔드포인트 URL을 확보하고, 이 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
+이 가이드는 Python용 Custom Vision 클라이언트 라이브러리를 사용하여 개체 감지 모델을 빌드하는 데 유용한 지침과 샘플 코드를 제공합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습시키고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 코드를 작성하지 않고 개체 감지 모델을 빌드하고 학습시키려면 [브라우저 기반 지침](../../get-started-build-detector.md)을 대신 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Python 2.7+ 또는 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) 도구
@@ -20,7 +23,7 @@ ms.locfileid: "88511328"
 
 ## <a name="install-the-custom-vision-client-library"></a>Custom Vision 클라이언트 라이브러리 설치
 
-Python용 Custom Vision Service 클라이언트 라이브러리를 설치하려면 PowerShell에서 다음 명령을 실행합니다.
+Python용 Custom Vision을 사용하여 이미지 분석 앱을 작성하려면 Custom Vision 클라이언트 라이브러리가 필요합니다. PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -36,11 +39,11 @@ pip install azure-cognitiveservices-vision-customvision
 
 원하는 프로젝트 디렉터리에 *sample.py*라는 새 파일을 만듭니다.
 
-### <a name="create-the-custom-vision-service-project"></a>Custom Vision Service 프로젝트 만들기
+## <a name="create-the-custom-vision-project"></a>Custom Vision 프로젝트 만들기
 
 새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 또한 Custom Vision 웹 사이트의 설정 페이지에서 엔드포인트 URL을 가져옵니다.
 
-프로젝트를 만들 때 다른 옵션을 지정하려면 [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) 메서드를 참조하세요([탐지기 빌드](../../get-started-build-detector.md) 웹 포털 가이드에 설명되어 있음).  
+프로젝트를 만들 때 다른 옵션을 지정하려면 **[create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 메서드를 참조하세요([탐지기 빌드](../../get-started-build-detector.md) 웹 포털 가이드에 설명되어 있음).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -67,7 +70,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>프로젝트에서 태그 만들기
+## <a name="create-tags-in-the-project"></a>프로젝트에서 태그 만들기
 
 프로젝트에 개체 태그를 만들려면 *sample.py* 파일의 끝에 다음 코드를 추가합니다.
 
@@ -77,7 +80,7 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
+## <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
 개체 검색 프로젝트의 이미지에 태그를 지정할 때 정규화된 좌표를 사용하여 태그가 지정된 각 개체의 지역을 지정해야 합니다.
 
@@ -170,7 +173,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>프로젝트 학습 및 게시
+## <a name="train-and-publish-the-project"></a>프로젝트 학습 및 게시
 
 이 코드는 예측 모델의 첫 번째 반복을 만든 다음, 해당 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
@@ -189,7 +192,12 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
+> [!TIP]
+> 선택한 태그로 학습
+>
+> 적용된 태그의 하위 집합에 대해서만 선택적으로 학습을 수행할 수 있습니다. 특정 태그는 아직 충분히 적용하지 않았지만 다른 태그는 충분히 적용한 경우 이 작업을 수행할 수 있습니다. **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 호출에서 선택적 매개 변수 *selected_tags*를 사용하려는 태그의 ID 문자열 목록으로 설정합니다. 모델은 해당 목록의 태그만 인식하도록 학습됩니다.
+
+## <a name="use-the-prediction-endpoint"></a>예측 엔드포인트 사용
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
@@ -224,7 +232,10 @@ python sample.py
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 개체 검색 프로세스의 모든 단계를 코드로 수행하는 방법을 살펴보았습니다. 이 샘플은 학습을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 학습하고 테스트해야 하는 경우가 많습니다. 다음 학습 가이드에서는 이미지 분류를 다루지만, 원칙은 개체 검색과 비슷합니다.
+이제 코드에서 개체 감지 프로세스의 모든 단계를 완료했습니다. 이 샘플은 학습을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 학습하고 테스트해야 하는 경우가 많습니다. 다음 가이드에서는 이미지 분류를 다루지만, 원칙은 개체 검색과 비슷합니다.
 
 > [!div class="nextstepaction"]
 > [모델 테스트 및 재교육](../../test-your-model.md)
+
+* Custom Vision이란?
+* [SDK 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

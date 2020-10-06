@@ -1,14 +1,14 @@
 ---
 title: Azure 관리 개요 - Azure 거버넌스
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041917"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662127"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Azure Management 영역이란?
 
@@ -18,7 +18,9 @@ Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서�
 
 다음 다이어그램에서는 애플리케이션이나 리소스를 유지 관리하는 데 필요한 관리의 다른 영역을 보여줍니다. 이러한 여러 영역을 수명 주기로 간주할 수 있습니다. 각 영역은 리소스의 수명을 계속 연속하는 데 필요 합니다. 이 리소스 수명은 초기 배포로 시작하고 연속된 작업을 거친 다음, 마지막으로 사용 중지될 때 끝납니다.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Azure의 관리 분야" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Azure의 관리 분야에 대한 다이어그램" border="false":::
+   Azure에서 관리 및 거버넌스를 지원하는 서비스 휠의 마이그레이션, 보안, 보호, 모니터링, 구성 및 관리 요소를 보여주는 다이어그램입니다. 보안에는 보안 관리 및 위협 방지가 하위 항목으로 있습니다. 보호에는 백업 및 재해 복구가 하위 항목으로 있습니다. 모니터에는 앱, 인프라 및 네트워크 모니터링, Log Analytics 및 Diagnostics가 하위 항목으로 있습니다. 구성에는 구성, 업데이트 관리, 자동화 및 스크립팅이 하위 항목으로 있습니다. 제어에는 정책 관리 및 비용 관리가 하위 항목으로 있습니다.
+:::image-end:::
 
 단일 Azure 서비스가 특정 관리 영역의 요구 사항을 완전히 충족시키지 못합니다. 대신, 각 요구 사항은 함께 작동하는 여러 서비스를 통해 실현됩니다. Application Insights와 같은 일부 서비스는 웹 애플리케이션에 대한 대상 모니터링 기능을 제공합니다. Azure Monitor 로그와 같은 다른 서비스는 기타 서비스에 대한 관리 데이터를 저장합니다. 이 기능을 사용하면 다양한 서비스에서 수집된 다양한 유형의 데이터를 분석할 수 있습니다.
 

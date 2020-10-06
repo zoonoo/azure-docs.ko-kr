@@ -1,7 +1,7 @@
 ---
 title: Bing Entity Search API란?
 titleSuffix: Azure Cognitive Services
-description: Bing Entity Search API를 사용하여 검색 쿼리에서 엔터티 및 위치를 추출하고 검색합니다.
+description: Bing Entity Search API에 대한 자세한 내용과 검색 쿼리에서 엔터티와 장소를 추출하고 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4afb20699d52ea80d7ba6cf9760a465b61cc6d6b
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: e0402b1695e1d5f5c9f29d128f4cd405f219e724
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604814"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532497"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Bing Entity Search API란?
 
 Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장소가 포함된 결과를 가져옵니다. 장소 결과에는 식당, 호텔 또는 다른 현지 회사가 포함됩니다. Bing은 쿼리에서 현지 회사의 이름을 지정하거나 비즈니스 유형(예: 주변 식당)을 요청하는 경우 장소를 반환합니다. 쿼리가 잘 알려진 사람, 장소(관광 명소, 시/도, 국가/지역 등) 또는 사물을 지정하는 경우 Bing은 엔터티를 반환합니다.
 
-|기능  |Description  |
+|기능  |설명:  |
 |---------|---------|
 |[실시간 검색 제안](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | 사용자 유형의 드롭다운 목록으로 표시할 수 있는 검색 제안을 제공합니다.       | 
 | [엔터티 명확성](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | 여러 의미로 해석이 가능한 쿼리에 대한 여러 엔터티를 가져옵니다. |

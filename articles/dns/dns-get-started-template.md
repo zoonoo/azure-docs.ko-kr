@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure DNS 영역 및 레코드 만들기 - ARM 템플릿(Azure Resource Manager 템플릿)'
+title: Azure DNS 영역 및 레코드 만들기 - ARM 템플릿(Azure Resource Manager 템플릿)
 titleSuffix: Azure DNS
 description: Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 빠른 시작입니다.
 services: dns
@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 4fd87cb17fc222f5014585e8f1e87e3f58a58574
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596411"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647886"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure DNS 영역 및 레코드 만들기
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>ARM 템플릿을 사용하여 Azure DNS 영역 및 레코드 만들기
 
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 A 레코드가 있는 DNS 영역을 만드는 방법을 설명합니다.
 
@@ -87,11 +87,11 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
 1. 리소스 그룹에는 여기에 표시된 다음 리소스가 포함되어야 합니다.
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="DNS 영역 배포 리소스 그룹":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Azure DNS 영역 Resource Manager 템플릿 PowerShell 배포 출력":::
 
 1. **<span>azurequickstart.</span>org** 접미사가 있는 DNS 영역을 선택하여 **1.2.3.4** 및 **1.2.3.5** 값을 참조하는 **A** 레코드로 영역이 올바르게 만들어졌는지 확인합니다.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS 영역 배포":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Azure DNS 영역 Resource Manager 템플릿 PowerShell 배포 출력":::
 
 1. 이전 단계에서 이름 서버 이름 중 하나를 복사합니다.
 
@@ -109,13 +109,13 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
    다음 스크린샷과 유사한 내용이 표시되어야 합니다.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS 영역 nslookup":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Azure DNS 영역 Resource Manager 템플릿 PowerShell 배포 출력":::
 
 호스트 이름 **www<span>.2lwynbseszpam.azurequickstart.</span>org**는 구성한 대로 **1.2.3.4** 및 **1.2.3.5**로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-ExpressRoute 회로로 만든 리소스가 더 이상 필요하지 않으면 리소스 그룹을 삭제합니다. 이렇게 하면 ExpressRoute 회로와 모든 관련 리소스가 제거됩니다.
+DNS 영역으로 만든 리소스가 더 이상 필요하지 않으면 리소스 그룹을 삭제합니다. 이렇게 하면 DNS 영역과 모든 관련 리소스가 제거됩니다.
 
 리소스 그룹을 삭제하려면 `Remove-AzResourceGroup` cmdlet을 호출합니다.
 

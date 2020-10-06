@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: PHP를 사용하여 텍스트 분석 API 호출'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 PHP를 사용하여 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: aahi
-ms.openlocfilehash: 4627cc83de70f596ae4917d0449f785a33bf720f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09901c514a1f2b94edc3e4108ec46051a284a6db
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261365"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527261"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: PHP를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>

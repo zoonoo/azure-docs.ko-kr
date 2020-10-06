@@ -79,6 +79,8 @@
       href: table-storage-design-modeling.md
     - name: 테이블 디자인 패턴
       href: table-storage-design-patterns.md
+    - name: Table Storage 모니터링
+      href: monitor-table-storage.md
 - name: 방법
   items:
     - name: 스토리지 계정 만들기
@@ -172,6 +174,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
 - name: 참조
   items:
+    - name: Azure Table Storage 참조 모니터링
+      href: monitor-table-storage-reference.md
     - name: 확장성 및 성능 대상
       items:
         - name: Table Storage

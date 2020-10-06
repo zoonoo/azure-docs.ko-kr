@@ -222,7 +222,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -976,6 +976,8 @@
           href: insights/vminsights-maps.md
         - name: 성능 모니터링
           href: insights/vminsights-performance.md
+        - name: 변경 내용 모니터링
+          href: insights/vminsights-change-analysis.md
         - name: 로그 쿼리를 사용하여 데이터 분석
           href: insights/vminsights-log-search.md
         - name: 통합 문서를 사용하여 데이터 시각화

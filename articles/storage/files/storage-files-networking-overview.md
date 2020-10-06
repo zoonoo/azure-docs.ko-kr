@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563338"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files 네트워킹 고려 사항 
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
 
-- SMB 또는 FileREST 프로토콜을 통해 공유에 직접 액세스합니다. 이 액세스 패턴은 최대한 많은 온-프레미스 서버를 제거할 때 주로 사용됩니다.
-- Azure File Sync를 사용하여 온-프레미스 서버(또는 Azure VM)에서 Azure 파일 공유 캐시를 만들고, 사용 사례에 원하는 프로토콜(SMB, NFS, FTPS 등)을 사용하여 온-프레미스 서버에서 파일 공유의 데이터에 액세스합니다. 이 액세스 패턴은 온-프레미스 성능 및 클라우드 규모의 연결 가능한 서버리스 서비스(예: Azure Backup) 모두를 가장 효율적으로 결합하므로 편리합니다.
+- SMB(서버 메시지 블록), NFS(네트워크 파일 시스템)(미리 보기) 또는 FileREST 프로토콜을 통해 공유에 직접 액세스합니다. 이 액세스 패턴은 최대한 많은 온-프레미스 서버를 제거할 때 주로 사용됩니다.
+- Azure 파일 동기화를 사용하여 온-프레미스 서버(또는 Azure VM)에서 Azure 파일 공유 캐시를 만들고, 사용 사례에 원하는 프로토콜(SMB, NFS, FTPS 등)을 사용하여 온-프레미스 서버에서 파일 공유의 데이터에 액세스합니다. 이 액세스 패턴은 온-프레미스 성능 및 클라우드 규모의 연결 가능한 서버리스 서비스(예: Azure Backup) 모두를 가장 효율적으로 결합하므로 편리합니다.
 
 이 문서에서는 사용 사례에서 Azure 파일 동기화를 사용하지 않고 Azure 파일 공유에 직접 액세스하도록 호출하는 경우에 네트워킹을 구성하는 방법에 대해 중점적으로 설명합니다. Azure File Sync 배포의 네트워킹 고려 사항에 대한 자세한 내용은 [Azure File Sync 네트워킹 고려 사항](storage-sync-files-networking-overview.md)을 참조하세요.
 
@@ -29,17 +29,17 @@ Azure 파일 공유에 대한 네트워킹 구성은 Azure 스토리지 계정�
 ## <a name="accessing-your-azure-file-shares"></a>Azure 파일 공유에 액세스
 Azure 파일 공유를 스토리지 계정 내에 배포하면 스토리지 계정의 퍼블릭 엔드포인트를 통해 파일 공유에 즉시 액세스할 수 있습니다. 즉, 사용자의 로그온 ID로 권한이 부여된 요청과 같은 인증된 요청이 Azure 내부 또는 외부에서 안전하게 시작될 수 있습니다. 
 
-대부분의 고객 환경에서 Azure VM에서의 탑재가 성공하더라도 온-프레미스 워크스테이션에서 Azure 파일 공유의 초기 탑재가 실패합니다. 이는 많은 조직 및 ISP(인터넷 서비스 공급자)에서 SMB를 통해 통신하는 포트인 445 포트를 차단하기 때문입니다. 이 방법은 SMB 프로토콜의 레거시 버전과 더 이상 사용되지 않는 버전에 대한 보안 지침에서 제공됩니다. SMB 3.0은 인터넷 안전 프로토콜이지만 이전 버전의 SMB, 특히 SMB 1.0은 그렇지 않습니다. Azure 파일 공유는 퍼블릭 엔드포인트의 SMB 3.0 및 FileREST 프로토콜(인터넷 안전 프로토콜이기도 함)을 통해서만 외부에서 액세스할 수 있습니다.
+대부분의 고객 환경에서 Azure VM에서의 탑재가 성공하더라도 온-프레미스 워크스테이션에서 Azure 파일 공유의 초기 탑재가 실패합니다. 이는 많은 조직 및 ISP(인터넷 서비스 공급자)에서 SMB를 통해 통신하는 포트인 445 포트를 차단하기 때문입니다. NFS 공유에는 이 문제가 없습니다. 이 방법은 SMB 프로토콜의 레거시 버전과 더 이상 사용되지 않는 버전에 대한 보안 지침에서 제공됩니다. SMB 3.0은 인터넷 안전 프로토콜이지만 이전 버전의 SMB, 특히 SMB 1.0은 그렇지 않습니다. Azure 파일 공유는 퍼블릭 엔드포인트의 SMB 3.0 및 FileREST 프로토콜(인터넷 안전 프로토콜이기도 함)을 통해서만 외부에서 액세스할 수 있습니다.
 
-온-프레미스에서 Azure 파일 공유에 액세스하는 가장 쉬운 방법은 온-프레미스 네트워크를 445 포트로 여는 것이므로 다음 단계를 수행하여 사용자 환경에서 SMB 1.0을 제거하는 것이 좋습니다.
+온-프레미스에서 Azure SMB 파일 공유에 액세스하는 가장 쉬운 방법은 온-프레미스 네트워크를 445 포트로 여는 것이므로 다음 단계를 수행하여 사용자 환경에서 SMB 1.0을 제거하는 것이 좋습니다.
 
 1. 조직의 디바이스에서 SMB 1.0을 제거하거나 사용하지 않도록 설정해야 합니다. 현재 지원되는 모든 버전의 Windows 및 Windows Server는 SMB 1.0을 제거하거나 사용하지 않도록 설정하는 것을 지원하며, Windows 10 버전 1709부터는 기본적으로 SMB 1.0이 Windows에 설치되지 않습니다. SMB 1.0을 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 다음 OS 관련 페이지를 참조하세요.
     - [Windows/Windows Server 보안](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Linux 보안](storage-how-to-use-files-linux.md#securing-linux)
-2. 조직 내에 SMB 1.0이 필요한 제품이 없는지 확인하고 해당 제품을 제거합니다. Microsoft는 SMB 1.0이 필요한 것으로 Microsoft에 알려진 자사 및 타사 제품이 모두 포함된 [SMB1 클리어링 하우스](https://aka.ms/stillneedssmb1)를 유지 관리합니다. 
-3. (선택 사항) 조직의 온-프레미스 네트워크에서 타사 방화벽을 사용하여 SMB 1.0 트래픽이 조직 경계를 벗어나지 않도록 방지합니다.
+1. 조직 내에 SMB 1.0이 필요한 제품이 없는지 확인하고 해당 제품을 제거합니다. Microsoft는 SMB 1.0이 필요한 것으로 Microsoft에 알려진 자사 및 타사 제품이 모두 포함된 [SMB1 클리어링 하우스](https://aka.ms/stillneedssmb1)를 유지 관리합니다. 
+1. (선택 사항) 조직의 온-프레미스 네트워크에서 타사 방화벽을 사용하여 SMB 1.0 트래픽이 조직 경계를 벗어나지 않도록 방지합니다.
 
-조직에서 정책 또는 규정에 따라 445 포트를 차단해야 하거나 결정적 경로를 따르기 위해 Azure로의 트래픽이 필요한 경우 Azure VPN Gateway 또는 ExpressRoute를 사용하여 트래픽을 Azure 파일 공유로 터널링할 수 있습니다.
+조직에서 정책 또는 규정에 따라 445 포트를 차단해야 하거나 결정적 경로를 따르기 위해 Azure로의 트래픽이 필요한 경우 Azure VPN Gateway 또는 ExpressRoute를 사용하여 트래픽을 Azure 파일 공유로 터널링할 수 있습니다. NFS 공유에는 포트 445가 필요하지 않으므로 이 중 어떤 것도 필요하지 않습니다.
 
 > [!Important]  
 > 대체 방법을 사용하여 Azure 파일 공유에 액세스하도록 결정하는 경우에도 사용자 환경에서 SMB 1.0을 제거하는 것이 좋습니다.
@@ -47,9 +47,9 @@ Azure 파일 공유를 스토리지 계정 내에 배포하면 스토리지 계�
 ### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>가상 개인 네트워크 또는 ExpressRoute를 통해 트래픽 터널링
 온-프레미스 네트워크와 Azure 간에 네트워크 터널을 설정하는 경우 온-프레미스 네트워크를 Azure에 있는 하나 이상의 가상 네트워크와 피어링합니다. [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 또는 VNet은 온-프레미스에서 작동하는 기존 네트워크와 비슷합니다. Azure 스토리지 계정 또는 Azure VM과 마찬가지로 VNet은 리소스 그룹에 배포된 Azure 리소스입니다. 
 
-Azure Files에서 지원하는 온-프레미스 워크스테이션/서버 및 Azure 간의 트래픽을 터널링하는 메커니즘은 다음과 같습니다.
+Azure Files에서 지원하는 온-프레미스 워크스테이션/서버와 Azure SMB/NFS 파일 공유 간의 트래픽을 터널링하는 메커니즘은 다음과 같습니다.
 
-- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): VPN Gateway는 인터넷을 통해 Azure 가상 네트워크와 대체 위치(예: 온-프레미스) 간에 암호화된 트래픽을 보내는 데 사용되는 특정 유형의 가상 네트워크 게이트웨이입니다. Azure VPN Gateway는 스토리지 계정 또는 다른 Azure 리소스와 함께 리소스 그룹에 배포할 수 있는 Azure 리소스입니다. VPN 게이트웨이는 다음 두 가지 유형의 연결을 공개합니다.
+- VPN Gateway는 인터넷을 통해 Azure 가상 네트워크와 대체 위치(예: 온-프레미스) 간에 암호화된 트래픽을 보내는 데 사용되는 특정 유형의 가상 네트워크 게이트웨이입니다. Azure VPN Gateway는 스토리지 계정 또는 다른 Azure 리소스와 함께 리소스 그룹에 배포할 수 있는 Azure 리소스입니다. VPN 게이트웨이는 다음 두 가지 유형의 연결을 공개합니다.
     - [P2S(지점 및 사이트 간) VPN](../../vpn-gateway/point-to-site-about.md) 게이트웨이 연결 - Azure와 개별 클라이언트 간의 VPN 연결입니다. 이 솔루션은 이동 중에 집, 커피숍 또는 호텔에서 Azure 파일 공유를 탑재할 수 있도록 하려는 재택 근무자와 같이 조직의 온-프레미스 네트워크에 속하지 않은 디바이스에 주로 유용합니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. P2S VPN 연결의 배포를 간소화하려면 [Azure Files에서 사용하도록 Windows에서 P2S(지점 및 사이트 간) VPN 구성](storage-files-configure-p2s-vpn-windows.md) 및 [Azure Files에서 사용하도록 Linux에서 P2S(지점 및 사이트 간) VPN 구성](storage-files-configure-p2s-vpn-linux.md)을 참조하세요.
     - [S2S(사이트 간) VPN](../../vpn-gateway/design.md#s2smulti) - Azure와 조직의 네트워크 간의 VPN 연결입니다. S2S VPN 연결을 사용하면 VPN 연결을 Azure 파일 공유에 액세스해야 하는 모든 클라이언트 디바이스에 대해 구성하는 것이 아니라 조직의 네트워크에서 호스팅되는 VPN 서버 또는 디바이스에 대해 한 번만 구성할 수 있습니다. S2S VPN 연결의 배포를 간소화하려면 [Azure Files에서 사용하도록 S2S(사이트 간) VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
 - [ExpressRoute](../../expressroute/expressroute-introduction.md) - 이를 사용하면 인터넷을 트래버스하지 않는 온-프레미스 네트워크와 Azure 간에 정의된 경로를 만들 수 있습니다. ExpressRoute는 온-프레미스 데이터 센터와 Azure 간의 전용 경로를 제공하므로 네트워크 성능을 고려할 때 ExpressRoute가 유용할 수 있습니다. ExpressRoute는 조직의 정책 또는 규정 요구 사항에서 클라우드의 리소스에 대한 결정적 경로가 필요한 경우에도 유용한 옵션입니다.
@@ -139,9 +139,16 @@ IP4Address : 52.239.194.40
 - 스토리지 계정에 대한 하나 이상의 프라이빗 엔드포인트를 만들고, 모든 액세스를 퍼블릭 엔드포인트로 제한합니다. 이렇게 하면 원하는 가상 네트워크 내에서 시작된 트래픽만 스토리지 계정 내의 Azure 파일 공유에 액세스할 수 있습니다.
 - 퍼블릭 엔드포인트를 하나 이상의 가상 네트워크로 제한합니다. 이는 *서비스 엔드포인트*라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 엔드포인트를 통해 스토리지 계정으로의 트래픽을 제한하는 경우에도 공용 IP 주소를 통해 스토리지 계정에 액세스하게 됩니다.
 
+> [!NOTE]
+> NFS 공유는 공용 IP 주소를 통해 스토리지 계정의 퍼블릭 엔드포인트에 액세스할 수 없으며 가상 네트워크를 사용하여 스토리지 계정의 퍼블릭 엔드포인트에만 액세스할 수 있습니다. NFS 공유는 프라이빗 엔드포인트를 사용하여 스토리지 계정에 액세스할 수도 있습니다.
+
 스토리지 계정 방화벽을 구성하는 방법에 대한 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
+
+> [!IMPORTANT]
+> 이 섹션에서는 SMB 공유에 대한 전송 중 암호화 세부 정보에 대해 설명합니다. NFS 공유를 통한 전송 중 암호화에 대한 자세한 내용은 [보안](storage-files-compare-protocols.md#security)을 참조하세요.
+
 기본적으로 모든 Azure 스토리지 계정은 전송 중 암호화를 사용하도록 설정되어 있습니다. 즉, SMB를 통해 파일 공유를 탑재하거나 FileREST 프로토콜(예: Azure Portal, PowerShell/CLI 또는 Azure SDK)을 통해 액세스할 때 Azure Files는 암호화 또는 HTTPS를 사용하는 SMB 3.0 이상을 통해 만든 연결만 허용합니다. SMB 3.0을 지원하지 않는 클라이언트 또는 SMB 3.0을 지원하지만 SMB 암호화를 지원하지 않는 클라이언트는 전송 중 암호화를 사용하도록 설정된 경우 Azure 파일 공유를 탑재할 수 없습니다. 암호화를 통해 SMB 3.0을 지원하는 운영 체제에 대한 자세한 내용은 자세한 [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) 및 [Linux](storage-how-to-use-files-linux.md)용 설명서를 참조하세요. 모든 현재 버전의 PowerShell, CLI 및 SDK는 HTTPS를 지원합니다.  
 
 Azure 스토리지 계정에 대해 전송 중 암호화를 사용하지 않도록 설정할 수 있습니다. 또한 암호화를 사용하지 않도록 설정되면 Azure Files에서 SMB 2.1, 암호화되지 않은 SMB 3.0 및 HTTP를 통한 암호화되지 않은 FileREST API 호출을 허용합니다. 전송 중 암호화를 사용하지 않도록 설정하는 주된 이유는 Windows Server 2008 R2 또는 이전 버전의 Linux 배포와 같은 이전 운영 체제에서 실행되어야 하는 레거시 애플리케이션을 지원하기 위해서입니다. Azure Files는 Azure 파일 공유와 동일한 Azure 지역 내에서만 SMB 2.1 연결을 허용합니다. Azure 파일 공유의 Azure 지역 외부(예: 온-프레미스 또는 다른 Azure 지역)에 있는 SMB 2.1 클라이언트는 파일 공유에 액세스할 수 없습니다.

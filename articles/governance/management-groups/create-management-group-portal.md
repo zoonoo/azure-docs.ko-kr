@@ -1,14 +1,14 @@
 ---
-title: '빠른 시작: 포털을 사용하여 관리 그룹 만들기'
+title: 포털을 사용하여 관리 그룹 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 08/31/2020
 ms.topic: quickstart
-ms.openlocfilehash: 28b530e1da6b75dcc20e4a5dfebc494a959040b3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237094"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661745"
 ---
 # <a name="quickstart-create-a-management-group"></a>빠른 시작: 관리 그룹 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "89237094"
 
 디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다. 자세한 내용은 [관리 그룹의 초기 설정](./overview.md#initial-setup-of-management-groups)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -32,14 +32,14 @@ ms.locfileid: "89237094"
 
 1. **+ 관리 그룹 추가**를 선택합니다.
 
-   :::image type="content" source="./media/main.png" alt-text="관리 그룹 사용을 위한 페이지" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷" border="false":::
 
 1. **새로 만들기**를 선택한 상태로 두고 관리 그룹 ID 필드를 입력합니다.
 
    - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에는 편집할 수 없습니다. [루트 관리 그룹](./overview.md#root-management-group-for-each-directory)은 Azure Active Directory ID인 ID를 사용하여 자동으로 생성됩니다. 다른 모든 관리 그룹의 경우 고유 ID를 할당합니다.
    - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="새 관리 그룹을 만들기 위한 옵션 창":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷":::
 
 1. **저장**을 선택합니다.
 
@@ -61,4 +61,4 @@ ms.locfileid: "89237094"
 관리 그룹 및 리소스 계층 구조를 관리하는 방법에 대해 자세히 알아보려면 다음을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [관리 그룹으로 리소스 관리](./manage.md)
+> 관리 그룹으로 리소스 관리

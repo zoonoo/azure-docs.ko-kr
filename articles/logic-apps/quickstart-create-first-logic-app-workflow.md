@@ -7,20 +7,20 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/23/2020
-ms.openlocfilehash: 980e3e036257bbf5aa9743025bbfb55065176a39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c40bec80d9f61cf46221cbfe7dde80f3a7b46f6f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133302"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658307"
 ---
-# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화 통합 워크플로 만들기 - Azure Portal
+# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Azure Logic Apps를 사용하여 첫 번째 자동화 통합 워크플로 만들기 - Azure Portal
 
 이 빠른 시작에서는 [Azure Logic Apps](logic-apps-overview.md)를 사용하여 첫 번째 워크플로를 빌드하는 방법 외의 기본적인 일반 개념(예: 빈 논리 앱 만들기, 트리거와 작업 추가, 논리 앱 테스트 등)을 소개합니다. 이 빠른 시작에서는 새 항목에 대한 웹 사이트의 RSS 피드를 주기적으로 확인하는 논리 앱을 빌드합니다. 새 항목이 있으면 논리 앱에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
 
 ![개략적인 논리 앱 워크플로 예제를 보여주는 개념도입니다.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-이 시나리오의 경우 Azure 구독 또는 Office 365 Outlook, Outlook.com 또는 Gmail과 같이 Azure Logic Apps에서 지원되는 서비스의 이메일 계정인 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다. 지원되는 메일 서비스는 [여기의 커넥터 목록을 검토하세요](/connectors/). 이 예제에서 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 메일 서비스를 사용하는 경우 전체적인 일반 단계는 동일하지만 사용자 인터페이스는 약간 다를 수 있습니다.
+이 시나리오의 경우 Azure 구독 또는 Office 365 Outlook, Outlook.com 또는 Gmail과 같이 Azure Logic Apps에서 지원되는 서비스의 이메일 계정인 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다. 지원되는 메일 서비스는 [여기의 커넥터 목록을 검토하세요](/connectors/). 이 예제에서 논리 앱은 회사 또는 학교 계정을 사용합니다. 다른 메일 서비스를 사용하는 경우 전체적인 일반 단계는 동일하지만 사용자 인터페이스는 약간 다를 수 있습니다.
 
 > [!IMPORTANT]
 > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
@@ -41,10 +41,10 @@ ms.locfileid: "87133302"
 
    ![새 논리 앱에 대한 세부 정보가 포함된 논리 앱 만들기 창을 보여주는 스크린샷](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | 속성 | 값 | 설명 |
+   | 속성입니다. | 값 | Description |
    |----------|-------|-------------|
-   | **이름** | <*logic-app-name*> | 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱의 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
-   | **구독** | <*Azure-subscription-name*> | Azure 구독 이름 |
+   | 이름 - ** | <*logic-app-name*> | 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱의 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
+   | **구독**: | <*Azure-subscription-name*> | Azure 구독 이름 |
    | **리소스 그룹** | <*Azure-resource-group-name*> | 모든 Azure 지역에서 고유해야 하고 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
    | **위치** | <*Azure-region*> | 논리 앱 정보를 저장할 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "87133302"
 
    ![RSS URL, 빈도 및 간격을 비롯한 RSS 트리거 설정이 있는 Logic Apps 디자이너를 보여주는 스크린샷](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | 속성 | 값 | Description |
+   | 속성입니다. | 값 | 설명: |
    |----------|-------|-------------|
    | **RSS 피드 URL** | <*RSS-feed-URL*> | 모니터링하려는 RSS 피드에 대한 링크입니다. 이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 제공되는 월 스트리트 저널의 RSS 피드를 사용하지만, 원한다면 자체 RSS 피드 URL을 사용해도 됩니다. |
    | **간격** | 1 | 검사 간에 대기하는 간격의 수 |
@@ -148,13 +148,13 @@ ms.locfileid: "87133302"
 
       !["이메일 보내기" 작업과 "피드 제목" 속성이 포함된 예제 이메일 제목을 표시하는 Logic Apps 디자이너를 보여주는 스크린샷](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      디자이너에 "For each" 루프가 나타나면 배열에 대한 토큰을 선택한 것입니다(예: **categories-Item** 토큰). 이러한 종류의 토큰에 대해 디자이너는 해당 토큰을 참조하는 작업 주변에 이 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에 대해 동일한 작업을 수행합니다. 루프를 제거하려면 루프의 제목 표시줄에서 **줄임표**( **...** )를 선택한 다음, **삭제**를 선택합니다.
+      디자이너에 "For each" 루프가 나타나면 배열에 대한 토큰을 선택한 것입니다(예: **categories-Item** 토큰). 이러한 종류의 토큰에 대해 디자이너는 해당 토큰을 참조하는 작업 주변에 이 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에 대해 동일한 작업을 수행합니다. 루프를 제거하려면 루프의 제목 표시줄에서 **줄임표**(**...**)를 선택한 다음, **삭제**를 선택합니다.
 
    1. **본문** 상자에서 이 텍스트를 입력하고, 이메일 본문에 대해 다음 토큰을 선택합니다. 편집 상자에서 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다.
 
       !["본문" 상자 안에 "이메일 보내기" 작업과 선택한 속성이 있는 Logic Apps 디자이너를 보여주는 스크린샷](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
-      | 속성 | Description |
+      | 속성입니다. | 설명: |
       |----------|-------------|
       | **피드 제목** | 항목의 제목 |
       | **다음에 게시된 피드** | 항목의 게시 날짜 및 시간 |

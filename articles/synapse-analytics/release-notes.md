@@ -1,30 +1,28 @@
 ---
-title: '릴리스 정보: Azure Synapse Analytics(작업 영역)'
-description: Azure Synapse Analytics(작업 영역)에 대한 릴리스 정보
+title: '릴리스 정보: Azure Synapse Analytics(작업 영역 미리 보기)'
+description: Azure Synapse Analytics(작업 영역 미리 보기)에 대한 릴리스 정보
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: add5c89e83f33980803bf571239023859653c4f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2050bf671af35df4faec8b0b1d53f4c10a9075e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059610"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031673"
 ---
-# <a name="azure-synapse-analytics-preview-release-notes"></a>Azure Synapse Analytics(미리 보기) 릴리스 정보
+# <a name="azure-synapse-analytics-workspaces-preview-release-notes"></a>Azure Synapse Analytics(작업 영역 미리 보기) 릴리스 정보
 
 이 문서에서는 Azure Synapse Analytics(작업 영역)의 제한 사항 및 문제에 대해 설명합니다. 관련 정보는 [Azure Synapse Analytics(작업 영역)란?](overview-what-is.md)을 참조하세요.
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-## <a name="azure-synapse-workspaces"></a>Azure Synapse(작업 영역) 
-
-### <a name="azure-synapse-cli"></a>Azure Synapse CLI
+## <a name="azure-cli"></a>Azure CLI
 
 - 문제 및 고객에게 미치는 영향: SDK에서 만든 작업 영역은 Synapse Studio를 시작할 수 없습니다.
 
@@ -36,8 +34,6 @@ ms.locfileid: "87059610"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [작업 영역 만들기](quickstart-create-workspace.md)
-* [Synapse Studio 사용](quickstart-synapse-studio.md)
-* [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
-* [SQL 주문형 사용](quickstart-sql-on-demand.md)
-* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)
+* [Azure Synapse란?](overview-what-is.md)
+* [시작](get-started.md)
+* [FAQ](overview-faq.md)

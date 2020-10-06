@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213727"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054401"
 ---
-# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 Microsoft 365 그룹이 만료되도록 설정
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹이 만료되도록 설정
 
 이 빠른 시작에서는 Microsoft 365 그룹에 대한 만료 정책을 설정합니다. 사용자가 자신의 그룹을 설정할 수 있는 경우 사용되지 않는 그룹이 증가할 수 있습니다. 사용되지 않은 그룹을 관리하는 한 가지 방법은 그룹이 만료되도록 설정하는 것입니다. 그러면 수동으로 그룹을 삭제해야 하는 유지 관리의 번거로움을 줄일 수 있습니다.
 
@@ -33,9 +33,9 @@ ms.locfileid: "88213727"
 - 삭제된 Microsoft 365 그룹은 30일 내에 그룹 소유자 또는 Azure AD 관리자가 복원할 수 있습니다.
 
 > [!NOTE]
-> 이제 그룹은 Azure AD 인텔리전스를 사용하여 최근에 사용되었는지 여부에 따라 자동으로 갱신됩니다. 이러한 갱신 결정은 Outlook, SharePoint, Teams, Yammer 등의 Office 365 서비스에 있는 그룹의 사용자 활동을 기준으로 합니다.
+> 이제 그룹은 Azure AD 인텔리전스를 사용하여 최근에 사용되었는지 여부에 따라 자동으로 갱신됩니다. 이러한 갱신 결정은 Outlook, SharePoint, Teams, Yammer 등의 Microsoft 365 서비스에 있는 그룹의 사용자 활동을 기준으로 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisite"></a>필수 요소
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660685"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669258"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -21,10 +21,10 @@ ms.locfileid: "88660685"
 
 Durable Functions는 현재 다음 언어를 지원합니다.
 
-* **C#** : [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
+* **C#**: [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
 * **JavaScript**: Azure Functions 런타임 버전 2.x에서만 지원됩니다. Durable Functions 확장 버전 1.7.0 이상이 필요합니다. 
-* **Python**: Durable Functions 확장 버전 1.8.5 이상이 필요합니다. 
-* **F#** : 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
+* **Python**: Durable Functions 확장 버전 1.8.5 이상이 필요합니다. Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다.
+* **F#**: 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
 * **PowerShell**: Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다. Azure Functions 런타임 및 PowerShell 7 버전 3.x에서만 지원됩니다. Durable Functions 확장 버전 2.2.2 또는 이후 버전이 필요합니다. 현재 지원되는 패턴은 다음과 같습니다. [함수 체이닝](#chaining), [팬아웃/팬인](#fan-in-out), [비동기 HTTP API](#async-http).
 
 Durable Functions는 모든 [Azure Functions 언어](../supported-languages.md)를 지원하는 것을 목표로 합니다. 추가 언어를 지원하기 위한 최신 작업 상태는 [Durable Functions 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)를 참조하세요.
@@ -42,7 +42,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 * [사용자 개입](#human)
 * [집계(상태 저장 엔터티)](#aggregator)
 
-### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>패턴 #1: 함수 체이닝
+### <a name="pattern-1-function-chaining"></a>패턴 #1: 함수 체이닝
 
 함수 체이닝 패턴에서는 일련의 함수가 특정 순서로 실행됩니다. 이 패턴에서 한 함수의 출력은 다른 함수의 입력에 적용됩니다.
 
@@ -52,7 +52,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 
 이 예제에서 `F1`, `F2`, `F3` 및 `F4` 값은 동일한 함수 앱에 있는 다른 함수의 이름입니다. 일반적인 명령적 코딩 구문을 사용하여 제어 흐름을 구현할 수 있습니다. 코드는 위에서 아래로 실행됩니다. 코드에는 조건부 및 루프와 같은 기존 언어 제어 흐름 의미 체계가 포함될 수 있습니다. `try`/`catch`/`finally` 블록에는 오류 처리 논리가 포함될 수 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("Chaining")]
@@ -135,7 +135,7 @@ Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
 
 ---
 
-### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>패턴 #2: 팬아웃/팬인
+### <a name="pattern-2-fan-outfan-in"></a>패턴 #2: 팬아웃/팬인
 
 팬아웃/팬인 패턴에서는 여러 함수를 병렬로 실행한 다음, 모든 함수가 완료될 때까지 기다립니다. 일부 집계 작업은 함수에서 반환된 결과에 대해 수행되는 경우가 많습니다.
 
@@ -145,7 +145,7 @@ Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
 
 Durable Functions 확장에서는 비교적 간단한 코드를 사용하여 이 패턴을 처리합니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -255,7 +255,7 @@ Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
 > [!NOTE]
 > 드문 경우이지만 활동 함수가 완료된 후 해당 완료가 오케스트레이션 기록에 저장되기 전에 창에서 충돌이 발생할 수 있습니다. 이 경우 프로세스가 복구되면 활동 함수가 처음부터 다시 실행됩니다.
 
-### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>패턴 #3: 비동기 HTTP API
+### <a name="pattern-3-async-http-apis"></a>패턴 #3: 비동기 HTTP API
 
 비동기 HTTP API 패턴은 외부 클라이언트와 장기 실행 작업의 상태를 조정하는 문제를 해결합니다. 이 패턴을 구현하는 일반적인 방법은 HTTP 엔드포인트에서 장기 실행 작업을 트리거하도록 하는 것입니다. 그런 다음, 클라이언트를 클라이언트에서 폴링하는 상태 엔드포인트로 리디렉션하여 작업이 완료된 시점을 알아봅니다.
 
@@ -306,7 +306,7 @@ Durable Functions 확장은 장기 실행 오케스트레이션을 관리하는 
 
 다음 코드에서는 기본 모니터를 구현합니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -403,7 +403,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 요청을 받으면 해당 작업 ID에 대해 새 오케스트레이션 인스턴스가 만들어집니다. 조건이 충족되고 루프가 종료될 때까지 인스턴스는 상태를 폴링합니다. 지속성 타이머는 폴링 간격을 제어합니다. 그런 다음, 더 많은 작업을 수행하거나 오케스트레이션을 종료할 수 있습니다. `nextCheck`가 `expiryTime`을 초과하면 모니터가 종료됩니다.
 
-### <a name="pattern-5-human-interaction"></a><a name="human"></a>패턴 #5: 사용자 개입
+### <a name="pattern-5-human-interaction"></a>패턴 #5: 인간 상호 작용
 
 자동화된 많은 프로세스에는 일종의 사용자 개입이 포함됩니다. 사용자는 클라우드 서비스만큼 가용성과 응답성이 높지 않으므로 자동화된 프로세스에 사람을 참여시키는 것은 까다로운 작업입니다. 자동화된 프로세스에서는 시간 제한 및 보정 논리를 사용하여 이 상호 작용을 허용할 수 있습니다.
 
@@ -415,7 +415,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 다음 예제에서는 사용자 개입 패턴을 보여 주는 승인 프로세스를 만듭니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -511,7 +511,7 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 동일한 함수 앱의 다른 함수에서 지속성 오케스트레이션 클라이언트를 사용하여 이벤트를 발생시킬 수도 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -564,7 +564,7 @@ async def main(client: str):
 
 [지속성 엔터티](durable-functions-entities.md)를 사용하여 이 패턴을 단일 함수로 쉽게 구현할 수 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("Counter")]
@@ -641,7 +641,7 @@ module.exports = df.entity(function(context) {
 
 클라이언트는 [엔터티 클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하여 엔터티 함수에 대한 *작업*("신호 보내기"라고도 함)을 큐에 넣을 수 있습니다.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>C.[
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]

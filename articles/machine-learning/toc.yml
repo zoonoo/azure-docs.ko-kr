@@ -235,17 +235,23 @@
         - name: Resource Manager 템플릿 사용
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: 컴퓨팅 리소스 만들기
+    - name: 컴퓨팅 리소스 만들기 및 관리
       items:
-        - name: Studio 사용
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-studio.md
-        - name: Python SDK 사용
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-sdk.md
+        - name: 컴퓨팅 인스턴스
+          displayName: compute target
+          href: how-to-create-manage-compute-instance.md
+        - name: 컴퓨팅 클러스터
+          displayName: 'compute target, low priority, managed identity'
+          href: how-to-create-attach-compute-cluster.md
         - name: Azure Kubernetes Service
           displayName: 'AKS, inference'
           href: how-to-create-attach-kubernetes.md
+        - name: 직접 연결
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-attach-compute-targets.md
+        - name: Studio 사용
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity'
+          href: how-to-create-attach-compute-studio.md
     - name: 환경 설정
       items:
         - name: 개발 환경 설정

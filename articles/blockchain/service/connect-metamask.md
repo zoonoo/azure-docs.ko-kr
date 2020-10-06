@@ -4,14 +4,14 @@ description: MetaMask를 사용하여 Azure Blockchain Service 네트워크에 �
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920584"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530440"
 ---
-# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>빠른 시작: MetaMask를 사용하여 스마트 계약 연결 및 배포
+# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>MetaMask를 사용하여 스마트 계약 연결 및 배포
 
 이 빠른 시작에서는 MetaMask를 사용하여 Azure Blockchain Service 네트워크에 연결하고, Remix를 사용하여 스마트 계약을 배포합니다. Metamask는 Ether 지갑을 관리하고 스마트 계약 작업을 수행하는 브라우저 확장입니다.
 
@@ -89,7 +89,7 @@ Remix는 브라우저 기반 Solidity 개발 환경입니다. MetaMask와 Remix�
     **simple 계약**은 **balance**라는 상태 변수를 선언합니다. 두 함수가 정의되어 있습니다. **add** 함수는 숫자를 **balance**에 추가합니다. **get** 함수는 **balance**의 값을 반환합니다.
 1. 계약을 컴파일하려면 먼저 Solidity 컴파일러 창을 선택한 다음, **simple.sol 컴파일**을 선택합니다.
 
-    ![컴파일](./media/connect-metamask/compile.png)
+    ![화면 캡처는 컴파일되는 계약을 보여줍니다.](./media/connect-metamask/compile.png)
 
 1. **배포 및 실행** 창을 선택한 다음, **환경**을 **삽입된 Web3**로 설정하여 MetaMask를 통해 블록체인 멤버에 연결합니다.
 
@@ -97,7 +97,7 @@ Remix는 브라우저 기반 Solidity 개발 환경입니다. MetaMask와 Remix�
 
 1. **simple** 계약, **배포**를 차례로 선택합니다.
 
-    ![배포](./media/connect-metamask/deploy.png)
+    ![화면 캡처는 계약을 선택하고 배포를 선택한 상태에서 배포 및 실행 트랜잭션을 보여줍니다.](./media/connect-metamask/deploy.png)
 
 
 1. MetaMask 알림은 트랜잭션을 수행할 자금이 부족하다고 알려줍니다.

@@ -3,14 +3,14 @@ title: '빠른 시작: 포털에서 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure Portal을 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bb9aeb4d4b96227f7bf7296854c56df4058fbe69
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051525"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648659"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>포털에서 청사진 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 정의할 수 있습니다. 이 자습서에서는 Azure Blueprints를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 일반적인 작업을 수행하는 방법을 알아봅니다. 이러한 태스크는 다음과 같습니다.
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    또는 **시작** 페이지에서 **만들기**를 선택하여 청사진 만들기로 즉시 이동할 수도 있습니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="청사진 정의 페이지에서 청사진 만들기" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
 1. 기본 제공 청사진 목록의 맨 위에 있는 카드에서 **빈 청사진으로 시작**을 선택합니다.
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md) 또는 구독을 선택한 후에 **선택**을 선택합니다.
 
-1. 정보가 올바른지 확인합니다. **청사진 이름** 및 **정의 위치** 필드는 나중에 변경할 수 없습니다. 그런 다음, 페이지 아래쪽의 **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
+1. 정보가 올바른지 확인합니다. **청사진 이름** 및 **정의 위치** 필드는 나중에 변경할 수 없습니다. 페이지 아래쪽의 **다음: 아티팩트** 또는 지 위쪽의 **아티팩트** 탭을 클릭합니다.
 
 1. 구독 수준에서 역할 할당 추가:
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="청사진 아티팩트에 대한 역할 할당" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
    > [!NOTE]
    > 대부분의 아티팩트는 매개 변수를 지원합니다. 청사진 생성 중에 값이 할당되는 매개 변수는 _정적 매개 변수_입니다. 청사진 할당 중에 할당되는 매개 변수는 _동적 매개 변수_입니다. 자세한 내용은 [청사진 매개 변수](./concepts/parameters.md)를 참조하세요.
@@ -143,11 +143,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="청사진 아티팩트에 대한 Resource Manager 템플릿" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
-1. 완성된 청사진은 다음과 같이 표시됩니다. 각 아티팩트의 **매개 변수** 열에는 매개 변수 _y_개 중 _x_개**가** 채워졌습니다. 동적 매개 변수는 청사진의 각 할당 중 설정됩니다.
+1. 완성된 청사진은 다음과 같이 표시됩니다. 각 아티팩트의 **매개 변수** 열에는 매개 변수 _y_개 중 _x_개**가 **채워졌습니다. 동적 매개 변수는 청사진의 각 할당 중 설정됩니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="완성된 청사진 정의" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
 1. 계획한 아티팩트를 모두 추가했으므로 페이지 아래쪽의 **초안 저장**을 선택합니다.
 
@@ -159,9 +159,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 목록에서 이전에 만든 청사진을 마우스 오른쪽 단추로 클릭하고 **청사진 편집**을 선택합니다.
 
-1. **청사진 설명**에 청사진과 해당 청사진을 구성하는 아티팩트에 대한 정보를 입력합니다. 여기서는 **이 청사진은 구독에서 태그 정책 및 역할 할당을 설정하고, ResourceGroup을 만들고, 해당 ResourceGroup에 리소스 템플릿 및 역할 할당을 배포합니다.** 와 같은 설명을 입력합니다.
+1. **청사진 설명**에 청사진과 해당 청사진을 구성하는 아티팩트에 대한 정보를 입력합니다. 여기서는 “이 청사진은 구독에서 태그 정책 및 역할 할당을 설정하고, ResourceGroup을 만들고, 해당 ResourceGroup에 리소스 템플릿 및 역할 할당을 배포합니다.”와 같은 설명을 입력합니다.
 
-1. **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
+1. 페이지 아래쪽의 **다음: 아티팩트** 또는 지 위쪽의 **아티팩트** 탭을 클릭합니다.
 
 1. 리소스 그룹 아래에 역할 할당 추가:
 
@@ -175,11 +175,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="청사진 아티팩트에 대한 두 번째 역할 할당" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
 1. 완성된 청사진은 다음과 같이 표시됩니다. 새로 추가한 역할 할당에 **매개 변수 1개 중 1개를 입력했습니다.** 가 표시됩니다. 즉, 이는 정적 매개 변수입니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="완료된 청사진에 대한 두 번째 정의" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
 1. 청사진이 업데이트되었으므로 **초안 저장**을 선택합니다.
 
@@ -218,7 +218,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. 페이지의 맨 아래에서 **만들기**를 선택합니다.
 
-      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="청사진 할당 구독에 대한 구독 만들기" border="false":::
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
       > [!IMPORTANT]
       > **만들기**를 선택하면 새 구독이 즉시 생성됩니다.
@@ -234,11 +234,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **잠금 할당**에서는 기본값인 **잠그지 않음**을 유지합니다. 자세한 내용은 [청사진 리소스 잠금](./concepts/resource-locking.md)을 참조하세요.
 
-   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="할당에 대한 잠금 및 관리 ID" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
 1. **관리 ID**에서 **시스템 할당 항목**의 기본값을 유지합니다.
 
-1. 구독 수준 역할 할당 **[사용자 그룹 또는 애플리케이션 이름]: 기여자**의 경우 사용자, 앱 또는 그룹을 검색하여 선택합니다.
+1. 구독 수준 역할 할당 **[사용자 그룹 또는 애플리케이션 이름]: 참가자**에서는 사용자, 앱 또는 그룹을 검색하여 선택합니다.
 
 1. 구독 수준 정책 할당에서는 **태그 이름**을 **CostCenter**, **태그 값**을 **ContosoIT**로 설정합니다.
 
@@ -265,7 +265,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 목록에서 이전에 할당한 청사진을 마우스 오른쪽 단추로 클릭하고 **할당 정보 보기**를 선택합니다.
 
-   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="할당된 청사진 페이지에서 할당 정보 보기" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="청사진 정의 페이지의 '청사진 만들기' 단추 스크린샷" border="false":::
 
 1. **청사진 할당** 페이지에서 모든 아티팩트가 정상적으로 배포되었으며 배포 중에 오류가 발생하지 않았는지 확인합니다. 오류가 발생한 경우 [청사진 문제 해결](./troubleshoot/general.md)에서 문제를 확인하는 단계를 참조하세요.
 

@@ -6,31 +6,23 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
+ms.date: 09/12/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180782"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524949"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics(작업 영역 미리 보기)란?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-오늘날 엔터프라이즈 분석에서는 원시 데이터, 정제된 데이터 또는 고도로 선별된 데이터를 막론하고 모든 종류의 데이터를 대규모로 운영해야 합니다. 과거에 이런 종류의 분석 솔루션을 구축하려면 엔터프라이즈에서 빅 데이터와 데이터 웨어하우징 기술(예: Spark 및 SQL)을 결합해야만 했습니다. 그런 다음, 관계형 저장소와 Data Lake 전체 데이터에 작동하는 풍부한 데이터 파이프라인에 통합해야 했습니다.  
+엔터프라이즈 분석은 원시 데이터, 정제된 데이터 또는 고도로 선별된 데이터 등 모든 종류의 데이터에 대해 대규모로 작동해야 합니다. 따라서 기업은 Spark 및 SQL과 같은 빅 데이터 및 데이터 웨어하우징 기술을 관계형 저장소 및 데이터 레이크의 데이터 전반에서 작동하는 풍부한 데이터 파이프라인으로 결합해야 했습니다. 이와 같은 솔루션은 빌드, 보안 및 유지 관리가 어렵습니다. 복잡성으로 인해 기업에 필요한 인사이트 제공이 지연됩니다.
 
-이러한 솔루션은 구축, 구성, 보안 및 유지 관리가 어렵기 때문에 인텔리전트 인사이트를 신속하게 추출하기 까지 시간이 지체되었습니다.
-
-**Azure Synapse**는 통합 분석 서비스로써, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 모든 규모의 모든 데이터에 대한 인사이트를 얻는 시간을 앞당길 수 있는 서비스입니다. 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터 분석에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인**을 결합합니다.
-
-Azure Synapse에는 관리, 모니터링, 코딩 및 보안을 위한 단일 환경과 모델을 제공하는 웹 네이티브 **Studio** 사용자 환경이 제공됩니다.
-
-Azure Synapse는 기업에서 가장 익숙한 분석 방식을 사용하여 모든 규모의 데이터에 대한 인사이트를 모을 수 있는 가장 쉽고 빠른 방법을 제공합니다. **Power BI**와 긴밀히 통합되기 때문에, 데이터 엔지니어는 엔드투엔드로 작동하여 비즈니스 인텔리전스를 제공하는 분석 솔루션을 구축할 수 있습니다.
-
-또한, Azure Synapse를 사용하면 **AzureML**에 기본 제공되는 지원을 통해 기계 학습을 사용하여 예측 모델 구축 및 고급 분석이 가능합니다.
+**Azure Synapse**는 통합 분석 서비스로써, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있는 서비스입니다. 본질적으로 Azure Synapse는 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인**을 결합합니다. Synapse에는 관리, 모니터링, 코딩 및 보안을 위한 단일 장소를 제공하는 웹 기반 **Studio**가 있습니다. Synapse는 **PowerBI**, **CosmosDB**, **AzureML**과 같은 다른 Azure 서비스와 긴밀하게 통합된 기능을 제공합니다.
 
 ## <a name="key-features--benefits"></a>주요 기능 및 이점
 
@@ -38,7 +30,7 @@ Azure Synapse는 기업에서 가장 익숙한 분석 방식을 사용하여 모
 
 * **Synapse SQL**은 기업에서 데이터 엔지니어에게 친숙한 표준 T-SQL 환경을 사용하여 데이터 웨어하우징 및 데이터 가상화 시나리오를 구현할 수 있는 분산 쿼리 시스템입니다. 또한 SQL의 기능을 확장하여 스트리밍 및 기계 학습 시나리오를 처리합니다.
 
-* Synapse SQL은 **서버리스** 및 **프로비저닝된** 리소스 모델을 모두 제공하여 필요에 맞는 소비 및 청구 옵션을 제공합니다. 예측 가능한 성능 및 비용을 위해, 풀을 프로비저닝하여 SQL 테이블에 저장된 데이터를 위한 처리 성능을 예약합니다. 계획하지 않은 워크로드나 버스티 워크로드에는 항상 사용 가능한 서버리스 SQL 엔드포인트를 사용합니다.
+* Synapse SQL은 **서버리스** 및 **전용** 리소스 모델을 모두 제공하여 필요에 맞는 소비 및 청구 옵션을 제공합니다. 예측 가능한 성능 및 비용을 위해 전용 SQL 풀을 생성하여 SQL 테이블에 저장된 데이터를 위한 처리 성능을 예약합니다. 계획하지 않은 워크로드나 버스티 워크로드에는 항상 사용 가능한 서버리스 SQL 엔드포인트를 사용합니다.
 * 기본 제공 **스트리밍** 기능을 사용하여 클라우드 데이터 원본의 데이터를 SQL 테이블로 이동합니다.
 * [T-SQL PREDICT 함수](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)를 통해 데이터의 점수를 매기는 **기계 학습** 모델을 사용하여 AI와 SQL을 통합합니다.
 
@@ -85,8 +77,6 @@ Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure Synapse Analytics 시작](get-started.md)
 * [작업 영역 만들기](quickstart-create-workspace.md)
-* [Synapse Studio 사용](quickstart-synapse-studio.md)
-* [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
 * [SQL 주문형 사용](quickstart-sql-on-demand.md)
-* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)

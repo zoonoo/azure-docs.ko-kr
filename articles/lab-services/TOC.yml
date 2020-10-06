@@ -88,6 +88,8 @@
           href: specify-marketplace-images.md
         - name: 지원 정보 지정(랩 계정 소유자)
           href: lab-account-owner-support-information.md
+        - name: Shared Image Gallery에 사용자 지정 이미지 업로드
+          href: upload-custom-image-shared-image-gallery.md
     - name: 클래스룸 랩 만들기 및 구성(교육자)
       items:
         - name: 클래스룸 랩 만들기 및 관리

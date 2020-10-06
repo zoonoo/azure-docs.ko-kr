@@ -1,47 +1,53 @@
 ---
-title: 텍스트 분석 API란? - 기능 -
+title: Text Analytics API를 사용한 텍스트 마이닝 및 분석 - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: 감정 분석, 핵심 구문 추출, 언어 감지 및 엔터티 인식을 위해 Azure Cognitive Services의 Text Analytics API를 사용합니다.
+description: Text Analytics API를 사용한 텍스트 마이닝에 대해 알아봅니다. 감정 분석, 언어 감지 및 기타 형태의 자연어 처리에 사용합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000960"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647469"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
-Text Analytics API는 클라우드 기반 서비스로 원시 텍스트에 대한 고급 자연어 처리를 제공하며, 감성 분석, 핵심 구 추출, 언어 감지 및 명명된 엔터티 인식의 네 가지 주요 기능을 포함합니다.
+Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 언어 감지 및 명명된 엔터티 인식을 포함하는 텍스트 마이닝 및 텍스트 분석을 위한 NLP(자연어 처리) 기능을 제공하는 클라우드 기반 서비스입니다.
 
-이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)의 일부입니다.
+이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)의 일부입니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/text-analytics-sdk.md)에서 이러한 기능을 사용할 수 있습니다.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-텍스트 분석은 다른 작업을 의미할 수 있지만, Cognitive Services의 Text Analytics API는 아래에 설명된 것처럼 네 가지 유형의 분석을 제공합니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/text-analytics-sdk.md)에서 이러한 기능을 사용할 수 있습니다.
+## <a name="sentiment-analysis"></a>정서 분석
 
-## <a name="sentiment-analysis"></a>감정 분석
-[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하여 원시 텍스트에서 긍정적이거나 부정적인 감정에 대한 단서를 분석하여 고객이 브랜드 또는 주제에 대해 생각하는 것을 파악할 수 있습니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다.<br /> 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](text-analytics-supported-languages.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 애플리케이션에 직접 결과를 반환할 수 있습니다.
+[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하면 텍스트에서 긍정적 또는 부정적 감정에 대한 단서를 찾아서 사람들이 브랜드 또는 주제에 대해 어떻게 생각하는지 알아볼 수 있습니다. 이 API 기능은 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다.
+
+v3.1 미리 보기부터 오피니언 마이닝은 감정 분석의 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
-자동으로 [핵심 구를 추출](how-tos/text-analytics-how-to-keyword-extraction.md)하여 요점을 빠르게 파악합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다.
+
+[핵심 구 추출](how-tos/text-analytics-how-to-keyword-extraction.md)을 사용하여 텍스트의 주요 개념을 빠르게 식별합니다. 예를 들어, "음식이 맛있었고 훌륭한 직원이 있었습니다"라는 텍스트에서 핵심 구 추출은 "음식"과 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
 ## <a name="language-detection"></a>언어 검색
-[입력 텍스트를 쓴 언어를 감지](how-tos/text-analytics-how-to-language-detection.md)하고 광범위한 언어, 변형, 방언 및 일부 지역/문화 언어로 요청시 제출된 모든 문서에 대해 단일 언어 코드를 보고할 수 있습니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다.
+
+언어 감지는 [입력 텍스트가 작성된 언어를 감지](how-tos/text-analytics-how-to-language-detection.md)하고 광범위한 언어, 변형, 방언 및 일부 지역/문화 언어로 요청 시 제출된 모든 문서에 대해 단일 언어 코드를 보고할 수 있습니다. 언어 코드는 신뢰도 점수와 쌍을 이룹니다.
 
 ## <a name="named-entity-recognition"></a>명명된 엔터티 인식
-텍스트의 엔터티를 인물, 장소, 조직, 날짜/시간, 수량, 백분율, 통화 등으로 [식별하고 분류합니다](how-tos/text-analytics-how-to-entity-linking.md). 잘 알려진 엔터티도 인식되고, 웹에서 더 많은 정보에 연결됩니다.
+
+NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스트의 [엔터티를 식별하고 분류](how-tos/text-analytics-how-to-entity-linking.md)할 수 있습니다. 잘 알려진 엔터티도 인식되고 웹에서 더 많은 정보에 연결됩니다.
 
 ## <a name="use-containers"></a>컨테이너 사용
 
-[Text Analytics 컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 표준화된 Docker 컨테이너를 데이터와 가까이 설치함으로써 핵심 구를 추출하고, 언어를 검색하고, 로컬로 감정을 분석할 수 있습니다.
+[Text Analytics 컨테이너](how-tos/text-analytics-how-to-install-containers.md)를 텍스트 마이닝 및 API 사용을 위한 온-프레미스 솔루션으로 사용합니다. 이러한 Docker 컨테이너를 사용하면 핵심 구를 추출하고, 언어를 감지하고, 데이터에 더 가깝게 감정을 분석할 수 있습니다.
 
 ## <a name="typical-workflow"></a>일반적인 워크플로
 

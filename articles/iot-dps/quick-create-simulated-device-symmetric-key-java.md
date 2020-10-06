@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8acc8b1e32304705b4221fe5570f7445720eafed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307916"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528434"
 ---
-# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 IoT Hub에 시뮬레이션된 디바이스 프로비전
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>대칭 키를 사용하여 IoT Hub에 시뮬레이션된 디바이스 프로비전
 
 이 빠른 시작에서는 Windows 개발 머신에서 디바이스 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. 대칭 키를 사용하여 DPS(Device Provisioning Service) 인스턴스로 인증하고 IoT 허브에 할당되도록 이 시뮬레이션된 디바이스를 구성합니다. [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java)의 샘플 코드는 프로비저닝을 시작하는 디바이스에 대한 부팅 시퀀스를 시뮬레이션하는 데 사용됩니다. 디바이스는 DPS 서비스 인스턴스의 개별 등록을 기반으로 인식되고 IoT 허브에 할당됩니다.
 
 이 문서에서는 개별 등록을 통한 프로비저닝을 보여주지만 등록 그룹을 사용할 수 있습니다. 등록 그룹을 사용할 때는 몇 가지 차이점이 있습니다. 예를 들어 디바이스에 대한 고유한 등록 ID가 있는 파생된 디바이스 키를 사용해야 합니다. 대칭 키 등록 그룹은 레거시 디바이스로 제한되지 않지만 [대칭 키 증명을 사용하여 레거시 디바이스를 프로비전하는 방법](how-to-legacy-device-symm-key.md)은 등록 그룹 예제를 제공합니다. 자세한 내용은 [대칭 키 증명에 대한 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)을 참조하세요.
 
-자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 
+자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 
 
 이 빠른 시작을 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 이 빠른 시작에서는 Device Provisioning Service 인스턴스를 이미 만들었어야 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "87307916"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 머신에 [Java SE Development Kit 8](https://aka.ms/azure-jdks) 이상이 설치되어 있는지 확인합니다.
 
@@ -66,9 +66,9 @@ ms.locfileid: "87307916"
 
 3. **등록 추가** 패널에서 다음 정보를 입력하고 **저장** 단추를 누릅니다.
 
-   - **메커니즘**: **대칭 키**를 ID 증명 *메커니즘*으로 선택합니다.
+   - **메커니즘:** ID 증명 *메커니즘*으로 **대칭 키**를 선택합니다.
 
-   - **키 자동 생성**: 이 확인란을 선택합니다.
+   - **키 자동 생성**: 이 상자를 선택합니다.
 
    - **등록 ID**: 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-java-device-007**입니다.
 
