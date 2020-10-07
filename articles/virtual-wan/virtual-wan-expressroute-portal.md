@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976290"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569640"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "90976290"
 
 * 허브 지역의 IP 주소 범위를 확보합니다. 허브는 Virtual WAN에서 만들고 사용하는 가상 네트워크입니다. 허브에 지정하는 주소 범위는 연결하는 기존 가상 네트워크와 겹칠 수 없습니다. 온-프레미스에 연결하는 주소 범위와도 겹칠 수 없습니다. 온-프레미스 네트워크 구성에 있는 IP 주소 범위를 잘 모른다면 세부 정보를 알고 있는 다른 사람의 도움을 받으세요.
 
-* 허브 게이트웨이에 연결하려면 ExpressRoute 회로가 프리미엄 회로여야 합니다.
+* 허브 게이트웨이에 연결하려면 ExpressRoute 회로가 프리미엄/표준 회로여야 합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -105,7 +105,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>회로를 허브 게이트웨이에 연결
 
-게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach를 지원하는 위치에 있는 ExpressRoute 프리미엄 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결할 수 있습니다.
+게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach 지원 위치에 있는 ExpressRoute 프리미엄/표준 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결하고 모든 Virtual WAN 전송 기능(VPN 간, VPN 및 ExpressRoute 전송)을 사용할 수 있습니다. 비 Global Reach 위치에 있는 ExpressRoute 프리미엄/표준 회로는 Azure 리소스에 연결할 수 있지만 Virtual WAN 전송 기능을 사용할 수 없습니다.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>회로를 허브 게이트웨이에 연결하려면
 

@@ -1,20 +1,20 @@
 ---
-title: C#을 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
+title: 빠른 시작 - C#을 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 C#을 사용하여 Azure IoT Hub DPS(Device Provisioning Service)에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 618b2c6acb8792382adb4c067aa8f33003227091
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020935"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532587"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>빠른 시작: C#을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -159,12 +159,15 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
    }
    ```
 
-1. 마지막으로 `Main` 메서드의 본문을 다음 줄로 바꿉니다.
+1. 마지막으로 `Main` 메서드를 다음 줄로 바꿉니다.
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. 솔루션을 빌드합니다.

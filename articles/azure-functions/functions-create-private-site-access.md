@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540284"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530071"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. _네트워킹_ 탭을 선택하고, **새로 만들기**를 선택하여 새 가상 네트워크를 구성합니다.
 
     >[!div class="mx-imgBorder"]
-    >![새 VM에 대한 새 가상 네트워크 만들기](./media/functions-create-private-site-access/create-vm-networking.png)
+    >!["가상 네트워크" 섹션에 "새로 만들기" 작업이 강조 표시된 "네트워킹" 탭을 보여주는 스크린샷.](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. _가상 네트워크 만들기_에서 이미지 아래의 표에서 설명하는 설정을 사용합니다.
 

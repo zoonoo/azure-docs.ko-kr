@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810380"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540464"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
@@ -80,7 +80,12 @@ HoloLens 디바이스를 켜고, 로그인하고, USB 케이블을 사용하여 
 
 **디버그** > **디버깅 시작**을 선택하여 앱을 배포하고 디버깅을 시작합니다.
 
-앱의 지침에 따라 앵커를 배치하고 회수합니다.
+앱에서 화살표를 사용하여 **BasicDemo**를 선택한 다음, **Go!** 를 누릅니다. 데모를 실행하는 단추입니다. 지침에 따라 앵커를 배치하고 회수합니다.
+
+![스크린샷 1](./media/get-started-unity-hololens/screenshot-1.jpg)
+![스크린샷 2](./media/get-started-unity-hololens/screenshot-2.jpg)
+![스크린샷 3](./media/get-started-unity-hololens/screenshot-3.jpg)
+![스크린샷 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 Visual Studio에서 **디버깅 중지**를 선택하거나 Shift+F5 키를 눌러 앱을 중지합니다.
 

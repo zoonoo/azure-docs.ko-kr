@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712516"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539404"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 검색
 
@@ -122,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 규칙을 영구적으로 삭제하려면 규칙 목록에서 삭제하면 됩니다. 사용하지 않도록 설정할 규칙을 선택한 다음, **사용 안 함**을 선택합니다.
 
-[![규칙 삭제](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[!["규칙 삭제" 창이 강조 표시된 "규칙" 페이지를 보여주는 스크린샷.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 규칙을 삭제할지 확인한 후에는 **유지 관리** 페이지에서 해당 규칙과 관련된 모든 경고를 삭제할 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 6fab092b0467228fd4fcdbcf95f99fd0981fb1e4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3bd18f697c25f7e81f227e7e1456ba0b3d2150c6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079227"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541750"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>PowerShell을 사용하는 변경 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -453,10 +453,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
     ![타일 모니터링 및 관리](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. **데이터 통합 애플리케이션**이 별도의 탭에서 시작됩니다. 모든 **파이프라인 실행**과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. **매개 변수** 열의 링크를 클릭하면 파이프라인에 전달된 매개 변수를 확인할 수 있습니다. 오류가 있으면 **오류** 열에 링크가 표시됩니다. **작업** 열의 링크를 클릭합니다.
 
-    ![파이프라인 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    ![스크린샷은 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행**을 보여주는 다음 페이지가 표시됩니다.
 
-    ![작업 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    ![스크린샷은 파이프라인 링크가 호출된 데이터 팩터리에 대한 활동 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인**을 클릭합니다.
 
 
@@ -632,10 +632,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
 1. **데이터 통합 애플리케이션**에서 **파이프라인 실행** 보기를 새로 고칩니다. 목록에 IncrementalCopyPipeline이 표시되는지 확인합니다. **작업** 열의 링크를 클릭합니다.  
 
-    ![파이프라인 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    ![스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행**을 보여주는 다음 페이지가 표시됩니다.
 
-    ![작업 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![스크린샷은 성공으로 표시된 여러 개의 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인**을 클릭합니다.
 
 ### <a name="review-the-results"></a>결과 검토

@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067546"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448265"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신에서 데이터 수집
 
@@ -87,7 +87,7 @@ Azure Monitor는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 
 7. 새 Log Analytics 작업 영역에 대한 Windows 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.
 
-    ![선택된 기본 Windows 성능 카운터](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![선택한 카운터 목록과 선택한 성능 카운터 추가 단추가 선택된 Windows 성능 카운터 창의 스크린샷.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     **선택한 성능 카운터 추가**를 선택합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.
   
@@ -107,7 +107,7 @@ Azure Monitor는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 
 6. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.
 
-    ![선택된 기본 Windows 성능 카운터](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![선택한 카운터 목록과 선택한 성능 카운터 추가 단추가 선택된 Linux 성능 카운터 창의 스크린샷.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     **내 머신에 아래 구성 적용**을 선택한 다음, **선택한 성능 카운터 추가**를 선택합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 

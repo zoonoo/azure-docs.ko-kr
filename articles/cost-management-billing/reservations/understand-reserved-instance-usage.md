@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2b00c90abce915ae6fd645cbcce3536870609558
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681926"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447881"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>종량제 요금을 사용하는 개별 구독에 대한 Azure 예약 사용량 이해
 
@@ -74,7 +74,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 **예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
 
-![SQL Database 예약된 용량에 대한 CSV 파일](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![스크린샷은 미터 범주 항목을 보여줍니다.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 **예약된 인스턴스 사용량** 줄에는 예약에 포함되는 총 코어 시간이 있습니다. 예약에서 비용을 포함하므로 이 줄에 대한 요금은 $0입니다.
 
@@ -82,7 +82,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 **추가 정보**를 필터링하고 **Reservation ID**를 입력합니다. 다음 스크린샷은 SQL Database 예약된 용량 예약과 관련된 필드를 보여 줍니다.
 
-![SQL Database 예약된 용량에 대한 CSV 파일](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![스크린샷은 예약 용량에 대한 CSV 파일의 세부 정보를 보여줍니다.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. **추가 정보** 필드의 **ReservationId**는 SQL Database 리소스에 적용되는 SQL Database 예약된 용량 예약입니다.
 2. **ConsumptionMeter**는 SQL Database 리소스에 대한 요금제 ID입니다.

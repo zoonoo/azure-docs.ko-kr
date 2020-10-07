@@ -3,14 +3,14 @@ title: .NET API를 사용하여 병렬 워크로드 실행
 description: 자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f57354a6eb52b3439cf298f66b706f53d101371e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930233"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537585"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "88930233"
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
-* [Windows 64비트 버전의 ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
+* [Windows 64비트 버전의 ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -47,7 +47,7 @@ Azure Portal을 사용하여 ffmpeg를 Batch 계정에 [애플리케이션 패�
 
 1. Azure Portal에서 **추가 서비스** > **Batch 계정**을 클릭하고 Batch 계정의 이름을 클릭합니다.
 3. **애플리케이션** > **추가**를 클릭합니다.
-4. **애플리케이션 ID**에 *ffmpeg*와 패키지 버전 *3.4*를 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
+4. **애플리케이션 ID**에 *ffmpeg*와 패키지 버전 *4.3.1*을 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
 
 ![애플리케이션 패키지 추가](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -84,7 +84,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### <a name="build-and-run-the-sample-project"></a>샘플 프로젝트 빌드 및 실행
@@ -263,7 +263,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569308"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630205"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -29,10 +29,10 @@ Speech Service 기능 중 일부는 다음과 같습니다. 이 표의 링크를
 | 서비스 | 기능 | Description | SDK) | REST (영문) |
 |---------|---------|-------------|-----|------|
 | [음성 텍스트 변환](speech-to-text.md) | 실시간 음성 텍스트 변환 | 음성 텍스트 변환은 오디오 스트림 또는 로컬 파일을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 변환합니다. [LUIS(Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Batch 음성 텍스트 변환](batch-transcription.md) | Batch 음성 텍스트 변환에서는 Azure Blob Storage에 저장된 대용량 음성 오디오 데이터의 비동기 음성 텍스트 변환 기록을 사용할 수 있습니다. 음성 오디오를 텍스트로 변환하는 것 외에도 Batch 음성 텍스트 변환에서는 다이어리화 및 감정 분석도 가능합니다. | 예 | [예](https://westus.cris.ai/swagger/ui/index) |
+| | [Batch 음성 텍스트 변환](batch-transcription.md) | Batch 음성 텍스트 변환에서는 Azure Blob Storage에 저장된 대용량 음성 오디오 데이터의 비동기 음성 텍스트 변환 기록을 사용할 수 있습니다. 음성 오디오를 텍스트로 변환하는 것 외에도 Batch 음성 텍스트 변환에서는 다이어리화 및 감정 분석도 가능합니다. | 예 | [예](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [다중 디바이스 대화](multi-device-conversation.md) | 대화의 다중 디바이스 또는 클라이언트를 연결하여 음성 또는 텍스트 기반 메시지를 전송하고 전사 및 번역을 간편하게 지원합니다.| 예 | 예 |
 | | [대화 전사](conversation-transcription-service.md) | 실시간 음성 인식, 화자 식별 및 다이어리화를 가능하게 해줍니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다. | 예 | 예 |
-| | [Custom Speech 모델 만들기](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 예 | [예](https://westus.cris.ai/swagger/ui/index) |
+| | [Custom Speech 모델 만들기](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 예 | [예](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)을 사용하여 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [사용자 지정 음성 만들기](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 예 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 예 |
@@ -74,13 +74,13 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
    - 새 리소스에 대한 고유한 이름을 지정합니다. 이름은 동일한 서비스에 연결된 여러 구독을 구분하는 데 도움이 됩니다.
    - 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다.
    - 리소스가 사용될 [지역](regions.md)을 선택합니다.
-   - F0(체험) 또는 S0(유료) 가격 책정 계층을 선택합니다. 각 계층의 가격 책정 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 선택하세요.
+   - F0(체험) 또는 S0(유료) 가격 책정 계층을 선택합니다. 각 계층의 가격 책정 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 선택하세요. 각 구독에 대해 만들 수 있는 리소스에 대한 제한은 [Azure Cognitive Services 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits)을 참조하세요.
    - 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
    - **만들기**를 선택합니다. 그러면 배포 개요로 이동하여 배포 진행률 메시지가 표시됩니다.
-
+<!--
 > [!NOTE]
-> 표준 계층 구독은 하나 이상의 지역에서 무제한으로 만들 수 있지만, 체험 계층 구독은 하나만 만들 수 있습니다. 7일 동안 사용하지 않은 상태로 유지되는 체험 계층의 모델 배포 서비스는 자동으로 해제됩니다.
-
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
+-->
 새 Speech 리소스를 배포하는 데 몇 분 정도 걸립니다. 배포가 완료되면 **리소스로 이동**을 선택하고, 왼쪽 탐색 창에서 **키**를 선택하여 Speech Service 구독 키를 표시합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 키를 코드 편집기 또는 다른 위치에 빨리 복사하여 붙여넣으려면 각 키 옆의 복사 단추를 선택하고, 창을 전환하여 클립보드 내용을 원하는 위치에 붙여넣습니다.
 
 > [!IMPORTANT]
@@ -128,7 +128,7 @@ Speech Service는 기본 제공 모델에서 효율적으로 작동하지만, �
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 - [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
-- [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
+- [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>다음 단계
 

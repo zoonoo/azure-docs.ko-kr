@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 5024b1091e84c0d1583ce3e455f29e0d9b9c2fc4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 414271c269e72b942195d541a6192911e1ea0217
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543268"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566451"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -343,7 +343,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
    ![다이어그램 뷰](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. 다이어그램 보기에서 **AzureBlobOutput**데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
    
-    ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    ![AzureBlobOutput 데이터 세트를 보여주는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.
    
     ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    

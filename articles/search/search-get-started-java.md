@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290348"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540356"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "89290348"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-[IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) 및 [Azure Cognitive Search REST API](/rest/api/searchservice/)를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 Java 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 단계별 지침을 제공합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)할 수 있습니다.
+[IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/) 및 [Azure Cognitive Search REST API](/rest/api/searchservice/)를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 Java 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 단계별 지침을 제공합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/)
 
 + [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    쿼리 키도 만듭니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 서비스에 보내는 모든 요청에는 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **Maven**을 선택합니다.
 1. **프로젝트 SDK** 목록에서 Java 11 SDK를 선택합니다.
 
-    ![Maven 프로젝트 만들기](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 1. **GroupId** 및 **ArtifactId**에 대해 `AzureSearchQuickstart`를 입력합니다.
 1. 나머지 기본값을 적용하여 프로젝트를 엽니다.
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **설정** 창에서 **빌드, 실행, 배포** > **빌드 도구** > **Maven** > **가져오기**를 차례로 선택합니다.
 1. **자동으로 Maven 프로젝트 가져오기** 확인란을 선택하고, **확인**을 클릭하여 창을 닫습니다. 이제 다음 단계에서 pom.xml 파일을 업데이트하면 Maven 플러그 인 및 기타 종속성이 자동으로 동기화됩니다.
 
-    ![IntelliJ 설정의 Maven 가져오기 옵션](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 1. pom.xml 파일을 열고, 내용을 다음 Maven 구성 세부 정보로 바꿉니다. 여기에는 [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/)(Maven 실행 플러그 인) 및 [JSON 인터페이스 API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)에 대한 참조가 포함됩니다.
 
@@ -140,7 +140,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     완료되면 프로젝트 트리가 다음 그림과 같이 표시됩니다.
 
-    ![프로젝트 디렉터리 구조](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 1. **확인** 을 클릭하여 창을 닫습니다.
 
@@ -148,7 +148,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **프로젝트** 창에서 원본 트리를 펼쳐 `src` >  `main` >`resources` > `app` 폴더에 액세스하고, `config.properties` 파일을 추가합니다. 이렇게 하려면 `app` 폴더를 선택하고, Alt+Insert를 누르고, **파일**을 선택한 다음, 파일 이름을 입력합니다.
 
-1. 다음 설정을 새 파일에 복사하고, `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` 및 `<YOUR-QUERY-KEY>`를 서비스 이름과 키로 바꿉니다. 서비스 엔드포인트가 `https://mydemo.search.windows.net`이면 서비스 이름은 "mydemo"가 됩니다.
+1. 다음 설정을 새 파일에 복사하고, `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` 및 `<YOUR-QUERY-KEY>`를 서비스 이름과 키로 바꿉니다. 서비스 엔드포인트가 `https://mydemo.search.windows.net`이면 서비스 이름은 `"mydemo"`가 됩니다.
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -373,10 +373,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 프로젝트의 구조가 다음과 같은지 확인합니다.
 
-    ![프로젝트 디렉터리 구조 및 클래스](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 1. **Maven** 도구 창을 열고 다음 Maven 목표를 실행합니다. `verify exec:java`
-![Maven 목표 실행: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="서비스 이름과 관리자 및 쿼리 키 확인" border="false":::
 
 처리가 완료되면 BUILD SUCCESS(빌드 성공) 메시지와 0(영) 종료 코드를 찾습니다.
 

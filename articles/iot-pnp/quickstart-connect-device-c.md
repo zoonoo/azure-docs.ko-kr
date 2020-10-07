@@ -1,28 +1,28 @@
 ---
-title: IoT 플러그 앤 플레이 미리 보기 샘플 C 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: Linux 또는 Windows에서 IoT 허브에 연결하는 IoT 플러그 앤 플레이 미리 보기 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: IoT 플러그 앤 플레이 샘플 C 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
+description: Linux 또는 Windows에서 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: afe7396ebdada97b9311d0afe903f40757084586
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: d8782bf6cab85b1b87c0cfc418a4731cc134db8f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426132"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577070"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>빠른 시작: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub에 연결(C)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>빠른 시작: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(C)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 이 빠른 시작에서는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 C로 작성되었으며 C용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Linux 또는 Windows에서 이 빠른 시작을 실행할 수 있습니다. 이 빠른 시작의 셸 명령은 '`/`' 경로 구분 기호에 대한 Linux 규칙을 따릅니다. Windows에서 계속 실행 중인 경우 '`\`'에 대해 이러한 구분 기호를 교환해야 합니다.
 
@@ -52,32 +52,9 @@ gcc --version
 
 Windows에서 이 빠른 시작을 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
+* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
-
-### <a name="azure-iot-explorer"></a>Azure IoT 탐색기
-
-이 빠른 시작의 두 번째 부분에서 샘플 디바이스와 상호 작용하려면 **Azure IoT 탐색기** 도구를 사용합니다. 운영 체제용 [최신 릴리스의 Azure IoT 탐색기를 다운로드하여 설치](./howto-use-iot-explorer.md)합니다.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-다음 명령을 실행하여 허브에 대한 _IoT 허브 연결 문자열_을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Azure IoT 탐색기 도구를 사용하여 IoT 허브 연결 문자열을 찾을 수도 있습니다.
-
-다음 명령을 실행하여 허브에 추가한 디바이스에 대한 _디바이스 연결 문자열_을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>코드 다운로드
 
@@ -108,7 +85,7 @@ git submodule update --init
 1. 다음 명령을 실행하여 SDK 및 샘플을 빌드합니다.
 
     ```cmd\bash
-    cmake ..
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
     cmake --build .
     ```
 
@@ -117,12 +94,11 @@ git submodule update --init
 
 ## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md)를 참조하세요.
+
 IoT 허브에 원격 분석을 전송하는 IoT 플러그 앤 플레이 디바이스를 시뮬레이트하는 SDK에서 샘플 애플리케이션을 실행하려면 다음을 수행합니다.
-
-연결 문자열을 사용하여 IoT 허브에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만듭니다.
-
-- 값이 `"connectionString"`인 **IOTHUB_DEVICE_SECURITY_TYPE**
-- **IOTHUB_DEVICE_CONNECTION_STRING** - 이전에 기록한 디바이스 연결 문자열을 저장합니다.
 
 _cmake_ 폴더에서 실행 파일이 있는 폴더로 이동하여 실행합니다.
 
@@ -177,8 +153,6 @@ IoTHubDeviceClient_SetOption(deviceHandle, OPTION_MODEL_ID, modelId)
 // JSON parser
 #include "parson.h"
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

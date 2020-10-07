@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 98941530ba0483e82f43af222e12df7439b6625e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688753"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447935"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
 
@@ -55,7 +55,7 @@ Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 �
 
 1. **Cost Management + 청구**에서 검색합니다.
 
-   ![Azure Portal 검색을 보여 주는 스크린샷](./media/mpa-overview/search-cmb.png)
+   ![스크린샷은 Cost Management + Billing에 대한 Azure Portal 검색을 보여줍니다.](./media/mpa-overview/search-cmb.png)
 
 1. 왼쪽에서 **고객**을 선택한 다음, 목록에서 고객을 선택합니다.
 

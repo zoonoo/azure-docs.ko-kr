@@ -3,12 +3,12 @@ title: 영국 공식 및 영국 NHS 청사진 샘플 제어
 description: 영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078991"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540390"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑
 
@@ -76,7 +76,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="9-secure-user-management"></a>9개 안전한 사용자 관리 
 
-Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 RBAC(역할 기반 액세스 제어)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 소유자 및/또는 읽기/쓰기 권한이 있는 외부 계정과 다단계 인증을 사용하도록 설정되지 않은 소유자, 읽기 및/또는 쓰기 권한이 있는 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 액세스 권한을 제한하고 제어하는 데 도움이 됩니다.
+Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure에서 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 됩니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 소유자 및/또는 읽기/쓰기 권한이 있는 외부 계정과 다단계 인증을 사용하도록 설정되지 않은 소유자, 읽기 및/또는 쓰기 권한이 있는 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 액세스 권한을 제한하고 제어하는 데 도움이 됩니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.

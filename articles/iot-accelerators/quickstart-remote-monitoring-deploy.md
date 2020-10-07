@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "60890163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540237"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 시도
 
@@ -133,7 +133,7 @@ Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 �
 
 솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
 
-![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![솔루션 가속기가 강조 표시된 "프로비저닝된 솔루션" 페이지를 보여주는 스크린샷.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

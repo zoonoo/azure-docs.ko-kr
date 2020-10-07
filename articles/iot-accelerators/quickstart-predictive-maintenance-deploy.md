@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7266f110069155e2a9f7804d53c6e1088768ec8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "62106816"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541852"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 디바이스에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 시도
 
@@ -52,7 +52,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 **프로비전된 솔루션** 페이지에서 새 예측 유지 관리 솔루션 가속기를 선택합니다.
 
-![솔루션 패널](./media/quickstart-predictive-maintenance-deploy/solution.png)
+!["예측 유지 관리" 솔루션 가속기가 강조 표시된 "프로비저닝된 솔루션" 페이지를 보여주는 스크린샷.](./media/quickstart-predictive-maintenance-deploy/solution.png)
 
  표시되는 페이지에서 예측 유지 관리 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 가속기로 이동**을 선택하여 예측 유지 관리 솔루션 가속기를 봅니다.
 

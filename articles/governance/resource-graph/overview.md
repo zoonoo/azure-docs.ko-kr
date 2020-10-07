@@ -3,12 +3,12 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
 ms.date: 08/13/2020
 ms.topic: overview
-ms.openlocfilehash: 73143c13fd83c8b784679ac28bd9a14f1c6a6888
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f2de6ce52870417eab1c74333dfce2905317e73d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798536"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531688"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -59,7 +59,7 @@ Azure Resource Graph의 쿼리 언어는 Azure Data Explorer의 [Kusto 쿼리 �
 
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Resource Graph의 권한
 
-Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 읽기 액세스 권한이 있는 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md))에 적절한 권한이 부여되어야 합니다. Azure 개체 또는 개체 그룹에 대한 `read` 이상의 권한이 없으면 결과가 반환되지 않습니다.
+Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 읽기 액세스 권한이 있는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)에 적절한 권한이 있어야 합니다. Azure 개체 또는 개체 그룹에 대한 `read` 이상의 권한이 없으면 결과가 반환되지 않습니다.
 
 > [!NOTE]
 > Resource Graph는 로그인하는 동안 보안 주체에 제공되는 구독을 사용합니다. 활성 세션 중에 추가된 새 구독의 리소스를 보려면 보안 주체가 컨텍스트를 새로 고쳐야 합니다. 이 작업은 로그아웃했다가 다시 로그인하면 자동으로 수행됩니다.

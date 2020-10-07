@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719073"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575200"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 모니터링 및 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "88719073"
 시작하기 전에, 다음 항목을 먼저 완료해야 합니다.
 
 * [Azure IoT Central에서 라이브 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app.md) 자습서
-* 이전 [라이브 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)](tutorial-video-analytics-iot-edge-vm.md) 또는 [라이브 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)](tutorial-video-analytics-iot-edge-nuc.md) 자습서 중 하나
+* 이전 [라이브 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)](tutorial-video-analytics-iot-edge-vm.md) 또는 [라이브 비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) 자습서 중 하나입니다.
 
 비디오 뷰어 애플리케이션을 실행하려면 로컬 머신에 [Docker](https://www.docker.com/products/docker-desktop)가 설치되어 있어야 합니다.
 
@@ -61,7 +61,7 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 
 다음과 같이 **LVA Gateway 001** 디바이스의 **다운스트림 디바이스** 탭을 선택하여 방금 추가한 카메라 디바이스를 확인합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="검사":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="카메라 추가":::
 
 카메라 디바이스는 애플리케이션의 **디바이스** 페이지에 있는 목록에도 표시됩니다.
 
@@ -98,7 +98,7 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 
 몇 초 후에 다음과 같이 각 설정에 대한 **수락됨** 확인 메시지가 표시됩니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="개체 감지":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="카메라 추가":::
 
 ## <a name="start-lva-processing"></a>LVA 처리 시작
 
@@ -108,13 +108,13 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 
 명령이 완료되면 명령 기록을 살펴보고 오류가 없는지 확인합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="LVA 처리 시작 명령":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="카메라 추가":::
 
 ## <a name="monitor-the-cameras"></a>카메라 모니터링
 
 **camera-003** 디바이스로 이동하여 **대시보드** 탭을 선택합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="카메라 대시보드":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="카메라 추가":::
 
 **감지 횟수** 타일에는 1초 감지 간격 동안 선택한 각 감지 클래스 개체의 평균 감지 횟수가 표시됩니다.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 **camera-003** 디바이스로 이동하여 **대시보드** 탭을 선택합니다. 그런 다음, **유추 이벤트 비디오** 타일에서 캡처된 개체 감지 하이퍼링크 중 하나를 클릭합니다. 로컬 비디오 플레이어가 표시하는 페이지에 비디오가 나타납니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="비디오 코드 조각":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="카메라 추가":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>애플리케이션 대시보드에서 시뮬레이션된 디바이스 변경
 
@@ -182,7 +182,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 이제 **실제 카메라 모니터링** 대시보드는 다음과 같이 실제 카메라 디바이스의 값을 표시합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="실제 카메라 애플리케이션 대시보드":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="카메라 추가":::
 
 ## <a name="pause-processing"></a>처리 일시 중지
 

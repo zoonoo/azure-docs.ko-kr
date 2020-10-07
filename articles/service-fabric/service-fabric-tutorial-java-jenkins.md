@@ -1,17 +1,15 @@
 ---
 title: Azure의 Service Fabric에서 Java 앱에 대한 Jenkins 구성
 description: 이 자습서에서는 Java Service Fabric 애플리케이션을 배포하기 위해 Jenkins를 사용하여 연속 통합을 설정하는 방법을 알아봅니다.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320717"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531975"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
@@ -109,7 +107,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
     또한 애플리케이션을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
 
-    ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![추가 Service Fabric 프로젝트 배포 옵션이 있는 빌드 후 작업 대화 상자](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 애플리케이션을 호스팅하는 것과 동일할 수 있습니다.

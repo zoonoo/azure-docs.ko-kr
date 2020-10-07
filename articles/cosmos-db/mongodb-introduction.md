@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 8fb9f422f2d2c4ed035b04b4abe4141bbb8ebfc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 81fceb210981e5755bcdd8e241b381d161d4f637
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299850"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570200"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
@@ -36,7 +36,7 @@ Azure Cosmos DB는 MongoDB에 대한 유선 프로토콜을 구현합니다. 이
 * 클라우드 공급업체와 관계없이 애플리케이션을 이식 가능한 상태로 계속 유지합니다.
 * Cosmos DB 기반의 일반 NoSQL API에 업계 최고 수준의 재정적 지원이 포함된 SLA를 제공합니다.
 * 요구 사항에 따라 프로비전된 처리량 및 스토리지 크기를 탄력적으로 조정하여 필요한 처리량 및 스토리지에 대한 요금만 지불하면 됩니다. 이를 통해 상당한 비용을 절감할 수 있습니다.
-* 다중 마스터 복제를 사용한 턴키, 글로벌 배포.
+* 다중 영역 쓰기 복제를 사용한 턴키, 글로벌 배포.
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>Cosmos DB의 API for MongoDB
 

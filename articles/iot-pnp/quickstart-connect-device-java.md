@@ -1,54 +1,33 @@
 ---
-title: IoT 플러그 앤 플레이 미리 보기 샘플 Java 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
-description: IoT 허브에 연결된 IoT 플러그 앤 플레이 미리 보기 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
+title: IoT 플러그 앤 플레이 샘플 Java 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
+description: IoT 허브에 연결된 IoT 플러그 앤 플레이 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b89c92e675ab505878f350e9716af95050ce28b2
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: b63e1c0bba4d6ac250119c2ac0d9a1cd0e4ee362
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352675"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577019"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-java"></a>빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub에 연결(Java)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(Java)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 이 빠른 시작에서는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 Java로 작성되었으며 Java용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Windows에서 이 빠른 시작을 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
+* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)의 **장기 지원** 에서 **Java 8**을 선택합니다.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
-
-### <a name="azure-iot-explorer"></a>Azure IoT 탐색기
-
-이 빠른 시작의 두 번째 부분에서 샘플 디바이스와 상호 작용하려면 **Azure IoT 탐색기** 도구를 사용합니다. 운영 체제용 [최신 릴리스의 Azure IoT 탐색기를 다운로드하여 설치](./howto-use-iot-explorer.md)합니다.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-다음 명령을 실행하여 허브에 대한 _IoT 허브 연결 문자열_을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Azure IoT 탐색기 도구를 사용하여 IoT 허브 연결 문자열을 찾을 수도 있습니다.
-
-다음 명령을 실행하여 허브에 추가한 디바이스에 대한 _디바이스 연결 문자열_을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
 
 ## <a name="download-the-code"></a>코드 다운로드
 
@@ -60,21 +39,23 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
 
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
 ## <a name="build-the-code"></a>코드 빌드
 
-Windows에서 복제된 Java SDK 리포지토리의 루트 폴더로 이동합니다. 그런 다음, *\device\iot-device-samples\pnp-device-sample\thermostat-device-sample* 폴더로 이동합니다.
+Windows에서 복제된 Java SDK 리포지토리의 루트 폴더로 이동합니다.
 
 다음 명령을 실행하여 샘플 애플리케이션을 빌드합니다.
 
 ```cmd
-mvn clean package
+mvn install -T 2C -DskipTests
 ```
 
 ## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 
-**IOTHUB_DEVICE_CONNECTION_STRING**이라는 환경 변수를 만들어 이전에 기록한 디바이스 연결 문자열을 저장합니다.
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/pnp-device-sample/readme.md)를 참조하세요.
+
+*\device\iot-device-samples\pnp-device-sample\thermostat-device-sample* 폴더로 이동합니다.
 
 샘플 애플리케이션을 실행하려면 다음 명령을 실행합니다.
 
@@ -132,8 +113,6 @@ import com.google.gson.Gson;
 
 Date since = new Gson().fromJson(jsonRequest, Date.class);
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

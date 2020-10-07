@@ -4,12 +4,12 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azu
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973690"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91629899"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 추천에 대한 Azure Advisor 경고 만들기
 
@@ -25,7 +25,7 @@ Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때�
 - 영향 수준
 - 추천 유형
 
-다음과 같은 방법으로 경고가 트리거될 때 수행되는 작업을 구성할 수도 있습니다.  
+다음과 같은 방법으로 경고가 트리거될 때 수행되는 작업을 구성할 수도 있습니다.
 
 - 기존 작업 그룹 선택
 - 새 작업 그룹 만들기
@@ -69,11 +69,12 @@ Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때�
     {
       "comments": "Action Group",
       "type": "microsoft.insights/actionGroups",
-      "name": "[parameters('actionGroups_name')]",
       "apiVersion": "2019-06-01",
+      "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -85,17 +86,16 @@ Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때�
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Azure Advisor Activity Log Alert",
       "type": "microsoft.insights/activityLogAlerts",
-      "name": "[parameters('activityLogAlerts_name')]",
       "apiVersion": "2017-04-01",
+      "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"

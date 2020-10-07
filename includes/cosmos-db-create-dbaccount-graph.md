@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a6cfafd41d1632d99b7ca03bce2316ec679d7579
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1f36f2f26b65fc6078b99a43b6f0bae9a8a8e9f5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77061836"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578389"
 ---
 1. 새 브라우저 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -25,6 +25,9 @@ ms.locfileid: "77061836"
    
    ![Azure Portal 데이터베이스 창](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
    
+   > [!TIP]
+   > 목록에 Azure Cosmos DB가 표시되지 않으면 페이지 상단에 있는 검색 상자에 입력하고 _Enter_ 키를 누릅니다. 
+
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
     설정|값|Description

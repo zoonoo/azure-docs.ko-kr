@@ -7,13 +7,13 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/01/2020
-ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882876"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540407"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>자습서: Logic App 및 Power Automate에서 Video Indexer 사용
 
@@ -21,7 +21,7 @@ Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer
 
 더 쉽게 통합할 수 있도록 API와 호환되는  [Logic Apps](https://azure.microsoft.com/services/logic-apps/)  및  [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)  커넥터를 지원합니다. 한 줄의 코드도 작성하지 않고도 커넥터를 사용하여 대량의 비디오 및 오디오 파일에서 인사이트를 효과적으로 인덱싱하고 추출할 수 있는 사용자 지정 워크플로를 설정할 수 있습니다. 또한 통합을 위해 커넥터를 사용하면 워크플로의 상태를 더 효율적으로 파악하고 쉽게 디버그할 수 있습니다.  
 
-Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정할 수 있는 Logic App 및 Power Automate 솔루션의 예를 살펴보겠습니다. 이 자습서에서는 Logic Apps를 사용하여 흐름을 설정하는 방법을 보여 줍니다.
+Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정할 수 있는 Logic App 및 Power Automate 솔루션의 예를 살펴보겠습니다. 이 자습서에서는 Logic Apps를 사용하여 흐름을 설정하는 방법을 보여 줍니다. 그러나 두 솔루션에서 편집기와 기능이 거의 동일하므로 다이어그램과 설명이 Logic Apps 및 Power Automate 모두에 적용됩니다.
 
 이 자습서에서 다루는 "자동으로 비디오 업로드 및 인덱싱" 시나리오는 함께 작동하는 서로 다른 두 개의 흐름으로 구성됩니다. 
 * 첫 번째 흐름은 Azure Storage 계정에서 Blob이 추가되거나 수정될 때 트리거됩니다. 인덱싱 작업이 완료되면 알림을 보내기 위해 콜백 URL을 사용하여 새 파일을 Video Indexer로 업로드합니다. 
@@ -53,7 +53,12 @@ Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정
 
 ![연결 이름 및 API 키](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Azure Storage 및 Video Indexer 계정에 연결하고 **Logic Apps Designer**에서 "Blob이 추가되거나 수정되는 경우" 트리거를 찾아 선택합니다. 비디오 파일을 저장할 컨테이너를 선택합니다. 
+> [!TIP]
+> 이전에 Azure Storage 계정 또는 Video Indexer 계정을 논리 앱에 연결한 경우 연결 정보가 저장되고 자동으로 연결됩니다. <br/>Azure Storage(스토리지 창) 또는 Video Indexer(플레이어 창) 작업의 맨 아래에 있는 **연결 변경**을 클릭하여 연결을 편집할 수 있습니다.
+
+Azure Storage 및 Video Indexer 계정에 연결하고 **Logic Apps Designer**에서 "Blob이 추가되거나 수정되는 경우" 트리거를 찾아 선택합니다.
+
+비디오 파일을 저장할 컨테이너를 선택합니다. 
 
 ![컨테이너를 선택할 수 있는 "Blob이 추가되거나 수정되는 경우" 대화 상자를 보여 주는 스크린샷입니다.](./media/logic-apps-connector-tutorial/container.png)
 
@@ -75,7 +80,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [
 
 다른 매개 변수에 대한 기본값을 사용하거나 필요에 따라 설정할 수 있습니다. 
 
-"저장"을 클릭합니다. 업로드와 인덱싱이 완료되면 인사이트를 추출하기 위한 두 번째 흐름을 구성해 보겠습니다. 
+**저장**을 클릭합니다. 업로드와 인덱싱이 완료되면 인사이트를 추출하기 위한 두 번째 흐름을 구성해 보겠습니다. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>두 번째 흐름 설정 - JSON 추출  
 
@@ -115,6 +120,12 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [
 
 비디오를 Azure Blob 컨테이너에 추가하여 새로 만든 Logic App 또는 Power Automate 솔루션을 사용해 보고, 몇 분 후에 다시 이동하여 대상 폴더에 인사이트가 표시되는지 확인합니다. 
 
+## <a name="generate-captions"></a>자막 생성
+
+[Video Indexer 및 Logic Apps를 사용하여 자막을 생성하는 방법](https://techcommunity.microsoft.com/t5/azure-media-services/generating-captions-with-video-indexer-and-logic-apps/ba-p/1672198)을 표시하는 단계는 다음 블로그를 참조하세요. 
+
+또한 이 문서에서는 OneDrive에 비디오를 복사하여 자동으로 비디오를 인덱싱하는 방법과 OneDrive에서 Video Indexer에 의해 생성된 자막을 저장하는 방법을 보여 줍니다.
+ 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서를 완료한 후에는 이 Logic App 또는 Power Automate 솔루션을 자유롭게 유지하고 필요한 경우 이를 시작 및 실행할 수 있습니다. 그러나 이 작업을 계속 실행하지 않고 요금이 청구되지 않도록 하려면 Power Automate를 사용하는 경우 두 흐름을 모두 해제합니다. Logic Apps를 사용하는 경우 두 흐름을 모두 사용하지 않도록 설정합니다. 

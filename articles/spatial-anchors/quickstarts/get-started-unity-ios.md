@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/14/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4d5ec2411b7b1a65da9a1f4262822cb85a3b386e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 630e90069cd1b9735dbaec4c0d825be71df7e69c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536269"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539350"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity iOS 앱 만들기
 
@@ -56,7 +56,11 @@ ms.locfileid: "89536269"
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-앱의 지침에 따라 앵커를 배치하고 회수합니다.
+앱에서 화살표를 사용하여 **BasicDemo**를 선택한 다음, **Go!** 를 누릅니다. 데모를 실행하는 단추입니다. 지침에 따라 앵커를 배치하고 회수합니다.
+
+![스크린샷 1](./media/get-started-unity-ios/screenshot-1.jpg)
+![스크린샷 2](./media/get-started-unity-ios/screenshot-2.jpg)
+![스크린샷 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
 완료되면 Xcode에서 **중지**를 눌러 앱을 중지합니다.
 

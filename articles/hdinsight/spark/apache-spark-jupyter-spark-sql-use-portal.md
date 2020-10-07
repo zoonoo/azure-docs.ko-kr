@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 1d816a84dc8062890633661716cf78aa5ba58527
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a04657463808a3df3634102c0295f4b79a7b4579
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888856"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537857"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -56,7 +56,7 @@ Azure Portal을 사용하여 Azure Storage Blob을 클러스터 스토리지로 
     |클러스터 로그인 암호| 클러스터 로그인 암호를 입력합니다. |
     |SSH(보안 셸) 사용자 이름| SSH 사용자 이름을 입력합니다. 이 빠른 시작에 사용되는 SSH 사용자 이름은 **sshuser**입니다. 기본적으로 이 계정에는 *클러스터 로그인 사용자 이름* 계정과 동일한 암호를 공유합니다. |
 
-    ![HDInsight 클러스터 기본 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "HDInsight에서 Spark 클러스터 만들기 기본 구성")
+    ![스크린샷은 기본 사항 탭이 선택된 HD Insight 클러스터 생성을 보여줍니다.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "HDInsight에서 Spark 클러스터 만들기 기본 구성")
 
     완료되면 **다음: Storage >>** 를 선택하여 **Storage** 페이지를 계속합니다.
 
@@ -69,7 +69,7 @@ Azure Portal을 사용하여 Azure Storage Blob을 클러스터 스토리지로 
     |기본 스토리지 계정|자동으로 채워진 값을 사용합니다.|
     |컨테이너|자동으로 채워진 값을 사용합니다.|
 
-    ![HDInsight 클러스터 기본 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "HDInsight에서 Spark 클러스터 만들기 기본 구성")
+    ![스크린샷은 Storage 탭이 선택된 HD Insight 클러스터 생성을 보여줍니다.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "HDInsight에서 Spark 클러스터 만들기 기본 구성")
 
     **검토 + 만들기**를 선택하여 계속 진행합니다.
 
@@ -95,7 +95,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 
 1. 커널이 준비되었는지 확인합니다. Notebook의 커널 이름 옆에 속이 빈 원이 보이면 커널이 준비된 것입니다. 속이 찬 원은 커널이 사용 중이라는 뜻입니다.
 
-    ![HDInsight의 Apache Hive 쿼리](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight의 Hive 쿼리")
+    ![스크린샷은 PySpark 표시기가 있는 Jupyter 창을 보여줍니다.](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight의 Hive 쿼리")
 
     Notebook을 처음으로 시작하면 커널이 백그라운드에서 몇 가지 작업을 수행합니다. 커널이 준비될 때까지 기다립니다.
 
@@ -108,7 +108,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 
     Jupyter Notebook을 HDInsight 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `sqlContext`를 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `sqlContext`를 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색합니다. 결과를 얻는데 약 30초가 걸립니다. 출력은 다음과 같이 표시됩니다.
 
-    ![HDInsight의 Apache Hive 쿼리](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "HDInsight의 Hive 쿼리")
+    ![이 빠른 시작에서 만든 Notebook의 Jupyter 창이 스크린샷에 표시됩니다.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "HDInsight의 Hive 쿼리")
 
     Jupyter에서 쿼리를 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다.
 

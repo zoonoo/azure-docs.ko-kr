@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: b51cd938747c1cfa82b397160f077474e176b2f5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611746"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612968"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
@@ -64,12 +64,6 @@ Azure HPC Cache 배포는 정량적 분석 계산, 위험 분석 워크로드 �
 * 서유럽
 * US Gov 애리조나
 * US Gov 버지니아
-
-<!-- ## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
 
 ## <a name="next-steps"></a>다음 단계
 

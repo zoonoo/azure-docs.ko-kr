@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c76a6666be805aa088bab7c5716ffd88a30519c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3b577127013252f03e7a617e7f2b9c8d2c4c9188
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002082"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570397"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -22,6 +22,7 @@ ms.locfileid: "89002082"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -35,7 +36,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 * 데이터 쿼리 
 * 데이터베이스 삭제
 
-[API 참조 설명서](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-cosmos-dotnet-v3) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[API 참조 설명서](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet&preserve-view=true) | [라이브러리 소스 코드](https://github.com/Azure/azure-cosmos-dotnet-v3) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,7 +71,7 @@ az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a SQL API Cosmos DB account with session consistency and multi-master enabled
+# Create a SQL API Cosmos DB account with session consistency and multi-region writes enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
@@ -166,19 +167,18 @@ export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 
 다른 엔터티의 계층 구조에 대해 자세히 알아보려면 [Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md) 문서를 참조하세요. 다음 .NET 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) - 이 클래스는 Azure Cosmos DB 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트 개체는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet&preserve-view=true) - 이 클래스는 Azure Cosmos DB 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트 개체는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
 
-* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - 이 메서드는 데이터베이스 리소스를 비동기 작업으로 만들거나(존재하지 않는 경우) 가져옵니다(존재하는 경우). 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet&preserve-view=true) - 이 메서드는 데이터베이스 리소스를 비동기 작업으로 만들거나(존재하지 않는 경우) 가져옵니다(존재하는 경우). 
 
-* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet) - 이 메서드는 컨테이너를 비동기 작업으로 만들거나(존재하지 않는 경우) 가져옵니다(존재하는 경우). 응답의 상태 코드를 확인하여 컨테이너를 새로 만들었는지(201) 또는 기존 컨테이너가 반환되었는지(200) 확인할 수 있습니다. 
-* [Createitemasync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - 이 메서드는 컨테이너 내에 항목을 만듭니다. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet&preserve-view=true) - 이 메서드는 컨테이너를 비동기 작업으로 만들거나(존재하지 않는 경우) 가져옵니다(존재하는 경우). 응답의 상태 코드를 확인하여 컨테이너를 새로 만들었는지(201) 또는 기존 컨테이너가 반환되었는지(200) 확인할 수 있습니다. 
+* [Createitemasync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true) - 이 메서드는 컨테이너 내에 항목을 만듭니다. 
 
-* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - 이 메서드는 컨테이너 내에 항목이 아직 존재하지 않는 경우 만들거나 항목이 이미 존재하는 경우 대체합니다. 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet&preserve-view=true) - 이 메서드는 컨테이너 내에 항목이 아직 존재하지 않는 경우 만들거나 항목이 이미 존재하는 경우 대체합니다. 
 
-* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
-) - 이 메서드는 매개 변수화된 값이 있는 SQL 문을 사용하여 Azure Cosmos 데이터베이스의 컨테이너 아래에 있는 항목에 대한 쿼리를 만듭니다. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet&preserve-view=true) - 이 메서드는 매개 변수화된 값이 있는 SQL 문을 사용하여 Azure Cosmos 데이터베이스의 컨테이너 아래에 있는 항목에 대한 쿼리를 만듭니다. 
 
-* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - Azure Cosmos 계정에서 지정된 데이터베이스를 삭제합니다. `DeleteAsync` 메서드는 데이터베이스만 삭제합니다. `Cosmosclient` 인스턴스 삭제는 deletedatabaseandcleanupasync 메서드에서 별도로 수행해야 합니다. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet&preserve-view=true) - Azure Cosmos 계정에서 지정된 데이터베이스를 삭제합니다. `DeleteAsync` 메서드는 데이터베이스만 삭제합니다. `Cosmosclient` 인스턴스 삭제는 deletedatabaseandcleanupasync 메서드에서 별도로 수행해야 합니다. 
 
  ## <a name="code-examples"></a><a id="code-examples"></a>코드 예제
 

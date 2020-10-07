@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 여러 테이블 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 델타 데이터를 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250964"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541835"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 
@@ -821,11 +821,11 @@ END
 4. **Data Factory** 페이지에서 **작성 및 모니터링**을 선택하여 별도의 탭에서 Azure Data Factory를 선택합니다.
 
 5. **같이 시작해 볼까요?** 페이지의 왼쪽에서 **모니터링**을 선택합니다. 
-![파이프라인 실행](media/doc-common-process/get-started-page-monitor-button.png)    
+![스크린샷은 Azure Data Factory의 시작 페이지를 보여줍니다.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다.
 
-    ![파이프라인 실행](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. **작업** 열에 있는 링크를 선택하면 파이프라인에 대한 모든 활동 실행이 표시됩니다. 
 
 8. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행**을 선택합니다. 

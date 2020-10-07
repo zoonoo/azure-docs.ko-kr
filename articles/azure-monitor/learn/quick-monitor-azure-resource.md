@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a17546f11db881ecacd39986bcd80d9d63b24644
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324270"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448214"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 Azure 리소스 모니터링
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 리소스에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 리소스에 대해 자동으로 수집되는 데이터 및 특정 리소스에 대한 Azure Portal에서 이 데이터를 보는 방법에 대한 간단한 연습을 제공합니다. 나중에 추가 데이터를 수집하는 구성을 추가하고, Azure Monitor 메뉴로 이동한 후 동일한 도구를 사용하여 구독의 모든 리소스에 대해 수집된 데이터에 액세스할 수 있습니다.
@@ -40,11 +40,11 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 1. 리소스 메뉴 맨 위에서 **활동 로그**를 선택합니다.
 2. 현재 필터는 리소스와 관련된 이벤트로 설정되어 있습니다. 이벤트가 보이지 않으면 **시간 범위**를 변경하여 시간 범위를 늘려봅니다.
 
-    ![활동 로그](media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![기본 필터 조건을 사용하여 생성된 리소스에 대한 작업 목록을 보여주는 Azure Portal 리소스 활동 로그의 스크린샷.](media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. 구독에 있는 다른 리소스의 이벤트를 보려면 필터의 조건을 변경하거나 필터 속성을 제거합니다.
 
-    ![활동 로그](media/quick-monitor-azure-resource/activity-log-all.png)
+    ![수정된 필터 조건을 사용하여 생성된 리소스에 대한 작업 목록을 보여주는 Azure Portal 리소스 활동 로그의 스크린샷.](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -54,15 +54,15 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 1. 리소스 메뉴의 **모니터링** 섹션에서 **메트릭**을 선택합니다. 그러면 범위가 리소스로 설정된 메트릭 탐색기가 열립니다.
 2. **메트릭 추가**를 클릭하여 차트에 메트릭을 추가합니다.
    
-   ![메트릭 탐색기](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![리소스에 대한 메트릭을 보여주는 Azure Portal의 메트릭 탐색기 스크린샷. 메트릭 드롭다운은 새 메트릭을 추가하기 위해 열려 있습니다.](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. 드롭다운 목록에서 **메트릭**을 선택하고 **집계**를 선택합니다. 그러면 수집된 값을 시간 간격마다 샘플링하는 방법이 정의됩니다.
 
-    ![메트릭 탐색기](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![리소스에 대한 메트릭을 보여주는 Azure Portal의 메트릭 탐색기 스크린샷. 집계 드롭다운이 열리고 평균이 선택됩니다.](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. **메트릭 추가**를 클릭하여 차트에 메트릭 및 집계 조합을 추가합니다.
 
-    ![메트릭 탐색기](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![리소스에 대한 메트릭을 보여주는 Azure Portal의 메트릭 탐색기 스크린샷.](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 

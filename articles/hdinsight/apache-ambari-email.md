@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081902"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541665"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Ambari 이메일 알림 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "80081902"
 
 1. **Manage Alert Notifications**(경고 알림 관리) 창에서 **+** 아이콘을 선택합니다.
 
-    ![Ambari 경고 알림 만들기](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![스크린샷은 Alert Notifications 관리 대화 상자를 보여줍니다.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. **Create Alert Notification**(경고 알림 만들기) 대화 상자에서 다음 정보를 제공합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "80081902"
     |암호 확인|암호를 다시 입력합니다.|
     |Start TLS(TLS 시작)|이 확인란을 선택합니다.|
 
-    ![Ambari 경고 알림 만들기](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![스크린샷은 Alert Notification 만들기 대화 상자를 보여줍니다.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     **저장**을 선택합니다. **Manage Alert Notifications**(경고 알림 관리) 창이 다시 열립니다.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208550"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537755"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -182,7 +182,7 @@ Azure Functions를 통해 논리 앱 워크플로에서 처리 작업을 오프�
 
 2. **작업 선택**에서 **Text Analytics**를 입력한 다음, **감정 검색** 작업을 클릭합니다.
     
-    ![새 단계 후 작업 추가](media/functions-twitter-email/11-detect-sentiment.png)
+    ![검색 상자에 "Text Analytics"가 있는 "작업 선택" 섹션과 선택된 "감정 검색" 작업을 보여주는 스크린샷. ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. 연결 이름을 입력하고(예: `MyCognitiveServicesConnection`), 텍스트 편집기에 보관해 둔 Cognitive Services API 및 Cognitive Services 엔드포인트의 키를 붙여넣고, **만들기**를 클릭합니다.
 
@@ -202,7 +202,7 @@ Azure Functions를 통해 논리 앱 워크플로에서 처리 작업을 오프�
   
 4. 앞에서 만든 함수 앱을 선택합니다.
 
-    ![함수 선택](media/functions-twitter-email/15-select-function.png)
+    ![함수 앱이 선택된 "작업 선택" 섹션을 보여주는 스크린샷.](media/functions-twitter-email/15-select-function.png)
 
 5. 이 자습서에서 만든 함수를 선택합니다.
 
@@ -228,7 +228,7 @@ Azure Functions를 통해 논리 앱 워크플로에서 처리 작업을 오프�
 
 3. **True인 경우**에서 **작업 추가**를 클릭하고, `outlook.com`을 검색하고, **전자 메일 보내기**를 클릭하고, Outlook.com 계정에 로그인합니다.
 
-    ![전자 메일 보내기 작업에 대한 전자 메일을 구성합니다.](media/functions-twitter-email/20-add-outlook.png)
+    ![검색 상자에 "outlook.com"이 입력되고 "이메일 보내기" 작업이 선택된 "IF TRUE" 섹션을 보여주는 스크린샷.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > Outlook.com 계정이 없는 경우 Gmail 또는 Office 365 Outlook과 같은 다른 커넥터를 선택할 수 있습니다.

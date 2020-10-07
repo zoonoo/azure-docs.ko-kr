@@ -1,23 +1,21 @@
 ---
 title: '빠른 시작: REST API를 사용하여 모델 변경 - LUIS'
 titleSuffix: Azure Cognitive Services
-description: 이 REST API 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다.
+description: 이 REST API 빠른 시작에서는 예제 발화를 추가하여 모델을 변경하고 앱을 학습합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/03/2020
-ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a62b12ccbc6f7d96dc1a2a9b49ab5eec0175f49d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 84b3b592f46124dcd5b4e59775361c243dc67754
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078642"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534678"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>빠른 시작: REST API를 사용하여 모델 변경
 

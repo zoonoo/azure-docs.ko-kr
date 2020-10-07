@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 7f86d0a090409385497715b70e8199bdf48c6995
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b4b4b8bcf5a69fdae9f29284fe965a30d634788
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640330"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539727"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: Azure HDInsight에서 ARM 템플릿을 사용하여 ML Services 클러스터 만들기
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
     |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택합니다.|
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Portal에서 클러스터로 이동하여 **삭제**를 선택합니다.
 
-![Resource Manager 템플릿 HBase](./media/quickstart-resource-manager-template/azure-portal-delete-rserver.png)
+![스크린샷은 삭제할 리소스 그룹이 있는 HD Insight 클러스터를 보여줍니다.](./media/quickstart-resource-manager-template/azure-portal-delete-rserver.png)
 
 또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight 클러스터와 기본 스토리지 계정을 삭제합니다.
 

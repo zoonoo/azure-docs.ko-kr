@@ -1,5 +1,5 @@
 ---
-title: SQL 주문형을 Power BI Desktop에 연결하고 보고서 만들기
+title: '자습서: SQL 주문형을 Power BI Desktop에 연결하고 보고서 만들기'
 description: 이 자습서에서는 Azure Synapse Analytics의 SQL 주문형을 Power BI Desktop에 연결하고, 보기 기반의 데모 보고서를 만드는 방법을 알아봅니다.
 services: synapse analytics
 author: azaricstefan
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089178"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539557"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>자습서: Power BI Desktop으로 SQL 주문형 사용 및 보고서 만들기
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >

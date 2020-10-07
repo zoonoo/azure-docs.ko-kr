@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 통해 변경 내용 추적을 사용하여 데이터 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 Azure SQL Database의 원본 데이터베이스에 있는 변경 내용 추적 정보를 기반으로 Azure Blob 스토리지에 델타 데이터를 로드하는 파이프라인을 사용하여 Azure 데이터 팩터리를 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085789"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542022"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Azure Portal을 통해 변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -285,10 +285,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다.
 
-    ![새 파이프라인 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![스크린샷은 데이터 팩터리에 대한 파이프라인 옵션을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. 파이프라인을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 파이프라인이 표시됩니다. **속성** 창에서 파이프라인 이름을 **FullCopyPipeline**으로 변경합니다.
 
-    ![새 파이프라인 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![스크린샷은 이름이 입력된 파이프라인을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. **활동** 도구 상자에서 **데이터 흐름**을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 이름을 **FullCopyActivity**로 설정합니다.
 
     ![전체 복사 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![파이프라인 유효성 검사](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 게시하려면 **게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다.
 
-    ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![스크린샷은 모두 게시 단추가 호출된 데이터 팩터리를 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. **게시됨** 메시지가 표시될 때까지 기다립니다.
 
     ![게시 성공](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="run-the-full-copy-pipeline"></a>전체 복사 파이프라인 실행
 파이프라인에 대한 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다.
 
-![지금 트리거 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![스크린샷은 트리거 메뉴에서 선택한 지금 트리거 옵션을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>전체 복사 파이프라인 모니터링
 
 1. 왼쪽의 **모니터** 탭을 클릭합니다. 목록에 파이프라인 실행 및 해당 상태가 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. [작업] 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 볼 수 있고 파이프라인을 다시 실행할 수 있습니다.
 
-    ![파이프라인 실행](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![스크린샷은 데이터 팩터리에 대한 파이프라인 실행을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 활동만 있으므로 목록에는 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 다시 전환하려면 위쪽의 **파이프라인** 링크를 클릭합니다.
 
-    ![작업 실행](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![스크린샷은 파이프라인 링크가 호출된 데이터 팩터리에 대한 활동 실행을 보여줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 `incremental-<GUID>.txt`라는 파일이 표시됩니다.
@@ -362,19 +362,19 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 
 1. Data Factory UI에서 **편집** 탭으로 전환합니다. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다.
 
-    ![새 파이프라인 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![스크린샷은 데이터 팩터리에서 파이프라인을 만드는 방법을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. 파이프라인을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 파이프라인이 표시됩니다. **속성** 창에서 파이프라인 이름을 **IncrementalCopyPipeline**으로 변경합니다.
 
     ![파이프라인 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupLastChangeTrackingVersionActivity**로 설정합니다. 이 활동은 **table_store_ChangeTracking_version** 테이블에 저장된 마지막 복사 작업에서 사용된 변경 내용 추적 버전을 가져옵니다.
 
-    ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![스크린샷은 조회 작업을 포함하는 파이프라인을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. **속성** 창에서 **설정**으로 전환하고, **원본 데이터 세트** 필드에 대해 **ChangeTrackingDataset**를 선택합니다.
 
-    ![조회 활동 - 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![스크린샷은 속성 창의 설정 탭을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. **조회** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupCurrentChangeTrackingVersionActivity**로 설정합니다. 이 활동은 현재 변경 내용 추적 버전을 가져옵니다.
 
-    ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![스크린샷은 두 개의 조회 작업을 포함하는 파이프라인을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. **속성** 창에서 **설정**으로 전환하고 다음 단계를 수행합니다.
 
    1. **원본 데이터 세트** 필드에 대해 **SourceDataset**를 선택합니다.
@@ -385,7 +385,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![조회 활동 - 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![스크린샷은 속성 창의 설정 탭에 추가된 쿼리를 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. **활동** 도구 상자에서 **데이터 흐름**을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **IncrementalCopyActivity**로 설정합니다. 이 활동은 마지막 변경 내용 추적 버전과 현재 변경 내용 추적 버전 사이의 데이터를 대상 데이터 저장소에 복사합니다.
 
     ![복사 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -432,21 +432,21 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![유효성 검사 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다.
 
-       ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![스크린샷은 데이터 팩터리에 대한 모두 게시 단추를 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 실행
 1. 파이프라인에 대한 도구 모음에서 **트리거**, **지금 트리거**를 차례로 클릭합니다.
 
-    ![지금 트리거 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![스크린샷은 작업이 포함된 파이프라인과 트리거 메뉴에서 선택한 지금 트리거 옵션을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. **파이프라인 실행** 창에서 **마침**을 선택합니다.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
 1. 왼쪽의 **모니터** 탭을 클릭합니다. 목록에 파이프라인 실행 및 해당 상태가 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다.
 
-    ![파이프라인 실행](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 활동만 있으므로 목록에는 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 다시 전환하려면 위쪽의 **파이프라인** 링크를 클릭합니다.
 
-    ![작업 실행](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![스크린샷은 성공으로 표시된 여러 개의 데이터 팩터리에 대한 파이프라인 실행을 보여 줍니다.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>결과 검토

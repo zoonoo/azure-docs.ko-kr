@@ -1,20 +1,21 @@
 ---
-title: 빠른 시작 - 컨테이너 이미지 빌드 및 실행
-description: Azure Container Registry를 사용하여 클라우드에 주문형 Docker 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
+title: 빠른 시작 - Azure에서 주문형 컨테이너 이미지 빌드
+description: Azure Container Registry 명령을 사용하여 Azure 클라우드에서 주문형 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행합니다.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753700"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538231"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
-이 빠른 시작에서는 Azure Container Registry 작업 명령을 사용하여 신속하게 Docker 컨테이너 이미지를 Azure 내에서 빌드, 푸시 및 실행하고, "내부 루프" 개발 주기를 클라우드로 오프로드하는 방법을 보여줍니다. [ACR 작업][container-registry-tasks-overview]은 컨테이너 수명 주기에 걸쳐 컨테이너 이미지를 관리하고 수정할 수 있는 Azure Container Registry 내부 기능 모음입니다. 
+이 빠른 시작에서는 [Azure Container Registry 작업][container-registry-tasks-overview] 명령을 사용하여 로컬 Docker를 설치하지 않고 Azure 내에서 기본적으로 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행했습니다. ACR 작업은 컨테이너 수명 주기에 걸쳐 컨테이너 이미지를 관리하고 수정할 수 있는 Azure Container Registry 내부 기능 모음입니다. 이 예제에서는 로컬 Dockerfile을 사용하여 주문형 빌드로 "내부 루프" 컨테이너 이미지 개발 주기를 클라우드로 오프로드하는 방법을 보여 줍니다. 
 
-이 빠른 시작을 마친 후 ACR 작업의 고급 기능을 더 살펴보세요. 다양한 시나리오를 지원하는 ACR 작업은 코드 커밋 또는 기본 이미지 업데이트를 기반으로 이미지 빌드를 자동화하거나 여러 컨테이너를 병렬로 테스트할 수 있습니다. 
+이 빠른 시작을 마친 후 [자습서](container-registry-tutorial-quick-task.md)를 사용하여 ACR 작업의 고급 기능을 더 살펴보세요. 다양한 시나리오를 지원하는 ACR 작업은 코드 커밋 또는 기본 이미지 업데이트를 기반으로 이미지 빌드를 자동화하거나 여러 컨테이너를 병렬로 테스트할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
@@ -45,7 +46,7 @@ az acr create --resource-group myResourceGroup \
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드 및 푸시
 
-이제 Azure Container Registry를 사용하여 이미지를 빌드하고 푸시합니다. 먼저 작업 디렉터리를 만든 다음, `FROM hello-world` 단일 줄로 *Dockerfile*이라는 Dockerfile을 만듭니다. Docker Hub의 `hello-world` 이미지에서 Linux 컨테이너 이미지를 빌드하는 간단한 예제입니다. 사용자 고유의 표준 Dockerfile을 만들고 다른 플랫폼용 이미지를 빌드할 수 있습니다. bash 셸에서 작업하는 경우 다음 명령을 사용하여 Dockerfile을 만듭니다.
+이제 Azure Container Registry를 사용하여 이미지를 빌드하고 푸시합니다. 먼저 로컬 작업 디렉터리를 만든 다음, `FROM hello-world` 단일 줄로 *Dockerfile*이라는 Dockerfile을 만듭니다. Docker Hub의 `hello-world` 이미지에서 Linux 컨테이너 이미지를 빌드하는 간단한 예제입니다. 사용자 고유의 표준 Dockerfile을 만들고 다른 플랫폼용 이미지를 빌드할 수 있습니다. bash 셸에서 작업하는 경우 다음 명령을 사용하여 Dockerfile을 만듭니다.
 
 ```bash
 echo FROM hello-world > Dockerfile

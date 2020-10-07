@@ -3,14 +3,14 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005057"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574463"
 ---
-# <a name="what-is-azure-vmware-solution-preview"></a>Azure VMware 솔루션 미리 보기란?
+# <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
 Azure VMware 솔루션은 Azure에서 프라이빗 클라우드를 제공합니다. 프라이빗 클라우드에는 전용 운영 체제 미설치 Azure 인프라에서 구축된 vSphere 클러스터가 포함됩니다. 여러 클러스터를 단일 프라이빗 클라우드에 포함하는 기능을 사용하여 프라이빗 클라우드 클러스터를 3개에서 16개의 호스트로 확장할 수 있습니다. 모든 프라이빗 클라우드는 vCenter Server, vSAN, vSphere 및 NSX-T를 통해 프로비저닝됩니다. 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 가상 머신을 만들거나 배포하며, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다.
 
@@ -28,9 +28,7 @@ Azure VMware 솔루션 프라이빗 클라우드 및 클러스터는 운영 체�
 
 ## <a name="networking"></a>네트워킹
 
-프라이빗 클라우드가 배포되면 관리, 프로비전 및 vMotion을 위한 개인 네트워크가 만들어집니다. 이러한 개인 네트워크는 vCenter 및 NSX-T 관리자에 대한 액세스와 가상 머신 vMotion 또는 배포에 사용됩니다. 모든 개인 네트워크는 Azure의 VNet 또는 온-프레미스 환경에서 액세스할 수 있습니다. ExpressRoute Global Reach는 프라이빗 클라우드를 온-프레미스 환경에 연결하는 데 사용되며, 이 연결에는 구독 시 ExpressRoute 회로가 있는 VNet이 필요합니다.
-
-프라이빗 클라우드가 배포되면 인터넷 및 Azure 서비스에 대한 액세스가 프로비저닝됩니다. 프로덕션 워크로드 네트워크의 VM에서 Azure 또는 인터넷 기반 서비스를 사용할 수 있도록 액세스 권한이 제공됩니다. 인터넷 액세스는 기본적으로 새 프라이빗 클라우드에 사용하지 않도록 설정되며 언제든지 사용하거나 사용하지 않도록 설정할 수 있습니다.
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 네트워킹 및 상호 연결에 대한 자세한 내용은 [네트워킹 개념](concepts-networking.md) 문서를 참조하세요.
 
@@ -46,7 +44,7 @@ Azure VMware 솔루션 프라이빗 클라우드 및 VMware 소프트웨어를 �
 
 ## <a name="monitoring-your-private-cloud"></a>프라이빗 클라우드 모니터링
 
-[Azure Monitor에서 로그](../azure-monitor/overview.md)를 사용하여 Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 가상 머신의 로그를 수집할 수 있습니다. 온-프레미스 VM에서 실행하는 것과 동일한 쿼리를 사용하여 Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 Linux 및 Windows 가상 머신에서 [MMA 에이전트를 다운로드하여 설치](../azure-monitor/platform/log-analytics-agent.md#installation-options)할 수 있습니다. 일반적으로 가상 머신에서 실행하는 것과 동일한 쿼리를 실행할 수 있습니다. 쿼리를 만드는 방법에 대한 자세한 내용은 [쿼리를 작성하는 방법](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)을 참조하세요.
+Azure VMware Solution이 구독에 배포되면 [Azure Monitor 로그](../azure-monitor/overview.md)가 자동으로 생성됩니다. 또한 프라이빗 클라우드 내에서 각 가상 머신에 대한 로그를 수집할 수 있습니다. Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 Linux 및 Windows 가상 머신에서 [MMA 에이전트를 다운로드하여 설치](../azure-monitor/platform/log-analytics-agent.md#installation-options)하고 [Azure 진단 확장](../azure-monitor/platform/diagnostics-extension-overview.md)을 사용하도록 설정할 수 있습니다. 일반적으로 가상 머신에서 실행하는 것과 동일한 쿼리를 실행할 수도 있습니다. 쿼리를 만드는 방법에 대한 자세한 내용은 [쿼리를 작성하는 방법](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)을 참조하세요. Azure VMware Solution 내의 모니터링 패턴은 IaaS 플랫폼 내에서 Azure Virtual Machines와 유사합니다. 추가 정보 및 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 가상 머신 모니터링](../azure-monitor/insights/monitor-vm-azure.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 미리 보기 디바이스와 상호 작용(Python) | Microsoft Docs
-description: Python을 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 미리 보기 디바이스에 연결하고 상호 작용합니다.
+title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Python) | Microsoft Docs
+description: Python을 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
 author: elhorton
 ms.author: elhorton
 ms.date: 7/13/2020
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e3f00bb601cce17721c5247941588be1c2de788d
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: be5ff3e863752dfc187bd91257425af5e8de85c4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352734"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574972"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-python"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 미리 보기 디바이스와 상호 작용(Python)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Python)
 
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
-IoT 플러그 앤 플레이 미리 보기를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 모델과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Python을 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 모델과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Python을 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 이 빠른 시작을 완료하려면 개발 머신에 Python 3.7이 필요합니다. [python.org](https://www.python.org/)에서 여러 플랫폼에 권장되는 최신 버전을 다운로드할 수 있습니다. 다음 명령을 사용하여 현재 Python 버전을 확인할 수 있습니다.  
 
@@ -31,27 +31,25 @@ IoT 플러그 앤 플레이 미리 보기를 사용하면 기본 디바이스 �
 python --version
 ```
 
-다음 명령을 실행하여 [Python 서비스 SDK 미리 보기 패키지](https://pypi.org/project/azure-iot-hub/2.2.1rc0/)를 설치합니다.
+**azure-iot-device** 패키지가 PIP로 게시됩니다.
+
+로컬 Python 환경에서 다음과 같이 패키지를 설치합니다.
 
 ```cmd/sh
-pip3 install azure-iot-hub==2.2.1rc0
+pip install azure-iot-device
 ```
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+다음 명령을 실행하여 **azure-iot-hub** 패키지를 설치합니다.
 
-다음 명령을 실행하여 허브에 대한 IoT 허브 연결 문자열을 가져옵니다. 이 연결 문자열을 기록해 두십시오. 이 빠른 시작의 뒷부분에서 사용하게 됩니다.
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-다음 명령을 실행하여 허브에 추가한 디바이스에 대한 디바이스 연결 문자열을 가져옵니다. 이 연결 문자열을 기록해 두십시오. 이 빠른 시작의 뒷부분에서 사용하게 됩니다.
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
+```cmd/sh
+pip install azure-iot-hub
 ```
 
 ## <a name="run-the-sample-device"></a>샘플 디바이스 실행
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md)를 참조하세요.
 
 이 빠른 시작에서는 Python으로 작성한 샘플 자동 온도 조절 디바이스를 IoT 플러그 앤 플레이 디바이스로 사용합니다. 샘플 디바이스를 실행하려면 다음을 수행합니다.
 
@@ -63,16 +61,10 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 1. 이 터미널 창은 이제 **디바이스** 터미널로 사용됩니다. 복제된 리포지토리의 폴더로 이동하여 */azure-iot-sdk-python/azure-iot-device/samples/pnp* 폴더로 이동합니다.
 
-1. 다음과 같이 _디바이스 연결 문자열_을 구성합니다.
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
-    ```
-
 1. 다음 명령을 사용하여 샘플 자동 온도 조절 디바이스를 실행합니다.
 
     ```cmd/sh
-    python pnp_thermostat.py
+    python simple_thermostat.py
     ```
 
 1. 디바이스에서 일부 정보를 보냈으며 현재 온라인 상태임을 보고했다는 메시지가 표시됩니다. 이 메시지는 디바이스가 허브로 원격 분석 데이터를 보내기 시작했으며, 이제 명령 및 속성 업데이트를 받을 준비가 되었음을 나타냅니다. 이 터미널을 닫지 마세요. 서비스 샘플이 작동하는지 확인하는 데 필요합니다.
@@ -81,29 +73,23 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 이 빠른 시작에서는 Python에서 샘플 IoT 솔루션을 사용하여 방금 설정한 샘플 디바이스와 상호 작용합니다.
 
-1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다. 서비스 SDK는 미리 보기 상태이므로 [Python SDK 미리 보기 분기](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh)에서 샘플을 복제해야 합니다.
+1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다. 
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
-    ```
+1. 복제된 Python SDK 리포지토리의 */azure-iot-sdk-python/azure-iot-hub/samples* 폴더로 이동합니다.
 
-1. 복제된 리포지토리 분기의 폴더로 이동하여 */azure-iot-sdk-python/azure-iot-hub/samples* 폴더로 이동합니다.
-
-1. 디바이스 ID 및 IoT Hub 연결 문자열의 환경 변수를 구성합니다.
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
-    ```
-
-1. 샘플 폴더에는 `pnp` 접두사가 있는 샘플 파일이 4개 있습니다. 이 샘플은 각 API를 사용하여 IoT 플러그 앤 플레이 디바이스와 상호 작용하는 방법을 보여줍니다.
+1. 샘플 폴더에는 Digital Twin Manager 클래스를 사용하는 작업을 보여 주는 4개의 샘플 파일이 있습니다. *get_digital_twin_sample.py, update_digitial_twin_sample.py, invoke_command_sample.py 및 invoke_component_command_sample-.py*  이 샘플은 각 API를 사용하여 IoT 플러그 앤 플레이 디바이스와 상호 작용하는 방법을 보여줍니다.
 
 ### <a name="get-digital-twin"></a>디지털 쌍 가져오기
+
+[IoT 플러그 앤 플레이 빠른 시작 및 자습서](set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
+
+* **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 **서비스** 터미널에서 다음 명령을 사용하여 이 샘플을 실행합니다.
 
 ```cmd/sh
-python pnp_get_digital_twin_sample.py
+python get_digital_twin_sample.py
 ```
 
 출력은 디바이스의 디지털 쌍을 표시하고 해당하는 모델 ID를 출력합니다.
@@ -113,7 +99,7 @@ python pnp_get_digital_twin_sample.py
 Model Id: dtmi:com:example:Thermostat;1
 ```
 
-다음 코드 조각은 *pnp_get_digital_twin_sample.py*의 샘플 코드를 보여줍니다.
+다음 코드 조각은 *get_digital_twin_sample.py*의 샘플 코드를 보여 줍니다.
 
 ```python
     # Get digital twin and retrieve the modelId from it
@@ -127,7 +113,7 @@ Model Id: dtmi:com:example:Thermostat;1
 
 ### <a name="update-a-digital-twin"></a>디지털 쌍 업데이트
 
-이 샘플은 *patch*를 사용하여 디바이스의 디지털 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다. *pnp_update_digital_twin_sample.py*의 다음 코드 조각은 패치를 구성하는 방법을 보여줍니다.
+이 샘플은 *patch*를 사용하여 디바이스의 디지털 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다. *update_digital_twin_sample.py*의 다음 코드 조각은 패치를 구성하는 방법을 보여 줍니다.
 
 ```python
 # If you already have a component thermostat1:
@@ -140,7 +126,7 @@ print("Patch has been succesfully applied")
 **서비스** 터미널에서 다음 명령을 사용하여 이 샘플을 실행합니다.
 
 ```cmd/sh
-python pnp_update_digital_twin_sample.py
+python update_digital_twin_sample.py
 ```
 
 다음과 같은 출력이 표시되는 **디바이스** 터미널에서 업데이트가 적용되었는지 확인할 수 있습니다.
@@ -159,7 +145,7 @@ Patch has been successfully applied
 
 ### <a name="invoke-a-command"></a>명령 호출
 
-명령을 호출하려면 *pnp_invoke_command_sample.py* 샘플을 실행합니다. 이 샘플은 간단한 자동 온도 조절 디바이스에서 명령을 호출하는 방법을 보여줍니다. 이 샘플을 실행하기 전에 **서비스** 터미널에서 `IOTHUB_COMMAND_NAME` 및 `IOTHUB_COMMAND_PAYLOAD` 환경 변수를 설정합니다.
+명령을 호출하려면 *invoke_command_sample.py* 샘플을 실행합니다. 이 샘플은 간단한 자동 온도 조절 디바이스에서 명령을 호출하는 방법을 보여줍니다. 이 샘플을 실행하기 전에 **서비스** 터미널에서 `IOTHUB_COMMAND_NAME` 및 `IOTHUB_COMMAND_PAYLOAD` 환경 변수를 설정합니다.
 
 ```cmd/sh
 set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
@@ -169,7 +155,7 @@ set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this 
 **서비스** 터미널에서 다음 명령을 사용하여 샘플을 실행합니다.
   
 ```cmd/sh
-python pnp_invoke_command_sample.py
+python invoke_command_sample.py
 ```
 
 **서비스** 터미널에 디바이스의 확인 메시지가 표시됩니다.
@@ -189,11 +175,9 @@ Done generating
 Sent message
 ```
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 IoT 플러그 앤 플레이 디바이스를 IoT 솔루션에 연결하는 방법을 알아보았습니다. IoT 플러그 앤 플레이 디바이스 모델에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [IoT 플러그 앤 플레이 미리 보기 모델링 개발자 가이드](concepts-developer-guide.md)
+> [IoT 플러그 앤 플레이 모델링 개발자 가이드](concepts-developer-guide-device-csharp.md)

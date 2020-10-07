@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: f3c6364226288ffb6796664e89d0b7c2cc4dadf6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543149"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569075"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -91,7 +91,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다.
-    ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+    ![목록에서 Azure Storage Linked Service를 강조 표시하는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
 3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
@@ -368,7 +368,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 7. **X**를 닫아서 **AzureBlobInput** 블레이드를 닫습니다.
 8. **다이어그램 보기**에서 **AzureBlobOutput** 데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
-   ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![AzureBlobOutput 데이터 세트를 강조 표시하는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
 
    > [!IMPORTANT]

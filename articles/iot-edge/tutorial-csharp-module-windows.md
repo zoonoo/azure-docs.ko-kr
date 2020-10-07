@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b904fcd03247f6e6ae01f51c5048c29826bb8e5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018470"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449593"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -315,7 +315,7 @@ Visual Studio 클라우드 탐색기 및 Azure IoT Edge Tools 확장을 사용�
 
 IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
-1. Visual Studio 클라우드 탐색기에서 IoT 디바이스 목록을 보려면 리소스를 확장합니다.
+1. Visual Studio 클라우드 탐색기에서 리소스를 확장하여 IoT 디바이스 목록을 확인합니다.
 
 2. 배포를 수신하려는 IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭합니다.
 

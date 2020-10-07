@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0334b13fa73eb2fd648184f44bf0856c0d2a9ed9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076806"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565091"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -87,6 +87,8 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 확장 집합을 만들 때 또는 기존 확장 집합을 사용하여 디스크를 만들고 연결할 수 있습니다.
+
+API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 속성을 사용하여 가상 머신 확장 집합에서 OS 디스크의 크기를 설정할 수 있습니다. 프로비저닝한 후에는 전체 공간을 사용하기 위해 디스크를 확장하거나 다시 분할해야 할 수 있습니다. [여기에서 디스크 확장](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os)에 대해 자세히 알아보세요.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>확장 집합을 만들 때 디스크 연결
 [New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 VM 인스턴스에 대한 사용자 이름과 암호를 제공합니다. 트래픽을 개별 VM 인스턴스로 배포하기 위해 부하 분산 장치도 생성됩니다. 부하 분산 장치에는 80 TCP 포트에서 트래픽을 분산할 뿐만 아니라 3389 TCP 포트의 원격 데스크톱 트래픽 및 5985 TCP 포트의 PowerShell 원격을 허용하는 규칙이 포함되어 있습니다.

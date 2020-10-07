@@ -1,5 +1,5 @@
 ---
-title: 관리 단위 관리(미리 보기) - Azure AD | Microsoft Docs
+title: Azure Active Directory의 관리 단위 | Microsoft Docs
 description: Azure Active Directory에서 보다 세부적인 권한 위임을 위해 관리 단위 사용
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7aa356c806b6b96fa6a22f8642b005b2002f7c2a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376386"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447894"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Azure Active Directory의 관리 단위 관리(미리 보기)
+# <a name="administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위
 
-이 문서에서는 Azure AD(Azure Active Directory)의 관리 단위에 대해 설명합니다. 관리 단위는 다른 Azure AD 리소스의 컨테이너가 될 수 있는 Azure AD 리소스입니다. 이 미리 보기 릴리스에서는 관리 단위에 사용자 및 그룹만 포함될 수 있습니다.
+이 문서에서는 Azure AD(Azure Active Directory)의 관리 단위에 대해 설명합니다. 관리 단위는 다른 Azure AD 리소스의 컨테이너가 될 수 있는 Azure AD 리소스입니다. 관리 단위에는 사용자 및 그룹만 포함될 수 있습니다.
 
 관리 단위를 사용하면 정의하는 조직의 부서, 지역 또는 기타 세그먼트로 제한된 관리자 권한을 부여할 수 있습니다. 관리 단위를 사용하여 지역 관리자에게 권한을 위임하거나 세부적인 수준에서 정책을 설정할 수 있습니다. 예를 들어 사용자 계정 관리자는 프로필 정보를 업데이트하고, 암호를 다시 설정하고, 자신의 관리 단위에 포함된 사용자에게만 라이선스를 할당할 수 있습니다.
 
@@ -44,11 +44,11 @@ ms.locfileid: "89376386"
 
 ## <a name="manage-administrative-units"></a>관리 단위 관리
 
-이 미리 보기 릴리스에서는 Azure Portal, PowerShell cmdlet 및 스크립트, 또는 Microsoft Graph를 사용하여 관리 단위를 관리할 수 있습니다. 자세한 내용은 다음 설명서를 참조하세요.
+Azure Portal, PowerShell cmdlet 및 스크립트 또는 Microsoft Graph를 사용하여 관리 단위를 관리할 수 있습니다. 자세한 내용은 다음 설명서를 참조하세요.
 
 - [역할을 만들고, 관리 단위에 추가 또는 제거하고, 정보 채우기](roles-admin-units-manage.md): 전체 방법 절차
-- [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): PowerShell을 사용하여 관리 단위를 작업하는 방법
-- [관리 단위 Graph 지원](/graph/api/resources/administrativeunit?view=graph-rest-beta): 관리 단위용 Microsoft Graph에 대한 자세한 설명서입니다.
+- [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): PowerShell을 사용하여 관리 단위를 작업하는 방법
+- [관리 단위 Graph 지원](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): 관리 단위용 Microsoft Graph에 대한 자세한 설명서입니다.
 
 ### <a name="planning-your-administrative-units"></a>관리 단위 계획 수립
 
@@ -95,9 +95,6 @@ ms.locfileid: "89376386"
 관리 단위 범위를 지정하여 그룹 속성 및 멤버 관리     |  지원됨   |    지원됨    |  지원되지 않음
 관리 단위 범위를 지정하여 그룹 라이선스 관리   |    지원됨  |    지원됨   |   지원되지 않음
 
-> [!NOTE]
->
-> 관리 단위 범위가 지정된 관리자는 동적 그룹 멤버 관리 규칙을 관리할 수 없습니다.
 
 관리 단위는 관리 권한에만 범위를 적용합니다. 멤버 또는 관리자가 자신의 [기본 사용자 권한](../fundamentals/users-default-permissions.md)을 사용하여 관리 단위 외부의 다른 사용자, 그룹 또는 리소스를 검색하는 것을 막을 수 없습니다. Microsoft 365 관리 센터에서는 범위가 지정된 관리자의 관리 단위 외부에 있는 사용자가 필터링되지만 Azure AD 포털, PowerShell 및 기타 Microsoft 서비스에서는 다른 사용자를 탐색할 수 있습니다.
 

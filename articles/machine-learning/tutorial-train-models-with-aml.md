@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 1af5ab33497ad8694752db17e874b883e60c942c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906656"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535072"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 
@@ -37,7 +37,7 @@ ms.locfileid: "90906656"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 버전 1.0.83으로 테스트되었습니다.
+> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 버전 1.13.0에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -117,7 +117,7 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -223,7 +223,7 @@ plt.show()
 이 태스크의 경우 이전에 설정한 원격 학습 클러스터에서 실행할 작업을 제출하세요.  작업을 제출하는 방법은 아래와 같습니다.
 * 디렉터리 만들기
 * 학습 스크립트 만들기
-* Estimator 개체 만들기
+* 스크립트 실행 구성 만들기
 * 작업 제출
 
 ### <a name="create-a-directory"></a>디렉터리 만들기
@@ -307,19 +307,19 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
   shutil.copy('utils.py', script_folder)
   ```
 
-### <a name="create-an-estimator"></a>추정기 만들기
+### <a name="configure-the-training-job"></a>학습 작업 구성
 
-추정기 개체는 실행을 제출하는 데 사용됩니다. Azure Machine Learning에는 제네릭 평가기뿐만 아니라 일반적인 기계 학습 프레임워크에 대해 미리 구성된 추정기가 있습니다. 지정하여 추정기 만들기
+[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 다음을 지정하여 ScriptRunConfig를 구성합니다.
 
-
-* 추정기 개체의 이름(`est`)
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
 * 학습 스크립트 이름(**train.py**)
 * 스크립트를 실행하는 데 필요한 라이브러리가 포함된 환경입니다.
-* 학습 스크립트에서 필요한 매개 변수
+* 학습 스크립트에 필요한 인수
 
-이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**는 데이터 세트를 사용하도록 설정되었습니다. "먼저 scikit-learn 라이브러리, 데이터 세트에 액세스하는 데 필요한 azureml-dataprep 및 azureml-defaults가 포함된 환경을 만듭니다. 여기에는 로깅 메트릭에 대한 종속성이 포함됩니다. azureml-defaults에는 자습서 2부 뒤부분에 나오는 웹 서비스로 모델을 배포하는 데 필요한 종속성도 포함되어 있습니다.
+이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **--data_folder**는 데이터 세트를 사용하도록 설정되었습니다.
+
+먼저 scikit-learn 라이브러리, 데이터 세트에 액세스하는 데 필요한 azureml-dataset-runtime 및 azureml-defaults가 포함된 환경을 만듭니다. 여기에는 로깅 메트릭에 대한 종속성이 포함됩니다. azureml-defaults에는 자습서 2부 뒤부분에 나오는 웹 서비스로 모델을 배포하는 데 필요한 종속성도 포함되어 있습니다.
 
 환경이 정의되면 작업 영역에 등록하여 자습서 2부에서 다시 사용합니다.
 
@@ -329,38 +329,34 @@ from azureml.core.conda_dependencies import CondaDependencies
 
 # to install required packages
 env = Environment('tutorial-env')
-cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+cd = CondaDependencies.create(pip_packages=['azureml-dataset-runtime[pandas,fuse]', 'azureml-defaults'], conda_packages=['scikit-learn==0.22.1'])
 
 env.python.conda_dependencies = cd
 
 # Register environment to re-use later
-env.register(workspace = ws)
+env.register(workspace=ws)
 ```
 
-그런 다음, 다음 코드를 사용하여 추정기를 만듭니다.
+그런 다음, 학습 스크립트, 컴퓨팅 대상 및 환경을 지정하여 ScriptRunConfig를 만듭니다.
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.core import ScriptRunConfig
 
-script_params = {
-    # to mount files referenced by mnist dataset
-    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
-    '--regularization': 0.5
-}
+args = ['--data-folder', mnist_file_dataset.as_mount(), '--regularization', 0.5]
 
-est = Estimator(source_directory=script_folder,
-              script_params=script_params,
-              compute_target=compute_target,
-              environment_definition=env,
-              entry_script='train.py')
+src = ScriptRunConfig(source_directory=script_folder,
+                      script='train.py', 
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=env)
 ```
 
 ### <a name="submit-the-job-to-the-cluster"></a>클러스터에 작업 제출
 
-추정기 개체를 제출하여 실험을 실행합니다.
+ScriptRunConfig 개체를 제출하여 실험을 실행합니다.
 
 ```python
-run = exp.submit(config=est)
+run = exp.submit(config=src)
 run
 ```
 
@@ -372,7 +368,7 @@ run
 
 기다리는 동안 수행되는 작업은 다음과 같습니다.
 
-- **이미지 만들기**: 추정기에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분**이 걸립니다.
+- **이미지 만들기**: Azure ML 환경에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분**이 걸립니다.
 
   컨테이너가 후속 실행을 위해 캐시되므로 이 단계는 각 Python 환경에 대해 한 번만 수행됩니다. 이미지 생성 중에 로그가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 이미지 만들기 진행 상황을 모니터링할 수 있습니다.
 

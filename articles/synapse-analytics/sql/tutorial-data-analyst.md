@@ -1,6 +1,6 @@
 ---
-title: 주문형 SQL(미리 보기)을 사용하여 Azure Synapse Studio(미리 보기)에서 Azure Open Datasets 분석
-description: 이 자습서에서는 주문형 SQL(미리 보기)을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 쉽게 수행하고 Azure Synapse Studio에서 결과를 시각화하는 방법을 알아봅니다.
+title: '자습서: 주문형 SQL(미리 보기)을 사용하여 Azure Synapse Studio(미리 보기)에서 Azure Open Datasets 분석'
+description: 이 자습서에서는 SQL 주문형(미리 보기)을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 쉽게 수행하고 Azure Synapse Studio에서 결과를 시각화하는 방법을 보여줍니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089144"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539523"
 ---
-# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>SQL 주문형을 사용하여 Azure Open Datasets를 분석하고 그 결과를 Azure Synapse Studio에서 시각화
+# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>자습서: SQL 주문형을 사용하여 Azure Open Datasets를 분석하고 그 결과를 Azure Synapse Studio에서 시각화
 
 이 자습서에서는 주문형 SQL을 사용하여 여러 Azure Open Datasets를 결합하여 예비 데이터 분석을 수행한 다음, 그 결과를 Azure Synapse Studio에서 시각화하는 방법을 알아봅니다.
 
@@ -135,7 +135,7 @@ ORDER BY 1 ASC
 
 ![2016년도 일일 탑승 횟수를 보여 주는 세로 막대형 차트](./media/tutorial-data-analyst/7.png)
 
-이 그림 차트에서 주 단위 패턴을 볼 수 있으며, 토요일이 가장 탑승 횟수가 많은 요일임을 알 수 있습니다. 여름 몇 개월 동안은 휴가로 인해 택시 승차 인원이 줄어듭니다. 택시 승차 횟수가 언제 그리고 왜 발생하는지에 대한 명확한 패턴이 없이 크게 감소한 경우도 있습니다.
+이 플롯 차트에서 주 단위 패턴을 볼 수 있으며, 토요일이 가장 탑승 횟수가 많은 요일임을 알 수 있습니다. 여름 몇 개월 동안은 휴가로 인해 택시 승차 인원이 줄어듭니다. 또한 택시 승차 횟수가 언제 그리고 왜 발생하는지에 대한 명확한 패턴이 없이 크게 감소한 경우도 있습니다.
 
 다음에는, NYC 택시 승차 횟수 데이터 세트와 공휴일 데이터 세트를 결합하여 이러한 하락이 공휴일과 상관 관계가 있는지 살펴보겠습니다.
 

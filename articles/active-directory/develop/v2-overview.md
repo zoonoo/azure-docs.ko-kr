@@ -1,5 +1,6 @@
 ---
 title: Microsoft ID 플랫폼 개요 - Azure
+titleSuffix: Microsoft identity platform
 description: Microsoft ID 플랫폼의 구성 요소 및 이러한 구성 요소가 애플리케이션에 IAM(ID 및 액세스 관리) 지원을 빌드하는 데 도움이 되는 방법에 대해 알아봅니다.
 services: active-directory
 author: rwike77
@@ -12,14 +13,14 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119558"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91627128"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Microsoft ID 플랫폼 개요
+# <a name="what-is-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼이란?
 
 Microsoft ID 플랫폼을 통해 사용자 및 고객이 Microsoft ID 또는 소셜 계정을 사용하여 로그인할 수 있는 애플리케이션을 빌드하고 사용자 고유의 API 또는 Microsoft Graph와 같은 Microsoft API에 대한 액세스 권한을 부여할 수 있습니다.
 

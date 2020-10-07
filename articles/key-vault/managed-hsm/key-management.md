@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 9353750fdbbb52aff60fc41b7fd028ec4c5f0ec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992301"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448278"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Azure CLI를 사용하여 관리형 HSM 관리
 
@@ -53,7 +53,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 ### <a name="create-an-rsa-key"></a>RSA 키 만들기
 
-아래 예제에서는 **wrapKey, unwrapKey** 작업(--ops)에만 사용되는 3,070비트 **RSA** 키를 만드는 방법을 보여 줍니다. 
+아래 예제에서는 **wrapKey, unwrapKey** 작업(--ops)에만 사용되는 3,072비트 **RSA** 키를 만드는 방법을 보여줍니다. 
 
 
 ```azurecli-interactive
@@ -82,7 +82,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 
 ### <a name="create-a-256-bit-symmetric-key"></a>256비트 대칭 키 만들기
 
-아래 예제에서는 **암호화 및 암호 해독** 작업(--ops)에만 사용되는 3,070비트 **대칭** 키를 만드는 방법을 보여 줍니다.
+아래 예제에서는 **암호화 및 암호 해독** 작업(--ops)에만 사용되는 256비트 **대칭** 키를 만드는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256

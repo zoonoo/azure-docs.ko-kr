@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 06/09/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/22/2020
+ms.custom: devx-track-azurecli, subject-armqs
+ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987514"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533898"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기 
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 방법 문서에는 Azure PowerShell 모듈 Az 버전 2.6.0 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 원하는 경우 PowerShell 세션에서 Cloud Shell 콘솔을 대신 사용할 수 있습니다.
 
-1. PowerShell 명령 프롬프트(또는 PowerShell Cloud Shell 세션)에서 Azure NetApp Files의 허용 목록에 포함된 구독을 지정합니다.
+1. PowerShell 명령 프롬프트(또는 PowerShell Cloud Shell 세션)에서 Azure NetApp Files에 대해 승인된 구독을 지정합니다.
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
@@ -66,6 +66,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+# <a name="template"></a>[템플릿](#tab/template)
+
+없음  
+
+Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및 NetApp 리소스 공급자에 등록합니다.  
+
+자세한 내용은 [Azure NetApp Files에 등록](azure-netapp-files-register.md)을 참조하세요. 
 
 ---
 
@@ -151,6 +159,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+
+# <a name="template"></a>[템플릿](#tab/template)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+다음 코드 조각에서는 [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) 리소스를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에서 NetApp 계정을 만드는 방법을 보여 줍니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+
+<!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
+
 ---
 
 ## <a name="set-up-a-capacity-pool"></a>용량 풀 설정
@@ -167,14 +186,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. **+ 풀 추가**를 클릭합니다. 
 
-    ![풀 추가 클릭](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![풀 추가 클릭](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. 다음과 같은 용량 풀 정보를 입력합니다. 
-    1. 풀 이름으로 **mypool1**을 입력합니다.
-    2. 서비스 수준으로 **프리미엄**을 선택합니다. 
-    3. 풀 크기로 **4(TiB)** 를 지정합니다. 
+    * 풀 이름으로 **mypool1**을 입력합니다.
+    * 서비스 수준으로 **프리미엄**을 선택합니다. 
+    * 풀 크기로 **4(TiB)** 를 지정합니다. 
+    * **자동** QoS 유형을 사용합니다.
 
-5. **확인**을 클릭합니다.
+5. **만들기**를 클릭합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -213,6 +233,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+# <a name="template"></a>[템플릿](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+
+다음 코드 조각에서는 [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools) 리소스를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에서 용량 풀을 만드는 방법을 보여 줍니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+
+<!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
 ---
 
@@ -353,6 +383,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --protocol-types "NFSv3"
     ```
 
+# <a name="template"></a>[템플릿](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
+
+다음 코드 조각에서는 VNet을 설정하고 ARM 템플릿(Azure Resource Manager 템플릿)에 Azure NetApp Files 볼륨을 만드는 방법을 보여 줍니다. VNet 설치 프로그램은 [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks) 리소스를 사용합니다. 볼륨 생성은 [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) 리소스를 사용합니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
+
+<!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+
+<!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+
 ---
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -373,13 +417,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. 리소스 그룹 페이지에서 **리소스 그룹 삭제**를 클릭합니다.
 
-    ![리소스 그룹 삭제](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![리소스 그룹 삭제 단추를 강조 표시하는 스크린샷](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     창이 하나 열리고 리소스 그룹과 함께 삭제될 리소스에 대한 경고가 표시됩니다.
 
 4. 리소스 그룹의 이름(myRG1)을 입력하고 리소스 그룹 및 포함된 모든 리소스를 영구적으로 삭제할 것인지 확인한 다음, **삭제**를 클릭합니다.
 
-    ![리소스 그룹 삭제](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![리소스 그룹 삭제 확인](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -407,6 +451,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     az group delete \
         --name $RESOURCE_GROUP
     ```
+
+# <a name="template"></a>[템플릿](#tab/template)
+
+없음
+
+Azure Portal, PowerShell 또는 Azure CLI를 사용하여 리소스 그룹을 삭제합니다.   
+
 ---
 
 ## <a name="next-steps"></a>다음 단계  

@@ -4,17 +4,17 @@ description: 데이터 대량 로드를 위한 인증 메커니즘 개요를 표
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603889"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569472"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
@@ -76,7 +76,7 @@ WITH (
 3. Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions)를 참조하세요.
 #### <a name="steps"></a>단계
 
-1. PowerShell에서 AAD(Azure Active Directory)에 **SQL Server를 등록**합니다.
+1. PowerShell에서 Azure Active Directory에 **SQL Server를 등록**합니다.
 
    ```powershell
    Connect-AzAccount
@@ -110,10 +110,10 @@ WITH (
     )
     ```
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. AAD(Azure Active Directory 인증)
+## <a name="d-azure-active-directory-authentication"></a>D. Azure Active Directory 인증
 #### <a name="steps"></a>단계
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 읽기 권한자** Azure 역할을 AAD 사용자에게 할당합니다. 
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 리더** Azure 역할을 Azure AD 사용자에게 할당합니다. 
 
     > [!IMPORTANT]
     > **Storage** **Blob 데이터** 소유자, 기여자 또는 읽기 권한자 Azure 역할을 지정합니다. 이러한 역할은 소유자, 기여자 및 읽기 권한자로 구성되는 Azure 기본 제공 역할과 다릅니다.
@@ -136,11 +136,11 @@ WITH (
 ## <a name="e-service-principal-authentication"></a>E. 서비스 주체 인증
 #### <a name="steps"></a>단계
 
-1. [AAD(Azure Active Directory) 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+1. [Azure Active Directory 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 2. [애플리케이션 ID 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
 4. [V1 OAuth 2.0 토큰 엔드포인트 가져오기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. 스토리지 계정에서 [AAD 애플리케이션에 읽기, 쓰기 및 실행 권한 할당](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder)
+5. 스토리지 계정에서 [Azure AD 애플리케이션에 읽기, 쓰기 및 실행 권한 할당](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder)
 6. 이제 COPY 문을 실행할 수 있습니다.
 
     ```sql

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118579"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569871"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -36,19 +36,19 @@ Cosmos DB를 사용하면 언제든지 단추를 클릭하여 Cosmos 계정에�
 
 ### <a name="always-on"></a>Always On
 
-Cosmos DB는 Azure 인프라 및 [투명 다중 마스터 복제](global-dist-under-the-hood.md)와 긴밀하게 통합되므로 읽기 및 쓰기 모두에서 [99.999%의 고가용성](high-availability.md)을 제공합니다. 또한 Cosmos DB는 프로그래밍 방식으로(또는 포털을 통해) Cosmos 계정의 지역별 장애 조치를 호출할 수 있는 기능을 제공합니다. 이 기능을 사용하면 지역 재해 발생시 애플리케이션이 장애 조치되도록 설계할 수 있습니다.
+Cosmos DB는 Azure 인프라 및 [투명 다중 지역 쓰기 복제](global-dist-under-the-hood.md)와 긴밀하게 통합되므로 읽기 및 쓰기 모두에서 [99.999%의 고가용성](high-availability.md)을 제공합니다. 또한 Cosmos DB는 프로그래밍 방식으로(또는 포털을 통해) Cosmos 계정의 지역별 장애 조치를 호출할 수 있는 기능을 제공합니다. 이 기능을 사용하면 지역 재해 발생시 애플리케이션이 장애 조치되도록 설계할 수 있습니다.
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>전 세계의 처리량 및 스토리지에 대한 탄력적 확장성
 
-투명한 수평 분할 및 다중 마스터 복제를 사용하도록 설계된 Cosmos DB는 전 세계의 모든 쓰기 및 읽기 작업에 대해 전례가 없는 탄력적 확장성을 제공합니다. 단일 API 호출을 통해 전 세계에 걸쳐 있는 수천에서 수억 개의 요청/초 단위로 탄력적으로 크기 조정할 수 있으며 필요한 처리량(및 스토리지)에 대한 요금만 지불하면 됩니다. 이 기능을 사용하면 최대 사용량을 초과하여 프로비전하지 않고도 워크로드에서 예기치 않은 스파이크를 처리할 수 있습니다. 자세한 내용은 [Cosmos DB에서 분할](partitioning-overview.md), [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md) 및 [글로벌로 프로비저닝된 처리량 크기 조정](scaling-throughput.md)을 참조하세요.
+투명한 수평 분할 및 다중 지역 쓰기 복제를 사용하도록 설계된 Cosmos DB는 전 세계의 모든 쓰기 및 읽기 작업에 대해 전례가 없는 탄력적 확장성을 제공합니다. 단일 API 호출을 통해 전 세계에 걸쳐 있는 수천에서 수억 개의 요청/초 단위로 탄력적으로 크기 조정할 수 있으며 필요한 처리량(및 스토리지)에 대한 요금만 지불하면 됩니다. 이 기능을 사용하면 최대 사용량을 초과하여 프로비전하지 않고도 워크로드에서 예기치 않은 스파이크를 처리할 수 있습니다. 자세한 내용은 [Cosmos DB에서 분할](partitioning-overview.md), [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md) 및 [글로벌로 프로비저닝된 처리량 크기 조정](scaling-throughput.md)을 참조하세요.
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>전 세계적으로 99번째 백분위 수의 짧은 대기 시간 보장
 
-Cosmos DB를 사용하면 응답성이 뛰어나고 세계적 규모의 애플리케이션을 구축할 수 있습니다. Cosmos DB는 새로운 다중 마스터 복제 프로토콜과 [쓰기에 최적화된 무제한 데이터베이스 엔진](index-policy.md)을 통해 전 세계의 읽기(인덱싱됨) 및 쓰기 작업 모두에 대해 99번째 백분위수에서 10밀리초 미만의 대기 시간을 보장합니다. 이 기능을 사용하면 지속적으로 데이터를 수집하고 응답성이 뛰어난 애플리케이션에 대해 매우 빠르게 쿼리할 수 있습니다.
+Cosmos DB를 사용하면 응답성이 뛰어나고 세계적 규모의 애플리케이션을 구축할 수 있습니다. Cosmos DB는 새로운 다중 지역 쓰기 복제 프로토콜과 [쓰기에 최적화된 무제한 데이터베이스 엔진](index-policy.md)을 통해 전 세계의 읽기(인덱싱됨) 및 쓰기 작업 모두에 대해 99번째 백분위수에서 10밀리초 미만의 대기 시간을 보장합니다. 이 기능을 사용하면 지속적으로 데이터를 수집하고 응답성이 뛰어난 애플리케이션에 대해 매우 빠르게 쿼리할 수 있습니다.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>정확하게 정의된 다중 일관성 선택 항목
 
-Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일관성, 가용성, 대기 시간, 처리량을 더 이상 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 마스터 복제 프로토콜은 글로벌로 분산된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md) - , 즉 *강력한 일관성*, *제한된 부실*, *세션 일관성*, *일관된 접두사* 및 *최종 일관성*을 제공하도록 신중하게 설계되었습니다.
+Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일관성, 가용성, 대기 시간, 처리량을 더 이상 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 지역 쓰기 복제 프로토콜은 전역적으로 분산된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md) - , 즉 *강력한 일관성*, *제한된 부실*, *세션 일관성*, *일관된 접두사* 및 *최종 일관성*을 제공하도록 신중하게 설계되었습니다.
 
 ### <a name="no-schema-or-index-management"></a>스키마 또는 인덱스 관리 없음
 
@@ -56,7 +56,7 @@ Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일�
 
 ### <a name="battle-tested-database-service"></a>엄격하게 테스트된(battle-tested) 데이터베이스 서비스
 
-Cosmos DB는 Azure의 기본 서비스입니다. 거의 10년 동안 Cosmos DB는 Skype, Xbox, Office 365, Azure 및 다른 많은 애플리케이션을 포함하여 글로벌 규모의 다양한 중요 업무 애플리케이션용 Microsoft 제품에서 사용되어 왔습니다. 오늘날 Cosmos DB는 Azure에서 가장 빠르게 성장하고 있는 서비스 중 하나로, 읽기 및 쓰기 작업 모두에 대한 짧은 대기 시간과 높은 가용성을 위해 탄력적 크기 조정, 턴키 글로벌 배포, 다중 마스터 복제가 필요한 외부의 많은 고객과 중요 업무용 애플리케이션에서 사용하고 있습니다.
+Cosmos DB는 Azure의 기본 서비스입니다. 거의 10년 동안 Cosmos DB는 Skype, Xbox, Microsoft 365, Azure 및 다른 많은 애플리케이션을 포함하여 글로벌 규모의 다양한 중요 업무 애플리케이션용 Microsoft 제품에서 사용되어 왔습니다. 오늘날 Cosmos DB는 Azure에서 가장 빠르게 성장하고 있는 서비스 중 하나로, 읽기 및 쓰기 작업 모두에 대한 짧은 대기 시간과 높은 가용성을 위해 탄력적 크기 조정, 턴키 글로벌 배포, 다중 지역 쓰기 복제가 필요한 외부의 많은 고객과 중요 업무용 애플리케이션에서 사용하고 있습니다.
 
 ### <a name="ubiquitous-regional-presence"></a>유비쿼터스 지역 현재 상태
 

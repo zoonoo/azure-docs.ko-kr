@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987140"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449460"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
 
@@ -26,7 +26,7 @@ SQL 주문형 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure
 
 ## <a name="supported-storage-authorization-types"></a>지원되는 스토리지 권한 부여 유형
 
-SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공개적으로 사용할 수 없는 경우 해당 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
+SQL 주문형 리소스에 로그인한 사용자는 파일을 공개적으로 사용할 수 없는 경우 Azure Storage의 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
 
 > [!NOTE]
 > **Azure AD 통과**는 작업 영역을 만들 때의 기본 동작입니다.
@@ -53,7 +53,7 @@ SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-SAS 토큰을 사용한 액세스가 가능하려면 데이터베이스 범위 또는 서버 범위 자격 증명을 만들어야 합니다.
+SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이터베이스 범위 또는 서버 범위 자격 증명을 만들어야 합니다. 
 
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
@@ -119,7 +119,7 @@ GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 
 ## <a name="server-scoped-credential"></a>서버 범위 자격 증명
 
-서버 범위 자격 증명은 SQL 로그인이 `DATA_SOURCE` 없이 `OPENROWSET` 함수를 호출하여 일부 스토리지 계정의 파일을 읽을 때 사용됩니다. 서버 범위 자격 증명의 이름은 Azure 스토리지의 URL과 **반드시** 일치해야 합니다. 자격 증명은 [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행하여 추가됩니다. CREDENTIAL NAME 인수를 제공해야 합니다. Storage의 데이터에 대한 경로의 일부 또는 전체 경로와 일치해야 합니다(아래 참조).
+서버 범위 자격 증명은 SQL 로그인이 `DATA_SOURCE` 없이 `OPENROWSET` 함수를 호출하여 일부 스토리지 계정의 파일을 읽을 때 사용됩니다. 서버 범위 자격 증명의 이름은 Azure 스토리지의 URL과 **반드시** 일치해야 합니다. 자격 증명은 [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 실행하여 추가됩니다. CREDENTIAL NAME 인수를 제공해야 합니다. Storage의 데이터에 대한 경로의 일부 또는 전체 경로와 일치해야 합니다(아래 참조).
 
 > [!NOTE]
 > `FOR CRYPTOGRAPHIC PROVIDER` 인수는 지원되지 않습니다.
@@ -170,7 +170,7 @@ WITH IDENTITY='Managed Identity'
 
 ## <a name="database-scoped-credential"></a>데이터베이스 범위 자격 증명
 
-데이터베이스 범위 자격 증명은 보안 주체가 `DATA_SOURCE`를 사용하여 `OPENROWSET` 함수를 호출하거나 공용 파일에 액세스하지 않는 [외부 테이블](develop-tables-external-tables.md)에서 데이터를 선택하는 경우에 사용됩니다. 데이터베이스 범위 자격 증명은 스토리지 위치를 정의하는 DATA SOURCE에서 명시적으로 사용되기 때문에 스토리지 계정 이름과 일치하지 않아도 됩니다.
+데이터베이스 범위 자격 증명은 보안 주체가 `DATA_SOURCE`를 사용하여 `OPENROWSET` 함수를 호출하거나 공용 파일에 액세스하지 않는 [외부 테이블](develop-tables-external-tables.md)에서 데이터를 선택하는 경우에 사용됩니다. 데이터베이스 범위 자격 증명은 스토리지 계정 이름과 일치하지 않아도 됩니다. 스토리지의 위치를 정의하는 데이터 원본에서 명시적으로 사용됩니다.
 
 데이터베이스 범위 자격 증명을 사용하면 다음 인증 유형을 사용하여 Azure 스토리지에 액세스할 수 있습니다.
 
@@ -268,7 +268,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,7 +314,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 

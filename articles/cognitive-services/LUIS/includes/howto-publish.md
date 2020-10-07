@@ -9,10 +9,10 @@ ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.openlocfilehash: f07ac2027f165eb4e9722330cb779ec32999a5e3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91534603"
 ---
 챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 예측 엔드포인트에 게시해야 합니다.

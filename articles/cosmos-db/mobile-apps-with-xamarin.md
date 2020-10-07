@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14a004864891aad768486c3a436b4936d693715e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2ea823a16714f9db85c3d5148bc8bb2ba7629b84
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999039"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565516"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>자습서: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드
 
@@ -48,7 +48,7 @@ Azure Cosmos DB는 모바일 앱 개발자를 위해 다음과 같은 주요 기
 ### <a name="get-started"></a>시작하기
 Azure Cosmos DB로 시작하는 것이 쉽습니다. Azure Portal로 이동하여 새 Azure Cosmos DB 계정을 만듭니다. **빠른 시작** 탭을 클릭합니다. Azure Cosmos DB 계정에 연결되어 있는 Xamarin Forms 할 일 목록 샘플을 다운로드합니다. 
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="모바일 앱의 Azure Cosmos DB 빠른 시작":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="모바일 앱용 Azure Cosmos DB 기능":::
 
 기존 Xamarin 앱이 있는 경우 [Azure Cosmos DB NuGet 패키지](sql-api-sdk-dotnet-core.md)를 추가하면 됩니다. Azure Cosmos DB는 Xamarin.IOS, Xamarin.Android 및 Xamarin Forms 공유 라이브러리를 지원합니다.
 
@@ -72,7 +72,7 @@ Xamarin 프로젝트에서 스키마 없는 데이터에 언어가 통합된 쿼
     }
 ```
 ### <a name="add-users"></a>사용자 추가
-대부분의 시작 샘플과 마찬가지로 사용자가 다운로드한 Azure Cosmos DB 샘플은 앱 코드에 하드 코딩된 마스터 키를 사용하여 서비스에 인증합니다. 이 기본적인 방식은 로컬 에뮬레이터를 제외한 모든 위치에서 실행하려는 앱에는 별로 좋은 방법이 아닙니다. 인증을 받지 않은 사용자가 마스터 키를 획득하면 Azure Cosmos DB 계정에 있는 모든 데이터가 손상될 수 있습니다. 이 방법 대신, 앱이 로그인한 사용자의 레코드에만 액세스하게 하는 방법이 좋습니다. 개발자는 Azure Cosmos DB를 사용하여 컬렉션, 파티션 키로 그룹화된 일련의 문서 또는 특정 문서에 대한 애플리케이션 읽기 또는 읽기/쓰기 권한을 부여할 수 있습니다. 
+대부분의 시작 샘플과 마찬가지로 사용자가 다운로드한 Azure Cosmos DB 샘플은 앱 코드에 하드 코딩된 기본 키를 사용하여 서비스에 인증합니다. 이 기본적인 방식은 로컬 에뮬레이터를 제외한 모든 위치에서 실행하려는 앱에는 별로 좋은 방법이 아닙니다. 인증을 받지 않은 사용자가 기본 키를 획득하면 Azure Cosmos DB 계정에 있는 모든 데이터가 손상될 수 있습니다. 이 방법 대신, 앱이 로그인한 사용자의 레코드에만 액세스하게 하는 방법이 좋습니다. 개발자는 Azure Cosmos DB를 사용하여 컬렉션, 파티션 키로 그룹화된 일련의 문서 또는 특정 문서에 대한 애플리케이션 읽기 또는 읽기/쓰기 권한을 부여할 수 있습니다. 
 
 다음 단계에 따라 할 일 목록 앱을 다중 사용자 할 일 목록 앱으로 수정하세요. 
 
@@ -86,19 +86,19 @@ Xamarin 프로젝트에서 스키마 없는 데이터에 언어가 통합된 쿼
 
 [GitHub의 리소스 토큰 broker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems)에서 이 패턴의 전체 코드 샘플을 찾을 수 있습니다. 이 다이어그램에서는 솔루션을 보여 줍니다.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Azure Cosmos DB 사용자 및 사용 권한 브로커" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="모바일 앱용 Azure Cosmos DB 기능" border="false":::
 
 두 명의 사용자가 동일한 할 일 목록에 액세스하게 하려면 리소스 토큰 broker에서 액세스 토큰에 권한을 추가하면 됩니다.
 
 ### <a name="scale-on-demand"></a>주문형 확장
 Azure Cosmos DB는 관리되는 Database as a Service입니다. 사용자 기반이 늘어나면 VM을 프로비전하거나 코어를 증가시킬 것을 걱정할 필요가 없습니다. 앱에서 필요한 초당 작업의 수(처리량)를 Azure Cosmos DB에 지시하면 됩니다. 초당 RU(요청 단위)라고 하는 처리량 측정 단위를 사용하여 **규모** 탭을 통해 처리량을 지정할 수 있습니다. 예를 들어 1KB 문서의 읽기 작업에는 1RU가 필요합니다. **처리량** 메트릭에 대한 경고를 추가하여 트래픽 증가를 모니터링하고 경고가 발생하면 처리량을 프로그래밍 방식으로 변경할 수 있습니다.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="주문형 Azure Cosmos DB 크기 조정 처리량":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="모바일 앱용 Azure Cosmos DB 기능":::
 
 ### <a name="go-planet-scale"></a>세계적 규모로 확장
 앱이 인기를 얻게 되면 전 세계에 걸쳐 사용자가 늘어날 수 있습니다. 또는 예상치 못한 이벤트에 대비해야 할 수도 있습니다. Azure Portal로 이동하여 새 Azure Cosmos DB 계정을 엽니다. 지도를 클릭하여 전 세계 모든 지역에 데이터를 지속적으로 복제할 수 있습니다. 이 기능을 사용하면 사용자가 어디서나 데이터 사용할 수 있습니다. 또한 만약의 사태에 대비하여 장애 조치(failover) 정책을 추가할 수 있습니다.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="지리적 지역에 Azure Cosmos DB 크기 조정" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="모바일 앱용 Azure Cosmos DB 기능" border="false":::
 
 축하합니다. 솔루션 완료하고 Xamarin 및 Azure Cosmos DB를 사용한 모바일 앱이 있습니다. Azure Cosmos DB JavaScript SDK 및 Azure Cosmos DB REST API를 사용하는 네이티브 iOS/Android 앱을 사용하여 비슷한 단계에 따라 Cordova 앱을 빌드할 수 있습니다.
 

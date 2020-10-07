@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: cfdb02b0a5942536a608fbc957ed69d1efd97e8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: deda7644d29fce5deb8d6c76f93da0caf0b22ff8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756897"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536922"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -98,7 +98,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 수행합니다.
 
 5. 원형 목록에서 **`org.scala-tools.archetypes:scala-archetype-simple`** 을 선택합니다. 이 원형은 올바른 디렉터리 구조를 만들고 Scala 프로그램 작성에 필요한 기본 종속성을 다운로드합니다.
 
-    ![`Maven 프로젝트를 만드는 IntelliJ IDEA`](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
+    ![스크린샷은 새 프로젝트 창에서 선택한 원형을 보여줍니다.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. **다음**을 선택합니다.
 
@@ -107,7 +107,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 수행합니다.
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-    ![`Maven 프로젝트를 만드는 IntelliJ IDEA`](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
+    ![스크린샷은 새 프로젝트 창의 아티팩트 좌표 옵션을 보여줍니다.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. **다음**을 선택합니다.
 

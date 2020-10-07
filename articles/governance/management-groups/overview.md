@@ -1,14 +1,15 @@
 ---
 title: 관리 그룹으로 리소스 구성 - Azure Governance
 description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: contperfq1
+ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533808"
 ---
 # <a name="what-are-azure-management-groups"></a>Azure 관리 그룹이란?
 
@@ -21,11 +22,13 @@ ms.locfileid: "87920163"
 
 리소스를 통합 정책 및 액세스 관리를 위한 계층 구조로 구성하는 유연한 관리 그룹 및 구독 구조를 만들 수 있습니다. 다음 다이어그램은 관리 그룹을 사용하여 거버넌스용 계층을 만드는 예를 보여줍니다.
 
-:::image type="content" source="./media/tree.png" alt-text="관리 그룹 계층 구조 트리 예제" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="샘플 관리 그룹 계층 구조 다이어그램" border="false":::
+   관리 그룹과 구독을 모두 보유하는 루트 관리 그룹의 다이어그램입니다. 일부 자식 관리 그룹은 관리 그룹을 보유하고, 일부는 구독을 보유하며, 일부는 모두를 보유합니다. 샘플 계층 구조의 예제 중 하나는 자식 수준을 모두 구독하는 네 가지 수준의 관리 그룹입니다.
+:::image-end:::
 
 예를 들어 "Production"(생산)이라는 그룹에서 VM 위치를 미국 서부 지역으로 제한하는 정책을 적용하는 계층을 만들 수 있습니다. 이 정책은 해당 관리 그룹의 하위 항목인 모든 EA(기업계약) 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
 
-관리 그룹을 사용할 만한 또 다른 시나리오는 여러 구독에 대한 사용자 액세스 제공입니다. 여러 구독을 해당 관리 그룹으로 이동하면 관리 그룹에 하나의 [Azure 역할 할당](../../role-based-access-control/overview.md)을 만들 수 있습니다. 이는 모든 구독에 대한 해당 액세스 권한을 상속합니다. 관리 그룹에 하나만 할당하면 여러 구독에 RBAC를 스크립팅하지 않고 사용자가 필요한 모든 항목에 액세스할 수 있습니다.
+관리 그룹을 사용할 만한 또 다른 시나리오는 여러 구독에 대한 사용자 액세스 제공입니다. 여러 구독을 해당 관리 그룹으로 이동하면 관리 그룹에 하나의 [Azure 역할 할당](../../role-based-access-control/overview.md)을 만들 수 있습니다. 이는 모든 구독에 대한 해당 액세스 권한을 상속합니다. 관리 그룹에 하나만 할당하면 여러 구독에 Azure RBAC를 스크립팅하지 않고 사용자가 필요한 모든 항목에 액세스할 수 있습니다.
 
 ### <a name="important-facts-about-management-groups"></a>관리 그룹에 대한 중요 한 사실
 
@@ -147,7 +150,9 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 예를 들어 시각적 개체의 계층 구조 일부를 살펴보겠습니다.
 
-:::image type="content" source="./media/subtree.png" alt-text="하위 트리" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="샘플 관리 그룹 계층 구조 다이어그램" border="false":::
+   이 다이어그램은 자식 I T 및 마케팅 관리 그룹을 사용하는 루트 관리 그룹을 중심으로 합니다. I T 관리 그룹에는 프로덕션이라는 단일 자식 관리 그룹이 있고 마케팅 관리 그룹에는 두 개의 평가판 자식 구독이 있습니다.
+:::image-end:::
 
 마케팅 관리 그룹에 사용자 지정 역할이 정의되어 있다고 가정하겠습니다. 이 사용자 지정 역할은 두 개의 평가판 구독에 할당됩니다.  
 
@@ -164,7 +169,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 관리 그룹에 사용자 지정 역할을 사용할 때 몇 가지 제한 사항이 있습니다. 
 
  - 새 역할의 할당 가능한 범위에서 관리 그룹을 하나만 정의할 수 있습니다. 이 제한은 역할 정의와 역할 할당의 연결이 끊어지는 상황을 줄이기 위해 마련되었습니다. 이 상황은 역할 할당이 있는 구독 또는 관리 그룹을 역할 정의가 없는 다른 부모로 이동할 때 발생합니다.  
- - RBAC 데이터 평면 작업은 관리 그룹 사용자 지정 역할에서 정의할 수 없습니다. 이 제한은 데이터 평면 리소스 공급자를 업데이트하는 RBAC 작업에 대기 시간 문제가 있기 때문에 마련되었습니다.
+ - 리소스 공급자 데이터 평면 작업은 관리 그룹 사용자 지정 역할에서 정의할 수 없습니다. 이 제한은 데이터 평면 리소스 공급자를 업데이트하는 동안 대기 시간 문제가 있기 때문에 마련되었습니다.
    이 대기 시간 이슈를 해결하기 위해 노력 중이며, 위험을 줄이기 위해 역할 정의에서 이러한 작업을 사용하지 않을 것입니다.
  - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인하지 않습니다. 철자 오류가 있거나 잘못된 관리 그룹 ID가 있는 경우에도 역할 정의는 계속 생성됩니다.  
 
@@ -189,7 +194,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 관리 그룹은 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 내에서 지원됩니다. 다른 Azure 리소스와 동일한 중앙 위치에서 관리 그룹에 발생하는 모든 이벤트를 검색할 수 있습니다. 예를 들어, 특정 관리 그룹에 이루어진 모든 역할 할당 또는 정책 할당 변경 내용을 볼 수 있습니다.
 
-:::image type="content" source="./media/al-mg.png" alt-text="관리 그룹을 사용하는 활동 로그" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="샘플 관리 그룹 계층 구조 다이어그램" border="false":::
 
 Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹에 대한 대상 범위가 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 와 같이 표시됩니다.
 

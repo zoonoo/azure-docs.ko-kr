@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용한 파이프라인 분기 및 연결 작업
-description: 분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다.
+description: Azure Portal을 사용하여 Azure Data Factory 파이프라인에서 데이터 흐름을 제어하는 방법을 알아봅니다.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983740"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568543"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Azure Portal을 사용한 Azure Data Factory 파이프라인 분기 및 연결 작업
 
@@ -184,7 +184,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
    ![복사 활동 끌어서 놓기](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. 아래쪽의 **복사** 활동에 대한 **속성** 창에서 **원본** 탭으로 전환하고, **+ 새로 만들기**를 클릭합니다. 이 단계에서는 복사 활동에 대한 원본 데이터 세트를 만듭니다.
 
-   ![원본 데이터 세트](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![복사 작업을 위한 원본 데이터 세트를 만드는 방법을 보여주는 스크린샷.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다.
 
    ![Azure Blob Storage 선택](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         ![두 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. 파이프라인 디자이너에서 **복사** 활동을 선택하고, **+->** 단추를 클릭하고, **오류**를 선택합니다.  
 
-    ![두 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![파이프라인 디자이너의 복사 작업에서 오류를 선택하는 방법을 보여주는 스크린샷.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. 복사 활동 옆의 **빨간색** 단추를 두 번째 웹 활동인 **SendFailureEmailActivity**로 끕니다. 파이프라인이 다음 이미지와 같이 표시되도록 활동을 이동할 수 있습니다.
 
     ![모든 활동이 포함된 전체 파이프라인](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
     ![성공적인 파이프라인 실행](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. 이 파이프라인 실행과 연결된 **활동 실행을 보려면** **작업** 열에서 첫 번째 링크를 클릭합니다. 위쪽의 **파이프라인**을 클릭하여 이전 보기로 다시 전환할 수 있습니다. **새로 고침** 단추를 사용하여 목록을 새로 고칩니다.
 
-    ![작업 실행](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![활동 실행 목록을 보는 방법을 보여주는 스크린샷.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>실패한 파이프라인 실행 트리거
 1. 왼쪽의 **편집** 탭으로 전환합니다.

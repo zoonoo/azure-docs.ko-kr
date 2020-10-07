@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71309510"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542498"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -46,7 +46,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 연결된 팩터리 대시보드를 사용하여 산업용 디바이스를 모니터링하고 관리할 수 있습니다.
 
-[![연결된 팩터리 솔루션 대시보드](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="연결된 팩터리 솔루션 대시보드를 보여주는 스크린샷." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
 
 ### <a name="predictive-maintenance"></a>예측 유지 관리
 
@@ -54,7 +54,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 예측 유지 관리 대시보드를 사용하여 예측 유지 관리 분석을 볼 수 있습니다.
 
-[![연결된 팩터리 솔루션 대시보드](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="연결된 팩터리 솔루션 대시보드를 보여주는 스크린샷." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### <a name="device-simulation"></a>디바이스 시뮬레이션
 

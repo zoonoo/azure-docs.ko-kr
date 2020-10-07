@@ -1,6 +1,7 @@
 ---
-title: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가 | Azure
-description: OpenID Connect를 사용하여 ASP.NET 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
+title: '빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 OpenID Connect를 사용하여 ASP.NET 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,19 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 97a040ec166894197520b2e3a6dfc720262b7f1c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
+ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691295"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576968"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다.  (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>사전 요구 사항
+>
+> * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+> * [.NET Framework 4.7.2 이상](https://dotnet.microsoft.com/download/visual-studio-sdks)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
 > 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
 > * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -69,7 +76,7 @@ ms.locfileid: "88691295"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
-> 앱 속성 값을 사용하여 프로젝트를 구성했습니다. 
+> 앱 속성 값을 사용하여 프로젝트를 구성했습니다.
 
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 실행
@@ -114,7 +121,7 @@ OWIN 미들웨어 패키지로 ASP.NET의 OpenID Connect를 사용하는 쿠키 
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb  
+Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="owin-startup-class"></a>OWIN 시작 클래스
@@ -195,13 +202,11 @@ public void SignIn()
 
 `[Authorize]` 특성을 사용하여 컨트롤러나 컨트롤러 작업을 보호할 수 있습니다. 이 특성은 컨트롤러나 작업에 액세스를 제한하여, *인증되지 않은* 사용자가 `[Authorize]` 특성으로 데코레이팅된 작업이나 컨트롤러 중 하나에 액세스하려고 할 때 인증 질문이 자동으로 발생하여, 인증된 사용자만 컨트롤러의 작업에 액세스하게 합니다.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작의 전체 설명이 포함된 애플리케이션 및 새로운 기능 구축의 완전한 단계별 가이드를 위한 ASP.NET 자습서를 사용해 보세요.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에 사용되는 애플리케이션을 만드는 단계 알아보기
-
 > [!div class="nextstepaction"]
-> [로그인 자습서](./tutorial-v2-asp-webapp.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [ASP.NET 웹앱에 로그인 추가](tutorial-v2-asp-webapp.md)

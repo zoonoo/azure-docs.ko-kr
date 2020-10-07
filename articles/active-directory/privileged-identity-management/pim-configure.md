@@ -10,24 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a0b7bcfa6569edd93373f493cfaa7deff2976d35
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047822"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540832"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
- PIM(Privileged Identity Management)은 조직에서 중요한 리소스에 대한 액세스를 관리, 제어 및 모니터링할 수 있는 Azure AD(Azure Active Directory)의 서비스입니다. 이러한 리소스에는 Azure AD, Azure 및 Office 365 또는 Microsoft Intune과 같은 기타 Microsoft Online Services의 리소스가 포함됩니다.
+ PIM(Privileged Identity Management)은 조직에서 중요한 리소스에 대한 액세스를 관리, 제어 및 모니터링할 수 있는 Azure AD(Azure Active Directory)의 서비스입니다. 이러한 리소스에는 Azure AD, Azure 및 Microsoft 365 또는 Microsoft Intune과 같은 기타 Microsoft Online Services의 리소스가 포함됩니다. 다음 비디오에서는 중요한 PIM 개념 및 기능을 소개합니다.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## <a name="reasons-to-use"></a>사용 이유
 
-악의적인 작업자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다. 그러나 사용자는 여전히 Azure AD, Azure, Office 365 또는 SaaS 응용 프로그램에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure 리소스 및 Azure AD에 대한 Just-In-Time 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다.
+악의적인 작업자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다. 그러나 사용자는 여전히 Azure AD, Azure, Microsoft 365 또는 SaaS 앱에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure 리소스 및 Azure AD에 대한 Just-In-Time 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다.
 
 ## <a name="what-does-it-do"></a>수행하는 작업
 

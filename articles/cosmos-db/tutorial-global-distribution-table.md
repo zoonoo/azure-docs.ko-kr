@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76900187"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568655"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -34,7 +34,7 @@ Azure Cosmos DB Table API SDK는 계정 구성 및 현재 가용성에 따라 �
 
 * **읽기 요청:** 모든 읽기 요청은 구성된 `CurrentRegion`에 전송됩니다. 근접성에 따라 SDK는 고가용성을 위해 대체 지역에서 복제된 대체 지역을 자동으로 선택합니다.
 
-* **쓰기 요청:** SDK는 현재 쓰기 지역에 모든 쓰기 요청을 자동으로 보냅니다. 다중 마스터 계정에서 현재 지역은 쓰기 요청에도 서비스를 제공합니다. 근접성에 따라 SDK는 고가용성을 위해 대체 지역에서 복제된 대체 지역을 자동으로 선택합니다.
+* **쓰기 요청:** SDK는 현재 쓰기 지역에 모든 쓰기 요청을 자동으로 보냅니다. 다중 지역 쓰기가 있는 계정에서 현재 지역은 쓰기 요청에도 서비스를 제공합니다. 근접성에 따라 SDK는 고가용성을 위해 대체 지역에서 복제된 대체 지역을 자동으로 선택합니다.
 
 `CurrentRegion` 속성을 지정하지 않으면 SDK는 모든 작업에 대해 현재 쓰기 영역을 사용합니다.
 

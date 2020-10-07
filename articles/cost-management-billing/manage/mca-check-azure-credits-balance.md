@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: 334193f64c49b546bab5f44840df5b3f59e32c4f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690581"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447621"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft 고객 계약 Azure 크레딧 잔액 추적
 
@@ -35,11 +35,11 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
 
 2. **Cost Management + 청구**를 검색합니다.
 
-    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Cost Management + Billing에 대한 포털 내 검색을 보여주는 스크린샷.](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 3. 청구 범위 페이지에서 크레딧 잔액을 추적할 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.
 
-    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-check-azure-credits-balance/list-of-scopes.png)
+    ![청구 범위를 보여주는 스크린샷.](./media/mca-check-azure-credits-balance/list-of-scopes.png)
 
     > [!NOTE]
     >
@@ -47,7 +47,7 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
 
 3. 왼쪽에서 **결제 방법**을 선택한 다음, **Azure 크레딧**을 선택합니다.
 
-   ![청구 프로필에 대한 크레딧 잔액 스크린샷](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
+   ![예상 잔액 및 현재 잔액의 스크린샷.](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
 4. Azure 크레딧 페이지에는 다음과 같은 섹션이 있습니다.
 

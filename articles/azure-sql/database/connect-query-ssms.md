@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004159"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598262"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: SSMS를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ SSMS를 설치하지 않고 일부 임시 쿼리를 실행하려는 경우 [빠�
 
 ## <a name="connect-to-your-database"></a>데이터베이스 연결
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 SSMS에서 서버에 연결합니다.
 
 > [!IMPORTANT]
@@ -83,6 +85,9 @@ SSMS에서 서버에 연결합니다.
    ||||
 
    ![서버에 연결](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> 이 자습서에서는 SQL Server 인증을 활용합니다.
 
 3. **서버에 연결** 대화 상자에서 **옵션**을 선택합니다. **데이터베이스에 연결** 드롭다운 메뉴에서 **mySampleDatabase**를 선택합니다. [필수 구성 요소](#prerequisites) 섹션에서 빠른 시작을 완료하면 mySampleDatabase라는 AdventureWorksLT 데이터베이스가 만들어집니다. AdventureWorks 데이터베이스의 작업 복사본 이름이 mySampleDatabase와 다른 경우 이를 대신 선택합니다.
 
@@ -155,7 +160,7 @@ SSMS에서 서버에 연결합니다.
 
 ### <a name="update-data"></a>데이터 업데이트
 
-이 [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL 코드를 실행하여 새 제품을 수정합니다.
+이 [UPDATE](/sql/t-sql/queries/update-transact-sql) Transact-SQL 코드를 실행하여 새 제품을 수정합니다.
 
 1. 이전 쿼리를 이전에 만든 새 레코드를 반환하는 쿼리로 바꿉니다.
 

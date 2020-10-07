@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f17385307995d87f2d5792a7e9ce19ad0260cbcc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7389136d5f08c7efd0c0443387744ce4c5816f00
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010244"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91627400"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -158,13 +158,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ```
 3. Ctrl+F5를 눌러 애플리케이션을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="출력 보기 및 확인":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사":::
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
     
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439698"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449623"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -275,7 +275,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 이제 빌드한 컨테이너 이미지를 디바이스에 배포해야 하므로 컨테이너 레지스트리에 저장되어 있는지 확인합니다. IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
-1. Visual Studio에서 클라우드 탐색기를 열고 IoT Hub에 대한 세부 정보를 확장합니다.
+1. Visual Studio에서 클라우드 탐색기를 열고 IoT 허브에 대한 세부 정보를 확장합니다.
 
 2. 배포하려는 디바이스의 이름을 선택합니다. **동작** 목록에서 **배포 만들기**를 선택합니다.
 
@@ -285,7 +285,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
    deployment.template.json 파일은 전체 모듈 이미지 값을 포함하지 않으므로 사용하지 않도록 합니다.
 
-4. 클라우드 탐색기에서 IoT Edge 디바이스에 대한 세부 정보를 확장하여 디바이스에서 모듈을 봅니다.
+4. 클라우드 탐색기에서 IoT Edge 디바이스에 대한 세부 정보를 확장하여 디바이스에서 모듈을 확인합니다.
 
 5. **새로 고침** 단추로 디바이스 상태를 업데이트하여 SimulatedTemperatureSensor 및 IotEdgeModule1 모듈이 디바이스에 배포되었는지 확인합니다.
 

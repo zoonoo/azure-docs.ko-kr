@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683269"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447606"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -91,9 +91,9 @@ Azure Storage 계정의 경우:
 
 1. 관리 그룹을 아직 만들지 않은 경우 그룹을 하나 만들고 구독을 할당합니다.
 1. 비용 분석에서 범위를 관리 그룹으로 설정하고 **이 관리 그룹 선택**을 선택합니다.  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="이 관리 그룹 선택 옵션을 보여 주는 예제" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="새 내보내기 예제" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. 범위에서 내보내기를 만들어 관리 그룹의 구독에 대한 비용 관리 데이터를 가져옵니다.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="관리 그룹 범위를 사용하여 새 내보내기 옵션을 보여 주는 예제":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="새 내보내기 예제":::
 
 ## <a name="verify-that-data-is-collected"></a>데이터가 수집되는지 확인
 
@@ -128,11 +128,11 @@ CSV 파일 확장명을 열도록 설정된 프로그램 또는 애플리케이�
 
 내보내기 목록 페이지에서 개별 내보내기를 선택하여 예약된 내보내기의 실행 기록을 볼 수 있습니다. 또한 내보내기 목록 페이지에서는 이전 내보내기의 실행 시간을 볼 수 있는 빠른 액세스와 다음 번 및 내보내기가 실행될 때 사용할 수 있습니다. 실행 기록을 보여 주는 예제는 다음과 같습니다.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="내보내기 실행 기록을 보여 주는 예제":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="새 내보내기 예제":::
 
 실행 기록을 보려면 내보내기를 선택합니다.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="내보내기 실행 기록을 보여 주는 예제":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="새 내보내기 예제":::
 
 ## <a name="access-exported-data-from-other-systems"></a>다른 시스템에서 내보낸 데이터에 액세스
 

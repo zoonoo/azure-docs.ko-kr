@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에서 컴퓨팅 크기 조정 - T-SQL
+title: '빠른 시작: Azure Synapse Analytics에서 컴퓨팅 크기 조정 - T-SQL'
 description: T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure Synapse Analytics에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 컴퓨팅 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212924"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569908"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure Synapse Analytics에서 컴퓨팅 크기 조정
 
@@ -132,7 +132,7 @@ Azure Synapse에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 �
 
 ## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
-데이터 웨어하우스를 일시 중지하면 T-SQL로 연결할 수 없습니다. 데이터 웨어하우스의 현재 상태를 보려면 PowerShell cmdlet을 사용합니다. 한 예로 [데이터 웨어하우스 상태 확인 - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)을 참조하세요.
+데이터 웨어하우스를 일시 중지하면 T-SQL로 연결할 수 없습니다. 데이터 웨어하우스의 현재 상태를 보려면 PowerShell cmdlet을 사용합니다. 예제는 [데이터 웨어하우스 상태 확인 - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)을 참조하세요.
 
 ## <a name="check-operation-status"></a>작업 상태 확인
 

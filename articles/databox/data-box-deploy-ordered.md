@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604311"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575302"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -215,11 +215,11 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 1. Microsoft Azure 자격 증명을 사용하여 다음 URL에서 로그인합니다. [https://portal.azure.com](https://portal.azure.com)
 2. **+ 리소스 만들기**를 선택하고 *Azure Data Box*를 검색합니다. **Azure Data Box**를 선택합니다.
 
-   ![Azure Data Box 선택](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![검색 필드에 Azure Data Box가 있는 새 섹션의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. **만들기**를 선택합니다.
 
-   ![Azure Data Box 선택](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![만들기 옵션이 호출된 Azure Data Box 섹션의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. 해당 지역에서 Data Box 서비스를 사용할 수 있는지 확인합니다. 다음 정보를 입력하거나 선택하고 **적용**을 클릭합니다.
 
@@ -235,7 +235,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 5. **Data Box**를 선택합니다. 단일 주문의 최대 사용 가능한 용량은 80TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
 
-    ![Data Box 옵션 1 선택](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![선택할 수 있는 다양한 데이터 크기의 스크린샷: Data Box Disk 40 테라바이트, Data Box 100 테라바이트, Data Box Heavy, 1000 테라바이트 및 자신의 디스크 보내기 1 테라바이트](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. **주문**에서 **기본 사항** 탭으로 이동합니다. 다음 정보를 입력하거나 선택하고 **다음: 데이터 대상>** 을 선택합니다.
 
@@ -245,7 +245,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     |Resource group    | 이전에 선택한 리소스 그룹입니다. |
     |주문 이름 가져오기 | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.    |
 
-    ![Data Box 옵션 1 선택](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![올바른 정보가 채워진 마법사의 기본 단계를 보여 주는 주문 마법사의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     기본적으로 디바이스 잠금 해제 암호는 Microsoft 관리형 키를 사용하여 암호화됩니다. 주문을 완료한 후에는 고객 관리형 키를 추가할 수 있습니다. 고객 관리형 키를 사용하면 Azure Key 키 자격 증명 모음의 고유한 키를 사용하여 디바이스 잠금 해제 암호를 보호할 수 있습니다. 자세한 내용은 [Azure Data Box에 Azure Key Vault의 고객 관리형 키 사용](data-box-customer-managed-encryption-key-portal.md)를 참조하세요.
 
@@ -265,7 +265,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     |---------|---------|
     |리소스 그룹     | 온-프레미스 VHD에서 관리형 디스크를 만들려는 경우 새 리소스 그룹을 만듭니다. 이전에 Data Box 서비스를 통해 관리형 디스크의 Data Box 주문을 만들 때 리소스 그룹을 만든 경우에만 기존 리소스 그룹을 사용할 수 있습니다. <br> 세미콜론으로 구분해서 여러 리소스 그룹을 지정합니다. 최대 10개의 리소스 그룹이 지원됩니다.|
 
-    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![올바른 정보가 채워진 마법사의 데이터 대상 단계를 보여 주는 주문 마법사의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 관리형 디스크로 변환한 후 리소스 그룹으로 이동하기 전에 페이지 Blob으로 스테이징 스토리지 계정에 업로드합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
    > [!NOTE]
@@ -286,11 +286,11 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 8. **연락처 정보**에서 **+ 배송 주소 추가**를 선택합니다.
 
-    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![배송 주소 추가 옵션이 호출된 마법사의 연락처 세부 정보 단계를 보여 주는 주문 마법사의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. **배송 주소**에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인**을 선택합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다.
 
-   ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![배송 사용 옵션 및 배송 주소 추가 옵션이 호출된 배송 주소 추가 대화 상자의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    주문이 성공적으로 발주된 후 자체 관리형 배송을 선택하면 이메일 알림을 받게 됩니다. 자체 관리형 배송에 대한 자세한 내용은 [자체 관리형 배송 사용](data-box-portal-customer-managed-shipping.md)을 참조하세요.
 
@@ -300,13 +300,13 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
     그룹의 관리자가 떠나는 경우에도 계속 알림을 받으려면 그룹 이메일을 사용하는 것이 좋습니다.
 
-    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![이메일 텍스트 상자와 다음: 검토 및 주문 옵션이 호출된 주문 마법사의 연락처 세부 정보 단계에 있는 이메일 섹션의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. **검토 + 주문**에서 주문, 연락처, 알림 및 개인 정보 사용 약관과 관련된 정보를 검토합니다. 개인 정보 처리 방침에 대한 계약에 해당하는 확인란을 선택합니다.
 
 13. **주문**을 선택합니다. 주문을 만드는 데 몇 분 정도 걸립니다.
 
-    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![검토 및 주문 단계와 주문 옵션이 호출된 주문 마법사의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

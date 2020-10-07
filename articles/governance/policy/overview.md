@@ -3,12 +3,12 @@ title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905961"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538959"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -57,15 +57,15 @@ Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라�
 
 ## <a name="getting-started"></a>시작
 
-### <a name="azure-policy-and-rbac"></a>Azure Policy 및 RBAC
+### <a name="azure-policy-and-azure-rbac"></a>Azure Policy 및 Azure RBAC
 
-Azure Policy 및 RBAC(역할 기반 액세스 제어)는 몇 가지 주요 차이점이 있습니다. Azure Policy는 Resource Manager에 표시되는 리소스의 속성 및 일부 리소스 공급자의 속성을 검사하여 상태를 평가합니다. Azure Policy는 작업(_동작_이라고도 함)을 제한하지 않습니다. Azure Policy를 사용하면 변경한 사용자 또는 변경 권한이 있는 사용자에 대한 걱정 없이 리소스 상태에서 비즈니스 규칙을 준수하는지 확인할 수 있습니다.
+Azure Policy 및 Azure RBAC(Azure 역할 기반 액세스 제어) 간에는 몇 가지 주요 차이점이 있습니다. Azure Policy는 Resource Manager에 표시되는 리소스의 속성 및 일부 리소스 공급자의 속성을 검사하여 상태를 평가합니다. Azure Policy는 작업(_동작_이라고도 함)을 제한하지 않습니다. Azure Policy를 사용하면 변경한 사용자 또는 변경 권한이 있는 사용자에 대한 걱정 없이 리소스 상태에서 비즈니스 규칙을 준수하는지 확인할 수 있습니다.
 
-RBAC는 다양한 범위에서 사용자 [작업](../../role-based-access-control/resource-provider-operations.md)을 관리하는 데 중점을 둡니다. 작업을 제어해야 하는 경우 RBAC가 사용하는 데 적합한 도구입니다. 개인에게 작업을 수행할 수 있는 액세스 권한이 있더라도 결과가 비준수 리소스이면 Azure Policy에서 만들기 또는 업데이트를 계속 차단합니다.
+Azure RBAC는 다양한 범위에서 사용자 [작업](../../role-based-access-control/resource-provider-operations.md)을 관리하는 데 중점을 둡니다. 작업을 제어해야 하는 경우 Azure RBAC가 사용하는 데 적합한 도구입니다. 개인에게 작업을 수행할 수 있는 액세스 권한이 있더라도 결과가 비준수 리소스이면 Azure Policy에서 만들기 또는 업데이트를 계속 차단합니다.
 
-RBAC와 Azure Policy의 조합은 Azure에서 전체 범위 제어를 제공합니다.
+Azure RBAC와 Azure Policy의 조합은 Azure에서 전체 범위 제어를 제공합니다.
 
-### <a name="rbac-permissions-in-azure-policy"></a>Azure Policy의 RBAC 사용 권한
+### <a name="azure-rbac-permissions-in-azure-policy"></a>Azure Policy의 Azure RBAC 사용 권한
 
 Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에서는 작업으로 알려져 있습니다.
 

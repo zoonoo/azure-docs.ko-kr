@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 432386809596fb2ef040a05d1fe0d12294a1abef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73890912"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534525"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스 구성
 
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 엔진의 위치를 업데이트하려면 작업 이름을 **UpdateEngineLocation**으로 설정하고 경도를 **-122.15**로 설정하고 위치를 **Factory 2**로 설정하고 위도를 **47.62**로 설정한 다음, **적용**을 클릭합니다.
 
-[![디바이스 속성 값 업데이트](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
+[!["작업" 창이 강조 표시된 "Device Explorer" 페이지를 보여주는 스크린샷.](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
 
 작업의 상태를 추적하려면 **작업 상태 보기**를 클릭합니다.
 
@@ -113,7 +113,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 조건에서 태그 이름 **FieldService** 및 값 **ConnectedVehicle**을 사용하는 텍스트 필터를 만듭니다. **Connected Vehicle**로 필터를 저장합니다.
 
-[![커넥티드 차량 필터 만들기](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
+[!["디바이스 그룹 관리" 창이 강조 표시된 "Device Explorer" 페이지를 보여주는 스크린샷.](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
 
 Contoso 운영자는 운영 팀을 기반으로 디바이스를 쿼리할 수 있습니다.
 

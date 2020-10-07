@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 컨트롤
-description: Azure Policy 및 RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
+description: Azure Policy 및 Azure RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 4b15b5407f749eb53e264eb14c5e50b7afc21ee5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d537a3447f794c501ac3a33caf6eb01b17bc470
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920741"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541223"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 
@@ -47,7 +47,7 @@ Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관�
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 권한 있는 액세스 권한 관리
 
-이 청사진은 소유자 및/또는 쓰기 권한이 있는 외부 계정 및 다단계 인증을 사용하지 않는 소유자 및/또는 쓰기 권한을 가진 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 4개를 할당하여, 권한 있는 액세스 권한을 제한 및 제어하는 데 도움이 됩니다. Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 RBAC(역할 기반 액세스 제어)를 구현합니다. 또한 이 청사진은 SQL Servers 및 Service Fabric에 대한 Azure Active Directory 인증 사용을 감사하는 Azure Policy 정의 3개를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의도 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
+이 청사진은 소유자 및/또는 쓰기 권한이 있는 외부 계정 및 다단계 인증을 사용하지 않는 소유자 및/또는 쓰기 권한을 가진 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 4개를 할당하여, 권한 있는 액세스 권한을 제한 및 제어하는 데 도움이 됩니다. Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하는 데 도움이 됩니다. 또한 이 청사진은 SQL Servers 및 Service Fabric에 대한 Azure Active Directory 인증 사용을 감사하는 Azure Policy 정의 3개를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 이 청사진은 사용자 지정 Azure RBAC 규칙의 사용을 감사하는 Azure Policy 정의도 할당합니다. 사용자 지정 Azure RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 Azure RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
@@ -78,7 +78,7 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 액세스 권한 제거 또는 조정
 
-Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) 및 RBAC를 사용하여 사용자 역할을 조직 변경이 반영되도록 업데이트할 수 있습니다. 필요한 경우 계정을 로그인하지 못하게 차단하거나 제거하여 Azure 리소스에 대한 액세스 권한을 즉시 제거할 수 있습니다. 이 청사진은 제거 대상으로 고려해야 하는 사용 중단 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 2개를 할당합니다.
+Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) 및 Azure RBAC를 사용하여 조직 변경 내용을 반영하도록 사용자 역할을 업데이트할 수 있습니다. 필요한 경우 계정을 로그인하지 못하게 차단하거나 제거하여 Azure 리소스에 대한 액세스 권한을 즉시 제거할 수 있습니다. 이 청사진은 제거 대상으로 고려해야 하는 사용 중단 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 2개를 할당합니다.
 
 - 더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.
 - 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.

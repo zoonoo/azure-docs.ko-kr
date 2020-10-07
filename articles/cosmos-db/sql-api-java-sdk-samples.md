@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/20/2020
+ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 4f61dcfa37547fe46a582a4a7ebb28ac68fe6c74
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8910983ea5946c88d3d560c0cf0a321f8bd2c4ab
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308681"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569965"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4 예제
 
@@ -21,6 +21,7 @@ ms.locfileid: "87308681"
 > * [.NET V2 SDK 예제](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 예제](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK 예제](sql-api-java-sdk-samples.md)
+> * [Spring Data V3 SDK 예제](sql-api-spring-data-sdk-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -75,7 +76,7 @@ IDE(Eclipse, IntelliJ 또는 VSCODE)를 사용하거나 Maven을 사용하여 �
 이러한 환경 변수를 설정하여
 
 ```
-ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account master key
+ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account primary key
 ```
 
 계정에 대한 읽기/쓰기 액세스 권한을 샘플에 부여해야 합니다.

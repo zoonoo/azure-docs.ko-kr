@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945581"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564785"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버
 
@@ -20,7 +20,7 @@ MySQL 커뮤니티 버전에서 제공하는 [Azure Database for MySQL](overview
 - 단일 서버 
 - 유연한 서버(미리 보기)
 
-이 문서에서는 단일한 서버 배포 모델의 핵심 개념을 간략하게 설명하고 소개합니다. 유연한 서버 배포 모드에 대한 자세한 내용은 [유연한 서버 개요](flexible-server/index.yml)를 참조하세요.
+이 문서에서는 단일한 서버 배포 모델의 핵심 개념을 간략하게 설명하고 소개합니다. 유연한 서버 배포 모드에 대한 자세한 내용은 [유연한 서버 개요](flexible-server/index.yml)를 참조하세요. 작업에 적합한 배포 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure에서 올바른 MySQL 서버 옵션 선택](select-right-deployment-type.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 

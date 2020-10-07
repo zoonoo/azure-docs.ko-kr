@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005621"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542039"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 테넌트 만들기
 
@@ -126,7 +126,7 @@ Azure 구독 ID를 찾으려면
 1. 동일한 [Azure Portal](https://portal.azure.com) 세션에서 **구독**을 검색하여 선택합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Azure Portal에서 "Azure Active Directory"를 검색한 결과의 스크린샷입니다. “서비스” 아래의 검색 결과가 강조 표시됩니다.](../media/tenant-search-subscription.png)
+   > ![Azure Portal에서 "Azure Active Directory"를 검색한 결과의 스크린샷입니다. "서비스"에 대한 검색 결과가 강조 표시됩니다.](../media/tenant-search-subscription.png)
 
 2. Windows Virtual Desktop 서비스 알림을 수신하는 데 사용할 Azure 구독을 선택합니다.
 3. **구독 ID**를 검색한 후 클립보드 아이콘이 나타날 때까지 값 위로 마우스를 가져갑니다. 클립보드 아이콘을 선택하고 나중에 **AzureSubscriptionId** 값으로 사용할 수 있게 편리한 위치에 붙여넣습니다.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ea889f48aaf3218ad9f3f286d1cda4f8a761a7ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 47450b85412e75cf632d9c2873289e9a0820beb0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069972"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537772"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -142,11 +142,11 @@ HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수
 
 1. [Azure Portal](https://portal.azure.com)에서 **HDInsight 클러스터**를 검색하고 선택합니다.
    
-   ![Azure Portal에서 HDInsight 클러스터 열기](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
+   ![스크린샷은 HD Insight에 대한 Azure Portal 검색을 보여줍니다.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
    
 1. 목록에서 만든 클러스터를 선택합니다.
    
-   ![Azure Portal에서 HDInsight 클러스터 열기](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
+   ![스크린샷은 사용자가 만든 클러스터가 있는 HD Insight 클러스터를 보여줍니다.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
    
 1. 클러스터 **개요**  페이지에서 **클러스터 대시보드**를 선택한 다음, **Jupyter Notebook**을 선택합니다. 메시지가 표시되면 클러스터에 대한 클러스터 로그인 자격 증명을 입력합니다.
 

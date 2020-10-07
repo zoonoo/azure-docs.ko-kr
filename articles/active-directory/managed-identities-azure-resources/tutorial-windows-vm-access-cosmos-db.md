@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263075"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532672"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB에 액세스
 
@@ -80,6 +80,10 @@ PowerShell을 사용하여 Azure Resource Manager에서 Windows VM 시스템 할
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
+
+>[!NOTE]
+> 작업을 수행할 수 없는 경우 올바른 권한이 없을 수 있습니다. 키에 대한 쓰기 액세스 권한을 원하는 경우 DocumentDB 계정 기여자와 같은 RBAC 역할을 사용하거나 사용자 지정 역할을 만들어야 합니다. 자세한 내용은 [Azure Cosmos DB의 역할 기반 액세스 제어](../../cosmos-db/role-based-access-control.md)를 검토하세요.
+
 ## <a name="access-data"></a>데이터 액세스
 
 이 섹션에서는 Windows VM 시스템 할당 관리 ID에 대한 액세스 토큰을 사용하여 Azure Resource Manager를 호출하는 방법을 보여줍니다. 자습서의 나머지 부분에서는 이전에 만든 VM에서 작업합니다. 

@@ -1,19 +1,19 @@
 ---
-title: 단일 마스터 Azure Cosmos 계정에 대한 장애 조치(failover) 우선 순위를 변경하는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB 단일 마스터 계정에 대한 장애 조치(failover) 우선 순위 변경 또는 장애 조치(failover) 트리거
+title: 단일 쓰기 지역이 있는 Azure Cosmos 계정에 대한 장애 조치(failover) 우선 순위를 변경하는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 샘플 - 단일 쓰기 지역이 있는 Azure Cosmos 계정에 대한 장애 조치(failover) 우선 순위 변경 또는 장애 조치(failover) 트리거
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505270"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570603"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 단일 마스터 계정에 대한 장애 조치(failover) 우선 순위 변경 또는 장애 조치(failover) 트리거
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>PowerShell을 사용하여 단일 쓰기 지역이 있는 Azure Cosmos 계정에 대한 장애 조치(failover) 우선순위 변경 또는 장애 조치(failover) 트리거
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

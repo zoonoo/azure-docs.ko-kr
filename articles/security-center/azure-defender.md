@@ -1,31 +1,28 @@
 ---
 title: Azure Defender 개요 및 사용 가능한 플랜
-description: Azure Defender의 플랜, 보호 및 경고에 대해 알아봅니다. 그런 다음, 구독에서 Azure Defender를 사용하도록 설정합니다.
+description: Azure Defender의 플랜, 보호 및 경고에 대해 알아봅니다. 그런 다음, 고급 보안을 위해 구독에서 Azure Defender를 사용하도록 설정합니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5a5b96d5a9ea6aa05da30238690b8f5fa745b3f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448434"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91576860"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
 
 Azure Security Center의 기능은 다음과 같은 클라우드 보안의 두 가지 핵심 요소를 지원합니다.
 
-- **CSPM(클라우드 보안 태세 관리)**
-- **CWP(클라우드 워크로드 보호)**
+- **CSPM(클라우드 보안 태세 관리)** - Security Center은 모든 Azure 사용자가 **무료**로 사용할 수 있습니다. 무료 체험에는 보안 점수, Azure 머신에서 잘못된 보안 구성 검색, 자산 인벤토리 등과 같은 CSPM 기능이 포함됩니다. 이러한 CSPM 기능을 사용하여 하이브리드 클라우드 태세를 강화하고 기본 제공 정책의 준수 여부를 추적합니다.
 
-보안 점수, Windows 및 Linux Azure 컴퓨터의 잘못된 보안 구성 탐지와 같은 Security Center의 CSPM 기능은 모든 Azure 사용자에게 제공되는 무료 Security Center 환경의 일부입니다. 이러한 CSPM 기능을 사용하여 보안 태세를 강화하고 규정 준수를 보장하세요.
+- **CWP(클라우드 워크로드 보호)** - Security Center의 통합 CWPP(클라우드 워크로드 보호 플랫폼)인 **Azure Defender**는 Azure 및 하이브리드 리소스 및 워크로드에 고급 인텔리전트 보호 기능을 제공합니다. Azure Defender를 사용하면 이 페이지에 설명된 대로 다양한 추가 보안 기능이 제공됩니다. 기본 제공 정책 외에도 Azure Defender 플랜을 사용하는 경우 사용자 지정 정책 및 이니셔티브를 추가할 수 있습니다. 규정 준수에 대한 진정한 사용자 지정 보기를 위해 NIST 및 Azure CIS와 같은 규제 표준과 Azure 보안 벤치마크를 추가할 수 있습니다.
 
-Security Center 내부에 통합되는 **Azure Defender**는 Azure 및 하이브리드 워크로드에 대한 고급 인텔리전트 보호를 제공하는 CWPP(클라우드 워크로드 보호 플랫폼)입니다.
-
-다음은 Azure Security Center의 Azure Defender 대시보드입니다.
+Security Center의 Azure Defender 대시보드는 사용자 환경에 대한 CWP 기능의 가시성 및 제어 기능을 제공합니다.
 
 :::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Azure Defender 대시보드의 예" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
@@ -57,9 +54,11 @@ Azure 환경을 방어할 수 있을 뿐 아니라, 하이브리드 클라우드
 
 환경에 따라 사용자 지정된 위협 인텔리전스 및 우선 순위가 지정된 경고가 제공되므로 가장 중요한 문제에 집중할 수 있습니다.
 
-[Azure Arc](https://azure.microsoft.com/services/azure-arc/)를 배포하고 Azure Defender를 사용하도록 설정하여 보호 범위를 온-프레미스 및 다중 클라우드 가상 머신과 SQL 데이터베이스로 확장합니다. 서버용 Azure Arc는 무료 서비스이지만, Azure Defender처럼 Arc 지원 서버에서 사용되는 서비스는 해당 서비스의 가격 책정에 따라 요금이 청구됩니다.
+다른 클라우드 또는 온-프레미스에 있는 가상 머신 및 SQL 데이터베이스로 보호 범위를 확장하려면 [Azure Arc](https://azure.microsoft.com/services/azure-arc/)를 배포하고 Azure Defender를 사용합니다. 서버용 Azure Arc는 무료 서비스이지만, Azure Defender처럼 Arc 지원 서버에서 사용되는 서비스는 해당 서비스의 가격 책정에 따라 요금이 청구됩니다. [Azure Arc를 사용하여 비 Azure 머신 추가](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc)에서 자세히 알아보세요.
 
-[Azure Arc에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-arc/overview).
+> [!TIP]
+> AWS용 기본 커넥터는 Azure Arc 배포를 투명하게 처리합니다. [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)에서 자세히 알아보세요.
+
 
 
 ## <a name="azure-defender-alerts"></a>Azure Defender 경고 

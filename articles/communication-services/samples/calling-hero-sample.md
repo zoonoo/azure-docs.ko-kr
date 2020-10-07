@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: caee5686695594604f49dcbade54342a9134abc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945461"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460597"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>그룹 통화 주인공 샘플 시작
 
@@ -30,7 +30,7 @@ Azure Communication Services **그룹 통화 주인공 샘플**은 Communication
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 머신에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
 > [!IMPORTANT]
-> [GitHub에서 샘플 다운로드](https://github.com/Azure/Communication/tree/master/samples)
+> [GitHub에서 샘플 다운로드](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## <a name="overview"></a>개요
 
@@ -38,15 +38,19 @@ Azure Communication Services **그룹 통화 주인공 샘플**은 Communication
 
 샘플은 다음과 같습니다.
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷":::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷&quot;:::
 
-"통화 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰을 가져오면 사용할 카메라와 마이크를 지정하라는 메시지가 표시됩니다. 토글 컨트롤을 사용하여 디바이스를 사용하지 않거나 사용하도록 설정할 수 있습니다.
+&quot;통화 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰을 가져오면 사용할 카메라와 마이크를 지정하라는 메시지가 표시됩니다. 토글 컨트롤을 사용하여 디바이스를 사용하지 않거나 사용하도록 설정할 수 있습니다.
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="샘플 애플리케이션의 통화 전 화면을 보여 주는 스크린샷":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷&quot;:::
+
+&quot;통화 시작":::
 
 표시 이름 및 디바이스 구성이 끝나면 통화 세션에 참가할 수 있습니다. 이제 핵심 통화 환경이 있는 기본 통화 캔버스가 표시됩니다.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="샘플 애플리케이션의 기본 화면을 보여 주는 스크린샷":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷&quot;:::
+
+&quot;통화 시작":::
 
 기본 통화 화면의 구성 요소:
 
@@ -54,14 +58,14 @@ Azure Communication Services **그룹 통화 주인공 샘플**은 Communication
 - **헤더**: 여기에는 설정 및 참가자 사이드바를 토글하고, 비디오 및 믹스를 설정/해제하고, 화면을 공유하고, 통화를 종료하는 기본 통화 컨트롤이 있습니다.
 - **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 오른쪽 위 모서리에서 'X'를 사용하여 구성 요소를 해제할 수 있습니다. 참가자 사이드바에는 참가자 목록과 추가 사용자를 채팅에 초대하는 링크가 표시됩니다. 설정 사이드바에서는 마이크 및 카메라 설정을 구성할 수 있습니다.
 
-아래에서 사전 요구 사항에 대한 추가 정보, 샘플을 설정하는 단계 및 다양한 구성 요소를 익히는 데 도움이 되는 단계별 자습서를 확인할 수 있습니다.
+아래에는 샘플을 설정하기 위한 필수 구성 요소 및 설정 단계가 자세히 설명되어 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
 - [Node.js(12.18.4 이상)](https://nodejs.org/en/download/)
 - [Visual Studio(2019 이상)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)(Visual Studio 인스턴스에 따라 32비트 또는 64비트 버전을 설치해야 합니다.)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(Visual Studio 인스턴스에 따라 32비트 또는 64비트 버전을 설치해야 함)
 - Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>클라이언트 애플리케이션 및 서비스를 로컬로 배포
@@ -72,23 +76,17 @@ Azure Communication Services **그룹 통화 주인공 샘플**은 Communication
 
 통화 URL을 사용하여 여러 브라우저 세션을 열고 다중 사용자 통화를 시뮬레이션하여 샘플을 로컬로 테스트할 수 있습니다.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>처음으로 샘플을 실행하기 전에
+## <a name="before-running-the-sample-for-the-first-time"></a>처음으로 샘플을 실행하기 전에
 
 1. PowerShell, Windows 터미널, 명령 프롬프트 또는 그에 상응하는 인스턴스를 열고 샘플을 복제할 디렉터리로 이동합니다.
-2. `git clone`
-3. **Calling/ClientApp 폴더**로 이동하고 `npm run setup` 실행
-   1. 오류 1이 발생할 경우 클라이언트에 권한을 부여하기 위해 이동해야 하는 URL의 출력을 살펴봅니다. URL은 `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` 형식입니다. 브라우저에서 URL을 방문하고, 브라우저 창에서 명령을 복사하여 실행합니다.
-   2. 이전 단계를 완료한 후 `npm run setup-vsts-auth` 명령을 다시 실행합니다.
-4. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure 통신 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요.
-5. 연결 문자열을 가져온 후 Service .NET 폴더 아래에 있는 **Calling/appsetting.json** 파일에 연결 문자열을 추가합니다. `ResourceConnectionString` 변수에 연결 문자열을 입력합니다.
+2. `git clone https://github.com/Azure/Communication.git`
+3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요.
+4. `Connection String`을 가져온 후 Service .NET 폴더 아래에 있는 **Calling/appsetting.json** 파일에 연결 문자열을 추가합니다. `ResourceConnectionString` 변수에 연결 문자열을 입력합니다.
 
 ### <a name="local-run"></a>로컬 실행
 
-1. Calling 폴더로 이동
-2. Visual Studio에서 `Calling.csproj` 솔루션 열기
-2. `Calling` 프로젝트* 실행
-
-*브라우저에 `localhost:5000`이 열립니다(노드가 클라이언트 앱을 배포하는 위치). Internet Explorer에서 앱이 지원되지 않습니다.
+1. 호출 폴더로 이동하여 Visual Studio에서 `Calling.csproj` 솔루션 열기
+2. `Calling` 프로젝트를 실행합니다. 이 브라우저는 localhost:5001에서 열립니다.
 
 #### <a name="troubleshooting"></a>문제 해결
 
@@ -98,7 +96,7 @@ Azure Communication Services **그룹 통화 주인공 샘플**은 Communication
 
 ## <a name="publish-the-sample-to-azure"></a>Azure에 샘플 게시
 
-1. `Calling` 프로젝트를 마우스 오른쪽 단추로 클릭하고 게시를 선택합니다.
+1. `Calling` 프로젝트를 마우스 오른쪽 단추로 클릭하고 [게시]를 선택합니다.
 2. 새 게시 프로필을 만들고 Azure 구독을 선택합니다.
 3. 게시하기 전에 `Edit App Service Settings`를 사용하여 연결 문자열을 추가하고, 키로 `ResourceConnectionString`을 입력하고, appsettings.json에서 복사한 연결 문자열을 값으로 제공합니다.
 
@@ -108,6 +106,9 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 ## <a name="next-steps"></a>다음 단계
 
+>[!div class="nextstepaction"] 
+>[GitHub에서 샘플 다운로드](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+
 자세한 내용은 다음 문서를 참조하세요.
 
 - [통화 클라이언트 라이브러리 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
@@ -116,7 +117,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 ## <a name="additional-reading"></a>추가 자료
 
-- [Azure Communication 미리 보기](https://github.com/Azure/communication-preview) - 통화 웹 SDK에 대해 자세히 알아보기
+- [Azure Communication GitHub](https://github.com/Azure/communication) - 공식 GitHub 페이지에서 더 많은 예제 및 정보 찾기
 - [Redux](https://redux.js.org/) - 클라이언트 쪽 상태 관리
 - [FluentUI](https://developer.microsoft.com/fluentui#/) - Microsoft 기반 UI 라이브러리
 - [React](https://reactjs.org/) - 사용자 인터페이스 빌드용 라이브러리

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085721"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537459"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -127,10 +127,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 7. **만들기**를 클릭합니다.
 8. 배포가 완료되면 **리소스로 이동**을 클릭합니다.
 
-   ![데이터 팩터리 홈페이지](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![스크린샷은 배포가 완료되었음을 나타내는 메시지와 리소스로 이동하는 옵션을 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
 
-   ![데이터 팩터리 홈페이지](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![스크린샷은 배포한 데이터 팩터리를 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 11. **시작** 페이지에서 다음 이미지와 같이 왼쪽 패널의 **편집** 탭으로 전환합니다.
 
@@ -289,10 +289,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 11. 미리 보기를 클릭하여 쿼리가 변경된 행을 올바르게 반환하는지 확인합니다.
 
-    ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![스크린샷은 쿼리를 확인하는 미리 보기를 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. **싱크** 탭으로 전환하고 **싱크 데이터 세트** 필드의 Azure Storage 데이터 세트를 지정합니다.
 
-    ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![스크린샷은 싱크 탭을 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. 주 파이프라인 캔버스로 돌아가기를 클릭하고 **조회** 활동을 **If 조건** 활동에 하나씩 연결합니다. **조회** 활동에 연결된 **녹색** 단추를 **If 조건** 활동으로 끕니다.
 
     ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -333,7 +333,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 4. **복사** 작업의 **싱크** 탭을 클릭하고 **열기**를 클릭하여 데이터 세트 속성을 편집합니다. **매개 변수** 탭을 클릭하고 **triggerStart** 라는 새 매개 변수를 추가합니다.    
 
-    ![싱크 데이터 세트 구성-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![스크린샷은 매개 변수 탭에 새 매개 변수 추가를 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. 그런 다음 날짜 기반 파티션이 있는 **고객/증분** 하위 디렉터리에 데이터를 저장하도록 데이터 세트 속성을 구성합니다.
    1. 데이터 세트 속성의 **연결** 탭을 클릭하고 **디렉터리** 및 **파일** 섹션 모두에 동적 콘텐츠를 추가합니다. 
    2. 텍스트 상자 아래의 동적 콘텐츠 링크를 클릭하여 **디렉터리** 섹션에 다음 식을 입력합니다.

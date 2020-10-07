@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254976"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566604"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -171,7 +171,7 @@ ms.locfileid: "85254976"
 
 1. 왼쪽의 트리 뷰에서 **AzureStorageLinkedService** 및 **HDInsightOnDemandLinkedService**가 모두 표시되는지 확인합니다.
 
-    ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![AzureStorageLinkedService와 HDInsightOnDemandLinkedService가 함께 연결되어 있음을 보여주는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 AzureStorageLinkedService를 참조합니다. 연결된 서비스는 스토리지 계정으로 연결됩니다. 데이터 세트는 입력 및 출력 데이터가 있는 스토리지의 컨테이너, 폴더 및 파일 이름을 지정합니다.   

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 2a66ef2f91715180ae84036fc7eead759e7ee00f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685054"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447658"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
 
@@ -47,7 +47,7 @@ Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.micros
 9. 표시되는 대화 상자의 **BillingProfileIdOrEnrollmentNumber**에서 EA 등록 번호를 입력합니다. 가져올 데이터의 개월 수를 지정합니다. 기본 **범위** 값의 **등록 번호**를 그대로 유지하고, **다음**을 선택합니다.  
   ![EA 등록 정보 입력](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. 다음 대화 상자에서 Azure에 연결하고 예약 인스턴스 추천 사항에 필요한 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지하고*, **로그인**을 선택합니다.  
-  ![Azure에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
+  ![스크린샷은 기본값이 입력된 Azure Cost Management 앱에 연결 대화 상자를 보여줍니다.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. 최종 설치 단계가 EA 등록에 연결되며, [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 요구합니다. **로그인**을 선택하여 EA 등록으로 인증합니다. 이 단계에서는 Power BI에서 데이터 새로 고침 작업도 시작합니다.  
   ![EA 등록에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
     > [!NOTE]
@@ -189,7 +189,7 @@ AutoFitComboMeter Blob 연결에 대한 인증 방법을 변경하는 경우 이
 
 1. 데이터에 연결합니다.
 1. EA 등록 및 개월 수를 입력한 후 인증 방법에 대해 **익명**, 개인 정보 수준 설정에 대해 **없음**의 기본값을 그대로 유지합니다.  
-  ![Azure에 연결](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  ![스크린샷은 익명 및 없음 값이 입력된 Azure Cost Management 앱에 연결 대화 상자를 보여줍니다.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. 다음 페이지에서 인증 방법에 대해 **OAuth2**를 개인 정보 수준에 대해 **없음** 세트를 설정합니다. 그런 다음, 로그인하여 등록으로 인증합니다. 이 단계에서는 Power BI 데이터 새로 고침을 시작합니다.
 
 

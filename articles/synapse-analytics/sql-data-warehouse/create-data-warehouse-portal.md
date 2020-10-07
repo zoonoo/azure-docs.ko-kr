@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL 풀 만들기 및 쿼리(Azure portal)
+title: '빠른 시작: Synapse SQL 풀 만들기 및 쿼리(Azure portal)'
 description: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459388"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568973"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
@@ -78,7 +78,7 @@ Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Syna
 
 7. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
 
-   ![알림](./media/create-data-warehouse-portal/notification.png)
+   ![스크린샷은 배포가 진행 중인 알림을 보여줍니다.](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 

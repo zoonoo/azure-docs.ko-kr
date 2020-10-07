@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300156"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448232"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 
@@ -47,7 +47,7 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
 3. 구성에 사용할 수 있는 옵션을 잠시 살펴봅니다.
     - **사용자가 로그인할 수 있습니까?** 는 애플리케이션에 할당된 사용자가 로그인할 수 있는지 여부를 결정합니다.
     - **사용자 할당이 필요하나요?** 는 애플리케이션에 할당되지 않은 사용자가 로그인할 수 있는지 여부를 결정합니다.
-    - **사용자에게 표시되나요?** 는 앱에 할당된 사용자가 [내 앱](https://myapps.microsoft.com) 및 Office 365 앱 시작 관리자에서 앱을 볼 수 있는지 여부를 결정합니다. (Office 365 또는 Microsoft 365 웹 사이트의 왼쪽 위 모서리에 있는 와플 메뉴를 참조하세요.)
+    - **사용자에게 표시되나요?** 는 앱에 할당된 사용자가 [내 앱](https://myapps.microsoft.com) 및 Microsoft 365 앱 시작 관리자에서 앱을 볼 수 있는지 여부를 결정합니다. (Microsoft 365 웹 사이트의 왼쪽 위 모서리에 있는 와플 메뉴를 참조하세요.)
     
     > [!TIP]
     > 사용자 할당은 탐색의 **사용자 및 그룹** 섹션에서 이루어집니다.
@@ -86,7 +86,17 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
 > [!TIP]
 > Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
 
+## <a name="add-notes"></a>메모 추가
 
+메모 필드를 사용하여 Azure AD의 애플리케이션 관리와 관련된 정보를 추가할 수 있습니다. 메모는 최대 크기가 1024자인 무료 텍스트 필드입니다.
+
+1. Azure AD Portal에서 **엔터프라이즈 애플리케이션**을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
+2. **관리** 섹션에서 **속성**을 선택하여 편집할 **속성** 창을 엽니다.
+3. 메모 필드를 업데이트하고 **저장**을 선택합니다.
+
+    ![메모를 변경하는 방법을 보여주는 속성 화면의 스크린샷](media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 빠른 시작 시리즈를 더 이상 사용하지 않을 생각이면 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 앱 삭제에 대한 내용은 이 시리즈의 마지막 빠른 시작에서 다룹니다. [앱 삭제](delete-application-portal.md)를 참조하세요.

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8b6faa6e2e8928e008370cb0eca00595712a679d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4677426337a48d4fde74f61b8a4ad6fcb695f420
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449019"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91577818"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Azure Defender for Storage 소개
 
@@ -27,7 +27,7 @@ ms.locfileid: "91449019"
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Storage**는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
-|보호된 스토리지 형식|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure 파일](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
+|보호된 스토리지 형식:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure 파일](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
 

@@ -1,29 +1,29 @@
 ---
-title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 미리 보기 디바이스와 상호 작용(Node.js) | Microsoft Docs
-description: Node.js를 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 미리 보기 디바이스에 연결하고 상호 작용합니다.
+title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Node.js) | Microsoft Docs
+description: Node.js를 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
 author: elhorton
 ms.author: elhorton
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: fd65dcc9ce0be07daa5848a0ac583cf795150e47
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 6ad6e48642e7b7df4b93b37b5ef66381833d8bbc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184757"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574996"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 미리 보기 디바이스와 상호 작용(Node.js)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
-IoT 플러그 앤 플레이 미리 보기를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 기능과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Node.js를 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 기능과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Node.js를 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 이 빠른 시작을 완료하려면 개발 머신에 Node.js가 필요합니다. [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 권장하는 최신 버전을 다운로드할 수 있습니다.
 
@@ -33,29 +33,19 @@ IoT 플러그 앤 플레이 미리 보기를 사용하면 기본 디바이스 �
 node --version
 ```
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-다음 명령을 실행하여 허브에 대한 _IoT 허브 연결 문자열_을 가져옵니다. 이 연결 문자열을 기록해 두십시오. 이 빠른 시작의 뒷부분에서 사용하게 됩니다.
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-다음 명령을 실행하여 허브에 추가한 디바이스에 대한 디바이스 연결 문자열을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
-```
-
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>샘플 코드를 사용하여 SDK 리포지토리 복제
 
-서비스 SDK는 미리 보기 상태이므로 [노드 SDK 미리 보기 분기](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh)에서 샘플을 복제해야 합니다. 원하는 폴더에서 터미널 창을 엽니다. 다음 명령을 실행하여 [Node.js용 Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-node) GitHub 리포지토리의 **pnp-preview-refresh** 분기를 복제합니다.
+[노드 SDK 리포지토리](https://github.com/Azure/azure-iot-sdk-node)에서 샘플을 복제합니다. 원하는 폴더에서 터미널 창을 엽니다. 다음 명령을 실행하여 [Node.js용 Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-node) GitHub 리포지토리를 복제합니다.
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
 ## <a name="run-the-sample-device"></a>샘플 디바이스 실행
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md)를 참조하세요.
 
 이 빠른 시작에서는 Node.js로 작성한 샘플 자동 온도 조절 디바이스를 IoT 플러그 앤 플레이 디바이스로 사용할 수 있습니다. 샘플 디바이스를 실행하려면 다음을 수행합니다.
 
@@ -65,12 +55,6 @@ git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
 
     ```cmd/sh
     npm install
-    ```
-
-1. 다음과 같이 _디바이스 연결 문자열_을 구성합니다.
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. 다음 명령을 사용하여 샘플 자동 온도 조절 디바이스를 실행합니다.
@@ -83,25 +67,19 @@ git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
 
 ## <a name="run-the-sample-solution"></a>샘플 솔루션 실행
 
+[IoT 플러그 앤 플레이 빠른 시작 및 자습서](set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
+
+* **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+
 이 빠른 시작에서는 Node.js에서 샘플 IoT 솔루션을 사용하여 방금 설정한 샘플 디바이스와 상호 작용합니다.
 
-1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다. 서비스 SDK는 미리 보기 상태이므로 [Node SDK 미리 보기 분기](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh)에서 샘플을 복제해야 합니다.
+1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다.
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
-    ```
-
-1. 복제된 이 리포지토리 분기의 폴더로 이동하여 */azure-iot-sdk-node/digitaltwins/samples/service/javascript* 폴더로 이동합니다. 다음 명령을 실행하여 모든 종속 요소를 설치합니다.
+1. 복제된 노드 SDK 리포지토리에서 */azure-iot-sdk-node/service/samples/javascript* 폴더로 이동합니다. 다음 명령을 실행하여 모든 종속 요소를 설치합니다.
 
     ```cmd/sh
     npm install
-    ```
-
-1. 디바이스 ID 및 IoT Hub 연결 문자열의 환경 변수를 구성합니다.
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
     ```
 
 ### <a name="read-a-property"></a>속성 읽기
@@ -163,7 +141,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
 1. **디바이스** 터미널로 이동하면 디바이스가 업데이트를 수신한 것을 볼 수 있습니다.
 
     ```cmd/sh
-    The following properties will be updated for root interface:
+    The following properties will be updated for the default component:
     {
       targetTemperature: {
         value: 42,
@@ -221,11 +199,9 @@ git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
     Response to method 'getMaxMinReport' sent successfully.
     ```
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 IoT 플러그 앤 플레이 디바이스를 IoT 솔루션에 연결하는 방법을 알아보았습니다. IoT 플러그 앤 플레이 디바이스 모델에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [IoT 플러그 앤 플레이 미리 보기 모델링 개발자 가이드](concepts-developer-guide.md)
+> [IoT 플러그 앤 플레이 모델링 개발자 가이드](concepts-developer-guide-device-csharp.md)

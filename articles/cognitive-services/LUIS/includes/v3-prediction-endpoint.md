@@ -8,10 +8,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
 ms.openlocfilehash: a607ad71915606d6046b4c71291a49b8641bdcc9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91545345"
 ---
 1. LUIS 포털의 **관리** 섹션(오른쪽 상단 메뉴)에 있는 **Azure 리소스** 페이지(왼쪽 메뉴)의 **예측 리소스** 탭에서 페이지 하단에 있는 **예제 쿼리**를 복사합니다.

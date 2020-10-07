@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 통해 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
+title: '빠른 시작: Azure Portal을 통해 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작'
 description: Azure Portal을 사용하여 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절약할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214471"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567641"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 
@@ -49,7 +49,7 @@ SQL 풀을 일시 중지하려면 다음 단계를 따르세요.
 5. 계속할지를 묻는 확인 질문이 나타납니다. **예**를 클릭합니다.
 6. 몇 분 정도 기다린 다음, **상태**는 **일시 중지**가 됩니다.
 
-    ![일시 중지](./media/pause-and-resume-compute-portal/pausing.png)
+    ![스크린샷은 상태 값이 일시 중지인 샘플 데이터 웨어하우스의 Azure Portal을 보여줍니다.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. 일시 중지 작업이 완료되면 상태는 **일시 중지됨**이 되고 옵션 단추는 **다시 시작**이 됩니다.
 8. 이제 SQL 풀에 대한 컴퓨팅 리소스는 오프라인 상태입니다. 서비스를 다시 시작할 때까지 컴퓨팅에 대한 요금이 청구되지 않습니다.
@@ -71,7 +71,7 @@ SQL 풀을 다시 시작하려면 다음 단계를 따르세요.
 5. 시작할지를 묻는 확인 질문이 나타납니다. **예**를 클릭합니다.
 6. **상태**가 **다시 시작 중**이 됩니다.
 
-    ![Resuming](./media/pause-and-resume-compute-portal/resuming.png)
+    ![스크린샷은 시작 단추가 선택되고 상태 값을 다시 시작하는 샘플 데이터 웨어하우스의 Azure Portal을 보여줍니다.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. SQL 풀이 다시 온라인 상태가 되면 **온라인** 상태가 되고 옵션 단추가 **일시 중지**가 됩니다.
 8. SQL 풀에 대한 컴퓨팅 리소스는 현재 온라인 상태이고 서비스를 사용할 수 있습니다. 컴퓨팅에 대한 요금이 다시 청구됩니다.
