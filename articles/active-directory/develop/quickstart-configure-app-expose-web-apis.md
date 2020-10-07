@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442155"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
@@ -95,7 +95,7 @@ ms.locfileid: "89442155"
 
 이전 섹션에서 설명한 두 가지 예제 범위를 모두 성공적으로 추가했다면 다음 이미지처럼 웹 API 앱 등록의 **API 표시**에 두 범위가 표시됩니다.
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="두 범위를 표시하는 [API 표시] 창의 스크린샷":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Azure Portal에 있는 앱 등록의 [API 표시] 창":::
 
 이미지에 표시된 것처럼 범위의 전체 문자열은 웹 API의 **애플리케이션 ID URI**와 범위의 **범위 이름**을 연결한 것입니다.
 

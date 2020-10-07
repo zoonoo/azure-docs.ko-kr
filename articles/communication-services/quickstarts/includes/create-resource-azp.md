@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945936"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -23,11 +23,11 @@ Azure Communication Services 리소스를 만들려면 먼저 [Azure Portal](htt
 
 **Marketplace 검색** 입력 또는 포털 상단에 있는 검색 창에 **Communication**을 입력합니다.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="검색 창에서 통신 서비스 검색을 보여주는 스크린샷.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Azure Portal에서 리소스 만들기를 강조 표시하는 스크린샷.":::
 
 결과에서 **Communication Services**를 선택한 다음, **추가**를 선택합니다.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="추가 단추가 강조 표시된 Azure 패널을 보여주는 스크린샷.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Azure Portal에서 리소스 만들기를 강조 표시하는 스크린샷.":::
 
 이제 Communication Services 리소스를 구성할 수 있습니다. 만들기 프로세스의 첫 페이지에서 다음을 지정하라는 메시지가 표시됩니다.
 

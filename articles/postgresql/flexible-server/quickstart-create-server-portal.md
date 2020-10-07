@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 25c3f875717c9c064af0ce27bdab735db67d2f5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945136"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버 만들기
@@ -41,11 +41,11 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
 
 3. **유연한 서버** 배포 옵션을 선택합니다.
 
-   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="Azure Database for PostgreSQL - 유연한 서버 배포 옵션 선택":::
+   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 4. 다음 정보로 **기본 사항** 양식을 입력합니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="서버 만들기":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
     설정|제안 값|Description
     ---|---|---
@@ -58,23 +58,23 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
     버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
     컴퓨팅 + 스토리지 | **범용**, **4 vCore**, **512GB**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성**을 선택합니다. *범용*, *4 vCore*, *512GB* 및 *7일*은 **컴퓨팅 계층**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="가격 책정 계층 창":::
+    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
     
 5. 네트워킹 구성 옵션
 
     네트워크 탭에서 서버에 연결하는 방법을 선택할 수 있습니다. PostgreSQL용 Azure Database는 서버 수준에서 방화벽을 만듭니다. 특정 IP 주소에 대한 방화벽을 열기 위한 규칙을 만들지 않는 한, 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 모든 데이터베이스에 연결하는 것을 방지합니다. 서버를 공개적으로 액세스할 수 있도록 설정 하는 것이 좋습니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="네트워킹 창":::
+    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
     그런 다음, 사용자 고유의 클라이언트 IP 주소로 제한합니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="현재 클라이언트 IP 주소 추가 선택":::
+    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 6. **검토 + 만들기**를 선택하여 선택 사항을 검토합니다. **만들기**를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 7. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정**을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="알림 창":::
+    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
    기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 애플리케이션에서 사용하는 기본 데이터베이스입니다. (다른 기본 데이터베이스는 **azure_maintenance**입니다. 해당 기능은 사용자 작업으로부터 관리되는 서비스 프로세스를 구분하는 것입니다. 이 데이터베이스에 액세스할 수 없습니다.)
 
@@ -88,7 +88,7 @@ PostgreSQL 서버용 Azure Database를 만들 때 **postgres**라는 기본 데�
 
 서버의 **개요** 페이지를 엽니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다. 각 필드 위에 커서를 올려 놓으면 텍스트 오른쪽에 복사 기호가 나타납니다. 필요에 따라 복사 기호를 선택하여 값을 복사합니다.
 
- :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="서버 개요 페이지":::
+ :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 ## <a name="connect-to-the-postgresql-database-using-psql"></a>psql을 사용하여 PostgreSQL 데이터베이스에 연결
 
@@ -162,7 +162,7 @@ psql을 통해 Azure Database for PostgreSQL 서버에 연결하고, 빈 사용�
 
 2. **개요** 페이지에서 **삭제**를 선택합니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="삭제 단추":::
+    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 3. 삭제하려는 서버 이름을 확인하고, 영향을 받는 데이터베이스를 봅니다. 텍스트 상자에서 서버 이름(예: **mydemoserver**)을 입력합니다. **삭제**를 선택합니다.
 

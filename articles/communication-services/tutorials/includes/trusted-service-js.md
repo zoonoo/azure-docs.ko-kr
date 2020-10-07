@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945256"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -132,7 +132,7 @@ module.exports = async function (context, req) {
 
 브라우저에서 URL을 엽니다. 그러면 통신 사용자 ID, 토큰 및 토큰 만료 날짜가 포함된 응답 본문이 표시됩니다.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="만든 Azure 함수에 대한 응답 예제를 보여 주는 스크린샷":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="신뢰할 수 있는 서비스 아키텍처에 대한 다이어그램":::
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 Function 배포
 

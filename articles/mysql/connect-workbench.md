@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
 ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896335"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
@@ -49,7 +49,7 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 
 2.    **새 연결 설정** 대화 상자의 **매개 변수** 탭에 다음 정보를 입력합니다.
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="새 연결 설정":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 | **설정** | **제안 값** | **필드 설명** |
 |---|---|---|
@@ -103,7 +103,7 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 
     스크린샷은 SQL Workbench에서의 SQL 코드 예제와 실행 후 출력을 보여 줍니다.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="샘플 SQL 코드를 실행하기 위한 MySQL Workbench SQL 탭":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 2. 샘플 SQL 코드를 실행하려면 **SQL 파일** 탭의 도구 모음에서 번갯불 아이콘을 클릭합니다.
 3. 페이지 중앙의 **결과 그리드** 섹션에서 세 개의 탭 결과를 확인합니다. 

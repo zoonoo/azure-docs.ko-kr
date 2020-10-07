@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442318"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성
@@ -59,7 +59,7 @@ ms.locfileid: "89442318"
 
 권한이 API에 추가되면 **구성된 권한** 아래에 선택한 권한이 표시됩니다. 다음 이미지에서는 클라이언트 앱의 등록에 추가된 *Employees.Read.All* 위임된 권한 예제를 보여 줍니다.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="새로 추가된 권한을 보여 주는 Azure Portal의 구성된 권한 창":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="오른쪽에서 범위가 공개된 웹 API를 보여 주고, 왼쪽에서 이러한 범위가 권한으로 선택된 클라이언트 앱을 보여 주는 선 다이어그램":::
 
 Microsoft Graph API에 대한 *User.Read* 권한도 확인할 수 있습니다. 이 권한은 Azure Portal에서 앱을 등록할 때 자동으로 추가됩니다.
 
@@ -136,11 +136,11 @@ Microsoft Graph의 *Files.Read.All* 권한과 같은 일부 권한에는 관리�
 
 **{사용자의 테넌트}에 대한 관리자 동의 허용** 단추를 사용하면 관리자가 애플리케이션에 대해 구성된 권한에 대한 관리자 동의를 부여할 수 있습니다. 단추를 선택하면 동의 작업을 확인하도록 요청하는 대화 상자가 표시됩니다.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Azure Portal의 구성된 권한 창에서 강조 표시된 관리자 동의 허용 단추":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="오른쪽에서 범위가 공개된 웹 API를 보여 주고, 왼쪽에서 이러한 범위가 권한으로 선택된 클라이언트 앱을 보여 주는 선 다이어그램":::
 
 동의가 부여되면 관리자 동의가 필요한 권한이 동의가 부여된 것으로 표시됩니다.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Files.Read.All 권한에 대해 부여된 관리자 동의를 보여 주는 Azure Portal의 권한 구성 테이블":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="오른쪽에서 범위가 공개된 웹 API를 보여 주고, 왼쪽에서 이러한 범위가 권한으로 선택된 클라이언트 앱을 보여 주는 선 다이어그램":::
 
 관리자가 아니거나 애플리케이션에 대한 권한이 구성되지 않은 경우 **관리자 동의** 단추는 *사용하지 않도록 설정*됩니다. 부여되었지만 아직 구성되지 않은 권한이 있는 경우 관리자 동의 단추는 이러한 권한을 처리하라는 메시지를 표시합니다. 이러한 권한은 구성된 권한에서 추가하거나 제거할 수 있습니다.
 

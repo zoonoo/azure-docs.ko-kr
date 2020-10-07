@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906365"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>빠른 시작: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 특정 보안 경고에 대한 자동 응답 만들기
@@ -84,7 +84,7 @@ Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인
 1. [Azure Portal](https://portal.azure.com)에서 **Security Center**를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
 1. Security Center의 사이드바에서 **워크플로 자동화**를 열고 삭제할 자동화를 찾습니다.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="워크플로 자동화를 제거하는 단계" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="구성된 자동화 목록" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. 삭제할 항목의 확인란을 선택합니다.
 1. 도구 모음에서 **삭제**를 선택합니다.
 

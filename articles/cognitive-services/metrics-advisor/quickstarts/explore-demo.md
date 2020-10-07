@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945784"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>빠른 시작: 예제 데이터를 사용하여 Metrics Advisor 데모 살펴보기
@@ -44,14 +44,14 @@ Azure SQL Database 또는 Azure Table과 같은 다양한 유형의 데이터 �
 * 데이터 피드가 업데이트된 시점에 대한 로그입니다.   
 * 데이터 피드 정보 및 설정
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="데이터 피드 보기" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="샘플 데이터 목록" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>시계열 시각화 및 구성 보기
 
 *샘플 - 비용/수익 - 구/군/시/범주* 데이터 피드에서 *비용* 메트릭을 클릭합니다. 메트릭 데이터 기록에 따라 시각화를 사용하여 차원으로 분할된 관련 시계열을 볼 수 있습니다. 메트릭 데이터 주위의 파란색 밴드는 Metrics Advisor의 기계 학습 모델에서 예상 값 범위를 나타냅니다. 이 밴드의 외부에 있는 포인트는 빨간색 점으로 표시되며 검색된 변칙입니다. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="계열 시각화" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="샘플 데이터 목록" lightbox="../media/series-visualization.png":::
 
 변칙 검색은 메트릭 세부 정보 페이지의 왼쪽에서**검색 구성**을 조정하여 구성할 수 있습니다. 여러 변칙 검색 방법을 사용할 수 있으며 검색 방법을 결합할 수도 있습니다. 여러 민감도, 검색 방향 및 기타 구성을 추가로 시도할 수 있습니다. **검색 구성** 아래쪽에 있는 **고급 구성** 링크를 사용하여 그룹 또는 개별 계열에서 사용할 수 있는 보다 복잡하고 사용자 지정된 검색 설정을 만들 수 있습니다. 
 
@@ -59,7 +59,7 @@ Azure SQL Database 또는 Azure Table과 같은 다양한 유형의 데이터 �
 
 **피드백 추가** 패널 하단에는 **대상 인시던트 허브**에 대한 링크가 있습니다. 이를 통해 인시던트 분석 페이지로 이동하고 인시던트의 근본 원인을 분석할 수 있습니다.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="인시던트 링크" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="샘플 데이터 목록" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>변칙 검색 결과를 살펴보고 근본 원인 분석 수행
 
@@ -67,7 +67,7 @@ Azure SQL Database 또는 Azure Table과 같은 다양한 유형의 데이터 �
 
 **진단** 섹션에는 인시던트를 진단하기 위한 몇 가지 탭과 함께 인시던트의 트리가 표시됩니다.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="인시던트 진단" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="샘플 데이터 목록" lightbox="../media/incident-diagnostic.png":::
 
 인시던트의 근본 원인을 정확히 짚어내면 상황이 악화되기 전에 조치를 취하고 문제를 완화할 수 있습니다. 또한 제공된 다른 진단 기능을 클릭하여 더 많은 인시던트를 살펴볼 수도 있습니다. 
 
