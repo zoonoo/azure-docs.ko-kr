@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329462"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 
@@ -314,6 +314,8 @@ Azure 파일 동기화 에이전트를 설치한 후 서버 등록 UI가 자동�
 ![성공적으로 동기화된 Azure Storage](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서에서 만든 리소스를 정리하려면 먼저 스토리지 동기화 서비스에서 엔드포인트를 제거합니다. 그런 다음, 스토리지 동기화 서비스를 사용하여 서버 등록을 취소하고, 동기화 그룹을 제거하고, 동기화 서비스를 삭제합니다.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

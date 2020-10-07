@@ -1,6 +1,6 @@
 ---
-title: '자습서: Microsoft Azure Maps로 IoT 공간 분석 구현'
-description: IoT Hub를 Azure Maps 서비스 API와 통합합니다.
+title: '자습서: IoT 공간 분석 구현 | Microsoft Azure Maps'
+description: IoT Hub를 Microsoft Azure Maps 서비스 API와 통합하는 방법에 대한 자습서
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 25665e75a361fbaa5479e2717d5e6aa9290c3d3a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321835"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -251,6 +251,7 @@ Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시
     dotnet run
     ```
 
+
   로컬 터미널은 다음과 같습니다.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="시스템 개요 다이어그램":::
@@ -274,8 +275,6 @@ Azure Maps REST API의 전체 목록은 다음을 참조하세요.
 
 * [Azure Maps REST API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-IoT 플러그 앤 플레이에 대한 자세한 내용은 다음을 참조하세요.
-
 * [IoT 플러그 앤 플레이](https://docs.microsoft.com/azure/iot-pnp)
 
 IoT용 Azure Certified인 디바이스 목록을 가져오려면 다음을 방문하세요.
@@ -285,6 +284,7 @@ IoT용 Azure Certified인 디바이스 목록을 가져오려면 다음을 방�
 ## <a name="next-steps"></a>다음 단계
 
 디바이스에서 클라우드로 또는 그 반대로 원격 분석을 보내는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
 
 > [!div class="nextstepaction"]
 > [디바이스에서 원격 분석 데이터 보내기](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

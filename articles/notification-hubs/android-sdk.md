@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs 및 Firebase SDK 버전 1.0.0-preview1을 사용하여 Android에 푸시 알림 보내기
-description: 이 자습서에서는 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스(버전 1.0.0-preview1)에 푸시 알림을 보내는 방법을 알아봅니다.
 author: sethmanheim
 ms.author: sethm
 ms.date: 5/28/2020
@@ -9,12 +9,12 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae1d2dfaf7d83d3b2323812f637bddd91b9a2ea2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315200"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>자습서: Firebase SDK 버전 1.0.0-preview1을 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -62,23 +62,23 @@ ms.locfileid: "89018232"
 
 2. 프로젝트를 만든 후  **Android 앱에 Firebase 추가**를 선택합니다.
 
-   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Firebase 추가":::
+   :::image type="content" source="media/android-sdk/get-started.png" alt-text="프로젝트 구성":::
 
 3.  **Android 앱에 Firebase 추가**  페이지에서 다음을 수행합니다.
 
    1.  **Android 패키지 이름**에서 애플리케이션의 **build.gradle** 파일에 있는 **applicationId** 값을 복사합니다. 이 예에서는  `com.fabrikam.fcmtutorial1app`입니다.
 
-      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="패키지 이름 지정":::
+      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="프로젝트 구성":::
 
    2.  **앱 등록**을 선택합니다.
 
 4.  **google-services.json 다운로드**를 선택하고 프로젝트의  **app** 폴더에 파일을 저장한 후  **다음**을 선택합니다.
 
-   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Google 서비스 다운로드":::
+   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="프로젝트 구성":::
 
 5. Firebase 콘솔에서 프로젝트의 톱니바퀴를 선택합니다. 그런 후  **프로젝트 설정**을 선택합니다.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="프로젝트 설정":::
+   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="프로젝트 구성":::
 
 6. Android Studio 프로젝트의  **app** 폴더에 **google-services.json** 파일을 다운로드하지 않은 경우 이 페이지에서 다운로드할 수 있습니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "89018232"
 
 3.  **Notification Hubs** 페이지의 도구 모음에서 **추가**를 선택합니다.
 
-   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="허브 추가":::
+   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="프로젝트 구성":::
 
 4.  **Notification Hubs** 페이지에서 다음을 수행합니다.
 
@@ -108,15 +108,15 @@ ms.locfileid: "89018232"
 
    5.  **만들기**를 선택합니다.
 
-      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="허브 만들기":::
+      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="프로젝트 구성":::
 
 5.  **알림**(벨 아이콘)을 선택하고,  **리소스로 이동**을 선택합니다.  **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
 
-   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="허브 선택":::
+   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="프로젝트 구성":::
 
 6. 목록에서  **액세스 정책**을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
 
-   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="액세스 정책":::
+   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="프로젝트 구성":::
 
    > [!IMPORTANT]
    > 애플리케이션에서  **DefaultFullSharedAccessSignature** 정책을 사용하지 마세요. 이 정책은 앱 백 엔드에서만 사용됩니다.
@@ -129,7 +129,7 @@ ms.locfileid: "89018232"
 
 3. 도구 모음에서  **저장**을 선택합니다.
 
-   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="서버 키":::
+   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="프로젝트 구성":::
 
 4. Azure Portal에서 허브가 업데이트되었다는 메시지를 표시합니다.  **저장** 단추를 사용할 수 없습니다.
 
@@ -143,15 +143,15 @@ ms.locfileid: "89018232"
 
 2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택합니다. 그런 다음,  **패키지 세부 정보 표시**를 선택합니다.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="SDK 관리자":::
+   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="프로젝트 구성":::
 
 3.  **Google API**를 선택합니다(아직 설치되지 않은 경우).
 
-   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="API":::
+   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="프로젝트 구성":::
 
 4.  **SDK Tools** 탭으로 전환합니다. Google Play 서비스를 아직 설치하지 않은 경우 다음 이미지처럼  **Google Play 서비스**를 선택합니다. 그런 다음, **적용**을 선택하여 설치합니다. 이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다.
 
-   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Play 서비스":::
+   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="프로젝트 구성":::
 
 5.  **변경 확인** 대화 상자가 나타나면 **확인**을 선택합니다. 구성 요소 설치 관리자가 요청된 구성 요소를 설치합니다. 구성 요소가 설치되면  **완료**를 선택합니다.
 
@@ -237,11 +237,11 @@ ms.locfileid: "89018232"
 
 4. 앱을 실행하기 위한 가상 디바이스가 있는지 확인합니다. 없으면 다음과 같이 추가합니다.
 
-   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="디바이스 관리자":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="가상 디바이스":::
+   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="프로젝트 구성":::
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="프로젝트 구성":::
    3. 선택한 디바이스에서 앱을 실행하고 허브를 사용하여 성공적으로 등록되는지 확인합니다.
 
-      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="디바이스 등록":::
+      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="프로젝트 구성":::
 
       > [!NOTE]
       > 인스턴스 ID 서비스의 `onTokenRefresh()` 메서드가 호출될 때까지 초기 시작 시 등록이 실패할 수 있습니다. 새로 고치면 알림 허브에 대한 성공적인 등록이 시작됩니다.
@@ -258,7 +258,7 @@ ms.locfileid: "89018232"
 
 4. 포털 페이지의 맨 아래에 있는 목록에 작업의 결과가 표시됩니다.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="테스트 알림 보내기":::
+   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="프로젝트 구성":::
 
 5. 디바이스에 알림 메시지가 표시됩니다.
 

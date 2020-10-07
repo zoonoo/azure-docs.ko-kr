@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs 및 iOS SDK 버전 2.0.4를 사용하여 iOS에 푸시 알림 보내기
-description: 이 자습서에서는 Azure Notification Hubs 및 Apple Push Notification 서비스를 사용하여 iOS 디바이스에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs 및 Apple Push Notification 서비스를 사용하여 푸시 알림을 iOS 디바이스(버전 2.0.4)에 보내는 방법을 알아봅니다.
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: d89d46e3365a97d9deea8a89de2d9a1d5799cb72
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ffa562a734e0e6f898aaff89622362080bf1a053
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318197"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>자습서: Azure Notification Hubs(버전 2.0.4)를 사용하여 iOS 앱에 푸시 알림 보내기
 
@@ -53,30 +53,11 @@ ms.locfileid: "87836057"
 
    Xcode에서 만든 새 프로비전 프로필이 보이지 않으면 서명 ID에 대한 프로필을 새로 고칩니다. 메뉴 모음에서 **Xcode**,  **기본 설정**, **계정** 탭, **세부 정보 보기** 단추, 서명 ID를 차례로 클릭한 다음, 오른쪽 아래 모서리에 있는 새로 고침 단추를 클릭합니다.
 
-   :::image type="content" source="media/ios-sdk/image2.png" alt-text="세부 정보 보기":::
+   :::image type="content" source="media/ios-sdk/image2.png" alt-text="템플릿 선택":::
 
 4.  **서명 및 기능** 탭에서 **+ 기능**을 선택합니다.  **푸시 알림**을 두 번 클릭하여 활성화합니다.
 
-   :::image type="content" source="media/ios-sdk/image3.png" alt-text="기능":::
-
-5. Azure Notification Hubs SDK 모듈을 추가합니다.
-
-    [Cocoapods](https://cocoapods.org/)를 사용하거나 프로젝트에 이진 파일을 수동으로 추가하여 앱에 Azure Notification Hubs SDK를 통합할 수 있습니다.
-
-   - Cocoapods를 통한 통합: podfile에 다음 종속성을 추가하여 Azure Notification Hubs SDK를 앱에 포함합니다.
-
-      ```ruby
-      pod 'AzureNotificationHubs-iOS'
-      ```
-
-      - pod 설치를 실행하여 새로 정의된 pod를 설치하고 .xcworkspace를 엽니다.
-
-         pod 설치를 실행하는 동안 **AzureNotificationHubs-iOS에 대한 사양을 찾을 수 없음**과 같은 오류가 표시되면 `pod repo update`를 실행하여 Cocoapods 리포지토리에서 최신 pod를 가져온 다음, pod 설치를 실행하세요.
-
-   - Carthage를 통한 통합: Cartfile에 다음 종속성을 추가하여 Azure Notification Hubs SDK를 앱에 포함합니다.
-
-      ```ruby
-      github "Azure/azure-notificationhubs-ios"
+   :::image type="content" source="media/ios-sdk/image3.png" alt-text="템플릿 선택"
       ```
 
       - 다음으로, 빌드 종속성을 업데이트합니다.
@@ -93,7 +74,7 @@ ms.locfileid: "87836057"
 
         - Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다.  **옵션**을 선택하고 **필요한 경우 항목 복사**가 선택되었는지 확인한 다음, **추가**를 클릭합니다.
 
-          :::image type="content" source="media/ios-sdk/image4.png" alt-text="프레임워크 추가":::
+          :::image type="content" source="media/ios-sdk/image4.png" alt-text="템플릿 선택":::
 
 6.  **Constants.h**라는 프로젝트에 새 헤더 파일을 추가합니다. 이렇게 하려면 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **새 파일...** 을 선택합니다. 그런 다음, **헤더 파일**을 선택합니다. 이 파일에는 알림 허브에 대한 상수가 들어 있습니다. 그리고 **다음**을 선택합니다. 파일 이름을 **Constants.h**로 지정합니다.
 
@@ -110,13 +91,7 @@ ms.locfileid: "87836057"
 
 8. Constants.h에 대한 구현 파일을 추가합니다. 이렇게 하려면 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **새 파일...** 을 선택합니다.  **Objective-C 파일**을 선택한 후,  **다음**을 선택합니다. 파일 이름을 **Constants.m**으로 지정합니다.
 
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="구현 파일 추가":::
-
-9.  **Constants.m** 파일을 열고 콘텐츠를 다음 코드로 바꿉니다. 문자열 리터럴 자리 표시자  `NotificationHubConnectionString` 및 `NotificationHubConnectionString`을 각각 이전에 포털에서 가져온 허브 이름과 **DefaultListenSharedAccessSignature**로 바꿉니다.
-
-   ```objc
-   #import <Foundation/Foundation.h>
-   #import "Constants.h"
+   :::image type="content" source="media/ios-sdk/image5.png" alt-text="템플릿 선택"
 
    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
    NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
@@ -450,7 +425,7 @@ ms.locfileid: "87836057"
 
  [Azure Portal](https://portal.azure.com/)에서  **테스트 보내기**  옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 디바이스로 전송됩니다.
 
-:::image type="content" source="media/ios-sdk/image6.png" alt-text="테스트 보내기":::
+:::image type="content" source="media/ios-sdk/image6.png" alt-text="템플릿 선택":::
 
 푸시 알림은 일반적으로 호환 라이브러리를 사용하는 Mobile Apps 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에서 라이브러리를 사용할 수 없는 경우 REST API를 직접 사용하여 알림 메시지를 보낼 수도 있습니다.
 
@@ -467,13 +442,13 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 디바이스에 앱을 
 
 1. 앱을 실행하고 등록이 성공했는지 확인한 다음, **확인**을 누릅니다.
 
-   :::image type="content" source="media/ios-sdk/image7.png" alt-text="등록":::
+   :::image type="content" source="media/ios-sdk/image7.png" alt-text="템플릿 선택":::
 
 2. 다음으로, 이전 섹션에 설명한 대로 [Azure Portal](https://portal.azure.com/)에서 테스트 푸시 알림을 보냅니다.
 
 3. 지정된 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 디바이스에 푸시 알림이 전송됩니다.
 
-   :::image type="content" source="media/ios-sdk/image8.png" alt-text="테스트 보내기":::
+   :::image type="content" source="media/ios-sdk/image8.png" alt-text="템플릿 선택":::
 
 ## <a name="next-steps"></a>다음 단계
 

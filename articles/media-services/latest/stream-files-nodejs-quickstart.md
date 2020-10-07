@@ -10,15 +10,15 @@ keywords: Azure Media Services, 스트림
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 901287a82ece873a572d7773dd53f80e1e8af716
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268675"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Node.js
 
@@ -74,7 +74,7 @@ ms.locfileid: "89267397"
 
 실행이 완료되면 유사한 출력이 표시됩니다.
 
-![다음을 실행합니다.](./media/stream-files-nodejs-quickstart/run.png)
+![StreamFileSample 샘플 앱의 출력이 있는 명령 창의 스크린샷은 로컬 디렉터리에 다운로드된 3개 파일의 URL을 보여줍니다.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Azure Media Player로 테스트
 

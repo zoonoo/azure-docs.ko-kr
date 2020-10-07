@@ -3,12 +3,12 @@ title: Azure DevTest Labs를 사용하여 랩 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. 랩 관리자는 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85476566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324283"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
 이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     2. **사용자 이름**의 경우 가상 머신에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다. 
     3. **암호**의 경우 사용자에 대한 암호를 입력합니다. 
 
-        ![기본 선택](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        !["랩 리소스 만들기" 페이지 기본 설정을 보여주는 스크린샷.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. **고급 설정** 탭을 선택합니다.
     1. **이 컴퓨터를 클레임할 수 있게 만들기**의 경우, **예**를 선택합니다.
     2. **인스턴스 개수**가 **1**로 설정되었는지 확인합니다. **2**로 설정하면 2개의 VM이 다음 이름으로 생성됩니다. `<base image name>00' and <base image name>01`. 예: `win10vm00` 및 `win10vm01`     

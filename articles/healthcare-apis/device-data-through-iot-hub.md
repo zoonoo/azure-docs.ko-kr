@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308228"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>자습서: Azure IoT Hub를 통해 디바이스 데이터 수신
 
@@ -61,7 +61,7 @@ Azure IoT Hub는 디바이스 데이터를 Event Hub, 스토리지 계정 및 Se
 ### <a name="add-a-message-route"></a>메시지 경로 추가
 이 단계에서는 위에서 만든 엔드포인트를 사용하여 메시지 경로를 정의합니다. 이 경로는 기본 설정에 따라 [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell 명령 또는 [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI 명령을 사용하여 만듭니다.
 
-다음은 엔드포인트를 만드는 명령과 함께 사용할 매개 변수의 목록입니다.
+다음은 메시지 경로를 추가하는 명령과 함께 사용할 매개 변수의 목록입니다.
 
 |PowerShell 매개 변수|CLI 매개 변수|Description|
 |---|---|---|

@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313096"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>자습서:  Azure AD Connect에서 AD FS용 백업으로 PHS 설정
 
@@ -74,7 +74,7 @@ ms.locfileid: "89279009"
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  user@domain.onmicrosoft.com 형식을 사용하여 로그인해야 합니다. 사용자가 온-프레미스 로그인에 사용하는 것과 동일한 암호를 사용합니다.</br>
-   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![로그인을 테스트할 때 성공한 메시지를 보여주는 스크린샷. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>페더레이션으로 다시 전환
 이제 페더레이션으로 다시 전환하는 방법을 살펴보겠습니다.  이 작업은 다음과 같이 수행합니다.
@@ -91,7 +91,7 @@ ms.locfileid: "89279009"
 10. 구성이 완료되면 **다음**을 클릭합니다.
 ![구성](media/tutorial-phs-backup/backup4.png)</br>
 11. **페더레이션 연결 확인** 화면에서 **확인**을 클릭합니다.  성공적으로 완료하려면 DNS 레코드(A 및 AAAA 레코드 추가)를 구성해야 할 수도 있습니다.
-![Verify](media/tutorial-phs-backup/backup5.png)</br>
+![페더레이션 연결 확인 화면과 확인 단추를 보여주는 스크린샷.](media/tutorial-phs-backup/backup5.png)</br>
 12. **종료**를 클릭합니다.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>AD FS와 Azure 트러스트 다시 설정
@@ -106,7 +106,7 @@ ms.locfileid: "89279009"
 6.  **AD FS에 연결** 화면에서 contoso/Administrator 사용자 이름과 암호를 입력하고 **다음**을 클릭합니다.
 7.  **인증서** 화면에서 **다음**을 클릭합니다.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
+## <a name="test-signing-in-with-a-user"></a>사용자로 로그인 테스트
 
 1.  [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  다음 형식을 사용하여 로그인해야 합니다(user@domain.onmicrosoft.com). 사용자가 온-프레미스 로그인에 사용한 것과 동일한 암호를 사용합니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 9cf8a76f74e6dda6ade98ea348f5401eab15c53e
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 9d6951456593c57f9def80990e582a5ff54cc5d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312624"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>자습서: Fivetran과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "89500528"
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Fivetran SSO(Single Sign-On)가 설정된 구독.
+* Fivetran 계정
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -96,7 +96,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-1. **Fivetran 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Fivetran 설정** 섹션에서 **로그인 URL** 및 **Azure Ad 식별자** 값을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -126,7 +126,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-fivetran-sso"></a>Fivetran SSO 구성
 
-**Fivetran** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Fivetran 지원 팀](mailto:support@fivetran.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+이 섹션에서는 **Fivetran** 쪽에 Single Sign-On을 구성합니다.
+
+1. 다른 웹 브라우저 창에서 Fivetran 계정에 계정 소유자로 로그인합니다.
+1. 창의 왼쪽 위 모서리에 있는 화살표를 선택한 다음, 드롭다운 목록에서 **계정 관리**를 선택합니다.
+
+   ![선택된 계정 관리 메뉴 옵션을 보여 주는 스크린샷](media/fivetran-tutorial/fivetran-1.png)
+
+1. **설정** 페이지의 **SAML 구성** 섹션으로 이동합니다.
+
+   ![구성 옵션이 강조 표시된 SAML 구성 창을 보여 주는 스크린샷](media/fivetran-tutorial/fivetran-2.png)
+
+   1. **SAML 인증 사용**에 대해 **ON**을 선택합니다.
+   1. **로그온 URL**에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+   1. **발급자**에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
+   1. 다운로드한 인증서 파일을 텍스트 편집기에서 열고 인증서를 클립보드에 복사한 다음, **공용 인증서** 텍스트 상자에 붙여넣습니다.
+   1. **구성 저장**을 선택합니다.
 
 ### <a name="create-fivetran-test-user"></a>Fivetran 테스트 사용자 만들기
 

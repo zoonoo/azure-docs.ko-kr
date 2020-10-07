@@ -4,12 +4,12 @@ description: 이 자습서에서는 지역에서 Event Grid 서비스가 비정�
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324130"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "89004547"
    * 엔드포인트 유형 웹후크를 선택합니다.
    * 이벤트 수신기의 이벤트 URL에 엔드포인트를 `https://<your-event-reciever>.azurewebsites.net/api/updates`와 같이 설정합니다.
 
-     ![Event Grid 주 이벤트 구독](./media/custom-disaster-recovery/create-primary-es.png)
+     !["이름", "엔드포인트 유형" 및 "엔드포인트" 값이 강조 표시된 "이벤트 구독 - 기본 사항 만들기" 페이지를 보여주는 스크린샷.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. 동일한 흐름을 반복하여 주 항목 및 구독을 만듭니다. 이번에는 더 쉽게 추적할 수 있도록 "-primary" 접미사를 "-secondary"로 바꿉니다. 마지막으로, 다른 Azure 지역에 배치해야 합니다. 원하는 모든 위치에 배치할 수 있지만 [Azure 지역 쌍](../best-practices-availability-paired-regions.md)을 사용하는 것이 좋습니다. 보조 항목과 구독을 다른 지역에 배치하면 주 지역이 다운되더라도 새 이벤트가 진행되도록 할 수 있습니다.
 

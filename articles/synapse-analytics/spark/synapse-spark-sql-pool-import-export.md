@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259921"
 ---
 # <a name="introduction"></a>소개
 
@@ -30,9 +30,9 @@ Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 �
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 인증
 
-시스템 간 인증은 Azure Synapse Analytics에서 원활하게 수행됩니다. 스토리지 계정 또는 데이터 웨어하우스 서버에 액세스할 때 사용할 보안 토큰을 얻기 위해 Azure Active Directory와 연결하는 토큰 서비스가 있습니다.
+시스템 간 인증은 Azure Synapse Analytics에서 원활하게 수행됩니다. Token Service는 Azure Active Directory와 연결하여 스토리지 계정 또는 데이터 웨어하우스 서버에 액세스할 때 사용할 보안 토큰을 가져옵니다.
 
-따라서 스토리지 계정 및 데이터 웨어하우스 서버에서 AAD 인증을 구성하면 자격 증명을 만들거나 커넥터 API에서 자격 증명을 지정할 필요가 없습니다. AAD 인증을 구성하지 않는 경우 SQL 인증을 지정할 수 있습니다. 자세한 내용은 [사용](#usage) 섹션에서 확인할 수 있습니다.
+따라서 스토리지 계정 및 데이터 웨어하우스 서버에 AAD 인증을 구성하면 자격 증명을 만들거나 커넥터 API에서 자격 증명을 지정할 필요가 없습니다. AAD 인증을 구성하지 않는 경우 SQL 인증을 지정할 수 있습니다. 자세한 내용은 [사용](#usage) 섹션에서 확인할 수 있습니다.
 
 ## <a name="constraints"></a>제약 조건
 
@@ -65,7 +65,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 ## <a name="usage"></a>사용
 
-import 문은 필요하지 않습니다. Notebook 환경용으로 미리 가져오기됩니다.
+import 문은 필요하지 않으며 Notebook 환경용으로 미리 가져옵니다.
 
 ### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>작업 영역과 연결된 SQL 풀과 데이터 주고 받기
 
@@ -91,7 +91,7 @@ val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-쓰기 API는 SQL 풀에 테이블을 만든 다음, Polybase를 호출하여 데이터를 로드합니다.  테이블이 SQL 풀에 존재하지 않아야 합니다. 그렇지 않으면 "같은 이름의 개체가 이미 있습니다"라는 내용의 오류가 반환됩니다.
+쓰기 API는 SQL 풀에 테이블을 만든 다음, Polybase를 호출하여 데이터를 로드합니다.  테이블이 SQL 풀에 존재하지 않아야 합니다. 그렇지 않으면 "같은 이름의 개체가 이미 있습니다"라는 오류가 반환됩니다.
 
 TableType 값
 
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 SQL 풀 외부 테이블
 
-SQL 풀 외부 테이블에 쓰려면 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.  아래는 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
+SQL 풀 외부 테이블에 쓰려면 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.  아래는 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

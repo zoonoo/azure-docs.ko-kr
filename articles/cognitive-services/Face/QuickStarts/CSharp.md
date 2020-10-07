@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8c1e47db4f5f5bb64c31d16c26f6c3860b5bcb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323059"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>빠른 시작: Face REST API 및 C#을 사용하여 이미지에서 얼굴 감지
 
@@ -75,7 +75,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>이미지 입력 수신
 
-**Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 이 코드는 사용자에게 이미지 URL을 입력하라는 메시지를 콘솔에 표시합니다. 그런 다음, 다른 메서드인 **MakeAnalysisRequest**를 호출하여 해당 위치에서 이미지를 처리합니다.
+**Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 이 코드는 사용자에게 로컬 이미지 파일 경로를 입력하라는 메시지를 콘솔에 표시합니다. 그런 다음, 다른 메서드인 **MakeAnalysisRequest**를 호출하여 해당 위치에서 이미지를 처리합니다.
 
 ```csharp
         static void Main(string[] args)
@@ -159,7 +159,7 @@ namespace DetectFace
 
 ### <a name="process-the-input-image-data"></a>입력 이미지 데이터 처리
 
-**Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 지정된 URL의 이미지를 바이트 배열로 변환합니다.
+**Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 지정된 파일 경로의 이미지를 바이트 배열로 변환합니다.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.

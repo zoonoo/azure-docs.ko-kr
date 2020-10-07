@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287392"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -48,7 +48,8 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
 1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
    
-   >![참고] US Gov 포털에 로그인하는 경우 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
+   >[!NOTE]
+   > US Gov 포털에 로그인하는 경우 대신 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
 
 2. 검색 창에서 **Windows Virtual Desktop**을 입력한 다음, [서비스] 아래에서 **Windows Virtual Desktop**을 찾아서 선택합니다.
 

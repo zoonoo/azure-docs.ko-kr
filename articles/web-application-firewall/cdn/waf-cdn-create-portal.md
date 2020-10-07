@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327941"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure CDN에 WAF 정책 만들기
 
@@ -72,17 +72,22 @@ WAF 정책을 만드는 경우 기본적으로 WAF 정책은 검색 모드입니
 
 다음 스크린샷은 쿼리 문자열에 **blockme** 값이 포함된 경우 요청을 차단하는 사용자 지정 일치 규칙을 보여줍니다.
 
-![WAF 정책 모드 변경](../media/waf-cdn-create-portal/custommatch.png)
+![사용자 지정 일치 규칙 추가](../media/waf-cdn-create-portal/custommatch.png)
 
 속도 제한 규칙에는 두 가지 추가 필드 즉, **속도 제한 기간**과 **속도 제한 임계값(요청)** 이 필요합니다. 다음 예를 참조하세요.
 
-![WAF 정책 모드 변경](../media/waf-cdn-create-portal/customrate.png)
+![속도 제한 규칙 추가](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>DRS(기본 규칙 집합)
 
 Azure 관리형 기본 규칙 집합은 기본적으로 사용하도록 설정되어 있습니다. 규칙 그룹 내에 있는 개별 규칙을 사용하지 않도록 설정하려면 해당 규칙 그룹 내에서 규칙을 확장하고 규칙 번호 앞의 확인란을 선택한 다음, 위의 탭에서 **사용 안 함**을 선택합니다. 규칙 집합 내에 있는 개별 규칙의 동작 유형을 변경하려면 규칙 번호 앞의 확인란을 선택한 다음, 위에 있는 **동작 변경** 탭을 선택하세요.
 
  ![WAF 규칙 집합 변경](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않으면 리소스 그룹 및 모든 관련 리소스를 제거합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

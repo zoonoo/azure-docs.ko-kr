@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306466"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -46,7 +46,7 @@ ID 거버넌스는 온-프레미스와 클라우드에서 직원, 비즈니스 �
 
 ![ID 수명 주기](./media/identity-governance-overview/identity-lifecycle.png)
 
-많은 조직에서 직원의 ID 수명 주기가 HCM(인적 자원 관리) 시스템에서 해당 사용자의 표현에 연결됩니다.  Azure AD Premium은 [Workday 인바운드 프로비저닝 자습서](../saas-apps/workday-inbound-tutorial.md)에 설명된 대로 Active Directory와 Azure Active Directory의 Workday에 표시된 사람에 대한 사용자 ID를 자동으로 유지합니다.  또한 Azure AD Premium에는 SAP, Oracle eBusiness 및 Oracle PeopleSoft와 같은 온-프레미스 HCM 시스템에서 레코드를 가져올 수 있는 [Microsoft Identity Manager](/microsoft-identity-manager/)가 포함됩니다.
+많은 조직에서 직원의 ID 수명 주기가 HCM(인적 자원 관리) 시스템에서 해당 사용자의 표현에 연결됩니다.  Azure AD Premium은 [Azure Active Directory에 대한 클라우드 HR 애플리케이션 사용자 프로비저닝 계획 자습서](../app-provisioning/plan-cloud-hr-provision.md)에 설명된 대로 Active Directory와 Azure Active Directory 모두의 Workday 및 SuccessFactors에 표시된 사람에 대한 사용자 ID를 자동으로 유지합니다.  또한 Azure AD Premium에는 SAP HCM, Oracle eBusiness 및 Oracle PeopleSoft와 같은 온-프레미스 HCM 시스템에서 레코드를 가져올 수 있는 [Microsoft Identity Manager](/microsoft-identity-manager/)가 포함됩니다.
 
 점점 더 많은 시나리오에서는 조직 외부 사람들과 협업해야 합니다. [Azure AD B2B](/azure/active-directory/b2b/) 협업을 사용하면 조직의 애플리케이션과 서비스를 게스트 사용자 및 모든 조직의 외부 파트너와 안전하게 공유하면서 고유한 회사 데이터에 대한 제어를 유지합니다.  [Azure AD 권한 관리](entitlement-management-overview.md)을 사용하면 액세스 요청을 허용하고 조직의 디렉터리에 B2B 게스트로 추가할 사용자를 선택할 수 있으며, 이 게스트가 더 이상 액세스할 필요가 없을 때 이 게스트를 제거할 수 있습니다.
 
@@ -69,6 +69,24 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 ![권한 있는 액세스 수명 주기](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 [PIM(Azure AD Privileged Identity Management)](../privileged-identity-management/pim-configure.md)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  다단계 인증 및 조건부 액세스 외에도, Just-In-Time 액세스 및 Azure AD PIM에서 제공된 역할 변경 내용 경고 기능은 포괄적인 거버넌스 제어 세트를 제공하여 회사의 리소스(디렉터리, Microsoft 365 및 Azure 리소스 역할)를 보호하는 데 도움을 줍니다. 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
+
+## <a name="governance-capabilities-in-other-azure-ad-features"></a>다른 Azure AD 기능의 거버넌스 기능
+
+위에 나열된 기능 외에도 ID 거버넌스 시나리오를 제공하는 데 자주 사용되는 추가 Azure AD 기능은 다음과 같습니다.
+
+| 기능 | 시나리오 |기능
+| ------- | --------------------- |-----|
+|ID 수명 주기(직원)|관리자는 Workday 또는 SuccessFactors 클라우드 HR 또는 온-프레미스 HR에서 사용자 계정 프로비저닝을 사용하도록 설정할 수 있습니다.|[Azure AD 사용자 프로비저닝에 대한 클라우드 HR](../app-provisioning/plan-cloud-hr-provision.md)|
+|ID 수명 주기(게스트)|관리자는 다른 Azure AD 테넌트, 직접 페더레이션, OTP(일회성 암호) 또는 Google 계정에서 셀프 서비스 게스트 사용자 등록을 사용하도록 설정할 수 있습니다.  게스트 사용자는 자동으로 프로비저닝되고 수명 주기 정책에 따라 프로비전 해제됩니다.|[B2B](../external-identities/what-is-b2b.md)를 사용하여 [권한 관리 개요](entitlement-management-overview.md)|
+|권한 관리|리소스 소유자는 앱, 팀, Azure AD 및 Microsoft 365 그룹, SharePoint Online 사이트를 포함하는 액세스 패키지를 만들 수 있습니다.|[권한 관리](entitlement-management-overview.md)|
+|액세스 요청|최종 사용자는 그룹 멤버 자격 또는 애플리케이션 액세스를 요청할 수 있습니다. 다른 조직의 게스트를 비롯한 최종 사용자는 액세스 패키지에 대한 액세스를 요청할 수 있습니다.|[권한 관리](entitlement-management-overview.md)|
+|워크플로|리소스 소유자는 역할 활성화 요청에 대한 액세스 요청 및 승인자에 대한 승인자 및 에스컬레이션 승인자를 정의할 수 있습니다.  |[권한 관리](entitlement-management-overview.md) 및 [PIM](../privileged-identity-management/pim-configure.md)|
+|정책 및 역할 관리|관리자는 애플리케이션에 대한 런타임 액세스를 위한 조건부 액세스 정책을 정의할 수 있습니다.  리소스 소유자는 액세스 패키지를 통해 사용자의 액세스에 대한 정책을 정의할 수 있습니다.|[조건부 액세스](../conditional-access/overview.md) 및 [권한 관리](entitlement-management-overview.md) 정책|
+|액세스 인증|관리자는 다음에 대해 되풀이 액세스 다시 인증을 사용하도록 설정할 수 있습니다. SaaS 앱 또는 클라우드 그룹 멤버 자격, Azure AD 또는 Azure 리소스 역할 할당 자동으로 리소스 액세스를 제거하고, 게스트 액세스를 차단하고 게스트 계정을 삭제합니다.|[PIM](../privileged-identity-management/pim-how-to-start-security-review.md)에도 표시되는 [액세스 검토](access-reviews-overview.md)|
+|처리 및 프로비저닝|SCIM을 통해 SharePoint Online 사이트에 연결하여 Azure AD 연결 앱에 자동 프로비저닝 및 프로비전 해제 |[사용자 프로비저닝](../app-provisioning/user-provisioning.md)|
+|보고 및 분석|관리자는 최근 사용자 프로비저닝 및 로그인 활동의 감사 로그를 검색할 수 있습니다. 액세스 패키지를 통해 '액세스 권한이 있는 사용자'와 Azure Monitor를 통합합니다.|[Azure AD 보고](../reports-monitoring/overview-reports.md) 및 [모니터링](../reports-monitoring/overview-monitoring.md)|
+|권한 있는 액세스|Azure AD 역할(사용자 지정 역할 포함) 및 Azure 리소스 역할에 대해 Just-in-Time 및 예약된 액세스, 경고, 승인 워크플로|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
+|감사|관리자는 관리자 계정 만들기에 대한 경고를 받을 수 있습니다.|[Azure AD PIM 경고](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## <a name="getting-started"></a>시작
 

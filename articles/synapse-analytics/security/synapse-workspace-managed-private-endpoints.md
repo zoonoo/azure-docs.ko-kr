@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249505"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
 
@@ -27,7 +27,9 @@ Azure Synapse는 프라이빗 링크를 지원합니다. 프라이빗 링크를 
 
 프라이빗 링크를 사용하는 경우 Virtual Network와 작업 영역 간의 트래픽은 전적으로 Microsoft 백본 네트워크를 통해 트래버스됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 
-프라이빗 엔드포인트는 Virtual Network의 개인 IP 주소를 사용하여 서비스를 Virtual Network로 효과적으로 가져옵니다. 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. [프라이빗 링크 및 프라이빗 엔드포인트](https://docs.microsoft.com/azure/private-link/)에 대해 자세히 알아보세요.
+프라이빗 엔드포인트는 Virtual Network의 개인 IP 주소를 사용하여 서비스를 Virtual Network로 효과적으로 가져옵니다. 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. 
+
+[프라이빗 링크 및 프라이빗 엔드포인트](https://docs.microsoft.com/azure/private-link/)에 대해 자세히 알아보세요.
 
 >[!IMPORTANT]
 >관리형 프라이빗 엔드포인트는 관리형 작업 영역 Virtual Network가 연결된 Azure Synapse 작업 영역에서만 지원됩니다.
@@ -37,7 +39,7 @@ Azure Synapse는 프라이빗 링크를 지원합니다. 프라이빗 링크를 
 
 Azure Synapse에서 관리형 프라이빗 엔드포인트를 만들 때 프라이빗 엔드포인트 연결이 "보류 중" 상태로 생성됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
 
-소유자가 연결을 승인하면 프라이빗 링크가 설정됩니다. 거부하면 프라이빗 링크가 설정되지 않습니다. 어떤 경우든 관리형 프라이빗 엔드포인트는 연결 상태로 업데이트 됩니다.
+소유자가 연결을 승인하면 프라이빗 링크가 설정됩니다. 하지만 소유자가 연결을 승인하지 않으면 프라이빗 링크가 설정되지 않습니다. 어떤 경우든 관리형 프라이빗 엔드포인트는 연결 상태로 업데이트 됩니다.
 
 승인된 상태의 관리형 프라이빗 엔드포인트만이 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다.
 
@@ -56,4 +58,4 @@ SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synaps
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 원본에 대한 관리형 프라이빗 엔드포인트 만들기](./how-to-create-managed-private-endpoints.md)
+자세히 알아보려면 [데이터 원본에 대한 관리형 프라이빗 엔드포인트 만들기](./how-to-create-managed-private-endpoints.md) 문서로 이동하세요.

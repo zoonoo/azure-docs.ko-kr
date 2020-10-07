@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292711"
 ---
 ## <a name="configure-the-sample-project"></a>샘플 프로젝트 구성
 
-다음으로, Azure Digital Twins 인스턴스와 상호 작용하는 샘플 클라이언트 애플리케이션을 설정합니다. 샘플 프로젝트를 아직 다운로드하지 않은 경우 [*Azure Digital Twins 샘플*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) 방문 페이지에서 제목 아래에 있는 *Zip 다운로드* 단추를 선택하여 다운로드합니다.
+다음으로, Azure Digital Twins 인스턴스와 상호 작용하는 샘플 클라이언트 애플리케이션을 설정합니다.
 
-컴퓨터에서 다운로드된 파일을 찾아 압축을 풉니다.
+머신에서 이전에 [*Azure Digital Twins 샘플*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples)에서 다운로드한 파일로 이동합니다(아직 압축을 풀지 않았다면 압축을 풉니다).
 
-압축을 푼 폴더 내에서 _AdtSampleApp_으로 이동합니다. Visual Studio 2019에서 _**AdtE2ESample.sln**_ 을 엽니다. 
+폴더 내에서 _AdtSampleApp_으로 이동합니다. Visual Studio 2019에서 _**AdtE2ESample.sln**_ 을 엽니다. 
 
 Visual Studio에서 *솔루션 탐색기* 창을 사용하여 _SampleClientApp > **serviceConfig.json.TEMPLATE**_ 파일의 복사본을 만듭니다(마우스 오른쪽 단추 선택 메뉴를 사용하여 복사 및 붙여넣기 가능). 복사본의 이름을 *serviceConfig.json*으로 바꿉니다. 이 파일은 프로젝트를 실행하는 데 필요한 구성 변수와 함께 미리 설정된 JSON 파일 역할을 합니다.
 

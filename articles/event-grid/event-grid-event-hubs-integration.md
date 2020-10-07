@@ -4,12 +4,12 @@ description: '자습서: Azure Event Grid 및 Event Hubs를 사용하여 Azure S
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270562"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 Blob 스토리지에서 Azure Synapse Analytics(이전의 SQL Data Warehouse)로 원활하게 마이그레이션하는 방법을 보여줍니다.
@@ -66,7 +66,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 4. Cloud Shell에서 **Bash**와 **PowerShell** 중에 선택하는 옵션이 표시되면 **Bash**를 선택합니다. 
 5. Cloud Shell을 처음으로 사용하는 경우 **스토리지 만들기**를 선택하여 스토리지 계정을 만듭니다. Azure Cloud Shell은 Azure 스토리지 계정에서 일부 파일을 저장해야 합니다. 
 
-    ![Cloud Shell용 스토리지 만들기](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    !["스토리지 만들기" 단추가 선택된 "스토리지가 탑재되지 않음" 대화 상자를 보여주는 스크린샷.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Cloud Shell이 초기화될 때까지 기다립니다. 
 
     ![Cloud Shell용 스토리지 만들기](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -209,7 +209,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
    ![함수 앱 게시](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. 다음 화면이 보이면 **시작**을 선택합니다. 
 
-   ![게시 시작 단추](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![게시 섹션의 "시작" 단추가 있는 Visual Studio를 보여주는 스크린샷.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. **게시** 대화 상자에서 **대상**에 대해 **Azure**를 선택하고 **다음**을 선택합니다. 
 
    ![게시 시작 단추](media/event-grid-event-hubs-integration/publish-select-azure.png)

@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9825e5e85c8da27b0f3fc2b9d78fcc9ca3513389
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281697"
 ---
 # <a name="what-is-opc-twin"></a>OPC 쌍이란?
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 OPC 쌍은 Azure IoT Edge 및 IoT Hub를 사용하여 클라우드와 팩터리 네트워크를 연결하는 마이크로서비스로 구성되어 있습니다. OPC 쌍은 REST API를 통한 산업용 디바이스의 검색, 등록 및 원격 제어를 제공합니다. OPC 쌍은 OPC UA(OPC 통합 아키텍처) SDK가 필요하지 않고, 프로그래밍 언어 중립적이며, 서버리스 워크플로에 포함될 수 있습니다. 이 문서에서는 몇 가지 OPC 쌍 사용 사례를 설명합니다.
 
@@ -41,5 +44,4 @@ OPC 쌍은 REST API를 통해 모든 프로그래밍 언어로 작성한 애플�
 
 이제 OPC 쌍과 그 용도에 대해 파악했으므로, 권장되는 단계는 다음과 같습니다.
 
-> [!div class="nextstepaction"]
-> [OPC 자격 증명 모음이란?](overview-opc-vault.md)
+[OPC 자격 증명 모음이란?](overview-opc-vault.md)

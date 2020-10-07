@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d00232d602ce7b2de0db4e06ef3c7456f552833e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260734"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
@@ -105,7 +105,7 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-그러면 `myParquetTable` 테이블이 `mytestdb` 데이터베이스에 만들어집니다. 잠시 지연된 후에 SQL 주문형에서 테이블을 볼 수 있습니다. 예를 들어 SQL 주문형에서 다음 명령문을 실행합니다.
+이 명령은 `mytestdb` 데이터베이스에 `myParquetTable` 테이블을 만듭니다. 잠시 지연된 후에 SQL 주문형에서 테이블을 볼 수 있습니다. 예를 들어 SQL 주문형에서 다음 명령문을 실행합니다.
 
 ```sql
     USE mytestdb;

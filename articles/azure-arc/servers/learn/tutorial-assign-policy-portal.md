@@ -2,18 +2,18 @@
 title: 자습서 - Azure Portal을 사용하여 새 정책 할당
 description: 이 자습서에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 4ba301b066137dbdb85ccea0a02ffcac88128e6b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321869"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>자습서: 비준수 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다.
-이 자습서에서는 Azure Arc 지원 서버(미리 보기) 머신을 식별하고 Azure Arc 지원 머신에 Log Analytics 에이전트가 설치되지 않은 머신을 식별하는 정책 할당을 만드는 과정을 단계별로 안내합니다.
+이 자습서에서는 Azure Arc 지원 서버 머신을 식별하고 Azure Arc 지원 머신에 Log Analytics 에이전트가 설치되지 않은 머신을 식별하는 정책 할당을 만드는 과정을 단계별로 안내합니다.
 
 이 프로세스가 끝나면 Windows 또는 Linux용 Log Analytics 에이전트가 설치되지 않은 머신을 성공적으로 식별할 수 있습니다. 이 가상 머신은 정책 할당을 _비준수_합니다.
 
@@ -31,11 +31,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="정책 개요 페이지의 할당 선택 페이지" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
 1. **정책 - 할당** 창의 위쪽에서 **정책 할당**을 선택합니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="할당 페이지에서 정책 정의 할당" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
 1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
 
@@ -51,9 +51,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    사용 가능한 기본 제공 정책의 부분 목록은 [Azure Policy 샘플](../../../governance/policy/samples/index.md)을 참조하세요.
 
-1. Windows 기반 머신에서 Arc 지원 서버(미리 보기) 에이전트를 사용하도록 설정한 경우 정책 정의 목록을 검색하여 _\[미리 보기]: Log Analytics 에이전트를 Windows Azure Arc 머신에 설치해야 함_ 정의를 찾습니다. Linux 기반 머신의 경우 해당 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다. 해당 정책을 클릭하고 **선택**을 클릭합니다.
+1. Windows 기반 머신에서 Arc 지원 서버 에이전트를 사용하도록 설정한 경우 정책 정의 목록을 검색하여 _\[미리 보기]: Log Analytics 에이전트를 Windows Azure Arc 머신에 설치해야 함_ 정의를 찾습니다. Linux 기반 머신의 경우 해당 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다. 해당 정책을 클릭하고 **선택**을 클릭합니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="올바른 정책 정의 찾기" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
 1. 선택한 정책 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예제의 경우 선택한 항목에 따라 _\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 또는 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_을 그대로 둡니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
    **할당한 사람**은 로그인한 사용자를 기준으로 자동으로 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 페이지 왼쪽에서 **준수**를 선택합니다. 그런 다음, 사용자가 만든 **\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 또는 **\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 정책 할당을 찾습니다.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="정책 규정 준수 페이지의 규정 준수 세부 정보" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
 이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
 
@@ -92,12 +92,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제**를 선택합니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="규정 준수 페이지에서 할당 삭제" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 범위에 정책 정의를 할당하고 규정 준수 보고서를 평가했습니다.
-정책 정의는 범위 내 모든 리소스가 규정을 준수하는지 확인하고, 규정을 준수하지 않는 리소스를 파악합니다. 이제 VM용 Azure Monitor를 사용하여 Azure Arc 지원 서버(미리 보기) 머신을 모니터링할 준비가 되었습니다.
+이 자습서에서는 범위에 정책 정의를 할당하고 규정 준수 보고서를 평가했습니다. 정책 정의는 범위 내 모든 리소스가 규정을 준수하는지 확인하고, 규정을 준수하지 않는 리소스를 파악합니다. 이제 VM용 Azure Monitor를 사용하여 Azure Arc 지원 서버 머신을 모니터링할 준비가 되었습니다.
 
 머신에서 성능, 실행 중인 프로세스 및 해당 종속성을 모니터링하고 확인하는 방법을 알아보려면 자습서를 계속 진행합니다.
 

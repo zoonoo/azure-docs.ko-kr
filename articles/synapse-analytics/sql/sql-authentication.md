@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4b61b89921b41476ff1c2196502092809862a82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d43c223c0a3e67ff784688255bd75fc61e5c120c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495502"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288021"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -34,7 +34,7 @@ AAD 권한 부여는 Azure Active Directory를 사용하여 사용자 관리를 
 
 - **서버 관리자**
 
-  Azure Synapse Analytics를 만들 때 **서버 관리자 로그인**을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.
+  Azure Synapse Analytics를 만들 때 **서버 관리자 로그인**의 이름을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.
 
 - **Azure Active Directory 관리자**
 
@@ -61,7 +61,7 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-로그인이 있으면 SQL 주문형 엔드포인트 내의 개별 데이터베이스에 사용자를 만들고 해당 사용자에게 필요한 권한을 부여할 수 있습니다. 사용을 만들려면 다음 구문을 사용하면 됩니다.
+로그인이 있으면 SQL 주문형 엔드포인트 내에서 개별 데이터베이스에 사용자를 만들고 이 사용자에게 필요한 권한을 부여할 수 있습니다. 사용을 만들려면 다음 구문을 사용하면 됩니다.
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or

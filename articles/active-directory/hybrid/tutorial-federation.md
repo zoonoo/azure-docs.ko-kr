@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a68c3719ea742a5c02f8be167fc1989ae4683c0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 00257dc549754f7466fdf1dd2d0293de944b0944
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287035"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 단일 AD 포리스트 환경을 클라우드로 페더레이션
 
@@ -205,7 +205,7 @@ New-SelfSignedCertificate -DnsName $DNSname -CertStoreLocation $Location
 2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory**를 검색합니다.
 3. 검색 결과에서 **Azure Active Directory**를 선택합니다.
 4. **만들기**를 선택합니다.</br>
-![만들기](media/tutorial-password-hash-sync/create1.png)</br>
+![Azure AD 테넌트를 만드는 방법을 보여주는 스크린샷.](media/tutorial-password-hash-sync/create1.png)</br>
 5. **초기 도메인 이름**과 함께 **조직에 사용할 이름**을 입력합니다. 그런 다음 **만들기**를 선택합니다. 그러면 디렉터리가 만들어집니다.
 6. 이 작업이 완료되면 **여기** 링크를 클릭하여 디렉터리를 관리합니다.
 
@@ -213,10 +213,10 @@ New-SelfSignedCertificate -DnsName $DNSname -CertStoreLocation $Location
 Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠습니다.  이 계정은 Azure AD Connect를 설치하는 동안 Azure AD Connector 계정을 만드는 데 사용됩니다.  Azure AD Connect 계정은 Azure AD에 정보를 쓰는 데 사용됩니다.   글로벌 관리자 계정을 만들려면 다음을 수행합니다.
 
 1.  **관리**에서 **사용자**를 선택합니다.</br>
-![만들기](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Azure AD에서 전역 관리자를 만드는 관리 섹션에서 선택한 사용자 옵션을 보여주는 스크린샷.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  **모든 사용자**를 선택한 다음, **+새 사용자**를 선택합니다.
 3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할**을 **글로벌 관리자**로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기**를 선택합니다.</br>
-![만들기](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Azure AD에서 전역 관리자를 만들 때 선택하는 만들기 단추를 보여주는 스크린샷.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. 이 작업이 완료되면 새 웹 브라우저를 열고 새 글로벌 관리자 계정 및 임시 암호를 사용하여 myapps.microsoft.com에 로그인합니다.
 5. 글로벌 관리자의 암호를 기억할만한 것으로 변경합니다.
 
@@ -226,12 +226,12 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 1. [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)로 돌아와서 **모든 사용자** 블레이드를 닫습니다.
 2. 왼쪽에서 **사용자 지정 도메인 이름**을 선택합니다.
 3. **사용자 지정 도메인 추가**를 선택합니다.</br>
-![페더레이션](media/tutorial-federation/custom1.png)</br>
+![사용자 지정 도메인 추가 단추가 강조 표시된 스크린샷.](media/tutorial-federation/custom1.png)</br>
 4. **사용자 지정 도메인 이름**에서 상자에 사용자 지정 도메인의 이름을 입력하고 **도메인 추가**를 클릭합니다.
 5. 사용자 지정 도메인 이름 화면에는 TXT 또는 MX 정보가 제공됩니다.  이 정보는 도메인 아래 도메인 등록 기관의 DNS 정보에 추가해야 합니다.  따라서 도메인 등록 기관으로 이동하여 도메인의 DNS 설정에 TXT 또는 MX 정보를 입력합니다.  이렇게 하면 Azure에서 도메인을 확인할 수 있습니다.  Azure에서 확인하는 데 최대 24시간이 걸릴 수 있습니다.  자세한 내용은 [사용자 지정 도메인 추가](../../active-directory/fundamentals/add-custom-domain.md) 설명서를 참조하세요.</br>
-![페더레이션](media/tutorial-federation/custom2.png)</br>
+![TXT 또는 MX 정보를 추가하는 위치를 보여주는 스크린샷.](media/tutorial-federation/custom2.png)</br>
 6. 확인되었는지 확인하려면 확인 단추를 클릭합니다.</br>
-![페더레이션](media/tutorial-federation/custom3.png)</br>
+![확인을 선택한 후 성공적인 확인 메시지를 보여주는 스크린샷.](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Azure AD Connect 다운로드 및 설치
 이제 Azure AD Connect를 다운로드하고 설치할 순서입니다.  설치가 완료되면 빠른 설치를 실행합니다.  다음을 수행합니다.
@@ -242,7 +242,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 4. 기본 설정 화면에서 **사용자 지정**을 클릭합니다.  
 5. 필수 구성 요소 설치 화면에서 **Install**을 클릭합니다.  
 6. 사용자 로그인 화면에서 **AD FS를 사용한 페더레이션**을 선택하고 **다음**을 클릭합니다.
-![페더레이션](media/tutorial-federation/fed1.png)
+![AD FS를 사용하여 페더레이션을 선택할 수 있는 위치를 보여주는 스크린샷.](media/tutorial-federation/fed1.png)
 
 1. Azure AD에 연결 화면에서 앞에서 만든 글로벌 관리자의 사용자 이름과 암호를 입력하고 **다음**을 클릭합니다.
 2. 디렉터리 연결 화면에서 **디렉터리 추가**를 클릭합니다.  그런 다음 **새 AD 계정 만들기**를 선택하고 contoso\Administrator 사용자 이름 및 암호를 입력한 후에 **확인**을 클릭합니다.
@@ -257,7 +257,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 11. **페더레이션 서버에 설치된 인증서 사용**을 선택하고 **찾아보기**를 클릭합니다.
 12. 검색 상자에 DC1을 입력하고 DC1이 검색되면 선택합니다.  **Ok**를 클릭합니다.
 13. 앞에서 만든 **adfs.contoso.com** 인증서를 **인증서 파일** 드롭다운에서 선택합니다.  **다음**을 클릭합니다.
-![페더레이션](media/tutorial-federation/fed2.png)
+![만든 인증서 파일을 선택할 수 있는 위치를 보여주는 스크린샷.](media/tutorial-federation/fed2.png)
 
 1. AD FS 서버 화면에서 **찾아보기**를 클릭하고 검색 상자에 DC1을 입력한 후에 DC1이 검색되면 선택합니다.  **Ok**를 클릭합니다.  **다음**을 클릭합니다.
 ![페더레이션](media/tutorial-federation/fed3.png)

@@ -11,12 +11,12 @@ ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b69deb242fd1ad80d9cdc4667070d2dbfefcd5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da4e1cfc68dff4ad2bc0552c6d35fe1230779306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312960"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect 관리 에이전트란? 
 Azure AD Connect 관리 에이전트는 Azure Active Directory Connect 서버에 설치할 수 있는 Azure Active Directory Connect의 새로운 구성 요소입니다. 지원 사례를 열 때 Microsoft 지원 엔지니어가 Active Directory 환경에서 문제 해결에 도움이 되는 데이터를 수집하는 데 사용됩니다. 
@@ -46,7 +46,7 @@ Azure AD 글로벌 관리자 자격 증명을 입력하라는 메시지가 표�
 
 에이전트가 설치되면 서버 제어판의 "프로그램 추가/제거" 목록에 다음과 같은 두 개의 새 프로그램이 표시됩니다. 
 
-![관리 에이전트](media/whatis-aadc-admin-agent/adminagent1.png)
+![추가한 새 프로그램이 포함된 프로그램 추가/제거 목록을 보여주는 스크린샷.](media/whatis-aadc-admin-agent/adminagent1.png)
 
 ## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>내 동기화 서비스의 데이터 중 Microsoft 서비스 엔지니어에게 표시되는 데이터는 무엇인가요? 
 지원 사례를 열면 Microsoft 지원 엔지니어는 특정 사용자의 Active Directory에 있는 관련 데이터, Azure Active Directory Connect 서버의 Active Directory 커넥터 공간, Azure Active Directory Connect 서버의 Azure Active Directory 커넥터 공간, Azure Active Directory Connect 서버의 메타버스를 볼 수 있습니다. 
@@ -69,7 +69,7 @@ Microsoft 지원 엔지니어는 시스템의 데이터를 변경할 수 없으�
 3. 구성 파일을 저장합니다.
 4. 아래에 표시된 것처럼 Azure AD Connect 관리 에이전트 서비스를 다시 시작합니다.
 
-![관리 에이전트](media/whatis-aadc-admin-agent/adminagent2.png)
+![Azure AD 관리자 에이전트 서비스를 다시 시작할 위치를 보여주는 스크린샷.](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

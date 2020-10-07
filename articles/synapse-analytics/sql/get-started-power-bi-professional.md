@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 497c6f669699f1e1ce879c0c7da2593256b97448
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288701"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Power BI Professional을 사용하여 Synapse SQL에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "87501102"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-쿼리를 실행하는 도구:
+쿼리를 실행하려면 다음 도구가 필요합니다.
 
 - 원하는 SQL 클라이언트:
 

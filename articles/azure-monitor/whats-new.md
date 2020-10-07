@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 0269d870f55f7246529b9d98608e5a325b6cf468
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325660"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
@@ -19,9 +19,67 @@ ms.locfileid: "89569529"
 
 ## <a name="august-2020"></a>2020년 8월
 
-### <a name="containers"></a>컨테이너
+### <a name="general"></a>일반
 
+- [Azure Monitor에서 모니터링되는 항목](monitor-reference.md) -Azure Monitor 에이전트를 포함하도록 업데이트되었습니다.
+
+
+### <a name="agents"></a>에이전트
+- [Azure Monitor 에이전트 개요](platform/azure-monitor-agent-overview.md) - 새 문서.
+- [하이브리드 환경에서 Azure Monitor 사용](insights/vminsights-enable-hybrid.md) - 종속성 에이전트 버전이 업데이트되었습니다.
+- [Azure 모니터링 에이전트 개요](platform/agents-overview.md) - Azure Monitor 에이전트가 추가되고 OS 지원 테이블이 통합되었습니다.
+
+
+#### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>에이전트 콘텐츠의 재구성에서 새로운 문서 및 업데이트된 문서
+- [VM용 Azure Monitor 사용 개요](insights/vminsights-enable-overview.md)
+- [Linux 머신에 Log Analytics 에이전트 설치](platform/agent-linux.md)
+- [Windows 머신에 Log Analytics 에이전트 설치](platform/agent-windows.md)
+- [Log Analytics 에이전트 개요](platform/log-analytics-agent.md)
+
+### <a name="application-insights"></a>Application Insights
+- [JavaScript 웹앱을 위한 Azure Application Insights](app/javascript.md) - 클라이언트 서버 상관 관계 및 CORS 상관 관계에 대한 구성을 설명하는 섹션이 추가되었습니다.
+- [새로운 Azure Monitor Application Insights 작업 영역 기반 리소스 만들기](app/create-workspace-resource.md) - 작업 영역 기반 애플리케이션에서 제공하는 기능이 추가되었습니다.
+- [Application Insights 및 Log Analytics에서 사용하는 IP 주소](app/ip-addresses.md) - 라이브 메트릭 스트림에 대한 IP 주소가 업데이트되었습니다.
+- [모든 환경에서 Java 애플리케이션 모니터링 - Azure Monitor Application Insights](app/java-in-process-agent.md) - 지원되는 사용자 지정 원격 분석에 대한 테이블이 추가되었습니다.
+- [Application Insights JavaScript SDK에 대한 네이티브 반응 플러그 인](app/javascript-react-native-plugin.md) - 새 문서입니다.
+- [Application Insights JavaScript SDK에 대한 플러그 인 응답](app/javascript-react-plugin.md) - 새 문서입니다.
+- [Application Insights 모니터링을 사용하여 Azure 함수 앱을 만들기 위한 Resource Manager 템플릿 샘플](samples/resource-manager-function-app.md) - 새 문서입니다.
+- [Application Insights 모니터링을 사용하여 Azure App Services 웹앱을 만들기 위한 Resource Manager 템플릿 샘플](samples/resource-manager-web-app.md) - 새 문서입니다.
+- [Azure Application Insights로 사용량 분석](app/usage-overview.md) - 동영상이 추가되었습니다.
+
+### <a name="autoscale"></a>자동 크기 조정
+- [Azure에서 자동 크기 조정 시작](platform/autoscale-get-started.md) - App Service의 정상 인스턴스로 라우팅하는 섹션이 추가되었습니다.
+
+### <a name="data-collection"></a>데이터 수집
+- [Azure Monitor 에이전트를 위한 데이터 컬렉션 구성(미리 보기)](platform/data-collection-rule-azure-monitor-agent.md) - 새 문서입니다.
+- [Azure Monitor의 데이터 컬렉션 규칙(미리 보기)](platform/data-collection-rule-overview.md) - 새 문서입니다.
+
+
+### <a name="containers"></a>컨테이너
 - [컨테이너용 Azure Monitor를 사용한 배포 및 HPA 메트릭](insights/container-insights-deployment-hpa-metrics.md) - 새 문서.
+
+### <a name="insights"></a>자세한 정보
+- [Azure Monitor의 모니터링 솔루션](insights/solutions.md) - 새 UI에 대해 업데이트되었습니다.
+- [Azure의 네트워크 성능 모니터 솔루션](insights/network-performance-monitor.md) - 지원되는 작업 영역 지역이 추가되었습니다.
+
+
+### <a name="logs"></a>로그
+- [Azure Monitor FAQ](faq.md) - 작업 영역에서 데이터를 삭제하는 항목이 추가되었습니다. 502 및 503 응답에 항목이 추가되었습니다.
+  - [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md) - 수집 볼륨 요금 제한 섹션으로 업데이트합니다.
+- [Azure Monitor 로그의 사용량 및 비용 관리](platform/manage-cost-storage.md) - 더 효율적인 쿼리 형식을 위한 사용량 쿼리가 업데이트되었습니다.
+- [Azure Monitor의 로그 쿼리 최적화](log-query/query-optimization.md) - 성능 표시기에 대한 특정 값이 추가되었습니다.
+- [진단 설정에 대한 Resource Manager 템플릿 샘플](samples/resource-manager-diagnostic-settings.md) - 로그 쿼리 감사 로그에 대한 샘플이 추가되었습니다.
+
+
+### <a name="platform-logs"></a>플랫폼 로그
+- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](platform/diagnostic-settings.md) - 진단 설정을 위한 지역 요구 사항이 추가되었습니다.
+
+### <a name="visualizations"></a>시각화
+- [Azure Monitor 통합 문서 개요](platform/workbooks-overview.md) - 동영상이 추가되었습니다.
+- [Azure 통합 문서 템플릿을 다른 지역으로 이동](platform/workbook-templates-move-region.md) - 새 문서입니다.
+- [Azure 통합 문서를 다른 지역으로 이동](platform/workbooks-move-region.md) - 새 문서입니다.
+
+
 
 ## <a name="july-2020"></a>2020년 7월
 
@@ -500,7 +558,6 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 - [Worker Service 앱(비 HTTP 앱)용 Application Insights](app/worker-service.md) - 기본 로깅 수준이 C# 코드에 추가되었습니다. 패키지 참조 버전이 업데이트되었습니다.
 - [ApplicationInsights.config 참조](app/configuration-with-applicationinsights-config.md) - 샘플 코드가 업데이트되었습니다.
 - [PowerShell을 사용하여 Azure Application Insights 자동화](app/powershell.md) - Resource Manager 템플릿이 업데이트되었습니다.
-- [Azure Monitor Application Insights NuGet 패키지](app/nuget.md) - 패키지 버전이 업데이트되었습니다.
 - [새 Azure Application Insights 리소스 만들기](app/create-new-resource.md) - 전역적으로 고유한 이름에 대한 참고 사항이 추가되었습니다.
 - [라이브 메트릭 스트림을 사용하여 진단 - Azure Application Insights](app/live-stream.md) - ASP.NET Core SDK 버전 요구 사항이 업데이트되었습니다.
 - [Application Insights의 이벤트 카운터](app/eventcounters.md) - customMetrics에 대한 범주와 테이블이 업데이트되었습니다.

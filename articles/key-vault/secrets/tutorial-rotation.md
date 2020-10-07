@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: e34349f9f52c61d27e57e6ac7f4b3515ee746b22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331848"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -68,6 +68,8 @@ akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/datab
 ```
 
 ## <a name="create-and-deploy-sql-server-password-rotation-function"></a>Sql server 암호 순환 함수 만들기 및 배포
+> [!IMPORTANT]
+> 아래 템플릿에는 Key Vault, SQL 서버 및 Azure 함수가 동일한 리소스 그룹에 있어야 합니다.
 
 다음으로, 시스템 관리 ID와 기타 필수 구성 요소를 사용하여 함수 앱을 만들고, Sql server 암호 순환 함수를 배포합니다.
 

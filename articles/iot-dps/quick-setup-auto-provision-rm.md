@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub Device Provisioning 설정
+title: 빠른 시작 - Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub Device Provisioning 설정
 description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74969584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297150"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 
@@ -300,7 +300,7 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
 
 다음 Azure CLI 명령을 사용하여 템플릿을 배포하고 배포를 확인합니다.
 
-1. 템플릿을 배포하려면 템플릿과 매개 변수 파일이 들어 있는 폴더로 이동하고, 다음 [명령을 실행하여 배포를 시작](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)합니다.
+1. 템플릿을 배포하려면 템플릿과 매개 변수 파일이 들어 있는 폴더로 이동하고, 다음 [명령을 실행하여 배포를 시작](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true)합니다.
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
    ![프로비전 출력](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열하고](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) 출력에서 새 프로비전 서비스 및 IoT 허브를 찾습니다.
+2. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열하고](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) 출력에서 새 프로비전 서비스 및 IoT 허브를 찾습니다.
 
     ```azurecli
      az resource list -g {your resource group name}

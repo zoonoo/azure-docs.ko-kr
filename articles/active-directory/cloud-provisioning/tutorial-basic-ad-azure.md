@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266312"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>자습서: 기본 Active Directory 환경
 
 이 자습서에서는 기본 Active Directory 환경을 만드는 과정을 안내합니다. 
 
-![생성](media/tutorial-single-forest/diagram1.png)
+![기본 Azure AD 환경을 보여주는 다이어그램.](media/tutorial-single-forest/diagram1.png)
 
 자습서에서 만든 환경을 사용하여 하이브리드 ID 시나리오의 다양한 측면을 테스트할 수 있으며, 이는 일부 자습서의 필수 구성 요소가 됩니다.  기존 Active Directory 환경이 이미 있는 경우 이를 대체 방법으로 사용할 수 있습니다.  이 정보는 처음부터 시작하는 개인에게 제공됩니다.
 
@@ -200,7 +200,7 @@ Active Directory 환경이 준비되었으면 테스트 계정이 필요합니�
 2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory**를 검색합니다.
 3. 검색 결과에서 **Azure Active Directory**를 선택합니다.
 4. **만들기**를 선택합니다.</br>
-![만들기](media/tutorial-single-forest/create1.png)</br>
+![Azure Portal의 Azure Active Directory 페이지를 보여주는 스크린샷.](media/tutorial-single-forest/create1.png)</br>
 5. **초기 도메인 이름**과 함께 **조직에 사용할 이름**을 입력합니다. 그런 다음 **만들기**를 선택합니다. 그러면 디렉터리가 만들어집니다.
 6. 이 작업이 완료되면 **여기** 링크를 클릭하여 디렉터리를 관리합니다.
 
@@ -208,7 +208,7 @@ Active Directory 환경이 준비되었으면 테스트 계정이 필요합니�
 Azure AD 테넌트가 준비되었으면 전역 관리자 계정을 만듭니다.  글로벌 관리자 계정을 만들려면 다음을 수행합니다.
 
 1.  **관리**에서 **사용자**를 선택합니다.</br>
-![만들기](media/tutorial-single-forest/administrator1.png)</br>
+!["사용자"가 선택된 상태에서 "개요" 메뉴를 보여주는 스크린샷.](media/tutorial-single-forest/administrator1.png)</br>
 2.  **모든 사용자**를 선택한 다음, **+새 사용자**를 선택합니다.
 3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할**을 **글로벌 관리자**로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기**를 선택합니다.</br>
 ![만들기](media/tutorial-single-forest/administrator2.png)</br>

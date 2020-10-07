@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault REST API 개요
+title: Azure Key Vault 키, 비밀 및 인증서 개요
 description: 키, 비밀 및 인증서에 대한 Azure Key Vault REST 인터페이스 및 개발자 정보의 개요입니다.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296840"
 ---
-# <a name="azure-key-vault-rest-api-overview"></a>Azure Key Vault REST API 개요
+# <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault 키, 비밀 및 인증서 개요
 
 Azure Key Vault는 Microsoft Azure 애플리케이션 및 사용자가 여러 가지 종류의 비밀/키 데이터를 저장하고 사용할 수 있게 도와줍니다. Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이라는 두 가지 리소스 유형을 지원합니다.
 

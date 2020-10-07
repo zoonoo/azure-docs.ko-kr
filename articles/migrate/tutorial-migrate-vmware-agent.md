@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296147"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -251,7 +251,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **복제**를 클릭합니다.
 
-    ![VM 복제](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Azure Migrate의 서버 화면 스크린샷. Azure Migrate에서 복제 단추를 선택합니다. 서버 마이그레이션에서 선택한 복제 단추가 표시됩니다.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. **복제** > **원본 설정** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 사용**을 선택합니다.
 3. **온-프레미스 어플라이언스**에서 설정한 Azure Migrate 어플라이언스의 이름을 선택합니다.
@@ -259,7 +259,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 5. **프로세스 서버**에서 복제 어플라이언스의 이름을 선택합니다.
 6. **게스트 자격 증명**에서 Mobility Service의 강제 설치에 사용할 VM 관리자 계정을 지정합니다. 그런 다음, **다음: 가상 머신**을 클릭합니다.
 
-    ![VM 복제](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![복제 화면에 있는 원본 설정 탭의 스크린샷. 게스트 자격 증명 필드가 강조 표시되고 값이 VM 관리자 계정으로 설정됩니다.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. **Virtual Machines**에서 복제하려는 머신을 선택합니다.
 

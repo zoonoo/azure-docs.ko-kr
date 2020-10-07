@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e35366e35fc127057020906ac6d3dfb0f207ab72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331338"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -63,7 +63,7 @@ VM을 만들려면 다음 빠른 시작을 참조하세요.
 
 3. **시스템 할당**, **상태**에서 **켜기**를 선택한 다음, **저장**을 클릭합니다.
 
-   ![구성 페이지 스크린샷](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   !["시스템 할당" 상태가 "켜기"로 설정된 "ID(미리 보기)" 페이지를 보여주는 스크린샷.](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>VM에서 시스템 할당 관리 ID 제거
 
@@ -99,7 +99,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 원하는 VM으로 이동하고 **ID**, **사용자 할당**을 클릭한 다음, **\+추가**를 클릭합니다.
 
-   ![VM에 사용자 할당 관리 ID 추가](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+   !["사용자 할당"이 선택되고 "추가" 단추가 강조 표시된 "ID" 페이지를 보여주는 스크린샷.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
 3. VM에 추가할 사용자 할당 ID를 클릭한 다음, **추가**를 클릭합니다.
 

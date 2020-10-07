@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322056"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -101,6 +101,8 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 * 데스크톱 및 앱을 호스팅하는 VM을 관리 서비스에 연결할 때 네트워크 트래픽이 국가/지역 경계를 벗어날 수 있습니다.
 * 네트워크 성능을 최적화하기 위해 세션 호스트의 VM을 관리 서비스와 동일한 Azure 지역에 배치하는 것이 좋습니다.
 
+엔터프라이즈용 Windows Virtual Desktop의 일반적인 아키텍처 설정은 [아키텍처 설명서](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)에서 확인할 수 있습니다.
+
 ## <a name="supported-remote-desktop-clients"></a>지원되는 원격 데스크톱 클라이언트
 
 다음 원격 데스크톱 클라이언트는 Windows Virtual Desktop을 지원합니다.
@@ -136,12 +138,12 @@ Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 Enterprise(다중 세션) 버전 2004|예|예|예|예|
 |Windows 10 Enterprise(다중 세션) 버전 1909|예|예|예|예|
-|Windows 10 Enterprise(다중 세션) 버전 1903|예|예|아니요|아니요|
-|Windows 10 Enterprise(다중 세션) 버전 1809|예|예|아니요|아니요|
-|Windows 7 Enterprise|예|예|아니요|아니요|
-|Windows Server 2019|예|예|아니요|예|
+|Windows 10 Enterprise(다중 세션) 버전 1903|예|예|예|아니요|
+|Windows 10 Enterprise(다중 세션) 버전 1809|예|예|예|예|
+|Windows 7 Enterprise|예|예|예|예|
+|Windows Server 2019|예|예|예|예|
 |Windows Server 2016|예|예|예|예|
-|Windows Server 2012 R2|예|예|아니요|아니요|
+|Windows Server 2012 R2|예|예|예|예|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,16 +1,16 @@
 ---
 title: Python을 사용하여 Azure에서 첫 번째 지속성 함수 만들기
-description: Visual Studio Code를 사용하여 Azure 지속성 함수를 만들고 게시합니다.
+description: Visual Studio Code를 사용하여 Python에서 Azure 지속성 함수를 만들고 게시합니다.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: c9ca6d52bd71683344115004ec17a981b03f0a24
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85198901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294878"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
 

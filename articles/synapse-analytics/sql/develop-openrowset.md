@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289024"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에서 OPENROWSET를 사용하는 방법
 
@@ -119,7 +119,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 | Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -184,7 +184,7 @@ ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 �
 
 FIRSTROW = 'first_row' 
 
-로드할 첫 번째 행의 번호를 지정합니다. 기본값은 1입니다. 지정한 데이터 파일의 첫 번째 행을 나타냅니다. 행 번호는 행 종결자를 계산하여 결정됩니다. FIRSTROW는 1부터 시작합니다.
+로드할 첫 번째 행의 번호를 지정합니다. 기본값은 1이며, 지정한 데이터 파일의 첫 번째 행을 가리킵니다. 행 번호는 행 종결자를 계산하여 결정됩니다. FIRSTROW는 1부터 시작합니다.
 
 FIELDQUOTE = 'field_quote' 
 
@@ -203,7 +203,7 @@ PARSER_VERSION = 'parser_version'
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-CSV 파서 버전 1.0은 기본값이고 기능이 풍부한 반면 2.0은 성능을 위해 빌드되었고 일부 옵션과 인코딩은 지원하지 않습니다. 
+CSV 파서 버전 1.0이 기본값이며 기능이 풍부합니다. 버전 2.0은 성능을 위해 빌드되었으며 일부 옵션과 인코딩은 지원하지 않습니다. 
 
 CSV 파서 버전 2.0 세부 정보:
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e2729a5dca54bb7e65e9504f89bd203f9928b120
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90529420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251646"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -67,6 +67,8 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>스토리지 계정 키 순환 함수 만들기 및 배포
+> [!IMPORTANT]
+> 아래 템플릿에는 Key Vault, Azure Storage 계정 및 Azure 함수가 동일한 리소스 그룹에 있어야 합니다.
 
 다음으로, 시스템 관리 ID와 기타 필수 구성 요소를 사용하여 함수 앱을 만들고, 스토리지 계정 키 순환 함수를 배포합니다.
 

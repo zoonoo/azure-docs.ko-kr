@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c77dff4a4f89a78dc0a0d723fbb45fe691246112
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49ca12ed4f408e2a3fce1c8e59f541778f35311e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81681929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281782"
 ---
 # <a name="what-is-opc-publisher"></a>OPC 게시자란?
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 OPC 게시자는 다음 방법을 보여 주는 참조 구현입니다.
 
@@ -29,8 +32,8 @@ Azure IoT Hub 클라이언트 SDK에서 지원하는 전송 프로토콜인 HTTP
 
 참조 구현에는 다음이 포함됩니다.
 
-- 네트워크에 있는 기존 OPC UA 서버에 연결하기 위한 OPC UA ‘클라이언트’ 
-- 게시된 항목을 관리하데 사용할 수 있고 동일한 작업을 수행하는 IoT Hub 직접 메서드를 제공하는 포트 62222의 OPC UA ‘서버’ 
+- 네트워크에 있는 기존 OPC UA 서버에 연결하기 위한 OPC UA ‘클라이언트’**
+- 게시된 항목을 관리하데 사용할 수 있고 동일한 작업을 수행하는 IoT Hub 직접 메서드를 제공하는 포트 62222의 OPC UA ‘서버’**
 
 GitHub에서 [OPC 게시자 참조 구현](https://github.com/Azure/iot-edge-opc-publisher)을 다운로드할 수 있습니다.
 
@@ -44,6 +47,8 @@ OPC UA 서버에 대한 각각의 고유 게시 간격에 대해 애플리케이
 
 이 애플리케이션은 OPC Foundations OPC UA 참조 스택을 NuGet 패키지로 사용합니다. 사용 조건에 대해서는 [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/)을 참조하세요.
 
-### <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
-지금까지 OPC 게시자의 개념을 알아보았고, 제안된 다음 단계에서는 [OPC 게시자를 구성](howto-opc-publisher-configure.md)하는 방법을 알아봅니다.
+지금까지 OPC 게시자의 개념을 알아보았습니다. 제안된 다음 단계에서는 다음을 수행하는 방법을 알아봅니다.
+
+[OPC 게시자 구성](howto-opc-publisher-configure.md)

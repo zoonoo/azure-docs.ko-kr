@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432665"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315085"
 ---
-# <a name="changelog"></a>Changelog #
+# <a name="changelog"></a>Changelog
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6(공식 업데이트 2020년 9월 21일)
+
+### <a name="features-236"></a>기능 2.3.6
+
+azureHtml5JS 기술(대시)에 대한 오디오 전용 지원 추가됨. 라이브 기록의 늦은 시작 지원 라이브 기록의 언어 변경 지원
+
+### <a name="bug-fixes-236"></a>버그 수정 2.3.6
+
+Apple 디바이스의 HLS 재생에서 "playsinline"을 사용하는 경우 "라이브" 단추를 클릭하면 비디오에서 다시 시작합니다. AMP 포스터 이미지는 경우에 따라 예외를 발생시킵니다. HLS FairPlay를 재생할 때 볼륨 버튼이 사라졌습니다. [접근성] 키보드를 사용하는 경우 단추에 대해 도구 설명이 정의되지 않았습니다. [접근성] 광도 비율이 진행률 표시줄에 대해 1.3:1보다 작습니다. [접근성] 키보드 포커스가 비디오 품질 단추로 돌아오지 않는 경우도 있습니다. [접근성] 컨트롤이 비디오 화면에 표시되지 않아 내레이터가 이러한 항목을 찾을 수 없도록 합니다.
+
+### <a name="changes-236"></a>변경된 기능 2.3.6
+
+호출 애플리케이션에 의미 있는 KeyDelivery 오류 반환
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5(2020년 6월 1일 공식 업데이트)
 

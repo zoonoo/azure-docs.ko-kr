@@ -1,6 +1,6 @@
 ---
 title: Apache Spark 핵심 개념
-description: 이 문서에서는 Azure Synapse Analytics의 Apache Spark와 다양한 개념을 소개합니다.
+description: Azure Synapse Analytics의 Apache Spark와 다양한 개념을 소개합니다.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 806f4dff49e9650dba073721109e7d54a18ecbbe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260141"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Azure Synapse Analytics의 Apache Spark 핵심 개념
 
@@ -24,7 +24,7 @@ Azure Synapse를 사용하면 Azure에서 Spark 기능을 쉽게 만들고 구�
 
 ## <a name="spark-pools-preview"></a>Spark 풀(미리 보기)
 
-Spark 풀(미리 보기)은 Azure Portal에서 만듭니다. 이 풀은 인스턴스화하면 데이터를 처리하는 Spark 인스턴스를 만드는 데 사용되는 Spark 풀의 정의입니다. 생성된 Spark 풀은 메타데이터로만 존재하며, 따라서 리소스가 사용되거나, 실행되거나, 요금이 청구되지 않습니다. Spark 풀에는 Spark 인스턴스의 특성을 제어하는 일련의 속성이 있습니다. 이러한 특성으로는 이름, 크기, 크기 조정 동작, TTL(time-to-live) 등이 포함됩니다(이에 국한되지 않음).
+Spark 풀(미리 보기)은 Azure Portal에서 만듭니다. 이 풀은 인스턴스화하면 데이터를 처리하는 Spark 인스턴스를 만드는 데 사용되는 Spark 풀의 정의입니다. 생성된 Spark 풀은 메타데이터로만 존재하며, 따라서 리소스가 사용되거나, 실행되거나, 요금이 청구되지 않습니다. Spark 풀에는 Spark 인스턴스의 특성을 제어하는 일련의 속성이 있습니다. 이러한 특성은 이름, 크기, 크기 조정 동작, TTL(Time to live)을 포함하지만 이에 제한되지 않습니다.
 
 Spark 풀을 만들 때 비용 또는 리소스가 들지 않으므로 원하는 만큼 다양한 구성을 사용하여 원하는 만큼 풀을 만들 수 있습니다. 또한 Spark 풀에 권한을 적용하여 사용자가 일부 풀에만 액세스하도록 설정할 수 있습니다.
 
@@ -36,9 +36,9 @@ Spark 풀을 만들 때 비용 또는 리소스가 들지 않으므로 원하는
 
 Spark 인스턴스는 Spark 풀에 연결하고, 세션을 만들고, 작업을 실행할 때 생성됩니다. 여러 사용자가 단일 Spark 풀에 액세스할 수 있기 때문에 연결하는 사용자마다 새 Spark 인스턴스가 만들어집니다. 
 
-두 번째 작업을 제출할 때 풀에 용량이 있으면 기존 Spark 인스턴스도 용량을 갖게 되고 따라서 기존 인스턴스가 작업을 처리합니다. 풀에는 용량이 없고 풀 수준에 용량이 있는 경우에는 새 Spark 인스턴스가 생성됩니다.
+두 번째 작업을 제출하면 풀에 용량이 있는 경우 기존 Spark 인스턴스도 용량이 있습니다. 그런 다음, 기존 인스턴스가 작업을 처리합니다. 그렇지 않으면 풀 수준에서 용량을 사용할 수 있는 경우 새 Spark 인스턴스가 생성됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="example-1"></a>예 1
 

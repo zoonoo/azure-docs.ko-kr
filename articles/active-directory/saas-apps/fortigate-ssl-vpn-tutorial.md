@@ -1,6 +1,6 @@
 ---
-title: '자습서: FortiGate SSL VPN과 Azure AD SSO 통합'
-description: 이 자습서에서는 Azure Active Directory와 FortiGate SSL VPN 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
+title: '자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+description: FortiGate SSL VPN을 Azure AD(Azure Active Directory)와 통합하기 위해 수행해야 하는 단계를 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe92218d6bb20274e916089c15df8c1f44c4fd6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331117"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -94,16 +94,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 단지 패턴일 뿐입니다. 실제 **로그온 URL**, **식별자**, **회신 URL**, **로그아웃 URL**을 사용해야 합니다. 실제 값을 얻으려면 [FortiGate SSL VPN 클라이언트 지원 팀](mailto:tac_amer@fortinet.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. FortiGate SSL VPN 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 따라서 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 합니다. 다음 스크린샷에서는 기본 특성을 보여 줍니다.
+1. FortiGate SSL VPN 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![기본 특성을 보여 주는 스크린샷](common/default-attributes.png)
 
-1. 또한 FortiGate SSL VPN에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. 이러한 특성은 다음 표에 나와 있습니다. 미리 채워져 있지만, 요구 사항을 고려하여 검토할 수도 있습니다.
-    
-    | Name |  원본 특성|
-    | ------------ | --------- |
-    | 사용자 이름 | user.userprincipalname |
-    | group | user.groups |
+1. 다음 표에서는 FortiGate SSL VPN에서 요구하는 두 가지 추가 클레임을 보여 줍니다. 이러한 클레임의 이름은 이 자습서의 **FortiGate 명령줄 구성 수행** 섹션에서 사용하는 이름과 일치해야 합니다. 
+
+   | Name |  원본 특성|
+   | ------------ | --------- |
+   | 사용자 이름 | user.userprincipalname |
+   | group | user.groups |
+   
+   이러한 추가 클레임을 만들려면 다음을 수행합니다.
+   
+   1. **사용자 특성 및 클레임** 옆에 있는 **편집**을 선택합니다.
+   1. **새 클레임 추가**를 선택합니다.
+   1. **이름**에 대해 **사용자 이름**을 입력합니다.
+   1. **원본 특성**에 대해 **user.userprincipalname**을 선택합니다.
+   1. **저장**을 선택합니다.
+   1. **그룹 클레임 추가**를 선택합니다.
+   1. **모든 그룹**을 선택합니다.
+   1. **그룹 클레임 이름 사용자 지정** 확인란을 선택합니다.
+   1. **이름**에 대해 **그룹**을 입력합니다.
+   1. **저장**을 선택합니다.   
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 옆에 있는 **다운로드** 링크를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

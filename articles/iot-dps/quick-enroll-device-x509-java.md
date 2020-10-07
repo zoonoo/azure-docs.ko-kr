@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
+title: 빠른 시작 - Java를 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
 description: 이 빠른 시작에서는 두 그룹과 개별 등록을 사용합니다. 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub DPS(Device Provisioning Service)에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 1d1b4e2573519fbd033121763d3e7fe6b071f075
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 924cf1e1b5bc155bfdbd2f5f766c5459d599fed5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276189"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 

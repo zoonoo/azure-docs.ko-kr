@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318281"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service로 디바이스 프로비전
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 퍼블릭 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub DPS(Device Provisioning Service)는 IoT Hub용 도우미 서비스로, 사용자 개입 없이 적합한 IoT 허브에 자동 Just-In-Time 프로비저닝을 수행할 수 있습니다. DPS를 사용하면 수백만 대의 디바이스를 확장 가능한 방식으로 안전하게 프로비저닝할 수 있습니다.
@@ -88,7 +88,7 @@ DPS에는 디바이스 프로비저닝에 이상적인 기능이 많이 있습�
 * **미사용 데이터에 대한 암호화**를 통해 사용 가능한 가장 강력한 암호 중 하나인 256비트 AES 암호화를 사용하여 DPS의 데이터를 투명하게 암호화 및 암호 해독할 수 있으며 FIPS 140-2 규격입니다.
 
 
-[디바이스 개념](concepts-device.md), [서비스 개념](concepts-service.md) 및 [보안 개념](concepts-security.md)에서 디바이스 프로비저닝에 관련된 개념 및 디바이스에 대해 자세히 알아볼 수 있습니다.
+동일한 섹션의 다른 개념 항목과 함께 [DPS 용어](concepts-service.md) 항목을 검토하여 디바이스 프로비저닝과 관련된 개념 및 기능에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="cross-platform-support"></a>플랫폼 간 지원
 모든 Azure IoT 서비스와 마찬가지로 DPS는 다양한 운영 체제의 플랫폼 간에 작동합니다. Azure는 보다 수월하게 디바이스를 연결하고 서비스를 관리할 수 있도록 다양한 [언어](https://github.com/Azure/azure-iot-sdks)로 오픈 소스 SDK를 제공합니다. DPS는 디바이스 연결을 위해 다음과 같은 프로토콜을 지원합니다.
@@ -123,7 +123,9 @@ DPS는 Azure IoT Hub로 디바이스 프로비저닝을 자동화합니다. [IoT
 
 ## <a name="next-steps"></a>다음 단계
 이제 Azure에서의 IoT 디바이스 프로비전에 관해 대략적으로 이해하게 되었을 것입니다. 다음 단계는 엔드투엔드 IoT 시나리오를 사용해 보는 것입니다.
-> [!div class="nextstepaction"]
-> [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)
-> [시뮬레이션된 디바이스 만들기 및 프로비전](quick-create-simulated-device.md)
-> [프로비전을 위한 디바이스 설정](tutorial-set-up-device.md)
+
+[Azure Portal로 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)
+
+[시뮬레이션된 디바이스 만들기 및 프로비전](quick-create-simulated-device.md)
+
+[프로비전을 위한 디바이스 설정](tutorial-set-up-device.md)

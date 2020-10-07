@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0f3e517e60037de6456bc3a549e072e58e2fa67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285421"
 ---
 # <a name="claim-and-claim-rules"></a>클레임 및 클레임 규칙
 
@@ -60,7 +60,7 @@ Condition && Condition && ...
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
-조건은 클레임의 다양한 속성에 대한 개별 조건으로 구성됩니다. 조건에는 조건을 충족하는 클레임을 참조하는 데 사용할 수 있는 선택적 식별자가 있을 수 있습니다. 이 참조는 다른 조건 또는 동일한 규칙의 작업에서 사용할 수 있습니다.
+조건 목록은 클레임의 다양한 속성에 대한 개별 조건으로 구성됩니다. 조건에는 조건을 충족하는 클레임을 참조하는 데 사용할 수 있는 선택적 식별자가 있을 수 있습니다. 이 참조는 다른 조건 또는 동일한 규칙의 작업에서 사용할 수 있습니다.
 
 예를 들면 다음과 같습니다.
 

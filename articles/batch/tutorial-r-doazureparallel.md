@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 2c988075031be326f01e02bceff1c948295d5845
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292866"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 
@@ -193,7 +193,7 @@ hist(closingPrices_s)
 
 다음과 유사하게 출력됩니다.
 
-![종가 분포](media/tutorial-r-doazureparallel/closing-prices-local.png)
+![종료 가격의 히스토그램을 보여주는 스크린샷](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
 로컬 시뮬레이션은 몇 초 내에 완료됩니다.
 

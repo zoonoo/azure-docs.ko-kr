@@ -3,12 +3,12 @@ title: '빠른 시작: Azure 함수에 사용자 지정 이벤트 보내기 - Ev
 description: '빠른 시작: Azure Event Grid와 Azure CLI 또는 포털을 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Azure 함수는 엔드포인트에 사용됩니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324422"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>빠른 시작: Event Grid를 사용하여 Azure 함수로 사용자 지정 이벤트 라우팅
 
@@ -17,14 +17,17 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure F
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Azure 함수 만들기
+사용자 지정 토픽을 구독하기 전에 이벤트를 처리하는 함수를 만듭니다. 
 
-사용자 지정 토픽을 구독하기 전에 이벤트를 처리하는 함수를 만들어 보겠습니다. Azure Portal에서 '리소스 만들기'를 클릭하고 '함수'를 입력한 다음, '함수 앱'을 선택하고 [만들기]를 클릭합니다. 리소스 그룹 아래에서 '새로 만들기'를 선택하고 이름을 지정합니다. 자습서의 나머지 부분에서 이 이름을 사용합니다. 함수 앱 이름을 지정하고, '게시' 토들을 '코드'로 두고, 아무 런타임 및 지역을 선택한 다음, [만들기]를 누릅니다.
+1. [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)의 지침을 사용하여 함수 앱을 만듭니다.
+2. **Event Grid 트리거**를 사용하여 함수를 만듭니다. 이 트리거를 처음 사용하는 경우 선택합니다. '설치'를 클릭하여 확장을 설치해야 할 수도 있습니다.
+    1. **함수 앱** 페이지에서 왼쪽 메뉴에 있는 **함수**를 선택하고, 템플릿에서 **Event Grid**를 검색한 다음, **Azure Event Grid 트리거**를 선택합니다. 
 
-함수 앱이 준비되면 함수 앱으로 이동하여 '+ 새 함수'를 클릭합니다. 개발 환경으로 '포털 내'를 선택하고 [계속]을 누릅니다. [함수 만들기]에서 '추가 템플릿'을 선택하여 더 많은 템플릿을 표시한 다음, 'Azure Event Grid 트리거'를 검색하여 선택합니다. 이 트리거를 처음 사용하는 경우 '설치'를 클릭하여 확장을 설치해야 할 수도 있습니다.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Event Grid 트리거 선택":::
+3. **새 함수** 페이지에서 함수 이름을 입력하고, **함수 만들기**를 선택합니다.
 
-![함수 Event Grid 트리거](./media/custom-event-to-function/grid-trigger.png)
-
-확장을 설치한 후에는 [계속]을 클릭하고 함수 이름을 지정한 다음, [만들기]를 누릅니다.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Event Grid 트리거 선택":::
+4. **코드 + 테스트** 페이지를 사용하여 함수에 대한 기존 코드를 확인하고 업데이트합니다. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -81,7 +84,11 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
     5. 함수 엔드포인트의 경우 함수 앱이 속한 Azure 구독 및 리소스 그룹을 선택하고, 이전에 만든 함수 앱 및 함수를 선택합니다. **선택 확인**을 선택합니다.
 
        ![엔드포인트 URL 제공](./media/custom-event-to-function/provide-endpoint.png)
-
+    6. 이 단계는 선택 사항이지만 프로덕션 시나리오에 권장됩니다. **이벤트 구독 만들기** 페이지에서 **고급 기능** 탭으로 전환하고, **일괄 처리당 최대 이벤트** 및 **기본 설정된 일괄 처리(KB)** 에 대한 값을 설정합니다. 
+    
+        일괄 처리를 통해 처리량을 높일 수 있습니다. **일괄 처리당 최대 이벤트**의 경우 구독에서 일괄 처리에 포함할 최대 이벤트 수를 설정합니다. 기본 설정된 일괄 처리 크기는 일괄 처리 크기의 기본 설정된 상한(KB)을 설정하지만, 단일 이벤트가 이 임계값보다 큰 경우에는 이 크기를 초과할 수 있습니다.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Event Grid 트리거 선택":::
     6. **이벤트 구독 만들기** 페이지에서 **만들기**를 선택합니다.
 
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기

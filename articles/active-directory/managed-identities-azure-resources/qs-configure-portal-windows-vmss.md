@@ -1,5 +1,5 @@
 ---
-title: Azure VMSS에서 관리 ID 구성 - Azure AD
+title: VMSS에서 관리 ID 구성 - Azure AD
 description: Azure Portal을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID를 구성하는 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329136"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -59,7 +59,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 3. **시스템 할당**, **상태**에서 **켜기**를 선택한 다음, **저장**을 클릭합니다.
 
-   ![구성 페이지 스크린샷](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
+   ![스크린샷에는 "시스템 할당"이 선택된 "ID(미리 보기)" 페이지, 상태 "설정" 및 "저장" 단추가 강조 표시됩니다.](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 시스템 할당 관리 ID 제거
 
@@ -88,7 +88,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 1. 가상 머신 확장 집합을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 원하는 가상 머신 확장 집합으로 이동하고 **ID**, **사용자 할당**을 클릭한 다음, **\+추가**를 클릭합니다.
 
-   ![VMSS에 사용자 할당 ID 추가](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+   !["사용자 할당"이 선택되고 "추가" 단추가 강조 표시된 "ID" 페이지를 보여주는 스크린샷.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
 3. 가상 머신 확장 집합에 추가할 사용자 할당 ID를 클릭한 다음, **추가**를 클릭합니다.
    

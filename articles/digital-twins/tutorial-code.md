@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 30a782c7d7c13eb9c92e4a4bf64e268416a2b382
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bd8eee2fd6134bb36c0b0ab45492567f4fdbec26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297507"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -234,8 +234,7 @@ await foreach (ModelData md in modelDataList)
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
 ```
-
-이 새 코드를 테스트하기 위해 프로그램을 다시 실행하기 전에, 이 프로그램을 마지막으로 실행할 때 모델을 업로드했음을 기억하세요. Azure Digital Twins에서는 동일한 모델을 두 번 업로드할 수 없으므로 프로그램을 다시 실행할 때 예외가 표시됩니다.
+이 새 코드를 테스트하기 위해 프로그램을 다시 실행하기 전에, 이 프로그램을 마지막으로 실행할 때 모델을 업로드했음을 기억하세요. Azure Digital Twins에서는 동일한 모델을 두 번 업로드할 수 없으므로 동일한 모델을 다시 업로드하려고 하면 프로그램에서 예외를 throw해야 합니다.
 
 이제 명령 창에서 다음 명령을 사용하여 프로그램을 다시 실행합니다.
 
@@ -258,7 +257,6 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-
 명령 창에서 `dotnet run`을 사용하여 프로그램을 실행하면 오류 코드가 다시 표시됩니다. 출력은 다음과 같습니다.
 
 ```cmd/sh
@@ -270,11 +268,11 @@ Load model: 409:Service request failed.
 Status: 409 (Conflict)
 
 Content:
-{"error":{"code":"DocumentAlreadyExists","message":"A document with same identifier already exists.","details":[]}}
+{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
 
 Headers:
 api-supported-versions: REDACTED
-Date: Tue, 05 May 2020 01:57:51 GMT
+Date: Thu, 10 Sep 2020 01:57:51 GMT
 Content-Length: 115
 Content-Type: application/json; charset=utf-8
 
@@ -392,6 +390,25 @@ await ListRelationships(client, "sampleTwin-0");
 ```
 
 명령 창에서 `dotnet run`을 사용하여 프로그램을 실행합니다. 내가 만든 모든 관계의 목록이 표시됩니다.
+
+출력의 예제는 다음과 같습니다.
+
+```cmd/sh
+Hello World!
+Service client created - ready to go
+
+Upload a model
+Type name: System.Collections.Generic.Dictionary'2[System.String,System.String]: dtmi:contosocom:DigitalTwins:SampleModel;1
+Create twin: sampleTwin-0
+Create twin: sampleTwin-1
+Create twin: sampleTwin-2
+Created relationship successfully
+Created relationship successfully
+Twin sampleTwin-0 is connected to:
+-contains->sampleTwin-1
+-contains->sampleTwin-2
+
+```
 
 ### <a name="query-digital-twins"></a>디지털 트윈 쿼리
 

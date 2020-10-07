@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a3930698bb2999ebaad4d78e0b545b83cc968ef2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690037"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270902"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
 
@@ -49,7 +49,7 @@ Microsoft 고객 계약이 있는 경우 청구 프로필 소유자, 기여자, 
 
     ![청구서 및 사용량 다운로드 옵션을 보여주는 스크린샷](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-청구서에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../understand/review-individual-bill.md)를 참조하세요. 비용 관리에 대한 도움말은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](getting-started.md)를 참조하세요.
+청구서에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../understand/review-individual-bill.md)를 참조하세요. 비용 관리에 대한 도움말을 보려면 [예기치 않은 요금 분석](../understand/analyze-unexpected-charges.md)를 참조하세요.
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약 청구서 다운로드
 

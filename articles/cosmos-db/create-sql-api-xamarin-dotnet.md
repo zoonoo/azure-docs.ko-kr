@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33ade2be8b75a4e63f6def2b6c5e1001dde97ff8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319047"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Xamarin에서 todo 앱 빌드
 
@@ -22,6 +22,7 @@ ms.locfileid: "89020493"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -90,7 +91,7 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
 
 1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB SQL API 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음, **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 APIKeys.cs 파일에 복사하게 됩니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Azure Portal 키 블레이드에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 2. Visual Studio 2019 또는 Mac용 Visual Studio에서 azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers 폴더에 있는 APIKeys.cs 파일을 엽니다.
 
@@ -108,7 +109,7 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
 
 이 솔루션에서는 Azure Cosmos DB SQL API 및 Xamarin.Forms를 사용하여 ToDo 앱을 만드는 방법을 보여줍니다. 앱에는 아직 완료되지 않은 할 일 항목을 표시하는 목록 보기를 포함하는 첫 번째 탭 및 완료된 할 일 항목을 표시하는 두 번째 탭과 같은 두 개의 탭이 있습니다. 첫 번째 탭에서 완료되지 않은 할 일 항목을 보는 것 외에도 새로운 할 일 항목을 추가하고, 기존 할 일 목록을 편집하고, 항목을 완료되었다고 표시할 수 있습니다.
 
-:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="json 데이터에 복사하고 Azure Portal의 데이터 탐색기에서 저장 클릭":::
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
@@ -171,27 +172,27 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
 1. 강조 표시된 첫 번째 드롭다운을 클릭하고 iOS의 경우 ToDoItems.iOS 또는 Android의 경우 ToDoItems.Android를 선택하여 대상으로 지정하려는 플랫폼을 먼저 선택합니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Mac용 Visual Studio에서 디버깅할 플랫폼 선택":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 2. 앱을 디버깅하기 시작하려면 cmd + Enter 키를 누르거나 재생 단추를 클릭합니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Mac용 Visual Studio에서 디버깅 시작":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 3. iOS 시뮬레이터 또는 Android 에뮬레이터의 실행이 완료되면 앱은 iOS의 경우 화면 맨 아래 2개의 탭을 표시하고 Android의 경우 화면 위쪽에 2개의 탭을 표시합니다. 첫 번째 탭은 완료되지 않은 할 일 항목을 표시하고, 두 번째 탭은 완료된 할 일 항목을 표시합니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="ToDo 앱 화면 시작":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 4. iOS에서 할 일 항목을 완료하려면 왼쪽으로 슬라이드하고 **완료** 단추를 누릅니다. Android에서 할 일 항목을 완료하려면 해당 항목을 길게 누흔 다음, 완료 단추를 누릅니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="할 일 항목 완료":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 5. 할 일 항목을 편집하려면 항목을 누르고, 새 값을 입력할 수 있는 새 화면이 나타납니다. 저장 단추를 눌러서 Azure Cosmos DB에 변경 내용을 유지합니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="할 일 항목 편집":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 6. 할 일 항목을 추가하고, 홈 화면 오른쪽 상단에서 **추가** 단추를 누르려면 새롭게 비어 있는 편집 페이지가 표시됩니다.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="할일 항목 추가":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="iOS에서 실행 중인 Xamarin 할 일 앱":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

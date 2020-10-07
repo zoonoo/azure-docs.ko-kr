@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Python 디먼 | Azure
-description: Python 프로세스가 앱의 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호된 API를 호출할 수 있는 방법을 알아봅니다.
+title: '빠른 시작: Python 디먼에서 Microsoft Graph 호출 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 Python 프로세스가 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호된 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257744"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Python 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -224,18 +225,3 @@ if not result:
 
 > [!div class="nextstepaction"]
 > [웹 API를 호출하는 디먼 애플리케이션](scenario-daemon-overview.md)
-
-디먼 애플리케이션 자습서는 다음을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [디먼 Python 콘솔 자습서](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-권한 및 동의에 대한 자세한 정보:
-
-> [!div class="nextstepaction"]
-> [권한 및 동의](v2-permissions-and-consent.md)
-
-이 시나리오의 인증 흐름에 대해 알아보려면 Oauth 2.0 클라이언트 자격 증명 흐름을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [클라이언트 자격 증명 Oauth 흐름](v2-oauth2-client-creds-grant-flow.md)

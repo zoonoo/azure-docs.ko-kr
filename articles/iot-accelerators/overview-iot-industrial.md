@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c474b57533cb6165ce7fe77defccd4cb7042b06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3df10c9d7630e9db76994e8e508f30adb986e0d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82189925"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281816"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>산업용 IoT(IIoT)란?
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 IIoT는 산업용 사물 인터넷입니다. IIoT는 제조 산업에서 IoT 애플리케이션을 통해 산업 효율성을 향상시킵니다. 
 
@@ -30,7 +33,7 @@ OPC 쌍을 통해 작업 현장 머신에 액세스하는 데 걸리는 시간�
 > [!NOTE]
 > Azure 산업용 IoT 서비스에 대한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/Industrial-IoT) 및 [설명서](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 Azure IoT Edge 모듈의 작동 방식에 대해 잘 모르는 경우 다음 문서를 시작하세요.
-- [Azure IoT Edge 정보](../iot-edge/about-iot-edge.md)
+- [About Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge 모듈](../iot-edge/iot-edge-modules.md)
 
 ## <a name="connected-factory"></a>연결된 공장
@@ -49,5 +52,4 @@ OPC 자격 증명 모음은 클라우드에서 OPC UA 서버 및 클라이언트
 
 산업용 IoT와 해당 구성 요소에 대한 소개를 알아보았으므로 권장되는 다음 단계는 다음과 같습니다.
 
-> [!div class="nextstepaction"]
-> [OPC 쌍이란?](overview-opc-twin.md)
+[OPC 쌍이란?](overview-opc-twin.md)

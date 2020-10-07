@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320560"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리형 HSM(미리 보기)이란?
 
@@ -33,7 +33,7 @@ Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 
 
 - **중앙 집중식 키 관리**: 조직 전체에서 중요하고 가치가 높은 키를 한 곳에서 관리합니다. 키당 세분화된 권한으로 '최소 권한 있는 액세스' 원칙에 따라 각 키에 대한 액세스를 제어합니다.
 - **격리된 액세스 제어**: 관리형 HSM "로컬 RBAC" 액세스 제어 모델을 통해 지정된 HSM 클러스터 관리자는 관리 그룹, 구독 또는 리소스 그룹 관리자도 재정의할 수 없는 HSM을 완벽하게 제어할 수 있습니다.
-- **FIPS 140-2 수준 3 유효성이 검사된 HSM**: FIPS((Federal Information Protection Standard)) 140-2 수준 3 유효성이 검사된 HSM을 사용하여 데이터를 보호하고 규정 준수 요구 사항을 충족합니다. 관리형 HSM은 HSM의 Marvell LiquidSecurity 제품군을 사용합니다.
+- **FIPS 140-2 수준 3 유효성이 검사된 HSM**: FIPS((Federal Information Protection Standard)) 140-2 수준 3 유효성이 검사된 HSM을 사용하여 데이터를 보호하고 규정 준수 요구 사항을 충족합니다. 관리형 HSM은 Marvell LiquidSecurity HSM 어댑터를 사용합니다.
 - **모니터링 및 감사**: Azure Monitor와 완전히 통합됩니다. Azure Monitor를 통해 모든 활동의 전체 로그를 가져옵니다. 분석 및 경고에 Azure Log Analytics를 사용합니다.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Azure 및 Microsoft PaaS/SaaS 서비스와 통합 

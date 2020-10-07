@@ -5,16 +5,27 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6c498b1f68ca4e8c40a2baf30cc81176a0898bb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5e2631332be1ea2a9e63755ea53897ba0d7813ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332516"
 ---
+이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
+
+* 메모리 내 스트림으로 응답 가져오기
+* 출력 샘플 속도 및 비트 전송률 사용자 지정
+* SSML(음성 합성 마크업 언어)을 사용하여 합성 요청 제출
+* 인공신경망 음성 사용
+
+## <a name="skip-to-samples-on-github"></a>GitHub의 샘플로 건너뛰기
+
+샘플 코드로 바로 건너뛰려면 GitHub의 [C# 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/text-to-speech)을 참조하세요.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../get-started.md).
+이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -41,19 +52,19 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
 
 > [!NOTE]
 > 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
 
-[`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 초기화하는 다음과 같은 방법이 있습니다.
+[`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 초기화하는 다음과 같은 방법이 있습니다.
 
 * 구독 사용: 키 및 연결된 영역을 전달합니다.
 * 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-다음 예제에서는 구독 키 및 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 만듭니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요. 또한 이 문서의 나머지 부분에서 사용할 기본 상용구 코드를 만들 수 있습니다. 다른 사용자 지정에 맞게 이 코드를 수정합니다.
+이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 만듭니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
 
 ```csharp
 public class Program 
@@ -72,7 +83,7 @@ public class Program
 
 ## <a name="synthesize-speech-to-a-file"></a>음성을 파일로 합성
 
-다음으로, 텍스트 음성 변환을 실행하고 스피커, 파일 또는 기타 출력 스트림으로 출력하는 [`SpeechSynthesizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet) 개체를 만듭니다. [`SpeechSynthesizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet)는 이전 단계에서 만든 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) 개체와 출력 결과를 처리하는 방법을 지정하는 [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) 개체를 매개 변수로 허용합니다.
+다음으로, 텍스트 음성 변환을 실행하고 스피커, 파일 또는 기타 출력 스트림으로 출력하는 [`SpeechSynthesizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet&preserve-view=true) 개체를 만듭니다. [`SpeechSynthesizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet&preserve-view=true)는 이전 단계에서 만든 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) 개체와 출력 결과를 처리하는 방법을 지정하는 [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet&preserve-view=true) 개체를 매개 변수로 허용합니다.
 
 시작하려면 `FromWavFileOutput()` 함수를 사용하여 출력을 자동으로 `.wav` 파일에 쓰도록 `AudioConfig`를 만들고 `using` 문을 사용하여 이를 인스턴스화합니다. 이 컨텍스트의 `using` 문은 관리되지 않는 리소스를 자동으로 삭제하고, 삭제되면 개체가 범위를 벗어납니다.
 
@@ -100,7 +111,7 @@ static async Task SynthesizeAudioAsync()
 
 ## <a name="synthesize-to-speaker-output"></a>스피커 출력으로 합성
 
-경우에 따라 합성된 음성을 스피커로 직접 출력하려고 할 수도 있습니다. 이렇게 하려면 위의 예제에서 `SpeechSynthesizer`를 만들 때 `AudioConfig` 매개 변수를 생략하면 됩니다. 이 경우 현재 활성 출력 디바이스로 출력됩니다.
+경우에 따라 합성된 음성을 스피커로 직접 출력할 수도 있습니다. 이렇게 하려면 위의 예제에서 `SpeechSynthesizer`를 만들 때 `AudioConfig` 매개 변수를 생략하면 됩니다. 현재 활성 출력 디바이스로 출력됩니다.
 
 ```csharp
 static async Task SynthesizeAudioAsync() 
@@ -124,7 +135,7 @@ static async Task SynthesizeAudioAsync()
 > [!NOTE]
 > 위의 스피커 출력 예제와 같이 생략하는 대신 `AudioConfig`에 대해 `null`을 전달하면 현재 활성 출력 디바이스에서 기본적으로 오디오가 재생되지 않습니다.
 
-이번에는 결과를 [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-dotnet) 변수에 저장합니다. `AudioData` 속성에는 출력 데이터의 `byte []`가 포함됩니다. 이 `byte []`를 수동으로 사용하거나 [`AudioDataStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet) 클래스를 사용하여 메모리 내 스트림을 관리할 수 있습니다. 다음 예제에서는 `AudioDataStream.FromResult()` 정적 함수를 사용하여 결과에서 스트림을 가져옵니다.
+이번에는 결과를 [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-dotnet&preserve-view=true) 변수에 저장합니다. `AudioData` 속성에는 출력 데이터의 `byte []`가 포함됩니다. 이 `byte []`를 수동으로 사용하거나 [`AudioDataStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet&preserve-view=true) 클래스를 사용하여 메모리 내 스트림을 관리할 수 있습니다. 다음 예제에서는 `AudioDataStream.FromResult()` 정적 함수를 사용하여 결과에서 스트림을 가져옵니다.
 
 ```csharp
 static async Task SynthesizeAudioAsync() 
@@ -147,11 +158,11 @@ static async Task SynthesizeAudioAsync()
 * 샘플 속도
 * 비트 수준
 
-오디오 형식을 변경하려면 `SpeechConfig` 개체에서 `SetSpeechSynthesisOutputFormat()` 함수를 사용합니다. 이 함수에는 출력 형식을 선택하는 데 사용하는 [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet) 형식의 `enum`이 필요합니다. 사용 가능한 [오디오 형식 목록](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet)은 참조 문서를 참조하세요.
+오디오 형식을 변경하려면 `SpeechConfig` 개체에서 `SetSpeechSynthesisOutputFormat()` 함수를 사용합니다. 이 함수에는 출력 형식을 선택하는 데 사용하는 [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet&preserve-view=true) 형식의 `enum`이 필요합니다. 사용 가능한 [오디오 형식 목록](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet&preserve-view=true)은 참조 문서를 참조하세요.
 
 요구 사항에 따라 다양한 파일 형식에 대한 다양한 옵션이 있습니다. 정의에 따라 `Raw24Khz16BitMonoPcm`과 같은 원시 형식에는 오디오 헤더가 포함되지 않습니다. 다운스트림 구현에서 원시 비트 스트림을 디코딩할 수 있음을 것을 알고 있거나 비트 수준, 샘플 속도, 채널 수 등에 따라 헤더를 수동으로 작성하려는 경우에만 원시 형식을 사용합니다.
 
-다음 예제에서는 `SpeechConfig` 개체에서 `SpeechSynthesisOutputFormat`을 설정하여 고화질 RIFF 형식인 `Riff24Khz16BitMonoPcm`을 지정합니다. 이전 섹션의 예제와 마찬가지로 [`AudioDataStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet)을 사용하여 결과의 메모리 내 스트림을 가져온 다음, 파일에 씁니다.
+다음 예제에서는 `SpeechConfig` 개체에서 `SpeechSynthesisOutputFormat`을 설정하여 고화질 RIFF 형식인 `Riff24Khz16BitMonoPcm`을 지정합니다. 이전 섹션의 예제와 마찬가지로 [`AudioDataStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet&preserve-view=true)을 사용하여 결과의 메모리 내 스트림을 가져온 다음, 파일에 씁니다.
 
 ```csharp
 static async Task SynthesizeAudioAsync() 

@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279026"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313165"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>자습서:  PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트 통합
 
@@ -184,7 +184,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 2. **더하기 아이콘(+)** 을 선택하고 **Azure Active Directory**를 검색합니다.
 3. 검색 결과에서 **Azure Active Directory**를 선택합니다.
 4. **만들기**를 선택합니다.</br>
-![만들기](media/tutorial-password-hash-sync/create1.png)</br>
+![Azure AD 테넌트를 만드는 방법을 보여주는 스크린샷.](media/tutorial-password-hash-sync/create1.png)</br>
 5. **초기 도메인 이름**과 함께 **조직에 사용할 이름**을 입력합니다. 그런 다음 **만들기**를 선택합니다. 그러면 디렉터리가 만들어집니다.
 6. 이 작업이 완료되면 **여기** 링크를 클릭하여 디렉터리를 관리합니다.
 
@@ -192,10 +192,10 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠습니다.  이 계정은 Azure AD Connect를 설치하는 동안 Azure AD Connector 계정을 만드는 데 사용됩니다.  Azure AD Connect 계정은 Azure AD에 정보를 쓰는 데 사용됩니다.   글로벌 관리자 계정을 만들려면 다음을 수행합니다.
 
 1.  **관리**에서 **사용자**를 선택합니다.</br>
-![만들기](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Azure AD에서 전역 관리자를 만드는 관리 섹션에서 선택한 사용자 옵션을 보여주는 스크린샷.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  **모든 사용자**를 선택한 다음, **+새 사용자**를 선택합니다.
 3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할**을 **글로벌 관리자**로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기**를 선택합니다.</br>
-![만들기](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Azure AD에서 전역 관리자를 만들 때 선택하는 만들기 단추를 보여주는 스크린샷.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. 이 작업이 완료되면 새 웹 브라우저를 열고 새 글로벌 관리자 계정 및 임시 암호를 사용하여 myapps.microsoft.com에 로그인합니다.
 5. 글로벌 관리자의 암호를 기억할만한 것으로 변경합니다.
 
@@ -206,7 +206,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 2. **AzureADConnect.msi**를 찾아서 두 번 클릭합니다.
 3. 시작 화면에서 사용권 계약에 동의하는 상자를 선택하고 **계속**을 클릭합니다.  
 4. 기본 설정 화면에서 **Use express settings**(기본 설정 사용)를 클릭합니다.</br>  
-![만들기](media/tutorial-password-hash-sync/express1.png)</br>
+![기본 설정 화면 및 기본 설정 사용 단추를 보여주는 스크린샷.](media/tutorial-password-hash-sync/express1.png)</br>
 5. Azure AD에 연결 화면에서 Azure AD에 대한 글로벌 관리자의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.  
 6. AD DS에 연결 화면에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.  
 7. 구성 준비 화면에서 **설치**를 클릭합니다.

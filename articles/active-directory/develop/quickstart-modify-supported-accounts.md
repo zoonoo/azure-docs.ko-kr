@@ -1,6 +1,6 @@
 ---
-title: Microsoft ID 플랫폼 앱 계정 수정 | Azure
-description: Microsoft ID 플랫폼에 등록된 애플리케이션을 구성하여 애플리케이션에 액세스할 수 있는 계정 또는 사용자를 변경합니다.
+title: '빠른 시작: Microsoft ID 플랫폼 앱 계정 수정 | Azure'
+description: 이 빠른 시작에서는 Microsoft ID 플랫폼에 등록된 애플리케이션을 구성하여 애플리케이션에 액세스할 수 있는 사용자 또는 계정을 변경합니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258016"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>빠른 시작: 애플리케이션에서 지원되는 계정 수정
 
@@ -27,11 +27,7 @@ Microsoft ID 플랫폼에서 애플리케이션을 등록하는 경우 조직 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 다음과 같은 필수 구성을 완료했는지 확인합니다.
-
-* 지원되는 [권한 및 동의](v2-permissions-and-consent.md)를 살펴봅니다. 여기서는 다른 사용자 또는 애플리케이션에서 사용해야 하는 애플리케이션을 빌드하는 경우를 이해하는 것이 중요합니다.
-* 애플리케이션이 등록된 테넌트가 있습니다.
-  * 앱이 등록되지 않았다면 [Microsoft ID 플랫폼에 애플리케이션을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
+* [빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Azure Portal에 로그인하고 앱 선택
 
@@ -78,13 +74,5 @@ SPA(단일 페이지 애플리케이션)는 일반적으로 브라우저에서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-앱에 대한 다른 관련 앱 관리 빠른 시작에 대해 알아봅니다.
-
-* [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](quickstart-register-app.md)
-* [웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
-* [웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
-* [Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제거](quickstart-remove-app.md)
-
-등록된 애플리케이션 및 이들 간의 관계를 나타내는 두 개의 Azure AD 개체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
-
-Azure Active Directory를 사용해 애플리케이션을 개발할 때 사용해야 하는 브랜딩 지침에 대해 자세히 알아보려면 [애플리케이션에 대한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)을 참조하세요.
+> [!div class="nextstepaction"]
+> [애플리케이션에 대한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)

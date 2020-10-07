@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280568"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 웹앱 빌드
 
@@ -20,7 +20,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -37,9 +37,9 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 1. **Static Web Apps(미리 보기)** 선택
 1. **만들기**를 선택합니다.
 
-_기본 사항_ 탭에서 새 앱을 구성하고 GitHub 리포지토리에 연결하여 시작합니다.
+_기본 사항_ 섹션에서 새 앱을 구성하고 GitHub 리포지토리에 연결하여 시작합니다.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="기본 사항 탭":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="기본 사항 섹션":::
 
 1. _Azure 구독_ 선택
 1. 새 _리소스 그룹_ 선택 또는 만들기
@@ -51,7 +51,7 @@ _기본 사항_ 탭에서 새 앱을 구성하고 GitHub 리포지토리에 연�
 
 GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="리포지토리 세부 정보":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="기본 사항 섹션":::
 
 1. 원하는 _조직_을 선택합니다.
 1. _리포지토리_ 드롭다운에서 **my-first-web-static-app**을 선택합니다.
@@ -94,18 +94,18 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 
 1. **검토 + 만들기**를 선택합니다.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="만들기 단추 검토":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="기본 사항 섹션":::
 
     > [!NOTE]
     > 앱을 만든 후 이러한 값을 변경하려면 [워크플로 파일](github-actions-workflow.md)을 편집하면 됩니다.
 
 1. **만들기**를 선택합니다.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="만들기 단추":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="기본 사항 섹션":::
 
 1. **리소스로 이동**을 선택합니다.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="리소스로 이동 단추":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="기본 사항 섹션":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

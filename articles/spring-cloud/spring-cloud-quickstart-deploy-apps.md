@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 94caa879aa005f8f41e44b8a56400e87f6174247
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d67b0c89fbec8da9a3057164aa59d458a85c41d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280592"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -353,23 +353,9 @@ Azure Portal로 이동하여 URL을 찾을 수도 있습니다.
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>리소스 정리
-
-이 시리즈의 다음 빠른 시작을 계속하려는 경우 이 단계를 건너뜁니다.
-
-이러한 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행할 계획이 없고 나중에 이러한 리소스가 필요하지 않을 것으로 예상되는 경우 포털을 사용하거나 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다.
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-이전 빠른 시작에서는 기본 리소스 그룹 이름도 설정합니다. 다음 빠른 시작을 계속하지 않으려면 다음 CLI 명령을 실행하여 기본값을 지웁니다.
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행하지 않으려는 경우 [리소스 정리](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources)를 참조하세요. 그렇지 않으면 다음 빠른 시작으로 이동하세요.
+
 > [!div class="nextstepaction"]
 > [로그, 메트릭 및 추적](spring-cloud-quickstart-logs-metrics-tracing.md)
-

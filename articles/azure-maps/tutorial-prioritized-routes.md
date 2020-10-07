@@ -1,6 +1,6 @@
 ---
-title: '자습서: Microsoft Azure Maps를 사용하여 특정 이동 모드에 대한 경로 찾기 및 표시'
-description: Azure Maps를 사용하여 특정 이동 모드에 대한 경로를 찾고 표시하는 방법을 알아봅니다.
+title: '자습서: 여행 모드별 여러 경로 찾기 | Microsoft Azure Maps'
+description: Azure Maps를 사용하여 관심 지점까지의 특정 이동 모드 경로를 찾는 방법에 대한 자습서. 지도에 여러 경로를 표시하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321750"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 다양한 이동 모드에 대한 경로 찾기 및 표시
 
@@ -160,11 +160,13 @@ ms.locfileid: "90085062"
 
     ```
 
+
     지도 컨트롤의 `ready` 이벤트 처리기에서 처음부터 끝까지의 경로를 저장하기 위해 데이터 원본이 만들어집니다. [식](data-driven-style-expressions-web-sdk.md)은 경로 선 기능의 속성에서 선 두께 및 색을 검색하는 데 사용됩니다. 경로 선이 도로 레이블을 포함하지 않도록 하기 위해 두 번째 매개 변수를 `'labels'` 값으로 전달했습니다.
 
     다음으로, 기호 계층이 생성되어 데이터 원본에 연결됩니다. 이 레이어는 출발 지점 및 도착 지점이 렌더링되는 방법을 지정합니다. 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 식에 대한 자세한 내용은 [데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)을 참조하세요.
 
 2. 출발 지점을 시애틀 소재의 Fabrikam이라는 가상 회사로 설정하고, 도착 지점을 Microsoft 본사로 설정합니다.  지도 컨트롤의 `ready` 이벤트 처리기에서 다음 코드를 추가합니다.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ ms.locfileid: "90085062"
 
     트럭 경로는 굵은 파란색 선으로 표시됩니다. 자동차 경로는 가는 자주색 선으로 표시됩니다. 자동차 경로는 I-90을 통해 워싱턴 호수를 가로질러 주거 지역 아래의 터널을 통과합니다. 터널은 주거 지역에 가깝기 때문에 위험한 폐기 화물은 제한됩니다. `USHazmatClass2` 화물 유형이 지정된 트럭 경로는 다른 고속 도로를 사용하도록 안내됩니다.
 
-    [여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)에서 확인할 수 있습니다.
+[여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)에서 확인할 수 있습니다.
+
+[데이터 기반 스타일 식을 사용](data-driven-style-expressions-web-sdk.md)할 수도 있습니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

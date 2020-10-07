@@ -1,20 +1,22 @@
 ---
-title: Face 서비스란?
+title: Azure Face 서비스란?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다.
+description: Azure Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용하는 AI 알고리즘을 제공합니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/01/2020
+ms.date: 9/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 1dc970a16c3b031b311c5b98ca43613d9ecf39d4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
+ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262487"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -23,16 +25,16 @@ ms.locfileid: "89421575"
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 시나리오의 예에는 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석 및 관리, 모바일 앱과 로봇 공학이 포함됩니다.
+Azure Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 AI 알고리즘을 제공합니다. 얼굴 인식 소프트웨어는 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석 및 관리, 모바일 앱, 로봇과 같은 다양한 시나리오에서 중요합니다.
 
-Face 서비스는 다음 섹션에 각각 설명된 여러 가지 기능을 제공합니다.
+Face 서비스는 다음 섹션에 각각 설명된 여러 가지 얼굴 분석 기능을 제공합니다.
 
 ## <a name="face-detection"></a>얼굴 감지
 
-Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 얼굴 감지는 필요에 따라 일련의 얼굴 관련 특성을 추출할 수 있습니다. 머리 자세, 성별, 연령, 감정, 수염, 안경 등이 그 예입니다.
+Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 필요에 따라 얼굴 감지는 머리 자세, 성별, 연령, 감정, 수염 및 안경과 같은 일련의 얼굴 관련 특성을 추출할 수 있습니다.
 
 > [!NOTE]
-> 얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 사용할 수도 있습니다. 얼굴 데이터를 사용하여 추가 작업을 수행하려면 이 문서에서 설명하는 서비스인 Face 서비스를 사용합니다.
+> 얼굴 감지 기능은 [Computer Vision 서비스](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 사용할 수도 있습니다. 그러나 얼굴 데이터를 사용하여 추가 작업을 수행하려는 경우에는 이 서비스를 대신 사용해야 합니다.
 
 ![얼굴 주위에 사각형이 그려지고 연령과 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
@@ -44,7 +46,9 @@ Verify API는 감지된 두 얼굴을 비교하여 인증하거나 하나의 감
 
 ## <a name="find-similar-faces"></a>유사 얼굴 찾기
 
-Find Similar API는 대상 얼굴을 여러 후보 얼굴과 비교하여 대상 얼굴과 비슷한 얼굴을 찾습니다. matchPerson 및 matchFace의 두 가지 작업 모드가 지원됩니다. matchPerson 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람을 필터링한 후에 유사한 얼굴을 표시합니다. matchFace 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 표시합니다.
+Find Similar API는 대상 얼굴과 일련의 후보 얼굴 간 얼굴 일치를 수행하고 대상 얼굴과 비슷해 보이는 몇 개의 얼굴을 찾습니다. 이는 이미지별 얼굴 검색을 수행하는 데 유용합니다. 
+
+**matchPerson** 및 **matchFace**의 두 가지 작업 모드가 지원됩니다. **matchPerson** 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람에 대해 필터링한 후 유사한 얼굴을 반환합니다. **matchFace** 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 표시합니다.
 
 다음 예제에서는 대상 얼굴을 보여 줍니다.
 
@@ -54,7 +58,7 @@ Find Similar API는 대상 얼굴을 여러 후보 얼굴과 비교하여 대상
 
 ![5개의 웃는 사람들의 이미지 a와 b 이미지는 동일한 사람을 보여 줍니다.](./Images/FaceFindSimilar.Candidates.jpg)
 
-4개의 유사한 얼굴을 찾기 위해 matchPerson 모드는 a와 b를 표시하며 동일한 사람을 대상 얼굴로 나타냅니다. matchFace 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c, d&mdash;를 정확히 표시합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
+4개의 유사한 얼굴을 찾기 위해 **matchPerson** 모드는 a와 b를 표시하며 동일한 사람을 대상 얼굴로 나타냅니다. **matchFace** 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c, d&mdash;를 정확히 표시합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
 
 ## <a name="face-grouping"></a>얼굴 그룹화
 
@@ -62,7 +66,7 @@ Group API는 알 수 없는 얼굴을 유사성에 따라 여러 그룹으로 �
 
 ## <a name="person-identification"></a>사람 식별
 
-Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는 데 사용됩니다. 이 기능은 사진 관리 소프트웨어에서 이미지 태그를 자동으로 지정하는 데 유용할 수 있습니다. 데이터베이스는 미리 만든 후에 시간이 지남에 따라 편집할 수 있습니다.
+Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는 데 사용됩니다(얼굴 인식 검색). 이 기능은 사진 관리 소프트웨어에서 이미지 태그를 자동으로 지정하는 데 유용할 수 있습니다. 데이터베이스는 미리 만든 후에 시간이 지남에 따라 편집할 수 있습니다.
 
 다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
 
@@ -89,6 +93,6 @@ Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 빠른 시작에 따라 코드에서 얼굴 감지 시나리오를 구현합니다.
+빠른 시작을 따라 사용자가 선택한 언어로 얼굴 인식 앱의 기본 구성 요소를 코딩합니다.
 
-- [빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지](quickstarts/csharp.md). 다른 언어도 사용할 수 있습니다.
+- [클라이언트 라이브러리 빠른 시작](quickstarts/client-libraries.md)

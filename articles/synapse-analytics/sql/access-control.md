@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289483"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>작업 영역, 데이터 및 파이프라인에 대한 액세스 관리
 
@@ -50,7 +50,7 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 2. Azure Data Lake Storage Gen2 계정으로 이동
 3. Azure Synapse 작업 영역에 대해 선택한 컨테이너(파일 시스템)로 이동
-4. **액세스 제어(IAM)** 클릭
+4. **액세스 제어(IAM)** 를 선택합니다.
 5. 다음 역할 할당:
    1. **읽기** 역할:  `Synapse_WORKSPACENAME_Users`
    2. **Storage BLOB 데이터 소유자** 역할:  `Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 
 1. [**Azure Synapse 웹 UI**](https://web.azuresynapse.net)로 이동
 2. **관리**  > **보안** > **액세스 제어**로 이동
-3. **관리자 추가**를 클릭하고 `Synapse_WORKSPACENAME_Admins` 선택
+3. **관리자 추가**를 선택하고 `Synapse_WORKSPACENAME_Admins`를 선택합니다.
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>4단계: 작업 영역에 대한 SQL 관리자 액세스 구성
 
 1. [Azure Portal](https://portal.azure.com)로 이동
 2. 작업 영역으로 이동
 3. **설정** > **Active Directory 관리자**로 이동
-4. **관리자 설정** 클릭
+4. **관리자 설정**을 선택합니다.
 5. `Synapse_WORKSPACENAME_Admins` 선택
-6. **선택** 클릭
-7. **저장** 클릭
+6. **선택**을 선택합니다.
+7. **저장**을 선택합니다.
 
 > [!NOTE]
 > WORKSPACENAME - 이 파트를 실제 작업 영역 이름으로 바꾸어야 합니다.

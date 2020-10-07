@@ -1,6 +1,6 @@
 ---
 title: Azure Table 스토리지 개요
-description: Azure Table Storage, NoSQL 데이터 스토리지를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
+description: Azure Table Storage를 사용하여 웹 애플리케이션, 주소록, 디바이스 정보 또는 기타 유형의 메타데이터에 대한 사용자 데이터와 같은 유연한 데이터 세트을 저장하는 방법을 알아봅니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abd88c3cdb54747c21ad8772860a3ed6929dbd15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76770731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318724"
 ---
 # <a name="azure-table-storage-overview"></a>Azure Table Storage 개요
 
@@ -30,7 +30,7 @@ Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 
-* [.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table 스토리지 시작](table-storage-how-to-use-dotnet.md)
+* [.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작](table-storage-how-to-use-dotnet.md)
 
 * 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서를 참조하세요.
 

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258135"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -59,13 +59,13 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 
 애플리케이션의 코드 또는 더 일반적으로 애플리케이션에서 사용되는 인증 라이브러리는 ID 플랫폼에서 받는 보안 토큰의 유효성을 검사할 때 클라이언트 ID를 한 가지 측면으로 사용합니다.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="앱 등록의 개요 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="애플리케이션 등록 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷":::
 
 ## <a name="add-a-redirect-uri"></a>리디렉션 URI 추가
 
 리디렉션 URI는 Microsoft ID 플랫폼에서 사용자의 클라이언트를 리디렉션하고 인증 후에 보안 토큰을 보내는 위치입니다.
 
-예를 들어 프로덕션 웹 애플리케이션에서 리디렉션 URI는 `https://contoso.com/auth-response`와 같이 앱이 실행되는 퍼블릭 엔드포인트인 경우가 많습니다. 일반적으로 개발 중에 앱을 로컬로 실행하는 엔드포인트(예: `https://127.0.0.1/auth-response`)를 추가합니다.
+예를 들어 프로덕션 웹 애플리케이션에서 리디렉션 URI는 `https://contoso.com/auth-response`와 같이 앱이 실행되는 퍼블릭 엔드포인트인 경우가 많습니다. 일반적으로 개발 중에 앱을 로컬로 실행하는 엔드포인트(예: `https://127.0.0.1/auth-response` 또는 `http://localhost/auth-response`)를 추가합니다.
 
 [플랫폼 설정](#configure-platform-settings)을 구성하여 등록된 애플리케이션에 대한 리디렉션 URI를 추가하고 수정합니다.
 
@@ -80,7 +80,7 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 1. **플랫폼 구성**에서 **플랫폼 추가**를 선택합니다.
 1. **플랫폼 구성**에서 애플리케이션 유형(플랫폼)에 대한 타일을 선택하여 설정을 구성합니다.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Azure Portal의 플랫폼 구성 창에 대한 스크린샷" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="애플리케이션 등록 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷" border="false":::
 
     | 플랫폼 | 구성 설정 |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하
 
 인증서와 클라이언트 암호(문자열)를 모두 자격 증명으로 기밀 클라이언트 앱 등록에 추가할 수 있습니다.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="앱 등록의 인증서 및 비밀 창을 보여 주는 Azure Portal에 대한 스크린샷":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="애플리케이션 등록 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷":::
 
 ### <a name="add-a-certificate"></a>인증서 추가
 

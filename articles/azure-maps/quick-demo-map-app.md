@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Maps를 사용하여 대화형 맵 검색'
-description: 검색 가능한 대화형 맵을 만드는 방법을 알아봅니다. Azure Maps 계정을 만들고, 기본 키를 가져오고, 웹 SDK를 사용하여 지도 애플리케이션을 설정하는 방법을 참조하세요.
+description: '빠른 시작: 검색 가능한 대화형 맵을 만드는 방법을 알아봅니다. Azure Maps 계정을 만들고, 기본 키를 가져오고, 웹 SDK를 사용하여 맵 애플리케이션을 설정하는 방법을 참조하세요.'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264289"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -62,7 +62,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 >[!NOTE]
 > 기본 키 대신 구독 키를 사용하면 맵이 제대로 렌더링되지 않습니다. 또한 보안을 위해 기본 키와 보조 키 사이를 회전하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)을 참조하세요.
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Azure Portal에서 기본 Key Azure Maps 키 가져오기":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="포털에서 Maps 계정 만들기":::
 
 ## <a name="download-the-demo-application"></a>데모 애플리케이션 다운로드
 
@@ -78,7 +78,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 4. 대화형 검색 환경을 사용해 봅니다. 웹 애플리케이션 데모의 왼쪽 위 모서리에 있는 검색 상자에서 **식당**을 검색합니다.
 5. 검색 상자 아래에 표시되는 주소와 위치의 목록 위로 마우스를 이동합니다. 지도의 해당 핀이 해당 위치에 대한 정보를 팝업하는 상태를 확인합니다. 프라이빗 비즈니스의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="대화형 맵 검색 웹 애플리케이션":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="포털에서 Maps 계정 만들기":::
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -92,17 +92,15 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 2. Azure Portal 페이지로 이동합니다. 기본 포털 페이지에서 **모든 리소스**를 선택합니다. 또는 왼쪽 위 모서리에 있는 메뉴 아이콘을 클릭합니다. **모든 리소스**를 선택합니다.
 3. Azure Maps 계정을 클릭합니다. 페이지 위쪽에서 **삭제**를 클릭합니다.
 
+더 많은 코드 예제 및 대화형 코딩 환경은 다음 가이드를 참조하세요.
+
+[Azure Maps 검색 서비스를 사용하여 주소 찾기](how-to-search-for-address.md)
+
+[Azure Maps 맵 컨트롤 사용](how-to-use-map-control.md)
+
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Azure Maps 계정을 만들고 데모 애플리케이션을 만들었습니다. Azure Maps에 대해 자세히 알아보려면 다음 자습서를 살펴보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Maps를 사용하여 주변 관심 지점 검색](tutorial-search-location.md)
-
-더 많은 코드 예제 및 대화형 코딩 환경은 다음 가이드를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Azure Maps 검색 서비스를 사용하여 주소 찾기](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Azure Maps 맵 컨트롤 사용](how-to-use-map-control.md)

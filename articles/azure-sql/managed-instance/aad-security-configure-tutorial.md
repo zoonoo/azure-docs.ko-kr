@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283873"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>자습서: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Managed Instance 보안
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ SQL Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![새로 추가된 로그인의 이름, principal_id, sid, 유형 및 type_desc를 보여 주는 S S M S 개체 탐색기의 결과 탭 스크린샷](./media/aad-security-configure-tutorial/native-login.png)
 
 자세한 내용은 [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)를 참조하세요.
 
@@ -153,13 +153,13 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
    - Active Directory - 암호
    - Active Directory - 통합 </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![인증 드롭다운에서 선택한 Active Directory - MFA 지원을 통한 유니버설 인증으로 S S M S에서 서버에 연결 대화 상자의 스크린샷](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      자세한 내용은 [유니버설 인증(Multi-Factor Authentication에 대한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조하세요.
 
 1. **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. 그러면 Multi-Factor Authentication 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![암호 입력 필드에 커서가 있는 Multi-Factor Authentication 로그인 창의 스크린샷](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. SSMS **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 1. 쿼리 창에서 다음 구문을 사용하여 다른 Azure AD 계정에 대한 로그인을 만듭니다.
@@ -222,7 +222,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 **MyMITestDB**라는 데이터베이스와 기본 권한만 있는 로그인을 만들었으므로 다음 단계는 해당 로그인에서 사용자를 만드는 것입니다. 지금은 로그인에서 관리되는 인스턴스에 연결하고 모든 데이터베이스를 볼 수 있지만, 데이터베이스와 상호 작용할 수는 없습니다. 기본 권한만 있는 Azure AD 계정으로 로그인하여 새로 만든 데이터베이스를 확장하려고 시도하면 다음 오류가 표시됩니다.
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+!["데이터베이스 MyMITestDB에 액세스할 수 없습니다 (ObjectExplorer)."라는 S S M S 개체 탐색기의 오류 메시지 스크린샷](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 데이터베이스 권한 부여에 대한 자세한 내용은 [데이터베이스 엔진 권한 시작](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)을 참조하세요.
 
@@ -326,7 +326,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 1. `db_datareader` 역할에 추가된 사용자로 관리되는 인스턴스에 대한 새 연결을 만듭니다.
 1. **개체 탐색기**에서 데이터베이스를 확장하여 테이블을 봅니다.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![MyMITestDB의 테이블에 대한 폴더 구조를 표시하는 S S M S의 개체 탐색기 스크린샷 dbo.TestTable 폴더가 강조 표시됩니다.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. 새 쿼리 창을 열고 다음 SELECT 문을 실행합니다.
 
@@ -337,7 +337,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
     테이블의 데이터를 볼 수 있습니까? 열이 반환되는 것을 볼 수 있습니다.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![테이블 열 머리글 AccountNum, City, Name 및 State를 보여 주는 S S M S 개체 탐색기의 결과 탭 스크린샷](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Azure AD 서버 수준 보안 주체(로그인) 가장
 

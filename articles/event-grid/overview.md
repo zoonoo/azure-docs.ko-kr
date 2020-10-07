@@ -2,13 +2,13 @@
 title: Azure Event Grid란?
 description: Azure Event Grid를 사용하여 원본에서 처리기로 이벤트 데이터를 보냅니다. 이벤트 기반 애플리케이션을 빌드하고 Azure 서비스와 통합합니다.
 ms.topic: overview
-ms.date: 07/07/2020
-ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326504"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -20,16 +20,17 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 
 이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 
 
-![원본 및 처리기의 Event Grid 모델](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="원본 및 처리기의 Event Grid 모델" lightbox="./media/overview/functional-model.png":::
 
 이 이미지는 Event Grid가 원본 및 처리기를 연결하는 방법을 보여 주지만, 지원되는 통합의 전체 목록은 아닙니다.
 
 ## <a name="event-sources"></a>이벤트 원본
 
-현재 다음 Azure 서비스는 Event Grid로 이벤트 보내기를 지원합니다.
+현재 다음 Azure 서비스는 Event Grid로 이벤트 보내기를 지원합니다. 목록에 있는 원본에 대한 자세한 내용을 보려면 링크를 선택하세요.
 
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)

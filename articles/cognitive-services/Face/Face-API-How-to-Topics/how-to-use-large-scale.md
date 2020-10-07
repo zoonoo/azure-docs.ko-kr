@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4667b810e4d3d5f13e13572e2420880da5a8a0b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332392"
 ---
 # <a name="example-use-the-large-scale-feature"></a>예제: 대규모 기능 사용
 
@@ -260,7 +260,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-데이터 관리 및 식별 관련 구현에 대한 자세한 내용은 [얼굴 추가](how-to-add-faces.md) 및 [이미지에서 얼굴 식별](HowtoIdentifyFacesinImage.md)을 참조하세요.
+데이터 관리 및 식별 관련 구현에 대한 자세한 내용은 [얼굴 추가](how-to-add-faces.md)를 참조하세요.
 
 ## <a name="summary"></a>요약
 
@@ -271,7 +271,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 
 ## <a name="next-steps"></a>다음 단계
 
-방법 가이드에 따라 PersonGroup에 얼굴을 추가하거나 PersonGroup에 대한 확인 작업을 실행하는 방법을 알아봅니다.
+방법 가이드에 따라 PersonGroup에 얼굴을 추가하거나 PersonGroup에서 식별 작업을 수행하는 스크립트를 작성하는 방법을 알아봅니다.
 
 - [얼굴 추가](how-to-add-faces.md)
-- [이미지에서 얼굴 식별](HowtoIdentifyFacesinImage.md)
+- [얼굴 클라이언트 라이브러리 빠른 시작](../Quickstarts/client-libraries.md)

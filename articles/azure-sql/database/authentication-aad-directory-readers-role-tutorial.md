@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: ca330357e88ff6f4824c74a6048769638542cc29
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278042"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>자습서: Azure AD 그룹에 디렉터리 읽기 권한자 역할 할당 및 역할 할당 관리
 
@@ -55,7 +55,7 @@ Azure SQL에 대한 Azure AD 그룹에 디렉터리 읽기 권한자 역할을 �
 
 그룹이 만들어졌는지 확인하고 관리하려면 Azure Portal에서 **그룹** 창으로 돌아가서 해당 그룹 이름을 검색합니다. 그룹을 선택한 후 **관리** 설정의 **소유자** 및 **구성원** 메뉴에서 소유자 및 구성원을 추가할 수 있습니다. 그룹에 **할당된 역할**을 검토할 수도 있습니다.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="azure-ad-group-created":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="새-그룹-추가":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>그룹에 Azure SQL 관리 ID 추가
 
@@ -68,17 +68,17 @@ Azure SQL에 대한 Azure AD 그룹에 디렉터리 읽기 권한자 역할을 �
 
 1. Azure Portal에서 **SQL 관리형 인스턴스** 리소스 이름을 찾습니다.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="azure-ad-managed-instance":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="새-그룹-추가":::
 
    SQL Managed Instance를 만드는 동안 인스턴스에 대한 Azure ID가 생성되었습니다. 생성된 ID의 이름은 SQL Managed Instance 이름의 접두사와 동일합니다. 다음 단계에 따라 Azure AD 애플리케이션으로 생성된 SQL Managed Instance ID의 서비스 주체를 찾을 수 있습니다.
 
     - **Azure Active Directory** 리소스로 이동합니다. **관리** 설정에서 **엔터프라이즈 애플리케이션**을 선택합니다. **개체 ID**는 인스턴스의 ID입니다.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="azure-ad-managed-instance-service-principal":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="새-그룹-추가":::
 
 1. **Azure Active Directory** 리소스로 이동합니다. **관리**에서 **그룹**으로 이동합니다. 앞에서 만든 그룹을 선택합니다. 그룹의 **관리** 설정에서 **구성원**을 선택합니다. **구성원 추가**를 선택하고, 위에서 찾은 이름을 검색하여 SQL Managed Instance 서비스 주체를 그룹 구성원으로 추가합니다.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="azure-ad-add-managed-instance-service-principal":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="새-그룹-추가":::
 
 > [!NOTE]
 > Azure 시스템을 통해 서비스 주체 권한을 전파하고 Azure AD Graph API에 대한 액세스를 허용하는 데 몇 분 정도 걸릴 수 있습니다. SQL Managed Instance에 대한 Azure AD 관리자를 프로비저닝하려면 몇 분 정도 기다려야 할 수 있습니다.

@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331814"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>자습서: 3ds Max에서 물리적 기반 렌더링 재질 설정
 
@@ -22,6 +22,10 @@ ms.locfileid: "90084467"
 > * 장면에서 고급 조명 모델을 사용하는 재질을 개체에 할당합니다.
 > * 개체 및 재질의 인스턴싱을 처리합니다.
 > * 장면을 FBX 형식으로 내보내고 중요한 옵션을 선택합니다.
+
+> [!Note]
+> 이 자습서에 설명된 절차는 3ds Max 2019 및 3ds Max 2020에서 작동합니다.
+> 3ds Max 2021에서 범프 맵을 내보내는 방법이 변경된 것은 해당 버전을 사용하는 경우 변환 서비스에서 일반 맵을 찾을 수 없음을 의미합니다.
 
 3ds Max에서 [PBR(물리적 기반 렌더링) 재질](../../overview/features/pbr-materials.md)을 만드는 작업은 비교적 간단합니다. Maya와 같은 다른 콘텐츠 만들기 앱에서 PBR을 설정하는 다양한 방법과 비슷합니다. 이 자습서는 Azure Remote Rendering 프로젝트의 기본 PBR 셰이더 설정 및 FBX 내보내기에 대한 지침입니다.
 

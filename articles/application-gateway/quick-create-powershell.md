@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331100"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Application Gateway를 통해 웹 트래픽 보내기
 
@@ -53,6 +53,8 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 1. `New-AzVirtualNetworkSubnetConfig`를 사용하여 서브넷 구성을 만듭니다.
 2. `New-AzVirtualNetwork`를 사용하여 서브넷 구성이 포함된 가상 네트워크를 만듭니다. 
 3. `New-AzPublicIpAddress`를 사용하여 공용 IP 주소를 만듭니다. 
+> [!NOTE]
+> [가상 네트워크 서비스 엔드포인트 정책](../virtual-network/virtual-network-service-endpoint-policies-overview.md)은 현재 Application Gateway 서브넷에서 지원되지 않습니다.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268455"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 하이퍼스케일(Citus) 서버 그룹 만들기
 
@@ -25,7 +25,7 @@ PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 Postg
 
 psql을 사용하여 하이퍼스케일 코디네이터 노드에 연결되면 기본 작업을 완료할 수 있습니다.
 
-하이퍼스케일 서버 내에는 다음과 같은 세 가지 유형의 테이블이 있습니다.
+하이퍼스케일(Citus) 서버 내에는 다음과 같은 세 가지 유형의 테이블이 있습니다.
 
 - 분산 또는 분할된 테이블(성능 및 병렬 처리를 향상하기 위해 분산)
 - 참조 테이블(여러 복사본 유지)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-다음으로, 코디네이터 노드의 이 Postgres 테이블을 가져오고, 이 테이블을 여러 작업 노드에 분할하라고 하이퍼스케일에 지시하겠습니다. 이렇게 하기 위해 각 테이블에 대해 테이블을 분할할 키를 지정하는 쿼리를 실행하겠습니다. 현재 예제에서는 이벤트 및 사용자 테이블을 `user_id`에 분할합니다.
+다음으로, 코디네이터 노드에 있는 Postgres 테이블을 가져와 여러 작업 노드에 분할하라고 하이퍼스케일(Citus)에 지시하겠습니다. 이렇게 하기 위해 각 테이블에 대해 테이블을 분할할 키를 지정하는 쿼리를 실행하겠습니다. 현재 예제에서는 이벤트 및 사용자 테이블을 `user_id`에 분할합니다.
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 지금까지 살펴본 쿼리는 오직 github\_events만 사용했지만, 이 정보를 github\_users와 결합할 수 있습니다. 사용자와 이벤트를 동일한 식별자(`user_id`)에 분할했기 때문에 사용자 ID가 일치하는 두 테이블의 행은 동일한 데이터베이스 노드에 [공동 배치](concepts-hyperscale-colocation.md)되며, 따라서 쉽게 조인할 수 있습니다.
 
-`user_id`에 조인하는 경우 하이퍼스케일은 조인 실행을 분할된 데이터베이스로 보내 여러 작업자 노드에서 병렬로 실행할 수 있습니다. 예를 들어 리포지토리를 가장 많이 만든 사용자를 찾아보겠습니다.
+`user_id`에 조인하는 경우 하이퍼스케일(Citus)은 조인 실행을 분할된 데이터베이스로 보내 여러 작업자 노드에서 병렬로 실행할 수 있습니다. 예를 들어 리포지토리를 가장 많이 만든 사용자를 찾아보겠습니다.
 
 ```sql
 SELECT gu.login, count(*)

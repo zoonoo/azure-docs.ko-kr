@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central의 아키텍처 개념 - 태양 전지판 | Microsoft Docs
-description: 이 문서에서는 Azure IoT Central의 아키텍처와 관련된 주요 개념을 소개합니다.
+description: 이 문서에서는 Azure IoT Central 태양 전지판 모니터링 앱의 아키텍처와 관련된 주요 개념을 소개합니다.
 author: op-ravi
 ms.author: omravi
 ms.date: 10/23/2019
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: f09a8cfae9b0f12df2ea76ecc216b1b2eb66e9ff
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316037"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - 태양 전지판 앱 아키텍처
 

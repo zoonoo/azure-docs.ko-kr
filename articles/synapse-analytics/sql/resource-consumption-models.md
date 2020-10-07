@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288225"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
@@ -29,7 +29,7 @@ SQL 주문형은 적절한 크기를 선택할 필요가 없는 쿼리당 과금
 
 ### <a name="data-warehouse-units"></a>데이터 웨어하우스 단위
 
-Synapse SQL 풀은 프로비저닝되는 분석 리소스 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이러한 세 가지 리소스는 DWU(데이터 웨어하우스 단위)라는 컴퓨팅 규모 단위의 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경하면 시스템에서 사용 가능한 DWU 수를 변경하여 시스템의 성능과 비용이 조정됩니다.
+Synapse SQL 풀은 프로비저닝되는 분석 리소스 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이러한 세 가지 리소스는 DWU(데이터 웨어하우스 단위)라는 컴퓨팅 규모 단위의 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경하면 시스템에 사용할 수 있는 DWU 수가 변경됩니다. 그러면 이 변경으로 인해 시스템의 성능과 비용이 조정됩니다.
 
 성능을 높이려면 데이터 웨어하우스 단위 수를 늘리면 됩니다. 성능을 낮추려면 데이터 웨어하우스 단위 수를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 DWU를 변경하는 방법은 다음과 같습니다.
 
-1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음, **크기 조정**을 선택합니다.
 
 2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. **저장**을 선택합니다. 확인 메시지가 표시됩니다. **예**를 선택하여 확인하거나 **아니요**를 선택하여 취소합니다.
 
 #### <a name="powershell"></a>PowerShell
 

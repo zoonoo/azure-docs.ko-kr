@@ -1,6 +1,6 @@
 ---
-title: '자습서: Microsoft Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법'
-description: Microsoft Azure Maps Route Service와 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법에 대해 알아봅니다.
+title: '자습서: 위치에 대한 경로 찾기 | Microsoft Azure Maps'
+description: 관심 지점까지의 경로를 찾는 방법에 대한 자습서. 주소 좌표를 설정하는 방법을 참조하고 Azure Maps Route 서비스를 쿼리하여 지점으로 가는 방향을 확인합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321716"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>자습서: Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법
 
@@ -143,7 +143,7 @@ ms.locfileid: "90085045"
 
     지도 컨트롤의 `ready` 이벤트 처리기에서 시작점부터 도착점까지의 경로를 저장하는 데이터 원본이 만들어집니다. 경로 선이 렌더링되는 방식을 정의하기 위해 선 계층을 만들어 데이터 원본에 연결합니다.  경로 선이 도로 레이블을 포함하지 않도록 하기 위해 두 번째 매개 변수를 `'labels'` 값으로 전달했습니다.
 
-    다음으로, 기호 계층이 생성되어 데이터 원본에 연결됩니다. 이 레이어는 시작 및 끝 지점이 렌더링되는 방식을 지정합니다. 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 식에 대한 자세한 내용은 [데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)을 참조하세요.
+    다음으로, 기호 계층이 생성되어 데이터 원본에 연결됩니다. 이 레이어는 출발 지점 및 도착 지점이 렌더링되는 방법을 지정합니다. 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 식에 대한 자세한 내용은 [데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)을 참조하세요.
 
 2. Microsoft를 시작점으로 설정하고, 시애틀의 주유소를 도착점으로 설정합니다.  지도 컨트롤의 `ready` 이벤트 처리기에서 다음 코드를 추가합니다.
 
@@ -218,7 +218,7 @@ ms.locfileid: "90085045"
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
 
-    [여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)에서 확인할 수 있습니다.
+[여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

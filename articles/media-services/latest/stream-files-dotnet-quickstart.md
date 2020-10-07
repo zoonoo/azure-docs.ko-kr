@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services를 사용한 비디오 파일 스트림 - .NET | Microsoft Docs
-description: 이 자습서의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
+description: 이 자습서의 단계에 따라 .NET을 사용하여 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩하고, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec60f775fbeb176f9442aff11117c85c5028a81f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268692"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - .NET
 
@@ -70,7 +70,7 @@ ms.locfileid: "89267091"
 1. Ctrl+F5를 눌러서 *EncodeAndStreamFiles* 애플리케이션을 실행합니다.
 2. Apple의 **HLS** 프로토콜(*manifest(format=m3u8-aapl)* 로 끝남)을 선택하고 콘솔에서 스트리밍 URL을 복사합니다.
 
-![출력](./media/stream-files-tutorial-with-api/output.png)
+![Azure Media Player에서 사용할 세 가지 스트리밍 URL을 보여주는 Visual Studio의 EncodeAndStreamFiles 앱 출력 스크린샷.](./media/stream-files-tutorial-with-api/output.png)
 
 샘플의 [소스 코드](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)에서 URL이 빌드된 방법을 볼 수 있습니다. 그것을 빌드하려면 스트리밍 엔드 포인트의 호스트 이름 및 스트리밍 로케이터 경로를 연결해야 합니다.  
 

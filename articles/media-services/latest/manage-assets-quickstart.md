@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261416"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>빠른 시작: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍
 
@@ -66,7 +66,7 @@ ms.locfileid: "89264932"
 
 자산 창으로 이동하면 새 자산이 목록에 추가된 것을 볼 수 있습니다.
 
-![업로드](./media/manage-assets-quickstart/upload.png)
+![자산(신규)을 선택하여 열리는 자산 창과 업로드 단추를 선택하여 추가한 새 자산을 보여주는 Azure Portal의 스크린샷.](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>인코딩
 
@@ -78,7 +78,7 @@ ms.locfileid: "89264932"
 
 자산 창으로 이동하면 출력 자산이 목록에 추가된 것을 볼 수 있습니다.
 
-![인코딩](./media/manage-assets-quickstart/encode.png)
+![자산 목록에 추가되어 인코딩된 ignite.mp4 Media Encoded Standard 자산을 보여주는 Azure Portal의 자산 창 스크린샷.](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>작업 진행률 모니터링
 

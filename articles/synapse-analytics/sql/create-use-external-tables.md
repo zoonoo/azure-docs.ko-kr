@@ -1,6 +1,6 @@
 ---
 title: SQL 주문형(미리 보기)에서 외부 테이블 만들기 및 사용
-description: 이 섹션에서는 SQL 주문형(미리 보기)에서 외부 테이블을 만들고 사용하는 방법에 대해 알아봅니다. 외부 테이블은 SQL 주문형에서 외부 데이터에 대한 액세스를 제어하고 Power BI와 같은 도구를 주문형 SQL과 함께 사용하려는 경우에 유용합니다.
+description: 이 섹션에서는 SQL 주문형(미리 보기)에서 외부 테이블을 만들고 사용하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289330"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 SQL 주문형(미리 보기)에서 외부 테이블 만들기 및 사용
 
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>다음 단계
 
-스토리지에 쿼리 결과를 저장하는 방법에 대한 자세한 내용은 [쿼리 결과를 스토리지에 저장](../sql/create-external-table-as-select.md)을 참조하세요.
+스토리지에 쿼리 결과를 저장하는 방법에 대한 자세한 내용은 [쿼리 결과를 스토리지에 저장](../sql/create-external-table-as-select.md) 문서를 참조하세요.

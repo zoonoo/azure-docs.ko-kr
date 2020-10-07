@@ -4,12 +4,12 @@ description: 이 자습서에서는 Kestrel을 사용하여 ASP.NET Core 프런�
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326238"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -354,7 +354,7 @@ if ($cert -eq $null)
 
 모든 파일을 저장하고 F5 키를 눌러 로컬에서 애플리케이션을 실행합니다.  애플리케이션이 배포되면 웹 브라우저에 https:\//localhost:443이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 
-![투표 애플리케이션][image2]
+![URL https://localhost/ 를 사용하여 브라우저 창에서 실행되는 Service Fabric 투표 샘플 앱의 스크린샷.][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>클러스터 노드에 인증서 설치
 
@@ -371,7 +371,7 @@ Azure에 애플리케이션을 배포하기 전에 모든 원격 클러스터 �
 > [!Warning]
 > 개발 및 테스트 애플리케이션은 자체 서명된 인증서로 충분합니다. 프로덕션 애플리케이션의 경우 자체 서명된 인증서 대신 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다.
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Azure 부하 분산 장치에서 포트 443 열기
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Azure 부하 분산 장치 및 가상 네트워크에서 포트 443 열기
 
 아직 열지 않은 경우 부하 분산 장치에서 포트 443을 엽니다.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+연결된 가상 네트워크에 대해 동일한 작업을 수행합니다.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 애플리케이션 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  애플리케이션을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
 
 애플리케이션이 배포되면 웹 브라우저를 열고 `https://mycluster.region.cloudapp.azure.com:443`(클러스터의 연결 엔드포인트로 URL 업데이트)으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 
-![투표 애플리케이션][image3]
+![URL https://mycluster.region.cloudapp.azure.com:443 을 사용하여 브라우저 창에서 실행되는 Service Fabric 투표 샘플 앱의 스크린샷.][image3]
 
 ## <a name="next-steps"></a>다음 단계
 

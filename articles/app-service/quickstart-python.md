@@ -2,25 +2,24 @@
 title: '빠른 시작: Python 앱 만들기'
 description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service를 시작하세요.
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: c64971303a2fefb25a73f0a8e8900c14ef05486c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+zone_pivot_groups: python-frameworks-01
+ms.openlocfilehash: 0ce995bddb89ce6aa1a550971fbcd92c6515d58e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264554"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
-이 빠른 시작에서는 확장성이 뛰어난 자체 패치 웹 호스팅 서비스인 [App Service on Linux](overview.md#app-service-on-linux)에 Python 앱을 배포합니다. Mac, Linux 또는 Windows 컴퓨터에서 로컬 [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용합니다. 구성하는 웹앱은 무료 App Service 계층을 사용하기 때문에 이 문서를 진행하는 동안 비용이 발생하지 않습니다.
+이 빠른 시작에서는 확장성이 뛰어난 자체 패치 웹 호스팅 서비스인 [App Service on Linux](overview.md#app-service-on-linux)에 Python 앱을 배포합니다. Mac, Linux 또는 Windows 컴퓨터에서 로컬 [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용하여 Flask 또는 Django 프레임워크로 샘플을 배포합니다. 구성하는 웹앱은 무료 App Service 계층을 사용하기 때문에 이 문서를 진행하는 동안 비용이 발생하지 않습니다.
 
 > [!TIP]
 > IDE를 통한 앱 배포를 선호하는 경우에는 **[Visual Studio Code에서 App Service에 Python 앱 배포](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** 를 참조하세요.
 
 ## <a name="set-up-your-initial-environment"></a>초기 환경 설정
-
-시작하기 전에 다음이 있어야 합니다.
 
 1. 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 이상</a>을 설치합니다.
@@ -68,77 +67,99 @@ az login
 
 ## <a name="clone-the-sample"></a>샘플 복제
 
-다음 명령을 사용하여 샘플 리포지토리를 복제한 다음, 폴더로 이동합니다. (git를 아직 설치하지 않은 경우 [git를 설치](https://git-scm.com/downloads)합니다.)
+다음 명령을 사용하여 샘플 리포지토리를 복제하고 샘플 폴더로 이동합니다. (git를 아직 설치하지 않은 경우 [git를 설치](https://git-scm.com/downloads)합니다.)
 
+::: zone pivot="python-framework-flask"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-cd python-docs-hello-world
 ```
 
-샘플 코드는 코드에 Flask 앱이 포함되었음을 App Service에 알려주는 *application.py* 파일을 포함합니다. 자세한 내용은 [컨테이너 시작 프로세스](configure-language-python.md#container-startup-process)를 참조하세요.
+그런 다음, 해당 폴더로 이동합니다.
+
+```terminal
+cd python-docs-hello-world
+```
+::: zone-end
+
+::: zone pivot="python-framework-django"
+```terminal
+git clone https://github.com/Azure-Samples/python-docs-hello-django
+```
+
+그런 다음, 해당 폴더로 이동합니다.
+
+```terminal
+cd python-docs-hello-django
+```
+::: zone-end
+
+이 샘플에는 Azure App Service가 앱을 시작할 때 인식하는 프레임워크 관련 코드가 포함되어 있습니다. 자세한 내용은 [컨테이너 시작 프로세스](configure-language-python.md#container-startup-process)를 참조하세요.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-# <a name="bash"></a>[Bash](#tab/bash)
+::: zone pivot="python-framework-flask"
+1. *python-docs-hello-world* 폴더에 있는지 확인합니다. 
 
-먼저 가상 환경을 만들고 종속성을 설치합니다.
+1. 가상 환경을 만들고 종속성을 설치합니다.
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-그런 다음, `FLASK_APP` 환경 변수를 앱의 진입 모듈로 설정하고 Flask 개발 서버를 실행합니다.
+    "[Errno 2] 해당하는 파일이나 디렉터리가 없습니다. 'requirements.txt'."라는 메시지가 표시되는 경우 *python-docs-hello-world* 폴더에 있는지 확인합니다.
 
-```
-export FLASK_APP=application.py
-flask run
-```
+1. 개발 서버를 실행합니다.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+    ```terminal  
+    flask run
+    ```
+    
+    기본적으로 서버는 샘플에서 사용되는 것처럼 앱의 진입 모듈이 *app.py*에 있다고 간주합니다. (다른 모듈 이름을 사용하는 경우 `FLASK_APP` 환경 변수를 해당 이름으로 설정합니다.)
 
-먼저 가상 환경을 만들고 종속성을 설치합니다.
+1. 웹 브라우저를 열고 `http://localhost:5000/`의 샘플 앱으로 이동합니다. 앱에 **Hello World!** 메시지가 표시됩니다.
 
-```powershell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-```
+    ![샘플 Python 앱을 로컬로 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    
+1. 터미널 창에서 **Ctrl**+**C**를 눌러 개발 서버를 종료합니다.
+::: zone-end
 
-그런 다음, `FLASK_APP` 환경 변수를 앱의 진입 모듈로 설정하고 Flask 개발 서버를 실행합니다.
+::: zone pivot="python-framework-django"
+1. *python-docs-hello-django* 폴더에 있는지 확인합니다. 
 
-```powershell
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
-```
+1. 가상 환경을 만들고 종속성을 설치합니다.
 
-# <a name="cmd"></a>[Cmd](#tab/cmd)
+    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-먼저 가상 환경을 만들고 종속성을 설치합니다.
+    "[Errno 2] 해당하는 파일이나 디렉터리가 없습니다. 'requirements.txt'."라는 메시지가 표시되는 경우 *python-docs-hello-django* 폴더에 있는지 확인합니다.
+    
+1. 개발 서버를 실행합니다.
 
-```cmd
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-```
+    # <a name="bash"></a>[Bash](#tab/bash)
 
-그런 다음, `FLASK_APP` 환경 변수를 앱의 진입 모듈로 설정하고 Flask 개발 서버를 실행합니다.
+    ```bash
+    python3 manage.py runserver
+    ```
 
-```cmd
-SET FLASK_APP=application.py
-flask run
-```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
----
+    ```powershell
+    py -3 manage.py runserver
+    ```
 
-웹 브라우저를 열고 `http://localhost:5000/`의 샘플 앱으로 이동합니다. 앱에 **Hello World!** 메시지가 표시됩니다.
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
 
-![샘플 Python 앱을 로컬로 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    ```cmd
+    py -3 manage.py runserver
+    ```
 
-터미널 창에서 **Ctrl**+**C**를 눌러 Flask 개발 서버를 종료합니다.
+    ---    
+
+1. 웹 브라우저를 열고 `http://localhost:8000/`의 샘플 앱으로 이동합니다. 앱에 **Hello World!** 메시지가 표시됩니다.
+
+    ![샘플 Python 앱을 로컬로 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    
+1. 터미널 창에서 **Ctrl**+**C**를 눌러 개발 서버를 종료합니다.
+::: zone-end
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -147,14 +168,15 @@ flask run
 `az webapp up` 명령을 사용하여 로컬 폴더(*python-docs-hello-world*)에 코드를 배포합니다.
 
 ```azurecli
-az webapp up --sku F1 -n <app-name>
+az webapp up --sku F1 --name <app-name>
 ```
 
-- `az` 명령을 인식할 수 없는 경우 [초기 환경 설정](#set-up-your-initial-environment)에 설명된 대로 Azure CLI가 설치되어 있어야 합니다.
+- `az` 명령이 인식되지 않는 경우 [초기 환경 설정](#set-up-your-initial-environment)에서 설명한 대로 Azure CLI가 설치되어 있는지 확인합니다.
+- `webapp` 명령이 인식되지 않는 경우 Azure CLI 버전이 2.0.80 이상이기 때문입니다. 그렇지 않은 경우 [최신 버전을 설치합니다](/cli/azure/install-azure-cli).
 - `<app_name>`을 모든 Azure에서 고유한 이름으로 바꿉니다(*유효한 문자는 `a-z`, `0-9` 및 `-`* ). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.
 - `--sku F1` 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 더 빠른 프리미엄 계층을 사용합니다. 이 경우 시간당 비용이 발생합니다.
-- `<location_name>`이 **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등과 같은 Azure 지역인 `-l <location-name>` 인수를 필요에 따라 포함할 수 있습니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
-- "앱의 런타임 스택을 자동으로 검색할 수 없습니다."라는 오류가 표시되면 *requirements.txt* 파일이 포함된 *python-docs-hello-world* 폴더에서 명령을 실행하고 있는지 확인합니다. ([az webapp up으로 자동 검색 문제 해결](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)(GitHub)을 참조하세요.)
+- 선택적으로 인수 `--location <location-name>`을 포함할 수 있습니다. 여기서 `<location_name>`은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
+- "앱의 런타임 스택을 자동으로 검색할 수 없습니다."라는 오류가 표시되면 *requirements.txt* 파일이 포함된 *python-docs-hello-world* 폴더(Flask) 또는 *python-docs-hello-django* 폴더(Django)에서 명령을 실행하고 있는지 확인합니다. ([az webapp up으로 자동 검색 문제 해결](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)(GitHub)을 참조하세요.)
 
 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 실행되는 동안 리소스 그룹, App Service 계획 및 호스팅 앱을 만들고, 로깅을 구성한 다음, ZIP 배포 수행에 대한 메시지를 제공합니다. 그런 다음, "http://&lt;app-name&gt;.azurewebsites.net에서 앱을 시작할 수 있습니다."라는 메시지를 제공합니다. 이 메시지는 Azure에서 앱의 URL입니다.
 
@@ -162,11 +184,11 @@ az webapp up --sku F1 -n <app-name>
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-[!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저에서 배포된 애플리케이션(URL: `http://<app-name>.azurewebsites.net`)으로 이동합니다.
+웹 브라우저에서 배포된 애플리케이션(URL: `http://<app-name>.azurewebsites.net`)으로 이동합니다. 처음에 앱을 시작하는 데 몇 분이 걸립니다.
 
 Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에서 Linux 컨테이너를 실행 중입니다.
 
@@ -178,17 +200,28 @@ Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에�
 
 ## <a name="redeploy-updates"></a>업데이트 재배포
 
-즐겨 찾는 코드 편집기에서 *application.py*를 열고 `hello` 함수를 다음과 같이 업데이트합니다. 이 변경 사항은 다음 섹션에서 작업하는 로깅 출력을 생성하기 위해 `print` 문을 추가합니다. 
+이 섹션에서는 작은 코드를 변경한 다음, 코드를 Azure에 다시 배포합니다. 코드 변경 사항은 다음 섹션에서 작업하는 로깅 출력을 생성하기 위해 `print` 문을 포함합니다.
+
+::: zone pivot="python-framework-flask"
+편집기에서 *app.py*를 열고 다음 코드와 일치하도록 `hello` 함수를 업데이트합니다. 
 
 ```python
 def hello():
     print("Handling request to home page.")
-    return "Hello Azure!"
+    return "Hello, Azure!"
 ```
+::: zone-end
+::: zone pivot="python-framework-django"
+편집기에서 *hello/views.py*를 열고 다음 코드와 일치하도록 `hello` 함수를 업데이트합니다.
 
-변경 내용을 저장하고 편집기를 종료합니다. 
-
-`az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
+```python
+def hello(request):
+    print("Handling request to home page.")
+    return HttpResponse("Hello, Azure!")
+```
+::: zone-end
+    
+변경 내용을 저장한 다음, `az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
 
 ```azurecli
 az webapp up
@@ -209,17 +242,19 @@ az webapp up
 
 앱 내부에서 생성되는 콘솔 로그와 앱이 실행되는 컨테이너에 액세스할 수 있습니다. 로그에는 `print` 문을 사용하여 생성된 모든 출력이 포함됩니다.
 
-로그를 스트리밍하려면 다음 명령을 실행합니다.
+로그를 스트리밍하려면 [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) 명령을 실행합니다.
 
 ```azurecli
 az webapp log tail
 ```
 
+`--logs` 매개 변수를 포함한 다음, `az webapp up` 명령을 포함하여 배포 시 로그 스트림을 자동으로 열 수 있습니다.
+
 브라우저에서 앱을 새로 고쳐서 콘솔 로그를 생성합니다. 여기에는 앱에 대한 HTTP 요청을 설명하는 메시지를 포함합니다. 출력이 즉시 표시되지 않으면 30초 후에 다시 시도합니다.
 
 `https://<app-name>.scm.azurewebsites.net/api/logs/docker`의 브라우저에서 로그 파일을 검사할 수도 있습니다.
 
-언제든지 로그 스트리밍을 중지하려면 **Ctrl**+**C**를 입력합니다.
+언제든지 로그 스트리밍을 중지하려면 터미널에서 **Ctrl**+**C**를 누릅니다.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -248,12 +283,12 @@ App Service 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니�
 나중에 이러한 리소스가 필요하지 않으면 다음 명령을 실행하여 리소스 그룹을 삭제합니다.
 
 ```azurecli
-az group delete
+az group delete --no-wait
 ```
 
 이 명령은 *.azure/config* 파일에 캐시된 리소스 그룹 이름을 사용합니다.
 
-이 명령을 완료하는 데 1분 정도 걸릴 수 있습니다.
+`--no-wait` 인수를 사용하면 작업이 완료되기 전에 명령을 반환할 수 있습니다.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -263,10 +298,10 @@ az group delete
 > [자습서: PostgreSQL을 사용하는 Python(Django) 웹앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Python 웹앱에 사용자 로그인 추가](../active-directory/develop/quickstart-v2-python-webapp.md)
+> [Python 앱 구성](configure-language-python.md)
 
 > [!div class="nextstepaction"]
-> [Python 앱 구성](configure-language-python.md)
+> [Python 웹앱에 사용자 로그인 추가](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
 > [자습서: 사용자 지정 컨테이너에서 Python 앱 실행](tutorial-custom-container.md)

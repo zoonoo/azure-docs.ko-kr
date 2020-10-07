@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66a322d4f60d9553a68207136ae609c1f9b50dbc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 715ed204e28d6260c28fa099b40fc78aa12de44d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73826211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281544"
 ---
 # <a name="what-is-opc-vault"></a>OPC 자격 증명 모음이란?
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 OPC 자격 증명 모음은 클라우드 내 OPC UA 서버 및 클라이언트 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있는 마이크로서비스입니다. 이 문서에서는 OPC 자격 증명 모음의 간단한 사용 사례를 설명합니다.
 
@@ -35,5 +38,4 @@ OPC 자격 증명 모음에는 인증서 레지스트리, 스토리지 및 수�
 
 이제 OPC Vault와 그 용도에 대해 파악했으므로, 권장되는 단계는 다음과 같습니다.
 
-> [!div class="nextstepaction"]
-> [OPC Vault 아키텍처](overview-opc-vault-architecture.md)
+[OPC 자격 증명 모음 아키텍처](overview-opc-vault-architecture.md)

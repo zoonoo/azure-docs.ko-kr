@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07244f28a345bc3290762c657c2189941009faac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249453"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Azure Synapse 작업 영역 관리 ID(미리 보기)
 
@@ -58,4 +58,4 @@ Azure Portal에서 관리 ID를 검색할 수 있습니다. Azure Portal에서 A
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Synapse 작업 영역 관리 ID에 권한 부여](./how-to-grant-workspace-managed-identity-permissions.md)
+[Azure Synapse 작업 영역 관리 ID에 권한 부여](./how-to-grant-workspace-managed-identity-permissions.md)에 대해 자세히 알아봅니다.

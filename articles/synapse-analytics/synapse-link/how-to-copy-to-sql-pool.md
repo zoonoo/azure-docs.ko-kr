@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287853"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Apache Spark를 사용하여 Azure Cosmos DB에서 SQL 풀로 데이터 복사
 
@@ -29,15 +29,15 @@ Azure Cosmos DB용 Azure Synapse Link를 사용하면 Azure Cosmos DB의 작동 
 * [Spark에서 SQL 풀로 데이터를 가져오도록 올바른 설정 수행](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>단계
-이 자습서에서는 트랜잭션 저장소에 영향을 주지 않도록 분석 저장소에 연결합니다(요청 단위를 사용하지 않음). 이제부터 다음과 같은 단계를 진행합니다.
+이 자습서에서는 트랜잭션 저장소에 영향을 주지 않도록 분석 저장소에 연결합니다(요청 단위를 사용하지 않음). 다음 단계를 수행합니다.
 1. Cosmos DB HTAP 컨테이너를 Spark 데이터 프레임으로 읽기
 2. 새 데이터 프레임에 결과 집계
 3. SQL 풀로 데이터 수집
 
-[![Spark에서 SQL 단계로](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Spark에서 SQL 1단계로](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>데이터
-이 예제에서는 **RetailSales**라는 HTAP 컨테이너를 사용합니다. **ConnectedData**라는 연결된 서비스의 일부이며 다음과 같은 스키마가 있습니다.
+이 예제에서는 **RetailSales**라는 HTAP 컨테이너를 사용합니다. **ConnectedData**라는 연결된 서비스의 일부이며, 다음과 같은 스키마가 있습니다.
 * _rid: string(nullable = true)
 * _ts: long(nullable = true)
 * logQuantity: double(nullable = true)
@@ -50,7 +50,7 @@ Azure Cosmos DB용 Azure Synapse Link를 사용하면 Azure Cosmos DB의 작동 
 * weekStarting: long(nullable = true)
 * _etag: string(nullable = true)
 
-보고 목적으로 *productCode* 및 *weekStarting*별로 판매(*수량*, *수익*(가격 x 수량))를 집계합니다. 마지막으로, 해당 데이터를 **dbo.productsales**라는 SQL 풀 테이블로 내보냅니다.
+보고용으로 *productCode* 및 *weekStarting*별로 판매(*수량*, *수익*(가격 x 수량))를 집계합니다. 마지막으로, 해당 데이터를 **dbo.productsales**라는 SQL 풀 테이블로 내보냅니다.
 
 ## <a name="configure-a-spark-notebook"></a>Spark Notebook 구성
 Scala as Spark(Scala)를 주 언어로 사용하여 Spark Notebook을 만듭니다. 세션에 Notebook의 기본 설정을 사용합니다.
@@ -97,7 +97,7 @@ SELECT  [productCode]
  FROM [dbo].[productsales]
 ```
 
-쿼리는 차트 모드에서 다음과 같은 결과를 제공합니다. [![Spark에서 SQL 단계로](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+쿼리는 차트 모드에서 다음과 같은 결과를 제공합니다. [![Spark에서 SQL 2단계로](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 * [Apache Spark를 사용하여 Azure Cosmos DB Analytical Store 쿼리](./how-to-query-analytical-store-spark.md)

@@ -3,13 +3,13 @@ title: 자습서 - 프라이빗 기본 이미지 업데이트에서 이미지 �
 description: 이 자습서에서는 다른 프라이빗 Azure 컨테이너 레지스트리의 기본 이미지가 업데이트될 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성합니다.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270970"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>자습서: 다른 프라이빗 컨테이너 레지스트리에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -171,7 +171,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 브라우저에서 `http://localhost:8080`으로 이동하면 다음과 비슷하게 웹 페이지에 렌더링된 Node.js 버전 번호가 표시됩니다. 이후 단계에서 버전 문자열에 "a"를 추가하여 버전을 범프합니다.
 
-![브라우저에서 렌더링된 샘플 애플리케이션의 스크린샷][base-update-01]
+![브라우저에서 렌더링된 샘플 애플리케이션을 보여주는 스크린샷.][base-update-01]
 
 컨테이너를 중지하고 제거하려면 다음 명령을 실행합니다.
 

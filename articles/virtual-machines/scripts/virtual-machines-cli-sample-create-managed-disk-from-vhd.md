@@ -1,5 +1,5 @@
 ---
-title: 동일한 계정에 있는 VHD 파일의 관리 디스크 - CLI 샘플
+title: 동일한 계정의 VHD 파일에서 관리 디스크 만들기 - CLI 샘플
 description: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 documentationcenter: storage
 author: ramankumarlive
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4d979830e622e68cd795f0137b96442a762daade
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: d0795f67390faec4a08882adb1f2b15efcbc6619
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274880"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli-linux"></a>CLI와 동일한 구독에 있는 스토리지 계정에 있는 VHD 파일에서 관리 디스크 만들기(Linux)
 

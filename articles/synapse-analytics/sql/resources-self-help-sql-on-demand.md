@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8bd955e844c9569438c5d35f152ba1bcdfccc306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288004"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 자가 진단
 
@@ -35,7 +35,7 @@ Synapse Studio가 SQL 주문형에 대한 연결을 설정할 수 없는 경우 
 
 '현재 리소스 제약 조건으로 인해 이 쿼리를 실행할 수 없습니다.'라는 오류 메시지와 함께 쿼리가 실패하는 경우에는 리소스 제약 조건으로 인해 현재 SQL 주문형이 쿼리를 실행할 수 없음을 의미입니다. 
 
-- 적절한 크기의 데이터 형식이 사용되는지 확인하세요. 또한 문자열 열의 Parquet 파일에 대한 스키마를 지정하세요. 기본적으로 VARCHAR(8000)입니다. 
+- 적절한 크기의 데이터 형식이 사용되는지 확인합니다. 또한 문자열 열의 Parquet 파일에 대한 스키마를 지정하세요. 기본적으로 VARCHAR(8000)입니다. 
 
 - 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-sql-on-demand-preview)를 고려해 보세요. 
 

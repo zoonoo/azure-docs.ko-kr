@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260855"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
@@ -23,7 +23,7 @@ Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Spark 작업을 사용하여 만든 데이터베이스는 작업 영역에 있는 모든 현재 및 미래의 Spark 풀(미리 보기)과 SQL 주문형 엔진에 동일한 이름으로 표시됩니다.
+Spark 작업을 사용하여 만든 데이터베이스는 SQL 주문형 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀(미리 보기)에 동일한 이름으로 표시됩니다.
 
 `default`라는 Spark 기본 데이터베이스는 SQL 주문형 컨텍스트에서 `default`라는 데이터베이스로도 표시됩니다.
 

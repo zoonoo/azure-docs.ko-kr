@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 265bc1bb86c7fe8424656aa9adb30ddbe847e6fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985661"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318598"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Azure Stack Edge Pro R이란?
 
-Azure Stack Edge Pro R은 Hardware-as-a-Service 솔루션입니다. Microsoft는 Azure로 네트워크 데이터를 전송할 수 있도록 내구성이 뛰어난 러기드 서버급 휴대용 에지 디바이스를 제공합니다. GPU(그래픽 처리 장치)가 장착된 이러한 디바이스는 AI, 분석 및 서버리스 컴퓨팅에 최적화되어 있습니다. 러기드 디바이스는 가혹한 환경에서 사용하기에 적합합니다.
+Azure Stack Edge Pro R은 가혹한 환경에서 사용하도록 설계된 러기드, 에지 컴퓨팅 디바이스입니다. Azure Stack Edge Pro R은 Hardware-as-a-Service 솔루션으로 제공됩니다. Microsoft는 네트워크 스토리지 게이트웨이의 역할을 하고 가속화된 AI 추론을 사용하는 GPU(그래픽 처리 디바이스)가 기본 제공되는 클라우드 관리 디바이스를 제공합니다.
 
 이 문서에서는 Azure Stack Edge Pro R 솔루션의 개요, 주요 기능 및 이 디바이스를 배포할 수 있는 시나리오를 소개합니다.
 
@@ -28,14 +28,13 @@ Azure Stack Edge Pro R의 기능은 다음과 같습니다.
 
 |기능 |Description  |
 |---------|---------|
-|러기드 하드웨어| 가혹한 환경을 견디도록 설계된 러기드 서버급 하드웨어입니다. 2인용 이동 케이스에 넣어서 가지고 다니는 휴대용 디바이스입니다. |
+|러기드 하드웨어| 가혹한 환경을 견디도록 설계된 러기드 서버급 하드웨어입니다. 휴대용 전송 사례에 포함된 디바이스입니다. |
 |클라우드 관리     |디바이스 및 서비스는 Azure Portal를 통해 관리됩니다.|
 |Edge 컴퓨팅 워크로드   |데이터를 분석, 처리, 필터링할 수 있습니다. VM 및 컨테이너화된 워크로드를 지원합니다.|
 |가속 AI 유추| Nvidia T4 GPU에서 사용됩니다.|
-|고성능 | 고성능 컴퓨팅 및 데이터 전송|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다. 디바이스의 로컬 캐시는 가장 최근에 사용한 파일에 빠르게 액세스하는 데 사용됩니다.|
 |연결 해제 모드| 필요한 경우 Azure Stack Hub를 통해 디바이스와 서비스를 관리할 수 있습니다. 오프라인 모드에서 애플리케이션을 배포, 실행, 관리합니다. <br> 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
-|지원되는 프로토콜     |데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro R 시스템 요구 사항](azure-stack-edge-gpu-system-requirements.md)을 참조하세요.|
+|지원되는 파일 전송 프로토콜     |데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro R 시스템 요구 사항](azure-stack-edge-gpu-system-requirements.md)을 참조하세요.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
 |이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
@@ -61,13 +60,13 @@ Azure Stack Edge Pro R의 기능은 다음과 같습니다.
 
 Azure Stack Edge Pro R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge Pro R 러기드 디바이스, 물리적 디바이스 및 로컬 웹 UI로 구성됩니다.
 
-- **Azure Stack Edge Pro R 물리적 디바이스** - Azure Stack Edge Pro R은 Azure로 데이터를 보내도록 구성할 수 있는 1노드 디바이스입니다. 이 디바이스는 Microsoft에서 제공하는 러기드 케이스로 보호되는 1U 서버입니다. 필요에 따라 서버를 UPS와 함께 사용할 수 있습니다(마찬가지로 1U).
+- **Azure Stack Edge Pro R 물리적 디바이스** - 러기드 전송 사례에 포함된 1-노드 컴퓨팅 및 스토리지 디바이스입니다. 선택적 UPS(무정전 전원 공급 장치)도 사용할 수 있습니다.
 
     ![Azure Stack Edge Pro R 1노드 디바이스](media/azure-stack-edge-j-series-overview/device-image-1.png)
 
 - **Azure Stack Edge 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 러기드 Azure Stack Edge Pro R 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Azure Stack Edge 리소스를 사용하여 리소스를 생성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
 
-- **Azure Stack Edge Pro R 로컬 웹 UI** - 디바이스 초기 구성에 로컬 웹 UI를 사용하여 진단을 실행하고, Azure Stack Edge Pro R 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, Microsoft 지원에 연락하여 서비스를 요청하세요.
+- **Azure Stack Edge Pro R 로컬 웹 UI** - 주로 디바이스의 초기 구성에 사용되는 Azure Stack Edge Pro R 디바이스의 브라우저 기반 로컬 사용자 인터페이스입니다. 로컬 웹 UI를 사용하여 진단을 실행하고, Azure Stack Edge Pro 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, Microsoft 지원에 연락하여 서비스를 요청하세요.
 
 
 ## <a name="region-availability"></a>지역 가용성
@@ -75,6 +74,8 @@ Azure Stack Edge Pro R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge
 데이터를 전송하는 Azure Stack Edge Pro R 물리적 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 같은 지역에 있지 않아도 됩니다.
 
 - **리소스 가용성** - Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동합니다. 
+
+- **디바이스 가용성** - Azure Stack Edge Pro R 디바이스를 사용할 수 있는 모든 국가 목록을 보려면 [Azure Stack Edge Pro R 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR)의 **Azure Stack Edge Pro R**탭에서 **가용성** 섹션으로 이동합니다.
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro R 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 

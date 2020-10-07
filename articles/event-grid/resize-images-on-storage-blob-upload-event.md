@@ -3,12 +3,12 @@ title: '자습서: Azure Event Grid를 사용하여 업로드된 이미지 크�
 description: '자습서: Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86105798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326595"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -20,11 +20,11 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![\.NET v12 SDK용 브라우저에 게시된 웹앱을 보여주는 스크린샷.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![\.NET v10 SDK용 브라우저에 게시된 웹앱을 보여주는 스크린샷.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -263,7 +263,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 1.  **통합**을 선택한 다음, **Event Grid 트리거**를 선택하고 **Event Grid 구독 만들기**를 선택합니다.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Azure Portal에서 Event Grid 구독 추가로 이동" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="포털에서 썸네일 함수 선택" :::
 
 1. 표에 지정된 대로 이벤트 구독 설정을 사용합니다.
     
@@ -301,7 +301,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 업로드된 이미지가 사라진 후에는 업로드된 이미지의 사본이 **생성된 미리 보기** 카루셀에 표시됩니다. 이 이미지는 함수를 통해 크기 조정되어 *썸네일* 컨테이너에 추가되었으며 웹 클라이언트가 다운로드한 것입니다.
 
-![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![\.NET v12 SDK용 브라우저에 "ImageResizer"라는 제목의 게시된 웹앱을 보여주는 스크린샷.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 

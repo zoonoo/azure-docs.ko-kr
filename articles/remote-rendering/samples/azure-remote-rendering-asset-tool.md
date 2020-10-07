@@ -1,16 +1,16 @@
 ---
 title: Azure Remote Rendering 자산 도구
-description: 소개 애플리케이션을 보관하는 GitHub 리포지토리에 연결
+description: C++/Qt에서 개발된 오픈 소스 데스크톱 애플리케이션인 ARRT(Azure Remote Rendering 자산 도구)에 대해 알아봅니다.
 author: mafranc
 ms.author: mafranc
 ms.date: 06/09/2020
 ms.topic: sample
-ms.openlocfilehash: c02bb46cfdfa37fed7f9c9cc2ad3c2a426547ce8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e20d21f1f8b58b69ee760fd4e95d6f194e13105a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322175"
 ---
 # <a name="azure-remote-rendering-asset-tool-arrt"></a>ARRT(Azure Remote Rendering 자산 도구)
 

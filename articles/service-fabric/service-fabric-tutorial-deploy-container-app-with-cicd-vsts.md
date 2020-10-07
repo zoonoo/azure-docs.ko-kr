@@ -4,12 +4,12 @@ description: 이 자습서에서는 Visual Studio Azure DevOps를 사용하여 A
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
-ms.openlocfilehash: 498513d1e31108d633de8165b2684dffbebdf37d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bb0eb9226a99f139ff10a8da12a1e22017536c67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326306"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 컨테이너 애플리케이션 배포
 
@@ -46,11 +46,11 @@ Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 �
 
 **팀 탐색기**의 **푸시** 보기에서 **Azure DevOps에 푸시** 아래에 있는 **Git 리포지토리 게시** 단추를 선택합니다.
 
-![Git 리포지토리 푸시][push-git-repo]
+![Visual Studio의 팀 탐색기 - 동기화 창 스크린샷. Azure DevOps로 푸시 아래에서 Publish to Git Repo 단추가 강조 표시됩니다.][push-git-repo]
 
 사용자의 이메일을 확인하고 **계정** 드롭다운에서 조직을 선택합니다. 아직 없는 경우 조직을 설정해야 합니다. 리포지토리 이름을 입력하고 **리포지토리 게시**를 선택합니다.
 
-![Git 리포지토리 푸시][publish-code]
+![Azure DevOps로 푸시 창의 스크린샷. 이메일, 계정, 리포지토리 이름 및 리포지토리 게시 단추에 대한 설정이 강조 표시됩니다.][publish-code]
 
 리포지토리를 게시하면 사용자 계정에 로컬 리포지토리와 같은 이름으로 새 팀 프로젝트가 만들어집니다. 기존 팀 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆에서 **고급**을 클릭하고 팀 프로젝트를 선택합니다. **See it on the web(웹에서 보기)** 을 선택하여 웹에서 코드를 볼 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure DevOps에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 
 배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 &quot;1.0.0.20170815.3&quot;입니다.
 
-![Service Fabric Explorer][sfx1]
+![Service Fabric Explorer의 투표 앱 스크린샷. Essentials 탭에서 앱 버전 "1.0.0.20170815.3"이 강조 표시됩니다.][sfx1]
 
 ## <a name="update-the-application"></a>애플리케이션 업데이트
 
@@ -166,11 +166,11 @@ Azure DevOps에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 
 애플리케이션 업그레이드가 시작되면 Service Fabric Explorer에서 업그레이드 진행률을 확인할 수 있습니다.
 
-![Service Fabric Explorer][sfx2]
+![Service Fabric Explorer의 투표 앱 스크린샷. "업그레이드 진행 중" 메시지가 강조 표시되고 앱 상태가 "업그레이드"로 표시됩니다.][sfx2]
 
 애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 애플리케이션이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
 
-![Service Fabric Explorer][sfx3]
+![Service Fabric Explorer의 투표 앱 스크린샷. Essentials 탭에서 업데이트된 앱 버전 "1.0.0.20170815.4"가 강조 표시됩니다.][sfx3]
 
 ## <a name="next-steps"></a>다음 단계
 

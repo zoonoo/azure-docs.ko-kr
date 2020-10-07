@@ -4,18 +4,18 @@ description: Azure Blockchain Service용 Blockchain Data Manager를 사용하여
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79533184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283459"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>자습서: Blockchain Data Manager를 사용하여 Azure Cosmos DB로 데이터 보내기
 
 이 자습서에서는 Azure Blockchain Service에 Blockchain Data Manager를 사용하여 블록체인 트랜잭션 데이터를 Azure Cosmos DB에 기록합니다. Blockchain Data Manager는 블록체인 데이터를 캡처하고, 변환하고, Azure Event Grid 토픽으로 전송합니다. Azure Event Grid에서 Azure 논리 앱 커넥터를 사용하여 Azure Cosmos DB 데이터베이스에 문서를 만듭니다. 이 자습서를 완료하면 Azure Cosmos DB Data Explorer에서 블록체인 트랜잭션 데이터를 검색할 수 있습니다.
 
-[![블록체인 트랜잭션 세부 정보](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![스크린샷은 블록체인 트랜잭션 세부 정보를 보여줍니다.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -271,7 +271,7 @@ Blockchain Data Manager를 Azure Cosmos DB에 연결했으므로, 이제 Cosmos 
 
 1. 항목 ID를 선택하여 메시지를 찾아보면서 트랜잭션 해시가 일치하는 메시지를 찾습니다.
 
-    [![블록체인 트랜잭션 세부 정보](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![스크린샷은 선택한 항목의 블록체인 트랜잭션 세부 정보를 보여줍니다.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     원시 트랜잭션 메시지는 트랜잭션에 대한 세부 정보를 포함하고 있습니다. 그러나 속성 정보는 암호화됩니다.
 

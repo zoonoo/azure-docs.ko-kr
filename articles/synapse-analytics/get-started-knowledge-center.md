@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 47b8c45e22569cc758d00fb8534f409ecebf58ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299934"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -46,7 +46,6 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 실행을 클릭합니다. 선택한 텍스트가 실행됩니다.
 
 ## <a name="loading-more-nyc-taxi-data"></a>더 많은 NYC Taxi 데이터 로드
-
 1. **지식 센터**에서 **브라우저에서 사용할 수 있는 샘플**을 클릭합니다. 
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.
 1. **New York Taxicab 데이터 세트 로드**를 선택합니다.
@@ -58,5 +57,6 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [SQL 풀을 사용하여 분석](get-started-analyze-sql-pool.md)
+* [Azure Synapse Analytics 시작](get-started.md)
+* [작업 영역 만들기](quickstart-create-workspace.md)
+* [SQL 주문형 사용](quickstart-sql-on-demand.md)
