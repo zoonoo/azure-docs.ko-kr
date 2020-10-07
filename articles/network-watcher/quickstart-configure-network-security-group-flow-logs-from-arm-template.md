@@ -10,10 +10,10 @@ ms.date: 07/22/2020
 ms.author: damendo
 ms.custom: subject-armqs
 ms.openlocfilehash: 7d8cb89b1187bb15e7b361e1b6b9505400c612b5
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87986320"
 ---
 # <a name="quickstart-configure-nsg-flow-logs-from-arm-template"></a>빠른 시작: ARM 템플릿에서 NSG 흐름 로그 구성

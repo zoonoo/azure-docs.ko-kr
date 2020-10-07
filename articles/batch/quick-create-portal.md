@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
 ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88511374"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 Batch 작업 실행
@@ -97,7 +97,7 @@ Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다
 
 만든 예제 작업은 몇 분 안에 완료됩니다. 완료된 작업의 출력을 보려면 작업을 선택한 다음, **노드의 파일**을 선택합니다. 작업의 표준 출력을 보려면 `stdout.txt` 파일을 선택합니다. 내용은 다음과 비슷합니다.
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="완료된 작업의 출력 스크린샷.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Azure Marketplace의 Batch Service 스크린샷.":::
 
 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업 및 태스크를 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다.
 

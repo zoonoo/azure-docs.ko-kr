@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851939"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure API for FHIR 배포
@@ -37,13 +37,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **만들기**를 선택하여 새 Azure API for FHIR 계정을 만듭니다.
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Azure API for FHIR 계정 만들기":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Healthcare API 검색":::
 
 ## <a name="enter-account-details"></a>계정 세부 정보 입력
 
 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고, 계정에 대한 이름을 선택하고, 마지막으로 **검토 + 만들기**를 클릭합니다.
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="새 의료 API 세부 정보":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Healthcare API 검색":::
 
 만들기를 확인하고 FHIR API 배포를 기다립니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **다음: 추가 설정**을 클릭하여 인증 설정을 볼 수도 있습니다. Azure API for FHIR의 기본 구성은 [데이터 평면 역할 할당에 Azure RBAC를 사용](configure-azure-rbac.md)하는 것입니다. 이 모드에서 구성된 경우 FHIR 서비스에 대한 "권한"이 구독의 Azure Active Directory 테넌트로 설정됩니다.
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="기본 인증 설정":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Healthcare API 검색":::
 
 이 경우 역할 할당을 구성하는 데 Azure RBAC를 사용하기 때문에 허용된 개체 ID를 입력하는 상자가 회색으로 표시됩니다.
 

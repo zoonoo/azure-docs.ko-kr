@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용�
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056383"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
@@ -94,7 +94,7 @@ Resource Graph 쿼리 예제와 Resource Graph Explorer를 사용하여 Azure Po
 
 - [Resource Graph Explorer - 샘플 대시보드 #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="샘플 대시보드 #2의 이미지 예제" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="샘플 대시보드 #1의 이미지 예제" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > 위의 대시보드 예제 스크린샷의 개수 및 차트는 Azure 환경에 따라 달라집니다.
