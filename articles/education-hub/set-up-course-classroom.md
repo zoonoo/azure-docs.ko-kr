@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 0b797e2416b4d8849da19e4e75127f86a6f17322
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87101338"
 ---
 # <a name="quickstart-set-up-a-course-and-create-a-classroom"></a>빠른 시작: 과정 설정 및 클래스룸 만들기
@@ -45,17 +45,17 @@ ms.locfileid: "87101338"
 
 1. 테이블의 왼쪽 위 모서리에서 **+ 추가** 아이콘을 선택하여 만들기 워크플로를 시작합니다.
 
-    :::image type="content" source="media/set-up-course-classroom/courses-add.png" alt-text="Azure Education Hub에 과정 추가" border="false":::
+    :::image type="content" source="media/set-up-course-classroom/courses-add.png" alt-text="Azure Education Hub 과정 페이지" border="false":::
 
 1. 두 가지 방법을 사용하여(명단을 업로드하거나 초대 코드를 사용하여) 과정 명단을 만들 수 있습니다
     - **명단**: 모든 학생의 이름과 로그인이 이미 있으면 명단 파일을 채우고 업로드할 수 있습니다. 명단을 업로드하는 데 필요한 .csv 파일의 샘플 파일을 다운로드하려면 오른쪽 위 모서리에서 **샘플 파일 다운로드** 링크를 선택합니다.
     - **초대 코드**: 초대 코드를 사용하기로 선택한 경우, 사용할 수 있는 코드 수와 만료 시기를 결정합니다. 코드를 사용하도록 학생에게 다음 링크를 보냅니다. https://aka.ms/joinedu
 
-      :::image type="content" source="media/set-up-course-classroom/enter-invitation-code.png" alt-text="Azure Education Hub에 초대 코드 입력" border="false":::
+      :::image type="content" source="media/set-up-course-classroom/enter-invitation-code.png" alt-text="Azure Education Hub 과정 페이지" border="false":::
 
 1. 오른쪽 아래 모서리에서 **클래스룸 만들기**를 선택합니다. 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-   :::image type="content" source="media/set-up-course-classroom/create-classroom.png" alt-text="Azure Education Hub에서 클래스룸 만들기" border="false":::
+   :::image type="content" source="media/set-up-course-classroom/create-classroom.png" alt-text="Azure Education Hub 과정 페이지" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

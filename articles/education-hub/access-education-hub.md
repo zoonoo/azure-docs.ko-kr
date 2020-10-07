@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 995956e23e211d2182159f6e61abbbf184983ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87101274"
 ---
 # <a name="accessing-the-azure-education-hub"></a>Azure Education Hub 액세스
@@ -32,7 +32,7 @@ Azure Education Hub에 액세스하려면 교육용 권한 부여이 승인되�
    > [!IMPORTANT]
    > 조직/회사 계정(예: 교육 기관의 @domain.edu)을 사용하여 로그인하고 있는지 확인합니다. 확인했으면, 먼저 창의 왼쪽에서 이 옵션을 선택합니다. 그러면 다른 로그인 화면으로 이동합니다.
 
-    :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="조직 로그인 대화 상자." border="false":::
+    :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="개인 브라우저 창을 엽니다." border="false":::
 
 1. 로그인하면 Azure Portal로 이동합니다. Education Hub를 찾으려면 **모든 서비스** 메뉴로 이동하여 **Education**을 검색합니다.
    처음 로그인하면 시작 페이지가 표시됩니다.

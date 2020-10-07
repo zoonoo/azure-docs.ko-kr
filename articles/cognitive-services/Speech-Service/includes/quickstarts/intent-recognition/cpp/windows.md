@@ -7,13 +7,13 @@ ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87298826"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에:
 
@@ -74,7 +74,7 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
 
-이 예제에서는 `AddIntent()` 함수를 사용하여 개별적으로 의도를 추가합니다. 모델에서 모든 의도를 추가하려면 `AddAllIntents(model)`를 사용하고 모델을 전달합니다.
+이 예제에서는 `AddIntent()` 함수를 사용하여 개별적으로 의도를 추가합니다. 모델에서 모든 의도를 추가하려면 `AddAllIntents(model)`을(를) 사용하고 모델을 전달합니다.
 
 ## <a name="recognize-an-intent"></a>의도 인식
 

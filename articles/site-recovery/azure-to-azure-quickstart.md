@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135705"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>빠른 시작: 보조 Azure 지역에 Azure VM의 재해 복구 설정
@@ -48,7 +48,7 @@ ms.locfileid: "86135705"
 1. **작업**에서 **재해 복구**를 선택합니다.
 1. **개요**에서 복제 세부 정보를 보려면 **Essentials**를 선택합니다. 자세한 내용은 **Health 및 상태**, **장애 조치(failover) 준비** 및 **인프라 보기** 맵에 표시되어 있습니다.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="복제 상태.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="복제를 사용하도록 설정합니다.":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -65,7 +65,7 @@ ms.locfileid: "86135705"
 1. **개요**에서 **복제 사용 안 함**을 선택합니다.
 1. Site Recovery 확장을 제거하려면 VM의 **설정** > **확장**으로 이동합니다.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="복제를 사용하지 않도록 설정합니다.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="복제를 사용하도록 설정합니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

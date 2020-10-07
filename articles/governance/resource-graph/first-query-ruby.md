@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 단계에 따라 Ruby용 Resource Graph 
 ms.date: 07/12/2020
 ms.topic: quickstart
 ms.openlocfilehash: 9763e2e9ec49d6fb4ea37fac12578ab23b7b5363
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87101141"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>빠른 시작: Ruby를 사용하여 첫 번째 Resource Graph 쿼리 실행
