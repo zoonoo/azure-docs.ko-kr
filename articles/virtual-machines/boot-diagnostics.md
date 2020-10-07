@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287086"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813239"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -25,12 +25,14 @@ Azure Portal에서 VM을 만들 때 부트 진단은 기본적으로 사용 하�
 
 > [!IMPORTANT]
 > Azure 고객에 게는 10 월 2020 일까 지 관리 저장소 계정을 사용 하는 부팅 진단과 관련 된 저장소 비용이 청구 되지 않습니다.
+>
+> 로그와 스냅숏 이미지를 구성 하는 부팅 진단 데이터 blob은 관리 저장소 계정에 저장 됩니다. 고객은 디스크의 프로 비전 된 크기가 아닌 blob에서 사용 된 Gid에 대해서만 요금이 부과 됩니다. 스냅숏 미터는 관리 되는 저장소 계정의 요금 청구에 사용 됩니다. 관리 되는 계정은 표준 LRS 또는 표준 ZRS에 만들어지므로, 고객은 진단 데이터 blob의 크기에 대해서만 매월 $0.05/GB로 요금이 청구 됩니다. 이 가격에 대 한 자세한 내용은 [Managed disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요. 고객은 VM 리소스 URI에 연결 되는이 요금을 볼 수 있습니다. 
 
 ## <a name="boot-diagnostics-view"></a>부트 진단 보기
 가상 컴퓨터 블레이드에 있는 부팅 진단 옵션은 Azure Portal의 *지원 및 문제 해결* 섹션 아래에 있습니다. 부트 진단을 선택 하면 스크린샷 및 일련 로그 정보가 표시 됩니다. 직렬 로그는 커널 메시징을 포함 하 고 스크린샷은 Vm의 현재 상태에 대 한 스냅숏입니다. VM에서 Windows 또는 Linux를 실행 하 고 있는지 여부에 따라 예상 되는 스크린샷은 어떻게 나타나는지 결정 합니다. Windows의 경우 사용자에 게 데스크톱 배경 및 Linux가 표시 됩니다. 사용자에 게 로그인 프롬프트가 표시 됩니다.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Linux 부팅 진단 스크린샷":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Windows 부팅 진단 스크린샷":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Linux 부팅 진단 스크린샷":::
 
 
 ## <a name="limitations"></a>제한 사항

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118623"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812542"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -112,5 +112,4 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ## <a name="learn-more"></a>자세한 정보
 
-* [샘플 콘솔 애플리케이션](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)을 사용하여 직접 ROPC를 사용해 보세요.
-* v2.0 엔드포인트를 사용해야 하는지 확인하려면 [Microsoft ID 플랫폼 제한 사항](../azuread-dev/azure-ad-endpoint-comparison.md)을 참조하세요.
+ROPC 사용에 대 한 예제는 GitHub의 [.Net Core 콘솔 응용 프로그램](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) 코드 샘플을 참조 하세요.

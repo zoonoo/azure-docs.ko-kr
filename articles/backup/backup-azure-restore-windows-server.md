@@ -3,12 +3,12 @@ title: MARS 에이전트를 사용하여 Windows Server로 파일 복원
 description: 이 문서에서는 Microsoft MARS(Azure Recovery Services) 에이전트를 사용하여 Azure에 저장된 데이터를 Windows 서버 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178560"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813256"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>MARS 에이전트를 사용하여 Windows Server로 파일 복원
 
@@ -107,7 +107,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 5. 샘플 자격 증명 모음에 해당하는 자격 증명 모음 파일을 제공하고 **다음**을 선택합니다.
 
-    자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 샘플 자격 증명 모음에서 새 자격 증명 모음 파일을 다운로드합니다. 유효한 자격 증명 모음을 입력하면 해당하는 백업 자격 증명 모음의 이름이 나타납니다.
+    자격 증명 모음 파일이 잘못 되었거나 만료 된 경우 Azure Portal의 [샘플 자격 증명 모음에서 새 자격 증명 모음 자격 증명 파일을 다운로드](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) 합니다. 유효한 자격 증명 모음을 입력하면 해당하는 백업 자격 증명 모음의 이름이 나타납니다.
 
 6. **백업 서버 선택** 페이지의 표시된 머신 목록에서 원본 머신을 선택하고 암호를 입력합니다. 그런 후 **다음**을 선택합니다.
 

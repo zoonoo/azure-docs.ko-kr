@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 포털에서 로그 프로 비전 (미리 보기) | Microsoft Docs
-description: Azure Active Directory 포털의 프로 비전 활동 보고서 소개
+description: Azure Active Directory 포털의 프로 비전 로그 보고서 소개
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa31c6e196f916b4c7633da0c54a30ab9d7b548
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361282"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812559"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
@@ -39,9 +39,10 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 항목에서는 프로 비전 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
+* 응용 프로그램 소유자
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
 * 글로벌 관리자
 
@@ -85,7 +86,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/steps.png "필터")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
@@ -99,7 +100,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 작업
 
 
-![필터 추가](./media/concept-provisioning-logs/default-filter.png "필터")
+![필터 추가](./media/concept-provisioning-logs/default-filter.png "Assert")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
@@ -127,10 +128,10 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **작업** 필터를 사용 하 여를 필터링 할 수 있습니다.
 
-- 만들기 
+- 생성 
 - 업데이트
-- 삭제
-- 사용 중지
+- DELETE
+- 사용 안 함
 - 기타
 
 또한 기본 보기의 필터에는 다음 필터를 설정할 수도 있습니다.
@@ -190,7 +191,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "필터")
+![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항
@@ -210,13 +211,11 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
-- 프리미엄 버전이 있는 경우 30 일 동안, 무료 버전이 있는 경우 7 일 동안 보고 된 프로 비전 데이터를 저장 하는 Azure Portal.
+- 이 Azure Portal는 premium edition이 있는 경우 30 일 동안 보고 된 프로 비전 데이터를 저장 하 고 무료 버전이 있는 경우 7 일 동안 저장 합니다. 프로 비전 로그는 30 일 이상 보존을 위해 log analytics에 게시할 수 있습니다. 
 
 - 변경 ID 특성을 고유 식별자로 사용할 수 있습니다. 예를 들어 제품 지원과 상호 작용할 때 유용 합니다.
 
 - 현재는 프로 비전 데이터를 CSV 파일로 다운로드 하는 옵션은 없지만 [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http)를 사용 하 여 데이터를 내보낼 수 있습니다.
-
-- 현재 log analytics에 대 한 지원이 없습니다.
 
 - 범위에 없는 사용자에 대 한 건너뛴 이벤트를 볼 수 있습니다. 이는 특히 동기화 범위가 모든 사용자 및 그룹으로 설정 된 경우에 필요 합니다. 서비스는 범위를 벗어난 모든 개체를 포함 하 여 테 넌 트의 모든 개체를 평가 합니다. 
 
@@ -252,3 +251,4 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 * [사용자 프로 비전 상태를 확인 합니다.](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제](../app-provisioning/application-provisioning-config-problem.md)
+* [프로 비전 로그 그래프 API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

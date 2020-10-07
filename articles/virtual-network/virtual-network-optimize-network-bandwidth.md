@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265146"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812848"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
 
@@ -56,12 +56,12 @@ RSS는 Azure Linux VM에 기본적으로 항상 사용되도록 설정됩니다.
 
 ### <a name="ubuntu-for-new-deployments"></a>새 배포에 대한 Ubuntu
 
-Ubuntu Azure 커널은 Azure에서 최고의 네트워크 성능을 제공하며 2017년 9월 21일부터 계속 기본 커널로 사용되었습니다. 이 커널을 가져오려면 먼저 다음과 같이 지원되는 최신 버전의 16.04-LTS를 설치합니다.
+Ubuntu Azure 커널은 Azure의 네트워크 성능에 가장 적합 합니다. 최신 최적화를 얻으려면 먼저 다음과 같이 지원 되는 최신 버전의 18.04-LTS를 설치 합니다.
 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04-LTS",
+"Sku": "18.04-LTS",
 "Version": "latest"
 ```
 
@@ -89,7 +89,7 @@ apt-get -y dist-upgrade
 
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>기존 VM에 대한 Ubuntu Azure 커널 업그레이드
 
-Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널이 있는지 확인하려면 커널 버전을 확인합니다.
+Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널이 있는지 확인하려면 커널 버전을 확인합니다. 예제와 같거나 그 이후 여야 합니다.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -117,7 +117,7 @@ reboot
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.4",
+"Sku": "7.7",
 "Version": "latest"
 ```
 
@@ -152,6 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 [다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=55106)를 확인하여 Hyper-V용 Linux Integration Services 버전 4.2에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
+* [근접 배치 그룹](../virtual-machines/windows/co-location.md) 의 짧은 대기 시간을 위해 서로 가까운 vm 배포
 * 시나리오에 대한 [Azure VM 대역폭/처리량 테스트](virtual-network-bandwidth-testing.md)를 통해 최적화된 결과를 확인합니다.
 * [가상 머신에 대역폭이 할당되는 방법](virtual-machine-network-throughput.md)을 알아봅니다.
 * [Azure Virtual Network FAQ(질문과 대답)](virtual-networks-faq.md)에 대해 자세히 알아보기

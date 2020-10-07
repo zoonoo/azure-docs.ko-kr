@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265180"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812287"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -26,7 +26,7 @@ Azure에서 네트워크 처리량 성능을 테스트하는 경우 테스트할
 이 도구를 같은 크기의 두 Azure VM에 복사합니다. 한 VM은 송신기 역할을 하고 다른 VM은 수신기 역할을 합니다.
 
 #### <a name="deploying-vms-for-testing"></a>테스트를 위해 VM 배포
-이 테스트의 목적에 맞게, 이러한 두 VM은 동일한 클라우드 서비스 또는 동일한 가용성 집합에 있어야 합니다. 그래야 내부 IP를 사용하고 테스트에서 부하 분산 장치를 제외할 수 있습니다. VIP로 테스트할 수 있지만 이러한 종류의 테스트는 이 문서에서 다루지 않습니다.
+이 테스트를 위해 두 Vm이 동일한 [근접 배치 그룹](../virtual-machines/windows/co-location.md) 또는 동일한 가용성 집합에 있어야 내부 ip를 사용 하 고 테스트에서 부하 분산 장치를 제외할 수 있습니다. VIP로 테스트할 수 있지만 이러한 종류의 테스트는 이 문서에서 다루지 않습니다.
 
 수신기의 IP 주소를 기록해 둡니다. 해당 IP를 "a.b.c.r"로 지칭하겠습니다.
 

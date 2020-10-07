@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743321"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812406"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -56,11 +56,16 @@ Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것
 
 위의 인증 시나리오는 Azure Id 클라이언트 라이브러리에서 지원 되 고 Key Vault Sdk와 통합 됩니다. Azure Id 라이브러리는 코드를 변경 하지 않고도 다양 한 환경 및 플랫폼에서 사용할 수 있습니다. 또한 azure Id는 Azure CLI, Visual Studio, Visual Studio Code 등을 사용 하 여 Azure 사용자에 게 로그인 한 인증 토큰을 자동으로 검색 합니다. 
 
-자세한 내용은 다음을 참조하세요. 
+자세한 내용은 다음을 참조하십시오. 
 
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Id SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Id SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Id SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Id SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+응용 프로그램에서 Key Vault 인증:
+- [.NET의 VM에서 호스팅된 응용 프로그램의 Key Vault에 대 한 인증](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Python의 VM에서 호스트 되는 응용 프로그램의 Key Vault에 대 한 인증](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [App Service를 사용 하 여 Key Vault에 인증](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>키, 인증서 및 비밀 관리
 
@@ -71,14 +76,14 @@ Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|N/A|[참조](/dotnet/api/azure.security.keyvault.keys)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[참조](/javascript/api/@azure/keyvault-keys/)|
+|[참조](/cli/azure/keyvault/key)<br>[빠른 시작](../keys/quick-create-cli.md)|[참조](/powershell/module/az.keyvault/)<br>[빠른 시작](../keys/quick-create-powershell.md)|[참조](/rest/api/keyvault/#key-operations)|해당 없음|[참조](/dotnet/api/azure.security.keyvault.keys)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[빠른 시작](../keys/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[참조](/javascript/api/@azure/keyvault-keys/)|
 
 **인증서 Api 및 Sdk**
 
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[참조](/cli/azure/keyvault/certificate)<br>[빠른 시작](../certificates/quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](../certificates/quick-create-powershell.md)|[참조](/rest/api/keyvault/#certificate-operations)|N/A|[참조](/dotnet/api/azure.security.keyvault.certificates)|[참조](/python/api/overview/azure/keyvault-certificates-readme)<br>[빠른 시작](../certificates/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[참조](/javascript/api/@azure/keyvault-certificates/)|
+|[참조](/cli/azure/keyvault/certificate)<br>[빠른 시작](../certificates/quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](../certificates/quick-create-powershell.md)|[참조](/rest/api/keyvault/#certificate-operations)|해당 없음|[참조](/dotnet/api/azure.security.keyvault.certificates)|[참조](/python/api/overview/azure/keyvault-certificates-readme)<br>[빠른 시작](../certificates/quick-create-python.md)|[참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[참조](/javascript/api/@azure/keyvault-certificates/)|
 
 **비밀 Api 및 Sdk**
 
@@ -112,9 +117,13 @@ Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것
 
 다음 문서에서는 사용하거나 Key Vault와 통합하는 다른 시나리오 및 서비스에 대한 정보를 다룹니다.
 
-- [Key Vault를 사용 하 여 미사용 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- [휴지 상태의 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) 는 데이터가 유지 될 때 데이터의 인코딩 (암호화)을 허용 합니다. 데이터 암호화 키는 액세스를 더욱 제한 하기 위해 Azure Key Vault의 키 암호화 키로 암호화 되는 경우가 많습니다.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key)을 통해 테넌트 키를 직접 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 테넌트 키 직접 관리는 BYOK(Bring Your Own Key)라고 하기도 합니다.
+- [Azure 개인 링크 서비스](private-link-service.md) 를 사용 하면 가상 네트워크의 개인 끝점을 통해 azure 서비스 (예: Azure Key Vault, Azure Storage 및 Azure Cosmos DB)와 azure에서 호스트 되는 고객/파트너 서비스에 액세스할 수 있습니다.
+- [Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault) 와 통합 Key Vault 키 자격 증명 모음에 저장 된 암호의 상태가 변경 되 면 사용자에 게 알릴 수 있습니다. 새 버전의 암호를 응용 프로그램에 배포 하거나 거의 만료 비밀을 회전 하 여 중단을 방지할 수 있습니다.
+- Key Vault에서 원치 않는 액세스 로부터 [Azure Devops](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) 비밀을 보호할 수 있습니다.
+- [DataBricks의 Key Vault에 저장 된 암호를 사용 하 여 Azure Storage에 연결](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Kubernetes에서 [비밀 저장소 CSI 드라이버](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) 에 대 한 Azure Key Vault 공급자를 구성 하 고 실행 합니다.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
 

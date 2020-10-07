@@ -2,13 +2,13 @@
 title: 작업 크기 초과 오류
 description: 작업 크기나 템플릿이 너무 클 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
-ms.date: 09/25/2020
-ms.openlocfilehash: 06645561964d9634d93061b3be4d100a578cc7e7
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/07/2020
+ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373175"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812899"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>작업 크기 초과에 대 한 오류 해결
 
@@ -38,6 +38,10 @@ ms.locfileid: "91373175"
 
 연결 된 템플릿에 종속 된 다른 리소스를 설정 하 고 연결 된 [템플릿의 출력에서 값을 가져올](linked-templates.md#get-values-from-linked-template)수 있습니다.
 
-## <a name="solution-2---use-serial-copy"></a>해결 방법 2-직렬 복사본 사용
+## <a name="solution-2---reduce-name-size"></a>해결 방법 2-이름 크기 줄이기
+
+[매개 변수](template-parameters.md), [변수](template-variables.md)및 [출력](template-outputs.md)에 사용 하는 이름의 길이를 짧게 만들려고 합니다. 이러한 값이 복사 루프를 통해 반복 되 면 많은 이름을 여러 번 곱합니다. 템플릿의 최종 크기는 불필요 하 게 크게 커집니다.
+
+## <a name="solution-3---use-serial-copy"></a>해결 방법 3-직렬 복사본 사용
 
 두 번째 옵션은 복사 루프를 [병렬로](copy-resources.md#serial-or-parallel)변경 하는 것입니다. 이 옵션은 복사를 통해 많은 수의 리소스를 배포 하 여 오류가 발생 한 것으로 의심 되는 경우에만 사용 합니다. 이러한 변경으로 인해 리소스가 병렬로 배포 되지 않기 때문에 배포 시간이 크게 늘어날 수 있습니다.

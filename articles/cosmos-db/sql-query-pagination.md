@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 7f7f895b61e3c638cb347a2d73bb5ee458b31acd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498823"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804200"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB의 페이지 매김
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 
 을 설정 하 여 쿼리에서 반환 되는 최대 항목 수를 지정할 수 있습니다 `MaxItemCount` . 는 `MaxItemCount` 요청당 지정 되며 쿼리 엔진은 해당 항목 수를 반환 합니다. `MaxItemCount` `-1` 쿼리 실행 당 결과 수에 제한을 두지 않으려는 경우를로 설정할 수 있습니다.
 
-또한 쿼리 엔진이 쿼리 결과를 여러 페이지로 분할 해야 하는 다른 이유가 있습니다. 여기에는 다음이 포함됩니다.
+또한 쿼리 엔진이 쿼리 결과를 여러 페이지로 분할 해야 하는 다른 이유가 있습니다. 내용은 다음과 같습니다.
 
 - 컨테이너가 제한 되었으며 추가 쿼리 결과를 반환 하는 데 사용할 수 있는 RUs가 없습니다.
 - 쿼리 실행의 응답이 너무 깁니다.
@@ -56,7 +56,7 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 
 Azure Cosmos DB의 REST API에서 헤더를 사용 하 여 연속 토큰을 관리할 수 있습니다 `x-ms-continuation` . .NET 또는 Java SDK를 사용한 쿼리와 마찬가지로 `x-ms-continuation` 응답 헤더가 비어 있지 않으면 쿼리에 추가 결과가 있음을 의미 합니다.
 
-동일한 SDK 버전을 사용 하는 동안에는 연속 토큰이 만료 되지 않습니다. 선택적으로 [연속 토큰의 크기를 제한할](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)수 있습니다. 데이터의 양과 컨테이너의 실제 파티션 수에 관계 없이 쿼리는 단일 연속 토큰을 반환 합니다.
+동일한 SDK 버전을 사용 하는 동안에는 연속 토큰이 만료 되지 않습니다. 선택적으로 [연속 토큰의 크기를 제한할](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)수 있습니다. 데이터의 양과 컨테이너의 실제 파티션 수에 관계 없이 쿼리는 단일 연속 토큰을 반환 합니다.
 
 [GROUP BY](sql-query-group-by.md) 또는 [DISTINCT](sql-query-keywords.md#distinct) 를 포함 하는 쿼리에는 연속 토큰을 사용할 수 없습니다. 이러한 쿼리는 상당한 양의 상태를 저장 해야 하기 때문입니다. 를 사용 하 `DISTINCT` 는 쿼리의 경우 쿼리에를 추가할 때 연속 토큰을 사용할 수 있습니다 `ORDER BY` .
 
