@@ -7,38 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: d5dd765dd9b174ffbfec35b63ad5e55ce84193ad
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489564"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405125"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Azure SignalR Service가 프로덕션에 사용할 준비가 되었나요?
 
-예.
-일반 공급에 대한 공지는 [Azure SignalR Service가 이제 일반 공급됩니다](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/)를 참조하세요. 
-
-[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)이 완전히 지원됩니다.
-
-ASP.NET SignalR에 대한 지원은 아직 *공개 미리 보기* 상태입니다. [코드 예제는 다음과 같습니다](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
-
-## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>"서버를 사용할 수 없음" 오류 메시지가 표시되면서 클라이언트 연결이 닫힙니다. 무엇을 의미하나요?
-
-이 오류는 클라이언트가 Azure SignalR Service에 메시지를 보내는 경우에만 발생합니다.
-
-다른 애플리케이션 서버가 없고 Azure SignalR Service REST API만 사용하는 경우, 이 동작은 *의도적인* 동작입니다.
-서버리스 아키텍처에서 클라이언트 연결은 수신 대기(*listen*) 모드이며 Azure SignalR Service에 어떠한 메시지도 보내지 않습니다.
-[REST API에 대해 자세히](./signalr-quickstart-rest-api.md) 알아봅니다.
-
-애플리케이션 서버가 있는 경우 이 오류 메시지가 표시되면 Azure SignalR Service 인스턴스에 연결되어 있는 애플리케이션 서버가 없다는 의미입니다.
-
-가능한 원인:
-- Azure SignalR Service에 연결되어 있는 애플리케이션 서버가 없습니다. 애플리케이션 서버 로그에서 가능한 연결 오류를 확인하세요. 둘 이상의 애플리케이션 서버가 있는 고가용성 설정에서는 이러한 경우가 드뭅니다.
-- Azure SignalR Service 인스턴스와 연결 문제가 있습니다. 이 문제는 일시적이며 인스턴스는 자동으로 복구됩니다.
-문제가 한 시간 넘게 지속되면 [GitHub에서 문제를 제기](https://github.com/Azure/azure-signalr/issues/new)하거나 [Azure에서 지원 요청을 생성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하십시오.
+예, [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) 및 [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr)에 대한 지원은 모두 일반 공급됩니다.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>애플리케이션 서버가 여러 개 있으면 클라이언트 메시지가 모든 서버에 전송되나요? 아니면 그 중 하나에만 전송되나요?
 
@@ -68,7 +48,7 @@ Azure SignalR Service SDK에서 `HubConnectionContext context`는 논리적 클�
 
 Azure SignalR Service는 기본적으로 ASP.NET Core SignalR에서 지원하는 세 가지 전송을 모두 제공합니다. 이 사항은 구성할 수 없습니다. Azure SignalR Service는 연결 및 모든 클라이언트에 대한 전송을 처리합니다.
 
-[ASP.NET Core SignalR 구성](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2)에 설명된 대로 클라이언트 쪽 전송을 구성할 수 있습니다.
+[ASP.NET Core SignalR 구성](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1)에 설명된 대로 클라이언트 쪽 전송을 구성할 수 있습니다.
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Azure Portal에 표시된 메시지 수 또는 연결 수와 같은 메트릭의 의미는 무엇인가요? 어떤 종류의 집계 유형을 선택해야 하나요?
 
@@ -78,19 +58,22 @@ Azure SignalR Service 리소스의 개요 창에서 적절한 집계 유형을 �
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>`Default`, `Serverless` 및 `Classic` 서비스 모드의 의미는 무엇인가요? 어떻게 선택할 수 있나요?
 
-모드에 대한 정보입니다.
-* `Default` 모드에는 허브 서버가 *필요합니다*. 이 모드에서 Azure SignalR Service는 클라이언트 트래픽을 연결된 허브 서버 연결로 라우팅합니다. Azure SignalR Service는 연결된 허브 서버를 확인합니다. 서비스에서 연결된 허브 서버를 찾을 수 없는 경우 들어오는 클라이언트 연결을 거부합니다. 이 모드에서 *Management API*를 사용하여 Azure SignalR Service를 통해 연결된 클라이언트를 직접 관리할 수도 있습니다.
-* `Serverless` 모드는 서버 연결을 허용하지 *않습니다*. 즉, 모든 서버 연결을 거부합니다. 모든 클라이언트는 서버리스 모드여야 합니다. 클라이언트는 Azure SignalR Service에 연결되며, 사용자는 일반적으로 *Azure Functions*와 같은 서버리스 기술을 사용하여 허브 논리를 처리합니다. Azure SignalR Service에서 서버리스 모드를 사용하는 [간단한 예제를 참조하세요](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu).
-* `Classic` 모드는 혼합 상태입니다. 허브에 서버 연결이 있으면 새 클라이언트가 허브 서버로 라우팅됩니다. 그렇지 않으면 클라이언트가 서버리스 모드로 전환됩니다. 
+새 애플리케이션의 경우에는 기본 및 서버리스 모드만 사용해야 합니다. 주요 차이점은 서비스에 대한 서버 연결을 설정하는 애플리케이션 서버가 있는지 여부(즉, `AddAzureSignalR()`을 사용하여 서비스에 연결)를 사용하는 것입니다. 예인 경우 기본 모드를 사용하고 그렇지 않으면 서버리스 모드를 사용합니다.
 
-  이로 인해 문제가 발생할 수 있습니다. 예를 들어 모든 서버 연결은 잠시 동안 손실되며, 일부 클라이언트는 허브 서버로 라우팅하는 대신 서버리스 모드로 전환됩니다.
+클래식 모드는 기존 애플리케이션에 대해 이전 버전과의 호환성을 위해 설계되었으므로 새 애플리케이션에 사용하면 안 됩니다.
 
-다음은 모드 선택에 대한 몇 가지 지침입니다.
-- 허브 서버가 없는 경우 `Serverless`를 선택합니다.
-- 모든 허브에 허브 서버가 있는 경우 `Default`를 선택합니다.
-- 일부 허브에 허브 서버가 있지만 다른 허브에는 없는 경우 `Classic`을 선택할 수 있지만 이로 인해 문제가 발생할 수 있습니다. 더 나은 방법은 두 개의 인스턴스를 만드는 것입니다. 하나는 `Serverless`이고 다른 하나는 `Default`입니다.
+서비스 모드에 대한 자세한 내용은 [이 문서](concept-service-mode.md)를 참조하세요.
+
+## <a name="can-i-send-message-from-client-in-serverless-mode"></a>서버리스 모드로 클라이언트에서 메시지를 보낼 수 있나요?
+
+SignalR 인스턴스에서 업스트림을 구성하는 경우 클라이언트에서 메시지를 보낼 수 있습니다. 업스트림은 SignalR 서비스에서 메시지 및 연결 이벤트를 받을 수 있는 엔드포인트 세트입니다. 업스트림이 구성되지 않은 경우 클라이언트의 메시지가 무시됩니다.
+
+업스트림에 대한 자세한 내용은 [이 문서](concept-upstream.md)를 참조하세요.
+
+업스트림은 현재 공개 미리 보기로 제공됩니다.
 
 ## <a name="are-there-any-feature-differences-in-using-azure-signalr-service-with-aspnet-signalr"></a>ASP.NET SignalR과 함께 Azure SignalR Service를 사용하는 경우 기능 차이점이 있나요?
+
 Azure SignalR Service를 사용하는 경우 ASP.NET SignalR의 일부 API 및 기능이 지원되지 않습니다.
 - 클라이언트와 허브 간에 임의 상태를 전달하는 기능(종종 `HubState`라고 함)은 지원되지 않습니다.
 - `PersistentConnection` 클래스는 지원되지 않습니다.

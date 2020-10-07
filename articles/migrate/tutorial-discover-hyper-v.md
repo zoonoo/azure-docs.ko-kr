@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가 도구를 사용하여 온-프레미스
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603954"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442325"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>자습서: 서버 평가를 사용하여 Hyper-V VM 검색
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **요구 사항** | **세부 정보**
 --- | ---
 **Hyper-V 호스트** | VM이 있는 Hyper-V 호스트는 독립 실행형이거나 클러스터에 있을 수 있습니다.<br/><br/> 호스트에서 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2가 실행되고 있어야 합니다.<br/><br/> 어플라이언스가 CIM(Common Information Model) 세션을 사용하여 VM 메타데이터 및 성능 데이터를 가져오기 위해 연결할 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용하는지 확인합니다.
-**어플라이언스 배포** | vCenter Server에는 디바이스에 VM을 할당하는 리소스가 필요합니다.<br/><br/> - Windows Server 2016<br/><br/> \- RAM 32GB<br/><br/> - 8개의 vCPU<br/><br/> - 약 80GB의 디스크 스토리지.<br/><br/> - 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 VM에 대한 인터넷 액세스.
+**어플라이언스 배포** | Hyper-v에는 어플라이언스에 VM을 할당하는 리소스가 필요합니다.<br/><br/> - Windows Server 2016<br/><br/> \- RAM 16GB<br/><br/> - 8개의 vCPU<br/><br/> - 약 80GB의 디스크 스토리지.<br/><br/> - 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 VM에 대한 인터넷 액세스.
 **VM** | VM은 모든 Windows 또는 Linux 운영 체제를 실행할 수 있습니다. 
 
 시작하기 전에 어플라이언스가 검색 중에 수집하는 [데이터를 검토](migrate-appliance.md#collected-data---hyper-v)할 수 있습니다.
@@ -72,6 +72,8 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 8. **사용자 설정**에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예**로 설정됨).
 
     ![사용자 설정에서 사용자가 Active Directory 앱을 등록할 수 있는지 확인합니다.](./media/tutorial-discover-hyper-v/register-apps.png)
+
+9. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Hyper-V 호스트 준비
 
@@ -135,7 +137,7 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
 
 2. 다음 PowerShell 명령을 실행하여 ZIP 파일에 대한 해시를 생성합니다.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  최신 어플라이언스 버전 및 해시 값을 확인합니다.
 
@@ -143,13 +145,13 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
 
         **시나리오** | **다운로드** | **SHA256**
         --- | --- | ---
-        Hyper-V(10.4GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V(8.91GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - Azure Government의 경우:
 
         **시나리오*** | **다운로드** | **SHA256**
         --- | --- | ---
-        Hyper-V(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Hyper-V(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
 
@@ -214,7 +216,7 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
 1. 어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. 또는 어플라이언스의 로컬 그룹 정책 편집기에서 다음을 수행합니다.

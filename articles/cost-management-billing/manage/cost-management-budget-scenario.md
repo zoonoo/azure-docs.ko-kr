@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690190"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446456"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
@@ -152,7 +152,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 1. **확인**을 선택하여 식을 설정합니다.
 1. **조건**의 드롭다운 상자에서 **다음보다 크거나 같음**을 선택합니다.
 1. 조건의 **값 선택** 상자에 `.8`을 입력합니다.  
-    ![Azure - 논리 앱 - 값이 있는 Float 식](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![스크린샷은 값이 선택된 조건 대화 상자를 보여줍니다.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. 조건 상자 안에 있는 **추가** > **행 추가**를 선택하여 조건의 추가 부분을 추가합니다.
 1. **조건** 상자에서 `Choose a value`가 포함된 텍스트 상자를 클릭합니다.
 1. 목록 맨 위에서 **식**을 선택하고 식 편집기에 다음 식을 입력합니다. `float()`
@@ -160,7 +160,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 1. **확인**을 선택하여 식을 설정합니다.
 1. **조건**의 드롭다운 상자에서 **다음보다 작음**을 선택합니다.
 1. 조건의 **값 선택** 상자에 `1`을 입력합니다.  
-    ![Azure - 논리 앱 - 값이 있는 Float 식](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![스크린샷은 두 가지 조건이 있는 조건 대화 상자를 보여줍니다.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. **If true** 상자에서 **작업 추가**를 선택합니다. 선택적 VM을 종료하는 HTTP POST 작업을 추가합니다.  
     ![Azure - 논리 앱 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. **HTTP**를 입력하여 HTTP 작업을 검색하고 **HTTP – HTTP** 작업을 선택합니다.  
@@ -183,7 +183,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 조건문을 사용하여 임계값 크기에 도달했거나 예산 값의 100%를 초과했는지 여부를 확인합니다. 이 임계값 크기에 도달하면 **Complete**로 명명된 Webhook를 사용하여 HTTP POST를 보냅니다. 이 작업은 나머지 모든 VM을 종료합니다.
 
 1. **새 단계** > **조건 추가**를 선택합니다.  
-    ![Azure - 논리 앱 - 추가 작업](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![스크린샷은 작업 추가가 허출된 If true 대화 상자를 보여줍니다.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. **조건** 상자에서 `Choose a value`가 포함된 텍스트 상자를 선택하여 사용 가능한 값 목록을 표시합니다.
 1. 목록 맨 위에서 **식**을 선택하고 식 편집기에 다음 식을 입력합니다. `float()`
 1. **동적 콘텐츠**를 클릭하고 괄호() 안에 커서를 놓은 다음, 목록에서 **NotificationThresholdAmount**를 선택하여 전체 식을 채웁니다.
@@ -194,11 +194,11 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 1. 조건의 **값 선택** 상자에 `1`을 입력합니다.  
     ![Azure - 논리 앱 - 조건 값 설정](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. **If true** 상자에서 **작업 추가**를 선택합니다. 나머지 모든 VM을 종료하는 HTTP POST 작업을 추가합니다.  
-    ![Azure - 논리 앱 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![스크린샷은 HTTP POST 작업을 추가할 수 있는 경우의 If true 대화 상자를 보여줍니다.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. **HTTP**를 입력하여 HTTP 작업을 검색하고 **HTTP – HTTP** 작업을 선택합니다.
 1. **메서드** 값으로 **Post**를 선택합니다.
 1. 이 자습서 초반에 만든 **Complete**로 명명된 Webhook의 URL을 **Uri** 값으로 입력합니다.  
-    ![Azure - 논리 앱 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![스크린샷은 URL 값을 입력할 수 있는 HTTP 대화 상자를 보여줍니다.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. **If true** 상자에서 **작업 추가**를 선택합니다. 받는 사람에게 나머지 VM이 종료되었음을 알리는 이메일을 보내는 이메일 작업을 추가합니다.
 1. "이메일 보내기"를 검색하고 사용하는 이메일 서비스에 따라 *이메일 보내기* 작업을 선택합니다.
 1. 받는 사람에게 선택적 VM이 종료되었음을 알리는 전자 메일에 대해 **받는 사람**, **제목** 및 **본문** 텍스트를 추가합니다. **BudgetName** 및 **NotificationThresholdAmount** 동적 콘텐츠를 사용하여 제목과 본문 필드를 채웁니다.  

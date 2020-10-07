@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가 도구를 사용하여 온-프레미스
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: cbe1561f58af8f65285ffb005b0232bff8225d3b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604056"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442230"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>자습서: 서버 평가를 사용하여 VMware VM 검색
 
@@ -72,6 +72,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
     ![사용자 설정에서 사용자가 Active Directory 앱을 등록할 수 있는지 확인](./media/tutorial-discover-vmware/register-apps.png)
 
+9. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>VMware 준비
 
@@ -109,7 +110,7 @@ vSphere Web Client에서 계정을 다음과 같이 설정합니다.
 1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색합니다.
 2. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
 3. **개요**에서 **프로젝트 만들기**를 선택합니다.
-5. **프로젝트 만들기**에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 새로 만듭니다.
+5. **프로젝트 만들기**에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 리소스 그룹을 만듭니다.
 6. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
    ![프로젝트 이름 및 지역 상자](./media/tutorial-discover-vmware/new-project.png)
@@ -119,7 +120,7 @@ vSphere Web Client에서 계정을 다음과 같이 설정합니다.
 
 **Azure Migrate : 서버 평가** 도구는 기본적으로 새 프로젝트에 추가됩니다.
 
-![기본적으로 추가된 서버 평가 도구를 보여 주는 페이지](./media/tutorial-discover-vmware/added-tool.png)
+![기본적으로 추가된 서버 평가 도구를 보여주는 페이지](./media/tutorial-discover-vmware/added-tool.png)
 
 
 ## <a name="set-up-the-appliance"></a>어플라이언스 설정
@@ -140,7 +141,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 - 포털에서 어플라이언스 이름을 제공하고, Azure Migrate 프로젝트 키를 생성합니다.
 - OVA 템플릿 파일을 다운로드하여 vCenter Server로 가져옵니다.
 - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
-- 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
+- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
 
@@ -165,7 +166,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   사용 예: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. 최신 어플라이언스 버전 및 해시 값을 확인합니다.
 
@@ -173,13 +174,13 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
     
         **알고리즘** | **다운로드** | **SHA256**
         --- | --- | ---
-        VMware(11.6GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware(11.9GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
 
     - Azure Government의 경우:
     
         **알고리즘** | **다운로드** | **SHA256**
         --- | --- | ---
-        VMware(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
+        VMware(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 

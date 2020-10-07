@@ -4,12 +4,12 @@ description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비�
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809972"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403078"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
@@ -41,7 +41,7 @@ Power Automate는 개발자나 IT를 통하지 않고 사무실 작업자가 간
 | **디자인 도구** |브라우저 및 모바일 앱에서 UI만 해당 |브라우저 내부 및 [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [코드 보기](../logic-apps/logic-apps-author-definitions.md) 사용 가능 |
 | **ALM(애플리케이션 수명 주기 관리)** |비 프로덕션 환경에서 디자인 및 테스트하고, 준비되면 프로덕션 환경으로 승격하세요. |Azure DevOps: [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)의 소스 제어, 테스트, 지원, 자동화 및 관리 효율성 |
 | **관리자 환경** |Power Automate 환경 및 DLP(데이터 손실 방지) 정책 관리, 라이선스 추적: [관리 센터](https://admin.flow.microsoft.com) |리소스 그룹, 연결, 액세스 및 로깅 관리: [Azure Portal](https://portal.azure.com) |
-| **보안** |Office 365 보안 및 규정 준수 감사 로그, DLP, 중요한 데이터의 [저장 데이터 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등 |Azure의 보안 보증: [Azure 보안](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **보안** |Microsoft 365 보안 감사 로그, DLP, 중요한 데이터의 [저장 데이터 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) |Azure의 보안 보증: [Azure 보안](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure Functions 및 Azure Logic Apps 비교
 

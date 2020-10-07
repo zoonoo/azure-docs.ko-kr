@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5be484c613c4a18e86df7b5a83f95ca75aec6077
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903294"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446311"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro를 위한 인증서 구성
 
@@ -51,11 +51,11 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
     - 디바이스 이름 또는 DNS 도메인을 변경한 경우 인증서 상태가 **유효하지 않음**으로 표시됩니다. 
 
-        ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+        ![로컬 웹 UI "인증서" 페이지 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
 
         상태 세부 정보를 보고 싶은 인증서를 선택합니다.
 
-        ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![로컬 웹 UI "인증서" 페이지 3](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
 
         인증서가 업데이트된 디바이스 이름 및 DNS 도메인(주체 이름 및 주체 대체 이름에 사용됨)을 반영하지 않기 때문입니다. 디바이스를 성공적으로 활성화하려면 다음 옵션 중 하나를 선택합니다. 
     
@@ -108,11 +108,11 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
 4. 인증서에 대한 다운로드 링크를 선택하고 메시지가 표시되면 인증서를 저장합니다. 
 
-    ![인증서 생성 및 다운로드 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
+    ![인증서 생성 및 다운로드 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
 5. 다운로드하려는 모든 인증서에 대해 이 프로세스를 반복합니다. 
     
-    ![인증서 생성 및 다운로드 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
+    ![인증서 생성 및 다운로드 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
     디바이스에서 생성된 인증서는 다음과 같은 이름 형식의 DER 인증서로 저장됩니다. 
 
@@ -135,31 +135,31 @@ Azure Storage Explorer를 사용하는 경우 클라이언트에 PEM 형식으�
 
 1. 인증서를 업로드하려면 **인증서** 페이지에서 **+ 인증서 추가**를 선택합니다.
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
+    ![로컬 웹 UI "인증서" 페이지 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
 2. 먼저 서명 체인을 업로드하고 **유효성 검사 및 추가**를 선택합니다.
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![로컬 웹 UI "인증서" 페이지 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
 3. 이제 다른 인증서를 업로드할 수 있습니다. 예를 들어 Azure Resource Manager 및 Blob Storage 엔드포인트 인증서를 업로드할 수 있습니다.
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
+    ![로컬 웹 UI "인증서" 페이지 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
     로컬 웹 UI 인증서를 업로드할 수도 있습니다. 이 인증서를 업로드한 후에는 브라우저를 시작하고 캐시를 지워야 합니다. 그런 다음, 디바이스 로컬 웹 UI에 연결해야 합니다.  
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+    ![로컬 웹 UI "인증서" 페이지 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
     노드 인증서를 업로드할 수도 있습니다.
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
+    ![로컬 웹 UI "인증서" 페이지 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
     언제든지 인증서를 선택하고 세부 정보를 검토하여 업로드한 인증서와 일치하는지 확인할 수 있습니다.
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+    ![로컬 웹 UI "인증서" 페이지 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
 
     인증서 페이지가 새로 추가된 인증서를 반영하도록 업데이트됩니다.
 
-    ![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
+    ![로컬 웹 UI "인증서" 페이지 10](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Azure 퍼블릭 클라우드를 제외하고, 모든 클라우드 구성(Azure Government 또는 Azure Stack)을 활성화하기 전에 서명 체인 인증서를 가져와야 합니다.

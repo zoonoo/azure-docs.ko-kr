@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API 소개
 description: Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: jasonh
+ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523743"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409615"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API 소개
 
@@ -106,7 +106,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 애플리케이션을 보여줍니다.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Azure Cosmos DB 그래프 아키텍처" border="false"::: 
 
 이 그래프에는 다음과 같은 *꼭짓점* 유형(Gremlin에서는 "레이블"이라고도 함)이 있습니다.
 
@@ -124,7 +124,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 * **사용**: 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
 * **located**: 디바이스에 액세스하는 위치를 나타내려면
 
-Gremlin 콘솔은 Apache TinkerPop에서 제공하는 대화형 터미널이며 이 터미널은 그래프 데이터와 상호 작용하는 데 사용됩니다. 자세한 내용은 [Gremlin 콘솔을 사용하는 방법](create-graph-gremlin-console.md)의 빠른 시작 문서를 참조하세요. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다. 다음 예제에서는 Gremlin 콘솔을 사용하여 이 그래프 데이터에 대해 쿼리를 실행하는 방법을 보여줍니다.
+Gremlin 콘솔은 Apache TinkerPop에서 제공하는 대화형 터미널이며, 이 터미널은 그래프 데이터와 상호 작용하는 데 사용됩니다. 자세한 내용은 [Gremlin 콘솔을 사용하는 방법](create-graph-gremlin-console.md)의 빠른 시작 문서를 참조하세요. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다. 다음 예제에서는 Gremlin 콘솔을 사용하여 이 그래프 데이터에 대해 쿼리를 실행하는 방법을 보여줍니다.
 
 먼저 CRUD를 살펴보겠습니다. 다음 Gremlin 문은 "Thomas" 꼭짓점을 그래프에 삽입합니다.
 

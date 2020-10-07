@@ -6,25 +6,26 @@ ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 04/20/2019
+ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 8797d17ac439882415a9f5360fded28cb55484d5
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8c7d7f84e02cdd2cd4f53bc9eb42c78f936146ae
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050542"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408372"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>빠른 시작: ASP.NET과 SignalR Service를 사용하여 대화방 만들기
 
-Azure SignalR Service는 ASP.NET SignalR과 100% 호환되지 **않는**[ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기반으로 합니다. Azure SignalR Service는 최신 ASP.NET Core 기술을 기반으로 ASP.NET SignalR 데이터 프로토콜을 재구현했습니다. ASP.NET SignalR용 Azure SignalR Service 서비스를 사용하는 경우 일부 ASP.NET SignalR 기능은 더 이상 지원되지 않습니다. 예를 들어 Azure SignalR은 클라이언트가 다시 연결되어도 메시지를 회신하지 않습니다. 또한 Forever Frame 전송 및 JSONP가 지원되지 않습니다. ASP.NET SignalR 애플리케이션이 SignalR Service와 작동하려면 일부 코드 변경과 적절한 버전의 종속 라이브러리가 필요합니다. 
+Azure SignalR Service는 ASP.NET SignalR과 100% 호환되지 **않는** [ASP.NET Core 2.1용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)을 기반으로 합니다. Azure SignalR Service는 최신 ASP.NET Core 기술을 기반으로 ASP.NET SignalR 데이터 프로토콜을 재구현했습니다. ASP.NET SignalR용 Azure SignalR Service 서비스를 사용하는 경우 일부 ASP.NET SignalR 기능은 더 이상 지원되지 않습니다. 예를 들어 Azure SignalR은 클라이언트가 다시 연결되어도 메시지를 회신하지 않습니다. 또한 Forever Frame 전송 및 JSONP가 지원되지 않습니다. ASP.NET SignalR 애플리케이션이 SignalR Service와 작동하려면 일부 코드 변경과 적절한 버전의 종속 라이브러리가 필요합니다.
 
-ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 보려면 [버전 차이 문서](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2)를 참조하세요.
+ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 보려면 [버전 차이 문서](https://docs.microsoft.com/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1)를 참조하세요.
 
 이 빠른 시작에서는 유사한 [대화방 애플리케이션](./signalr-quickstart-dotnet-core.md)에 대해 ASP.NET과 Azure SignalR Service를 시작하는 방법을 알아봅니다.
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
@@ -71,7 +72,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
 
 1. 기본 연결 문자열을 선택하여 복사합니다.
 
-1. 이제 web.config 파일에서 연결 문자열을 설정합니다.
+1. 이제 *web.config* 파일에서 연결 문자열을 설정합니다.
 
     ```xml
     <configuration>
@@ -82,7 +83,7 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
     </configuration>
     ```
 
-1. 애플리케이션이 SignalR을 자체적으로 호스팅하지 않고 서비스에 연결되도록 하려면 *Startup.cs*에서 `MapSignalR()`을 호출하는 대신 `MapAzureSignalR({your_applicationName})`을 호출하여 연결 문자열을 전달해야 합니다. `{YourApplicationName}`을 애플리케이션 이름으로 바꿉니다. 이 이름은 이 애플리케이션을 다른 애플리케이션과 구분하는 고유한 이름입니다. `this.GetType().FullName`을 값으로 사용할 수 있습니다.
+1. 애플리케이션이 SignalR을 자체적으로 호스팅하지 않고 서비스에 연결되도록 하려면 *Startup.cs*에서 `MapSignalR()`을 호출하는 대신 `MapAzureSignalR({YourApplicationName})`을 호출하여 연결 문자열을 전달해야 합니다. `{YourApplicationName}`을 애플리케이션 이름으로 바꿉니다. 이 이름은 이 애플리케이션을 다른 애플리케이션과 구분하는 고유한 이름입니다. `this.GetType().FullName`을 값으로 사용할 수 있습니다.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -103,24 +104,19 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
     > [!NOTE]
     > 이 구현에서 `/signalr/negotiate` 엔드포인트는 Azure SignalR Service SDK의 협상을 위해 노출됩니다. 클라이언트가 연결하려고 하면 특수한 협상 응답을 반환하고, 연결 문자열에 정의된 서비스 엔드포인트로 클라이언트를 리디렉션합니다.
 
-1. **F5** 키를 눌러 디버그 모드로 프로젝트를 실행합니다. 애플리케이션이 로컬에서 실행되는 것을 볼 수 있습니다. 애플리케이션이 SignalR 런타임을 자체적으로 호스팅하는 대신 Azure SignalR Service에 연결합니다.
+1. <kbd>F5</kbd> 키를 눌러 디버그 모드로 프로젝트를 실행합니다. 애플리케이션이 로컬에서 실행되는 것을 볼 수 있습니다. 애플리케이션이 SignalR 런타임을 자체적으로 호스팅하는 대신 Azure SignalR Service에 연결합니다.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-
-
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
-> 
-> 
 
 [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
 **이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 빠른 시작의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
-   
 ![DELETE](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
@@ -135,4 +131,3 @@ ASP.NET SignalR 애플리케이션에는 *서버리스* 모드가 지원되지 �
 > [ASP.NET Core와 Azure SignalR Service](./signalr-quickstart-dotnet-core.md)
 
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsnet)
-

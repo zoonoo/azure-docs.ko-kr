@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439359"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -231,7 +231,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 
 언제든지 **보기/구성**을 선택하여 VPN 게이트웨이 설정을 보고 구성할 수 있습니다.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="'보기/구성' 작업을 가리키는 화살표가 있는 'VPN(사이트 간)' 페이지를 보여주는 스크린샷." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 **VPN Gateway 편집** 페이지에서 다음 설정을 확인할 수 있습니다.
 
@@ -240,7 +240,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 * VPN Gateway 기본 BGP IP 주소(Azure에서 할당)
 * 사용자 지정 BGP IP 주소에 대한 구성 옵션: 이 필드는 APIPA(자동 개인 IP 주소 지정)용으로 예약되어 있습니다. Azure는 169.254.21.* 및 169.254.22.* 범위에서 BGP IP를 지원합니다. Azure는 이러한 범위에서 BGP 연결을 허용하지만 기본 BGP IP를 사용하여 연결을 다이얼링합니다.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="'보기/구성' 작업을 가리키는 화살표가 있는 'VPN(사이트 간)' 페이지를 보여주는 스크린샷." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

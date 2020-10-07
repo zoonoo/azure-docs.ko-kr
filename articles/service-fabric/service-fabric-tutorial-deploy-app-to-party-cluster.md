@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e35b655dc8b735214de891884fe40fb951dd16cd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244993"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441295"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 
@@ -78,19 +78,19 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 **클러스터** 탭에서 **클러스터 이름**(예: "mytestcluster")을 입력하고, 구독을 선택하고, 클러스터에 대한 지역을 선택하고(예: 미국 중남부), 클러스터 노드의 수를 입력하고(테스트 클러스터에 대해 3개의 노드 권장), 리소스 그룹을 입력합니다(예: "mytestclustergroup"). **다음**을 클릭합니다.
 
-![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 클러스터 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 **인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 대해서는 사용하지 마세요.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기**를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음**을 클릭합니다.
 
-![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
+![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 인증서 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
 **VM 세부 정보** 탭에서 클러스터 관리자 계정에 대한 **사용자 이름** 및 **암호**를 입력합니다.  클러스터 노드에 대해 **가상 머신 이미지**를 각 클러스터 노드에 대해 **가상 머신 크기**를 각각 선택합니다.  **고급** 탭을 클릭합니다.
 
-![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
+![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 VM 세부 정보 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
 **포트**에서 이전 단계의 VotingWeb 서비스 엔드포인트를 입력합니다(예: 8080).  클러스터가 만들어지면 이러한 애플리케이션 포트는 클러스터에 트래픽을 전달하도록 Azure 부하 분산 장치에서 열립니다.  **만들기**를 클릭하여 클러스터를 만듭니다. 몇 분 정도 소요됩니다.
 
-![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
+![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 고급 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## <a name="publish-the-application-to-the-cluster"></a>애플리케이션을 클러스터에 게시
 

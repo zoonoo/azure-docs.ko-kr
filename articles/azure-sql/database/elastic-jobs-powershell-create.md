@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 탄력적 작업 에이전트 만들기
+title: PowerShell을 사용하여 탄력적 작업 에이전트 만들기(미리 보기)
 description: PowerShell을 사용하여 탄력적 작업 에이전트를 만드는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0fe6a3b1d0e5216d923cfe3997826e7a727f1a2b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: aaf749708b49c57d08a63581f3d911b04aba2103
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077350"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408670"
 ---
-# <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
+# <a name="create-an-elastic-job-agent-using-powershell-preview"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [탄력적 작업(미리 보기)](job-automation-overview.md#elastic-database-jobs-preview)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.

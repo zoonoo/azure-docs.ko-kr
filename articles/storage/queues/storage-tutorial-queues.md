@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008797"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400573"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>자습서: .NET에서 Azure 스토리지 큐 작업
 
@@ -227,6 +227,8 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
    이 메서드는 [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync)를 호출하여 큐에서 메시지를 받고, 첫 번째 매개 변수에 1을 전달하여 큐에 있는 다음 메시지만 검색합니다. 메시지가 수신된 후 [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync)를 호출하여 큐에서 메시지를 삭제합니다.
+
+   v12 이전 버전의 SDK를 사용하여 큐에 메시지를 보내는 경우 해당 메시지는 자동으로 Base64로 인코딩됩니다. v12부터 해당 기능이 제거되었습니다. v12 SDK를 사용하여 메시지를 검색할 때 자동으로 Base64로 디코딩되지 않습니다. 콘텐츠를 직접 명시적으로 [Base64로 인코딩](/dotnet/api/system.convert.frombase64string)해야 합니다.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

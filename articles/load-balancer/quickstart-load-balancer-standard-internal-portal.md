@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654500"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446116"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -42,8 +42,6 @@ Azure Portal에서 Azure Load Balancer를 시작하여 내부 부하 분산 장�
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
-
-공용 부하 분산 장치 또는 내부 부하 분산 장치를 만들 수 있습니다. 
 
 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
 
@@ -125,7 +123,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 내부 부하 분산 장�
 
 4. **검토 + 만들기** 탭에서 **만들기**를 선택합니다.   
     
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="표준 내부 부하 분산 장치 만들기" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="표준 내부 부하 분산 장치를 만듭니다." border="true":::
  
 ## <a name="create-load-balancer-resources"></a>부하 분산 장치 리소스 만들기
 
@@ -213,7 +211,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 섹션에서는 두 영역(**영역 1** 및 **영역 2**)에서 표준 공용 IP 주소를 사용하여 2개의 VM(**myVM1** 및 **myVM2**)을 만듭니다. 
+이 섹션에서는 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.
 
 이러한 VM은 이전에 만든 부하 분산 장치의 백 엔드 풀에 추가됩니다.
 
@@ -248,7 +246,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | **네트워크 인터페이스** |  |
     | 가상 네트워크 | **myVNet** |
     | 서브넷 | **myBackendSubnet** |
-    | 공용 IP | **myVM-ip**(기본값)를 적용합니다. </br> 이 IP는 영역 1에서 자동으로 표준 SKU IP가 됩니다. |
+    | 공용 IP | **없음**을 선택합니다. |
     | NIC 네트워크 보안 그룹 추가 | **고급**을 선택합니다.|
     | 네트워크 보안 그룹 구성 | **새로 만들기**를 선택합니다. </br> **네트워크 보안 그룹 만들기**의 **이름**에서 **myNSG**를 입력합니다. </br> **확인**을 선택합니다. |
     | **부하 분산**.  |
@@ -257,21 +255,12 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 부하 분산 옵션 | **Azure 부하 분산**을 선택합니다. |
     | 부하 분산 장치 선택 | **myLoadBalancer**를 선택합니다.  |
     | 백 엔드 풀 선택 | **myBackendPool**을 선택합니다. |
-
-5. **관리** 탭을 선택하거나 **다음** > **관리**를 선택합니다.
-
-6. **관리** 탭에서 다음을 선택하거나 입력합니다.
-    
-    | 설정 | 값 |
-    |-|-|
-    | **Monitoring** |  |
-    | 부트 진단 | **끄기**를 선택합니다. |
    
-7. **검토 + 만들기**를 선택합니다. 
+5. **검토 + 만들기**를 선택합니다. 
   
-8. 설정을 검토한 다음, **만들기**를 선택합니다.
+6. 설정을 검토한 다음, **만들기**를 선택합니다.
 
-9. 1~8단계에 따라 다음 값 및 **myVM1**과 동일한 그 외의 모든 설정을 사용하여 추가 VM을 하나 만듭니다.
+7. 1~8단계에 따라 다음 값 및 **myVM1**과 동일한 그 외의 모든 설정을 사용하여 추가 VM을 하나 만듭니다.
 
     | 설정 | VM 2|
     | ------- | ----- |
@@ -286,8 +275,6 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
-
-공용 부하 분산 장치 또는 내부 부하 분산 장치를 만들 수 있습니다. 
 
 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 
 
@@ -368,7 +355,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 4. **검토 + 만들기** 탭에서 **만들기**를 선택합니다.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="표준 내부 부하 분산 장치 만들기" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="표준 내부 부하 분산 장치를 만듭니다." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>부하 분산 장치 리소스 만들기
 
@@ -461,9 +448,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-공용 IP SKU와 부하 분산 장치 SKU는 일치해야 합니다. 기본 부하 분산 장치의 경우 백 엔드 풀에서 기본 IP 주소가 있는 VM을 사용합니다. 
-
-이 섹션에서는 기본 공용 IP 주소를 사용하여 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.  
+이 섹션에서는 두 개의 VM(**myVM1** 및 **myVM2**)을 만듭니다.
 
 두 VM은 **myAvailabilitySet**라는 가용성 집합에 추가됩니다.
 
@@ -505,21 +490,12 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 네트워크 보안 그룹 구성 | **새로 만들기**를 선택합니다. </br> **네트워크 보안 그룹 만들기**의 **이름**에서 **myNSG**를 입력합니다. </br> **확인**을 선택합니다. |
     | **부하 분산**.  |
     | 기존 부하 분산 솔루션 뒤에 이 가상 머신을 배치하시겠습니까? | **아니요**를 선택합니다. |
- 
-5. **관리** 탭을 선택하거나 **다음** > **관리**를 선택합니다.
 
-6. **관리** 탭에서 다음을 선택하거나 입력합니다.
-    
-    | 설정 | 값 |
-    |-|-|
-    | **Monitoring** |  |
-    | 부트 진단 | **끄기**를 선택합니다. |
-
-7. **검토 + 만들기**를 선택합니다. 
+5. **검토 + 만들기**를 선택합니다. 
   
-8. 설정을 검토한 다음, **만들기**를 선택합니다.
+6. 설정을 검토한 다음, **만들기**를 선택합니다.
 
-9. 1~8단계에 따라 다음 값 및 **myVM1**과 동일한 그 외의 모든 설정을 사용하여 추가 VM을 하나 만듭니다.
+7. 1~8단계에 따라 다음 값 및 **myVM1**과 동일한 그 외의 모든 설정을 사용하여 추가 VM을 하나 만듭니다.
 
     | 설정 | VM 2 |
     | ------- | ----- |
@@ -583,19 +559,10 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 공용 IP | **없음**을 선택합니다. |
     | NIC 네트워크 보안 그룹 추가 | **고급**을 선택합니다.|
     | 네트워크 보안 그룹 구성 | 이전 단계에서 만든 **MyNSG**를 선택합니다.|
-    
-5. **관리** 탭을 선택하거나 **다음** > **관리**를 선택합니다.
-
-6. **관리** 탭에서 다음을 선택하거나 입력합니다.
-    
-    | 설정 | 값 |
-    |-|-|
-    | **Monitoring** |  |
-    | 부트 진단 | **끄기**를 선택합니다. |
-   
-7. **검토 + 만들기**를 선택합니다. 
+       
+5. **검토 + 만들기**를 선택합니다. 
   
-8. 설정을 검토한 다음, **만들기**를 선택합니다.
+6. 설정을 검토한 다음, **만들기**를 선택합니다.
 
 ## <a name="install-iis"></a>IIS 설치
 
@@ -647,13 +614,13 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 8. 이전 단계의 IP 주소를 브라우저의 주소 표시줄에 입력합니다. IIS 웹 서버의 기본 페이지가 브라우저에 표시됩니다.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="표준 내부 부하 분산 장치 만들기" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="표준 내부 부하 분산 장치를 만듭니다." border="true":::
    
-세 개의 VM 모두에서 부하 분산 장치 분산 트래픽을 확인하려면 각 VM의 IIS 웹 서버의 기본 페이지를 사용자 지정한 다음, 클라이언트 컴퓨터에서 웹 브라우저를 강제로 새로 고칠 수 있습니다.
+두 VM에서 부하 분산 장치 분산 트래픽을 확인하려면 각 VM의 IIS 웹 서버의 기본 페이지를 사용자 지정한 다음, 클라이언트 머신에서 웹 브라우저를 강제로 새로 고칠 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 리소스가 포함된 **myResourceGroupLB** 리소스 그룹을 선택한 다음, **삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 리소스가 포함된 **myResourceGroupLB** 리소스 그룹을 선택한 다음, **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -665,5 +632,3 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer란?](load-balancer-overview.md) 및 [Load Balancer 질문과 대답](load-balancer-faqs.md)으로 계속 진행하세요.
 
-* [Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
-* [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)에 대해 자세히 알아봅니다.

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08e6491e1d8d94e8e6e9112e5a19682018103325
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551710"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400352"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>자습서: Azure의 Linux 가상 머신을 위한 파일 백업 및 복원
 
@@ -70,7 +70,7 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
  
 1. 로컬 컴퓨터에서 브라우저를 열고 VM의 공용 IP 주소를 입력하여 기본 nginx 웹 페이지를 확인합니다.
 
-    ![기본 nginx 웹 페이지](./media/tutorial-backup-vms/nginx-working.png)
+    ![기본 nginx 웹 페이지를 보여주는 스크린샷.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. VM에 SSH를 수행합니다
 
@@ -86,7 +86,7 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
     
 4. 로컬 컴퓨터에서 Ctrl+F5를 눌러 브라우저를 새로 고친 다음 기본 nginx 페이지가 사라졌는지 확인합니다.
 
-    ![기본 nginx 웹 페이지](./media/tutorial-backup-vms/nginx-broken.png)
+    ![기본 nginx 페이지를 보여주는 스크린샷이 사라졌습니다.](./media/tutorial-backup-vms/nginx-broken.png)
     
 1. 로컬 컴퓨터에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 6. 왼쪽 메뉴에서 **가상 머신**를 선택합니다. 

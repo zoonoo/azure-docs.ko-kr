@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057010"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446096"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - *myNetworkSecurityGroup*  - 네트워크 보안 그룹의 이름입니다.
     - *myResourceGroupLBAZ* - 기존 리소스 그룹의 이름입니다.
    
-![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![스크린샷은 네트워크 보안 그룹 만들기 창을 보여줍니다.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>네트워크 보안 그룹 규칙 만들기
 
@@ -112,7 +112,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - *HTTP 허용* - 부하 분산 장치 규칙의 설명
 4. **확인**을 클릭합니다.
  
-   ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![스크린샷은 인바운드 보안 규칙 추가 창을 보여줍니다.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. 다음 값으로 2-4단계를 반복하여 포트 3389를 사용하는 인바운드 RDP 연결을 허용하는 *myRDPRule*이라는 또 다른 규칙을 만듭니다.
     - *서비스 태그* - **소스**로 입력합니다.
     - *인터넷* - **원본 서비스 태그**로 입력합니다.

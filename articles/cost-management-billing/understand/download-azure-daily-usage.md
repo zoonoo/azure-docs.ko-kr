@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 3b16e5b460f5fdfd0668db2b2e2fac78775cd893
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 141da3dfab9996110952ec266733271582e66ff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688915"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439200"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
 
@@ -28,12 +28,12 @@ MCA(Microsoft 고객 계약)가 있는 경우 청구 프로필 소유자, 기여
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. *Cost Management + 청구*를 검색합니다.  
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![스크린샷은 Cost Management + Billing에 대한 Azure Portal 검색을 보여줍니다.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. 액세스 권한에 따라 청구 계정 또는 청구 프로필을 선택해야 할 수도 있습니다.
 1. 왼쪽 메뉴에서 **청구** 아래의 **청구서**를 선택합니다.
 1. 청구서 그리드에서 다운로드하려는 사용량에 해당하는 청구 기간의 행을 찾습니다.
 1. **다운로드 아이콘** 또는 오른쪽에 있는 줄임표(`...`)를 선택합니다.  
-  ![사용량 + 요금 다운로드 위치를 보여주는 스크린샷](./media/download-azure-daily-usage/download-usage-others.png)  
+  ![스크린샷은 다운로드 옵션을 포함하는 Cost Management + Billing 송장 페이지를 보여줍니다.](./media/download-azure-daily-usage/download-usage-others.png)  
 1. 오른쪽에 다운로드 창이 열립니다. **사용량 세부 정보** 섹션에서 **다운로드**를 선택합니다.  
 
 ## <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
@@ -42,10 +42,10 @@ EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. *Cost Management + 청구*를 검색합니다.  
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![스크린샷은 Azure Portal 검색을 보여줍니다.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. **사용량 + 요금**을 선택합니다.
 1. 다운로드하려는 월의 **다운로드**를 선택합니다.  
-    ![사용량 + 요금 다운로드 위치를 보여주는 스크린샷](./media/download-azure-daily-usage/download-usage-ea.png)
+    ![스크린샷은 EA 고객에 대한 Cost Management + Billing 송장 페이지를 보여줍니다.](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## <a name="download-usage-for-pending-charges"></a>보류 중인 요금에 대한 사용량 다운로드
 

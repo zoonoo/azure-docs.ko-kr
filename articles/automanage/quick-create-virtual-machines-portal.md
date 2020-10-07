@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 43e0805a828a2ed32d23984b6ffef95a7e710953
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945405"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445789"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 
@@ -28,7 +28,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 > 평가판 계정은 이 자습서에서 사용되는 가상 머신에 액세스할 수 없습니다. 종량제 구독으로 업그레이드하세요.
 
 > [!IMPORTANT]
-> Automanage를 사용하도록 설정하려면 다음 RBAC 권한이 필요합니다. **소유자** 역할 또는 **기여자**와 **사용자 액세스 관리자** 역할
+> 기존 Automanage 계정을 사용하여 Automanage를 사용하도록 설정하려면 **기여자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용하도록 설정하는 경우 다음 권한이 필요합니다. **소유자** 역할 또는 **기여자**와 **사용자 액세스 관리자** 역할
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -49,34 +49,36 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     1. 온보딩하려는 각 가상 머신의 확인란을 선택합니다.
     1. **선택** 단추를 클릭합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="사용 가능한 VM 목록에서 기존 VM 선택":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="기존 VM에서 사용":::
 
 4. **구성 프로필**에서 **프로필 및 기본 설정을 찾아 변경**을 클릭합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="프로필 및 기본 설정을 찾아 변경":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="기존 VM에서 사용":::
 
 5. **구성 프로필 + 기본 설정 선택** 블레이드에서 다음을 수행합니다.
     1. 왼쪽에서 프로필을 선택합니다. 테스트의 경우 *개발/테스트*를, 프로덕션의 경우 *프로덕션*을 선택합니다.
     1. **선택** 단추를 클릭합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="프로덕션 구성 프로필 찾아보기":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="기존 VM에서 사용":::
 
 6. **사용** 단추를 클릭합니다.
 
 
 ## <a name="enable-automanage-for-vms-on-a-new-vm"></a>신규 VM에서 VM용 Automanage 사용
 
+[여기](https://aka.ms/automanageportalnextstep)에서 Azure Portal에 로그인하여 새 VM을 만들고 Automanage를 사용하도록 설정합니다.
+
 1. [빠른 시작 - Azure Portal에서 Windows VM 만들기](..\virtual-machines\windows\quick-create-portal.md)의 생성 단계를 수행합니다.
 
 2. VM이 배포되면 배포 상태 페이지가 표시되고 하단에 권장되는 **다음 단계**가 표시됩니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="배포 페이지 하단에 있는 다음 단계 섹션":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="기존 VM에서 사용":::
 
 3. **다음 단계**에서 **가상 머신 자동 관리 사용 모범 사례**를 선택합니다.
 
 4. **Automanage – Azure 가상 머신 모범 사례** 페이지에서 **머신**은 새로 만든 VM으로 자동 입력됩니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="새로 만든 VM이 선택한 머신으로 표시됩니다.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="기존 VM에서 사용":::
 
 5. **구성 프로필**에서 **프로필 및 기본 설정을 찾아 변경**을 클릭합니다.
 
@@ -84,16 +86,15 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     1. 왼쪽에서 프로필을 선택합니다. 테스트의 경우 *개발/테스트*를, 프로덕션의 경우 *프로덕션*을 선택합니다.
     1. **선택** 단추를 클릭합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="프로덕션 구성 프로필 찾아보기":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="기존 VM에서 사용":::
 
 7. **사용** 단추를 클릭합니다.
-
 
 ## <a name="disable-automanage-for-vms"></a>VM용 Automanage 사용 안 함
 
 자동 관리를 사용하지 않도록 설정하여 가상 머신용 Azure Automanage 사용을 신속하게 중지합니다.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="가상 머신에서 Automanage 사용 안 함":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="기존 VM에서 사용":::
 
 1. 모든 자동 관리형 VM이 나열되는 **Automanage – Azure 가상 머신 모범 사례** 페이지로 이동합니다.
 1. 사용하지 않도록 설정할 가상 머신 옆의 확인란을 선택합니다.

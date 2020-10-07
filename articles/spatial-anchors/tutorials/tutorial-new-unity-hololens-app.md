@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535884"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441278"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 단계별 지침
 
@@ -204,11 +204,11 @@ Azure Spatial Anchor의 CloudSpatialAnchorSession을 설정해보겠습니다. �
 
 Azure Spatial Anchors 계정 식별자, 키 및 도메인이 있으면 `Account Id`를 `SpatialAnchorsAccountId`에, `Account Key`를 `SpatialAnchorsAccountKey`에, `Account Domain`을 `SpatialAnchorsAccountDomain`에 붙여넣습니다.
 
-마지막으로, 모든 것을 함께 후크해 보겠습니다. `SpawnNewAnchoredObject()` 메서드에서 다음 코드를 추가합니다. 구가 만들어지는 즉시 `CreateAnchorAsync()` 메서드를 호출합니다. 메서드가 반환되면 아래 코드에서 구를 마지막으로 업데이트하여 구의 색을 파란색으로 변경합니다.
+마지막으로, 모든 것을 함께 후크해 보겠습니다. `CreateAndSaveSphere()` 메서드에서 다음 코드를 추가합니다. 구가 만들어지는 즉시 `CreateAnchorAsync()` 메서드를 호출합니다. 메서드가 반환되면 아래 코드에서 구를 마지막으로 업데이트하여 구의 색을 파란색으로 변경합니다.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-**Visual Studio**에서 앱을 한 번 더 실행합니다. 머리를 움직여본 후 에어 탭을 움직여 구를 배치합니다. 충분한 프레임이 있으면 구의 색이 노란색으로 변하고 클라우드 업로드가 시작됩니다. 업로드가 완료되면 구의 색이 파란색으로 변합니다. 필요에 따라 **Visual Studio** 내의 출력 창을 사용하여 앱에서 보내는 로그 메시지를 모니터링할 수도 있습니다. `RecommendedForCreateProgress`를 시청할 수 있고 업로드가 완료되면 클라우드에서 반환된 앵커 식별자를 볼 수 있습니다.
+**Visual Studio**에서 앱을 한 번 더 실행합니다. 머리를 움직여본 후 에어 탭을 움직여 구를 배치합니다. 충분한 프레임이 있으면 구의 색이 노란색으로 변하고 클라우드 업로드가 시작됩니다. 업로드가 완료되면 구의 색이 파란색으로 변합니다. 필요에 따라 **Visual Studio** 내에서 디버깅하는 동안 [출력 창](https://docs.microsoft.com/visualstudio/ide/reference/output-window)을 사용하여 앱에서 보내는 로그 메시지를 모니터링할 수도 있습니다. 로그 메시지를 보려면 Visual Studio에서 앱의 `Debug` 구성을 배포해야 합니다. `RecommendedForCreateProgress`를 시청할 수 있고 업로드가 완료되면 클라우드에서 반환된 앵커 식별자를 볼 수 있습니다.
 
 > [!NOTE]
 > "DllNotFoundException: DLL 'AzureSpatialAnchors'를 로드할 수 없습니다. 지정된 모듈을 찾을 수 없습니다."가 표시되면 솔루션을 다시 **정리** 및 **빌드**해야 합니다.

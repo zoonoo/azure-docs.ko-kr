@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가를 사용하여 온-프레미스 물리
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600741"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442285"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>자습서: 서버 평가를 사용하여 물리적 서버 검색
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **요구 사항** | **세부 정보**
 --- | ---
-**어플라이언스** | Azure Migrate 어플라이언스를 실행할 머신이 필요합니다. 머신에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다. Windows Server 2019를 사용하는 컴퓨터에서 어플라이언스를 실행하는 것은 지원되지 않습니다.<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.
+**어플라이언스** | Azure Migrate 어플라이언스를 실행할 머신이 필요합니다. 머신에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다. _(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.
 **Windows 서버** | 어플라이언스가 구성 및 성능 메타데이터를 가져올 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용합니다.
 **Linux 서버** | 포트 22(TCP)에서 인바운드 연결을 허용합니다.
 
@@ -69,7 +69,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
     ![사용자 설정에서 사용자가 Active Directory 앱을 등록할 수 있는지 확인합니다.](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>물리적 서버 준비
 
@@ -139,13 +139,13 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
         **시나리오** | **다운로드*** | **해시 값**
         --- | --- | ---
-        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        물리적(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Azure Government의 경우:
 
         **시나리오** | **다운로드*** | **해시 값**
         --- | --- | ---
-        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        물리적(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
