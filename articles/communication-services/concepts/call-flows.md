@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7172e3319e60603d46dc2af87f3818a5c3664285
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9fe5cb13ee352b2c49ab6ae57cabd6116cdfa720
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945893"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667676"
 ---
 # <a name="call-flows"></a>전화 흐름
 
@@ -44,13 +44,13 @@ ms.locfileid: "90945893"
 
 Alice의 경우 커피숍의 NAT이고 Bob의 경우 홈 오피스의 NAT가 됩니다. Alice의 디바이스는 NAT의 외부 주소를 보내고 Bob의 디바이스도 마찬가지입니다. 클라이언트 라이브러리는 Azure Communication Services에서 무료로 제공하는 STUN(Session Traversal Utilities for NAT) 서비스에서 외부 주소를 알아봅니다. Alice와 Bob 간의 핸드셰이크를 처리하는 논리는 Azure Communication Services에서 제공한 클라이언트 라이브러리에 포함되어 있습니다. (추가 구성이 필요 없음)
 
-:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="STUN 연결을 활용하는 VOIP 호출을 보여주는 다이어그램":::
+:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="사용자와 Communication Services 간의 직접 VOIP 호출을 보여주는 다이어그램":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>사례 3: 직접 연결과 NAT 연결 모두 사용할 수 없는 VoIP
 
 클라이언트 디바이스 중 하나 또는 둘 다 대칭 NAT 뒤에 있는 경우 두 클라이언트 라이브러리 간에 미디어를 릴레이할 별도의 클라우드 서비스가 필요합니다. 이 서비스를 TURN(Traversal Using Relays around NAT)이라고 하며 Communication Services에서도 제공합니다. 클라이언트 라이브러리를 호출하는 Communication Services는 검색된 네트워크 조건에 따라 자동으로 TURN 서비스를 사용합니다. Microsoft의 TURN 서비스 사용 요금은 별도로 청구됩니다.
 
-:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="TURN 연결을 활용하는 VOIP 호출을 보여주는 다이어그램":::
+:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="사용자와 Communication Services 간의 직접 VOIP 호출을 보여주는 다이어그램":::
  
 ### <a name="case-4-group-calls-with-pstn"></a>사례 4: PSTN을 사용한 그룹 통화
 
@@ -58,7 +58,7 @@ PSTN 전화에 대한 신호와 미디어는 모두 Azure Communication Services
 
 PSTN 미디어 트래픽은 미디어 프로세서라고 하는 구성 요소를 통해 흐릅니다.
 
-:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Communication Services를 사용한 PSTN 그룹 통화를 보여주는 다이어그램":::
+:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="사용자와 Communication Services 간의 직접 VOIP 호출을 보여주는 다이어그램":::
 
 > [!NOTE]
 > 미디어 처리에 익숙한 분들을 위해, Microsoft의 미디어 프로세서 역시 [RFC 3261 SIP: 세션 시작 프로토콜](https://tools.ietf.org/html/rfc3261)에 정의된 대로 Microsoft와 이동 통신 사업자 네트워크 간의 호출을 처리할 때 코덱을 변환할 수 있는 백투백 사용자 에이전트입니다. Azure Communication Services 신호 컨트롤러는 동일한 RFC에 따라 Microsoft에서 SIP 프록시를 구현한 것입니다.
@@ -70,11 +70,11 @@ PSTN 미디어 트래픽은 미디어 프로세서라고 하는 구성 요소를
 > [!NOTE]
 > 미디어 프로세서는 MCU(Multipoint Control Unit) 또는 SFU(Selective Forwarding Unit)로 작동할 수 있습니다.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Communication Services 내의 UDP 미디어 프로세스 흐름을 보여주는 다이어그램":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="사용자와 Communication Services 간의 직접 VOIP 호출을 보여주는 다이어그램":::
 
 방화벽 제한으로 인해 클라이언트 라이브러리가 미디어에 UDP를 사용할 수 없는 경우 TCP(전송 제어 프로토콜)를 사용하려고 시도합니다. 미디어 프로세서 구성 요소에는 UDP가 필요하므로, 위와 같은 경우 TCP를 UDP로 변환하기 위해 Communication Services TURN 서비스가 그룹 통화에 추가됩니다 이 경우 TURN 기능을 수동으로 해제하지 않으면 TURN 요금이 부과됩니다.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Communication Services 내의 TCP 미디어 프로세스 흐름을 보여주는 다이어그램":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="사용자와 Communication Services 간의 직접 VOIP 호출을 보여주는 다이어그램":::
 
 ## <a name="next-steps"></a>다음 단계
 

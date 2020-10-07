@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: 서버 만들기 - Azure Portal - Azure Database for PostgreSQL - 단일 서버'
 description: 이 빠른 시작 가이드에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 서버를 만들고 관리합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 0c390c64db8c5833f5bc5bf2be3367cb63127a0f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6e43d00722dd86934c8f95e06a3b8b590b263d61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902650"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91705163"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기
 
@@ -39,12 +39,12 @@ Azure Database for PostgreSQL 서버를 만들려면 다음을 수행합니다.
 3. **단일 서버** 배포 옵션을 선택합니다.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="Azure Database for PostgreSQL에 대한 단일 서버 배포 옵션을 선택하는 스크린샷.":::
+   > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="메뉴의 Azure Database for PostgreSQL을 보여주는 스크린샷":::
 
 4. 다음 정보로 **기본 사항** 양식을 입력합니다.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="단일 서버를 만들기 위한 기본 탭을 보여주는 스크린샷.":::
+   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="메뉴의 Azure Database for PostgreSQL을 보여주는 스크린샷":::
 
    설정|제안 값|Description
    ---|---|---
@@ -71,7 +71,7 @@ Azure Database for PostgreSQL 서버를 만들려면 다음을 수행합니다.
 기본적으로 사용자가 만든 서버는 공개적으로 액세스할 수 없습니다. IP 주소에 대한 사용 권한을 부여해야 합니다. Azure Portal의 서버 리소스로 이동하여 서버 리소스의 왼쪽 메뉴에서 **연결 보안**을 선택합니다. 리소스를 찾는 방법을 모를 경우 [리소스 열기](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)를 참조하세요.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="연결 보안에 대한 방화벽 규칙을 보여주는 스크린샷.":::
+> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="메뉴의 Azure Database for PostgreSQL을 보여주는 스크린샷":::
   
 **현재 클라이언트 IP 주소 추가**를 선택한 다음, **저장**을 선택합니다. 추가 IP를 추가하거나 해당 IP 주소에서 서버에 연결할 IP 범위를 제공할 수 있습니다. 자세한 내용은 [Azure Database for PostgreSQL의 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
    
@@ -90,7 +90,7 @@ Azure Database for PostgreSQL 서버를 만들려면 다음을 수행합니다.
    > Cloud Shell을 처음 여는 경우 리소스 그룹과 스토리지 계정을 생성하라는 메시지가 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. 
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="서버 정보 및 Azure Cloud Shell을 열기 위한 아이콘을 보여주는 스크린샷.":::
+   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="메뉴의 Azure Database for PostgreSQL을 보여주는 스크린샷":::
 
 3. Azure Cloud Shell 터미널에서 다음 명령을 실행합니다. 값을 실제 서버 이름 및 관리 사용자 로그인 이름으로 바꿉니다. `<admin-username>@<servername>` 형식의 관리자와 함께 빈 데이터베이스 **postgres**를 사용합니다.
 
@@ -143,7 +143,7 @@ Azure Database for PostgreSQL 서버를 만들려면 다음을 수행합니다.
 서버를 삭제하려면 서버의 **개요** 페이지에서 **삭제** 단추를 선택합니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="서버 삭제 단추를 보여주는 스크린샷.":::
+> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="메뉴의 Azure Database for PostgreSQL을 보여주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

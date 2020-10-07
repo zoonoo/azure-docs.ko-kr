@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ecf9575f2ab469c9226ec18a4b3b4647e582d408
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1995691e276ea699b0b4b61b2a88c030f3d58b7d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377364"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779511"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -46,7 +46,7 @@ dotnet build
 .NET용 Azure 통신 채팅 클라이언트 라이브러리 설치
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
 ``` 
 
 ## <a name="object-model"></a>개체 모델

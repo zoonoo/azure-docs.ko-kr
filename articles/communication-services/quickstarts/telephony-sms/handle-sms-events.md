@@ -6,19 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02a0a5dd5cfe3a1ecaa264f1e81c848a8da6c58d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945840"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756761"
 ---
 # <a name="quickstart-handle-sms-events"></a>빠른 시작: SMS 이벤트 처리
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Communication Services SMS 이벤트를 처리하기 위해 Azure Event Grid를 사용하여 Azure Communication Services를 시작합니다. 
 
@@ -65,11 +65,11 @@ Azure Portal에서 다음을 수행합니다.
 
 [Azure Communication Services에서 지원하는 이벤트](../../concepts/event-handling.md)의 전체 목록을 확인하세요.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="선택한 SMS 받음 및 SMS 전송 보고서 받음 이벤트 유형을 보여 주는 스크린샷":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="리소스의 이벤트 페이지 내에서 이벤트 구독 단추 선택을 보여 주는 스크린샷":::
 
 **엔드포인트 유형**으로 **웹후크**를 선택합니다. 
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="웹후크로 설정되는 엔드포인트 유형 필드를 보여 주는 스크린샷":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="리소스의 이벤트 페이지 내에서 이벤트 구독 단추 선택을 보여 주는 스크린샷":::
 
 **엔드포인트**에 대해 **엔드포인트 선택**을 클릭하고 웹앱의 URL을 입력합니다.
 
@@ -77,7 +77,7 @@ Azure Portal에서 다음을 수행합니다.
 
 그런 다음, **선택 확인**을 선택합니다.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="웹후크 엔드포인트 확인을 보여 주는 스크린샷":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="리소스의 이벤트 페이지 내에서 이벤트 구독 단추 선택을 보여 주는 스크린샷":::
 
 ## <a name="viewing-sms-events"></a>SMS 이벤트 보기
 
@@ -94,9 +94,9 @@ Azure Portal에서 다음을 수행합니다.
 
 위의 작업 중 하나가 완료되면 `SMS Received` 및 `SMS Delivery Report Received` 이벤트를 엔드포인트로 보낸다는 것을 알 수 있습니다. 이러한 이벤트는 처음에 설정한 [Azure Event Grid Viewer 샘플](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)에 표시됩니다. 이벤트 옆에 있는 눈 모양 아이콘을 눌러 전체 페이로드를 볼 수 있습니다. 이벤트는 다음과 같습니다.
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="SMS 받음 이벤트에 대한 Event Grid 스키마를 보여 주는 스크린샷":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="리소스의 이벤트 페이지 내에서 이벤트 구독 단추 선택을 보여 주는 스크린샷":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="SMS 전송 보고서 이벤트에 대한 Event Grid 스키마가 표시된 스크린샷":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="리소스의 이벤트 페이지 내에서 이벤트 구독 단추 선택을 보여 주는 스크린샷":::
 
 [이벤트 스키마 및 기타 이벤트 개념](../../concepts/event-handling.md)에 대해 자세히 알아보세요.
 

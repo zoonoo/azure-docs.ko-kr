@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307724"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740933"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "91307724"
 
 서비스 대시보드의 섹션에서는 현재 보유 중인 인덱스, 인덱서 및 데이터 원본 수를 보여줍니다. 
 
-![인덱스, 인덱서 및 데이터 원본 목록](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 ## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> 인덱스 및 부하 데이터 만들기
 
@@ -49,11 +49,11 @@ ms.locfileid: "91307724"
 
 1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 명령 모음에서 **데이터 가져오기**를 클릭하여 검색 인덱스를 만들고 채웁니다.
 
-   ![데이터 가져오기 명령](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 1. 마법사에서 **데이터에 연결** > **샘플** > **hotels-sample**을 클릭합니다. 이 데이터 원본은 기본 제공됩니다. 사용자 고유의 데이터 원본을 만든 경우 이름, 형식 및 연결 정보를 지정해야 합니다. 생성되는 데이터 원본은 다른 가져오기 작업에서 다시 사용할 수 있는 "기존 데이터 원본"이 됩니다.
 
-   ![샘플 데이터 세트 선택](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 1. 다음 페이지를 계속합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "91307724"
 
 지금은 이 단계를 건너뛰고, **대상 인덱스 사용자 지정**으로 직접 이동하겠습니다.
 
-   ![인식 기술 단계 건너뛰기](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 > [!TIP]
 > [빠른 시작](cognitive-search-quickstart-blob.md) 또는 [자습서](cognitive-search-tutorial-blob.md)에서 모든 AI 인덱싱 예제를 단계별로 실행할 수 있습니다.
@@ -87,7 +87,7 @@ ms.locfileid: "91307724"
 
    기존 호텔 데이터 원본을 사용하여 마법사를 두 번째로 다시 실행하면 인덱스가 기본 특성으로 구성되지 않습니다. 향후 가져오기에서는 특성을 수동으로 선택해야 합니다. 
 
-   ![생성된 호텔 인덱스](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 2. 다음 페이지를 계속합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "91307724"
 
 **제출**을 클릭하여 인덱서를 만드는 동시에 실행합니다.
 
-  ![호텔 인덱서](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 ## <a name="monitor-progress"></a>진행률 모니터링
 
@@ -108,7 +108,7 @@ ms.locfileid: "91307724"
 
 포털에서 페이지를 업데이트하는 데 몇 분 정도 걸리지만 인덱싱된 문서 수와 함께 상태가 "진행 중" 또는 성공으로 나타나고 새로 만든 인덱서가 목록에 표시되어야 합니다.
 
-   ![인덱서 진행 메시지](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 ## <a name="view-the-index"></a>인덱스 보기
 
@@ -116,13 +116,13 @@ ms.locfileid: "91307724"
 
 포털 페이지를 새로 고칠 때까지 기다립니다. 몇 분 후에 문서 수와 스토리지 크기를 포함하는 인덱스가 표시됩니다.
 
-   ![서비스 대시보드의 인덱스 목록](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 이 목록에서 방금 만든 *hotels-sample* 인덱스를 클릭하고, 인덱스 스키마를 볼 수 있습니다. 그리고 필요하다면 새 필드를 추가합니다. 
 
 **필드** 탭에는 인덱스 스키마가 표시됩니다. 목록 맨 아래로 스크롤하여 새 필드를 입력합니다. 대부분의 경우 기존 필드를 변경할 수 없습니다. 기존 필드는 Azure Cognitive Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 인덱스를 만들고 기존 인덱스를 삭제합니다.
 
-   ![샘플 인덱스 정의](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 점수 매기기 프로필 및 CORS 옵션과 같은 다른 구문을 언제든지 추가할 수 있습니다.
 
@@ -140,15 +140,15 @@ ms.locfileid: "91307724"
 
 1. 명령 모음에서 **검색 탐색기** 를 클릭합니다.
 
-   ![검색 탐색기 명령](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 2. **인덱스** 드롭다운에서 *hotels-sample-index*를 선택합니다. **API 버전** 드롭다운을 클릭하여 사용할 수 있는 REST API를 확인합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2020-06-30)을 사용합니다.
 
-   ![인덱스 및 API 명령](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 3. 검색 창에 아래의 쿼리 문자열을 붙여넣고 **검색**을 클릭합니다.
 
-   ![쿼리 문자열 및 검색 단추](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="인덱스, 인덱서 및 데이터 원본 목록":::
 
 ## <a name="example-queries"></a>쿼리 예
 

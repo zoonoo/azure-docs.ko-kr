@@ -6,16 +6,16 @@ author: fanche
 manager: phans
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ed40f91c760d7c83466078b3523748175a1701ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d0d80be367dda3689566dec2ade6fd7fc7c01fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945637"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91665372"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>빠른 시작: 앱에 채팅 추가
 
@@ -41,7 +41,7 @@ Communication Services Chat 클라이언트 라이브러리를 사용하여 애�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Communication Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](../create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
+Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](../create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

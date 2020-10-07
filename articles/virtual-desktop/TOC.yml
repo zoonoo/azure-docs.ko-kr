@@ -34,6 +34,8 @@
           href: connect-macos.md
         - name: iOS 클라이언트와 연결
           href: connect-ios.md
+        - name: Microsoft Store 클라이언트와 연결
+          href: connect-microsoft-store.md
     - name: PowerShell 모듈 설정
       href: powershell-module.md
     - name: 호스트 풀 및 세션 호스트 만들기

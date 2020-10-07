@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 서버 만들기 - Azure CLI - Azure Database for PostgreSQL - 단일 서버'
 description: 이 빠른 시작 가이드에서는 Azure CLI를 사용하여 Azure Database for PostgreSQL 서버를 만듭니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 182226a0bb97c9239f1c0d0dc6e7d4d2b8bdbb1c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798876"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91705265"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 만들기
 

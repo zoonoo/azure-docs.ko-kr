@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Python을 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결'
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Python 코드 샘플을 제공합니다.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901811"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91707900"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
@@ -105,7 +105,7 @@ conn.close()
 
 코드가 성공적으로 실행되면 다음과 같은 출력이 생성됩니다.
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="명령줄 출력":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Azure Database for PostgreSQL 서버 이름":::
 
 ## <a name="read-data"></a>데이터 읽기
 다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)와 SQL **SELECT**를 사용하여 데이터를 읽습니다. 이 함수는 쿼리를 허용하며, [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall)을 사용하여 반복할 결과 세트를 반환합니다. 

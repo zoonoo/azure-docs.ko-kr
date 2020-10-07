@@ -28,6 +28,8 @@
           href: tutorial-discover-physical.md
         - name: AWS 인스턴스 검색
           href: tutorial-discover-aws.md
+        - name: GCP 인스턴스 검색
+          href: tutorial-discover-gcp.md
     - name: 평가
       items:
         - name: Azure VM으로 마이그레이션할 VMware VM 평가
@@ -40,6 +42,8 @@
           href: tutorial-assess-physical.md
         - name: Azure로 마이그레이션할 AWS 인스턴스 평가
           href: tutorial-assess-aws.md
+        - name: Azure로 마이그레이션할 GCP 인스턴스 평가
+          href: tutorial-assess-gcp.md
         - name: 가져온 서버 평가
           href: tutorial-discover-import.md
     - name: Migrate
@@ -58,6 +62,8 @@
           href: tutorial-migrate-physical-virtual-machines.md
         - name: AWS 인스턴스 마이그레이션
           href: tutorial-migrate-aws-virtual-machines.md
+        - name: GCP 인스턴스 마이그레이션
+          href: tutorial-migrate-gcp-virtual-machines.md
 - name: 개념
   items:
     - name: Azure Migrate를 사용하여 마이그레이션 계획 빌드

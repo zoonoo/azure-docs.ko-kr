@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5be2ff48ea5510c54c79e76e8bae082bd5085794
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: abc2367c309f46ee1b29a51145c67e8d71919774
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945352"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91665398"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -36,7 +36,7 @@ Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/s
 
 걸려오는 전화를 받을 때 사용자의 모바일 디바이스에 푸시 알림을 자동으로 보내기 위해 Azure Notification Hub를 Communication Services 리소스에 연결할 수 있습니다. 이러한 푸시 알림을 사용하여 백그라운드에서 애플리케이션을 깨우고 사용자가 통화를 수락하거나 거절할 수 있는 UI를 표시해야 합니다. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Communication Services가 Azure Notifications Hub와 통합되는 방식을 보여주는 다이어그램":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Communication Services가 Event Grid와 통합되는 방식을 보여주는 다이어그램":::
 
 Communication Services는 Azure Notification Hub를 통과 서비스로 사용하여 [Direct Send](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) API를 통해 다양한 플랫폼별 푸시 알림 서비스와 통신합니다. 이렇게 하면 기존 Azure Notification Hub 리소스 및 구성을 다시 사용하여 대기 시간이 짧고 안정적인 통화 알림을 애플리케이션에 전달할 수 있습니다.
 
@@ -66,7 +66,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 포털에서 Azure Communication Services 리소스로 이동합니다. Communication Services 리소스 내에서 Communication Services 페이지의 왼쪽 메뉴에 있는 푸시 알림을 선택하고 이전에 프로비저닝한 Notification Hub를 연결합니다. 여기에 연결 문자열과 리소스 ID를 제공해야 합니다.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Azure Portal 내의 푸시 알림 설정을 보여주는 스크린샷":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Communication Services가 Event Grid와 통합되는 방식을 보여주는 다이어그램":::
 
 #### <a name="device-registration"></a>디바이스 등록 
 

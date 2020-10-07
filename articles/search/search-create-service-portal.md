@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: 246cdb458b4529c60f61c3ddcb26280c1e3223af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/05/2020
+ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268369"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741009"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
@@ -47,7 +47,7 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 1. 검색 창을 사용하여 "Azure Cognitive Search"를 찾거나 **웹** > **Azure Cognitive Search**를 통해 리소스로 이동합니다.
 
-![포털에서 리소스 만들기](./media/search-create-service-portal/find-search3.png "포털에서 리소스 만들기")
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 ## <a name="choose-a-subscription"></a>구독을 선택합니다.
 
@@ -59,11 +59,11 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 단일 그룹에 리소스를 결합하지 않거나 기존 리소스 그룹을 관련이 없는 솔루션에서 사용되는 리소스로 채우는 경우 Azure Cognitive Search 리소스에 대해서만 새 리소스 그룹을 만듭니다. 
 
-![새 리소스 그룹 만들기](./media/search-create-service-portal/new-resource-group.png "새 리소스 그룹 만들기")
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 시간이 지남에 따라 현재 및 예상 비용을 모두 추적하거나 개별 리소스에 대한 요금을 확인할 수 있습니다. 다음 스크린샷에서는 여러 리소스를 하나의 그룹으로 결합할 때 제공될 수 있는 비용 정보를 보여줍니다.
 
-![리소스 그룹 수준에서 비용 관리](./media/search-create-service-portal/resource-group-cost-management.png "리소스 그룹 수준에서 비용 관리")
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 > [!TIP]
 > 리소스 그룹을 삭제하면 그룹 내의 모든 서비스가 삭제되므로 리소스 그룹의 정리가 간단해집니다. 여러 서비스를 이용하는 프로토타입 프로젝트의 경우, 이들을 모두 동일한 리소스 그룹에 배치하면 프로젝트가 종료된 후 쉽게 정리할 수 있습니다.
@@ -114,11 +114,11 @@ Azure Cognitive Search는 대부분의 지역에서 사용할 수 있습니다. 
 
 필요한 입력이 제공되면 계속 진행하여 서비스를 만듭니다. 
 
-![서비스 검토 및 만들기](./media/search-create-service-portal/new-service3.png "서비스 검토 및 만들기")
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 서비스는 몇 분 안에 배포됩니다. Azure 알림을 통해 진행 상황을 모니터링할 수 있습니다. 향후 쉽게 액세스할 수 있도록 서비스를 대시보드에 고정하는 것을 고려하세요.
 
-![서비스 모니터링 및 고정](./media/search-create-service-portal/monitor-notifications.png "서비스 모니터링 및 고정")
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>키 및 URL 엔드포인트 가져오기
 
@@ -128,7 +128,7 @@ Azure Cognitive Search는 대부분의 지역에서 사용할 수 있습니다. 
 
 2. **키** 페이지에서 관리 키(동급임) 중 하나를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다. 반대로 쿼리 키는 인덱스 콘텐츠에 대한 읽기 액세스를 제공합니다.
 
-   ![URL 엔드포인트를 사용하는 서비스 개요 페이지](./media/search-create-service-portal/get-url-key.png "URL 엔드포인트 및 기타 서비스 세부 정보")
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 엔드포인트 및 키는 포털 기반 작업에 필요하지 않습니다. 포털은 관리자 권한으로 Azure Cognitive Search 리소스에 이미 연결되어 있습니다. 포털 연습의 경우 [빠른 시작: 포털에서 Azure Cognitive Search 인덱스 만들기](search-get-started-portal.md)
 
@@ -149,7 +149,7 @@ Azure Cognitive Search는 대부분의 지역에서 사용할 수 있습니다. 
 2. 왼쪽 탐색 창에서 **설정** > **규모**를 선택합니다.
 3. 슬라이드 바를 사용하여 두 형식의 리소스 중 하나를 추가합니다.
 
-![용량 추가](./media/search-create-service-portal/settings-scale.png "복제본과 파티션을 통해 용량 추가")
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="포털에서 리소스 만들기" border="false":::
 
 > [!Note]
 > 파티션별 스토리지 및 속도는 더 높은 계층에서 증가합니다. 자세한 내용은 [할당량 및 제한 사항](search-limits-quotas-capacity.md)을 참조하세요.

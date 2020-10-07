@@ -222,7 +222,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -1326,6 +1326,8 @@
       href: samples/policy-reference.md
     - name: 기능 및 API 사용 중지
       items:
+        - name: OperationalInsights API
+          href: platform/operationalinsights-api-retirement.md
         - name: 클래식 자동 크기 조정 및 메트릭 API
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: 클래식 경고 및 모니터링

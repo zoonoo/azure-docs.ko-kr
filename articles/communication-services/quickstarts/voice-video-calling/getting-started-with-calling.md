@@ -8,18 +8,20 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 518ce47f1c30dde965dd96b1a356745d0a5ec499
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e9f552d6be897b5d9fd462e9168b61fc0b934987
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945989"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761981"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>빠른 시작: 앱에 음성 통화 추가
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 음성 및 비디오 통화를 추가하여 Azure Communication Services를 시작하세요. 
+
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/get-started-javascript.md)]

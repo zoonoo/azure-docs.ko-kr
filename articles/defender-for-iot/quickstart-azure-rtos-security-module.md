@@ -4,21 +4,21 @@ description: Azure IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 온보
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/24/2020
+ms.author: rkarlin
+ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945536"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759735"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>빠른 시작: Azure RTOS용 보안 모듈(미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "90945536"
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-[Azure RTOS GitHub용 보안 모듈 리소스](hhtps://github.com/azure-rtos/azure-iot-preview/releases)에서 선택한 특정 보드 및 도구(IAR, 세미 IDE 또는 PC)에 대한 .zip 파일 중 하나를 다운로드, 컴파일 및 실행합니다.
+[Azure RTOS GitHub용 보안 모듈 리소스](https://github.com/azure-rtos/azure-iot-preview/releases)에서 선택한 특정 보드 및 도구(IAR, 세미 IDE 또는 PC)에 대한 .zip 파일 중 하나를 다운로드, 컴파일 및 실행합니다.
 
 ### <a name="azure-resources"></a>Azure 리소스
 
@@ -63,10 +63,10 @@ IoT Hub의 Log Analytics 수집은 기본적으로 Defender for IoT 솔루션이
 1. **데이터 수집**을 선택합니다. 
 1. **작업 영역 구성** 옵션에서 토글을 **껴기**로 전환합니다. 
 1. 새 Log Analytics 작업 영역을 만들거나 기존 작업 영역을 선택합니다. **원시 보안 데이터에 대한 액세스** 옵션이 선택되어 있는지 확인합니다. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="데이터 수집 옵션과 원시 보안 데이터 옵션이 모두 선택되어 표시되는 Azure RTOS 구성":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Azure RTOS에 대한 액세스 데이터 수집 옵션":::
 1. **저장**을 선택합니다.
 1. Azure 리소스 목록으로 돌아가서 사용자가 만들었거나 연결한 Log Analytics 작업 영역이 IoT Hub에 대해 사용하도록 설정되어 있는지 확인합니다.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Azure 리소스 목록을 확인하여 IoT Hub에 대해 추가된 올바른 Log Analytics 작업 영역이 추가되었는지 확인"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Azure RTOS에 대한 액세스 데이터 수집 옵션"::: 
 
 ## <a name="next-steps"></a>다음 단계
 

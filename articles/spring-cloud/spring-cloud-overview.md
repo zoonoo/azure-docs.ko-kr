@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f622042c9a2e8cc5bc11c8dc909d02afe38e5c78
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908367"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758900"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -32,7 +32,7 @@ Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리�
 
 ## <a name="spring-cloud-config-server"></a>Spring Cloud 구성 서버
 
-Azure Spring Cloud 구성 서버는 분산 시스템에서 표면화된 구성에 대한 서버 및 클라이언트 쪽 지원을 모두 제공합니다.  Azure Spring Cloud 구성 서버는 모든 환경에서 애플리케이션 속성을 관리하는 중앙 위치입니다. 자세한 내용은 [Spring Cloud 구성 서버 참조](https://spring.io/projects/spring-cloud-config.md)를 참조하세요. 
+Azure Spring Cloud 구성 서버는 분산 시스템에서 표면화된 구성에 대한 서버 및 클라이언트 쪽 지원을 모두 제공합니다.  Azure Spring Cloud 구성 서버는 모든 환경에서 애플리케이션 속성을 관리하는 중앙 위치입니다. 자세한 내용은 [Spring Cloud 구성 서버 참조](https://spring.io/projects/spring-cloud-config)를 참조하세요. 
 
 ## <a name="bluegreen-deployments"></a>파랑/녹색 배포
 

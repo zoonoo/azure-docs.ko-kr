@@ -1,27 +1,28 @@
 ---
-title: '빠른 시작: Text Analytics 클라이언트 라이브러리 v3 | Microsoft Docs'
+title: '빠른 시작: Text Analytics 클라이언트 라이브러리를 사용한 텍스트 마이닝'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작을 사용하여 Azure Cognitive Services에서 애플리케이션을 Text Analytics API에 연결합니다.
+description: 이 빠른 시작을 통해 Azure Cognitive Services에서 Text Analytics API를 사용하여 감정 분석 등을 수행합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931185"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91710783"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>빠른 시작: Text Analytics 클라이언트 라이브러리 사용
 
-Text Analytics 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
+이 문서를 사용하여 Text Analytics 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 패키지를 설치하고 마이닝 텍스트에 대한 예제 코드를 사용해 보세요.
 
 Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작업은 다음과 같습니다.
 
@@ -36,6 +37,8 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 > * Text Analytics API의 안정적인 최신 버전은 `3.0`입니다.
 >    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 

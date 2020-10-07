@@ -10,11 +10,9 @@
   items:
     - name: QnA Maker 포털 사용
       items:
-        - name: 1. 기술 자료 만들기
+        - name: 기술 자료 만들기
           href: Quickstarts/create-publish-knowledge-base.md
-        - name: 2. 메타데이터를 사용하여 질문 추가
-          href: Quickstarts/add-question-metadata-portal.md
-        - name: 3. Postman 또는 cURL을 사용하여 답변 가져오기
+        - name: 기술 자료 쿼리
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: REST 사용
       href: Quickstarts/quickstart-rest-curl.md
@@ -32,10 +30,8 @@
   items:
     - name: 기술 자료 계획
       href: Concepts/plan.md
-    - name: Azure 리소스
+    - name: QnA Maker 리소스 계획
       href: Concepts/azure-resources.md
-    - name: 다른 사람과 공동 작업
-      href: Concepts/role-based-access-control.md
     - name: 기술 자료 디자인
       items:
         - name: 언어용
@@ -48,22 +44,12 @@
           href: Concepts/knowledge-base.md
         - name: 콘텐츠 유형 가져옴
           href: Concepts/content-types.md
-        - name: 질문 및 대답 쌍
-          href: Concepts/question-answer-set.md
-    - name: 기술 자료 수명 주기
-      items:
-        - name: 개발 수명 주기
-          href: Concepts/development-lifecycle-knowledge-base.md
-          displayName: 'version control, test, index, publish, monitor usage, create'
-        - name: 활성 학습 제안으로 개선
-          href: Concepts/active-learning-suggestions.md
-    - name: 기술 자료 쿼리
-      items:
-        - name: 답변 구하기
-          displayName: 'DefaultAnswer, Default answer'
-          href: Concepts/query-knowledge-base.md
-        - name: 신뢰도 점수
-          href: Concepts/confidence-score.md
+    - name: 프로세스 순위 지정
+      displayName: 'DefaultAnswer, Default answer'
+      href: Concepts/query-knowledge-base.md
+    - name: 개발 수명 주기
+      href: Concepts/development-lifecycle-knowledge-base.md
+      displayName: 'version control, test, index, publish, monitor usage, create'
     - name: 모범 사례
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
@@ -93,7 +79,7 @@
         - name: 새 기술 자료로 마이그레이션
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: 테스트 기술 자료
+        - name: 테스트
           href: How-To/test-knowledge-base.md
     - name: QnA 쌍 관리
       items:
@@ -105,50 +91,11 @@
         - name: 제안된 대체 질문 가져오기
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
-        - name: 보안 SharePoint 파일 추가
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: 기술 자료 쿼리
       href: How-To/metadata-generateanswer-usage.md
       displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
     - name: Analytics 및 원격 분석
       href: How-To/get-analytics-knowledge-base.md
-    - name: REST API 사용
-      items:
-        - name: 새 기술 자료 만들기
-          items:
-            - name: C#
-              href: Quickstarts/create-new-kb-csharp.md
-            - name: Go
-              href: Quickstarts/create-new-kb-go.md
-            - name: Java
-              href: Quickstarts/create-new-kb-java.md
-            - name: Python
-              href: Quickstarts/create-new-kb-python.md
-        - name: 기술 자료 게시
-          items:
-            - name: C#
-              href: Quickstarts/publish-kb-csharp.md
-            - name: Go
-              href: Quickstarts/publish-kb-go.md
-            - name: Java
-              href: Quickstarts/publish-kb-java.md
-            - name: Node.js
-              href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
-            - name: Python
-              href: Quickstarts/publish-kb-python.md
-        - name: 답변 구하기
-          items:
-            - name: C#
-              href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-            - name: Go
-              href: Quickstarts/get-answer-from-knowledge-base-go.md
-            - name: Java
-              href: Quickstarts/get-answer-from-knowledge-base-java.md
-            - name: Node.js
-              href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
-            - name: Python
-              href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: 참조
   items:
     - name: 언어 지원
@@ -156,9 +103,18 @@
     - name: 제한
       href: limits.md
     - name: RBAC(역할 기반 액세스 제어)
-      href: reference-role-based-access-control.md
+      href: Concepts/role-based-access-control.md
+    - name: 능동적 학습
+      href: Concepts/active-learning-suggestions.md
+    - name: 신뢰도 점수
+      href: Concepts/confidence-score.md
     - name: 문제 해결
       href: troubleshooting.md
+    - name: 질문 및 대답 쌍
+      href: Concepts/question-answer-set.md
+    - name: 보안 SharePoint 파일 추가
+      href: How-To/add-sharepoint-datasources.md
+      displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: 서비스 구성
       href: reference-app-service.md
     - name: 콘텐츠 및 데이터 형식
@@ -173,6 +129,8 @@
       href: reference-markdown-format.md
     - name: 일괄 처리 테스트 형식
       href: reference-tsv-format-batch-testing.md
+    - name: 암호화
+      href: qna-maker-encryption-of-data-at-rest.md
     - name: REST API 참조
       items:
         - name: API 작성
@@ -181,10 +139,6 @@
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
         - name: 학습 API
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
-    - name: 샘플
-      items:
-        - name: QnA Maker 도움말 봇
-          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK
       items:
         - name: C#
@@ -231,8 +185,6 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: qna-maker-encryption-of-data-at-rest.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격 책정 및 제한

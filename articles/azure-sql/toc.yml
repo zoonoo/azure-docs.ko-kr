@@ -497,12 +497,8 @@
               href: database/database-copy.md
             - name: SQL Database에 복제
               href: database/replication-to-sql-database.md
-            - name: SQL 데이터 동기화
-              items:
-                - name: 스키마 변경 내용 복제
-                  href: database/sql-data-sync-update-sync-schema.md
-                - name: OMS로 모니터링
-                  href: database/sql-data-sync-monitor-sync.md
+            - name: 스키마 변경 내용 복제(데이터 동기화)
+              href: database/sql-data-sync-update-sync-schema.md
         - name: 분할된 데이터베이스
           items:
             - name: 클라이언트 라이브러리 업그레이드

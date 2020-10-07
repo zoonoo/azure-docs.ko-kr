@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998401"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767699"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>빠른 시작: Azure Functions 앱에 기능 플래그 추가
 
@@ -31,14 +31,14 @@ ms.locfileid: "90998401"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
+7. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
 
     지금은 `label` 및 `Description`을 정의하지 않은 상태로 둡니다.
 
-7. **적용**을 선택하여 새 기능 플래그를 저장합니다.
+8. **적용**을 선택하여 새 기능 플래그를 저장합니다.
 
 ## <a name="create-a-functions-app"></a>Functions 앱 만들기
 

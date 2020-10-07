@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6021bb4fa5d30de423ab56bfb5fdea6af2665a4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334483"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91665194"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 

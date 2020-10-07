@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945485"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762045"
 ---
 # <a name="chat-concepts"></a>채팅 개념
 
@@ -28,7 +28,7 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
 
 채팅 대화는 채팅 스레드 내에서 발생합니다. 채팅 스레드에는 많은 메시지와 많은 사용자가 포함될 수 있습니다. 모든 메시지는 단일 스레드에 속하며 사용자는 하나 또는 여러 스레드의 일부가 될 수 있습니다. 
 
-채팅 스레드의 각 사용자를 멤버라고 합니다. 채팅 스레드는 최대 250명의 멤버를 포함할 수 있습니다. 스레드 멤버만 메시지를 주고 받거나 채팅 스레드에서 멤버를 추가/제거할 수 있습니다. 허용되는 최대 메시지 크기는 약 28KB입니다. Communication Services는 채팅 스레드에서 삭제 작업을 실행할 때까지 채팅 기록을 저장합니다. `List/Get Messages` 작업을 사용하여 채팅 스레드의 모든 메시지를 검색할 수 있습니다.
+채팅 스레드의 각 사용자를 멤버라고 합니다. 채팅 스레드는 최대 250명의 멤버를 포함할 수 있습니다. 스레드 멤버만 메시지를 주고 받거나 채팅 스레드에서 멤버를 추가/제거할 수 있습니다. 허용되는 최대 메시지 크기는 약 28KB입니다. `List/Get Messages` 작업을 사용하여 채팅 스레드의 모든 메시지를 검색할 수 있습니다. Communication Services는 채팅 스레드나 메시지에서 삭제 작업을 실행할 때까지 또는 연결이 분리되어 삭제 처리되는 채팅 스레드에 남아 있는 멤버가 없을 때까지 채팅 기록을 저장합니다.   
 
 멤버가 20명이 넘는 채팅 스레드의 경우 읽음 확인 및 입력 표시기 기능을 사용하지 않도록 설정됩니다. 
 
@@ -128,9 +128,9 @@ Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니�
 
 이러한 기능을 구현하는 한 가지 방법은 신뢰할 수 있는 서비스를 채팅 스레드에서 멤버로 사용하는 것입니다. 언어 번역을 활성화하려는 경우를 가정해 보겠습니다. 이 서비스는 다른 멤버가 서로 주고 받는 메시지를 듣고[1], Cognitive API를 호출하여 콘텐츠를 원하는 언어로 번역하고[2,3] 번역된 결과를 채팅 스레드에 메시지로 보내는[4] 작업을 담당합니다. 
 
-이렇게 하면 메시지 기록에 원본 메시지와 번역된 메시지가 모두 포함됩니다. 클라이언트 애플리케이션에서 원래 메시지 또는 번역된 메시지를 표시하는 논리를 추가할 수 있습니다. Cognitive API를 사용하여 텍스트를 다른 언어로 번역하는 방법을 이해하려면 [이 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate)을 참조하세요. 
+이렇게 하면 메시지 기록에 원본 메시지와 번역된 메시지가 모두 포함됩니다. 클라이언트 애플리케이션에서 원래 메시지 또는 번역된 메시지를 표시하는 논리를 추가할 수 있습니다. Cognitive API를 사용하여 텍스트를 다른 언어로 번역하는 방법을 이해하려면 [이 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator)을 참조하세요. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Communication Services와 상호 작용하는 Cognitive Services를 보여주는 다이어그램":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Communication Services의 채팅 아키텍처를 보여주는 다이어그램":::
 
 ## <a name="next-steps"></a>다음 단계
 
