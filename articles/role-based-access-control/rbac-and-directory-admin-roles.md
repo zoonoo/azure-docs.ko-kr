@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8809b5fdce382b7c8f913823ca8e176226d5837b
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536177"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397728"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -122,7 +122,7 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목�
 
 기본적으로 Azure 역할과 Azure AD 역할은 Azure 및 Azure AD를 다루지 않습니다. 그러나 전역 관리자가 Azure Portal에서 **Azure 리소스에 대한 액세스 관리** 스위치를 선택하여 액세스 권한을 높이면 전역 관리자에게 특정 테넌트의 모든 구독에 대한 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할(Azure 역할)이 부여됩니다. 사용자 액세스 관리자 역할은 사용자가 다른 사용자에게 Azure 리소스에 대한 액세스 권한을 부여할 수 있게 해줍니다. 이 스위치는 구독에 대한 액세스 권한을 다시 얻고자 할 때 유용하게 사용할 수 있습니다. 자세한 내용은 [모든 Azure 구독 및 관리 그룹을 관리할 수 있도록 액세스 권한 상승](elevate-access-global-admin.md)을 참조하세요.
 
-여러 Azure AD 역할은 글로벌 관리자 및 사용자 관리자 역할 같은 Azure AD 및 Microsoft Office 365를 포괄합니다. 예를 들어 전역 관리자 역할의 구성원은 Azure AD 및 Office 365에서 Microsoft Exchange와 Microsoft SharePoint를 변경하는 등의 전역 관리자 기능을 사용할 수 있습니다. 그러나 기본적으로 전역 관리자는 Azure 리소스에 액세스할 수 없습니다.
+여러 Azure AD 역할은 전역 관리자 및 사용자 관리자 역할 같은 Azure AD 및 Microsoft 365를 포괄합니다. 예를 들어 전역 관리자 역할의 구성원은 Azure AD 및 Microsoft 365에서 Microsoft Exchange와 Microsoft SharePoint를 변경하는 등의 전역 관리자 기능을 사용할 수 있습니다. 그러나 기본적으로 전역 관리자는 Azure 리소스에 액세스할 수 없습니다.
 
 ![Azure RBAC 역할과 Azure AD 역할 비교](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 

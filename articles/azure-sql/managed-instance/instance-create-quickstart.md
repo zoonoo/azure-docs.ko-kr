@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: sstein
 ms.date: 09/26/2019
 ms.openlocfilehash: 2f2e8c6be128e5004769dca2f42a6c8013510cde
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91325235"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>빠른 시작: SQL Managed Instance의 관리형 인스턴스 만들기

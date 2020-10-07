@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 3589aeb21053525e481f3448270d236265dd698e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aca16e334e594f8adf0c0a3b0354db827fc475fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052037"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333994"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -61,7 +61,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
-## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
+## <a name="create-a-public-ip-address-in-the-standard-sku"></a>표준 SKU에서 공용 IP 주소 만들기
 
 인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 
 
@@ -215,7 +215,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## <a name="configure-virtual-network"></a>가상 네트워크 구성
+## <a name="configure-virtual-network-in-the-standard-sku"></a>표준 SKU에서 가상 네트워크 구성
 
 VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되는 가상 네트워크 리소스를 만듭니다.
 
@@ -712,7 +712,7 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
-## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
+## <a name="create-a-public-ip-address-in-the-basic-sku"></a>기본 SKU에서 공용 IP 주소 만들기
 
 인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 
 
@@ -854,7 +854,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## <a name="configure-virtual-network"></a>가상 네트워크 구성
+## <a name="configure-virtual-network-in-the-basic-sku"></a>기본 SKU에서 가상 네트워크 구성
 
 VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되는 가상 네트워크 리소스를 만듭니다.
 

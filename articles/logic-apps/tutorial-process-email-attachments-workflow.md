@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029973"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334092"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 
@@ -323,7 +323,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    1. **And** 아래의 첫 번째 행에서 왼쪽 상자 내부를 클릭합니다. 표시되는 동적 콘텐츠 목록에서 **첨부 파일 있음** 속성을 선택합니다.
 
-      ![조건 작성](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![조건에 대한 "And" 속성과 "첨부 파일 포함" 속성 선택 항목을 보여주는 스크린샷.](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. 중간 상자에서 **이(가) 다음과 같은 경우** 연산자를 유지합니다.
 
@@ -389,7 +389,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    !["True인 경우" 내에서 작업 추가](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. 검색 상자에서 "azure 함수"를 찾아 **Azure 함수 선택 - Azure Functions** 작업을 선택합니다.
+1. 검색 상자에서 "Azure Functions"를 찾아 다음 작업을 선택합니다. **Azure 함수 선택 - Azure Functions**
 
    !["Azure 함수 선택" 작업 선택](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    완료되면 작업은 다음 예제와 같습니다.
 
-   !["Blob 만들기" 작업 완료](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![완료된 "Blob 만들기" 작업의 예를 보여주는 스크린샷.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. 논리 앱을 저장합니다.
 

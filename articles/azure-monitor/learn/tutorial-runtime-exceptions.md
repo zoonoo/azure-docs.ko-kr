@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322434"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357865"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -97,7 +97,7 @@ Application Insights에 의해 수집된 모든 데이터는 여러 가지 방�
 
     ![코드](media/tutorial-runtime-exceptions/codelens.png)
 
-1. **영향 분석**을 클릭하여 Application Insights Analytics를 엽니다.  영향을 받는 사용자, 브라우저 및 지역과 같은 실패한 요청의 세부 정보를 제공하는 여러 쿼리로 채워집니다.<br><br>![분석](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. **영향 분석**을 클릭하여 Application Insights Analytics를 엽니다.  영향을 받는 사용자, 브라우저 및 지역과 같은 실패한 요청의 세부 정보를 제공하는 여러 쿼리로 채워집니다.<br><br>![스크린샷은 여러 쿼리가 포함된 Application Insights 창을 보여줍니다.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>작업 항목 추가
 Application Insights를 Azure DevOps 또는 GitHub와 같은 추적 시스템에 연결하는 경우 Application Insights에서 직접 작업 항목을 만들 수 있습니다.

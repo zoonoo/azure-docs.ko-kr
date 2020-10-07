@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334806"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 SAP HANA 데이터베이스 복원
 
@@ -34,7 +34,7 @@ Azure CLI는 명령줄 또는 스크립트를 통해 Azure 리소스를 만들�
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>백업된 데이터베이스의 복원 지점 보기
 
-데이터베이스의 모든 복구 지점 목록을 보려면 다음과 같이 [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet을 사용합니다.
+데이터베이스의 모든 복구 지점 목록을 보려면 다음과 같이 [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet을 사용합니다.
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -57,7 +57,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 보시는 것처럼, 위의 목록에는 각각 전체, 차등 및 로그 백업용으로 하나씩 총 3개의 복구 지점이 포함되어 있습니다.
 
 >[!NOTE]
->[az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet을 사용하여 끊어지지 않은 모든 로그 백업 체인의 시작점과 끝점을 볼 수도 있습니다.
+>[az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet을 사용하여 끊어지지 않은 모든 로그 백업 체인의 시작점과 끝점을 볼 수도 있습니다.
 
 ## <a name="prerequisites-to-restore-a-database"></a>데이터베이스 복원에 필요한 필수 구성 요소
 
@@ -74,7 +74,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 * 로그 백업을 사용하여 특정 날짜 또는 시간(초)으로 복원합니다. Azure Backup은 선택한 시간을 기준으로 복원해야 하는 적절한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정합니다.
 * 특정 복구 지점으로 복원하려면 특정 전체 또는 차등 백업을 복원합니다.
 
-데이터베이스를 복원하려면 [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet을 사용합니다. 그러려면 입력 중 하나로 복구 구성 개체가 필요합니다. 이 개체는 [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet을 사용하여 생성할 수 있습니다. 복구 구성 개체는 복원을 수행하는 모든 세부 정보를 포함하고 있습니다. 그 중 하나는 복원 모드인 **OriginalWorkloadRestore** 또는 **AlternateWorkloadRestore**입니다.
+데이터베이스를 복원하려면 [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdlet을 사용합니다. 그러려면 입력 중 하나로 복구 구성 개체가 필요합니다. 이 개체는 [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet을 사용하여 생성할 수 있습니다. 복구 구성 개체는 복원을 수행하는 모든 세부 정보를 포함하고 있습니다. 그 중 하나는 복원 모드인 **OriginalWorkloadRestore** 또는 **AlternateWorkloadRestore**입니다.
 
 >[!NOTE]
 > **OriginalWorkloadRestore** - 원래 원본과 동일한 SAP HANA 인스턴스에 데이터를 복원합니다. 이 옵션은 원래 데이터베이스를 덮어씁니다. <br>
@@ -86,11 +86,11 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 이 자습서에서는 이전 복원 지점으로 복원하겠습니다. 데이터베이스의 [복원 지점 목록을 확인](#view-restore-points-for-a-backed-up-database)하고 복원하려는 지점을 선택합니다. 이 자습서에서는 이름이 *7660777527047692711*인 복원 지점을 사용합니다.
 
-위의 복원 지점 이름과 복원 모드를 사용하여 [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet에서 복구 구성 개체를 만들어 보겠습니다. 이 cmdlet의 나머지 매개 변수는 무엇을 의미하는지 살펴보겠습니다.
+위의 복원 지점 이름과 복원 모드를 사용하여 [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet에서 복구 구성 개체를 만들어 보겠습니다. 이 cmdlet의 나머지 매개 변수는 무엇을 의미하는지 살펴보겠습니다.
 
 * **--target-item-name** 복원된 데이터베이스에 사용할 이름입니다. 여기서는 *restored_database*라는 이름을 사용했습니다.
 * **--target-server-name**: Recovery Services 자격 증명 모음에 성공적으로 등록되고 복원할 데이터베이스와 동일한 지역에 있는 SAP HANA 서버의 이름입니다. 이 자습서에서는 보호 처리한 *hxehost*라는 이름의 동일한 SAP HANA 서버에 데이터베이스를 복원합니다.
-* **--target-server-type** SAP HANA 데이터베이스를 복원하려면 **SapHanaDatabase**를 사용해야 합니다.
+* **--target-server-type** SAP HANA 데이터베이스를 복원하려면 **HANAInstance**를 사용해야 합니다.
 
 ```azurecli-interactive
 
@@ -113,7 +113,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-이제 데이터베이스를 복원하기 위해 [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet을 실행합니다. 이 명령을 사용하기 위해 *recoveryconfig.json*이라는 파일에 저장된 위의 json 출력을 입력합니다.
+이제 데이터베이스를 복원하기 위해 [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdlet을 실행합니다. 이 명령을 사용하기 위해 *recoveryconfig.json*이라는 파일에 저장된 위의 json 출력을 입력합니다.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -130,13 +130,13 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
+응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
 
 ## <a name="restore-and-overwrite"></a>복원 및 덮어쓰기
 
 원래 위치로 복원하기 위해 **OrignialWorkloadRestore**를 복원 모드로 사용합니다. 그런 다음, 복원 지점을 선택해야 합니다. 복원 지점은 이전 지정 시간일 수도 있고 복원 지점일 수도 있습니다.
 
-이 자습서에서는 복원할 이전 지정 시간으로 “28-11-2019-09:53:00”을 선택합니다. 이 복원 지점을 dd-mm-yyyy, dd-mm-yyyy-hh:mm:ss 형식으로 입력할 수 있습니다. 복원할 올바른 지정 시간을 선택하려면 끊어지지 않은 로그 체인 백업의 간격을 나열하는 [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet을 사용합니다.
+이 자습서에서는 복원할 이전 지정 시간으로 “28-11-2019-09:53:00”을 선택합니다. 이 복원 지점을 dd-mm-yyyy, dd-mm-yyyy-hh:mm:ss 형식으로 입력할 수 있습니다. 복원할 올바른 지정 시간을 선택하려면 끊어지지 않은 로그 체인 백업의 간격을 나열하는 [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet을 사용합니다.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -154,7 +154,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-이제 데이터베이스를 복원하기 위해 [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet을 실행합니다. 이 명령을 사용하기 위해 *recoveryconfig.json*이라는 파일에 저장된 위의 json 출력을 입력합니다.
+이제 데이터베이스를 복원하기 위해 [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdlet을 실행합니다. 이 명령을 사용하기 위해 *recoveryconfig.json*이라는 파일에 저장된 위의 json 출력을 입력합니다.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -171,15 +171,15 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
+응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
 
 ## <a name="restore-as-files"></a>파일로 복원
 
 백업 데이터를 데이터베이스 대신 파일로 복원하려면 복원 모드로 **RestoreAsFiles**를 사용합니다. 그런 다음, 이전 특정 시점이거나 이전 복원 지점 중 하나일 수 있는 복원 지점을 선택합니다. 파일이 지정된 경로에 덤프되면 이러한 파일을 데이터베이스로 복원하려는 SAP HANA 컴퓨터로 가져올 수 있습니다. 이러한 파일을 임의의 컴퓨터로 이동할 수 있으므로 이제 구독 및 지역 간에 데이터를 복원할 수 있습니다.
 
-이 자습서에서는 복원할 이전 특정 시점(`28-11-2019-09:53:00`) 및 동일한 SAP HANA 서버에서 백업 파일을 `/home/saphana/restoreasfiles`로 덤프할 위치를 선택합니다. 이 복원 지점을 **dd-mm-yyyy** 또는 **dd-mm-yyyy-hh:mm:ss** 형식으로 제공할 수 있습니다. 복원할 올바른 지정 시간을 선택하려면 끊어지지 않은 로그 체인 백업의 간격을 나열하는 [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet을 사용합니다.
+이 자습서에서는 복원할 이전 특정 시점(`28-11-2019-09:53:00`) 및 동일한 SAP HANA 서버에서 백업 파일을 `/home/saphana/restoreasfiles`로 덤프할 위치를 선택합니다. 이 복원 지점을 **dd-mm-yyyy** 또는 **dd-mm-yyyy-hh:mm:ss** 형식으로 제공할 수 있습니다. 복원할 올바른 지정 시간을 선택하려면 끊어지지 않은 로그 체인 백업의 간격을 나열하는 [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet을 사용합니다.
 
-위의 복원 지점 이름과 복원 모드를 사용하는 경우 [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet을 사용하여 복구 구성 개체를 만들어 보겠습니다. 이 cmdlet의 나머지 매개 변수는 무엇을 의미하는지 살펴보겠습니다.
+위의 복원 지점 이름과 복원 모드를 사용하는 경우 [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet을 사용하여 복구 구성 개체를 만들어 보겠습니다. 이 cmdlet의 나머지 매개 변수는 무엇을 의미하는지 살펴보겠습니다.
 
 * **--target-container-name**: Recovery Services 자격 증명 모음에 성공적으로 등록되고 복원할 데이터베이스와 동일한 지역에 있는 SAP HANA 서버의 이름입니다. 이 자습서에서는 데이터베이스를 파일로 보호한 *hxehost*라는 동일한 SAP HANA 서버에 복원합니다.
 * **--rp-name** 특정 시점 복원의 경우 복원 지점 이름은 **DefaultRangeRecoveryPoint**입니다.
@@ -216,7 +216,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 }
 ```
 
-이제 데이터베이스를 파일로 복원하기 위해 [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet을 실행합니다. 이 명령을 사용하려면 *recoveryconfig.json*이라는 파일에 저장되는 위의 json 출력을 입력합니다.
+이제 데이터베이스를 파일로 복원하기 위해 [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdlet을 실행합니다. 이 명령을 사용하려면 *recoveryconfig.json*이라는 파일에 저장되는 위의 json 출력을 입력합니다.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -267,7 +267,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
 }
 ```
 
-응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
+응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
 
 대상 컨테이너에 덤프되는 파일은 다음과 같습니다.
 

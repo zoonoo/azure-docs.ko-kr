@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Maps를 사용하여 매장 로케이터 애플리케이션 만들기 | Microsoft Azure Maps'
-description: 스토어 로케이터 웹 애플리케이션을 만드는 방법에 대해 알아봅니다. Azure Maps Web SDK를 사용하여 웹 페이지를 만들고, 검색 서비스를 쿼리하고, 지도에 결과를 표시합니다.
+description: 스토어 로케이터 웹 애플리케이션을 만드는 방법에 대한 자습서. Azure Maps Web SDK를 사용하여 웹 페이지를 만들고, 검색 서비스를 쿼리하고, 지도에 결과를 표시합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085317"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335265"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
 이 자습서에서는 Azure Maps를 사용하여 간단한 매장 로케이터를 만드는 과정을 안내합니다. 매장 로케이터는 일반적인 프로그램입니다. 이 유형의 애플리케이션에서 사용되는 개념 대부분이 다른 많은 애플리케이션에도 적용됩니다. 고객에게 매장 로케이터를 제공하는 일은 소비자에게 직접 제품을 판매하는 대부분의 기업에게 있어서 반드시 필요한 작업입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
-    
+
 > [!div class="checklist"]
 > * Azure Map Control API를 사용하여 새 웹 페이지를 만듭니다.
 > * 파일에서 사용자 지정 데이터를 로드하고 지도에 표시합니다.
@@ -924,34 +924,21 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ![작은 화면 버전의 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+이 자습서에서는 Azure Maps를 사용하여 기본 매장 로케이터를 만드는 방법을 알아보았습니다. 이 자습서에서 만드는 매장 로케이터에는 필요한 모든 기능이 있을 수 있습니다. 매장 로케이터에 기능을 추가하거나 더 많은 사용자 지정 사용자 환경을 위해 더 많은 고급 기능을 사용할 수 있습니다. 
+
+ * 검색 상자에서 [입력할 때 제안 사항](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)이 표시되도록 설정합니다.  
+ * [여러 언어 지원](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)을 추가합니다. 
+ * [경로를 따라 위치를 필터링](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)하도록 합니다. 
+ * [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
+ * 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
+ * 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html)으로 배포합니다. 
+ * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true)를 참조하세요.
+
+[전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) 및 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 사용하여 Azure Maps의 적용 범위 및 기능에 대해 자세히 알아볼 수 있습니다. [데이터 기반 스타일 식을 사용](data-driven-style-expressions-web-sdk.md)하여 비즈니스 논리에 적용할 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 Azure Maps를 사용하여 기본 매장 로케이터를 만드는 방법을 알아봅니다. 이 자습서에서 만드는 매장 로케이터에는 필요한 모든 기능이 있을 수 있습니다. 매장 로케이터에 기능을 추가하거나 더 많은 사용자 지정 사용자 환경을 위해 더 많은 고급 기능을 사용할 수 있습니다. 
-
-> [!div class="checklist"]
-> * 검색 상자에서 [입력할 때 제안 사항](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)이 표시되도록 설정합니다.  
-> * [여러 언어 지원](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)을 추가합니다. 
-> * [경로를 따라 위치를 필터링](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)하도록 합니다. 
-> * [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
-> * 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
-> * 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html)으로 배포합니다. 
-> * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Azure Maps의 적용 범위 및 기능에 대해 자세히 알아보려면 다음을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)
 
 더 많은 코드 예제와 대화형 코딩 환경을 살펴보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)

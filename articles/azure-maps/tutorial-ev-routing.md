@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python) | Microsoft Azure Maps'
-description: Microsoft Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅합니다.
+description: Microsoft Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅하는 방법에 대한 자습서
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 28fcdc992f98ff380467718314148984559a7fee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335231"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
@@ -387,8 +387,6 @@ display(Image(staticMapImage))
 
 ![경로를 보여 주는 지도](./media/tutorial-ev-routing/route.png)
 
-## <a name="next-steps"></a>다음 단계
-
 이 자습서에서는 Python을 사용하여 Azure Maps REST API를 직접 호출하고 Azure Maps 데이터를 시각화하는 방법을 알아보았습니다.
 
 이 자습서에서 사용되는 Azure Maps API를 살펴보려면 다음을 참조하세요.
@@ -399,7 +397,11 @@ display(Image(staticMapImage))
 * [렌더링 - 지도 이미지 가져오기](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [경로 매트릭스 게시](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Azure Maps REST API](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-Azure Maps REST API의 전체 목록은 [Azure Maps REST API](https://docs.microsoft.com/azure/azure-maps/consumption-model)를 참조하세요.
+## <a name="next-steps"></a>다음 단계
 
-Azure Notebooks에 대한 자세한 내용은 [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)를 참조하세요.
+Azure Notebooks에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure 노트](https://docs.microsoft.com/azure/notebooks)

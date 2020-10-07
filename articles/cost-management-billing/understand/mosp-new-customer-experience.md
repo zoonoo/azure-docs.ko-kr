@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 27a6f8f0ed0d58deb64f768d2e47bafebc910edb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371745"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -113,7 +113,7 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 
 **서비스 가동 중지 시간 없음** 구독에 포함된 Azure 서비스는 중단 없이 계속 실행됩니다. 청구 환경만 업데이트됩니다. 기존 리소스, 리소스 그룹 또는 관리 그룹에는 영향이 없습니다.
 
-**Azure 리소스에는 변화 없음** Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스 액세스는 업데이트의 영향을 받지 않습니다.
+**Azure 리소스에는 변화 없음** Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스 액세스는 업데이트의 영향을 받지 않습니다.
 
 **새 환경에서 이전 청구서 사용 가능** 계정을 업데이트하기 전에 생성된 청구서가 Azure Portal에 계속 제공됩니다.
 

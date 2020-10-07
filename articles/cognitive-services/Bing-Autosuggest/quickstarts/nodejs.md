@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Autosuggest REST API 및 Node.js로 검색 쿼리 제안'
 titleSuffix: Azure Cognitive Services
-description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
+description: Bing Autosuggest API 및 Node.js를 사용하여 실시간으로 검색어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6a78c2ae4145a65739d5db56a70dca498d7d6a82
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: b61427f39f508413e33ce67f90bfecb8ac202e1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332647"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>빠른 시작: Bing Autosuggest REST API 및 Node.js로 검색 쿼리 제안
 
 이 빠른 시작에 따라 Bing Autosuggest API를 호출하고 JSON 응답을 읽는 방법을 알아봅니다. 이 간단한 Node.js 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub에](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js) 제공됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Node.js 6](https://nodejs.org/en/download/) 이상
 

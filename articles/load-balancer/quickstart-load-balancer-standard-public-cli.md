@@ -17,10 +17,10 @@ ms.date: 08/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 0b6973f50e4d51c1c94e262a08681ec0431f511e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91333992"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기

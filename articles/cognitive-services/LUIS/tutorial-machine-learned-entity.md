@@ -1,14 +1,16 @@
 ---
 title: '자습서: 기계 학습 엔터티를 사용하여 정형 데이터 추출 - LUIS'
 description: 기계 학습 엔터티를 사용하여 발화에서 정형 데이터를 추출합니다. 추출 정확도를 높이려면 기능을 포함하는 하위 엔터티를 추가합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334732"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -79,12 +81,12 @@ ms.locfileid: "86045606"
 
 1. **엔터티 형식 선택** 상자에서 **구조 추가**를 선택하고, **다음**을 선택합니다. 크기 및 수량과 같은 하위 엔터티를 추가하려면 구조가 필요합니다.
 
-    ![엔터티에 구조 추가](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![스크린샷은 구조 추가 옵션이 선택된 엔터티 형식 선택 창을 보여줍니다.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. **하위 엔터티 추가(선택 사항)** 상자의 `Order` 행에서 **+** 를 선택한 다음, `Size` 및 `Quantity`을 하위 엔터티로 추가하고 **만들기**를 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티에 구조 추가](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![스크린샷은 하위 엔터티가 강조 표시된 하위 엔터티 추가(선택 사항)를 보여줍니다.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>하위 엔터티를 편집하여 추출 향상
 
@@ -121,7 +123,7 @@ ms.locfileid: "86045606"
 
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티에 구조 추가](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![스크린샷은 XLarge가 선택된 SizeList 창과 목록 항목을 보여줍니다.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>SizeList 엔터티의 기능 추가
 
@@ -160,7 +162,7 @@ ms.locfileid: "86045606"
 **Order** 엔터티에 대한 엔터티 세부 정보 페이지에서 **@ SizeList** 기능과 **@ number** 기능 둘 다 별표(`*`)를 선택합니다. 별표는 기능 이름과 동일한 레이블에 표시됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![엔터티에 구조 추가](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![스크린샷은 별표 및 필수 경고가 포함된 @SizeList 기능을 보여줍니다.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ ms.locfileid: "86045606"
 1. 예측을 레이블이 지정된 엔터티로 변경하려면 같은 행에서 확인 표시를 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티를 사용하여 예측한 새 예제 발화의 부분 스크린샷](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![스크린샷은 확인 표시가 강조 표시된 예제 발화를 보여줍니다.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     이제 새 예제 발화 내에서 엔터티를 찾을 수 있으므로 기계 학습 엔터티가 작동합니다. 발화 예제를 추가할 때 엔터티가 올바르게 예측되지 않으면 엔터티와 하위 엔터티에 레이블을 지정합니다. 엔터티가 올바르게 예측되는 경우 예측을 확인해야 합니다.
 

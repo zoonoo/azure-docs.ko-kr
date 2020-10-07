@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962199"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397439"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -84,7 +84,8 @@ ms.locfileid: "88962199"
 1. 디자이너 아래쪽에서 **새 단계**를 클릭하고, 작업 검색 상자에서 **Gmail**을 입력하고, **이메일 보내기(V2)** 를 찾아서 선택합니다.
     
     > [!TIP]
-    > SendGrid, MailChimp, Office 365 및 SalesForce와 같은 다른 유형의 통합을 검색할 수 있습니다. 자세한 내용은 [Logic Apps 설명서](../logic-apps/index.yml)를 참조하세요.
+    > SendGrid, MailChimp, Microsoft 365 및 SalesForce와 같은 다른 유형의 통합을 검색할 수 있습니다. 자세한 내용은 [Logic Apps 설명서](../logic-apps/index.yml)를 참조하세요.
+
 1. **Gmail** 대화 상자에서 **로그인**을 선택하고, 이메일을 보낼 Gmail 계정에 로그인합니다.
 
     ![이메일을 보내려는 Gmail 계정에 로그인하는 데 사용하는 Gmail 대화 상자를 보여주는 스크린샷.](./media/tutorial-send-email/gmail-sign-in.png)

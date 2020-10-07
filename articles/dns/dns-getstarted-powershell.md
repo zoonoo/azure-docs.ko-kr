@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 120cb86e1bacfefdd9242d8fa766b391983e9c81
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7361f58247019584d7fb3d60cdd7f76b2e62a212
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355485"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -90,7 +90,7 @@ Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
 
    다음 화면과 유사한 출력이 표시됩니다.
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![스크린샷은 n s 조회 명령과 서버, 주소, 이름 및 주소에 대한 값을 포함하는 명령 프롬프트 창을 보여줍니다.](media/dns-getstarted-portal/nslookup.PNG)
 
 호스트 이름 **www\.contoso.xyz**는 구성한 대로 **10.10.10.10**으로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
 

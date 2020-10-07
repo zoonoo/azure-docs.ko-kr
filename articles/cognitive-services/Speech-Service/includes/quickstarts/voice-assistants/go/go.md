@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
 ms.openlocfilehash: 59e862fe04e7bf715e6e44c783f2cf9c0ecbc7c3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91377533"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)

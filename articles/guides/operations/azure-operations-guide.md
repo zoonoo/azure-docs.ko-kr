@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832759"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397813"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -68,7 +68,7 @@ Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의
 
 SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일반적으로 다중 테넌트 아키텍처를 기반으로 하고 단일 버전의 애플리케이션이 모든 고객에게 사용됩니다. 모든 위치에서 최상의 성능을 보장하기 위해 여러 인스턴스로 확장할 수 있습니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어 공급업체가 소프트웨어 스택의 모든 구성 요소를 담당하므로 사용자는 제공되는 서비스만 관리하면 됩니다.
 
-Microsoft Office 365는 SaaS 제공 사항의 좋은 예입니다. 구독자는 월간 또는 연간 구독료를 지불하고 Microsoft Exchange, Microsoft OneDrive 및 나머지 Microsoft Office 제품군을 서비스로 받습니다. 구독자는 항상 최신 버전을 사용할 수 있으며 Exchange Server는 자동으로 관리됩니다. 이렇게 하면 매년 Office를 설치 및 업그레이드하는 것에 비해 필요한 비용과 노력이 줄어듭니다.
+Microsoft 365는 SaaS 제품의 좋은 예입니다. 구독자는 월간 또는 연간 구독료를 지불하고 Microsoft Exchange, Microsoft OneDrive 및 나머지 Microsoft Office 제품군을 서비스로 받습니다. 구독자는 항상 최신 버전을 사용할 수 있으며 Exchange Server는 자동으로 관리됩니다. 이렇게 하면 매년 Office를 설치 및 업그레이드하는 것에 비해 필요한 비용과 노력이 줄어듭니다.
 
 ## <a name="azure-services"></a>Azure 서비스
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: af4ebcac38d4714b8a133087fe328b4d2f6c4872
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489591"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396368"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교
 
@@ -26,7 +26,7 @@ ms.locfileid: "87489591"
 * **AD DS(Active Directory Domain Services)** - ID 및 인증, 컴퓨터 개체 관리, 그룹 정책 및 신뢰와 같은 주요 기능을 제공하는 엔터프라이즈 지원 LDAP(Lightweight Directory Access Protocol) 서버입니다.
     * AD DS는 온-프레미스 IT 환경을 갖춘 많은 조직의 중앙 구성 요소이며, 핵심 사용자 계정 인증 및 컴퓨터 관리 기능을 제공합니다.
     * 자세한 내용은 [Windows Server 설명서의 Active Directory Domain Services 개요][overview-adds]를 참조하세요.
-* **Azure AD(Azure Active Directory)** - Office 365, Azure Portal 또는 SaaS 애플리케이션과 같은 리소스에 사용자 계정 및 인증 서비스를 제공하는 클라우드 기반 ID 및 모바일 디바이스 관리입니다.
+* **Azure AD(Azure Active Directory)** - Microsoft 365, Azure Portal 또는 SaaS 애플리케이션과 같은 리소스에 사용자 계정 및 인증 서비스를 제공하는 클라우드 기반 ID 및 모바일 디바이스 관리입니다.
     * Azure AD는 온-프레미스 AD DS 환경과 동기화하여 클라우드에서 기본적으로 작동하는 단일 ID를 사용자에게 제공할 수 있습니다.
     * Azure AD에 대한 자세한 내용은 [Azure Active Directory란?][whatis-azuread]을 참조하세요.
 * **Azure AD DS(Azure Active Directory Domain Services)** - 도메인 조인, 그룹 정책, LDAP 및 Kerberos / NTLM 인증과 같은 완전히 호환되는 기존 AD DS 기능의 하위 집합을 관리되는 도메인 서비스에 제공합니다.

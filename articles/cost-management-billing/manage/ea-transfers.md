@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: c4d328d2e2ef562813bcb529c104b3559f03066e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371901"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise 전송
 
@@ -101,13 +101,13 @@ Azure EA Portal에서는 한 계정 소유자에서 다른 계정 소유자로 �
 
 Azure 구독이 동일한 Azure Active Directory 테넌트의 계정으로 양도되는 경우 리소스를 관리하기 위해 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 그대로 유지됩니다.
 
-구독에 대한 RBAC 액세스 권한이 있는 사용자를 보려면 다음을 수행합니다.
+구독에 대한 Azure RBAC 액세스 권한이 있는 사용자를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 **구독**을 엽니다.
 2. 보고 싶은 구독을 선택한 다음, **액세스 제어(IAM)** 를 선택합니다.
-3. **역할 할당**을 선택합니다. 역할 할당 페이지에는 구독에 대한 RBAC 액세스 권한이 있는 모든 사용자가 나열됩니다.
+3. **역할 할당**을 선택합니다. 역할 할당 페이지에는 구독에 대한 Azure RBAC 액세스 권한이 있는 모든 사용자가 나열됩니다.
 
-구독이 다른 Azure AD 테넌트의 계정으로 양도되면 리소스 관리를 위한 [RBAC](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 _사라집니다_. RBAC 액세스 권한이 없지만 다음과 같은 보안 메커니즘을 통해 구독에 액세스할 수 있습니다.
+구독이 다른 Azure AD 테넌트의 계정으로 양도되면 리소스 관리를 위한 [Azure RBAC](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 _사라집니다_. Azure RBAC 액세스 권한이 없지만 다음과 같은 보안 메커니즘을 통해 구독에 액세스할 수 있습니다.
 
 - 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../../cloud-services/cloud-services-certs-create.md)를 참조하세요.
 - 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요.

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5dc41522add580b96e178328f47bd88fc1fbf052
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500398"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397065"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>자습서: Azure의 Windows 가상 머신을 위한 파일 백업 및 복원
 
@@ -59,7 +59,7 @@ Windows VM의 스냅샷을 생성할 때 Backup 서비스는 가상 머신의 �
 
 1. 브라우저를 열고 기본 IIS 페이지를 표시하는 VM의 IP 주소에 연결합니다.
 
-    ![기본 IIS 웹 페이지](./media/tutorial-backup-vms/iis-working.png)
+    ![기본 IIS 웹 페이지를 보여주는 스크린샷.](./media/tutorial-backup-vms/iis-working.png)
 
 1. VM에 연결합니다.
 1. VM에서 **파일 탐색기**를 열고 \inetpub\wwwroot로 이동한 다음, 파일 **iisstart.png**를 삭제합니다.
@@ -79,7 +79,7 @@ Windows VM의 스냅샷을 생성할 때 Backup 서비스는 가상 머신의 �
 1. VM에서 **파일 탐색기**를 열어 파일 공유에 사용된 드라이브 문자로 이동합니다.
 1. \inetpub\wwwroot로 이동하여 파일 공유의 **iisstart.png**를 복사하여 \inetpub\wwwroot에 붙여넣습니다. 예를 들어 F:\inetpub\wwwroot\iisstart.png를 복사하여 c:\inetpub\wwwroot에 붙여넣어 파일을 복구합니다.
 1. 로컬 컴퓨터에서 IIS 기본 페이지를 보여 주는 VM의 IP 주소에 연결된 브라우저 탭을 엽니다. CTRL+F5를 눌러 브라우저 페이지를 새로 고칩니다. 이제 이미지가 복원되었음을 확인할 수 있습니다.
-1. 로컬 컴퓨터에서 Azure Portal의 브라우저 탭으로 돌아가서 **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
+1. 로컬 컴퓨터에서 Azure Portal용 브라우저 탭으로 돌아가고, **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
 
 
 

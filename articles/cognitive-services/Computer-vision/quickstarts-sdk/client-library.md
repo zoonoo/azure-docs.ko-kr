@@ -18,10 +18,10 @@ ms.custom:
 zone_pivot_groups: programming-languages-set-one
 keywords: 컴퓨터 비전, 컴퓨터 비전 서비스
 ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91309826"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>빠른 시작: Computer Vision 클라이언트 라이브러리 사용

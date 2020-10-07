@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91348098"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>빠른 시작: Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기

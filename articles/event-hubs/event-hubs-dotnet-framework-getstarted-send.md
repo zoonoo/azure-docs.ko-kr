@@ -4,12 +4,12 @@ description: '빠른 시작: 이 문서에서는 Azure Event Hubs에 이벤트�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3f8aee3480f5200a23344553268da1864f892c7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334279"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -29,7 +29,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 애플리케이션 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **Sender**로 지정합니다.
    
-![콘솔 애플리케이션 만들기](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+!["콘솔 앱(.NET Framework)"이 선택된 "새 프로젝트" 창과 프로젝트 이름 "보낸 사람" 및 "확인" 단추가 강조 표시된 스크린샷.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 

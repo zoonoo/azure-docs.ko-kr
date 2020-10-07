@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c67440453e5ca8395464369d75bfac418a564764
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377156"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -28,30 +28,30 @@ ms.locfileid: "90945965"
 
 ### <a name="creating-the-xcode-project"></a>Xcode 프로젝트 만들기
 
-Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을 선택합니다. 이 자습서에서는 [SwiftUI 프레임워크](https://developer.apple.com/xcode/swiftui/)를 사용하므로 **언어**를 **Swift**로, **사용자 인터페이스**는 **SwiftUI**로 설정해야 합니다. 이 빠른 시작 중에는 단위 테스트 또는 UI 테스트를 만들지 않습니다. **단위 테스트 포함**을 선택 취소하고 **UI 테스트 포함**도 선택 취소하십시오.
+Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을 선택합니다. 이 자습서에서는 [SwiftUI 프레임워크](https://developer.apple.com/xcode/swiftui/)를 사용하므로 **언어**를 **Swift**로, **사용자 인터페이스**는 **SwiftUI**로 설정해야 합니다. 이 빠른 시작 중에는 테스트를 만들지 않습니다. **테스트 포함**을 선택 취소합니다.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Xcode 내에서 새 프로젝트 만들기 창을 보여주는 스크린샷":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Xcode 내에서 새 프로젝트 창을 보여 주는 스크린샷":::
 
 ### <a name="install-the-package"></a>패키지 설치
 
 Azure Communication Services 통화 클라이언트 라이브러리 및 해당 종속성(AzureCore.framework 및 AzureCommunication.framework)을 프로젝트에 추가합니다.
 
 > [!NOTE]
-> AzureCommunicationCalling SDK 릴리스를 사용하면 bash 스크립트 `BuildAzurePackages.sh`를 찾을 수 있습니다. `sh ./BuildAzurePackages.sh`를 실행할 때 스크립트는 생성된 프레임워크 패키지의 경로를 제공하며, 다음 단계에서 이 경로를 샘플 앱으로 가져와야 합니다. Xcode 명령줄 도구를 설정하지 않은 경우 스크립트를 실행하기 전에 설정해야 합니다. Xcode를 시작하고 "기본 설정-> 위치"를 선택합니다. 명령줄 도구에 대한 Xcode 버전을 선택합니다.
+> AzureCommunicationCalling SDK 릴리스를 사용하면 bash 스크립트 `BuildAzurePackages.sh`를 찾을 수 있습니다. `sh ./BuildAzurePackages.sh`를 실행할 때 스크립트는 생성된 프레임워크 패키지의 경로를 제공하며, 다음 단계에서 이 경로를 샘플 앱으로 가져와야 합니다. Xcode 명령줄 도구를 설정하지 않은 경우 스크립트를 실행하기 전에 설정해야 합니다. Xcode를 시작하고 "기본 설정-> 위치"를 선택합니다. 명령줄 도구에 대한 Xcode 버전을 선택합니다. **BuildAzurePackages.sh 스크립트는 Xcode 11.5 이상에서만 작동함**
 
-1. iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 다운로드합니다.
+1. iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 [다운로드](https://github.com/Azure/Communication/releases)합니다.
 2. Xcode에서 프로젝트 파일을 클릭하고 빌드 대상을 선택하여 프로젝트 설정 편집기를 엽니다.
 3. **일반** 탭에서 **Frameworks, Libraries, and Embedded Content**(프레임워크, 라이브러리 및 포함된 콘텐츠) 섹션으로 스크롤하여 **"+"** 아이콘을 클릭합니다.
-4. 대화 상자 왼쪽 아래에서 **파일 추가**를 선택하고 압축을 푼 클라이언트 라이브러리 패키지의 **AzureCommunicationCalling.framework** 디렉터리로 이동합니다.
+4. 대화 상자 왼쪽 아래에서 드롭다운하여 선택한 **파일 추가**를 사용하고, 압축을 푼 클라이언트 라이브러리 패키지의 **AzureCommunicationCalling.framework** 디렉터리로 이동합니다.
     1. 마지막 단계를 반복하여 **AzureCore.framework** 및 **AzureCommunication.framework**를 추가합니다.
 5. 프로젝트 설정 편집기의 **빌드 설정** 탭을 열고 **검색 경로** 섹션으로 스크롤합니다. **AzureCommunicationCalling.framework**가 포함된 디렉터리에 대한 새 **프레임워크 검색 경로** 항목을 추가합니다.
     1. 종속성이 포함된 폴더를 가리키는 다른 프레임워크 검색 경로 항목을 추가합니다.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="XCode 내에서 프레임워크 검색 경로 업데이트를 보여주는 스크린샷":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Xcode 내에서 새 프로젝트 창을 보여 주는 스크린샷":::
 
 ### <a name="request-access-to-the-microphone"></a>마이크에 대한 액세스 요청
 
-디바이스의 마이크에 액세스하려면 앱의 정보 속성 목록을 `NSMicrophoneUsageDescription`으로 업데이트해야 합니다. 연결된 값을 시스템이 사용자의 액세스 요청을 요청하는 데 사용하는 대화 상자에 포함될 `string`으로 설정합니다.
+디바이스의 마이크에 액세스하려면 앱의 정보 속성 목록을 `NSMicrophoneUsageDescription`으로 업데이트해야 합니다. 연결된 값을 시스템이 사용자의 액세스를 요청하는 데 사용하는 대화 상자에 포함될 `string`으로 설정합니다.
 
 프로젝트 트리의 `Info.plist` 항목을 마우스 오른쪽 단추로 클릭하고 **다음 형식으로 열기** > **소스 코드**를 선택합니다. 최상위 `<dict>` 섹션에 다음 줄을 추가한 다음, 파일을 저장합니다.
 
@@ -121,7 +121,7 @@ Azure Communication Services 통화 클라이언트 라이브러리의 주요 �
 | ACSCallClient | CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.|
 | ACSCallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
 | CommunicationUserCredential | CommunicationUserCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.| 
-| CommunicationIndentifier | CommunicationIndentifier는 사용자의 ID를 나타내는 데 사용되며 다음 중 하나일 수 있습니다. CommunicationUser/PhoneNumber/CallingApplication. |
+| CommunicationIdentifier | CommunicationIdentifier는 사용자의 ID를 나타내는 데 사용되며 다음 중 하나일 수 있습니다. CommunicationUser/PhoneNumber/CallingApplication. |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -192,13 +192,13 @@ func endCall()
 
 **제품** > **실행**을 선택하거나 (&#8984;-R) 키보드 단축키를 사용하여 iOS 시뮬레이터에서 앱을 빌드하고 실행할 수 있습니다.
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="빠른 시작 앱의 최종 모양과 느낌":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Xcode 내에서 새 프로젝트 창을 보여 주는 스크린샷":::
 
 텍스트 필드에서 사용자 ID를 제공하고 **Start Call** 단추를 눌러서 아웃바운드 VOIP 전화를 걸 수 있습니다. `8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다. 
 
 > [!NOTE]
 > 처음으로 전화를 걸면 마이크에 대한 액세스를 묻는 메시지가 표시됩니다. 프로덕션 애플리케이션에서는 `AVAudioSession` API를 사용하여 [권한 상태를 확인](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources)하고 권한이 부여되지 않은 경우 애플리케이션의 동작을 정상적으로 업데이트해야 합니다.
 
-## <a name="sample"></a>예제
+## <a name="sample-code"></a>샘플 코드
 
-샘플 앱은 [GitHub](https://github.com/Azure/Communication/tree/master/samples/AzureCommunicationCalling/iOS/Swift)에서 다운로드할 수 있습니다.
+샘플 앱은 [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)에서 다운로드할 수 있습니다.

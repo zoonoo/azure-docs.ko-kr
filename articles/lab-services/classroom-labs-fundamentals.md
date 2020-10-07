@@ -3,14 +3,14 @@ title: Azure Lab Services의 아키텍처 기본 사항 | Microsoft Docs
 description: 이 문서에서는 Lab Services에서 사용하는 기본 리소스와 랩의 기본 아키텍처에 대해 설명합니다.
 author: emaher
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: 93e95e1b03cd942e513a6d643f8a9e96399c231b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334041"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Azure Lab Services의 아키텍처 기본 사항
 

@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 지속적으로 빌드, 테스�
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333240"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -180,7 +180,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
     * **배포 모드**: **증분**을 선택합니다.
     * **배포 이름**: **DeployPipelineTemplate**을 입력합니다. **배포 이름**을 표시하려면 **고급**을 선택합니다.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines 단계](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![스크린샷은 필수 값이 입력된 ARM 템플릿 배포 페이지를 보여줍니다.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. **추가**를 선택합니다.
 
@@ -188,7 +188,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     yml 파일은 다음과 비슷해야 합니다.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![스크린샷은 [파이프라인 YAML 검토]라는 제목의 새 파이프라인이 있는 검토 페이지를 보여줍니다.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. **저장 및 실행**을 선택합니다.
 1. **저장 및 실행** 창에서 **저장 및 실행**을 다시 선택합니다. 연결된 리포지토리에 YAML 파일의 복사본이 저장됩니다. 리포지토리로 이동하면 YAML 파일을 볼 수 있습니다.

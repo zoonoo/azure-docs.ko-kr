@@ -8,26 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f5a3b48fd6be48d468b66009a77de100962be10d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: b145cc1689ad2c1a39591df0e39bb8d0445333c7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405072"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377263"
 ---
 JavaScript용 Bing Entity Search 클라이언트 라이브러리를 통해 엔터티 검색을 시작하려면 이 빠른 시작을 사용하세요. Bing Entity Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, 클라이언트 라이브러리를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js)에서 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 최신 버전의 [Node.js](https://nodejs.org/en/download/).
-
-* [Node.js용 Bing Entity Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch)
-
-Bing Entity Search SDK를 설치하려면:
-
-1. 개발 환경에서 `npm install ms-rest-azure` 명령을 실행합니다.
-2. 개발 환경에서 `npm install @azure/cognitiveservices-entitysearch` 명령을 실행합니다.
+* [JavaScript용 Bing Entity Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch)
+     *  설치하려면 `npm install @azure/cognitiveservices-entitysearch`를 실행합니다.
+* 클라이언트를 인증하는 `@azure/ms-rest-azure-js` 패키지의 `CognitiveServicesCredentials` 클래스입니다.
+     * 설치하려면 `npm install @azure/ms-rest-azure-js`를 실행합니다.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
@@ -37,7 +34,7 @@ Bing Entity Search SDK를 설치하려면:
 1. 선호하는 IDE 또는 편집기에서 새 JavaScript 파일을 만들고, 다음 요구 사항을 추가합니다.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     const EntitySearchAPIClient = require('@azure/cognitiveservices-entitysearch');
     ```
 

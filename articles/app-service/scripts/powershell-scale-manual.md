@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c9595d2fa4479d84b166874f9f13e43dc494f32a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1b88e5928d276b58339cb0266505295808bc7a7c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077775"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335486"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>PowerShell을 사용하여 수동으로 웹앱 크기 조정
 
@@ -43,6 +43,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
+| [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | App Service 계획의 구성을 수정합니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | 웹앱의 구성을 수정합니다. |
 

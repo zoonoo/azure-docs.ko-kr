@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a50f09dd52ccf4d35fd3803967898a4a25e3299f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376849"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -90,6 +90,8 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
 ### <a name="create-a-chat-client"></a>채팅 클라이언트 만들기
 
 웹앱에서 채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. 사용자 액세스 토큰을 사용하면 Azure Communication Services에 직접 인증되는 클라이언트 애플리케이션을 빌드할 수 있습니다. 서버에서 이러한 토큰을 생성한 후 클라이언트 디바이스에 다시 전달합니다. `Common client library`에서 `AzureCommunicationUserCredential` 클래스를 사용하여 채팅 클라이언트에 토큰을 전달해야 합니다.
+
+프로젝트의 루트 디렉터리에 **client.js** 파일을 만듭니다. 이 파일을 사용하여 JavaScript용 Azure Communication Chat 클라이언트 라이브러리를 사용하는 채팅 기능을 추가합니다.
 
 ```JavaScript
 
@@ -264,17 +266,17 @@ let nextMessage = await pagedAsyncIterableIterator.next();
 
 
 `listMessages`는 `updateMessage` 및 `deleteMessage`를 사용하여 메시지에 발생한 편집 또는 삭제를 포함한 최신 버전의 메시지를 반환합니다.
-삭제된 메시지의 경우 `chatMessage.deletedOn`은 메시지가 삭제된 시기를 나타내는 날짜/시간 값을 반환합니다. 편집된 메시지의 경우 `chatMessage.editedOn`은 메시지가 편집된 시기를 나타내는 날짜/시간을 반환합니다. 원래 메시지 생성 시간은 메시지를 정렬하는 데 사용할 수 있는 `chatMessage.createdOn`을 사용하여 액세스할 수 있습니다.
+삭제된 메시지의 경우 `chatMessage.deletedOn`은 메시지가 삭제된 시기를 나타내는 날짜/시간 값을 반환합니다. 편집된 메시지의 경우 `chatMessage.editedOn`은 메시지가 편집된 시간을 나타내는 datetime을 반환합니다. 원래 메시지 생성 시간은 메시지를 정렬하는 데 사용할 수 있는 `chatMessage.createdOn`을 사용하여 액세스할 수 있습니다.
 
-`listMessages`는 `chatMessage.type`으로 식별할 수 있는 다양한 유형의 메시지를 반환합니다. 이러한 유형은 다음과 같습니다.
+`listMessages`는 `chatMessage.type`으로 식별할 수 있는 다양한 유형의 메시지를 반환합니다. 그 유형은 다음과 같습니다.
 
-- `Text`: 스레드 멤버가 보낸 일반 채팅 메시지입니다.
+- `Text`: 스레드 멤버가 보낸 일반 채팅 메시지
 
-- `ThreadActivity/TopicUpdate`: 주제가 업데이트되었음을 나타내는 시스템 메시지입니다.
+- `ThreadActivity/TopicUpdate`: 주제가 업데이트되었음을 나타내는 시스템 메시지
 
-- `ThreadActivity/AddMember`: 한 명 이상의 멤버가 채팅 스레드에 추가되었음을 나타내는 시스템 메시지입니다.
+- `ThreadActivity/AddMember`: 채팅 스레드에 한 명 이상의 멤버가 추가되었음을 나타내는 시스템 메시지
 
-- `ThreadActivity/RemoveMember`: 멤버가 채팅 스레드에서 제거되었음을 나타내는 시스템 메시지입니다.
+- `ThreadActivity/RemoveMember`: 채팅 스레드에서 멤버가 제거되었음을 나타내는 시스템 메시지
 
 자세한 내용은 [메시지 유형](../../../concepts/chat/concepts.md#message-types)을 참조하세요.
 
@@ -285,7 +287,7 @@ let nextMessage = await pagedAsyncIterableIterator.next();
 `addMembersRequest`는 `members`가 채팅 스레드에 추가될 멤버를 나열하는 요청 개체를 설명합니다.
 - `user`(필수)는 채팅 스레드에 추가될 통신 사용자입니다.
 - `displayName`(선택 사항)은 스레드 멤버의 표시 이름입니다.
-- `shareHistoryTime`(선택 사항)은 채팅 기록이 멤버와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 멤버가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 일부 기록을 공유하려면 원하는 날짜로 설정합니다.
+- 선택 사항인 `shareHistoryTime`은 채팅 기록이 멤버와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 멤버가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 일부 기록을 공유하려면 원하는 날짜로 설정합니다.
 
 ```JavaScript
 

@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Autosuggest REST API 및 PHP로 검색 쿼리 제안'
 titleSuffix: Azure Cognitive Services
-description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
+description: Bing Autosuggest API 및 PHP를 사용하여 실시간으로 검색어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6552c345678b6996f4a35e9e1fc7a1838505ff09
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 534702a9122fd19be1b47dc1fcbd54ba7bfad14c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332613"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>빠른 시작: Bing Autosuggest REST API 및 PHP로 검색 쿼리 제안
 
 이 빠른 시작에 따라 Bing Autosuggest API를 호출하고 JSON 응답을 읽는 방법을 알아봅니다. 이 간단한 PHP 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 PHP로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [PHP 5.6.x](https://php.net/downloads.php) 이상
 

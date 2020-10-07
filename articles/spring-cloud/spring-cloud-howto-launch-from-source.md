@@ -8,10 +8,10 @@ ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: ee64343a040f4ed3288f8c4addb64c1ef2437cc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91326187"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>소스 코드에서 Spring Cloud 애플리케이션을 시작하는 방법

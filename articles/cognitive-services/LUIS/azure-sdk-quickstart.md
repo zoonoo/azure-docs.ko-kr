@@ -9,10 +9,10 @@ keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, LUIS, azure luis, 자
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91327290"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>빠른 시작: LUIS 앱을 만들고 쿼리하는 LUIS(Language Understanding) SDK 클라이언트 라이브러리

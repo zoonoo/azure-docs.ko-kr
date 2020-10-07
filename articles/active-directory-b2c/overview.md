@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184063"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396538"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
@@ -105,7 +105,7 @@ WoodGrove Groceries는 고객이 매장과의 관계에 따라 다음과 같은 
 
 고객이 **비즈니스 고객** 아래의 옵션 중 하나를 선택하면 WoodGrove Groceries 웹 사이트에서 개별 고객에 대해 호출하는 것과 다른 Azure AD B2C 정책을 호출합니다.
 
-이 정책은 사용자에게 가입 및 로그인에 회사 자격 증명을 사용할 수 있는 옵션을 제공합니다. WoodGrove 예에서는 사용자에게 Office 365 또는 Azure AD 계정으로 로그인하라는 메시지가 표시됩니다. 이 정책은 [다중 테넌트 Azure AD 애플리케이션](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) 및 `/common` Azure AD 엔드포인트를 사용하여 전 세계의 모든 Office 365 고객과 Azure AD B2C를 페더레이션합니다.
+이 정책은 사용자에게 가입 및 로그인에 회사 자격 증명을 사용할 수 있는 옵션을 제공합니다. WoodGrove 예제에서는 사용자에게 회사 또는 학교 계정으로 로그인하라는 메시지가 표시됩니다. 이 정책은 [다중 테넌트 Azure AD 애플리케이션](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) 및 `/common` Azure AD 엔드포인트를 사용하여 전 세계의 모든 Microsoft 365 고객과 Azure AD B2C를 페더레이션합니다.
 
 ### <a name="authenticate-partners"></a>파트너 인증
 

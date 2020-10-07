@@ -8,24 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cc96233ea6e2d02f3c3a2036466e3934aa234f5b
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 3760213c7f469dfe89599c0f01afe98168efde2d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376448"
 ---
 JavaScript용 Bing News Search 클라이언트 라이브러리를 사용하여 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing News Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, 클라이언트 라이브러리를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js)에서 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Node.JS](https://nodejs.org/en/)
-
-Bing News Search 클라이언트 라이브러리를 사용하여 콘솔 애플리케이션을 설치하려면 다음을 수행합니다.
-1. 개발 환경에서 `npm install ms-rest-azure` 명령을 실행합니다.
-2. 개발 환경에서 `npm install azure-cognitiveservices-newssearch` 명령을 실행합니다.
-
+* 최신 버전의 [Node.js](https://nodejs.org/en/download/).
+* [JavaScript용 Bing News Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch)
+     *  설치하려면 `npm install @azure/cognitiveservices-newssearch`를 실행합니다.
+* 클라이언트를 인증하는 `@azure/ms-rest-azure-js` 패키지의 `CognitiveServicesCredentials` 클래스입니다.
+     * 설치하려면 `npm install @azure/ms-rest-azure-js`를 실행합니다.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -34,7 +33,7 @@ Bing News Search 클라이언트 라이브러리를 사용하여 콘솔 애플�
 1. `CognitiveServicesCredentials` 인스턴스를 만듭니다. 구독 키 및 검색 용어에 대한 변수를 만듭니다.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
     let search_term = 'Winter Olympics'
     ```
@@ -42,7 +41,7 @@ Bing News Search 클라이언트 라이브러리를 사용하여 콘솔 애플�
 2. 클라이언트를 인스턴스화합니다.
     
     ```javascript
-    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    const NewsSearchAPIClient = require('@azure/cognitiveservices-newssearch');
     let client = new NewsSearchAPIClient(credentials);
     ```
 

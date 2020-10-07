@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: be45292552a7ac62c7131c637b044edc477328e2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300037"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396793"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "89300037"
 
 1. 컨테이너에서 **업로드**를 클릭하여 첫 번째 단계에서 다운로드한 샘플 파일을 업로드합니다. 전체 텍스트를 해당 네이티브 형식으로 검색할 수 없는 이미지와 애플리케이션 파일을 포함하여 다양한 콘텐츠 형식이 있습니다.
 
-   ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 이제 데이터 가져오기 마법사로 이동할 준비가 되었습니다.
 
@@ -60,13 +60,13 @@ ms.locfileid: "89300037"
 
 1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 명령 바에서 **데이터 가져오기**를 클릭하여 4단계의 통해 인지 보강을 설정합니다.
 
-   ![데이터 가져오기 명령](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 ### <a name="step-1---create-a-data-source"></a>1단계: 데이터 원본 만들기
 
 1. **데이터에 연결**에서 **Azure Blob 스토리지**를 선택하고, 만든 스토리지 계정과 컨테이너를 선택합니다. 데이터 원본의 이름을 지정하고, 나머지는 기본값을 사용합니다. 
 
-   ![Azure Blob 구성](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
     다음 페이지를 계속합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "89300037"
 
 1. 이 빠른 시작에서는 **체험** Cognitive Services 리소스를 사용합니다. 샘플 데이터는 14개의 파일로 구성되어 있으므로 이 빠른 시작에서는 Cognitive Services에서 20개의 트랜잭션을 무료로 할당하는 것으로 충분합니다. 
 
-   ![Cognitive Services 연결 기본 서비스 연결](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 1. **보강 추가**를 확장하고 4개를 선택합니다. 
 
@@ -86,7 +86,7 @@ ms.locfileid: "89300037"
 
    엔터티 인식(사람, 조직 및 위치)과 이미지 분석 기술을 선택합니다.
 
-   ![기술 세트에 대한 Cognitive Services 선택 서비스 연결](media/cognitive-search-quickstart-blob/skillset.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
    다음 페이지를 계속합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "89300037"
 
 + 기본 특성은 **조회 가능**하고 **검색 가능**합니다. **검색 가능**은 필드의 전체 텍스트 검색을 허용합니다. **조회 가능**은 필드 값을 결과에 반환할 수 있다는 뜻입니다. 마법사는 사용자가 기술 세트를 통해 필드를 생성했기 때문에 이 필드를 조회 및 검색 가능하도록 하려고 한다고 가정합니다.
 
-  ![인덱스 필드](media/cognitive-search-quickstart-blob/index-fields.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 `content` 필드의 **조회 가능** 특성에서 취소선과 물음표를 확인합니다. 텍스트가 많은 Blob 문서의 경우, `content` 필드에는 대량의 파일이 포함되어 있으며, 수천 줄이 포함될 수 있습니다. 이와 같은 필드는 검색 결과에서 다루기 어렵기 때문에 이 데모에서는 제외해야 합니다. 
 
@@ -118,7 +118,7 @@ ms.locfileid: "89300037"
 
 1. **인덱서** 페이지에서 기본 이름을 적용하고, **한 번** 일정 옵션을 클릭하여 즉시 실행할 수 있습니다. 
 
-   ![인덱서 정의](media/cognitive-search-quickstart-blob/indexer-def.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 1. **제출**을 클릭하여 인덱서를 만드는 동시에 실행합니다.
 
@@ -126,7 +126,7 @@ ms.locfileid: "89300037"
 
 인지 기술 인덱싱은 일반적인 텍스트 기반 인덱싱보다 완료하는 데 더 오래 걸리며, OCR 및 이미지 분석이 특히 오래 걸립니다. 진행 상황을 모니터링하려면 [개요] 페이지로 이동하여 페이지 가운데에서 **인덱서**를 클릭합니다.
 
-  ![Azure Cognitive Search 알림](./media/cognitive-search-quickstart-blob/indexer-notification.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 콘텐츠 형식이 광범위하기 때문에 경고가 발생하는 것이 정상입니다. 일부 콘텐츠 형식은 특정 기술에 적합하지 않으며 하위 계층에서는 [인덱서 제한](search-limits-quotas-capacity.md#indexer-limits)에 도달하기 쉽습니다. 예를 들어 32,000자 잘림 알림은 체험 계층의 인덱서 제한입니다. 더 높은 계층에서 이 데모를 실행하면 많은 잘림 경고가 사라집니다.
 
@@ -134,11 +134,11 @@ ms.locfileid: "89300037"
 
 이 페이지에서 경고 상태를 다시 클릭하여 아래와 비슷한 경고 목록을 봅니다. 
 
-  ![인덱서 경고 목록](./media/cognitive-search-quickstart-blob/indexer-warnings.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 특정 상태 줄을 클릭하면 세부 정보가 표시됩니다. 이 경고는 최대 임계값에 도달한 후 병합이 중지되었음을 의미 합니다(이 PDF가 크기 때문에).
 
-  ![경고 세부 정보](./media/cognitive-search-quickstart-blob/warning-detail.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 ## <a name="query-in-search-explorer"></a>Search 탐색기에서 쿼리
 
@@ -157,7 +157,7 @@ ms.locfileid: "89300037"
 
 쿼리 문자열은 대/소문자를 구분하므로 "알 수 없는 필드" 메시지가 표시되면 **필드** 또는 **인덱스 정의(JSON)** 를 검사하여 이름과 대/소문자를 확인합니다. 
 
-  ![Search 탐색기 예제](./media/cognitive-search-quickstart-blob/search-explorer.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Azure Blob Storage의 원본 파일" border="false":::
 
 ## <a name="takeaways"></a>핵심 내용
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372258"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -22,7 +22,7 @@ Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [A
 
 직접 파트너 및 간접 공급자의 경우 전역 관리자 및 관리자 에이전트는 파트너 테넌트의 Cost Management에 액세스하고 송장이 발부된 가격으로 비용을 관리할 수 있습니다.
 
-재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시하는 구독 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
+재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시하는 구독 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 Azure RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
 
 고객은 CSP 파트너가 사용하도록 설정한 경우 Cost Management 기능을 사용할 수 있습니다.
 
@@ -55,13 +55,13 @@ Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한�
 
 청구 계정에 대해 Azure Cost Management에 대한 액세스를 설정하고 할당하는 방법에 대한 자세한 내용은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요. **글로벌 관리자**와 **관리 에이전트** 역할은 청구 계정의 비용을 관리할 수 있습니다.
 
-구독 범위에서 Azure Cost Management에 액세스하기 위해 구독에 대한 RBAC 액세스 권한이 있는 사용자는 소매(종량제) 요금으로 비용을 볼 수 있습니다. 단, [고객 테넌트에 대한 비용 표시 여부 정책](#enable-the-policy-to-view-azure-usage-charges)을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
+구독 범위에서 Azure Cost Management에 액세스하기 위해 구독에 대한 Azure RBAC 액세스 권한이 있는 사용자는 소매(종량제) 요금으로 비용을 볼 수 있습니다. 단, [고객 테넌트에 대한 비용 표시 여부 정책](#enable-the-policy-to-view-azure-usage-charges)을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
 
 ## <a name="how-cost-management-uses-scopes"></a>Cost Management에서 범위를 사용하는 방법
 
-범위는 청구 데이터를 관리하고, 결제 관련 역할이 있으며, 청구서를 살펴보고, 일반 계정 관리를 수행하는 곳입니다. RBAC를 사용하는 청구 및 계정 역할은 리소스 관리에 사용되는 범위와 별도로 관리됩니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 청구 범위 및 RBAC 범위라고 합니다.
+범위는 청구 데이터를 관리하고, 결제 관련 역할이 있으며, 청구서를 살펴보고, 일반 계정 관리를 수행하는 곳입니다. Azure RBAC를 사용하는 청구 및 계정 역할은 리소스 관리에 사용되는 범위와 별도로 관리됩니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 청구 범위 및 Azure RBAC 범위라고 합니다.
 
-청구 범위 및 RBAC 범위를 이해하고 비용 관리가 범위와 작동하는 방식을 이해하려면 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+청구 범위 및 Azure RBAC 범위를 이해하고 비용 관리가 범위와 작동하는 방식을 이해하려면 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>파트너 테넌트 청구 범위로 비용 관리
 
@@ -116,9 +116,9 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>고객 테넌트 구독에 대한 비용 관리 사용
 
-고객이 Microsoft 고객 계약에 온보딩된 후에 파트너가 Cost Management에 대한 액세스가 가능하도록 설정할 수 있습니다. 그런 다음, 파트너는 고객이 종량제 소매 요금으로 계산된 Azure 사용 서비스에 대한 비용을 볼 수 있는 정책을 사용하도록 설정할 수 있습니다. RBAC 구독 및 리소스 그룹 범위에서 소비된 사용량에 대한 비용이 고객의 청구 통화로 표시됩니다.
+고객이 Microsoft 고객 계약에 온보딩된 후에 파트너가 Cost Management에 대한 액세스가 가능하도록 설정할 수 있습니다. 그런 다음, 파트너는 고객이 종량제 소매 요금으로 계산된 Azure 사용 서비스에 대한 비용을 볼 수 있는 정책을 사용하도록 설정할 수 있습니다. Azure RBAC 구독 및 리소스 그룹 범위에서 소비된 사용량에 대한 비용이 고객의 청구 통화로 표시됩니다.
 
-파트너가 비용 표시 여부에 대한 정책을 사용하도록 설정하면, 구독에 대해 Azure Resource Manager 액세스 권한이 있는 사용자가 종량제 요금으로 비용을 관리하고 분석할 수 있습니다. 사실상, Azure 구독에 대해 적절한 RBAC 액세스 권한이 있는 재판매인과 고객은 비용을 볼 수 있습니다.
+파트너가 비용 표시 여부에 대한 정책을 사용하도록 설정하면, 구독에 대해 Azure Resource Manager 액세스 권한이 있는 사용자가 종량제 요금으로 비용을 관리하고 분석할 수 있습니다. 사실상, Azure 구독에 대해 적절한 Azure RBAC 액세스 권한이 있는 재판매인과 고객은 비용을 볼 수 있습니다.
 
 정책에 관계없이 공급자의 전역 관리자와 관리자 에이전트는 구독 및 리소스 그룹에 대한 액세스 권한이 있는 경우 구독 비용을 볼 수 있습니다.
 
@@ -149,9 +149,9 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 [![고객으로 비용 분석 보기](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-비용 분석, 예산 및 경고는 종량제 요금 기반 비용으로 구독 및 리소스 그룹 RBAC 범위에 대해 사용할 수 있습니다.
+비용 분석, 예산 및 경고는 종량제 요금 기반 비용으로 구독 및 리소스 그룹 Azure RBAC 범위에 대해 사용할 수 있습니다.
 
-RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제 비용은 요금이 0으로 표시됩니다. 예약된 인스턴스 비용은 구매가 완료된 청구 범위에만 표시됩니다.
+Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제 비용은 요금이 0으로 표시됩니다. 예약된 인스턴스 비용은 구매가 완료된 청구 범위에만 표시됩니다.
 
 보기에 표시되는 비용을 계산하는 데 사용되는 소매 요금은 모든 고객에 대해 Azure 가격 책정 계산기에 표시된 가격과 동일합니다. 표시된 비용에는 파트너 적립 크레딧, 계층 할인 및 글로벌 서비스 할인과 같은 파트너가 가질 수 있는 할인이나 크레딧이 포함되지 않습니다.
 
@@ -159,7 +159,7 @@ RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제
 
 파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)하고 데이터를 [CSV 및 PNG 파일](quick-acm-cost-analysis.md#download-usage-data)로 내보낼 수도 있습니다.
 
-고객 테넌트의 구독에 액세스할 수 있는 RBAC 사용자는 고객 테넌트의 구독에 대한 소매 비용을 분석하고, 보기를 저장하고, 데이터를 CSV 및 PNG 파일로 내보낼 수도 있습니다.
+고객 테넌트의 구독에 액세스할 수 있는 Azure RBAC 사용자는 고객 테넌트의 구독에 대한 소매 비용을 분석하고, 보기를 저장하고, 데이터를 CSV 및 PNG 파일로 내보낼 수도 있습니다.
 
 비용 분석에서 필터 및 그룹화 방법 기능을 사용하여 여러 필드를 기준으로 비용을 분석할 수 있습니다. 파트너별 필드는 다음 섹션에 표시됩니다.
 
@@ -223,8 +223,8 @@ RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제
 | costinBillingCurrency | 청구된 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | costinPricingCurrency | 가격과의 상관 관계를 위한 가격 책정 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | **costinUSD** | USD 단위로 예상된 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
-| **paygCostInBillingCurrency** | 가격이 소매 가격이면 비용을 표시합니다. 종량제 가격을 청구 통화 단위로 표시됩니다. RBAC 범위에서만 사용할 수 있습니다. | 해당 없음 |
-| **paygCostInUSD** | 가격이 소매 가격이면 비용을 표시합니다. 종량제 가격을 USD로 표시합니다. RBAC 범위에서만 사용할 수 있습니다. | 해당 없음 |
+| **paygCostInBillingCurrency** | 가격이 소매 가격이면 비용을 표시합니다. 종량제 가격을 청구 통화 단위로 표시됩니다. Azure RBAC 범위에서만 사용할 수 있습니다. | 해당 없음 |
+| **paygCostInUSD** | 가격이 소매 가격이면 비용을 표시합니다. 종량제 가격을 USD로 표시합니다. Azure RBAC 범위에서만 사용할 수 있습니다. | 해당 없음 |
 | exchangeRate | 가격 책정 통화를 청구 통화로 변환하는 데 사용되는 환율입니다. | 파트너 센터에서는 PCToBCExchangeRate라고 합니다. 가격 책정 통화 대비 청구 통화의 환율입니다.|
 | exchangeRateDate | 가격 책정 통화를 청구 통화로 변환하는 데 사용되는 환율의 날짜입니다. | 파트너 센터에서는 PCToBCExchangeRateDat라고 합니다. 가격 책정 통화 대비 청구 통화의 환율 날짜입니다.|
 | isAzureCreditEligible | 비용을 Azure 크레딧으로 지불할 수 있는지 여부를 나타냅니다. | 해당 없음 |
@@ -262,7 +262,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 자신의 비용과 사용 현황 데이터를 Azure Storage Blob에 내보낼 수 있습니다. Blob은 공유 서비스 구독이나 고객의 구독이 아닌 파트너 테넌트의 구독에 있어야 합니다. 비용 데이터 내보내기를 사용하도록 설정하려면, 내보낸 비용 데이터를 호스팅할 파트너 테넌트에 독립적인 종량제 구독을 설정하는 것이 좋습니다. 내보내기 스토리지 계정은 종량제 구독에서 호스팅되는 Azure Storage Blob에 생성됩니다. 파트너가 내보내기를 만드는 범위를 기반으로, 연결된 데이터가 스토리지 계정에 자동으로 반복해서 내보내집니다.
 
-구독에 대한 RBAC 액세스 권한이 있는 사용자는 고객 테넌트의 구독에서 호스팅되는 Azure Storage Blob으로 비용 데이터를 내보낼 수도 있습니다.
+구독에 대한 Azure RBAC 액세스 권한이 있는 사용자는 고객 테넌트의 구독에서 호스팅되는 Azure Storage Blob으로 비용 데이터를 내보낼 수도 있습니다.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>파트너 테넌트 또는 고객 테넌트에 내보내기 만들기
 
@@ -276,7 +276,7 @@ Azure Portal에서 파트너 테넌트 또는 고객 테넌트에 로그인하�
 
 파트너 테넌트에서 내보내기를 만드는 경우, 파트너 테넌트에서 종량제 구독을 선택합니다. 이 구독을 사용하여 Azure Storage 계정을 만듭니다.
 
-고객 테넌트의 RBAC 사용자의 경우, 고객 테넌트에서 구독을 선택합니다. 이 구독을 사용하여 Azure Storage 계정을 만듭니다.
+고객 테넌트의 Azure RBAC 사용자의 경우, 고객 테넌트에서 구독을 선택합니다. 이 구독을 사용하여 Azure Storage 계정을 만듭니다.
 
 콘텐츠를 검토한 다음, **만들기**를 선택하여 내보내기를 예약합니다.
 

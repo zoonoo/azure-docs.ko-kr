@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333499"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>자습서: Zscaler ZSCloud에 대한 자동 사용자 프로비저닝 구성
 
@@ -120,7 +120,7 @@ Azure AD 사용자는 먼저 선택한 앱에 대한 액세스 권한을 할당�
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Zscaler ZSCloud로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Zscaler ZSCloud의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
 
-    ![특성 매핑](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![7개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. **매핑** 섹션에서 **Azure Active Directory 그룹을 Zscaler ZSCloud로 동기화**를 선택합니다.
 
@@ -128,7 +128,7 @@ Azure AD 사용자는 먼저 선택한 앱에 대한 액세스 권한을 할당�
 
 13. **특성 매핑** 섹션에서 Azure AD에서 Zscaler ZSCloud로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업을 위해 Zscaler ZSCloud의 그룹을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
 
-    ![특성 매핑](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![3개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](./../active-directory-saas-scoping-filters.md)의 지침을 참조하세요.
 

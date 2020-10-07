@@ -1,20 +1,20 @@
 ---
-title: '자습서: Azure Map에서 지오펜스 만들기 및 디바이스 추적'
-description: 지오펜스를 설정하는 방법을 알아봅니다. Azure Maps 공간 서비스를 사용하여 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
+title: '자습서: Microsoft Azure Map에서 지오펜스 만들기 및 디바이스 추적'
+description: 지오펜스를 설정하는 방법에 대한 자습서. Azure Maps Spatial 서비스를 사용하여 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335197"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -429,14 +429,14 @@ Azure Maps는 [세 가지 이벤트 유형](https://docs.microsoft.com/azure/eve
 
 이전 GeoJSON 응답에서 장비는 주 사이트 지오펜스에 남아 있지만 하위 사이트 지오펜스에서 나갔습니다. 그러나 `userTime` 값은 지오펜스 데이터에 정의된 `expiredTime` 이후입니다. 따라서 `isEventPublished` 매개 변수가 `false`로 설정되고 운영 관리자에게 이메일 알림이 제공되지 않습니다.
 
-### <a name="location-547637988-1221338344"></a>위치 5(47.637988,-122.1338344)
+### <a name="location-5-4763799--122134505"></a>위치 5(47.63799, -122.134505)
 
 1. Postman 앱의 위쪽 근처에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 요청에 대한 **요청 이름**을 입력합니다. *위치 5*로 지정합니다. [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 만든 컬렉션을 선택한 다음, **저장**을 선택합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿔야 합니다.
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. **보내기**를 선택합니다. 응답 창에 다음과 같은 GeoJSON이 표시됩니다.
@@ -469,13 +469,10 @@ Azure Maps는 [세 가지 이벤트 유형](https://docs.microsoft.com/azure/eve
 
 이전 GeoJSON 응답에서 장비가 주 사이트 지오펜스에서 나갔습니다. 따라서 `isEventPublished` 매개 변수가 `true`로 설정되고 운영 관리자는 장비가 지오펜스에서 나갔다는 이메일 알림을 받습니다.
 
+
+[Event Grid 및 Logic Apps를 사용하여 이메일 알림을 보내](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)고 Azure Maps를 사용하여 [Event Grid에서 지원되는 이벤트 처리기](https://docs.microsoft.com/azure/event-grid/event-handlers)를 확인할 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Azure Logic Apps에서 콘텐츠 형식 처리](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Event Grid 및 Logic Apps를 사용하여 이메일 알림 보내기](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Event Grid에서 지원되는 이벤트 처리기](https://docs.microsoft.com/azure/event-grid/event-handlers)

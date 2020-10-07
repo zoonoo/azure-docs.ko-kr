@@ -2,16 +2,16 @@
 title: Azure Lab Services 정보 | Microsoft 문서 도구
 description: Lab Services를 사용하면 개발자, 테스터, 교육자, 학생 및 기타 사람들이 사용할 수 있는 가상 머신으로 랩을 쉽게 만들고, 관리하고, 보안을 유지할 수 있는 방법에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 06/26/2020
-ms.openlocfilehash: 7661b26d16eb2c2acd53c30889ea791689c1eec0
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 09/16/2020
+ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85442808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333939"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services 소개
-**Azure Lab Services**를 사용하면 Azure에서 해당 인프라를 관리하는 랩을 만들 수 있습니다. 현재 클래스룸 랩은 Azure Lab Services에서 지원되는 관리형 랩의 유일한 유형입니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩 형식에 대한 모든 인프라 관리를 처리합니다. IT 관리자가 Azure Lab Services에서 랩 계정을 만든 후, 강사는 해당 클래스에 대한 랩을 신속하게 설정하고 클래스에서 연습해야 하는 VM의 수와 유형을 지정하고 클래스에 사용자를 추가할 수 있습니다. 사용자가 클래스에 등록하고 나면, 사용자는 VM에 액세스하여 클래스에 대한 연습을 수행할 수 있습니다.  
+**Azure Lab Services**를 사용하면 Azure에서 해당 인프라를 관리하는 랩을 만들 수 있습니다. 현재 클래스룸 랩은 Azure Lab Services에서 지원되는 관리형 랩의 유일한 유형입니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩 형식에 대한 모든 인프라 관리를 처리합니다. IT 관리자가 Azure Lab Services에서 랩 계정을 만든 후 강사는 해당 클래스에 대한 랩을 신속하게 설정하고, 클래스에서 연습해야 하는 VM의 수와 유형을 지정하고, 클래스에 사용자를 추가할 수 있습니다. 사용자가 클래스에 등록하고 나면, 사용자는 VM에 액세스하여 클래스에 대한 연습을 수행할 수 있습니다.  
 
 ## <a name="key-capabilities"></a>주요 기능
 Azure Lab Services는 다음과 같은 주요 기능/특징을 지원합니다.
