@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 4931a50d2258902c551cb276a8b47b129a176551
-  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+  ms.openlocfilehash: 24a8d13a364d4d4f3d484beb41404e169420f34a
+  ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/04/2020
-  ms.locfileid: "91704296"
+  ms.lasthandoff: 10/06/2020
+  ms.locfileid: "91760991"
 landingContent:
 - title: Azure Database for PostgreSQL 정보
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 단일 서버에서 데이터베이스 설계
-      url: /tutorial-design-database-using-azure-portal.md               -
+      url: tutorial-design-database-using-azure-portal.md
     - text: 하이퍼스케일을 사용하여 다중 테넌트 데이터베이스 설계
       url: tutorial-design-database-hyperscale-multi-tenant.md
     - text: 하이퍼스케일을 사용하여 실시간 데이터베이스 설계

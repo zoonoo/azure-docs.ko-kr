@@ -70,7 +70,7 @@
         - name: Visual Studio Code에서 상태 저장 또는 상태 비저장 워크플로 만들기
           href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Power Automate 및 Power Apps에서 논리 앱 호출
-          href: call-logic-apps-from-power-automate-power-apps.md
+          href: call-from-power-automate-power-apps.md
         - name: 워크플로 실행 제어
           items:
             - name: 조건문
@@ -207,7 +207,7 @@
           href: ../connectors/connectors-create-api-container-instances.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure Functions
+        - name: Azure 기능
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
