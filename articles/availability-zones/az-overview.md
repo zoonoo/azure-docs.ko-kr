@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018674"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773742"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -92,7 +92,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 기본 | 일반 | 특수화 |
 > | --- | --- | --- |
 > | 계정 저장소 | API Management | FHIR용 Azure API |
-> | Application Gateway | 앱 구성 | Azure Analysis Services |
+> | Application Gateway | App Configuration | Azure Analysis Services |
 > | Azure Backup | App Service | Azure Blockchain 서비스 |
 > | Azure Cosmos DB | Automation | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
@@ -109,16 +109,16 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Event Hubs | Azure DevTest Labs | Cloud Services: H 시리즈 |
 > | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | 부하 분산 장치 | Azure Firewall Manager | Cognitive Services: Speaker Recognition |
-> | Service Bus | Azure Functions | Data Box Heavy |
+> | Service Bus | Azure 기능 | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory V1 |
 > | Virtual Machines | AKS(Azure Kubernetes Service) | Data Lake Analytics |
-> | Virtual Machines: Av2 시리즈 | Azure Machine Learning | Machine Learning Studio |
+> | Virtual Machines: Av2 시리즈 | Azure Machine Learning | Azure Machine Learning Studio (클래식)|
 > | Virtual Machines: Bs 시리즈 | Azure Private Link | Microsoft Genomics |
 > | Virtual Machines: DSv2 시리즈 | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: DSv3 시리즈 | Azure SignalR Service | Spatial Anchors |
 > | Virtual Machines: Dv2 시리즈 | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Dv3 시리즈 | Azure Stack Hub | 비디오 인덱서 |
+> | Virtual Machines: Dv3 시리즈 | Azure Stack Hub | Video Indexer |
 > | Virtual Machines: ESv3 시리즈 | Azure Stream Analytics | Virtual Machines: DASv4 시리즈 |
 > | Virtual Machines: Ev3 시리즈 | Azure Synapse Analytics | Virtual Machines: DAv4 시리즈 |
 > | Virtual Machines: F 시리즈 | Batch | Virtual Machines: DCsv2 시리즈 |
@@ -142,7 +142,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > |  | Notification Hubs | Virtual Machines: NVv3 시리즈 |
 > |  | Power BI Embedded | Virtual Machines: NVv4 시리즈 |
 > |  | 프리미엄 Blob Storage | Virtual Machines: Azure의 SAP HANA(대규모 인스턴스) |
-> |  | 프리미엄 파일 저장소 | Visual Studio App Center |
+> |  | 프리미엄 파일 저장소 | Visual Studio 앱 센터 |
 > |  | 저장소: Archive Storage |  |
 > |  | 울트라 디스크 저장소 |  |
 > |  | Virtual Machines: Ddsv4 시리즈 |  |

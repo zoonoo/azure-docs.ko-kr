@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665241"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774581"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
 
@@ -36,7 +36,8 @@ ms.locfileid: "91665241"
 **제품 ID**를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
 - 이 ID는 Marketplace 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
-- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 **test-offer-1**을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+- 게시자 ID와 결합 된 제품 ID의 길이는 40 자 미만 이어야 합니다.
+- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없습니다. 예를 들어 게시자 ID가 testpublisherid이 고 여기에 **테스트-1** 을 입력 하면 제품 웹 주소는가 됩니다 `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
 - **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
 **제품 별칭**을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
@@ -58,7 +59,7 @@ ms.locfileid: "91665241"
 
 고객에 게 제품을 무료로 나열 합니다.
 
-#### <a name="free-trial-listing"></a>평가판(목록)
+#### <a name="free-trial-listing"></a>무료 평가판(목록)
 
 무료 평가판 링크를 사용 하 여 고객에 게 제품을 나열 합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
 
@@ -129,7 +130,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명:
 10. 스크린샷/비디오
 
 ### <a name="name"></a>속성

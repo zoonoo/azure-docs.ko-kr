@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950122"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776139"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
@@ -104,6 +104,8 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 성공 하는 경우 응답은 id 위험 검색의 컬렉션 이며 OData JSON 형식으로 연결 된 데이터의 컬렉션입니다 .이를 구문 분석 하 고 적절 하 게 처리할 수 있습니다.
 
 ### <a name="sample"></a>예제
+
+이 샘플에서는 공유 암호를 사용 하 여 인증 하는 방법을 보여 줍니다. 프로덕션 환경에서 코드에 암호를 저장 하는 것은 일반적으로 frowned. 조직에서는 Azure 리소스에 관리 되는 id를 사용 하 여 이러한 자격 증명을 보호할 수 있습니다. 관리 되는 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리](../managed-identities-azure-resources/overview.md)되는 id 인 문서를 참조 하세요.
 
 다음은 PowerShell을 사용하여 API를 인증하고 호출하는 데 대한 샘플 코드입니다.  
 클라이언트 ID, 비밀 키 및 테넌트 도메인만 추가하면 됩니다.

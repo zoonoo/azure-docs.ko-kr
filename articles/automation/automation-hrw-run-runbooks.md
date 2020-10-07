@@ -3,14 +3,14 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용 하 여 로컬 데이터 센터 또는 다른 클라우드 공급자의 컴퓨터에서 runbook을 실행 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab3daedcb2222f8d639522d1afa6d4e9acbe1626
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323348"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772824"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -24,7 +24,7 @@ Azure Automation는 Azure 샌드박스에서 실행 되는 작업과는 다른 H
 
 Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계정 또는 Linux의 **nxautomation** 계정에서 실행 됩니다. Linux의 경우 **nxautomation** 계정에 runbook 모듈이 저장 된 위치에 대 한 액세스 권한이 있는지 확인 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때는 **nxautomation** 계정이 액세스 권한을 갖도록 `Scope` 매개 변수에 AllUsers를 지정하세요. Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms)를 참조하세요.
 
-## <a name="set-up-runbook-permissions"></a>Runbook 사용 권한 설정
+## <a name="configure-runbook-permissions"></a>Runbook 사용 권한 구성
 
 다음과 같은 방법으로 Runbook이 Hybrid Runbook Worker에 실행되도록 사용 권한을 설정합니다.
 
@@ -32,7 +32,7 @@ Hybrid Runbook Worker에 대 한 작업은 Windows의 로컬 **시스템** 계�
 * [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)를 사용하여 인증을 구성합니다.
 * 모든 Runbook에 대한 사용자 컨텍스트를 제공하도록 실행 계정을 지정합니다.
 
-## <a name="use-runbook-authentication-to-local-resources"></a>로컬 리소스에 대한 Runbook 인증 사용
+### <a name="use-runbook-authentication-to-local-resources"></a>로컬 리소스에 대한 Runbook 인증 사용
 
 리소스에 자체 인증을 제공하는 Runbook을 준비할 때는 Runbook에서 [자격 증명](./shared-resources/credentials.md) 자산과 [인증서](./shared-resources/certificates.md) 자산을 사용합니다. 여러 cmdlet을 사용하여 Runbook이 여러 리소스로 인증될 수 있도록 자격 증명을 지정할 수 있습니다. 다음 예제에서는 컴퓨터를 다시 시작하는 Runbook의 일부를 보여 줍니다. 이 예제에서는 자격 증명 자산에서 자격 증명을 검색하고 변수 자산에서 컴퓨터 이름을 검색한 다음 `Restart-Computer` cmdlet에서 이 값을 사용합니다.
 
@@ -45,7 +45,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 [InlineScript](automation-powershell-workflow.md#use-inlinescript) 작업을 사용할 수도 있습니다. `InlineScript`를 사용하면 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있습니다.
 
-## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>관리 ID를 통한 Runbook 인증 사용
+### <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>관리 ID를 통한 Runbook 인증 사용
 
 Azure 가상 머신의 Hybrid Runbook Worker는 관리 ID를 사용하여 Azure 리소스를 인증할 수 있습니다. 실행 계정 대신 Azure 리소스에 대한 관리 ID를 사용하면 다음과 같은 작업이 필요하지 않다는 이점이 있습니다.
 
@@ -72,7 +72,7 @@ Azure 가상 머신의 Hybrid Runbook Worker는 관리 ID를 사용하여 Azure 
     > [!NOTE]
     > `Connect-AzAccount -Identity`는 시스템 할당 ID와 단일 사용자 할당 ID를 사용하여 Hybrid Runbook Worker에 대해 작동합니다. Hybrid Runbook Worker에서 여러 개의 사용자 할당 ID를 사용할 경우 Runbook이 `Connect-AzAccount`에 `AccountId` 매개 변수를 지정하여 특정 사용자 할당 ID를 선택해야 합니다.
 
-## <a name="use-runbook-authentication-with-run-as-account"></a>실행 계정을 통한 Runbook 인증 사용
+### <a name="use-runbook-authentication-with-run-as-account"></a>실행 계정을 통한 Runbook 인증 사용
 
 Runbook이 로컬 리소스에 자체 인증을 제공하도록 하는 대신 Hybrid Runbook Worker 그룹에 실행 계정을 지정할 수 있습니다. 실행 계정을 지정 하려면 로컬 리소스에 대 한 액세스 권한이 있는 [자격 증명 자산](./shared-resources/credentials.md) 을 정의 해야 합니다. 이러한 리소스에는 그룹의 Hybrid Runbook Worker에서 이 자격 증명으로 실행된 모든 Runbook과 인증서 저장소가 포함됩니다.
 
@@ -182,7 +182,7 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker에서 서명된 Runbook으로 작업
 
-Windows Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성할 수 있습니다. 
+Windows Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성할 수 있습니다.
 
 > [!IMPORTANT]
 > Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성하면 서명되지 않은 Runbook은 해당 Worker에서 실행되지 않습니다.
@@ -194,14 +194,13 @@ Windows Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성할 
 ```powershell
 # Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
-                                        -Subject "CN=contoso.com" `
-                                        -KeyAlgorithm RSA `
-                                        -KeyLength 2048 `
-                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-                                        -KeyExportPolicy Exportable `
-                                        -KeyUsage DigitalSignature `
-                                        -Type CodeSigningCert
-
+    -Subject "CN=contoso.com" `
+    -KeyAlgorithm RSA `
+    -KeyLength 2048 `
+    -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+    -KeyExportPolicy Exportable `
+    -KeyUsage DigitalSignature `
+    -Type CodeSigningCert
 
 # Export the certificate so that it can be imported to the hybrid workers
 Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
@@ -247,6 +246,13 @@ Runbook이 서명되고 나면, Automation 계정으로 Runbook을 가져오고 
 > [!IMPORTANT]
 > Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성하면 서명되지 않은 Runbook은 해당 Worker에서 실행되지 않습니다.
 
+이 구성을 완료 하려면 다음 단계를 수행 합니다.
+
+* GPG 인증 키 및 키 쌍 만들기
+* Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 설정
+* 서명 유효성 검사가 설정되어 있는지 확인
+* Runbook 서명
+
 ### <a name="create-a-gpg-keyring-and-keypair"></a>GPG 인증 키 및 키 쌍 만들기
 
 GPG 인증 키와 키 쌍을 만들려면 Hybrid Runbook Worker [nxautomation 계정](automation-runbook-execution.md#log-analytics-agent-for-linux)을 사용합니다.
@@ -271,10 +277,10 @@ GPG 인증 키와 키 쌍을 만들려면 Hybrid Runbook Worker [nxautomation �
 
 ### <a name="make-the-keyring-available-to-the-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 설정
 
-인증 키가 만들어지면 Hybrid Runbook Worker에서 사용할 수 있도록 설정해야 합니다. 설정 파일 **/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf**가 파일 섹션 `[worker-optional]` 아래에 다음과 같은 예제 코드를 포함하도록 수정합니다.
+인증 키가 만들어지면 Hybrid Runbook Worker에서 사용할 수 있도록 설정해야 합니다. 파일 섹션 아래에 다음 예제 코드를 포함 하도록 설정 파일 **home/nxautomation/state/worker** 를 수정 합니다 `[worker-optional]` .
 
 ```bash
-gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+gpg_public_keyring_path = /home/nxautomation/run/.gnupg/pubring.kbx
 ```
 
 ### <a name="verify-that-signature-validation-is-on"></a>서명 유효성 검사가 설정되어 있는지 확인

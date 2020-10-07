@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713362"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776088"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -24,21 +24,22 @@ ms.locfileid: "91713362"
 
 > [!div class="checklist"]
 > - 가상 네트워크 내의 리소스에서 studio에 액세스 합니다.
+> - 저장소 계정에 대 한 개인 끝점을 구성 합니다.
 > - 가상 네트워크 내에 저장 된 데이터에 대 한 액세스를 스튜디오에 제공 합니다.
-> - 저장소 보안이 스튜디오에서 영향을 받는 방식을 이해 합니다.
+> - 스튜디오에서 저장소 보안에 미치는 영향을 이해 합니다.
 
 이 문서는 Azure Machine Learning 워크플로를 보호 하는 과정을 안내 하는 다섯 부분으로 구성 된 시리즈의 5 부입니다. 먼저 전체 아키텍처를 이해 하려면 [1 부: VNet 개요](how-to-network-security-overview.md) 를 읽어 보는 것이 좋습니다. 
 
 이 시리즈의 다른 문서를 참조 하세요.
 
-[1. VNet 개요](how-to-network-security-overview.md)  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+[1. VNet 개요](how-to-network-security-overview.md)  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  **. 스튜디오 기능 사용**
 
 
 > [!IMPORTANT]
 > 대부분의 스튜디오는 가상 네트워크에 저장 된 데이터와 함께 작동 하지만 통합 된 노트북은 __그렇지 않습니다__. 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 하지 않습니다. 대신, 계산 인스턴스에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스]() 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 + [네트워크 보안 개요](how-to-network-security-overview.md) 를 읽고 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 합니다.
 
@@ -46,7 +47,7 @@ ms.locfileid: "91713362"
 
 + [개인 링크가 설정 된 기존 Azure Machine Learning 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint)입니다.
 
-+ 기존 [Azure 저장소 계정에서 가상 네트워크를 추가 했습니다](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ 기존 [Azure 저장소 계정에서 가상 네트워크를 추가 했습니다](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>VNet 내의 리소스에서 studio에 액세스 합니다.
 
@@ -56,7 +57,7 @@ ms.locfileid: "91713362"
 
 ## <a name="access-data-using-the-studio"></a>Studio를 사용 하 여 데이터 액세스
 
-[Azure storage 계정을 가상 네트워크에 추가한](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)후 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 저장소 계정에 데이터에 대 한 액세스 권한을 부여 하도록 구성 해야 합니다. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하도록 구성 된 저장소 계정을 지원 합니다. 저장소 계정은 기본적으로 서비스 끝점을 사용 합니다. 저장소에 대 한 개인 끝점을 사용 하도록 설정 하려면 [Azure Storage 전용 끝점 사용](../storage/common/storage-private-endpoints.md) 을 참조 하세요.
+[서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 가상 네트워크에 Azure storage 계정을 추가한 후에 [는 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 저장소 계정에 데이터에 대 한 액세스 권한을 부여 해야 합니다.
 
 관리 되는 id를 사용 하지 않는 경우이 오류가 표시 되 고, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 다음과 같은 작업을 사용할 수 없게 됩니다.
 
@@ -64,6 +65,9 @@ ms.locfileid: "91713362"
 * 디자이너에서 데이터를 시각화 합니다.
 * AutoML 실험을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
+
+> [!NOTE]
+> [ML 지원 데이터 labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 는 가상 네트워크 뒤에 보안 되는 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 labelling에는 기본이 아닌 저장소 계정을 사용 해야 합니다. 기본이 아닌 저장소 계정은 가상 네트워크 뒤에 보안을 설정할 수 있습니다. 
 
 스튜디오는 가상 네트워크의 다음 데이터 저장소 형식에서 데이터를 읽을 수 있도록 지원 합니다.
 

@@ -10,12 +10,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: e0c5e6041da933b4a42bc438900f8c4c91cc6dbc
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711612"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772671"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -71,6 +71,8 @@ Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 �
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |
 | StorageDelete | 개체에 대 한 삭제 작업입니다. |
+
+기록 되는 SMB 및 REST 작업 목록을 얻으려면 [저장소 로깅 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)를 참조 하세요.
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
@@ -276,7 +278,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 리소스 로그는 스토리지 계정의 BLOB으로, 이벤트 데이터로 또는 로그 분석 쿼리를 통해 액세스할 수 있습니다.
 
-이러한 로그에 표시 되는 필드에 대 한 자세한 내용은 [Azure Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)를 참조 하세요.
+기록 되는 SMB 및 REST 작업 목록을 얻으려면 [저장소 로깅 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)를 참조 하세요.
 
 > [!NOTE]
 > Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
@@ -292,7 +294,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 - 실패한 요청과 성공한 요청을 포함하여 SAS(공유 액세스 서명) 또는 OAuth를 사용하는 요청
 - 분석 데이터( **$logs** 컨테이너의 클래식 로그 데이터 및 **$metric** 테이블의 클래식 메트릭 데이터)에 대한 요청
 
-로그 생성 또는 삭제와 같은 Azure Files 서비스 자체에서 수행 된 요청은 기록 되지 않습니다. 기록되는 데이터의 전체 목록은 [Storage에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)와 [Storage 로그 형식](storage-files-monitoring-reference.md)을 참조하세요.
+로그 생성 또는 삭제와 같은 Azure Files 서비스 자체에서 수행 된 요청은 기록 되지 않습니다. 기록 된 SMB 및 REST 요청에 대 한 전체 목록은 [저장소 로깅 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)를 참조 하세요.
 
 ### <a name="log-anonymous-requests"></a>익명 요청 기록
 
@@ -303,7 +305,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 - 클라이언트와 서버 모두에 대한 시간 제한 오류
 - 304(수정되지 않음) 오류 코드와 함께 실패한 GET 요청
 
-그 외의 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [Storage에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)와 [Storage 로그 형식](storage-files-monitoring-reference.md)을 참조하세요.
+그 외의 실패한 익명 요청은 기록되지 않습니다. 기록 된 SMB 및 REST 요청에 대 한 전체 목록은 [저장소 로깅 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)를 참조 하세요.
 
 ### <a name="accessing-logs-in-a-storage-account"></a>저장소 계정에서 로그 액세스
 
@@ -484,7 +486,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 - [Azure Files 모니터링 데이터 참조](storage-files-monitoring.md)
 - [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage 메트릭 마이그레이션](../common/storage-metrics-migration.md)
-- [Azure Files 배포 계획](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
+- [Azure 파일 배포에 대한 계획](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
 - [Azure Files를 배포하는 방법](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
 - [Windows에서 Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)
 - [Linux에서 Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-linux-file-connection-problems)

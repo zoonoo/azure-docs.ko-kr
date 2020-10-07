@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336754"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772790"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
@@ -64,6 +64,13 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Key Vault에서 Azure RBAC 비밀, 키 및 인증서 사용 권한 사용
 
 키 자격 증명 모음에 대 한 새 Azure RBAC 권한 모델은 자격 증명 모음 액세스 정책 권한 모델에 대 한 대안을 제공 합니다. 
+
+### <a name="prerequisites"></a>필수 구성 요소
+
+역할 할당을 추가하려면 다음이 필요합니다.
+
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner))
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Key Vault에 대 한 Azure RBAC 사용 권한 설정
 

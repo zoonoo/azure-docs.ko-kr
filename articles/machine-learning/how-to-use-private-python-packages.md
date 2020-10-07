@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302219"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772637"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 전용 Python 패키지 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "91302219"
 
 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) 클래스를 통해 개인 패키지를 사용 합니다. 환경 내에서 개인용 패키지를 포함 하 여 사용할 Python 패키지를 선언 합니다. 일반적인 Azure Machine Learning 환경에 대해 알아보려면 [환경을 사용 하는 방법](how-to-use-environments.md)을 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
  * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -58,7 +58,7 @@ myenv.python.conda_dependencies=conda_dep
 
  1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__로 설정 합니다. 
 
- 2. [작업 영역. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
+ 2. [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
 
      ```python
     from azureml.core import Workspace
@@ -91,7 +91,7 @@ myenv.python.conda_dependencies=conda_dep
 
 조직의 방화벽 내에 있는 Azure storage 계정에서 패키지를 사용할 수 있습니다. 저장소 계정은 큐 레이트 패키지 집합 또는 공개적으로 사용 가능한 패키지의 내부 미러를 보유할 수 있습니다.
 
-이러한 개인 저장소를 설정 하려면 [Azure Machine Learning 작업 영역 보안 및 관련 리소스](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)를 참조 하세요. 또한 [VNet 뒤에 Azure Container Registry (ACR)를 넣어야](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)합니다.
+이러한 개인 저장소를 설정 하려면 [Azure Machine Learning 작업 영역 보안 및 관련 리소스](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)를 참조 하세요. 또한 [VNet 뒤에 Azure Container Registry (ACR)를 넣어야](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)합니다.
 
 > [!IMPORTANT]
 > 개인 패키지 리포지토리를 사용 하 여 모델을 학습 하거나 배포 하려면이 단계를 완료 해야 합니다.

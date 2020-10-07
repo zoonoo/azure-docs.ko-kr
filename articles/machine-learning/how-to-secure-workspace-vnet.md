@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708319"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776048"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "91708319"
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -57,10 +57,9 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 
 개인 링크 작업 영역을 설정 하는 방법에 대 한 자세한 내용은 [개인 링크를 구성 하는 방법](how-to-configure-private-link.md)을 참조 하세요.
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>서비스 엔드포인트를 사용 하 여 Azure storage 계정 보호
 
-## <a name="secure-azure-storage-accounts"></a>Azure storage 계정 보호
-
-이 섹션에서는 서비스 끝점을 사용 하 여 Azure storage 계정을 보호 하는 방법에 대해 알아봅니다. 그러나 개인 끝점을 사용 하 여 Azure storage를 보호할 수도 있습니다. 자세한 내용은 [Azure Storage 전용 끝점 사용](../storage/common/storage-private-endpoints.md)을 참조 하세요.
+Azure Machine Learning는 서비스 끝점이 나 개인 끝점 중 하나를 사용 하도록 구성 된 저장소 계정을 지원 합니다. 이 섹션에서는 서비스 끝점을 사용 하 여 Azure storage 계정을 보호 하는 방법에 대해 알아봅니다. 전용 끝점은 다음 섹션을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure Machine Learning의 _기본 스토리지 계정_이나 기본이 아닌 스토리지 계정 모두를 가상 네트워크에 배치할 수 있습니다.
@@ -95,9 +94,21 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 
    [![Azure Portal의 "방화벽 및 가상 네트워크" 창](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>개인 끝점을 사용 하 여 Azure storage 계정 보호
+
+Azure Machine Learning는 서비스 끝점이 나 개인 끝점 중 하나를 사용 하도록 구성 된 저장소 계정을 지원 합니다. 저장소 계정에서 개인 끝점을 사용 하는 경우 기본 저장소 계정에 대해 두 개의 개인 끝점을 구성 해야 합니다.
+1. **Blob** 대상 하위 리소스가 있는 개인 끝점입니다.
+1. 파일 대상 하위 리소스 ( **파일** 공유)를 사용 하는 개인 끝점입니다.
+
+![Blob 및 파일 옵션을 사용 하 여 개인 끝점 구성 페이지를 보여 주는 스크린샷](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+기본 저장소가 **아닌** 저장소 계정에 대 한 개인 끝점을 구성 하려면 추가 하려는 저장소 계정에 해당 하는 **대상 하위 리소스** 종류를 선택 합니다.
+
+자세한 내용은 [Azure Storage 전용 끝점 사용](../storage/common/storage-private-endpoints.md) 을 참조 하세요.
+
 ## <a name="secure-datastores-and-datasets"></a>데이터 저장소 및 데이터 집합 보안
 
-이 섹션에서는 가상 네트워크에서 SDK 환경에 대해 데이터 저장소 및 데이터 집합 사용량을 사용 하는 방법에 대해 알아봅니다. 스튜디오 환경에 대 한 자세한 내용은 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조 하세요.
+이 섹션에서는 가상 네트워크를 사용 하 여 SDK 환경에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대해 알아봅니다. 스튜디오 환경에 대 한 자세한 내용은 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조 하세요.
 
 SDK를 사용 하 여 데이터에 액세스 하려면 데이터가 저장 되는 개별 서비스에 필요한 인증 방법을 사용 해야 합니다. 예를 들어 Azure Data Lake Store Gen2에 액세스 하기 위해 데이터 저장소를 등록 하는 경우 [Azure storage 서비스에 연결](how-to-access-data.md#azure-data-lake-storage-generation-2)에 설명 된 대로 서비스 주체를 계속 사용 해야 합니다.
 

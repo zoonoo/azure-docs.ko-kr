@@ -4,15 +4,15 @@ description: Azure 프리미엄 SSD 관리 디스크를 사용하여 고성능 �
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650706"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776156"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -305,45 +305,11 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 
 ## <a name="optimize-performance-on-linux-vms"></a>Linux VM의 성능 최적화
 
-캐시가 **ReadOnly** 또는 **None**으로 설정된 모든 프리미엄 SSD 또는 울트라 디스크의 경우 파일 시스템을 탑재할 때 “barrier(장벽)”를 사용하지 않도록 설정해야 합니다. Premium Storage 디스크에 쓰기는 이러한 캐시 설정에 대해 지속되기 때문에 이 시나리오에는 barrier(장벽)가 필요하지 않습니다. 쓰기 요청이 성공적으로 완료되면 데이터는 영구 저장소에 작성됩니다. “barrier(장벽)”를 사용하지 않도록 설정하려면 다음 방법 중 하나를 사용합니다. 파일 시스템에 대해 하나를 선택합니다.
-  
-* **reiserFS**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=none` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=flush`를 사용합니다.)
-* **ext3/ext4**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=0` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=1`를 사용합니다.)
-* **XFS**에 대해 barrier를 사용하지 않도록 설정하려면 `nobarrier` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier`를 사용합니다.)
-* **ReadWrite**으로 캐시가 설정된 Premium Storage 디스크의 경우 쓰기 지속성을 위해 barrier를 사용하도록 설정합니다.
-* 볼륨 레이블의 경우 VM을 다시 시작한 후 유지하려면 디스크에 UUID(Universally Unique Identifier) 참조로 /etc/fstab을 업데이트해야 합니다. 자세한 내용은 [관리 디스크를 Linux VM에 추가](./linux/add-disk.md)를 참조하세요.
+모든 프리미엄 Ssd 또는 ultra 디스크의 경우 데이터가 손실 될 수 있는 캐시가 없다는 것을 알고 있는 경우 성능을 향상 시키기 위해 디스크에서 파일 시스템에 대해 "장벽"을 사용 하지 않도록 설정할 수 있습니다.  Azure disk 캐싱이 ReadOnly로 설정 되거나 없음으로 설정 된 경우 장벽을 사용 하지 않도록 설정할 수 있습니다.  그러나 캐싱이 ReadWrite로 설정 된 경우에는 쓰기 내구성을 보장 하기 위해 장벽을 사용할 수 있도록 유지 해야 합니다.  장애물은 일반적으로 기본적으로 사용 하도록 설정 되지만 파일 시스템 유형에 따라 다음 방법 중 하나를 사용 하 여 장벽을 사용 하지 않도록 설정할 수 있습니다.
 
-다음 Linux 배포판은 프리미엄 SSD에 대해 유효성이 검사되었습니다. 프리미엄 SSD를 사용하여 성능 및 안정성을 개선하려면 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 
-
-버전 중 일부는 Azure용 최신 LIS(Linux 통합 서비스) v4.0이 필요합니다. 배포판을 다운로드하여 설치하려면 다음 표에 나와 있는 링크를 따라가세요. 유효성 검사가 완료됨에 따라 목록에 이미지가 추가됩니다. 유효성 검사 시 이미지마다 성능이 다른 것으로 나타납니다. 성능은 워크로드 특성 및 이미지 설정에 따라 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다.
-
-| 배포 | 버전 | 지원되는 커널 | 세부 정보 |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 이상| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 이상| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x 이상| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 이상| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 이상| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ 이상| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0 이상| &nbsp; | [LIS4 필요](https://www.microsoft.com/download/details.aspx?id=55106) <br> *다음 섹션의 참고를 참조하세요.* |
-| CentOS | 7.1+ 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://www.microsoft.com/download/details.aspx?id=55106) <br> *다음 섹션의 참고를 참조하세요.* |
-| RHEL(Red Hat Enterprise Linux) | 6.8+, 7.2+ 이상 | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ 이상 | &nbsp; | UEK4 또는 RHCK |
-| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버
-
-OpenLogic CentOS VM을 실행하는 경우 다음 명령을 실행하여 최신 드라이버를 설치합니다.
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-경우에 따라 위의 명령을 통해 커널을 업그레이드할 수도 있습니다. 커널 업데이트가 필요한 경우에는 microsoft hyper-v 패키지를 완전히 설치하기 위해 재부팅한 후 위의 명령을 다시 실행해야 할 수 있습니다.
-
+* **Reiserfs**의 경우 장벽 = 없음 탑재 옵션을 사용 하 여 장벽을 사용 하지 않도록 설정 합니다.  장애물을 명시적으로 사용 하도록 설정 하려면 장벽 = 플러시를 사용 합니다.
+* **Ext3/ext4**의 경우 장벽 = 0 탑재 옵션을 사용 하 여 장벽을 사용 하지 않도록 설정 합니다.  장애물을 명시적으로 사용 하도록 설정 하려면 장벽 = 1을 사용 합니다.
+* **Xfs**의 경우 nobarrier 탑재 옵션을 사용 하 여 장벽을 사용 하지 않도록 설정 합니다.  장애물을 명시적으로 사용 하도록 설정 하려면 장벽을 사용 합니다.  이후 Linux 커널 버전에서 XFS 파일 시스템의 디자인은 항상 내구성을 보장 하 고 장애물을 사용 하지 않도록 설정 해도 아무런 효과가 없습니다.  
 
 ## <a name="disk-striping"></a>디스크 스트라이프
 

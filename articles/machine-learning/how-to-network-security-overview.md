@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/30/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631191"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776020"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -31,7 +31,7 @@ ms.locfileid: "91631191"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
-+ [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
++ [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 + [IP 네트워킹](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 + [Azure Private Link](how-to-configure-private-link.md)
 + [네트워크 보안 그룹(NSG)](../virtual-network/security-overview.md)
@@ -70,7 +70,7 @@ ms.locfileid: "91631191"
 
 1. VNet과 작업 영역 간에 통신을 사용 하도록 설정 하려면 [개인 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) 을 만듭니다.
 1. [서비스 끝점이](../key-vault/general/overview-vnet-service-endpoints.md) 나 [개인 끝점](../key-vault/general/private-link-service.md)을 사용 하 여 가상 네트워크에 Azure Key Vault를 추가 합니다. Key Vault를 ["신뢰할 수 있는 Microsoft 서비스가이 방화벽을 우회 하도록 허용](how-to-secure-workspace-vnet.md#secure-azure-key-vault)합니다."로 설정 합니다.
-1. [서비스 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) 또는 [개인 끝점](../storage/common/storage-private-endpoints.md) 을 사용 하 여 가상 네트워크에 Azure storage 계정 추가
+1. [서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 Azure storage 계정을 가상 네트워크에 추가 합니다.
 1. 개인 끝점을 사용 하 고 [Azure Container Instances에서 서브넷 위임을 사용](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci) [하도록 Azure Container Registry를 구성](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) 합니다.
 
 ![작업 영역 및 연결 된 리소스가 VNet 내부의 서비스 끝점 또는 개인 끝점을 통해 서로 통신 하는 방법을 보여 주는 아키텍처 다이어그램](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -141,17 +141,17 @@ ms.locfileid: "91631191"
 
 [작업 영역 보안](#secure-the-workspace-and-associated-resources)  >  [교육 환경 보안](#secure-the-training-environment)  >  [추론 환경 보안](#secure-the-inferencing-environment)  >  **스튜디오 기능 사용**  >  [방화벽 설정 구성](#configure-firewall-settings)
 
-스튜디오에서는 서비스 끝점으로 구성 된 저장소 계정의 데이터에 액세스할 수 있지만 일부 기능은 기본적으로 사용 하지 않도록 설정 됩니다.
+저장소가 VNet에 있는 경우 먼저 추가 구성 단계를 수행 하 여 [스튜디오](overview-what-is-machine-learning-studio.md)에서 전체 기능을 사용할 수 있도록 해야 합니다. 기본적으로 다음 기능을 사용할 수 없습니다.
 
 * Studio에서 데이터를 미리 봅니다.
 * 디자이너에서 데이터를 시각화 합니다.
 * AutoML 실험을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
 
-저장소 서비스 끝점을 사용 하는 동안 전체 기능을 사용 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#access-data-using-the-studio)을 참조 하세요. 스튜디오는 저장소 계정에 대 한 서비스 끝점과 개인 끝점을 모두 지원 합니다.
+VNet 내부에서 전체 studio 기능을 사용 하도록 설정 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#access-data-using-the-studio)을 참조 하세요. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하 여 저장소 계정을 지원 합니다.
 
 ### <a name="limitations"></a>제한 사항
-- 스튜디오는 개인 끝점을 사용 하도록 구성 된 저장소 계정의 데이터에 액세스할 수 없습니다. 모든 기능을 사용 하려면 저장소에 대해 서비스 끝점을 사용 하 고 관리 되는 id를 사용 해야 합니다.
+- [ML 지원 데이터 레이블](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 지정은 가상 네트워크 뒤에 보안 되는 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 레이블 지정을 위해 기본이 아닌 저장소 계정을 사용 해야 합니다. 기본이 아닌 저장소 계정은 가상 네트워크 뒤에 보안을 설정할 수 있습니다. 
 
 ## <a name="configure-firewall-settings"></a>방화벽 설정 구성하기
 

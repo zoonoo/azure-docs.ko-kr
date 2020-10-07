@@ -1,28 +1,28 @@
 ---
-title: Azure 개인 끝점 (미리 보기)을 사용 하 여 개인적으로 웹 앱에 연결
-description: 이 문서에서는 Azure 개인 끝점 (미리 보기)을 사용 하 여 개인적으로 웹 앱에 연결 하는 방법을 설명 합니다.
+title: Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결
+description: 이 문서에서는 Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결 하는 방법을 설명 합니다.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ccbcdbe9204120e1cf181136f566556ec30be871
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054537"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772841"
 ---
-# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint-preview"></a>Azure 개인 끝점 (미리 보기)을 사용 하 여 개인적으로 웹 앱에 연결
+# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결
 
-Azure 개인 끝점 (미리 보기)은 Azure 개인 링크의 기본 구성 요소입니다. 개인 끝점을 사용 하면 개인적으로 웹 앱에 연결할 수 있습니다. 이 문서에서는 개인 끝점을 사용 하 여 웹 앱을 배포한 다음 VM (가상 머신)에서 웹 앱에 연결 하는 방법을 알아봅니다.
+Azure 개인 끝점은 Azure 개인 링크에 대 한 기본 빌딩 블록입니다. 개인 끝점을 사용 하면 개인적으로 웹 앱에 연결할 수 있습니다. 이 문서에서는 개인 끝점을 사용 하 여 웹 앱을 배포한 다음 VM (가상 머신)에서 웹 앱에 연결 하는 방법을 알아봅니다.
 
 자세한 내용은 [Azure 웹 앱에 전용 끝점 사용][privateendpointwebapp]을 참조 하세요.
 
 > [!Note]
-> 개인 끝점 (미리 보기)은 PremiumV2 계층 Windows 웹 앱, Linux 웹 앱 및 Azure Functions 프리미엄 요금제 (탄력적 프리미엄 요금제 라고도 함)에 대 한 공용 지역에서 사용할 수 있습니다. 
+> 개인 끝점은 PremiumV2 계층, PremiumV3 Windows 웹 앱, Linux 웹 앱 및 Azure Functions 프리미엄 요금제 (탄력적 프리미엄 요금제 라고도 함)에 대 한 공용 지역에서 사용할 수 있습니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -86,7 +86,7 @@ Azure 개인 끝점 (미리 보기)은 Azure 개인 링크의 기본 구성 요�
 이 섹션에서는 개인 끝점을 사용 하는 개인 웹 앱을 만듭니다.
 
 > [!Note]
-> 개인 끝점 기능은 PremiumV2 계층에 대해서만 사용할 수 있습니다.
+> 개인 끝점 기능은 PremiumV2 및 PremiumV3 계층에 대해서만 사용할 수 있습니다.
 
 ### <a name="create-the-web-app"></a>웹앱 만들기
 
@@ -103,20 +103,20 @@ Azure 개인 끝점 (미리 보기)은 Azure 개인 링크의 기본 구성 요�
 
 ### <a name="create-the-private-endpoint"></a>개인 끝점 만들기
 
-1. 웹 앱 속성의 **설정**에서 **네트워킹**을 선택 하 고 **개인 끝점 연결 (미리 보기)** 에서 **개인 끝점 연결 구성**을 선택 합니다.
+1. 웹 앱 속성의 **설정**에서 **네트워킹**을 선택 하 고 * * 개인 끝점 연결 * *에서 **개인 끝점 연결 구성**을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![웹 앱 네트워킹 창에서 "개인 끝점 연결 구성" 링크의 스크린샷][7]
 
-1. **개인 끝점 연결 (미리 보기)** 마법사에서 **추가**를 선택 합니다.
+1. **개인 끝점 연결** 마법사에서 **추가**를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   > !["개인 끝점 연결 (미리 보기)" 마법사의 추가 단추 스크린샷][8]
+   > !["개인 끝점 연결" 마법사의 추가 단추 스크린샷][8]
 
 1. **구독**, **가상 네트워크**및 **서브넷** 드롭다운 목록에서 올바른 정보를 선택 하 고 **확인**을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   > !["개인 끝점 추가 (미리 보기)" 창의 스크린샷][9]
+   > !["개인 끝점 추가" 창의 스크린샷][9]
 
 1. 개인 끝점 생성의 진행률을 모니터링 합니다.
 
@@ -180,9 +180,6 @@ Azure 개인 끝점 (미리 보기)은 Azure 개인 링크의 기본 구성 요�
    > [!div class="mx-imgBorder"]
    > !["오류 403-사용할 수 없음" 오류 페이지의 스크린샷][17]
 
-   > [!Important]
-   > 이 기능은 미리 보기 상태 이므로 DNS (도메인 이름 서비스) 항목을 수동으로 관리 해야 합니다.
-
    DNS의 경우 다음 중 하나를 수행 합니다.
  
    - Azure DNS 개인 영역 서비스를 사용 합니다.  
@@ -200,7 +197,7 @@ Azure 개인 끝점 (미리 보기)은 Azure 개인 링크의 기본 구성 요�
      b. 텍스트 편집기에서 *호스트* 파일을 편집 하 여 웹 앱의 개인 IP 주소 및 공개 이름이 포함 된 항목을 추가 합니다.  
      > [!div class="mx-imgBorder"]
      > ![Hosts 파일의 텍스트 스크린샷][19]  
-     다. 파일을 저장합니다.
+     c. 파일을 저장합니다.
 
 1. 브라우저에서 웹 앱의 URL을 입력 합니다.
 
@@ -223,7 +220,7 @@ Azure 개인 끝점 (미리 보기)은 Azure 개인 링크의 기본 구성 요�
 
 이 문서에서는 가상 네트워크, 웹 앱 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 VM에 연결 하 고 개인 링크를 사용 하 여 웹 앱에 안전 하 게 전달 했습니다. 
 
-개인 끝점 (미리 보기)에 대해 자세히 알아보려면 [Azure 개인 끝점 이란?][privateendpoint]을 참조 하세요.
+개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?][privateendpoint]을 참조 하세요.
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

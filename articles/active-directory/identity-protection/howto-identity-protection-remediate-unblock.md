@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463963"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776105"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>위험 재구성 및 사용자 차단 해제
 
@@ -88,6 +88,10 @@ ms.locfileid: "84463963"
 1. **친숙한 위치 또는 디바이스에서 로그인** - 차단된 의심스러운 로그인에 대한 일반적인 이유는 알 수 없는 위치 또는 디바이스에서의 로그인 시도입니다. 사용자는 친숙 한 위치나 장치에서 로그인을 시도 하 여이 이유가 차단 이유가 되는지 빠르게 확인할 수 있습니다.
 1. **정책에서 사용자를 제외** 합니다.-로그인 정책의 현재 구성이 특정 사용자에 대해 문제를 일으키는 것으로 생각 되는 경우 해당 사용자를 제외할 수 있습니다. 자세한 내용은 [방법: 위험 정책 구성 및 사용](howto-identity-protection-configure-risk-policies.md#exclusions)문서에서 제외 섹션을 참조 하세요.
 1. **정책 비활성화** - 정책 구성이 모든 사용자에 대해 문제를 일으킨다고 생각하는 경우 정책을 비활성화할 수 있습니다. 자세한 내용은 [방법: 위험 정책 구성 및 사용](howto-identity-protection-configure-risk-policies.md)문서를 참조 하세요.
+
+## <a name="powershell-preview"></a>PowerShell 미리 보기
+
+Microsoft Graph PowerShell SDK 미리 보기 모듈을 사용 하 여 조직은 PowerShell을 사용 하 여 위험을 관리할 수 있습니다. 미리 보기 모듈 및 샘플 코드는 [AZURE AD GitHub 리포지토리](https://github.com/AzureAD/IdentityProtectionTools)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

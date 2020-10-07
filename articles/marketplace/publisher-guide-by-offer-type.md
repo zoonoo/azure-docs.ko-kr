@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
-ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/06/2020
+ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578464"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772654"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 
@@ -30,18 +30,19 @@ ms.locfileid: "91578464"
 
 | **제품 유형**    | **설명**  |
 | :------------------- | :-------------------|
-| [Azure 애플리케이션: **관리 되는 응용 프로그램**](./marketplace-managed-apps.md) | 다음 조건이 필요한 경우 Azure 애플리케이션: 관리 되는 응용 프로그램 제공 유형을 사용 합니다. <br> <ul> <li> VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. </li> <li>사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. </li> <ul> |
-| [Azure 애플리케이션: **솔루션 템플릿**](./marketplace-solution-templates.md) | 솔루션에 단일 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우 Azure 애플리케이션: 솔루션 템플릿 제품 유형을 사용 합니다. 솔루션 템플릿은 Vm을 비롯 하 여 다양 한 종류의 Azure 리소스를 사용할 수 있습니다.  |
-  | [**Azure 컨테이너**](./marketplace-containers.md) | 솔루션이 Kubernetes 기반 Azure container service로 프로 비전 된 Docker 컨테이너 이미지인 경우 Azure Container 제안 유형을 사용 합니다. |
-| [**Azure 가상 머신**](./marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
-| [**컨설팅 서비스**](./consulting-services.md) | 컨설팅 서비스는 고객을 서비스와 연결 하 여 Azure, Dynamics 365 또는 Power Suite 서비스의 사용을 지원 하 고 확장 하는 데 도움이 됩니다.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Dynamics 365 Business Central, Dynamics 365 고객 참여, Power Apps 및 재무 및 운영 앱을 빌드하거나 확장 하는 AppSource 제품을 게시할 수 있습니다.|
-| [**IoT Edge 모듈**](./iot-edge-module.md) | Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. |
-| [**Power BI 앱 <br/> Microsoft 365**](./appsource-offer-publishing-guide.md) | Power BI를 빌드하거나 확장 하는 AppSource 제품을 게시 하거나 Microsoft 365 수 있습니다.|
+| [Azure 애플리케이션: **관리 되는 응용 프로그램**](marketplace-managed-apps.md) | 다음 조건이 필요한 경우 Azure 애플리케이션: 관리 되는 응용 프로그램 제공 유형을 사용 합니다. <br> <ul> <li>VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. </li> <li>사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. </li> <ul> |
+| [Azure 애플리케이션: **솔루션 템플릿**](marketplace-solution-templates.md) | 솔루션에 단일 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우 Azure 애플리케이션: 솔루션 템플릿 제품 유형을 사용 합니다. 솔루션 템플릿은 Vm을 비롯 하 여 다양 한 종류의 Azure 리소스를 사용할 수 있습니다.  |
+  | [**Azure 컨테이너**](marketplace-containers.md) | 솔루션이 Kubernetes 기반 Azure container service로 프로 비전 된 Docker 컨테이너 이미지인 경우 Azure Container 제안 유형을 사용 합니다. |
+| [**Azure 가상 머신**](marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
+| [**컨설팅 서비스**](consulting-services.md) | 컨설팅 서비스는 고객을 서비스와 연결 하 여 Azure, Dynamics 365 또는 Power Suite 서비스의 사용을 지원 하 고 확장 하는 데 도움이 됩니다.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Dynamics 365 Business Central, Dynamics 365 고객 참여, Power Apps 및 재무 및 운영 앱을 빌드하거나 확장 하는 AppSource 제품을 게시할 수 있습니다.|
+| [**IoT Edge 모듈**](iot-edge-module.md) | Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. |
+| [**관리되는 서비스**](partner-center-portal/create-new-managed-service-offer.md) | [Azure Lighthouse](/azure/lighthouse/overview)를 통해 관리 되는 서비스를 만들고 고객이 위임한 구독 또는 리소스 그룹을 관리할 수 있습니다.|
+| [**Power BI 앱** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Power BI를 빌드하거나 확장 하는 AppSource 제품을 게시 하거나 Microsoft 365 수 있습니다.|
 | [**Software as a Service**](plan-saas-offer.md) | Saas (software as a service) 제품 유형을 사용 하면 고객이 SaaS 기반 기술 솔루션을 구독으로 구매할 수 있습니다. |
-| [**통합된 솔루션**](./integrated-solutions-for-publishers.md) | 기술 및 서비스를 단일 제품으로 결합 하는 업계에서 맞춘 통합 솔루션을 게시할 수 있습니다.|
 
-옵션 및 제안 유형을 나열 하 여 Single Sign-On 요구 사항에 대 한 자세한 내용은 [**AZURE AD 요구 사항**](./enable-appsource-marketplace-using-azure-ad.md)을 참조 하세요.
+
+옵션 및 제안 유형을 나열 하 여 Single Sign-On 요구 사항에 대 한 자세한 내용은 [**AZURE AD 요구 사항**](enable-appsource-marketplace-using-azure-ad.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,18 +4,18 @@ description: Azure 구독 및 리소스 그룹에서 Recovery Services 자격 �
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181513"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773368"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
 이 문서에서는 Azure 구독 간에 또는 동일한 구독의 다른 리소스 그룹에 Azure Backup에 대해 구성된 Recovery Services 자격 증명 모음을 이동하는 방법을 설명합니다. Azure Portal 또는 PowerShell을 사용하여 Recovery Services 자격 증명 모음을 이동할 수 있습니다.
 
-## <a name="supported-regions"></a>지원되는 지역
+## <a name="supported-regions"></a>지원되는 Azure 지역
 
 Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트레일리아 동부에서 지원 됩니다. 오스트레일리아 남부 동부, 캐나다 중부, 캐나다 동부, 남부 동아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부 2, 브라질 남부, 인도 서 부, 인도 남부, 일본 서 부, 일본 서 부, 대한민국 중부, 대한민국 , 북부 유럽, 유럽 서부, 남아프리카 북부, 남아프리카 공화국 서 부, 영국 남부 및 영국 서부.
 
@@ -142,6 +142,50 @@ az resource move --destination-group <destinationResourceGroupName> --ids <Vault
 
 1. 리소스 그룹에 대 한 액세스 제어를 설정/확인 합니다.  
 2. 이동이 완료 된 후에 자격 증명 모음에 대해 백업 보고 및 모니터링 기능을 다시 구성 해야 합니다. 이전 구성은 이동 작업 중 손실됩니다.
+
+## <a name="move-an-azure-virtual-machine-to-a-different-recovery-service-vault"></a>Azure 가상 머신을 다른 recovery services 자격 증명 모음으로 이동 합니다. 
+
+Azure backup을 사용 하도록 설정 된 Azure 가상 머신을 이동 하려는 경우 두 가지 옵션을 선택할 수 있습니다. 비즈니스 요구 사항에 따라 달라 집니다.
+
+- [이전 백업 데이터를 보존할 필요가 없습니다.](#dont-need-to-preserve-previous-backed-up-data)
+- [이전 백업 데이터를 유지 해야 합니다.](#must-preserve-previous-backed-up-data)
+
+### <a name="dont-need-to-preserve-previous-backed-up-data"></a>이전 백업 데이터를 보존할 필요가 없습니다.
+
+새 자격 증명 모음에서 작업을 보호 하려면 이전 자격 증명 모음에서 현재 보호 및 데이터를 삭제 하 고 백업이 다시 구성 되어 있어야 합니다.
+
+>[!WARNING]
+>다음 작업은 소거식 이며 실행 취소할 수 없습니다. 보호 된 서버와 연결 된 모든 백업 데이터 및 백업 항목은 영구적으로 삭제 됩니다. 주의하여 진행하세요.
+
+**이전 자격 증명 모음에서 현재 보호를 중지 하 고 삭제 합니다.**
+
+1. 자격 증명 모음 속성에서 일시 삭제를 사용 하지 않도록 설정 합니다. 일시 삭제를 사용 하지 않도록 설정 하려면 [다음 단계](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) 를 수행 합니다.
+
+2. 보호를 중지 하 고 현재 자격 증명 모음에서 백업을 삭제 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 항목**을 선택 합니다. 새 자격 증명 모음으로 이동 해야 하는 여기에 나열 된 항목은 해당 백업 데이터와 함께 제거 되어야 합니다. [클라우드에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) 하 고 [온-프레미스에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-on-premises)하는 방법을 참조 하세요.
+
+3. AFS (Azure 파일 공유), SQL server 또는 SAP HANA 서버를 이동할 계획인 경우 등록을 취소 해야 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 인프라**를 선택 합니다. [SQL server 등록을 취소](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance)하 고, [Azure 파일 공유와 연결 된 저장소 계정을 등록 취소](manage-afs-backup.md#unregister-a-storage-account)하 고, [SAP HANA 인스턴스의 등록](sap-hana-db-manage.md#unregister-an-sap-hana-instance)을 취소 하는 방법을 참조 하세요.
+
+4. 이전 자격 증명 모음에서 제거 되 면 새 자격 증명 모음에서 워크 로드에 대 한 백업을 계속 구성 합니다.
+
+### <a name="must-preserve-previous-backed-up-data"></a>이전 백업 데이터를 유지 해야 합니다.
+
+이전 자격 증명 모음에서 현재 보호 된 데이터를 유지 하 고 새 자격 증명 모음에서 보호를 계속 해야 하는 경우 일부 워크 로드에 대해 제한 된 옵션이 있습니다.
+
+- MARS의 경우 [데이터 보관을 사용 하 여 보호를 중지](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) 하 고 새 자격 증명 모음에 에이전트를 등록할 수 있습니다.
+
+  - Azure Backup 서비스는 이전 자격 증명 모음의 기존 복구 지점은 계속 유지 합니다.
+  - 이전 자격 증명 모음에서 복구 지점이 유지 되도록 요금을 지불 해야 합니다.
+  - 이전 자격 증명 모음에 있는 만료 되지 않은 복구 지점의 경우에만 백업 된 데이터를 복원할 수 있습니다.
+  - 새 데이터의 초기 복제본을 새 자격 증명 모음에 만들어야 합니다.
+
+- Azure VM의 경우 이전 자격 증명 모음에서 VM에 대 한 [데이터 보관을 사용 하 여 보호를 중지](backup-azure-manage-vms.md#stop-protecting-a-vm) 하 고 vm을 다른 리소스 그룹으로 이동한 다음 새 자격 증명 모음에서 vm을 보호할 수 있습니다. 다른 리소스 그룹으로 VM을 이동 하는 방법에 대 한 [지침 및 제한 사항](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) 을 참조 하세요.
+
+  VM은 한 번에 하나의 자격 증명 모음 에서만 보호할 수 있습니다. 그러나 새 리소스 그룹의 VM은 다른 VM으로 간주 되는 새 자격 증명 모음에서 보호할 수 있습니다.
+
+  - Azure Backup 서비스는 이전 자격 증명 모음에 백업 된 복구 지점이 유지 됩니다.
+  - 이전 자격 증명 모음에서 복구 지점이 유지 되도록 요금을 지불 해야 합니다 (자세한 내용은 [Azure Backup 가격](azure-backup-pricing.md) 정보 참조).
+  - 필요한 경우 이전 자격 증명 모음에서 VM을 복원할 수 있습니다.
+  - 새 리소스에서 VM의 새 자격 증명 모음에 대 한 첫 번째 백업은 초기 복제본이 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 83267b1bebd501871277ea3e40b7fa9ba38f33cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91313759"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773249"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)에서 네트워크 가상 어플라이언스를 만드는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "91313759"
 
 이 문서의 단계를 통해 가상 WAN 허브에 **Barracuda CloudGen WAN** 네트워크 가상 어플라이언스를 만들 수 있습니다. 이 연습을 완료 하려면 시작 하기 전에 허브에 배포 하는 Barracuda CloudGen WAN 어플라이언스에 대 한 Barracuda 클라우드 프레미스 장치 (CPE) 및 라이선스가 있어야 합니다.
 
-Azure 가상 WAN 내에서 **CISCO SD-WAN** 에 대 한 배포 설명서는 다음 전자 메일 주소에서 cisco로 전자 메일을 보내 주세요 vwan_public_preview@cisco.com .
+Azure 가상 WAN 내에서 **CISCO SD-WAN** 의 배포 설명서는 다음 전자 메일 주소에서 cisco로 전자 메일을 보내 주세요. vwan_public_preview@external.cisco.com
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -66,14 +66,14 @@ Azure 가상 WAN 내에서 **CISCO SD-WAN** 에 대 한 배포 설명서는 다�
 
 1. 이전 단계에서 만든 가상 WAN 허브를 찾아 엽니다.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="가상 허브":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="기본 사항":::
 1. 네트워크 가상 어플라이언스 타일을 찾고 **만들기** 링크를 선택 합니다.
 1. **네트워크 가상 어플라이언스** 블레이드에서 **BARRACUDA cloudgen WAN**을 선택 하 고 **만들기** 단추를 선택 합니다.
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="NVA를 선택 합니다.":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="기본 사항":::
 1. 그러면 Barracuda CloudGen WAN 게이트웨이의 Azure Marketplace 제품으로 이동 됩니다. 용어를 읽은 다음 준비가 되 면 **만들기** 단추를 선택 합니다.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Barracuda NVA 기본 사항":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="기본 사항":::
 1. **기본 사항** 페이지에서 다음 정보를 제공 해야 합니다.
 
    * **구독** -가상 WAN 및 허브를 배포 하는 데 사용 하는 구독을 선택 합니다.
@@ -83,7 +83,7 @@ Azure 가상 WAN 내에서 **CISCO SD-WAN** 에 대 한 배포 설명서는 다�
    * **관리 되는 리소스 그룹** -Barracuda에서 관리 하는 리소스를 배포 하는 관리 되는 리소스 그룹의 이름입니다. 이에 대 한 이름은 미리 채워야 합니다.
 1. **다음: CloudGen WAN 게이트웨이** 단추를 선택 합니다.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="CloudGen WAN 게이트웨이":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="기본 사항":::
 1. 여기에서 다음 정보를 제공 합니다.
 
    * **가상 Wan 허브** -이 nva를 배포 하려는 가상 wan 허브입니다.
