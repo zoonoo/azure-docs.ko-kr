@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322192"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803826"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -88,7 +88,7 @@ REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>MRC로 녹화된 비디오는 라이브 환경의 품질을 반영하지 않습니다.
 
-Hololens에서 [MRC(Mixed Reality Capture)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers)를 통해 비디오를 녹화할 수 있습니다. 그러나 녹화된 비디오는 다음 두 가지 이유로 라이브 환경보다 품질이 떨어집니다.
+비디오가 [혼합 현실 캡처 (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers)를 통해 HoloLens에 기록 될 수 있습니다. 그러나 녹화된 비디오는 다음 두 가지 이유로 라이브 환경보다 품질이 떨어집니다.
 * 비디오 프레임 속도는 60Hz가 아닌 30Hz로 제한됩니다.
 * 비디오 이미지가 [후기 단계 다시 프로젝션](../overview/features/late-stage-reprojection.md) 처리 단계를 거치지 않으므로 뚝뚝 끊어집니다.
 
@@ -185,7 +185,7 @@ HoloLens 2용 Unity 샘플(빠른 시작, ShowCaseApp 등)을 컴파일하려고
 
 ### <a name="library-not-found-error-for-uwp-application-or-dll"></a>UWP 응용 프로그램 또는 Dll에 대 한 ' 라이브러리를 찾을 수 없음 ' 오류
 
-C + + Nuget 패키지 내에는 `microsoft.azure.remoterendering.Cpp.targets` 사용할 이진 버전을 정의 하는 파일 파일이 있습니다. 를 식별 하기 위해 `UWP` 파일에 대 한 검사 조건 `ApplicationType == 'Windows Store'` 입니다. 따라서이 형식이 프로젝트에 설정 되어 있는지 확인 해야 합니다. Visual Studio의 프로젝트 마법사를 통해 UWP 응용 프로그램 또는 Dll을 만드는 경우에 해당 합니다.
+C + + NuGet 패키지 내에는 `microsoft.azure.remoterendering.Cpp.targets` 사용할 이진 버전을 정의 하는 파일 파일이 있습니다. 를 식별 하기 위해 `UWP` 파일에 대 한 검사 조건 `ApplicationType == 'Windows Store'` 입니다. 따라서이 형식이 프로젝트에 설정 되어 있는지 확인 해야 합니다. Visual Studio의 프로젝트 마법사를 통해 UWP 응용 프로그램 또는 Dll을 만드는 경우에 해당 합니다.
 
 ## <a name="unstable-holograms"></a>불안정한 홀로그램
 
@@ -193,7 +193,7 @@ C + + Nuget 패키지 내에는 `microsoft.azure.remoterendering.Cpp.targets` �
 
 네트워크 연결 불량 때문에, 특히 네트워크 대역폭이 부족하거나 대기 시간이 너무 길어도 홀로그램이 불안정(홀로그램 흔들림, 뒤틀림, 지터링 또는 점프)할 수 있습니다. 네트워크 연결 품질을 보여주는 좋은 지표는 [성능 통계](../overview/features/performance-queries.md) 값 `ARRServiceStats.VideoFramesReused`입니다. 재사용된 프레임은 새 비디오 프레임을 사용할 수 없어서 클라이언트 쪽에서 이전 비디오 프레임을 재사용해야만 했다는 상황을 보여줍니다. 패킷 손실, 네트워크 대기 시간의 변동 등을 예로 들 수 있습니다. `ARRServiceStats.VideoFramesReused`가 0보다 큰 상황이 자주 발생하면 네트워크에 문제가 있다는 뜻입니다.
 
-확인할 또 다른 값은 `ARRServiceStats.LatencyPoseToReceiveAvg`입니다. 이 값은 지속적으로 100밀리초 미만이어야 합니다. 이 값을 초과하면 현재 연결된 데이터 센터가 너무 멀리 떨어져 있다는 뜻입니다.
+확인할 또 다른 값은 `ARRServiceStats.LatencyPoseToReceiveAvg`입니다. 이 값은 지속적으로 100밀리초 미만이어야 합니다. 값이 높을수록 너무 멀리 떨어져 있는 데이터 센터에 연결 되어 있음을 나타낼 수 있습니다.
 
 문제를 완화하는 데 도움이 될 수 있는 방법 목록은 [네트워크 연결 지침](../reference/network-requirements.md#guidelines-for-network-connectivity)을 참조하세요.
 
@@ -245,7 +245,9 @@ ARR에는 표면에서 z를 사용할 수 있는지를 확인 하는 기능 ( [�
 
 * 표면은 decals 또는 벽의 텍스트와 같이 터치에 대해 의도적으로 작성 된 표면입니다.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>네이티브 c + + 앱에서 다중 패스 스테레오 렌더링을 사용 하는 그래픽 아티팩트
 
+[**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) 를 호출한 후 로컬 콘텐츠에 대해 다중 패스 스테레오 렌더링 모드를 사용 하는 사용자 지정 네이티브 c + + 앱 (왼쪽 및 오른쪽으로 렌더링)을 사용 하 여 드라이버 버그를 트리거할 수 있는 경우도 있습니다. 버그로 인해 명확 하지 않은 래스터화 결함이 발생 하 여 개별 삼각형 또는 로컬 콘텐츠의 삼각형 부분이 무작위로 사라지게 됩니다. 성능상의 이유로 최신 단일 패스 스테레오 렌더링 기법을 사용 하 여 로컬 콘텐츠를 렌더링 하는 것이 좋습니다 (예: **SV_RenderTargetArrayIndex**사용).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360840"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Azure Kubernetes 배포 센터
 
@@ -54,7 +54,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
 1. AKS 클러스터를 선택한 다음, 왼쪽 블레이드에서 **배포 센터(미리 보기)** 를 클릭합니다. **시작**을 선택합니다.
 
-   ![설정](media/deployment-center-launcher/settings.png)
+   ![스크린샷은 배포 센터를 가리키는 화살표가 있는 Azure Portal을 보여줍니다.](media/deployment-center-launcher/settings.png)
 
 1. 코드의 위치를 선택하고, **다음**을 선택합니다. 그런 다음, 현재 지원되는 **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** 또는 **GitHub** 리포지토리 중 하나를 선택합니다.
 
@@ -66,7 +66,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
     - **GitHub**: GitHub 계정의 리포지토리를 인증하고 선택합니다.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![애니메이션은 GitHub를 원본으로 선택한 다음, 리포지토리를 선택하는 GitHub의 프로세스를 보여줍니다.](media/deployment-center-launcher/github.gif)
 
 
 1. 배포 센터는 리포지토리를 분석하고 Dockerfile을 검색합니다. Dockerfile을 업데이트하려면 식별된 포트 번호를 편집할 수 있습니다.
@@ -75,7 +75,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
     리포지토리에 Dockerfile이 없으면 시스템에서 Dockerfile을 커밋하라는 메시지가 표시됩니다.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![스크린샷에는 리포지토리에서 Dockerfile을 찾을 수 없다는 메시지와 함께 배포 센터가 표시됩니다.](media/deployment-center-launcher/dockerfile.png)
 
 1. 기존 컨테이너 레지스트리를 선택하거나 새로 만든 다음, **마침**을 선택합니다. 파이프라인이 자동으로 만들어지고, [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops)에서 빌드를 큐에 넣습니다.
 
@@ -87,7 +87,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
 1. 배포가 완료되면 성공적인 로그가 표시됩니다.
 
-    ![로그](media/deployment-center-launcher/logs.png)
+    ![스크린샷은 녹색 확인 표시 아이콘으로 표시된 Release-1이 포함된 배포 센터를 보여줍니다.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>CI 파이프라인 검토
 

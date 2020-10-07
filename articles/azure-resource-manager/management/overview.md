@@ -4,12 +4,12 @@ description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure �
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372275"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -49,7 +49,7 @@ Resource Manager를 사용하면 다음을 수행할 수 있습니다.
 
 * 리소스가 올바른 순서로 배포되도록 리소스 간의 종속성을 정의합니다.
 
-* RBAC(역할 기반 액세스 제어)가 기본적으로 관리 플랫폼에 통합되어 있으므로 액세스 제어가 모든 서비스에 적용됩니다.
+* Azure RBAC(Azure 역할 기반 액세스 제어)가 기본적으로 관리 플랫폼에 통합되어 있으므로 액세스 제어가 모든 서비스에 적용됩니다.
 
 * 리소스에 태그를 적용하여 구독의 모든 리소스를 논리적으로 구성합니다.
 
@@ -83,7 +83,7 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
    리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
 
-* 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다. 리소스 그룹을 관리하려면 [Azure 정책](../../governance/policy/overview.md), [RBAC 역할](../../role-based-access-control/role-assignments-portal.md) 또는 [리소스 잠금](lock-resources.md)을 할당하면 됩니다.
+* 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다. 리소스 그룹을 관리하려면 [Azure 정책](../../governance/policy/overview.md), [Azure 역할](../../role-based-access-control/role-assignments-portal.md) 또는 [리소스 잠금](lock-resources.md)을 할당하면 됩니다.
 
 * 리소스 그룹에 [태그를 적용](tag-resources.md)할 수 있습니다. 리소스 그룹의 리소스는 이러한 태그를 상속하지 않습니다.
 

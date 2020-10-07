@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR Service Serverless 빠른 시작 - Python
-description: Azure SignalR Service와 Azure Functions를 사용하여 대화방을 만들기 위한 빠른 시작입니다.
+description: Azure SignalR Service와 Azure Functions를 통해 Python을 사용하여 대화방을 만드는 빠른 시작.
 author: anthonychu
 ms.service: signalr
 ms.devlang: python
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: d7d893d3de5541bf1108a9182dfee6ad995e061b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 24985a006390977c89c4eedc23084a9856272eba
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355648"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -57,7 +57,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 1. 기본 연결 문자열을 선택하여 복사합니다.
 
-    ![SignalR Service 만들기](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![기본 연결 문자열을 선택하여 복사합니다.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. 코드 편집기에서 복제된 리포지토리의 *src/chat/python* 폴더를 엽니다.
 

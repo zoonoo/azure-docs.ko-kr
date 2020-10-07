@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371884"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
@@ -23,11 +23,11 @@ ms.locfileid: "88943184"
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
-[등록 계정에서 구독을 만들려면](programmatically-create-subscription.md) 사용자에게 해당 계정에 대한 [RBAC 소유자 역할](../../role-based-access-control/built-in-roles.md#owner)이 있어야 합니다. 다음 단계를 수행하여 등록 계정에 대한 RBAC 소유자 역할을 사용자 또는 사용자 그룹에 부여할 수 있습니다.
+[등록 계정에서 구독을 만들려면](programmatically-create-subscription.md) 사용자에게 해당 계정에 대한 Azure RBAC [소유자 역할](../../role-based-access-control/built-in-roles.md#owner)이 있어야 합니다. 다음 단계를 수행하여 등록 계정에 대한 Azure RBAC 소유자 역할을 사용자 또는 사용자 그룹에 부여할 수 있습니다.
 
 1. 액세스 권한을 부여하려는 등록 계정의 개체 ID를 가져옵니다.
 
-    다른 사용자에게 등록 계정에 대한 RBAC 소유자 역할을 부여하려면 계정 소유자 또는 계정의 RBAC 소유자여야 합니다.
+    다른 사용자에게 등록 계정에 대한 Azure RBAC 소유자 역할을 부여하려면 계정 소유자 또는 계정의 Azure RBAC 소유자여야 합니다.
 
     # <a name="rest"></a>[REST (영문)](#tab/rest)
 
@@ -62,7 +62,7 @@ ms.locfileid: "88943184"
     }
     ```
 
-    `principalName` 속성을 사용하여 RBAC 소유자에게 액세스 권한을 부여하려는 계정을 식별합니다. 해당 계정의 `name`을 복사합니다. 예를 들어 RBAC 소유자에게 SignUpEngineering@contoso.com 등록 계정에 대한 액세스 권한을 부여하려면 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```를 복사합니다. 이는 등록 계정의 개체 ID입니다. 다음 단계에서 `enrollmentAccountObjectId`로 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
+    `principalName` 속성을 사용하여 Azure RBAC 소유자에게 액세스 권한을 부여하려는 계정을 식별합니다. 해당 계정의 `name`을 복사합니다. 예를 들어 Azure RBAC 소유자에게 SignUpEngineering@contoso.com 등록 계정에 대한 액세스 권한을 부여하려면 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```를 복사합니다. 이는 등록 계정의 개체 ID입니다. 다음 단계에서 `enrollmentAccountObjectId`로 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ ms.locfileid: "88943184"
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    `principalName` 속성을 사용하여 RBAC 소유자에게 액세스 권한을 부여하려는 계정을 식별합니다. 해당 계정의 `ObjectId`를 복사합니다. 예를 들어 RBAC 소유자에게 SignUpEngineering@contoso.com 등록 계정에 대한 액세스 권한을 부여하려면 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```를 복사합니다. 다음 단계에서 `enrollmentAccountObjectId`로 사용할 수 있도록 이 개체 ID를 어딘가에 붙여넣습니다.
+    `principalName` 속성을 사용하여 Azure RBAC 소유자에게 액세스 권한을 부여하려는 계정을 식별합니다. 해당 계정의 `ObjectId`를 복사합니다. 예를 들어 Azure RBAC 소유자에게 SignUpEngineering@contoso.com 등록 계정에 대한 액세스 권한을 부여하려면 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```를 복사합니다. 다음 단계에서 `enrollmentAccountObjectId`로 사용할 수 있도록 이 개체 ID를 어딘가에 붙여넣습니다.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ ms.locfileid: "88943184"
 
     ---
 
-    `principalName` 속성을 사용하여 RBAC 소유자에게 액세스 권한을 부여하려는 계정을 식별합니다. 해당 계정의 `name`을 복사합니다. 예를 들어 RBAC 소유자에게 SignUpEngineering@contoso.com 등록 계정에 대한 액세스 권한을 부여하려면 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```를 복사합니다. 이는 등록 계정의 개체 ID입니다. 다음 단계에서 `enrollmentAccountObjectId`로 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
+    `principalName` 속성을 사용하여 Azure RBAC 소유자에게 액세스 권한을 부여하려는 계정을 식별합니다. 해당 계정의 `name`을 복사합니다. 예를 들어 Azure RBAC 소유자에게 SignUpEngineering@contoso.com 등록 계정에 대한 액세스 권한을 부여하려면 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```를 복사합니다. 이는 등록 계정의 개체 ID입니다. 다음 단계에서 `enrollmentAccountObjectId`로 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
 
-1. <a id="userObjectId"></a>RBAC 소유자 역할을 부여하려는 사용자 또는 그룹의 개체 ID를 가져옵니다.
+1. <a id="userObjectId"></a>Azure RBAC 소유자 역할을 부여하려는 사용자 또는 그룹의 개체 ID를 가져옵니다.
 
     1. Azure Portal에서 **Azure Active Directory**를 검색합니다.
     1. 사용자에게 액세스 권한을 부여하려면 왼쪽 메뉴에서 **사용자**를 선택합니다. 그룹에 대한 액세스 권한을 부여하려면 **그룹**을 선택합니다.
-    1. RBAC 소유자 역할을 부여하려는 [사용자] 또는 [그룹]을 선택합니다.
+    1. Azure RBAC 소유자 역할을 부여하려는 사용자 또는 그룹을 선택합니다.
     1. [사용자]를 선택한 경우 [프로필] 페이지에서 개체 ID를 찾을 수 있습니다. [그룹]을 선택한 경우 개체 ID는 [개요] 페이지에 있습니다. 텍스트 상자 오른쪽에 있는 아이콘을 선택하여 **ObjectID**를 복사합니다. 다음 단계에서 `userObjectId`로 사용할 수 있도록 이를 어딘가에 붙여넣습니다.
 
-1. 등록 계정에 대한 RBAC 소유자 역할을 사용자 또는 그룹에 부여합니다.
+1. 등록 계정에 대한 Azure RBAC 소유자 역할을 사용자 또는 그룹에 부여합니다.
 
-    처음 두 단계에서 수집한 값을 사용하여 등록 계정에 대한 RBAC 소유자 역할을 사용자 또는 그룹에 부여합니다.
+    처음 두 단계에서 수집한 값을 사용하여 등록 계정에 대한 Azure RBAC 소유자 역할을 사용자 또는 그룹에 부여합니다.
 
     # <a name="rest"></a>[REST (영문)](#tab/rest-2)
 
@@ -174,7 +174,7 @@ ms.locfileid: "88943184"
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    사용자가 등록 계정에 대한 RBAC 소유자가 되면 [구독을 프로그래밍 방식으로 만들](programmatically-create-subscription.md) 수 있습니다. 위임된 사용자가 만든 구독에는 여전히 원래 계정 소유자가 서비스 관리자로 있지만, 기본적으로 위임된 사용자도 RBAC 소유자로 있습니다.
+    사용자가 등록 계정에 대한 Azure RBAC 소유자가 되면 [구독을 프로그래밍 방식으로 만들](programmatically-create-subscription.md) 수 있습니다. 위임된 사용자가 만든 구독에는 여전히 원래 계정 소유자가 서비스 관리자로 있지만, 기본적으로 위임된 사용자도 Azure RBAC 소유자로 있습니다.
 
     ---
 

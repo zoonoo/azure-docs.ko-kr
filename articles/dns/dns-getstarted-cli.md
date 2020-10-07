@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a15209351f95e44c7cf10993513e03ba35b53d27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a08a3bb8e01d827b806dae269b65569cb415404d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358613"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -92,7 +92,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
    다음 화면과 유사한 출력이 표시됩니다.
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![스크린샷은 n s 조회 명령과 서버, 주소, 이름 및 주소에 대한 값을 포함하는 명령 프롬프트 창을 보여줍니다.](media/dns-getstarted-portal/nslookup.PNG)
 
 호스트 이름 **www\.contoso.xyz**는 구성한 대로 **10.10.10.10**으로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
 

@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 10/06/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 794e89e75505d3c1c34bf2a15209c3218dfa3582
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f9f0983bdb5e8763d13eeab8ea21bef7fb9ef47f
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714098"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803333"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "91714098"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -80,7 +80,7 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
 2. 프로젝트 디렉터리에서 명령을 사용 하 여 DataLake 미리 보기 패키지를 설치 합니다. `dotnet add package`
 
    ```console
-   dotnet add package Azure.Storage.Files.DataLake -v 12.3.0-dev.20200811.1 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
+   dotnet add package Azure.Storage.Files.DataLake -v 12.5.0-preview.1 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
    ```
 
 3. 이러한 using 문을 코드 파일의 맨 위에 추가 합니다.
@@ -556,7 +556,7 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
     {
         var accessControlChangeResult =
             await directoryClient.SetAccessControlRecursiveAsync(
-                accessControlList, null, continuationToken: continuationToken);
+                accessControlList, continuationToken: continuationToken, null);
 
         if (accessControlChangeResult.Value.Counters.FailedChangesCount > 0)
         {

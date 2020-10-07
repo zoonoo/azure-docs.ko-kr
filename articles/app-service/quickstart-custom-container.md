@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c95e345255b28ba43e474087cdb80fcab493394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356420"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 
@@ -57,7 +57,7 @@ ms.locfileid: "88961366"
 
 1. _Dockerfile_ 파일이 자동으로 열리지 않으면 **솔루션 탐색기**에서 엽니다.
 
-1. [지원되는 부모 이미지](#use-a-different-parent-image)가 필요합니다. `FROM` 줄을 다음 코드로 바꾸고 파일을 저장하여 부모 이미지를 변경합니다.
+1. [지원되는 부모 이미지](configure-custom-container.md#supported-parent-images)가 필요합니다. `FROM` 줄을 다음 코드로 바꾸고 파일을 저장하여 부모 이미지를 변경합니다.
 
    ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -169,22 +169,16 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 
 ![Azure의 업데이트된 웹앱](./media/quickstart-custom-container/azure-web-app-updated.png)
 
-## <a name="use-a-different-parent-image"></a>다른 부모 이미지 사용
-
-다른 사용자 지정 Docker 이미지를 사용하여 자유롭게 앱을 실행할 수 있습니다. 그러나 원하는 프레임워크에 대해 정확한 [부모 이미지(기본 이미지)](https://docs.docker.com/develop/develop-images/baseimages/)를 선택해야 합니다.
-
-- .NET Framework 앱을 배포하려면 Windows Server Core 2019 [LTSC(장기 서비스 채널)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 릴리스에 따라 부모 이미지를 사용합니다. 
-- .NET Core 앱을 배포하려면 Windows Server Nano 1809 [SAC(반기 서비스 채널)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 릴리스에 따라 부모 이미지를 사용합니다. 
-
-앱을 시작하는 동안 부모 이미지를 다운로드하는 데 다소 시간이 걸립니다. 그러나 Azure App Service에서 이미 캐시된 다음 부모 이미지 중 하나를 사용하여 시작 시간을 줄일 수 있습니다.
-
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - 이 이미지는 Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Microsoft Windows Nano Server 이미지에 사용되는 기본 컨테이너입니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Azure에서 Windows 컨테이너로 마이그레이션](tutorial-custom-container.md)
+
+또는 다른 리소스를 확인합니다.
+
+> [!div class="nextstepaction"]
+> [사용자 지정 컨테이너 구성](configure-custom-container.md)
+
 ::: zone-end  
 
 ::: zone pivot="container-linux"
@@ -225,7 +219,7 @@ docker --version
 
 마지막으로, Azure Container Registry가 연결되어 있는지 확인합니다. 이렇게 하려면 작업 막대에서 Docker 로고를 선택하고 **레지스트리**로 이동합니다.
 
-![레지스트리](./media/quickstart-docker/registries.png)
+![스크린샷은 Azure가 확장된 레지스트리 값과 점 io 파일 이름 확장명이 있는 파일을 보여줍니다.](./media/quickstart-docker/registries.png)
 
 ## <a name="deploy-the-image-to-azure-app-service"></a>Azure App Service에 이미지 배포
 
@@ -260,5 +254,10 @@ docker --version
 * [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 또는 [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 확장 팩을 설치하여 모두 가져옵니다.
+
+다른 리소스를 확인합니다.
+
+> [!div class="nextstepaction"]
+> [사용자 지정 컨테이너 구성](configure-custom-container.md)
 
 ::: zone-end

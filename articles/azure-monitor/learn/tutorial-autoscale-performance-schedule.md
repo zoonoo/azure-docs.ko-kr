@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356352"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. 왼쪽 탐색 창에서 **모니터** 옵션을 선택합니다. 페이지가 로드되면 **자동 크기 조정** 탭을 선택합니다.
 2. 자동 크기 조정을 지원하는 구독에 있는 리소스 목록이 여기에 나열됩니다. 자습서의 앞부분에서 만든 App Service 계획을 식별하고 클릭합니다.
 
-    ![자동 크기 조정 설정으로 이동합니다.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![스크린샷은 모니터가 있는 Azure Portal과 선택된 자동 크기 조정을 차례로 보여줍니다.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. 자동 크기 조정 설정에서 **자동 크기 조정 설정** 단추를 클릭합니다.
 
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. 기본 프로필에서 **크기 조정 모드**가 '특정 인스턴스 수로 크기 조정'으로 설정되었는지 확인합니다.
 3. 인스턴스 수를 **1**로 설정합니다. 이 설정을 사용하면 다른 프로필이 활성화되거나 적용될 때 기본 프로필이 인스턴스 수를 1로 반환하게 됩니다.
 
-   ![자동 크기 조정 설정으로 이동합니다.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![스크린샷은 설정에 이름을 입력한 자동 크기 조정 설정 페이지를 보여줍니다.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>되풀이 프로필 만들기

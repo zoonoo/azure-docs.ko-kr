@@ -11,28 +11,28 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a267231dd447b114c69e6ead20c8ab5252f85d0e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f5c2690ea97136c2b7887a8450c2788e3902d4e3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369963"
 ---
-# <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>자습서: 첫 번째 기계 학습 모델 학습(4-3부)
+# <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>자습서: 첫 번째 기계 학습 모델 학습(3/4부)
 
 이 자습서에서는 Azure Machine Learning에서 기계 학습 모델을 학습시키는 방법을 보여 줍니다.
 
-이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 **4부로 구성된 자습서 시리즈 중 3부**입니다. 이 자습서는 시리즈의 [1부: 설정](tutorial-1st-experiment-sdk-setup-local.md) 및 [2부: "Hello World" 실행](tutorial-1st-experiment-hello-world.md)에서 완료한 작업을 기반으로 합니다.
+이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 *4부로 구성된 자습서 시리즈 중 3부*입니다. 이 자습서는 시리즈 중 [1부: 설정](tutorial-1st-experiment-sdk-setup-local.md) 및 [2부: “Hello world!” 실행](tutorial-1st-experiment-hello-world.md)에서 구현된 작업을 기반으로 작성되었습니다.
 
 이 자습서에서는 기계 학습 모델을 학습시키는 스크립트를 제출하여 다음 단계를 수행합니다. 이 예제는 Azure Machine Learning에서 로컬 디버깅과 원격 실행 간의 일관된 동작을 간소화하는 방법을 이해하는 데 도움이 됩니다.
 
-이 자습서에서 수행하는 작업은 다음과 같습니다.
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * 학습 스크립트 만들기
+> * 학습 스크립트를 만듭니다.
 > * Conda를 사용하여 Azure Machine Learning 환경 정의
 > * 제어 스크립트 만들기
-> * Azure Machine Learning 클래스(환경, 실행, 메트릭) 이해
+> * Azure Machine Learning 클래스(`Environment`, `Run`, `Metrics`) 이해
 > * 학습 스크립트 제출 및 실행
 > * 클라우드에서 코드 출력 보기
 > * Azure Machine Learning에 메트릭 기록
@@ -40,10 +40,10 @@ ms.locfileid: "90896728"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 아직 Azure Machine Learning 작업 영역이 없는 경우 [1부](tutorial-1st-experiment-sdk-setup-local.md)를 완료합니다.
+* 시리즈 중 [2부](tutorial-1st-experiment-hello-world.md) 완료.
 * Python 언어 및 기계 학습 워크플로에 대한 입문 지식
-* 로컬 개발 환경. 여기에는 Visual Studio Code, Jupyter 또는 PyCharm이 포함되지만 이에 국한되지 않습니다.
-* Python(버전 3.5-3.7)
+* Visual Studio Code, Jupyter 및 PyCharm과 같은 로컬 개발 환경
+* Python(버전 3.5 ~ 3.7).
 
 ## <a name="create-training-scripts"></a>학습 스크립트 만들기
 
@@ -90,7 +90,7 @@ import torchvision.transforms as transforms
 
 from model import Net
 
-# download CIFAR 10 data
+# download CIFAR10 data
 trainset = torchvision.datasets.CIFAR10(
     root="./data",
     train=True,
@@ -153,9 +153,9 @@ tutorial
 └──03-run-hello.py
 ```
 
-## <a name="define-a-python-environment"></a>Python 환경 정의
+## <a name="create-a-python-environment"></a>Python 환경 만들기
 
-데모를 위해 Conda 환경을 사용합니다(pip 가상 환경의 단계와 거의 동일함).
+데모용으로 Conda 환경을 사용할 예정입니다. (pip 가상 환경에 대한 단계는 거의 동일합니다.)
 
 `pytorch-env.yml`이라는 파일을 숨겨진 `.azureml` 디렉터리에 만듭니다.
 
@@ -171,23 +171,23 @@ dependencies:
     - torchvision
 ```
 
-이 환경에는 모델 및 학습 스크립트에 필요한 모든 종속성이 있습니다. Azure Machine Learning Python SDK에 대한 종속성은 없습니다.
+이 환경에는 모델 및 학습 스크립트에 필요한 모든 종속성이 있습니다. Python용 Azure Machine Learning SDK에 대한 종속성은 없습니다.
 
 ## <a name="test-locally"></a>로컬에서 테스트
 
-이 환경을 사용하여 스크립트 실행을 로컬로 테스트합니다.
+다음 코드를 사용하여 이 환경에서 로컬로 실행되는 스크립트를 테스트합니다.
 
 ```bash
 conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env             # activate conda environment
-python src/train.py                    # train model
+conda activate pytorch-env                      # activate conda environment
+python src/train.py                             # train model
 ```
 
 이 스크립트가 실행되면 `tutorial/data`라는 디렉터리에 다운로드된 데이터가 표시됩니다.
 
 ## <a name="create-the-control-script"></a>제어 스크립트 만들기
 
-아래의 제어 스크립트와 "Hello World"를 제출하는 데 사용되는 제어 스크립트와의 차이점은 환경을 설정하기 위해 몇 줄을 추가한다는 것입니다.
+다음 제어 스크립트와 “Hello world!”를 제출하는 데 사용하는 스크립트의 차이점은 환경을 설정하기 위해 몇 줄의 줄을 추가한다는 점입니다.
 
 `04-run-pytorch.py`라는 새 Python 파일을 `tutorial` 디렉터리에 만듭니다.
 
@@ -217,7 +217,7 @@ if __name__ == "__main__":
 
 :::row:::
    :::column span="":::
-      `env = Environment.from_conda_specification( ... )`
+      `env = ...`
    :::column-end:::
    :::column span="2":::
       Azure Machine Learning은 실험을 실행하기 위해 재현 가능한 버전의 Python 환경을 나타내는 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 개념을 제공합니다. 환경은 로컬 Conda 또는 pip 환경에서 쉽게 만들 수 있습니다.
@@ -228,21 +228,26 @@ if __name__ == "__main__":
       `config.run_config.environment = env`
    :::column-end:::
    :::column span="2":::
-      환경을 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)에 추가합니다.
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)에 환경을 추가합니다.
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-run-to-azure-machine-learning"></a>Azure Machine Learning에 실행 제출
+## <a name="submit-the-run-to-azure-machine-learning"></a>Azure Machine Learning에 실행을 제출
 
-로컬 환경을 전환한 경우 Azure Machine Learning Python SDK가 설치된 환경으로 다시 전환하여 다음을 실행해야 합니다.
+로컬 환경을 전환한 경우 Python용 Azure Machine Learning SDK가 설치된 환경으로 다시 전환해야 합니다. 
+
+다음을 실행합니다.
 
 ```bash
 python 04-run-pytorch.py
 ```
 
 >[!NOTE] 
-> 이 스크립트를 처음 실행하면 Azure Machine Learning이 PyTorch 환경에서 새 Docker 이미지를 빌드합니다. 전체 실행을 완료하는 데 5~10분이 걸릴 수 있습니다. Docker 빌드 로그는 Azure Machine Learning Studio에서 확인할 수 있습니다. Machine Learning Studio에 대한 링크를 따르고, "출력 + 로그" 탭 > `20_image_build_log.txt`를 차례로 선택합니다.
-이 이미지는 이후 실행에서 다시 사용되므로 훨씬 더 빨리 실행됩니다.
+> 이 스크립트를 처음 실행하면 Azure Machine Learning이 PyTorch 환경에서 새 Docker 이미지를 빌드합니다. 전체 실행을 완료하는 데 5~10분이 걸릴 수 있습니다. 
+>
+> Docker 빌드 로그는 Azure Machine Learning 스튜디오에서 확인할 수 있습니다. Studio에 대한 링크에서 **출력 + 로그** 탭을 선택한 다음, `20_image_build_log.txt`를 선택합니다.
+>
+> 이 이미지는 이후 실행에서 다시 사용되므로 훨씬 더 빨리 실행됩니다.
 
 이미지가 빌드되면 `70_driver_log.txt`를 선택하여 학습 스크립트의 출력을 확인합니다.
 
@@ -266,23 +271,25 @@ Finished Training
 ```
 
 > [!WARNING]
-> `Your total snapshot size exceeds the limit`라는 오류가 표시되면 `data` 디렉터리가 `ScriptRunConfig`에서 사용되는 `source_directory`에 있음을 나타냅니다.
-> `data`를 `src` 외부로 이동해야 합니다.
+> `Your total snapshot size exceeds the limit`라는 오류가 표시되면 `data` 디렉터리가 `ScriptRunConfig`에서 사용되는 `source_directory` 값에 있음을 나타냅니다.
+>
+> `data`를 `src` 외부로 이동합니다.
 
-환경은 `env.register(ws)`를 사용하여 작업 영역에 등록할 수 있습니다. 이를 통해 쉽게 공유하고, 다시 사용하고, 버전을 관리할 수 있습니다. 환경을 사용하면 이전 결과를 쉽게 재현하고 팀과 협업할 수 있습니다.
+환경을 `env.register(ws)`를 사용하여 작업 영역에 등록할 수 있습니다. 그러면 손쉽게 공유, 다시 사용, 버전 관리를 수행할 수 있습니다. 환경을 사용하면 이전 결과를 쉽게 재현하고 팀과 협업할 수 있습니다.
 
 또한 Azure Machine Learning은 큐레이팅된 환경의 컬렉션을 유지 관리합니다. 이러한 환경은 일반적인 기계 학습 시나리오를 처리하며, 캐시된 Docker 이미지를 통해 지원됩니다. 캐시된 Docker 이미지는 첫 번째 원격 실행을 더 빠르게 만듭니다.
 
-간단히 말해, 등록된 환경을 사용하면 시간을 절약할 수 있습니다! 자세한 내용은 [환경 설명서](./how-to-use-environments.md)에서 확인할 수 있습니다.
+간단히 말해, 등록된 환경을 사용하면 시간을 절약할 수 있습니다! 자세한 내용은 [환경을 사용하는 방법](./how-to-use-environments.md)을 확인하세요.
 
 ## <a name="log-training-metrics"></a>학습 메트릭 기록
 
 이제 Azure Machine Learning에서 학습된 모델이 있으므로 몇 가지 성능 메트릭의 추적을 시작합니다.
+
 현재 학습 스크립트는 메트릭을 터미널에 출력합니다. Azure Machine Learning은 더 많은 기능을 통해 메트릭을 기록하는 메커니즘을 제공합니다. 몇 줄의 코드를 추가하면 Studio에서 메트릭을 시각화하고 여러 실행 간에 메트릭을 비교할 수 있습니다.
 
 ### <a name="modify-trainpy-to-include-logging"></a>로깅을 포함하도록 `train.py` 수정
 
-두 줄의 추가 코드를 포함하도록 `train.py` 스크립트를 수정합니다.
+`train.py` 스크립트를 수정하여 코드의 두 줄을 더 포함시킵니다.
 
 ```python
 # train.py
@@ -298,9 +305,16 @@ from azureml.core import Run
 # ADDITIONAL CODE: get Azure Machine Learning run from the current context
 run = Run.get_context()
 
-# download CIFAR 10 data
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=torchvision.transforms.ToTensor())
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+# download CIFAR10 data
+trainset = torchvision.datasets.CIFAR10(
+    root="./data",
+    train=True,
+    download=True,
+    transform=torchvision.transforms.ToTensor(),
+)
+trainloader = torch.utils.data.DataLoader(
+    trainset, batch_size=4, shuffle=True, num_workers=2
+)
 
 if __name__ == "__main__":
 
@@ -341,7 +355,7 @@ if __name__ == "__main__":
 
 #### <a name="understand-the-additional-two-lines-of-code"></a>두 줄의 추가 코드 이해
 
-`train.py`에서는 `Run.get_context()` 메서드를 사용하여 학습 스크립트 자체 _내에서_ 실행 개체에 액세스하고, 이 개체를 사용하여 메트릭을 기록합니다.
+`train.py`에서 `Run.get_context()` 메서드를 사용하여 학습 스크립트 자체 _내에서_ 실행 개체에 액세스하고, 이 개체를 사용하여 메트릭을 기록합니다.
 
 ```python
 # in train.py
@@ -377,14 +391,14 @@ dependencies:
         - azureml-sdk
 ```
 
-### <a name="submit-run-to-azure-machine-learning"></a>Azure Machine Learning에 실행 제출
+### <a name="submit-the-run-to-azure-machine-learning"></a>Azure Machine Learning에 실행을 제출
 다음 스크립트를 한 번 더 제출합니다.
 
 ```bash
 python 04-run-pytorch.py
 ```
 
-이번에는 Studio를 방문할 때 모델 학습 손실에 대한 라이브 업데이트를 볼 수 있는 "메트릭" 탭으로 이동합니다!
+이번에는 Studio를 방문할 때 모델 학습 손실에 대한 라이브 업데이트를 볼 수 있는 **메트릭** 탭으로 이동합니다.
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="메트릭 탭의 학습 손실 그래프":::
 

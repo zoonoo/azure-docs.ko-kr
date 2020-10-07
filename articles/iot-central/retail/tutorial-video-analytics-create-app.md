@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: c7ddff70d24fe87380c4bf1439811042418ac76a
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369572"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 만들기
 
@@ -111,7 +111,7 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
 
 1. **만들기**를 선택합니다.
 
-    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Azure IoT Central 애플리케이션 페이지":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
 ### <a name="retrieve-the-configuration-data"></a>구성 데이터 검색
 
@@ -119,11 +119,11 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
 
 **관리** 섹션에서 **사용자의 애플리케이션**을 선택하고 **애플리케이션 URL** 및 **애플리케이션 ID**를 *scratchpad.txt* 파일에 기록해 둡니다.
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="관리":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
 **API 토큰**을 선택하고 **운영자** 역할에 대한 **LVAEdgeToken**이라는 새 토큰을 생성합니다.
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="토큰 생성":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
 나중에 사용할 수 있도록 *scratchpad.txt* 파일에 토큰을 기록해 둡니다. 대화 상자가 닫힌 후에는 토큰을 다시 볼 수 없습니다.
 
@@ -221,7 +221,7 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
 
     아직 배포 매니페스트를 검색하지 마세요. 검색할 경우 배포 마법사에는 각 모듈의 인터페이스가 필요하지만, 우리는 **LvaEdgeGatewayModule**에 대한 인터페이스만 공개해야 합니다. 이후 단계에서 매니페스트를 업로드합니다.
 
-    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="배포 매니페스트를 다운로드하지 말 것":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
     완료되면 **다음: 검토**를 클릭합니다.
 
@@ -237,7 +237,7 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
 
 **LVA Edge 게이트웨이** 페이지에서 **+ 매니페스트 바꾸기**를 선택합니다.
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="매니페스트 바꾸기":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
 *lva-configuration* 폴더로 이동한 다음, 앞에서 편집한 *deployment.amd64.json* 매니페스트 파일을 선택합니다. **업로드**를 선택합니다. 유효성 검사가 완료되면 **바꾸기**를 선택합니다.
 
@@ -252,7 +252,7 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
 
 그런 다음 **저장**을 선택합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="관계 추가":::
+:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
 ### <a name="add-views"></a>뷰 추가
 
@@ -274,7 +274,7 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
     * **시스템 하트비트** 원격 분석을 표시하는 1x1 마지막으로 알려진 값 타일
     * **연결된 카메라** 원격 분석을 표시하는 1x1 마지막으로 알려진 값 타일
 
-    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="대시보드":::
+    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="AMS에 대한 AAD 앱 구성":::
 
 1. **저장**을 선택합니다.
 

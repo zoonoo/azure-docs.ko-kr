@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 0a505e5fb11e776a90c8e198b2568e2ac0bd1854
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376504"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Node.js 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 
@@ -49,8 +49,8 @@ Node.js 프로젝트에 대한 개발 환경을 설정해 보겠습니다.
 1. 이제 일부 Azure 모듈을 설치하고 `package.json`에 추가해 보겠습니다.
 
     ```console
-    npm install --save azure-cognitiveservices-websearch
-    npm install --save ms-rest-azure
+    npm install --save @azure/cognitiveservices-websearch
+    npm install --save @azure/ms-rest-azure-js
     ```
 
 ## <a name="create-a-project-and-declare-required-modules"></a>프로젝트 만들기 및 필요한 모듈 선언
@@ -60,13 +60,13 @@ Node.js 프로젝트에 대한 개발 환경을 설정해 보겠습니다.
 다음으로, 이 코드를 프로젝트에 복사합니다. 이전 섹션에서 설치한 모듈을 로드합니다.
 
 ```javascript
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+const WebSearchAPIClient = require('@azure/cognitiveservices-websearch');
 ```
 
 ## <a name="instantiate-the-client"></a>클라이언트 인스턴스화
 
-이 코드는 클라이언트를 인스턴스화하고 `azure-cognitiveservices-websearch` 모듈을 사용합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
+이 코드는 클라이언트를 인스턴스화하고 `@azure/cognitiveservices-websearch` 모듈을 사용합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');

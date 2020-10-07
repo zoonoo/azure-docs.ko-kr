@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 REST API용 Resource Graph 엔드포인�
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85802615"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>빠른 시작: REST API를 사용하여 첫 번째 Resource Graph 쿼리 실행

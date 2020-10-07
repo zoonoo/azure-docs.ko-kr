@@ -1,6 +1,6 @@
 ---
 title: 자습서 - .NET에서 Azure 웹앱을 통해 Azure Key Vault 사용 | Microsoft Docs
-description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션을 구성합니다.
+description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션 및 Azure 웹앱을 구성합니다.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: be18718513e8624db00d502228a3e5af6076d9d7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336686"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure Web App에 연결
 

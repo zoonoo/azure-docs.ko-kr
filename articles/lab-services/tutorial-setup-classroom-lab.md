@@ -3,12 +3,12 @@ title: Azure Lab Services를 사용하여 클래스룸 랩 설정 | Microsoft Do
 description: 이 자습서에서는 Azure Lab Services를 사용하여 클래스의 학생이 사용하는 가상 머신이 포함된 클래스룸 랩을 설정합니다.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445137"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336737"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -37,7 +37,7 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
 2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
 3. **새 랩**을 선택합니다. 
     
-    ![클래스룸 랩 만들기](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    !["새 랩" 단추가 선택된 "Azure Lab Services"를 보여주는 스크린샷.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. **새 랩** 창에서 다음 작업을 수행합니다. 
     1. 랩의 **이름**을 지정하고, **다음**을 선택합니다.  
 
@@ -90,7 +90,7 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
 
 1. **일정** 페이지로 전환한 다음, 도구 모음에서 **예약된 이벤트 추가**를 선택합니다. 
 
-    ![일정 페이지의 일정 추가 단추](./media/how-to-create-schedules/add-schedule-button.png)
+    !["일정" 페이지의 "예약된 이벤트 추가" 단추를 보여주는 스크린샷.](./media/how-to-create-schedules/add-schedule-button.png)
 2. **예약된 이벤트 추가** 페이지에서 다음 단계를 수행합니다.
     1. **이벤트 유형**에 대해 **표준**이 선택되었는지 확인합니다.  
     2. 클래스의 **시작 날짜**를 선택합니다. 

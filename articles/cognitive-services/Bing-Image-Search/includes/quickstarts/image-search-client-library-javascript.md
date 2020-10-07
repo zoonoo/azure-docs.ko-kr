@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 953648f5cf83d5ffd22683ba0ce02335a637f18a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 72c520b0ff135e9f48cd74f0024197ae8606f206
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376610"
 ---
 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search 클라이언트 라이브러리를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 JavaScript 애플리케이션은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
 
@@ -22,10 +22,11 @@ ms.locfileid: "87407230"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Node.js용 Cognitive Services Image Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
-    * `npm install @azure/cognitiveservices-imagesearch`를 사용하여 설치
-* [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure) 모듈
-    * `npm install ms-rest-azure`를 사용하여 설치
+* 최신 버전의 [Node.js](https://nodejs.org/en/download/).
+* [JavaScript용 Bing Image Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+     *  설치하려면 `npm install @azure/cognitiveservices-imagesearch`를 실행합니다.
+* 클라이언트를 인증하는 `@azure/ms-rest-azure-js` 패키지의 `CognitiveServicesCredentials` 클래스입니다.
+     * 설치하려면 `npm install @azure/ms-rest-azure-js`를 실행합니다.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -36,7 +37,7 @@ ms.locfileid: "87407230"
     ```javascript
     'use strict';
     const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     ```
 
 2. 프로젝트의 주요 메서드에서 유효한 구독 키에 대한 변수, Bing에서 반환할 이미지 및 검색어를 만듭니다. 그런 다음, 키를 사용하여 이미지 검색 클라이언트를 인스턴스화합니다.

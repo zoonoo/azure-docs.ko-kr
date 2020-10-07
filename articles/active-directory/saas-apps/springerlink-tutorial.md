@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 41713554273ed5d6548a35d0ac956d8ff5c74191
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>자습서: Springer Link와 Azure Active Directory 통합
 
@@ -39,7 +39,7 @@ Springer Link와 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 자습서에서는 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Springer Link에서 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 
@@ -68,7 +68,6 @@ Springer Link가 Azure AD에 통합되도록 구성하려면 갤러리의 Spring
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
 이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 사용하여 Springer Link에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 Springer Link의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Springer Link에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -76,8 +75,7 @@ Springer Link에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 2. **[Springer Link Single Sign-On 구성](#configure-springer-link-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Springer Link 테스트 사용자 만들기](#create-springer-link-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Springer Link에 만듭니다.
-6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -120,21 +118,11 @@ Springer Link에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 아이콘을 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/metadataxml.png)
-
-7. **Springer Link 설정** 섹션에서 요구 사항에 해당하는 적절한 URL을 복사합니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
-
-    a. 로그인 URL
-
-    b. Azure AD 식별자
-
-    다. 로그아웃 URL
+    ![메타데이터 다운로드 링크](common/copy_metadataurl.png)
 
 ### <a name="configure-springer-link-single-sign-on"></a>Springer Link Single Sign-On 구성
 
-**Springer Link** 쪽에서 Single Sign-On을 구성하려면 복사된 **앱 페더레이션 메타데이터 URL**과 Azure Portal에서 복사한 적절한 URL을 [Springer Link 지원 팀](mailto:identity@springernature.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Springer Link** 쪽에서 Single Sign-On을 구성하려면 복사된 **앱 페더레이션 메타데이터 URL**을 [Springer Link 지원 팀](mailto:onlineservice@springernature.com)으로 보내야 합니다. Springer link 지원 팀은 이 URL을 사용하여 양쪽 모두에서 SAML SSO 연결을 올바르게 설정합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -186,10 +174,6 @@ Springer Link에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-
-### <a name="create-springer-link-test-user"></a>Springer Link 테스트 사용자 만들기
-
-이 섹션에서는 Springer Link에서 Britta Simon이라는 사용자를 만듭니다. Springer Link 플랫폼에서 사용자를 추가하려면  [Springer Link 지원 팀](mailto:identity@springernature.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

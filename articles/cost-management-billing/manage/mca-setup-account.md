@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371799"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
@@ -132,7 +132,7 @@ Microsoft 고객 계약을 수락하는 동안 새 청구 계정에 대한 Azure
 
 ### <a name="user-access-to-azure-resources"></a>Azure 리소스에 대한 사용자 액세스
 
-Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스에 대한 액세스 권한은 전환의 영향을 받지 않습니다.
+Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스에 대한 액세스 권한은 전환의 영향을 받지 않습니다.
 
 ### <a name="azure-reservations"></a>Azure Reservations
 
@@ -225,7 +225,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리�
 
 4. 왼쪽에서 **액세스 제어(IAM)** 를 선택합니다.
 
-   ![전환 후 엔터프라이즈 관리자의 액세스 권한을 보여주는 스크린샷](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![전환 후 청구 계정 소유자로 나열된 엔터프라이즈 관리자의 액세스 권한을 보여주는 스크린샷.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 엔터프라이즈 관리자는 청구 계정 소유자로 나열되고, 읽기 전용 권한을 가진 엔터프라이즈 관리자는 청구 계정 읽기 권한자로 나열됩니다. 엔터프라이즈 관리자의 액세스 권한이 누락되었다고 생각되면 Azure Portal에서 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
@@ -241,7 +241,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리�
 
 4. 왼쪽에서 **액세스 제어(IAM)** 를 선택합니다.
 
-   ![전환 후 엔터프라이즈 관리자의 액세스 권한을 보여주는 스크린샷](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![전환 후 청구 프로필 소유자로 나열된 엔터프라이즈 관리자의 액세스 권한을 보여주는 스크린샷.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 엔터프라이즈 관리자는 청구 프로필 소유자로 나열되고, 읽기 전용 권한을 가진 엔터프라이즈 관리자는 청구 프로필 읽기 권한자로 나열됩니다. 엔터프라이즈 관리자의 액세스 권한이 누락되었다고 생각되면 Azure Portal에서 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 

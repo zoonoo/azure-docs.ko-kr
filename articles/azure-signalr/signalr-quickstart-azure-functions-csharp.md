@@ -1,19 +1,19 @@
 ---
 title: Azure SignalR Service Serverless 빠른 시작 - C#
-description: Azure SignalR Service와 Azure Functions를 사용하여 대화방을 만들기 위한 빠른 시작입니다.
+description: Azure SignalR Service와 Azure Functions를 통해 C#을 사용하여 대화방을 만드는 빠른 시작.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 03/04/2019
+ms.date: 09/25/2020
 ms.author: zhshang
-ms.openlocfilehash: 54a4c9374c064073620f2679e7c7511e30c45de6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: be26fdafe0a8a52669fe41fd5514c808f10df745
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369130"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C\#을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -21,11 +21,11 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
+Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
 [Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing), [.NET Core SDK](https://dotnet.microsoft.com/download) 및 즐겨 찾는 코드 편집기를 사용하여 명령줄(macOS, Windows 또는 Linux)에서 이 자습서를 실행할 수도 있습니다.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/dotnet).
 
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qscsharp)
 
@@ -55,13 +55,13 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 1. 기본 연결 문자열을 선택하여 복사합니다.
 
-1. 다시 Visual Studio의 솔루션 탐색기에서 *local.settings.sample.json*의 이름을 *local.settings.json*으로 바꿉니다.
+1. Visual Studio - **솔루션 탐색기**로 돌아가서 *local.settings.sample.json*의 이름을 *local.settings.json*으로 바꿉니다.
 
-1. **local.settings.json** 에서 연결 문자열을 **AzureSignalRConnectionString** 설정 값에 붙여넣습니다. 파일을 저장합니다.
+1. *local.settings.json* 에서 연결 문자열을 **AzureSignalRConnectionString** 설정 값에 붙여넣습니다. 파일을 저장합니다.
 
-1. **Functions.cs**를 엽니다. 이 함수 앱에서는 두 개의 HTTP 트리거 함수가 있습니다.
+1. *Functions.cs*를 엽니다. 이 함수 앱에서는 두 개의 HTTP 트리거 함수가 있습니다.
 
-    - **GetSignalRInfo** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
+    - **GetSignalRInfo** - `SignalRConnectionInfo` 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **SendMessage** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
 
 1. 다음 옵션 중 하나를 사용하여 Azure 함수 앱을 로컬로 시작합니다.

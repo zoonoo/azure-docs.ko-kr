@@ -8,25 +8,25 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3a6c89c3932adb4f9465172ca64b9356db1f624a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: be06154c95b14443024c6f163c955769f5b05d07
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376548"
 ---
 이 빠른 시작의 안내에 따라 JavaScript 클라이언트 라이브러리를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, 클라이언트 라이브러리를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js)에서 확인할 수 있습니다. 
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest&preserve-view=true) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>사전 요구 사항
-* [Node.JS](https://www.nodejs.org/)
-* JavaScript용 Bing Visual Search 클라이언트 라이브러리
-    * Bing Visual Search 클라이언트 라이브러리를 사용하여 콘솔 애플리케이션을 설치하려면 다음 명령을 실행합니다.
-        1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-visualsearch`입니다.
 
+* 최신 버전의 [Node.js](https://nodejs.org/en/download/).
+* [JavaScript용 Bing Visual Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch)
+     *  설치하려면 `npm install @azure/cognitiveservices-visualsearch`를 실행합니다.
+* 클라이언트를 인증하는 `@azure/ms-rest-azure-js` 패키지의 `CognitiveServicesCredentials` 클래스입니다.
+     * 설치하려면 `npm install @azure/ms-rest-azure-js`를 실행합니다.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
@@ -40,8 +40,8 @@ ms.locfileid: "87407009"
     const os = require("os");
     const async = require('async');
     const fs = require('fs');
-    const Search = require('azure-cognitiveservices-visualsearch');
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const Search = require('@azure/cognitiveservices-visualsearch');
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     
     let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
     let credentials = new CognitiveServicesCredentials(keyVar);

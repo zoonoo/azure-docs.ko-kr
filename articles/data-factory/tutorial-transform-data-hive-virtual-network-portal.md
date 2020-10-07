@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 52fba5064d656158a53ba71fec194cfa4f360df5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360296"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Azure Portal을 통해 Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 
@@ -233,7 +233,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
         ![스크립트 인수](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Data Factory에 아티팩트를 게시하려면 **게시**를 클릭합니다.
 
-    ![게시](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![스크린샷은 Data Factory에 게시하는 옵션을 보여줍니다.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 구독 관리자 추가 또는 변경
-description: RBAC(역할 기반 액세스 제어)를 사용하여 Azure 구독 관리자를 추가하거나 변경하는 방법을 설명합니다.
+description: Azure RBAC(Azure 역할 기반 액세스)를 사용하여 Azure 구독 관리자를 추가하거나 변경하는 방법을 설명합니다.
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
@@ -9,21 +9,21 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 2ccdb16af788f6f8d106628742b2a83e25b26263
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372309"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
 
 Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역할이 있어야 합니다. Azure에는 선택할 수 있는 몇 가지 기본 제공 역할이 있는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)라는 인증 시스템이 있습니다. 이러한 역할은 관리 그룹, 구독 또는 리소스 그룹과 같은 다른 범위에서 할당할 수 있습니다. 기본적으로 새 Azure 구독을 만드는 사람은 다른 사용자에게 구독에 대한 관리 액세스 권한을 할당할 수 있습니다.
 
-이 문서에서는 구독 범위에서 RBAC를 사용하여 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법을 설명합니다.
+이 문서에서는 구독 범위에서 Azure RBAC를 사용하여 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법을 설명합니다.
 
-RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 여전히 클래식 배포 모델을 사용 중이고, [Azure 서비스 관리 PowerShell 모듈](/powershell/module/servicemanagement/azure.service)을 사용하여 클래식 리소스를 관리하는 경우에는 클래식 관리자를 사용해야 합니다.
+Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 여전히 클래식 배포 모델을 사용 중이고, [Azure 서비스 관리 PowerShell 모듈](/powershell/module/servicemanagement/azure.service)을 사용하여 클래식 리소스를 관리하는 경우에는 클래식 관리자를 사용해야 합니다.
 
 > [!TIP]
 > Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 클래식 관리자를 사용할 필요가 없습니다.

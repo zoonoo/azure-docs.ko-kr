@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8b6c3608165ed592cc2f0daf475226c9d35de012
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358816"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>자습서: 세션 및 디바이스에서 Azure Spatial Anchors 공유
 
 이 자습서에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 한 세션에서 앵커를 만든 다음, 동일한 디바이스나 다른 디바이스에서 이 세션을 찾는 방법을 알아봅니다. 같은 위치에 있는 여러 디바이스에서 동시에 동일한 앵커를 찾을 수도 있습니다.
 
-![지속성](./media/persistence.gif)
+![애니메이션은 모바일 디바이스로 만들고 며칠 동안 다른 디바이스에서 사용된 Azure Spatial Anchors를 보여줍니다.](./media/persistence.gif)
 
 Azure Spatial Anchors는 시간이 지남에 따라 디바이스에서 위치를 유지하는 개체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 작업이 완료되면 둘 이상의 디바이스에 배포할 수 있는 앱이 제공됩니다. 한 인스턴스에서 만든 Azure Spatial Anchors는 다른 사용자와 공유할 수 있습니다.
 

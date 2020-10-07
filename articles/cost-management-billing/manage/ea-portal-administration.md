@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442550"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371918"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -175,7 +175,7 @@ Azure 엔터프라이즈 사용자는 Microsoft 계정(MSA 또는 Live ID)에서
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>구독당 Azure 계정 소유자의 수는 어떻게 되나요?
 
-구독당 하나의 계정 소유자만 허용됩니다.  [Azure Portal](https://portal.azure.com) 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 [역할 기반 액세스] 또는 [액세스 제어(IAM)]를 사용하여 추가 역할을 추가할 수 있습니다.
+구독당 하나의 계정 소유자만 허용됩니다.  [Azure Portal](https://portal.azure.com) 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 Azure RBAC(Azure 역할 기반 액세스)를 사용하여 추가 역할을 추가할 수 있습니다.
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>한 Azure 계정 소유자가 둘 이상의 부서에 나열될 수 있나요?
 
@@ -191,7 +191,7 @@ Azure 계정 소유자는 개수에 제한 없이 구독을 만들고 관리할 
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>내 조직의 모든 구독에 액세스하고 이를 확인하려면 어떻게 해야 하나요?
 
-현재 이 작업은 정책을 통해 수행해야 합니다. 즉, 계정은 만들어진 모든 구독에 대해 역할 기반 액세스를 사용하는 구독 역할에 추가되어야 합니다.
+현재 이 작업은 정책을 통해 수행해야 합니다. 즉, 계정은 만들어진 모든 구독에 대해 Azure RBAC(Azure 역할 기반 액세스)를 사용하는 구독 역할에 추가되어야 합니다.
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>구독을 만들려면 어떻게 해야 하나요?
 

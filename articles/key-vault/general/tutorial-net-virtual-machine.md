@@ -1,6 +1,6 @@
 ---
 title: 자습서 - .NET에서 가상 머신과 Azure Key Vault 사용 | Microsoft Docs
-description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션을 구성합니다.
+description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 가상 머신을 ASP.NET Core 애플리케이션으로 구성합니다.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b4f832750f7a94a6a60cbb1d3ba630925dd4fff2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e1abc26296b1e3bd16bebf95d3489a4e95595e1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336720"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>자습서: .NET에서 가상 머신이 있는 Azure Key Vault 사용
 

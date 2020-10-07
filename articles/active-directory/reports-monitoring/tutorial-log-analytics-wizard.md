@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361911"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>자습서: 로그 분석 마법사 구성
 
@@ -72,7 +72,7 @@ ms.locfileid: "89226210"
 
 3. 로그 분석 작업 영역 페이지에서 **추가**를 클릭합니다.
 
-    ![추가](./media/tutorial-log-analytics-wizard/add.png)
+    ![스크린샷은 로그 분석 작업 영역 페이지에 있는 추가 단추를 보여줍니다.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  **Log Analytics 작업 영역 만들기** 페이지에서 다음 단계를 수행합니다.
 
@@ -305,7 +305,7 @@ ms.locfileid: "89226210"
 
 3. **모니터링** 섹션에서 **통합 문서**를 클릭합니다.
 
-    ![통합 문서](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![스크린샷은 통합 문서가 선택된 Azure Portal 메뉴의 모니터링을 보여줍니다.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. **빠른 시작** 섹션에서 **비어 있음**을 클릭합니다.
 
@@ -357,7 +357,7 @@ ms.locfileid: "89226210"
 
 3. **모니터링** 섹션에서 **통합 문서**를 클릭합니다.
 
-    ![통합 문서](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![스크린샷은 통합 문서가 선택된 메뉴의 모니터링을 보여줍니다.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. **조건부 액세스** 섹션에서 **조건부 액세스 인사이트 및 보고**를 클릭합니다.
 

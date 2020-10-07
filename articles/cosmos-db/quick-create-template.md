@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85483298"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
@@ -57,7 +57,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 2. 다음 값을 선택하거나 입력합니다.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM 템플릿, Azure Cosmos DB 통합, 배포 포털":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Azure에 배포":::
 
     지정되지 않은 경우 기본값을 사용하여 Azure Cosmos 리소스를 만듭니다.
 
@@ -78,7 +78,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 3. **구매**를 선택합니다. Azure Cosmos 계정이 성공적으로 배포되면 알림을 받게 됩니다.
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM 템플릿, Cosmos DB 통합, 배포 포털 알림":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Azure에 배포":::
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 

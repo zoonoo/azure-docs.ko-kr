@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88705812"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 엔드포인트 만들기

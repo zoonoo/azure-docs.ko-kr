@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358035"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>자습서: Maya에서 물리적 기반 렌더링 재질 설정
 
@@ -79,7 +79,7 @@ Maya에서 인스턴싱 프로세스는 간단합니다.
 1. **Duplicate Special Options** 대화 상자에서 **Geometry type**으로 **Instance** 옵션을 선택합니다. 
 1. **Duplicate Special**을 선택합니다.
 
-   ![인스턴싱](media/instancing.jpg)
+   ![스크린샷은 중복된 특수 옵션 대화 상자가 열려 있고 중복된 특수 옵션이 선택된 Maya 창을 보여줍니다.](media/instancing.jpg)
 
 이 작업은 개체의 인스턴스를 만듭니다. 부모 및 부모의 다른 인스턴스와 독립적으로 이동, 회전 또는 스케일링할 수 있습니다. 
 

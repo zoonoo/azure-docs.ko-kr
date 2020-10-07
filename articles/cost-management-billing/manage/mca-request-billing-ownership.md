@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 233cc5330096b9b6419c8024205a41646ddd9519
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371867"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>다른 계정에서 Azure 구독의 청구 소유권 얻기
 
@@ -152,7 +152,7 @@ EA(기업계약) 구독 또는 Microsoft 고객 계약을 전송하는 경우 Az
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 
-(Azure RBAC(역할 기반 액세스 제어))[../role-based-access-control/overview.md]를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 사용자에 대한 액세스는 이전 중에 영향을 받지 않습니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 사용자에 대한 액세스 권한은 전환 중에 영향을 받지 않습니다.
 
 ### <a name="azure-support-plan"></a>Azure 지원 플랜
 

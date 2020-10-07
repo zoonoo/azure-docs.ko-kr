@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 8997cf5e86eb79b527c0b37ef0b85556469aea98
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371952"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -242,10 +242,10 @@ Azure Enterprise Portal 계층 구조는 다음과 같이 구성됩니다.
 
 - 구독 양도가 완료되면 Microsoft에서 계정 소유자를 업데이트합니다.
 
-다음과 같은 RBAC(역할 기반 액세스 제어) 정책을 이해합니다.
+다음과 같은 Azure RBAC(Azure 역할 기반 액세스 제어) 정책을 이해합니다.
 
-- 동일한 테넌트에 있는 두 조직 ID 간에 구독을 양도하는 경우 RBAC 정책과 기존 서비스 관리자 및 공동 관리자 역할이 유지됩니다.
-- 그 외의 구독 양도에서는 RBAC 정책과 역할 할당이 손실됩니다.
+- 동일한 테넌트에 있는 두 조직 ID 간에 구독을 양도하는 경우 Azure RBAC 정책과 기존 서비스 관리자 및 공동 관리자 역할이 유지됩니다.
+- 그 외의 구독 양도에서는 Azure RBAC 정책과 역할 할당이 손실됩니다.
 - 정책 및 관리자 역할은 디렉터리 간에 양도되지 않습니다. 서비스 관리자는 대상 계정의 소유자로 업데이트됩니다.
 
 계정 소유자를 변경하기 전에 다음을 수행합니다.
@@ -569,7 +569,7 @@ Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다.
 
 지출 할당량을 정의하려면 부서를 선택하고 편집 아이콘을 선택합니다. 지출 한도 정보를 편집한 후 **저장**을 선택합니다.
 
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>리소스 그룹을 사용하여 RBAC를 구현하고 사용량을 추적했습니다. 관련 사용량 세부 정보를 어떻게 볼 수 있나요?
+### <a name="i-used-resource-groups-to-implement-azure-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>리소스 그룹을 사용하여 Azure RBAC를 구현하고 사용량을 추적했습니다. 관련 사용량 세부 정보를 어떻게 볼 수 있나요?
 
 _리소스 그룹_ 및 _태그_를 사용하는 경우 이 정보는 서비스 수준에서 추적되며, 세부 사용량 다운로드(CSV) 파일에서 이 정보에 액세스할 수 있습니다. Azure Enterprise Portal에서 [사용량 현황 보고서 다운로드](https://ea.azure.com/report/downloadusage)를 참조하세요.
 

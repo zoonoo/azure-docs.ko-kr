@@ -4,17 +4,19 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: 8e3f58a5a88495263396c4e915a6363ad065c202
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: efd5ff494620d4fab3fb904d9bcf054b57a3290b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358814"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
 Java Android 샘플은 디바이스 간 공유를 지원합니다.
 Android Studio의 샘플 폴더에서 `SharedActivity.java` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -23,12 +25,16 @@ Android Studio의 샘플 폴더에서 `SharedActivity.java` 파일을 엽니다.
 Objective-C iOS 샘플은 디바이스 간 공유를 지원합니다.
 샘플 폴더에서 `SharedDemoViewController.m` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedDemoViewController.m` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
+디바이스에 앱을 배포합니다. 앱이 시작되면 **탭하여 공유 데모 시작** 옵션을 선택합니다. 앱의 지침을 따르세요. **탭하여 앵커 번호 찾기** 또는 **탭하여 앵커를 만들고 서비스에 저장**을 선택할 수 있습니다.
+
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Xamarin Android와 iOS 샘플 모두 디바이스 간 공유를 지원합니다.
 샘플 폴더에서 `AccountDetails.cs` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `AccountDetails.cs` 파일의 `AnchorSharingServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 

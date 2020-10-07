@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330967"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803809"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>네트워크에 대 한 Azure Monitor (미리 보기)
 네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 [상태](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) 및 [메트릭의](../platform/metrics-supported.md) 포괄적인 보기를 제공 합니다.  또한 [연결 모니터](../../network-watcher/connection-monitor-preview.md), [nsgs (네트워크 보안 그룹)에 대 한 흐름 로깅](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [트래픽 분석](../../network-watcher/traffic-analytics.md)및 기타 네트워크 [진단](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) 기능과 같은 모든 네트워크 모니터링 기능에 대 한 액세스를 제공 합니다.
@@ -108,6 +108,43 @@ Application Gateway에 대 한 **종속성** 보기는 프런트 엔드 ip를 �
 
 ![진단 도구 키트 탭](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>문제 해결 
+
+일반적인 문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
+
+이 섹션에서는 네트워크에 대 한 Azure Monitor를 사용 하는 경우 발생할 수 있는 몇 가지 일반적인 문제를 진단 하 고 해결 하는 데 도움이 됩니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
+
+### <a name="resolving-performance-issues-or-failures"></a>성능 문제 또는 오류 해결
+
+네트워크 Azure Monitor에서 식별 하는 네트워킹 관련 문제를 해결 하려면 오작동 하는 리소스의 문제 해결 설명서를 참조 하세요. 자주 사용 하는 서비스에 대 한 문제 해결 링크는 아래에 나열 되어 있습니다.
+* VNET (Virtual Network)
+* Application Gateway
+* VPN Gateway
+* ExpressRoute 
+* Load Balancer 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>선택한 모든 구독의 리소스가 표시 되지 않는 이유는 무엇 인가요?
+
+Network Insights는 한 번에 5 개 구독의 리소스만 표시할 수 있습니다. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>네트워크 정보를 변경 하거나 추가 하려면 어떻게 해야 할까요?
+
+변경하려면 "편집 모드"를 선택하여 통합 문서를 수정합니다. 그런 다음, 지정된 구독 및 리소스 그룹에 연결된 새 통합 문서로 작업을 저장할 수 있습니다.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>통합 문서의 모든 부분을 고정 한 후의 시간-그레인
+
+"자동" 시간 범위를 활용하므로 선택한 시간 범위에 따라 달라집니다.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>통합 문서 일부가 고정 된 시간 범위
+
+시간 범위는 대시보드 설정에 따라 달라집니다.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>다른 데이터를 보거나 나만의 시각화를 만들려면 어떻게 해야 하나요? 네트워크 정보를 변경 하려면 어떻게 해야 하나요?
+
+편집 모드를 사용 하 여 모든 측면 패널 및 상세 메트릭 보기에서 볼 수 있는 통합 문서를 편집한 다음 새 변경 내용을 모두 포함 하는 새 통합 문서로 작업을 저장할 수 있습니다.
+
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Network Watcher의](../../network-watcher/network-watcher-monitoring-overview.md)네트워크 모니터링에 대해 자세히 알아보세요.
+- [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.

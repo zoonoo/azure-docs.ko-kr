@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77565581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363157"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>자습서: 연결된 디바이스 일괄 관리
 
@@ -147,7 +147,7 @@ Azure 스토리지 계정을 사용하여 클라우드에서 새 펌웨어 파�
 
 1. 업로드가 완료되면 IoT DevKit 디바이스가 다시 부팅됩니다. 다시 부팅이 완료되면 IoT DevKit 화면에 **FW 버전: 1.0.0**이 표시되고 새 펌웨어를 확인합니다.
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![사진은 펌웨어 버전을 표시하고 새 펌웨어를 확인하는 화면이 포함된 I o T DevKit 디바이스를 표시합니다.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>디바이스 구성 만들기
 
@@ -248,23 +248,23 @@ Azure 스토리지 계정을 사용하여 클라우드에서 새 펌웨어 파�
 
 몇 분 후 IoT DevKit에서 새 펌웨어 정보를 검색하여 해당 펌웨어를 디바이스에 다운로드하기 시작합니다.
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![사진은 새 펌웨어 버전 다운로드를 표시하는 화면이 포함된 I o T DevKit 디바이스를 표시합니다.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 네트워크 속도에 따라 다운로드하는 데 몇 분 정도 걸릴 수 있습니다. 펌웨어가 다운로드되면 디바이스에서 파일 크기와 CRC 값을 확인합니다. 확인이 성공하면 MXChip의 화면에 **통과됨**이 표시됩니다.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![사진은 펌웨어 버전과 확인 성공이 통과된 것을 표시하는 화면이 포함된 I o T DevKit 디바이스를 표시합니다.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 확인이 성공하면 디바이스가 다시 부팅됩니다. 다시 부팅하기 전에 **5**에서 **0**까지의 카운트 다운이 표시됩니다.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![사진은 재부팅을 준비하는 I o T DevKit 디바이스를 표시합니다.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 다시 부팅되면 IoT DevKit 부팅 로더에서 펌웨어를 새 버전으로 업그레이드합니다. 업그레이드하는 데 몇 초 정도 걸릴 수 있습니다. 이 단계에서는 디바이스의 RGB LED가 빨간색이고, 화면이 비어 있습니다.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![사진은 업그레이드를 수행하는 I o T DevKit 디바이스를 표시합니다. 표시되지 않지만 R G B L E D가 빨강으로 표시됩니다.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 다시 부팅이 완료되면 이제 IoT DevKit 디바이스에서 펌웨어 1.0.1 버전을 실행하고 있습니다
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![사진은 새 펌웨어 버전을 표시하는 화면이 포함된 I o T DevKit 디바이스를 표시합니다.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 **배포** 페이지에서 배포를 클릭하여 업데이트되는 디바이스의 상태를 확인합니다. 디바이스 그룹의 각 디바이스에 대한 상태와 정의한 사용자 지정 메트릭이 표시됩니다.
 

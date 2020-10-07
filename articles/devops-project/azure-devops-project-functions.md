@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355477"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>DevOps Starter를 사용하여 Azure Functions에 배포
 
@@ -95,7 +95,7 @@ DevOps Starter는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으�
 
 1. **빌드** 아래의 하이퍼링크를 클릭합니다. 브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
 
-    ![빌드](_img/azure-devops-project-functions/build.png)
+    ![스크린샷은 CI/CD 파이프라인의 빌드 아래에 있는 링크를 가리키는 화살표가 있는 Azure Portal DevOps Starter 대시보드를 보여줍니다.](_img/azure-devops-project-functions/build.png)
 
 1. **편집**을 선택합니다. 이 창에서 빌드 파이프라인의 다양한 작업을 검사할 수 있습니다. 빌드는 Git 리포지토리에서 소스 코드 가져오기, 애플리케이션 빌드, 단위 테스트 실행 및 배포에 사용된 출력 게시 등 다양한 작업을 수행합니다.
 

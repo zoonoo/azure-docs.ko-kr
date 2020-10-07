@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518999"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803741"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -150,7 +150,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 
 * 첫 번째 값은 가상 머신 확장 집합을 배포할 가용성 영역을 지정 하는 **zones** 속성입니다.
 * 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다.
-* 세 번째 값은 Service Fabric 가상 머신 확장 집합 확장의 "faultDomainOverride" 속성입니다. 이 속성의 값은이 가상 머신 확장 집합이 배치 될 영역 및 영역을 포함 해야 합니다. 예: "faultDomainOverride": "eastus/az1" Azure Service Fabric 클러스터에는 지역 간 지원이 없기 때문에 모든 가상 머신 확장 집합 리소스는 동일한 지역에 배치 되어야 합니다.
+* 세 번째 값은 Service Fabric 가상 머신 확장 집합 확장의 "faultDomainOverride" 속성입니다. 이 속성의 값은이 가상 머신 확장 집합이 배치 될 영역만 포함 해야 합니다. 예: "faultDomainOverride": "az1" Azure Service Fabric 클러스터에는 지역 간 지원이 없기 때문에 모든 가상 머신 확장 집합 리소스를 동일한 지역에 배치 해야 합니다.
 
 ```json
 {
@@ -183,7 +183,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355366"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -97,7 +97,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
 
    다음 화면과 유사한 출력이 표시됩니다.
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![스크린샷은 n s 조회 명령과 서버, 주소, 이름 및 주소에 대한 값을 포함하는 명령 프롬프트 창을 보여줍니다.](media/dns-getstarted-portal/nslookup.PNG)
 
 호스트 이름 **www\.contoso.xyz**는 구성한 대로 **10.10.10.10**으로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다. 
 

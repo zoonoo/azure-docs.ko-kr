@@ -1,30 +1,30 @@
 ---
-title: 한 파트너에서 다른 파트너로 Azure 구독 전송(미리 보기)
+title: Azure 플랜에 따라 한 파트너에서 다른 파트너로 구독 양도(미리 보기)
 description: 이 문서는 Azure 구독의 청구 소유권을 이전하기 전후에 알아두어야 할 사항을 이해하는 데 도움이 됩니다.
 author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: banders
-ms.openlocfilehash: 246128ec3d26e4bf3f2a5a8f0660aab7d9daca3d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: cb9a035217734028df325555cb0954dedd29ac30
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89554205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372292"
 ---
-# <a name="transfer-azure-subscriptions-from-one-partner-to-another-preview"></a>한 파트너에서 다른 파트너로 Azure 구독 전송(미리 보기)
+# <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Azure 플랜에 따라 한 파트너에서 다른 파트너로 구독 양도(미리 보기)
 
 이 문서는 Azure 구독의 청구 소유권을 이전하기 전후에 알아두어야 할 사항을 이해하는 데 도움이 됩니다. Microsoft 파트너 간에 Azure 계획에 따른 Azure 구독 이전을 시작하려면 파트너에게 문의해야 합니다. 파트너가 시작하는 방법에 대한 지침을 보냅니다. 이전 프로세스가 완료되면 구독의 청구 소유권이 변경됩니다.
 
 ## <a name="user-access"></a>사용자 액세스
 
-Azure RBAC(역할 기반 액세스 제어)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 주체에 대한 액세스는 전환 중에 영향을 받지 않습니다. [Azure RBAC](../../role-based-access-control/overview.md)는 Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 데 도움을 줍니다. 새 파트너에게는 구독 이전을 통해 리소스에 대한 RBAC 액세스 권한이 부여되지 않습니다. 이전 파트너는 RBAC 액세스를 유지합니다.
+Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 주체에 대한 액세스는 전환 중에 영향을 받지 않습니다. [Azure RBAC](../../role-based-access-control/overview.md)는 Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 데 도움을 줍니다. 새 파트너에게는 구독 이전을 통해 리소스에 대한 Azure RBAC 액세스 권한이 부여되지 않습니다. 이전 파트너는 Azure RBAC 액세스를 유지합니다.
 
-따라서 이전 파트너에 대한 Azure RBAC 액세스를 제거하고 새 파트너에 대한 액세스 권한을 추가하는 것이 중요합니다. 새 파트너 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요. 이전 파트너의 RBAC 액세스를 제거하는 방법에 대한 자세한 내용은 [역할 할당 제거](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment)를 참조하세요.
+따라서 이전 파트너에 대한 Azure RBAC 액세스를 제거하고 새 파트너에 대한 액세스 권한을 추가하는 것이 중요합니다. 새 파트너 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요. 이전 파트너의 Azure RBAC 액세스를 제거하는 방법에 대한 자세한 내용은 [역할 할당 제거](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment)를 참조하세요.
 
-또한 새 파트너는 구독에 대한 [AOBO(Admin on Behalf Of)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 액세스 권한을 자동으로 가져오지 못합니다. 사용자를 대신해 Azure 구독을 관리하려면 파트너에게 AOBO가 필요합니다. 새 파트너 AOBO 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [Azure 구독 계정의 청구 소유권을 다른 계정으로 이전](billing-subscription-transfer.md)을 참조하세요.
+또한 새 파트너는 구독에 대한 [AOBO(Admin on Behalf Of)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 액세스 권한을 자동으로 가져오지 못합니다. 사용자를 대신해 Azure 구독을 관리하려면 파트너에게 AOBO가 필요합니다. Azure 권한에 대한 자세한 내용은 [고객의 서비스 또는 구독을 관리하기 위한 권한 얻기](/partner-center/customers-revoke-admin-privileges)를 참조하세요.
 
 ## <a name="stop-a-transfer"></a>이전 중지
 
@@ -38,5 +38,5 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 할당된 기존 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 새 파트너 RBAC 액세스 권한을 부여하려면 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
-- 새 파트너 AOBO 액세스 권한을 부여하려면 [Azure 구독 계정의 청구 소유권을 다른 계정으로 이전](billing-subscription-transfer.md)을 참조하세요.
+- 새 파트너 Azure RBAC 액세스 권한을 부여하려면 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
+- [고객 서비스 또는 구독을 관리할 수 있는 권한을 얻습니다](/partner-center/customers-revoke-admin-privileges).

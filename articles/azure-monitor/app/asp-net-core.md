@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: ac742aae88b3e3c62ffca857dcb690fa71434482
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006762"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803594"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -25,13 +25,13 @@ ms.locfileid: "90006762"
 * **배포 방법**: 프레임워크 종속 또는 자체 포함
 * **웹 서버**: IIS(Internet Information Server) 또는 Kestrel
 * **호스팅 플랫폼**: Azure App Service, Azure VM, Docker, AKS(Azure Kubernetes Service) 등의 Web Apps 기능
-* **.Net Core 런타임 버전**: 1xx, 2. xx 또는 3. xx
+* **.Net core 버전**: 공식적으로 [지원 되](https://dotnet.microsoft.com/download/dotnet-core) 는 모든 .net core 버전입니다.
 * **IDE**: Visual Studio, VS Code 또는 명령줄.
 
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -106,7 +106,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
     * `ApplicationInsights:InstrumentationKey`
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -121,8 +121,8 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
 
-계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`.
-AspNetCore 버전 [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)부터를 호출 `services.AddApplicationInsightsTelemetry()` 하면 응용 프로그램에서 계측 키가 자동으로 읽힙니다 `Microsoft.Extensions.Configuration.IConfiguration` . 를 명시적으로 제공할 필요는 없습니다 `IConfiguration` .
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`
+AspNetCore 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)부터를 호출 하면 `services.AddApplicationInsightsTelemetry()` 응용 프로그램에서 계측 키가 자동으로 읽힙니다 `Microsoft.Extensions.Configuration.IConfiguration` . 를 명시적으로 제공할 필요는 없습니다 `IConfiguration` .
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
@@ -151,7 +151,7 @@ ASP.NET Core의 [성능 카운터](./web-monitor-performance.md) 에 대 한 지
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule` 는 기본적으로 사용 하도록 설정 되며 .NET Core 2.x 앱에서 기본 카운터 집합을 수집 합니다. [Eventcounter](eventcounters.md) 자습서에는 수집 된 카운터의 기본 집합이 나열 됩니다. 또한 목록을 사용자 지정 하는 방법에 대 한 지침도 있습니다.
+`EventCounterCollectionModule` 는 기본적으로 사용 하도록 설정 되어 있습니다. [Eventcounter](eventcounters.md) 자습서에는 수집할 카운터 목록을 구성 하는 지침이 포함 되어 있습니다.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>웹 응용 프로그램에 대 한 클라이언트 쪽 원격 분석 사용
 
@@ -209,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 의 전체 설정 목록 `ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|Setting | 설명 | 기본값
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 사용/사용 안 함 `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | 사용/사용 안 함 `RequestTrackingTelemetryModule` | true
@@ -226,9 +226,9 @@ public void ConfigureServices(IServiceCollection services)
 
 최신 목록에 대해서는 [의 `ApplicationInsightsServiceOptions` 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
 
-### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150-beta3--above"></a>위의 AspNetCore SDK 2.15.0-beta3 &에 대 한 구성 권장 사항
+### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>위의 & AspNetCore SDK 2.15.0에 대 한 구성 권장 사항
 
-AspNetCore SDK 버전 [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) `ApplicationInsightsServiceOptions` 응용 프로그램 인스턴스를 사용 하 여 instrumentationkey를 포함 하 여에서 사용할 수 있는 모든 설정을 구성 하는 것이 좋습니다. `IConfiguration` 아래 예제와 같이 설정은 "ApplicationInsights" 섹션 아래에 있어야 합니다. 에서 appsettings.js의 다음 섹션에서는 계측 키를 구성 하 고 적응 샘플링 및 성능 카운터 수집도 사용 하지 않도록 설정 합니다.
+AspNetCore SDK 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) 에서 시작 하는 경우 `ApplicationInsightsServiceOptions` 응용 프로그램 인스턴스를 사용 하 여 instrumentationkey를 비롯 하 여에서 사용 가능한 모든 설정을 구성 하는 것이 좋습니다 `IConfiguration` . 아래 예제와 같이 설정은 "ApplicationInsights" 섹션 아래에 있어야 합니다. 에서 appsettings.js의 다음 섹션에서는 계측 키를 구성 하 고 적응 샘플링 및 성능 카운터 수집도 사용 하지 않도록 설정 합니다.
 
 ```json
 {
@@ -240,11 +240,11 @@ AspNetCore SDK 버전 [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.Ap
 }
 ```
 
-를 `services.AddApplicationInsightsTelemetry(aiOptions)` 사용 하면에서 설정을 재정의 `Microsoft.Extensions.Configuration.IConfiguration` 합니다.
+을 사용 하는 경우 `services.AddApplicationInsightsTelemetry(aiOptions)` 의 설정을 재정의 `Microsoft.Extensions.Configuration.IConfiguration` 합니다.
 
 ### <a name="sampling"></a>샘플링
 
-ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘플링을 모두 지원 합니다. 적응 샘플링은 기본적으로 사용 하도록 설정 되어 있습니다. 
+ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘플링을 모두 지원 합니다. 적응 샘플링은 기본적으로 사용 하도록 설정 되어 있습니다.
 
 자세한 내용은 [ASP.NET Core 응용 프로그램에 대 한 적응 샘플링 구성](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)을 참조 하세요.
 
@@ -335,7 +335,6 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                module.Counters.Clear();
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
@@ -388,7 +387,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>는 ASP.NET Core 3(sp3)을 지원 Application Insights?
 
@@ -445,18 +444,14 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>상태 모니터 같은 도구를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정할 수 있나요?
 
-아닙니다. [상태 모니터](./monitor-performance-live-website-now.md) 및 [상태 모니터 v2](./status-monitor-v2-overview.md) 는 현재 ASP.NET 4.x만 지원 합니다.
-
-### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Application Insights ASP.NET Core 2.0 응용 프로그램에 대해 자동으로 사용 하도록 설정 되어 있습니까?
-
-`Microsoft.AspNetCore.All`2.0 메타 패키지에는 APPLICATION INSIGHTS SDK (버전 2.1.0)가 포함 되어 있습니다. Visual Studio 디버거에서 응용 프로그램을 실행 하는 경우 Visual Studio는 Application Insights을 사용 하도록 설정 하 고 원격 분석을 IDE 자체에서 로컬로 표시 합니다. 계측 키가 지정 되지 않은 경우 원격 분석을 Application Insights 서비스로 보내지 못했습니다. 2.0 앱의 경우에도 Application Insights을 사용 하도록 설정 하려면이 문서의 지침을 따르는 것이 좋습니다.
+아니요. [상태 모니터](./monitor-performance-live-website-now.md) 및 [상태 모니터 v2](./status-monitor-v2-overview.md) 는 현재 ASP.NET 4.x만 지원 합니다.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Linux에서 응용 프로그램을 실행 하는 경우 모든 기능이 지원 되나요?
 
 예. SDK에 대 한 기능 지원은 모든 플랫폼에서 동일 하지만 다음과 같은 경우는 예외입니다.
 
 * [성능 카운터](./performance-counters.md) 는 Windows 에서만 지원 되므로 SDK는 Linux에서 [이벤트 카운터](./eventcounters.md) 를 수집 합니다. 대부분의 메트릭은 동일 합니다.
-* `ServerTelemetryChannel`가 기본적으로 사용 되는 경우에도 응용 프로그램이 Linux 또는 MacOS에서 실행 되는 경우, 네트워크 문제가 있는 경우 채널이 일시적으로 원격 분석을 유지 하기 위해 로컬 저장소 폴더를 자동으로 만들지 않습니다. 이러한 제한으로 인해 임시 네트워크 또는 서버 문제가 있으면 원격 분석이 손실 됩니다. 이 문제를 해결 하려면 채널에 대 한 로컬 폴더를 구성 합니다.
+* `ServerTelemetryChannel`가 기본적으로 사용 되는 경우에도 응용 프로그램이 Linux 또는 macOS에서 실행 되는 경우, 네트워크 문제가 있는 경우 채널이 일시적으로 원격 분석을 유지 하기 위해 로컬 저장소 폴더를 자동으로 만들지 않습니다. 이러한 제한으로 인해 임시 네트워크 또는 서버 문제가 있으면 원격 분석이 손실 됩니다. 이 문제를 해결 하려면 채널에 대 한 로컬 폴더를 구성 합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -473,6 +468,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+이 제한은 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) 이상 버전에서 적용할 수 없습니다.
 
 ### <a name="is-this-sdk-supported-for-the-new-net-core-3x-worker-service-template-applications"></a>이 SDK는 새 .NET Core 2.x 작업자 서비스 템플릿 응용 프로그램에 대해 지원 되나요?
 

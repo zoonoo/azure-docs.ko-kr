@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/25/2019
-ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.date: 09/25/2020
+ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131483"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361214"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
@@ -130,7 +130,7 @@ ms.locfileid: "87131483"
    예를 들어 RSS 트리거 및 Office 365 Outlook 작업으로 시작하는 논리 앱 워크플로 정의 샘플은 다음과 같습니다. 일반적으로 JSON 요소는 각 섹션에서 사전순으로 표시됩니다. 그러나 이 샘플은 이러한 요소들을 로직 앱의 단계가 설계자에 나타나는 순서대로 대략적으로 보여줍니다.
 
    > [!IMPORTANT]
-   > 이 논리 앱 정의 샘플을 다시 사용하려면 Office 365 조직 계정 (예 : @fabrikam.com)이 필요합니다. 가상 이메일 주소를 사용자 고유의 이메일 주소로 바꾸어야 합니다. Outlook.com 또는 Gmail과 같은 다른 이메일 커넥터를 사용하려면 `Send_an_email_action` 작업을 [Azure Logic Apps에서 지원하는 이메일 커넥터](../connectors/apis-list.md)에서 사용할 수 있는 비슷한 작업으로 바꿉니다.
+   > 이 논리 앱 정의 샘플을 다시 사용하려면 조직 계정(예 : @fabrikam.com)이 필요합니다. 가상 이메일 주소를 사용자 고유의 이메일 주소로 바꾸어야 합니다. Outlook.com 또는 Gmail과 같은 다른 이메일 커넥터를 사용하려면 `Send_an_email_action` 작업을 [Azure Logic Apps에서 지원하는 이메일 커넥터](../connectors/apis-list.md)에서 사용할 수 있는 비슷한 작업으로 바꿉니다.
    >
    > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. 
    > Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 
@@ -307,4 +307,4 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Visual Studio Code(미리 보기)에서 상태 저장 또는 상태 비저장 논리 앱 만들기](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

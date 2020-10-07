@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443348"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803860"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Transact-sql (T-sql)을 사용 하 여 Elastic Database 작업 만들기 및 관리 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -464,7 +464,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 sp_add_job은 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 실행해야 합니다.
 sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -530,7 +530,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -565,7 +565,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 작업을 삭제하면 작업 기록이 자동으로 삭제됩니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -690,7 +690,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 
 sp_add_jobstep이 성공하면 작업의 현재 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다. 작업이 현재 실행 중이면 해당 실행에는 새 단계가 포함되지 않습니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.  
 
@@ -815,7 +815,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 
 진행 중인 모든 작업 실행은 영향을 받지 않습니다. sp_update_jobstep이 성공하면 작업의 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -860,7 +860,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 다른 작업 단계는 삭제된 작업 단계에서 남겨진 간격을 채우기 위해 번호가 자동으로 다시 매겨집니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -960,7 +960,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -1023,13 +1023,13 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 멤버를 추가할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@ membership_type =** ] ' membership_type '  
-대상 그룹 멤버가 포함되거나 제외되는지 여부를 지정합니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 'Include'입니다. target_group_name에 대해 유효한 값은 'Include' 또는 'Exclude'입니다.
+대상 그룹 멤버가 포함되거나 제외되는지 여부를 지정합니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 'Include'입니다. Membership_type에 유효한 값은 ' Include ' 또는 ' i n t '입니다.
 
 [ ** \@ target_type =** ] ' target_type '  
 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다.
 
 [ ** \@ refresh_credential_name =** ] ' refresh_credential_name '  
-서버의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+데이터베이스 범위 자격 증명의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@ server_name =** ] ' server_name '  
 지정 된 대상 그룹에 추가 해야 하는 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
@@ -1041,7 +1041,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 지정된 대상 그룹에 추가해야 하는 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'이면 elastic_pool_name을 지정해야 합니다. elastic_pool_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@ shard_map_name =** ] ' shard_map_name '  
-지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type이 'SqlSqlShardMap'이면 elastic_pool_name을 지정해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type ' SqlShardMap ' 인 경우 elastic_pool_name 지정 해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@ target_id =** ] target_group_id 출력  
 만들어지면 대상 그룹에 추가되는 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
@@ -1051,7 +1051,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 서버 또는 탄력적 풀이 대상 그룹에 포함 된 경우 실행 시 서버 또는 탄력적 풀에 있는 모든 단일 데이터베이스에서 작업이 실행 됩니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -1120,7 +1120,7 @@ GO
 
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
@@ -1179,7 +1179,7 @@ GO
 
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>권한
+#### <a name="permissions"></a>사용 권한
 
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361843"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Synapse SQL에서 다단계 AAD 인증 사용(MFA용 SSMS 지원)
 
@@ -22,13 +22,11 @@ Synapse SQL은 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL S
 
 이 문서에서는 다양한 인증 옵션 간의 차이점과 유니버설 인증 사용과 관련된 제한 사항에 대해 설명합니다. 
 
-**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 
-
-**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에서 다운로드합니다.
+**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에서 다운로드합니다.
 
 이 문서에서 설명하는 모든 기능에 대해 2017년 7월 버전 17.2 이상을 사용합니다.  가장 최근의 연결 대화 상자는 다음 이미지와 유사하게 표시됩니다.
 
-![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "사용자 이름 상자를 완료합니다.")  
+![스크린샷은 서버 이름 및 인증 옵션을 선택할 수 있는 서버에 연결 대화 상자를 보여줍니다.](./media/mfa-authentication/1mfa-universal-connect.png "사용자 이름 상자를 완료합니다.")  
 
 ## <a name="the-five-authentication-options"></a>5가지 인증 옵션  
 
@@ -51,7 +49,7 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 도메인 이름 또는 테넌트 ID 매개 변수
 
-[SSMS 버전 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)부터 다른 Azure Active 디렉터리에서 현재 Active Directory로 가져온 게스트 사용자는 연결할 때 Azure AD 도메인 이름 또는 테넌트 ID를 제공할 수 있습니다. 
+[SSMS 버전 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)부터 다른 Azure Active 디렉터리에서 현재 Active Directory로 가져온 게스트 사용자는 연결할 때 Azure AD 도메인 이름 또는 테넌트 ID를 제공할 수 있습니다. 
 
 게스트 사용자에는 타 Azure AD에서 초대 받은 사용자, outlook.com, hotmail.com, live.com 등의 Microsoft 계정, gmail.com 등의 타 계정이 포함됩니다. 이 정보를 통해 **MFA를 통한 Active Directory 유니버설 인증**에서 올바른 인증 기관을 식별할 수 있습니다. 이 옵션은 outlook.com, hotmail.com 또는 live.com과 같은 Microsoft 계정(MSA)이나 비 MSA 계정을 지원하는 데도 필요합니다. 
 
@@ -61,11 +59,11 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
 
 사용자가 Azure 서버에 연결된 Azure AD의 네이티브 사용자이고 MSA 계정이 아닌 경우 도메인 이름 또는 테넌트 ID는 필요하지 않습니다. 
 
-(SSMS 버전 17.2부터) 매개 변수를 **데이터베이스 연결** 대화 상자에 입력하려면 **Active Directory - MFA를 통한 유니버설**을 선택하여 대화 상자를 입력하고 **옵션**을 클릭한 다음 **사용자 이름** 상자를 입력하고 **연결 속성** 탭을 클릭합니다. 
+(SSMS 버전 17.2부터) 매개 변수를 **데이터베이스 연결** 대화 상자에 입력하려면 **Active Directory - MFA를 통한 유니버설**을 인증을 선택하여 대화 상자를 입력하고 **옵션**을 선택하여 **사용자 이름** 상자를 입력한 다음, **연결 속성** 탭을 선택합니다. 
 
 **AD 도메인 이름 또는 테넌트 ID** 상자를 선택한 다음 인증 기관(예: 도메인 이름, **contosotest.onmicrosoft.com**) 또는 테넌트 ID의 GUID를 제공합니다.  
 
-   ![mfa-tenant-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![스크린샷은 값이 입력된 [연결 속성] 탭의 서버에 연결을 보여줍니다.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 SSMS 18.x 이상을 실행하는 경우 18.x 이상이 자동으로 인식하므로 게스트 사용자에게 AD 도메인 이름 또는 테넌트 ID가 더 이상 필요하지 않습니다.
 
@@ -80,7 +78,7 @@ Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사
 
 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여 받아야 합니다. 
 
-게스트 사용자인 `steve@gmail.com` 사용자는 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
+게스트 사용자인 `steve@gmail.com`은 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Synapse SQL에 대한 유니버설 인증 제한 사항
 

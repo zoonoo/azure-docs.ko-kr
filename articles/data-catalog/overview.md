@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: 9b7a5d5ca6cbad897839c8e28c9e3efd1eeabaf0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68736988"
 ---
 # <a name="what-is-azure-data-catalog"></a>Azure 데이터 카탈로그란?
@@ -66,7 +66,7 @@ Azure Data Catalog는 완전 관리형 클라우드 서비스입니다. 사용�
 * [빅 데이터로 작업하는 방법](data-catalog-how-to-big-data.md)
 * [데이터 자산을 관리하는 방법](data-catalog-how-to-manage.md)
 * [비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
-* [질문과 대답](data-catalog-frequently-asked-questions.md)
+* [자주 묻는 질문](data-catalog-frequently-asked-questions.md)
 
 ## <a name="next-steps"></a>다음 단계
 

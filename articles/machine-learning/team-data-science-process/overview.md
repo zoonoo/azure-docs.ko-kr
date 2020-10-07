@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362234"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 
@@ -51,7 +51,7 @@ TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 �
 
 다음은 **팀 데이터 과학 프로세스 수명 주기**의 시각적 표현입니다. 
 
-![TDSP - 수명 주기 2](./media/overview/tdsp-lifecycle2.png) 
+![다이어그램은 비즈니스 이해, 데이터 수집/이해, 모델링 및 배포를 포함한 데이터 과학 수명 주기를 보여줍니다.](./media/overview/tdsp-lifecycle2.png) 
 
 TDSP에서 주기의 각 단계에 대한 목표, 작업 및 설명서 아티팩트는 [Team Data Science Process 수명 주기](lifecycle.md) 항목에 설명되어 있습니다. 이러한 작업 및 아티팩트는 프로젝트 역할과 관련이 있습니다.
 

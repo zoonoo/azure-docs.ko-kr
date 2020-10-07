@@ -1,15 +1,15 @@
 ---
 title: 사용자 고유의 HTTP 모델을 사용하여 라이브 비디오 분석 - Azure
-description: 이 빠른 시작에서는 컴퓨터 비전을 적용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
+description: 이 빠른 시작에서는 자체 HTTP 모델을 사용하여 컴퓨터 비전을 적용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 5fd7f1a7db323e3aa7971c1ced6fc588d6e60e37
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 07661fb1e9496aacff6f108a840e0c357f068d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336465"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>빠른 시작: 사용자 고유의 HTTP 모델을 사용하여 라이브 비디오 분석
 

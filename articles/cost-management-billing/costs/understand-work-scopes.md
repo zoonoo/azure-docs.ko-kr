@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372360"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -26,7 +26,7 @@ _범위_는 Azure AD 사용자가 서비스에 액세스하고 관리하는 Azur
 - 결제 및 송장 같은 청구 데이터
 - 비용 및 정책 거버넌스 같은 클라우드 서비스
 
-범위는 청구 데이터를 관리하고, 결제 관련 역할을 수행하고, 청구서를 살펴보고, 일반 계정 관리를 수행하는 위치입니다. 청구 및 계정 역할은 [Azure RBAC](../../role-based-access-control/overview.md)를 사용하는 리소스 관리에 사용되는 역할과는 별도로 관리됩니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 _청구 범위_ 및 _RBAC 범위_라고 합니다.
+범위는 청구 데이터를 관리하고, 결제 관련 역할을 수행하고, 청구서를 살펴보고, 일반 계정 관리를 수행하는 위치입니다. 청구 및 계정 역할은 [Azure RBAC](../../role-based-access-control/overview.md)를 사용하는 리소스 관리에 사용되는 역할과는 별도로 관리됩니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 _청구 범위_ 및 _Azure RBAC 범위_라고 합니다.
 
 범위에 대해 자세히 알아보려면 [Cost Management에서 계층 설정](https://www.youtube.com/watch?v=n3TLRaYJ1NY) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
@@ -34,7 +34,7 @@ _범위_는 Azure AD 사용자가 서비스에 액세스하고 관리하는 Azur
 
 ## <a name="how-cost-management-uses-scopes"></a>Cost Management에서 범위를 사용하는 방법
 
-Cost Management는 리소스 위의 모든 범위에서 작동하여 조직이 액세스 권한을 갖고 있는 수준(전체 청구 계정 또는 단일 리소스 그룹)에서 비용을 관리할 수 있게 해줍니다. 청구 범위는 Microsoft 계약(구독 유형)에 따라 달라지지만 RBAC 범위는 그렇지 않습니다.
+Cost Management는 리소스 위의 모든 범위에서 작동하여 조직이 액세스 권한을 갖고 있는 수준(전체 청구 계정 또는 단일 리소스 그룹)에서 비용을 관리할 수 있게 해줍니다. 청구 범위는 Microsoft 계약(구독 유형)에 따라 달라지지만 Azure RBAC 범위는 그렇지 않습니다.
 
 ## <a name="azure-rbac-scopes"></a>Azure RBAC 범위
 
@@ -98,7 +98,7 @@ EA 청구 범위는 다음 역할을 지원합니다.
 - **엔터프라이즈 읽기 전용 사용자** – 청구 계정 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 EA 청구 범위는 [Cost Management 읽기 권한자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
 - **부서 관리자** – 비용 센터와 같은 부서 설정을 관리하고, 모든 비용에 액세스하여 살펴보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다.  부서 관리자 및 읽기 전용 사용자가 비용을 볼 수 있도록 **DA 요금 보기** 청구 계정 설정을 사용하도록 설정해야 합니다. **DA 요금 보기** 옵션을 사용할 수 없는 경우 부서 사용자는 계정 또는 구독 소유자인 경우에도 어떤 수준에서도 비용을 볼 수 없습니다.
 - **부서 읽기 전용 사용자** – 부서 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. **DA 요금 보기** 옵션을 사용할 수 없는 경우 부서 사용자는 계정 또는 구독 소유자인 경우에도 어떤 수준에서도 비용을 볼 수 없습니다.
-- **계정 소유자** – 등록 계정 설정(예: 비용 센터)을 관리하고, 모든 비용을 보고, 등록 계정의 비용 구성(예: 예산 및 내보내기)을 관리할 수 있습니다. 계정 소유자 및 RBAC 사용자가 비용을 볼 수 있도록 **AO 요금 보기** 청구 계정 설정을 사용하도록 설정해야 합니다.
+- **계정 소유자** – 등록 계정 설정(예: 비용 센터)을 관리하고, 모든 비용을 보고, 등록 계정의 비용 구성(예: 예산 및 내보내기)을 관리할 수 있습니다. 계정 소유자 및 Azure RBAC 사용자가 비용을 볼 수 있도록 **AO 요금 보기** 청구 계정 설정을 사용하도록 설정해야 합니다.
 
 EA 청구 계정 사용자는 청구서에 직접 액세스할 수 없습니다. 청구서는 외부 볼륨 라이선스 시스템에서 사용할 수 있습니다.
 

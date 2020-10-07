@@ -3,7 +3,7 @@ title: '자습서: Postgres를 사용하는 Python Django 앱 배포'
 description: PostgreSQL 데이터베이스를 사용하는 Python 웹앱을 만들어 Azure에 배포합니다. 이 자습서에서는 Django 프레임워크를 사용하고 Linux의 Azure App Service에서 앱을 호스팅합니다.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/22/2020
+ms.date: 09/22/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 368a87d1054e4a5ad12fa1e8c78bcde39f76ee63
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369623"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "88959411"
 > [!div class="checklist"]
 > * Python 및 Azure CLI를 사용하여 초기 환경 설정
 > * Azure Database for PostgreSQL 데이터베이스 만들기
-> * Azure App Service에 코드 배포 및 Postgres에 연결
+> * Azure App Service에 코드 배포 및 PostgreSQL에 연결
 > * 코드 업데이트 및 다시 배포
 > * 진단 로그 보기
 > * Azure Portal에서 웹앱 관리
@@ -107,14 +107,14 @@ ZIP 파일의 압축을 *djangoapp*이라는 폴더에 풉니다.
 
 ---
 
-djangoapp 샘플에는 Django 설명서의 [첫 번째 Django 앱 작성](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)에 따라 가져오는 데이터 기반 Django 설문 조사 앱이 포함되어 있습니다. 편의를 위해 완성된 앱이 여기에 제공됩니다.
+djangoapp 샘플에는 Django 설명서의 [첫 번째 Django 앱 작성](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)에 따라 가져오는 데이터 기반 Django 설문 조사 앱이 포함되어 있습니다. 편의를 위해 완성된 앱이 여기에 제공됩니다.
 
 또한 샘플은 App Service와 같은 프로덕션 환경에서 실행되도록 수정됩니다.
 
 - 프로덕션 설정은 *azuresite/production.py* 파일에 있습니다. 개발 세부 정보는 *azuresite/settings.py*에 있습니다.
 - `DJANGO_ENV` 환경 변수가 "production"으로 설정되면 앱에서 프로덕션 설정을 사용합니다. 이 환경 변수는 자습서의 뒷부분에서 PostgreSQL 데이터베이스 구성에 사용된 다른 환경 변수와 함께 만듭니다.
 
-이러한 변경은 모든 프로덕션 환경에서 실행되도록 Django를 구성하는 것과 관련이 있으며 App Service에만 국한되지 않습니다. 자세한 내용은 [Django 배포 검사 목록](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/)을 참조하세요.
+이러한 변경은 모든 프로덕션 환경에서 실행되도록 Django를 구성하는 것과 관련이 있으며 App Service에만 국한되지 않습니다. 자세한 내용은 [Django 배포 검사 목록](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)을 참조하세요.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -137,7 +137,7 @@ az extension add --name db-up
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- *\<postgres-server-name>* 을 모든 Azure에서 고유한 이름으로 바꿉니다(서버 엔드포인트는 `https://\<postgres-server-name>.postgres.database.azure.com`임). 회사 이름과 다른 고유한 값을 조합하여 사용하는 것이 좋습니다.
+- *\<postgres-server-name>* 을 모든 Azure에서 고유한 이름으로 바꿉니다(서버 엔드포인트는 `https://<postgres-server-name>.postgres.database.azure.com`임). 회사 이름과 다른 고유한 값을 조합하여 사용하는 것이 좋습니다.
 - *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
 - 여기서 사용되는 B_Gen5_1(기본, 5세대, 1개 코어) [가격 책정 계층](../postgresql/concepts-pricing-tiers.md)이 가장 저렴합니다. 프로덕션 데이터베이스의 경우 GP_Gen5_2(범용, 5세대, 2개 코어) 계층을 대신 사용하려면 `--sku-name` 인수를 생략합니다.
 
@@ -167,7 +167,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 
 ### <a name="create-the-app-service-app"></a>App Service 앱 만들기
 
-터미널에서 앱 코드가 포함된 리포지토리 루트(`djangoapp`)에 있는지 확인합니다.
+터미널에서 앱 코드가 포함된 *djangoapp* 리포지토리 폴더에 있는지 확인합니다.
 
 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 App Service 앱(호스트 프로세스)을 만듭니다.
 
@@ -177,7 +177,7 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 <!-- without --sku creates PremiumV2 plan -->
 
 - `--location` 인수에 대해 이전 섹션의 데이터베이스에 사용한 것과 동일한 위치를 사용합니다.
-- *\<app-name>* 을 모든 Azure에서 고유한 이름으로 바꿉니다(서버 엔드포인트는 `https://\<app-name>.azurewebsites.net`임). *\<app-name>* 에 허용되는 문자는 `A`-`Z`, `0`-`9` 및 `-`입니다. 회사 이름과 앱 식별자를 조합하여 사용하는 것이 좋습니다.
+- *\<app-name>* 을 모든 Azure에서 고유한 이름으로 바꿉니다(서버 엔드포인트는 `https://<app-name>.azurewebsites.net`임). *\<app-name>* 에 허용되는 문자는 `A`-`Z`, `0`-`9` 및 `-`입니다. 회사 이름과 앱 식별자를 조합하여 사용하는 것이 좋습니다.
 
 이 명령은 다음 작업을 수행하며 몇 분 정도 걸릴 수 있습니다.
 
@@ -188,15 +188,13 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 - 없는 경우 App Service 앱을 만듭니다.
 - 아직 사용하도록 설정되지 않은 경우 기본 로깅을 앱에 사용하도록 설정합니다.
 - 빌드 자동화를 사용하도록 설정된 ZIP 배포를 사용하여 리포지토리를 업로드합니다.
+- 일반적인 매개 변수(예: 리소스 그룹 이름 및 App Service 계획)를 *.azure/config* 파일에 캐시합니다. 따라서 나중에 명령을 사용하여 동일한 매개 변수를 모두 지정할 필요가 없습니다. 예를 들어 변경한 후에 앱을 다시 배포하려면 매개 변수 없이 `az webapp up`을 다시 실행하기만 하면 됩니다. 그러나 CLI 확장에서 제공하는 명령(예: `az postgres up`)은 현재 캐시를 사용하지 않으므로 `az webapp up`의 초기 사용을 사용하여 리소스 그룹과 위치를 여기에 지정해야 합니다.
 
 성공적으로 배포되면 명령에서 다음 예제와 같은 JSON 출력을 생성합니다.
 
 ![az webapp up 명령 출력 예제](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 [문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!TIP]
-> 대부분의 Azure CLI 명령에서는 일반적인 매개 변수(예: 리소스 그룹 이름 및 App Service 계획)를 *.azure/config* 파일에 캐시합니다. 따라서 나중에 명령을 사용하여 동일한 매개 변수를 모두 지정할 필요가 없습니다. 예를 들어 변경한 후에 앱을 다시 배포하려면 매개 변수 없이 `az webapp up`을 다시 실행하기만 하면 됩니다. 그러나 CLI 확장에서 제공하는 명령(예: `az postgres up`)은 현재 캐시를 사용하지 않으므로 `az webapp up`을 사용하여 리소스 그룹과 위치를 여기에 지정해야 합니다.
 
 > [!NOTE]
 > 이 시점에서 앱의 URL을 방문하려고 하면 "DisallowedHost at /" 오류가 발생합니다. 이 오류는 이전에 설명한 프로덕션 설정을 사용하도록 앱을 아직 구성하지 않았기 때문에 발생하며, 관련 작업은 다음 섹션에서 수행합니다.
@@ -208,11 +206,11 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 앱 코드는 다양한 환경 변수에서 데이터베이스 정보를 찾을 것으로 예상합니다. App Service에서 환경 변수를 설정하려면 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 "앱 설정"을 만듭니다.
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>@<postgres-server-name>" DBPASS="<password>"
 ```
 
 - *\<postgres-server-name>* 을 이전에 `az postgres up` 명령에서 사용한 이름으로 바꿉니다.
-- *\<username>* 및 *\<password>* 를 명령에서 생성한 자격 증명으로 바꿉니다.
+- *\<username>* 및 *\<password>* 를 명령에서 생성한 자격 증명으로 바꿉니다. `DBUSER` 인수는 `<username>@<postgres-server-name>` 양식이어야 합니다.
 - 리소스 그룹 및 앱 이름은 *.azure/config* 파일의 캐시된 값에서 가져옵니다.
 - 이 명령은 앱 코드에서 예상한 대로 `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER` 및 `DBPASS`라는 설정을 만듭니다.
 - Python 코드에서 `os.environ.get('DJANGO_ENV')`과 같은 명령문을 사용하여 이러한 설정을 환경 변수로 액세스합니다. 자세한 내용은 [환경 변수 액세스](configure-language-python.md#access-environment-variables)를 참조하세요.
@@ -223,34 +221,48 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 
 Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 PostgreSQL의 스키마가 코드에서 설명한 것과 일치하는지 확인합니다.
 
-1. *https://\<app-name>.scm.azurewebsites.net/webssh/host*로 이동하여 브라우저에서 SSH 세션을 열고, 데이터베이스 서버 자격 증명이 아니라 Azure 계정 자격 증명을 사용하여 로그인합니다.
+1. 다음 URL로 이동하고 데이터베이스 서버 자격 증명이 아닌 Azure 계정 자격 증명으로 로그인하여 브라우저에서 SSH 세션을 엽니다.
+
+    ```
+    https://<app-name>.scm.azurewebsites.net/webssh/host
+    ```
+
+    `<app-name>`을 이전에 `az webapp up` 명령에서 사용한 이름으로 바꿉니다.
+
+    macOS 및 Linux에서는 [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) 명령을 사용하여 SSH 세션에 연결할 수 있습니다.
 
 1. SSH 세션에서 다음 명령을 실행합니다(**Ctrl**+**Shift**+**V**를 사용하여 명령을 붙여넣을 수 있음).
 
     ```bash
+    # Change to the folder where the app code is deployed
     cd site/wwwroot
     
     # Activate default virtual environment in App Service container
     source /antenv/bin/activate
+
     # Install packages
     pip install -r requirements.txt
+
     # Run database migrations
     python manage.py migrate
+
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
     
 1. `createsuperuser` 명령은 슈퍼 사용자 자격 증명을 요구하는 메시지를 표시합니다. 이 자습서에서는 기본 사용자 이름으로 `root`를 사용하고, **Enter** 키를 눌러 이메일 주소를 비워 두고, 암호로 `Pollsdb1`을 입력합니다.
 
+1. 데이터베이스가 잠겨 있다는 오류가 표시되면 이전 섹션의 `az webapp settings` 명령을 실행했는지 확인합니다. 이러한 설정이 없으면 마이그레이션 명령이 데이터베이스와 통신할 수 없으므로 오류가 발생합니다.
+
 [문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
     
 ### <a name="create-a-poll-question-in-the-app"></a>앱에서 설문 조사 질문 만들기
 
-1. 브라우저에서 *http:\//\<app-name>.azurewebsites.net* URL을 엽니다. 데이터베이스에 아직 특정 설문 조사가 없으므로 앱에서 "설문 조사를 사용할 수 없습니다."라는 메시지가 표시됩니다.
+1. 브라우저에서 URL `http://<app-name>.azurewebsites.net`을 엽니다. 데이터베이스에 아직 특정 설문 조사가 없으므로 앱에서 "설문 조사를 사용할 수 없습니다."라는 메시지가 표시됩니다.
 
-1. *http:\//\<app-name>.azurewebsites.net/admin*으로 이동합니다. 이전 섹션의 슈퍼 사용자 자격 증명(`root` 및 `Pollsdb1`)을 사용하여 로그인합니다. **설문 조사** 아래에서 **질문** 옆에 있는 **추가**를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다.
+1. [https://www.microsoft.com]\(`http://<app-name>.azurewebsites.net/admin`) 로 이동합니다. 이전 섹션의 슈퍼 사용자 자격 증명(`root` 및 `Pollsdb1`)을 사용하여 로그인합니다. **설문 조사** 아래에서 **질문** 옆에 있는 **추가**를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다.
 
-1. *http:\//\<app-name>.azurewebsites.net/* 으로 다시 이동하여 질문이 사용자에게 표시되는지 확인합니다. 하지만 일부 데이터를 데이터베이스에 생성하려는 질문에 대답합니다.
+1. `http://<app-name>.azurewebsites.net`으로 다시 이동하여 이제 질문이 사용자에게 표시되는지 확인합니다. 데이터베이스에 일부 데이터를 생성하려는 질문에 대답합니다.
 
 **축하합니다.** Linux용 Azure App Service에서 활성 Postgres 데이터베이스를 사용하는 Python Django 웹앱이 실행되고 있습니다.
 
@@ -326,9 +338,9 @@ python manage.py runserver
 
 다음 단계를 사용하여 앱을 로컬로 테스트합니다.
 
-1. 브라우저에서 *http:\//localhost:8000*으로 이동합니다. 그러면 "사용할 수 있는 설문 조사가 없습니다."라는 메시지가 표시됩니다. 
+1. 브라우저에서 `http://localhost:8000`으로 이동합니다. 그러면 "사용할 수 있는 설문 조사가 없습니다."라는 메시지가 표시됩니다. 
 
-1. *http:\//localhost:8000/admin*으로 이동하고, 이전에 만든 관리 사용자를 사용하여 로그인합니다. 다시 한 번 **설문 조사** 아래에서 **질문** 옆에 있는 **추가**를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다. 
+1. `http:///localhost:8000/admin`으로 이동하고 이전에 만든 관리 사용자를 사용하여 로그인합니다. 다시 한 번 **설문 조사** 아래에서 **질문** 옆에 있는 **추가**를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다. 
 
 1. 다시 한 번 *http:\//localhost:8000*으로 이동하고, 질문에 대답하여 앱을 테스트합니다. 
 
@@ -376,7 +388,7 @@ az webapp up
 
 데이터 모델이 변경되었으므로 App Service에서 데이터베이스 마이그레이션을 다시 실행해야 합니다.
 
-*https://\<app-name>.scm.azurewebsites.net/webssh/host*로 이동하여 브라우저에서 SSH 세션을 다시 엽니다. 그런 다음, 다음 명령을 실행합니다.
+`https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하여 브라우저에서 SSH 세션을 다시 엽니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```
 cd site/wwwroot
@@ -391,7 +403,7 @@ python manage.py migrate
 
 ### <a name="review-app-in-production"></a>프로덕션에서 앱 검토
 
-*http:\//\<app-name>.azurewebsites.net*으로 이동하여 프로덕션에서 앱을 다시 테스트합니다. (데이터베이스 필드의 길이만 변경되었으므로 질문을 만들 때 더 긴 응답을 입력하려고 하는 경우에만 변경 내용이 인식됩니다.)
+`http://<app-name>.azurewebsites.net`으로 이동하여 프로덕션에서 앱을 다시 테스트합니다. (데이터베이스 필드의 길이만 변경되었으므로 질문을 만들 때 더 긴 응답을 입력하려고 하는 경우에만 변경 내용이 인식됩니다.)
 
 [문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -437,10 +449,12 @@ az webapp log tail
 앱을 유지하거나 다음 자습서로 계속 진행하려면 [다음 단계](#next-steps)로 건너뜁니다. 그렇지 않으면 요금이 지속적으로 청구되지 않도록 이 자습서에서 만든 리소스 그룹을 삭제할 수 있습니다.
 
 ```azurecli
-az group delete
+az group delete --no-wait
 ```
 
 이 명령은 *.azure/config* 파일에 캐시된 리소스 그룹 이름을 사용합니다. 리소스 그룹을 삭제하면 해당 그룹에 포함된 모든 리소스도 할당 취소되고 삭제됩니다.
+
+모든 리소스를 삭제하는 데 시간이 걸릴 수 있습니다. `--no-wait` 인수를 사용하면 명령이 즉시 반환됩니다.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/DjangoCLITutorialHelp)
 

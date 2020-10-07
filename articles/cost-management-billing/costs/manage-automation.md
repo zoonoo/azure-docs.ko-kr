@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526649"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372190"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -234,7 +234,7 @@ Azure 환경에서 예산을 구성하는 방법에는 여러 가지가 있습�
 - **기간** - 예산이 유효한 기간을 나타냅니다. 예산은 유효한 상태로 유지되는 동안에만 적극적으로 모니터링하고 경고합니다.
 - **알림**
   - 연락처 이메일 – 예산에서 비용이 발생하고 정의된 임계값을 초과하는 경우 이메일 주소에서 경고를 받습니다.
-  - 연락처 역할 - 이 옵션을 사용하면 지정된 범위에서 일치하는 Azure RBAC 역할이 있는 모든 사용자가 이메일 경고를 받습니다. 예를 들어 구독 소유자는 구독 범위에서 만들어진 예산에 대한 경고를 받을 수 있습니다.
+  - 연락처 역할 - 이 옵션을 사용하면 지정된 범위에서 일치하는 Azure 역할이 있는 모든 사용자가 이메일 경고를 받습니다. 예를 들어 구독 소유자는 구독 범위에서 만들어진 예산에 대한 경고를 받을 수 있습니다.
   - 연락처 그룹 - 경고 임계값을 초과하는 경우 예산에서 구성된 작업 그룹을 호출합니다.
 - **비용 차원 필터** - 비용 분석 또는 쿼리 API에서 수행할 수 있는 것과 동일한 필터링을 예산에서도 수행할 수 있습니다. 이 필터를 사용하여 예산으로 모니터링하는 비용 범위를 줄입니다.
 

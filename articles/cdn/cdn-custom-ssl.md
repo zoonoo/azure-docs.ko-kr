@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5cf1181c41af1edc752205f4477f18b78680f484
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 66e0ac622479d38d2e2a3cbf499bb7900251571d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359394"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -80,7 +80,7 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 
 4. 사용자 지정 도메인 목록에서 HTTPS를 사용하도록 설정할 사용자 지정 도메인을 선택합니다.
 
-    ![사용자 지정 도메인 목록](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![스크린샷은 내 인증서 사용 옵션이 있는 사용자 지정 도메인 페이지를 보여줍니다.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     **사용자 지정 도메인** 페이지가 나타납니다.
 

@@ -4,10 +4,10 @@ description: 클라우드에서 클래스룸 랩 환경을 빠르게 설정하�
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85445630"
 ---
 # <a name="introduction-to-classroom-labs"></a>클래스룸 랩 소개

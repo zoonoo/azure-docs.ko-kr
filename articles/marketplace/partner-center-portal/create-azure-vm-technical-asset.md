@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 기술 자산 만들기
+title: Azure Marketplace virtual machine 제품에 대 한 기술 자산 만들기
 description: Azure Marketplace에 대한 VM(가상 머신) 제품에 대한 기술 자산을 만들고 구성하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646805"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803520"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Azure 가상 머신 기술 자산 만들기
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Azure Marketplace virtual machine 제품에 대 한 기술 자산 만들기
 
 VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azure 팀은 VM 이미지의 유효성을 검사 하 여 bootability, 보안 및 Azure 호환성을 보장 합니다. 고품질 테스트 중 하나라도 실패 하면 게시는 오류 및 가능한 [수정 단계](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions)를 포함 하는 메시지와 함께 실패 합니다.
 
 이 문서에서는 Azure Marketplace에 대한 VM(가상 머신) 제품에 대한 기술 자산을 만들고 구성하는 방법을 설명합니다. VM에는 운영 체제 VHD(가상 하드 디스크)와 선택적인 연결된 데이터 디스크 VHD의 두 가지 구성 요소가 있습니다.
 
-1. **운영 체제 VHD** – 제품과 함께 배포하는 솔루션과 운영 체제가 포함됩니다. VHD를 준비 하는 프로세스는 Linux 기반, Windows 기반 또는 사용자 지정 기반 VM 인지에 따라 달라 집니다.
+- **운영 체제 VHD**: 제품을 사용 하 여 배포 하는 운영 체제 및 솔루션을 포함 합니다. VHD를 준비 하는 프로세스는 Linux 기반, Windows 기반 또는 사용자 지정 기반 VM 인지에 따라 달라 집니다.
 
-2. **데이터 디스크 vhd** – VM에 대 한 전용 영구 저장소입니다. 운영 체제 VHD(예: C: 드라이브)를 사용하여 영구 정보를 저장하지 마세요.
+- **데이터 디스크 vhd**: VM에 대 한 전용 영구 저장소입니다. 운영 체제 VHD(예: C: 드라이브)를 사용하여 영구 정보를 저장하지 마세요.
 
 VM 이미지는 하나의 운영 체제 디스크와 최대 16개의 데이터 디스크를 포함합니다. 디스크가 비어 있는 경우에도 데이터 디스크당 하나의 VHD를 사용합니다.
 
@@ -96,19 +96,19 @@ Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 �
 
 3. 왼쪽 탐색 창에서 **virtual machines** 를 선택 하 여 가상 머신 세부 정보 페이지를 표시 합니다.
 4. **+ 추가**를 선택하여 **가상 머신 환경 만들기**를 엽니다.
-5. 드롭다운 목록에서 이미지를 선택 하거나 **모든 공용 및 개인 이미지 찾아보기** 를 선택 하 여 사용 가능한 모든 가상 머신 이미지를 검색 하거나 검색 합니다. 예:
+5. 드롭다운 목록에서 이미지를 선택 하거나 **모든 공용 및 개인 이미지 찾아보기** 를 선택 하 여 사용 가능한 모든 가상 머신 이미지를 검색 하거나 검색 합니다. 예제:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="샘플 VM 이미지를 표시 합니다.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="리소스 그룹 만들기를 시작 하는 방법을 보여 줍니다.":::
 
 6. 다음 권장 사항을 사용하여 배포할 VM의 크기를 선택합니다.
     1. 온-프레미스에서 VHD를 개발하려는 경우 크기는 중요하지 않습니다. 더 작은 VM 중 하나를 사용하는 것이 좋습니다.
     2. Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="VM 크기의 선택 항목을 표시 합니다.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="리소스 그룹 만들기를 시작 하는 방법을 보여 줍니다.":::
 
 7. **디스크** 섹션에서 **고급** 섹션을 확장하고 **관리 디스크 사용** 옵션을 **아니요**로 설정합니다.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="관리 디스크를 사용 하는 옵션을 표시 합니다.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="리소스 그룹 만들기를 시작 하는 방법을 보여 줍니다.":::
 
 8. VM을 만드는 데 필요한 다른 세부 정보를 입력합니다.
 9. **검토 + 만들기**를 선택하여 선택 사항을 검토합니다. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
@@ -129,7 +129,7 @@ Azure Portal에서 2 세대 (Gen2) VM을 만듭니다.
 8. [지원 되는 Gen 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) 및 크기의 권장 크기를 선택 합니다.
 9. [Azure Portal 만들기 흐름](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)을 진행하여 VM 만들기를 완료합니다.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="VM 생성을 선택 하는 옵션을 보여 줍니다.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="리소스 그룹 만들기를 시작 하는 방법을 보여 줍니다.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Azure VM에 연결
 
@@ -157,7 +157,7 @@ Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언�
 7. PuTTY 애플리케이션을 엽니다.
 8. [PuTTY 구성] 대화 상자에서 VM의 IP 주소 또는 DNS 이름을 입력합니다.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="호스트 이름 및 포트 필드를 강조 표시 하는 PuTTY 터미널 설정을 보여 줍니다.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="리소스 그룹 만들기를 시작 하는 방법을 보여 줍니다.":::
 
 9. **열기**를 선택하여 PuTTY 터미널을 엽니다.
 10. 메시지가 표시되면 Linux VM 계정의 계정 이름과 암호를 입력합니다.

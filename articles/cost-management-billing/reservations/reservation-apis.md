@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: cffb753d515c4d066c8ce52e7dacebe5a8f6f8ca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371697"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -88,9 +88,9 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 [예약 - 작업 - 목록 API](/rest/api/reserved-vm-instances/reservationorder/list)를 사용하여 사용자에게 액세스 권한이 있는 모든 예약 목록을 가져옵니다. 프로그래밍 방식으로 예약에 대해 액세스 권한을 부여하려면 다음 문서 중 하나를 참조하세요.
 
-- [RBAC 및 REST API를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-rest.md)
-- [RBAC 및 Azure PowerShell을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-powershell.md)
-- [RBAC 및 Azure CLI를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)
+- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-rest.md)
+- [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)
+- [Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="split-or-merge-reservation"></a>예약 분할 또는 병합
 

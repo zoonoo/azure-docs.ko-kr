@@ -4,17 +4,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fced9206bfd7d33ab4d9e911f92f12ec4b2aa99c
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.custom: devx-track-js
+ms.openlocfilehash: 8681d76616a0e1071a33e0989a784362fdb41bb2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89564998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376503"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
-이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../get-started.md).
+## <a name="skip-to-samples-on-github"></a>GitHub의 샘플로 건너뛰기
+
+샘플 코드로 바로 건너뛰려면 GitHub의 [JavaScript 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node)을 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 

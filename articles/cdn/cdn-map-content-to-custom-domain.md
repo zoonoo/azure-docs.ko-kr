@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 08bbe1000d457cc4f4d6b655051ec640d4dcecf4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362098"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 엔드포인트를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -90,7 +90,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 5. CNAME 항목의 다음 필드를 완료합니다.
 
-    ![CNAME 항목](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![스크린샷은 임시 cdnverify 하위 도메인에 대한 형식, 호스트, 가리키기 및 TTL 값이 있는 C NAME 항목을 보여줍니다.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - 유형: *CNAME*를 선택해 둡니다.
 
@@ -104,7 +104,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
  
     CNAME 항목이 DNS 레코드 테이블에 추가됩니다.
 
-    ![DNS 레코드 표](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![스크린샷은 임시 cdnverify 하위 도메인에 대한 DNS 레코드 테이블에 C NAME 항목이 추가되었음을 보여줍니다.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>CDN 엔드포인트와 사용자 지정 도메인 연결
@@ -188,7 +188,7 @@ cdnverify 하위 도메인이 엔드포인트에 성공적으로 매핑되었음
 
 5. CNAME 항목의 필드를 완료합니다.
 
-    ![CNAME 항목](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![스크린샷은 영구 사용자 지정 도메인에 대한 형식, 호스트, 가리키기 및 TTL 값이 있는 C NAME 항목을 보여줍니다.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - 유형: *CNAME*를 선택해 둡니다.
 
@@ -202,7 +202,7 @@ cdnverify 하위 도메인이 엔드포인트에 성공적으로 매핑되었음
  
     CNAME 항목이 DNS 레코드 테이블에 추가됩니다.
 
-    ![DNS 레코드 표](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![스크린샷은 영구 사용자 지정 도메인에 대한 DNS 레코드 테이블에 C NAME 항목이 추가되었음을 보여줍니다.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. cdnverify CNAME 레코드가 있는 경우 옆에 있는 연필 아이콘을 선택한 다음, 휴지통 아이콘을 선택합니다.
 

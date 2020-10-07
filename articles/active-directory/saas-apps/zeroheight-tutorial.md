@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 31055a3245eb13ec53c922a03db47612b6edacd8
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bcfd9e1b132ef47c83d028acf5e2bcb3fc637ef5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369385"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zeroheight"></a>자습서: zeroheight와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,14 +76,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.zeroheight.com/sso` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 `https://zeroheight.com/sso` URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `zeroheight:<CUSTOM_ID>` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.zeroheight.com/sso/acs/<CUSTOM_ID>` 패턴을 사용하여 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에서 `https://zeroheight.com/sso/acs/<CUSTOM_ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 가져오려면 [zeroheight 클라이언트 지원 팀](mailto:support@zeroheight.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 [zeroheight 클라이언트 지원 팀](mailto:support@zeroheight.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. zeroheight 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 

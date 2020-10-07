@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova
+ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 0d10105648f434eb1d02a821e972e789bd39d66f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 18f717ca05e93c9a8f06ac8868e9a6e5ff80eadb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355536"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>빠른 시작: SSMS를 사용하여 Azure SQL Managed Instance로 데이터베이스 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ SQL Server Management Studio에서 이러한 단계에 따라 SQL Managed Instan
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![복원](./media/restore-sample-database-quickstart/restore.png)
+    ![스크린샷은 성공 메시지와 함께 개체 탐색기에서 실행되는 스크립트를 보여줍니다.](./media/restore-sample-database-quickstart/restore.png)
 
 6. 다음 스크립트를 실행하여 복원 상태를 추적합니다.
 

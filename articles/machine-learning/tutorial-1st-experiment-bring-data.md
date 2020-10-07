@@ -1,7 +1,7 @@
 ---
 title: '자습서: 사용자 고유의 데이터 사용'
 titleSuffix: Azure Machine Learning
-description: Azure ML 시작 시리즈의 4부에서는 원격 학습 실행에서 사용자 고유의 데이터를 사용하는 방법을 보여 줍니다.
+description: Azure Machine Learning 시작 시리즈의 4부에서는 원격 학습 실행에서 사용자 고유의 데이터를 사용하는 방법을 보여 줍니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 876ba76655572979a1d831a1ca07e5f3871a3283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372575"
 ---
-# <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4-4부)
+# <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
 이 자습서에서는 사용자 고유의 데이터를 업로드하고 사용하여 Azure Machine Learning에서 기계 학습 모델을 학습시키는 방법을 보여 줍니다.
 
-이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 **4부로 구성된 자습서 시리즈 중 4부**입니다. 이 자습서는 [1부: 설정](tutorial-1st-experiment-sdk-setup-local.md), [2부: "Hello World" 실행](tutorial-1st-experiment-hello-world.md) 및 [3부: 모델 학습](tutorial-1st-experiment-sdk-train.md)에서 완료한 작업을 기반으로 합니다.
+이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 *4부로 구성된 자습서 시리즈 중 4부*입니다. 이 자습서는 [1부: 설정](tutorial-1st-experiment-sdk-setup-local.md), [2부: “Hello World” 실행](tutorial-1st-experiment-hello-world.md) 및 [3부: 모델 학습](tutorial-1st-experiment-sdk-train.md)에서 완료한 작업을 기반으로 합니다.
 
 [3부: 모델 학습](tutorial-1st-experiment-sdk-train.md)에서는 데이터가 PyTorch API에서 기본 제공 `torchvision.datasets.CIFAR10` 메서드를 사용하여 다운로드되었습니다. 그러나 대부분의 경우 원격 학습 실행에서 사용자 고유의 데이터를 사용하려고 합니다. 이 문서에서는 Azure Machine Learning에서 사용자 고유의 데이터로 작업하는 데 사용할 수 있는 워크플로를 보여 줍니다.
 
@@ -33,16 +33,16 @@ ms.locfileid: "90929500"
 > * 로컬로 학습 스크립트 테스트
 > * Azure에 데이터 업로드
 > * 제어 스크립트 만들기
-> * 새 Azure Machine Learning 개념 이해(매개 변수, 데이터 세트, 데이터 저장소 전달)
+> * 새 Azure Machine Learning 개념(매개 변수, 데이터 세트, 데이터 저장소 전달) 이해
 > * 학습 스크립트 제출 및 실행
 > * 클라우드에서 코드 출력 보기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 시리즈의 [3부](tutorial-1st-experiment-sdk-train.md)를 완료합니다.
+* 시리즈의 [3부](tutorial-1st-experiment-sdk-train.md) 완료
 * Python 언어 및 기계 학습 워크플로에 대한 입문 지식
-* 로컬 개발 환경. 여기에는 Visual Studio Code, Jupyter 또는 PyCharm이 포함되지만 이에 국한되지 않습니다.
-* Python(버전 3.5-3.7)
+* Visual Studio Code, Jupyter 및 PyCharm과 같은 로컬 개발 환경
+* Python(버전 3.5 ~ 3.7).
 
 ## <a name="adjust-the-training-script"></a>학습 스크립트 조정
 이제 Azure Machine Learning에서 실행되는 학습 스크립트(tutorial/src/train.py)가 있으며 모델 성능을 모니터링할 수 있습니다. 인수를 도입하여 학습 스크립트를 매개 변수화하겠습니다. 인수를 사용하면 다른 하이퍼 매개 변수를 쉽게 비교할 수 있습니다.
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
 ### <a name="understanding-the-code-changes"></a>코드 변경 내용 이해
 
-`train.py`에서 사용된 코드는 `argparse` 라이브러리를 활용하여 `data_path`, `learning_rate` 및 `momentum`을 설정했습니다.
+`train.py`의 코드는 `argparse` 라이브러리를 사용하여 `data_path`, `learning_rate` 및 `momentum`을 설정했습니다.
 
 ```python
 # .... other code
@@ -184,7 +184,7 @@ python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
 
 ## <a name="upload-the-data-to-azure"></a>Azure에 데이터 업로드
 
-Azure Machine Learning에서 이 스크립트를 실행하려면 Azure에서 학습 데이터를 사용할 수 있도록 해야 합니다. Azure Machine Learning 작업 영역에는 학습 데이터를 저장하는 데 사용할 수 있는 _기본_ **데이터 저장소**(Azure Blob 스토리지 계정)가 제공됩니다.
+Azure Machine Learning에서 이 스크립트를 실행하려면 Azure에서 학습 데이터를 사용할 수 있도록 해야 합니다. Azure Machine Learning 작업 영역에는 _기본_ 데이터 저장소가 장착되어 제공됩니다. 이는 학습 데이터를 저장할 수 있는 Azure Blob Storage 계정입니다.
 
 >[!NOTE] 
 > Azure Machine Learning을 사용하면 데이터를 저장하는 다른 클라우드 기반 데이터 저장소를 연결할 수 있습니다. 자세한 내용은 [데이터 저장소 설명서](./concept-data.md)를 참조하세요.  
@@ -199,12 +199,12 @@ datastore = ws.get_default_datastore()
 datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=True)
 ```
 
-`target_path`는 CIFAR10 데이터가 업로드되는 데이터 저장소의 경로를 지정합니다.
+`target_path` 값은 CIFAR10 데이터가 업로드되는 데이터 저장소의 경로를 지정합니다.
 
 >[!TIP] 
 > Azure Machine Learning을 사용하여 데이터를 업로드하는 동안 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 임시 파일을 업로드할 수 있습니다. ETL 도구가 필요한 경우 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)를 사용하여 데이터를 Azure에 수집할 수 있습니다.
 
-Python 파일을 실행하여 데이터를 업로드합니다(참고: 업로드 속도는 60초 미만이어야 함).
+Python 파일을 실행하여 데이터를 업로드합니다. (업로드 속도는 60초 미만이어야 합니다.)
 
 ```bash
 python 05-upload-data.py
@@ -271,7 +271,7 @@ if __name__ == "__main__":
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      [데이터 세트](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)는 Azure Blob 저장소에 업로드한 데이터를 참조하는 데 사용됩니다. 데이터 세트는 데이터를 기반으로 하는 있는 추상화 계층이며, 안정성과 신뢰성을 향상시키도록 설계되었습니다.
+      [데이터 세트](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)는 Azure Blob Storage에 업로드한 데이터를 참조하는 데 사용됩니다. 데이터 세트는 데이터를 기반으로 하는 있는 추상화 계층이며, 안정성과 신뢰성을 향상시키도록 설계되었습니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -283,7 +283,7 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-run-to-azure-machine-learning"></a>Azure Machine Learning에 실행 제출
+## <a name="submit-the-run-to-azure-machine-learning"></a>Azure Machine Learning에 실행을 제출
 
 이제 새 구성을 사용하기 위해 실행을 다시 제출합니다.
 
@@ -291,11 +291,11 @@ if __name__ == "__main__":
 python 06-run-pytorch-data.py
 ```
 
-그러면 Azure Machine Learning Studio에서 실험에 대한 URL이 출력됩니다. 해당 링크로 이동하면 코드가 실행되는 것을 확인할 수 있습니다.
+그러면 Azure Machine Learning 스튜디오에서 실험에 대한 URL이 출력됩니다. 해당 링크로 이동하면 코드가 실행되는 것을 확인할 수 있습니다.
 
-### <a name="inspect-the-70_driver_log-log-file"></a>70_driver_log 로그 파일 검사
+### <a name="inspect-the-log-file"></a>로그 파일 검사
 
-Azure Machine Learning Studio에서 위쪽 셀의 URL 출력을 클릭하여 실험 실행으로 이동한 다음, **출력 + 로그**로 이동합니다. 70_driver_log.txt 파일을 클릭합니다. 그러면 다음과 같은 출력이 표시됩니다.
+스튜디오에서 이전 URL 출력을 선택하여 실험 실행으로 이동한 다음, **출력 + 로그**로 이동합니다. `70_driver_log.txt` 파일을 선택합니다. 다음 출력이 표시됩니다.
 
 ```txt
 Processing 'input'.
@@ -331,8 +331,8 @@ LIST FILES IN DATA PATH...
 
 참고:
 
-1. Azure Machine Learning에서 자동으로 Blob 저장소를 컴퓨팅 클러스터에 탑재했습니다.
-2. 제어 스크립트에 사용된 ``dataset.as_named_input('input').as_mount()``가 탑재 지점으로 확인됩니다.
+- Azure Machine Learning에서 자동으로 Blob Storage를 컴퓨팅 클러스터에 탑재했습니다.
+- 제어 스크립트에 사용된 ``dataset.as_named_input('input').as_mount()``가 탑재 지점으로 확인됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
