@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
 ms.openlocfilehash: 8bdd8b9d900cc50fdeb34ff7d233ac4d7e17a45c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78191058"
 ---
 다음 코드와 일치하도록 *HttpExample\\\_\_init\_\_.py*를 업데이트하여 `msg` 매개 변수를 함수 정의에 추가하고 `if name:` 문 아래에 `msg.set(name)`을 추가합니다.

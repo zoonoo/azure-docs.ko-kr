@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: glenga
 ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78190921"
 ---
 C# 클래스 라이브러리 프로젝트에서 바인딩은 함수 메서드의 바인딩 특성으로 정의됩니다. 그런 다음, 함수에 필요한 *function.json* 파일이 이러한 특성을 기반으로 자동으로 생성됩니다.

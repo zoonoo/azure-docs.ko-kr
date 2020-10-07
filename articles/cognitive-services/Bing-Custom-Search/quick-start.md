@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80238845"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기
 
 Bing Custom Search를 사용하려면 웹 보기 또는 조각을 정의하는 사용자 지정 검색 인스턴스를 만들어야 합니다. 이 인스턴스에는 사용자가 원할 수 있는 모든 순위 조정과 함께 검색하려는 공용 도메인, 웹 사이트 및 웹 페이지가 포함됩니다. 
 
@@ -25,7 +25,7 @@ Bing Custom Search를 사용하려면 웹 보기 또는 조각을 정의하는 �
 
 ![Bing Custom Search 포털의 이미지](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 

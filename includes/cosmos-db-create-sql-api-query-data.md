@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 609b62312329b3a8f9f16d15458a0a47f5eb377f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115213"
 ---
 데이터 탐색기에서 쿼리를 사용하여 데이터를 검색하고 필터링할 수 있습니다.
@@ -23,11 +23,11 @@ ms.locfileid: "85115213"
    
 1. 쿼리를 변경하려면 **필터 편집**을 선택하고 기본 쿼리를 `ORDER BY c._ts DESC`로 변경한 다음, **필터 적용**을 선택합니다.
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="ORDER BY c._ts DESC를 추가하고 필터 적용을 클릭하여 기본 쿼리 변경":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="데이터 탐색기의 기본 쿼리는 SELECT * FROM c입니다.":::
 
    수정된 쿼리는 해당 타임스탬프에 따라 내림차순으로 문서를 표시합니다. 따라서 이제 두 번째 문서가 첫 번째로 나열됩니다. 
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="쿼리를 ORDER BY c._ts DESC로 변경하고 필터 적용을 클릭":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="데이터 탐색기의 기본 쿼리는 SELECT * FROM c입니다.":::
 
 SQL 구문에 익숙한 경우 쿼리 조건자 상자에 지원되는 [SQL 쿼리](../articles/cosmos-db/sql-api-sql-query.md)를 입력할 수 있습니다. 데이터 탐색기를 사용하여 서버 쪽 비즈니스 논리에 대한 저장 프로시저, UDF 및 트리거를 만들 수도 있습니다. 
 

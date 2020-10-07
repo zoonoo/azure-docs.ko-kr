@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: roy-har
 ms.openlocfilehash: 8e67a6d0c98a3839922a79e9b452465087da1b69
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84418053"
 ---
 1. [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json)을 선택하여 `pizza-app-for-luis.json` 파일에 대한 GitHub 페이지를 엽니다.

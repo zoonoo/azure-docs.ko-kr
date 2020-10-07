@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: 0db53bcd6516bd52e2796deaa49fe0dd582e0588
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "76939384"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 프라이빗 DNS 영역 만들기

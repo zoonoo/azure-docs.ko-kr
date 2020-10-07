@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2020
 ms.author: glenga
 ms.openlocfilehash: c27f3fea6d2dd8b891220ba06b375b33e6cd950b
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80673464"
 ---
 Java 프로젝트에서 바인딩은 함수 메서드의 바인딩 주석으로 정의됩니다. 그런 다음, *function.json* 파일은 이러한 주석을 기반으로 자동으로 생성됩니다.

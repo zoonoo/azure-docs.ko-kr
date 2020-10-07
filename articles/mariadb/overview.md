@@ -8,22 +8,22 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
 ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79535564"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
 Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/)(GPLv2 라이선스에 따라 사용 가능) 데이터베이스 엔진 버전 10.2 및 10.3을 기반으로 합니다.
 
-Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
+Azure Database for MariaDB는 다음을 제공합니다.
 
 - 추가 비용 없이 기본 제공되는 고가용성
 - 예측 가능한 성능, 종량제 가격 책정 사용
-- 몇 초 이내 필요에 따라 크기 조정
-- 중요한 미사용 및 이동 데이터 보호
+- 필요에 따라 몇 초 이내에 스케일링.
+- 미사용 및 동작 중인 중요한 데이터를 안전하게 보호.
 - 최대 35일 동안 자동 백업 및 지정 시간 복원
 - 엔터프라이즈급 보안 및 규정 준수
 

@@ -9,10 +9,10 @@ ms.date: 01/24/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 5015371afc67574a214097f8d3eef661df29c22f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115044"
 ---
 1. 새 브라우저 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "85115044"
    
 3. **새로 만들기** 페이지에서 **데이터베이스** > **Azure Cosmos DB**를 차례로 선택합니다.
    
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="Azure Portal 데이터베이스 창":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="Azure Portal에서 리소스 만들기":::
    
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
@@ -39,9 +39,9 @@ ms.locfileid: "85115044"
 
 5. **검토+만들기**를 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택하여 계정을 만듭니다. 
  
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="Azure Cosmos DB에 대한 새 계정 페이지":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="Azure Portal에서 리소스 만들기":::
 
 6. 계정을 만드는 데 몇 분이 걸립니다. **배포가 진행 중**이라는 메시지가 표시될 것입니다. 배포가 완료될 때까지 기다렸다가 **리소스로 이동**을 선택합니다.
 
-    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="Azure Portal 알림 창":::
+    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="Azure Portal에서 리소스 만들기":::
 

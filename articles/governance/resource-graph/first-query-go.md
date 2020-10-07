@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 단계에 따라 Go용 Resource Graph �
 ms.date: 06/16/2020
 ms.topic: quickstart
 ms.openlocfilehash: cc15b9fe75913ca47a14001a27e1e3c37d9ea71a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84899395"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>빠른 시작: Go를 사용하여 첫 번째 Resource Graph 쿼리 실행
