@@ -11,10 +11,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89321913"
 ---
 <a name="HOLTop"></a>
@@ -80,7 +80,7 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 
 Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|Name|Description|
+|속성|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| 이 클래스는 **ComputerVisionClient**에 대한 추가 메서드를 포함하고 있습니다.|

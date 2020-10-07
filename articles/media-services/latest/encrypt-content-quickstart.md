@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 Azure Portal에서 Azure Media Services�
 ms.topic: quickstart
 ms.date: 08/31/2020
 ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89263640"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>빠른 시작: 포털을 사용한 콘텐츠 암호화
