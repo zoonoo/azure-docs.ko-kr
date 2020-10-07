@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035062"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804013"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -46,7 +46,7 @@ ms.locfileid: "88035062"
 3. **공용 IP 주소 접두사** 아래에서 **만들기**를 선택합니다.
 4. **공용 IP 주소 접두사 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
 
-   |설정|필수 여부|세부 정보|
+   |Setting|필수 여부|세부 정보|
    |---|---|---|
    |Subscription|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
    |Resource group|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
@@ -69,11 +69,11 @@ ms.locfileid: "88035062"
 3. 해당 항목이 검색 결과에 표시되면 선택하고 개요 섹션에서 **+IP 주소 추가**를 클릭합니다.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택합니다. 접두사는 Standard SKU, IPv4 및 고정 주소용이므로 다음과 같은 정보만 제공해야 합니다.
 
-   |설정|필수 여부|세부 정보|
+   |Setting|필수 여부|세부 정보|
    |---|---|---|
-   |속성|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
-   |유휴 제한 시간(분)|예|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
-   |DNS 이름 레이블|예|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
+   |이름|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |유휴 제한 시간(분)|아니요|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
+   |DNS 이름 레이블|아니요|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
 
 또는--공용 ip 접두사 (CLI) 및-PublicIpPrefix (PS) 매개 변수를 사용 하 여 아래 CLI 및 PS 명령을 사용 하 여 공용 IP 주소 리소스를 만들 수 있습니다. 
 
@@ -88,7 +88,7 @@ ms.locfileid: "88035062"
 2. 목록에서 보거나, 설정을 변경하거나, 삭제하려는 공용 IP 주소 접두사의 이름을 선택합니다.
 3. 공용 IP 주소 접두사에 대해 수행하려는 작업(보기/삭제/변경)에 따라 다음 옵션 중 하나를 수행합니다.
    - **보기**: **개요** 섹션에서는 공용 IP 주소 접두사의 주요 설정을 보여줍니다(예: 접두사).
-   - **삭제**: 공용 IP 주소 접두사를 삭제하려면 **개요** 섹션에서 **삭제**를 선택합니다. 접두사 내 주소가 공용 IP 주소 리소스에 연결되어 있으면 공용 IP 주소 리소스를 먼저 삭제해야 합니다. [공용 IP 주소 삭제](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address)를 참조하세요.
+   - **삭제**: 공용 IP 주소 접두사를 삭제하려면 **개요** 섹션에서 **삭제**를 선택합니다. 접두사 내 주소가 공용 IP 주소 리소스에 연결되어 있으면 공용 IP 주소 리소스를 먼저 삭제해야 합니다. [공용 IP 주소 삭제](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address)를 참조하세요.
 
 **명령**
 
@@ -101,7 +101,7 @@ ms.locfileid: "88035062"
 
 공용 IP 주소 접두사에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-| 작업                                                            | 속성                                                           |
+| 작업                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | 공용 IP 주소 접두사 읽기                                |
 | Microsoft.Network/publicIPPrefixes/write                          | 공용 IP 주소 접두사 만들기 또는 업데이트                    |

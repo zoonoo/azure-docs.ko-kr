@@ -1,16 +1,18 @@
 ---
 title: '빠른 시작: SDK를 사용하여 기술 자료 만들기 및 관리 - QnA Maker'
 description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: aae9bce5542dc4c610df91d8176916adc459fe86
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253934"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777471"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>빠른 시작: QnA Maker 클라이언트 라이브러리
 

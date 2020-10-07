@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b8f45fe07b825008b673534bcc3b28b9364c4cae
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 509c6e7a7940cb740a3dcbf81deed9f0d26c2bc8
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587296"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802857"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 | |  |
 |---|---|
 | **SDK 다운로드** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
-|**API 설명서** |[Java API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
+|**API 설명서** |[Java API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable&preserve-view=true) | 
 |**SDK에 참여** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**시작** | [비동기 Java SDK 시작](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**코드 샘플** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
 | **성능 팁**| [Github 추가 정보](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
-| **지원되는 최소 런타임**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
+| **지원되는 최소 런타임**|[JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) | 
 
 [!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 ## <a name="faq"></a>FAQ

@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 1d778b4330389d23b0fe7179a005abfbd7d66d5c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871108"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802399"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
 HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타냅니다.
@@ -37,7 +37,7 @@ HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타�
 잘못 된 조합을 유발 하는 응용 프로그램 논리를 수정 합니다. 
 
 ### <a name="invalid-character-in-an-item-id"></a>항목 ID에 잘못 된 문자가 있습니다.
-항목 ID에 [잘못 된 문자가](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks) 있는 Azure Cosmos DB에 항목이 삽입 되었습니다.
+항목 ID에 [잘못 된 문자가](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) 있는 Azure Cosmos DB에 항목이 삽입 되었습니다.
 
 #### <a name="solution"></a>해결 방법:
 ID를 특수 문자를 포함 하지 않는 다른 값으로 변경 합니다. ID를 변경 하는 옵션이 아닌 경우 ID를 Base64로 인코딩하여 특수 문자를 이스케이프할 수 있습니다.
@@ -52,7 +52,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks
+//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)
@@ -96,6 +96,12 @@ while (invalidItemsIterator.HasMoreResults)
 #### <a name="solution"></a>해결 방법:
 1. 부모 리소스를 [복원](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) 하거나 리소스를 다시 만듭니다.
 1. 삭제 된 리소스를 대체할 새 리소스를 만듭니다.
+
+### <a name="7-containercollection-names-are-case-sensitive"></a>7. 컨테이너/컬렉션 이름은 대/소문자를 구분 합니다.
+컨테이너/컬렉션 이름은 Cosmos DB의 대/소문자를 sesnsitive 합니다.
+
+#### <a name="solution"></a>해결 방법:
+Cosmos DB에 연결 하는 동안 정확한 이름을 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB .NET SDK를 사용 하는 경우 문제를 [진단 하 고 해결](troubleshoot-dot-net-sdk.md) 합니다.

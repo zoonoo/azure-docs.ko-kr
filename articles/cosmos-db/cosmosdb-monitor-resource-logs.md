@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549978"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801421"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
 
@@ -71,7 +71,7 @@ Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다
 Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md) 문서를 참조 하세요.
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>진단 쿼리와 관련 된 문제 해결
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> 진단 쿼리와 관련 된 문제 해결
 
 1. 실행 하는 데 3 밀리초 보다 오래 걸리는 작업을 쿼리 하는 방법:
 
@@ -99,12 +99,12 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
    | render timechart
    ```
     
-1. 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 오차를 평가 하는 파티션 키 통계를 가져오는 방법:
+1. 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 기울기를 평가 하는 파티션 키 통계를 가져오는 방법:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. 비용이 많이 드는 쿼리에 대 한 요청 요금을 가져오는 방법
@@ -214,14 +214,6 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 기울기를 평가 하는 파티션 키 통계를 가져오는 방법
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. 작업, 요청 요금 또는 응답의 길이에 대 한 P 99 또는 P50 복제 대기 시간을 얻는 방법
 
    ```Kusto
@@ -238,7 +230,7 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
  
 1. Controlplane 로그를 가져오는 방법
  
-   [키 기반 메타 데이터 쓰기 액세스 사용 안 함](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand AZURE POWERSHELL, CLI 또는 ARM을 통해 작업을 실행 하는 방법에 설명 된 대로 플래그를 전환 해야 합니다.
+   [키 기반 메타 데이터 쓰기 액세스 사용 안 함](audit-control-plane-logs.md#disable-key-based-metadata-write-access) 문서에 설명 된 대로 플래그를 전환 하 고 Azure PowerShell, Azure CLI 또는 Azure Resource Manager를 사용 하 여 작업을 실행 해야 합니다.
  
    ```Kusto  
    AzureDiagnostics 

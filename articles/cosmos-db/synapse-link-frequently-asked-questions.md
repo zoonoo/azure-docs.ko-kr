@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568607"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803996"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -19,29 +19,29 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ## <a name="general-faq"></a>일반 FAQ
 
-### <a name="is-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Synapse Link가 모든 Azure Cosmos DB API에 대해 지원되나요?
+### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Azure Synapse Link는 모든 Azure Cosmos DB Api에 대해 지원 되나요?
 
-공개 미리 보기 릴리스에서 Synapse 링크는 Azure Cosmos DB SQL (Core) API 및 MongoDB 용 Azure Cosmos DB API에 대해 지원 됩니다. 
+공개 미리 보기 릴리스에서는 Azure Synapse 링크가 Azure Cosmos DB SQL (Core) API 및 MongoDB 용 Azure Cosmos DB API에 대해 지원 됩니다. 
 
-### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>다중 지역 Azure Cosmos 계정에 대해 Synapse Link가 지원되나요?
+### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Azure Synapse Link는 다중 지역 Azure Cosmos DB 계정에 대해 지원 되나요?
 
 예, 다중 지역 Azure Cosmos 계정의 경우 분석 저장소에 저장된 데이터도 전역적으로 배포됩니다. 단일 쓰기 영역 또는 다중 쓰기 영역에 관계없이 Azure Synapse Analytics에서 수행된 분석 쿼리는 가장 가까운 로컬 지역에서 제공될 수 있습니다.
 
-분석 저장소를 지원하는 다중 지역 Azure Cosmos 계정을 구성할 때는 계정 생성 시 필요한 모든 지역을 추가하는 것이 좋습니다.
+분석 저장소를 지 원하는 다중 지역 Azure Cosmos DB 계정을 구성 하려는 경우 계정 생성 시 필요한 모든 지역을 추가 하는 것이 좋습니다.
 
-### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>다중 지역 계정 설정 시 모든 지역이 아닌 특정 지역에서만 Synapse Link를 사용하도록 선택할 수 있나요?
+### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>특정 지역에 대해서만 Azure Synapse 링크를 사용 하도록 선택할 수 있으며, 다중 지역 계정 설정의 모든 지역이 아닌 경우
 
-미리 보기 릴리스에서 다중 지역 계정에 대해 Synapse Link를 사용하도록 설정하면 모든 지역에 분석 저장소가 생성됩니다. 기본 데이터는 트랜잭션 저장소의 처리량 및 트랜잭션 일관성을 위해 최적화됩니다.
+미리 보기 릴리스에서는 여러 지역 계정에 대해 Azure Synapse 링크를 사용 하도록 설정 하면 분석 저장소가 모든 지역에 생성 됩니다. 기본 데이터는 트랜잭션 저장소의 처리량 및 트랜잭션 일관성을 위해 최적화됩니다.
 
-### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Synapse Link 사용 계정에 대해 백업 및 복원이 지원 되나요?
+### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Azure Synapse Link 활성화 계정에 대해 백업 및 복원이 지원 되나요?
 
-미리 보기에서 Synapse Link 사용 데이터베이스 계정의 경우 컨테이너의 백업 및 복원은 지원 되지 않습니다. 백업 및 복원 기능이 필요한 프로덕션 워크 로드가 있는 경우 해당 데이터베이스 계정에 대해 Synapse 링크를 사용 하도록 설정 하지 않는 것이 좋습니다. 
+미리 보기에서 Azure Synapse Link 사용 데이터베이스 계정의 경우 컨테이너의 백업 및 복원은 지원 되지 않습니다. 백업 및 복원 기능이 필요한 프로덕션 워크 로드가 있는 경우 해당 데이터베이스 계정에 대해 Synapse 링크를 사용 하도록 설정 하지 않는 것이 좋습니다. 
 
-### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>내 Azure Cosmos 계정에 대해 Synapse Link 기능을 사용하지 않도록 설정할 수 있나요?
+### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Synapse Link 기능을 사용 하지 않도록 설정할 수 있나요?
 
-현재, 계정 수준에서 Synapse Link 기능을 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다.  기능을 해제하려면 계정을 삭제하고 새 Azure Cosmos 계정을 다시 만들어야 합니다.
+현재, 계정 수준에서 Synapse Link 기능을 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다. Synapse Link 기능이 계정 수준에서 사용하도록 설정되어 있지만 분석 스토리지를 사용하도록 설정된 컨테이너가 없으면 청구에 영향을 주지 않습니다. 
 
-Synapse Link 기능을 계정 수준에서 사용하도록 설정되어 있지만 분석 저장소를 사용하도록 설정된 컨테이너가 없으면 청구에 영향을 주지 **않습니다**.
+이 기능을 해제 해야 하는 경우에는 두 가지 옵션이 있습니다. 첫 번째는 새 Azure Cosmos DB 계정을 삭제 하 고 다시 만들어 필요한 경우 데이터를 마이그레이션하는 것입니다. 두 번째 옵션은 다른 계정으로의 데이터 마이그레이션에 대 한 도움말을 얻기 위해 지원 티켓을 여는 것입니다.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소
 
@@ -49,11 +49,11 @@ Synapse Link 기능을 계정 수준에서 사용하도록 설정되어 있지�
 
 현재는 새 컨테이너(신규 및 기존 계정 모두)에만 분석 저장소를 사용할 수 있습니다.
 
-### <a name="can-i-disable-analytical-store-on-my-azure-cosmos-containers-after-enabling-it-during-container-creation"></a>컨테이너를 만드는 동안 분석 저장소를 사용하도록 설정한 후 Azure Cosmos 컨테이너에서 사용하지 않도록 설정할 수 있나요?
+### <a name="can-i-disable-analytical-store-on-my-azure-cosmos-db-containers-after-enabling-it-during-container-creation"></a>컨테이너를 만드는 동안 컨테이너를 사용 하도록 설정한 후 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용 하지 않도록 설정할 수 있나요?
 
-현재, 컨테이너를 만드는 동안 분석 저장소를 사용하도록 설정했으면 Azure Cosmos 컨테이너에서 사용하지 않도록 설정할 수 없습니다.
+현재, 컨테이너를 만드는 동안 분석 저장소를 사용하도록 설정했으면 Azure Cosmos DB 컨테이너에서 사용하지 않도록 설정할 수 없습니다.
 
-### <a name="is-analytical-store-supported-for-azure-cosmos-containers-with-autoscale-provisioned-throughput"></a>처리량이 자동 크기 조정 프로비저닝된 Azure Cosmos 컨테이너에 대해 분석 저장소가 지원되나요?
+### <a name="is-analytical-store-supported-for-azure-cosmos-db-containers-with-autoscale-provisioned-throughput"></a>자동 크기 조정 프로 비전 된 처리량이 있는 Azure Cosmos DB 컨테이너에 대해 분석 저장소가 지원 되나요?
 
 예, 처리량이 자동 크기 조정 프로비저닝된 컨테이너에 대해 분석 저장소를 사용하도록 설정할 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ### <a name="can-i-write-back-the-query-aggregation-results-from-synapse-back-to-the-analytical-store"></a>Synapse의 쿼리 집계 결과를 분석 저장소에 다시 쓸 수 있나요?
 
-분석 저장소는 Azure Cosmos 컨테이너의 읽기 전용 저장소입니다. 따라서 집계 결과를 분석 저장소에 직접 다시 쓸 수는 없습니다. 하지만 다른 컨테이너의 Azure Cosmos DB 트랜잭션 저장소에 쓸 수 있으며, 그러면 나중에 서비스 계층으로 활용할 수 있습니다.
+분석 저장소는 Azure Cosmos DB 컨테이너의 읽기 전용 저장소입니다. 따라서 집계 결과를 분석 저장소에 직접 다시 쓸 수는 없습니다. 하지만 다른 컨테이너의 Azure Cosmos DB 트랜잭션 저장소에 쓸 수 있으며, 그러면 나중에 서비스 계층으로 활용할 수 있습니다.
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>트랜잭션 저장소에서 분석 저장소로 자동 동기화 복제는 비동기식인가요? 동기식인가요? 대기 시간은 얼마나 되나요?
 
@@ -112,7 +112,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ## <a name="billing"></a>결제
 
-### <a name="what-is-the-billing-model-of-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Synapse Link의 청구 모델은 무엇인가요?
+### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure Synapse 링크의 청구 모델은 무엇 인가요?
 
 [Azure Cosmos DB 분석 저장소](analytical-store-introduction.md)는 2020년 8월 30일까지 분석 저장소에 대한 비용 없이 공개 미리 보기로 제공됩니다. Synapse Spark 및 Synapse SQL은 [Synapse 서비스 사용](https://azure.microsoft.com/pricing/details/synapse-analytics/)을 통해 청구됩니다.
 
@@ -120,19 +120,19 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>분석 저장소로 인증하는 방법에는 무엇이 있나요?
 
-분석 저장소를 사용한 인증은 트랜잭션 저장소와 동일합니다. 지정 된 데이터베이스의 경우 기본 키 또는 읽기 전용 키를 사용 하 여 인증할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
+분석 저장소를 사용한 인증은 트랜잭션 저장소와 동일합니다. 지정 된 데이터베이스의 경우 기본 키 또는 읽기 전용 키를 사용 하 여 인증할 수 있습니다. Azure Synapse Studio에서 연결 된 서비스를 활용 하 여 Spark 노트북에 Azure Cosmos DB 키를 붙여넣을 수 없도록 할 수 있습니다. 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
 
 ## <a name="synapse-run-times"></a>Synapse 런타임
 
 ### <a name="what-are-the-currently-supported-synapse-run-times-to-access-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소에 액세스하도록 현재 지원되는 Synapse 런타임에는 무엇이 있나요?
 
-|Synapse 런타임 |현재 지원 |
+|Azure Synapse 런타임 |현재 지원 |
 |---------|---------|
-|Synapse Spark 풀 | 읽기, 쓰기(트랜잭션 저장소를 통해), 테이블, 임시 뷰 |
-|서버를 사용 하지 않는 SQL server Synapse    | 읽기, 보기 |
-|프로비저닝된 Synapse SQL   |  사용할 수 없음 |
+|Azure Synapse Spark 풀 | 읽기, 쓰기(트랜잭션 저장소를 통해), 테이블, 임시 뷰 |
+|Azure Synapse SQL 서버 리스 풀    | 읽기, 보기 |
+|프로 비전 된 Azure Synapse SQL   |  사용할 수 없음 |
 
-### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Synapse Spark 테이블이 Azure Data Lake와 동일한 방식으로 Synapse SQL 서버 리스 테이블과 동기화 하나요?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Azure Synapse Spark 테이블이 Azure Data Lake와 동일한 방식으로 Azure Synapse SQL 서버 리스 테이블과 동기화 하나요?
 
 현재 이 기능은 사용할 수 없습니다.
 
@@ -140,9 +140,9 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 현재 Azure Cosmos DB에 대한 Spark 구조적 스트리밍 지원은 트랜잭션 저장소의 변경 피드 기능을 사용하여 구현되며 아직 분석 저장소에서는 지원되지 않습니다.
 
-## <a name="synapse-studio"></a>Synapse Studio
+## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 
-### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>Synapse Studio에서 분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에 연결되어 있는지 어떻게 알 수 있나요?
+### <a name="in-the-azure-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>Azure Synapse Studio에서 분석 저장소가 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에 연결 되어 있는지 어떻게 알 수 있나요?
 
 분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에는 다음 아이콘이 있습니다.
 
@@ -152,12 +152,12 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 :::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
  
-### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Synapse Studio에서 Azure Cosmos DB 자격 증명을 어떻게 전달하나요?
+### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Azure Synapse Studio에서 Azure Cosmos DB 자격 증명을 전달 하는 방법
 
 현재 Azure Cosmos DB 자격 증명은 Azure Cosmos DB 데이터베이스에 액세스할 수 있는 사용자가 연결된 서비스를 만드는 동안 전달됩니다. 이 저장소에 대한 액세스는 작업 영역에 액세스할 수 있는 다른 사용자가 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Synapse Link의 이점](synapse-link.md#synapse-link-benefits) 알아보기
+* [Azure Synapse 링크의 이점](synapse-link.md#synapse-link-benefits) 에 대 한 자세한 정보
 
-* [Synapse Link와 Azure Cosmos DB 간의 통합](synapse-link.md#synapse-link-integration)에 대해 알아봅니다.
+* [Azure Synapse 링크와 Azure Cosmos DB 간의 통합](synapse-link.md#synapse-link-integration)에 대해 알아봅니다.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ae15fc59137e9bf6fb7bfd9fedfb410aa4e0931c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e0b9f10a321fce0b8ccc31bf914fe4f2995c49a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337047"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651907"
 ---
 # <a name="analyze-unexpected-charges"></a>예기치 않은 요금 분석
 
@@ -26,7 +26,7 @@ Azure 서비스 구매 방법에 따라 요금과 관련된 리소스를 파악�
 
 다음 문서에서는 고객 유형에 따라 청구서를 검토하는 방법을 설명하는 자세한 단계를 제공합니다. 각 문서에는 지정된 청구 기간의 사용량 및 비용 세부 정보가 포함된 CSV 파일을 다운로드하는 방법에 대한 지침이 있습니다.
 
-- [종량제 청구서 검토 프로세스](review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [종량제 청구서 검토 프로세스](review-individual-bill.md#charges)
 - [기업계약 청구서 검토 프로세스](review-enterprise-agreement-bill.md)
 - [Microsoft 고객 계약 검토 프로세스](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Microsoft 파트너 계약 검토 프로세스](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)

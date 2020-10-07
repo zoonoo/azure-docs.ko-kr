@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561876"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802296"
 ---
 # <a name="graphics-binding"></a>그래픽 바인딩
 
@@ -120,7 +120,10 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 
 #### <a name="render-remote-image"></a>원격 이미지 렌더링
 
-각 프레임의 시작 부분에서 원격 프레임을 백 버퍼로 렌더링해야 합니다. 이 작업은 색상 및 깊이 정보를 모두 현재 바인딩된 렌더링 대상으로 채우는 `BlitRemoteFrame`을 호출하여 수행됩니다. 따라서 백 버퍼를 렌더링 대상으로 바인딩한 후 이 작업을 수행하는 것이 중요합니다.
+각 프레임의 시작 부분에서 원격 프레임을 백 버퍼로 렌더링 해야 합니다. 이 작업은 `BlitRemoteFrame` 두 눈동자에 대 한 색 및 깊이 정보를 모두 현재 바인딩된 렌더링 대상에 채우는를 호출 하 여 수행 됩니다. 따라서 전체 백 버퍼를 렌더링 대상으로 바인딩한 후에이 작업을 수행 하는 것이 중요 합니다.
+
+> [!WARNING]
+> 원격 이미지가 backbuffer로 array.blit 면 **SV_RenderTargetArrayIndex**를 사용 하는 것과 같이 단일 패스 스테레오 렌더링 기술을 사용 하 여 로컬 콘텐츠를 렌더링 해야 합니다. 별도의 단계에서 각 눈동자를 렌더링 하는 것과 같은 다른 스테레오 렌더링 기술을 사용 하는 경우에는 심각한 성능 저하 나 그래픽 아티팩트가 발생할 수 있으므로 피해 야 합니다.
 
 ```cs
 AzureSession currentSession = ...;

@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79870bcfc3b2cacb856141841a1f018eb1c50641
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1520f3ef77353e653dca10779228e70488bcbd75
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532769"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801752"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Azure Active Directory Microsoft Authenticator 앱의 인증 방법
 
-Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Microsoft 계정에 대 한 추가 보안 수준을 제공 하며 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594)및 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)에 사용할 수 있습니다. Microsoft Authenticator 앱을 사용하면 사용자가 로그인 중에 암호 없는 방식으로 인증하거나 SSPR(셀프 서비스 암호 재설정) 또는 Azure Multi-Factor Authentication 이벤트 중에 추가 확인 옵션으로 인증할 수 있습니다.
+Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Microsoft 계정에 대 한 추가 보안 수준을 제공 하며 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 및 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)에서 사용할 수 있습니다. Microsoft Authenticator 앱을 사용하면 사용자가 로그인 중에 암호 없는 방식으로 인증하거나 SSPR(셀프 서비스 암호 재설정) 또는 Azure Multi-Factor Authentication 이벤트 중에 추가 확인 옵션으로 인증할 수 있습니다.
 
 사용자는 승인 또는 거부를 위해 모바일 앱을 통해 알림을 받거나, Authenticator 앱을 사용하여 로그인 인터페이스에 입력할 수 있는 OATH 확인 코드를 생성할 수 있습니다. 알림 및 확인 코드를 모두 사용하는 경우 Authenticator 앱을 등록하는 사용자는 두 방법 중 하나를 사용하여 해당 ID를 확인할 수 있습니다.
 

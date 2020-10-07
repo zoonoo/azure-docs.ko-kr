@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330454"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802416"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 
@@ -55,7 +55,7 @@ ms.locfileid: "91330454"
 
 ## <a name="common-error-status-codes"></a>일반적인 오류 상태 코드 <a id="error-codes"></a>
 
-| 상태 코드 | Description | 
+| 상태 코드 | 설명 | 
 |----------|-------------|
 | 400 | 잘못 된 요청 (오류 메시지에 따라 다름)| 
 | 401 | [권한 없음](troubleshoot-unauthorized.md) | 
@@ -82,7 +82,7 @@ ms.locfileid: "91330454"
 * [AZURE VM에 공용 IP](../load-balancer/troubleshoot-outbound-connection.md#assignilpip)를 할당 합니다.
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>높은 네트워크 대기 시간
-높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) 또는 V3 sdk의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
+높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) 또는 V3 sdk의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
 
 [시간 초과가](troubleshoot-dot-net-sdk-request-timeout.md) 없고 진단에 단일 요청이 표시 되는 경우 `ResponseTime` `RequestStartTime` (예:이 예에서는 >300 밀리초)와 같이 대기 시간이 긴 단일 요청을 표시 합니다.
 

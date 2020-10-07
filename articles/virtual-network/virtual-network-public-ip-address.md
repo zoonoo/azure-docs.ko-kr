@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 7beff39ed2c37eeb0f07571ba6d611d23a3221e7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292030"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804030"
 ---
 # <a name="manage-public-ip-addresses"></a>공용 IP 주소 관리
 
@@ -47,12 +47,18 @@ ms.locfileid: "89292030"
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
-2. *마켓플레이스 검색* 상자에 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 선택합니다.
-3. **공용 IP 주소** 아래에서 **만들기**를 선택합니다.
-4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
+포털, PowerShell 또는 CLI를 사용 하 여 공용 IP 주소를 만드는 방법에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
 
-   |설정|필수 여부|세부 정보|
+ * [공용 IP 주소 만들기 - 포털](https://docs.microsoft.com/azure/virtual-network/create-public-ip-portal?tabs=option-create-public-ip-standard-zones)
+ * [공용 IP 주소 만들기 - PowerShell](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-standard-zones)
+ * [공용 IP 주소 만들기 - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-standard-zones)
+
+>[!NOTE]
+>포털에서 두 개의 공용 IP 주소 리소스 (IPv4 및 IPv6 하나)를 만드는 옵션을 제공 하지만 PowerShell 및 CLI 명령은 하나의 IP 버전에 대 한 주소를 사용 하 여 하나의 리소스를 만듭니다. 각 IP 버전에 대해 하나씩 두 개의 공용 IP 주소 리소스를 원하는 경우, 공용 IP 주소 리소스에 대해 서로 다른 이름 및 IP 버전을 지정 하 여 명령을 두 번 실행 해야 합니다.
+
+만드는 동안 공용 IP 주소의 특정 특성에 대 한 자세한 내용은 아래 표를 참조 하세요.
+
+   |Setting|필수 여부|세부 정보|
    |---|---|---|
    |IP 버전|예| IPv4 또는 IPv6을 선택 하거나 둘 다 선택 합니다. 둘 다 선택 하면 2 개의 공용 IP 주소가 생성 되 고 1 개의 IPv4 주소와 1 개의 IPv6 주소가 생성 됩니다. [Azure vnet의](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)i p v 6에 대 한 자세한 정보.|
    |SKU|예|Sku 도입 전에 생성 된 모든 공용 IP 주소는 **기본** SKU 공용 ip 주소입니다. 공용 IP 주소를 만든 후에는 SKU를 변경할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 내의 가상 머신 또는 가상 머신 확장 집합은 기본 또는 표준 SKU를 사용할 수 있습니다. 가용성 집합 또는 확장 집합 또는 독립 실행형 Vm 내의 가상 머신 간에 Sku를 혼합 하는 것은 허용 되지 않습니다. **기본** SKU: 가용성 영역을 지원하는 지역에 공용 IP 주소를 만드는 경우 **가용성 영역** 설정이 기본적으로 *없음*으로 설정됩니다. 기본 공용 Ip는 가용성 영역을 지원 하지 않습니다. **표준** SKU: 표준 SKU 공용 IP를 가상 머신 또는 부하 분산 장치 프런트 엔드에 연결할 수 있습니다. 가용성 영역을 지원하는 지역에 공용 IP 주소를 만드는 경우 **가용성 영역** 설정이 기본적으로 *영역 중복*으로 설정됩니다. 가용성 영역에 대한 자세한 내용은 **가용성 영역** 설정을 참조하세요. 주소를 표준 부하 분산 장치에 연결하는 경우에 표준 SKU가 필요합니다. 표준 부하 분산 장치에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가상 머신의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다. 네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.|
@@ -63,47 +69,51 @@ ms.locfileid: "89292030"
    |이름 (IP **버전의 IP**버전을 선택 하는 경우에만 표시 됨)|예, **둘 다** 의 IP 버전을 선택 하는 경우|이름은 이 목록의 첫 번째 **이름**으로 입력하는 이름과 달라야 합니다. IPv4 주소와 IPv6 주소를 모두 만들도록 선택하면 Portal에서는 각 IP 주소 버전이 할당된 개별 공용 IP 주소 리소스 두 개를 만듭니다.|
    |IP 주소 할당 (IP **버전의 Ip**버전을 선택 하는 경우에만 표시 됨)|예, **둘 다** 의 IP 버전을 선택 하는 경우|위의 IP 주소 할당과 동일한 제한 사항|
    |Subscription|예|공용 IP를 연결할 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 에 있어야 합니다.|
-   |리소스 그룹|예|공용 IP를 연결할 리소스와 동일 하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 에 있을 수 있습니다.|
+   |Resource group|예|공용 IP를 연결할 리소스와 동일 하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 에 있을 수 있습니다.|
    |위치|예|공용 IP를 연결할 리소스와 동일한 [위치](https://azure.microsoft.com/regions)(지역이 라고도 함)에 있어야 합니다.|
    |가용성 영역| 아니요 | 이 설정은 지원되는 위치를 선택하는 경우에만 나타납니다. 지원되는 위치 목록은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. **기본** SKU를 선택한 경우 *없음*이 자동으로 선택됩니다. 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다. 두 선택 중 하나는 영역 중복이 아닙니다. **표준** SKU를 선택한 경우: 영역 중복이 자동으로 선택되며, 영역 오류 시 데이터 경로가 복원 가능합니다. 영역 오류 시 복원 불가능한 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다.
 
-**명령**
+## <a name="view-modify-settings-for-or-delete-a-public-ip-address"></a>공용 IP 주소 보기, 설정 수정 또는 삭제
 
-Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리소스를 만드는 옵션을 제공하지만, 다음 CLI 및 PowerShell 명령은 두 IP 버전 중 하나의 주소가 포함된 리소스 하나를 만듭니다. 각 IP 버전에 대해 하나씩 두 개의 공용 IP 주소 리소스를 원하는 경우, 공용 IP 주소 리소스에 대해 서로 다른 이름 및 IP 버전을 지정 하 여 명령을 두 번 실행 해야 합니다.
-
-|도구|명령|
-|---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
-
-## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>공용 IP 주소 보기, 설정 변경 또는 삭제
-
-1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 선택합니다.
-2. 보거나, 해당 설정을 변경하거나, 목록에서 삭제하려는 공용 IP 주소의 이름을 선택합니다.
-3. 공용 IP 주소에 대해 수행하려는 작업(보기/삭제/변경)에 따라 다음 옵션 중 하나를 수행합니다.
-   - **보기**: **개요** 섹션에는 공용 IP 주소가 연결된 네트워크 인터페이스(주소가 네트워크 인터페이스에 연결된 경우) 등 공용 IP 주소에 대한 주요 설정이 표시됩니다. Portal에는 주소(IPv4 또는 IPv6)의 버전이 표시되지 않습니다. 버전 정보를 보려면 PowerShell 또는 CLI를 사용하여 공용 IP 주소를 확인합니다. IP 주소 버전이 IPv6이면 할당된 주소가 Portal, PowerShell 또는 CLI 사용 시 표시되지 않습니다.
-   - **삭제**: 공용 IP 주소를 삭제하려면 **개요** 섹션에서 **삭제**를 선택합니다. 주소가 현재 IP 구성과 연결되어 있으면 삭제할 수 없습니다. 주소가 현재 구성과 연결되어 있으면 **분리**를 선택하여 IP 구성에서 주소를 분리합니다.
-   - **변경**: **구성**을 선택합니다. [공용 IP 주소 만들기](#create-a-public-ip-address)의 4단계 정보를 사용하여 설정을 변경합니다. IPv4 주소 할당 방식을 정적에서 동적으로 변경하려면 먼저 공용 IPv4 주소가 연결된 IP 구성에서 주소를 분리해야 합니다. 그런 다음, 할당 방법을 동적으로 변경하고 **연결**을 선택하여 동일한 IP 구성이나 다른 구성으로 해당 IP 주소를 연결하거나 분리할 수 있습니다. 공용 IP 주소를 분리하려면 **개요** 섹션에서 **분리**를 선택합니다.
-
+   - **보기/목록**: SKU, 주소, 적용 가능한 모든 연결 (예: 가상 컴퓨터 NIC, Load Balancer 프런트 엔드)을 포함 하 여 공용 IP에 대 한 설정을 검토 합니다.
+   - **수정**: 유휴 시간 제한, DNS 이름 레이블 또는 할당 방법과 같은 [공용 IP 주소 만들기](#create-a-public-ip-address)의 4 단계 정보를 사용 하 여 설정을 수정 합니다.
    >[!WARNING]
-   >할당 방법을 고정에서 동적으로 변경하면 공용 IP 주소에 할당된 IP 주소가 손실됩니다. Azure 공용 DNS 서버는 고정 또는 동적 주소와 모든 DNS 이름 레이블(사용자가 정의한 경우) 간의 매핑을 유지하지만, 가상 머신을 중지(할당 취소)된 상태에서 시작할 때 동적 IP 주소가 변경될 수 있습니다. 주소가 변경되지 않도록 하려면 고정 IP 주소를 할당합니다.
+   >공용 IP 주소에 대 한 할당을 정적에서 동적으로 변경 하려면 먼저 해당 IP 구성에서 주소를 분리 해야 합니다 ( **Delete** 섹션 참조).  또한 할당 방법을 정적에서 동적으로 변경 하는 경우 공용 IP 주소에 할당 된 IP 주소가 손실 됩니다. Azure 공용 DNS 서버는 고정 또는 동적 주소와 모든 DNS 이름 레이블(사용자가 정의한 경우) 간의 매핑을 유지하지만, 가상 머신을 중지(할당 취소)된 상태에서 시작할 때 동적 IP 주소가 변경될 수 있습니다. 주소가 변경되지 않도록 하려면 고정 IP 주소를 할당합니다.
+   
+|작업(Operation)|Azure portal|Azure PowerShell|Azure CLI|
+|---|---|---|---|
+|보기 | 공용 IP의 **개요** 섹션에서 |공용 IP 주소 개체를 검색 하 고 해당 설정을 확인 하는 [AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)| [az network 공용-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) 설정을 표시 합니다.|
+|목록 | **공용 IP 주소** 범주 아래에서 |[AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 는 하나 이상의 공용 IP 주소 개체를 검색 하 고 해당 설정을 볼 수 있습니다.|공용 IP 주소를 나열 하는 [az network public ip list](/cli/azure/network/public-ip#az-network-public-ip-list)|
+|수정 | 분리 된 IP의 경우 **구성** 을 선택 하 여 유휴 시간 제한, DNS 이름 레이블 또는 기본 IP의 할당을 정적에서 동적으로 수정 합니다.  |[AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) 설정 업데이트 |업데이트에 대 한 [az network 공용 ip 업데이트](/cli/azure/network/public-ip#az-network-public-ip-update) |
 
-**명령**
+   - **삭제**: 공용 ip를 삭제 하려면 공용 IP 개체가 IP 구성 또는 가상 머신 NIC에 연결 되어 있지 않아야 합니다. 자세한 내용은 아래 표를 참조 하세요.
 
-|도구|명령|
-|---|---|
-|CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list): 공용 IP 주소를 나열함, [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show): 설정을 표시함, [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update): 업데이트함, [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete): 삭제함|
-|PowerShell|공용 IP 주소 개체를 검색 하 고 해당 설정을 [AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) [-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) 를 설정 하 여 설정을 업데이트 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress)|
+|리소스|Azure portal|Azure PowerShell|Azure CLI|
+|---|---|---|---|
+|[Virtual Machine](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|분리를 **선택 하 여** NIC 구성에서 IP 주소를 분리 한 다음, **삭제**를 선택 합니다.|NIC 구성에서 IP 주소를 분리 하도록 [AzPublicIpAddress을 설정](/powershell/module/az.network/set-azpublicipaddress) 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress)|[az network 공용-ip update--를 제거](/cli/azure/network/public-ip#az-network-public-ip-update) 하 여 NIC 구성에서 ip 주소를 분리 합니다. 삭제 하려면 [az network public ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) |
+|Load Balancer 프런트 엔드 | 사용 하지 않는 공용 IP 주소로 이동 하 고 **연결** 을 선택 하 고 관련 프런트 엔드 ip 구성을 사용 하 여 Load Balancer을 선택 하 여 대체 합니다 (VM과 동일한 방법을 사용 하 여 이전 IP를 삭제할 수 있음).  | [AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) 를 사용 하 여 새 프런트 엔드 IP 구성을 Public Load Balancer와 연결 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) 또한 [AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) 를 사용 하 여 프런트 엔드 IP 구성이 두 개 이상 있는 경우 제거할 수 있습니다. |[az network lb 프런트 엔드-ip 업데이트](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) 를 사용 하 여 새 프런트 엔드 Ip 구성을 공용 Load Balancer와 연결 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) [az network lb 프런트 엔드-ip delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) 를 사용 하 여 프런트 엔드 ip 구성이 두 개 이상 있는 경우이를 제거할 수도 있습니다.|
+|방화벽|해당 없음| [할당 취소 ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) 하 여 방화벽 할당을 취소 하 고 모든 IP 구성 제거 | [az network firewall ip-https delete-](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) ip를 제거 하려면 PowerShell을 사용 하 여 먼저 할당을 취소 해야 합니다.|
+
+>[!NOTE]
+>특정 리소스를 만든 후에는 해당 공용 Ip를 변경 하거나 제거할 수 없습니다.  Azure NAT 게이트웨이, Azure VPN Gateway, Azure 애플리케이션 게이트웨이입니다.
+
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+
+공용 ip를 사용 하는 가상 머신 확장 집합을 사용 하는 경우 개별 가상 머신 인스턴스와 연결 된 별도의 공용 IP 개체가 없습니다. 그러나 공용 IP 접두사 개체를 [사용 하 여 인스턴스 ip를 생성할 수 있습니다](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+
+가상 머신 확장 집합에서 공용 Ip를 나열 하려면 PowerShell ([AzPublicIpAddress-VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) 또는 CLI ([az vmss list-instance-ip](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips))를 사용할 수 있습니다.
+
+자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine)을 참조하세요.
 
 ## <a name="assign-a-public-ip-address"></a>공용 IP 주소 할당
 
 다음 리소스에 공용 IP 주소를 할당하는 방법을 알아봅니다.
 
-- [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM(만드는 경우), 또는 [기존 VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
-- [인터넷 연결 Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure VPN Gateway를 사용하여 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 (만들 때) 또는 [기존 가상 머신에](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [공용 Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [VPN Gateway를 사용 하 여 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>사용 권한
 

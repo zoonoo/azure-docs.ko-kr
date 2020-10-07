@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1359fd2a59b49f10bb3b2daa4bcbadae921e188
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012452"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801327"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -58,9 +58,9 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
-|Cassandra API|Keyspace|테이블|
+|Cassandra API|Keyspace|표|
 |Gremlin API|데이터베이스 계정|그래프|
-|테이블 API|데이터베이스 계정|테이블|
+|테이블 API|데이터베이스 계정|표|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 
@@ -80,7 +80,7 @@ HTTP Status 429,
 
 하나 이상의 클라이언트가 누적 작업을 요청 빈도 이상에서 일관 되 게 작동 하는 경우 현재 9로 설정 된 기본 재시도 횟수는 충분 하지 않을 수 있습니다. 이 경우 클라이언트는 `RequestRateTooLargeException` 응용 프로그램에 상태 코드 429을 포함 하는을 throw 합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적으로 요청이 `RequestRateTooLargeException` 요청 률을 초과 하 여 계속 작동 하는 경우 누적 대기 시간 30 초 후에 상태 코드 429이 반환 됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 은 3으로 설정 되므로이 경우 요청 작업은 컨테이너에 대 한 예약 된 처리량을 초과 하 여 속도가 제한 되는 경우 요청 작업은 응용 프로그램에 예외를 throw 하기 전에 3 번 다시 시도 합니다. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 가 60로 설정 되어 있으므로이 경우 첫 번째 요청이 60 초를 초과 하 여 누적 된 재시도 대기 시간 (초)이 초를 초과 하면 예외가 throw 됩니다.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) 은 3으로 설정 되므로이 경우 요청 작업은 컨테이너에 대 한 예약 된 처리량을 초과 하 여 속도가 제한 되는 경우 요청 작업은 응용 프로그램에 예외를 throw 하기 전에 3 번 다시 시도 합니다. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 가 60로 설정 되어 있으므로이 경우 첫 번째 요청이 60 초를 초과 하 여 누적 된 재시도 대기 시간 (초)이 초를 초과 하면 예외가 throw 됩니다.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

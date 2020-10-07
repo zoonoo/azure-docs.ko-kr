@@ -1,14 +1,16 @@
 ---
 title: '빠른 시작: 기술 자료 만들기, 교육 및 게시 - QnA Maker'
 description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 1646666244eb2247d6e7127c4d4e8d39cb0af5ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535852"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777684"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
@@ -64,7 +66,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="질문을 텍스트로 추가하고 답변을 markdown으로 서식을 지정합니다.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="QnA Maker 서비스 기술 자료를 선택하는 스크린샷":::
 
     markdown 기호 `*`는 글머리 기호에 사용됩니다. `\n`은 새 줄에 사용됩니다.
 
@@ -81,7 +83,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
     `How many Azure services are used by a knowledge base?`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="텍스트 상자에 예제 사용자 쿼리를 입력합니다.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="QnA Maker 서비스 기술 자료를 선택하는 스크린샷":::
 
 1. **검사**를 선택하여 응답을 더 자세히 살펴봅니다. 테스트 창은 기술 자료를 게시하기 전에 기술 자료의 변경 내용을 테스트하는 데 사용됩니다.
 
@@ -131,7 +133,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
     채팅 봇은 기술 자료의 답변으로 응답합니다.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="테스트 웹 채팅에 사용자 쿼리를 입력합니다.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="QnA Maker 서비스 기술 자료를 선택하는 스크린샷":::
 
 ## <a name="what-did-you-accomplish"></a>수행했던 작업은 무엇인가요?
 

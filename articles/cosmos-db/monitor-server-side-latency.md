@@ -6,24 +6,24 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 5be2365fb5850c3f45b320d66c114fb791b22c3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262704"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803265"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Azure Cosmos DB 컨테이너 또는 계정에서 작업에 대 한 서버 쪽 대기 시간을 모니터링 하는 방법
 
 Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를 만들 수 있는 메트릭 보기를 제공합니다. Azure Cosmos DB 메트릭은 기본적으로 수집되며, 아무것도 명시적으로 활성화하거나 구성할 필요가 없습니다. 서버 쪽 대기 시간 메트릭은 작업의 서버 쪽 대기 시간을 확인 하는 데 사용 됩니다. Azure Cosmos DB는 직접 연결을 사용 하는 지점 읽기/쓰기 작업에 대해 10 밀리초 미만의 SLA를 제공 합니다. 시점 읽기 및 쓰기 작업의 경우 sla [문서](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)에 설명 된 대로 sla가 계산 됩니다.
 
-다음과 같은 시점 작업에 대해 비정상적으로 긴 대기 시간이 표시 되는 경우
+다음과 같이 지점 작업에 대해 비정상적으로 높은 대기 시간이 표시 되는 경우 서버 쪽 대기 시간을 모니터링할 수 있습니다.
 
-* 직접 모드에서 파티션 키 및 ID를 사용 하는 get 또는 set 작업
+* 직접 연결 모드에서 파티션 키 및 ID를 사용 하는 GET 또는 SET 작업
 * 읽기 또는 쓰기 작업 또는
 * 쿼리
 
-진단 로그를 조회 하 여 반환 되는 데이터의 크기를 확인할 수 있습니다. 쿼리 작업에 대해 지속적으로 긴 대기 시간이 표시 되는 경우 반환 되는 데이터 크기, [처리량 또는 r u/초](cosmosdb-monitor-resource-logs.md#diagnostic-queries) 또는 지정 된 기간에 이러한 작업 수에 대 한 진단 로그를 조회할 수 있습니다. 이러한 방식으로 서버 쪽 대기 시간 문제를 디버그할 수 있습니다.
+진단 로그를 조회 하 여 반환 되는 데이터의 크기를 확인할 수 있습니다. 쿼리 작업에 대해 지속적으로 대기 시간이 지속적으로 표시 되는 경우에는 진단 로그를 조회 하 여 더 높은 [처리량 또는 사용/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) 를 사용 해야 합니다. 서버 쪽 대기 시간은 데이터를 클라이언트에 반환 하기 전에 백 엔드 인프라에 소요 된 시간을 보여 줍니다. 이 메트릭을 확인 하 여 백 엔드 대기 시간 문제를 처리 하는 것이 중요 합니다.
 
 ## <a name="view-the-server-side-latency-metric"></a>서버 쪽 대기 시간 메트릭 보기
 
@@ -35,11 +35,11 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 1. **메트릭** 창 > **리소스 선택**에서 필요한 **구독** 및 **리소스 그룹**을 선택합니다. **리소스 유형**으로 **Azure Cosmos DB 계정**을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용**을 선택합니다.
    
-   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Azure Cosmos DB 계정을 선택 하 여 메트릭 보기":::
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Azure Monitor의 메트릭 창":::
 
-1. 다음으로 사용 가능한 메트릭 목록에서 **서버 쪽 대기 시간** 메트릭을 선택 합니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예제에서는 **서버 쪽 대기 시간** 및 **평균** 을 집계 값으로 선택 하겠습니다. 이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 서버 쪽 대기 시간을 확인할 수 있습니다.  
+1. 다음으로 사용 가능한 메트릭 목록에서 **서버 쪽 대기 시간**  메트릭을 선택 합니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예제에서는 **서버 쪽 대기 시간** 및 **평균** 을 집계 값으로 선택 하겠습니다. 이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 서버 쪽 대기 시간을 확인할 수 있습니다.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Azure Portal에서 서버 쪽 대기 시간 메트릭을 선택 합니다.":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Azure Monitor의 메트릭 창":::
 
 ## <a name="filters-for-server-side-latency"></a>서버 쪽 대기 시간에 대 한 필터
 
@@ -49,7 +49,7 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 각 작업에 대 한 **서버 쪽 대기 시간** 메트릭은 다음 이미지와 같이 표시 됩니다.
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="서버 쪽 대기 시간 메트릭에 대 한 필터":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Azure Monitor의 메트릭 창":::
 
 **분할 적용** 옵션을 사용 하 여 메트릭을 그룹화 할 수도 있습니다.  
 

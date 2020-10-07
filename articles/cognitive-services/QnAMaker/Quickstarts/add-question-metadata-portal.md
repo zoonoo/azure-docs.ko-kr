@@ -1,14 +1,16 @@
 ---
 title: '빠른 시작: QnA Maker 포털에서 질문 및 답변 추가'
 description: 이 빠른 시작에서는 질문에 대한 올바른 답변을 찾을 수 있도록 메타데이터가 포함된 질문 및 답변 쌍을 추가하는 방법을 보여줍니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 930acbd3bbdb8f63b6aa888b292025a76435b289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331392"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776751"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 질문 및 답변 추가
 

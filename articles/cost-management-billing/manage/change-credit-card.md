@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 8366c0681f1ac29d9e265225dfaeeab44aa4b8ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252972"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758543"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가 또는 업데이트
 
@@ -32,7 +32,7 @@ Microsoft 고객 계약을 통해 결제 방법이 청구 프로필과 연결됩
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Azure 구독의 신용 카드 관리
 
-다음 섹션은 Microsoft Online Services 프로그램 청구 계정이 있는 고객에게 적용됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. 청구 계정 유형이 Microsoft Online Services 프로그램인 경우 결제 방법이 개별 Azure 구독과 연결됩니다. 신용 카드를 추가한 후 오류가 표시되면 [Azure 등록 시 신용 카드 거부](/troubleshoot-declined-card.md)를 참조하세요.
+다음 섹션은 Microsoft Online Services 프로그램 청구 계정이 있는 고객에게 적용됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. 청구 계정 유형이 Microsoft Online Services 프로그램인 경우 결제 방법이 개별 Azure 구독과 연결됩니다. 신용 카드를 추가한 후 오류가 표시되면 [Azure 등록 시 신용 카드 거부](/azure/cost-management-billing/manage/troubleshoot-declined-card)를 참조하세요.
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>새 신용 카드를 추가하여 구독에 대한 신용 카드 변경
 

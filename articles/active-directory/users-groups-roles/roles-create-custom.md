@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172a023cc9156f435b4f40b2262ee44128c138e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4210ad382301851a41d3fbd7ee3dc20a748fb544
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732007"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802194"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -58,14 +58,14 @@ ms.locfileid: "84732007"
 Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module AzureADPreview
+Import-Module AzureADPreview
 ```
 
 모듈을 사용할 수 있는지 확인하려면 다음 명령을 사용합니다.
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
@@ -125,7 +125,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     본문
 
     ``` HTTP
-   {
+    {
        "description": "Can manage basic aspects of application registrations.",
        "displayName": "Application Support Administrator",
        "isEnabled": true,
@@ -138,11 +138,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
                ]
            }
        ]
-   }
+    }
     ```
 
-  > [!Note]
-  > "templateId": "GUID"는 요구 사항에 따라 본문에 전송되는 선택적 매개 변수입니다. 공통 매개 변수를 사용하여 서로 다른 여러 사용자 지정 역할을 만들기 위한 요구 사항이 있는 경우 템플릿을 만들고 templateId를 정의하는 것이 가장 좋습니다. Powershell cmdlet(New-Guid) Guid를 사용하여 templateId를 미리 생성할 수 있습니다. 
+    > [!Note]
+    > 는 `"templateId": "GUID"` 요구 사항에 따라 본문에 전송 되는 선택적 매개 변수입니다. 공통 매개 변수를 사용 하 여 서로 다른 여러 사용자 지정 역할을 만들어야 하는 경우 템플릿을 만들고 값을 정의 하는 것이 가장 좋습니다 `templateId` . `templateId`PowerShell cmdlet을 사용 하 여 미리 값을 생성할 수 있습니다 `(New-Guid).Guid` . 
 
 1. 역할 할당을 만듭니다.
 
@@ -163,7 +163,6 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
-
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>리소스에 범위가 지정된 사용자 지정 역할 할당
 

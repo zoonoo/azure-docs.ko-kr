@@ -4,20 +4,16 @@ description: Azure Private Link를 사용하여 네트워크를 Azure Monitor에
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 2b94c782b5d7139fae7a01233bffd3b17cf43c7c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570425"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802228"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
-
-> [!IMPORTANT]
-> 현재 이 기능을 사용하려면 **액세스 권한을 요청**해야 합니다. [가입 양식](https://aka.ms/AzMonPrivateLinkSignup)을 사용하여 액세스 권한을 신청할 수 있습니다.
-
 
 [Azure Private Link](../../private-link/private-link-overview.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다. 많은 서비스의 경우 리소스당 엔드포인트를 설정하기만 하면 됩니다. 그러나 Azure Monitor는 동시에 작동하여 워크로드를 모니터링하는 상호 연결된 서로 다른 서비스의 모음입니다. 결과적으로 모니터링 네트워크의 경계를 정의하고 가상 네트워크에 연결할 수 있는 AMPLS(Azure Monitor Private Link Scope)라는 리소스를 구축했습니다. 이 문서에서는 Azure Monitor Private Link 범위를 사용하는 경우와 설정하는 방법에 대해 설명합니다.
 

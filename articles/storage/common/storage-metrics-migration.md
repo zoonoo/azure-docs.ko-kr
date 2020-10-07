@@ -4,17 +4,17 @@ description: 스토리지 분석 메트릭 (클래식 메트릭)에서 Azure Mon
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708580"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802840"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Azure Monitor에서 메트릭으로 전환
 
@@ -46,6 +46,8 @@ Azure Monitor에서 메트릭으로 전환 하려면 다음 방법을 사용 하
 이 섹션에서는 이러한 두 메트릭 플랫폼 간의 몇 가지 주요 차이점에 대해 설명 합니다.
 
 주요 차이점은 메트릭을 관리 하는 방법에 있습니다. 클래식 메트릭은 Azure Storage에서 관리 하지만 Azure Monitor 메트릭은 Azure Monitor에서 관리 됩니다. Azure Storage 기본 메트릭을 사용 하 여 메트릭 값을 수집 하 고 집계 한 후 저장소 계정에 있는 테이블에 저장 합니다. Azure Monitor에서 메트릭을 사용 하 Azure Storage는 메트릭 데이터를 Azure Monitor 백 엔드에서 보냅니다. Azure Monitor는 Azure Portal 데이터 뿐만 아니라 수집 데이터를 포함 하는 통합 모니터링 환경을 제공 합니다. 
+
+클래식 메트릭은 Azure storage 계정에 전송 되 고 저장 됩니다. Azure Monitor 메트릭은 여러 위치로 전송 될 수 있습니다. 저장소 계정은 이러한 위치 중 하나일 수 있지만 필수는 아닙니다.  
 
 메트릭이 지원 되는 것 처럼 클래식 메트릭은 Azure Blob 저장소에 대 한 **용량** 메트릭만 제공 합니다. Azure Monitor 메트릭은 Blob, 테이블, 파일, 큐 및 premium storage에 대 한 용량 메트릭을 제공 합니다. 클래식 메트릭은 Blob, 테이블, Azure 파일 및 큐 저장소에 대 한 **트랜잭션** 메트릭을 제공 합니다. Azure Monitor에서 메트릭은 premium storage를 해당 목록에 추가 합니다.
 

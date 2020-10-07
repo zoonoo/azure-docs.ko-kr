@@ -301,8 +301,6 @@
               href: platform/move-workspace.md
             - name: 서비스 공급자용 디자인
               href: platform/service-providers.md
-            - name: 액세스 관리
-              href: platform/manage-access.md
             - name: Dedicated 클러스터
               href: log-query/logs-dedicated-clusters.md
     - name: 메트릭 탐색기
@@ -751,8 +749,6 @@
             - name: 가용성 경고
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: 성능 테스트
-              href: app/performance-testing.md
             - name: 문제 해결
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md

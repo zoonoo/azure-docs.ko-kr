@@ -6,39 +6,39 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945984"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779893"
 ---
-이 빠른 시작에서는 Android용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Android용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android 스튜디오](https://developer.android.com/studio)(Android 애플리케이션 만들기용)
-- [사용자 액세스 토큰](../../access-tokens.md)(Azure Communication Service용)
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
-
+- [사용자 액세스 토큰](../../access-tokens.md)(Azure Communication Service용)
 
 ## <a name="setting-up"></a>설치
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>빈 활동을 사용하여 Android 앱 만들기
 
 Android 스튜디오에서 [새 Android 스튜디오 프로젝트 시작]을 선택합니다.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
 
-"휴대폰 및 태블릿" 아래에서 "빈 활동" 프로젝트 템플릿을 선택합니다.
+&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동" 프로젝트 템플릿을 선택합니다.
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="프로젝트 템플릿 화면에서 선택한 '빈 활동' 옵션을 보여 주는 스크린샷":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
 
-"API 26: Android 8.0(Oreo)" 이상의 최소 클라이언트 라이브러리를 선택합니다.
+&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동" 이상의 최소 클라이언트 라이브러리를 선택합니다.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="프로젝트 템플릿 화면에서 선택한 '빈 활동' 옵션을 보여 주는 스크린샷 2":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
+
+&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동":::
 
 
 ### <a name="install-the-package"></a>패키지 설치
@@ -64,7 +64,7 @@ allprojects {
     }
 }
 ```
-그런 다음, 모듈 수준 build.gradle의 dependencies 및 android 섹션에서 다음 줄을 추가합니다.
+그런 다음, 모듈 수준 build.gradle에서 dependencies 및 android 섹션에 다음 줄을 추가합니다.
 
 ```groovy
 android {
@@ -80,7 +80,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 ```
@@ -126,7 +126,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>앱 레이아웃 설정
+### <a name="set-up-the-layout-for-the-app"></a>앱 레이아웃 설정
 
 두 개의 입력, 즉 수신자 ID에 대한 텍스트 입력 및 전화를 걸기 위한 단추가 필요합니다. 이러한 입력은 디자이너를 사용하거나 레이아웃 xml을 편집하여 추가할 수 있습니다. ID가 `call_button`이고 텍스트 입력이 `callee_id`인 단추를 만듭니다. `app/src/main/res/layout/activity_main.xml`로 이동하고, 파일의 내용을 다음으로 바꿉니다.
 
@@ -315,4 +315,10 @@ private void startCall() {
 
 이제 도구 모음의 "앱 실행" 단추(Shift+F10)를 사용하여 앱을 시작할 수 있습니다. `8:echo123`을 호출하여 전화를 걸 수 있는지 확인합니다. 미리 기록된 메시지가 재생된 다음, 해당 메시지를 사용자에게 다시 반복합니다.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="완료된 애플리케이션을 보여 주는 스크린샷":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
+
+&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동":::
+
+## <a name="sample-code"></a>샘플 코드
+
+샘플 앱은 [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)에서 다운로드할 수 있습니다.

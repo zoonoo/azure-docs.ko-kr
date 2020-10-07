@@ -992,6 +992,8 @@
                 - name: SQL VM RP에 등록
                   displayName: 'resource provider, registration'
                   items:
+                    - name: 자동 등록
+                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
                     - name: 단일 VM
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: 여러 VM 대량 등록

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761198"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801854"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
 
@@ -167,7 +167,7 @@ container = database.create_container_if_not_exists(id='WebsiteData', partition_
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>``cosmos_client``의 사용자 지정 인스턴스 만들기
 더 많은 유연성을 위해 다음과 같은 작업을 위해 ``cosmos_client``의 사용자 지정 인스턴스를 만들 수 있습니다.
 
-- [연결 정책](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview) 사용자 지정
+- [연결 정책](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true) 사용자 지정
 - 현재 사용자가 사용 중인 계정이 아닌 다른 Azure Cosmos 계정에 대해 작업 실행
 
 [환경 변수](#access-the-account-endpoint-and-primary-key-env-variables)를 통해 현재 계정의 연결 문자열 및 기본 키에 액세스할 수 있습니다. 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
 Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Notebook 작업 영역 다시 설정":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="nteract 데이터 탐색기":::
 
 ## <a name="next-steps"></a>다음 단계
 

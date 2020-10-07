@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bdf512c66958338992c5959f8e00b4589850ff33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008372"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802143"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2의 성능 팁
+# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -42,7 +42,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 성능 향상을 위해 Windows 64 비트 호스트를 처리 하는 것이 좋습니다. SQL SDK에는 로컬에서 쿼리를 구문 분석하고 최적화하는 네이티브 ServiceInterop.dll이 포함되어 있습니다. ServiceInterop.dll은 Windows x64 플랫폼에서만 지원됩니다. ServiceInterop.dll를 사용할 수 없는 Linux 및 기타 지원 되지 않는 플랫폼의 경우 게이트웨이에 대 한 추가 네트워크 호출을 수행 하 여 최적화 된 쿼리를 가져옵니다. 다음 유형의 응용 프로그램은 기본적으로 32 비트 호스트 처리를 사용 합니다. 호스트 처리를 64 비트 처리로 변경 하려면 응용 프로그램의 형식에 따라 다음 단계를 수행 합니다.
 
-- 실행 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 [플랫폼 대상](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) 을 x **64** 로 설정 하 여 호스트 처리를 변경할 수 있습니다.
+- 실행 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 [플랫폼 대상](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) 을 x **64** 로 설정 하 여 호스트 처리를 변경할 수 있습니다.
 
 - Vstest.console.exe 기반 테스트 프로젝트의 경우 **Test**  >  Visual Studio 테스트 메뉴에서 테스트**테스트 설정**  >  **기본 프로세서 아키텍처 x 64** **Test** 를 선택 하 여 호스트 처리를 변경할 수 있습니다.
 
@@ -203,7 +203,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > `maxItemCount`속성은 페이지 매김을 위해 사용 하면 안 됩니다. 가장 기본적인 용도는 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 것입니다.  
 
-사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 예를 들어:
+사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 예를 들면 다음과 같습니다.
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

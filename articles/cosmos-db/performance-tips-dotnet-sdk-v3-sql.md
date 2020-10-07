@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9d50ed62343a7fd0aafb1fed97c0f33f2caaec12
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019932"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802993"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -39,7 +39,7 @@ ServiceInterop.dll를 사용할 수 없는 Linux 및 기타 지원 되지 않는
 
 여기에 나열 된 네 가지 응용 프로그램 유형은 기본적으로 32 비트 호스트 처리를 사용 합니다. 응용 프로그램 유형에 대 한 호스트 처리를 64 비트 처리로 변경 하려면 다음을 수행 합니다.
 
-- **실행 가능한 응용 프로그램의 경우** **프로젝트 속성** 창의 **빌드** 창에서 [플랫폼 대상](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) 을 **x64**로 설정 합니다.
+- **실행 가능한 응용 프로그램의 경우** **프로젝트 속성** 창의 **빌드** 창에서 [플랫폼 대상](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) 을 **x64**로 설정 합니다.
 
 - **Vstest.console.exe 기반 테스트 프로젝트의 경우**Visual Studio **테스트** 메뉴 **에서 테스트**  >  **테스트 설정**을 선택 하 고 **기본 프로세서 아키텍처** 를 x **64**로 설정 합니다.
 
@@ -126,7 +126,7 @@ TCP 프로토콜에서 실행 되는 클라이언트는 수명이 긴 연결을 
 
 호출 하는 응용 프로그램이 프로 비전 된 Azure Cosmos DB 끝점과 동일한 Azure 지역 내에 있도록 하면 가능한 최저 대기 시간을 얻을 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="동일한 지역에 있는 클라이언트를 배치 합니다." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="서로 다른 연결 모드 및 프로토콜을 사용 하 여 Azure Cosmos DB에 대 한 연결을 설정 합니다." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -199,7 +199,7 @@ SQL .NET SDK는 병렬 쿼리를 지원 하므로 분할 된 컨테이너를 병
 
 성능 테스트 중에는 적은 수의 요청이 제한 될 때까지 부하를 늘려야 합니다. 요청이 제한 되는 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격에 대 한 제한을 다시 해제 해야 합니다. 백오프를 사용 하면 다시 시도 사이에 대기 시간을 최소화 하는 데 도움이 됩니다. 
 
-자세한 내용은 [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter)를 참조 하세요.
+자세한 내용은 [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter)를 참조 하세요.
     
 다음 샘플과 같이 추가 진단 정보를 기록 하 고 대기 시간 문제를 해결 하는 메커니즘이 있습니다. 읽기 대기 시간이 더 긴 요청에 대 한 진단 문자열을 기록할 수 있습니다. 캡처된 진단 문자열은 지정 된 요청에 대해 *429* 오류를 받은 횟수를 이해 하는 데 도움이 됩니다.
 
