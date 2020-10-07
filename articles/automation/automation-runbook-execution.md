@@ -1,16 +1,16 @@
 ---
 title: Azure Automation에서 Runbook 실행
-description: 이 문서에서는 Azure Automation에서 Runbook을 처리하는 방법에 대한 개요를 제공합니다.
+description: 이 문서에서는 Azure Automation runbook의 처리에 대 한 개요를 제공 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b5dd445ec4dd9014f107c0a349deed6cde47f968
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325830"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776292"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -89,20 +89,22 @@ Azure Automation은 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하
 
 ### <a name="log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트
 
-[Windows용 Log Analytics 에이전트](../azure-monitor/platform/agent-windows.md)는 Azure Monitor와 함께 작동하여 Windows VM과 물리적 컴퓨터를 관리합니다. 머신은 Azure에서 실행될 수도 있고 로컬 데이터 센터와 같은 비 Azure 환경에서 실행될 수도 있습니다. 에이전트가 하나 이상의 Log Analytics 작업 영역으로 보고하도록 구성해야 합니다.
+[Windows용 Log Analytics 에이전트](../azure-monitor/platform/agent-windows.md)는 Azure Monitor와 함께 작동하여 Windows VM과 물리적 컴퓨터를 관리합니다. 머신은 Azure에서 실행될 수도 있고 로컬 데이터 센터와 같은 비 Azure 환경에서 실행될 수도 있습니다.
 
 >[!NOTE]
 >Windows용 Log Analytics 에이전트의 이전 명칭은 MMA(Microsoft Monitoring Agent)입니다.
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-[Linux용 Log Analytics 에이전트](../azure-monitor/platform/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 Hybrid Runbook Worker 등에서 루트 권한이 필요한 명령을 실행할 수 있도록 지원하는 **nxautomation** 사용자 계정을 사용하여 설치됩니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
+[Linux용 Log Analytics 에이전트](../azure-monitor/platform/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 **nxautomation** 사용자 계정을 사용 하 여 설치 됩니다. 예를 들어 Hybrid Runbook Worker에서 루트 권한이 필요한 명령을 실행할 수 있습니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
 
 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)를 설치할 때는 해당 sudo 권한이 있는 **nxautomation** 계정이 있어야 합니다. 작업자를 설치하려고 시도했는데 계정이 없거나 계정에 적절한 권한이 없는 경우 설치가 실패합니다.
 
+폴더 또는 해당 소유권의 사용 권한을 변경 하면 안 `sudoers.d` 됩니다. **Nxautomation** 계정에는 Sudo 권한이 필요 하며 사용 권한은 제거 하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한 하면 주요 변경 사항이 발생할 수 있습니다.
+
 Log Analytics 에이전트 및 **nxautomation** 계정에서 사용할 수 있는 로그는 다음과 같습니다.
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics 에이전트 로그 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics 에이전트 로그
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation 작업자 로그
 
 >[!NOTE]
@@ -226,7 +228,7 @@ Azure DevOps Services나 GitHub와 같은 외부 서비스는 Azure Automation�
 
 Azure 클라우드에 있는 모든 Runbook리소스를 공유할 수 있도록 공평 분배라는 개념을 사용합니다. Azure는 공평 분배를 사용하여 3시간 이상 실행된 작업을 일시적으로 언로드하거나 중지합니다. [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [Python Runbook](automation-runbook-types.md#python-runbooks)의 작업은 중지된 후 다시 시작되지 않으며 작업 상태는 중지됨으로 설정됩니다.
 
-장기 실행 Azure Automation 작업의 경우 Hybrid Runbook Worker를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3시간의 공평 분배 제한으로 제한되지 않지만, 예기치 않은 로컬 인프라 문제가 발생하는 경우 Runbook이 다시 시작 동작을 지원하는 작업자에서 실행되도록 개발해야 합니다.
+장기 실행 Azure Automation 작업의 경우 Hybrid Runbook Worker를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3 시간 공평 공유 제한으로 제한 되지 않지만 예기치 않은 로컬 인프라 문제부터 다시 시작을 지 원하는 작업자에서 실행할 runbook을 개발 해야 합니다.
 
 또 다른 옵션은 자식 Runbook을 사용하여 Runbook을 최적화하는 것입니다. 예를 들어 Runbook이 여러 리소스에서 동일한 함수를 반복하는 경우(예: 여러 데이터베이스의 데이터베이스 작업에서) 해당 함수를 [자식 Runbook](automation-child-runbooks.md)으로 이동한 다음 Runbook에서 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook)을 사용하여 이 함수를 호출하도록 할 수 있습니다. 자식 Runbook은 별도의 프로세스에서 병렬로 실행됩니다.
 

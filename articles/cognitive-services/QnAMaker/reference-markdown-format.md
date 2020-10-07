@@ -1,14 +1,16 @@
 ---
 title: Markdown 형식-QnA Maker
 description: 다음은 QnA Maker의 대답 텍스트에서 사용할 수 있는 markdown 형식 목록입니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: d5bf8342b3e595ed4b381ec5104a0c82f0d7ecc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5f640f8895cd6defe31a68b790ce841c4679a6f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321036"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777354"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>QnA Maker 대답 텍스트에서 지원 되는 Markdown 형식
 

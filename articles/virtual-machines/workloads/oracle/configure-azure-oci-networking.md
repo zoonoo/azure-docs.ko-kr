@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325932"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776581"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 
@@ -36,7 +36,7 @@ ms.locfileid: "91325932"
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure와 OCI 간에 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 
@@ -96,7 +96,7 @@ Microsoft는 Terraform 스크립트를 만들어 네트워크 상호 연결의 �
 
 상호 연결을 삭제 하려면 다음 단계를 지정 된 순서 대로 따라야 합니다. 그렇게 하지 않으면 "실패 상태" Express 경로 회로가 생성 됩니다.
 
-1. Express 경로 연결을 삭제 합니다. 연결에 대 한 페이지에서 **삭제** 아이콘을 클릭 하 여 연결을 삭제 합니다. 자세한 내용은 [express 경로 설명서](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet)를 참조 하세요.
+1. Express 경로 연결을 삭제 합니다. 연결에 대 한 페이지에서 **삭제** 아이콘을 클릭 하 여 연결을 삭제 합니다. 자세한 내용은 [express 경로 설명서](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources)를 참조 하세요.
 1. Oracle 클라우드 콘솔에서 Oracle FastConnect를 삭제 합니다.
 1. Oracle FastConnect 회로를 삭제 한 후에는 Azure Express 경로 회로를 삭제할 수 있습니다.
 

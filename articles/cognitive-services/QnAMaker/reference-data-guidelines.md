@@ -1,14 +1,16 @@
 ---
 title: 데이터 가져오기 및 내보내기 참조-QnA Maker
 description: 이 가져오기 및 내보내기 참조를 사용 하 여 기술 자료 백업, 저장소 및 교체에 대 한 최상의 결과를 얻을 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: c77f51263206c3cc0d4b546e1728963211a186c6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: fd4ea4b671ee8efa853109e288459fdc256bee23
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532157"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776683"
 ---
 # <a name="import-and-export-data-reference"></a>데이터 참조 가져오기 및 내보내기
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 68f54e18cf20680156de8a29c54f7924ca6064d1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91610112"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777193"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Azure Virtual WAN으로 마이그레이션
 
@@ -66,11 +66,11 @@ Contoso는 유럽 및 아시아에서 사무실이 있는 글로벌 재무 조�
 
 요약:
 
-- 유럽의 HQ는 ExpressRoute 연결 상태를 유지하고, 유럽 온-프레미스 DC는 Azure로 완전히 마이그레이션되어 현재 서비스 해제되었습니다.
-- 아시아 DC 및 HQ는 프라이빗 WAN 연결 상태를 유지합니다. 이제 Azure 가상 WAN을 사용 하 여 로컬 캐리어 네트워크를 보강 하 고 글로벌 연결을 제공 합니다.
-- Azure 가상 WAN 허브는 유럽 서부 및 남부 동아시아 Azure 지역에 배포 되어 Express 경로 및 VPN 연결 장치에 대 한 연결 허브를 제공 합니다.
-- 허브는 글로벌 메시 네트워크에 대한 OpenVPN 연결을 사용하여 여러 클라이언트 유형에서 로밍 사용자에게 VPN 종료도 제공하므로, Azure로 마이그레이션된 애플리케이션뿐만 아니라 온-프레미스에 남아 있는 모든 리소스에도 액세스할 수 있습니다.
-- Azure Virtual WAN에서 가상 네트워크 내의 리소스에 대한 인터넷 연결을 제공합니다.
+* 유럽의 HQ는 ExpressRoute 연결 상태를 유지하고, 유럽 온-프레미스 DC는 Azure로 완전히 마이그레이션되어 현재 서비스 해제되었습니다.
+* 아시아 DC 및 HQ는 프라이빗 WAN 연결 상태를 유지합니다. 이제 Azure 가상 WAN을 사용 하 여 로컬 캐리어 네트워크를 보강 하 고 글로벌 연결을 제공 합니다.
+* Azure 가상 WAN 허브는 유럽 서부 및 남부 동아시아 Azure 지역에 배포 되어 Express 경로 및 VPN 연결 장치에 대 한 연결 허브를 제공 합니다.
+* 허브는 글로벌 메시 네트워크에 대한 OpenVPN 연결을 사용하여 여러 클라이언트 유형에서 로밍 사용자에게 VPN 종료도 제공하므로, Azure로 마이그레이션된 애플리케이션뿐만 아니라 온-프레미스에 남아 있는 모든 리소스에도 액세스할 수 있습니다.
+* Azure Virtual WAN에서 가상 네트워크 내의 리소스에 대한 인터넷 연결을 제공합니다.
 
 Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합니다. Microsoft 365와 같은 SaaS 서비스에 최적화 된 액세스를 위해 파트너 통합을 통해 지원 되는 로컬 인터넷 분리
 
@@ -87,20 +87,21 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 허브 및 스포크 방식으로 유지 하기 위해 고객 관리 허브 가상 네트워크에는 다음과 같은 여러 가지 함수 블록이 포함 되어 있습니다.
 
-- 공유 서비스 (여러 스포크에 필요한 모든 일반 함수). 예: Contoso는 IaaS (Infrastructure as a service) 가상 머신에서 Windows Server 도메인 컨트롤러를 사용 합니다.
-- IP/라우팅 방화벽 서비스는 타사 네트워크 가상 어플라이언스에서 제공하며, 스포크-스포크 계층 3 IP 라우팅이 가능합니다.
-- 인터넷 리소스에 대해 필터링된 아웃바운드 액세스를 위해 가상 머신에서 실행되는 인바운드 HTTPS 요청 및 타사 프록시 서비스에 대한 Azure Application Gateway를 포함한 인터넷 수신/송신 서비스입니다.
-- 온-프레미스 네트워크에 연결 하기 위한 Express 경로 및 VPN 가상 네트워크 게이트웨이.
+* 공유 서비스 (여러 스포크에 필요한 모든 일반 함수). 예: Contoso는 IaaS (Infrastructure as a service) 가상 머신에서 Windows Server 도메인 컨트롤러를 사용 합니다.
+* IP/라우팅 방화벽 서비스는 타사 네트워크 가상 어플라이언스에서 제공하며, 스포크-스포크 계층 3 IP 라우팅이 가능합니다.
+* 인터넷 리소스에 대해 필터링된 아웃바운드 액세스를 위해 가상 머신에서 실행되는 인바운드 HTTPS 요청 및 타사 프록시 서비스에 대한 Azure Application Gateway를 포함한 인터넷 수신/송신 서비스입니다.
+* 온-프레미스 네트워크에 연결 하기 위한 Express 경로 및 VPN 가상 네트워크 게이트웨이.
 
 ### <a name="step-2-deploy-virtual-wan-hubs"></a>2 단계: 가상 WAN 허브 배포
 
 각 지역에 가상 WAN 허브를 배포 합니다. 다음 문서에 설명 된 대로 VPN 및 Express 경로 기능을 사용 하 여 가상 WAN 허브를 설정 합니다.
 
-- [자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md)
-- [자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기](virtual-wan-expressroute-portal.md)
+* [자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md)
+* [자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기](virtual-wan-expressroute-portal.md)
 
 > [!NOTE]
 > Azure 가상 WAN은 표준 SKU를 사용 하 여이 문서에 표시 된 트래픽 경로 중 일부를 사용 하도록 설정 해야 합니다.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="허브 및 스포크":::
 **그림 2: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
@@ -111,6 +112,7 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 > [!NOTE]
 > Virtual WAN 허브에 연결하려면 ExpressRoute 회로를 프리미엄 SKU 유형으로 업그레이드해야 합니다.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="허브 및 스포크":::
 **그림 3: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
@@ -176,9 +178,9 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 아시아 분기가 탄력적 S2S BGP 사용 터널을 통해 남부 동아시아 가상 WAN 허브에 연결 됩니다.
+* 아시아 분기가 탄력적 S2S BGP 사용 터널을 통해 남부 동아시아 가상 WAN 허브에 연결 됩니다.
 
-- 아시아 Virtual WAN 허브에서 트래픽을 로컬로 연결된 VNet으로 라우팅합니다.
+* 아시아 Virtual WAN 허브에서 트래픽을 로컬로 연결된 VNet으로 라우팅합니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="허브 및 스포크":::
 
@@ -188,9 +190,9 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 유럽 본부는 프리미엄 Express 경로 회로를 통해 유럽 서부 가상 WAN 허브에 연결 됩니다.
+* 유럽 본부는 프리미엄 Express 경로 회로를 통해 유럽 서부 가상 WAN 허브에 연결 됩니다.
 
-- Virtual WAN 허브-허브 글로벌 연결을 통해 트래픽을 원격 지역에 연결된 VNet으로 전송할 수 있습니다.
+* Virtual WAN 허브-허브 글로벌 연결을 통해 트래픽을 원격 지역에 연결된 VNet으로 전송할 수 있습니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="허브 및 스포크":::
 
@@ -200,11 +202,11 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 아시아 DC가 로컬 프라이빗 WAN 이동 통신 사업자에 연결됩니다.
+* 아시아 DC가 로컬 프라이빗 WAN 이동 통신 사업자에 연결됩니다.
 
-- 개인 WAN에서 로컬로 종료 되는 Express 경로 회로는 남부 동아시아 가상 WAN 허브에 연결 됩니다.
+* 개인 WAN에서 로컬로 종료 되는 Express 경로 회로는 남부 동아시아 가상 WAN 허브에 연결 됩니다.
 
-- 가상 WAN 허브에서 허브로의 글로벌 연결을 통해 트래픽을 전송할 수 있습니다.
+* 가상 WAN 허브에서 허브로의 글로벌 연결을 통해 트래픽을 전송할 수 있습니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="허브 및 스포크":::
 
@@ -214,7 +216,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- Virtual WAN 허브-허브 글로벌 연결을 통해 추가적인 사용자 구성 없이 연결된 모든 Azure VNet을 기본적으로 통과할 수 있습니다.
+* Virtual WAN 허브-허브 글로벌 연결을 통해 추가적인 사용자 구성 없이 연결된 모든 Azure VNet을 기본적으로 통과할 수 있습니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="허브 및 스포크":::
 
@@ -224,9 +226,9 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 노트북 및 모바일 장치 사용자는 유럽 서부에서 P2S VPN gateway에 투명 하 게 연결 하기 위해 OpenVPN 클라이언트를 사용 합니다.
+* 노트북 및 모바일 장치 사용자는 유럽 서부에서 P2S VPN gateway에 투명 하 게 연결 하기 위해 OpenVPN 클라이언트를 사용 합니다.
 
-- 서유럽 Virtual WAN 허브에서 트래픽을 로컬로 연결된 VNet으로 라우팅합니다.
+* 서유럽 Virtual WAN 허브에서 트래픽을 로컬로 연결된 VNet으로 라우팅합니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="허브 및 스포크":::
 
@@ -254,9 +256,9 @@ Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 동일한 보안 가상 허브에 연결된 가상 네트워크에서 이제 Azure Firewall을 통해 트래픽을 라우팅합니다.
+* 동일한 보안 가상 허브에 연결된 가상 네트워크에서 이제 Azure Firewall을 통해 트래픽을 라우팅합니다.
 
-- Azure Firewall에서 정책을 이러한 흐름에 적용할 수 있습니다.
+* Azure Firewall에서 정책을 이러한 흐름에 적용할 수 있습니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="허브 및 스포크":::
 
@@ -266,9 +268,9 @@ Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 보안 가상 허브에 연결된 Virtual Network에서 보안 허브를 인터넷 액세스의 중앙 지점으로 사용하여 트래픽을 인터넷의 퍼블릭 대상으로 보낼 수 있습니다.
+* 보안 가상 허브에 연결된 Virtual Network에서 보안 허브를 인터넷 액세스의 중앙 지점으로 사용하여 트래픽을 인터넷의 퍼블릭 대상으로 보낼 수 있습니다.
 
-- 이 트래픽은 Azure 방화벽 FQDN 규칙을 사용 하 여 로컬로 필터링 하거나, 검사를 위해 타사 보안 서비스로 보낼 수 있습니다.
+* 이 트래픽은 Azure 방화벽 FQDN 규칙을 사용 하 여 로컬로 필터링 하거나, 검사를 위해 타사 보안 서비스로 보낼 수 있습니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="허브 및 스포크":::
 
@@ -278,12 +280,12 @@ Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-- 보안 가상 허브에 연결 된 분기는 인터넷 액세스의 중앙 지점으로 보안 허브를 사용 하 여 인터넷의 공용 대상으로 트래픽을 보낼 수 있습니다.
+* 보안 가상 허브에 연결 된 분기는 인터넷 액세스의 중앙 지점으로 보안 허브를 사용 하 여 인터넷의 공용 대상으로 트래픽을 보낼 수 있습니다.
 
-- 이 트래픽은 Azure 방화벽 FQDN 규칙을 사용 하 여 로컬로 필터링 하거나, 검사를 위해 타사 보안 서비스로 보낼 수 있습니다.
+* 이 트래픽은 Azure 방화벽 FQDN 규칙을 사용 하 여 로컬로 필터링 하거나, 검사를 위해 타사 보안 서비스로 보낼 수 있습니다.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="허브 및 스포크":::
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Virtual WAN](virtual-wan-about.md)에 대해 자세히 알아보기
+[Azure 가상 WAN](virtual-wan-about.md)에 대해 자세히 알아보세요.

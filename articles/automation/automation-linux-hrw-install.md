@@ -3,14 +3,14 @@ title: Azure Automation에 Linux Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경의 Linux 기반 컴퓨터에서 runbook을 실행 하는 Azure Automation Hybrid Runbook Worker를 설치 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987233"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776275"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -18,7 +18,7 @@ Azure Automation의 Hybrid Runbook Worker 기능을 사용 하 여 역할을 호
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -45,6 +45,10 @@ Azure Monitor Log Analytics 작업 영역이 없는 경우 작업 영역을 만�
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
 Hybrid Runbook Worker 역할에는 지원 되는 Linux 운영 체제에 대 한 [Log Analytics 에이전트가](../azure-monitor/platform/log-analytics-agent.md) 필요 합니다.
+
+>[!NOTE]
+>Linux 용 Log Analytics agent를 설치한 후에는 `sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경 하면 안 됩니다. Hybrid Runbook Worker 실행 되는 사용자 컨텍스트인 **nxautomation** 계정에는 Sudo 권한이 필요 합니다. 사용 권한을 제거 하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한 하면 주요 변경 사항이 발생할 수 있습니다.
+>
 
 ### <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 
@@ -91,7 +95,7 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 |Python 2 |예 |
 |PowerShell |예<sup>1</sup> |
 |PowerShell 워크플로 |예 |
-|그래픽 |아니요 |
+|그래픽 |예 |
 |그래픽 PowerShell 워크플로 |예 |
 
 <sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.

@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904471"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777210"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 공유를 관리 합니다.
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 공유 관리
 
 이 문서에서는 Azure Stack Edge Pro에서 공유를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들�
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **게이트웨이 > 공유**로 이동 합니다. 명령 모음에서 **+ 공유 추가**를 선택합니다.
 
-   ![공유 추가 선택](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![공유 추가 2 선택](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. **공유 추가**에서 공유 설정을 지정합니다. 공유에 대한 고유한 이름을 제공합니다.
     
@@ -106,7 +106,7 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **게이트웨이 > 공유**로 이동 합니다. 공유 목록에서 탑재할 공유를 선택합니다. 선택한 공유에 대해 **컴퓨팅에 사용됨** 열에 **사용 안 함**으로 상태가 표시됩니다.
 
-   ![공유 선택](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![공유 3 선택](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. **탑재**를 선택합니다.
 
@@ -130,7 +130,7 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **게이트웨이 > 공유**로 이동 합니다.
 
-   ![공유 선택](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![공유 4 선택](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. 공유 목록에서 분리할 공유를 선택합니다. 분리할 공유가 다른 모듈에서 사용되지 않는지 확인하는 것이 좋습니다. 공유가 모듈에서 사용되면 해당 모듈과 관련된 문제가 표시됩니다. **분리**를 선택 합니다.
 
@@ -150,7 +150,7 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 1. 공유 목록에서 삭제하려는 공유를 선택하고 클릭합니다.
 
-   ![공유 선택](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![공유 5 선택](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. **삭제**를 클릭합니다.
 
@@ -175,7 +175,7 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 1. Azure Portal에서 **공유**로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
 
-   ![공유 선택](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![공유 6 선택](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. **새로 고침**을 클릭합니다.
 

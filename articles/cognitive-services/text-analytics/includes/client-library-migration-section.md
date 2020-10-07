@@ -5,15 +5,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 42789753683d798e8842ee96a1cc0db340875952
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 5f53c3ebe4bd15bc6afa8a62758309e9f40a71f0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143324"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779250"
 ---
 최신 버전의 Text Analytics v3 클라이언트 라이브러리를 사용 하려면 네임 스페이스에서 최신 소프트웨어 패키지를 다운로드 해야 합니다 `Azure.AI.TextAnalytics` . [퀵 스타트 문서의](../quickstarts/text-analytics-sdk.md) **설정** 섹션에는 코드 예제와 함께 기본 설정 된 언어에 사용할 수 있는 명령이 나열 되어 있습니다.
 

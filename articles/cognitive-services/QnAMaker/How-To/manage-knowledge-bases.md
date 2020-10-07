@@ -1,14 +1,16 @@
 ---
 title: 기술 자료 관리-QnA Maker
 description: QnA Maker를 사용 하면 기술 자료 설정 및 콘텐츠에 대 한 액세스를 제공 하 여 기술 자료를 관리할 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551781"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777740"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>기술 자료 만들기 및 설정 관리
 
@@ -47,7 +49,7 @@ QnA Maker를 사용 하면 기술 자료 설정 및 데이터 원본에 대 한 
     |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**잡담**|**Professional** 선택|
 
-1. **5 단계**에서 **KB 만들기**를 선택 합니다.
+1. **5단계**에서는 **KB 만들기**를 선택합니다.
 
     추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
 

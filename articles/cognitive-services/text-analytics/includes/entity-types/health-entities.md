@@ -5,22 +5,23 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 563daca1e5179639b8dd3aaf710d92e54faf6aa1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 44bce7c6dd2443ea0ed1851325a5b84f325f5fae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91709525"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779808"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>상태 범주, 엔터티 및 특성에 대 한 Text Analytics
 
 [상태에 대 한 Text Analytics](../../how-tos/text-analytics-for-health.md) 는 다음 범주의 의료 개념을 검색 합니다.  이 컨테이너 미리 보기에서는 영어 텍스트만 지원 되며 각 컨테이너 이미지에는 단일 모델 버전만 제공 됩니다.
 
 
-| 범주  | 설명  |
+| 범주  | Description  |
 |---------|---------|
 | 표의 | 본문 및 anatomic 시스템, 사이트, 위치 또는 지역에 대 한 정보를 캡처하는 개념입니다. |
  | 통계 | 성별 및 연령에 대 한 정보를 캡처하는 개념입니다. |

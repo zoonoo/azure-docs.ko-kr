@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376513"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779169"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -48,7 +48,7 @@ allprojects {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 
@@ -109,7 +109,7 @@ Context appContext = this.getApplicationContext();
 Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>비디오 카메라를 사용 하 여 1:1 호출
+### <a name="place-a-11-call-with-video-camera"></a>비디오 카메라를 사용 하 여 1:1 호출
 > [!WARNING]
 > 현재 하나의 나가는 로컬 비디오 스트림도 비디오를 사용 하 여 전화를 걸 수 있습니다. API를 사용 하 여 로컬 카메라를 열거 해야 `deviceManager` `getCameraList` 합니다.
 원하는 카메라를 선택한 후에는이를 사용 하 여 인스턴스를 생성 하 `LocalVideoStream` 고이를 `videoOptions` 배열의 항목으로 `localVideoStream` `call` 메서드에 전달 합니다.
@@ -136,17 +136,17 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
-## <a name="push-notification"></a>푸시 알림
+## <a name="push-notifications"></a>푸시 알림
 
 ### <a name="overview"></a>개요
-모바일 푸시 알림은 모바일 장치에서 수신 하는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하 게 됩니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 하는 기능을 제공 합니다.
+모바일 푸시 알림은 모바일 장치에 표시 되는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하겠습니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 합니다.
 
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서에서는 FCM (Cloud Messaging)를 사용 하는 Firebase 계정 설정을 사용 하도록 설정 하 고 Firebase 클라우드 메시징은 ANH (Azure Notification Hub) 인스턴스에 연결 되어 있다고 가정 합니다. 자세한 내용은 [Azure에 Firebase 연결](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) 을 참조 하세요.
-또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
+이 섹션을 완료 하려면 Firebase 계정을 만들고 클라우드 메시징 (FCM)을 사용 하도록 설정 합니다. Firebase 클라우드 메시징이 ANH (Azure Notification Hub) 인스턴스에 연결 되어 있는지 확인 합니다. 지침은 [Azure에 Firebase 연결](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) 을 참조 하세요.
+또한이 섹션에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
 
-FCM에서 알림 메시지를 받을 수 있으려면 Android 응용 프로그램에 대 한 사용 권한 집합이 필요 합니다. AndroidManifest.xml 파일에서 *<매니페스트 ... >* 또는 태그 아래에 다음 권한 집합을 추가 합니다. *</application>*
+Firebase 클라우드 메시징에서 알림 메시지를 받을 수 있으려면 Android 응용 프로그램에 대 한 권한 집합이 필요 합니다. 파일에서 `AndroidManifest.xml` *<매니페스트 ... >* 또는 태그 바로 뒤에 다음 권한 집합을 추가 합니다. *</application>*
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -154,39 +154,41 @@ FCM에서 알림 메시지를 받을 수 있으려면 Android 응용 프로그�
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-### <a name="register-for-push-notification"></a>푸시 알림 등록
+### <a name="register-for-push-notifications"></a>푸시 알림 등록
 
-- 푸시 알림을 등록 하려면 응용 프로그램이 장치 등록 토큰을 사용 하는 *Callagent* 인스턴스에서 registerPushNotification ()를 호출 해야 합니다.
+푸시 알림을 등록 하려면 응용 프로그램이 `registerPushNotification()` 장치 등록 토큰을 사용 하 여 *callagent* 인스턴스에서를 호출 해야 합니다.
 
-- 장치 등록 토큰을 가져오는 방법
-1. 아직 없는 경우 *종속성* 섹션에 다음 줄을 추가 하 여 Firebase 클라이언트 라이브러리를 응용 프로그램 모듈의 *gradle* 파일에 추가 해야 합니다.
+장치 등록 토큰을 가져오려면 섹션에 다음 줄을 추가 하 여 Firebase 클라이언트 라이브러리를 응용 프로그램 모듈의 *gradle* 파일에 추가 합니다 ( `dependencies` 아직 없는 경우).
+
 ```
     // Add the client library for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
 
-2. 프로젝트 수준의 *gradle* 파일에서 *종속성* 섹션에 다음을 추가 합니다 (아직 없는 경우).
+프로젝트 수준의 *gradle* 파일에서 섹션에 다음을 추가 합니다 ( `dependencies` 아직 없는 경우).
+
 ```
     classpath 'com.google.gms:google-services:4.3.3'
 ```
 
-3. 파일의 시작 부분에 다음 플러그 인을 추가 합니다 (아직 없는 경우).
+파일의 시작 부분에 다음 플러그 인을 추가 합니다 (아직 없는 경우).
+
 ```
 apply plugin: 'com.google.gms.google-services'
 ```
 
-4. 도구 모음에서 *지금 동기화* 를 선택 합니다.
+도구 모음에서 *지금 동기화* 를 선택 합니다. 다음 코드 조각을 추가 하 여 클라이언트 응용 프로그램 인스턴스에 대 한 Firebase Cloud Messaging 클라이언트 라이브러리에서 생성 된 장치 등록 토큰을 가져옵니다. 인스턴스에 대 한 주 활동의 헤더에 아래 가져오기를 추가 해야 합니다. 코드 조각이 토큰을 검색 하는 데 필요 합니다.
 
-5. 다음 코드 조각을 추가 하 여 클라이언트 응용 프로그램 인스턴스에 대 한 FCM 클라이언트 라이브러리에 의해 생성 된 장치 등록 토큰을 가져옵니다. 
-- 인스턴스에 대 한 주 활동의 헤더에 이러한 가져오기를 추가 합니다. 코드 조각이 토큰을 검색 하는 데 필요 합니다.
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 ```
-- 토큰을 검색 하려면이 코드 조각을 추가 합니다.
+
+토큰을 검색 하려면이 코드 조각을 추가 합니다.
+
 ```
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -204,7 +206,7 @@ import com.google.firebase.iid.InstanceIdResult;
                     }
                 });
 ```
-6. 들어오는 호출 푸시 알림에 대 한 호출 서비스 클라이언트 라이브러리에 장치 등록 토큰 등록
+들어오는 호출 푸시 알림에 대 한 호출 서비스 클라이언트 라이브러리에 장치 등록 토큰을 등록 합니다.
 
 ```java
 String deviceRegistrationToken = "some_token";
@@ -218,10 +220,9 @@ catch(Exception e) {
 
 ### <a name="push-notification-handling"></a>푸시 알림 처리
 
-- 들어오는 호출 푸시 알림을 받으려면 페이로드가 있는 *Callagent* 인스턴스에 대해 *handlepushnotification ()* 를 호출 합니다.
+들어오는 호출 푸시 알림을 받으려면 페이로드가 있는 *Callagent* 인스턴스에 대해 *handlepushnotification ()* 를 호출 합니다.
 
-1. FCM에서 페이로드를 가져오기 위해 필요한 단계는 다음과 같습니다.
-- *FirebaseMessagingService* Firebase client library 클래스를 확장 하 고 *onMessageReceived* 메서드를 재정의 해야 하는 새 서비스 > (> 새 서비스 > 서비스)를 만듭니다. 이 메서드는 FCM가 응용 프로그램에 푸시 알림을 전달할 때 호출 되는 이벤트 처리기입니다.
+Firebase 클라우드 메시징에서 페이로드를 가져오려면 *FirebaseMessagingService* Firebase client library 클래스를 확장 하 고 메서드를 재정의 하는 새 서비스 > (> 새 서비스 > 서비스)를 만들어 시작 `onMessageReceived` 합니다. 이 메서드는 Firebase 클라우드 메시징에서 응용 프로그램에 푸시 알림을 전달 하는 경우 호출 되는 이벤트 처리기입니다.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -239,7 +240,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 }
 ```
-- 또한 태그 내의 AndroidManifest.xml 파일에 다음 서비스 정의를 추가 합니다 <application> .
+파일의 태그 내에 다음 서비스 정의를 추가 합니다 `AndroidManifest.xml` <application> .
 
 ```
         <service
@@ -251,7 +252,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- 페이로드를 검색 한 후에는 *Callagent* 인스턴스에서 *handlepushnotification* 메서드를 호출 하 여 처리할 *통신 서비스* 클라이언트 라이브러리에 전달할 수 있습니다.
+페이로드를 검색 한 후에는 인스턴스에서 메서드를 호출 하 여 처리할 통신 서비스 클라이언트 라이브러리에 전달할 수 있습니다 `handlePushNotification` `CallAgent` .
 
 ```java
 java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
@@ -262,11 +263,12 @@ catch(Exception e) {
     System.out.println("Something went wrong while handling the Incoming Calls Push Notifications.");
 }
 ```
+
 푸시 알림 메시지가 성공적으로 처리 되 고 모든 이벤트 처리기가 제대로 등록 되 면 응용 프로그램이 연결 됩니다.
 
-### <a name="unregister-push-notification"></a>푸시 알림 등록 취소
+### <a name="unregister-push-notifications"></a>푸시 알림 등록 취소
 
-- 응용 프로그램은 언제 든 지 푸시 알림을 등록 취소할 수 있습니다. `unregisterPushNotification()`CallAgent에서 메서드를 호출 하 여 등록을 취소 합니다.
+응용 프로그램은 언제 든 지 푸시 알림을 등록 취소할 수 있습니다. `unregisterPushNotification()`CallAgent에서 메서드를 호출 하 여 등록을 취소 합니다.
 
 ```java
 try {
@@ -281,25 +283,31 @@ catch(Exception e) {
 통화 속성에 액세스 하 고 비디오 및 오디오와 관련 된 설정을 관리 하는 호출 중에 다양 한 작업을 수행할 수 있습니다.
 
 ### <a name="call-properties"></a>호출 속성
-* 이 호출의 고유 ID를 가져옵니다.
+
+이 호출의 고유 ID를 가져옵니다.
+
 ```java
 String callId = call.getCallId();
 ```
 
-* 인스턴스의 다른 참가자에 대 한 자세한 내용은 인스턴스의 검사 컬렉션을 확인 `remoteParticipant` `call` 하세요.
+인스턴스의 다른 참가자에 대 한 자세한 내용은 인스턴스의 검사 컬렉션을 확인 `remoteParticipant` `call` 하세요.
+
 ```java
 List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
 ```
 
-* 호출이 들어오는 경우 호출자의 id입니다.
+호출이 들어오는 경우 호출자의 id입니다.
+
 ```java
 CommunicationIdentifier callerId = call.getCallerId();
 ```
 
-* 호출의 상태를 가져옵니다.
+호출의 상태를 가져옵니다. 
+
 ```java
 CallState callState = call.getState();
 ```
+
 호출의 현재 상태를 나타내는 문자열을 반환 합니다.
 * ' None '-초기 호출 상태
 * ' 들어오는 '-호출이 수신 됨을 나타내며,이를 수락 하거나 거부 해야 합니다.
@@ -312,39 +320,45 @@ CallState callState = call.getState();
 * ' Disconnected '-최종 호출 상태
 
 
-* 호출이 종료 된 이유를 알아보려면 속성을 검사 `callEndReason` 합니다.
-코드/하위 코드를 포함 합니다 (문서에 대 한 TODO 링크).
+호출이 종료 된 이유를 알아보려면 속성을 검사 `callEndReason` 합니다. 여기에는 코드/하위 코드가 포함 됩니다. 
+
 ```java
 CallEndReason callEndReason = call.getCallEndReason();
 int code = callEndReason.getCode();
 int subCode = callEndReason.getSubCode();
 ```
 
-* 현재 호출이 들어오는 호출 인지 확인 하려면 속성을 검사 합니다 `isIncoming` .
+현재 호출이 들어오는 호출 인지 확인 하려면 속성을 검사 합니다 `isIncoming` .
+
 ```java
 boolean isIncoming = call.getIsIncoming();
 ```
 
-*  현재 마이크가 음소거 되어 있는지 확인 하려면 속성을 검사 합니다 `muted` .
+현재 마이크가 음소거 되어 있는지 확인 하려면 속성을 검사 합니다 `muted` .
+
 ```java
 boolean muted = call.getIsMicrophoneMuted();
 ```
 
-* 활성 비디오 스트림을 검사 하려면 컬렉션을 확인 합니다 `localVideoStreams` .
+활성 비디오 스트림을 검사 하려면 컬렉션을 확인 합니다 `localVideoStreams` .
+
 ```java
 List<LocalVideoStream> localVideoStreams = call.getLocalVideoStreams();
 ```
 
 ### <a name="mute-and-unmute"></a>음소거 및 음소거 해제
+
 로컬 끝점을 음소거 하거나 음소거를 해제 하려면 `mute` 및 비동기 api를 사용할 수 있습니다 `unmute` .
+
 ```java
 call.mute().get();
 call.unmute().get();
 ```
 
 ### <a name="start-and-stop-sending-local-video"></a>로컬 비디오 보내기 시작 및 중지
-비디오를 시작 하려면 개체의 API를 사용 하 여 카메라를 열거 해야 `getCameraList` `deviceManager` 합니다.
-그런 다음 원하는 카메라를 전달 하는 새 인스턴스를 만들고이 인스턴스를 `LocalVideoStream` API에서 인수로 전달 합니다. `startVideo`
+
+비디오를 시작 하려면 개체의 API를 사용 하 여 카메라를 열거 해야 `getCameraList` `deviceManager` 합니다. 그런 다음 원하는 카메라를 전달 하는 새 인스턴스를 만들고이 인스턴스를 `LocalVideoStream` API에서 인수로 전달 합니다 `startVideo` .
+
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
@@ -355,11 +369,13 @@ startVideoFuture.get();
 ```
 
 비디오 전송을 성공적으로 시작 하면 인스턴스는 `LocalVideoStream` 호출 인스턴스의 컬렉션에 추가 됩니다 `localVideoStreams` .
+
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
 
 로컬 비디오를 중지 하려면 `localVideoStream` 컬렉션에서 사용할 수 있는 인스턴스를 전달 합니다 `localVideoStreams` .
+
 ```java
 call.stopVideo(localVideoStream).get();
 ```
@@ -452,7 +468,9 @@ MediaStreamType streamType = remoteParticipantStream.getType(); // of type Media
 ```
  
 `RemoteVideoStream`원격 참가자 로부터를 렌더링 하려면 이벤트를 구독 해야 `OnVideoStreamsUpdated` 합니다.
-이벤트 내에서 `isAvailable` 속성을 true로 변경 하면 원격 참가자가 현재 스트림을 보내고 있는 경우 새 인스턴스를 만든 `Renderer` 다음 `RendererView` 비동기 API를 사용 하 여 새를 만들고 `createView` `view.target` 응용 프로그램의 UI에서 아무 곳에 나 연결할 수 있습니다.
+
+이벤트 내에서 `isAvailable` 속성을 true로 변경 하면 원격 참가자가 현재 스트림을 보내고 있음을 나타냅니다. 이 문제가 발생 하면의 새 인스턴스를 만든 `Renderer` 다음 `RendererView` 비동기 API를 사용 하 여 새를 만들고 `createView` `view.target` 응용 프로그램의 UI에서 아무 곳에 나 연결 합니다.
+
 원격 스트림의 가용성이 변경 될 때마다 전체 렌더러를 제거 하거나 특정 항목을 유지 하도록 선택할 수 `RendererView` 있지만이 경우 빈 비디오 프레임이 표시 됩니다.
 
 ```java

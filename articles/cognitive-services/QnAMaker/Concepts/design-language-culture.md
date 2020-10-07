@@ -1,14 +1,16 @@
 ---
 title: 언어에 대 한 디자인-QnA Maker
 description: QnA Maker 리소스 및 해당 리소스 내의 모든 기술 자료는 단일 언어를 지원 합니다. 단일 언어는 쿼리에 가장 적합 한 답변을 제공 하는 데 필요 합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 5cb1dcd35649debbafd2e234606ad4c9d6906ea6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e09e15f71b0574a5612e7f9bacd8aaa4739a441c
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76846355"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777006"
 ---
 # <a name="design-knowledge-base-for-content-language"></a>콘텐츠 언어에 대 한 기술 자료 디자인
 
@@ -37,7 +39,7 @@ QnA Maker에 대해 [지원 되는 언어](../overview/language-support.md) 를 
 
 * 모든 언어에 대 한 QnA Maker 리소스 만들기
 * 해당 언어에 대 한 파일 및 Url만 추가
-* 리소스에 대 한 명명 규칙을 사용 하 여 언어를 식별 합니다. 예는 프랑스어 `qna-maker-fr` 문서용 모든 기술 자료에 대 한 것입니다.
+* 리소스에 대 한 명명 규칙을 사용 하 여 언어를 식별 합니다. 예는 `qna-maker-fr` 프랑스어 문서용 모든 기술 자료에 대 한 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003059"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776309"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -177,7 +177,7 @@ chmod-prevented           0/1       Error     0          7s
 
 Kubernetes는 보다 일반적인 인프라 플랫폼보다 더 빠른 속도로 새 기능을 릴리스합니다. Kubernetes 업데이트에는 새 기능, 버그 또는 보안 수정 사항이 포함됩니다. 일반적으로 새로운 기능은 *알파* 버전으로 이동된 후 *베타* 상태가 되며, 그 이후에 *안정화*되면서 일반 공급되고 프로덕션 용도로 권장됩니다. 이러한 릴리스 주기에 따라 정기적으로 호환성이 손상되는 변경을 겪거나 배포 및 템플릿을 조정하지 않고도 Kubernetes를 업데이트할 수 있습니다.
 
-AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다. 즉, 새로운 부 패치 버전이 릴리스되면 지원되는 가장 오래된 부 버전 및 패치 릴리스는 사용 중지됩니다. Kubernetes의 부 업데이트는 정기적으로 발생합니다. 거버넌스 프로세스를 확인하고 지원을 받지 못하는 일이 없도록 필요할 때 업그레이드해야 합니다. 자세한 내용은 [지원되는 Kubernetes 버전 AKS][aks-supported-versions]를 참조하세요.
+AKS는 세 가지 부 버전 Kubernetes을 지원 합니다. 즉, 새로운 부 패치 버전이 릴리스되면 지원되는 가장 오래된 부 버전 및 패치 릴리스는 사용 중지됩니다. Kubernetes의 부 업데이트는 정기적으로 발생합니다. 거버넌스 프로세스를 확인하고 지원을 받지 못하는 일이 없도록 필요할 때 업그레이드해야 합니다. 자세한 내용은 [지원 되는 Kubernetes 버전 AKS][aks-supported-versions]을 참조 하세요.
 
 클러스터에 사용할 수 있는 버전을 확인하려면 다음 예제와 같이 [az aks get-upgrades][az-aks-get-upgrades] 명령을 사용합니다.
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 그런 다음, [az aks upgrade][az-aks-upgrade] 명령을 사용하여 AKS 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스는 한 번에 하나의 노드를 안전하게 차단했다가 드레이닝하고, 나머지 노드에서 pod를 예약한 후 최신 OS 및 Kubernetes 버전을 실행하는 새 노드를 배포합니다.
+
+개발 테스트 환경에서 새 부 버전을 테스트 하는 것이 좋습니다. 그러면 새 Kubernetes 버전을 사용 하 여 작업을 계속 정상적으로 수행할 수 있습니다. Kubernetes는 작업에서 사용할 수 있는 버전 1.16 등의 Api를 사용 중단 수 있습니다. 새 버전을 프로덕션 환경으로 가져올 때 개별 [버전에서 여러 노드 풀](use-multiple-node-pools.md) 을 사용 하 고 한 번에 하나씩 개별 풀을 업그레이드 하 여 클러스터 전체에서 점진적으로 업데이트를 롤링 하는 것이 좋습니다. 여러 클러스터를 실행 하는 경우 한 번에 한 클러스터를 업그레이드 하 여 영향 또는 변경을 점차적으로 모니터링 합니다.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

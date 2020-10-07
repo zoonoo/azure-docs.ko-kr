@@ -1,14 +1,16 @@
 ---
 title: 서비스 구성-QnA Maker
 description: 리소스를 구성 하는 방법 및 위치를 이해 합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1d54b912d2177a3ccd0cf34d57fc0358af653199
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804263"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776717"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -25,7 +27,7 @@ QnA Maker는 App Service를 사용 하 여 [Generateanswer API](https://docs.mic
 
 개별 설정은 응용 프로그램 설정 목록을 통해 설정 하거나 **고급 편집**을 선택 하 여 여러 설정을 수정할 수 있습니다.
 
-|리소스|Setting|
+|리소스|설정|
 |--|--|
 |AzureSearchAdminKey|Cognitive Search-QnA pair 저장소 및 Ranker #1에 사용 됩니다.|
 |AzureSearchName|Cognitive Search-QnA pair 저장소 및 Ranker #1에 사용 됩니다.|
@@ -48,7 +50,7 @@ QnA Maker 서비스는 단일 QnA Maker 서비스와 모든 해당 기술 자료
 
 Application Insights에 QnA Maker 관련 된 구성 설정이 없습니다.
 
-## <a name="app-service-plan"></a>App Service 계획
+## <a name="app-service-plan"></a>App Service 플랜
 
 App Service 계획에는 QnA Maker 관련 된 구성 설정이 없습니다.
 

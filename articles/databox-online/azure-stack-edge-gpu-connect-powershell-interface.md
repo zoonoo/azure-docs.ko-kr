@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 59b2307bb2e1f4effce9f68530be86e9ca625c9c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766304"
+ms.locfileid: "91777769"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
 
@@ -476,7 +476,7 @@ BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터�
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`:이 cmdlet을 사용 하 여에 대 한 BMC 암호를 수정할 수 `EdgeUser` 있습니다. 
+- `Set-HcsBmcPassword`:이 cmdlet을 사용 하 여에 대 한 BMC 암호를 수정할 수 `EdgeUser` 있습니다. 사용자 이름- `EdgeUser` -대/소문자를 구분 합니다.
 
     샘플 출력은 다음과 같습니다. 
 

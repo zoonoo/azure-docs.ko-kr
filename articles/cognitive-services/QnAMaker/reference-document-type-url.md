@@ -1,14 +1,16 @@
 ---
 title: 가져오기-QnA Maker에 대해 지원 되는 Url 형식
 description: Url 형식을 사용 하 여 QnA 쌍을 가져오고 만드는 방법을 이해 합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8bf50c1ea81cdf5246c47646d1a55926fe7d58d6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804319"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776700"
 ---
 # <a name="urls-supported-for-importing-documents"></a>문서 가져오기에 대해 지원 되는 Url
 
@@ -48,7 +50,7 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
 
  ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/topics-faq.png)
 
-## <a name="support-urls"></a>지원 Url
+## <a name="support-urls"></a>지원 URL
 
 QnA Maker는 지정된 태스크를 수행하는 방법, 지정된 문제를 진단하고 해결하는 방법 및 지정된 프로세스에 대한 어떤 모범 사례가 있는지를 설명하는 웹 문서와 같은 반정형화된 지원 웹 페이지를 처리할 수 있습니다. 추출은 계층 제목이 포함된 명확한 구조를 가진 콘텐츠에서 최적으로 작동합니다.
 

@@ -1,14 +1,16 @@
 ---
 title: SharePoint 파일-QnA Maker
 description: 기술 자료에 보안 된 SharePoint 데이터 원본을 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660301"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776870"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
@@ -21,7 +23,7 @@ QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 클라우드 기반 SharePoint QnA Maker는 사용 권한에 대해 Microsoft Graph를 사용 합니다. SharePoint가 온-프레미스에 있는 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
-* URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다.`https://\*.sharepoint.com`
+* URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다. `https://\*.sharepoint.com`
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>기술 자료에 지원 되는 파일 형식 추가
 

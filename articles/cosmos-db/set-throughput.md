@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605738"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777778"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 
@@ -40,7 +40,7 @@ Azure Cosmos 컨테이너에 프로비전된 처리량은 해당 컨테이너 �
 
 다음 이미지는 실제 파티션이 컨테이너의 논리 파티션을 하나 이상 호스트하는 방법을 보여줍니다.
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="실제 파티션" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>데이터베이스의 처리량 설정
 
@@ -75,7 +75,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 워크로드에 데이터베이스의 모든 컬렉션을 삭제하고 다시 만드는 작업이 포함된 경우에는 컬렉션을 만들기 전에 빈 데이터베이스를 삭제하고 새 데이터베이스를 다시 만드는 것이 좋습니다. 다음 이미지는 데이터베이스 내 여러 컨테이너에 속하는 하나 이상의 논리 파티션을 실제 파티션에 호스트할 수 있다는 것을 보여줍니다.
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="실제 파티션" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>데이터베이스 및 컨테이너의 처리량 설정
 
@@ -84,7 +84,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 * 이름이 *Z*이고 프로비전된 처리량이 *"K"* RU인 Azure Cosmos 데이터베이스를 만들 수 있습니다. 
 * 다음으로, 데이터베이스 내에서 5개 컨테이너 *A*, *B*, *C*, *D*, *E*를 만듭니다. 컨테이너 B를 만들 때 **이 컨테이너에 전용 처리량 프로비전** 옵션을 사용하도록 설정하고 이 컨테이너에서 프로비전된 처리량 *"P"* RU를 명시적으로 구성해야 합니다. 데이터베이스와 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="컨테이너 수준에서 처리량 설정":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션":::
 
 * *"K"* RU 처리량은 4개의 컨테이너 *A*, *C*, *D*, *E* 간에 공유됩니다. *A*, *C*, *D* 또는 *E*에 사용 가능한 정확한 처리량은 변동합니다. 각 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
 * 컨테이너 *B*는 항상 *"P"* RU 처리량을 보장받을 수 있으며 SLA가 지원됩니다.
@@ -105,11 +105,11 @@ Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로비전�
 
 실제 최소/s는 계정 구성에 따라 다를 수 있습니다. [Azure Monitor 메트릭을](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) 사용 하 여 리소스에서 프로 비전 된 처리량 (r u/초) 및 저장소의 기록을 볼 수 있습니다.
 
-컨테이너 또는 데이터베이스의 최소 처리량은 SDK를 사용하여 프로그래밍 방식으로 검색하거나 Azure Portal에서 볼 수 있습니다. .NET SDK를 사용하는 경우 [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) 메서드를 사용하여 프로비전된 처리량 값을 조정할 수 있습니다. Java SDK를 사용하는 경우 [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) 메서드를 사용하여 프로비전된 처리량 값을 조정할 수 있습니다. 
+컨테이너 또는 데이터베이스의 최소 처리량은 SDK를 사용하여 프로그래밍 방식으로 검색하거나 Azure Portal에서 볼 수 있습니다. .NET SDK를 사용 하는 경우 컨테이너를 사용 합니다 [. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) 메서드를 사용 하면 프로 비전 된 처리량 값의 크기를 조정할 수 있습니다. Java SDK를 사용 하는 경우 [CosmosContainer replaceProvisionedThroughput](sql-api-java-sdk-samples.md) 메서드를 사용 하 여 프로 비전 된 처리량 값의 크기를 조정할 수 있습니다.
 
-.NET SDK를 사용하는 경우 [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 메서드를 사용하여 컨테이너 또는 데이터베이스의 최소 처리량을 검색할 수 있습니다. 
+.NET SDK를 사용 하는 경우 [ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) 메서드를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량을 검색할 수 있습니다. 
 
-언제든지 컨테이너 또는 데이터베이스의 프로비전된 처리량을 조정할 수 있습니다. 처리량을 늘리기 위해 크기 조정 작업을 수행하는 경우 필요한 리소스를 프로비전하는 시스템 작업 때문에 시간이 더 오래 걸릴 수 있습니다. Azure Portal에서 또는 SDK를 사용하여 프로그래밍 방식으로 크기 조정 작업의 상태를 확인할 수 있습니다. .NET SDK를 사용하는 경우 `DocumentClient.ReadOfferAsync` 메서드를 사용하여 크기 조정 작업의 상태를 가져올 수 있습니다.
+언제든지 컨테이너 또는 데이터베이스의 프로비전된 처리량을 조정할 수 있습니다. 처리량을 늘리기 위해 크기 조정 작업을 수행하는 경우 필요한 리소스를 프로비전하는 시스템 작업 때문에 시간이 더 오래 걸릴 수 있습니다. Azure Portal에서 또는 SDK를 사용하여 프로그래밍 방식으로 크기 조정 작업의 상태를 확인할 수 있습니다. .NET SDK를 사용하는 경우 `Container.ReadThroughputAsync` 메서드를 사용하여 크기 조정 작업의 상태를 가져올 수 있습니다.
 
 ## <a name="comparison-of-models"></a>모델 비교
 다음 표에서는 데이터베이스 및 컨테이너에 대한 표준(수동) 처리량 프로비전을 비교합니다. 

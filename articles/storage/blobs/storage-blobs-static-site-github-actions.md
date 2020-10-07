@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
-ms.openlocfilehash: 9b616f8df0a8b64969fac1d18544e6d316120e50
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91771069"
+ms.locfileid: "91776394"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포 하는 GitHub 작업 워크플로를 설정 합니다.
 
@@ -83,7 +83,7 @@ Azure 구독 및 GitHub 계정.
 
 1. 워크플로 파일의 섹션 다음에 나오는 모든 항목을 삭제 `on:` 합니다. 예를 들어, 남은 워크플로는 다음과 같습니다. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -95,7 +95,7 @@ Azure 구독 및 GitHub 계정.
 
 1. 워크플로의 이름을 바꾸고 `Blob storage website CI` 체크 아웃 및 로그인 작업을 추가 합니다. 이러한 작업은 사이트 코드를 체크 아웃 하 고 `AZURE_CREDENTIALS` 이전에 만든 GitHub 암호를 사용 하 여 Azure에 인증 합니다. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:
@@ -181,7 +181,7 @@ Azure 구독 및 GitHub 계정.
 
 1. 워크플로 파일의 섹션 다음에 나오는 모든 항목을 삭제 `on:` 합니다. 예를 들어, 남은 워크플로는 다음과 같습니다. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -193,7 +193,7 @@ Azure 구독 및 GitHub 계정.
 
 1. 워크플로의 이름을 바꾸고 `Blob storage website CI` 체크 아웃 및 로그인 작업을 추가 합니다. 이러한 작업은 사이트 코드를 체크 아웃 하 고 `AZURE_CREDENTIALS` 이전에 만든 GitHub 암호를 사용 하 여 Azure에 인증 합니다. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:

@@ -1,16 +1,18 @@
 ---
 title: '빠른 시작: 기술 자료에서 답변 찾기 - REST, Go - QnA Maker'
 description: 이 Go REST 기반 빠른 시작은 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: f9d9b995f8e78ec91bd26c31dde16b97188f0371
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f826802de2aa979b5af6174fccda2f0203eba433
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269185"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777612"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>빠른 시작: Go를 사용 하 여 기술 자료에서 질문에 대 한 답변 가져오기
 

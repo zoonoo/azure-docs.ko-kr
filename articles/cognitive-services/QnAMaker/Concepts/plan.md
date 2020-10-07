@@ -1,14 +1,16 @@
 ---
 title: 앱 계획-QnA Maker
 description: QnA Maker 앱을 계획 하는 방법을 알아봅니다. QnA Maker 작동 하 고 다른 Azure 서비스와 상호 작용 하는 방법 및 몇 가지 기술 자료 개념을 이해 합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/2/2020
-ms.openlocfilehash: 19499aceed96155fa42c78865b1d673a3830f5cc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054205"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776938"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 

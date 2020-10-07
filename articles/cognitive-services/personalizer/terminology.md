@@ -1,14 +1,16 @@
 ---
 title: 용어-Personalizer
 description: Personalizer는 보충 learning의 용어를 사용 합니다. 이러한 용어는 Azure Portal 및 Api에서 사용 됩니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8177606ac6e968bd287a23554be7b9dd06d880a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002865"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777295"
 ---
 # <a name="personalizer-terminology"></a>Personalizer 용어
 

@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5f02a38059ebd27879a3c8d44eee7e473711d0e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483192"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776513"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -29,8 +29,7 @@ ms.locfileid: "89483192"
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [주문형 HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 실행 파이프라인](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning Studio (클래식)](#azure-machine-learning-studio-classic-linked-service) | [Machine Learning Studio (클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 실행 파이프라인](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
 | [AZURE SQL](#azure-sql-database-linked-service), [azure Synapse Analytics (이전의 SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
@@ -368,8 +367,8 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | linkedServiceName | Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | 예      |
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예       |
 
-## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio 연결된 서비스
-Azure Machine Learning Studio 연결된 서비스를 만들어 데이터 팩토리에 엔드포인트를 매기는 Machine Learning 일괄 처리를 등록합니다.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning Studio (클래식) 연결 된 서비스
+Azure Machine Learning Studio (클래식) 연결 된 서비스를 만들어 Machine Learning Studio (클래식) 일괄 처리 점수 매기기 끝점을 데이터 팩터리에 등록 합니다.
 
 ### <a name="example"></a>예제
 
@@ -399,7 +398,7 @@ Azure Machine Learning Studio 연결된 서비스를 만들어 데이터 팩토�
 | Type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | 예                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
 | apiKey                 | 게시된 작업 영역 모델의 API입니다.     | 예                                      |
-| updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure Machine Learning Web Service 엔드포인트에 대한 업데이트 리소스 URL입니다. | 예                                       |
+| updateResourceEndpoint | 학습 된 모델 파일로 예측 웹 서비스를 업데이트 하는 데 사용 되는 Azure Machine Learning Studio (클래식) 웹 서비스 끝점에 대 한 업데이트 리소스 URL입니다. | 예                                       |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | tenant                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |

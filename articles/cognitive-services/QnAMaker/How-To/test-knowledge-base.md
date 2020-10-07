@@ -1,14 +1,16 @@
 ---
 title: 기술 자료를 테스트하는 방법 - QnA Maker
 description: QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정확도를 향상시키기 위한 반복 프로세스의 중요한 부분입니다. 또한 편집할 수도 있는 향상된 채팅 인터페이스를 통해 기술 자료를 테스트할 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 9c6d7fc9a421ce466ecd91aaac5c2b83f42a1624
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650931"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776836"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker에서 기술 자료 테스트
 
@@ -75,7 +77,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 * 질문 집합의 최고 대답 및 점수 결정
 * 질문 집합의 예상 응답 유효성 검사
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * 영어를 사용하는 [QnA Maker 서비스를 만들거나](../Quickstarts/create-publish-knowledge-base.md) 기존 서비스를 사용합니다.

@@ -1,14 +1,16 @@
 ---
 title: 기술 자료 쿼리-QnA Maker
 description: 기술 자료가 게시 되어야 합니다. 게시 된 후에는 generateAnswer API를 사용 하 여 런타임 예측 끝점에서 기술 자료가 쿼리 됩니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221462"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776921"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변을 쿼리 합니다.
 
@@ -29,7 +31,7 @@ ms.locfileid: "79221462"
 |1|클라이언트 응용 프로그램이 사용자 쿼리를 [Generateanswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)로 보냅니다.|
 |2|QnA Maker 언어 검색, spellers 및 단어 분리기를 사용 하 여 사용자 쿼리를 전처리 합니다.|
 |3|이러한 전처리는 최상의 검색 결과에 대 한 사용자 쿼리를 변경 하는 데 사용 됩니다.|
-|4|이 변경 된 쿼리는 결과 `top` 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다. 이러한 결과에 올바른 답변이 없는 경우 값을 `top` 약간 늘립니다. 일반적으로에 대 한 `top` 값 10은 쿼리의 90%에서 작동 합니다.|
+|4|이 변경 된 쿼리는 결과 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다 `top` . 이러한 결과에 올바른 답변이 없는 경우 값을 `top` 약간 늘립니다. 일반적으로에 대 한 값 10은 `top` 쿼리의 90%에서 작동 합니다.|
 |5|QnA Maker는 구문 및 의미 체계 기반 기능화을 사용 하 여 사용자 쿼리와 인출 된 QnA 결과 간의 유사성을 결정 합니다.|
 |6|컴퓨터에서 학습 한 ranker 모델은 5 단계에서 제공 하는 다양 한 기능을 사용 하 여 신뢰도 점수와 새 순위를 결정 합니다.|
 |7|새 결과는 순서 대로 클라이언트 응용 프로그램에 반환 됩니다.|
@@ -42,7 +44,7 @@ ms.locfileid: "79221462"
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>응답을 생성 하는 사용자 쿼리 요청
 
-사용자 쿼리는 최종 사용자가와 `How do I add a collaborator to my app?`같은 기술 자료를 요청 하는 질문입니다. 쿼리는 대개 자연 언어 형식 이거나 질문을 나타내는 몇 가지 키워드 (예:)로 `help with collaborators`되어 있습니다. 클라이언트 응용 프로그램의 HTTP 요청에서 기술 자료로 쿼리를 보냅니다.
+사용자 쿼리는 최종 사용자가와 같은 기술 자료를 요청 하는 질문입니다 `How do I add a collaborator to my app?` . 쿼리는 대개 자연 언어 형식 이거나 질문을 나타내는 몇 가지 키워드 (예:)로 되어 `help with collaborators` 있습니다. 클라이언트 응용 프로그램의 HTTP 요청에서 기술 자료로 쿼리를 보냅니다.
 
 ```json
 {
@@ -65,7 +67,7 @@ ms.locfileid: "79221462"
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>에 대 한 호출에서 응답을 생성 합니다.
 
-HTTP 응답은 지정 된 사용자 쿼리와 가장 일치 하는 항목에 따라 기술 자료에서 검색 된 대답입니다. 응답에는 대답 및 예측 점수가 포함 됩니다. `top` 속성을 사용 하 여 둘 이상의 최고 답을 요청 하는 경우 각각 점수가 있는 두 개 이상의 최고 답을 얻을 수 있습니다.
+HTTP 응답은 지정 된 사용자 쿼리와 가장 일치 하는 항목에 따라 기술 자료에서 검색 된 대답입니다. 응답에는 대답 및 예측 점수가 포함 됩니다. 속성을 사용 하 여 둘 이상의 최고 답을 요청 하는 경우 `top` 각각 점수가 있는 두 개 이상의 최고 답을 얻을 수 있습니다.
 
 ```json
 {

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: effbe8e771922ea07ad908dd4871f8dcdb7c1d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938994"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776564"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결 구성 (미리 보기)
 
@@ -72,16 +72,18 @@ Azure에서 온-프레미스 네트워크로의 트래픽에는 동일한 요구
 
 ## <a name="portal-steps"></a><a name="portal"></a>포털 단계
 
-1. 사이트 간 연결을 구성 합니다. 단계는 [사이트 간 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md) 문서를 참조 하세요. 게이트웨이에 대 한 영역 중복 게이트웨이 SKU를 선택 해야 합니다. 영역 중복 Sku는 SKU의 끝에 "AZ"가 있습니다. 예를 들면 VpnGw1AZ입니다.
+1. 사이트 간 연결을 구성 합니다. 단계는 [사이트 간 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md) 문서를 참조 하세요. 게이트웨이에 대 한 영역 중복 게이트웨이 SKU를 선택 해야 합니다. 
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="게이트웨이 개인 Ip":::
+   영역 중복 Sku는 SKU의 끝에 "AZ"가 있습니다. 예를 들면 **VpnGw1AZ**입니다. 영역 중복 게이트웨이는 가용성 영역 서비스를 사용할 수 있는 지역 에서만 사용할 수 있습니다. 가용성 영역을 지 원하는 지역에 대 한 자세한 내용은 [가용성 영역을 지 원하는 지역](../availability-zones/az-region.md)을 참조 하세요.
+
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="그림 1":::
 1. 게이트웨이에서 개인 Ip를 사용 하도록 설정 합니다. **구성**을 선택한 다음 **게이트웨이 개인 ip** 를 **사용**으로 설정 합니다. **저장**을 선택하여 변경 내용을 저장합니다.
 1. **개요** 페이지에서 **자세히** 보기를 선택 하 여 개인 IP 주소를 확인 합니다. 나중에 구성 단계에서 사용할 수 있도록이 정보를 적어 씁니다.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="개요 페이지" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="그림 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. 연결에서 **Azure 개인 IP 주소를 사용** 하도록 설정 하려면  **구성**을 선택 합니다. **Azure 개인 IP 주소 사용** **을 사용으로 설정 하**고 **저장**을 선택 합니다.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="게이트웨이 개인 Ip-사용":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="그림 1":::
 1. 방화벽에서 3 단계에서 기록한 개인 IP를 ping 합니다. 개인 IP는 Express 경로 개인 피어 링을 통해 연결할 수 있어야 합니다.
 1. 이 개인 IP를 온-프레미스 방화벽에서 원격 IP로 사용 하 여 Express 경로 개인 피어 링을 통해 사이트 간 터널을 설정 합니다.
 

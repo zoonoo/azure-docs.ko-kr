@@ -1,14 +1,16 @@
 ---
 title: 다른 응용 프로그램과 통합-QnA Maker
 description: QnA Maker은 채팅 봇과 같은 클라이언트 응용 프로그램과 Language Understanding (LUIS) 같은 기타 자연어 처리 서비스와 통합 됩니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: c1edbfb6badfb73ce08a99709da0f8bfb61b7dc3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff5e64dd31542b1e31df6d9ca709567b322995ce
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804191"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776530"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>클라이언트 응용 프로그램에 대 한 기술 자료 디자인
 

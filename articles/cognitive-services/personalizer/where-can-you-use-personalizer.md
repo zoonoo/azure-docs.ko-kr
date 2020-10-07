@@ -1,14 +1,16 @@
 ---
 title: Personalizer 사용 방법
 description: 애플리케이션에서 표시할 적절한 항목, 작업 또는 제품을 선택할 수 있는 모든 상황에 Personalizer를 적용하여 환경을 더 효율적으로 만들거나, 더 나은 비즈니스 결과를 달성하거나, 생산성을 향상시킬 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617677"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777227"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Personalizer를 사용 하는 위치 및 방법
 
@@ -32,7 +34,7 @@ Personalizer는 보충 learning을 사용 하 여 사용자를 표시할 작업 
 |지침|설명|
 |--|--|
 |비즈니스 목표|애플리케이션에 대한 비즈니스 또는 유용성 목표가 있습니다.|
-|콘텐츠|사용자에게 표시할 항목을 상황에 맞게 결정하여 해당 목표를 향상시킬 수 있는 위치가 애플리케이션에 있습니다.|
+|Content|사용자에게 표시할 항목을 상황에 맞게 결정하여 해당 목표를 향상시킬 수 있는 위치가 애플리케이션에 있습니다.|
 |콘텐츠 수량|호출 당 순위를 50 개 미만으로 작업을 수행 합니다.|
 |데이터 집계|최상의 선택은 전체 사용자 동작과 총 보상 점수에서 학습할 수 있고 학습해야 합니다.|
 |윤리적 사용|기계 학습을 맞춤 설정에 사용하는 경우 [사용 책임 지침](ethics-responsible-use.md)과 선택 항목을 따릅니다.

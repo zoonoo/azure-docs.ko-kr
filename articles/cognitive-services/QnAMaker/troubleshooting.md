@@ -1,14 +1,16 @@
 ---
 title: 문제 해결-QnA Maker
 description: QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이트 목록은 서비스를 더 빠르게 채택 하 고 더 나은 결과를 생성 하는 데 도움이 됩니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.openlocfilehash: 50823e29eb5c276c00a1c8f0e3227ec67999a703
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06747e2d053171749bfc5c9c394dab3d48674d67
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502582"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776241"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -133,7 +135,7 @@ QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이�
 <details>
 <summary><b>기술 자료는 풍부한 데이터 또는 멀티미디어를 지원하나요?</b></summary>
 
-**답변**:
+**응답**:
 
 #### <a name="multimedia-auto-extraction-for-files-and-urls"></a>파일 및 Url에 대 한 멀티미디어 자동 추출
 
@@ -274,7 +276,7 @@ QnA 쌍이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 하
 <details>
 <summary><b>어떤 데이터가 저장되고 어디에 저장되나요?</b></summary>
 
-**답변**:
+**응답**:
 
 QnA Maker 서비스를 만들 때 Azure 지역을 선택했습니다. 기술 자료 및 로그 파일에는 이 지역에 저장됩니다.
 

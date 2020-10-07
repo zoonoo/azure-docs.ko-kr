@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bc5d4e5a8a9607f74eb8733855a216b83520ff11
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88bff924075b0fe525c4b64fca5736a88e26763c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503714"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779568"
 ---
 Azure는 Azure AD 및 OAuth를 사용하여 BLOB 및 큐 데이터에 대한 액세스 권한을 부여할 수 있도록 다음과 같은 Azure 기본 역할을 제공합니다.
 
@@ -26,7 +26,7 @@ Azure는 Azure AD 및 OAuth를 사용하여 BLOB 및 큐 데이터에 대한 액
 - [Storage 큐 데이터 메시지 처리자](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Azure Storage 큐의 메시지에 대한 선택, 검색 및 삭제 권한을 부여하는 데 사용됩니다.
 - [Storage 큐 데이터 메시지 보내는 사람](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Azure Storage 큐의 메시지에 대한 추가 권한을 부여하는 데 사용됩니다.
 
-데이터 액세스에 대해 명시적으로 정의된 역할만 보안 주체가 BLOB 또는 큐 데이터에 액세스할 수 있도록 허용합니다. **소유자**, **기여자** 및 **스토리지 계정 기여자** 같은 기본 제공 역할은 보안 주체가 스토리지 계정을 관리하는 것을 허용하지만, Azure AD를 통해 해당 계정 내의 BLOB 또는 큐 데이터에 액세스할 수 있는 권한은 제공하지 않습니다. 그러나 역할에 **Microsoft.Storage/storageAccounts/listKeys/action**이 포함되어 있는 경우에는 해당 역할이 할당된 사용자가 계정 액세스 키를 사용하여 공유 키 인증을 통해 스토리지 계정의 데이터에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 BLOB 또는 큐 데이터에 액세스](../articles/storage/common/storage-access-blobs-queues-portal.md)를 참조하세요.
+데이터 액세스에 대해 명시적으로 정의된 역할만 보안 주체가 BLOB 또는 큐 데이터에 액세스할 수 있도록 허용합니다. **소유자**, **기여자** 및 **스토리지 계정 기여자** 같은 기본 제공 역할은 보안 주체가 스토리지 계정을 관리하는 것을 허용하지만, Azure AD를 통해 해당 계정 내의 BLOB 또는 큐 데이터에 액세스할 수 있는 권한은 제공하지 않습니다. 그러나 역할에 **Microsoft.Storage/storageAccounts/listKeys/action**이 포함되어 있는 경우에는 해당 역할이 할당된 사용자가 계정 액세스 키를 사용하여 공유 키 인증을 통해 스토리지 계정의 데이터에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 BLOB 또는 큐 데이터에 액세스](../articles/storage/blobs/authorize-blob-access-portal.md)를 참조하세요.
 
 데이터 서비스 및 관리 서비스에 대한 Azure Storage의 Azure 기본 제공 역할에 대한 자세한 내용은 [Azure RBAC에 대한 Azure 기본 제공 역할](../articles/role-based-access-control/built-in-roles.md#storage)의 **스토리지** 섹션을 참조하세요. 또한 Azure에서 권한을 제공하는 여러 유형의 역할에 대한 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할](../articles/role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.
 

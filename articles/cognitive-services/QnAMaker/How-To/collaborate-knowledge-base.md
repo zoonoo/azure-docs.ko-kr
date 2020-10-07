@@ -1,14 +1,16 @@
 ---
 title: 기술 자료에 대 한 공동 작업-QnA Maker
 description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작업할 수 있습니다. 이 기능은 azure RBAC (역할 기반 액세스 제어)와 함께 제공 됩니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8adc02d4b397c2b0bdaf5d3998cfbe229c896d41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926850"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776853"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>작성자 및 편집기와 공동 작업
 
@@ -62,7 +64,7 @@ QnA Maker 서비스를 공유 하는 사람이 [QnA Maker 포털](https://qnamak
 
 기술 자료를 선택 하면 해당 QnA Maker 리소스에 대 한 현재 역할이 기술 자료 이름 옆에 표시 됩니다.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="웹 페이지의 왼쪽 위 모서리에 있는 기술 자료 이름 옆의 괄호 안에 역할 이름을 사용 하 여 편집 모드에 있는 기술 자료의 스크린샷":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="IAM 역할 추가를 QnA Maker 합니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

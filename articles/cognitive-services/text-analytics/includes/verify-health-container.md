@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 83a9eeb7644d107a808494ad06a8bef91d471fe1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122531"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779788"
 ---
 ### <a name="verify-that-a-container-is-running"></a>컨테이너가 실행 중인지 확인 합니다.
 

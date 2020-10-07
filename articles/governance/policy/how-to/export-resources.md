@@ -4,12 +4,12 @@ description: 정책 정의 및 정책 할당과 같은 Azure Policy 리소스를
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17f0322390cd2cd89ba182a9e3c7c95843cc135e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604437"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777091"
 ---
 # <a name="export-azure-policy-resources"></a>Azure Policy 리소스 내보내기
 
@@ -84,7 +84,7 @@ Azure Policy 정의, 이니셔티브 및 할당을 [Azure PowerShell](/powershel
 다음은 **이름이** _VirtualMachineStorage_인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
 ```
 
 ## <a name="next-steps"></a>다음 단계

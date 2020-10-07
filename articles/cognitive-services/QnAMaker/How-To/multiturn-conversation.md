@@ -1,14 +1,16 @@
 ---
 title: 다중 전환 대화-QnA Maker
 description: 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 다중 턴 이라고 하는 여러 턴을 관리 합니다. 멀티 턴은 이전 질문의 컨텍스트가 다음 질문 및 답변에 영향을 주는 앞뒤로 대화를 수행할 수 있는 기능입니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322838"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777799"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
@@ -92,7 +94,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 다중 턴 컨텍스트는 첫 번째 열에 표시 됩니다.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="강조 표시 된 컨텍스트 섹션을 보여 주는 스크린샷" lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="스크린샷 사용자 설명서의 구조 예를 보여 줍니다." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 위의 그림에서 **#1** 는 현재 질문을 의미 하는 열의 굵은 텍스트를 나타냅니다. 부모 질문은 행의 맨 위 항목입니다. 아래 질문은 연결 된 질문 및 답변 쌍입니다. 이러한 항목은 선택할 수 있으므로 다른 컨텍스트 항목으로 바로 이동할 수 있습니다.
 
@@ -167,7 +169,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
     부모 질문은 선택 항목 중 하나로 새 질문을 표시 합니다.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="스크린샷은 두 질문에 대 한 컨텍스트 열을 보여 줍니다 .이는 추가 작업 프롬프트 관계를 나타냅니다." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="스크린샷 사용자 설명서의 구조 예를 보여 줍니다." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. 추가 작업 프롬프트를 추가한 후 위쪽 탐색 모음에서 **저장 및 학습** 을 선택 합니다.
 

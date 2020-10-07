@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning에서 IoT Hub 데이터를 사용하여 날씨 예측
-description: Azure Machine Learning을 사용하여 IoT Hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하여 강우 확률을 예측합니다.
+title: IoT Hub 데이터와 Azure Machine Learning Studio (클래식)을 사용한 날씨 예측
+description: Azure Machine Learning Studio (클래식)를 사용 하 여 IoT hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하는 비가의 확률을 예측 합니다.
 author: robinsh
 manager: philmea
 keywords: 일기 예보 기계 학습
@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 5f51ffc3135ff35214a2c5c40cce1f2b3fcaf33e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290922"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777159"
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
+# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 IoT hub의 센서 데이터를 사용한 날씨 예측 (클래식)
 
 ![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-기계 학습은 컴퓨터에서 기존 데이터로부터 학습하여 미래 동작, 결과 및 추세를 예측하는 데 유용한 데이터 과학 기술입니다. Azure Machine Learning은 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 클라우드 예측 분석 서비스입니다.
+기계 학습은 컴퓨터에서 기존 데이터로부터 학습하여 미래 동작, 결과 및 추세를 예측하는 데 유용한 데이터 과학 기술입니다. Azure Machine Learning Studio(클래식)는 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 클라우드 예측 분석 서비스입니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
-Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이터를 통해 일기 예보(강우 확률)를 수행하는 방법에 대해 알아봅니다. 강우 확률은 준비된 날씨 예측 모델의 결과입니다. 모델에서는 기록 데이터를 기반으로 하여 온도 및 습도에 따라 강우 확률을 예측합니다.
+Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 온도 및 습도 데이터를 사용 하 여 날씨 예측을 수행 하는 방법에 대해 알아봅니다. 강우 확률은 준비된 날씨 예측 모델의 결과입니다. 모델에서는 기록 데이터를 기반으로 하여 온도 및 습도에 따라 강우 확률을 예측합니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
@@ -49,7 +49,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 - [Azure Storage 계정은](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts) **범용 V2** 계정 이지만 Azure Blob 저장소를 지 원하는 Azure Storage 계정도 작동 합니다.
 
 > [!Note]
-> 이 문서에서는 Azure Stream Analytics 및 기타 유료 서비스를 사용 합니다. 추가 요금은 Azure 지역 간에 데이터를 전송 해야 하는 경우 Azure Stream Analytics에 발생 합니다. 이러한 이유로이 자습서의 뒷부분에서 추가 된 리소스 그룹, IoT Hub 및 Azure Storage 계정 뿐만 아니라 Machine Learning Studio (클래식) 작업 영역과이 자습서의 뒷부분에 추가 된 Azure Stream Analytics 작업을 확인 하는 것이 좋습니다.-는 모두 동일한 Azure 지역에 있습니다. 지역별 [azure 제품 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)에서 Azure Machine Learning Studio 및 기타 azure 서비스에 대 한 지역별 지원을 확인할 수 있습니다.
+> 이 문서에서는 Azure Stream Analytics 및 기타 유료 서비스를 사용 합니다. 추가 요금은 Azure 지역 간에 데이터를 전송 해야 하는 경우 Azure Stream Analytics에 발생 합니다. 이러한 이유로이 자습서의 뒷부분에서 추가 된 리소스 그룹, IoT Hub 및 Azure Storage 계정 뿐만 아니라 Machine Learning Studio (클래식) 작업 영역과이 자습서의 뒷부분에 추가 된 Azure Stream Analytics 작업을 확인 하는 것이 좋습니다.-는 모두 동일한 Azure 지역에 있습니다. 지역별 [azure 제품 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)에서 Azure Machine Learning Studio (클래식) 및 기타 azure 서비스에 대 한 지역별 지원을 확인할 수 있습니다.
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>날씨 예측 모델을 웹 서비스로 배포
 
@@ -71,7 +71,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
 모델이 올바르게 동작하려면 온도 및 습도 데이터를 숫자 데이터로 변환할 수 있어야 합니다. 이 섹션에서는 숫자 값으로 변환할 수 없는 온도 또는 습도 데이터 값이 있는 행을 모두 제거하는 R 스크립트 모듈을 날씨 예측 모델에 추가합니다.
 
-1. Azure Machine Learning Studio 창의 왼쪽에서 화살표를 선택 하 여 도구 패널을 확장 합니다. 검색 상자에 "실행"을 입력합니다. **R 스크립트 실행** 모듈을 선택합니다.
+1. Azure Machine Learning Studio (클래식) 창의 왼쪽에서 화살표를 선택 하 여 도구 패널을 확장 합니다. 검색 상자에 "실행"을 입력합니다. **R 스크립트 실행** 모듈을 선택합니다.
 
    ![R 스크립트 실행 모듈 선택](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -246,10 +246,10 @@ Stream Analytics 작업의 왼쪽 창에서 **개요** 를 선택 합니다. 이
 1. 컨테이너 > **Blob 컨테이너** **> 저장소 계정 > 구독** > 선택 합니다.
 1. .csv 파일을 다운로드하여 결과를 확인합니다. 마지막 열은 강우 확률을 기록하고 있습니다.
 
-   ![Azure Machine Learning을 사용하여 일기 예보 결과 가져오기](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
+   ![Azure Machine Learning Studio를 사용 하 여 날씨 예측 결과 가져오기 (클래식)](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>요약
 
-Azure Machine Learning을 사용하여 IoT Hub에서 받은 온도 및 습도 데이터를 기반으로 하여 강우 확률을 생성했습니다.
+IoT hub에서 수신 하는 온도 및 습도 데이터를 기반으로 하는 경우에는 Azure Machine Learning Studio (클래식)을 사용 했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

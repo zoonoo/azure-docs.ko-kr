@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b5c576211fe7bb202e7a27bee5ee3bfd90d74cf9
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 1c64bd10b34b61797cb3bf3de0cd7d2aa819e795
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743100"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777136"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
 서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당 된 할당량을 기준으로 용량 풀의 볼륨에 허용 되는 최대 처리량으로 정의 되 고 구분 됩니다.
@@ -59,14 +59,14 @@ Azure NetApp Files은 *Ultra*, *Premium*및 *Standard*의 세 가지 서비스 �
 
 ### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀의 볼륨에 대 한 처리량 제한 예 
 
-수동 QoS 용량 풀을 사용 하는 경우 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀에서 볼륨을 만들 때 처리량 (MiB/S) 값을 지정할 수 있습니다. 수동 QoS 용량 풀의 볼륨에 할당 되는 총 처리량은 풀의 크기와 서비스 수준에 따라 달라 집니다. (TiB x 서비스 수준 처리량/TiB의 용량 풀 크기)에 의해 제한 됩니다. 예를 들어, TiB 용량 풀의 Ultra service level은 볼륨에 사용할 수 있는 1280 MiB/s (10 TiB x 128 MiB/s/TiB)의 총 처리량 용량을 갖습니다.
+수동 QoS 용량 풀을 사용 하는 경우 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀에서 볼륨을 만들 때 처리량 (MiB/S) 값을 지정할 수 있습니다. 수동 QoS 용량 풀의 볼륨에 할당 되는 총 처리량은 풀의 크기와 서비스 수준에 따라 달라 집니다. (TiB x 서비스 수준 처리량/TiB의 용량 풀 크기)에 의해 제한 됩니다. 예를 들어, TiB 용량 풀의 Ultra service 수준이 인 경우 볼륨에 대해 1280 MiB/s (10 TiB x 128 MiB/s/TiB)의 총 처리량 용량이 있습니다.
 
 SAP HANA 시스템의 경우이 용량 풀을 사용 하 여 다음 볼륨을 만들 수 있습니다. 각 볼륨은 응용 프로그램 요구 사항을 충족 하기 위해 개별 크기와 처리량을 제공 합니다.
 
-* SAP HANA 데이터 볼륨: 크기 4tb, 최대 704 m b/초
-* SAP HANA 로그 볼륨: 크기 0.5 TB, 최대 256 MiB/s
-* SAP HANA 공유 볼륨: 크기 1tb, 최대 64 m b/초
-* SAP HANA 백업 볼륨: 크기 6.5 TB, 최대 256 MiB/s
+* SAP HANA 데이터 볼륨: 크기 4 TiB, 최대 704 MiB/s
+* SAP HANA 로그 볼륨: 최대 256 MiB/s를 사용 하는 크기 0.5 TiB
+* SAP HANA 공유 볼륨: 크기 1 TiB 최대 64 MiB/s
+* SAP HANA 백업 볼륨: 최대 256 MiB/s를 사용 하는 크기 4.5 TiB
 
 아래 다이어그램은 SAP HANA 볼륨의 시나리오를 보여 줍니다.
 

@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: d6635696422c22dfdb4250516a9c3dfc8c577e12
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619885"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777074"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 해결
 
@@ -126,7 +126,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
 
-클라이언트 프로그램이 SQL Database의 .NET Framework 클래스를 사용 하 여 데이터베이스에 연결 하는 경우 .NET 4.6.1 이상 (또는 .NET Core)을 사용 하 여 연결 다시 시도 **기능을 사용할**수 있습니다. 기능에 대한 자세한 내용은 [이 웹 페이지](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection)를 참조하세요.
+클라이언트 프로그램이 SQL Database의 .NET Framework 클래스를 사용 하 여 데이터베이스에 연결 하는 경우 .NET 4.6.1 이상 (또는 .NET Core)을 사용 하 여 연결 다시 시도 **기능을 사용할**수 있습니다. 기능에 대 한 자세한 내용은 [SqlConnection 속성](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true)을 참조 하세요.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -276,10 +276,10 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 
 다음은 오류 로그 및 기타 정보를 쿼리하는 몇 가지 Transact-SQL SELECT 문입니다.
 
-| 로그 쿼리 | 설명 |
+| 로그 쿼리 | 설명: |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 뷰는 추가 진단에 대 한 이벤트 유형의 집계 된 개수를 제공 합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 뷰는 추가 진단에 대 한 이벤트 유형의 집계 된 개수를 제공 합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 

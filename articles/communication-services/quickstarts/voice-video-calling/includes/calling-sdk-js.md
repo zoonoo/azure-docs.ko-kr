@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376609"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779770"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -72,9 +72,9 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>사용자 및 PSTN을 사용 하 여 1: n 호출
-> [!WARNING]
-> PSTN 호출은 현재 비공개 미리 보기 상태입니다. 액세스를 위해 [초기 도입자 프로그램에 적용](https://aka.ms/ACS-EarlyAdopter)합니다.
+
 사용자 및 PSTN 번호에 대 한 1: n 호출을 수행 하려면 두 개의 호출 수신자에 대해 CommunicationUser와 전화 번호를 지정 해야 합니다.
+
 PSTN 호출을 허용 하도록 통신 서비스 리소스를 구성 해야 합니다.
 ```js
 
