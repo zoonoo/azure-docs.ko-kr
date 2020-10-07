@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815864"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal을 사용하여 Private Links로 관리 디스크에 대한 가져오기/내보내기 액세스를 제한합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "88815864"
 
 리소스가 만들어지면 해당 리소스로 직접 이동합니다.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="포털의 리소스로 이동 단추에 대한 스크린샷":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
 
 ## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
@@ -61,13 +61,13 @@ ms.locfileid: "88815864"
 1. 디스크 액세스 리소스에서 **프라이빗 엔드포인트 연결**을 선택합니다.
 1. **+ 프라이빗 엔드포인트**를 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="디스크 액세스 리소스에 대한 개요 블레이드의 스크린샷. 프라이빗 엔드포인트 연결이 강조 표시되어 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
 
 1. 리소스 그룹 선택
 1. 이름을 입력하고, 디스크 액세스 리소스를 만든 지역과 동일한 지역을 선택합니다.
 1. 완료되면 **다음: 리소스 >** 를 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(첫 번째 블레이드)의 스크린샷. 적절한 지역을 선택하지 않으면 나중에 문제가 발생할 수 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
 
 1. **리소스** 블레이드에서 **내 디렉터리에서 Azure 리소스에 연결합니다.** 를 선택합니다.
 1. **리소스 종류**에 대해 **Microsoft.Compute/diskAccesses**를 선택합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "88815864"
 1. **대상 하위 리소스**를 **디스크**로 유지합니다.
 1. **다음: 구성 >** 을 클릭합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(두 번째 블레이드)의 스크린샷. 모든 값(리소스 종류, 리소스, 대상 하위 리소스)이 강조 표시되어 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
 
 1. 디스크 내보내기를 제한하려는 가상 네트워크를 선택합니다. 그러면 다른 가상 네트워크에서 디스크를 내보낼 수 없습니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "88815864"
 1. 적절한 서브넷을 선택합니다.
 1. **검토 + 만들기**를 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(세 번째 블레이드)의 스크린샷. 가상 네트워크 및 서브넷이 강조 표시되어 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>디스크에서 프라이빗 엔드포인트 사용
 
@@ -94,7 +94,7 @@ ms.locfileid: "88815864"
 1. **프라이빗 엔드포인트(디스크 액세스를 통해)** 를 선택하고, 이전에 만든 디스크 액세스를 선택합니다.
 1. **저장**을 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="관리 디스크 네트워킹 블레이드의 스크린샷. 프라이빗 엔드포인트 선택 항목 및 선택한 디스크 액세스가 강조 표시되어 있습니다. 이를 저장하면 이 액세스에 대한 디스크가 구성됩니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
 
 이제 관리 디스크를 가져오거나 내보낼 때 사용할 수 있는 Private Link를 구성하는 작업이 완료되었습니다.
 

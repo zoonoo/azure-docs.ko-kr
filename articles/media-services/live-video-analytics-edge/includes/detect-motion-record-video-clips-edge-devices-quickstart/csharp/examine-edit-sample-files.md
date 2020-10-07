@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: bc24d6670cbf0c2ac72c9a1d100467b8724779b3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88682285"
 ---
 이 빠른 시작의 필수 구성 요소로 샘플 코드를 폴더에 다운로드했습니다. 다음 단계에 따라 샘플 코드를 검사하고 편집합니다.

@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e49ecf0f8e88e0de22117a5ed85b8352e73a2f5d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89020238"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
@@ -104,15 +104,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 
 1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
 
-   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="연결 문자열 창에서 기본 연결 문자열 보기 및 복사":::
-
-2. Visual Studio에서 **Settings.json** 파일을 엽니다. 
-
-3. 포털의 **기본 연결 문자열**을 StorageConnectionString 값에 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다.
-
-   ```csharp
-   {
-      "StorageConnectionString": "<Primary connection string from Azure portal>"
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="솔루션 열기"
    }
    ```
 
@@ -124,25 +116,25 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 
 1. Visual Studio의 **솔루션 탐색기**에서 **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
 
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="NuGet 패키지 관리":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="솔루션 열기":::
 
 2. NuGet **찾아보기** 상자에 Microsoft.Azure.Cosmos.Table을 입력합니다. 그러면 Cosmos DB Table API 클라이언트 라이브러리를 찾을 수 있습니다. 이 라이브러리는 현재 .NET Framework 및 .NET Standard에만 제공됩니다. 
    
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="NuGet 찾아보기 탭":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="솔루션 열기":::
 
 3. **설치**를 클릭하여 **Microsoft.Azure.Cosmos.Table** 라이브러리를 설치합니다. 그러면 Azure Cosmos DB Table API 패키지 및 모든 종속성이 설치됩니다.
 
 4. 전체 앱을 실행하면 샘플 데이터가 테이블 엔터티에 삽입되고 끝에서 삭제되므로 전체 샘플을 실행할 경우 삽입된 어떠한 데이터도 보이지 않습니다. 그러나 일부 중단점을 삽입하여 데이터를 볼 수 있습니다. BasicSamples.cs 파일을 열고 52줄을 마우스 오른쪽 단추로 클릭하고 **중단점**을 선택한 다음, **중단점 삽입**을 선택합니다. 55줄에 다른 중단점을 삽입합니다.
 
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="중단점 추가"::: 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="솔루션 열기"::: 
 
 5. F5 키를 눌러 애플리케이션을 실행합니다. 콘솔 창에서 Azure Cosmos DB의 새 테이블 데이터베이스에 대한 이름(이 경우 demoa13b1)이 표시됩니다. 
     
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="콘솔 출력":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="솔루션 열기":::
 
    첫 번째 중단점에 도달하면 Azure Portal의 데이터 탐색기로 돌아갑니다. **새로 고침** 단추를 클릭하고 demo* 테이블을 펼친 다음 **엔터티**를 클릭합니다. 오른쪽의 **엔터티** 탭에서 Walter Harp에 추가된 새 엔터티가 표시됩니다. 새 엔터티에 대한 전화 번호는 425-555-0101입니다.
 
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="새 엔터티":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="솔루션 열기":::
     
    프로젝트 실행 시 Settings.json 파일을 찾을 수 없다는 오류가 표시되는 경우 다음 XML 항목을 프로젝트 설정에 추가하여 오류를 해결할 수 있습니다. CosmosTableSamples를 마우스 오른쪽 단추로 클릭하고 CosmosTableSamples.csproj 편집을 선택한 후 다음 itemGroup을 추가합니다. 
 

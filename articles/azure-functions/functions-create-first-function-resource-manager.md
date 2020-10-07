@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642268"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>빠른 시작: ARM 템플릿에서 Azure Functions 리소스 만들기 및 배포
@@ -117,7 +117,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 1. 게시가 완료된 후 **사이트 URL**을 복사합니다.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="게시 요약에서 사이트 URL 복사":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="기존 게시 대상 선택":::
 
 1. 경로 `/api/<FUNCTION_NAME>?name=Functions`를 추가합니다. 여기서 `<FUNCTION_NAME>`은 함수의 이름입니다. HTTP 트리거 함수를 호출하는 URL은 다음과 같은 형식입니다.
 

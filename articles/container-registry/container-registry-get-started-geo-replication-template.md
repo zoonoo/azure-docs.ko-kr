@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
 ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649605"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 지역 복제 컨테이너 레지스트리 만들기
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
  3. 사용 약관에 동의하는 경우 **구매**를 선택합니다. 레지스트리가 성공적으로 만들어지면 다음과 같이 알림을 받게 됩니다.
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="포털 알림":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="템플릿 속성":::
 
  Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
@@ -74,11 +74,11 @@ Azure Portal 또는 Azure CLI와 같은 도구를 사용하여 컨테이너 레�
 
 1. **개요** 페이지에서 레지스트리의 **로그인 서버**를 확인합니다. Docker를 사용하여 이미지에 태그를 지정하고 레지스트리에 푸시할 때 이 URI를 사용합니다. 자세한 내용은 [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)를 참조하세요.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="레지스트리 개요":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="템플릿 속성":::
 
 1. **복제본** 페이지에서 홈 복제본과 템플릿을 통해 추가된 복제본의 위치를 확인합니다. 원하는 경우 이 페이지에서 복제본을 더 추가합니다.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="레지스트리 복제":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="템플릿 속성":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

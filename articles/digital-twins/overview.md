@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
 ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89003850"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
@@ -88,7 +88,7 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 다음 다이어그램에서는 Azure Digital Twins 이 더 큰 Azure IoT 솔루션의 컨텍스트에서 발생하는 위치를 보여줍니다.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="클라이언트 앱과 외부 계산 리소스 모두에서 입력 원본, 출력 서비스 및 양방향 통신을 보여 주는 다이어그램입니다." border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="디지털 쌍을 나타내는 노드의 그래프를 보여주는 Azure Digital Twins 탐색기 샘플 애플리케이션의 스크린샷" border="false" lightbox="media/overview/solution-context.png":::
 
 ## <a name="service-limits-in-public-preview"></a>공개 미리 보기 서비스 제한
 

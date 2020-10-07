@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89079135"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - ARM 템플릿
@@ -76,7 +76,7 @@ Azure Portal에서 배포된 리소스, 특히 IP 그룹을 사용하는 방화�
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="IP 그룹.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="네트워크 규칙.":::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="IP 그룹.":::
 
 템플릿에서 방화벽의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network azureFirewalls 템플릿 참조](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls)를 참조하세요.
 

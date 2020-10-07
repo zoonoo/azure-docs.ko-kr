@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684119"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
@@ -63,7 +63,7 @@ ms.locfileid: "88684119"
 
 1. 자격 증명 모음의 배포를 시작하려면 **구매** 단추를 선택합니다. 성공적으로 배포된 후 알림이 표시됩니다.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="자격 증명 모음을 배포했습니다.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Recovery Services 자격 증명 모음을 만드는 템플릿":::
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 

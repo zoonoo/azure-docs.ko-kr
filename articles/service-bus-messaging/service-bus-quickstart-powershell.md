@@ -8,10 +8,10 @@ ms.date: 08/12/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 178f990e46801cd51e9feb88bbd20181842e4400
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89077690"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Azure PowerShell을 사용하여 Service Bus 네임스페이스 및 큐 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "89077690"
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Cloud Shell 시작":::
 3. 아래쪽 Cloud Shell 창의 **Bash**에서 **PowerShell**로 전환합니다. 
 
-    :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="PowerShell 모드로 전환":::    
+    :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="Cloud Shell 시작":::    
 4. 다음 명령을 실행하여 Azure 리소스 그룹을 만듭니다. 원하는 경우 리소스 그룹 이름 및 위치를 업데이트합니다. 
 
     ```azurepowershell-interactive
