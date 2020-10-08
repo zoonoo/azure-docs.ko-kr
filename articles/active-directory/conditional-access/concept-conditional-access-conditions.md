@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258715"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818350"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -49,6 +49,9 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 - macOS
 
 **다른 클라이언트** 상태를 사용 하 여 레거시 인증을 차단 하는 경우 장치 플랫폼 조건을 설정할 수도 있습니다.
+
+> [!IMPORTANT]
+> 지원 되지 않는 장치 플랫폼에 대 한 조건부 액세스 정책을 사용 하는 것이 좋습니다. 예를 들어 Linux 또는 기타 지원 되지 않는 클라이언트에서 회사 리소스에 대 한 액세스를 차단 하려면 모든 장치를 포함 하는 장치 플랫폼 조건으로 정책을 구성 하 고 지원 되는 장치 플랫폼을 제외 하 고 액세스를 차단 하도록 컨트롤 집합을 부여 해야 합니다.
 
 ## <a name="locations"></a>위치
 

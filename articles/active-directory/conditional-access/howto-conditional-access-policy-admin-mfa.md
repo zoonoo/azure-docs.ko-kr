@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bac3e0dc6c6bcc98bb57989e1335ce6a60872a37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049352"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818328"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>조건부 액세스: 관리자에 대해 MFA 필요
 
@@ -24,11 +24,12 @@ ms.locfileid: "89049352"
 
 최소한 다음 역할에 대 한 MFA를 요구 하는 것이 좋습니다.
 
+* 인증 관리자
 * 대금 청구 관리자
 * 조건부 액세스 관리자
 * Exchange 관리자
 * 전역 관리자
-* 기술 지원팀 (암호) 관리자
+* 기술 지원팀 관리자
 * 암호 관리자
 * 보안 관리자
 * SharePoint 관리자
@@ -70,9 +71,9 @@ ms.locfileid: "89049352"
       > 조건부 액세스 정책은 사용자 [지정 역할](../users-groups-roles/roles-create-custom.md)을 사용 하는 것과 같이 개체에 직접 범위가 지정 된 [관리 단위나](../users-groups-roles/roles-admin-units-assign-roles.md) 디렉터리 역할로 범위가 지정 된 사용자를 지원 하지 않습니다.
 
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
-   1. **완료**를 선택합니다.
+   1. **완료** 를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함**에서 **모든 클라우드 앱**을 선택하고 **완료**를 선택합니다.
-1. **Conditions**  >  **클라이언트 앱 (미리 보기)** 의 조건에서 **이 정책이 적용 되는 클라이언트 앱 선택** 에서 모든 기본값 유지를 선택 하 고 **완료**를 선택 합니다.
+1. **조건**  >  **클라이언트 앱**에서 **구성** 을 **예** 로 전환 하 고 **클라이언트 앱 선택** 에서 모든 기본값을 선택 된 채로 두고 **완료**를 선택 합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택**을 차례로 선택합니다.
 1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
 1. **만들기**를 선택하여 정책을 만들어 사용하도록 설정합니다.

@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 6be33df90ed58dc448009fb0e26ca49c800d1931
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766051"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819082"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Front Door에서 루트 또는 Apex 도메인 온보드
 Azure 전면 도어는 CNAME 레코드를 사용 하 여 사용자 지정 도메인의 등록을 위한 도메인 소유권의 유효성을 검사 합니다. 전면 도어는 프런트 도어 프로필에 연결 된 프런트 엔드 IP 주소를 노출 하지 않습니다. 따라서 apex 도메인을 Azure Front 도어에 등록 하려는 경우 IP 주소에 매핑할 수 없습니다.
@@ -54,7 +54,7 @@ Azure Portal를 사용 하 여 Front 문에 apex 도메인을 등록 하 고 TLS
 
 1. **저장** 을 선택 하 여 변경 내용을 제출 합니다.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="영역 apex에 대 한 별칭 레코드":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="영역 apex에 대 한 별칭 레코드":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>사용자 지정 도메인에서 HTTPS를 사용 하도록 설정
 
@@ -62,10 +62,10 @@ Azure Portal를 사용 하 여 Front 문에 apex 도메인을 등록 하 고 TLS
 
 1. **인증서 관리 유형을** *' 자체 인증서 사용 '* 으로 선택 합니다.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="영역 apex에 대 한 별칭 레코드":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="영역 apex에 대 한 별칭 레코드":::    
 
-    > [!WARNING]
-    > Apex 또는 루트 도메인에 대해 현재 Front 도어 관리 인증서 관리 유형이 지원 되지 않습니다. Apex 또는 루트 도메인에서 HTTPS를 사용 하도록 설정 하는 데 사용할 수 있는 유일한 옵션은 Azure Key Vault에서 호스트 되는 사용자 지정 TLS/SSL 인증서를 사용 하는 것입니다.
+   > [!WARNING]
+   > Apex 또는 루트 도메인에 대해 현재 Front 도어 관리 인증서 관리 유형이 지원 되지 않습니다. Apex 또는 루트 도메인에서 HTTPS를 사용 하도록 설정 하는 데 사용할 수 있는 유일한 옵션은 Azure Key Vault에서 호스트 되는 사용자 지정 TLS/SSL 인증서를 사용 하는 것입니다.
 
 1. 다음 단계로 진행 하기 전에 UI에 명시 된 대로 주요 자격 증명 모음에 액세스할 수 있도록 Front 도어에 올바른 권한을 설정 했는지 확인 합니다.
 

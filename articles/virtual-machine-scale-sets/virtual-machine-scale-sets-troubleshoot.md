@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830685"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818543"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
 **문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 과 같은 템플릿을 배포했습니다. 정의된 크기 조정 규칙이 있으며, VM에 적용되는 로드의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고는 원활하게 작동합니다.
@@ -62,11 +62,11 @@ ms.locfileid: "87830685"
     
     Insights 서비스에서 VM의 데이터를 읽을 수 없는 경우 사용자에게 전자 메일을 보냅니다. 예를 들어 VM이 종료된 경우 전자 메일을 받게 됩니다. Azure 계정을 만들 때 지정한 전자 메일 주소에서 전자 메일을 확인해야 합니다.
     
-    또한 직접 데이터를 살펴볼 수도 있습니다. 클라우드 탐색기를 사용하여 Azure Storage 계정을 찾습니다. 예를 들어, [Visual Studio 클라우드 탐색기](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)를 사용하여 로그인한 후 사용 중인 Azure 구독을 선택합니다. 그 다음, 배포 템플릿의 진단 확장 정의에서 진단 스토리지 계정 이름을 확인합니다.
+    또한 직접 데이터를 살펴볼 수도 있습니다. 클라우드 탐색기를 사용하여 Azure Storage 계정을 찾습니다. 예를 들어 [Visual Studio 클라우드 탐색기](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)를 사용 하 여 로그인 하 고 사용 중인 Azure 구독을 선택 합니다. 그 다음, 배포 템플릿의 진단 확장 정의에서 진단 스토리지 계정 이름을 확인합니다.
     
     ![Cloud Explorer][explorer]
     
-    각 VM의 데이터가 저장되는 여러 테이블이 표시됩니다. 예를 들어 Linux 및 CPU 메트릭에서 가장 최근 행을 살펴봅니다. Visual Studio 클라우드 탐색기는 쿼리를 실행할 수 있도록 쿼리 언어를 지원합니다. 예를 들어, "Timestamp gt datetime'2016-02-02T21:20:00Z"에 대한 쿼리를 실행하여 가장 최근에 발생한 이벤트를 확인할 수 있습니다. 표준 시간대는 UTC에 해당합니다. 확인한 데이터가 설정한 크기 조정 규칙과 일치하나요? 아래 예제에서는 컴퓨터 20에 대한 CPU가 지난 5분 동안 100%로 증가하기 시작했습니다.
+    각 VM의 데이터가 저장되는 여러 테이블이 표시됩니다. 예를 들어 Linux 및 CPU 메트릭에서 가장 최근 행을 살펴봅니다. Visual Studio 클라우드 탐색기는 쿼리를 실행할 수 있도록 쿼리 언어를 지원 합니다. 예를 들어, "Timestamp gt datetime'2016-02-02T21:20:00Z"에 대한 쿼리를 실행하여 가장 최근에 발생한 이벤트를 확인할 수 있습니다. 표준 시간대는 UTC에 해당합니다. 확인한 데이터가 설정한 크기 조정 규칙과 일치하나요? 아래 예제에서는 컴퓨터 20에 대한 CPU가 지난 5분 동안 100%로 증가하기 시작했습니다.
     
     ![스토리지 테이블][tables]
     

@@ -1,15 +1,16 @@
 ---
 title: 질문과 대답
 description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421283"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818485"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -39,7 +40,7 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 #### <a name="windows-server-2016-base-images"></a>Windows Server 2016 기본 이미지
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` 또는 최신
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` 이상
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`  `10.0.14393.3506` 이상
 
 > [!NOTE]
 > 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지는 지원 되지 않습니다.
@@ -52,7 +53,7 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>컨테이너에서 사용 해야 하는 .NET 또는 .NET Core 이미지 계층은 무엇 인가요? 
 
-요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 ( *4.7.2-windowsservercore-ltsc2016*와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
+요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 (  *4.7.2-windowsservercore-ltsc2016*와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
 
 ## <a name="availability-and-quotas"></a>가용성 및 할당량
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: be8e43585fca77fc891a9142066d406444b674d8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7274627ccf0aaab29f3ca569568e0085d53f1dea
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253237"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818097"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
@@ -54,7 +54,7 @@ ms.locfileid: "91253237"
 - **[Q5]** 게시물에 대한 좋아요 나열
 - **[Q6]** 최근에 만든 *x*개 게시물을 약식으로 나열(피드)
 
-이 단계에서는 각 엔터티(사용자, 게시물 등)에 포함된 항목에 대한 세부 정보를 고려하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
+이 단계에서는 각 엔터티 (사용자, 게시물 등)에 대 한 세부 정보를 고려 하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
 
 액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다.
 
@@ -137,7 +137,7 @@ ms.locfileid: "91253237"
 
 `users` 컨테이너에서 해당 항목을 읽어 사용자를 검색합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="users 컨테이너에서 단일 항목 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -147,7 +147,7 @@ ms.locfileid: "91253237"
 
 **[C1]** 과 마찬가지로 `posts` 컨테이너에 쓰기만 하면 됩니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="posts 컨테이너에 단일 항목 쓰기" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -157,7 +157,7 @@ ms.locfileid: "91253237"
 
 `posts` 컨테이너에서 해당 문서를 검색하는 것으로 시작합니다. 그러나 이것만으로는 충분하지 않습니다. 사양에 따라 게시물 작성자의 사용자 이름과 이 게시물에 대한 댓글 및 좋아요의 수를 집계해야 합니다. 이를 위해 실행할 3개의 SQL 쿼리가 추가로 필요합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="게시물 검색 및 추가 데이터 집계" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 각 추가 쿼리는 정확히 성능과 확장성을 최대화하기 위해 해당 컨테이너의 파티션 키를 필터링합니다. 하지만 결국에는 4개의 작업을 수행하여 하나의 게시물을 반환해야 하므로 이 부분은 다음 반복에서 개선됩니다.
 
@@ -169,7 +169,7 @@ ms.locfileid: "91253237"
 
 먼저 특정 사용자에 해당하는 게시물을 가져오는 SQL 쿼리를 사용하여 원하는 게시물을 검색해야 합니다. 하지만 작성자의 사용자 이름과 댓글 및 좋아요의 수를 집계하는 추가 쿼리를 실행해야 합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="사용자에 대한 모든 게시물 검색 및 추가 데이터 집계" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 이 구현에는 다음과 같이 많은 단점이 있습니다.
 
@@ -184,7 +184,7 @@ ms.locfileid: "91253237"
 
 댓글은 해당 항목을 `posts` 컨테이너에 기록함으로써 만들어집니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="posts 컨테이너에 단일 항목 쓰기" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -194,7 +194,7 @@ ms.locfileid: "91253237"
 
 먼저 해당 게시물에 대한 모든 댓글을 가져오는 쿼리로 시작하고, 각 댓글에 대한 사용자 이름도 개별적으로 집계해야 합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="게시물에 대한 모든 댓글 검색 및 추가 데이터 집계" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 주 쿼리는 컨테이너의 파티션 키를 필터링하지만, 사용자 이름을 개별적으로 집계하면 전체 성능이 저하됩니다. 이 부분은 나중에 개선됩니다.
 
@@ -206,7 +206,7 @@ ms.locfileid: "91253237"
 
 **[C3]** 과 마찬가지로 해당 항목을 `posts` 컨테이너에 만듭니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="posts 컨테이너에 단일 항목 쓰기" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -216,7 +216,7 @@ ms.locfileid: "91253237"
 
 **[Q4]** 와 마찬가지로 해당 게시물에 대한 좋아요를 쿼리한 다음, 해당 사용자 이름을 집계합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="게시물에 대한 모든 좋아요 검색 및 추가 데이터 수집" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ ms.locfileid: "91253237"
 
 `posts` 컨테이너를 쿼리하여 만든 날짜를 내림차순으로 정렬한 최근 게시물을 가져온 다음, 각 게시물에 대한 사용자 이름과 댓글 및 좋아요의 수를 집계합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="최근 게시물 검색 및 추가 데이터 집계" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 다시 한 번, 초기 쿼리는 컨테이너의 파티션 키를 필터링 하지 않으며 `posts` ,이로 인해 비용이 많이 드는 팬이 트리거됩니다. 훨씬 더 큰 결과 집합을 대상으로 하 고 절을 사용 하 여 결과를 정렬 하는 것과 마찬가지로이는 훨씬 더 악화 됩니다 `ORDER BY` . 그러면 요청 단위 측면에서 비용이 더 많이 듭니다.
 
@@ -337,7 +337,7 @@ function createComment(postId, comment) {
 
 다음 예제에서는 사용자가 자신의 사용자 이름을 업데이트할 때마다 `users` 컨테이너의 변경 피드를 사용하여 반응합니다. 이 경우 `posts` 컨테이너에 대해 다른 저장 프로시저를 호출하여 변경 내용을 전파합니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="posts 컨테이너에 사용자 이름 비정규화" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -377,7 +377,7 @@ function updateUsernames(userId, username) {
 
 이제 비정규화가 완료되었으므로 해당 요청을 처리하기 위해 하나의 항목만 가져오면 됩니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="posts 컨테이너에서 단일 항목 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -387,7 +387,7 @@ function updateUsernames(userId, username) {
 
 여기서 다시, 사용자 이름을 가져온 추가 요청을 줄이고 파티션 키를 필터링하는 단일 쿼리로 끝낼 수 있습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="게시물에 대한 모든 댓글 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -397,7 +397,7 @@ function updateUsernames(userId, username) {
 
 좋아요를 나열하는 경우와 똑같은 상황입니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="게시물에 대한 모든 좋아요 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -411,7 +411,7 @@ function updateUsernames(userId, username) {
 
 이 요청은 이미 V2에서 도입된 향상된 기능의 이점으로 인해 추가 쿼리를 줄일 수 있습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="사용자에 대한 모든 게시물 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 그러나 나머지 쿼리에서는 아직 `posts` 컨테이너의 파티션 키를 필터링하지 않습니다.
 
@@ -455,11 +455,11 @@ function updateUsernames(userId, username) {
 
 이 비정규화를 달성하기 위해 변경 피드를 다시 한번 사용합니다. 이번에는 `posts` 컨테이너의 변경 피드에 반응하여 새 게시물이나 업데이트된 게시물을 `users` 컨테이너로 발송합니다. 그리고 게시물을 나열하면 전체 콘텐츠를 반환할 필요가 없으므로 이 프로세스에서 해당 콘텐츠를 자를 수 있습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="users 컨테이너에 게시물 비정규화" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 이제 쿼리를 `users` 컨테이너로 라우팅하여 해당 컨테이너의 파티션 키를 필터링할 수 있습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="사용자에 대한 모든 게시물 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -469,7 +469,7 @@ function updateUsernames(userId, username) {
 
 여기서 비슷한 상황을 처리해야 합니다. V2에 도입된 비정규화에서 남겨진 불필요한 추가 쿼리를 줄인 후에도 나머지 쿼리에서는 컨테이너의 파티션 키를 필터링하지 않습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="최근 게시물 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 동일한 접근 방식에 따라 이 요청의 성능과 확장성을 최대화하려면 하나의 파티션만 적중해야 합니다. 이는 제한된 수의 항목만 반환해야 하므로 고려할 수 있습니다. 블로깅 플랫폼의 홈페이지를 채우기 위해 전체 데이터 세트에 대해 페이지를 매길 필요 없이 100개의 최근 게시물을 가져오기만 하면 됩니다.
 
@@ -494,7 +494,7 @@ function updateUsernames(userId, username) {
 
 비정규화를 달성하기 위해 앞에서 도입한 변경 공급 파이프라인에 후크하여 게시물을 새 컨테이너로 발송하기만 하면 됩니다. 명심해야 할 한 가지 중요한 점은 100개의 최근 게시물만 저장해야 한다는 것입니다. 그렇지 않으면 컨테이너의 콘텐츠가 파티션의 최대 크기를 초과할 수 있습니다. 이 작업은 컨테이너에 문서가 추가될 때마다 [사후 트리거](stored-procedures-triggers-udfs.md#triggers)를 호출하여 수행됩니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="feed 컨테이너에 게시물 비정규화" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 컬렉션을 자르는 사후 트리거의 본문은 다음과 같습니다.
 
@@ -545,7 +545,7 @@ function truncateFeed() {
 
 마지막 단계는 쿼리를 새 `feed` 컨테이너로 다시 라우팅하는 것입니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="최근 게시물 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |

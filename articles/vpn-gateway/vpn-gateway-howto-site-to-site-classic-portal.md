@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 002aa9da465d86392aaaa5d404f67959b341ecf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445925"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818983"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "91445925"
 
 ![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -104,7 +104,7 @@ DNS 설정이 S2S 구성의 일부가 아니지만 이름을 확인하려는 경
 
 로컬 사이트는 일반적으로 온-프레미스 위치를 가리킵니다. VPN 디바이스의 IP 주소를 포함하며 여기에서 VPN 디바이스에 대한 VPN Gateway를 통해 라우팅되는 연결 및 IP 주소 범위를 만듭니다.
 
-1. VNet에 대 한 페이지의 **설정**에서 **다이어그램**을 클릭 합니다.
+1. VNet의 페이지에서 **모니터링**아래에 있는 **다이어그램**을 클릭 합니다.
 1. **Vpn 연결** 페이지에서 **기존 vpn 연결이 없습니다 .를 클릭 합니다. 시작 하려면 여기를 클릭**하세요.
 1. **연결 형식**으로 **사이트 간** 을 선택 합니다.
 4. **로컬 사이트 - 필수 설정 구성**을 클릭하여 **로컬 사이트** 페이지를 엽니다. 설정을 구성한 다음 **확인**을 클릭하여 설정을 저장합니다.
@@ -157,7 +157,7 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 > 현재 이 단계는 Azure Portal에서 지원되지 않습니다. Azure PowerShell cmdlet의 SM(서비스 관리) 버전을 사용해야 합니다. 이러한 cmdlet을 설치 하는 방법에 대 한 정보는 [시작 하기 전에](#before) 를 참조 하세요.
 >
 
-### <a name="step-1-connect-to-your-azure-account"></a>1단계: Azure 계정에 연결
+### <a name="step-1-connect-to-your-azure-account"></a>1단계. Azure 계정에 연결
 
 PowerShell 서비스 관리 모듈을 사용 하 여 이러한 명령을 로컬로 실행 해야 합니다. 
 

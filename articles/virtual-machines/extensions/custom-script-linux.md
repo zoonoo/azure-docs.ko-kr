@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085727"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818807"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -55,6 +55,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 * 스크립트를 실행할 때 사용자 입력이 필요하지 않도록 합니다.
 * 스크립트를 실행하는 데 허용되는 시간은 90분입니다. 더 오래 걸리면 확장을 프로비전하는 데 실패합니다.
 * 스크립트 내에 재부팅을 배치하지 않습니다. 그렇지 않으면 설치되는 다른 확장에 문제가 발생하고 재부팅 후 다시 시작하면 확장이 계속 실행되지 않습니다. 
+* VM 에이전트를 중지 하거나 업데이트 하는 스크립트를 실행 하는 것은 권장 되지 않습니다. 이로 인해 확장이 전환 상태로 유지 되 고 시간이 초과 될 수 있습니다.
 * 다시 부팅 해야 하는 스크립트가 있는 경우 응용 프로그램을 설치 하 고 스크립트를 실행 합니다. Cron 작업을 사용 하거나 DSC, Chef, 퍼핏 확장 등의 도구를 사용 하 여 다시 부팅을 예약 해야 합니다.
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](../linux/using-cloud-init.md)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 스크립트를 사용 하 여 SystemD 서비스 단위를 만들 수 있습니다.
 * VM에는 하나의 확장 버전만 적용할 수 있습니다. 두 번째 사용자 지정 스크립트를 실행 하려면 사용자 지정 스크립트 확장을 제거 하 고 업데이트 된 스크립트를 사용 하 여 다시 적용 해야 합니다. 
@@ -111,14 +112,14 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 | 
+| 속성 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | 문자열 |
 | type | CustomScript | 문자열 |
 | typeHandlerVersion | 2.1 | int |
 | fileUris(예) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute(예) | python MyPythonScript.py\<my-param1> | 문자열 |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1> | 문자열 |
 | 스크립트 | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
 | skipDos2Unix(예) | false | boolean |
 | timestamp(예) | 123456789 | 32비트 정수 |
@@ -127,7 +128,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 | managedIdentity(예) | { } 또는 { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } 또는 { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json 개체 |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
-* `apiVersion`: 다음 명령을 사용 하 여 Azure CLI [리소스 탐색기](https://resources.azure.com/) 또는에서 가장 최신 apiVersion를 찾을 수 있습니다.`az provider list -o json`
+* `apiVersion`: 다음 명령을 사용 하 여 Azure CLI [리소스 탐색기](https://resources.azure.com/) 또는에서 가장 최신 apiVersion를 찾을 수 있습니다. `az provider list -o json`
 * `skipDos2Unix`: (옵션, 부울) 스크립트 기반 파일 URL 또는 스크립트의 dos2unix 변환을 건너뜁니다.
 * `timestamp`: (옵션, 32비트 정수) 이 필드는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
 * `commandToExecute`: (스크립트를 설정하지 않은 경우 **필수**, 문자열) 실행할 진입점 스크립트입니다. 명령에 암호와 같은 기밀 정보가 포함되는 경우 이 필드를 대신 사용합니다.

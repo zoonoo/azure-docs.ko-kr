@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450381"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817994"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
@@ -29,7 +29,7 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ## <a name="roles-available"></a>사용 가능한 역할
 
-역할  |  설명
+역할  |  Description
 ----- |  -----------
 인증 관리자  |  할당 된 관리 단위 에서만 관리자가 아닌 사용자에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정 하기 위한 액세스 권한이 있습니다.
 그룹 관리자  |  할당 된 관리 단위로 명명 및 만료 정책 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.
@@ -38,8 +38,10 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 암호 관리자  |  는 할당 된 관리 단위 내에서 비관리자 및 암호 관리자에 대 한 암호를 다시 설정할 수 있습니다.
 사용자 관리자  |  할당 된 관리 단위 내 에서만 제한 된 관리자에 대 한 암호 재설정을 포함 하 여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다.
 
-## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>AU 범위 역할에 할당할 수 있는 보안 주체
-AU 범위 역할에 다음 보안 주체를 할당할 수 있습니다.
+## <a name="security-principals-that-can-be-assigned-to-a-scoped-role"></a>범위가 지정 된 역할에 할당할 수 있는 보안 주체
+
+관리 단위 범위가 있는 역할에는 다음 보안 주체를 할당할 수 있습니다.
+
 * 사용자
 * 역할 할당 가능한 클라우드 그룹 (미리 보기)
 * SPN(서비스 주체 이름)

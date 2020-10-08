@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e223dd46806551fbba05127b70a9119a5d9c75
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661145"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818217"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
 
@@ -31,21 +31,30 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ### <a name="azure-portal"></a>Azure portal
 
-두 가지 방법으로 관리 단위에 사용자를 할당할 수 있습니다.
+관리 단위에 사용자를 개별적으로 할당 하거나 대량 작업을 수행할 수 있습니다.
 
-1. 개별 할당
+- 사용자 프로필의 개별 할당
 
-    1. 포털에서 Azure AD로 이동 하 여 사용자를 선택 하 고 관리 단위에 할당할 사용자를 선택할 수 있습니다. 그런 다음 왼쪽 패널에서 관리 단위를 선택할 수 있습니다. * * 관리 단위에 할당을 클릭 하 고 사용자를 할당할 관리 단위를 선택 하 여 하나 이상의 관리 단위에 사용자를 할당할 수 있습니다.
+   1. 권한 있는 역할 관리자 권한으로 [AZURE AD 관리 센터](https://portal.azure.com) 에 로그인 합니다.
+   1. 사용자 **를 선택 하 고 관리** 단위에 할당할 사용자를 선택 하 여 사용자의 프로필을 엽니다.
+   1. **관리 단위**를 선택 합니다. **관리 단위에 할당** 을 선택 하 고 사용자를 할당할 관리 단위를 선택 하 여 하나 이상의 관리 단위에 사용자를 할당할 수 있습니다.
 
        ![추가를 선택 하 고 관리 단위의 이름을 입력 합니다.](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. 포털에서 Azure AD로 이동 하 여 왼쪽 창에서 관리 단위를 선택 하 고 사용자를 할당할 관리 단위를 선택할 수 있습니다. **모든 사용자** 를 선택한 후 **구성원 추가**를 선택 합니다. 그런 다음 오른쪽 창에서 관리 단위에 할당할 사용자를 하나 이상 선택할 수 있습니다.
+- 관리 단위의 개별 할당
+
+   1. 권한 있는 역할 관리자 권한으로 [AZURE AD 관리 센터](https://portal.azure.com) 에 로그인 합니다.
+   1. **관리 단위** 를 선택 하 고 사용자를 할당할 관리 단위를 선택 합니다.
+   1. **모든 사용자** 를 선택한 후 **구성원 추가** 를 선택 하 여 **구성원 추가** 창에서 관리 단위에 할당할 사용자를 하나 이상 선택 합니다.
 
         ![관리 단위를 선택한 다음, 구성원 추가](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. 대량 할당
+- 대량 할당
 
-    포털에서 Azure AD로 이동 하 고 관리 단위를 선택 합니다. 사용자를 추가할 관리 단위를 선택 합니다. 모든 사용자-.csv 파일에서 멤버 추가 > 클릭 하 여 계속 합니다. 그런 다음 CSV 템플릿을 다운로드 하 고 파일을 편집할 수 있습니다. 형식은 단순 하 고 각 줄에 단일 UPN을 추가 해야 합니다. 파일이 준비 되 면 적절 한 위치에 저장 한 다음 스냅숏에서 강조 표시 된 대로 3 단계에서 업로드 합니다.
+   1. 권한 있는 역할 관리자 권한으로 [AZURE AD 관리 센터](https://portal.azure.com) 에 로그인 합니다.
+   1. **관리 단위**를 선택 합니다.
+   1. 사용자를 추가할 관리 단위를 선택 합니다.
+   1. **모든 사용자**열기  >  **.csv 파일에서 멤버를 추가**합니다. 그런 다음 CSV (쉼표로 구분 된 값) 템플릿을 다운로드 하 고 파일을 편집할 수 있습니다. 형식은 단순 하 고 각 줄에 단일 사용자 계정 이름을 추가 해야 합니다. 파일이 준비 되 면 적절 한 위치에 저장 한 후이 단계의 일부로 업로드 합니다.
 
     ![관리 단위에 사용자 대량 할당](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 

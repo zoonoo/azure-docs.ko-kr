@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324062"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819026"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -148,7 +148,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 경로 또는 백 엔드 풀 등의 모든 업데이트는 원활 하 게 작동 하며 가동 중지 시간 (새 구성이 올바른 경우)을 발생 시킵니다. ' AFD 관리 '에서 ' 자신의 인증서 사용 '으로 전환 하거나 그 반대로 전환 하지 않는 한 인증서 업데이트도 원자성 이며 중단 되지 않습니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 
@@ -248,6 +248,10 @@ Azure Portal 또는 [azure REST API](https://docs.microsoft.com/rest/api/frontdo
 1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 백 엔드는 백 엔드 호스트 이름과 일치 하는 주체 이름을 가진 유효한 CA에서 인증서를 제공 하는 것으로 예상 합니다. 예를 들어 백 엔드 호스트 이름이로 설정 되 `myapp-centralus.contosonews.net` 고, TLS 핸드셰이크 중에 백 엔드에 표시 되는 인증서가 `myapp-centralus.contosonews.net` 주체 이름에도 그렇지 않은 경우 `*myapp-centralus*.contosonews.net` , 전면 도어는 연결을 거부 하 고 오류를 생성 합니다. 
     1. **해결**방법: 규정 준수 관점에서 권장 되지 않지만, 앞면 도어에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정 하 여이 오류를 해결할 수 있습니다. 이는 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
 2. **잘못 된 ca의 백 엔드 호스팅 인증서**: 전방 도어를 사용 하는 백 엔드에서 [유효한 ca](/azure/frontdoor/front-door-troubleshoot-allowed-ca) 의 인증서만 사용할 수 있습니다. 내부 Ca 또는 자체 서명 된 인증서의 인증서는 허용 되지 않습니다.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Azure Front 문에 클라이언트/상호 인증을 사용할 수 있나요?
+
+아니요. Azure 전면 도어가 [RFC 5246](https://tools.ietf.org/html/rfc5246)에서 클라이언트/상호 인증을 도입 하는 TLS 1.2를 지원 하지만, 현재 Azure front 도어가 클라이언트/상호 인증을 지원 하지 않습니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 
