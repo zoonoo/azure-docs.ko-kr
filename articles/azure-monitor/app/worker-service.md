@@ -4,16 +4,16 @@ description: Azure Monitor Application Insights를 사용 하 여 .NET Core/.NET
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760481"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816388"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Worker 서비스 응용 프로그램에 대 한 Application Insights (HTTP가 아닌 응용 프로그램)
 
-Application Insights는 `Microsoft.ApplicationInsights.WorkerService` 메시징, 백그라운드 작업, 콘솔 응용 프로그램 등과 같은 HTTP가 아닌 작업에 가장 적합 한 새 SDK를 출시 하 고 있습니다. 이러한 유형의 응용 프로그램에는 기존의 ASP.NET/ASP.NET Core 웹 응용 프로그램과 같은 들어오는 HTTP 요청 개념이 없으므로 [ASP.NET](asp-net.md) 또는 [ASP.NET Core](asp-net-core.md) 응용 프로그램에 대 한 Application Insights 패키지를 사용 하는 것은 지원 되지 않습니다.
+[APPLICATION INSIGHTS sdk For Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 는 메시징, 백그라운드 작업, 콘솔 응용 프로그램 등과 같은 HTTP가 아닌 작업에 가장 적합 한 새 sdk입니다. 이러한 유형의 응용 프로그램에는 기존의 ASP.NET/ASP.NET Core 웹 응용 프로그램과 같은 들어오는 HTTP 요청 개념이 없으므로 [ASP.NET](asp-net.md) 또는 [ASP.NET Core](asp-net-core.md) 응용 프로그램에 대 한 Application Insights 패키지를 사용 하는 것은 지원 되지 않습니다.
 
 새 SDK는 자체적으로 원격 분석 컬렉션을 수행 하지 않습니다. 대신 [microsoft.applicationinsights.dependencycollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [perfcountercollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) 등과 같은 잘 알려진 다른 Application Insights 자동 수집기를 제공 합니다. 이 SDK는 `IServiceCollection` 원격 분석 컬렉션을 사용 하도록 설정 하 고 구성 하기 위해에 확장 메서드를 노출 합니다.
 
@@ -124,7 +124,7 @@ Application Insights는 `Microsoft.ApplicationInsights.WorkerService` 메시징,
 또는 다음 환경 변수 중 하나에서 계측 키를 지정 합니다.
 `APPINSIGHTS_INSTRUMENTATIONKEY` 또는 `ApplicationInsights:InstrumentationKey`
 
-예를 들어 다음과 같습니다.
+예: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 디스크나 `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 일반적으로 `APPINSIGHTS_INSTRUMENTATIONKEY` Web Apps에 배포 된 응용 프로그램에 대 한 계측 키를 웹 작업으로 지정 합니다.
@@ -138,7 +138,7 @@ Application Insights는 `Microsoft.ApplicationInsights.WorkerService` 메시징,
 
 전체 예제는 [여기](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) 에서 공유 됩니다.
 
-1. https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)응용 프로그램에 패키지를 설치 합니다.
+1. 응용 프로그램에 [Microsoft ApplicationInsights. 서비스](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 패키지를 설치 합니다.
 2. `services.AddApplicationInsightsTelemetryWorkerService();` `ConfigureServices()` 다음 예제와 같이 메서드에를 추가 합니다.
 
 ```csharp
@@ -225,7 +225,7 @@ Application Insights는 `Microsoft.ApplicationInsights.WorkerService` 메시징,
 
 전체 예제는 [여기](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) 에서 공유 됩니다.
 
-1. https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)응용 프로그램에 패키지를 설치 합니다.
+1. 응용 프로그램에 [Microsoft ApplicationInsights. 서비스](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 패키지를 설치 합니다.
 
 2. 아래 예제와 같이 Program.cs을 수정 합니다.
 
@@ -293,7 +293,7 @@ Application Insights는 `Microsoft.ApplicationInsights.WorkerService` 메시징,
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
-애플리케이션을 실행합니다. 위의 모든 항목의 예제 작업자는 bing.com에 대해 매 초 마다 http 호출을 수행 하 고 ILogger를 사용 하 여 몇 개의 로그를 내보냅니다. 이러한 줄은 작업을 `StartOperation` 만드는 데 사용 되는의 호출 내에 래핑됩니다 `TelemetryClient` (이 예제에서는 `RequestTelemetry` "operation"). Application Insights은 이러한 ILogger 로그 (경고 이상) 및 종속성을 수집 하 고 `RequestTelemetry` 부모-자식 관계가 있는와 상호 연결 됩니다. 상관 관계는 프로세스 간/네트워크 경계도 작동 합니다. 예를 들어 모니터링 되는 다른 구성 요소에 대 한 호출을 수행한 경우이 부모와도 상관 관계가 지정 됩니다.
+애플리케이션을 실행합니다. 위의 모든 예제 작업자는 bing.com에 대해 매 초 마다 http 호출을 수행 하 고를 사용 하 여 몇 개의 로그를 내보냅니다 `ILogger` . 이러한 줄은 작업을 `StartOperation` 만드는 데 사용 되는의 호출 내에 래핑됩니다 `TelemetryClient` (이 예제에서는 `RequestTelemetry` "operation"). Application Insights은 이러한 ILogger 로그 (경고 이상) 및 종속성을 수집 하 고 `RequestTelemetry` 부모-자식 관계가 있는와 상호 연결 됩니다. 상관 관계는 프로세스 간/네트워크 경계도 작동 합니다. 예를 들어 모니터링 되는 다른 구성 요소에 대 한 호출을 수행한 경우이 부모와도 상관 관계가 지정 됩니다.
 
 의이 사용자 지정 작업 `RequestTelemetry` 은 일반적인 웹 응용 프로그램에서 들어오는 웹 요청과 동등한 것으로 간주할 수 있습니다. 작업을 사용할 필요는 없지만, 부모 작업 역할을 하는 [Application Insights 상관 관계 데이터 모델](./correlation.md) 에 가장 적합 `RequestTelemetry` 하며, 작업자 반복 내에 생성 된 모든 원격 분석은 논리적으로 동일한 작업에 속하는 것으로 처리 됩니다. 이 방법을 사용 하면 생성 된 모든 원격 분석 (자동 및 수동)도 동일 하 게 유지 됩니다 `operation_id` . 샘플링은에 기반 `operation_id` 을 두 며 샘플링 알고리즘은 단일 반복에서 모든 원격 분석을 유지 하거나 삭제 합니다.
 

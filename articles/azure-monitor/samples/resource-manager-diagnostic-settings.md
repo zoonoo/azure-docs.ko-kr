@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 4b2727cfdc31dca509a4c8416010bbb40d2e46bb
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: ad399272673f1e2ede7bcaa82b66688fbaa8ac45
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055421"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804047"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Azure Monitor의 진단 설정에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure 리소스에 대한 진단 설정을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -30,7 +30,7 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
@@ -103,7 +103,7 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -251,7 +251,7 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/', parameters('settingName'))]",
           "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",

@@ -1,18 +1,18 @@
 ---
 title: Azure Backup에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Backup에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: sample
 author: dcurwin
 ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3ec6ee03eb4d506efbadc9c0210b217736ff5d4d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9f47c4964a1606d2dca3dbd6ae3af0072d3b03d2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983039"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816717"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Azure Backup에 대한 Azure Policy 규정 준수 컨트롤
 

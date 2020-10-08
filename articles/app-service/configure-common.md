@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 18463c4350895401c9bf73dc249ce93218a44f7c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264646"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816425"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -83,6 +83,32 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
   ...
 ]
 ```
+
+### <a name="automate-app-settings-with-the-azure-cli"></a>Azure CLI를 사용 하 여 앱 설정 자동화
+
+Azure CLI를 사용 하 여 명령줄에서 설정을 만들고 관리할 수 있습니다.
+
+- [Az webapp config 앱 설정 집합](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set)을 사용 하 여 설정에 값을 할당 합니다.
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    `<setting-name>`설정의 이름으로 바꾸고,을 `<value>` 할당할 값으로 바꿉니다. 이 명령은 해당 설정이 없는 경우 새로 만듭니다.
+    
+- [Az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list)를 사용 하 여 모든 설정 및 해당 값을 표시 합니다.
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- [Az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete)를 사용 하 여 하나 이상의 설정을 제거 합니다.
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    `<names>`공백으로 구분 된 설정 이름 목록으로 대체 합니다.
 
 ## <a name="configure-connection-strings"></a>연결 문자열 구성
 
@@ -164,7 +190,12 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 여기에서 앱에 대 한 몇 가지 일반 설정을 구성할 수 있습니다. 일부 설정의 경우 [더 높은 가격 책정 계층으로 확장](manage-scale-up.md)해야 합니다.
 
-- **스택 설정**: 언어 및 SDK 버전을 포함 하 여 앱을 실행 하는 소프트웨어 스택입니다. Linux 앱 및 사용자 지정 컨테이너 앱의 경우 선택적 시작 명령 또는 파일을 설정할 수도 있습니다.
+- **스택 설정**: 언어 및 SDK 버전을 포함 하 여 앱을 실행 하는 소프트웨어 스택입니다.
+
+    Linux 앱 및 사용자 지정 컨테이너 앱의 경우 언어 런타임 버전을 선택 하 고 선택적 **시작 명령** 또는 시작 명령 파일을 설정할 수 있습니다.
+
+    ![Linux 컨테이너에 대 한 일반 설정](./media/configure-common/open-general-linux.png)
+
 - **플랫폼 설정**: 다음을 포함 하 여 호스팅 플랫폼에 대 한 설정을 구성할 수 있습니다.
     - **비트: 32**비트 또는 64 비트.
     - **WebSocket 프로토콜**: 예를 들어 [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)에 대 한입니다.

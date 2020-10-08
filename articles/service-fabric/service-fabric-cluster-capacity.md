@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718104"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817734"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -34,7 +34,7 @@ ms.locfileid: "88718104"
 
 **주 노드가 아닌 노드 유형을** 사용 하 여 응용 프로그램 역할 (예: *프런트 엔드* 및 *백 엔드* 서비스)을 정의 하 고 클러스터 내에서 서비스를 물리적으로 격리할 수 있습니다. Service Fabric 클러스터에는 주 노드 유형이 0 개 이상 있을 수 있습니다.
 
-주 노드 유형은 `isPrimary` Azure Resource Manager 배포 템플릿의 노드 유형 정의에서 특성을 사용 하 여 구성 됩니다. 노드 형식 속성의 전체 목록은 [NodeTypeDescription 개체](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 를 참조 하세요. 예를 들어 사용 하는 경우 [Service Fabric 클러스터 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) 에서 파일 *의AzureDeploy.js* 을 열고 개체에 대 한 *페이지 검색을 찾습니다* `nodetTypes` .
+주 노드 유형은 `isPrimary` Azure Resource Manager 배포 템플릿의 노드 유형 정의에서 특성을 사용 하 여 구성 됩니다. 노드 형식 속성의 전체 목록은 [NodeTypeDescription 개체](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 를 참조 하세요. 예를 들어 사용 하는 경우 [Service Fabric 클러스터 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) 에서 파일 *의AzureDeploy.js* 을 열고 개체에 대 한 *페이지 검색을 찾습니다* `nodeTypes` .
 
 ### <a name="node-type-planning-considerations"></a>노드 유형 계획 고려 사항
 

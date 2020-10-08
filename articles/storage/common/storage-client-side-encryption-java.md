@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: 230fac982e19c1106aa5757c9bf1c32d192740d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314512"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817509"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-[Java용 Azure Storage 클라이언트 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
+[Java용 Azure Storage 클라이언트 라이브러리](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) 는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호화 및 암호 해독
 암호화 및 암호 해독 프로세스는봉투(Envelope) 기법을 따릅니다.  

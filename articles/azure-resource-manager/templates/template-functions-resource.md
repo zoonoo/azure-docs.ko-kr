@@ -3,12 +3,12 @@ title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 4f788af065db5ef5f23f9a8e96c2d45405959614
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: dd040715cc8fb1339c6054c53007dbcd08e2cbdb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369198"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816806"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -144,7 +144,6 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 | Microsoft.apimanagement/서비스/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft.apimanagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft.apimanagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -337,8 +336,6 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 "sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
-listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Manager 템플릿을 사용하여 자동화된 VM 배포](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values)를 참조하세요.
-
 ## <a name="pickzones"></a>pickZones
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
@@ -413,7 +410,7 @@ listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Mana
 
 이전 예제의 출력은 세 개의 배열을 반환 합니다.
 
-| Name | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | ["1"] |
 | notSupportedRegion | array | [] |
@@ -977,7 +974,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713696"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817536"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Blob 인덱스를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
 
@@ -72,8 +72,11 @@ Blob 인덱스 태그에는 다음과 같은 제한이 적용 됩니다.
 - 태그 키 및 값은 대/소문자를 구분 합니다.
 - 태그 키 및 값은 문자열 데이터 형식만 지원 합니다. 숫자, 날짜, 시간 또는 특수 문자는 문자열로 저장 됩니다.
 - 태그 키 및 값은 다음 명명 규칙을 따라야 합니다.
-  - 영숫자 영숫자: a-z, a-z, 0-9
-  - 특수 문자: 공백, 더하기, 빼기, 마침표, 콜론, 같음, 밑줄, 슬래시
+  - 영숫자:
+    - **a**~**z**(소문자)
+    - **A**~**Z**(대문자)
+    - **0**~**9**(숫자)
+  - 유효한 특수 문자: 공백, 더하기, 빼기, 마침표, 콜론, 같음, 밑줄, 슬래시 ( ` +-.:=_/` )
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Blob 인덱스 태그 가져오기 및 나열
 
@@ -97,10 +100,10 @@ FindBlobsByTags 작업을 통해 인덱스 태그가 지정 된 blob 인덱스 �
 
 아래 표에서는 Findblob Sbytags에 대 한 모든 유효한 연산자를 보여 줍니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | "Status" = ' 진행 중 ' |
-|     >      |  보다 큼 | "Date" > ' 2018-06-18 ' |
+|     >      |  초과 | "Date" > ' 2018-06-18 ' |
 |     >=     |  크거나 같음 | "Priority" >= ' 5 ' |
 |     <      |  보다 작음   | "Age" < ' 32 ' |
 |     <=     |  작거나 같음  | "Company" <= ' Contoso ' |
@@ -120,11 +123,11 @@ X-y 헤더는 다른 기존 HTTP 조건부 헤더 (-Match,-None-Match 등)와 �
 
 아래 표에서는 조건부 연산에 대 한 모든 유효한 연산자를 보여 줍니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | "Status" = ' 진행 중 ' |
 |     <>     |   같지 않음   | "상태"  <>  ' 완료 '  |
-|     >      |  보다 큼 | "Date" > ' 2018-06-18 ' |
+|     >      |  초과 | "Date" > ' 2018-06-18 ' |
 |     >=     |  크거나 같음 | "Priority" >= ' 5 ' |
 |     <      |  보다 작음   | "Age" < ' 32 ' |
 |     <=     |  작거나 같음  | "Company" <= ' Contoso ' |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447918"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816819"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -37,7 +37,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
@@ -48,7 +48,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 - Vm은 다른 구독의 log analytics 작업 영역에 연결 하면 안 됩니다.
 - 지금은 automanage에서 샌드박스 구독을 지원 하지 않습니다.
 
-기존 Automanage 계정을 사용 하 여 Automanage를 사용 하도록 설정 하려면 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 권한이 필요 합니다.
+기존 Automanage 계정을 사용하여 Automanage를 사용하도록 설정하려면 **기여자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용하도록 설정하는 경우 다음 권한이 필요합니다. **소유자** 역할 또는 **기여자**와 **사용자 액세스 관리자** 역할
 
 Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부 및 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
 
@@ -105,7 +105,7 @@ Automanage 계정은 자동화 된 작업이 수행 되는 보안 컨텍스트 �
 Azure Portal 환경에서 Vm에 대해 Automanage를 사용 하도록 설정 하는 경우 Automanage 계정을 할당 하거나 수동으로 만들 수 있는 **AZURE VM 모범 사례 사용** 블레이드에서 고급 드롭다운이 있습니다.
 
 > [!NOTE]
-> 기존 Automanage 계정을 사용 하 여 Automanage를 사용 하도록 설정 하려면 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 권한이 필요 합니다.
+> 기존 Automanage 계정을 사용하여 Automanage를 사용하도록 설정하려면 **기여자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용하도록 설정하는 경우 다음 권한이 필요합니다. **소유자** 역할 또는 **기여자**와 **사용자 액세스 관리자** 역할
 
 
 ## <a name="status-of-vms"></a>Vm의 상태
@@ -134,20 +134,20 @@ Azure Portal에서이 작업을 수행 하려면 자동 관리 되는 모든 Vm�
 
 **사용 안 함**에 동의하기 전에 결과 팝업의 메시지를 자세히 읽어 보세요.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> VM에서 automanagement를 사용 하지 않도록 설정 하면 다음과 같은 동작이 발생 합니다.
+>
+> - VM의 구성과 서비스 등록 변경 되지 않습니다.
+> - 이러한 서비스에 의해 발생 하는 요금은 청구 가능 하 게 유지 되 고 계속 해 서 발생 합니다.
+> - 모든 Automanage 동작은 즉시 중지 됩니다.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 무엇 보다도, 우리가 등록 구성 된 서비스에서 가상 머신을 오프 보드 하지 않습니다. 따라서 해당 서비스에 의해 발생 하는 모든 요금은 계속 청구 가능 상태로 유지 됩니다. 필요한 경우에는 보드를 꺼야 합니다. 모든 Automanage 동작은 즉시 중지 됩니다. 예를 들어 더 이상 VM에서 드리프트를 모니터링 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 머신에 대 한 Automanage에서 모범 사례 Azure 서비스를 알고, 등록 및 구성 하지 않아도 되는 경우를 제거할 수 있는 방법을 배웠습니다. 또한 구성 프로필에서 Virtual Machines 상태가에 대해 Automanage 등록 컴퓨터를 다시 준수 상태로 자동 전환 합니다.
+이 문서에서는 가상 머신에 대 한 Automanage에서 모범 사례 Azure 서비스를 알고, 등록 및 구성 하지 않아도 되는 경우를 제거할 수 있는 방법을 배웠습니다. 또한 가상 컴퓨터에 대해 Automanage로 등록 하는 컴퓨터가 구성 프로필에서 상태가 하는 경우 자동으로 다시 준수 상태로 전환 됩니다.
 
 Azure Portal에서 가상 컴퓨터에 대해 Automanage를 사용 하도록 설정 하세요.
 

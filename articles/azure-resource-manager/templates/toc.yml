@@ -156,7 +156,7 @@
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Load Balancer
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Private Link 엔드포인트
+            - name: Private Endpoint
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Private Link 서비스
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -283,7 +283,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: 변수
+        - name: variables
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md
@@ -451,7 +451,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

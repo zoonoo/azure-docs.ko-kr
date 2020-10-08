@@ -1,18 +1,18 @@
 ---
 title: Azure 가상 머신 확장 집합에 대한 기본 제공 정책 정의
 description: Azure 가상 머신 확장 집합에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9c745b9d34a5c1aea9077ba7d635337991bafa24
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c4ffc0fac896d7446c90c1711f8516c13dce4df7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977994"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817495"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 Azure Policy 기본 제공 정의
 

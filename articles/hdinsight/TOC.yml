@@ -8,6 +8,7 @@
         - name: Azure HDInsight란?
           href: ./hdinsight-overview.md
     - name: 자습서
+      expanded: true
       items:
         - name: HDInsight 클러스터 만들기
           href: ./hdinsight-hadoop-provision-linux-clusters.md

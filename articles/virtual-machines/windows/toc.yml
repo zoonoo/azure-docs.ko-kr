@@ -278,7 +278,7 @@
             - name: VM 인스턴스 크기 유연성
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 스폿 VM
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 임시 디스크가 없는 Azure VM
           href: ../azure-vms-no-temp-disk.md
@@ -380,7 +380,7 @@
         - name: 스폿 VM 배포
           items:
             - name: 포털
-              href: spot-portal.md
+              href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: PowerShell
               href: spot-powershell.md
             - name: ARM 템플릿

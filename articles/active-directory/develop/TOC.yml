@@ -535,10 +535,6 @@
     - name: 애플리케이션 구성
       displayName: App configuration
       items:
-        - name: Azure Portal 앱 등록 학습 가이드
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-        - name: Azure Portal 앱 등록 환경
-          href: app-registration-portal-training-guide.md
         - name: 단일 테넌트 앱을 다중 테넌트 앱으로 변환
           href: howto-convert-app-to-be-multi-tenant.md
         - name: 서비스 주체 만들기

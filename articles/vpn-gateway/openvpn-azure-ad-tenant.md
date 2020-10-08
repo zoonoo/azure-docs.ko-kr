@@ -5,23 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 9ee5959c124636e64ef73b901fbc461f36cd27f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445824"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817295"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure Active Directory 테넌트 만들기
 
 VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사용할 수 있습니다. 그러나 오픈 VPN 프로토콜을 사용 하는 경우 Azure Active Directory 인증을 사용할 수도 있습니다. 이 문서는 P2S 오픈 VPN 인증을 위해 Azure AD 테 넌 트를 설정 하는 데 도움이 됩니다.
 
-> [!NOTE]
-> Azure AD 인증은 OpenVPN® 프로토콜 연결용 으로만 지원 되며 Windows 10에만 사용할 수 있는 Azure VPN 클라이언트가 필요 합니다.
->
-
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Azure AD 테 넌 트 확인
 
