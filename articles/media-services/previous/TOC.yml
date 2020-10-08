@@ -39,7 +39,7 @@
           href: media-services-dotnet-get-started.md
         - name: Java
           href: media-services-java-how-to-use.md
-        - name: REST
+        - name: REST (영문)
           href: media-services-rest-get-started.md
     - name: 라이브 스트리밍 수행
       items:
@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: 참조 다중 DRM 디자인
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Indexer를 사용하여 처리
-          href: media-services-index-content.md
-          items:
-            - name: 태스크 사전 설정
-              href: indexer-task-preset.md
     - name: 콘텐츠 분석
       items:
+        - name: Indexer를 사용하여 처리
+          href: media-services-index-content.md
+        - name: 태스크 사전 설정
+          href: indexer-task-preset.md
         - name: Face Redactor를 사용하여 처리
           href: media-services-face-redaction.md
         - name: Face Redactor 연습

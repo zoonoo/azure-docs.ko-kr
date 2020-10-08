@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079946"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801599"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
@@ -47,7 +47,7 @@ ms.locfileid: "88079946"
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable)
+* [JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](../app-service/quickstart-java.md)
 
@@ -67,7 +67,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **동적 웹 프로젝트**가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일**, **새로 만들기**, **프로젝트**…를 차례로 클릭하고 **웹**을 확장하여 **동적 웹 프로젝트**를 클릭하고 **다음**을 클릭합니다.
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java 애플리케이션 개발":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="My ToDo List Java 애플리케이션":::
 
 1. **프로젝트 이름** 상자에 프로젝트 이름을 입력하고 **대상 런타임** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **마침**을 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
 
@@ -75,7 +75,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. **새 JSP 파일** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent**로 유지하고 **다음**을 클릭합니다.
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="새 JSP 파일 만들기 - Java 웹 애플리케이션 자습서":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="My ToDo List Java 애플리케이션":::
 
 1. **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라, **새 JSP 파일(html)** 을 선택한 후 **마침**을 클릭합니다.
 
@@ -91,7 +91,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. 2단계에서 대상 런타임을 설정했으면 **프로젝트**, **실행**을 차례로 클릭하여 JSP 애플리케이션을 로컬로 실행할 수 있습니다.
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – Java 애플리케이션 자습서":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="My ToDo List Java 애플리케이션":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>SQL Java SDK 설치
 

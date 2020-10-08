@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 2a8e0ec113b4d008f759c7d199c4dab823576e16
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 60e62228e33d2d86bb407e45802f5c0621a94049
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929573"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761093"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Blazor를 사용하여 정적 웹앱 빌드
 
@@ -33,7 +33,7 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 
 이 자습서에서 사용하는 앱은 다음과 같은 세 가지 Visual Studio 프로젝트로 구성됩니다.
 
-- **Api**: 정적 앱에 날씨 정보를 제공하는 API 엔드포인트를 구현하는 C# Azure Functions 애플리케이션입니다. [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs)는 `WeatherForecast` 개체 배열을 반환합니다.
+- **Api**: 정적 앱에 날씨 정보를 제공하는 API 엔드포인트를 구현하는 C# Azure Functions 애플리케이션입니다. [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs)는 `WeatherForecast` 개체 배열을 반환합니다.
 
 - **클라이언트**: 프런트 엔드 Blazor 웹 어셈블리 프로젝트입니다. 모든 경로에 _index.html_ 파일이 제공되도록 [대체(fallback) 경로](#fallback-route)가 구현됩니다.
 
@@ -79,7 +79,7 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 
 _기본 사항_ 섹션에서 새 앱을 구성하고 GitHub 리포지토리에 연결하여 시작합니다.
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="기본 사항 탭":::
+:::image type="content" source="media/deploy-blazor/basics.png" alt-text="완전한 Blazor 앱":::
 
 1. _Azure 구독_ 선택
 1. 새 _리소스 그룹_ 선택 또는 만들기
@@ -91,7 +91,7 @@ _기본 사항_ 섹션에서 새 앱을 구성하고 GitHub 리포지토리에 �
 
 GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="리포지토리 세부 정보":::
+:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="완전한 Blazor 앱":::
 
 1. 원하는 _조직_을 선택합니다.
 1. _리포지토리_ 드롭다운에서 **my-first-static-blazor-app**을 선택합니다.
@@ -105,15 +105,15 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 
 1. **검토 + 만들기**를 선택합니다.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="만들기 단추 검토":::
+    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="완전한 Blazor 앱":::
 
 1. **만들기**를 선택합니다.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="만들기 단추":::
+    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="완전한 Blazor 앱":::
 
 1. **리소스로 이동**을 선택합니다.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="리소스로 이동 단추":::
+    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="완전한 Blazor 앱":::
 
 ## <a name="view-the-website"></a>웹 사이트 보기
 
@@ -123,7 +123,7 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 
 Static Web Apps 개요 창에는 웹앱과 상호 작용하는 데 도움이 되는 일련의 링크가 표시됩니다.
 
-:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="개요 창":::
+:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="완전한 Blazor 앱":::
 
 1. _GitHub Actions 실행 상태를 확인하려면 여기를 클릭하세요._ 라는 배너를 클릭하면 리포지토리에 대해 실행 중인 GitHub Actions로 이동됩니다. 배포 작업이 완료되었는지 확인되면 생성된 URL을 통해 웹 사이트로 이동할 수 있습니다.
 

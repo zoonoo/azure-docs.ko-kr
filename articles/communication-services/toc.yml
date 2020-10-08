@@ -20,10 +20,14 @@
       items:
         - name: 전화 번호 가져오기
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: 앱에 전화 통화 추가
+          href: quickstarts/voice-video-calling/pstn-call.md
         - name: SMS 메시지 보내기
           href: quickstarts/telephony-sms/send.md
         - name: SMS 이벤트 처리
           href: quickstarts/telephony-sms/handle-sms-events.md
+        - name: Azure Logic Apps에서 SMS 보내기
+          href: quickstarts/telephony-sms/logic-app.md
     - name: 음성 및 비디오 통화
       items:
         - name: 앱에 음성 통화 추가

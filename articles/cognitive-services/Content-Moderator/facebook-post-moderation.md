@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548517"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760200"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
 이 자습서에서는 Azure Content Moderator를 사용하여 Facebook 페이지의 게시물 및 의견을 조정하는 방법을 알아봅니다. Facebook은 방문자가 게시한 콘텐츠를 Content Moderator 서비스로 보냅니다. 그러면 콘텐츠 점수 및 임계값에 따라 Content Moderator 워크플로에서 콘텐츠를 게시하거나 검토 도구 내에서 검토를 만듭니다. 이 시나리오의 작업 예제를 보려면 [Build 2017 데모 비디오](https://channel9.msdn.com/Events/Build/2017/T6033)를 참조하세요.
+
+> [!IMPORTANT]
+> 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사 정책을 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 이 자습서의 단계를 완료할 수 없습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -33,9 +36,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 다이어그램은 이 시나리오의 각 구성 요소를 보여 줍니다.
 
 !["FBListener"를 통해 Facebook에서 정보를 수신하고 "CMListener"를 통해 정보를 전송하는 Content Moderator 다이어그램](images/tutorial-facebook-moderation.png)
-
-> [!IMPORTANT]
-> 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사 정책을 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 이 자습서의 단계를 완료할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

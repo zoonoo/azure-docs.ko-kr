@@ -975,6 +975,8 @@
           displayName: ARM
         - name: 영역 간 이동
           href: how-to-move-regions.md
+        - name: 변경 또는 삭제 방지
+          href: resource-locks.md
     - name: 글로벌 분포
       items:
         - name: 다중 지역 쓰기 구성

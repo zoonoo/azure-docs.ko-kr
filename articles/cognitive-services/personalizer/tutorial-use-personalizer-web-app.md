@@ -1,15 +1,17 @@
 ---
 title: 웹앱 사용 - Personalizer
 description: Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작업(기능 포함) 및 컨텍스트 기능에 따라 사용자에게 올바른 콘텐츠를 제공합니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935622"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777261"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>자습서: .NET 웹앱에 Personalizer 추가
 
@@ -254,7 +256,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 웹 브라우저를 통해 순위 요청과 보상 요청을 보내고, 해당 응답과 사용자 환경에서 추출된 http 요청 기능을 볼 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![HTTPRequestFeaturesExample 프로젝트를 빌드하고 실행합니다. 브라우저 창이 열려 단일 페이지 애플리케이션을 표시합니다.](./media/tutorial-web-app/web-app-single-page.png)
+> ![스크린샷은 웹 브라우저에서 Http 요청 기능의 예제를 보여줍니다.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Personalizer 반복 데모
 
@@ -267,7 +269,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 1. 보상 값을 설정한 다음, **보상 요청 보내기** 단추를 선택합니다. 보상 값을 변경하지 않으면 클라이언트 애플리케이션에서 항상 `1` 값을 Personalizer에 보냅니다.
 
     > [!div class="mx-imgBorder"]
-    > ![HTTPRequestFeaturesExample 프로젝트를 빌드하고 실행합니다. 브라우저 창이 열려 단일 페이지 애플리케이션을 표시합니다.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![스크린샷은 보상 요청 섹션을 보여줍니다.](./media/tutorial-web-app/reward-score-api-call.png)
 
     사용자 고유의 향후 애플리케이션의 경우 보상 점수는 서버의 비즈니스 논리와 함께 클라이언트에서 사용자의 동작으로부터 정보를 수집한 후에 생성될 수 있습니다.
 

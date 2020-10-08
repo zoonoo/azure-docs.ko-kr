@@ -130,3 +130,7 @@
       href: /rest/api/consumption/usagedetails
     - name: Cost Management - 사용량 예약 세부 정보 REST API
       href: /rest/api/consumption/reservationsdetails
+- name: 리소스
+  items:
+    - name: 예약 인스턴스로 비용 절감 학습 모듈
+      href: /learn/modules/save-money-with-azure-reserved-instances

@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 49ab9090dd2f1860bed84d0494cb862212840e82
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b90334d4978c485033323b398e1409fa5731e813
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207042"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767586"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
 
@@ -39,7 +39,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** >  **+ 만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** >  **+ 만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
@@ -47,7 +47,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
     지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
 
-7. **적용**을 선택합니다.
+8. **적용**을 선택합니다.
 
 ## <a name="create-a-net-framework-console-app"></a>.NET Framework 콘솔 앱 만들기
 

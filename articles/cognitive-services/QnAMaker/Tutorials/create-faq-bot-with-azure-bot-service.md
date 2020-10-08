@@ -1,14 +1,16 @@
 ---
 title: '자습서: Azure Bot Service로 FAQ 봇 만들기'
 description: 이 자습서에서는 QnA Maker 및 Azure Bot Service를 사용하여 코드 없이 FAQ 봇을 만듭니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: 0ec3b381c4361234b29717164b6b718aff0ae294
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ab78ac41be2f900d84e82c21e566f5250b2afd18
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652438"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777400"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>자습서: Azure Bot Service로 FAQ 봇 만들기
 QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/en-us/services/bot-service/)를 사용하여 코드 없이 FAQ 봇을 만듭니다.

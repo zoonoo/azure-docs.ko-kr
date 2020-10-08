@@ -462,6 +462,8 @@
               href: storage-blob-static-website-how-to.md
             - name: Azure CDN과 통합
               href: static-website-content-delivery-network.md
+            - name: GitHub 작업을 사용하여 Azure Storage에 정적 사이트 배포
+              href: storage-blobs-static-site-github-actions.md
         - name: 사용자 지정 도메인 사용
           href: storage-custom-domain-name.md
         - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
