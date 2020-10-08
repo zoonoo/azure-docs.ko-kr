@@ -5,22 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 9a98383c359135f90fd787008704d1ce389a4d57
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425000"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819677"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 AD (Active Directory) 테 넌 트 만들기
 
 VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사용할 수 있습니다. 그러나 오픈 VPN 프로토콜을 사용 하는 경우 Azure Active Directory 인증을 사용할 수도 있습니다. 다른 사용자가 다른 VPN gateway에 연결할 수 있도록 하려면 AD에 여러 앱을 등록 하 고 다른 VPN 게이트웨이에 연결할 수 있습니다. 이 문서는 P2S OpenVPN 인증을 위해 Azure AD 테 넌 트를 설정 하 고 여러 사용자 및 그룹에 대해 서로 다른 액세스를 허용 하기 위해 Azure AD에서 여러 앱을 만들고 등록 하는 데 도움이 됩니다.
 
-> [!NOTE]
-> Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
@@ -30,7 +28,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
 1. **지점 및 사이트 간 구성** 으로 이동 하 고 **터널 유형**으로 **openvpn (SSL)** 을 선택 하 여 VPN 게이트웨이에서 Azure AD 인증을 사용 하도록 설정 합니다. **인증 유형** 으로 **Azure Active Directory** 를 선택 하 고 **Azure Active Directory** 섹션 아래의 정보를 입력 합니다.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+    ![Azure Portal 뷰](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 
     > [!NOTE]
     > Azure VPN 클라이언트의 응용 프로그램 ID를 사용 하지 마세요. 모든 사용자에 게 VPN gateway에 대 한 액세스 권한을 부여 합니다. 등록 한 응용 프로그램의 ID를 사용 합니다.

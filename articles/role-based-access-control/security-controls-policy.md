@@ -1,18 +1,18 @@
 ---
 title: Azure RBAC에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure RBAC(Azure 역할 기반 액세스 제어)에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 594f414d389bf6cab53525658b19b46222921b45
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 37d65dd3746c74af742c2a2b1550f359f1100892
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971728"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819846"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Azure RBAC에 대한 Azure Policy 규정 준수 컨트롤
 

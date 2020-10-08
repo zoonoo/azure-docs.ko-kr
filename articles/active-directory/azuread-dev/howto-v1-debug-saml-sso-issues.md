@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116141"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819317"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
@@ -86,7 +86,7 @@ Azure AD와 대상 응용 프로그램 간에 SAML 기반 Single Sign-On를 테�
 
 성공적으로 로그인한 다음, 애플리케이션 페이지에 오류가 표시될 수 있습니다. Azure AD가 애플리케이션에 토큰을 발급했지만 애플리케이션이 응답을 적용하지 않는 경우에 발생합니다.
 
-오류를 해결 하려면 다음 단계를 수행 합니다.
+이 오류를 해결 하려면 다음 단계를 수행 하거나 [AZURE AD를 사용 하 여 SAML SSO 문제를 해결 하는 방법에 대 한 짧은 비디오](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8)를 시청 하세요.
 
 1. 응용 프로그램이 Azure AD 갤러리에 있는 경우 응용 프로그램을 Azure AD와 통합 하기 위한 모든 단계를 수행 했는지 확인 합니다. 애플리케이션에 대한 통합 지침을 찾으려면 [SaaS 애플리케이션 통합 자습서 목록](../saas-apps/tutorial-list.md)을 참조합니다.
 1. SAML 응답을 검색합니다.

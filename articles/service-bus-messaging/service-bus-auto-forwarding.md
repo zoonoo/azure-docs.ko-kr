@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 �
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333684"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819575"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 
@@ -52,6 +52,8 @@ Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집
 Service Bus는 전달된 각 메시지당 하나의 작업을 요청합니다. 예를 들어 각각 다른 큐나 토픽으로 메시지를 자동 전달하도록 구성된 구독이 20개인 토픽에 메시지를 보내는 경우 모든 첫 번째 수준 구독이 메시지 복사본을 수신한다면 21개 작업에 해당하는 대금이 청구됩니다.
 
 다른 큐 나 토픽에 연결 된 구독을 만들려면 구독을 만든 사람에 게 원본과 대상 엔터티 모두에 대 한 **관리** 권한이 있어야 합니다. 원본 토픽에 메시지를 보낼 때는 원본 토픽에 대한 **보내기** 권한만 있으면 됩니다.
+
+4 개의 홉을 초과 하는 체인을 만들지 마십시오. 홉이 4 개를 초과 하는 메시지는 배달 못 한 문자로 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

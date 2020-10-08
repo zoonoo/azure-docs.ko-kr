@@ -5,24 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 279c66fa16ac82335a074da60bce35325d4b4499
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 51004005e10416f3138f69f91b93b9cd19ed3944
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439463"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819767"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Azure Active Directory 인증: P2S OpenVPN 프로토콜 연결에 대 한 VPN 클라이언트 구성
 
 이 문서에서는 지점 및 사이트 간 VPN 및 Azure Active Directory 인증을 사용 하 여 가상 네트워크에 연결 하도록 VPN 클라이언트를 구성 하는 방법을 설명 합니다. Azure AD를 사용 하 여 연결 하 고 인증 하려면 먼저 Azure AD 테 넌 트를 구성 해야 합니다. 자세한 내용은 [AZURE AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)을 참조 하세요.
 
-> [!NOTE]
-> Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
->
-> Azure AD 인증에는 Windows 10 에서만 사용할 수 있는 Azure VPN 클라이언트가 필요 합니다.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>클라이언트 프로필 작업
 
@@ -94,7 +90,7 @@ ms.locfileid: "91439463"
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>연결 만들기
 
@@ -116,7 +112,7 @@ ms.locfileid: "91439463"
 
 5. 성공적으로 연결 되 면 아이콘은 녹색으로 바뀌고 **연결 된**것을 말합니다.
 
-    ![연결](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>자동으로 연결 하려면
 
@@ -194,7 +190,7 @@ ms.locfileid: "91439463"
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD 클라이언트는 DNS 서버 NRPT (이름 확인 정책 테이블) 항목을 사용 합니다. 즉, DNS 서버는의 출력에 나열 되지 않습니다 `ipconfig /all` . 사용 중인 DNS 설정을 확인 하려면 PowerShell에서 [get-dnsclientnrptpolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) 를 참조 하세요.
+> OpenVPN Azure AD 클라이언트는 DNS 서버 NRPT (이름 확인 정책 테이블) 항목을 사용 합니다. 즉, DNS 서버는의 출력에 나열 되지 않습니다 `ipconfig /all` . 사용 중인 DNS 설정을 확인 하려면 PowerShell에서 [get-dnsclientnrptpolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) 를 참조 하세요.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>VPN 클라이언트에 사용자 지정 경로를 추가 어떻게 할까요??
@@ -235,7 +231,7 @@ ms.locfileid: "91439463"
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>명령줄 프롬프트에서 프로필을 가져올 수 있나요?
 
-다운로드 한 **azurevpnconfig.xml** 파일을 **%Userprofile%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** 폴더에 배치 하 고 다음 명령을 실행 하 여 명령줄 프롬프트에서 프로필을 가져올 수 있습니다.
+다운로드 한 **azurevpnconfig.xml** 파일을 **%Userprofile%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** 폴더에 배치 하 고 다음 명령을 실행 하 여 명령줄 프롬프트에서 프로필을 가져올 수 있습니다.
 
 ```
 azurevpn -i azurevpnconfig.xml 

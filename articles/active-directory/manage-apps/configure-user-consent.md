@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 877e90fa3c1c8a595c438fc6745c142e97b5692c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803282"
+ms.locfileid: "91819274"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -75,12 +75,12 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
      -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("{consent-policy-id}")
+     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
   ```
 
 을 `{consent-policy-id}` 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책을](manage-app-consent-policies.md#create-a-custom-app-consent-policy) 선택 하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
-| ID | 설명 |
+| ID | Description |
 |:---|:------------|
 | microsoft-사용자-기본-낮음 | **선택한 권한에 대해 확인 된 게시자의 앱에 대 한 사용자 동의 허용**<br /> 사용자가 테 넌 트에 등록 된 앱 및 앱에 대 한 제한 된 사용자 동의가 허용 되며, "낮은 영향"으로 분류 한 사용 권한에 대해서만 허용 됩니다. 사용자가 동의할 수 있는 권한을 선택 하려면 [사용 권한을 분류](configure-permission-classifications.md) 해야 합니다. |
 | microsoft-사용자-기본-레거시 | **앱에 대 한 사용자 동의 허용**<br /> 이 옵션을 사용 하면 모든 사용자가 모든 응용 프로그램에 대해 관리자 동의가 필요 하지 않은 모든 사용 권한에 동의할 수 있습니다. |
@@ -90,7 +90,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 ```powershell
 Set-AzureADMSAuthorizationPolicy `
    -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
 ```
 
 ---
@@ -144,7 +144,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft
 
 1. 설정 값을 이해 합니다.
 
-    | Setting       | 유형         | Description  |
+    | 설정       | 유형         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | 부울 |  위험한 요청이 감지될 때 사용자 동의가 차단되는지 나타내는 플래그입니다. |
 

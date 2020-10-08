@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398392"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819893"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
-Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유하고 운영 중입니다. 160,000마일 넘게 뻗어 있는 이 촘촘한 글로벌 아키텍처는 데이터 센터와 고객을 연결합니다. 
+Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유하고 운영 중입니다. 165000 마일 이상으로 확장 되는 이러한 글로벌 및 고급 아키텍처는 데이터 센터와 고객을 연결 합니다. 
  
 매일 전 세계 고객은 Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox 등에 대 한 엄청난 요청을 연결 하 고 전달 합니다. 종류가 무엇이든, 고객은 당사의 서비스에서 즉각적인 안정성과 응답성을 기대합니다. 
  
-[Microsoft 글로벌 네트워크](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN)는 우수한 클라우드 환경을 제공하는 데 있어서 핵심적인 역할을 합니다. 54개 Azure 지역의 Microsoft [데이터 센터](https://azure.microsoft.com/global-infrastructure/)와 전 세계에 전략적으로 배치된 그물망 같은 에지 노드를 연결하는 당사의 글로벌 네트워크는 모든 수요를 충족하는 가용성, 용량 및 유연성을 모두 제공합니다.
+[Microsoft 글로벌 네트워크](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN)는 우수한 클라우드 환경을 제공하는 데 있어서 핵심적인 역할을 합니다. Microsoft [데이터 센터](https://azure.microsoft.com/global-infrastructure/) 를 61 Azure 지역에 연결 하 고 광범위 한에 지 노드를 광범위 하 게 연결 하 여 전 세계에 배치 된 글로벌 네트워크는 가용성, 용량 및 수요를 충족 하는 유연성을 모두 제공 합니다.
 
 ![Microsoft 글로벌 네트워크](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>프리미엄 클라우드 네트워크 이용
  
-Microsoft 클라우드를 사용하면 [최상의 환경](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)을 쉽게 사용할 수 있습니다. 전략적으로 배치된 에지 노드를 통해 고객 트래픽이 당사의 글로벌 네트워크에 진입하는 순간, 데이터가 최적화된 경로를 따라 광속에 가까운 속도로 이동합니다. 따라서 최상의 성능을 내기 위한 최적 대기 시간이 보장됩니다. 165개 이상의 위치에서 수천 개의 연결을 통해 3500개가 넘는 고유한 인터넷 파트너(피어)와 상호 연결된 이러한 에지 노드는 상호 연결 전략의 기반을 제공합니다. 
+Microsoft 클라우드를 사용하면 [최상의 환경](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)을 쉽게 사용할 수 있습니다. 전략적으로 배치된 에지 노드를 통해 고객 트래픽이 당사의 글로벌 네트워크에 진입하는 순간, 데이터가 최적화된 경로를 따라 광속에 가까운 속도로 이동합니다. 따라서 최상의 성능을 내기 위한 최적 대기 시간이 보장됩니다. 4000 개 이상의 위치 175에서 수천 개의 연결을 통해 개가 넘는 고유한 인터넷 파트너 (피어)에 연결 된 이러한 가장자리 노드는 상호 연결 전략의 기반을 제공 합니다. 
  
 런던에서 도쿄로 연결하든 아니면 워싱턴 DC에서 로스앤젤레스로 연결하든, 네트워크 성능은 대기 시간, 지터, 패킷 손실, 처리량 등의 지표를 사용하여 계량화되며 그에 따른 영향을 받습니다.  Microsoft에서는 전송 링크와 달리 직접 상호 연결을 선호하고 사용합니다. 이렇게 하면 응답 트래픽이 대칭으로 유지되며 홉, 피어링 파티 및 경로를 가능한 짧고 간단하게 유지할 수 있습니다. 
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909416"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819394"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -42,6 +42,9 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 - **Azure AD 애플리케이션 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [애플리케이션 프록시를 시작하고 커넥터를 설치](../manage-apps/application-proxy-enable.md) 및 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션을 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
 - **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
+   > [!NOTE]
+   > Azure AD 응용 프로그램 프록시를 구성 하는 경우 위임 된 **로그온 id** 가 IWA Single Sign-On에 대해 **사용자 계정 이름** (기본값)으로 설정 되어 있는지 확인 합니다.
+
    B2B 사용자 시나리오의 경우 온-프레미스 디렉터리에서 권한 부여에 필요한 게스트 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
    - MIM(Microsoft Identity Manager) 및 Microsoft Graph용 MIM 관리 에이전트. 
@@ -61,7 +64,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 
-수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 예를 들어:
+수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 다음은 그 예입니다. 
 
 - 애플리케이션 프록시를 인증하는 동안 MFA가 사용되도록 게스트 사용자에 대한 MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)를 참조 하세요.
 - 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자를 삭제 하는 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제 됩니다. 자세한 내용은 [AZURE AD 액세스 검토를 사용 하 여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조 하세요.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432087"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819964"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
 
@@ -41,9 +41,9 @@ Key Vault는 원래 [Azure Key Vault 서비스 제한](service-limits.md)에 지
 
 | 자격 증명 모음 이름 | 자격 증명 모음 지역 | 개체 유형 (비밀, 키 또는 인증서) | 작업 * | 키 유형 | 키 길이 또는 곡선 | HSM 키 인가요?| 안정적인 상태 RPS 필요 | 최고 RPS 필요 |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Key | Sign | EC | P-256 | 예 | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | 키 | 로그인 | EC | P-256 | 예 | 200 | 1000 |
 
-\*가능한 값의 전체 목록은 [Azure Key Vault 작업](/rest/api/keyvault/key-operations)을 참조 하세요.
+\* 가능한 값의 전체 목록은 [Azure Key Vault 작업](/rest/api/keyvault/key-operations)을 참조 하세요.
 
 추가 용량이 승인 되 면 용량 향상의 결과로 다음 사항에 유의 하세요.
 1. 데이터 일관성 모델이 변경 됩니다. 추가 처리량 용량으로 자격 증명 모음을 허용 하는 경우에는 Key Vault 서비스 데이터 일관성이 변경 됩니다 (기본 Azure Storage 서비스를 유지할 수 없어 더 높은 볼륨 RPS를 충족 시키는 데 필요).  간략하게 설명하자면,
@@ -75,7 +75,7 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+    var client = new SecretClient(new Uri("https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
                                  
     //Retrieve Secret
     secret = client.GetSecret(secretName);
