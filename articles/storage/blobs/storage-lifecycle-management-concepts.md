@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707767"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822397"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -76,7 +76,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 1. **기본 blob** 을 선택 하 여 규칙에 대 한 조건을 설정 합니다. 다음 예에서는 30 일 동안 수정 되지 않은 경우 blob을 쿨 저장소로 이동 합니다.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Azure Portal의 수명 주기 관리 기본 blob 페이지":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="수명 주기 관리 Azure Portal에서 규칙 세부 정보 페이지 추가":::
 
    **마지막으로 액세스** 한 옵션은 다음 지역에서 미리 보기로 제공 됩니다.
 
@@ -91,7 +91,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 1. **자세히** 페이지에서 필터 **를 사용 하 여 blob 제한** 을 선택한 경우 **필터 설정** 을 선택 하 여 선택적 필터를 추가 합니다. 다음 예제에서는 "log"로 시작 하는 *mylifecyclecontainer* 컨테이너의 blob을 필터링 합니다.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Azure Portal의 수명 주기 관리 필터 설정 페이지":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="수명 주기 관리 Azure Portal에서 규칙 세부 정보 페이지 추가":::
 
 1. **추가** 를 선택 하 여 새 정책을 추가 합니다.
 
@@ -164,7 +164,7 @@ $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
 #Set the policy
-$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
 # <a name="template"></a>[템플릿](#tab/template)
@@ -235,18 +235,18 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 정책은 규칙의 컬렉션입니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 참고 |
+| 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
 | `rules`        | 규칙 개체의 배열 | 정책에 하나 이상의 규칙이 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
 정책 내의 각 규칙에는 다음과 같은 몇 가지 매개 변수가 있습니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 참고 | 필수 |
+| 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. | 참 |
-| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | 거짓 | 
-| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | 참 |
-| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | 참 |
+| `name`         | 문자열 |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. | True |
+| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
+| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | True |
+| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
 
 ## <a name="rules"></a>규칙
 
@@ -299,11 +299,11 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 필터에는 다음이 포함됩니다.
 
-| 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
+| 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 및를 지원 합니다 `blockBlob` `appendBlob` . 에는 delete만 지원 되며 `appendBlob` 집합 계층은 지원 되지 않습니다. | Yes |
-| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | No |
-| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | No |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 및를 지원 합니다 `blockBlob` `appendBlob` . 에는 delete만 지원 되며 `appendBlob` 집합 계층은 지원 되지 않습니다. | 예 |
+| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
+| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
 
 > [!NOTE]
 > Blob 인덱스는 공개 미리 보기 상태 이며 **캐나다 중부**, **캐나다 동부**, **프랑스 중부**및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
@@ -316,10 +316,10 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 | 작업                      | 기본 Blob                                   | 스냅샷      |
 |-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
-| enableAutoTierToHotFromCool | 현재 쿨 계층에서 blob 지원        | 지원되지 않음 |
-| tierToArchive               | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
-| delete                      | 및에 대해 지원 됩니다. `blockBlob``appendBlob`  | 지원됨     |
+| tierToCool                  | 현재 핫 계층에서 Blob을 지원합니다.         | 지원 안 함 |
+| enableAutoTierToHotFromCool | 현재 쿨 계층에서 blob 지원        | 지원 안 함 |
+| tierToArchive               | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원 안 함 |
+| 삭제                      | 및에 대해 지원 됩니다. `blockBlob``appendBlob`  | 지원됨     |
 
 >[!NOTE]
 >동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
@@ -332,7 +332,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 | daysAfterCreationGreaterThan       | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 스냅숏 작업 조건                                          |
 | daysAfterLastAccessTimeGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 모드 마지막으로 액세스 한 시간을 사용 하는 경우 기본 blob 동작에 대 한 조건 |
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예는 수명 주기 정책 규칙을 사용하여 일반 시나리오를 해결하는 방법을 보여줍니다.
 

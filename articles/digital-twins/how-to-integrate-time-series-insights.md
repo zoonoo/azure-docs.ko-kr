@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f64e959536b4abea4f2facb5ae3238b4843e4611
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 636332c52ea71c7f84cca2f7ef526bc31200e11c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569945"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822175"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "91569945"
 
 이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 데이터를 Time Series Insights으로 보내기 전에 데이터를 표준화 하 고 정보를 표준화 하는 데 사용할 수 있기 때문에 데이터를 Time Series Insights으로 공급할 수 있는 좋은 방법입니다. 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Time Series Insights와의 관계를 설정 하려면 먼저 **Azure Digital Twins 인스턴스가**있어야 합니다. 이 인스턴스는 데이터를 기반으로 하는 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 하며, Time Series Insights에서 추적 되는 데이터를 확인 하기 위해 쌍 정보를 몇 번 업데이트 해야 합니다. 
 
@@ -121,12 +121,14 @@ namespace SampleFunctionsApp
             Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
             foreach (var operation in message["patch"]) {
                 if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
+                {
                     //Convert from JSON patch path to a flattened property for TSI
                     //Example input: /Front/Temperature
                     //        output: Front.Temperature
                     string path = operation["path"].ToString().Substring(1);                    
                     path = path.Replace("/", ".");                    
                     tsiUpdate.Add(path, operation["value"]);
+                }
             }
             //Send an update if updates exist
             if (tsiUpdate.Count>0){
@@ -178,7 +180,7 @@ namespace SampleFunctionsApp
 2. 결과로 얻을 수 있는 연결 문자열을 사용 하 여 연결 문자열을 포함 하는 함수 앱에 앱 설정을 만듭니다.
 
     ```azurecli
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Time Series Insights 이벤트 허브 연결 문자열 설정
@@ -192,7 +194,7 @@ namespace SampleFunctionsApp
 2. 함수 앱에서 연결 문자열을 포함 하는 앱 설정을 만듭니다.
 
     ```azurecli
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 만들기 및 연결

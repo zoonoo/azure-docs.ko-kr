@@ -3,12 +3,12 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577223"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822184"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -85,6 +85,7 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureArcInfrastructure
 
 URL:
 
@@ -104,7 +105,7 @@ URL:
 
 ### <a name="register-azure-resource-providers"></a>Azure 리소스 공급자 등록
 
-Azure Arc 사용 서버는이 서비스를 사용 하기 위해 구독의 다음 Azure 리소스 공급자에 종속 됩니다.
+Azure Arc 사용 서버는 이 서비스를 사용하기 위해 구독의 다음 Azure 리소스 공급자를 사용합니다.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086333"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821701"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적화
 
@@ -89,7 +89,7 @@ HBase는 *HFile*이라는 내부 파일 형식으로 데이터를 저장합니�
 
 ## <a name="define-memstore-size"></a>Memstore 크기 정의
 
-Memstore 크기는 `hbase.regionserver.global.memstore.UpperLimit` 및 `hbase.regionserver.global.memstore.LowerLimit` 매개 변수로 정의됩니다. 이 값을 서로 같게 설정하면 쓰기 중에 일시 중지가 줄어들어서(또한 플러시 빈도가 높아져서) 쓰기 성능이 향상됩니다.
+Memstore 크기는 `hbase.regionserver.global.memstore.upperLimit` 및 `hbase.regionserver.global.memstore.lowerLimit` 매개 변수로 정의됩니다. 이 값을 서로 같게 설정하면 쓰기 중에 일시 중지가 줄어들어서(또한 플러시 빈도가 높아져서) 쓰기 성능이 향상됩니다.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Memstore 로컬 할당 버퍼 설정
 

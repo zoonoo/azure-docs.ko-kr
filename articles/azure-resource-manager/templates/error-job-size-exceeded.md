@@ -3,12 +3,12 @@ title: 작업 크기 초과 오류
 description: 작업 크기나 템플릿이 너무 클 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 10/07/2020
-ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 638bdef246fc908ab997bfb99e7526febdb3792e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812899"
+ms.locfileid: "91822149"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>작업 크기 초과에 대 한 오류 해결
 
@@ -40,7 +40,7 @@ ms.locfileid: "91812899"
 
 ## <a name="solution-2---reduce-name-size"></a>해결 방법 2-이름 크기 줄이기
 
-[매개 변수](template-parameters.md), [변수](template-variables.md)및 [출력](template-outputs.md)에 사용 하는 이름의 길이를 짧게 만들려고 합니다. 이러한 값이 복사 루프를 통해 반복 되 면 많은 이름을 여러 번 곱합니다. 템플릿의 최종 크기는 불필요 하 게 크게 커집니다.
+[매개 변수](template-parameters.md), [변수](template-variables.md)및 [출력](template-outputs.md)에 사용 하는 이름의 길이를 짧게 만들려고 합니다. 이러한 값이 복사 루프를 통해 반복 되 면 많은 이름을 여러 번 곱합니다.
 
 ## <a name="solution-3---use-serial-copy"></a>해결 방법 3-직렬 복사본 사용
 
