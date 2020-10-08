@@ -3,22 +3,47 @@ title: 비 Azure 컴퓨터를 Azure Security Center에 연결
 description: 비 Azure 컴퓨터를 Security Center에 연결하는 방법 알아보기
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6f2889c298f525e1babf80f86d4ae140ef2ce96f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448950"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612220"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
-Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 아래와 같이 **시작** 또는 **인벤토리** 페이지에서 비 Azure 컴퓨터를 추가할 수 있습니다.
+Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 
 
-## <a name="add-non-azure-computers"></a>비 Azure 컴퓨터 추가 
+다음과 같은 방법으로 비 Azure 컴퓨터를 추가할 수 있습니다.
+
+- Azure Arc 사용(**권장**)
+- Azure Portal의 Security Center 페이지 사용(**시작** 및 **인벤토리**)
+
+아래에서는 이러한 각 방법에 대해 설명합니다.
+
+## <a name="add-non-azure-machines-with-azure-arc"></a>Azure Arc를 사용하여 비 Azure 머신 추가
+
+Azure Security Center에 비 Azure 머신을 추가할 때 권장되는 방법은 Azure Arc를 사용하는 것입니다.
+
+Azure Arc가 사용하도록 설정된 머신은 Azure 리소스가 되며 Security Center에 다른 Azure 리소스와 마찬가지로 권장 사항과 함께 표시됩니다. 
+
+또한 Azure Arc는 머신에서 정책을 사용하도록 설정하고, Log Analytics 에이전트를 확장으로 배포하고, 다른 Azure 서비스를 사용하여 배포를 간소화하는 옵션 등과 같은 향상된 기능을 제공합니다. 혜택에 대한 개요는 [지원되는 시나리오](../azure-arc/servers/overview.md#supported-scenarios)를 참조하세요.
+
+**Azure Arc를 배포하려면 다음을 수행합니다.**
+
+- 단일 머신의 경우 [빠른 시작: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)의 지침을 따르세요.
+- Azure Arc를 대규모로 배포하려면 [하이브리드 머신을 대규모로 Azure에 연결](../azure-arc/servers/onboard-service-principal.md)을 참조하세요.
+
+[Azure Arc](../azure-arc/servers/overview.md)에 대해 자세히 알아보세요.
+
+> [!TIP]
+> AWS 머신을 온보딩하는 경우 Security Center의 AWS용 커넥터에서 Azure Arc 배포를 투명하게 자동으로 처리합니다. [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)에서 자세히 알아보세요.
+
+## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Security Center의 포털 페이지에서 비 Azure 머신 추가
 
 1. Security Center의 메뉴에서 **시작** 페이지를 엽니다.
 1. **시작하기** 탭을 선택합니다.
@@ -29,6 +54,8 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
     > [!TIP]
     > **인벤토리** 페이지의 **비 Azure 서버 추가** 단추에서 [컴퓨터 추가]를 열 수도 있습니다.
+    > 
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="[시작] 페이지의 [시작] 탭":::
 
     Log Analytics 작업 영역 목록이 표시됩니다. 이 목록에는 자동 프로비저닝을 사용하는 경우 Security Center에서 자동으로 생성되는 기본 작업 영역이 포함됩니다(해당하는 경우). 이 작업 영역이나 사용할 다른 작업 영역을 선택합니다.
 
@@ -89,12 +116,13 @@ Windows 컴퓨터를 추가하려면 **에이전트 관리** 페이지의 정보
 
 
 ## <a name="verifying"></a>확인 중
-축하합니다! 이제 Azure 및 비 Azure 컴퓨터를 한 장소에서 모두 볼 수 있습니다. [자산 인벤토리 페이지](asset-inventory.md)를 열고 관련 리소스 종류로 필터링합니다. 이 두 아이콘은 다음과 같은 종류를 구분합니다.
+축하합니다! 이제 Azure 및 비 Azure 컴퓨터를 한 장소에서 모두 볼 수 있습니다. [자산 인벤토리 페이지](asset-inventory.md)를 열고 관련 리소스 종류로 필터링합니다. 이러한 아이콘은 다음과 같은 종류를 구분합니다.
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
+  ![비 Azure 머신에 대한 ASC 아이콘](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![Azure 머신에 대한 ASC 아이콘](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
+  ![Azure Arc 머신에 대한 ASC 아이콘](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc 지원 머신
 
 ## <a name="next-steps"></a>다음 단계
 

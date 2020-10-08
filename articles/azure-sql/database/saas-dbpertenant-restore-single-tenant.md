@@ -1,22 +1,22 @@
 ---
-title: 다중 테 넌 트 SaaS 앱에서 데이터베이스 복원
-description: 실수로 데이터를 삭제 한 후 단일 테 넌 트의 Azure SQL Database 복원 하는 방법을 알아봅니다.
+title: 다중 테넌트 SaaS 앱에서 데이터베이스 복원
+description: 실수로 데이터를 삭제한 후 단일 테넌트의 Azure SQL Database를 복원하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 145f0c04cc06f09bd9a0eb47cb8b49306ee0700a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504336"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619664"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 애플리케이션에서 단일 테넌트 복원
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "86504336"
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
 > * 원래 위치에 데이터베이스를 복원하여 기존 데이터베이스 대체
 
-| 패턴 | 설명 |
+| 무늬 | 설명 |
 |:--|:--|
 | 병렬 데이터베이스로 복원 | 이 패턴은 테넌트가 이전 시점에서 데이터를 검사할 수 있도록 검토, 감사, 준수 등의 작업에 사용할 수 있습니다. 테넌트의 현재 데이터베이스는 온라인 상태가 유지되고 변경되지 않습니다. |
 | 원래 위치에 복원 | 이 패턴은 테넌트가 실수로 삭제되었거나 데이터가 손상된 경우에 테넌트를 이전 시점으로 복구할 때 사용합니다. 원래 데이터베이스는 오프라인 상태가 되고 복원된 데이터베이스로 대체됩니다. |
@@ -37,7 +37,7 @@ ms.locfileid: "86504336"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip SaaS 앱이 배포되었습니다. 5 분 이내에 배포 하려면 [정문 SaaS 응용 프로그램 배포 및 탐색](../../sql-database/saas-dbpertenant-get-started-deploy.md)을 참조 하세요.
+* Wingtip SaaS 앱이 배포되었습니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](../../sql-database/saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>SaaS 테넌트 복원 패턴 소개
@@ -64,7 +64,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>Events 앱을 열어 현재 이벤트 검토
 
-1. 이벤트 허브 ( http://events.wtp.&lt ; &gt; trafficmanager.net)를 열고 **Contoso 콘서트 홀**을 선택 합니다.
+1. 이벤트 허브(http://events.wtp.&lt;user&gt;.trafficmanager.net)를 열고 **Contoso Concert Hall**을 선택합니다.
 
    ![이벤트 허브](./media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
@@ -76,7 +76,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 1. PowerShell ISE에서 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*을 열고 다음 값을 설정합니다.
 
-   * **$DemoScenario**  =  **1**. *티켓 판매량이 없는 마지막 이벤트를 삭제*합니다.
+   * **$DemoScenario** = **1**, *Delete last event (with no ticket sales)*
 2. F5 키를 눌러 스크립트를 실행하고 마지막 이벤트를 삭제합니다. 다음과 같은 확인 메시지가 표시됩니다.
 
    ```Console
@@ -95,7 +95,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 1. [실수로 데이터를 삭제하는 테넌트 시뮬레이션](#simulate-a-tenant-accidentally-deleting-data) 섹션의 단계를 수행합니다.
 2. PowerShell ISE에서 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_을 엽니다.
-3. **$DemoScenario**  =  **2**를 설정 하 고, *테 넌 트를 병렬로 복원*합니다.
+3. **$DemoScenario** = **2**, *Restore tenant in parallel*을 설정합니다.
 4. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 스크립트가 테넌트 데이터베이스를 사용자가 이벤트를 삭제하기 전의 시점으로 복원합니다. 데이터베이스가 _ContosoConcertHall\_old_라는 이름의 새 데이터베이스로 복원됩니다. 복원된 데이터베이스의 카탈로그 메타데이터가 삭제된 다음 데이터베이스가 *ContosoConcertHall\_old* 이름으로 만든 키를 사용하여 카탈로그에 추가됩니다.
@@ -106,7 +106,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 복원된 테넌트를 자체 이벤트 앱을 갖는 추가 테넌트로 노출하는 것은 일반적으로 테넌트에 복원된 데이터에 대한 액세스 권한을 제공하는 방법은 아닙니다. 여기서는 복원 패턴을 설명하기 위한 용도로 이 방법을 사용했습니다. 일반적으로 기존 데이터에 대한 읽기 전용 권한을 부여하고 복원된 데이터베이스를 지정된 기간 동안 보존하는 경우가 많습니다. 작업을 마친 후 샘플에서 _Remove restored tenant_ 시나리오를 실행하여 복원된 테넌트 항목을 삭제할 수 있습니다.
 
-1. **$DemoScenario**  =  **4**, *복원 된 테 넌 트 제거*를 설정 합니다.
+1. **$DemoScenario** = **4**, *Remove restored tenant*를 설정합니다.
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 3. 이제 카탈로그에서 *ContosoConcertHall\_old* 항목이 삭제됩니다. 브라우저에서 이 테넌트의 이벤트 페이지를 닫습니다.
 
@@ -115,7 +115,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 이 예제에서는 Contoso Concert Hall 테넌트를 이벤트를 삭제하기 전 시점으로 복원합니다. *Restore-TenantInPlace* 스크립트가 테넌트 데이터베이스를 새 데이터베이스로 복원하고 기존 데이터베이스를 삭제합니다. 이 복원 패턴은 심각한 데이터 손상을 복구하는 데 적합하며, 테넌트에서 상당한 데이터 손실이 있을 수 있습니다.
 
 1. PowerShell ISE에서 **Demo-RestoreTenant.ps1** 파일을 엽니다.
-2. **$DemoScenario**  =  **5**로 설정 하 고 *테 넌 트를 복원*합니다.
+2. **$DemoScenario** = **5**, *Restore tenant in place*를 설정합니다.
 3. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 스크립트가 테넌트 데이터베이스를 이벤트가 삭제되기 전 시점으로 복원합니다. 먼저 더 이상의 업데이트를 방지하기 위해 Contoso Concert Hall 테넌트가 오프라인 상태가 됩니다. 그런 다음, 복원 지점으로부터 복원하여 병렬 데이터베이스가 생성됩니다. 복원된 데이터베이스는 이름이 기존 테넌트 데이터베이스 이름과 충돌하지 않도록 이름에 타임스탬프가 추가되어 지정됩니다. 다음으로, 이전 테넌트 데이터베이스를 삭제하고, 복원된 데이터베이스 이름을 원본 데이터베이스 이름으로 바꿉니다. 마지막으로, Contoso Concert Hall이 온라인 상태가 되어 응용 프로그램에서 복원된 데이터베이스에 액세스할 수 있게 합니다.
@@ -126,7 +126,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
@@ -134,7 +134,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 [테넌트 데이터베이스 스키마 관리](saas-tenancy-schema-management.md) 자습서를 사용합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip SaaS 애플리케이션을 기반으로 작성된 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure SQL Database의 비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)

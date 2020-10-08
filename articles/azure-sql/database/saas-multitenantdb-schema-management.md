@@ -1,24 +1,24 @@
 ---
-title: 다중 테 넌 트 앱에서 스키마 관리
+title: 다중 테넌트 앱에서 스키마 관리
 description: Azure SQL Database를 사용하는 다중 테넌트 애플리케이션에서 여러 테넌트에 대한 스키마 관리
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b115b410547b37e6cfa369b825c94b6b22436941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 4dc28b51e33de6bf08995064404d2d4cc6ca9b58
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027014"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619579"
 ---
-# <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>분할 된 다중 테 넌 트 데이터베이스를 사용 하는 SaaS 응용 프로그램에서 스키마 관리
+# <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>분할된 다중 테넌트 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 SaaS(Software as a Service) 애플리케이션에서 대규모 데이터베이스를 유지 관리하는 데 따른 문제를 검토합니다. 수많은 데이터베이스에 스키마를 적용하기 위한 솔루션이 설명되어 있습니다.
@@ -41,19 +41,19 @@ Azure SQL Database의 [탄력적 작업](../../sql-database/elastic-jobs-overvie
 > * 모든 테넌트 데이터베이스의 참조 데이터 업데이트하기.
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스를 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Wingtip Tickets 다중 테넌트 데이터베이스 앱이 설치되어 있어야 합니다.
     - 자세한 내용은 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱을 소개하는 첫 번째 튜토리얼을 참조하세요.<br />[Azure SQL Database를 사용하는 분할된 다중 테넌트 애플리케이션 배포 및 탐색](../../sql-database/saas-multitenantdb-get-started-deploy.md)합니다.
         - 배포 프로세스는 5분 이내에 실행됩니다.
     - *분할된 다중 테넌트* 버전의 Wingtip이 설치되어 있어야 합니다. *독립 실행형* 및 *테넌트별 데이터베이스*용 버전은 이 자습서를 지원하지 않습니다.
 
-- 최신 버전의 SSMS(SQL Server Management Studio)가 설치되어 있어야 합니다. [SSMS를 다운로드 하 여 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
+- 최신 버전의 SSMS(SQL Server Management Studio)가 설치되어 있어야 합니다. [SSMS를 다운로드 및 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
 
-- Azure PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조 하세요.
+- Azure PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행 하려는 경우 주제 = 탄력적인 작업 미리 보기를 사용 하 여 *Saasfeedback \@ microsoft.com* 에 구독 ID를 제공 합니다. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한 되므로 관련 질문이 나 지원에 대해서는 *Saasfeedback \@ microsoft.com* 에 문의 하세요.
+> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려면 ‘Elastic 작업 미리 보기’라는 제목으로 *SaaSFeedback\@microsoft.com*으로 구독 ID를 보내 주세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 *SaaSFeedback\@microsoft.com*에 문의해야 합니다.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
@@ -73,10 +73,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>작업 에이전트 데이터베이스와 새 작업 에이전트 만들기
 
-이 자습서를 사용하려면 PowerShell을 사용하여 작업 에이전트 데이터베이스와 작업 에이전트를 만들어야 합니다. SQL 에이전트에서 사용 하는 MSDB 데이터베이스와 마찬가지로 작업 에이전트는 Azure SQL Database의 데이터베이스를 사용 하 여 작업 정의, 작업 상태 및 기록을 저장 합니다. 작업 에이전트가 만들어지면 즉시 작업을 만들고 모니터링할 수 있습니다.
+이 자습서를 사용하려면 PowerShell을 사용하여 작업 에이전트 데이터베이스와 작업 에이전트를 만들어야 합니다. SQL 에이전트에서 사용되는 MSDB 데이터베이스와 마찬가지로, 작업 에이전트는 Azure SQL Database의 데이터베이스를 사용하여 작업 정의, 작업 상태 및 기록을 저장합니다. 작업 에이전트가 만들어지면 즉시 작업을 만들고 모니터링할 수 있습니다.
 
-1. **POWERSHELL ISE** * \\ 에서 ... 학습 모듈 \\ 스키마 관리 \\Demo-SchemaManagement.ps1*입니다.
-2. **F5** 키를 눌러 스크립트를 실행 합니다.
+1. **PowerShell ISE**에서 *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*을 엽니다.
+2. **F5** 키를 눌러 스크립트를 실행합니다.
 
 *Demo-SchemaManagement.ps1* 스크립트가 *Deploy-SchemaManagement.ps1* 스크립트를 호출하여 카탈로그 서버에 _jobagent_라는 이름의 데이터베이스를 생성합니다. 그런 다음, 매개 변수로 _jobagent_ 데이터베이스를 전달하여 작업 에이전트를 생성합니다.
 
@@ -84,7 +84,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 #### <a name="prepare"></a>준비
 
-각 테 넌 트의 데이터베이스에는 **VenueTypes** 테이블의 장소 유형 집합이 포함 되어 있습니다. 각 장소 유형은 장소에서 진행할 수 있는 이벤트의 종류를 정의합니다. 장소 유형은 테넌트 이벤트 앱에 표시된 배경 이미지에 해당합니다.  이 연습에서는 두 개의 추가 장소 유형인 *Motorcycle Racing* 및 *Swimming Club*을 추가하기 위해 모든 데이터베이스에 업데이트를 배포합니다.
+각 테넌트 데이터베이스의 **VenueTypes** 테이블에는 장소 유형 집합이 포함되어 있습니다. 각 장소 유형은 장소에서 진행할 수 있는 이벤트의 종류를 정의합니다. 장소 유형은 테넌트 이벤트 앱에 표시된 배경 이미지에 해당합니다.  이 연습에서는 두 개의 추가 장소 유형인 *Motorcycle Racing* 및 *Swimming Club*을 추가하기 위해 모든 데이터베이스에 업데이트를 배포합니다.
 
 먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다.
 
@@ -109,11 +109,11 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 5. 카탈로그 서버의 _jobagent_ 데이터베이스에 접속합니다.
 
-6. SSMS *에서 파일 \\ 을 엽니다. 학습 모듈 \\ Schema Management \\ deployreferencedata .sql*.
+6. SSMS에서 *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql* 파일을 엽니다.
 
 7. 문을 set @User = &lt;user&gt;로 수정하고 Wingtip Ticket SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용된 사용자 값을 바꿉니다.
 
-8. **F5** 키를 눌러 스크립트를 실행 합니다.
+8. **F5** 키를 눌러 스크립트를 실행합니다.
 
 #### <a name="observe"></a>관찰
 
@@ -128,7 +128,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
     - *catalog-mt-&lt;user&gt;* 서버에 있는 템플릿 데이터베이스(*basetenantdb*)의 *database* 대상 구성원 유형
     - 이후 자습서에서 사용되는 *adhocreporting* 데이터베이스를 포함할 *database* 대상 구성원 유형.
 
-- **sp \_ add \_ Job** 은 *참조 데이터 배포*라는 작업을 만듭니다.
+- **sp\_add\_job**은 *참조 데이터 배포*라는 작업을 만듭니다.
 
 - **sp\_add\_jobstep**은 VenueTypes 참조 테이블을 업데이트하기 위한 T-SQL 명령 텍스트가 포함된 작업 단계를 만듭니다.
 
@@ -142,21 +142,21 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 
 1. SSMS에서 *catalog-mt-&lt;User&gt;.database.windows.net* 서버에 있는 _jobagent_ 데이터베이스에 접속합니다.
 
-2. SSMS에서 열기 ... * \\ 학습 모듈 \\ Schema Management \\ onlinereindex.sql 파일*.
+2. SSMS에서 *...\\Learning Modules\\Schema Management\\OnlineReindex.sql* 파일을 엽니다.
 
-3. **F5** 키를 눌러 스크립트를 실행 합니다.
+3. **F5** 키를 눌러 스크립트를 실행합니다.
 
 #### <a name="observe"></a>관찰
 
 *OnlineReindex.sql* 스크립트에서 다음 항목을 살펴봅니다.
 
-* **sp \_ add \_ Job** 은 *온라인 인덱스 재 인덱싱 PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885*라는 새 작업을 만듭니다.
+* **sp\_add\_job**은 *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885*라는 새 작업을 만듭니다.
 
-* **sp \_ add \_ jobstep** 은 인덱스를 업데이트 하기 위한 t-sql 명령 텍스트가 포함 된 작업 단계를 만듭니다.
+* **sp\_add\_jobstep**은 인덱스를 업데이트할 T-SQL 명령 텍스트를 포함하는 작업 단계를 만듭니다.
 
 * 스크립트의 나머지 뷰는 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 작업이 모든 대상 그룹 구성원에서 성공적으로 완료된 시기를 확인합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
@@ -172,5 +172,5 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
-다음으로, [임시 보고 자습서](../../sql-database/saas-multitenantdb-adhoc-reporting.md) 를 사용해 서 테 넌 트 데이터베이스에서 분산 쿼리를 실행 하는 방법을 살펴봅니다.
+다음 단계로, [임시 보고 자습서](../../sql-database/saas-multitenantdb-adhoc-reporting.md)를 참고하여 여러 테넌트 데이터베이스에서 분산 쿼리를 실행하는 방법을 살펴보세요.
 

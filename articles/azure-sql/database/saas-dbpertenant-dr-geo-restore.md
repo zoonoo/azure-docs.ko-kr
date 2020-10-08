@@ -6,24 +6,24 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356896"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619036"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. [지역 복원](recovery-using-backups.md)을 사용하여 카탈로그 및 테넌트 데이터베이스를 자동으로 유지 관리되는 지역 중복 백업에서 대체 복구 지역으로 복구합니다. 가동 중단이 해결되면 [지역 복제](active-geo-replication-overview.md)를 사용하여 변경된 데이터베이스를 원래 지역으로 송환합니다.
 
-![다이어그램에는 원본 및 복구 지역이 표시 됩니다. 여기에는 앱, 카탈로그, 서버 및 풀의 원본 또는 미러 이미지, 저장소에 대 한 자동 백업, 백업에 대 한 지역에서 복제를 수락 하 고 새 테 넌 트에 대해 서버 및 풀을 포함 하는 복구 지역이 포함 됩니다.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![원본 및 복구 지역을 보여 주는 다이어그램입니다. 두 지역 모두 앱, 카탈로그, 서버 및 풀의 원본 또는 미러 이미지, 스토리지에 대한 자동 백업이 있으며, 복구 지역은 백업 지역 복제를 수락하고 새 테넌트를 위한 서버 및 풀이 있습니다.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 지역 복원은 Azure SQL Database에 대한 가장 저렴한 재해 복구 솔루션입니다. 그러나 지역 중복 백업에서의 복원은 최대 1시간의 데이터가 손실될 수 있습니다. 각 데이터베이스의 크기에 따라 시간이 오래 걸릴 수 있습니다. 
 
@@ -42,8 +42,8 @@ ms.locfileid: "91356896"
  
 
 이 자습서를 완료하려면 다음과 같은 필수 구성 요소를 완료해야 합니다.
-* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5 분 내에 배포 하려면 [테 넌 트 당 정문 Ticket SaaS 데이터베이스 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조 하세요. 
-* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조 하세요.
+* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요. 
+* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>지역 복원 복구 패턴 소개
 
@@ -97,7 +97,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 
 3. [Azure Portal](https://portal.azure.com)에서 앱을 배포한 리소스 그룹을 검토하고 엽니다.
 
-   앱 서비스 구성 요소 및 SQL Database 배포 되는 리소스와 지역이 표시 됩니다.
+   앱 서비스 구성 요소와 SQL Database가 배포된 리소스와 지역을 확인합니다.
 
 ## <a name="sync-the-tenant-configuration-into-the-catalog"></a>카탈로그로 테넌트 구성을 동기화합니다.
 
@@ -159,7 +159,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     * 복원 요청은 모든 풀에서 병렬로 처리되기 때문에 중요한 테넌트를 여러 풀에 배포하는 것이 좋습니다. 
 
-10. 는 서비스를 모니터링 하 여 데이터베이스가 복원 되는 시기를 결정 합니다. 테넌트 데이터베이스가 복원되면 카탈로그에서 온라인으로 표시되고 테넌트 데이터베이스에 대한 rowversion 합계가 기록됩니다. 
+10. 서비스를 모니터링하여 데이터베이스가 복원된 시기를 확인합니다. 테넌트 데이터베이스가 복원되면 카탈로그에서 온라인으로 표시되고 테넌트 데이터베이스에 대한 rowversion 합계가 기록됩니다. 
 
     * 테넌트 데이터베이스는 카탈로그에서 온라인으로 표시되는 즉시 애플리케이션에서 액세스할 수 있습니다.
 
@@ -361,7 +361,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 ## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>앱 및 데이터베이스가 공동 배치되도록 애플리케이션 디자인 
 애플리케이션은 항상 테넌트의 데이터베이스와 동일한 지역에 있는 인스턴스에서 연결되도록 설계되었습니다. 이 디자인은 애플리케이션과 데이터베이스 간의 대기 시간을 줄여줍니다. 이 최적화에서는 앱-데이터베이스 상호 작용이 사용자-앱 상호 작용보다 더 많이 수행된다고 가정합니다.  
 
-테넌트 데이터베이스는 송환 중에 일정 기간 동안 복구 지역과 원래 지역에 걸쳐 분산되어 있을 수 있습니다. 각 데이터베이스에 대해 응용 프로그램은 테넌트 서버 이름에서 DNS 조회를 수행하여 데이터베이스가 있는 지역을 찾습니다. 서버 이름이 별칭입니다. 별칭이 지정된 서버 이름에는 지역 이름이 포함되어 있습니다. 응용 프로그램이 데이터베이스와 동일한 지역에 있지 않은 경우 서버와 동일한 지역에 있는 인스턴스로 리디렉션됩니다. 데이터베이스와 동일한 지역에 있는 인스턴스로 리디렉션하면 앱과 데이터베이스 간의 대기 시간이 최소화됩니다.  
+테넌트 데이터베이스는 송환 중에 일정 기간 동안 복구 지역과 원래 지역에 걸쳐 분산되어 있을 수 있습니다. 각 데이터베이스에 대해 응용 프로그램은 테넌트 서버 이름에서 DNS 조회를 수행하여 데이터베이스가 있는 지역을 찾습니다. 서버 이름은 별칭입니다. 별칭이 지정된 서버 이름에는 지역 이름이 포함되어 있습니다. 애플리케이션이 데이터베이스와 동일한 지역에 있지 않으면, 서버와 동일한 지역에 있는 인스턴스로 리디렉션됩니다. 데이터베이스와 동일한 지역에 있는 인스턴스로 리디렉션하면 앱과 데이터베이스 간의 대기 시간이 최소화됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -369,13 +369,13 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 > [!div class="checklist"]
 > 
 > * 테넌트 카탈로그를 사용하여 정기적으로 새로 고친 구성 정보를 보관하면 다른 지역에 미러 이미지 복구 환경을 만들 수 있습니다.
-> * 지역 복원을 사용 하 여 복구 지역으로 데이터베이스를 복구 합니다.
+> * 지역 복원을 사용하여 데이터베이스를 복구 지역으로 복구합니다.
 > * 복원된 테넌트 데이터베이스 위치를 반영하도록 테넌트 카탈로그를 업데이트합니다. 
 > * DNS 별칭을 사용하여 애플리케이션을 재구성하지 않고 테넌트 카탈로그 전체에 연결할 수 있습니다.
 > * 가동 중단이 해결되면 지역 복제를 사용하여 복구된 데이터베이스를 원래 지역으로 송환합니다.
 
 지역 복제를 사용하여 대규모 다중 테넌트 애플리케이션을 복구하는 데 필요한 시간을 대폭 줄이는 방법을 알아보려면 [데이터베이스 지역 복제를 사용하여 다중 테넌트 SaaS 애플리케이션에 대한 재해 복구](../../sql-database/saas-dbpertenant-dr-geo-replication.md)를 시도합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 [Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

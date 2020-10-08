@@ -10,19 +10,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: ee9a883cbd69826e30d6f2416d588792a8c17b1c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648805"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729171"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
 이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 애플리케이션 전송에 Azure Front Door를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
 
-Front Door를 만든 후, 기본적으로 백 엔드에서 Front Door 콘텐츠를 전송하기 위해 기본 프런트 엔드 호스트(`azurefd.net`의 하위 도메인)가 URL에 포함됩니다(예: https:\//contoso.azurefd.net/activeusers.htm). 사용자 편의를 위해 Azure Front Door는 사용자 지정 도메인을 기본 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하면 URL에 Front Door 소유의 도메인 이름 대신 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다(예: https:\//www.contoso.com/photo.png). 
+Front Door를 만든 후 기본적으로 백 엔드에서 Front Door 콘텐츠를 전송하기 위해 기본 프런트 엔드 호스트(`azurefd.net`의 하위 도메인)가 URL에 포함됩니다(예: https:\//contoso-frontend.azurefd.net/activeusers.htm). 사용자 편의를 위해 Azure Front Door는 사용자 지정 도메인을 기본 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하면 URL에 Front Door 소유의 도메인 이름 대신 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다(예: https:\//www.contoso.com/photo.png). 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -46,7 +46,7 @@ Front Door를 만든 후, 기본적으로 백 엔드에서 Front Door 콘텐츠�
 
 ## <a name="create-a-cname-dns-record"></a>CNAME DNS 레코드 만들기
 
-Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급 기업을 사용하여 Front Door의 기본 프런트 엔드 호스트(contoso.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 Front Door 기본 호스트 이름입니다. Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: www\.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: contoso.azurefd.net)로 라우팅됩니다. 
+Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급 기업을 사용하여 Front Door의 기본 프런트 엔드 호스트(contoso.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 Front Door 기본 호스트 이름입니다. Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: www\.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: contoso-frontend.azurefd.net)로 라우팅됩니다. 
 
 사용자 지정 도메인 및 해당 하위 도메인은 한 번에 하나의 Front Door에만 연결할 수 있습니다. 그러나 여러 CNAME 레코드를 사용하면 동일한 사용자 지정 도메인의 여러 하위 도메인을 여러 Front Door에 사용할 수 있습니다. 여러 하위 도메인이 있는 사용자 지정 도메인을 동일한 Front Door에 매핑할 수도 있습니다.
 
@@ -67,13 +67,13 @@ afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
     | 원본                    | Type  | 대상                     |
     |---------------------------|-------|---------------------------------|
-    | afdverify. www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
+    | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
     - 원본: afdverify 하위 도메인을 포함한 사용자 지정 도메인 이름을 afdverify. _&lt;custom domain name&gt;_ 형식으로 입력합니다. 예: afdverify. www.contoso.com.
 
     - 유형: *CNAME*를 입력합니다.
 
-    - 대상: afdverify 하위 도메인을 포함한 기본 Front Door 프런트 엔드 호스트를 afdverify. _&lt;endpoint name&gt;_ .azurefd.net 형식으로 입력합니다. 예: afdverify.contoso.azurefd.net.
+    - 대상: afdverify 하위 도메인을 포함한 기본 Front Door 프런트 엔드 호스트를 afdverify. _&lt;endpoint name&gt;_ .azurefd.net 형식으로 입력합니다. 예를 들면 afdverify.contoso-frontend.azurefd.net입니다.
 
 4. 변경 내용을 저장합니다.
 
@@ -93,7 +93,7 @@ afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
     - 호스트: afdverify 하위 도메인 이름을 포함하여 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: afdverify. www.
 
-    - 지시 대상: afdverify 하위 도메인 이름을 포함하여 기본 Front Door 프런트 엔드 호스트의 호스트 이름을 입력합니다. 예: afdverify.contoso.azurefd.net. 
+    - 지시 대상: afdverify 하위 도메인 이름을 포함하여 기본 Front Door 프런트 엔드 호스트의 호스트 이름을 입력합니다. 예를 들면 afdverify.contoso-frontend.azurefd.net입니다. 
 
     - TTL: *한 시간*을 선택된 상태로 둡니다.
 
@@ -144,13 +144,13 @@ afdverify 하위 도메인이 Front Door에 성공적으로 매핑되었음을 �
 
     | 원본          | Type  | 대상           |
     |-----------------|-------|-----------------------|
-    | <www.contoso.com> | CNAME | contoso.azurefd.net |
+    | <www.contoso.com> | CNAME | contoso-frontend.azurefd.net |
 
    - 원본: 사용자 지정 도메인 이름(예: www\.contoso.com)을 입력합니다.
 
    - 유형: *CNAME*를 입력합니다.
 
-   - 대상: 기본 Front Door 프런트 엔드 호스트를 입력합니다. format: _&lt;hostname&gt;_ .azurefd.net 형식이어야 합니다. 예: contoso.azurefd.net.
+   - 대상: 기본 Front Door 프런트 엔드 호스트를 입력합니다. format: _&lt;hostname&gt;_ .azurefd.net 형식이어야 합니다. 예를 들면 contoso-frontend.azurefd.net입니다.
 
 4. 변경 내용을 저장합니다.
 
@@ -209,4 +209,4 @@ afdverify 하위 도메인이 Front Door에 성공적으로 매핑되었음을 �
 사용자 지정 도메인에 HTTPS를 사용하도록 설정하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 도메인에 HTTPS 사용](front-door-custom-domain.md)
+> [사용자 지정 도메인에 HTTPS 사용](front-door-custom-domain-https.md)

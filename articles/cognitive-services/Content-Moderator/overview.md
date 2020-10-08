@@ -8,24 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 82dc81c540115f08e57f87e63184e1e895c5e4fe
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: cog-serv-seo-aug-2020
+keywords: 콘텐츠 중재자, azure 콘텐츠 중재자, 온라인 중재자, 콘텐츠 필터링 소프트웨어, 콘텐츠 조정 서비스, 콘텐츠 조정
+ms.openlocfilehash: aa1f4c1fab9b3d8a1b5db0e965f1608e694646b2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834544"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596852"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Content Moderator는 자료에서 모욕적이거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인지 서비스입니다. 이 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다. 다양한 콘텐츠 플래그의 의미를 자세히 알아보려면 [중재 API](#moderation-apis) 섹션을 참조하세요.
+Azure Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직하지 않은 콘텐츠를 처리할 수 있는 AI 서비스입니다. 여기에는 텍스트, 이미지 및 비디오를 검색하고 콘텐츠 플래그를 자동으로 적용하는 AI 기반 콘텐츠 조정 서비스와 사용자 검토자 팀을 위한 온라인 중재자 환경인 검토 도구가 포함됩니다.
+
+앱에 콘텐츠 필터링 소프트웨어를 빌드하여 규정을 준수하거나 사용자에게 의도된 환경을 유지 관리할 수 있습니다.
 
 ## <a name="where-its-used"></a>사용 위치
 
-다음은 소프트웨어 개발자나 팀이 Content Moderator를 사용하는 몇 가지 시나리오입니다.
+다음은 소프트웨어 개발자나 팀이 콘텐츠 조정 서비스를 요구하는 몇 가지 시나리오입니다.
 
 - 제품 카탈로그 및 기타 사용자 생성 콘텐츠를 조정하는 온라인 마켓플레이스.
 - 사용자 생성 게임 아티팩트 및 대화방을 조정하는 게임 회사.
@@ -33,7 +37,7 @@ Azure Content Moderator는 자료에서 모욕적이거나, 위험하거나, 원
 - 중앙에서 콘텐츠를 조정하도록 구현하는 엔터프라이즈 미디어 회사.
 - 학생 및 교육자에게 부적절한 콘텐츠를 필터링하는 K-12 교육 솔루션 공급자.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Content Moderator를 사용하여 불법 아동 착취 이미지를 검색할 수 없습니다. 그러나 자격이 있는 조직은 [PhotoDNA 클라우드 서비스](https://www.microsoft.com/photodna "Microsoft PhotoDNA 클라우드 서비스")를 사용하여 이러한 종류의 콘텐츠를 차단할 수 있습니다.
 
 ## <a name="what-it-includes"></a>포함되는 항목
@@ -77,4 +81,4 @@ Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Gu
 
 ## <a name="next-steps"></a>다음 단계
 
-[웹에서 Content Moderator 사용해 보기](quick-start.md)의 지침을 따라 Content Moderator 서비스 사용을 시작합니다.
+웹 포털에서 Content Moderator 사용을 시작하려면 [웹에서 Content Moderator 사용해 보기](quick-start.md)를 수행합니다. 또는 [클라이언트 라이브러리 빠른 시작](client-libraries.md)을 완료하여 코드에서 기본 시나리오를 구현합니다.

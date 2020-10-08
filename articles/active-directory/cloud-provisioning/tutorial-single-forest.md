@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 60f82a3197366081c66c4b7a1fe9c4ebe7762c94
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228378"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628702"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>자습서: 단일 포리스트를 단일 Azure AD 테넌트와 통합
 
@@ -61,16 +61,16 @@ ms.locfileid: "89228378"
 5. Azure AD Connect 프로비저닝 에이전트를 실행합니다.
 6. 시작 화면에서 사용 조건을 **수락**하고 **설치**를 클릭합니다.
 
-   ![시작 화면](media/how-to-install/install1.png)
+   !["Microsoft Azure AD Connect 프로비저닝 에이전트 패키지" 시작 화면을 보여주는 스크린샷.](media/how-to-install/install1.png)
 
 7. 이 작업이 완료되면 구성 마법사가 시작됩니다.  Azure AD 글로벌 관리자 계정으로 로그인합니다.  IE 보안 강화를 사용하도록 설정한 경우 로그인이 차단됩니다.  이 경우 설치를 닫고, 서버 관리자에서 IE 보안 강화를 사용하지 않도록 설정하고, **AAD Connect 프로비저닝 에이전트 마법사**를 클릭하여 설치를 다시 시작합니다.
 8. **Active Directory 연결** 화면에서 **디렉터리 추가**를 클릭한 다음, Active Directory 도메인 관리자 계정으로 로그인합니다.  참고:  도메인 관리자 계정에는 암호 변경 요구 사항이 없어야 합니다. 암호가 만료되거나 변경되는 경우 새 자격 증명을 사용하여 에이전트를 다시 구성해야 합니다. 이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다.  **다음**을 클릭합니다.
 
-   ![시작 화면](media/how-to-install/install3.png)
+   !["Active Directory 연결" 화면의 스크린샷.](media/how-to-install/install3.png)
 
 9. **구성 완료** 화면에서 **확인**을 클릭합니다.  이 작업을 수행하면 에이전트가 등록되고 다시 시작됩니다.
 
-   ![시작 화면](media/how-to-install/install4.png)
+   !["구성 완료" 화면을 보여주는 스크린샷.](media/how-to-install/install4.png)
 
 10. 이 작업이 완료되면 **에이전트 구성을 확인했습니다**라는 알림이 표시됩니다.  **끝내기**를 클릭할 수 있습니다.</br>
 ![시작 화면](media/how-to-install/install5.png)</br>
@@ -112,7 +112,7 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 5.  **새 구성**
 !["새 구성" 링크가 강조 표시된 Azure AD 프로비저닝(미리 보기) 화면의 스크린샷을 클릭합니다.](media/tutorial-single-forest/configure1.png)
 7.  구성 화면에서 **알림 이메일**을 입력하고, 선택기를 **사용**으로 이동하고, **저장**을 클릭합니다.
-![알림 이메일이 채워지고 사용이 선택된 구성 화면의 스크린샷](media/tutorial-single-forest/configure2.png)
+![알림 이메일이 채워지고 사용이 선택된 구성 화면의 스크린샷](media/how-to-configure/configure2.png)
 1.  이제 구성 상태는 **정상**입니다.
 ![정상 상태를 표시하는 Azure AD 프로비저닝(미리 보기) 화면의 스크린샷](media/how-to-configure/manage4.png)
 

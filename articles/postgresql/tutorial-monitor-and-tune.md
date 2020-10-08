@@ -1,17 +1,17 @@
 ---
 title: '자습서: 모니터링 및 튜닝 - Azure Database for PostgreSQL - 단일 서버'
 description: 이 자습서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 작업을 안내합니다. - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895083"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705284"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 
@@ -52,7 +52,7 @@ Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.m
 
 2. **장기 실행 쿼리** 탭에는 실행당 평균 기간별 상위 5개 쿼리가 15분 간격으로 집계되어 표시됩니다. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Query Performance Insight 방문 페이지":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="쿼리 저장소 서버 매개 변수":::
 
    **쿼리 수** 드롭다운에서 선택하여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.m
 
 6. 서버의 대기 쿼리를 시각화하려면 **대기 통계** 탭을 선택합니다.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 대기 통계":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="쿼리 저장소 서버 매개 변수":::
 
 ### <a name="permissions"></a>사용 권한
 Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
@@ -75,7 +75,7 @@ Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소�
 
 1. PostgreSQL 서버에 대한 Azure Portal 페이지의 메뉴 표시줄에 있는 **지원 + 문제 해결** 섹션에서 **성능 권장 사항**을 엽니다.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="성능 권장 사항 방문 페이지":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="쿼리 저장소 서버 매개 변수":::
 
 2. **분석**을 선택하고 데이터베이스를 선택합니다. 그러면 분석이 시작됩니다.
 
@@ -85,7 +85,7 @@ Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소�
 
 5. 권장 사항에는 관련 **데이터베이스**, **테이블**, **열** 및 **인덱스 크기**에 대한 정보가 표시됩니다.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="성능 권장 사항 결과":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="쿼리 저장소 서버 매개 변수":::
 
 6. 권장 사항을 구현하려면 쿼리 텍스트를 복사하고 선택한 클라이언트에서 실행합니다.
 

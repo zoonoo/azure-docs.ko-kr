@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
-ms.openlocfilehash: a8d34d60cfb4037192abcc20649b478e9f58a6bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992326"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620140"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>자습서: Oracle PeopleSoft - Protected by F5 BIG-IP APM과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -44,7 +44,7 @@ ms.locfileid: "90992326"
         * 알려진 공격자와 악성 트래픽을 탐지 및 차단하는 F5 IP 인텔리전스 구독 
         * 강력한 인증을 위해 디지털 키를 보호하고 관리하는 HSM(네트워크 하드웨어 보안 모듈)
 1. F5 BIG-IP 시스템은 APM 모듈을 통해 프로비저닝됩니다(LTM은 선택 사항). 
-1. 선택 사항이지만, HA(고가용성)를 위해 부동 IP 주소를 사용하여 F5 시스템을 활성-대기 쌍이 포함된 [S/F DG](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html)(동기화/장애 조치 디바이스 그룹)에 배포하는 것이 좋습니다. LACP(링크 집계 제어 프로토콜)를 사용하여 더 많은 인터페이스 중복성을 달성할 수 있습니다. LACP는 연결된 실제 인터페이스를 단일로 관리합니다. 
+1. 선택 사항이지만, HA(고가용성)를 위해 부동 IP 주소를 사용하여 F5 시스템을 활성-대기 쌍이 포함된 [S/F DG](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html)(동기화/장애 조치 디바이스 그룹)에 배포하는 것이 좋습니다. LACP(링크 집계 제어 프로토콜)를 사용하여 더 많은 인터페이스 중복성을 달성할 수 있습니다. LACP는 연결된 실제 인터페이스를 단일 가상 인터페이스(집계 그룹)로 관리하고 그룹 내의 인터페이스 오류를 검색합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

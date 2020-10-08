@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 UWP 시작 | Azure
-description: UWP(유니버설 Windows 플랫폼) 애플리케이션이 Microsoft ID 플랫폼 엔드포인트에서 액세스 토큰이 필요한 API를 어떻게 호출하는지 알아봅니다.
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 UWP(유니버설 Windows 플랫폼) 앱 만들기 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 UWP 애플리케이션을 빌드합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165552"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627672"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
-
-> [!div renderon="docs"]
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>자습서: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
 이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 애플리케이션에서 액세스 토큰을 요청하는 방법에 대해 설명합니다. 그런 다음, 애플리케이션에서 Microsoft Graph API를 호출합니다. 이 가이드는 Microsoft ID 플랫폼 엔드포인트의 액세스 토큰이 필요한 다른 API에도 적용됩니다.
 
 이 가이드의 끝에서 애플리케이션은 개인 계정을 사용하여 보호된 API를 호출합니다. outlook.com, live.com 및 기타를 예로 듭니다. 또한 애플리케이션은 Azure AD(Azure Active Directory)가 있는 회사 또는 조직의 회사 및 학교 계정을 호출합니다.
 
->[!NOTE]
-> 이 가이드에는 유니버설 Windows 플랫폼 개발이 설치된 Visual Studio가 필요합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 방법에 대한 지침은 [설정](/windows/uwp/get-started/get-set-up)을 참조하세요.
+이 자습서에서는 다음을 수행합니다.
 
->[!NOTE]
-> Microsoft ID 플랫폼을 처음 접하는 경우 [UWP(유니버설 Windows 플랫폼) 애플리케이션에서 Microsoft Graph API 호출 빠른 시작](quickstart-v2-uwp.md)을 먼저 진행하세요.
+> [!div class="checklist"]
+> * Visual Studio에서 *UWP(유니버설 Windows 플랫폼)* 프로젝트 만들기
+> * Azure Portal에 애플리케이션 등록
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Microsoft Graph API를 호출하는 코드 추가
+> * 앱 테스트
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* [유니버설 Windows 플랫폼 개발](/windows/uwp/get-started/get-set-up) 워크로드가 설치된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-this-guide-works"></a>이 가이드의 작동 방식
 
@@ -115,7 +121,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -427,16 +433,15 @@ private async Task DisplayMessageAsync(string message)
             }
            ...
     }
-  
+
     ```
 
-    앱을 실행하고, 중단점에 도달하면 `redirectUri` 값을 복사합니다. 이 값은 다음 값과 비슷한 형식입니다.  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    앱을 실행하고, 중단점에 도달하면 `redirectUri` 값을 복사합니다. 이 값은 `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/` 값과 비슷한 형식입니다.
 
-    그런 다음, 값을 가져올 때 한 번만 필요한 이 코드 줄을 제거할 수 있습니다. 
+    그런 다음, 값을 가져올 때 한 번만 필요한 이 코드 줄을 제거할 수 있습니다.
 
 3. 앱 등록 포털에서, 반환된 값을 **인증** 창의 **RedirectUri**에 추가합니다.
-   
+
 ## <a name="test-your-code"></a>코드 테스트
 
 애플리케이션을 테스트하려면 **F5** 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
@@ -496,3 +501,10 @@ Microsoft Graph API는 `user.read` 범위가 있어야만 사용자 프로필을
 **해결 방법:** **기타 옵션으로 로그인**을 선택합니다. 그런 다음, **사용자 이름과 암호로 로그인**을 선택합니다. **암호 제공**을 선택합니다. 그런 다음, 전화 인증 프로세스로 진행합니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+.NET 애플리케이션에서 권한 부여 및 인증을 위해 MSAL(Microsoft 인증 라이브러리)을 사용하는 방법에 대해 자세히 알아보세요.
+
+> [!div class="nextstepaction"]
+> [MSAL(Microsoft 인증 라이브러리) 개요](msal-overview.md)

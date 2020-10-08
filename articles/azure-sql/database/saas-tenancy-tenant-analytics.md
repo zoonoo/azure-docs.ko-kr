@@ -1,22 +1,22 @@
 ---
 title: 추출된 데이터를 사용한 교차 테넌트 분석
-description: 단일 테 넌 트 앱의 여러 Azure SQL 데이터베이스에서 추출 된 데이터를 사용 하 여 교차 테 넌 트 분석 쿼리
+description: 단일 테넌트 앱의 여러 Azure SQL 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361520"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619545"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91361520"
 
 1.  각 테넌트 데이터베이스에서 분석 저장소로 데이터를 **추출**하고 **로드**합니다.
 2.  분석 처리를 위해 **추출된 데이터를 변환**합니다.
-3.  **비즈니스 인텔리전스** 도구를 사용 하 여 의사 결정에 도움이 되는 유용한 정보를 그려 볼 수 있습니다. 
+3.  **비즈니스 인텔리전스** 도구를 사용하여 의사 결정에 도움이 되는 유용한 정보를 얻습니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "91361520"
 > - 분석 데이터베이스를 대상으로 쿼리하기.
 > - 데이터 시각화를 위해 Power BI를 사용하여 테넌트 데이터의 추세를 파악하고 개선을 위한 권장 사항 도출하기.
 
-![다이어그램은이 문서에 사용 되는 아키텍처의 개요를 보여 줍니다.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![이 문서에 사용된 아키텍처의 개요를 보여 주는 다이어그램입니다.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>오프라인 테넌트 분석 패턴
 
@@ -44,7 +44,7 @@ ms.locfileid: "91361520"
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 잠재적으로 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하고 트랜잭션 데이터에 대한 분석 쿼리의 영향을 최소화하는 한 가지 방법은 데이터를 목적이 있는 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다.** 분석 저장소는 SQL Database 또는 SQL 풀 일 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다.** 분석 저장소로 SQL Database나 SQL 풀을 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.  Wingtip Tickets의 경우 다음과 같습니다.
 
@@ -63,9 +63,9 @@ ms.locfileid: "91361520"
 
 각 테넌트가 서비스를 사용하는 방법에 대해 이해하면 테넌트가 더 성공적인 성과를 거둘 수 있도록 지원하기 위한 서비스 수익화 및 서비스 개선에 대한 옵션을 알아볼 수 있습니다. 이 자습서에서는 테넌트 데이터로부터 창출할 수 있는 기본적인 정보를 다양하게 살펴볼 수 있습니다.
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
@@ -79,21 +79,21 @@ ms.locfileid: "91361520"
 
 이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다*. 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
 
-1. PowerShell ISE에서 *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*를 열고 다음 값을 설정 합니다.
-    - **$DemoScenario**  =  **1** 모든 장소에서 이벤트에 대 한 티켓 구입
+1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*을 열고 다음 값을 설정합니다.
+    - **$DemoScenario** = **1** 모든 행사장에서 이벤트 티켓 구입
 2. **F5** 키를 눌러 스크립트를 실행하고 모든 행사장의 모든 이벤트에 대한 티켓 구매 이력을 생성합니다.  스크립트가 몇 분 동안 실행되며 수만 개의 티켓을 생성합니다.
 
 ### <a name="deploy-the-analytics-store"></a>분석 저장소 배포하기
-모든 테넌트 데이터가 여러 트랜잭션 데이터베이스에 분산되어 저장되는 경우가 많습니다. 이 경우 여러 트랜잭션 데이터의 테넌트 데이터를 하나의 분석 저장소로 집계해야 합니다. 이렇게 하면 데이터를 효율적으로 쿼리할 수 있습니다. 이 자습서에서는 Azure SQL Database를 사용 하 여 집계 된 데이터를 저장 합니다.
+모든 테넌트 데이터가 여러 트랜잭션 데이터베이스에 분산되어 저장되는 경우가 많습니다. 이 경우 여러 트랜잭션 데이터의 테넌트 데이터를 하나의 분석 저장소로 집계해야 합니다. 이렇게 하면 데이터를 효율적으로 쿼리할 수 있습니다. 이 자습서에서는 집계된 데이터를 저장하는 데 Azure SQL Database를 사용합니다.
 
 이어지는 단계에서는 **tenantanalytics**라는 분석 저장소를 배포합니다. 자습서 뒷부분에서 자동으로 입력되게 되는 사전 정의된 테이블도 배포합니다.
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*을 엽니다. 
 2. 선택한 분석 저장소에 맞도록 $DemoScenario 값을 설정합니다.
-    - 열 저장소가 없는 SQL Database을 사용 하려면 **$DemoScenario**  =  **2** 를 설정 합니다.
-    - 열 저장소에 SQL Database을 사용 하려면 **$DemoScenario**  =  **3** 을 설정 합니다.  
+    - 열 저장소가 없는 SQL Database를 사용하려면 **$DemoScenario** = **2**를 설정합니다.
+    - 열 저장소가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3**을 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics\<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터로 채운 후에는 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 Login = *developer*, Password = *P \@ ssword1*를 사용 하 여 **tenants1 &lt; - &gt; user** 및 **user- &lt; user &gt; ** 서버를 연결 합니다. 자세한 내용은 [입문용 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 로그인 = *developer*, 암호 = *P\@ssword1*입니다. 자세한 내용은 [입문용 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![architectureOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -138,7 +138,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 4. F5 키를 눌러 스크립트를 실행합니다. 각 테넌트 데이터베이스에서 티켓 및 고객 데이터를 추출하는 작업이 생성되고 실행됩니다. 추출된 데이터는 분석 저장소에 저장됩니다.
 5. tenantanalytics 데이터베이스의 TicketsRawData 테이블을 쿼리하여 모든 테넌트의 티켓 정보가 테이블에 입력되었는지 확인합니다.
 
-![개체 탐색기에서 선택한 TicketsRawData d b o를 사용 하 여 ExtractTickets 데이터베이스를 보여 줍니다.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![개체 탐색기에서 dbo.TicketsRawData가 선택된 상태의 ExtractTickets 데이터베이스를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 위 단계를 반복합니다. 이번에는 2단계에서 **\ExtractTickets.sql** 대신 **\ExtractVenuesEvents.sql**을 사용합니다.
 
@@ -175,9 +175,9 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P \@ ssword1*을 입력 합니다. **연결**을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스**를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1*을 입력합니다. **연결**을 클릭합니다.  
 
-    ![사용자 이름 및 암호를 입력할 수 있는 SQL Server 데이터베이스 대화 상자가 표시 됩니다.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![사용자 이름 및 암호를 입력할 수 있는 SQL Server 데이터베이스 대화 상자를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(fact_Tickets, dim_Events, dim_Venues, dim_Customers, dim_Dates)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
 
@@ -185,13 +185,13 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에서 아래 그림과 같이 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. 티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.
  
-![스크린 샷에서는 Power B I 시각화 및 오른쪽의 데이터 시각화를 위한 컨트롤을 보여 줍니다.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![Power BI 시각화 및 데이터 시각화를 위한 컨트롤을 오른쪽에 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 위 차트를 통해 각 행사장에서 판매된 티켓의 수가 다르다는 사실을 알 수 있습니다. 티켓이 더 많이 판매된 행사장에서는 상대적으로 적게 판매된 행사장보다 서비스를 많이 이용하는 것입니다. 이에 따라 각 테넌트의 니즈에 맞게 리소스 할당량을 변경할 수 있습니다.
 
 데이터를 분석하여 시간 경과에 따른 티켓 판매량을 확인할 수도 있습니다. Power BI에서 아래 그림과 같이 옵션을 선택하여 60일 동안의 일일 티켓 판매량을 차트로 표시합니다.
  
-![스크린샷은 티켓 판매 분포와 판매 일자 라는 Power B I 시각화를 보여 줍니다.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Ticket Sale Distribution versus Sale Day라는 Power BI 시각화를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 위 차트에서 일부 행사장의 티켓 판매량이 특정 날짜에 급증하는 것을 볼 수 있습니다. 이를 통해 해당 행사장에서 시스템 리소스를 불균형적으로 사용하고 있다고 가정할 수 있습니다. 아직까지 뚜렷한 판매량 급증 패턴은 볼 수 없습니다.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 아래 그림을 보고 시각화 옵션을 설정하여 각 행사장별 티켓 판매량 비율 차트를 표시합니다. 이를 통해 상대적인 판매 성적을 확인할 수 있습니다.
 
-![스크린샷에는 각 장소에서 판매 된 평균 티켓 이라는 Power B I 시각화가 표시 됩니다.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![Average Tickets Sold By Each Venue라는 Power BI 시각화를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 위 차트를 통해 행사장 중 다수가 티켓의 80%를 판매하고 있지만, 좌석의 절반을 채우기도 어려운 행사장도 있음을 알 수 있습니다. 값을 조정하여 각 행사장별 판매량 비율의 최대값과 최소값을 선택합니다.
 
@@ -238,8 +238,8 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 축하합니다!
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-- [정문 SaaS 응용 프로그램을 기반으로 구축 되는 추가 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)입니다.
-- [탄력적 작업](../../sql-database/elastic-jobs-overview.md)
+- [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [탄력적 작업](../../sql-database/elastic-jobs-overview.md).
 - [추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱](../../sql-database/saas-multitenantdb-tenant-analytics.md)

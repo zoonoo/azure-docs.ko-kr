@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56198392f3c769837d8d672b861baa9b341d284e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 47b3706d1fb46ab7e115d79c2f06f6264c8b423e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419353"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666517"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -120,7 +120,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 ## <a name="insert-or-merge-an-entity"></a>엔터티 삽입 또는 병합
 
-다음 코드 예제에서는 엔터티 개체를 만들고 테이블에 추가합니다. [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스 내의 InsertOrMerge 메서드는 엔터티를 삽입 또는 병합하는 데 사용됩니다. [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) 메서드가 호출되어 작업이 실행됩니다. 
+다음 코드 예제에서는 엔터티 개체를 만들고 테이블에 추가합니다. [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스 내의 InsertOrMerge 메서드는 엔터티를 삽입 또는 병합하는 데 사용됩니다. [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) 메서드가 호출되어 작업이 실행됩니다. 
 
 **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 항목**을 선택하고 **SamplesUtils.cs**라는 클래스를 추가합니다. 이 클래스는 엔터티에 대한 CRUD 작업을 수행하는 데 필요한 모든 코드를 저장합니다. 
 
@@ -136,7 +136,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 엔터티를 검색한 후 엔터티 업데이트를 위해 표시된 것과 동일한 패턴을 사용하여 엔터티를 쉽게 삭제할 수 있습니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다. 엔터티를 삭제하려면 다음 코드를 **SamplesUtils.cs** 파일에 추가합니다. 
 
-:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>샘플 데이터에서 CRUD 작업 실행
 
@@ -158,7 +158,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 이제 솔루션을 빌드하고 F5 키를 눌러 프로젝트를 실행합니다. 프로젝트를 실행하는 경우 명령 프롬프트에 다음 출력이 표시됩니다.
 
-:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="명령 프롬프트의 출력":::
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="연결 문자열 창에서 기본 연결 문자열 보기 및 복사":::
 
 프로젝트 실행 시 Settings.json 파일을 찾을 수 없다는 오류가 표시되는 경우 다음 XML 항목을 프로젝트 설정에 추가하여 오류를 해결할 수 있습니다. CosmosTableSamples를 마우스 오른쪽 단추로 클릭하고 CosmosTableSamples.csproj 편집을 선택한 후 다음 itemGroup을 추가합니다. 
 
@@ -171,11 +171,11 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 ```
 이제 Azure Portal에 로그인하고 데이터가 테이블에 있는지 확인할 수 있습니다. 
 
-:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="포털의 결과":::
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="연결 문자열 창에서 기본 연결 문자열 보기 및 복사":::
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 다음 자습서로 진행하여 Azure Cosmos DB Table API 계정으로 데이터를 마이그레이션하는 방법을 알아볼 수 있습니다. 
 
 > [!div class="nextstepaction"]
->[데이터를 쿼리하는 방법](../cosmos-db/table-import.md)
+>[Azure Cosmos DB Table API로 데이터 마이그레이션](../cosmos-db/table-import.md)

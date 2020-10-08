@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295265"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631293"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -39,7 +39,7 @@ ms.locfileid: "89295265"
 2. 왼쪽 메뉴에서 **+API 추가**를 선택합니다.
 3. 목록에서 **빈 API**를 선택합니다.  
     ![빈 API](media/add-api-manually/blank-api.png)  
-4. API에 대한 설정을 입력합니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
+4. API에 대한 설정을 입력합니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
 5. **만들기**를 선택합니다.
 
 이때 백 엔드 API의 작업에 매핑되는 API Management의 작업은 없습니다. API Management를 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다.

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345277"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616808"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -47,13 +47,13 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 ### <a name="installation-steps"></a>설치 단계
 
-1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [Azure SQL Database에서 첫 번째 데이터베이스 만들기](database/single-database-create-quickstart.md)를 참조 하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [Azure SQL Database에 첫 번째 데이터베이스 만들기](database/single-database-create-quickstart.md)를 참조하세요.
 
 2. SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들어:
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들면 다음과 같습니다.
 
 ```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
@@ -82,7 +82,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-SSMS의 **개체 탐색기**를 통해 메모리 최적화 테이블을 검사할 수 있습니다. 마우스 오른쪽 단추 클릭 **테이블**  >  **필터**필터  >  **설정**  >  **메모리 액세스에 최적화 됨**. 값은 1과 같습니다.
+SSMS의 **개체 탐색기**를 통해 메모리 최적화 테이블을 검사할 수 있습니다. **테이블** > **필터** > **필터 설정** > **메모리 액세스에 최적화됨**을 마우스 오른쪽 단추로 클릭합니다. 값은 1과 같습니다.
 
 또는 다음과 같은 카탈로그 뷰를 쿼리할 수 있습니다.
 
@@ -161,7 +161,7 @@ VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 
 자세한 내용은 다음을 참조하세요.
 
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)의 ostress.exe 설명
-- [메모리 내 OLTP에 대 한 예제 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx).
+- [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)
 - [ostress.exe 설치에 대한 블로그](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910)
 
 <!--
@@ -207,7 +207,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 #### <a name="reset-edit-for-_ondisk-then-rerun"></a>*_ondisk*에 대해 다시 설정하고 편집한 다음 다시 실행합니다.
 
-*_Inmem* 결과를 실행 한 후 실행 *_ondisk* 에 대해 다음 단계를 수행 합니다.
+*_inmem* 실행에서 결과를 얻은 후 *_ondisk* 실행에 대해 다음 단계를 수행합니다.
 
 1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
 
@@ -335,17 +335,17 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작 1: 더 빠른 T-sql 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
+- [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](in-memory-oltp-configure.md)
+- [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](in-memory-oltp-configure.md)
 
 - 메모리 내 OLTP에 대한 [메모리 내 OLTP 스토리지 모니터링](in-memory-oltp-monitor-space.md).
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 ### <a name="deeper-information"></a>자세한 정보
 
-- [Azure SQL Database의 메모리 내 OLTP를 사용 하 여 DTU를 70% 줄이는 동시에 쿼럼에서 키 데이터베이스의 워크 로드를 두 배로 늘리는 방법을 알아보세요.](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [쿼럼이 Azure SQL Database의 메모리 내 OLTP을 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법에 대해 알아보기](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -361,7 +361,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](in-memory-oltp-configure.md)
+- [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](in-memory-oltp-configure.md)
 
 #### <a name="tools"></a>도구
 

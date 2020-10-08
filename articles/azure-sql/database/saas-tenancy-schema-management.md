@@ -1,22 +1,22 @@
 ---
-title: 단일 테 넌 트 앱에서 스키마 관리
+title: 단일 테넌트 앱에서 스키마 관리
 description: Azure SQL Database를 사용하는 단일 테넌트 앱에서 여러 테넌트의 스키마 관리
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 62e20a10e9709bc69a746a6f62e949c47c3a6d02
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255554"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620157"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 애플리케이션에서 테넌트별 데이터베이스 패턴으로 스키마 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,15 +44,15 @@ ms.locfileid: "85255554"
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
-테넌트별 데이터베이스 패턴은 테넌트 데이터를 효과적으로 격리하지만, 유지 관리해야 할 데이터베이스의 수가 늘어난다는 단점이 있습니다. [탄력적 작업](../../sql-database/elastic-jobs-overview.md) 은 여러 데이터베이스의 관리 및 관리를 용이 하 게 합니다. 작업을 사용하면 여러 개의 데이터베이스를 대상으로 안전하고 안정적으로 작업(T-SQL 스크립트)을 실행할 수 있습니다. 또한, 하나의 애플리케이션에서 모든 테넌트 데이터베이스를 대상으로 스키마와 공통 참조 데이터 변경 사항을 배포할 수 있습니다. 새 테넌트를 만들 때 사용되는 *템플릿* 데이터베이스를 관리할 때도 탄력적 작업을 사용하면 템플릿 데이터베이스에 항상 최신 스키마와 참조 데이터가 유지됩니다.
+테넌트별 데이터베이스 패턴은 테넌트 데이터를 효과적으로 격리하지만, 유지 관리해야 할 데이터베이스의 수가 늘어난다는 단점이 있습니다. [탄력적 작업](../../sql-database/elastic-jobs-overview.md)을 사용하면 여러 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 여러 개의 데이터베이스를 대상으로 안전하고 안정적으로 작업(T-SQL 스크립트)을 실행할 수 있습니다. 또한, 하나의 애플리케이션에서 모든 테넌트 데이터베이스를 대상으로 스키마와 공통 참조 데이터 변경 사항을 배포할 수 있습니다. 새 테넌트를 만들 때 사용되는 *템플릿* 데이터베이스를 관리할 때도 탄력적 작업을 사용하면 템플릿 데이터베이스에 항상 최신 스키마와 참조 데이터가 유지됩니다.
 
 ![화면](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
 ## <a name="elastic-jobs-public-preview"></a>탄력적 작업 공개 미리 보기
 
-새로운 버전의 탄력적 작업이 Azure SQL Database에 통합된 기능으로서 공개되었습니다. 이 새 버전의 탄력적 작업은 현재 공개 미리 보기로 제공 됩니다. 이 공개 미리 보기에서는 현재 PowerShell을 사용 하 여 작업 에이전트 만들기와 T-sql을 사용 하 여 작업을 만들고 관리 하도록 지원 합니다.
-자세한 내용은 [Elastic Database 작업](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) 에 대 한 문서를 참조 하세요.
+새로운 버전의 탄력적 작업이 Azure SQL Database에 통합된 기능으로서 공개되었습니다. 이 새로운 탄력적 작업 버전은 현재 공개 미리 보기 상태입니다. 이 공개 미리 보기에서는 PowerShell을 사용한 작업 에이전트 생성과 T-SQL을 사용한 작업 생성 및 관리를 지원합니다.
+자세한 내용은 [탄력적 데이터베이스 작업](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview)을 참조하세요.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>테넌트 애플리케이션별 Wingtip Tickets SaaS 데이터베이스 스크립트 받기
 
@@ -62,10 +62,10 @@ ms.locfileid: "85255554"
 
 이 자습서에서는 작업 에이전트와 이를 뒷받침하는 작업 에이전트 데이터베이스를 만들 때 PowerShell을 사용해야 합니다. 작업 에이전트 데이터베이스에는 작업 정의, 작업 상태와 기록이 저장됩니다. 작업 에이전트와 데이터베이스를 만든 뒤에는 즉시 작업을 만들고 모니터링할 수 있습니다.
 
-1. **POWERSHELL ISE** \\ 에서 ... 학습 모듈 \\ 스키마 관리 \\ *Demo-SchemaManagement.ps1*입니다.
-1. **F5** 키를 눌러 스크립트를 실행 합니다.
+1. **PowerShell ISE**에서 \\...\\Learning Modules\\Schema Management*Demo-SchemaManagement.ps1*을 엽니다.
+1. **F5** 키를 눌러 스크립트를 실행합니다.
 
-*Demo-SchemaManagement.ps1* 스크립트는 *Deploy-SchemaManagement.ps1* 스크립트를 호출 하 여 카탈로그 서버에서 *osagent* 라는 데이터베이스를 만듭니다. 그런 다음, 매개 변수로 해당 데이터베이스를 사용하여 작업 에이전트를 생성합니다.
+*Demo-SchemaManagement.ps1* 스크립트가 *Deploy-SchemaManagement.ps1* 스크립트를 호출하여 카탈로그 서버에 *osagent*라는 이름의 데이터베이스를 생성합니다. 그런 다음, 매개 변수로 해당 데이터베이스를 사용하여 작업 에이전트를 생성합니다.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>모든 테넌트에 새 참조 데이터를 배포하는 작업 만들기
 
@@ -102,12 +102,12 @@ Wingtip Tickets 앱에서 각 테넌트 데이터베이스에는 지원되는 �
 동일한 작업 '시스템' 저장 프로시저를 사용하여 작업을 만듭니다.
 
 1. SSMS를 열고 _catalog-dpt-&lt;user&gt;.database.windows.net_ 서버에 접속합니다.
-1. 파일 열기 ... _ \\ 학습 모듈 \\ Schema Management \\ onlinereindex.sql 파일_
+1. _…\\Learning Modules\\Schema Management\\OnlineReindex.sql_ 파일을 엽니다.
 1. 마우스 오른쪽 단추를 클릭하고 연결을 선택한 다음, _catalog-dpt-&lt;user&gt;.database.windows.net_ 서버에 아직 접속하지 않았으면 지금 접속합니다.
 1. _jobagent_ 데이터베이스에 접속되어 있는지 확인하고 **F5** 키를 눌러 스크립트를 실행합니다.
 
 _OnlineReindex.sql_ 스크립트에서 다음과 같은 요소를 살펴봅니다.
-* **sp \_ add \_ Job** 은 "온라인 인덱스 인덱스 PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885" 라는 새 작업을 만듭니다.
+* **sp\_add\_job**은 “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”라는 새 작업을 만듭니다.
 * **sp\_add\_jobstep**은 인덱스를 업데이트할 T-SQL 명령 텍스트를 포함하는 작업 단계를 만듭니다.
 * 스크립트의 나머지 뷰는 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 작업이 모든 대상 그룹 구성원에서 성공적으로 완료된 시기를 확인합니다.
 
@@ -123,10 +123,10 @@ _OnlineReindex.sql_ 스크립트에서 다음과 같은 요소를 살펴봅니�
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
-다음으로, [임시 보고 자습서](../../sql-database/saas-tenancy-cross-tenant-reporting.md) 를 사용해 서 테 넌 트 데이터베이스에서 분산 쿼리를 실행 하는 방법을 살펴봅니다.
+다음 단계로, [임시 보고 자습서](../../sql-database/saas-tenancy-cross-tenant-reporting.md)를 참고하여 여러 테넌트 데이터베이스에서 분산 쿼리를 실행하는 방법을 살펴보세요.
 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-* [정문 티켓 SaaS 테 넌 트 별 데이터베이스 응용 프로그램 배포를 기반으로 하는 추가 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Wingtip Tickets SaaS Database Per Tenant 애플리케이션 배포를 기반으로 빌드되는 추가 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [규모가 확장된 클라우드 데이터베이스 관리](../../sql-database/elastic-jobs-overview.md)

@@ -1,22 +1,22 @@
 ---
-title: 다중 테 넌 트 앱에서 새 테 넌 트 프로 비전
+title: 다중 테넌트 앱에서 새 테넌트 프로비저닝
 description: Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 분류하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356777"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619698"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "91356777"
 
 또한 카탈로그는 테넌트에 제공된 스키마 버전, 서비스 계획 또는 SLA와 같은 추가 테넌트 또는 데이터베이스 메타데이터를 저장할 수도 있습니다. 카탈로그는 애플리케이션 관리, 고객 지원 또는 DevOps를 사용할 수 있도록 하는 기타 정보를 저장할 수 있습니다.
 
-SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. 정문 ticket SaaS 테 넌 트 별 데이터베이스 샘플에서 카탈로그는 테 넌 트 간 쿼리를 활성화 하는 데 사용 됩니다 .이 쿼리는 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)에서 살펴봅니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테 넌 트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다.
+SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. Wingtip Tickets SaaS database-per-tenant 샘플에서 카탈로그는 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)에서 설명하는 교차 테넌트 쿼리를 지원하는 데 사용됩니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테넌트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다.
 
 Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라이언트 라이브러리)](elastic-database-client-library.md)의 분할 관리 기능을 사용하여 구현됩니다. EDCL은 Java 및 .NET Framework에서 사용할 수 있습니다. EDCL을 통해 애플리케이션은 데이터베이스 기반 분할 맵을 만들고, 관리하고 사용할 수 있습니다.
 
@@ -62,7 +62,7 @@ Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라�
 
 다른 데이터베이스 프로비전 방법을 사용할 수 있습니다. SQL 스크립트를 실행하거나, bacpac를 배포하거나, 템플릿 데이터베이스를 복사할 수 있습니다.
 
-데이터베이스 프로비전은 스키마 관리 전략의 일부가 되어야 합니다. 새 데이터베이스는 최신 스키마로 프로비전해야 합니다. 이 요구 사항은 [스키마 관리 자습서](saas-tenancy-schema-management.md)에서 살펴봅니다.
+데이터베이스 프로비전은 스키마 관리 전략의 일부가 되어야 합니다. 새 데이터베이스는 최신 스키마로 프로비전해야 합니다. [스키마 관리 자습서](saas-tenancy-schema-management.md)에서 이 요구 사항을 자세히 설명하고 있습니다.
 
 Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _basetenantdb_라는 템플릿 데이터베이스를 복사하여 새 테넌트를 프로비전합니다. 프로비전은 등록 과정의 일부로서 애플리케이션에 통합될 수 있습니다. 또한 스크립트를 사용하여 오프라인에서 지원될 수도 있습니다. 이 자습서에서는 PowerShell을 사용하는 프로비전을 살펴봅니다.
 
@@ -78,15 +78,15 @@ Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _bas
 
 Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하는 방법을 알아보기 위해 테넌트를 프로비전하는 동안 중단점을 추가하고 워크플로를 따라 진행합니다.
 
-1. PowerShell ISE \\ 에서 ... 학습 모듈 \\ ProvisionAndCatalog \\ _Demo-ProvisionAndCatalog.ps1_ 하 고 다음 매개 변수를 설정 합니다.
+1. PowerShell ISE에서 ...\\학습 모듈\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_을 열고 다음 매개 변수를 설정합니다.
 
    * **$TenantName** = 새 장소의 이름(예: *Bushwillow 블루스*).
-   * **$VenueType** = _클래식 음악, 댄스, 재즈, 유도, 화물 레이스, 다목적, opera, 오페라, 축구_등 미리 정의 된 장소 유형 중 하나입니다.
-   * **$DemoScenario**  =  **1**, *단일 테 넌 트를 프로 비전*합니다.
+   * **$VenueType** = 미리 정의된 장소 유형 중 하나: _블루스_, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구.
+   * **$DemoScenario** = **1**, *단일 테넌트를 프로비전합니다*.
 
 2. 중단점을 추가하려면 커서를 *New-Tenant `* 줄의 아무 위치에나 둡니다. 그런 후 F9 키를 누릅니다.
 
-   ![중단점을 추가 하기 위해 새 테 넌 트가 강조 표시 된 스크립트가 스크린샷으로 표시 됩니다.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![중단점을 추가할 새 테넌트가 강조 표시된 스크립트를 보여 주는 스크린샷](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. 스크립트를 실행하려면 F5 키를 누릅니다.
 
@@ -106,7 +106,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 * **구성 세부 정보를 가져옵니다.** F11 키를 사용하여 Get-Configuration까지 단계별로 실행하고 앱 구성이 어떻게 지정되었는지 확인합니다. 리소스 이름 및 기타 앱 특정 값이 여기에서 정의됩니다. 스크립트를 충분히 숙지할 때까지 이러한 값을 변경하지 마세요.
 * **카탈로그 개체를 가져옵니다.** 더 높은 수준의 스크립트에 사용되는 카탈로그 개체를 작성하고 반환하는 카탈로그 가져오기까지 한 단계씩 코드를 실행합니다. 이 함수는 **AzureShardManagement.psm1**에서 가져온 분할 관리 기능을 사용합니다. 카탈로그 개체는 다음과 같은 요소로 구성됩니다.
 
-   * $catalogServerFullyQualifiedName은 표준 스템와 사용자 이름 ( _catalog- \<user\> . database. windows .net)_ 을 사용 하 여 생성 됩니다.
+   * $catalogServerFullyQualifiedName은 표준 stem과 사용자 이름을 사용하여 생성됩니다(_catalog-\<user\>.database.windows .net_).
    * $catalogDatabaseName은 구성에서 검색됩니다. *tenantcatalog*.
    * $shardMapManager 개체는 카탈로그 데이터베이스에서 초기화됩니다.
    * $shardMap 개체는 카탈로그 데이터베이스의 _tenantcatalog_ 분할 맵에서 초기화됩니다. 카탈로그 개체가 구성된 후 반환됩니다. 상위 수준 스크립트에서 사용됩니다.
@@ -116,7 +116,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
     어느 분할이 어느 테넌트에 속하는지 밝히기 위해 테넌트 이름에서 데이터베이스 이름이 구성됩니다. 다른 데이터베이스 명명 규칙을 사용할 수도 있습니다. Resource Manager 템플릿이 카탈로그 서버에서 템플릿 데이터베이스(_baseTenantDB_)를 복사하여 테넌트 데이터베이스를 생성합니다. 또는 bacpac를 가져와 데이터베이스를 만들고 초기화할 수 있습니다. 또는 잘 알려진 위치에서 초기화 스크립트를 실행할 수 있습니다.
 
-    리소스 관리자 템플릿은 *tenantdatabasecopytemplate.js* 의. ..\Learning Modules\Common\ 폴더에 있습니다.
+    Resource Manager 템플릿은 \Learning Modules\Common\ 폴더: *tenantdatabasecopytemplate.json*에 있습니다.
 
 * **테넌트 데이터베이스가 추가로 초기화됩니다.** 장소(테넌트) 이름 및 장소 유형이 추가됩니다. 여기에서 다른 초기화를 수행할 수도 있습니다.
 
@@ -138,7 +138,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 1. PowerShell ISE에서 ...\\학습 모듈\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*을 엽니다. *$DemoScenario* 매개 변수를 3으로 변경합니다.
 
-   * **$DemoScenario**  =  **3**, *테 넌 트 일괄 처리를 프로 비전*합니다.
+   * **$DemoScenario** = **3**, *테넌트 일괄 처리를 프로비전합니다*.
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 이 스크립트는 추가 테넌트의 배치를 배포합니다. [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 사용하여 일괄 처리를 제어한 다음 각 데이터베이스의 프로비전을 연결된 템플릿에 위임합니다. 템플릿을 이 방법으로 사용하면 Azure Resource Manager가 스크립트에 대한 프로비전 프로세스를 중개할 수 있습니다. 템플릿이 데이터베이스를 병렬로 프로비전하고, 필요한 경우 재시도를 처리합니다. 이 스크립트는 idempotent이므로 어떤 이유로든 실패하거나 중지되는 경우 다시 실행하세요.
@@ -174,8 +174,8 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 [성능 모니터링 자습서](../../sql-database/saas-dbpertenant-performance-monitoring.md)를 시도해 봅니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip Tickets SaaS Database-per-Tenant 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [탄력적 데이터베이스 클라이언트 라이브러리](elastic-database-client-library.md)
+* [Elastic Database 클라이언트 라이브러리](elastic-database-client-library.md)
 * [Windows PowerShell ISE에서 스크립트 디버그](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

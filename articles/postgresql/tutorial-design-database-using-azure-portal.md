@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Database for PostgreSQL 디자인 - 단일 서버 - Azure Portal'
 description: 이 자습서에서는 Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL - 단일 서버를 디자인하는 방법을 보여 줍니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7e98c34198c0821dac59f849267a920a87c48a54
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22e9c10c167e0b2646298acca75d506a0ea032f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905637"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707577"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 
@@ -42,11 +42,11 @@ Azure Database for PostgreSQL 서버는 정의된 [컴퓨팅 및 스토리지 �
 
 3. **단일 서버** 배포 옵션을 선택합니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Azure Database for PostgreSQL 선택 - 단일 서버 배포 옵션":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
 4. 다음 정보로 **기본 사항** 양식을 입력합니다.
 
-    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="서버 만들기":::
+    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
     설정|제안 값|Description
     ---|---|---
@@ -64,7 +64,7 @@ Azure Database for PostgreSQL 서버는 정의된 [컴퓨팅 및 스토리지 �
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
    > 
 
-    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="가격 책정 계층 창":::
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
     > [!TIP]
     > **자동 증가**를 사용하면 워크로드에 영향을 주지 않고 할당된 제한에 도달할 때 서버가 스토리지를 늘립니다.
@@ -73,7 +73,7 @@ Azure Database for PostgreSQL 서버는 정의된 [컴퓨팅 및 스토리지 �
 
 6. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정**을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="알림 창":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
    
    기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 애플리케이션에서 사용하는 기본 데이터베이스입니다. (다른 기본 데이터베이스는 **azure_maintenance**입니다. 해당 기능은 사용자 작업으로부터 관리되는 서비스 프로세스를 구분하는 것입니다. 이 데이터베이스에 액세스할 수 없습니다.)
 
@@ -84,13 +84,13 @@ Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합�
 
 1. 배포가 완료되면 왼쪽 메뉴에서 **모든 리소스**를 클릭하고, **mydemoserver** 이름을 입력하여 새로 만든 서버를 검색합니다. 검색 결과에 나열된 서버 이름을 클릭합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="PostgreSQL용 Azure Database - 서버 검색":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
 2. 서버 페이지에서 **연결 보안**을 선택합니다. 
 
 3. **규칙 이름** 아래의 텍스트 상자를 클릭하고 연결을 위한 IP 범위를 지정하는 새 방화벽 규칙을 추가합니다. IP 범위를 입력합니다. **저장**을 클릭합니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="PostgreSQL용 Azure Database - 방화벽 규칙 만들기":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
 4. **저장**을 클릭한 다음 **X**를 클릭하여 **연결 보안** 페이지를 닫습니다.
 
@@ -104,13 +104,13 @@ Azure Database for PostgreSQL 서버를 만들 때 또한 기본 **postgres** �
 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="PostgreSQL용 Azure Database - 서버 검색":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
 2. **mydemoserver**서버 이름을 클릭합니다.
 
 3. 서버의 **개요** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="PostgreSQL용 Azure Database - 서버 관리자 로그인":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>psql을 사용하여 PostgreSQL 데이터베이스에 연결
@@ -190,11 +190,11 @@ SELECT * FROM inventory;
 
 1. 서버에 대한 Azure Database for PostgreSQL **개요** 페이지의 도구 모음에서 **복원**을 클릭합니다. **복원** 페이지가 열립니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Azure Portal - 복원 양식 옵션":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
 2. 필요한 정보로 **복원** 양식을 채웁니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Azure Portal - 복원 양식 옵션":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="PostgreSQL용 Azure Database - 데이터베이스 만들기":::
 
    - **복원 지점**: 서버를 변경하기 전 발생한 특정 시점을 선택합니다.
    - **대상 서버**: 복원해 두려는 새 서버의 이름을 제공합니다.

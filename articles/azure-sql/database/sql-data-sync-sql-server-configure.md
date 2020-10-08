@@ -1,53 +1,53 @@
 ---
 title: SQL 데이터 동기화 설정
-description: 이 자습서에서는 Azure에 대 한 SQL 데이터 동기화를 설정 하는 방법을 보여 줍니다.
+description: 이 자습서에서는 Azure SQL 데이터 동기화 설정 방법을 보여줍니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 36c2a6700c1657d1fa3cef4ede64e6076bc93eab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 90f1e068bf816ecf72bcc8a3ba9439883e69a069
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332953"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616673"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database 및 SQL Server에서 데이터베이스 간 SQL 데이터 동기화 설정
+# <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database의 데이터베이스와 SQL Server 간에 SQL 데이터 동기화 설정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 자습서에서는 Azure SQL Database 및 SQL Server 인스턴스를 모두 포함 하는 동기화 그룹을 만들어 SQL 데이터 동기화를 설정 하는 방법에 대해 알아봅니다. 동기화 그룹은 사용자 지정 방식으로 구성되며 사용자가 설정하는 일정에 따라 동기화됩니다.
+이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 동기화 그룹을 만들어 SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 동기화 그룹은 사용자 지정 방식으로 구성되며 사용자가 설정하는 일정에 따라 동기화됩니다.
 
 자습서에서는 사용자가 이전에 SQL 데이터베이스 및 SQL Server를 어느 정도 사용해 보았다고 가정합니다.
 
-SQL 데이터 동기화에 대 한 개요는 [SQL 데이터 동기화를 사용 하 여 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)를 참조 하세요.
+SQL 데이터 동기화의 개요는 [SQL 데이터 동기화를 사용하여 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
 
-SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 [SQL Database에서 데이터베이스 간](scripts/sql-data-sync-sync-data-between-sql-databases.md) 또는 [Azure SQL Database에서 데이터베이스 간](scripts/sql-data-sync-sync-data-between-azure-onprem.md) 동기화 방법을 참조 하세요 SQL Server
+SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예제는 [SQL Database의 데이터베이스를 동기화하는 방법](scripts/sql-data-sync-sync-data-between-sql-databases.md) 또는 [Azure SQL Database와 SQL Server의 데이터베이스를 동기화하는 방법](scripts/sql-data-sync-sync-data-between-azure-onprem.md)을 참조하세요.
 
 > [!IMPORTANT]
-> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원 **하지** 않습니다.
+> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="create-sync-group"></a>동기화 그룹 만들기
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 SQL Database에서 데이터베이스를 찾습니다. **SQL 데이터베이스**를 검색하고 선택합니다.
+1. [Azure Portal](https://portal.azure.com)으로 이동하여 SQL Database의 데이터베이스를 찾습니다. **SQL 데이터베이스**를 검색하고 선택합니다.
 
-    ![데이터베이스 검색, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
+    ![데이터베이스 검색, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
-1. 데이터 동기화를 위해 허브 데이터베이스로 사용할 데이터베이스를 선택 합니다.
+1. 데이터 동기화를 위해 허브 데이터베이스로 사용할 데이터베이스를 선택합니다.
 
-    ![데이터베이스 목록에서를 선택 Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+    ![데이터베이스 목록에서 선택, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
 
     > [!NOTE]
-    > 허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 끝점이 있는 동기화 토폴로지의 중앙 끝점입니다. 동기화 그룹에서 엔드포인트를 포함하는 기타 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화됩니다.
+    > 허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 엔드포인트가 있는 동기화 토폴로지의 중앙 엔드포인트입니다. 동기화 그룹에서 엔드포인트를 포함하는 기타 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화됩니다.
 
-1. 선택한 데이터베이스에 대 한 **SQL database** 메뉴에서 **다른 데이터베이스에 동기화를**선택 합니다.
+1. 선택한 데이터베이스의 **SQL 데이터베이스** 메뉴에서 **다른 데이터베이스와 동기화**를 선택합니다.
 
-    ![다른 데이터베이스와 동기화 Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    ![다른 데이터베이스와 동기화, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
 
 1. **다른 데이터베이스와 동기화** 페이지에서 **새 동기화 그룹**을 선택합니다. **동기화 그룹 만들기**(1단계)가 강조 표시된 상태로 **새 동기화 그룹** 페이지가 열립니다.
 
@@ -55,15 +55,15 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
-   | 설정                        | Description |
+   | 설정                        | 설명 |
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
-   | **자동 동기화** | **설정** 또는 **해제**를 선택합니다.<br/><br/>**설정**을 선택하는 경우 **동기화 빈도** 섹션에서 숫자를 입력하고 **초**, **분**, **시간** 또는 **일**을 선택합니다.<br/> 첫 번째 동기화는 구성이 저장 된 시간부터 선택한 간격 기간이 경과한 후에 시작 됩니다.|
+   | **자동 동기화** | **설정** 또는 **해제**를 선택합니다.<br/><br/>**설정**을 선택하는 경우 **동기화 빈도** 섹션에서 숫자를 입력하고 **초**, **분**, **시간** 또는 **일**을 선택합니다.<br/> 첫 번째 동기화는 구성이 저장된 시간부터 선택한 간격 기간이 경과한 후에 시작됩니다.|
    | **충돌 해결** | **허브 획득** 또는 **구성원 획득**을 선택합니다.<br/><br/>**허브 획득**을 선택하면 충돌이 발생할 경우 허브 데이터베이스의 데이터가 멤버 데이터베이스에서 충돌하는 데이터를 덮어씁니다.<br/><br/>**구성원 획득 획득**을 선택하면 충돌이 발생할 경우 구성원 데이터베이스의 데이터가 허브 데이터베이스에서 충돌하는 데이터를 덮어씁니다. |
 
    > [!NOTE]
-   > **동기화 메타데이터 데이터베이스**로 사용할 비어 있는 새 데이터베이스를 만드는 것이 좋습니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역 및 구독의 모든 동기화 그룹에 대 한 **동기화 메타 데이터 데이터베이스로** 공유 됩니다. 지역에서 모든 동기화 그룹 및 동기화 에이전트를 제거 하지 않으면 데이터베이스 또는 해당 이름을 변경할 수 없습니다.
+   > **동기화 메타데이터 데이터베이스**로 사용할 비어 있는 새 데이터베이스를 만드는 것이 좋습니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역 및 구독에서 모든 동기화 그룹의 **동기화 메타데이터 데이터베이스**로 공유됩니다. 지역의 동기화 그룹 및 동기화 에이전트를 모두 제거해야만 데이터베이스 또는 이름을 변경할 수 있습니다.
 
    **확인**을 선택하고 동기화 그룹이 생성되어 배포될 때까지 기다립니다.
 
@@ -71,34 +71,34 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
 새 동기화 그룹이 생성 및 배포되고 나면 **동기화 구성원 추가(2단계)** 가 **새 동기화 그룹** 페이지에서 강조 표시됩니다.
 
-**허브 데이터베이스** 섹션에서 허브 데이터베이스가 있는 서버의 기존 자격 증명을 입력 합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다.
+**허브 데이터베이스** 섹션에서 허브 데이터베이스가 있는 서버의 기존 자격 증명을 입력합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다.
 
 ![2단계 설정](./media/sql-data-sync-sql-server-configure/steptwo.png)
 
-### <a name="to-add-a-database-in-azure-sql-database"></a>에서 데이터베이스를 추가 하려면 Azure SQL Database
+### <a name="to-add-a-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스를 추가하려면 다음을 수행합니다.
 
-**멤버 데이터베이스** 섹션에서 필요에 따라 **Azure SQL Database 추가**를 선택 하 여 Azure SQL Database의 데이터베이스를 동기화 그룹에 추가 합니다. **Azure SQL Database 구성** 페이지가 열립니다.
+**구성원 데이터베이스** 섹션에서 필요에 따라 **Azure SQL Database 추가**를 선택하여 Azure SQL Database의 데이터베이스를 동기화 그룹에 추가합니다. **Azure SQL Database 구성** 페이지가 열립니다.
 
   ![2단계 - 데이터베이스 구성](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
 
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
-  | 설정                       | Description |
+  | 설정                       | 설명 |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
-  | **Azure SQL Server** | 기존 서버를 선택 합니다. |
-  | **Azure SQL Database** | SQL Database에서 기존 데이터베이스를 선택 합니다. |
+  | **Azure SQL Server** | 기존 서버를 선택합니다. |
+  | **Azure SQL Database** | SQL Database의 기존 데이터베이스를 선택합니다. |
   | **동기화 방향** | **양방향 동기화**, **허브 수신** 또는 **허브 발신**을 선택합니다. |
-  | **사용자 이름** 및 **암호** | 멤버 데이터베이스가 있는 서버의 기존 자격 증명을 입력 합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다. |
+  | **사용자 이름** 및 **암호** | 구성원 데이터베이스가 있는 서버의 기존 자격 증명을 입력합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다. |
 
   **확인**을 선택하고 새 동기화 구성원을 만들고 배포할 때까지 기다립니다.
 
 <a name="add-on-prem"></a>
 
-### <a name="to-add-a-sql-server-database"></a>SQL Server 데이터베이스를 추가 하려면
+### <a name="to-add-a-sql-server-database"></a>SQL Server 데이터베이스를 추가하려면 다음을 수행합니다.
 
-**멤버 데이터베이스** 섹션에서 필요 **에 따라 온-프레미스 데이터베이스 추가**를 선택 하 여 SQL Server 데이터베이스를 동기화 그룹에 추가 합니다. 다음 작업을 수행할 수 있는 **온-프레미스 구성** 페이지가 열립니다.
+**구성원 데이터베이스** 섹션에서 필요에 따라 **온-프레미스 데이터베이스 추가**를 선택하여 SQL Server 데이터베이스를 동기화 그룹에 추가합니다. 다음 작업을 수행할 수 있는 **온-프레미스 구성** 페이지가 열립니다.
 
 1. **동기화 에이전트 게이트웨이 선택**을 선택합니다. **동기화 에이전트 선택** 페이지가 열립니다.
 
@@ -110,7 +110,7 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
    **새 에이전트 만들기**를 선택하는 경우 다음 작업을 수행합니다.
 
-   1. 제공된 링크에서 데이터 동기화 에이전트를 다운로드하여 SQL Server가 있는 컴퓨터에 설치합니다. [Azure SQL 데이터 동기화 에이전트](https://www.microsoft.com/download/details.aspx?id=27693)에서 직접 에이전트를 다운로드할 수도 있습니다.
+   1. 제공된 링크에서 데이터 동기화 에이전트를 다운로드하여 SQL Server가 있는 컴퓨터에 설치합니다. [Azure SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693)에서 에이전트를 직접 다운로드할 수도 있습니다.
 
       > [!IMPORTANT]
       > 클라이언트 에이전트가 서버와 통신할 수 있도록 방화벽에서 아웃바운드 TCP 포트 1433을 열어야 합니다.
@@ -127,7 +127,7 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
     1. 동기화 에이전트 앱에서 **에이전트 키 전송**을 선택합니다. **동기화 메타데이터 데이터베이스 구성** 대화 상자가 열립니다.
 
-    1. **동기화 메타데이터 데이터베이스 구성** 대화 상자에 Azure Portal에서 복사된 에이전트 키를 붙여 넣습니다. 또한 메타 데이터 데이터베이스가 있는 서버에 대 한 기존 자격 증명을 제공 합니다. 메타 데이터 데이터베이스를 만든 경우이 데이터베이스는 허브 데이터베이스와 동일한 서버에 있습니다. **확인** 을 선택 하 고 구성이 완료 될 때까지 기다립니다.
+    1. **동기화 메타데이터 데이터베이스 구성** 대화 상자에 Azure Portal에서 복사된 에이전트 키를 붙여 넣습니다. 또한 메타데이터 데이터베이스가 있는 서버의 기존 자격 증명을 입력합니다. 메타데이터 데이터베이스를 만든 경우 이 데이터베이스는 허브 데이터베이스와 같은 서버에 저장됩니다. **확인**을 선택하고 구성이 완료되기를 기다립니다.
 
         ![에이전트 키 및 서버 자격 증명을 입력합니다.](./media/sql-data-sync-sql-server-configure/datasync-preview-agent-enterkey.png)
 
@@ -163,11 +163,11 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
 
 1. **테이블** 페이지의 동기화 그룹 구성원 목록에서 데이터베이스를 선택한 다음 **스키마 새로 고침**을 선택합니다.
 
-1. 목록에서 동기화 할 테이블을 선택 합니다. 기본적으로 모든 열이 선택 되어 있으므로 동기화 하지 않을 열에 대해 확인란을 사용 하지 않도록 설정 합니다. 기본 키 열을 선택 된 상태로 두어야 합니다.
+1. 목록에서 동기화할 테이블을 선택합니다. 기본적으로는 모든 열이 선택되므로 동기화하지 않을 열의 확인란 선택은 취소합니다. 선택한 기본 키 열을 남겨 두어야 합니다.
 
 1. **저장**을 선택합니다.
 
-1. 데이터베이스는 동기화를 예약하거나 수동으로 실행할 때까지 기본적으로 동기화되지 않습니다. 수동 동기화를 실행 하려면 Azure Portal에서 SQL Database의 데이터베이스로 이동 하 고, **다른 데이터베이스에 동기화**를 선택 하 고, 동기화 그룹을 선택 합니다. **데이터 동기화** 페이지가 열립니다. **동기화**를 선택합니다.
+1. 데이터베이스는 동기화를 예약하거나 수동으로 실행할 때까지 기본적으로 동기화되지 않습니다. 수동 동기화를 실행하려면 Azure Portal에서 SQL Database의 데이터베이스로 이동하여 **다른 데이터베이스와 동기화**를 선택하고 동기화 그룹을 선택합니다. **데이터 동기화** 페이지가 열립니다. **동기화**를 선택합니다.
 
     ![수동 동기화](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 

@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure Database for PostgreSQL 디자인 - 단일 서버 - Azure CLI'
 description: 이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL - 단일 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: c1ab057c34a89bfa39a298805216af89b2327622
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500779"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710212"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.

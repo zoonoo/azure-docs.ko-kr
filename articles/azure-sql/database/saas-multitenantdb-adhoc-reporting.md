@@ -1,24 +1,24 @@
 ---
-title: 여러 데이터베이스에 걸친 임시 보고 쿼리
-description: 다중 테 넌 트 앱 예제에서 여러 Azure SQL database에 대해 임시 보고 쿼리를 실행 합니다.
+title: 여러 데이터베이스에 대한 임시 보고 쿼리
+description: 다중 테넌트 앱 예제에서 여러 Azure SQL 데이터베이스에 대해 임시 보고 쿼리를 실행합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 098ac343885db3e267dcefb3785f5abd55d17ee2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: MT
+ms.openlocfilehash: beb683eef2691aad46c84da1010184182d452257
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441037"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619681"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>여러 데이터베이스 (Azure SQL Database)에서 임시 분석 쿼리 실행
+# <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>여러 데이터베이스(Azure SQL Database)에 대해 임시 분석 쿼리 실행
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 테넌트 데이터베이스의 전체 집합에서 배포된 쿼리를 실행하여 임시 대화형 보고를 사용하도록 설정합니다. 이러한 쿼리는 Wingtip Tickets SaaS 앱의 일일 운영 데이터에 담긴 정보를 추출할 수 있습니다. 이러한 추출을 수행하려면 추가 분석 데이터베이스를 카탈로그 서버에 배포하고 탄력적 쿼리를 사용하여 배포된 쿼리를 사용하도록 설정합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "89441037"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5 분 이내에 배포 하려면 [정문 Ticket SaaS 다중 테 넌 트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md) 을 참조 하세요.
+* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -47,13 +47,13 @@ SaaS 애플리케이션은 클라우드에 중앙 집중식으로 저장되는 �
 
 단일 다중 테넌트 데이터베이스에 있을 때 이 데이터에 액세스하는 것은 쉽지만 잠재적인 수천 개의 데이터베이스 규모로 분산되는 경우는 그렇게 쉽지 않습니다. 한 가지 방법은 공통 스키마를 통해 배포된 데이터베이스 집합 전체에서 쿼리를 구현하는 [탄력적 쿼리](elastic-query-overview.md)를 사용하는 것입니다. 이러한 데이터베이스는 여러 다른 리소스 그룹 및 구독에서 배포할 수 있습니다. 아직 하나의 공통 로그인으로 모든 데이터베이스에서 데이터를 추출하기 위한 액세스 권한을 얻어야 합니다. 탄력적 쿼리는 분산된(테넌트) 데이터베이스에서 테이블 또는 뷰를 미러링하는 외부 테이블이 정의되는 단일 *헤드* 데이터베이스를 사용합니다. 이 헤드 데이터베이스에 제출된 쿼리는 분산 쿼리 계획을 생성하기 위해 컴파일되며 이 쿼리 중 일부는 필요에 따라 테넌트 데이터베이스에 푸시됩니다. 탄력적 쿼리는 카탈로그 데이터베이스에서 분할된 데이터베이스 맵을 사용하여 모든 테넌트 데이터베이스의 위치를 확인합니다. 설정 및 쿼리는 일반 [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)을 사용하여 바로 진행되며 Power BI 또는 Excel 같은 도구에서의 임시 쿼리를 지원합니다.
 
-탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 그러나 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아지는 경우가 있습니다. 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분을 확인합니다. 또한 반환되는 데이터의 양을 평가합니다. 추출한 테넌트 데이터를 분석 쿼리에 최적화된 데이터베이스에 저장하는 경우 복잡한 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)는 이러한 분석 데이터베이스를 호스트할 수 있습니다.
+탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 그러나 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아지는 경우가 있습니다. 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분을 확인합니다. 또한 반환되는 데이터의 양을 평가합니다. 추출한 테넌트 데이터를 분석 쿼리에 최적화된 데이터베이스에 저장하는 경우 복잡한 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. SQL Database 및 Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)는 이러한 분석 데이터베이스를 호스트할 수 있습니다.
 
 분석에 대한 이 패턴은 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)에서 설명되어 있습니다.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
-[Wingtipticketssaas-dbpertenant-master-Wingtipticketssaas-multitenantdb-master](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 정문 Ticket SaaS 다중 테 넌 트 데이터베이스 스크립트 및 응용 프로그램 소스 코드를 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -153,7 +153,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
 이제 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)를 시도하여 복잡한 분석을 처리하기 위해 별도 분석 데이터베이스에 추출하는 데이터를 탐색합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 <!-- ??
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

@@ -1,25 +1,27 @@
 ---
-title: 개체 탐지기 빌드 빠른 시작 - Custom Vision Service
+title: '빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만드는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Custom Vision 웹 사이트를 사용하여 개체 탐지기 모델을 만들고, 학습하고, 테스트하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: cog-serv-seo-aug-2020
+keywords: 이미지 인식, 이미지 인식 앱, custom vision
+ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549550"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596883"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 개체 탐지기를 빌드하는 방법
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드
 
-이 빠른 시작에서는 Custom Vision 웹 사이트를 통해 개체 탐지기를 빌드하는 방법에 대해 알아봅니다. 탐지기 모델이 작성되면 Custom Vision Service를 사용하여 개체를 감지할 수 있습니다.
+이 빠른 시작에서는 Custom Vision 웹 사이트를 사용하여 개체 탐지기 모델을 만드는 방법을 알아봅니다. 모델을 빌드한 후에 새 이미지로 테스트하고 최종적으로 자체 이미지 인식 앱에 통합할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
@@ -27,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - 탐지기 모델을 학습시키는 데 사용할 이미지 세트. [샘플 이미지](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) 세트는 GitHub에서 사용할 수 있습니다. 또는 아래 팁을 사용하여 사용자 고유의 이미지를 선택할 수 있습니다.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure Portal에서 Custom Vision 리소스 만들기
+## <a name="create-custom-vision-resources"></a>Custom Vision 리소스 만들기
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 
 
    > [!NOTE]
-   > 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 포털에서 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 "디렉터리"를 선택했는지 확인하세요. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
+   > 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 웹 사이트에서 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 "디렉터리"를 선택했는지 확인하세요. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
 
 1. __프로젝트 형식__ 아래에서 __개체 감지__를 선택합니다.
 
@@ -118,3 +120,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!div class="nextstepaction"]
 > [모델 테스트 및 재교육](test-your-model.md)
 
+* [Custom Vision이란?](./overview.md)

@@ -2,20 +2,20 @@
 title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 Azure Resource Manager 템플릿을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.custom: ''
+ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069240"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613189"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
-이 자습서에서는 ARM(Azure Resource Manager) 템플릿을 소개합니다. 시작 템플릿을 만들어 Azure에 배포하는 방법을 보여 줍니다. 템플릿의 구조와 템플릿을 사용하는 데 필요한 도구에 대해 알아봅니다. 이 자습서를 완료하는 데 약 **12분** 정도 걸리지만, 실제 시간은 설치해야 하는 도구 수에 따라 달라집니다.
+이 자습서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 소개합니다. 시작 템플릿을 만들어 Azure에 배포하는 방법을 보여 줍니다. 템플릿의 구조와 템플릿을 사용하는 데 필요한 도구에 대해 알아봅니다. 이 자습서를 완료하는 데 약 **12분** 정도 걸리지만, 실제 시간은 설치해야 하는 도구 수에 따라 달라집니다.
 
 이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 ARM 템플릿의 모든 핵심 부분을 살펴볼 때까지 시작 템플릿을 단계별로 수정합니다. 이러한 요소는 훨씬 더 복잡한 템플릿의 구성 요소입니다. 시리즈가 끝날 때쯤에는 자신만의 고유한 템플릿을 만들고, 이 템플릿을 사용하여 배포를 자동화할 준비가 됩니다.
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="get-tools"></a>도구 가져오기
 
-먼저 템플릿을 만들고 배포하는 데 필요한 도구가 있는지 확인합니다.
+먼저 템플릿을 만들고 배포하는 데 필요한 도구가 있는지 확인합니다. 이러한 도구를 로컬 머신에 설치합니다.
 
 ### <a name="editor"></a>편집기
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: victorh
-ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855042"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596687"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -78,7 +78,7 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
 |문제  |설명  |완화 방법  |
 |---------|---------|---------|
-|트래픽 분할|Office 365 및 Azure Public PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
+|트래픽 분할|Microsoft 365 및 Azure Public PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure Public PaaS 및 Microsoft 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
 |기본 정책은 로컬 정책과 동일한 지역에 있어야 합니다.|기본 정책과 동일한 지역에 모든 로컬 정책을 만듭니다. 보안 허브의 한 지역에 생성된 정책을 다른 지역에서 계속 적용할 수 있습니다.|조사|
 |보안 가상 허브 배포에서 허브 간 트래픽 필터링|보안 Virtual Hub 간 통신 필터링은 아직 지원되지 않습니다. 그러나 Azure Firewall을 통한 프라이빗 트래픽 필터링을 사용하지 않는 경우 허브 간 통신은 계속 작동합니다.|조사|
@@ -87,6 +87,9 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
 |대량 IP 주소 추가 실패|여러 공용 IP 주소를 추가하면 보안 허브 방화벽이 실패한 상태가 됩니다.|더 작은 공용 IP 주소 증분을 추가합니다. 예를 들어 한 번에 10개를 추가합니다.|
 |사용자 지정 DNS(미리 보기)가 구성된 보안 허브에서 애플리케이션 규칙이 실패합니다.|사용자 지정 DNS(미리 보기)는 강제 터널링이 설정된 보안 허브 배포 및 Hub 가상 네트워크 배포에서 작동하지 않습니다.|조사 중에 수정합니다.|
+|DDoS Protection 표준은 보안 가상 허브에서 지원되지 않습니다.|DDoS Protection 표준은 vWAN과 통합되지 않습니다.|조사|
+|활동 로그가 완전히 지원되지 않습니다.|방화벽 정책은 현재 활동 로그를 지원하지 않습니다.|조사|
+|SNAT 개인 IP 주소 범위 구성|Azure Firewall 정책이 구성된 경우 [개인 IP 범위 설정](../firewall/snat-private-range.md)은 무시됩니다. 기본 Azure Firewall이 작동하며 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)에 따라 개인 IP 주소 범위에 있는 경우 SNAT 네트워크 규칙이 적용되지 않습니다.|조사
 
 ## <a name="next-steps"></a>다음 단계
 

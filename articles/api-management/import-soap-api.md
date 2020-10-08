@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905653"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626822"
 ---
 # <a name="import-soap-api"></a>SOAP API 가져오기
 
@@ -45,7 +45,7 @@ ms.locfileid: "87905653"
 3. **WSDL 사양**에 SOAP API가 상주하는 URL을 입력합니다.
 4. **SOAP 통과** 라디오 단추는 기본적으로 선택됩니다. 이 선택 항목으로 API는 SOAP로 노출되려고 합니다. 소비자는 SOAP 규칙을 사용해야 합니다. API를 "restify"하려는 경우 [SOAP API 가져오기 및 REST로 변환](restify-soap-api.md)의 단계를 따릅니다.
 
-    ![통과](./media/import-soap-api/pass-through.png)
+    ![스크린샷은 [WSDL 사양을 입력할 수 있는 WSDL에서 만들기] 대화 상자를 보여줍니다.](./media/import-soap-api/pass-through.png)
 5. Tab 키를 누릅니다.
 
     다음 필드는 SOAP API의 표시 이름, 이름, 설명과 같은 정보로 채워집니다.
@@ -58,7 +58,7 @@ ms.locfileid: "87905653"
 
     * **Starter**
     * **무제한**   
-8. 다른 API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
+8. 다른 API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
 9. **만들기**를 선택합니다.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>관리 포털에서 새 API 테스트

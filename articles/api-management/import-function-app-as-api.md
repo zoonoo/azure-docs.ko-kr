@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c6ec2be6daee931a4066ff5ce4f64fc949d497ac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243429"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627026"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
 
@@ -71,7 +71,7 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
     > [!NOTE]
     > HTTP 트리거를 기반으로 하는 Functions만 가져오고 인증 수준 설정을 *익명* 또는 *함수*로 설정할 수 있습니다.
 
-7. **전체** 보기로 전환하고 새 API에 **제품**을 할당합니다. 필요한 경우 생성 중에 다른 필드를 지정하거나 나중에 **설정** 탭으로 이동하여 필드를 구성합니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
+7. **전체** 보기로 전환하고 새 API에 **제품**을 할당합니다. 필요한 경우 생성 중에 다른 필드를 지정하거나 나중에 **설정** 탭으로 이동하여 필드를 구성합니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
 8. **만들기**를 클릭합니다.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Azure 함수 앱을 기존 API에 추가

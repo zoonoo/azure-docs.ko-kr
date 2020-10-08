@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: sample
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485475"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620191"
 ---
-# <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database 확장 이벤트에 대 한 이벤트 파일 대상 코드
+# <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -34,7 +34,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
   - Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
   - 이벤트 세션 등을 만들고 시작합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 - [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
 
-  - 모듈은- **AzStorageAccount**등의 명령을 제공 합니다.
+  - 이 모듈은 **New-AzStorageAccount** 같은 명령을 제공합니다.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure Storage 컨테이너용 PowerShell 코드
 
@@ -74,7 +74,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 ### <a name="powershell-code"></a>PowerShell 코드
 
-이 PowerShell 스크립트는 Az module을 이미 설치 했다고 가정 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
+이 PowerShell 스크립트는 사용자가 Az 모듈을 이미 설치했다고 가정합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -239,7 +239,7 @@ Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
 -->
 
 > [!NOTE]
-> 위의 PowerShell 코드 예제에서 SQL 확장 이벤트는 ADLS Gen2 storage 계정과 호환 되지 않습니다.
+> 위의 PowerShell 코드 예제에서 SQL 확장 이벤트는 ADLS Gen2 스토리지 계정과 호환되지 않습니다.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2단계: Azure Storage 컨테이너를 사용하는 Transact-SQL 코드
 
@@ -251,7 +251,7 @@ Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
 PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했습니다. 이러한 값을 사용하려면 Transact-SQL 스크립트를 편집해야 합니다. Transact-SQL 스크립트에서 **TODO** 를 찾아 편집점을 찾습니다.
 
 1. SQL Server Management Studio(ssms.exe)를 엽니다.
-2. Azure SQL Database에서 데이터베이스에 연결 합니다.
+2. Azure SQL Database의 데이터베이스에 연결합니다.
 3. 클릭하여 새 쿼리 창을 엽니다.
 4. 쿼리 창에 다음 Transact-SQL 스크립트를 붙여 넣습니다.
 5. 스크립트의 모든 **TODO** 를 찾고 적절히 편집합니다.
@@ -451,9 +451,9 @@ GO
 
 ## <a name="output"></a>출력
 
-Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. **\<event>** 하나의 UPDATE 문을 표시 하는 하나의 요소가 표시 됩니다.
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 **\<event>** 요소가 표시되고 하나의 UPDATE 문이 표시됩니다.
 
-다음은 **\<event>** 테스트 중에 생성 된 요소 중 하나입니다.
+다음은 테스트 중 생성된 하나의 **\<event>** 요소입니다.
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -512,13 +512,13 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
   
   - Azure Storage 계정은 사용하지 않습니다.
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 - [.NET에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [1 단원: Azure 컨테이너에 저장 된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
+- [1단원: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
   - [2단원: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
