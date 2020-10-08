@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: b-juche
-ms.openlocfilehash: f83baf7a038ad8cf17421c778deccbc7dc389d97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325558"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824689"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -66,11 +66,12 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
     볼륨에서 초당 읽기 수입니다.
 - *쓰기 IOPS*   
     초당 볼륨에 대 한 쓰기 수입니다.
-- *MiB/s 읽기*   
-    초당 읽기 처리량 (바이트)입니다.
-- *MiB/s 쓰기*   
-    초당 쓰기 처리량 (바이트)입니다.
-
+<!-- These two metrics are not yet available, until ~ 2020.09
+- *Read MiB/s*   
+    Read throughput in bytes per second.
+- *Write MiB/s*   
+    Write throughput in bytes per second.
+--> 
 <!-- ANF-4128; 2020.07
 - *Pool Provisioned Throughput*   
     The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
@@ -78,7 +79,7 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
     The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
 -->
 
-<!-- ANF-6443; future
+<!-- ANF-6443; 2020.11
 - *Pool Consumed Throughput*    
     The total throughput being consumed by volumes in a given capacity pool.
 -->

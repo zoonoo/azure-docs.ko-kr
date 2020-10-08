@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443848"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824151"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443848"
 이 문서에서는 Azure SQL Database 및 Azure Synapse Analytics 용 서버에 대 한 연결을 제어 하는 설정을 소개 합니다. 이러한 설정은 서버와 연결 된 **모든** SQL Database 및 Azure Synapse 데이터베이스에 적용 됩니다.
 
 > [!IMPORTANT]
-> 이 문서는 **AZURE SQL Managed Instance** 에는 적용 *되지* 않습니다.
+> 이 문서는 **Azure SQL Managed Instance**에 적용되지 *않습니다*.
 
 연결 설정은 다음 스크린샷에 표시 된 것 처럼 **방화벽 및 가상 네트워크** 화면에서 액세스할 수 있습니다.
 
@@ -38,6 +38,9 @@ ms.locfileid: "91443848"
  ![공용 네트워크 액세스 거부와의 연결 스크린샷][2]
 
 논리 서버에서 기존 개인 끝점 없이 **공용 네트워크 액세스 거부** 설정을 **예** 로 설정 하려고 하면 다음과 같은 오류 메시지와 함께 실패 합니다.  
+
+> [!NOTE]
+> 전용 끝점을 사용 하 여 이미 구성 된 논리 서버에서 가상 네트워크 방화벽 규칙을 정의 하려면 **공용 네트워크 액세스 거부** 를 **아니요**로 설정 합니다.
 
 ```output
 Error 42102

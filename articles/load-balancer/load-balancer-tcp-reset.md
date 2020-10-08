@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2019
+ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651278"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823210"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>TCP 다시 설정 및 유휴 시간 제한 Load Balancer
 
@@ -40,7 +40,11 @@ TCP RST 패킷을 수신하는 엔드포인트는 즉시 해당 소켓을 닫습
 
 ## <a name="configurable-tcp-idle-timeout"></a>구성 가능한 TCP 유휴 시간 제한
 
-Azure Load Balancer의 유휴 시간 제한 설정은 4 분 120 분입니다. 기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다.
+Azure Load Balancer의 유휴 시간 제한 범위는 다음과 같습니다.
+-  아웃 바운드 규칙의 경우 4 분 ~ 100 분
+-  Load Balancer 규칙 및 인바운드 NAT 규칙에 대 한 4 분 ~ 30 분
+
+기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다.
 
 연결이 닫혀 있는 경우 클라이언트 애플리케이션이 다음 오류 메시지를 수신할 수 있습니다. “기본 연결이 닫혔습니다. 활성 상태로 유지될 것으로 예상된 연결이 서버에서 닫혔습니다.”
 

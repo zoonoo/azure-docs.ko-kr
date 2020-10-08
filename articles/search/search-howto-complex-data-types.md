@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/07/2020
+ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530857"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824477"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링 하는 방법
 
@@ -35,11 +35,13 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 다음 JSON 문서는 간단한 필드와 복잡 한 필드로 구성 됩니다. 및와 같은 복합 필드 `Address` 에 `Rooms` 는 하위 필드가 있습니다. `Address` 에는 문서의 단일 개체 이므로 해당 하위 필드에 대 한 단일 값 집합이 있습니다. 반면에는 `Rooms` 컬렉션의 각 개체에 대해 하나씩, 하위 필드에 대 한 값 집합이 여러 개 있습니다.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -48,17 +50,26 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
+
+이름 = "인덱싱-복합 형식><</a>
+
+## <a name="indexing-complex-types"></a>복합 형식 인덱싱
+
+인덱싱 중에 단일 문서 내의 모든 복합 컬렉션에서 최대 3000 개의 요소를 가질 수 있습니다. 복합 컬렉션의 요소는 해당 컬렉션의 멤버 이므로 대화방의 경우 (호텔 예제의 유일한 복합 컬렉션) 각 공간은 요소입니다. 위의 예에서 "비밀 포인트 Motel"에는 500 개의 대화방이 있는데 호텔 문서에는 500 room 요소가 있습니다. 중첩 된 복합 컬렉션의 경우에는 외부 (부모) 요소 외에도 각 중첩 된 요소가 계산 됩니다.
+
+이 제한은 복합 형식 (예: 주소) 또는 문자열 컬렉션 (예: 태그)이 아닌 복잡 한 컬렉션에만 적용 됩니다.
 
 ## <a name="creating-complex-fields"></a>복합 필드 만들기
 
@@ -93,7 +104,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 ## <a name="updating-complex-fields"></a>복합 필드 업데이트
 
-일반적으로 필드에 적용 되는 모든 [인덱스 규칙](search-howto-reindex.md) 은 복잡 한 필드에도 적용 됩니다. 여기에 몇 가지 주요 규칙이 재작성 필드를 추가 하는 경우 인덱스를 다시 작성할 필요가 없지만 대부분의 수정 작업을 수행 합니다.
+일반적으로 필드에 적용 되는 모든 [인덱스 규칙](search-howto-reindex.md) 은 복잡 한 필드에도 적용 됩니다. 여기에서 몇 가지 주요 규칙을 재작성 복합 형식에 필드를 추가 하는 경우 인덱스를 다시 작성할 필요가 없지만 대부분의 수정 작업을 수행 합니다.
 
 ### <a name="structural-updates-to-the-definition"></a>정의에 대 한 구조적 업데이트
 

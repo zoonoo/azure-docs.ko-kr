@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060750"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823414"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
-HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 Python 환경을 사용자 지정해야 할 수 있습니다. 외부 Python 패키지 또는 다른 Python 버전을 설치하는 것과 같습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
+HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 외부 Python 패키지 설치와 같은 Python 환경을 사용자 지정 해야 할 수 있습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

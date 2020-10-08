@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761127"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823622"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -137,7 +137,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -259,7 +259,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 1. 연결 제한 시간은 20 초입니다. SFTP 서버에 뛰어난 성능 및 방화벽 (예: 방화벽)이 많은 오버 헤드가 추가 되지 않았는지 확인 하세요. 
 
-2. 방화벽이 있는 경우 관리 되는 **커넥터 IP** 주소가 허용 목록 인지 확인 하세요. 논리 앱 지역에 대해 이러한 IP 주소를 찾을 수 있습니다 [**여기**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. 방화벽이 있는 경우에는 **관리 되는 커넥터 IP** 주소가 승인 된 목록에 추가 되었는지 확인 하세요. 논리 앱 지역에 대해 이러한 IP 주소를 찾을 수 있습니다 [**여기**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. 이 문제가 간헐적으로 발생 하는 경우 다시 시도 설정을 테스트 하 여 기본값 4 보다 더 높은 다시 시도 횟수를 확인할 수 있는지 확인 하십시오.
 
@@ -279,4 +279,3 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
-

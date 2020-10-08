@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486445"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823194"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -204,7 +204,7 @@ Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedExcep
 
     b. 위의 방법으로도 오류가 발생 하면 가상 컴퓨터 또는 컴퓨터를 다시 부팅 합니다.
 
-    c. 모든 방법이 실패 하는 경우 다음 명령을 실행 하 여 [관련 로그가](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command)모두 포함 된 압축 된 파일을 가져오고 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에 연결 합니다.
+    다. 모든 방법이 실패 하는 경우 다음 명령을 실행 하 여 [관련 로그가](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command)모두 포함 된 압축 된 파일을 가져오고 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에 연결 합니다.
 
     ```
     sudo iotedge support-bundle --since 2h
@@ -308,7 +308,7 @@ IoT Edge 장치에서 로그를 수집 해야 하는 경우 가장 쉬운 방법
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     > [!NOTE] 
-    > 이 명령은 Edge 장치와 컨테이너 간에 로그 폴더를 바인딩합니다. 다른 위치에 있는 로그를 수집 하려면 다음 명령을 사용 하 여 **$LOG _LOCATION_ON_EDGE_DEVICE** 를 사용 하려는 위치로 바꿉니다.`/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > 이 명령은 Edge 장치와 컨테이너 간에 로그 폴더를 바인딩합니다. 다른 위치에 있는 로그를 수집 하려면 다음 명령을 사용 하 여 **$LOG _LOCATION_ON_EDGE_DEVICE** 를 사용 하려는 위치로 바꿉니다. `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. **업데이트**를 선택합니다.
 1. **검토 + 만들기**를 선택합니다. 성공적인 유효성 검사 메시지는 녹색 배너 아래에 게시 됩니다.
@@ -317,16 +317,18 @@ IoT Edge 장치에서 로그를 수집 해야 하는 경우 가장 쉬운 방법
 
     a. **모듈** 테이블 아래에서 **lvaEdge**을 선택 합니다.  
     b. 창 위쪽에서 **모듈 id**쌍을 선택 합니다. 편집 가능한 창이 열립니다.  
-    c. **원하는 키**아래에 다음 키/값 쌍을 추가 합니다.  
+    다. **원하는 키**아래에 다음 키/값 쌍을 추가 합니다.  
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > 이 명령은 Edge 장치와 컨테이너 간에 로그 폴더를 바인딩합니다. 다른 위치에 있는 로그를 수집 하려면 다음 명령을 사용 하 여 **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** 를 사용 하려는 위치로 바꿉니다.  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > 이 명령은 Edge 장치와 컨테이너 간에 로그 폴더를 바인딩합니다. 장치의 다른 위치에 있는 로그를 수집 하려면:
+    > 1. **바인딩 섹션에서** 디버그 로그 위치에 대 한 바인딩을 만들고 **$DEBUG $DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** 를 바꾸고 **_LOG_LOCATION** 를 원하는 위치로 바꿉니다.`/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. 다음 명령을 사용 하 여 **$DEBUG _LOG_LOCATION** 을 이전 단계에서 사용한 위치로 바꿉니다.  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. **저장**을 선택합니다.
 
-1. 이슈를 재현합니다.
+1. 문제를 재현합니다.
 1. 포털의 **IoT Hub** 페이지에서 가상 컴퓨터에 연결 합니다.
 1. *Debuglogs* 폴더의 모든 파일을 압축 합니다.
 

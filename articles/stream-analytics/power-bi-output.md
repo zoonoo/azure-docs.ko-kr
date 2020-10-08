@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891984"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823003"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Power BI
 
@@ -43,6 +43,9 @@ Power BI 출력 및 대시보드를 구성하는 방법에 대한 연습은 [Azu
 Azure Stream Analytics는 사용자를 위한 Power BI 데이터 세트 및 테이블 스키마가 아직 없는 경우 새로 만듭니다. 다른 모든 경우에는 테이블이 새 값으로 업데이트됩니다. 데이터 세트 내에는 현재 하나의 테이블만 있을 수 있습니다. 
 
 Power BI는 FIFO(선입선출) 보존 정책을 사용합니다. 200,000개 행에 도달할 때까지 데이터가 테이블에 수집됩니다.
+
+> [!NOTE]
+> 여러 가지 문제를 일으킬 수 있으므로 동일한 데이터 집합에 쓰는 여러 출력을 사용 하지 않는 것이 좋습니다. 각 출력은 동일한 이름을 가진 여러 데이터 집합을 생성할 수 있는 Power BI 데이터 집합을 독립적으로 만들려고 시도 합니다. 또한 출력에 일관 된 스키마가 없는 경우 데이터 집합은 각 쓰기의 스키마를 변경 하 여 스키마 변경 요청이 너무 많이 발생 합니다. 이러한 문제를 방지 하는 경우에도 여러 출력은 병합 된 단일 출력 보다 성능이 떨어집니다.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Stream Analytics에서 Power BI로 데이터 형식 변환
 
