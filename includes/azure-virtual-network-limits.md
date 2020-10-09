@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854100"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859619"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 **Azure Resource Manager**를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
@@ -75,7 +75,6 @@ ms.locfileid: "88854100"
 | Load Balancer당 백 엔드 리소스 <sup>1<sup> | 150                   |
 | 고가용성 포트                 | 내부 프런트 엔드당 1       |
 | Load Balancer당 아웃바운드 규칙        | 600                           |
-| [TCP 유휴 시간 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4분/30분          |
 
 <sup>1</sup>독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 배치 조합에서 최대 150개의 리소스를 제공합니다.
 
@@ -88,7 +87,7 @@ ms.locfileid: "88854100"
 | NIC당 규칙(NIC의 모든 IP에서) | 300                          |
 | 프런트 엔드 IP 구성              | 200                          |
 | 백 엔드 풀 크기                       | 300 IP 구성, 단일 가용성 집합 |
-| Load Balancer당 가용성 집합     | 150                          |
+| Load Balancer당 가용성 집합     | 1                            |
 
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 **클래식** 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
