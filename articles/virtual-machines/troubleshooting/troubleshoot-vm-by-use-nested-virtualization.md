@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76119621"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩 된 가상화를 사용 하 여 잘못 된 Azure VM 문제 해결
@@ -52,7 +52,7 @@ ms.locfileid: "76119621"
 
 7.  **기능** 섹션에서 **다음**을 선택합니다.
 
-8.  가상 스위치를 사용할 수 있는 경우 선택합니다. 그렇지 않은 경우 **다음**을 선택합니다.
+8.  가상 스위치를 사용할 수 있는 경우 선택합니다. 그렇지 않은 경우 **다음**을 선택 합니다.
 
 9.  **마이그레이션** 섹션에서 **다음**을 선택합니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "76119621"
     ![이미지 탑재에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-15. **적용** 및 **확인**을 차례로 선택합니다.
+15. **적용**을 선택한 다음 **확인**을 선택합니다.
 
 16. VM을 두 번 클릭한 다음 시작합니다.
 

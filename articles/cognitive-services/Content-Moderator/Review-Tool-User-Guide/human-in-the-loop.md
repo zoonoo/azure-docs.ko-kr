@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
 ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76169513"
 ---
 # <a name="content-moderator-review-tool"></a>Content Moderator 검토 도구
@@ -43,7 +43,7 @@ Azure Content Moderator는 기계 학습 콘텐츠 조정을 사용자 리뷰와
 
 ## <a name="review-tool-credentials"></a>검토 도구 자격 증명
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com)를 사용 하 여 등록 하면 계정에 대 한 Azure 지역을 선택 하 라는 메시지가 표시 됩니다. 이는 [검토 도구](https://contentmoderator.cognitive.microsoft.com) 에서 Azure Content Moderator services에 대 한 무료 평가판 키를 생성 하기 때문입니다. REST 호출 또는 클라이언트 SDK에서 서비스에 액세스 하려면이 키가 필요 합니다. **설정** > **자격 증명**을 선택 하 여 키 및 API 끝점 URL을 볼 수 있습니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com)를 사용 하 여 등록 하면 계정에 대 한 Azure 지역을 선택 하 라는 메시지가 표시 됩니다. 이는 [검토 도구](https://contentmoderator.cognitive.microsoft.com) 에서 Azure Content Moderator services에 대 한 무료 평가판 키를 생성 하기 때문입니다. REST 호출 또는 클라이언트 SDK에서 서비스에 액세스 하려면이 키가 필요 합니다. **설정**  >  **자격 증명**을 선택 하 여 키 및 API 끝점 URL을 볼 수 있습니다.
 
 ![Content Moderator 자격 증명](images/settings-6-credentials.png)
 

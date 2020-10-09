@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73667660"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure 데이터 팩터리 - 함수 및 시스템 변수
@@ -75,7 +75,7 @@ ms.locfileid: "73667660"
 ### <a name="functions"></a>Functions
 다음 표에서는 Azure Data Factory의 모든 함수를 보여 줍니다.
 
-| 범주 | 기능 | 매개 변수 | Description |
+| Category | 기능 | 매개 변수 | Description |
 | --- | --- | --- | --- |
 | Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |지정된 시간 X에 Y시간을 추가합니다. <br/><br/>예: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | 시간 |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y분을 추가합니다.<br/><br/>예: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
@@ -87,7 +87,7 @@ ms.locfileid: "73667660"
 | 날짜 |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y년을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Y를 음수로 지정하여 년도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
 | 날짜 |Day(X) |X: DateTime |X의 일 구성 요소를 가져옵니다.<br/><br/>예: `Day of 9/15/2013 12:00:00 PM is 9`. |
 | 날짜 |DayOfWeek(X) |X: DateTime |X의 요일 구성 요소를 가져옵니다.<br/><br/>예: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| 날짜 |DayOfYear(X) |X: DateTime |X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| 날짜 |DayOfYear(X) |X: DateTime |X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예제:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
 | 날짜 |DaysInMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 일을 가져옵니다.<br/><br/>예: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
 | 날짜 |EndOfDay(X) |X: DateTime |X의 끝나는 날(일 구성 요소)을 나타내는 날짜-시간을 가져옵니다.<br/><br/>예: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | 날짜 |EndOfMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 끝을 가져옵니다. <br/><br/>예: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM`(9월의 끝을 나타내는 날짜 시간) |
@@ -99,7 +99,7 @@ ms.locfileid: "73667660"
 > [!IMPORTANT]
 > 다른 함수 내에서 함수를 사용 하는 경우 **$$** 내부 함수에 대 한 접두사를 사용할 필요가 없습니다. 예: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' 및 RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예제에서 **$$** 접두사는 시간에 사용 되지 않습니다 **. addhours** 함수를 사용 합니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 다음 예제에서는 Hive 활동에 대한 입력 및 출력 매개 변수가 `Text.Format` 함수 및 SliceStart 시스템 변수를 사용하여 결정됩니다. 
 
 ```json  
@@ -139,7 +139,7 @@ ms.locfileid: "73667660"
 }
 ```
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 다음 예제에서는 저장 프로시저 작업에 대한 DataTime 매개 변수가 Text를 사용하여 결정됩니다. Format 함수 및 SliceStart 변수입니다. 
 

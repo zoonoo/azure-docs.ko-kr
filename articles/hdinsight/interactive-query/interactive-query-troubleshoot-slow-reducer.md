@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: 8a9c7ed9f6b5b8ec89bfca6dd59034b11f05f9a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895155"
 ---
 # <a name="scenario-reducer-is-slow-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 리 듀 서가 느림
 
 이 문서에서는 Azure HDInsight 클러스터에서 대화형 쿼리 구성 요소를 사용 하는 경우 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 쿼리 계획을 실행할 때 쿼리 `insert into table1 partition(a,b) select a,b,c from table2` 계획은 다양 한 리 듀 서을 시작 하지만 각 파티션의 데이터는 단일 리 듀 서로 이동 합니다. 이로 인해 가장 큰 파티션의 리 듀 서에서 수행 되는 시간 만큼 쿼리가 느려집니다.
 

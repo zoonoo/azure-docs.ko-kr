@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72935964"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>중재 작업 정의 및 사용 (REST)
@@ -45,13 +45,13 @@ REST 호출을 생성 하려면 다음 값을 입력 합니다.
 
 ### <a name="fill-in-the-request-body"></a>요청 본문을 입력 합니다.
 
-REST 호출의 본문은 **Contentvalue**필드 하나를 포함 합니다. 텍스트를 중재 경우 원시 텍스트 내용에 붙여넣거나 이미지/비디오를 중재 하는 경우 이미지 또는 비디오 URL을 입력 합니다. 다음 샘플 이미지 URL을 사용할 수 있습니다.[https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+REST 호출의 본문은 **Contentvalue**필드 하나를 포함 합니다. 텍스트를 중재 경우 원시 텍스트 내용에 붙여넣거나 이미지/비디오를 중재 하는 경우 이미지 또는 비디오 URL을 입력 합니다. 다음 샘플 이미지 URL을 사용할 수 있습니다. [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![작업 - 콘솔 쿼리 매개 변수, 헤더 및 요청 본문 상자 만들기](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>요청 제출
 
-**보내기**를 선택 합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자에는 작업의 ID가 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
+**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자에는 작업의 ID가 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
 
 ![검토 - 콘솔 만들기 응답 콘텐츠 상자에 검토 ID 표시](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ REST 호출의 본문은 **Contentvalue**필드 하나를 포함 합니다. 텍�
 
 ![작업-지역 선택 가져오기](images/test-drive-region.png)
 
-위의 섹션과 같이 REST 호출 매개 변수를 입력 합니다. 이 단계에서 **JobId** 는 작업을 만들 때 받은 고유 ID 문자열입니다. **보내기**를 선택 합니다. 작업이 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자는 다음과 같이 작업을 JSON 형식으로 표시 합니다.
+위의 섹션과 같이 REST 호출 매개 변수를 입력 합니다. 이 단계에서 **JobId** 는 작업을 만들 때 받은 고유 ID 문자열입니다. **보내기**를 선택합니다. 작업이 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자는 다음과 같이 작업을 JSON 형식으로 표시 합니다.
 
 ```json
 {  
@@ -115,7 +115,7 @@ REST 호출의 본문은 **Contentvalue**필드 하나를 포함 합니다. 텍�
 
 ### <a name="examine-the-new-reviews"></a>새 검토를 검토 합니다.
 
-콘텐츠 작업에서 검토를 만든 경우 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 볼 수 있습니다. 사용 하는 내용에 따라**이미지**/**텍스트**/**비디오** **검토** > 를 선택 합니다. 콘텐츠는 사람이 검토할 준비가 된 것으로 표시 되어야 합니다. 사용자 중재자가 자동 할당 된 태그 및 예측 데이터를 검토 하 고 최종 중재 결정을 제출한 후에는 작업 API가이 모든 정보를 지정 된 콜백 끝점 끝점으로 전송 합니다.
+콘텐츠 작업에서 검토를 만든 경우 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 볼 수 있습니다. **Review**  >  **Image** / **Text** / 사용 하는 내용에 따라 이미지 텍스트**비디오** 검토를 선택 합니다. 콘텐츠는 사람이 검토할 준비가 된 것으로 표시 되어야 합니다. 사용자 중재자가 자동 할당 된 태그 및 예측 데이터를 검토 하 고 최종 중재 결정을 제출한 후에는 작업 API가이 모든 정보를 지정 된 콜백 끝점 끝점으로 전송 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

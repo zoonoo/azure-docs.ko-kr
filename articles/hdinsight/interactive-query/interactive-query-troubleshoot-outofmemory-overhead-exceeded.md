@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: ab334dfb15044fd0734a107c12003ca2c1f86906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895181"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache Hive의 조인으로 인해 OutOfMemory 오류가 발생 합니다.
 
 이 문서에서는 Azure HDInsight 클러스터에서 대화형 쿼리 구성 요소를 사용 하는 경우 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 Apache Hive 조인의 기본 동작은 맵/감소 단계를 수행 하지 않고도 조인을 수행할 수 있도록 테이블의 전체 내용을 메모리로 로드 하는 것입니다. Hive 테이블이 너무 커서 메모리에 맞지 않는 경우 쿼리가 실패할 수 있습니다.
 

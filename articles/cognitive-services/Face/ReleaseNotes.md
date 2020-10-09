@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: yluiu
 ms.openlocfilehash: 767c9dec373a2bda806d75d602b194edde98c6b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76165863"
 ---
 # <a name="face-release-notes"></a>얼굴 릴리스 정보
@@ -23,17 +23,17 @@ ms.locfileid: "76165863"
 
 ### <a name="release-changes-in-june-2019"></a>6 월 2019의 릴리스 변경 내용
 
-* 작은, 사이드 보기, 폐색 및 흐린 면에서 정확도가 향상 된 새 얼굴 감지 모델을 추가 했습니다. 매개 `detection_02` 변수에서 `detectionModel` 새 얼굴 검색 모델 이름을 지정 하 여 [얼굴 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup 사람-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 추가 얼굴 및 [LargePersonGroup person-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) 추가 얼굴을 통해이를 사용 합니다. 자세한 내용은 [검색 모델을 지정 하는 방법](Face-API-How-to-Topics/specify-detection-model.md)을 참조 하세요.
+* 작은, 사이드 보기, 폐색 및 흐린 면에서 정확도가 향상 된 새 얼굴 감지 모델을 추가 했습니다. 매개 변수에서 새 얼굴 검색 모델 이름을 지정 하 여 [얼굴 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup 사람-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 추가 얼굴 및 [LargePersonGroup person-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) 추가 얼굴을 통해이를 사용 `detection_02` `detectionModel` 합니다. 자세한 내용은 [검색 모델을 지정 하는 방법](Face-API-How-to-Topics/specify-detection-model.md)을 참조 하세요.
 
 ### <a name="release-changes-in-april-2019"></a>4 월 2019의 릴리스 변경 내용
 
-* 및 `headPose` 특성의 전체 정확도 `age` 가 향상 되었습니다. 또한 `headPose` 특성은 now로 설정 된 `pitch` 값으로 업데이트 됩니다. 이러한 특성은 `returnFaceAttributes` [얼굴 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` 매개 변수에서 지정 하 여 사용 합니다. 
+* 및 특성의 전체 정확도가 향상 `age` `headPose` 되었습니다. `headPose`또한 특성은 now로 설정 된 값으로 업데이트 됩니다 `pitch` . 이러한 특성은 `returnFaceAttributes` [얼굴 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 매개 변수에서 지정 하 여 사용 `returnFaceAttributes` 합니다. 
 
 * [얼굴 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup 사람-얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 및 [LargePersonGroup 개인-얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)추가의 향상 된 속도입니다.
 
 ### <a name="release-changes-in-march-2019"></a>3 월 2019의 릴리스 변경 내용
 
-* 정확도가 향상 된 새 얼굴 인식 모델을 추가 했습니다. `recognitionModel` 매개 변수에 `recognition_02` 새 얼굴 인식 모델 이름을 지정 하 여 [FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), create, [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 및 [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) 를 통해이를 사용 합니다. [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) [인식 모델을 지정 하는 방법](Face-API-How-to-Topics/specify-recognition-model.md)에 대 한 자세한 내용.
+* 정확도가 향상 된 새 얼굴 인식 모델을 추가 했습니다. 매개 변수에 새 얼굴 인식 모델 이름을 지정 하 여 [FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), Create, [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 및 [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) 를 통해이를 사용 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `recognition_02` `recognitionModel` 합니다. [인식 모델을 지정 하는 방법](Face-API-How-to-Topics/specify-recognition-model.md)에 대 한 자세한 내용.
 
 ### <a name="release-changes-in-january-2019"></a>2019년 1월 릴리스 변경 내용
 

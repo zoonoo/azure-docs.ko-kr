@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895228"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
@@ -41,7 +41,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다르면 생성 된 파일을 수동으로 편집 `alltables.sql` 하 여 변경 내용을 반영할 수 있습니다.
 
-### <a name="additional-reading"></a>추가 참조 항목
+### <a name="additional-reading"></a>추가 자료
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -69,7 +69,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>추가 참조 항목
+### <a name="additional-reading"></a>추가 자료
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -95,7 +95,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>추가 참조 항목
+### <a name="additional-reading"></a>추가 자료
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)(Hive 구성 속성)
 
@@ -132,7 +132,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     - **TaskConcurrencyAnalyzer**: DAG에 작업 동시성 정보를 출력합니다.
     - **VertexLevelCriticalPathAnalyzer**: DAG에서 꼭짓점 수준의 중요 경로를 찾습니다.
 
-### <a name="additional-reading"></a>추가 참조 항목
+### <a name="additional-reading"></a>추가 자료
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -157,7 +157,7 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
   3. 보려는 DAG를 선택합니다.
   4. **데이터 다운로드**를 선택합니다.
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 참조 항목
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 자료
 
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 

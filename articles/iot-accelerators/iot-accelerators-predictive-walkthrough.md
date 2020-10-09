@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73827424"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>예측 유지 관리 솔루션 가속기 개요
@@ -53,7 +53,7 @@ Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 �
 
 또한 시뮬레이션된 디바이스는 솔루션의 IoT Hub에서 보낸 다음 명령을 처리할 수 있습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | StartTelemetry |시뮬레이션의 상태를 제어합니다.<br/>디바이스의 원격 분석 발신을 시작합니다. |
 | StopTelemetry |시뮬레이션의 상태를 제어합니다.<br/>원격 분석을 보내는 디바이스를 중지합니다. |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76275162"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 시리즈 업데이트 5 릴리스 정보
@@ -44,7 +44,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 다음 표에는 업데이트 5에서 해결된 문제가 요약되어 있습니다.
 
-| 아니요 | 기능 | 문제점 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아니요 | 기능 | 문제 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell 원격 기능 |이전 릴리스에서는 Windows PowerShell을 통해 StorSimple Cloud Appliance에 대해 원격 연결을 설정하는 동안 오류가 발생합니다. 이 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |아니요 |예 |
 | 2 |대역폭 템플릿 |이전 릴리스에서는 대역폭 템플릿에 문제가 있어서 디바이스가 구성된 것보다 더 낮은 대역폭을 발생했습니다. 이 문제는 이 릴리스에서 해결되었습니다. |예 |예 |

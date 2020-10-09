@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415317"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
@@ -41,11 +41,11 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 | **속성**  | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
-| name  | 파이프라인의 작업 이름입니다.  | String | 예 |
-| 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
+| name  | 파이프라인의 작업 이름입니다.  | 문자열 | 예 |
+| type  | 작업의 형식은 'AzureFunctionActivity'입니다. | 문자열 | 예 |
 | 연결된 서비스 | 해당하는 Azure 함수 앱에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
-| 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
-| method  | 함수 호출에 대한 REST API 메서드입니다. | 지원 되는 문자열 형식: "GET", "POST", "PUT"   | 예 |
+| 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | 문자열 | 예 |
+| 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 지원 되는 문자열 형식: "GET", "POST", "PUT"   | 예 |
 | header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 아니요 |
 | 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |
 |   |   |   | |
@@ -54,7 +54,7 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 ## <a name="routing-and-queries"></a>라우팅 및 쿼리
 
-Azure 함수 작업은 **라우팅**을 지원합니다. 예를 들어 Azure 함수에 끝점이 있는 경우 `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` `functionName` Azure function 활동에서 사용할는 `<functionName>/<value>` 입니다. 이 함수를 매개 변수화 하 여 런타임에 원하는를 제공할 수 있습니다 `functionName` .
+Azure 함수 작업은 **라우팅**을 지원합니다. 예를 들어 Azure 함수에 끝점이 있는 경우  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` `functionName` Azure function 활동에서 사용할는 `<functionName>/<value>` 입니다. 이 함수를 매개 변수화 하 여 런타임에 원하는를 제공할 수 있습니다 `functionName` .
 
 또한 Azure 함수 작업은 **쿼리**를 지원합니다. 쿼리는의 일부로 포함 되어야 `functionName` 합니다. 예를 들어 함수 이름이이 `HttpTriggerCSharp` 고 포함 하려는 쿼리가 인 경우 `name=hello` `functionName` Azure function 활동에서로를 생성할 수 있습니다 `HttpTriggerCSharp?name=hello` . 이 함수는 매개 변수화 할 수 있으므로 런타임에 값을 결정할 수 있습니다.
 

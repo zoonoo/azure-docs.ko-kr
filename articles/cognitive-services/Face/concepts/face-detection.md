@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
 ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73743061"
 ---
 # <a name="face-detection-and-attributes"></a>얼굴 감지 및 특성
@@ -58,7 +58,7 @@ ms.locfileid: "73743061"
 > [!IMPORTANT]
 > 얼굴 특성은 통계 알고리즘을 사용 하 여 예측 됩니다. 항상 정확 하지 않을 수 있습니다. 특성 데이터를 기반으로 결정을 내릴 때는 주의 해야 합니다.
 
-## <a name="input-data"></a>데이터 입력
+## <a name="input-data"></a>입력 데이터
 
 다음 팁을 사용 하 여 입력 이미지가 가장 정확한 검색 결과를 제공 하는지 확인 합니다.
 

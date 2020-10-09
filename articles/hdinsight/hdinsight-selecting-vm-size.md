@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73682200"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Azure HDInsight 클러스터에 적합 한 VM 크기 선택
@@ -55,13 +55,13 @@ Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화
 
 | 클러스터 유형 | 버전 | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
 |---|---|---|---|---|
-| Spark | 모두 | F4 이상 | no | no |
-| Hadoop은 | 모두 | F4 이상 | no | no |
-| Kafka | 모두 | F4 이상 | no | no |
-| HBase | 모두 | F4 이상 | no | no |
-| LLAP | disabled | no | no | no |
-| Storm | disabled | no | no | no |
-| ML 서비스 | HDI 3.6만 해당 | F4 이상 | no | no |
+| Spark | 모두 | F4 이상 | 아니요 | 아니요 |
+| Hadoop은 | 모두 | F4 이상 | 아니요 | 아니요 |
+| Kafka | 모두 | F4 이상 | 아니요 | 아니요 |
+| HBase | 모두 | F4 이상 | 아니요 | 아니요 |
+| LLAP | disabled | 아니요 | 아니요 | 아니요 |
+| Storm | disabled | 아니요 | 아니요 | 아니요 |
+| ML 서비스 | HDI 3.6만 해당 | F4 이상 | 아니요 | 아니요 |
 
 각 F 시리즈 SKU의 사양을 보려면 [f 시리즈 VM 크기](https://azure.microsoft.com/blog/f-series-vm-size/)를 참조 하세요.
 

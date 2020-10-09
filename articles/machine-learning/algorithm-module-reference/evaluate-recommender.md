@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76312263"
 ---
 # <a name="evaluate-recommender"></a>추천 평가
 
-이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 추천 평가 모듈을 사용 하는 방법을 설명 합니다. 목표는 권장 사항 모델이 만든 예측의 정확도를 측정 하는 것입니다. 이 모듈을 사용 하 여 다양 한 종류의 권장 사항을 평가할 수 있습니다.  
+이 문서에서는 Azure Machine Learning designer에서 추천 평가 모듈을 사용 하는 방법을 설명 합니다. 목표는 권장 사항 모델이 만든 예측의 정확도를 측정 하는 것입니다. 이 모듈을 사용 하 여 다양 한 종류의 권장 사항을 평가할 수 있습니다.  
   
 -   사용자 및 항목에 대해 예측 된 등급    
 -   사용자에 게 권장 되는 항목  
