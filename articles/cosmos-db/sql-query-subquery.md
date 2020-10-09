@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74870567"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 SQL 하위 쿼리 예제
@@ -47,7 +47,7 @@ Azure Cosmos DB의 SQL 쿼리는 항상 단일 열 (단순 값 또는 복잡 한
 
 다중값 하위 쿼리는 WHERE 절의 모든 교차 조인이 아니라 각 select-many 식 다음에 조건자를 푸시하여 조인 식을 최적화할 수 있습니다.
 
-다음 쿼리를 고려해 보세요.
+다음과 같은 쿼리를 고려해 보세요.
 
 ```sql
 SELECT Count(1) AS Count

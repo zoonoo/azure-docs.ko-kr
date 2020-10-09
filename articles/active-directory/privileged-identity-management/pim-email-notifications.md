@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232311"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
@@ -31,7 +31,7 @@ PIM (Privileged Identity Management)을 통해 역할이 할당 되거나 활성
 
 Azure AD 및 Azure 리소스 역할에 대 한 Privileged Identity Management에서 보낸 전자 메일의 보낸 사람 전자 메일 주소는 다음과 같습니다.
 
-- 전자 메일 주소: **azure-noreply \@ microsoft.com**
+- 전자 메일 주소:  **azure-noreply \@ microsoft.com**
 - 표시 이름: Microsoft Azure
 
 이러한 이메일은 제목 줄에 **PIM** 접두사를 포함합니다. 예를 들면 다음과 같습니다.
@@ -68,7 +68,7 @@ Azure AD 역할에 대 한 주별 Privileged Identity Management 요약 전자 �
 
 이메일에는 4개의 타일이 포함됩니다.
 
-| 타일 | Description |
+| Tile | 설명 |
 | --- | --- |
 | **Users activated(사용자가 활성화함)** | 사용자가 조직 내에서 적격 역할을 활성화 한 횟수입니다. |
 | **Users made permanent(사용자 영구 지정)** | 적격 할당이 있는 사용자가 영구 지정된 횟수입니다. |

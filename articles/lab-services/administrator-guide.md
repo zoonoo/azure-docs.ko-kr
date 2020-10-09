@@ -4,10 +4,10 @@ description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444151"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
@@ -117,7 +117,7 @@ Azure Lab Services를 시작하는 경우 리소스 그룹, 랩 계정, 클래�
 | Resource group | 하나 이상의 랩 계정과 하나 이상의 공유 이미지 갤러리 포함 | \<organization short name\>-\<environment\>-rg<ul><li>**조직 약식 이름**은 리소스 그룹이 지원하는 조직의 이름을 식별합니다.</li><li>**환경**은 파일럿 또는 프로덕션과 같은 리소스의 환경을 식별합니다.</li><li>**Rg**는 리소스 종류인 리소스 그룹을 나타냅니다.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | 랩 계정 | 하나 이상의 랩 포함 | \<organization short name\>-\<environment\>-la<ul><li>**조직 약식 이름**은 리소스 그룹이 지원하는 조직의 이름을 식별합니다.</li><li>**환경**은 파일럿 또는 프로덕션과 같은 리소스의 환경을 식별합니다.</li><li>**La**는 리소스 종류인 랩 계정을 나타냅니다.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | 클래스룸 랩 | 하나 이상의 VM 포함 |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**클래스 이름**은 랩에서 지원하는 클래스의 이름을 식별합니다.</li><li>**시간 범위**는 클래스가 제공되는 시간 범위를 식별합니다.</li>**교육자 식별자**는 랩을 소유하는 교육자를 식별합니다.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| 공유 이미지 갤러리 | 하나 이상의 VM 이미지 버전 포함 | \<organization short name\>gallery | contosouniversitylabsgallery |
+| 공유 이미지 갤러리 | 하나 이상의 VM 이미지 버전 포함 | \<organization short name\>갤러리 | contosouniversitylabsgallery |
 
 다른 Azure 리소스의 이름을 지정하는 방법에 대한 자세한 내용은 [Azure 리소스에 대한 명명 규칙](/azure/architecture/best-practices/naming-conventions)을 참조하세요.
 

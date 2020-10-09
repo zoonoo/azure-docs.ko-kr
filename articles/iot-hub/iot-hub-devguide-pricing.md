@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81729155"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
@@ -26,7 +26,7 @@ ms.locfileid: "81729155"
 
 ## <a name="charges-per-operation"></a>작업당 요금
 
-| 연산 | 대금 청구 정보 | 
+| 작업(Operation) | 대금 청구 정보 | 
 | --------- | ------------------- |
 | ID 레지스트리 작업 <br/> (만들기, 검색, 목록, 업데이트, 삭제) | 요금이 부과되지 않습니다. |
 | 디바이스-클라우드 메시지 | IoT Hub에 수신 시, 성공적으로 전송된 메시지는 4KB 청크 단위로 요금이 청구됩니다. 예를 들어 6KB 메시지에는 2개 메시지로 요금이 청구됩니다. |

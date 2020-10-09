@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417949"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
@@ -58,10 +58,10 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 name | `Until` 작업의 이름입니다. | String | 예
 type | **Until**로 설정해야 합니다. | String | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
-시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
+시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
 활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
-## <a name="example-1"></a>예 1
+## <a name="example-1"></a>예제 1
 
 > [!NOTE]
 > 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
@@ -117,7 +117,7 @@ type | **Until**로 설정해야 합니다. | String | 예
 
 ```
 
-## <a name="example-2"></a>예제 2 
+## <a name="example-2"></a>예 2 
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 반복의 출력 폴더로 복사합니다. repeat 매개 변수의 값이 false로 설정되거나 1분 후에 시간이 초과되면 반복이 종료됩니다.   
 
 ### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Until 작업이 포함된 파이프라인(Adfv2QuickStartPipeline.json)

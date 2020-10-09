@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 00cd1d39c0110aac9ea96f73127e83197976c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190132"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Azure Policy를 사용 하 여 사용자 지정 공급자에 대 한 연결 배포
@@ -29,7 +29,7 @@ Azure 정책을 사용 하 여 리소스를 사용자 지정 공급자에 연결
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>연결 배포 기본 제공 정책을 사용 하는 방법 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 사용자 지정 공급자에 게 작업을 수행 하기 위한 정책 범위에 대 한 권한이 필요한 경우 사용 권한을 부여 하지 않으면 연결 리소스의 정책 배포가 작동 하지 않습니다.
 
 ### <a name="policy-assignment"></a>정책 할당

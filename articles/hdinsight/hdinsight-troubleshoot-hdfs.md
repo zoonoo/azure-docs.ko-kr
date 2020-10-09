@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6de9e31c3e79f6d704ef8b4749d41329dcc0bddb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190686"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop HDFS 문제 해결
@@ -21,7 +21,7 @@ HDFS (Hadoop 분산 파일 시스템)를 사용할 때의 주요 문제 및 해�
 
 ## <a name="how-do-i-access-the-local-hdfs-from-inside-a-cluster"></a><a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>클러스터 내부에서 로컬 HDFS에 액세스하는 방법
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Storage를 사용하는 대신, 명령줄 및 애플리케이션 코드에서 로컬 HDFS에 액세스합니다.
 
@@ -74,7 +74,7 @@ HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Stora
 
 ## <a name="storage-exception-for-write-on-blob"></a>Blob에서 쓰기를 위한 스토리지 예외
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 또는 명령을 사용 하 여 `hadoop` `hdfs dfs` HBase 클러스터에서 12gb 이상인 파일을 작성 하는 경우 다음과 같은 오류가 발생할 수 있습니다.
 

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683738"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
@@ -82,7 +82,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 다음 섹션에서는 JSON 스키마의 다른 섹션에 대해 설명합니다.
 
-## <a name="simulation"></a>Simulation
+## <a name="simulation"></a>시뮬레이션
 
 `Simulation` 섹션에서는 시뮬레이션된 디바이스의 내부 상태를 정의합니다. 디바이스에서 전송하는 모든 원격 분석 값은 이 디바이스 상태의 일부여야 합니다.
 
@@ -119,7 +119,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="properties"></a>속성
 
-스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들어:
+스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "Properties": {

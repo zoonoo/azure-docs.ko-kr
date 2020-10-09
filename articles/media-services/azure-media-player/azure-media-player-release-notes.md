@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/05/2020
 ms.openlocfilehash: cc6b11ebc930c7798cb252f9c322a19c0b8ae0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81727126"
 ---
 # <a name="release-notes"></a>릴리스 정보
@@ -21,7 +21,7 @@ ms.locfileid: "81727126"
 
 [알려진 문제 목록](azure-media-player-known-issues.md)
 
-[변경 로그](azure-media-player-changelog.md "Changelog")
+[Changelog](azure-media-player-changelog.md "Changelog")
 
 <!-- Typescript definitions were moved to the samples repository.>-->
 [TypeScript 정의 (d. ts)](https://github.com/Azure-Samples/azure-media-player-samples "azure-mobile-services-client에" )

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81450941"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>결합 된 보안 정보 등록 문제 해결
@@ -30,7 +30,7 @@ ms.locfileid: "81450941"
 
 다음 표에서는 결합 된 등록에 의해 생성 된 모든 감사 이벤트를 보여 줍니다.
 
-| 활동 | 상태 | 이유 | Description |
+| 활동 | 상태 | 이유 | 설명 |
 | --- | --- | --- | --- |
 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 성공 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 이 이벤트는 사용자가 성공적으로 등록을 완료 했을 때 발생 합니다.|
 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 실패 | 사용자가 보안 정보 등록을 취소 했습니다. | 이 이벤트는 사용자가 인터럽트 모드에서 등록을 취소할 때 발생 합니다.|
@@ -68,7 +68,7 @@ ms.locfileid: "81450941"
 
 다음 단계는 사용자 또는 사용자 그룹을 롤백하는 데 도움이 됩니다.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 1. 적절 한 Azure AD PowerShell 모듈을 설치 합니다. PowerShell 창에서 다음 명령을 실행하여 모듈을 설치합니다.
 

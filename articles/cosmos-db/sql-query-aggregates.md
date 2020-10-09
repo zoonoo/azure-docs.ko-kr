@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79464464"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Azure Cosmos DB 집계 함수
@@ -61,9 +61,9 @@ VALUE 키워드를 사용 하 여 집계의 스칼라 값만 반환할 수도 �
 
 ## <a name="types-of-aggregate-functions"></a>집계 함수 유형
 
-SQL API는 다음과 같은 집계 함수를 지원 합니다. `SUM`및 `AVG` 는 숫자 값에 대해 작동 `COUNT` 하며 `MIN` `MAX` 숫자, 문자열, 부울 및 null에 대 한 작업을 수행 합니다.
+SQL API는 다음과 같은 집계 함수를 지원 합니다. `SUM` 및 `AVG` 는 숫자 값에 대해 작동 `COUNT` 하며 `MIN` `MAX` 숫자, 문자열, 부울 및 null에 대 한 작업을 수행 합니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 |-------|-------------|
 | 개수 | 식에서 항목 수를 반환합니다. |
 | 합계   | 식에서 모든 값의 합계를 반환합니다. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81451689"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
@@ -25,7 +25,7 @@ ms.locfileid: "81451689"
 
 현재, 사용자 지정 활동을 제외한 모든 활동 유형에서 이 기능이 지원됩니다. 구체적인 커넥터 구성에 대해서는 [각 커넥터 항목](copy-activity-overview.md#supported-data-stores-and-formats)의 "연결된 서비스 속성" 섹션을 확인하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다. [데이터 팩터리에 대 한 관리 id](data-factory-service-identity.md) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리에 연결 된 id가 있는지 확인 합니다.
 
@@ -42,7 +42,7 @@ Azure Key Vault에 저장된 자격 증명을 참조하려면 다음을 수행�
 
 Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureKeyVault**로 설정되어야 합니다. | 예 |
 | baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
@@ -75,7 +75,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 키 자격 증명 모음 암호를 참조하는 연결된 서비스에서 필드를 구성할 때 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 필드의 형식 속성을 **AzureKeyVaultSecret**으로 설정해야 합니다. | 예 |
 | secretName | Azure Key Vault의 비밀 이름입니다. | 예 |

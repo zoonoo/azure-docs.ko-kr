@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024968"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용 하 여 자동 IoT 장치 및 모듈 관리
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용한 자동 IoT 디바이스 및 모듈 관리
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -105,7 +105,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 }
 ```
 
-모듈에 대 한 메트릭 쿼리는 장치에 대 한 쿼리와도 유사 하지만에서를 선택 `moduleId` `devices.modules` 합니다. 예를 들어: 
+모듈에 대 한 메트릭 쿼리는 장치에 대 한 쿼리와도 유사 하지만에서를 선택 `moduleId` `devices.modules` 합니다. 예를 들면 다음과 같습니다. 
 
 ```json
 {

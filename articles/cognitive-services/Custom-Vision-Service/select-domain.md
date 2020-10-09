@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
 ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82127768"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Custom Vision 프로젝트에 대 한 도메인 선택
@@ -23,7 +23,7 @@ Custom Vision 프로젝트의 설정 블레이드에서 프로젝트의 도메�
 
 ## <a name="image-classification"></a>이미지 분류
 
-|도메인|용도|
+|도메인|목적|
 |---|---|
 |__일반__| 광범위한 이미지 분류 작업에 최적화되었습니다. 다른 도메인이 적절하지 않거나 선택할 도메인을 잘 모르겠으면 일반 도메인을 선택합니다.|
 |__음식__|식당 메뉴에 표시되는 것 같은 음식 사진에 최적화되었습니다. 개별 과일이나 채소 사진을 분류하려면 음식 도메인을 사용합니다.|
@@ -33,24 +33,24 @@ Custom Vision 프로젝트의 설정 블레이드에서 프로젝트의 도메�
 
 ## <a name="object-detection"></a>개체 감지
 
-|도메인|용도|
+|도메인|목적|
 |---|---|
 |__일반__| 광범위한 개체 감지 작업에 맞게 최적화됩니다. 다른 도메인이 적절하지 않거나 선택할 도메인을 잘 모르겠으면 일반 도메인을 선택합니다.|
 |__로고__|이미지에서 브랜드 로고를 찾도록 최적화됩니다.|
-|__선반에 대 한 제품__|선반에서 제품을 검색 하 고 분류 하는 데 최적화 되어 있습니다.|
+|__선반 위의 제품__|선반에서 제품을 검색하고 분류하는 데 최적화되어 있습니다.|
 |__압축 도메인__| Edge 장치에서 실시간 개체 검색의 제약 조건에 맞게 최적화 되었습니다.|
 
 ## <a name="compact-domains"></a>압축 도메인
 
-압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다. 모델 성능은 선택한 도메인에 따라 달라 집니다. 아래 표에서는 Intel Desktop CPU 및 NVidia GPU \[1\]에 대 한 모델 크기 및 유추 시간을 보고 합니다. 
+압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다. 모델 성능은 선택한 도메인에 따라 달라 집니다. 아래 표에서는 Intel Desktop CPU 및 NVidia GPU 1에 대 한 모델 크기 및 유추 시간을 보고 \[ 합니다 \] . 
 
 > [!NOTE]
 > 이러한 숫자에는 전처리 및 후 처리 시간이 포함 되지 않습니다.
 
-|작업|도메인|모델 크기|CPU 유추 시간|GPU 유추 시간|
+|Task|도메인|모델 크기|CPU 유추 시간|GPU 유추 시간|
 |---|---|---|---|---|
-|분류|일반(압축)|5MB|13ms|5ms|
-|개체 감지|일반(압축)|45 M B|35 밀리초|5ms|
+|분류|일반(압축)|5 MB|13ms|5ms|
+|개체 감지|일반(압축)|45MB|35 밀리초|5ms|
 |개체 감지|일반 (압축) [S1]|14MB|27 밀리초|7ms|
 
 ## <a name="vaidk-vision-ai-dev-kit"></a>VAIDK (시각 AI Dev Kit)
@@ -70,4 +70,4 @@ _시각 AI Dev Kit_ 를 선택 하면 _Generic_, _랜드마크_및 _Retail_ 이 
 >[!IMPORTANT]
 >내보낸 모델이 클라우드의 예측 API와 정확히 동일한 결과를 제공할 수 있는 것은 아닙니다. 실행 중인 플랫폼 또는 전처리 구현의 약간 차이가 있으면 모델 출력의 차이가 더 커질 수 있습니다. 전처리 논리에 대 한 자세한 내용은 [이 문서](quickstarts/image-classification.md)를 참조 하세요.
 
-\[1\] Intel Xeon E5-2690 CPU 및 NVIDIA Tesla M60
+\[1 \] Intel Xeon E5-2690 CPU 및 NVIDIA Tesla M60

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75435387"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
@@ -35,7 +35,7 @@ Apache Storm은 내결함성이 있는 오픈 소스 분산형 계산 시스템�
 
 자세한 내용은 [Azure HDInsight의 Apache Storm이란?](storm/apache-storm-overview.md)을 참조하세요.
 
-## <a name="spark-streaming"></a>Spark 스트리밍
+## <a name="spark-streaming"></a>Spark Streaming
 
 Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하는 것과 동일한 코드를 재사용할 수 있도록 합니다. 일괄 처리 및 대화형 쿼리를 모두 동일한 애플리케이션에서 결합할 수 있습니다. 폭풍과 달리 Spark 스트리밍은 처리 의미 체계를 정확히 한 번만 제공 합니다. [Kafka DIRECT API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)와 함께 사용 하는 경우 Spark 스트리밍이 모든 kafka 데이터를 정확히 한 번만 수신 하도록 하는 것은 완벽 하 게 한 번의 종단 간 달성할 수 있습니다. Spark 스트리밍의 장점 중 하나는 클러스터 내에서 여러 노드를 사용할 때 장애가 발생한 노드를 빠르게 복구하는 내결함성 기능입니다.
 
@@ -49,7 +49,7 @@ Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하�
 
 ### <a name="scale-the-stream-buffering-layer"></a>스트림 버퍼링 계층의 크기 조정
 
-스트림 버퍼링 기술인 Event Hubs와 Kafka는 모두 파티션을 사용하고, 소비자는 이러한 파티션을 읽습니다. 입력 처리량을 조정하려면 파티션 수를 강화해야 하며, 파티션을 추가하면 병렬 처리가 증가합니다. Event Hubs 배포 후에 파티션 수를 변경할 수 없으므로 대상 규모를 염두에 두어야 합니다. Kafka을 사용 하면 Kafka가 데이터를 처리 하는 동안에도 [파티션을 추가할](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)수 있습니다. Kafka는 파티션을 다시 할당하는 도구(`kafka-reassign-partitions.sh`)를 제공합니다. HDInsight는 [파티션 복제본 균형 조정 도구인](https://github.com/hdinsight/hdinsight-kafka-tools)를 제공 `rebalance_rackaware.py` 합니다. 이 재조정 도구는 각 복제본이 별도의 장애 도메인 및 업데이트 도메인에 있는 방식으로 `kafka-reassign-partitions.sh` 도구를 호출하여 Kafka 랙을 인식하고 내결함성을 향상시킵니다.
+스트림 버퍼링 기술인 Event Hubs와 Kafka는 모두 파티션을 사용하고, 소비자는 이러한 파티션을 읽습니다. 입력 처리량을 조정하려면 파티션 수를 강화해야 하며, 파티션을 추가하면 병렬 처리가 증가합니다. Event Hubs 배포 후에 파티션 수를 변경할 수 없으므로 대상 규모를 염두에 두어야 합니다. Kafka을 사용 하면 Kafka가 데이터를 처리 하는 동안에도 [파티션을 추가할](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)수 있습니다. Kafka는 파티션을 다시 할당하는 도구(`kafka-reassign-partitions.sh`)를 제공합니다. HDInsight는 [파티션 복제본 균형 조정 도구인](https://github.com/hdinsight/hdinsight-kafka-tools)를 제공  `rebalance_rackaware.py` 합니다. 이 재조정 도구는 각 복제본이 별도의 장애 도메인 및 업데이트 도메인에 있는 방식으로 `kafka-reassign-partitions.sh` 도구를 호출하여 Kafka 랙을 인식하고 내결함성을 향상시킵니다.
 
 ### <a name="scale-the-stream-processing-layer"></a>스트림 처리 계층의 크기 조정
 

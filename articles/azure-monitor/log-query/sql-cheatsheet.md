@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: c76ab145fd2fdd077075b345ecac9c6a473f2369
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75365192"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL-Azure Monitor 로그 쿼리 참고 자료 
@@ -19,7 +19,7 @@ ms.locfileid: "75365192"
 
 ## <a name="sql-to-azure-monitor"></a>SQL-Azure Monitor
 
-설명                             |SQL 쿼리                                                                                          |Azure Monitor 로그 쿼리
+Description                             |SQL 쿼리                                                                                          |Azure Monitor 로그 쿼리
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 테이블에서 모든 데이터 선택            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 테이블에서 특정 열 선택    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
