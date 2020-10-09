@@ -6,11 +6,11 @@
       items:
         - name: Virtual Machines
           items:
-            - name: Windows 가상 머신
+            - name: Windows Virtual Machines
               href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-            - name: Linux 가상 머신
+            - name: Linux Virtual Machines
               href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-        - name: Virtual Network
+        - name: 가상 네트워크
           items:
             - name: Azure 포털을 사용하여 가상 네트워크 만들기
               href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json

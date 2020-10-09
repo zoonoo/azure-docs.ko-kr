@@ -12,10 +12,10 @@ metadata:
   ms.author: tomfitz
   ms.date: 03/04/2020
   ms.openlocfilehash: 6a0c4ecff3f381dc12ba3ce6f385782754857bfe
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "78297734"
 highlightedContent:
   items:
@@ -55,7 +55,7 @@ conceptualContent:
       text: 모범 사례
     footerLink:
       url: templates/index.yml
-      text: 자세히 보기
+      text: 자세한 내용
   - title: 리소스 관리
     links:
     - url: management/overview.md
@@ -78,7 +78,7 @@ conceptualContent:
       text: 구독 및 서비스 한도
     footerLink:
       url: management/index.yml
-      text: 자세히 보기
+      text: 자세한 내용
   - title: Managed Applications
     links:
     - url: managed-applications/overview.md
@@ -95,7 +95,7 @@ conceptualContent:
       text: Marketplace에 앱 추가
     footerLink:
       url: managed-applications/index.yml
-      text: 자세히 보기
+      text: 자세한 내용
   - title: Azure 사용자 지정 공급자
     links:
     - url: custom-providers/overview.md

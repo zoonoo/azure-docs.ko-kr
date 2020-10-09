@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure DevOps 스타터를 사용 하 여 PHP 용 CI/CD 파이프라인 만들기'
+title: '빠른 시작: Azure DevOps Starter를 사용하여 PHP용 CI/CD 파이프라인 만들기'
 description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,15 +14,15 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233791"
 ---
-# <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 PHP 용 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 PHP용 CI/CD 파이프라인 만들기
 
-Azure DevOps 스타터는 Azure 리소스를 만들고 Azure Pipelines PHP 앱에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인을 설정 하는 간소화 된 환경을 제공 합니다.  
+Azure DevOps Starter는 Azure 리소스를 만들고, Azure Pipelines에서 PHP 앱에 대한 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정하는 간소화된 환경을 제공합니다.  
 
 Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독을 구할 수 있습니다.
 
@@ -52,19 +52,19 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
     
     1. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 입력한 후 **완료**를 선택합니다.  
     
-    몇 분 후에 DevOps 스타터 대시보드가 Azure Portal 표시 됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.  
+    잠시 후에 DevOps Starter 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.  
         
 2. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
     ![대시보드 보기](_img/azure-devops-project-php/dashboardnopreview.png) 
     
-   DevOps 스타터는 CI 빌드 및 릴리스 트리거를 자동으로 구성 합니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 PHP 앱에서 팀과 협업할 준비가 되었습니다.
+   DevOps Starter는 CI 빌드 및 릴리스 트리거를 자동으로 구성했습니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 PHP 앱에서 팀과 협업할 준비가 되었습니다.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
  DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps 스타터 대시보드 왼쪽의 마스터 분기에 대 한 링크를 선택 합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
+1. DevOps Starter 대시보드 왼쪽에서 마스터 분기에 대한 링크를 선택합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
 1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제**를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋합니다.
 
@@ -74,15 +74,15 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
 1. **커밋**을 선택하고 변경 내용을 저장합니다.
 
-1. 브라우저에서 DevOps Starter 대시보드로 이동합니다. 이제 빌드가 진행되고 있다고 표시됩니다. 방금 만든 변경 내용은 자동으로 빌드 및 CI/CD 파이프라인을 통해 배포 됩니다.
+1. 브라우저에서 DevOps Starter 대시보드로 이동합니다. 이제 빌드가 진행되고 있다고 표시됩니다. 방금 변경한 내용은 CI/CD 파이프라인을 통해 자동으로 빌드되고 배포됩니다.
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
- DevOps 스타터는 Azure Pipelines에서 전체 CI/CD 파이프라인을 자동으로 구성 합니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. 빌드 및 릴리스 파이프라인에 익숙해지려면 다음을 수행합니다.
+ DevOps Starter는 Azure Pipelines에서 전체 CI/CD 파이프라인을 자동으로 구성합니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. 빌드 및 릴리스 파이프라인에 익숙해지려면 다음을 수행합니다.
 
 1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다. 이 링크를 클릭하면 브라우저 탭, 새 프로젝트에 대한 빌드 파이프라인이 열립니다.
 
-1. **상태** 필드를 가리킨 다음 **줄임표** (...)를 선택 합니다. 메뉴에는 새 빌드 큐 대기, 빌드 일시 중지, 빌드 파이프라인 편집 등의 몇 가지 옵션이 표시 됩니다.
+1. **상태** 필드를 가리킨 후 **줄임표**(...)를 선택합니다. 메뉴에 새 빌드 쿼리, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 몇 가지 옵션이 표시됩니다.
 
 1. **편집**을 선택합니다.
 
@@ -90,11 +90,11 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
 1. 빌드 파이프라인의 맨 위에서 빌드 파이프라인 이름을 선택합니다.
 
-1. 빌드 파이프라인의 이름을 보다 설명적인 이름으로 변경 하 고, **& 큐를 저장**하 고, **저장**을 선택 합니다.
+1. 빌드 파이프라인의 이름을 좀 더 구체적인 것으로 변경하고 **저장 및 큐에 넣기**, **저장**을 차례로 선택합니다.
 
 1. 빌드 파이프라인 이름에서 **기록**을 선택합니다.  **기록** 창에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure Pipelines는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
-1. **트리거**를 선택합니다. DevOps 스타터에서 자동으로 CI 트리거를 만들고 리포지토리에 대 한 모든 커밋을 새 빌드를 시작 합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+1. **트리거**를 선택합니다. DevOps Starter는 CI 트리거를 자동으로 생성했으며 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
@@ -110,7 +110,7 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
 1. 오른쪽에서 **릴리스 보기**를 선택하여 릴리스의 기록을 표시합니다.
 
-1. 릴리스 중 하나 옆에 있는 줄임표 (...)를 선택 하 고 **열기**를 선택 합니다. 릴리스 요약, 연결된 작업 항목 및 테스트 등 여러 메뉴를 이 보기에서 탐색할 수 있습니다.
+1. 한 릴리스 옆에 있는 줄임표(...)를 선택하고 **열기**를 선택합니다. 릴리스 요약, 연결된 작업 항목 및 테스트 등 여러 메뉴를 이 보기에서 탐색할 수 있습니다.
 
 1. **커밋**을 선택합니다. 이 보기에는 특정 배포와 연결된 코드 커밋이 표시됩니다. 
 

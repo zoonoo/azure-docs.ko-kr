@@ -106,7 +106,7 @@
           href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples'
         - name: Node.js SDK 샘플
           href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples'
-        - name: 'C#의 REST API 샘플'
+        - name: C#의 REST API 샘플
           href: samples-rest.md
         - name: 기타 Azure 샘플
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator'

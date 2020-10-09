@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure DevOps 스타터를 사용 하 여 Go 프로그래밍 언어에 대 한 CI/CD 파이프라인 만들기'
+title: '빠른 시작: Azure DevOps Starter를 사용하여 Go 프로그래밍 언어용 CI/CD 파이프라인 만들기'
 description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 Azure 서비스에서 Go 프로그래밍 언어 웹앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,15 +14,15 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 02304758ef89ff7c94d1c3d8f98f6931ab7fd8dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233128"
 ---
-# <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 Go에 대 한 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Go용 CI/CD 파이프라인 만들기
 
-Azure DevOps 스타터를 사용 하 여 Go 앱에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트)를 구성 합니다. DevOps 스타터는 Azure DevOps 빌드 및 릴리스 파이프라인의 초기 구성을 간소화 합니다.
+Azure DevOps Starter를 사용하여 Go 앱에 대한 CI(연속 통합) 및 CD(지속적인 업데이트)를 구성합니다. DevOps Starter는 Azure DevOps 빌드 및 릴리스 파이프라인의 초기 구성을 간소화합니다.
 
 Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독을 구할 수 있습니다.
 
@@ -50,7 +50,7 @@ DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 
 
 1. Azure DevOps 프로젝트의 이름을 입력합니다. 
 
-1. Azure 구독 및 위치를 선택하고 앱의 이름을 입력한 후 **완료**를 선택합니다. 몇 분 후에 DevOps 스타터 대시보드가 Azure Portal 표시 됩니다. 샘플 앱이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 앱이 Azure에 배포됩니다. 
+1. Azure 구독 및 위치를 선택하고 앱의 이름을 입력한 후 **완료**를 선택합니다. 잠시 후에 DevOps Starter 대시보드가 Azure Portal에 표시됩니다. 샘플 앱이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 앱이 Azure에 배포됩니다. 
 
     이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다. 오른쪽에서 **찾아보기**를 선택하여 실행 중인 앱을 확인합니다.
 
@@ -58,9 +58,9 @@ DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 
 
 ## <a name="commit-your-code-changes-and-execute-the-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
-DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 앱의 코드를 변경하려면 다음 단계를 수행합니다.
+DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 앱의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps 스타터의 왼쪽에서 마스터 분기에 대 한 링크를 선택 합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
+1. DevOps Starter 왼쪽에서 마스터 분기에 대한 링크를 선택합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
 1. 리포지토리 복제 URL을 보려면 오른쪽 위에 있는 **복제**를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋할 수 있습니다.
 
