@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396249"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828040"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,6 +106,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 #### <a name="remarks"></a>설명
 
 - 감사 로그는 Azure 구독의 Azure Blob storage에 있는 **추가 blob** 에 기록 됩니다.
+- 감사 로그는 xel 형식 이므로 [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 열 수 있습니다.
 - 서버 또는 데이터베이스 수준 감사 이벤트에 대 한 변경할 수 없는 로그 저장소를 구성 하려면 [Azure Storage에서 제공](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)하는 지침을 따르세요. 변경할 수 없는 blob storage를 구성할 때 **추가 추가 허용** 을 선택 했는지 확인 합니다.
 - VNet 또는 방화벽 뒤에 Azure Storage 계정에 감사 로그를 쓸 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조 하세요.
 - 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.

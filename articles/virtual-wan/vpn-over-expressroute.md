@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317636"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827970"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
@@ -22,7 +22,7 @@ ms.locfileid: "91317636"
 
 다음 다이어그램에서는 Express 경로 개인 피어 링을 통한 VPN 연결의 예를 보여 줍니다.
 
-![Express 경로를 통한 VPN](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="Express 경로를 통한 VPN":::
 
 이 다이어그램에서는 Express 경로 개인 피어 링을 통해 Azure 허브 VPN gateway에 연결 된 온-프레미스 네트워크 내의 네트워크를 보여 줍니다. 연결 설정은 다음과 같이 간단 합니다.
 
@@ -76,7 +76,7 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
 >
 
 1. 브라우저에서 Azure Portal로 이동 합니다. 
-1. 만든 WAN을 선택 합니다. WAN 페이지의 **연결**에서 **VPN 사이트**를 선택 합니다.
+1. 만든 허브를 선택 합니다. 가상 WAN 허브 페이지의 **연결**에서 **VPN 사이트**를 선택 합니다.
 1. **VPN 사이트** 페이지에서 **+ 사이트 만들기**를 선택 합니다.
 1. **사이트 만들기** 페이지에서 다음 필드를 채웁니다.
    * **구독**: 구독을 확인 합니다.
@@ -104,12 +104,17 @@ Azure 가상 WAN 및 Express 경로 연결을 사용 하는 허브를 만드는 
 VPN 사이트를 만들고 허브에 연결한 후에는 다음 단계를 사용 하 여 Express 경로 개인 피어 링을 사용 하도록 연결을 구성 합니다.
 
 1. 가상 WAN 리소스 페이지로 돌아가서 허브 리소스를 선택 합니다. 또는 VPN 사이트에서 연결 된 허브로 이동 합니다.
+
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Express 경로를 통한 VPN":::
 1. **연결**에서 **VPN (사이트 간)** 을 선택 합니다.
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Express 경로를 통한 VPN":::
 1. Express 경로를 통해 VPN 사이트에서 줄임표 (**...**)를 선택 하 고 **이 허브에 대 한 vpn 연결 편집**을 선택 합니다.
+
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Express 경로를 통한 VPN":::
 1. **Azure 개인 IP 주소 사용**에 대해 **예**를 선택 합니다. 설정은 공용 IP 주소가 아닌이 연결에 대해 게이트웨이의 허브 주소 범위 내에서 개인 IP 주소를 사용 하도록 허브 VPN gateway를 구성 합니다. 이렇게 하면 온-프레미스 네트워크의 트래픽이이 VPN 연결에 공용 인터넷을 사용 하는 대신 Express 경로 개인 피어 링 경로를 통과 하 게 됩니다. 다음 스크린샷에서는 설정을 보여 줍니다.
 
-   ![VPN 연결에 개인 IP 주소를 사용 하도록 설정](./media/vpn-over-expressroute/vpn-link-configuration.png)
-   
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Express 경로를 통한 VPN" border="false":::
 1. **저장**을 선택합니다.
 
 변경 내용을 저장 한 후에는 허브 VPN gateway에서 VPN 게이트웨이의 개인 IP 주소를 사용 하 여 Express 경로를 통해 온-프레미스 VPN 장치와의 IPsec/IKE 연결을 설정 합니다.
@@ -132,15 +137,15 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 * **vpnSiteConfiguration**:이 섹션에서는 가상 WAN에 연결 하는 사이트로 설정 된 장치 세부 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함 됩니다.
 * **vpnSiteConnections**:이 섹션에서는 다음 설정에 대 한 정보를 제공 합니다.
 
-    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예:
+    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예제:
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예:
+    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예제:
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예:
+    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예제:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"
@@ -225,11 +230,11 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 1. **개요** 페이지의 맵에 있는 각 점은 허브를 나타냅니다.
 1. 허브 **및 연결** 섹션에서 허브, 사이트, 지역 및 VPN 연결 상태를 볼 수 있습니다. 바이트 및 출력을 볼 수도 있습니다.
 
-## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. 연결 모니터링
+## <a name="6-monitor-a-connection"></a><a name="connectmon"></a>6. 연결 모니터링
 
 Azure VM (가상 머신)과 원격 사이트 간의 통신을 모니터링 하는 연결을 만듭니다. 연결 모니터를 설정하는 방법에 대한 자세한 내용은 [네트워크 통신 모니터링](~/articles/network-watcher/connection-monitor.md)을 참조하세요. 원본 필드는 Azure의 VM IP 이며 대상 IP는 사이트 IP입니다.
 
-## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. 리소스 정리
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. 리소스 정리
 
 이러한 리소스가 더 이상 필요 하지 않은 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거할 수 있습니다. 다음 PowerShell 명령을 실행 하 고을 `myResourceGroup` 리소스 그룹의 이름으로 바꿉니다.
 

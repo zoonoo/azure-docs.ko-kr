@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485722"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827524"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -69,7 +69,7 @@ Azure 통합 런타임은 안전하고 안정적이고 고성능의 방법으로
 
 활동 디스패치는 활동을 대상 계산 서비스로 라우팅하는 간단한 작업 이므로이 시나리오에 대 한 계산 크기를 확장할 필요가 없습니다.
 
-Azure IR를 만들고 구성 하는 방법에 대 한 자세한 내용은 방법 가이드에서 Azure IR를 만들고 구성 하는 방법을 참조 하세요. 
+Azure IR를 만들고 구성 하는 방법에 대 한 자세한 내용은 [Azure Integration Runtime을 만들고 구성 하는 방법](create-azure-integration-runtime.md)을 참조 하세요. 
 
 > [!NOTE] 
 > Azure Integration runtime에는 데이터 흐름을 실행 하는 데 사용 되는 기본 계산 인프라를 정의 하는 데이터 흐름 런타임과 관련 된 속성이 있습니다. 

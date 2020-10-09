@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057217"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826942"
 ---
 # <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-Custom Vision는 azure 리소스에 대 한 개별 액세스를 관리 하기 위한 권한 부여 시스템용 azure RBAC (역할 기반 액세스 제어)를 지원 합니다. RBAC를 사용 하 여 Custom Vision 프로젝트에 다른 팀 멤버에 게 다른 수준의 사용 권한을 할당 합니다. RBAC에 대 한 자세한 내용은 [AZURE rbac 설명서](https://docs.microsoft.com/azure/role-based-access-control/)를 참조 하세요.
+Custom Vision은 Azure 리소스에 대한 개별 액세스를 관리하는 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. RBAC를 사용 하 여 Custom Vision 프로젝트에 다른 팀 멤버에 게 다른 수준의 사용 권한을 할당 합니다. RBAC에 대 한 자세한 내용은 [AZURE rbac 설명서](https://docs.microsoft.com/azure/role-based-access-control/)를 참조 하세요.
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Custom Vision 리소스에 역할 할당 추가
 
@@ -43,8 +43,8 @@ Azure RBAC는 Custom Vision 리소스에 할당할 수 있습니다. Azure 리�
 
 |역할  |사용 권한  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | 프로젝트를 만들거나 편집 하거나 삭제 하는 기능을 포함 하 여 프로젝트에 대 한 모든 권한을 제공 합니다.        |
-|`Cognitive Service Custom Vision Trainer`     | 프로젝트를 만들거나 삭제 하는 기능을 제외한 모든 권한 교육자는 프로젝트를 보고 편집 하며 모델을 학습, 게시, 게시 취소 또는 내보낼 수 있습니다.        |
-|`Cognitive Service Custom Vision Labeler`     | 학습 이미지를 업로드, 편집 또는 삭제 하 고 태그를 만들거나 추가, 제거 또는 삭제할 수 있습니다. Labelers는 프로젝트를 볼 수 있지만 학습 이미지 및 태그 이외의 항목을 업데이트할 수는 없습니다.         |
-|`Cognitive Service Custom Vision Deployment`     | 모델을 게시, 게시 취소 또는 내보낼 수 있습니다. 배포자는 프로젝트를 볼 수 있지만 프로젝트, 학습 이미지 또는 태그를 업데이트할 수는 없습니다.        |
-|`Cognitive Service Custom Vision Reader`     | 프로젝트를 볼 수 있습니다. 판독기는 변경할 수 없습니다.        |
+|`Cognitive Services Custom Vision Contributor`     | 프로젝트를 만들거나 편집 하거나 삭제 하는 기능을 포함 하 여 프로젝트에 대 한 모든 권한을 제공 합니다.        |
+|`Cognitive Services Custom Vision Trainer`     | 프로젝트를 만들거나 삭제 하는 기능을 제외한 모든 권한 교육자는 프로젝트를 보고 편집 하며 모델을 학습, 게시, 게시 취소 또는 내보낼 수 있습니다.        |
+|`Cognitive Services Custom Vision Labeler`     | 학습 이미지를 업로드, 편집 또는 삭제 하 고 태그를 만들거나 추가, 제거 또는 삭제할 수 있습니다. Labelers는 프로젝트를 볼 수 있지만 학습 이미지 및 태그 이외의 항목을 업데이트할 수는 없습니다.         |
+|`Cognitive Services Custom Vision Deployment`     | 모델을 게시, 게시 취소 또는 내보낼 수 있습니다. 배포자는 프로젝트를 볼 수 있지만 프로젝트, 학습 이미지 또는 태그를 업데이트할 수는 없습니다.        |
+|`Cognitive Services Custom Vision Reader`     | 프로젝트를 볼 수 있습니다. 판독기는 변경할 수 없습니다.        |

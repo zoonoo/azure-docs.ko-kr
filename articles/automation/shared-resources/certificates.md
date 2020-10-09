@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: a4cc6a08ab0725f8fa3ceb745b933153842075a6
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1c79b7c239c41e8d195230423b17fa3c5a7f51a6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803180"
+ms.locfileid: "91825805"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Azure Automation에서 인증서 관리
 
@@ -84,10 +84,11 @@ New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $
 다음 예제에서는 PowerShell을 통해 Resource Manager 템플릿을 사용하여 Automation 계정에 인증서를 배포하는 방법을 보여 줍니다.
 
 ```powershell-interactive
-$PfxCertPath = '<PFX cert path>'
+$AutomationAccountName = "<automation account name>"
+$PfxCertPath = '<PFX cert path and filename>'
 $CertificatePassword = '<password>'
-$certificateName = '<certificate name>'
-$AutomationAccountName = '<automation account name>'
+$certificateName = '<certificate name>' #A name of your choosing
+$ResourceGroupName = '<resource group name>' #The one that holds your automation account
 $flags = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable `
     -bor [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::PersistKeySet `
     -bor [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::MachineKeySet
@@ -118,7 +119,7 @@ $json = @"
 "@
 
 $json | out-file .\template.json
-New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -TemplateFile .\template.json
+New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName $ResourceGroupName -TemplateFile .\template.json
 ```
 
 ## <a name="get-a-certificate"></a>인증서 얻기

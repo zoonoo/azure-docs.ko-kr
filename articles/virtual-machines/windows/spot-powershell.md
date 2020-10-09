@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8bcf90368e8d43dce2d10fa3744024bcbc7e4b52
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 44d23710db169fa27aaba8928d421918bef93fec
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816544"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825136"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 스폿 Vm 배포
 
@@ -73,8 +73,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## <a name="simulate-an-eviction"></a>제거 시뮬레이션
+
+응용 프로그램이 갑자기 제거 되는 것을 얼마나 잘 repond 테스트 하기 위해 지점 VM의 [제거를 시뮬레이션할](/rest/api/compute/virtualmachines/simulateeviction) 수 있습니다. 
+
+다음을 사용자의 정보로 바꿉니다. 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](../linux/spot-cli.md), [포털](spot-portal.md) 또는 [템플릿을](../linux/spot-template.md)사용 하 여 스폿 VM을 만들 수도 있습니다.
+[Azure CLI](../linux/spot-cli.md), [포털](../spot-portal.md) 또는 [템플릿을](../linux/spot-template.md)사용 하 여 스폿 VM을 만들 수도 있습니다.
+
+[Azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 현재 가격 정보를 쿼리하여 스폿 가격 책정에 대 한 정보를 파악 하세요. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
 
 오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요.

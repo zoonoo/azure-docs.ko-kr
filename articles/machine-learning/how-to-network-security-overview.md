@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776020"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825503"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -158,6 +158,12 @@ VNet 내부에서 전체 studio 기능을 사용 하도록 설정 하려면 [가
 Azure Machine Learning 작업 영역 리소스 및 공용 인터넷에 대 한 액세스를 제어 하도록 방화벽을 구성 합니다. Azure 방화벽을 권장 하는 동안 다른 방화벽 제품을 사용 하 여 네트워크를 보호할 수 있어야 합니다. 방화벽을 통한 통신을 허용 하는 방법에 대 한 질문이 있는 경우 사용 중인 방화벽에 대 한 설명서를 참조 하세요.
 
 방화벽 설정에 대 한 자세한 내용은 [방화벽 뒤에 작업 영역 사용](how-to-access-azureml-behind-firewall.md)을 참조 하세요.
+
+## <a name="custom-dns"></a>사용자 지정 DNS
+
+가상 네트워크에 대 한 사용자 지정 DNS 솔루션을 사용 해야 하는 경우 작업 영역에 대 한 호스트 레코드를 추가 해야 합니다.
+
+필요한 도메인 이름 및 IP 주소에 대 한 자세한 내용은 [사용자 지정 DNS 서버에서 작업 영역을 사용 하는 방법](how-to-custom-dns.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

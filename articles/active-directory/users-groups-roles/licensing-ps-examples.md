@@ -14,22 +14,60 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3db95c7ad7998817f4818203632310fe4aacb57a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797686"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827758"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
-[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스의 전체 기능을 사용할 수 있으며 현재 PowerShell 및 Microsoft Graph 지원은 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](/powershell/module/msonline) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
+[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스에 대 한 전체 기능을 사용할 수 있으며 현재는 기존 [msonline PowerShell cmdlet](/powershell/module/msonline) 및 Microsoft Graph를 사용 하 여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
 
 > [!NOTE]
 > Cmdlet 실행을 시작 하기 전에 cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다 `Connect-MsolService`   .
 
 > [!WARNING]
 > 이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용 하려는 경우 먼저 작은 규모에서 테스트 하거나 별도의 테스트 조직에서 테스트 해 보세요. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
+
+## <a name="assign-licenses-to-a-group"></a>그룹에 라이선스 할당
+
+Microsoft Graph를 사용 하 여 그룹에 라이선스를 할당 하려면 다음 샘플을 사용 합니다.
+
+```
+POST https://graph.microsoft.com/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
+Content-type: application/json
+{
+  "addLicenses": [
+    {
+      "disabledPlans": [ "11b0131d-43c8-4bbb-b2c8-e80f9a50834a" ],
+      "skuId": "c7df2760-2c81-4ef7-b578-5b5392b571df"
+    },
+    {
+      "disabledPlans": [ "a571ebcc-fqe0-4ca2-8c8c-7a284fd6c235" ],
+      "skuId": "sb05e124f-c7cc-45a0-a6aa-8cf78c946968"
+    }
+  ],
+  "removeLicenses": []
+}
+
+```
+출력:
+```
+HTTP/1.1 202 Accepted
+Content-type: application/json
+location: https://graph.microsoft.com/v2/d056d009-17b3-4106-8173-cd3978ada898/directoryObjects/1ad75eeb-7e5a-4367-a493-9214d90d54d0/Microsoft.DirectoryServices.Group
+
+{
+  "id": "1ad75eeb-7e5a-4367-a493-9214d90d54d0",
+  "deletedDateTime": null,
+  "classification": null,
+  "createdDateTime": "2018-04-18T22:05:03Z",
+  "securityEnabled": true,
+
+}
+```
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>그룹에 할당된 제품 라이선스 보기
 

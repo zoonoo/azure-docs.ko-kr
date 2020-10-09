@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 66b11a10e59ca0525c7836553a08a515ab4dc602
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: ec5790b44f281c7b7287e80369c7e4a0d5144542
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568253"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825985"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -103,7 +103,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **자카르타** | Telkom Indonesia | 4 | 해당 없음 | 10G | |
 | **요하네스버그** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | 남아프리카 북부 | 10G | BCX, British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Orange, Teraco |
 | **콸라룸푸르** | [TIME dotCom Menara AIMS](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | 해당 없음 | 해당 없음 | TIME dotCom |
-| **라스베이거스** | [Switch LV](https://www.switch.com/las-vegas) | 1 | 해당 없음 | 해당 없음 | CenturyLink Cloud Connect, Megaport, PacketFabric |
+| **라스베이거스** | [Switch LV](https://www.switch.com/las-vegas) | 1 | 해당 없음 | 10G, 100G | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **런던** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | 영국 남부 | 10G, 100G | AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **런던2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | 영국 남부 | 10G, 100G | CenturyLink Cloud Connect, Colt, GTT, IX Reach, 서, Megaport, SES, Telehouse-KDDI |
 | **로스앤젤레스** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | 해당 없음 | 10G, 100G | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705540"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825971"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -163,9 +163,9 @@ Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-ob
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Windows Autopilot 장치에 대해 걱정 해야 하는 이유는 무엇 인가요?
 
 Windows Autopilot 개체와 연결 된 Azure AD 장치를 삭제 하는 경우 나중에 장치를 다시 사용 하는 경우 다음 세 가지 시나리오가 발생할 수 있습니다.
-- 흰색 글러브을 사용 하지 않고 Windows Autopilot 사용자 기반 배포를 사용 하는 경우 새 Azure AD 장치가 만들어지지만 ZTDID로 태그가 지정 되지 않습니다.
+- 사전 프로 비전을 사용 하지 않고 Windows Autopilot 사용자 기반 배포를 사용 하는 경우 새 Azure AD 장치가 만들어지지만 ZTDID로 태그가 지정 되지 않습니다.
 - Windows Autopilot 자동 배포 모드 배포를 사용 하는 경우 연결 하는 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다.  이는 "가짜" 장치가 자격 증명 없이 Azure AD에 가입 하려고 시도 하는 것을 확인 하는 보안 메커니즘입니다. 실패는 ZTKEYKEYA를 표시 합니다.
-- Windows Autopilot white 글러브 배포를 사용 하는 경우 연결 된 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다. 백그라운드에서 흰색 글러브 배포는 동일한 자체 배포 모드 프로세스를 사용 하므로 동일한 보안 메커니즘을 적용 합니다.
+- Windows Autopilot 사전 프로 비전 배포를 사용 하는 경우 연결 된 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다. (백그라운드에서 사전 프로 비전 배포는 동일한 자체 배포 모드 프로세스를 사용 하므로 동일한 보안 메커니즘을 강제 적용 합니다.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>조인된 모든 유형의 디바이스를 확인하려면 어떻게 할까요?
 

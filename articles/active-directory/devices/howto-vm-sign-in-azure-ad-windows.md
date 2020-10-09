@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287103"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826666"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -191,7 +191,7 @@ az role assignment create \
 
 Azure RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)
+- [Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)
 - [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)
 - [Azure PowerShell를 사용 하 여 Azure 역할 할당을 추가 하거나 제거](../../role-based-access-control/role-assignments-powershell.md)합니다.
 
@@ -236,7 +236,7 @@ VM이 Azure AD 조인 프로세스를 완료 하려면 AADLoginForWindows 확장
 
    > [!NOTE]
    > 초기 실패 후 확장이 다시 시작 되 면 배포 오류가 발생 한 로그가 CommandExecution_YYYYMMDDHHMMSSSSS로 저장 됩니다. "
-1. VM에서 명령 프롬프트를 열고 Azure 호스트에서 실행 되는 Instance Metadata Service (IMDS) 끝점에 대해 이러한 쿼리가 반환 되는지 확인 합니다.
+1. VM에서 PowerShell 명령 프롬프트를 열고 Azure 호스트에서 실행 되는 Instance Metadata Service (IMDS) 끝점에 대해 이러한 쿼리가 반환 되는지 확인 합니다.
 
    | 실행할 명령 | 예상 출력 |
    | --- | --- |

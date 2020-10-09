@@ -4,12 +4,12 @@ description: Azure Application Insights 데이터를 사용하여 사용자 지�
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320411"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827742"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -153,5 +153,5 @@ availabilityResults
 * [Analytics 쿼리](../log-query/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
 * [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하는 방법에 대해 자세히 알아보기
 * [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
-* [Microsoft Flow](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.
+* [Microsoft Power 자동화](https://ms.flow.microsoft.com)에 대해 자세히 알아보세요.
 

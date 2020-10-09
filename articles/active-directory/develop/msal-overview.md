@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4da177644a1cdb648c00e8309c18031a905d7f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82181786"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825954"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
-MSAL (microsoft Authentication Library)을 통해 개발자는 보안 웹 Api에 액세스 하기 위해 Microsoft id 플랫폼 끝점에서 [토큰](developer-glossary.md#security-token) 을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API 일 수 있습니다. MSAL은 다양한 애플리케이션 아키텍처와 플랫폼을 지원하는 .NET, JavaScript, Android 및 iOS에서 사용할 수 있습니다.
+MSAL (microsoft Authentication Library)을 통해 개발자는 보안 웹 Api에 액세스 하기 위해 Microsoft id 플랫폼 끝점에서 [토큰](developer-glossary.md#security-token) 을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 다른 Microsoft Api, 타사 웹 Api 또는 고유한 web API 일 수 있습니다. MSAL은 다양 한 응용 프로그램 아키텍처 및 플랫폼을 지 원하는 .NET, JavaScript, Java, Python, Android 및 iOS에 사용할 수 있습니다.
 
 MSAL을 통해 여러 플랫폼에 대해 일관된 API를 사용하여 토큰을 얻을 수 있는 방법은 여러 가지입니다. MSAL을 사용하면 다음과 같은 이점이 있습니다.
 

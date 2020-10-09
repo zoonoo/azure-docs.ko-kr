@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: d850bcf2ffbd3867ab28d7dee54df3f8b427fd6e
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404754"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827851"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 원본 변환 
 
@@ -57,7 +57,9 @@ Azure Data Factory는 [90가지의 네이티브 커넥터](connector-overview.md
 
 ## <a name="source-settings"></a>원본 설정
 
-소스를 추가한 후에는 **소스 설정** 탭을 통해를 구성 합니다. 여기서 원본 지점의 데이터 집합을 선택 하거나 만들 수 있습니다. 데이터에 대 한 스키마 및 샘플링 옵션을 선택할 수도 있습니다.
+소스를 추가한 후에는 **소스 설정** 탭을 통해를 구성 합니다. 여기서 원본 지점의 데이터 집합을 선택 하거나 만들 수 있습니다. 데이터에 대 한 스키마 및 샘플링 옵션을 선택할 수도 있습니다. 
+
+데이터 집합 매개 변수에 대 한 개발 값은 [디버그 설정](concepts-data-flow-debug-mode.md) 에서 구성할 수 있습니다 (디버그 모드를 켜야 함).
 
 ![원본 설정 탭](media/data-flow/source1.png "원본 설정 탭")
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d22ec2219a86b8445931350b616dd76d0a22ec5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 133ea21bf7a7c1df0fccaeacce7d7a29199c033d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439806"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827655"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에서 그룹 추가 및 관리
 
@@ -101,6 +101,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 }
 ```
+
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
@@ -136,13 +137,20 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 두 가지 방법으로 Azure Portal의 관리 단위에서 그룹을 제거할 수 있습니다.
 
-**Azure AD** > **그룹**을 열고 관리 단위에서 제거하려는 그룹의 프로필을 엽니다. 왼쪽 패널에서 **관리 단위**를 선택하여 그룹이 멤버인 모든 관리 단위를 나열합니다. 그룹에서 제거하려는 관리 단위를 선택한 다음, **관리 단위에서 제거**를 선택합니다.
+- 그룹에서 제거 개요
 
-![관리 단위에서 그룹 제거](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
+  1. **Azure AD**  >  **그룹** 을 열고 관리 단위에서 제거 하려는 그룹의 프로필을 엽니다.
+  1. 왼쪽 패널에서 **관리 단위**를 선택하여 그룹이 멤버인 모든 관리 단위를 나열합니다. 그룹에서 제거하려는 관리 단위를 선택한 다음, **관리 단위에서 제거**를 선택합니다.
 
-또는 **Azure AD** > **관리 단위**로 이동하고 그룹이 멤버인 관리 단위를 선택합니다. 왼쪽 패널에서 **그룹**을 선택하여 멤버 그룹을 나열합니다. 관리 단위에서 제거할 그룹을 선택한 다음, **그룹 제거**를 선택합니다.
+    ![관리 단위에서 그룹 제거](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-![관리 단위에 그룹 나열](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+- 관리 단위에서 제거
+
+  1. **Azure AD**  >  **관리 단위** 를 열고 그룹이 구성원 인 관리 단위를 선택 합니다.
+  1. 왼쪽 패널에서 **그룹**을 선택하여 멤버 그룹을 나열합니다.
+  1. 관리 단위에서 제거할 그룹을 선택한 다음, **그룹 제거**를 선택합니다.
+
+    ![관리 단위에 그룹 나열](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

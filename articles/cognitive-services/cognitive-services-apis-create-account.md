@@ -5,23 +5,23 @@ description: Azure Portal에서 리소스를 만들고 구독 하 여 Azure Cogn
 services: cognitive-services
 author: aahill
 manager: nitinme
-keywords: 인식 서비스, 인식 인텔리전스, 인식 솔루션, ai 서비스
+keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비스
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 623982826f82e44b8d031d19002d33e0a8e798bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad20f589bb5a6d3e73481081d9fe532381ab647
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326867"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827393"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기
 
 이 빠른 시작을 사용 하 여 Azure Cognitive Services 사용을 시작 합니다. Azure Portal에서 인지 서비스 리소스를 만든 후에는 응용 프로그램을 인증 하는 데 사용할 수 있는 끝점 및 키를 가져옵니다.
 
-Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지적 인텔리전스를 애플리케이션에 빌드하도록 지원하는 데 사용할 수 있는 클라이언트 라이브러리 SDK입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
+Azure Cognitive Services는 REST Api를 사용 하는 클라우드 기반 서비스 이며, 개발자가 AI (인공 지능) 또는 데이터 과학 기술 또는 지식이 없어도 응용 프로그램에 인식 인텔리전스를 구축할 수 있도록 지 원하는 클라이언트 라이브러리 Sdk입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -72,7 +72,7 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
     |    |    |
     |--|--|
-    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *MyCognitiveServicesResource*입니다. |
+    | **이름** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *MyCognitiveServicesResource*입니다. |
     | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
     | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
     | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
@@ -86,7 +86,7 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
     |    |    |
     |--|--|
-    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *TextAnalyticsResource*입니다. |
+    | **이름** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *TextAnalyticsResource*입니다. |
     | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
     | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
     | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.

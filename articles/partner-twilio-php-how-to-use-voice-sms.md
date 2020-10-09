@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: c29e0f687e36eb679875ea7899aa1a0cd91bd122
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169496"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826810"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
@@ -74,7 +74,7 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](�
 
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
 
-## <a name="create-a-php-application"></a><a id="create_app"></a>HP 애플리케이션 만들기
+## <a name="create-a-php-application"></a><a id="create_app"></a>PHP 응용 프로그램 만들기
 Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 애플리케이션은 Twilio 서비스를 사용하는 다른 PHP 애플리케이션과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 PHP용 Twilio 라이브러리][twilio_php]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP 용 Twilio 라이브러리를 사용 하는 방법에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio.com/docs/libraries/php][twilio_lib_docs] .
 
 Twilio/PHP 애플리케이션을 빌드하여 Azure에 배포하는 방법에 대한 자세한 지침은 [Azure의 PHP 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_php]을 참조하세요.
@@ -84,7 +84,7 @@ Twilio/PHP 애플리케이션을 빌드하여 Azure에 배포하는 방법에 �
 
 1. GitHub ()에서 PHP 용 Twilio 라이브러리를 다운로드 [https://github.com/twilio/twilio-php][twilio_php] 하 고 응용 프로그램에 **Services** 디렉터리를 추가 합니다.
    
-    또는
+    -또는-
 2. PHP용 Twilio 라이브러리를 PEAR 패키지로 설치합니다. 다음 명령을 사용하여 설치할 수 있습니다.
 
     ```bash
@@ -146,7 +146,7 @@ catch (Exception $e)
 
 언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [고유한 웹 사이트에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하십시오.
 
-* **참고**: TLS/SSL 인증서 유효성 검사 오류를 해결 하려면 다음을 참조 하세요.[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **참고**: TLS/SSL 인증서 유효성 검사 오류를 해결 하려면 다음을 참조 하세요. [https://www.twilio.com/docs/api/errors][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>방법: SMS 메시지 보내기
 다음은 **Services_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. Twilio **는 평가판** 계정에 SMS 메시지를 보내기 위해 제공 번호를 제공 합니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.

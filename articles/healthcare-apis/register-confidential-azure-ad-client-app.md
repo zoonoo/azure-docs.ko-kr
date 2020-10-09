@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629147"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826228"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Azure Active Directory에서 기밀 클라이언트 응용 프로그램 등록
 
@@ -50,7 +50,7 @@ ms.locfileid: "91629147"
 
 1. **사용 권한 추가**를 선택합니다.
 
-    FHIR 용 Azure API를 사용 하는 경우 **조직에서 사용 하는 api**에서 **azure 의료 api** 를 검색 하 여 azure 의료 api에 대 한 사용 권한을 추가 합니다. 
+    FHIR 용 Azure API를 사용 하는 경우 **조직에서 사용 하는 api**에서 **azure 의료 api** 를 검색 하 여 azure 의료 api에 대 한 사용 권한을 추가 합니다. [FHIR 용 AZURE API를 이미 배포한](fhir-paas-powershell-quickstart.md)경우에만이를 찾을 수 있습니다.
 
     다른 리소스 응용 프로그램을 참조 하는 경우 이전에 **내 api**에서 만든 [Fhir Api 리소스 응용 프로그램 등록](register-resource-azure-ad-client-app.md) 을 선택 합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "91629147"
 
 ## <a name="application-secret"></a>애플리케이션 암호
 
-1. **인증서 & 암호**를 선택 합니다.
+1. **인증서 및 비밀**을 선택합니다.
 1. **새 클라이언트 비밀**을 선택합니다. 
 
     ![기밀 클라이언트. 응용 프로그램 암호](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
@@ -75,9 +75,7 @@ ms.locfileid: "91629147"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Active Directory에 기밀 클라이언트 응용 프로그램을 등록 하는 방법에 대해 알아보았습니다. 이제 [FHIR 용 AZURE API](fhir-paas-powershell-quickstart.md)를 배포할 준비가 되었습니다.
-
-FHIR 용 Azure API를 배포한 후 사용 가능한 추가 설정을 검토할 수 있습니다.
+이 문서에서는 Azure Active Directory에 기밀 클라이언트 응용 프로그램을 등록 하는 방법에 대해 알아보았습니다. 다음에는 Postman을 사용 하 여 FHIR 서버에 액세스할 수 있습니다.
  
 >[!div class="nextstepaction"]
->[Azure API for FHIR 배포](fhir-paas-powershell-quickstart.md)
+>[Postman을 사용하여 Azure API for FHIR 액세스](access-fhir-postman-tutorial.md)

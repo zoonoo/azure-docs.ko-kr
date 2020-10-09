@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594112"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825663"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 사전 프로덕션 환경에서 끌어오기 요청 검토 미리 보기
 
@@ -20,7 +20,7 @@ ms.locfileid: "83594112"
 
 사전 프로덕션(스테이징) 환경은 프로덕션에서 사용할 수 없는 변경 내용을 포함하는 애플리케이션의 완벽하게 작동하는 스테이징된 버전입니다.
 
-Azure Static Web Apps는 리포지토리에서 GitHub Actions 워크플로를 생성합니다. 워크플로가 감시하는 분기에 대해 끌어오기 요청을 만들면 사전 프로덕션 환경이 빌드됩니다. 사전 프로덕션 환경에서 앱을 단계별로 실행하여 프로덕션으로 푸시하기 전에 검토를 수행할 수 있습니다.
+Azure Static Web Apps는 리포지토리에서 GitHub Actions 워크플로를 생성합니다. 워크플로가 감시 하는 분기에 대해 끌어오기 요청을 만들면 프리 프로덕션 환경이 빌드됩니다. 사전 프로덕션 환경에서 앱을 단계별로 실행하여 프로덕션으로 푸시하기 전에 검토를 수행할 수 있습니다.
 
 Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환경이 동시에 존재할 수 있습니다. 조사되는 분기에 대해 끌어오기 요청을 만들 때마다 변경 내용으로 스테이징된 버전이 고유한 사전 프로덕션 환경에 배포됩니다.
 
@@ -51,11 +51,11 @@ Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환�
 
 1. _앱_ 폴더로 이동하여 일부 텍스트 콘텐츠를 변경합니다. 예를 들어 제목 또는 단락을 변경할 수 있습니다. 편집하려는 파일을 찾았으면 **편집**을 클릭하여 변경합니다.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="GitHub 인터페이스의 파일 편집 단추":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="GitHub 인터페이스를 사용하여 새 분기 만들기":::
 
 1. 변경을 수행한 후 **변경 내용 커밋**을 클릭하여 분기에 대한 변경 내용을 커밋합니다.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="GitHub 인터페이스의 번경 내용 커밋 단추":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="GitHub 인터페이스를 사용하여 새 분기 만들기":::
 
 ## <a name="create-a-pull-request"></a>끌어오기 요청 만들기
 
@@ -63,13 +63,13 @@ Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환�
 
 1. GitHub에서 프로젝트의 **끌어오기 요청** 탭을 엽니다.
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="GitHub 리포지토리의 끌어오기 요청 탭":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="GitHub 인터페이스를 사용하여 새 분기 만들기":::
 
 1. 분기의 **비교 & 끌어오기 요청** 단추를 클릭합니다.
 
 1. 필요에 따라 변경 내용에 대한 일부 세부 정보를 입력한 다음, **끌어오기 요청 만들기**를 클릭할 수 있습니다.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="GitHub에서 끌어오기 요청 만들기":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="GitHub 인터페이스를 사용하여 새 분기 만들기":::
 
 필요한 경우 검토자를 할당하고 의견을 추가하여 변경 내용을 논의할 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환�
 
 워크플로에서 앱 빌드 및 배포를 완료하면 GitHub 봇은 사전 프로덕션 환경의 URL을 포함하는 주석을 끌어오기 요청에 추가합니다. 이 링크를 클릭하면 스테이징된 변경 사항을 볼 수 있습니다.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="사전 프로덕션 URL이 포함된 끌어오기 요청 주석":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="GitHub 인터페이스를 사용하여 새 분기 만들기":::
 
 생성된 URL을 클릭하여 변경 내용을 확인합니다.
 
@@ -96,9 +96,7 @@ URL을 자세히 살펴보면 다음과 같이 구성된 것을 볼 수 있습�
 
 **끌어오기 요청 병합**을 클릭합니다.
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="GitHub 인터페이스의 끌어오기 요청 병합 단추":::
-
-병합하면 변경 내용이 추적된 분기("프로덕션" 분기)로 복사됩니다. 그런 다음, 추적된 분기에서 배포 워크플로가 시작되고 애플리케이션을 다시 빌드한 후에 변경 내용이 적용됩니다.
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="GitHub 인터페이스를 사용하여 새 분기 만들기" 분기)로 복사됩니다. 그런 다음, 추적된 분기에서 배포 워크플로가 시작되고 애플리케이션을 다시 빌드한 후에 변경 내용이 적용됩니다.
 
 프로덕션에서 변경 내용을 확인하려면 프로덕션 URL을 열어 웹 사이트의 라이브 버전을 로드합니다.
 

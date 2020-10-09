@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51f8d1eaa76a30e39647830b54c30cb8f7e8bb8e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613971"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827310"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>저장소 계정이 복제 되는 방식 변경
 
@@ -123,8 +123,11 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 
 실시간 마이그레이션은 [Azure 지원 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 통해 요청할 수 있습니다. 포털에서 ZRS로 변환하려는 스토리지 계정을 선택합니다.
 
-1. **새 지원 요청** 을 선택 합니다.
-2. 사용자 계정 정보를 기반으로 **기본 사항**을 완료합니다. **서비스** 섹션에서 **스토리지 계정 관리** 및 ZRS로 변환하려는 리소스를 선택합니다.
+1. **새 지원 요청**을 선택 합니다.
+2. 계정 정보를 기반으로 **기본 사항을** 완료 합니다. 
+    - **문제 유형**: **기술**을 선택 합니다.
+    - **서비스**: **내 서비스** 및 **저장소 계정 관리**를 선택 합니다.
+    - **리소스**: ZRS로 변환 하려는 리소스를 선택 합니다.
 3. **다음**을 선택합니다.
 4. **문제** 섹션에서 다음 값을 지정합니다.
     - **심각도**: 기본값을 그대로 둡니다.

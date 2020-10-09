@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: b445787c44efca4eb6bdee3e61eb39735e5c6b14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259903"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826516"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
 
@@ -34,14 +34,29 @@ Spark 일괄 작업 정의 또는 대화형 Azure Synapse Analytics Notebook을 
 
    ```dotnetcli
    cd mySparkApp
+   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
+   ```
+   
+   **Linux:**
+
+   ```dotnetcli
+   cd mySparkApp
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
-   **Linux:**
+2. 예를 들어 `publish.zip` 1 단계의 결과로 만들어진 게시 폴더의 콘텐츠를 압축 합니다. 모든 어셈블리는 ZIP 파일의 첫 번째 계층에 있어야 하며 중간 폴더 계층이 없어야 합니다. 즉, 압축을 푸는 경우 `publish.zip` 모든 어셈블리가 현재 작업 디렉터리로 추출 됩니다.
 
-   ```bash
-   zip -r publish.zip
-   ```
+    **Windows:**
+
+[7-Zip](https://www.7-zip.org/) 또는 [WinZip](https://www.winzip.com/)과 같은 추출 프로그램을 사용 하 여 게시 된 모든 이진 파일을 사용 하 여 bin 디렉터리에 파일을 추출 합니다.
+
+     **On Linux:**
+
+     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+
+       ```bash
+       zip -r publish.zip
+       ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>Azure Synapse Analytics Notebook의 Apache Spark용 .NET 
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081426"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825741"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 
@@ -50,7 +50,7 @@ Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을
 
 ![Azure 리소스 그래프 KQL 쿼리 스크린샷](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 통합 문서는 Azure Resource Manager REST 작업을 지원 합니다. 이렇게 하면 고유한 권한 부여 헤더 토큰을 제공할 필요 없이 management.azure.com 끝점을 쿼리할 수 있습니다.
 
@@ -85,7 +85,7 @@ Azure Monitor에는 Windows 또는 Linux 게스트 운영 체제의 가용성과
 
 JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만들 수 있습니다. 일반적으로 매개 변수에서 정적 값의 드롭다운 매개 변수를 만드는 데 사용 됩니다. 단순 JSON 배열 또는 개체는 표 형태 창의 행과 열로 자동으로 변환 됩니다.  보다 구체적인 동작을 위해 결과 탭 및 JSONPath 설정을 사용 하 여 열을 구성할 수 있습니다.
 
-## <a name="alerts-preview"></a>경고 (미리 보기)
+## <a name="alerts-preview"></a>경고(미리 보기)
 
 > [!NOTE]
 > Azure 경고 정보를 쿼리 하는 제안 된 방법은 테이블을 쿼리하여 [Azure 리소스 그래프](#azure-resource-graph) 데이터 원본을 사용 하는 것입니다 `AlertsManagementResources` .
@@ -114,4 +114,3 @@ JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만
 * 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.
 * [Log Analytics 쿼리 최적화 팁](../log-query/query-optimization.md)
-* 

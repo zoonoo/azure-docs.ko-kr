@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461345"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825324"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
@@ -111,6 +111,7 @@ ms.locfileid: "91461345"
 - [연결된 캐시를 삭제하려고 할 때 작업이 실패한 이유는 무엇인가요?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [보조 연결된 캐시에는 어떤 지역을 사용해야 하나요?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [지역에서 복제를 사용 하 여 방화벽을 구성할 수 있나요?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>표준 또는 기본 계층 캐시에서 지역에서 복제를 사용할 수 있나요?
 
@@ -185,7 +186,12 @@ Azure 지역 간 자동 장애 조치 (failover)는 지역에서 복제 된 캐�
 
 고객이 시작한 장애 조치 (failover)를 시작 하려면 먼저 캐시의 연결을 해제 합니다. 그런 다음 Redis 클라이언트를 변경 하 여 (이전에 연결 된) 보조 캐시의 연결 끝점을 사용 합니다. 두 캐시의 연결이 끊어지면 보조 캐시는 일반적인 읽기-쓰기 캐시가 다시 되며 Redis 클라이언트에서 직접 요청을 받습니다.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>지역에서 복제를 사용 하 여 방화벽을 구성할 수 있나요?
+
+예, 지역에서 복제를 사용 하 여 [방화벽](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) 을 구성할 수 있습니다. 지역에서 복제가 방화벽과 함께 작동 하려면 보조 캐시의 IP 주소가 기본 캐시의 방화벽 규칙에 추가 되었는지 확인 합니다.
+
 ## <a name="next-steps"></a>다음 단계
+
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
 * [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)

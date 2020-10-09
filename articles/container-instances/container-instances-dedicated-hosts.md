@@ -3,14 +3,14 @@ title: 전용 호스트에 배포
 description: 전용 호스트를 사용 하 여 Azure Container Instances 작업에 대 한 실제 호스트 수준 격리 얻기
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259642"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825608"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
 
@@ -31,8 +31,8 @@ ms.locfileid: "86259642"
 API 버전 2019-12-01부터 `sku` ACI 배포에 필요한 배포 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재이 속성은 ACI 용 Azure Resource Manager 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](./container-instances-multi-container-group.md)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
 
 `sku`속성은 다음 값 중 하나를 가질 수 있습니다.
-* `Standard`-하이퍼바이저 수준 보안을 보장 하는 표준 ACI 배포 선택 
-* `Dedicated`-컨테이너 그룹에 대 한 전용 물리적 호스트와 워크 로드 수준 격리에 사용 됨
+* `Standard` -하이퍼바이저 수준 보안을 보장 하는 표준 ACI 배포 선택 
+* `Dedicated` -컨테이너 그룹에 대 한 전용 물리적 호스트와 워크 로드 수준 격리에 사용 됨
 
 ## <a name="modify-your-json-deployment-template"></a>JSON 배포 템플릿 수정
 

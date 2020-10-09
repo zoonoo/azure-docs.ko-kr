@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539081"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827458"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -92,7 +92,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
     백업 프로세스를 수행하는 동안 진행 메시지가 표시됩니다.
 
-스토리지 계정과 컨테이너가 구성되면 언제든지 수동 백업을 시작할 수 있습니다.
+스토리지 계정과 컨테이너가 구성되면 언제든지 수동 백업을 시작할 수 있습니다. 수동 백업은 무기한 보존 됩니다.
 
 <a name="automatedbackups"></a>
 

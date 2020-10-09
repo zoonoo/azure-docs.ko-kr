@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c177de3a862370f4d1daa19c6560950b66b18352
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883448"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826834"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge Pro 기술 사양
 
@@ -25,8 +25,8 @@ Azure Stack Edge Pro 장치에는 계산 및 메모리에 대 한 다음과 같�
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
-| CPU    | 10코어 CPU 2개                     |
-| 메모리              | 128GB RAM                  |
+| CPU    | 2 X 10 코어 CPU Intel Xeon 실버 4114 2.2 G                    |
+| 메모리              | 128 g b RAM (8x 16GB RDIMM)                 |
 
 ## <a name="fpga-specifications"></a>FPGA 사양
 
@@ -63,6 +63,15 @@ Azure Stack Edge Pro 장치에는 6 개의 네트워크 인터페이스인 PORT1
 | 사양           | Description                 |
 |-------------------------|----------------------------|
 |  네트워크 인터페이스    | 1GbE 인터페이스 2개 - 1개는 관리용으로 사용자가 구성할 수 없으며 초기 설정에 사용됩니다. 다른 인터페이스는 사용자가 구성 가능하고 데이터 전송에 사용할 수 있으며, 기본적으로 DHCP입니다. <br>25GbE 인터페이스 2개 - 10GbE 인터페이스로도 작동할 수 있습니다. 사용자는 이러한 데이터 인터페이스를 DHCP(기본값) 또는 정적으로 구성할 수 있습니다. <br> 25GbE 인터페이스 2개 - 사용자는 이러한 데이터 인터페이스를 DHCP(기본값) 또는 정적으로 구성할 수 있습니다.                  |
+
+사용 되는 네트워크 어댑터는 다음과 같습니다. 
+
+| 사양           | Description                 |
+|-------------------------|----------------------------|
+|RNDC (네트워크 부속 카드) |QLogic FastLinQ 41264 이중 포트 25GbE SFP +, 이중 포트 1GbE, rNDC|
+|PCI 네트워크 어댑터 |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 어댑터|
+
+호환 되는 기가 비트 인터페이스 변환기 (GBIC)는 Intel QLogic의 하드웨어 호환성 목록을 참조 하십시오. GBIC (기가 비트 인터페이스 변환기)는 Azure Stack Edge 배달에 포함 되지 않습니다. 
 
 ## <a name="storage-specifications"></a>스토리지 사양
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 10/07/2020
+ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462516"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825494"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -50,7 +50,7 @@ ms.locfileid: "89462516"
 
 <sup>1</sup> 2017년 12월 이전에 생성된 기본 서비스는 인덱스에서 낮은 제한(15 대신 5)을 갖습니다. 기본 계층은 인덱스당 100개 필드 제한보다 더 낮은 SKU입니다.
 
-<sup>2</sup> 현재 문서당 복합 컬렉션에 너무 많은 요소가 있으면 높은 스토리지 사용률을 초래합니다. 이것은 알려진 문제이며 한편, 3000 제한은 모든 서비스 계층에 대한 안전 상한값입니다. 이 제한은 복합 형식 필드(`2019-05-06`)를 지원하는 가장 빠른 GA(일반 공급) API 버전을 사용하는 인덱싱 작업에만 적용됩니다. 이전 미리 보기 API 버전을 사용할 수 있는(복합 유형 필드 지원) 클라이언트를 중단하지 않으려면 이러한 미리 보기 API 버전을 사용하는 인덱싱 작업에 이 제한을 적용하지 않습니다. 미리 보기 API 버전은 프로덕션 시나리오에는 사용되지 않으며 고객은 최신 GA API 버전으로 이동하는 것이 좋습니다.
+<sup>2</sup> 많은 수의 저장소 사용률이 높은 경우에는 요소에 대 한 상한이 존재 합니다. 복합 컬렉션의 요소는 해당 컬렉션의 멤버로 정의 됩니다. 예를 들어 [대화방 복합 컬렉션을 사용 하는 호텔 문서](search-howto-complex-data-types.md#indexing-complex-types)를 가정 합니다. 대화방 컬렉션의 각 공간은 요소로 간주 됩니다. 인덱싱 중에 인덱싱 엔진은 문서 전체에서 최대 3000 개의 요소를 안전 하 게 처리할 수 있습니다. [이 제한은](search-api-migration.md#upgrade-to-2019-05-06) 에서 도입 되었으며, `api-version=2019-05-06` 문자열 컬렉션이 나 복잡 한 필드에만 적용 되는 것이 아니라 복잡 한 컬렉션에만 적용 됩니다.
 
 <a name="document-limits"></a>
 
@@ -108,8 +108,8 @@ ms.locfileid: "89462516"
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 전용 끝점 인덱서 지원 | 아니요 | 예 | 예 | 예 | 예 | 아니요 | 예 | 예 |
-| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 아니요 | 아니요 | 아니요 | 예 | 예 | 아니요 | 예 | 예 |
+| 전용 끝점 인덱서 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
+| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
 | 최대 개인 끝점 | 해당 없음 | 10 또는 30 | 100 | 400 | 400 | 해당 없음 | 20 | 20 |
 | 최대 고유 리소스 유형<sup>2</sup> | 해당 없음 | 4 | 7 | 15 | 15 | 해당 없음 | 4 | 4 |
 

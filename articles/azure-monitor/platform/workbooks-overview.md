@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977560"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825771"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
-통합 문서는 데이터 분석을 위한 유연한 캔버스와 Azure Portal 내에서 풍부한 시각적 보고서 생성을 제공 합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭 하 여 통합 된 대화형 환경으로 결합할 수 있습니다. 
+통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭 하 여 통합 된 대화형 환경으로 결합할 수 있습니다. 
 
 다음은 통합 문서를 만드는 비디오 연습입니다.
 
@@ -25,16 +25,16 @@ ms.locfileid: "90977560"
 
 ## <a name="data-sources"></a>데이터 원본
 
-통합 문서는 Azure 내에서 여러 원본의 데이터를 쿼리할 수 있습니다. 통합 문서 작성자는이 데이터를 변환 하 여 기본 구성 요소의 가용성, 성능, 사용량 및 전반적인 상태에 대 한 통찰력을 제공할 수 있습니다. 예를 들어, 가상 컴퓨터에서 성능 로그를 분석 하 여 높은 CPU 또는 메모리 부족 인스턴스를 식별 하 고 결과를 대화형 보고서에 표 형태로 표시 합니다.
+통합 문서는 Azure 내의 여러 원본에서 데이터를 쿼리할 수 있습니다. 통합 문서 작성자는 이 데이터를 변환하여 기본 구성 요소의 가용성, 성능, 사용량 및 전반적 상태에 대한 인사이트를 제공할 수 있습니다. 예를 들어, 가상 컴퓨터에서 성능 로그를 분석 하 여 높은 CPU 또는 메모리 부족 인스턴스를 식별 하 고 결과를 대화형 보고서에 표 형태로 표시 합니다.
   
-그러나 통합 문서의 실제 기능은 단일 보고서 내에서 서로 다른 원본의 데이터를 결합 하는 기능입니다. 이렇게 하면 복잡 한 데이터 및 정보를 허용 하지 않는 복잡 한 데이터 및 정보를 사용 하 여 리소스에 대 한 복합 리소스 뷰 또는 조인을 만들 수 있습니다.
+그러나 통합 문서의 진정한 강점은 단일 보고서 내에서 서로 다른 원본의 데이터를 결합하는 기능입니다. 이렇게 하면 복잡 한 데이터 및 정보를 허용 하지 않는 복잡 한 데이터 및 정보를 사용 하 여 리소스에 대 한 복합 리소스 뷰 또는 조인을 만들 수 있습니다.
 
-통합 문서는 현재 다음 데이터 원본과 호환 됩니다.
+통합 문서는 현재 다음 데이터 원본과 호환됩니다.
 
 * [로그](workbooks-data-sources.md#logs)
 * [메트릭](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
-* [경고(미리 보기)](workbooks-data-sources.md#alerts-preview)
+* [경고 (미리 보기)](workbooks-data-sources.md#alerts-preview)
 * [작업 상태](workbooks-data-sources.md#workload-health)
 * [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
 * [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)

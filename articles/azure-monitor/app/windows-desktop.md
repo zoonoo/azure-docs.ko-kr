@@ -3,12 +3,13 @@ title: Windows 데스크톱 앱의 사용량 및 성능 모니터링
 description: Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 1aa1e8a9e7ccbbc90a961ebf47224f59f8a9e9fe
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323420"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827864"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -20,7 +21,7 @@ ms.locfileid: "87323420"
 3. Visual Studio에서 앱 프로젝트의 NuGet 패키지를 편집하고 Microsoft.ApplicationInsights.WindowsServer를 추가합니다. 표준 원격 분석 컬렉션 모듈 없이 기본 API만 원하는 경우에는 Microsoft ApplicationInsights를 선택 합니다.
 4. 코드에서 계측 키를 설정합니다.
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *키* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*사용자의 키*`";`
    
     또는 ApplicationInsights.config에서(표준 원격 분석 패키지 중 하나를 설치한 경우).
    
@@ -53,10 +54,8 @@ using Microsoft.ApplicationInsights;
             ...
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
-            e.Cancel = true;
-
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
@@ -64,9 +63,10 @@ using Microsoft.ApplicationInsights;
                 // Allow time for flushing:
                 System.Threading.Thread.Sleep(1000);
             }
-            base.OnClosing(e);
+            base.OnFormClosing(e);
         }
-
+        
+        ...
 ```
 
 ## <a name="override-storage-of-computer-name"></a>컴퓨터 이름 저장소 재정의

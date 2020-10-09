@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447871"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827610"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -74,71 +74,17 @@ Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.g
 [W3C 추적 컨텍스트](https://w3c.github.io/trace-context/) 및 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
 
 | Application Insights                   | W3C TraceContext                                      |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `SpanKind` 동기 인 경우 서버 `SpanKind` 비동기 인 경우 소비자                    |
-| `Dependency`                           | `SpanKind` 동기 인 경우 client `SpanKind` 비동기 인 경우 생산자                   |
-| `Request` 및 `Dependency`의 `Id`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `SpanId` 이 범위의 부모 범위에 대 한입니다. 루트 범위 이면이 필드는 비어 있어야 합니다.     |
+|------------------------------------    |-------------------------------------------------|
+| `Request` 및 `Dependency`의 `Id`     | [부모 id](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [추적 id](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | 이 범위의 부모 범위에 대 한 [부모 id](https://w3c.github.io/trace-context/#parent-id) 입니다. 루트 범위 이면이 필드는 비어 있어야 합니다.     |
+
 
 자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
 
-### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>클래식 ASP.NET 앱에 W3C 분산 추적 지원을 사용하도록 설정
- 
-  > [!NOTE]
-  >  및 부터는 `Microsoft.ApplicationInsights.Web` `Microsoft.ApplicationInsights.DependencyCollector` 구성이 필요 하지 않습니다.
+### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>.NET 앱에 대해 W3C distributed tracing 지원 사용
 
-W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 구현 됩니다. 상관 관계는 W3C를 지원 하지 않는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다.
-
-레거시 프로토콜을 계속 사용 하려는 경우 `Request-Id` 다음 구성을 사용 하 여 추적 컨텍스트를 사용 하지 않도록 설정할 수 있습니다.
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-이전 버전의 SDK를 실행 하는 경우 추적을 업데이트 하거나 다음 구성을 적용 하 여 추적 컨텍스트를 사용 하도록 설정 하는 것이 좋습니다.
-이 기능은 `Microsoft.ApplicationInsights.Web` 및 `Microsoft.ApplicationInsights.DependencyCollector` 패키지에서 2.8.0-beta1 버전부터 사용할 수 있습니다.
-기본적으로 사용하지 않도록 설정되어 있습니다. 이 기능을 사용 하도록 설정 하려면 `ApplicationInsights.config` 다음과 같이 변경 합니다.
-
-- 에서 `RequestTrackingTelemetryModule` 요소를 추가 하 `EnableW3CHeadersExtraction` 고 해당 값을로 설정 `true` 합니다.
-- 에서 `DependencyTrackingTelemetryModule` 요소를 추가 하 `EnableW3CHeadersInjection` 고 해당 값을로 설정 `true` 합니다.
-- `W3COperationCorrelationTelemetryInitializer`아래 `TelemetryInitializers` 에를 추가 합니다. 이 예는 다음과 같습니다.
-
-```xml
-<TelemetryInitializers>
-  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
-   ...
-</TelemetryInitializers>
-```
-
-### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
-
- > [!NOTE]
-  > `Microsoft.ApplicationInsights.AspNetCore`버전 2.8.0부터 구성이 필요 하지 않습니다.
- 
-W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 구현 됩니다. 상관 관계는 W3C를 지원 하지 않는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다.
-
-레거시 프로토콜을 계속 사용 하려는 경우 `Request-Id` 다음 구성을 사용 하 여 추적 컨텍스트를 사용 하지 않도록 설정할 수 있습니다.
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-이전 버전의 SDK를 실행 하는 경우 추적을 업데이트 하거나 다음 구성을 적용 하 여 추적 컨텍스트를 사용 하도록 설정 하는 것이 좋습니다.
-
-이 기능은 `Microsoft.ApplicationInsights.AspNetCore` 버전 2.5.0-beta1 및 `Microsoft.ApplicationInsights.DependencyCollector` 버전 2.8.0-beta1에 있으며,
-기본적으로 사용하지 않도록 설정되어 있습니다. 사용하도록 설정하려면 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing`을 `true`로 설정합니다.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
-    // ....
-}
-```
+W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에서 기본적으로 사용 하도록 설정 되며 이전 요청 Id 프로토콜과의 호환성과 함께 사용 됩니다.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
@@ -304,24 +250,9 @@ logger.warning('After the span')
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계
 
-시간이 지남에 따라 .NET은 원격 분석 및 진단 로그를 상호 연결 하는 여러 방법을 정의 했습니다.
+.NET 런타임은 [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 및 [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 의 도움을 사용 하 여 배포를 지원 합니다.
 
-- `System.Diagnostics.CorrelationManager`[Logicaloperationstack 및 활동](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1)id를 추적할 수 있습니다.
-- `System.Diagnostics.Tracing.EventSource` 및 ETW(Windows용 이벤트 추적)는 [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) 메서드를 정의합니다.
-- `ILogger`[로그 범위](/aspnet/core/fundamentals/logging#log-scopes)를 사용 합니다.
-- WCF(Windows Communication Foundation) 및 HTTP는 "현재" 컨텍스트 전파를 연결합니다.
-
-그러나 이러한 메서드는 자동 분산 추적 지원을 사용 하지 않았습니다. `DiagnosticSource` 자동 컴퓨터 간 상관 관계를 지원 합니다. .NET 라이브러리는 `DiagnosticSource` HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 자동 크로스 컴퓨터 전파를 지원 하 고 허용 합니다.
-
-의 [활동 사용자 가이드](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 에서는 `DiagnosticSource` 추적 활동의 기본 사항을 설명 합니다.
-
-ASP.NET Core 2.0에서는 HTTP 헤더 추출을 지원 하 고 새 작업을 시작할 수 있습니다.
-
-`System.Net.Http.HttpClient`4.1.0 버전부터는 상관 관계 HTTP 헤더의 자동 삽입 및 HTTP 호출을 활동으로 추적 하는 기능을 지원 합니다.
-
-클래식 ASP.NET에는 새로운 HTTP 모듈인 [TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)이 있습니다. 이 모듈은 `DiagnosticSource`를 사용하여 원격 분석 상관 관계를 구현하며, 들어오는 요청 헤더에 기반한 활동을 시작합니다. 또한 모든 인터넷 정보 서비스 (IIS) 처리가 다른 관리 되는 스레드에서 실행 되는 경우에도 요청 처리의 여러 단계에서 원격 분석의 상관 관계를 설정 합니다.
-
-Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Activity`를 사용하여 원격 분석을 수집하고 현재 활동과 연결합니다.
+Application Insights .NET SDK는 및를 사용 하 여 `DiagnosticSource` `Activity` 원격 분석을 수집 하 고 상관 관계를 합니다.
 
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Java의 원격 분석 상관 관계

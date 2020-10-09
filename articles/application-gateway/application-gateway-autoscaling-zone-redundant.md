@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649748"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826632"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -21,7 +21,7 @@ Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF (�
 
 새 v2 SKU에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
-- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
+- 자동 크기 **조정: 크기**자동 조정 SKU에서 Application Gateway 또는 waf 배포는 트래픽 부하 패턴을 변경 하는 방식으로 확장 하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
 - **영역 중복**: Application Gateway 또는 WAF 배포 하나가 여러 가용성 영역을 포함할 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비저닝할 필요가 없습니다. Application Gateway 인스턴스가 배포되는 단일 영역 또는 여러 영역을 선택할 수 있기 때문에 영역 장애 복원력이 보장됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
 
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 지원됩니다. 다른 지역에서는 다른 모든 기능이 지원됩니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.

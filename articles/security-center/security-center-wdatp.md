@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2020
+ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: 66a04ebec6eb9d7219d4d5db3bdd1dfd780a730f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 92feb159fe4c893a55d37fa90c34acf4c4c93631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446001"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826172"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -29,10 +29,10 @@ Azure Security Center는 [Microsoft DEFENDER ATP (Advanced Threat Protection)](h
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|[Azure Defender](security-center-pricing.md) 필요|
+|가격 책정:|[Azure Defender](security-center-pricing.md) 필요|
 |지원 되는 컴퓨터:|![예](./media/icons/yes-icon.png) Windows를 실행 하는 Azure 컴퓨터<br>![예](./media/icons/yes-icon.png) Windows를 실행 하는 Azure Arc 컴퓨터|
-|필요한 역할 및 사용 권한:|통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자**또는 **구독 참가자** 입니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드.<br>![아니요](./media/icons/no-icon.png) 공용 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|필요한 역할 및 권한:|통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자**또는 **구독 참가자** 입니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드.<br>![예](./media/icons/no-icon.png) 공용 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
 
 

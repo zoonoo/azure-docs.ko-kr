@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b96902603deca4b7a184659e6274d65f02ac712d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 4e2cb2b93010478338cd40236403da4ca0ca99fc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613529"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825263"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>다른 Azure Cosmos DB 일관성 수준에 대 한 대기 시간, 가용성 및 성능 절충
 
@@ -86,4 +86,4 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 
 - [최신 분산 데이터베이스 시스템 디자인의 일관성 절충](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [고가용성](high-availability.md)
-- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

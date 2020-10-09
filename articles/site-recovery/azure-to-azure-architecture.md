@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322090"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825414"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure VM(가상 머신)에 대한 재해 복구를 배포할 때 사용되는 아키텍처, 구성 요소 및 프로세스에 대해 설명합니다. 재해 복구 설정을 사용하여 Azure VM은 다른 대상 지역으로 계속해서 복제합니다. 중단이 발생하는 경우 VM을 보조 지역으로 장애 조치하고, 해당 지역에서 액세스할 수 있습니다. 모두 정상적으로 다시 실행 중인 경우 다시 장애 복구하고 기본 위치에서 작업을 계속할 수 있습니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure VM(가상 머신)에 대한 재해 복구를 배포할 때 사용되는 아키텍처, 구성 요소 및 프로세스에 대해 설명합니다. 재해 복구를 설정 하면 Azure Vm은 다른 대상 지역에 지속적으로 복제 됩니다. 중단이 발생하는 경우 VM을 보조 지역으로 장애 조치하고, 해당 지역에서 액세스할 수 있습니다. 모두 정상적으로 다시 실행 중인 경우 다시 장애 복구하고 기본 위치에서 작업을 계속할 수 있습니다.
 
 
 

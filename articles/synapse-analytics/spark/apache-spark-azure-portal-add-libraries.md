@@ -9,12 +9,12 @@ ms.date: 07/22/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: ad3231652056244fdfc814251e6caad025db77e5
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649901"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826727"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
@@ -125,7 +125,7 @@ for i in pip.get_installed_distributions(local_only=True):
 저장소 계정의 기본 컨테이너에 있는 다음 경로에 파일을 업로드 해야 합니다. 
 
 ```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
+abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
 >[!IMPORTANT]

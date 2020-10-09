@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 706748018c9f32ab2300b290c6929d344b82e0b0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 95be6aa576d9d059ce419443f8c7e32af5ff397a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653097"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826202"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Azure Database for MySQL 중지/시작
 
@@ -20,7 +20,7 @@ ms.locfileid: "91653097"
 
 이 문서에서는 단일 서버의 중지 및 시작을 수행 하는 단계별 절차를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

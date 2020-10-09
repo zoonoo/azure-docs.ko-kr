@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
-ms.openlocfilehash: 2159d4d2c71d54d94d9c07eea3dc341383d3237a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d96cd9b3c83357c2591edf4bbb09a82b897c6a24
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392904"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826027"
 ---
 # <a name="nested-traffic-manager-profiles"></a>중첩 Traffic Manager 프로필
 
@@ -95,9 +95,9 @@ Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 �
 
 ![엔드포인트 기준 설정을 사용하는 Traffic Manager 엔드포인트 모니터링][10]
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
-* [중첩 프로필을 구성하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [중첩 프로필을 구성하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-nested-profiles)
 
 * [트래픽 관리자가 지원하는 중첩 계층 수는 얼마나 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 

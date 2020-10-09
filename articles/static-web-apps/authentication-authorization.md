@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297072"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826538"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 인증 및 권한 부여 미리 보기
 
@@ -107,7 +107,7 @@ Azure Static Web Apps는 다음과 같은 공급자를 사용하여 인증을 �
 
 최종 사용자로 애플리케이션에 동의하면 애플리케이션은 ID 공급자에 따라 이메일 주소 또는 사용자 이름에 액세스할 수 있습니다. 이 정보가 제공되면 애플리케이션의 소유자는 개인 식별 정보를 관리하는 방법을 결정합니다.
 
-최종 사용자는 개별 웹앱의 관리자에게 문의하여 시스템에서 이 정보를 해지해야 합니다.
+최종 사용자는 개별 웹 앱의 관리자에 게 연락 하 여 해당 시스템에서이 정보를 해지 해야 합니다.
 
 Azure Static Web Apps 플랫폼에서 개인 식별 정보를 제거하고, 플랫폼이 향후 요청에 대해 이 정보를 제공하지 않도록 하려면 URL을 사용하여 요청을 제출합니다.
 
@@ -193,7 +193,7 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
 }
 ```
 
-## <a name="restrictions"></a>제한 사항
+## <a name="restrictions"></a>제한
 
 일반적인 제한 사항 및 제한 사항은 [할당량 문서](quotas.md) 를 참조 하세요.
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029548"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827769"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용하여 회사 또는 학교 암호 재설정
 
@@ -69,7 +69,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
     3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
 
-- **전화 번호를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호로 문자 메시지를 보냅니다. 관리자가 보안 정보 환경을 설정한 경우 [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다.
+- **전화 번호를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호에 자동 음성 전화를 겁니다. 관리자가 보안 정보 환경을 설정한 경우 [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다.
 
     1. **내 휴대폰으로 전화 걸기**를 선택하고, 전화 번호를 입력하고, **호출**을 선택합니다.
 

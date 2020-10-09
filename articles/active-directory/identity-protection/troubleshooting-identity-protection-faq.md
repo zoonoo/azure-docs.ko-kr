@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443567"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827910"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -40,7 +40,7 @@ Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위
 
 위험 검색에 대 한 **해결** 은 **위험 기반 정책에 따라**발생 하는 MFA를 사용자에 게 설정 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="why-is-a-user-is-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
 
@@ -99,3 +99,7 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>로그인과 관련한 검색 결과에는 위험 수준이 낮음/중간으로 표시되는데 로그인의 "로그인 위험(집계)" 점수는 높음인 이유는 무엇인가요?
 
 로그인에 대해 여러 위험이 검색되었거나 로그인의 기타 기능이 사용되면 집계 위험 점수가 높아질 수 있습니다. 반면 로그인과 관련하여 검색된 위험의 점수가 높음이라도 로그인 위험(집계) 점수는 중간일 수 있습니다. 
+
+### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>위험한 로그인에 연결 된 검색의 위험 수준이 로그인 위험 수준 (실시간)과 다른 이유는 무엇 인가요? 
+
+최근 실시간 로그인 위험을 계산 하는 방법에 대 한 개선 사항이 있습니다. 위험 검색 수준과 로그인 위험 수준 간에 관찰 되는 불일치는 이러한 변경의 결과입니다. 실시간 로그인 위험은 정책 적용 중에 사용 되는 값입니다. 

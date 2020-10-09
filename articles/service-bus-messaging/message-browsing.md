@@ -3,12 +3,12 @@ title: Azure Service Bus-메시지 찾아보기
 description: Service Bus 메시지 찾아보기 및 피킹 Azure Service Bus 클라이언트에서 큐 또는 구독에 있는 모든 메시지를 열거할 수 있습니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341234"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827442"
 ---
 # <a name="message-browsing"></a>메시지 찾아보기
 
@@ -30,7 +30,7 @@ ms.locfileid: "85341234"
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_)는 여러 메시지를 검색하여 열거형으로 반환합니다. 메시지가 없는 경우 열거 개체는 null이 아니고 비어 있습니다.
 
-또한 시작할 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)로 메서드의 오버로드를 시드한 다음 매개 변수가 없는 메서드 오버로드를 호출하여 추가로 열거할 수도 있습니다. **PeekBatch**는 동등하게 작동하지만 메시지 집합을 모두 한번에 검색합니다.
+[SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) 와 함께 메서드의 오버 로드를 사용 하 여를 시작 하 고 매개 변수가 없는 메서드 오버 로드를 호출 하 여 추가로 열거할 수도 있습니다. **PeekBatch**는 동등하게 작동하지만 메시지 집합을 모두 한번에 검색합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

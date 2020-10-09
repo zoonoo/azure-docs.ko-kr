@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 97fc21f111e9b95fb9645fd042e47cc53b0af42c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 31c90879d6f80f598ba71846ba68da814f254677
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499707"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825178"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 만들기
 이 스크립트는 Ubuntu 운영 체제 및 부하 분산 장치를 포함한 관련 네트워킹 리소스가 있는 Azure 가상 머신 확장 집합을 만듭니다. 스크립트가 실행되면 SSH를 통해 VM 인스턴스에 액세스할 수 있습니다.
@@ -24,7 +24,27 @@ ms.locfileid: "87499707"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.sh "Create a simple virtual machine scale set")]
+```azurecli-interactive
+#!/bin/bash
+
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+
+# Create a Network Security Group and allow access to port 22
+az network nsg create --resource-group MyResourceGroup --name MyNsg
+az network nsg rule create --resource-group MyResourceGroup --name AllowSsh --nsg-name MyNsg --priority 100 --destination-port-ranges 22
+
+# Create a scale set
+# Network resources such as an Azure load balancer are automatically created
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --generate-ssh-keys
+  --nsg MyNsg
+```
 
 ## <a name="clean-up-deployment"></a>배포 정리
 다음 명령을 실행하여 리소스 그룹, 확장 집합 및 모든 관련된 리소스를 제거할 수 있습니다.

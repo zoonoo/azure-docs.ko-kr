@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817790"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827810"
 ---
 # <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
 
@@ -67,11 +67,25 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 
 지점 Vm의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요. 
 
+[Azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 가격 정보를 쿼리하여 스폿 가격 책정에 대 한 정보를 쿼리할 수도 있습니다. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
 
 가변 가격 책정을 사용 하는 경우 최대 5 개의 소수 자릿수를 사용 하 여 미국 달러 (USD)로 최대 가격을 설정 하는 옵션을 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하는 경우 `-1` 가격에 따라 VM이 제거 되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과 하는 경우 더 작은 표준 VM의 현재 가격 또는 가격입니다.
 
+## <a name="pricing-and-eviction-history"></a>가격 책정 및 제거 기록
 
-##  <a name="frequently-asked-questions"></a>자주 묻는 질문
+포털의 지역에서 크기 당 기록 가격 책정 및 제거 비율을 확인할 수 있습니다. **가격 책정 기록 보기 및 주변 지역의 가격 비교** 를 선택 하 여 특정 크기에 대 한 테이블 또는 가격 책정 그래프를 표시 합니다.  다음 이미지의 가격 책정 및 제거 요금은 예입니다. 
+
+**차트**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="가격 책정 및 제거 비율 차이가 차트로 포함 된 지역 옵션의 스크린샷":::
+
+**테이블**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="가격 책정 및 제거 비율 차이가 차트로 포함 된 지역 옵션의 스크린샷":::
+
+
+
+##  <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q:** 만든 후에는 스폿 VM이 일반 표준 VM과 동일 합니까?
 
@@ -98,7 +112,7 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 **A:** `azure-spot` [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[CLI](./linux/spot-cli.md), [포털](./windows/spot-portal.md), [ARM 템플릿](./linux/spot-template.md)또는 [PowerShell](./windows/spot-powershell.md) 을 사용 하 여 스폿 vm을 배포 합니다.
+[CLI](./linux/spot-cli.md), [포털](spot-portal.md), [ARM 템플릿](./linux/spot-template.md)또는 [PowerShell](./windows/spot-powershell.md) 을 사용 하 여 스폿 vm을 배포 합니다.
 
 또한 [별색 VM 인스턴스를 사용 하 여 확장 집합](../virtual-machine-scale-sets/use-spot.md)을 배포할 수 있습니다.
 
