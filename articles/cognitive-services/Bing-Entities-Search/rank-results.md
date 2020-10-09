@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68423908"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>순위를 사용하여 엔터티 검색 결과 표시  
@@ -29,7 +29,7 @@ ms.locfileid: "68423908"
 |`answerType` 및 `resultIndex` | `answerType`은 응답(엔터티 또는 장소)을 식별하고 `resultIndex`는 응답 내의 결과(예: 엔터티)를 식별합니다. 인덱스는 0부터 시작합니다.|
 |`value`    | `value`는 답변 또는 답변 내 결과의 ID와 일치하는 ID를 포함합니다. 답변 또는 결과 중 하나만 ID를 포함합니다. |
   
-`answerType` 및 `resultIndex`의 사용은 두 단계로 진행되는 프로세스입니다. 먼저 `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그 후 `resultIndex`를 사용하여 응답 결과로 인덱싱하여 표시할 결과를 가져옵니다. `answerType` 값은 [searchresponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) 개체의 필드 이름입니다. 모든 답의 결과를 함께 표시 해야 하는 경우 순위 응답 항목에는 `resultIndex` 필드가 포함 되지 않습니다.
+`answerType` 및 `resultIndex`의 사용은 두 단계로 진행되는 프로세스입니다. 먼저 `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그 후 `resultIndex`를 사용하여 응답 결과로 인덱싱하여 표시할 결과를 가져옵니다. 값은 `answerType` [searchresponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) 개체의 필드 이름입니다. 모든 답의 결과를 함께 표시 해야 하는 경우 순위 응답 항목에는 필드가 포함 되지 않습니다 `resultIndex` .
 
 해당 ID를 사용하려면 순위 ID가 응답 또는 결과 중 하나의 ID와 일치해야 합니다. 답변 개체에 `id` 필드가 포함된 경우 모든 답변의 결과를 함께 표시합니다. 예를 들어, `Entities` 개체에 `id` 필드가 포함되면 모든 엔터티 아티클을 함께 표시합니다. `Entities` 개체에 `id` 필드가 포함되어 있지 않으면 각 엔터티는 `id` 필드를 포함하고 순위 응답은 엔터티와 장소 결과를 혼합합니다.  
   

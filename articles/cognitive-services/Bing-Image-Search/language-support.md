@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68881914"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 언어 및 지역 지원
@@ -84,14 +84,14 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|Canada|영어|en-CA|
-|Canada|프랑스어|fr-CA|
+|캐나다|영어|en-CA|
+|캐나다|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어(번체)|zh-HK|
+|홍콩 특별행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
@@ -107,14 +107,14 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어(번체)|zh-TW|
+|대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
-|United Kingdom|영어|en-GB|
+|영국|영어|en-GB|
 |미국|영어|ko-KR|
 |미국|스페인어|es-US|
 

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81272086"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 저속 쿼리 로그
@@ -59,18 +59,18 @@ Azure Database for MariaDB은 Azure Monitor 진단 로그와 통합 됩니다. A
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`시간은 | UTC에 로그가 기록된 때의 타임스탬프 |
-| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `TimeGenerated` 시간은 | UTC에 로그가 기록된 때의 타임스탬프 |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
-| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB`입니다. |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | 서버의 이름 |
-| `start_time_t`시간은 | 쿼리가 시작된 시간 |
+| `start_time_t` 시간은 | 쿼리가 시작된 시간 |
 | `query_time_s` | 쿼리를 실행하는 데 걸린 총 시간 |
 | `lock_time_s` | 쿼리가 잠긴 총 시간 |
 | `user_host_s` | 사용자 이름 |

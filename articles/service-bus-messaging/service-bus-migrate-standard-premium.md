@@ -4,10 +4,10 @@ description: 기존 Azure Service Bus 표준 네임 스페이스를 premium으�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85340754"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>기존 Azure Service Bus 표준 네임 스페이스를 프리미엄 계층으로 마이그레이션
@@ -137,7 +137,7 @@ Azure Service Bus 표준 계층에서 제공 하는 일부 기능은 Azure Servi
 
    ARM 템플릿에서 특정 큐 또는 토픽에 대해 ' enablePartitioning '을 ' t r u e '로 설정 하면 broker에서 무시 됩니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="what-happens-when-the-migration-is-committed"></a>마이그레이션이 커밋되면 어떻게 되나요?
 
@@ -211,7 +211,7 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 ## <a name="next-steps"></a>다음 단계
 
 * [표준 및 프리미엄 메시징의 차이점](./service-bus-premium-messaging.md)에 대해 자세히 알아보세요.
-* [Service Bus 프리미엄에 대 한 고가용성 및 지리적 재해 복구 측면](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)에 대해 알아봅니다.
+* [Service Bus 프리미엄에 대 한 고가용성 및 Geo-Disaster 복구 측면](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)에 대해 알아봅니다.
 
 [마이그레이션 방문 페이지]: ./media/service-bus-standard-premium-migration/1.png
 [설치 네임 스페이스]: ./media/service-bus-standard-premium-migration/2.png

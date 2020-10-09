@@ -4,10 +4,10 @@ description: Service Bus 제한 개요-표준 및 프리미엄 계층.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85340943"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Azure Service Bus에 대 한 제한 작업
@@ -46,7 +46,7 @@ Azure Service Bus 표준 계층은 종 량 제 가격 책정 모델을 사용 �
 
 모든 작업이 동일 하 게 생성 되는 것은 아닙니다. 각 작업의 신용 비용은 다음과 같습니다. 
 
-| 연산 | 신용 비용|
+| 작업(Operation) | 신용 비용|
 |-----------|-----------|
 | 데이터 작업 (Send, SendAsync, Receive, ReceiveAsync, Peek) |메시지당 1 개 크레딧 |
 | 관리 작업 (큐, 항목, 구독, 필터에 대 한 만들기, 읽기, 업데이트, 삭제) | 크레딧을 10 개 |
@@ -99,7 +99,7 @@ Service Bus Premium 네임 스페이스에는 이미 전용 리소스가 있으�
 
 위의 메트릭을 변경 하 여 트리거할 수 있는 [runbook](../automation/automation-create-alert-triggered-runbook.md) 을 만들어 확장/축소 하는 작업을 수행할 수 있습니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="how-does-throttling-affect-my-application"></a>제한이 응용 프로그램에 어떤 영향을 미칩니까?
 

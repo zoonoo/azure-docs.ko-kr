@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68945224"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Computer Vision을 사용하여 스마트하게 자른 썸네일 생성
@@ -24,7 +24,7 @@ ms.locfileid: "68945224"
 
 Computer Vision 썸네일 생성 알고리즘은 다음과 같이 작동합니다.
 
-1. 이미지에서 불필요 한 요소를 제거 하 고 주 개체가 표시 되는 이미지 영역의 _관심_&mdash;영역을 식별 합니다.
+1. 이미지에서 불필요 한 요소를 제거 하 고 _area of interest_ &mdash; 주 개체가 표시 되는 이미지 영역의 관심 영역을 식별 합니다.
 1. 식별된 _관심 영역_에 따라 이미지를 자릅니다.
 1. 대상 썸네일 크기에 맞게 가로 세로 비율을 변경합니다.
 
