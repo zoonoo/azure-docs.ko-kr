@@ -4,10 +4,10 @@ description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아
 ms.date: 07/13/2020
 ms.topic: sample
 ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927354"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
