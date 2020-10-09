@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 2a8a0bf1e63f06bbe6b6a073af6b3da8904dcaeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61450232"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Windows)
@@ -25,7 +25,7 @@ ms.locfileid: "61450232"
 
 디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 완료하려면 [Windows 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment)의 단계에 따라 필요한 개발 도구 및 라이브러리를 Windows 머신에 추가합니다.
 

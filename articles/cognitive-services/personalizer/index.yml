@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
   ms.openlocfilehash: 28197f7408ea93ed07d09e1ae44e7924f4605a14
-  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/18/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88506552"
 landingContent:
 - title: Personalizer 정보

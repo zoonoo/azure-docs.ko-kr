@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60318463"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Azure PowerShell을 사용하여 IoT Hub 파일 업로드 구성
@@ -31,7 +31,7 @@ ms.locfileid: "60318463"
 
 * Azure IoT Hub - IoT hub가 없는 경우 [AzIoTHub cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) 을 사용 하 여 iot hub를 만들거나 포털을 사용 하 여 [Iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
 
-* Azure Storage 계정. Azure 스토리지 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.storage/)을 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
+* Azure 스토리지 계정. Azure 스토리지 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.storage/)을 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 

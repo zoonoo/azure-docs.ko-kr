@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60547339"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Bing Autosuggest API에 대한 언어 및 지역 지원
@@ -46,7 +46,7 @@ ms.locfileid: "60547339"
 | 프랑스어(프랑스)     | `fr-FR`          |
 | 프랑스어(스위스)      | `fr-CH`          |
 | 독일어(오스트리아)      | `de-AT`          |
-| 독일어(독일)      | `de-DE`          |
+| 독일어 (독일)      | `de-DE`          |
 | 독일어(스위스)      | `de-CH`          |
 | 이탈리아어     | `it`          |
 | 일본어    | `ja`          |

@@ -2,14 +2,14 @@
 title: .NET(최신)을 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 description: 이 문서에서는 최신 Azure.Messaging.EventHubs 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 .NET Core 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1bf41eb5ef5b43a59330d1735086ca595d7604b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 170484b5a24367eb19e69f0a72918d99b6595fca
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334228"
+ms.locfileid: "91728508"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 및 받기 - .NET(Azure.Messaging.EventHubs) 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -19,7 +19,7 @@ ms.locfileid: "91334228"
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -109,8 +109,11 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 이 섹션에서는 이벤트 처리기를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 애플리케이션을 작성하는 방법을 보여줍니다. 이벤트 프로세서는 이벤트 허브에서 영구적 검사점과 병렬 수신을 관리하여 이벤트 허브에서 이벤트 수신을 간소화합니다. 이벤트 처리기는 특정 이벤트 허브 및 소비자 그룹과 연결됩니다. 이벤트 처리기는 이벤트 허브의 여러 파티션에서 이벤트를 수신하고, 사용자가 제공하는 코드를 사용하여 처리기 대리자에 전달하여 처리합니다. 
 
 
-> [!NOTE]
-> Azure Stack Hub에서 실행 중인 경우 해당 플랫폼은 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. 예를 들어 [Azure Stack Hub 버전 2002](/azure-stack/user/event-hubs-overview)에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2017-11-09를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 [GitHub에 대한 이 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)을 참조하세요. Azure Stack Hub에서 지원되는 Azure Storage 서비스 버전에 대한 자세한 내용은 [Azure Stack Hub스토리지: 차이점 및 고려 사항](/azure-stack/user/azure-stack-acs-differences)을 참조하세요.
+> [!WARNING]
+> Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+>
+> 예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 [GitHub에 대한 이 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)을 참조하세요. 
+ 
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Azure Storage 및 BLOB 컨테이너 만들기
 이 빠른 시작에서는 Azure Storage를 검사점 저장소로 사용합니다. 다음 단계에 따라 Azure Storage 계정을 만듭니다. 
