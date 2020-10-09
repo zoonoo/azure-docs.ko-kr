@@ -13,10 +13,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881353"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>단일 및 여러 계정 공용 클라이언트 앱
@@ -25,7 +25,7 @@ ms.locfileid: "80881353"
 
 ADAL (Azure Active Directory 인증 라이브러리)은 서버를 모델링 합니다.  대신 MSAL (Microsoft 인증 라이브러리)은 클라이언트 응용 프로그램을 모델링 합니다.  대부분의 Android 앱은 공용 클라이언트로 간주 됩니다. 공용 클라이언트는 안전 하 게 암호를 유지할 수 없는 앱입니다.  
 
-MSAL은의 API 화면을 전문적 `PublicClientApplication` 으로 하 여 한 번에 하나의 계정만 사용할 수 있도록 하는 앱에 대 한 개발 환경을 단순화 하 고 명확 하 게 합니다. `PublicClientApplication`는 및에 의해 서브클래싱 됩니다 `SingleAccountPublicClientApplication` `MultipleAccountPublicClientApplication` .  다음 다이어그램에서는 이러한 클래스 간의 관계를 보여 줍니다.
+MSAL은의 API 화면을 전문적 `PublicClientApplication` 으로 하 여 한 번에 하나의 계정만 사용할 수 있도록 하는 앱에 대 한 개발 환경을 단순화 하 고 명확 하 게 합니다. `PublicClientApplication` 는 및에 의해 서브클래싱 됩니다 `SingleAccountPublicClientApplication` `MultipleAccountPublicClientApplication` .  다음 다이어그램에서는 이러한 클래스 간의 관계를 보여 줍니다.
 
 ![SingleAccountPublicClientApplication UML 클래스 다이어그램](./media/single-multi-account/single-and-multiple-account.png)
 
@@ -35,14 +35,14 @@ MSAL은의 API 화면을 전문적 `PublicClientApplication` 으로 하 여 한 
 
 - MSAL은 현재 로그인 된 계정을 추적 합니다.
   - 앱이 broker를 사용 하는 경우 (Azure Portal 기본값) broker가 있는 장치에 설치 된 경우 MSAL은 해당 계정을 장치에서 계속 사용할 수 있는지 확인 합니다.
-- `signIn`요청 범위에서 별도로 계정에 로그인 할 수 있습니다.
-- `acquireTokenSilent`계정 매개 변수는 필요 하지 않습니다.  계정을 제공 하 고 제공 하는 계정이 MSAL에서 추적 하는 현재 계정과 일치 하지 않으면 `MsalClientException` 이 throw 됩니다.
-- `acquireToken`사용자가 계정을 전환할 수 없습니다. 사용자가 다른 계정으로 전환 하려고 하면 예외가 throw 됩니다.
-- `getCurrentAccount`다음을 제공 하는 결과 개체를 반환 합니다.
+- `signIn` 요청 범위에서 별도로 계정에 로그인 할 수 있습니다.
+- `acquireTokenSilent` 계정 매개 변수는 필요 하지 않습니다.  계정을 제공 하 고 제공 하는 계정이 MSAL에서 추적 하는 현재 계정과 일치 하지 않으면 `MsalClientException` 이 throw 됩니다.
+- `acquireToken` 사용자가 계정을 전환할 수 없습니다. 사용자가 다른 계정으로 전환 하려고 하면 예외가 throw 됩니다.
+- `getCurrentAccount` 다음을 제공 하는 결과 개체를 반환 합니다.
   - 계정이 변경 되었는지 여부를 나타내는 부울입니다. 예를 들어 장치에서 제거 된 결과로 계정이 변경 될 수 있습니다.
   - 이전 계정. 이는 계정이 장치에서 제거 되거나 새 계정이 로그인 될 때 로컬 데이터 정리를 수행 해야 하는 경우에 유용 합니다.
   - CurrentAccount입니다.
-- `signOut`장치에서 클라이언트와 연결 된 모든 토큰을 제거 합니다.  
+- `signOut` 장치에서 클라이언트와 연결 된 모든 토큰을 제거 합니다.  
 
 Microsoft Authenticator 또는 Intune 회사 포털와 같은 Android 인증 브로커가 장치에 설치 되어 있고 앱이 broker를 사용 하도록 구성 된 경우 `signOut` 장치에서 계정을 제거 하지 않습니다.
 

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80876445"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Azure Container Instance 리소스 만들기
@@ -31,11 +31,11 @@ ms.locfileid: "80876445"
     |이미지 형식|컨테이너 이미지가 자격 증명이 필요 하지 않은 컨테이너 레지스트리에 저장 되어 있는 경우를 선택 `Public` 합니다. 컨테이너 이미지에 액세스 하려면 자격 증명이 필요 `Private` 합니다 .를 선택 합니다. 컨테이너 이미지가 [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) `Public` 또는 `Private` ("공개 미리 보기") 인지 여부에 대 한 자세한 내용은 컨테이너 리포지토리 및 이미지를 참조 하세요. |
     |이미지 이름|Cognitive Services 컨테이너 위치를 입력 합니다. 위치는 명령에 대 한 인수로 사용 됩니다 `docker pull` . 사용 가능한 이미지 이름 및 해당 리포지토리의 [컨테이너 리포지토리 및 이미지](../../cognitive-services-container-support.md#container-repositories-and-images) 를 참조 하세요.<br><br>이미지 이름은 세 부분을 지정 하 여 정규화 되어야 합니다. 먼저 컨테이너 레지스트리, 리포지토리, 마지막으로 이미지 이름:을 차례로 클릭 합니다 `<container-registry>/<repository>/<image-name>` .<br><br>다음은 `mcr.microsoft.com/azure-cognitive-services/keyphrase` Microsoft Container Registry Azure Cognitive Services 리포지토리에서 핵심 구 추출 이미지를 나타내는 예제입니다. 또 다른 예는 `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` 컨테이너 미리 보기 컨테이너 레지스트리의 Microsoft 리포지토리에서 음성에서 텍스트 이미지를 나타내는입니다. |
     |OS 유형|`Linux`|
-    |Size|특정 인지 서비스 컨테이너에 대 한 권장 권장 사항으로 크기를 변경 합니다.<br>2 CPU 코어<br>4GB
+    |크기|특정 인지 서비스 컨테이너에 대 한 권장 권장 사항으로 크기를 변경 합니다.<br>2 CPU 코어<br>4GB
 
 3. **네트워킹** 탭에서 다음 세부 정보를 입력 합니다.
 
-    |설정|Value|
+    |설정|값|
     |--|--|
     |포트|TCP 포트를로 설정 `5000` 합니다. 포트 5000의 컨테이너를 노출 합니다.|
 

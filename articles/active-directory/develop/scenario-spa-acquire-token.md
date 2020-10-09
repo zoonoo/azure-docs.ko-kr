@@ -12,10 +12,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882321"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>단일 페이지 응용 프로그램: API를 호출 하는 토큰 획득
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 MSAL 각도 래퍼는 자동으로 액세스 토큰을 획득 하 고 Api에 대 한 HTTP 요청에 연결 하는 HTTP 인터셉터를 제공 합니다.
 
-구성 옵션에서 Api의 범위를 지정할 수 있습니다 `protectedResourceMap` . `MsalInterceptor`는 토큰을 자동으로 획득할 때 이러한 범위를 요청 합니다.
+구성 옵션에서 Api의 범위를 지정할 수 있습니다 `protectedResourceMap` . `MsalInterceptor` 는 토큰을 자동으로 획득할 때 이러한 범위를 요청 합니다.
 
 ```javascript
 // app.module.ts

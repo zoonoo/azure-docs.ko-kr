@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
 ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85248686"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 재작성
@@ -69,7 +69,7 @@ Application gateway는 다음 서버 변수를 지원 합니다.
 | client_port                | 클라이언트 포트입니다.                                                  |
 | client_tcp_rtt             | 클라이언트 TCP 연결에 대 한 정보입니다. TCP_INFO 소켓 옵션을 지 원하는 시스템에서 사용할 수 있습니다. |
 | client_user                | HTTP 인증을 사용 하는 경우 인증을 위해 제공 되는 사용자 이름입니다. |
-| host                       | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* 호스트 값은 *contoso.com* 입니다. |
+| 호스트                       | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* 호스트 값은 *contoso.com* 입니다. |
 | cookie_*이름*              | *이름* 쿠키입니다.                                            |
 | http_method                | URL 요청을 만드는 데 사용 되는 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status                | 세션 상태입니다. 예: 200, 400 또는 403.                       |
@@ -156,7 +156,7 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 ## <a name="limitations"></a>제한 사항
 
-- 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 이는 일반적으로 응답에 두 개 이상의 쿠키 헤더를 사용할 수 있으므로 설정-쿠키 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 설정-쿠키 헤더 (예:) `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` 와 application gateway 선호도 (예:)가 포함 `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` 됩니다. 이 시나리오에서 Set 쿠키 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set 쿠키 헤더가 제거 될 수 있습니다.
+- 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 응답에 Set-Cookie 헤더를 두 개 이상 포함할 수 있으므로이는 일반적으로 Set-Cookie 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 Set-Cookie 헤더 (예:) `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` 와 응용 프로그램 게이트웨이 선호도 (예:)가 포함 됩니다 `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . 이 시나리오에서 Set-Cookie 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set-Cookie 헤더가 제거 될 수 있습니다.
 
 - 응용 프로그램 게이트웨이가 요청을 리디렉션하거나 사용자 지정 오류 페이지를 표시 하도록 구성 된 경우에는 다시 작성이 지원 되지 않습니다.
 
@@ -168,5 +168,5 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 HTTP 헤더를 다시 작성 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Azure Portal를 사용 하 여 HTTP 헤더 재작성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Azure Portal를 사용하여 HTTP 헤더 다시 쓰기](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 - [Azure PowerShell를 사용 하 여 HTTP 헤더 재작성](add-http-header-rewrite-rule-powershell.md)

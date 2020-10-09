@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80804625"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈의 Azure Blob Storage를 디바이스에 배포
@@ -45,10 +45,10 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 2. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.
 
-   예:
+   예제:
   
-   - **IoT Edge 모듈 이름**:`azureblobstorageoniotedge`
-   - **이미지 URI**:`mcr.microsoft.com/azure-blob-storage:latest`
+   - **IoT Edge 모듈 이름**: `azureblobstorageoniotedge`
+   - **이미지 URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    ![모듈 쌍 설정](./media/how-to-deploy-blob/addmodule-tab1.png)
 
@@ -88,10 +88,10 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
    - `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. Blob 모듈이 데이터를 저장 하는 IoT Edge 장치의 기존 디렉터리에 대 한 절대 경로 또는 [볼륨](https://docs.docker.com/storage/volumes/) 의 이름을 제공 합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.
 
-     - Linux 컨테이너의 경우 형식은 ** \<your storage path or volume> /blobroot**입니다. 예를 들어:
+     - Linux 컨테이너의 경우 형식은 ** \<your storage path or volume> /blobroot**입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예를 들어:
+     - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 smb 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) 을 참조 하세요.
@@ -200,10 +200,10 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.  
 
-     - Linux 컨테이너의 경우 형식은 ** \<your storage path or volume> /blobroot**입니다. 예를 들어:
+     - Linux 컨테이너의 경우 형식은 ** \<your storage path or volume> /blobroot**입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예
+     - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 smb 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) 을 참조 하세요.
@@ -240,7 +240,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
    모듈이 배포 된 후 deviceToCloudUploadProperties 및 deviceAutoDeleteProperties를 구성 하는 방법에 대 한 자세한 내용은 [모듈 쌍 편집](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)을 참조 하세요. 컨테이너 만들기 옵션, 다시 시작 정책 및 필요한 상태에 대 한 자세한 내용은 [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조 하세요.
 
-1. 파일 *에deployment.template.js* 을 저장 합니다.
+1. *deployment.template.json* 파일을 저장합니다.
 
 1. **deployment.template.json**을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 배포 매니페스트 생성**을 선택합니다.
 

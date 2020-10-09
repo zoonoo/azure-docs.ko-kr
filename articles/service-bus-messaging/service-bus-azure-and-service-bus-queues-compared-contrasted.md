@@ -4,10 +4,10 @@ description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337639"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
@@ -41,14 +41,14 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 * 애플리케이션이 메시지를 병렬 장기 실행 스트림(메시지의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 속성을 사용하여 메시지가 스트림과 연결됨)으로 처리하는 것이 좋습니다. 이 모델에서는 소비 애플리케이션의 각 노드가 메시지가 아니라 스트림에 대해 경쟁합니다. 소비 노드에 스트림이 전달되면 해당 노드는 트랜잭션을 사용하여 애플리케이션 스트림 상태를 검사할 수 있습니다.
 * 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
 * 애플리케이션은 64KB를 초과하지만 256KB의 한도에 접근할 가능성은 없는 메시지를 처리합니다.
-* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 항목을 참조하세요.
+* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 아티클을 참조하세요.
     - [관리되는 ID를 사용하여 인증](service-bus-managed-service-identity.md)
     - [애플리케이션에서 인증](authenticate-application.md)
-* 큐 크기는 80GB보다 크게 증가하지 않습니다.
+* 큐 크기는 80GB를 초과하여 커지지 않습니다.
 * AMQP 1.0 표준 기반 메시징 프로토콜을 사용하는 것이 좋습니다. AMQP에 대한 자세한 내용은 [Service Bus AMQP 개요](service-bus-amqp-overview.md)를 참조하세요.
 * 궁극적으로는 큐 기반의 지점 간 통신에서 큐에 전송된 일부 또는 전체 메시지의 개별 복사본을 수신하는 추가 수신자(구독자)의 원활한 통합을 지원하는 메시지 교환 패턴으로 마이그레이션하는 것도 기대할 수 있습니다. 후자는 Service Bus에서 기본적으로 제공하는 게시/구독 기능입니다.
 * 메시징 솔루션은 사용자가 추가 인프라 구성 요소를 구축하지 않고도 “최대 1회(At-Most-Once)” 전달 보장을 지원할 수 있어야 합니다.
-* 일괄 처리 메시지를 게시하고 소비할 수 있기를 바랄 것입니다.
+* 일괄 처리 메시지를 게시하고 사용할 수 있기를 원할 것입니다.
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Storage 큐와 Service Bus 큐 비교
 다음 섹션의 표에서는 큐 기능의 논리적 그룹화가 제공되며, Azure Storage 큐와 Service Bus 큐 모두에서 사용할 수 있는 기능을 한눈에 비교할 수 있습니다.
@@ -58,7 +58,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
-| 순서 보장 |**아니요** <br/><br>자세한 내용은 “추가 정보” 섹션의 첫 번째 참고를 참조하세요.</br> |**예 - 선입선출(FIFO)**<br/><br>(메시징 세션의 사용을 통해) |
+| 순서 보장 |‘아니요’ <br/><br>자세한 내용은 “추가 정보” 섹션의 첫 번째 참고를 참조하세요.</br> |**예 - 선입선출(FIFO)**<br/><br>(메시징 세션의 사용을 통해) |
 | 전달 보장 |**최소 1회(At-Least-Once)** |**최소 한 번** (PeekLock 수신 모드 사용-기본값) <br/><br/>**한 번** (ReceiveAndDelete 수신 모드 사용) <br/> <br/> 다양 한 [수신 모드](service-bus-queues-topics-subscriptions.md#receive-modes) 에 대해 자세히 알아보기  |
 | 원자성 작업 지원 |**아니요** |**예**<br/><br/> |
 | 수신 동작 |**비 차단**<br/><br/>(새 메시지가 없을 경우 즉시 완료) |**시간 제한 있는/없는 차단**<br/><br/>(장기 폴링 또는 ["Comet 기술"](https://go.microsoft.com/fwlink/?LinkId=613759) 제공)<br/><br/>**비 차단**<br/><br/>(.NET 관리 API만을 사용하여) |
@@ -122,10 +122,10 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 최대 큐 크기 |**500TB**<br/><br/>( [단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한 됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
-| 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
+| 최대 메시지 크기 |**64 KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
 | 최대 메시지 TTL |**Infinite**(api-version 2017-07-27부터) |**TimeSpan.Max** |
-| 최대 큐 수 |**제한 없음** |**1만**<br/><br/>(서비스 네임스페이스당) |
-| 최대 동시 클라이언트 수 |**제한 없음** |**제한 없음**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨) |
+| 최대 큐 수 |**무제한** |**1만**<br/><br/>(서비스 네임스페이스당) |
+| 최대 동시 클라이언트 수 |**무제한** |**무제한**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨) |
 
 ### <a name="additional-information"></a>추가 정보
 * Service Bus의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB ~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량](service-bus-quotas.md)을 참조하세요.

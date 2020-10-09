@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 0257f3af44cc85d0a3656472db224ae5a7e19161
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874354"
 ---
 ### <a name="speech-umbrella-chart"></a>Speech (파라솔 차트)
 
 최상위 "파라솔" 차트의 값은 해당 하위 차트 값을 재정의 합니다. 따라서 모든 온-프레미스 사용자 지정 값을 여기에 추가 해야 합니다.
 
-|매개 변수|Description|기본값|
+|매개 변수|설명|기본값|
 | -- | -- | -- | -- |
 | `speechToText.enabled` | **음성 텍스트** 서비스의 사용 여부를 지정 합니다. | `true` |
 | `speechToText.verification.enabled` | `helm test` **음성 텍스트** 서비스의 기능을 사용할 수 있는지 여부를 나타냅니다. | `true` |

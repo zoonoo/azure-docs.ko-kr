@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252715"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
@@ -102,4 +102,4 @@ Windows 하위 수준 디바이스를 등록하려면 조직에서는 Microsoft 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)(하이브리드 Azure Active Directory 연결 구현 계획)
+[하이브리드 Azure Active Directory 조인 구현 계획](hybrid-azuread-join-plan.md)

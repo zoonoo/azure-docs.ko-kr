@@ -4,10 +4,10 @@ description: Azure Resource Manager 및 제안 된 작업으로 표시 되는 Se
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85336967"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>예외 리소스 관리자 Service Bus

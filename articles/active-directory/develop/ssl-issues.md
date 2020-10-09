@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881080"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>방법: iOS 및 macOS TLS/SSL 문제에 대 한 MSAL 문제 해결
@@ -41,7 +41,7 @@ SHA-1 해시를 사용 하는 인증서에는 알려진 취약성이 있습니�
 
 ## <a name="captive-portals"></a>조임 포털
 
-조임 된 포털은 사용자가 Wi-fi 네트워크에 처음 액세스할 때 해당 네트워크에 대 한 액세스 권한이 아직 부여 되지 않은 사용자에 게 웹 페이지를 제공 합니다. 사용자가 포털의 요구 사항을 충족할 때까지 인터넷 트래픽을 차단 합니다. 사용자가 포털을 통해 연결할 수 있을 때까지 사용자가 네트워크 리소스에 연결할 수 없기 때문에 네트워크 오류가 발생 합니다.
+조임 된 포털은 사용자가 Wi-Fi 네트워크에 처음 액세스할 때 해당 네트워크에 대 한 액세스 권한이 아직 부여 되지 않은 사용자에 게 웹 페이지를 제공 합니다. 사용자가 포털의 요구 사항을 충족할 때까지 인터넷 트래픽을 차단 합니다. 사용자가 포털을 통해 연결할 수 있을 때까지 사용자가 네트워크 리소스에 연결할 수 없기 때문에 네트워크 오류가 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

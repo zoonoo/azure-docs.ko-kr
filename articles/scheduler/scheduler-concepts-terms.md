@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878394"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
@@ -27,9 +27,9 @@ ms.locfileid: "80878394"
 
 Azure Scheduler REST API는 다음과 같은 주요 엔터티 또는 리소스를 공개하고 사용합니다.
 
-| 엔터티 | 설명 |
+| 엔터티 | Description |
 |--------|-------------|
-| **직함** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
+| **작업** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
 | **작업 컬렉션** | 작업 그룹을 포함하며 컬렉션에서 작업이 공유하는 설정, 할당량 및 제한을 유지합니다. Azure 구독 소유자는 작업 컬렉션을 만들고, 사용 또는 애플리케이션 경계를 기준으로 작업을 함께 그룹화할 수 있습니다. 작업 컬렉션은 다음과 같은 특성이 있습니다. <p>- 한 지역으로 제한됩니다. <br>- 컬렉션의 모든 작업에 대해 사용량을 제한할 수 있도록 할당량을 적용할 수 있습니다. <br>- 할당량은 MaxJobs 및 MaxRecurrence를 포함합니다. | 
 | **작업 기록** | 예를 들어, 상태 및 응답 세부 정보와 같은 작업 실행에 대한 정보를 설명합니다. |
 ||| 
@@ -82,7 +82,7 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 작업에는 작업의 예약된 다음 실행 시간 등의 시스템 제공 데이터도 포함됩니다. 작업 코드 정의는 다음과 같은 요소를 가진 JSON(JavaScript Object Notation) 형식의 개체입니다.
 
-| 요소 | 필수 | 설명 | 
+| 요소 | 필수 | Description | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | 아니요 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 표준 시간대 오프셋을 사용하는 작업의 시작 시간 | 
 | [**조치**](#action) | 예 | 기본 동작의 세부 정보로, **errorAction** 개체를 포함할 수 있습니다. | 
@@ -246,7 +246,7 @@ SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세
 },
 ```
 
-| 속성 | 필수 | 값 | 설명 | 
+| 속성 | 필수 | 값 | Description | 
 |----------|----------|-------|-------------| 
 | **주기와** | **recurrence**가 사용된 경우, 예 | "Minute", "Hour", "Day", "Week", "Month", "Year" | 발생 간격 간의 시간 단위 | 
 | **간격은** | 아니요 | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
@@ -276,7 +276,7 @@ Scheduler 작업이 실패할 경우 Scheduler에서 동작을 재시도할지 �
 },
 ```
 
-| 속성 | 필수 | 값 | 설명 | 
+| 속성 | 필수 | 값 | Description | 
 |----------|----------|-------|-------------| 
 | **retryType** | 예 | **Fixed**, **None** | 재시도 정책을 지정할지(**fixed**) 또는 지정하지 않을지(**none**) 결정합니다. | 
 | **retryInterval** | 아니요 | PT30S | 재시도 사이의 간격 및 빈도를 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)으로 지정합니다. 최솟값은 15초이고 최댓값은 18개월입니다. | 

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76721356"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process 그룹 관리자 작업
@@ -188,7 +188,7 @@ TDSP 팀 리포지토리를 가져오려면:
    
 1. 만든 디렉터리로 변경 합니다.
    
-1. Git Bash에서 명령을 실행 합니다.`git clone <clone URL>.`
+1. Git Bash에서 명령을 실행 합니다. `git clone <clone URL>.`
    
    예를 들어 다음 명령 중 하나는 로컬 컴퓨터의 *Grouputilities* 디렉터리에 **grouputilities** 리포지토리를 복제 하는 것입니다. 
    

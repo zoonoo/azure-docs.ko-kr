@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76720455"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
@@ -29,7 +29,7 @@ TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트를 구�
 TDSP 수명 주기는 반복적으로 실행되는 5가지 주요 단계로 구성됩니다. 이러한 단계에는 다음이 포함됩니다.
 
    1. [비즈니스 이해](lifecycle-business-understanding.md)
-   2. [데이터 취득 및 이해](lifecycle-data.md)
+   2. [데이터 획득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262670"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
@@ -70,11 +70,11 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 5. 일단 애플리케이션이 배포됩니다. Azure Portal에서 배포한 웹앱으로 이동하고 이 애플리케이션의 **관리 서비스 ID**를 설정합니다.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="관리 서비스 ID":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="암호 만들기":::
 
 지금 애플리케이션을 실행하면 Key Vault에서 이 애플리케이션에 대한 권한을 부여하지 않았으므로 다음 오류가 표시됩니다.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="액세스 없이 배포된 앱":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="암호 만들기":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>애플리케이션 등록 및 Key Vault를 읽을 권한 부여
 
@@ -84,11 +84,11 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 2. **액세스 정책**을 열고 **+새로 추가**를 선택하여 배포된 웹앱을 찾은 다음, 권한을 선택하고 **확인**을 선택합니다.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="액세스 정책 추가":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="암호 만들기":::
 
 이제 애플리케이션을 실행하는 경우 Key Vault에서 비밀을 읽을 수 있습니다.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="비밀로 배포된 앱":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="암호 만들기":::
  
 마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책**을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 애플리케이션을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 애플리케이션이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
 

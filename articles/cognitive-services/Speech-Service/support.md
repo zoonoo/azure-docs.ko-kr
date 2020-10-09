@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
 ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76169520"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
@@ -101,7 +101,7 @@ Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있�
 
 Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
 
-검색을 통해 문제에 대 한 답변을 찾을 수 없는 경우 [ \[\]\[microsoft 인식 음성\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)태그를 사용 하 여 Stack Overflow에 새 질문을 제출 합니다.
+검색을 통해 문제에 대 한 답변을 찾을 수 없는 경우 [ \[ microsoft 인식 \] \[ 음성 \] ](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)태그를 사용 하 여 Stack Overflow에 새 질문을 제출 합니다.
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  

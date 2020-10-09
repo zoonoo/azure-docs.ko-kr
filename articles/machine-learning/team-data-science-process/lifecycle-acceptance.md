@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76720523"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 고객 승인 단계
@@ -23,7 +23,7 @@ ms.locfileid: "76720523"
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 고객 승인 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
    1. **비즈니스 이해**
-   2. **데이터 취득 및 이해**
+   2. **데이터 획득 및 이해**
    3. **모델링**
    4. **배포**
    5. **고객 승인**
@@ -33,7 +33,7 @@ ms.locfileid: "76720523"
 ![TDSP 수명 주기](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Goal
+## <a name="goal"></a>목표
 **프로젝트 결과물 마무리**: 프로덕션 환경의 파이프라인, 모델 및 배포가 고객의 목표를 충족 하는지 확인 합니다.
 
 ## <a name="how-to-do-it"></a>작업 방법
@@ -53,7 +53,7 @@ ms.locfileid: "76720523"
 TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니다.
 
    1. [비즈니스 이해](lifecycle-business-understanding.md)
-   2. [데이터 취득 및 이해](lifecycle-data.md)
+   2. [데이터 획득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)

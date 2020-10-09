@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80811089"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
@@ -46,7 +46,7 @@ Azure에서는 가상 머신을 Azure Virtual Network에 연결해야 합니다.
 
 자세한 정보:
 
-* [가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
+* [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 
 ## <a name="network-access-control"></a>네트워크 액세스 제어
 
@@ -283,7 +283,7 @@ Azure에서는 Azure Traffic Manager를 사용하여 글로벌 부하 분산의 
 
 자세한 정보:
 
-* [가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
+* [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 * [가상 네트워크에서 사용 하는 DNS 서버 관리](../../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 외부 이름 확인에는 두 가지 옵션이 있습니다.

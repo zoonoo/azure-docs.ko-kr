@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85318912"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
@@ -46,7 +46,7 @@ ms.locfileid: "85318912"
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
 
-| 템플릿 | 설명 |
+| 템플릿 | Description |
 | --- | --- |
 | [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |이 템플릿을 배포 하면 지정 된 Azure blob 저장소의 데이터를 Azure SQL Database로 복사 하는 파이프라인이 있는 Azure 데이터 팩터리가 생성 됩니다. |
 | [Salesforce에서 Azure Blob Storage로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |이 템플릿을 배포하면 지정된 Salesforce 계정에서 Azure Blob Storage에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
@@ -98,7 +98,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
     ![데이터 팩터리 템플릿 대화 상자](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. **데이터 팩터리 구성** 대화 상자에서 **데이터 팩터리 기본 사항** 페이지에 있는 **다음**을 클릭합니다.
 5. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
-   1. **새 데이터 팩터리 만들기**를 선택합니다. **기존 데이터 팩터리 사용**을 선택할 수도 있습니다.
+   1. **새 Data Factory 만들기**를 선택 합니다. **기존 데이터 팩터리 사용**을 선택할 수도 있습니다.
    2. 데이터 팩터리의 **이름을** 입력 합니다.
    3. 데이터 팩터리를 만들려는 위치에 **Azure 구독** 을 선택합니다.
    4. 데이터 팩터리의 **리소스 그룹** 을 선택합니다.
@@ -113,7 +113,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 12. 다음 대화 상자가 표시됩니다.
 
     ![게시 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행 합니다.
+13. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
 
     1. **기존 데이터 팩터리 사용** 옵션을 확인합니다.
     2. 템플릿을 사용할 때 선택한 **데이터 팩터리**를 선택합니다.

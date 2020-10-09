@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, 다운로드 업데이트, 최신, 사용 가능, 설치, 본문, 추적
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277068"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Azure Kinect Body 추적 SDK 다운로드
@@ -61,7 +61,7 @@ ms.locfileid: "85277068"
 ### <a name="v101"></a>v 1.0.1
 * [버그 수정] Windows 빌드 19025 이상에서 경로에서 onnxruntime.dll 로드 하는 경우 SDK가 충돌 하는 문제를 해결 합니다. [링크](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/932)
 
-### <a name="v100"></a>v 1.0.0
+### <a name="v100"></a>v1.0.0
 * 기능과 Msi 설치 관리자에 c # 래퍼를 추가 합니다.
 * [버그 수정] 헤드 회전을 제대로 검색할 수 없는 문제를 해결 합니다. [링크](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/997)
 * [버그 수정] Linux 컴퓨터에서 CPU 사용량이 최대 100%까지 발생 하는 문제를 해결 합니다. [링크](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1007)
@@ -71,7 +71,7 @@ ms.locfileid: "85277068"
 * 기능과 C # 지원 C # 래퍼가 nuget 패키지에 압축 됩니다.
 * 기능과 다중 추적기 지원. 여러 추적기를 만들 수 있습니다. 이제 사용자는 여러 개의 추적기를 만들어 여러 Azure Kinect 장치에서 본문을 추적할 수 있습니다.
 * 기능과 CPU 모드에 대 한 다중 스레드 처리 지원. CPU 모드에서 실행 하는 경우 모든 코어를 사용 하 여 속도를 최대화 합니다.
-* 기능과 `gpu_device_id`구조체에를 추가 `k4abt_tracker_configuration_t` 합니다. 사용자가 기본이 아닌 GPU 장치를 지정 하 여 본문 추적 알고리즘을 실행할 수 있습니다.
+* 기능과 `gpu_device_id` 구조체에를 추가 `k4abt_tracker_configuration_t` 합니다. 사용자가 기본이 아닌 GPU 장치를 지정 하 여 본문 추적 알고리즘을 실행할 수 있습니다.
 * [버그 수정/주요 변경] 조인트 이름에서 오타를 수정 합니다. 에서로의 조인트 이름을 변경 `K4ABT_JOINT_SPINE_NAVAL` `K4ABT_JOINT_SPINE_NAVEL` 합니다.
 
 ### <a name="v094"></a>v 0.9.4
@@ -90,7 +90,7 @@ ms.locfileid: "85277068"
 ### <a name="v092"></a>v 0.9.2
 * [주요 변경 내용] 최신 Azure Kinect 센서 SDK 1.2.0에 따라 업데이트 합니다.
 * [API 변경] `k4abt_tracker_create` 함수에서 입력을 시작 `k4abt_tracker_configuration_t` 합니다. 
-* [API 변경] `k4abt_frame_get_timestamp_usec`API를에 `k4abt_frame_get_device_timestamp_usec` 더 구체적이 고 센서 SDK 1.2.0와 일치 하도록 변경 합니다.
+* [API 변경] `k4abt_frame_get_timestamp_usec` API를에 `k4abt_frame_get_device_timestamp_usec` 더 구체적이 고 센서 SDK 1.2.0와 일치 하도록 변경 합니다.
 * 기능과 다른 각도로 탑재할 때 더 정확한 본문 추적 결과를 얻기 위해 추적기를 만들 때 센서 장착 방향을 지정할 수 있습니다.
 * 기능과 새 API `k4abt_tracker_set_temporal_smoothing` 를 제공 하 여 사용자가 적용 하려는 임시 다듬기의 양을 변경 합니다.
 * 기능과 C + + 래퍼 k4abt를 추가 합니다.
@@ -109,9 +109,9 @@ ms.locfileid: "85277068"
 
 * [주요 변경 내용] SDK 종속성 10.0을 이상으로 다운 그레이드 합니다 (CDA 10.1에서). ONNX runtime은 공식적으로 최대의 DA 10.0을 지원 합니다.
 * [주요 변경 내용] Tensorflow 런타임 대신 ONNX 런타임으로 전환 되었습니다. 첫 번째 프레임 시작 시간 및 메모리 사용을 줄입니다. 또한 SDK 이진 크기를 줄입니다.
-* [API 변경] 이름 `k4abt_tracker_queue_capture()` 변경 됨`k4abt_tracker_enqueue_capture()`
-* [API 변경] `k4abt_frame_get_body()`및의 두 가지 별도 함수로 `k4abt_frame_get_body_skeleton()` 중단 `k4abt_frame_get_body_id()` 됩니다. 이제 전체 해골 구조를 항상 복사 하지 않고 본문 ID를 쿼리할 수 있습니다.
-* [API 변경] `k4abt_frame_get_timestamp_usec()`사용자가 본문 프레임 타임 스탬프를 쿼리 하는 단계를 간소화 하는 함수를 추가 했습니다.
+* [API 변경] 이름 `k4abt_tracker_queue_capture()` 변경 됨 `k4abt_tracker_enqueue_capture()`
+* [API 변경] `k4abt_frame_get_body()` 및의 두 가지 별도 함수로 `k4abt_frame_get_body_skeleton()` 중단 `k4abt_frame_get_body_id()` 됩니다. 이제 전체 해골 구조를 항상 복사 하지 않고 본문 ID를 쿼리할 수 있습니다.
+* [API 변경]  `k4abt_frame_get_timestamp_usec()` 사용자가 본문 프레임 타임 스탬프를 쿼리 하는 단계를 간소화 하는 함수를 추가 했습니다.
 * 본문 추적 알고리즘 정확도 및 추적 안정성 향상
 
 ## <a name="next-steps"></a>다음 단계

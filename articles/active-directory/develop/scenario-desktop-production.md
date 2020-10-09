@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882882"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱: 프로덕션으로 이동
@@ -35,8 +35,8 @@ V2.0 (Microsoft identity platform) 끝점을 사용 하 여 한 번에 여러 �
 
 예를 들어, 두 개의 범위가 각각 포함 된 두 개의 리소스가 있을 수 있습니다.
 
-- `https://mytenant.onmicrosoft.com/customerapi`범위 `customer.read` 및`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`범위 `vendor.read` 및`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` 범위 `customer.read` 및 `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` 범위 `vendor.read` 및 `vendor.write`
 
 이 예제에서는 `.WithAdditionalPromptToConsent` 매개 변수가 있는 한정자를 사용 합니다 `extraScopesToConsent` .
 

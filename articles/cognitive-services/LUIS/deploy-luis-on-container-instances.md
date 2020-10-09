@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879215"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>LUIS (Language Understanding) 컨테이너를 Azure Container instances에 배포
@@ -29,11 +29,11 @@ Cognitive Services [LUIS](luis-container-howto.md) 컨테이너를 Azure [contai
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
-LUIS 컨테이너에는 런타임에 `.gz` 가져온 모델 파일이 필요 합니다. 컨테이너는 컨테이너 인스턴스에서 볼륨 탑재를 통해이 모델 파일에 액세스할 수 있어야 합니다. Azure 파일 공유를 만드는 방법에 대 한 자세한 내용은 [파일 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)를 참조 하세요. 나중에 필요 하므로 Azure Storage 계정 이름, 키 및 파일 공유 이름을 적어 둡니다.
+LUIS 컨테이너에는 `.gz` 런타임에 가져온 모델 파일이 필요 합니다. 컨테이너는 컨테이너 인스턴스에서 볼륨 탑재를 통해이 모델 파일에 액세스할 수 있어야 합니다. Azure 파일 공유를 만드는 방법에 대 한 자세한 내용은 [파일 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)를 참조 하세요. 나중에 필요 하므로 Azure Storage 계정 이름, 키 및 파일 공유 이름을 적어 둡니다.
 
 ### <a name="export-and-upload-packaged-luis-app"></a>패키지 된 LUIS 앱 내보내기 및 업로드
 
-LUIS model (패키지 된 앱)을 Azure 파일 공유에 업로드 하려면 <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">먼저 <span class="docon docon-navigate-external x-hidden-focus"> </span>LUIS 포털에서 내보내야 </a>합니다. Azure Portal에서 저장소 계정 리소스의 **개요** 페이지로 이동 하 고 **파일 공유**를 선택 합니다. 최근에 만든 파일 공유 이름을 선택 하 고 **업로드** 단추를 선택 합니다.
+LUIS model (패키지 된 앱)을 Azure 파일 공유에 업로드 하려면 <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">먼저 <span class="docon docon-navigate-external x-hidden-focus"></span> LUIS 포털에서 내보내야 </a>합니다. Azure Portal에서 저장소 계정 리소스의 **개요** 페이지로 이동 하 고 **파일 공유**를 선택 합니다. 최근에 만든 파일 공유 이름을 선택 하 고 **업로드** 단추를 선택 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![파일 공유에 업로드](media/luis-how-to-deploy-to-aci/upload-file-share.png)
