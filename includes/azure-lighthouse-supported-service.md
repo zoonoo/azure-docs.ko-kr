@@ -9,11 +9,11 @@ ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 7da1a3501d74cc7f46d35597df5a985c3e571388
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
-ms.translationtype: MT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86106063"
 ---
 > [!NOTE]
-> 이 서비스는 [Azure Lighthouse](../articles/lighthouse/overview.md)를 지원 합니다 .이를 통해 서비스 공급자는 자신의 테 넌 트에 로그인 하 여 고객이 위임한 구독 및 리소스 그룹을 관리할 수 있습니다.
+> 이 서비스는 서비스 공급자가 자체 테넌트에 로그인하여 고객이 위험한 구독과 리소스 그룹을 관리할 수 있도록 하는 [Azure Lighthouse](../articles/lighthouse/overview.md)를 지원합니다.
