@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82233468"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
@@ -25,7 +25,7 @@ Event Hubs로 전송할 수 있는 게스트 운영 체제에서 수집 된 데�
 * Windows 이벤트 로그 (Windows 이벤트 로그의 응용 프로그램 로그 포함)
 * Azure Diagnostics 인프라 로그
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 진단 확장 1.6 이상. 지원 되는 리소스에 대 한 [Azure 진단 확장 구성 스키마 버전 및 기록](diagnostics-extension-versions.md) 에 대 한 자세한 내용 및 [Azure 진단 확장 개요](diagnostics-extension-overview.md) 를 참조 하세요.
 * Event Hubs 네임 스페이스는 항상 프로 비전 되어야 합니다. 자세한 내용은 [Event Hubs 시작을](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 참조 하세요.
@@ -36,9 +36,9 @@ Event Hubs로 전송할 수 있는 게스트 운영 체제에서 수집 된 데�
 
 Azure 진단는 항상 로그 및 메트릭을 Azure Storage 계정으로 보냅니다. 데이터를 추가 위치로 전송 하는 *데이터 싱크* 를 하나 이상 구성할 수 있습니다. 각 싱크는 개인 구성에서 중요 한 정보를 사용 하 여 공용 구성의 [SinksConfig 요소](diagnostics-extension-schema-windows.md#sinksconfig-element) 에 정의 됩니다. Event hubs에 대 한이 구성은 다음 표의 값을 사용 합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:---|:---|
-| Name | 싱크에 대 한 설명이 포함 된 이름입니다. 구성에서 싱크로 보낼 데이터 원본을 지정 하는 데 사용 됩니다. |
+| 속성 | 싱크에 대 한 설명이 포함 된 이름입니다. 구성에서 싱크로 보낼 데이터 원본을 지정 하는 데 사용 됩니다. |
 | Url  | Servicebus.windows.net/형식의 이벤트 허브 Url입니다. \<event-hubs-namespace\> \<event-hub-name\>          |
 | SharedAccessKeyName | 적어도 **전송** 권한이 있는 이벤트 허브에 대 한 공유 액세스 정책의 이름입니다. |
 | SharedAccessKey     | 이벤트 허브에 대 한 공유 액세스 정책의 기본 또는 보조 키입니다. |

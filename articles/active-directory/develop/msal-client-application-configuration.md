@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81534468"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
@@ -79,9 +79,9 @@ Azure AD 클라우드 기관에는 두 가지 부분이 있습니다.
   - 단일 테 넌 트 응용 프로그램에 대 한 GUID (Azure AD 인스턴스의 ID)
   - Azure AD 인스턴스와 연결 된 도메인 이름 (단일 테 넌 트 응용 프로그램에도 해당)
 - 다음 자리 표시자 중 하나는 Azure AD 기관 대상 그룹 열거 대신 테 넌 트 ID입니다.
-    - `organizations`다중 테 넌 트 응용 프로그램의 경우
-    - `consumers`개인 계정 으로만 사용자를 로그인 하려면
-    - `common`회사 및 학교 계정이 나 개인 Microsoft 계정으로 사용자를 로그인 하려면
+    - `organizations` 다중 테 넌 트 응용 프로그램의 경우
+    - `consumers` 개인 계정 으로만 사용자를 로그인 하려면
+    - `common` 회사 및 학교 계정이 나 개인 Microsoft 계정으로 사용자를 로그인 하려면
 
 Azure AD 기관 대상과 테 넌 트 ID를 모두 지정 하면 MSAL에서 의미 있는 예외를 throw 합니다.
 
@@ -122,8 +122,8 @@ MSAL을 사용 하는 공용 클라이언트 앱 개발자 인 경우:
 
 Broker를 사용 하는 경우와 같이 속성을 사용 하 여 리디렉션 URI를 재정의할 수 있습니다 `RedirectUri` . 다음은 해당 시나리오에 대 한 리디렉션 Uri의 몇 가지 예입니다.
 
-- `RedirectUriOnAndroid`= "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos`= $ "msauth. {번들 ID}:/인증 ";
+- `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
+- `RedirectUriOnIos` = $ "msauth. {번들 ID}:/인증 ";
 
 IOS에 대 한 자세한 내용은 [Microsoft Authenticator를 사용 하는 ios 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션](msal-net-migration-ios-broker.md) 및 [Ios에서 broker 활용](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)을 참조 하세요.
 Android에 대 한 추가 정보는 [android에서](brokered-auth.md)조정 된 인증을 참조 하세요.

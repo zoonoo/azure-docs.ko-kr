@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: roygara
@@ -9,15 +9,15 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82204604"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
-## <a name="restrictions"></a>제한 사항
+## <a name="restrictions"></a>제한
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
@@ -45,7 +45,7 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-`SourceResourceId`및 스냅숏의 속성을 사용 하 여 동일한 디스크에서 증분 스냅숏을 식별할 수 있습니다 `SourceUniqueId` . `SourceResourceId`부모 디스크의 Azure Resource Manager 리소스 ID입니다. `SourceUniqueId`는 디스크의 속성에서 상속 된 값입니다 `UniqueId` . 디스크를 삭제 한 다음 같은 이름으로 새 디스크를 만들면 속성의 값이 `UniqueId` 변경 됩니다.
+`SourceResourceId`및 스냅숏의 속성을 사용 하 여 동일한 디스크에서 증분 스냅숏을 식별할 수 있습니다 `SourceUniqueId` . `SourceResourceId` 부모 디스크의 Azure Resource Manager 리소스 ID입니다. `SourceUniqueId` 는 디스크의 속성에서 상속 된 값입니다 `UniqueId` . 디스크를 삭제 한 다음 같은 이름으로 새 디스크를 만들면 속성의 값이 `UniqueId` 변경 됩니다.
 
 `SourceResourceId`및 `SourceUniqueId` 를 사용 하 여 특정 디스크와 연결 된 모든 스냅숏의 목록을 만들 수 있습니다. 다음 예제에는 특정 디스크와 연결 된 모든 증분 스냅숏이 나열 되지만 일부 설정이 필요 합니다.
 

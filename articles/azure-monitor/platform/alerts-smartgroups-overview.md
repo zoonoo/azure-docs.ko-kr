@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77665496"
 ---
 # <a name="smart-groups"></a>스마트 그룹
@@ -27,11 +27,11 @@ ms.locfileid: "77665496"
 
 다음 스마트 그룹 상태가 지원됩니다.
 
-| 시스템 상태 | 설명 |
+| 시스템 상태 | Description |
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
-| 확인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
-| 종결 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
+| 승인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
+| 폐쇄형 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
 [스마트 그룹의 상태를 변경하는 방법을 알아보세요.](https://aka.ms/managing-alert-smart-group-states)
 

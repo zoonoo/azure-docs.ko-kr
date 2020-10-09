@@ -4,10 +4,10 @@ description: Linux에서 셸 스크립팅을 학습하도록 랩을 설정하는
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444967"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Linux에서 셸 스크립팅을 학습하도록 랩 설정

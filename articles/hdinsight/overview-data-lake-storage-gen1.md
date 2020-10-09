@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82187248"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>HDInsight의 Azure Data Lake Storage Gen1 개요
@@ -33,7 +33,7 @@ Data Lake Storage Gen1에 저장 된 데이터는 Hadoop 분석 프레임 워크
 
 ## <a name="unlimited-storage-petabyte-files"></a>무제한 스토리지, 페타바이트 파일
 
-Data Lake Storage Gen1은 무제한 저장소를 제공 하 고 분석을 위해 다양 한 종류의 데이터를 저장 하는 데 적합 합니다. 계정 크기 또는 파일 크기에는 제한이 없습니다. Data lake에 저장 될 수 있는 데이터의 양입니다. 개별 파일의 크기는 킬로바이트에서 페타바이트으로 제한 Data Lake Storage Gen1 되므로 모든 형식의 데이터를 저장 하는 것이 좋습니다. 데이터는 여러 복사본을 만들어 지속적으로 저장 됩니다. 데이터를 data lake에 저장할 수 있는 기간에는 제한이 없습니다.
+Data Lake Storage Gen1은 무제한 저장소를 제공 하 고 분석을 위해 다양 한 종류의 데이터를 저장 하는 데 적합 합니다. 계정 크기 또는 파일 크기에는 제한이 없습니다. Data lake에 저장 될 수 있는 데이터의 양입니다. 개별 파일의 크기는 킬로바이트에서 페타바이트으로 제한 Data Lake Storage Gen1 되므로 모든 형식의 데이터를 저장 하는 것이 좋습니다. 데이터는 여러 복사본을 만들어 영구적으로 저장됩니다. 데이터를 data lake에 저장할 수 있는 기간에는 제한이 없습니다.
 
 ## <a name="performance-tuning-for-big-data-analytics"></a>빅 데이터 분석에 대한 성능 조정
 

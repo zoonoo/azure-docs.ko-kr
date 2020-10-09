@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76314541"
 ---
 # <a name="apply-sql-transformation"></a>SQL 변환 적용
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
   
@@ -53,7 +53,7 @@ SQLite는 대부분의 ANSI SQL 표준을 지원하지만 상용 관계형 데�
   
 - SQLite에서는 대부분의 관계형 데이터베이스 시스템에서와 같이 열에 형식을 할당하는 것이 아니라 값의 동적 형식 지정을 사용합니다. SQLite는 약하게 형식화되며 암시적 형식 변환을 허용합니다.  
   
-- `LEFT OUTER JOIN`는 구현 되지만 또는은 구현 되지 않습니다 `RIGHT OUTER JOIN` `FULL OUTER JOIN` .  
+- `LEFT OUTER JOIN` 는 구현 되지만 또는은 구현 되지 않습니다 `RIGHT OUTER JOIN` `FULL OUTER JOIN` .  
 
 - `RENAME TABLE` 및 `ADD COLUMN` 문을 `ALTER TABLE` 명령과 함께 사용할 수 있지만 `DROP COLUMN`, `ALTER COLUMN`, `ADD CONSTRAINT` 등의 다른 절은 지원되지 않습니다.  
   

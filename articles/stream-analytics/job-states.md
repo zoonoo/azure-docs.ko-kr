@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: fc46b4f24c3c21cda190f80556373991f6c711c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82130936"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Azure Stream Analytics 작업 상태
 
 Stream Analytics 작업은 지정 된 시간 (실행 중, 중지 됨, 성능 저하 또는 실패)의 네 가지 상태 중 하나일 수 있습니다. Azure Portal의 Stream Analytics 작업 개요 페이지에서 작업 상태를 확인할 수 있습니다. 
 
-| 시스템 상태 | Description | 권장 작업 |
+| 시스템 상태 | 설명 | 권장 작업 |
 | --- | --- | --- |
 | **실행 중** | 작업이 정의된 입력 원본에서 제공되는 Azure 읽기 이벤트에 대해 실행되고 있으며, 이벤트를 처리하고 결과를 구성된 출력 싱크에 씁니다. | [주요 메트릭](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor)을 모니터링하여 작업 성능을 추적하는 것이 좋습니다. |
 | **중지됨** | 작업이 중지되었으며 이벤트를 처리하지 않습니다. | 해당 없음 | 

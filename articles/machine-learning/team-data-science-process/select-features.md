@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76716670"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>TDSP(팀 데이터 과학 프로세스)의 기능 선택
@@ -44,7 +44,7 @@ Azure Machine Learning Studio에서는 기능 선택에 제공되는 모듈이 �
 
 예를 들어, [필터 기반 기능 선택][filter-based-feature-selection] 모듈 사용을 고려하세요. 편의를 위해 텍스트 마이닝 예제를 계속 사용합니다. [기능 해싱][feature-hashing] 모듈을 통해 256개의 기능 집합을 생성한 후 회귀 모델을 빌드하려고 하며, 응답 변수는 1 ~ 5 범위의 서적 검토 등급을 포함하는 "Col1"이라고 가정합니다. "기능 점수 매기기 메서드”를 "Pearson 상관"으로 설정하고 "대상 열”은 "Col1"로 설정하며 "원하는 기능 수"는 50으로 설정합니다. 그러면 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에서 대상 특성이 "Col1"과 함께 50개의 기능이 포함된 데이터 세트를 생성합니다. 다음 그림에서는 입력 매개 변수와 이 실험의 흐름을 보여줍니다.
 
-![필터 기반 기능 선택 모듈 속성](./media/select-features/feature-Selection1.png)
+![Filter-Based 기능 선택 모듈 속성](./media/select-features/feature-Selection1.png)
 
 다음 그림에서는 결과 데이터 세트를 보여줍니다.
 

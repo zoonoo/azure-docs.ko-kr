@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82100909"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
@@ -29,7 +29,7 @@ Microsoft Genomics 서비스 MSGEN을 사용할 때 발생할 수 있는 일반�
 1. `msgen status` 명령줄 사용 및 입력
 2. standardoutput.txt의 콘텐츠 검사
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. 명령줄 사용`msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. 명령줄 사용 `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 

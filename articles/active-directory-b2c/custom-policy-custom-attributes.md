@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389329"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 정책에서 사용자 지정 특성 사용
@@ -50,14 +50,14 @@ Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합�
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **앱 등록**를 선택 하 고 **모든 응용 프로그램**을 선택 합니다.
-1. `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`응용 프로그램을 선택 합니다.
+1. `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` 애플리케이션을 선택합니다.
 1. 다음 식별자를 클립보드에 복사하고 저장합니다.
-    * **응용 프로그램 ID**입니다. 예: `11111111-1111-1111-1111-111111111111`.
+    * **애플리케이션 ID**. 예: `11111111-1111-1111-1111-111111111111`.
     * **개체 ID**입니다. 예: `22222222-2222-2222-2222-222222222222`.
 
 ## <a name="modify-your-custom-policy"></a>사용자 지정 정책 수정
 
-정책에서 사용자 지정 특성을 사용 하도록 설정 하려면 AAD-일반 기술 프로필 메타 데이터에 **응용 프로그램 id** 및 응용 프로그램 **개체 id** 를 제공 합니다. *AAD 일반* 기술 프로필은 기본 [Azure Active Directory](active-directory-technical-profile.md) 기술 프로필에 있으며 Azure AD 사용자 관리에 대 한 지원을 제공 합니다. 기타 Azure AD 기술 프로필에는 구성을 활용 하기 위한 AAD 공통이 포함 됩니다. 확장 파일의 AAD 일반 기술 프로필을 재정의 합니다.
+정책에서 사용자 지정 특성을 사용 하도록 설정 하려면 AAD-Common 기술 프로필 메타 데이터에 **응용 프로그램 id** 및 응용 프로그램 **개체 id** 를 제공 합니다. *AAD 일반* 기술 프로필은 기본 [Azure Active Directory](active-directory-technical-profile.md) 기술 프로필에 있으며 Azure AD 사용자 관리에 대 한 지원을 제공 합니다. 다른 Azure AD 기술 프로필에는 해당 구성을 활용 하는 AAD-Common 포함 되어 있습니다. 확장 파일의 AAD-Common 기술 프로필을 재정의 합니다.
 
 1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 1. ClaimsProviders 요소를 찾습니다. ClaimsProviders 요소에 새 ClaimsProvider를 추가 합니다.
@@ -96,7 +96,7 @@ Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합�
 
 사용자 지정 정책에서 사용 하기 전이나 후에 포털 UI를 사용 하 여 이러한 특성을 만들 수 있습니다. [Azure Active Directory B2C에서 사용자 지정 특성을 정의](user-flow-custom-attributes.md)하는 방법에 대 한 지침을 따르세요. 포털에서 **loyaltyId** 특성을 만드는 경우 다음과 같이 참조 해야 합니다.
 
-|이름     |사용 대상 |
+|속성     |사용 대상 |
 |---------|---------|
 |`extension_loyaltyId`  | 사용자 지정 정책|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|

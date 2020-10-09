@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -8,10 +8,10 @@ ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 9c51ce726545d1c64d69c86c36fc69ea43c3b882
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76279472"
 ---
 [Application Insights에 대한 메트릭을 계산](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)할 때 집계되는 함수 호출 수를 지정합니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "76279472"
 }
 ```
 
-|속성 |기본값  | Description |
+|속성 |기본값  | 설명 |
 |---------|---------|---------| 
 |batchSize|1000|집계할 최대 요청 수입니다.| 
 |flushTimeout|00:00:30|집계할 최대 기간입니다.| 
