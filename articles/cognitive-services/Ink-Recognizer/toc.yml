@@ -10,7 +10,7 @@
   items:
     - name: REST API
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
@@ -22,9 +22,9 @@
       href: concepts/send-ink-data.md
 - name: 샘플
   items:
-    - name: 'C# 및 UWP(유니버설 Windows 플랫폼)'
+    - name: C# 및 UWP(유니버설 Windows 플랫폼)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
-    - name: 'C# 및 WPF(Windows Presentation Foundation)'
+    - name: C# 및 WPF(Windows Presentation Foundation)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
     - name: Javascript 웹 브라우저 앱
       href: 'https://go.microsoft.com/fwlink/?linkid=2089908'

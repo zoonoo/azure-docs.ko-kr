@@ -13,10 +13,10 @@ metadata:
   ms.author: juliako
   ms.date: 02/18/2020
   ms.openlocfilehash: a3e1ec7b97d76287614b4e154143899acf7fd902
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "77485117"
 landingContent:
 - title: Azure Media Services Video Indexer 정보
@@ -27,7 +27,7 @@ landingContent:
       url: video-indexer-overview.md
     - text: Media Services v3 미리 설정과 Video Indexer 비교
       url: compare-video-indexer-with-media-services-presets.md
-    - text: 질문과 대답
+    - text: 자주 묻는 질문
       url: faq.md
     - text: 사용자 의견
       url: https://cognitive.uservoice.com/forums/598144-video-indexer
@@ -35,7 +35,7 @@ landingContent:
     links:
     - text: Video Indexer의 새로운 기능
       url: release-notes.md
-- title: 시작하기
+- title: 시작
   linkLists:
   - linkListType: quickstart
     links:

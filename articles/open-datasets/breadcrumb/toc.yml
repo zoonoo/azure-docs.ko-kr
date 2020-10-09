@@ -2,6 +2,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: 공개 데이터 세트
+    - name: Open Datasets
       tocHref: /azure/machine-learning/service
       topicHref: /azure/open-datasets/index
