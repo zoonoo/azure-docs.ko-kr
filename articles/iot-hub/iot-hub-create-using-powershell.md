@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
 ms.openlocfilehash: 9c49f7ac744ee516aefc1571d50264132035ba8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73890596"
 ---
-# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>AzIotHub cmdlet을 사용 하 여 IoT hub 만들기
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>New-AzIotHub cmdlet을 사용 하 여 IoT hub 만들기
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -47,7 +47,7 @@ IoT hub에 대 한 리소스 그룹을 만들려면 [AzResourceGroup](https://do
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+## <a name="create-an-iot-hub"></a>IoT 허브 만들기
 
 이전 단계에서 만든 리소스 그룹에 IoT hub를 만들려면 [AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) 명령을 사용 합니다. 이 예제에서는 **미국 동부** 지역에 **MyTestIoTHub**라는 **S1** 허브를 만듭니다.
 

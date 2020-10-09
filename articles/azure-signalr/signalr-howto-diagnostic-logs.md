@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85131987"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 리소스 로그
@@ -56,7 +56,7 @@ Azure SignalR 서비스에 대 한 리소스 로그를 볼 수 있습니다. 이
 
 Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
-* **모든 로그**: Azure SignalR Service에 연결 하는 연결을 추적 합니다. 로그는 연결/연결 끊기, 인증 및 제한에 대 한 정보를 제공 합니다. 자세한 내용은 다음 단원을 참조하세요.
+* **모든 로그**: Azure SignalR Service에 연결 하는 연결을 추적 합니다. 로그는 연결/연결 끊기, 인증 및 제한에 대 한 정보를 제공 합니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 ### <a name="archive-to-a-storage-account"></a>스토리지 계정에 보관
 
@@ -66,9 +66,9 @@ Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
 보관 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-**Format**
+**형식**
 
-이름 | 설명
+속성 | Description
 ------- | -------
 time | 로그 이벤트 시간
 수준 | 로그 이벤트 수준
@@ -81,7 +81,7 @@ properties | 이 로그 이벤트와 관련 된 자세한 속성입니다. 자�
 
 **속성 테이블**
 
-이름 | 설명
+속성 | Description
 ------- | -------
 type | 로그 이벤트의 유형입니다. 현재 Azure SignalR 서비스에 대 한 연결 정보를 제공 합니다. 형식만 `ConnectivityLogs` 사용할 수 있습니다.
 collection | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`
@@ -128,7 +128,7 @@ message | 로그 이벤트의 세부 메시지
 
 보관 로그 열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-이름 | Description
+속성 | Description
 ------- | ------- 
 TimeGenerated | 로그 이벤트 시간
 컬렉션 | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`
@@ -162,7 +162,7 @@ Azure SignalR 서비스에 대 한 문제를 해결 하기 위해 서버/클라�
 
 중단 이유는 다음 표에 나와 있습니다.
 
-이유 | 설명
+이유 | Description
 ------- | ------- 
 연결 수가 제한에 도달 합니다. | 연결 수는 현재 가격 책정 계층의 제한에 도달 합니다. 서비스 단위 확장 고려
 응용 프로그램 서버에서 연결을 닫았습니다. | 앱 서버는 abortion를 트리거합니다. 예상 된 abortion 간주 될 수 있습니다.

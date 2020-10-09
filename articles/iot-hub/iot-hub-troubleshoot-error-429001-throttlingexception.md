@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 3095e398d7e5cfe59085144d5bb4e8dc33618064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76960699"
 ---
 # <a name="429001-throttlingexception"></a>429001 ThrottlingException
@@ -27,7 +27,7 @@ IoT Hub에 대 한 요청은 **429001 ThrottlingException**오류와 함께 실�
 
 요청 된 작업에 대 한 IoT Hub 제한 [제한을](./iot-hub-devguide-quotas-throttling.md) 초과 했습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 *원격 분석 메시지 보내기 시도* 메트릭을 위에 지정 된 제한과 비교 하 여 제한 한도에 도달 했는지 확인 합니다. 또한 *조정 오류 메트릭의 수* 를 확인할 수 있습니다. IoT Hub에 사용할 수 있는 이러한 메트릭과 기타 메트릭에 대 한 자세한 내용은 [IoT Hub 메트릭 및 사용 방법](./iot-hub-metrics.md#iot-hub-metrics-and-how-to-use-them)을 참조 하세요.
 

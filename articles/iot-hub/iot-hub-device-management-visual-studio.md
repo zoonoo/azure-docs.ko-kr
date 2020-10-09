@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73953190"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Azure IoT Hub 디바이스 관리를 위해 Visual Studio용 클라우드 탐색기 사용
@@ -41,7 +41,7 @@ ms.locfileid: "73953190"
 
 이 문서에서는 다양 한 관리 옵션을 사용 하 여 Visual Studio 클라우드 탐색기를 실행 합니다.
 
-## <a name="what-you-need"></a>필요한 항목
+## <a name="what-you-need"></a>필요한 작업
 
 다음 필수 조건이 필요합니다.
 
@@ -89,7 +89,7 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집**을 선택합니다.
 
-   장치 쌍의 내용과 함께 파일 **에azure-iot-device-twin.js** 열립니다.
+   장치 쌍의 내용과 함께 파일 ** 에azure-iot-device-twin.js** 열립니다.
 
 1. **태그** 또는 속성을 편집 **합니다.** 파일 **의azure-iot-device-twin.js** 에 대 한 원하는 필드를 만듭니다.
 

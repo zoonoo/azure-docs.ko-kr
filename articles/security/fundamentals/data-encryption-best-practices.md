@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85124054"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
@@ -37,7 +37,7 @@ ms.locfileid: "85124054"
 
 키를 보호하는 것은 클라우드에서 데이터를 보호하는 데 필수적입니다.
 
-[Azure Key Vault](/azure/key-vault/key-vault-overview) 는 클라우드 응용 프로그램 및 서비스에서 사용 하는 암호화 키 및 암호를 보호 하는 데 도움이 됩니다. 키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화 하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 마이그레이션할 수 있습니다. 보안 관리자는 필요한 경우 권한을 키로 부여(및 해지)할 수 있습니다.
+[Azure Key Vault](/azure/key-vault/key-vault-overview)를 사용하면 클라우드 애플리케이션과 서비스에서 사용하는 암호화 키 및 비밀을 보호할 수 있습니다. 키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 마이그레이션할 수 있습니다. 보안 관리자는 필요한 경우 권한을 키로 부여(및 해지)할 수 있습니다.
 
 Key Vault를 사용하여 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM에서 지원됩니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 스토리지하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. 또한 키 자격 증명 모음은 저장된 모든 항목에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서를 요청하고 갱신하는 작업을 처리할 수 있습니다. 인증서 수명 주기 관리를 위한 강력한 솔루션 기능을 제공합니다.
 
@@ -46,7 +46,7 @@ Azure Key Vault는 애플리케이션 키와 비밀을 지원하도록 설계되
 Key Vault를 사용하는 보안 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 특정 범위의 사용자, 그룹 및 애플리케이션에 액세스 권한 부여   
-**세부 정보**: RBAC의 미리 정의된 역할을 사용합니다. 예를 들어 키 자격 증명 모음을 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 해당 사용자에게 미리 정의된 [Key Vault 기여자](/azure/role-based-access-control/built-in-roles) 역할을 할당합니다. 이 경우의 범위는 구독, 리소스 그룹 또는 특정 키 자격 증명 모음입니다. 미리 정의된 역할이 필요에 맞지 않는 경우 [고유한 역할을 정의](/azure/role-based-access-control/custom-roles)할 수 있습니다.
+**세부 정보**: RBAC의 미리 정의된 역할을 사용합니다. 예를 들어 사용자에 게 키 자격 증명 모음을 관리 하기 위한 액세스 권한을 부여 하려면 특정 범위에서이 사용자에 게 [참여자 Key Vault](/azure/role-based-access-control/built-in-roles) 미리 정의 된 역할을 할당 합니다. 이 경우의 범위는 구독, 리소스 그룹 또는 특정 키 자격 증명 모음입니다. 미리 정의 된 역할이 사용자 요구에 맞지 않는 경우 [고유한 역할을 정의할](/azure/role-based-access-control/custom-roles)수 있습니다.
 
 **모범 사례**: 액세스 권한이 있는 사용자 제어   
 **세부 정보**: 키 자격 증명 모음에 대한 액세스는 관리 평면 및 데이터 평면이라는 두 개의 별도 인터페이스를 통해 제어됩니다. 관리 평면과 데이터 평면 액세스 제어는 독립적으로 작동합니다.
@@ -54,10 +54,10 @@ Key Vault를 사용하는 보안 모범 사례는 다음과 같습니다.
 RBAC를 사용하여 액세스 권한이 있는 사용자를 제어합니다. 예를 들어 키 자격 증명 모음의 키를 사용하도록 액세스 권한을 애플리케이션에 부여하려면 키 자격 증명 모음 액세스 정책을 사용하여 데이터 평면 액세스 권한만 부여하면 되고, 관리 평면 액세스 권한은 해당 애플리케이션에 필요하지 않습니다. 반대로 사용자가 자격 증명 모음 속성과 태그를 읽을 수 있지만 키, 비밀 또는 인증서에 대한 액세스 권한이 없는 경우 RBAC를 사용하여 이 사용자에게 읽기 권한을 부여하면 되고, 데이터 평면에 대한 액세스 권한은 필요하지 않습니다.
 
 **모범 사례**: 키 자격 증명 모음에 인증서 저장 인증서는 가치가 높습니다. 잘못 사용되면 애플리케이션의 보안 또는 데이터의 보안이 손상될 수 있습니다.   
-**세부 정보**: Azure Resource Manager는 VM을 배포할 때 Azure Key Vault에 저장된 인증서를 Azure VM에 안전하게 배포할 수 있습니다. 키 자격 증명 모음에 대한 적절한 액세스 정책을 설정하여 인증서에 대한 액세스 권한이 있는 사용자도 제어합니다. 또 다른 혜택은 Azure Key Vault의 한 곳에서 모든 인증서를 관리할 수 있다는 점입니다. 자세한 내용은 [고객 관리 Key Vault에서 VM에 인증서 배포](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)를 참조하세요.
+**세부 정보**: Azure Resource Manager는 VM을 배포할 때 Azure Key Vault에 저장된 인증서를 Azure VM에 안전하게 배포할 수 있습니다. 키 자격 증명 모음에 대한 적절한 액세스 정책을 설정하여 인증서에 대한 액세스 권한이 있는 사용자도 제어합니다. 또 다른 이점은 Azure Key Vault의 한 곳에서 모든 인증서를 관리할 수 있다는 점입니다. 자세한 내용은 [고객 관리 Key Vault에서 VM에 인증서 배포](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)를 참조하세요.
 
 **모범 사례**: 삭제된 키 자격 증명 모음 또는 키 자격 증명 모음 개체를 복구할 수 있는지 확인   
-**세부 정보**: 키 자격 증명 모음 또는 키 자격 증명 모음 개체를 우발적이나 악의적으로 삭제할 수 있습니다. 특히 미사용 데이터를 암호화하는 데 사용되는 키의 경우 Key Vault의 일시 삭제 및 제거 보호 기능을 사용하도록 설정합니다. 이러한 키를 삭제하는 작업은 데이터 손실과 동일합니다. 따라서 필요한 경우 삭제된 자격 증명 모음 및 자격 증명 모음 개체를 복구할 수 있습니다. 정기적으로 Key Vault 복구 작업을 연습합니다.
+**세부 정보**: 키 자격 증명 모음 또는 키 자격 증명 모음 개체를 우발적이나 악의적으로 삭제할 수 있습니다. 특히 미사용 데이터를 암호화하는 데 사용되는 키의 경우 키 자격 증명 모음의 일시 삭제 및 제거 보호 기능을 사용하도록 설정합니다. 이러한 키를 삭제하는 작업은 데이터 손실과 동일합니다. 따라서 필요한 경우 삭제된 자격 증명 모음 및 자격 증명 모음 개체를 복구할 수 있습니다. 정기적으로 Key Vault 복구 작업을 연습합니다.
 
 > [!NOTE]
 > 사용자에게 키 자격 증명 모음 관리 평면에 대한 기여자 사용 권한(RBAC)이 있는 경우 이 사용자는 키 자격 증명 모음 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. 권한이 있는 사용자만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있도록 하려면 키 자격 증명 모음에 대한 기여자 액세스 권한을 갖는 사용자를 엄격하게 제어하는 것이 좋습니다.
@@ -79,14 +79,14 @@ RBAC를 사용하여 액세스 권한이 있는 사용자를 제어합니다. �
 **모범 사례**: 엔드포인트 보호 확인   
 **세부 정보**: 데이터 위치(클라우드 또는 온-프레미스)에 관계없이 데이터를 사용하는 모든 디바이스에 보안 정책을 적용합니다.
 
-## <a name="protect-data-at-rest"></a>휴지 상태의 데이터 보호
+## <a name="protect-data-at-rest"></a>미사용 데이터 보호
 
-[미사용 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다.
+[휴지 상태의 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권를 위한 필수 단계입니다.
 
 **모범 사례**: 데이터를 보호할 수 있도록 디스크 암호화 적용   
 **세부 정보**: [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview)을 사용합니다. 그러면 IT 관리자가 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있습니다. 디스크 암호화는 업계 표준인 Windows BitLocker 기능과 Linux dm-crypt 기능을 결합하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
 
-기본적으로 미사용 Azure Storage 및 Azure SQL Database 데이터 및 많은 서비스는 암호화를 옵션으로 제공합니다. Azure Key Vault를 사용하여 데이터에 액세스하고 데이터를 암호화하는 키의 제어를 유지 관리할 수 있습니다. [자세히 알아보려면 Azure 리소스 공급자 암호화 모델 지원](encryption-atrest.md#azure-resource-providers-encryption-model-support)을 참조하세요.
+기본적으로 미사용 Azure Storage 및 Azure SQL Database 데이터 및 많은 서비스는 암호화를 옵션으로 제공합니다. Azure Key Vault를 사용하여 데이터에 액세스하고 암호화하는 키의 제어를 유지 관리할 수 있습니다. [자세히 알아보려면 Azure 리소스 공급자 암호화 모델 지원을](encryption-atrest.md#azure-resource-providers-encryption-model-support)참조 하세요.
 
 **모범 사례**: 암호화를 사용하여 권한 없는 데이터 액세스와 관련된 위험 완화   
 **세부 정보**: 중요한 데이터를 작성하기 전에 드라이브를 암호화합니다.
@@ -95,9 +95,9 @@ RBAC를 사용하여 액세스 권한이 있는 사용자를 제어합니다. �
 
 ## <a name="protect-data-in-transit"></a>전송 중인 데이터 보호
 
-전송 중인 데이터 보호는 데이터 보호 전략의 핵심입니다. 데이터가 여러 위치를 이동하기 때문에 항상 SSL/TLS 프로토콜을 사용하여 여러 위치 간에 데이터를 교환하는 것이 일반적으로 좋습니다. VPN을 사용하여 온-프레미스와 클라우드 인프라 간에 전체 통신 채널을 격리하려는 경우도 있습니다.
+전송 중인 데이터 보호는 데이터 보호 전략의 핵심입니다. 데이터는 여러 위치 간에 앞뒤로 이동하므로 일반적으로는 항상 SSL/TLS 프로토콜을 사용하여 서로 다른 위치에서 데이터를 교환하는 것이 좋습니다. 경우에 따라 VPN을 사용하여 온-프레미스와 클라우드 인프라 간에 전체 통신 채널을 격리하는 것이 좋습니다.
 
-온-프레미스 인프라와 Azure 간을 이동하는 데이터의 경우 HTTPS 또는 VPN처럼 적절한 안전 장치를 고려합니다. 공용 인터넷을 통해 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 경우 [Azure VPN Gateway](../../vpn-gateway/index.yml)를 사용합니다.
+온-프레미스 인프라와 Azure 간에 이동하는 데이터의 경우 HTTPS 또는 VPN과 같은 적절한 안전 장치를 고려합니다. 공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화 된 트래픽을 보내는 경우 [azure VPN Gateway](../../vpn-gateway/index.yml)를 사용 합니다.
 
 Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례는 다음과 같습니다.
 
@@ -113,7 +113,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 **모범 사례**: Azure Portal을 통해 Azure Storage와 상호 작용   
 **세부 정보**: 모든 트랜잭션은 HTTPS를 통해 발생합니다. HTTPS를 통해 [저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 을 사용 하 여 [Azure Storage](https://azure.microsoft.com/services/storage/)와 상호 작용할 수도 있습니다.
 
-전송 중인 데이터 보호에 실패하는 조직은 [가로채기(man-in-the-middle) 공격](https://technet.microsoft.com/library/gg195821.aspx), [도청](https://technet.microsoft.com/library/gg195641.aspx) 및 세션 하이재킹에 대해 더 취약합니다. 이러한 공격은 기밀 데이터에 대한 액세스 권한을 획득하기 위한 첫 번째 단계일 수 있습니다.
+전송 중인 데이터를 보호 하지 못하는 조직은 메시지 가로채기 ( [man-in-the-middle) 공격](https://technet.microsoft.com/library/gg195821.aspx), [도청](https://technet.microsoft.com/library/gg195641.aspx)및 세션 하이재킹에 더 취약 합니다. 이러한 공격은 기밀 데이터에 액세스하기 위한 첫 번째 단계일 수 있습니다.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>이메일, 문서 및 중요한 데이터 보호
 
@@ -125,7 +125,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 
 이 정보 보호 솔루션을 통해 데이터를 다른 사용자와 공유하는 경우에도 제어를 유지합니다. 이러한 애플리케이션 및 솔루션이 온-프레미스 또는 클라우드에 위치하는지와 상관 없이 고유한 기간 업무 애플리케이션 및 소프트웨어 공급 업체의 정보 보호 솔루션에서 Azure RMS를 사용할 수도 있습니다.
 
-다음을 수행하는 것이 좋습니다.
+다음을 권장합니다.
 
 - 조직에 대해 [Azure Information Protection 배포](/azure/information-protection/deployment-roadmap)
 - 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어, 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.

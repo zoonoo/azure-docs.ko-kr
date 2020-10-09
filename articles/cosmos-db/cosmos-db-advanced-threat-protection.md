@@ -9,10 +9,10 @@ ms.author: memildin
 author: memildin
 manager: rkarlin
 ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85119273"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
@@ -81,16 +81,16 @@ Azure Policy를 사용하여 Cosmos DB에 대한 Advanced Threat Protection을 �
 
 1. Azure **정책 - 정의** 페이지를 시작하고 **Cosmos DB용 Advanced Threat Protection 배포** 정책을 검색합니다.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="정책 검색"::: 
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="ATP 설정"::: 
 
 1. **CosmosDB용 Advanced Threat Protection 배포** 정책을 클릭한 다음, **할당**을 클릭합니다.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="구독 또는 그룹 선택":::
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="ATP 설정":::
 
 
 1. **범위** 필드에서 세 개의 점을 클릭하고 Azure 구독 또는 리소스 그룹을 선택한 다음, **선택**을 클릭합니다.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="정책 정의 페이지":::
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="ATP 설정":::
 
 
 1. 다른 매개 변수를 입력하고 **할당**을 클릭합니다.
@@ -104,11 +104,11 @@ Azure Cosmos DB 작업 변칙이 발생한 경우 의심스러운 보안 이벤�
 
  Azure Security Center에서 현재 [보안 경고](../security-center/security-center-alerts-overview.md)를 검토 및 관리할 수 있습니다.  [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0)에서 특정 경고를 클릭하여 잠재적 위협을 조사하고 완화하기 위한 가능한 원인과 권장 조치를 확인합니다. 다음 이미지는 Security Center에서 제공하는 경고 세부 정보의 예를 보여줍니다.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="위협 세부 정보":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="ATP 설정":::
 
 경고 세부 정보와 권장 조치가 포함된 이메일 알림도 전송됩니다. 다음 이미지는 경고 이메일의 예를 보여줍니다.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="경고 세부 정보":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="ATP 설정":::
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB ATP 경고
 

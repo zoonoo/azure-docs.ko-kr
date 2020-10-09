@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76939332"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 전용 영역 시나리오
@@ -52,7 +52,7 @@ Azure DNS Private Zones는 가상 네트워크 간뿐 아니라 가상 네트워
 
 Azure DNS에서 [프라이빗 DNS 영역을 만드는](./private-dns-getstarted-powershell.md) 방법을 알아봅니다.
 
-[DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
+Dns 영역 및 레코드 [개요](dns-zones-records.md)를 방문 하 여 dns 영역 및 레코드에 대해 알아봅니다.
 
 Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
 

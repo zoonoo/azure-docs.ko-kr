@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85078131"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 보고서 및 로그 보기
@@ -93,7 +93,7 @@ Azure AD가 새 요청을 받으면 **범주가** 이 `EntitlementManagement` �
 
 다음을 포함 하 여 요청이 진행 되는 동안 Azure AD에서 추가 감사 레코드를 작성 합니다.
 
-| 범주 | 활동 | 요청 상태 |
+| Category | 활동 | 요청 상태 |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | 요청에 승인이 필요 하지 않음 |
 | `UserManagement` | `Create request approval` | 요청에 승인이 필요 함 |

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117984"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
@@ -28,7 +28,7 @@ Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크�
 ## <a name="oversized-cheat-sheets"></a>Oversized 크기 참고 자료
 플로터 또는 대형 프린터를 사용하여 A3 용지(11.7" x 16.5")에 인쇄하려면 [Azure Cosmos DB A3 크기 참고 자료](https://go.microsoft.com/fwlink/?linkid=870413)를 다운로드합니다.
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 쿼리 참고 자료 - A3 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 쿼리 참고 자료 - Letter 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 쿼리 작성에 대한 추가 도움말은 다음 문서를 참조하세요.

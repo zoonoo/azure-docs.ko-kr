@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76903055"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Azure 논리 A에서 종단 간 워크플로를 모니터링 하는 사용자 지정 추적 스키마 만들기
@@ -51,9 +51,9 @@ Azure Logic Apps에는 워크플로의 일부에 대해 사용 하도록 설정�
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
-| sourceType | 예 | String | 허용 되는 값을 포함 하는 실행 원본의 형식: `Microsoft.Logic/workflows` ,`custom` |
+| sourceType | 예 | String | 허용 되는 값을 포함 하는 실행 원본의 형식: `Microsoft.Logic/workflows` , `custom` |
 | source | 예 | 문자열 또는 JToken | 원본 형식이 인 경우 `Microsoft.Logic/workflows` 소스 정보는이 스키마를 따라야 합니다. 원본 형식이 이면 `custom` 스키마는 JToken입니다. |
 | systemId | 예 | String | 논리 앱 시스템 ID |
 | runId | 예 | String | 논리 앱 실행 ID |
@@ -65,7 +65,7 @@ Azure Logic Apps에는 워크플로의 일부에 대해 사용 하도록 설정�
 | clientRequestId | 예 | String | 클라이언트는이 속성을 채워서 메시지의 상관 관계를 지정할 수 있습니다. |
 | eventLevel | 예 | String | 이벤트 수준 |
 | eventTime | 예 | DateTime | UTC 형식의 이벤트 시간: *yyyy-mm-dd: mm: yyyy-mm-ddthh: MM: SS. 00000Z* |
-| recordType | 예 | String | 허용 되는 값만 포함 된 트랙 레코드의 유형입니다.`custom` |
+| recordType | 예 | String | 허용 되는 값만 포함 된 트랙 레코드의 유형입니다. `custom` |
 | 레코드(record) | 예 | JToken | JToken 형식만 포함 된 사용자 지정 레코드 형식 |
 |||||
 

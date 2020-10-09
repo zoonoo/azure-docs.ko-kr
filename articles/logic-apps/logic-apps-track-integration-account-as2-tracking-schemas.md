@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76906964"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 AS2 메시지를 추적 하기 위한 스키마 만들기
@@ -52,7 +52,7 @@ ms.locfileid: "76906964"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | AS2 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | AS2 메시지 받는 사람의 파트너 이름 |
@@ -72,7 +72,7 @@ ms.locfileid: "76906964"
 | outgoingHeaders | 아니요 | JToken의 사전 | 보내는 AS2 메시지 헤더 세부 정보 |
 | isNrrEnabled | 예 | 부울 | 값을 알 수 없는 경우 기본값을 사용할지 여부입니다. |
 | isMdnExpected | 예 | 부울 | 값을 알 수 없는 경우 기본값을 사용할지 여부입니다. |
-| mdnType | 예 | 열거형 | 허용 되는 값: `NotConfigured` , `Sync` 및`Async` |
+| mdnType | 예 | 열거형 | 허용 되는 값: `NotConfigured` , `Sync` 및 `Async` |
 |||||
 
 ## <a name="as2-mdn-tracking-schema"></a>AS2 MDN 추적 스키마
@@ -105,7 +105,7 @@ ms.locfileid: "76906964"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | AS2 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | AS2 메시지 받는 사람의 파트너 이름 |
@@ -119,8 +119,8 @@ ms.locfileid: "76906964"
 | isMessageFailed | 예 | 부울 | AS2 메시지의 실패 여부 |
 | isMessageSigned | 예 | 부울 | AS2 메시지의 서명 여부 |
 | isNrrEnabled | 예 | 부울 | 값을 알 수 없는 경우 기본값을 사용할지 여부입니다. |
-| statusCode | 예 | 열거형 | 허용 되는 값: `Accepted` , `Rejected` 및`AcceptedWithErrors` |
-| micVerificationStatus | 예 | 열거형 | 허용 되는 값: `NotApplicable` , `Succeeded` 및`Failed` |
+| statusCode | 예 | 열거형 | 허용 되는 값: `Accepted` , `Rejected` 및 `AcceptedWithErrors` |
+| micVerificationStatus | 예 | 열거형 | 허용 되는 값: `NotApplicable` , `Succeeded` 및 `Failed` |
 | correlationMessageId | 예 | String | MDN이 구성 된 원본 메시지의 ID 인 상관 관계 ID |
 | incomingHeaders | 아니요 | JToken의 사전 | 들어오는 메시지 헤더 정보 |
 | outgoingHeaders | 아니요 | JToken의 사전 | 보내는 메시지 헤더 정보 |

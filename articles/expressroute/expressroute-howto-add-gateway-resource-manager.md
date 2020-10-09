@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 7554993025d8f64a80c1b223586f856eedf9e964
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766598"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854310"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
+# <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -30,9 +30,7 @@ ms.locfileid: "91766598"
 > - 게이트웨이 서브넷을 만듭니다.
 > - 가상 네트워크 게이트웨이를 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="configuration-reference-list"></a>구성 참조 목록
 
@@ -48,11 +46,11 @@ ms.locfileid: "91766598"
 | Subnet1 이름 | *FrontEnd* |
 | 게이트웨이 서브넷 이름 | *GatewaySubnet* |    
 | 게이트웨이 서브넷 주소 공간 | *192.168.200.0/26* |
-| 지역 | *미국 동부* |
+| Azure 지역 | *미국 동부* |
 | 게이트웨이 이름 | *GW* |   
 | 게이트웨이 IP 이름 | *GWIP* |
 | 게이트웨이 IP 구성 이름 | *gwipconf* |
-| Type | *ExpressRoute* |
+| 유형 | *ExpressRoute* |
 | 게이트웨이 공용 IP 이름  | *gwpip* |
 
 ## <a name="add-a-gateway"></a>게이트웨이를 추가합니다.
@@ -94,7 +92,7 @@ ms.locfileid: "91766598"
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
-1. 게이트웨이에 대한 구성을 만듭니다. 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 이 단계에서 게이트웨이를 만들 때 사용되는 구성을 지정합니다. 이 단계에서는 실제 게이트웨이 개체를 만들지 않습니다. 다음 샘플을 사용하여 게이트웨이 구성을 만듭니다.
+1. 게이트웨이에 대한 구성을 만듭니다. 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 이 단계에서 게이트웨이를 만들 때 사용되는 구성을 지정합니다. 다음 샘플을 사용하여 게이트웨이 구성을 만듭니다.
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip

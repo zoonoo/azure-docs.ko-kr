@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85125466"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Application Gateway 메트릭을 사용 하 여 AKS pod 자동 크기 조정 (베타)
 
 들어오는 트래픽이 늘어나면 수요에 따라 응용 프로그램을 확장 하는 것이 중요 합니다.
 
-다음 자습서에서는 Application Gateway의 메트릭을 사용 하 여 `AvgRequestCountPerHealthyHost` 응용 프로그램을 확장 하는 방법을 설명 합니다. `AvgRequestCountPerHealthyHost`특정 백 엔드 풀 및 백 엔드 HTTP 설정 조합으로 전송 된 평균 요청을 측정 합니다.
+다음 자습서에서는 Application Gateway의 메트릭을 사용 하 여 `AvgRequestCountPerHealthyHost` 응용 프로그램을 확장 하는 방법을 설명 합니다. `AvgRequestCountPerHealthyHost` 특정 백 엔드 풀 및 백 엔드 HTTP 설정 조합으로 전송 된 평균 요청을 측정 합니다.
 
 다음 두 구성 요소를 사용할 예정입니다.
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)-메트릭 어댑터를 사용 하 여 메트릭 서버를 통해 Application Gateway 메트릭을 노출 합니다. Azure Kubernetes 메트릭 어댑터는 Application Gateway 수신 컨트롤러와 유사 하 게 Azure에서 오픈 소스 프로젝트입니다. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)-HPA을 사용 하 여 Application Gateway 메트릭을 사용 하 고 크기 조정을 위한 배포를 대상으로 합니다.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) -메트릭 어댑터를 사용 하 여 메트릭 서버를 통해 Application Gateway 메트릭을 노출 합니다. Azure Kubernetes 메트릭 어댑터는 Application Gateway 수신 컨트롤러와 유사 하 게 Azure에서 오픈 소스 프로젝트입니다. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) -HPA을 사용 하 여 Application Gateway 메트릭을 사용 하 고 크기 조정을 위한 배포를 대상으로 합니다.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Azure Kubernetes 메트릭 어댑터 설정
 

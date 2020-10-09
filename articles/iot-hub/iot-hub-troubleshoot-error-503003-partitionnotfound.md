@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 438476171597c44dcc54d85bf1140f0a52bb2e58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76960660"
 ---
 # <a name="503003-partitionnotfound"></a>503003 PartitionNotFound
@@ -27,6 +27,6 @@ IoT Hub에 대 한 요청이 실패 하 고 **503003 파티션**오류가 있습
 
 이 오류는 IoT Hub 내부 이며 일시적일 수 있습니다. [IoT Hub 내부 서버 오류 원인](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause)을 참조 하세요.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 [IoT Hub 내부 서버 오류에 대 한 해결 방법을](iot-hub-troubleshoot-error-500xxx-internal-errors.md#solution)참조 하세요.

@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
 ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84870873"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR® 진단 로깅 사용
@@ -47,27 +47,27 @@ ms.locfileid: "84870873"
 ## <a name="audit-log-details"></a>감사 로그 정보
 이번에는 Azure API for FHIR® 서비스에서 감사 로그에 다음 필드를 반환 합니다. 
 
-|필드 이름  |형식  |참고  |
+|필드 이름  |Type  |메모  |
 |---------|---------|---------|
 |CallerIdentity|동적|Id 정보를 포함 하는 일반 속성 모음
-|CallerIdentityIssuer|String|발급자 
-|CallerIdentityObjectId|String|Object_Id 
-|CallerIPAddress|String|호출자의 IP 주소 
-|CorrelationId|String| 상관관계 ID
-|FhirResourceType|String|작업이 실행 된 리소스 형식입니다.
-|LogCategory|String|로그 범주 (현재 ' AuditLogs ' LogCategory를 반환 합니다.)
-|위치|String|요청을 처리 한 서버의 위치 (예: 미국 중 남부)
+|CallerIdentityIssuer|문자열|발급자 
+|CallerIdentityObjectId|문자열|Object_Id 
+|CallerIPAddress|문자열|호출자의 IP 주소 
+|CorrelationId|문자열| 상관관계 ID
+|FhirResourceType|문자열|작업이 실행 된 리소스 형식입니다.
+|LogCategory|문자열|로그 범주 (현재 ' AuditLogs ' LogCategory를 반환 합니다.)
+|위치|문자열|요청을 처리 한 서버의 위치 (예: 미국 중 남부)
 |OperationDuration|Int|이 요청을 완료 하는 데 걸린 시간 (초)
-|OperationName|String| 작업 유형 (예: 업데이트, 검색 유형)을 설명 합니다.
-|RequestUri|String|요청 URI 
-|ResultType|String|사용 가능한 값이 현재 **시작**, **성공**또는 **실패입니다.**
+|OperationName|문자열| 작업 유형 (예: 업데이트, 검색 유형)을 설명 합니다.
+|RequestUri|문자열|요청 URI 
+|ResultType|문자열|사용 가능한 값이 현재 **시작**, **성공**또는 **실패입니다.**
 |StatusCode|Int|HTTP 상태 코드입니다. (예: 200) 
 |TimeGenerated|DateTime|이벤트의 날짜 및 시간|
-|속성|String| FhirResourceType의 속성을 설명 합니다.
-|SourceSystem|String| 원본 시스템 (이 경우 항상 Azure)
-|TenantId|String|테넌트 ID
-|형식|String|로그 유형 (이 경우 항상 MicrosoftHealthcareApisAuditLog)
-|_ResourceId|String|리소스에 대 한 세부 정보
+|속성|문자열| FhirResourceType의 속성을 설명 합니다.
+|SourceSystem|문자열| 원본 시스템 (이 경우 항상 Azure)
+|TenantId|문자열|테넌트 ID
+|Type|String|로그 유형 (이 경우 항상 MicrosoftHealthcareApisAuditLog)
+|_ResourceId|문자열|리소스에 대 한 세부 정보
 
 ## <a name="sample-queries"></a>샘플 쿼리
 
