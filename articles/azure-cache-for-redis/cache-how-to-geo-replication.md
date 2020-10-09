@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825324"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839693"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
@@ -73,7 +73,7 @@ ms.locfileid: "91825324"
 
     주 캐시와 보조 캐시에 대한 **개요** 블레이드에서 연결 상태를 볼 수도 있습니다.
 
-    ![캐시 상태](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![기본 및 보조 캐시에 대 한 연결 상태를 확인 하는 방법을 보여 주는 스크린샷](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     복제 프로세스가 완료되면 **링크 상태**가 **성공**으로 바뀝니다.
 

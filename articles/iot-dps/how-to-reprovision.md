@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974907"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839795"
 ---
 # <a name="how-to-reprovision-devices"></a>디바이스를 다시 프로비전하는 방법
 
@@ -45,7 +45,7 @@ IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동�
     
     * **동일 가중 배포**: 연결된 각 IoT 허브에 할당된 할당 가중치에 따라 연결된 IoT 허브 전체에 디바이스를 배포합니다. 이 정책을 사용하면 연결된 허브에 설정된 할당 가중치에 따라 이러한 허브 그룹 전체에서 디바이스의 부하를 분산할 수 있습니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려면 이 설정을 사용하는 것이 좋습니다. 이 설정은 기본값입니다. 
     
-    * **정적 구성**: 이 정책을 사용하려면 프로비전할 디바이스에 대한 등록 항목에 원하는 IoT 허브가 나열되아야 합니다. 이 정책을 사용하면 디바이스를 할당하려는 단일 특정 IoT 허브를 지정할 수 있습니다.
+    * **정적 구성**:이 정책에는 프로 비전 할 장치에 대 한 등록 항목에 필요한 IoT Hub 표시 되어야 합니다. 이 정책을 사용하면 디바이스를 할당하려는 단일 특정 IoT 허브를 지정할 수 있습니다.
 
 4. **이 그룹을 할당할 수 있는 IoT 허브 선택** 아래에서 할당 정책에 포함할 연결된 IoT 허브를 선택합니다. 필요에 따라 **새 IoT Hub 연결** 단추를 사용하여 연결된 새 Iot 허브를 추가합니다.
 
@@ -75,7 +75,7 @@ IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동�
 
 4. **저장**을 클릭하여 변경 내용에 따라 디바이스의 다시 프로비전을 사용하도록 설정합니다.
 
-    ![등록 할당 정책 선택](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![사용자가 수행한 변경 내용과 저장 단추를 강조 표시 하는 스크린샷](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618644"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840492"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>일괄 처리를 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance 응용 프로그램 성능을 개선 하는 방법
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -293,7 +293,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 ### <a name="entity-framework"></a>Entity Framework
 
-이제 [Entity Framework 6](https://github.com/dotnet/ef6) 에서 일괄 처리를 지원 합니다.
+[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) 에서 일괄 처리를 지원 합니다.
 
 ### <a name="xml"></a>XML
 

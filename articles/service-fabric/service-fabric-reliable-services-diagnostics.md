@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 상태 저장 Reliable Services 진단
 description: Azure Service Fabric 상태 저장 Reliable Services의 진단 기능
-author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.author: dekapur
-ms.openlocfilehash: 92fd8dbd1afbd2bdcabbaebbd5dc056d912ae118
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253119"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840764"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
@@ -21,13 +19,13 @@ Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래�
 EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예로 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Microsoft TraceEvent 라이브러리](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
 ## <a name="events"></a>이벤트
-| 이벤트 이름 | 이벤트 ID | 수준 | 이벤트 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 이벤트 설명 |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |정보 |서비스 RunAsync 작업이 시작되면 내보내집니다. |
-| StatefulRunAsyncCancellation |2 |정보 |서비스 RunAsync 작업이 취소되면 내보내집니다. |
-| StatefulRunAsyncCompletion |3 |정보 |서비스 RunAsync 작업이 완료되면 내보내집니다. |
+| StatefulRunAsyncInvocation |1 |정보 제공 |서비스 RunAsync 작업이 시작되면 내보내집니다. |
+| StatefulRunAsyncCancellation |2 |정보 제공 |서비스 RunAsync 작업이 취소되면 내보내집니다. |
+| StatefulRunAsyncCompletion |3 |정보 제공 |서비스 RunAsync 작업이 완료되면 내보내집니다. |
 | StatefulRunAsyncSlowCancellation |4 |Warning |서비스 RunAsync 작업이 취소를 완료하는 데 너무 오래 걸리는 경우 내보내집니다. |
-| StatefulRunAsyncFailure |5 |오류 |서비스 RunAsync 작업이 예외를 throw하면 내보내집니다. |
+| StatefulRunAsyncFailure |5 |Error |서비스 RunAsync 작업이 예외를 throw하면 내보내집니다. |
 
 ## <a name="interpret-events"></a>이벤트 해석
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion 및 StatefulRunAsyncCancellation 이벤트는 서비스 작성자가 서비스 시작, 취소 또는 완료 타이밍과 서비스의 수명 주기를 이해하는 데 유용합니다. 이 정보는 서비스 문제를 디버깅하거나 서비스 수명 주기를 이해할 때 유용할 수 있습니다.
@@ -89,13 +87,13 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-앞의 예제에서 `00d0126d-3e36-4d68-98da-cc4f7195d85e`는 Service Fabric 파티션 ID의 문자열 표현이고, `131652217797162571`은 복제본 ID이고, `142652217797162571`은 상태 공급자 ID이고, `1337`은 성능 카운터 인스턴스 구별자입니다. `urn:MyReliableDictionary/dataStore`컬렉션에 대 한 데이터를 저장 하는 상태 공급자의 이름입니다 `urn:MyReliableDictionary` .
+앞의 예제에서 `00d0126d-3e36-4d68-98da-cc4f7195d85e`는 Service Fabric 파티션 ID의 문자열 표현이고, `131652217797162571`은 복제본 ID이고, `142652217797162571`은 상태 공급자 ID이고, `1337`은 성능 카운터 인스턴스 구별자입니다. `urn:MyReliableDictionary/dataStore` 컬렉션에 대 한 데이터를 저장 하는 상태 공급자의 이름입니다 `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>트랜잭션 복제기 성능 카운터
 
 Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 아래에 다음 이벤트를 내보냅니다.
 
- 카운터 이름 | 설명 |
+ 카운터 이름 | Description |
 | --- | --- |
 | Begin Txn Operations/sec | 초당 만들어진 새 쓰기 트랜잭션의 수입니다.|
 | Txn Operations/sec | 초당 신뢰할 수 있는 컬렉션에 대해 수행된 추가/업데이트/삭제 작업의 수입니다.|
@@ -108,7 +106,7 @@ Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 
 
 Reliable Services 런타임은 `Service Fabric TStore` 범주 아래에 다음 이벤트를 내보냅니다.
 
- 카운터 이름 | 설명 |
+ 카운터 이름 | Description |
 | --- | --- |
 | 항목 개수 | 스토어에 있는 항목의 수|
 | 디스크 크기 | 저장소에 대한 검사점 파일의 전체 디스크 크기(바이트)|

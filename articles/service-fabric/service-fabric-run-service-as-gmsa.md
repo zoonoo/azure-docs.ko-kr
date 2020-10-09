@@ -1,17 +1,14 @@
 ---
 title: GMSA 계정으로 Azure Service Fabric 서비스를 실행 합니다.
 description: Service Fabric Windows 독립 실행형 클러스터에서 서비스를 gMSA (그룹 관리 서비스 계정)로 실행 하는 방법에 대해 알아봅니다.
-author: dkkapur
 ms.topic: how-to
 ms.date: 03/29/2018
-ms.author: dekapur
-ms.custom: sfrev
-ms.openlocfilehash: 8dea63ef6a50597d9ad852cb9cdea4745532fed4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9750042764306c5df7a391429cc6926704db05ab
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252915"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838911"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>그룹 관리 서비스 계정으로 서비스 실행
 

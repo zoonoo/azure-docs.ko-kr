@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803594"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839013"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -31,7 +31,7 @@ ms.locfileid: "91803594"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -209,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 의 전체 설정 목록 `ApplicationInsightsServiceOptions`
 
-|Setting | 설명 | 기본값
+|설정 | 설명 | 기본값
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 사용/사용 안 함 `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | 사용/사용 안 함 `RequestTrackingTelemetryModule` | true
@@ -397,7 +397,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>자동으로 수집 되지 않는 원격 분석을 추적 하려면 어떻게 해야 하나요?
 
-`TelemetryClient`생성자 주입을 사용 하 여의 인스턴스를 가져온 다음 필요한 메서드를 호출 `TrackXXX()` 합니다. `TelemetryClient`ASP.NET Core 응용 프로그램에서는 새 인스턴스를 만들지 않는 것이 좋습니다. 의 단일 인스턴스는 `TelemetryClient` 나머지 원격 분석과 공유 하는 컨테이너에 이미 등록 되어 `DependencyInjection` `TelemetryConfiguration` 있습니다. 새 인스턴스를 만드는 것 `TelemetryClient` 은 원격 분석의 나머지 부분과 분리 된 구성이 필요한 경우에만 권장 됩니다.
+`TelemetryClient`생성자 주입을 사용 하 여의 인스턴스를 가져온 다음 필요한 메서드를 호출 `TrackXXX()` 합니다. `TelemetryClient` `TelemetryConfiguration` ASP.NET Core 응용 프로그램에서는 새 또는 인스턴스를 만들지 않는 것이 좋습니다. 의 단일 인스턴스는 `TelemetryClient` 나머지 원격 분석과 공유 하는 컨테이너에 이미 등록 되어 `DependencyInjection` `TelemetryConfiguration` 있습니다. 새 인스턴스를 만드는 것 `TelemetryClient` 은 원격 분석의 나머지 부분과 분리 된 구성이 필요한 경우에만 권장 됩니다.
 
 다음 예제에서는 컨트롤러에서 추가 원격 분석을 추적 하는 방법을 보여 줍니다.
 
@@ -423,6 +423,40 @@ public class HomeController : Controller
 ```
 
 Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 내용은 [Application Insights 사용자 지정 메트릭 API 참조](./api-custom-events-metrics.md)를 참조 하세요. [Getmetric API](./get-metric.md)를 사용 하 여 Application Insights에 사용자 지정 메트릭을 전송 하는 데 유사한 방법을 사용할 수 있습니다.
+
+### <a name="how-do-i-customize-ilogger-logs-collection"></a>ILogger logs 컬렉션을 사용자 지정 어떻게 할까요??
+
+기본적으로 심각도 이상의 로그만 `Warning` 자동으로 캡처됩니다. 이 동작을 변경 하려면 아래와 같이 공급자의 로깅 구성을 명시적으로 재정의 합니다 `ApplicationInsights` .
+다음 구성을 통해 ApplicationInsights는 심각도 이상의 모든 로그를 캡처할 수 있습니다 `Information` .
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+다음은 ApplicationInsights 공급자가 로그를 캡처하지 못하게 하지 않는다는 것입니다 `Information` . 이는 SDK가 기본 로깅 필터를 추가 하 고만 캡처하도록 지시 하기 때문입니다 `ApplicationInsights` `Warning` . 따라서 ApplicationInsights에 대 한 명시적 재정의가 필요 합니다.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+[ILogger 구성](ilogger.md#control-logging-level)에 대해 자세히 알아보세요.
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>일부 Visual Studio 템플릿은 IWebHostBuilder에서 UseApplicationInsights () 확장 메서드를 사용 하 여 Application Insights를 사용 하도록 설정 했습니다. 이 사용량이 여전히 유효 한가요?
 
@@ -477,7 +511,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 
-* [코드를 읽고이에 기여](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)합니다.
+* [코드를 읽고이에 기여](https://github.com/microsoft/ApplicationInsights-dotnet)합니다.
 
 최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./release-notes.md)하세요.
 

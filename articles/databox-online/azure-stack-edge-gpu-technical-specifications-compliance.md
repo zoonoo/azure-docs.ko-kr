@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899029"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839948"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 기술 사양 및 규정 준수 
 
@@ -79,20 +79,20 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네트워크 하드웨어가 
 
 ## <a name="storage-specifications"></a>스토리지 사양
 
-Azure Stack Edge Pro 장치에는 각각 1.6 TB의 용량을 포함 하는 5 개의 2.5 "NVMe DC P4610 Ssd가 있습니다. 부팅 드라이브는 240 g b의 SATA SSD입니다. 장치에 사용할 수 있는 총 용량은 약 8.28 TB입니다. 다음 표에는 장치의 저장소 용량이 정리 되어 있습니다.
+Azure Stack Edge Pro 장치에는 각각 1.6 TB의 용량을 포함 하는 5 개의 2.5 "NVMe DC P4610 Ssd가 있습니다. 부팅 드라이브는 240 g b의 SATA SSD입니다. 장치에 사용할 수 있는 총 용량은 약 4.19 TB입니다. 다음 표에는 장치의 저장소 용량이 정리 되어 있습니다.
 
 |     사양                          |     값             |
 |--------------------------------------------|-----------------------|
-|    부팅 SATA 반도체 드라이브 (SSD)      |    1                  |
 |    NVMe Ssd 수                     |    5                  |
-|    부팅 SSD 용량                       |    240GB             |
 |    단일 NVMe SSD 용량                |    1.6TB             |
-|    총 용량                          |    8.28 TB            |
-|    총 사용 가능한 용량 *                  |    ~ 7.95 TB          |
+|    부팅 SATA 반도체 드라이브 (SSD)      |    1                  |
+|    부팅 SSD 용량                       |    240GB             |
+|    총 용량                          |    8.0 TB             |
+|    총 사용 가능한 용량 *                  |    ~ 4.19 TB          |
 |    SAS 컨트롤러                          |    HBA330 12 Gbps     |
 
 
-**일부 공간은 내부용으로 예약되어 있습니다.*
+**패리티 복원 력 후 내부에서 사용할 공간을 예약 합니다.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

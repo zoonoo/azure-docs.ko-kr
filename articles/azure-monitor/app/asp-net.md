@@ -4,12 +4,12 @@ description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 5f52f1febcc69723dae76e31d17b5a9a7e8c67bb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91616757"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838945"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트에 대 한 Application Insights 구성
 
@@ -349,6 +349,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="troubleshooting"></a>문제 해결
 
 최신 버전의 Visual Studio 2019에는 사용자 암호에 계측 키를 저장 하는 것이 .NET Framework 기반 앱에 대해 중단 되 고, 해당 키는 궁극적으로이 버그를 해결 하기 위해 applicationinsights.config 파일로 하드 코드 되어야 하는 최신 버전의 Visual Studio에 대 한 알려진 문제가 있습니다. 이 문서는 사용자 암호를 사용 하지 않고이 문제를 완전히 방지 하도록 설계 되었습니다.  
+
+## <a name="open-source-sdk"></a>오픈 소스 SDK
+
+* [코드를 읽고이에 기여](https://github.com/microsoft/ApplicationInsights-dotnet)합니다.
+
+최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./release-notes.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

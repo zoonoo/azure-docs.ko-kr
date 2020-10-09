@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795612"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841597"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
 
@@ -48,9 +48,6 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
-
->[!TIP]
-> Synapse SQL의 성능 향상을 위해 영구 사용자 테이블에서 **pdw_table_mappings** 대신 **pdw_permanent_table_mappings** 를 사용 하는 것이 좋습니다. 자세한 내용은 **[pdw_permanent_table_mappings &#40;transact-sql&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** 을 참조 하십시오.
 
 > [!NOTE] 
 > 순서가 지정 된 CCI 테이블에서 동일한 DML 또는 데이터 로드 작업 일괄 처리로 생성 되는 새 데이터는 해당 일괄 처리 내에서 정렬 되며 테이블의 모든 데이터에 대해 전역 정렬이 수행 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  Synapse SQL에서 columnstore 인덱스 다시 작성은 오프 라인 작업입니다.  분할 된 테이블의 경우 다시 작성은 한 번에 하나의 파티션으로 수행 됩니다.  다시 작성 되는 파티션의 데이터는 "오프 라인" 이며 해당 파티션에 대해 다시 작성이 완료 될 때까지 사용할 수 없습니다. 
@@ -98,7 +95,7 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 다음은 서로 다른 스키마를 사용 하는 테이블로 데이터를 로드 하는 경우의 성능 비교 예제입니다.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![여러 스키마를 사용 하는 테이블로 데이터를 로드 하는 성능 비교를 보여 주는 막대 그래프입니다.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 다음은 CCI와 정렬 된 CCI 간의 쿼리 성능 비교 예제입니다.
@@ -137,9 +134,9 @@ OPTION (MAXDOP 1);
 5.    Table_A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
 6.    모든 파티션이 Table_A에서 Table_B로 전환 되 고 다시 작성 된 후 Table_A를 삭제 하 고 Table_A Table_B 이름을 바꿉니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
-**입니다. 순서가 지정 된 열 및 주문 서 수를 확인 하려면 다음을 수행 합니다.**
+**은. 정렬 된 열 및 주문 서 수를 확인 하려면:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -148,7 +145,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. 열 서 수를 변경 하려면 order 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI로 변경 합니다.**
+**B. 열 서 수를 변경 하려면 순서 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI로 변경 합니다.**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales

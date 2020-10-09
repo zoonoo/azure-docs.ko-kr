@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360109"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839217"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>사용자 지정 명령 작업을 클라이언트 응용 프로그램으로 보내기
 
@@ -26,7 +26,7 @@ ms.locfileid: "91360109"
 - 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 보내기
 - C # UWP Speech SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드에서는 Visual Studio 2019을 사용 합니다.
 > * Speech Service에 대한 Azure 구독 키: [Azure Portal](https://portal.azure.com)에서 [체험 계정을 가져오거나](overview.md#try-the-speech-service-for-free) 새로 만듭니다.
@@ -154,7 +154,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. `turn on the tv`이라고 말합니다.
 1. Tv의 시각적 상태가 "켜기"로 변경 됩니다.
    > [!div class="mx-imgBorder"]
-   > ![전송 작업 페이로드](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![T V의 시각적 상태가 이제 켜 지는 것을 보여 주는 스크린샷](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## <a name="next-steps"></a>다음 단계
 

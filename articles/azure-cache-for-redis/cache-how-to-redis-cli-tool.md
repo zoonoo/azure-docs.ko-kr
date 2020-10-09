@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010769"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839047"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구를 사용하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "81010769"
 
 1. Azure CLI([az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) 사용)
 2. Azure PowerShell([Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey) 사용)
-3. Azure Portal 사용
+3. Azure Portal 사용.
 
 이 섹션에서는 Azure Portal에서 키를 검색합니다.
 
@@ -72,7 +72,7 @@ stunnel을 사용하는 경우 *redis-cli.exe*를 실행하고 *포트* 및 *액
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel과 redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![캐시에 대 한 연결이 성공 했음을 보여 주는 스크린샷](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 **비보안** TLS 이외의 포트를 사용 하 여 테스트 캐시를 사용 하는 경우를 실행 하 `redis-cli.exe` 고 *호스트 이름*, *포트*및 *액세스 키* (기본 또는 보조)를 전달 하 여 테스트 캐시에 연결 합니다.
 

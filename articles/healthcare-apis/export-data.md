@@ -1,20 +1,21 @@
 ---
 title: FHIR 용 Azure API에서 $export 명령을 호출 하 여 내보내기 실행
-description: 이 문서에서는 식별 되지 않은 내보내기를 설정 하 고 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 $export를 사용 하 여 FHIR 데이터를 내보내는 방법을 설명 합니다.
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: 433d3391e7b2b99d72ea71f1b4d48c3e04a46afc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 74fe09895f49cc9f7c3cdf6b6c97c1624c3e9c0b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819982"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839829"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
+
 
 대량 내보내기 기능을 사용 하면 [fhir 사양](https://hl7.org/fhir/uv/bulkdata/export/index.html)에 따라 Fhir 서버에서 데이터를 내보낼 수 있습니다. 
 
@@ -24,7 +25,7 @@ $Export를 사용 하기 전에 FHIR 용 Azure API가이를 사용 하도록 구
 
 내보내기에 대 한 Azure API를 구성 하 고 나면 $export 명령을 사용 하 여 서비스에서 데이터를 내보낼 수 있습니다. 데이터는 내보내기를 구성 하는 동안 지정한 저장소 계정에 저장 됩니다. FHIR 서버에서 $export 명령을 호출 하는 방법을 알아보려면 [$export 사양](https://hl7.org/Fhir/uv/bulkdata/export/index.html)에 대 한 설명서를 참조 하세요. 
 
-FHIR 용 Azure API의 $export 명령은 구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 하는 선택적 _ \_ 컨테이너_ 매개 변수를 사용 합니다. 컨테이너를 지정 하면 해당 컨테이너의 이름을 사용 하 여 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 데이터를 새 컨테이너로 내보냅니다.
+FHIR 용 Azure API의 $export 명령은 구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 하는 선택적 _ \_ 컨테이너_ 매개 변수를 사용 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 임의로 생성 된 이름을 사용 하 여 새 컨테이너로 내보냅니다. 
 
 `https://<<FHIR service base URL>>/$export?_container=<<container_name>>`
 

@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: f4dde6831902c0d15d5f985208e382963125d200
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308063"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839251"
 ---
-# <a name="continuous-deployment-with-azure-devops"></a>Azure DevOps를 사용 하 여 연속 배포
+# <a name="continuous-deployment-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 배포
 
 이 문서에서는 사용자 지정 명령 응용 프로그램에 대 한 연속 배포를 설정 하는 방법에 대해 알아봅니다. CI/CD 워크플로를 지 원하는 스크립트가 제공 됩니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "85308063"
 1. 이러한 스크립트는 지역을 사용 하 고 있다고 가정 합니다 .이 경우에는 `westus2` 작업의 인수를 적절 하 게 업데이트 하지 않는 것입니다.
 
     > [!div class="mx-imgBorder"]
-    > ![전송 작업 페이로드](media/custom-commands/cicd-new-pipeline-yaml.png)
+    > ![인수에서 지역 값을 강조 표시 하는 스크린샷](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. "저장 후 실행" 단추에서 드롭다운을 열고 "저장"을 클릭 합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "85308063"
 1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수**를 선택 합니다. **새 변수**를 클릭 합니다.
 1. 다음 변수를 추가 합니다.
     
-    | 변수 | Description |
+    | 변수 | 설명 |
     | ------- | --------------- | ----------- |
     | SourceAppId | 개발 응용 프로그램의 ID |
     | TargetAppId | PROD 응용 프로그램의 ID |
@@ -110,7 +110,7 @@ ms.locfileid: "85308063"
     ```BASH
     bash/export.sh -r <region> -s <subscriptionkey> -c en-us -a <appid> -f apps/myapp.json
     ```
-    | 인수 | Description |
+    | 인수 | 설명 |
     | ------- | --------------- | ----------- |
     | region | 응용 프로그램의 지역 (예: westus2)입니다. |
     | subscriptionkey | 음성 리소스의 구독 키입니다. |
@@ -159,7 +159,7 @@ ms.locfileid: "85308063"
 1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수**를 선택 합니다. **새 변수**를 클릭 합니다.
 1. 다음 변수를 추가 합니다.
 
-    | 변수 | Description |
+    | 변수 | 설명 |
     | ------- | --------------- | ----------- |
     | TargetAppId | PROD 응용 프로그램의 ID |
     | SubscriptionKey | 두 응용 프로그램 모두에 사용 되는 구독 키 |

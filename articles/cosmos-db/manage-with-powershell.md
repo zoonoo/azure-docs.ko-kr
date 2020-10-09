@@ -1,22 +1,22 @@
 ---
-title: PowerShell을 사용하여 Azure Cosmos DB 만들기 및 관리
-description: Azure PowerShell을 사용하여 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 관리합니다.
+title: PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
+description: PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스를 관리 합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 77c91d96beb2722b7fce54be8a1db32d66be6196
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 652c546c5a38543e89f7a3b5ab8bc036c8d80911
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767530"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840883"
 ---
-# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
 
-다음 지침에서는 PowerShell을 사용하여 계정, 데이터베이스, 컨테이너 및 처리량을 포함한 Azure Cosmos DB 리소스의 관리를 스크립팅하고 자동화하는 방법에 대해 설명합니다.
+다음 가이드에서는 PowerShell을 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함 하 여 Azure Cosmos DB Core (SQL) API 리소스의 관리를 스크립팅 및 자동화 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 이 문서의 샘플에서는 [Az.CosmosDB](/powershell/module/az.cosmosdb) 관리 cmdlet을 사용합니다. 최신 변경 내용은 [Az.CosmosDB](/powershell/module/az.cosmosdb) API 참조 페이지를 참조하세요.
@@ -169,6 +169,7 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
+
 ### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-region-writes"></a> Azure Cosmos 계정에 여러 쓰기 지역 사용
 
 ```azurepowershell-interactive
@@ -352,6 +353,7 @@ Get-AzResourceLock `
 * [Azure Cosmos DB 데이터베이스 만들기](#create-db)
 * [공유 처리량을 사용하여 Azure Cosmos DB 데이터베이스 만들기](#create-db-ru)
 * [Azure Cosmos DB 데이터베이스의 처리량 가져오기](#get-db-ru)
+* [데이터베이스 처리량을 자동 크기 조정으로 마이그레이션](#migrate-db-ru)
 * [계정의 모든 Azure Cosmos DB 데이터베이스 나열](#list-db)
 * [단일 Azure Cosmos DB 데이터베이스 가져오기](#get-db)
 * [Azure Cosmos DB 데이터베이스 삭제](#delete-db)
@@ -397,6 +399,20 @@ Get-AzCosmosDBSqlDatabaseThroughput `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
+```
+
+## <a name="migrate-database-throughput-to-autoscale"></a><a id="migrate-db-ru"></a>데이터베이스 처리량을 자동 크기 조정으로 마이그레이션
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+
+Invoke-AzCosmosDBSqlDatabaseThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -Name $databaseName `
+    -ThroughputType Autoscale
 ```
 
 ### <a name="get-all-azure-cosmos-db-databases-in-an-account"></a><a id="list-db"></a>계정의 모든 Azure Cosmos DB 데이터베이스 가져오기
@@ -480,6 +496,7 @@ Remove-AzResourceLock `
 * [자동 크기 조정을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-autoscale)
 * [대용량 파티션 키를 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-big-pk)
 * [Azure Cosmos DB 컨테이너의 처리량 가져오기](#get-container-ru)
+* [자동 크기 조정으로 컨테이너 처리량 마이그레이션](#migrate-container-ru)
 * [사용자 지정 인덱싱을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-custom-index)
 * [해제된 인덱싱을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-no-index)
 * [고유 키와 TTL을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-unique-key-ttl)
@@ -565,6 +582,22 @@ Get-AzCosmosDBSqlContainerThroughput `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+
+### <a name="migrate-container-throughput-to-autoscale"></a><a id="migrate-container-ru"></a>자동 크기 조정으로 컨테이너 처리량 마이그레이션
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+
+Invoke-AzCosmosDBSqlContainerThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -DatabaseName $databaseName `
+    -Name $containerName `
+    -ThroughputType Autoscale
 ```
 
 ### <a name="create-an-azure-cosmos-db-container-with-custom-index-policy"></a><a id="create-container-custom-index"></a>사용자 지정 인덱스 정책을 사용하여 Azure Cosmos DB 컨테이너 만들기

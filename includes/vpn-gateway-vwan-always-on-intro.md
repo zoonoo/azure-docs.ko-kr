@@ -1,23 +1,23 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4ea97e2dbee87f7ab129c4295276c9024c0212c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e40f421c0fa45d772cd333dac51fe2bdf2779f48
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116980"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828994"
 ---
 Windows 10 VPN 클라이언트 Always On의 새로운 기능은 VPN 연결을 유지 관리할 수 있는 기능입니다. Always On 사용 하면 활성 VPN 프로필이 자동으로 연결 될 수 있으며 사용자 로그인, 네트워크 상태 변경, 장치 화면 활성 등의 트리거에 따라 연결 된 상태를 유지할 수 있습니다.
 
-Windows 10 Always On와 함께 게이트웨이를 사용 하 여 Azure에 대 한 영구 사용자 터널 및 장치 터널을 설정할 수 있습니다. 이 문서에서는 Always On VPN 사용자 터널을 구성 하는 방법을 설명 합니다.
+Windows 10 Always On와 함께 게이트웨이를 사용 하 여 Azure에 대 한 영구 사용자 터널 및 장치 터널을 설정할 수 있습니다.
 
 Always On VPN 연결에는 다음 두 가지 유형의 터널 중 하나가 포함 됩니다.
 

@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c057944e2c6c511eee20007cc01e2222b38cce1b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319221"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839557"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -176,7 +176,7 @@ DevKit는 IoT 허브의 디바이스 관련 엔드포인트에 연결하고 온�
 
 4. 확장 마켓플레이스에서 [Azure IoT Tools](https://aka.ms/azure-iot-tools)를 검색하여 설치합니다.
 
-    ![Azure IoT Tools 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![확장 marketplace에서 Azure IoT 도구를 보여 주는 스크린샷](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
     또는 URL `vscode:extension/vsciot-vscode.azure-iot-tools`를 복사하여 브라우저 창에 붙여 넣습니다.
 
@@ -362,7 +362,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 1. **출력** 창에서, IoT Hub로 들어오는 D2C 메시지를 볼 수 있습니다.
 
-    ![D2C 메시지](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![들어오는 D2C 메시지를 IoT Hub 표시 하는 스크린샷](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>코드 검토
 

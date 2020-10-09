@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460172"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840254"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -53,7 +53,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [데이터 가져오기](#importexport)
     * [데이터 내보내기](#importexport)
     * [Reboot](#reboot)
-* [모니터링](#monitoring)
+* [Monitoring](#monitoring)
     * [Redis 메트릭](#redis-metrics)
     * [경고 규칙](#alert-rules)
     * [진단](#diagnostics)
@@ -169,11 +169,11 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 ## <a name="azure-cache-for-redis-advisor"></a>Azure Cache for Redis Advisor
 **Azure Cache for Redis Advisor** 블레이드에는 캐시에 대한 추천 사항이 표시됩니다. 정상적으로 작동하는 중에는 추천이 표시되지 않습니다.
 
-![권장 사항](./media/cache-configure/redis-cache-no-recommendations.png)
+![권장 사항이 표시 되는 위치를 보여 주는 스크린샷](./media/cache-configure/redis-cache-no-recommendations.png)
 
 캐시 작업 중에 높은 메모리 사용량, 네트워크 대역폭, 또는 서버 부하와 같은 조건이 발생하면 **Azure Cache for Redis** 블레이드에 경고가 표시됩니다.
 
-![권장 사항](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Redis 용 Azure Cache 섹션에 경고가 표시 되는 위치를 보여 주는 스크린샷](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 자세한 내용은 **추천** 블레이드에서 확인할 수 있습니다.
 
@@ -314,7 +314,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+![다시 부팅할 캐시의 분할를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 재부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
@@ -474,11 +474,11 @@ Azure Portal에서 모든 캐시에 제공되는 **Redis 콘솔**을 사용하�
 
 Redis 콘솔에 액세스하려면 **Azure Cache for Redis** 블레이드에서 **콘솔**을 클릭합니다.
 
-![Redis 콘솔](./media/cache-configure/redis-console-menu.png)
+![콘솔 단추를 강조 표시 하는 스크린샷](./media/cache-configure/redis-console-menu.png)
 
 캐시 인스턴스에 대해 명령을 실행하려면 원하는 명령을 콘솔에 입력합니다.
 
-![Redis 콘솔](./media/cache-configure/redis-console.png)
+![스크린샷 thas는 입력 명령과 결과가 포함 된 Redis 콘솔을 보여 줍니다.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>프리미엄 클러스터형 캐시에서 Redis 콘솔 사용

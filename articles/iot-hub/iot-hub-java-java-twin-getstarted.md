@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327602"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838690"
 ---
 # <a name="get-started-with-device-twins-java"></a>디바이스 쌍 시작(Java)
 
@@ -380,7 +380,7 @@ ms.locfileid: "87327602"
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![태그 값을 업데이트하고 디바이스 쿼리를 실행하는 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![태그 추가 쿼리 서비스 앱을 실행 하기 위한 명령의 출력을 보여 주는 스크린샷](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     디바이스 쌍에 추가된 **plant** 및 **region** 태그를 볼 수 있습니다. 첫 번째 쿼리에서 디바이스를 반환하지만 두 번째는 그렇지 않습니다.
 
@@ -390,7 +390,7 @@ ms.locfileid: "87327602"
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![디바이스 클라이언트는 **connectivityType** reported 속성을 추가합니다.](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![장치 클라이언트에서 보고 된 연결 유형 속성을 추가 합니다.](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. 명령 프롬프트의 **add-tags-query** 폴더에서 다음 명령을 실행하여 **add-tags-query** 서비스 앱을 두 번째로 실행합니다.
 

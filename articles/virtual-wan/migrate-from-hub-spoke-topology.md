@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777193"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839642"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Azure Virtual WAN으로 마이그레이션
 
@@ -110,10 +110,6 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 가상 WAN 허브를 기존 Express 경로 회로에 연결 하 고 인터넷을 통해 사이트 간 Vpn을 원격 분기로 설정 합니다.
 
-> [!NOTE]
-> Virtual WAN 허브에 연결하려면 ExpressRoute 회로를 프리미엄 SKU 유형으로 업그레이드해야 합니다.
->
-
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="허브 및 스포크":::
 **그림 3: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
@@ -190,7 +186,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 트래픽은 다음과 같이 라우팅됩니다.
 
-* 유럽 본부는 프리미엄 Express 경로 회로를 통해 유럽 서부 가상 WAN 허브에 연결 됩니다.
+* 유럽 본부는 Express 경로 회로를 통해 유럽 서부 가상 WAN 허브에 연결 됩니다.
 
 * Virtual WAN 허브-허브 글로벌 연결을 통해 트래픽을 원격 지역에 연결된 VNet으로 전송할 수 있습니다.
 

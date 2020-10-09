@@ -1,17 +1,17 @@
 ---
 title: 요청을 라우팅하도록 게이트웨이 구성
 description: Service Fabric Mesh에서 실행 중인 애플리케이션에 대해 들어오는 트래픽을 처리하는 게이트웨이를 구성하는 방법에 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461960"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839727"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>요청을 라우팅하도록 게이트웨이 리소스 구성 | Microsoft Docs
 

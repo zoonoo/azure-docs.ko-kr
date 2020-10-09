@@ -1,17 +1,15 @@
 ---
 title: Azure 및 독립 실행형 Service Fabric 클러스터 개요
 description: Windows Server 또는 Linux를 실행하는 VM 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 다시 말해 온-프레미스든 Microsoft Azure든 클라우드 공급자든 Windows Server 또는 Linux 컴퓨터가 서로 연결된 모든 환경에 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751151"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842600"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Windows Server 및 Linux의 Azure 및 독립 실행형 Service Fabric 클러스터 비교
 
@@ -28,7 +26,7 @@ Azure에서는 클러스터의 작업 및 관리를 더 용이하고 안정적�
 * **Azure 리소스로서의 Service Fabric 클러스터** Service Fabric 클러스터는 Azure 리소스이므로 Azure의 다른 리소스와 같이 모델링할 수 있습니다.
 * **Azure 인프라와의 통합** 서비스 패브릭은 OS, 네트워크 및 그 밖에 애플리케이션의 가용성 및 안정성을 개선하기 위한 업그레이드에 맞게 기본 Azure 인프라를 조정합니다.  
 * **진단:** Azure에서는 Azure 진단 및 Azure Monitor 로그와의 통합을 제공 합니다.
-* **자동 크기 조정:** Azure의 클러스터는 Virtual Machine 크기 조정 집합으로 인해 자동 크기 조정 기능이 기본적으로 제공됩니다. 온-프레미스 및 다른 클라우드 환경에서는 사용자 고유 자동 크기 조정 기능을 빌드하거나 서비스 패브릭에서 클러스터 크기 조정을 위해 제공하는 API를 사용하여 수동으로 조정해야 합니다.
+* 자동 크기 조정 **:** Azure의 클러스터의 경우 가상 머신 확장 집합을 통해 기본 제공 자동 크기 조정 기능을 제공 합니다. 온-프레미스 및 기타 클라우드 환경에서는 클러스터 크기 조정을 위해 노출 하는 Service Fabric Api를 사용 하 여 사용자 고유의 자동 크기 조정 기능을 빌드하거나 수동으로 크기를 조정 해야 합니다.
 
 ## <a name="benefits-of-standalone-clusters"></a>독립 실행형 클러스터의 이점
 

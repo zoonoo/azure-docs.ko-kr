@@ -1,19 +1,19 @@
 ---
 title: Spark에서 Azure Cosmos DB Cassandra API의 DDL 작업
 description: 이 문서에서는 Spark에서 Azure Cosmos DB Cassandra API에 대한 키스페이스 및 테이블 DDL 작업을 자세히 설명합니다.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 09/24/2018
-ms.openlocfilehash: 30cac5894998ca2bb9c37217820e1000ed97ba5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: 589114fa004c8b4479e1a14c5a99161dd972c5bf
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260566"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841104"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API의 DDL 작업
 
@@ -82,7 +82,7 @@ DESCRIBE keyspaces;
 ```
 ## <a name="table-ddl-operations"></a>테이블 DDL 작업
 
-**고려 사항**  
+**고려 사항:**  
 
 - create table 문을 사용하여 테이블 수준에서 처리량을 할당할 수 있습니다.  
 - 하나의 파티션 키에 20GB의 데이터를 저장할 수 있습니다.  
@@ -92,8 +92,7 @@ DESCRIBE keyspaces;
 ### <a name="create-a-table"></a>테이블 만들기
 
 ```scala
-val cdbConnector = CassandraConnector(sc)
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### <a name="validate-in-cqlsh"></a>cqlsh에서 유효성 검사

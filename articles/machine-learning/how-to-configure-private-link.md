@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 1a34f8ec42969cded5921d377b1fa62276a30cc7
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630392"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828132"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성
 
@@ -82,4 +82,6 @@ Azure Virtual Machines에 대 한 자세한 내용은 [Virtual Machines 설명�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 작업 영역을 보호 하는 방법에 대 한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
+* Azure Machine Learning 작업 영역을 보호 하는 방법에 대 한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
+
+* 가상 네트워크에서 사용자 지정 DNS 솔루션을 사용 하려는 경우 [사용자 지정 dns 서버에서 작업 영역을 사용 하는 방법](how-to-custom-dns.md)을 참조 하세요.

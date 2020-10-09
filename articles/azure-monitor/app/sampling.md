@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549568"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839608"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -295,9 +295,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 
@@ -482,7 +482,7 @@ Application Insights 사용 하도록 JavaScript 기반 웹 페이지를 구성�
 
 다른 형태의 샘플링을 사용하는 조건이 적용되지 않으면 적응 샘플링을 사용하는 것이 좋습니다. 이 설정은 ASP.NET/ASP.NET Core SDK에서 기본적으로 사용 하도록 설정 되어 있습니다. 특정 최소 요금에 도달할 때까지 트래픽을 감소 하지 않으므로 낮은 사용량 사이트는 샘플링 되지 않을 것입니다.
 
-## <a name="knowing-whether-sampling-is-in-operation"></a>샘플링이 작동 중인지 여부를 알 수 있습니다.
+## <a name="knowing-whether-sampling-is-in-operation"></a>샘플링이 작동 중인지 여부 확인
 
 적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](../log-query/log-query-overview.md) 를 사용합니다.
 
@@ -507,7 +507,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 근사치의 정확도는 주로 구성된 샘플링 비율에 따라 다릅니다. 또한 아주 많은 사용자에게서 많은 양의 일반적으로 비슷한 요청을 처리하는 애플리케이션에 대해 정확도가 증가합니다. 반면에 상당한 부하가 있을 때 작동하지 않는 애플리케이션의 경우 이러한 애플리케이션이 일반적으로 할당량 내에 있으면서 제한에서 데이터 손실이 발생하지 않고 해당 원격 분석을 모두 보낼 수 있기에 샘플링은 필요하지 않습니다. 
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 *ASP.NET 및 ASP.NET Core Sdk의 기본 샘플링 동작은 무엇 인가요?*
 
