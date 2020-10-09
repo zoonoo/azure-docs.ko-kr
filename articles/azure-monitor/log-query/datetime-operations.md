@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77655381"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
@@ -33,7 +33,7 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 |일           | 일          |
 |h           | hour         |
 |분           | minute       |
-|s           | second       |
+|초           | second       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
 |tick        | 나노초   |
@@ -146,7 +146,7 @@ Event
 
 ## <a name="related-functions"></a>관련 함수
 
-| 범주 | 기능 |
+| Category | 기능 |
 |:---|:---|
 | 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 값을 bin 크기로 반올림 | [저장소](/azure/kusto/query/binfunction) |

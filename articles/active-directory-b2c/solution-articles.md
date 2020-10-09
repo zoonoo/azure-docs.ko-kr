@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 9e00c872bb2794cdd8eb2560392ce058ae41b257
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78186729"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 솔루션 및 학습
 
 Azure Active Directory B2C (Azure AD B2C)를 사용 하면 조직이 고객과 연결 하는 데 도움이 되는 비즈니스 솔루션을 구현할 수 있습니다. 다음 솔루션 가이드 및 학습 문서는 이러한 솔루션을 안내하는 다운로드 가능한 문서입니다.
 
-| 제목 | 설명 |
+| 제목 | Description |
 | ----- | ----------- |
 | [Azure AD B2C를 통한 고객 ID 관리](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | 이 서비스 개요에서 Azure AD B2C 팀의 Parakh Jain ( [@jainparakh](https://twitter.com/jainparakh) )은 서비스 작동 방식에 대 한 개요를 제공 하 고 B2C를 ASP.NET Core 응용 프로그램에 신속 하 게 연결할 수 있는 방법을 보여 줍니다. |
 | [Azure AD B2C 사용 이점](https://aka.ms/b2coverview) | Azure AD B2C의 이점 및 일반적인 시나리오를 이해하고 애플리케이션이 이 CIAM 서비스를 활용할 수 있는 방법을 이해합니다. |

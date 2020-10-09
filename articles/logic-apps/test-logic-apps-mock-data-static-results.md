@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74790270"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>정적 결과를 설정 하 여 모의 데이터로 논리 앱 테스트
@@ -45,9 +45,9 @@ ms.locfileid: "74790270"
 
       예를 들어 HTTP 작업에 대 한 필수 속성은 다음과 같습니다.
 
-      | 속성 | 설명 |
+      | 속성 | Description |
       |----------|-------------|
-      | **Status** | 반환할 작업의 상태입니다. |
+      | **상태** | 반환할 작업의 상태입니다. |
       | **상태 코드** | 반환할 특정 상태 코드 |
       | **헤더** | 반환할 헤더 콘텐츠입니다. |
       |||
@@ -136,7 +136,7 @@ ms.locfileid: "74790270"
 
    ![정적 결과 사용 안 함](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="reference"></a>참고
+## <a name="reference"></a>참조
 
 기본 워크플로 정의의이 설정에 대 한 자세한 내용은 [정적 결과-워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md#static-results) 및 [runtimeConfiguration 구성 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings) 에 대 한 스키마 참조를 참조 하세요.
 

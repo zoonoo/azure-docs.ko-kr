@@ -5,10 +5,10 @@ ms.date: 09/09/2019
 ms.topic: how-to
 ms.reviewer: mmercuri
 ms.openlocfilehash: dc7a1dc7e4a083ef8f5f7650f29ed1430b32e88b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85214199"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Azure Blockchain Workbench 데이터베이스 방화벽 구성
@@ -19,7 +19,7 @@ ms.locfileid: "85214199"
 
 규칙을 구성할 데이터베이스에 연결하려면:
 
-1. Azure Blockchain 워크 벤치 리소스에 대 한 **소유자** 권한이 있는 계정으로 Azure Portal에 로그인 합니다.
+1. Azure Blockchain 워크 벤치 리소스에 대 한 **소유자**     권한이 있는 계정으로 Azure Portal에 로그인 합니다.
 2. 왼쪽의 탐색 창에서 **리소스 그룹**을 선택합니다.
 3. Blockchain Workbench 배포에 대한 리소스 그룹의 이름을 선택합니다.
 4. **형식**을 선택하여 리소스 목록을 정렬하고 **SQL 서버**를 선택합니다.

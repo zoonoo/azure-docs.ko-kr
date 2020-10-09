@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082594"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
@@ -26,7 +26,7 @@ ms.locfileid: "74082594"
 > * 보조 사이트에서 주 사이트로 다시 보호 및 장애 복구(failback)
 > * 필요에 따라 주 사이트에서 보조 사이트로 다시 복제 시작
 
-## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
+## <a name="failover-and-failback"></a>장애 조치(failover) 및 장애 복구(failback)
 
 장애 조치(Failover) 및 장애 복구(failback)는 다음 3단계로 진행됩니다.
 

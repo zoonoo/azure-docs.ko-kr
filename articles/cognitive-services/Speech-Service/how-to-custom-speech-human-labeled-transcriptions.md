@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74806065"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
@@ -29,7 +29,7 @@ ms.locfileid: "74806065"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | Substitution | 메모 |
+| 피할 문자 | 대체 | 메모 |
 | ------------------- | ------------ | ----- |
 | "Hello 세계" | "Hello world" | 여는 따옴표와 닫는 따옴표를 적절 한 ASCII 문자로 대체 했습니다. |
 | John의 날 | John의 날 | 아포스트로피를 적절 한 ASCII 문자로 대체 했습니다. |
@@ -76,7 +76,7 @@ ms.locfileid: "74806065"
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| It 비용 \$3.14                        | it costs three fourteen           |
+| It 비용 \$ 3.14                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (zh-cn-CN)
 
@@ -84,7 +84,7 @@ ms.locfileid: "74806065"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | Substitution   | 메모 |
+| 피할 문자 | 대체   | 메모 |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표를 적절 한 문자로 대체 했습니다. |
 | 需要什么帮助? | 需要什么帮助？| 물음표를 적절 한 문자로 대체 했습니다. |

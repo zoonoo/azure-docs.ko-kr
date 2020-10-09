@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74775543"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Bing Search API란?
@@ -48,7 +48,7 @@ Bing Search API를 사용하면 광고 없이 웹 페이지, 이미지, 뉴스, 
 
 다음 Bing Search API을 사용 하 여 다른 Bing 검색 Api와 결합 하 여 검색 환경을 향상 시킬 수 있습니다.
 
-| API | Description |
+| API | 설명 |
 | -- | -- |
 | [Bing Autosuggest](../Bing-Autosuggest/get-suggested-search-terms.md) | 제안 된 검색을 실시간으로 반환 하 여 Bing Autosuggest API으로 응용 프로그램의 검색 환경을 개선 합니다.  |
 | [Bing Statistics](bing-web-stats.md) | Bing Statistics는 애플리케이션에서 사용하는 Bing Search API에 대한 분석을 제공합니다. 일부 제공되는 분석에는 호출량, 주요 쿼리 문자열 및 지리적 분포가 포함됩니다. |

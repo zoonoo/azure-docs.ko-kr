@@ -11,13 +11,13 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: e1a9d2722987464b1bb3c8b1489a2d1258a41d15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91273095"
 ---
-# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Azure Portal에서 SQL Server를 실행 하는 Linux 가상 컴퓨터 프로 비전
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Azure Portal에서 SQL Server를 실행하는 Linux 가상 머신 프로비전
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91273095"
 이 빠른 시작 자습서에서는 Azure Portal을 사용하여 SQL Server 2017이 설치된 Linux 가상 머신을 만듭니다. 다음을 학습합니다. 
 
 
-* [갤러리에서 SQL Server를 실행 하는 Linux VM 만들기](#create)
+* [갤러리에서 SQL Server를 실행하는 Linux VM 만들기](#create)
 * [SSH를 사용하여 새로운 VM에 연결](#connect)
 * [SA 암호 변경](#password)
 * [원격 연결의 구성](#remote)
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 그런 다음, 다음 값을 입력하거나 선택합니다.
    * **지역**: 적합한 Azure 지역을 선택합니다.
    * **가용성 옵션**: 앱과 데이터에 가장 적합한 가용성 및 중복성 옵션을 선택합니다.
-   * **크기 변경**: 이 옵션을 선택하여 머신 크기를 고르고 완료하면 **선택**을 누릅니다. VM 컴퓨터 크기에 대 한 자세한 내용은 [vm 크기](../../../virtual-machines/sizes.md)를 참조 하세요.
+   * **크기 변경**: 이 옵션을 선택하여 머신 크기를 고르고 완료하면 **선택**을 누릅니다. VM 머신 크기에 대한 자세한 내용은 [VM 크기](../../../virtual-machines/sizes.md)를 참조하세요.
 
      ![VM 크기 선택](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 

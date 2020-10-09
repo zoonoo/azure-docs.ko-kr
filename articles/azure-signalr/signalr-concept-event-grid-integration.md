@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74158201"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Azure SignalR Service 이벤트에 대응
@@ -29,7 +29,7 @@ Azure SignalR Service 이벤트는 클라이언트 연결이 서버를 사용 �
 ## <a name="available-azure-signalr-service-events"></a>사용 가능한 Azure SignalR 서비스 이벤트
 Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure SignalR Service 이벤트 구독은 다음과 같은 두 가지 유형의 이벤트를 지원 합니다.  
 
-|이벤트 이름|설명|
+|이벤트 이름|Description|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|클라이언트 연결이 연결 될 때 발생 합니다.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|클라이언트 연결의 연결이 끊어질 때 발생 합니다.|

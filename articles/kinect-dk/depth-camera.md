@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, 깊이 카메라, tof, 원칙, 성능, 무효화
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276957"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Azure Kinect 진한 깊이 카메라
@@ -28,7 +28,7 @@ Azure Kinect 진한 깊이 카메라는 진폭 AMCW () ToF (비행 시간) 원�
 
 ![깊이와 IR 나란히](./media/concepts/depth-camera-depth-ir.png)
 
-## <a name="key-features"></a>주요 기능
+## <a name="key-features"></a>주요 특징
 
 깊이 카메라의 기술 특성은 다음과 같습니다.
 

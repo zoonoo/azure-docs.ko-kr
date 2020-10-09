@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77252230"
 ---
 # <a name="automate-mobility-service-installation"></a>모바일 서비스 설치 자동화
@@ -364,7 +364,7 @@ cd /tmp
 1. **이 표준 프로그램의 요구 사항 지정**에서 다음 작업을 수행 합니다.
 
    - Windows 컴퓨터의 경우 **지정 된 플랫폼 에서만이 프로그램을 실행할 수 있음**을 선택 합니다. 그런 다음 [지원 되는 Windows 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines) 를 선택 하 고 **다음**을 선택 합니다.
-   - Linux 컴퓨터의 경우 **모든 플랫폼에서이 프로그램을 실행할 수 있음**을 선택 합니다. **다음**을 선택합니다.
+   - Linux 컴퓨터의 경우 **모든 플랫폼에서이 프로그램을 실행할 수 있음**을 선택 합니다. 그런 후 **다음**을 선택합니다.
 
 1. 마법사를 마칩니다.
 
@@ -374,7 +374,7 @@ cd /tmp
 
    ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 
-1. 패키지를 복사할 위치에 배포 지점을 선택합니다. [자세히 알아보기](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
+1. 패키지를 복사할 위치에 배포 지점을 선택합니다. [자세히 알아봅니다](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
 1. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 1. 패키지 배포가 완료 된 후 패키지 > **배포**를 마우스 오른쪽 단추로 클릭 합니다.
 
@@ -386,7 +386,7 @@ cd /tmp
 
    ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-1. **이 배포에 대 한 일정 지정**에서 일정을 설정 합니다. [자세히 알아보기](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
+1. **이 배포에 대 한 일정 지정**에서 일정을 설정 합니다. [자세히 알아봅니다](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
 
    - 모바일 서비스는 지정 된 일정에 따라 설치 됩니다.
    - 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.

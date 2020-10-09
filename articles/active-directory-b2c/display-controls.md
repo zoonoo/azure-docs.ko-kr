@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202299"
 ---
 # <a name="display-controls"></a>표시 컨트롤
@@ -32,7 +32,7 @@ ms.locfileid: "85202299"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
- [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 `DataUri` 페이지 계약 버전 2.0.0 이상으로 설정 해야 합니다. 예를 들어:
+ [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 `DataUri` 페이지 계약 버전 2.0.0 이상으로 설정 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -46,14 +46,14 @@ ms.locfileid: "85202299"
 
 **DisplayControl** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 표시 컨트롤에 사용 되는 식별자입니다. [참조할](#referencing-display-controls)수 있습니다. |
 | UserInterfaceControlType | 예 | 표시 컨트롤의 형식입니다. 현재 지원 되는 [VerificationControl](display-control-verification.md) |
 
 **DisplayControl** 요소에는 다음 요소가 포함 됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **Inputclaims** 은 사용자 로부터 수집할 클레임 값을 미리 채우는 데 사용 됩니다. |
 | DisplayClaims | 0:1 | **DisplayClaims** 는 사용자 로부터 수집할 클레임을 나타내는 데 사용 됩니다. |
@@ -80,7 +80,7 @@ ms.locfileid: "85202299"
 
 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md#display-claims)에 정의 된 **표시 클레임** 과 마찬가지로 표시 클레임은 표시 컨트롤 내에서 사용자 로부터 수집할 클레임을 나타냅니다. 참조 된 **ClaimType** 요소는 또는와 같은 Azure AD B2C에서 지 원하는 사용자 입력 형식에 대해 **userinputtype** 요소를 지정 해야 합니다 `TextBox` `DropdownSingleSelect` . **작업**에 표시 클레임 값이 필요한 경우에는 **필수** 특성을로 설정 하 여 `true` 사용자가 특정 표시 클레임에 대 한 값을 제공 하도록 합니다.
 
-특정 유형의 표시 컨트롤에 대 한 특정 표시 클레임이 필요 합니다. 예를 들어 **VerificationControl**형식의 표시 컨트롤에는 **VerificationCode** 가 필요 합니다. 특성 **Controlclaimtype** 을 사용 하 여 해당 필수 클레임에 지정 된 DisplayClaim를 지정 합니다. 예를 들어:
+특정 유형의 표시 컨트롤에 대 한 특정 표시 클레임이 필요 합니다. 예를 들어 **VerificationControl**형식의 표시 컨트롤에는 **VerificationCode** 가 필요 합니다. 특성 **Controlclaimtype** 을 사용 하 여 해당 필수 클레임에 지정 된 DisplayClaim를 지정 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />

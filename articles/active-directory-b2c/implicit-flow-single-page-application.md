@@ -12,10 +12,10 @@ ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201857"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용 하 여 단일 페이지 로그인
@@ -51,7 +51,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | --------- | -------- | ----------- |
 |넌| 예 | Azure AD B2C 테 넌 트의 이름|
 |policy| 예| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
@@ -81,7 +81,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
 | access_token | 앱에서 요청한 액세스 토큰입니다. |
 | token_type | 토큰 형식 값입니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -100,9 +100,9 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
-| 오류 | 발생 한 오류 유형을 분류 하는 데 사용 되는 코드입니다. |
+| error | 발생 한 오류 유형을 분류 하는 데 사용 되는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 | state | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다.|
 
@@ -129,7 +129,7 @@ ID 토큰에 서명하는 데 사용된 사용자 흐름(및 메타데이터를 
 OpenID Connect 메타데이터 엔드포인트에서 메타데이터 문서를 가져오면 이 엔드포인트에 있는 RSA-256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시간에 이 엔드포인트에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid`로 식별됩니다. `id_token`의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. [토큰 유효성을 검사하는 방법](tokens-overview.md)을 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](tokens-overview.md)를 참조하세요.
 <!--TODO: Improve the information on this-->
 
-ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 몇 가지 클레임이 있습니다. 예를 들어:
+ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 몇 가지 클레임이 있습니다. 예를 들면 다음과 같습니다.
 
 * `nonce` 클레임의 유효성을 검사하여 토큰 재생 공격을 방지합니다. 해당 값이 로그인 요청에 지정된 값이어야 합니다.
 * `aud` 클레임의 유효성을 검사하여 앱에 대한 ID 토큰이 발급되었는지 확인합니다. 해당 값이 앱의 애플리케이션 ID여야 합니다.
@@ -164,20 +164,20 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &prompt=none
 ```
 
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
-|넌| 필요한 공간 | Azure AD B2C 테 넌 트의 이름|
-policy| 필요한 공간| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
-| client_id |필요한 공간 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 애플리케이션 ID입니다. |
-| response_type |필요한 공간 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `token` 응답 형식이 포함될 수도 있습니다. 여기서 `token`을 사용하면 앱에서 권한 부여 엔드포인트에 대한 두 번째 요청을 수행하지 않고도 권한 부여 엔드포인트에서 액세스 토큰을 즉시 받을 수 있습니다. `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
+|넌| 필수 | Azure AD B2C 테 넌 트의 이름|
+policy| 필수| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
+| client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 애플리케이션 ID입니다. |
+| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `token` 응답 형식이 포함될 수도 있습니다. 여기서 `token`을 사용하면 앱에서 권한 부여 엔드포인트에 대한 두 번째 요청을 수행하지 않고도 권한 부여 엔드포인트에서 액세스 토큰을 즉시 받을 수 있습니다. `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩해야 한다는 점을 제외하고는 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다.  토큰을 가져오려면 원하는 리소스에 필요한 모든 범위를 포함합니다. |
 | response_mode |권장 |결과 토큰을 앱으로 다시 보내는 데 사용되는 메서드를 지정합니다. 암시적 흐름의 경우를 사용 `fragment` 합니다. 다른 두 가지 모드를 지정할 수 `query` `form_post` 있지만 암시적 흐름에서는 작동 하지 않습니다. |
 | state |권장 |토큰 응답에 반환되는 요청에 포함된 값입니다.  사용하려는 콘텐츠의 문자열일 수 있습니다.  일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다.  또한 state(상태)는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보를 인코딩하는 데에도 사용됩니다. 예를 들어 사용자가 있던 페이지 또는 보기입니다. |
-| nonce |필요한 공간 |앱에서 생성한 요청에 포함된 값이며, 결과 ID 토큰에 클레임으로 포함됩니다.  그러면 앱에서 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
-| prompt |필요한 공간 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 `prompt=none`을 사용하여 iFrame이 로그인 페이지에 머물지 않고 즉시 반환되는지 확인합니다. |
-| login_hint |필요한 공간 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 사용자가 지정된 시간에 가질 수 있는 여러 세션을 구분하기 위해 이 힌트에 해당 사용자의 사용자 이름을 포함합니다. 클레임을 사용 하 여 이전 로그인에서 사용자 이름을 추출할 수 있습니다 `preferred_username` ( `profile` 클레임을 수신 하기 위해 범위가 필요 함 `preferred_username` ). |
-| domain_hint |필요한 공간 |`consumers` 또는 `organizations`일 수 있습니다.  숨겨진 iframe에서 토큰을 새로 고치고 가져오는 경우 `domain_hint` 요청에 값을 포함 합니다.  `tid`이전 로그인의 ID 토큰에서 클레임을 추출 하 여 사용할 값을 결정 `profile` 합니다 (클레임을 수신 하기 위해 범위가 필요 함 `tid` ). `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용합니다.  그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
+| nonce |필수 |앱에서 생성한 요청에 포함된 값이며, 결과 ID 토큰에 클레임으로 포함됩니다.  그러면 앱에서 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
+| prompt |필수 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 `prompt=none`을 사용하여 iFrame이 로그인 페이지에 머물지 않고 즉시 반환되는지 확인합니다. |
+| login_hint |필수 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 사용자가 지정된 시간에 가질 수 있는 여러 세션을 구분하기 위해 이 힌트에 해당 사용자의 사용자 이름을 포함합니다. 클레임을 사용 하 여 이전 로그인에서 사용자 이름을 추출할 수 있습니다 `preferred_username` ( `profile` 클레임을 수신 하기 위해 범위가 필요 함 `preferred_username` ). |
+| domain_hint |필수 |`consumers` 또는 `organizations`일 수 있습니다.  숨겨진 iframe에서 토큰을 새로 고치고 가져오는 경우 `domain_hint` 요청에 값을 포함 합니다.  `tid`이전 로그인의 ID 토큰에서 클레임을 추출 하 여 사용할 값을 결정 `profile` 합니다 (클레임을 수신 하기 위해 범위가 필요 함 `tid` ). `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용합니다.  그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
 
 `prompt=none` 매개 변수를 설정하면 이 요청이 즉시 성공하거나 실패하고 애플리케이션으로 돌아갑니다.  성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 표시된 리디렉션 URI에서 앱으로 보내집니다.
 
@@ -193,7 +193,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | access_token |앱이 요청한 토큰입니다. |
 | token_type |토큰 형식은 항상 Bearer(전달자)입니다. |
@@ -210,9 +210,9 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
-| 오류 |발생하는 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
+| error |발생하는 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다.
@@ -223,18 +223,18 @@ ID 토큰 및 액세스 토큰은 모두 짧은 기간 후에 만료됩니다. �
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 사용자를 앱에서 로그 아웃 하려는 경우 사용자를 Azure AD로 리디렉션하여 로그 아웃 합니다. 사용자를 리디렉션하지 않으면 자격 증명을 다시 입력 하지 않고 앱에 다시 인증할 수 있습니다. Azure AD에 유효한 Single Sign-On 세션이 있기 때문입니다.
 
-[ID 토큰 유효성 검사](#validate-the-id-token)에서 설명한 동일한 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`로 사용자를 리디렉션할 수 있습니다. 예를 들어:
+[ID 토큰 유효성 검사](#validate-the-id-token)에서 설명한 동일한 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`로 사용자를 리디렉션할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
 | post_logout_redirect_uri | 아니요 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. |
-| state | 아니요 | 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 응용 프로그램은 `state` 요청 및 응답의 값이 동일한 지 확인 해야 합니다. |
+| state | 아니요 | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 응용 프로그램은 `state` 요청 및 응답의 값이 동일한 지 확인 해야 합니다. |
 
 
 > [!NOTE]

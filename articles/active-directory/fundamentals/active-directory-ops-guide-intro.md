@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: c815256e60e5ca6582220d247d587a4488c4a55a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74535315"
 ---
 # <a name="azure-active-directory-operations-reference-guide"></a>Azure Active Directory 작업 참조 가이드
@@ -36,7 +36,7 @@ ms.locfileid: "74535315"
 
 이 참조 가이드의 각 섹션에서는 이해 관계자에 게 주요 작업을 계획 하 고 구현 하는 것을 권장 합니다. 다음 표에서는이 가이드의 모든 관련자 목록을 간략하게 설명 합니다.
 
-| 관련자 | 설명 |
+| 관련자 | Description |
 | :- | :- |
 | IAM 운영 팀 | 이 팀은 Id 및 액세스 관리 시스템의 일상 업무 관리를 처리 합니다. |
 | 생산성 팀 | 이 팀은 메일, 파일 공유, 공동 작업, 인스턴트 메시징, 회의 등의 생산성 응용 프로그램을 소유 하 고 관리 합니다. |

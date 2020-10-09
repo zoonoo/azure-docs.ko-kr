@@ -9,13 +9,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74270214"
 ---
-# <a name="performance-tiers-for-block-blob-storage"></a>블록 blob 저장소에 대 한 성능 계층
+# <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
 
 기업은 성능이 중요 한 클라우드 네이티브 응용 프로그램을 배포할 때 다양 한 성능 수준에서 비용 효율적인 데이터 저장소에 대 한 옵션을 선택 하는 것이 중요 합니다.
 
@@ -26,12 +26,12 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 
 다음은 다양 한 성능 계층에 적용 되는 고려 사항입니다.
 
-| Area |표준 성능  |프리미엄 성능  |
+| 영역 |표준 성능  |프리미엄 성능  |
 |---------|---------|---------|
 |지역 가용성     |   모든 지역      | [영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |지원 되는 [저장소 계정 유형](../common/storage-account-overview.md#types-of-storage-accounts)     |     범용 v2, BlobStorage, 범용 v1    |    BlockBlobStorage     |
 |[높은 처리량 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) 지원     |    예, 4 MiB PutBlock 또는 Putblock 크기를 초과 합니다.     |    예, 256 KiB PutBlock 또는 Putblock 크기 보다 큼    |
-|중복성     |     [저장소 계정 유형을](../common/storage-account-overview.md#types-of-storage-accounts) 참조 하세요.   |  현재 LRS (로컬 중복 저장소) 및 ZRS (영역 redudant 저장소)만 지원 합니다.<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+|중복     |     [저장소 계정 유형을](../common/storage-account-overview.md#types-of-storage-accounts) 참조 하세요.   |  현재 LRS (로컬 중복 저장소) 및 ZRS (영역 redudant 저장소)만 지원 합니다.<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
 
 <div id="zone-redundant-storage"><sup>1</sup> ZRS (영역 중복 저장소)는 프리미엄 성능 블록 blob storage 계정에 대 한 선택 영역에서 사용할 수 있습니다.</div>
 

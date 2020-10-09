@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: a9ca8f219bef787de04b51600209bfd3a24dd166
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77122923"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>기존 가용성 집합에 Azure VM 추가의 지원 가능성
@@ -24,11 +24,11 @@ ms.locfileid: "77122923"
 시리즈 및 가용성 집합|두 번째 VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |첫 번째 VM|||||||
-|A||정상|정상|정상|정상|정상|
-|Av2||정상|정상|정상|정상|정상|
-|D||정상|정상|정상|정상|정상|
-|Dv2||정상|정상|정상|정상|정상|
-|Dv3||정상|정상|정상|정상|정상|
+|A||확인|확인|확인|확인|확인|
+|Av2||확인|확인|확인|확인|확인|
+|D||확인|확인|확인|확인|확인|
+|Dv2||확인|확인|확인|확인|확인|
+|Dv3||확인|확인|확인|확인|확인|
 
 다른 모든 시리즈는 특정 하드웨어가 필요하기 때문에 동일한 가용성 집합에 있을 수 없습니다.
 

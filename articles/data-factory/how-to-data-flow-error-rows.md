@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
 ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254415"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
@@ -29,7 +29,7 @@ ms.locfileid: "85254415"
 
     ![영화 데이터 흐름 1](media/data-flow/error4.png)
     
-3. 문제는 동영상 타이틀이 모두 5 자만 포함할 수 있는 싱크 열에 들어가지 않는다는 것입니다. 이 데이터 흐름을 실행 하면 다음과 같은 오류가 표시 됩니다.```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+3. 문제는 동영상 타이틀이 모두 5 자만 포함할 수 있는 싱크 열에 들어가지 않는다는 것입니다. 이 데이터 흐름을 실행 하면 다음과 같은 오류가 표시 됩니다. ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
 이 비디오는 데이터 흐름에서 오류 행 처리 논리를 설정 하는 예제를 안내 합니다.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
