@@ -28,6 +28,8 @@
   items:
     - name: 스토리지 계정에 연결
       href: tutorial-private-endpoint-storage-portal.md
+    - name: Cosmos DB 계정에 연결
+      href: tutorial-private-endpoint-cosmosdb-portal.md
 - name: 개념
   items:
     - name: Private Endpoint
@@ -42,8 +44,6 @@
           href: security-baseline.md
 - name: 방법
   items:
-    - name: Cosmos DB 계정에 비공개로 연결
-      href: create-private-endpoint-cosmosdb-portal.md
     - name: 웹앱에 비공개로 연결
       href: create-private-endpoint-webapp-portal.md
     - name: 프라이빗 엔드포인트에 대한 네트워크 정책 사용 안 함

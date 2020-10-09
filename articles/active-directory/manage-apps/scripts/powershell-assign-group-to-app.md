@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: c1a8ebe170c499febc42fed028a17f7e6e591fc6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88507062"
 ---
 # <a name="assign-a-group-to-a-specific-azure-ad-application-proxy-application"></a>특정 Azure AD 애플리케이션 프록시 애플리케이션에 그룹 할당

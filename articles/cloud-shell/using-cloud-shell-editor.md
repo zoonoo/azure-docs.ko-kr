@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60199230"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Azure Cloud Shell 편집기 사용
 
-Azure Cloud Shell에는 오픈 소스 [Monaco 편집기](https://github.com/Microsoft/monaco-editor)에서 빌드된 통합 파일 편집기가 포함됩니다. Cloud Shell 편집기는 언어 강조 표시, 명령 팔레트 및 파일 탐색기 등의 기능을 지원합니다.
+Azure Cloud Shell에는 오픈 소스 [Monaco 편집기](https://github.com/Microsoft/monaco-editor)에서 빌드된 통합 파일 편집기가 포함됩니다. Cloud Shell 편집기는 언어 강조 표시, 명령 팔레트, 파일 탐색기와 같은 기능을 지원합니다.
 
 ![Cloud Shell 편집기](media/using-cloud-shell-editor/open-editor.png)
 
 ## <a name="opening-the-editor"></a>편집기 열기
 
-간단한 파일을 생성하고 편집하는 경우 Cloud Shell 터미널에서 `code .`를 실행하여 편집기를 시작합니다. 이 작업은 터미널에서 설정된 활성 작업 디렉터리를 사용하여 편집기를 엽니다.
+간단한 파일을 만들고 편집하려면 Cloud Shell 터미널에서 `code .`를 실행하여 편집기를 시작합니다. 이 작업을 수행하면 터미널에 설정된 활성 작업 디렉터리를 통해 편집기가 열립니다.
 
-빠른 편집을 위해 파일을 직접 열려면 `code <filename>`을 실행하여 파일 탐색기 없이 편집기를 엽니다.
+빠른 편집을 위해 직접 파일을 열려면 `code <filename>`을 실행하여 파일 탐색기 없이 편집기를 엽니다.
 
 UI 단추를 통해 편집기를 열려면 도구 모음에서 `{}` 편집기 아이콘을 클릭합니다. 그러면 편집기를 열고 `/home/<user>` 디렉터리에 대한 파일 탐색기를 기본값으로 설정합니다.
 

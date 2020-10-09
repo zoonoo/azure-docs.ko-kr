@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60499888"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
@@ -27,7 +27,7 @@ ms.locfileid: "60499888"
 - Bing 뉴스 검색
 - Bing 비디오 검색
 - Bing Visual Search
-- Bing 웹 검색
+- Bing Web Search
 - Bing 맞춤법 검사
 - Bing Autosuggest
 
@@ -36,10 +36,10 @@ ms.locfileid: "60499888"
 
 |용어  |Description  |
 |---------|---------|
-|Answer     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
+|답변     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
 |응답     | Search API에 대한 단일 호출에 대응하여 받은 모든 대답 및 관련 데이터를 나타냅니다. |
 |결과    | 대답에 있는 정보 항목을 나타냅니다. 예를 들어 하나의 뉴스 기사와 연결된 일단의 데이터는 뉴스 답변의 결과입니다. |
-|Search API    | Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search 및 Web Search API를 총체적으로 의미합니다. |
+|API 검색    | Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search 및 Web Search API를 총체적으로 의미합니다. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Bing Spell Check 및 Bing Autosuggest API 제한 사항
 
@@ -97,7 +97,7 @@ ms.locfileid: "60499888"
     - 주로(또는 전적으로) 이미지, 뉴스 및/또는 비디오나 비디오 검색 결과로 필터링되거나 제한된 응답
 
 ### <a name="notices-and-branding"></a>공지 및 브랜드 
-수행할 작업:
+권장 사항:
 
 - 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 위치 가까이에 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 **Microsoft 개인정보처리방침**으로 표시합니다.
 
@@ -134,7 +134,7 @@ Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니�
 - 사용자가 해당 디바이스의 해당 사용자에게 이전에 반환된 결과에 액세스할 수 있도록 합니다(예: 서비스 중단의 경우).
 - 해당 사용자의 신호(예: 예상되는 서비스 중단의 경우)에 따라 사용자의 요구 사항을 예상하여 개인 설정된 자동 관리 쿼리에 대해 반환된 결과를 저장합니다.
 
-#### <a name="server"></a>Server (서버)
+#### <a name="server"></a>서버
 
 다음과 같은 목적에 한하여 한 명의 사용자에게 해당하는 결과를 고객이 제어하는 서버에 안전하게 보관하고 이 보관된 결과를 표시할 수 있습니다.
 

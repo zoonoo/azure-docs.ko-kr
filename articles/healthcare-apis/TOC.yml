@@ -76,6 +76,8 @@
           href: configure-local-rbac.md
         - name: 데이터베이스 설정 구성
           href: configure-database.md
+        - name: 고객 관리형 키 구성
+          href: bring-your-own-key.md
         - name: CORS 구성
           href: configure-cross-origin-resource-sharing.md
         - name: 내보내기 구성

@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79279495"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872003"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>CloudSimple 네트워크에서 VPN 게이트웨이 설정
 
@@ -103,7 +103,7 @@ VPN gateway에 Vlan/서브넷을 추가 하는 정책은 사이트 간 VPN 및 �
 
     * **자동으로 추가** 옵션은 게이트웨이의 글로벌 정책을 설정 합니다. 설정은 현재 게이트웨이에 적용 됩니다. 설정은 **선택** 영역에서 재정의할 수 있습니다.
     * **사설 클라우드의 관리 vlan/서브넷 추가**를 선택 합니다. 
-    * 모든 사용자 정의 Vlan/서브넷을 추가 하려면 **사용자 정의 vlan/서브넷 추가**를 클릭 합니다.
+    * 모든 사용자 정의 Vlan/서브넷을 추가 하려면  **사용자 정의 vlan/서브넷 추가**를 클릭 합니다.
     * **Select** 설정은 **자동 추가**에서 전역 설정을 재정의 합니다.
 
 7. **다음** 을 클릭 하 여 설정을 검토 합니다. 편집 아이콘을 클릭 하 여 변경 합니다.
