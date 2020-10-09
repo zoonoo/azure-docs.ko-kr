@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: de45867e717f001ab54e16c4b21f04494affd326
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83996984"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>동적 사전을 사용 하는 방법
@@ -32,9 +32,9 @@ ms.locfileid: "83996984"
 
 **예제: en-de:**
 
-원본 입력:`The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
+원본 입력: `The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
 
-대상 출력:`Das Wort "wordomatic" ist ein Wörterbucheintrag.`
+대상 출력: `Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 이 기능은 HTML 모드를 사용할 때와 그렇지 않을 때 같은 결과를 가져옵니다.
 

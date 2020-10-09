@@ -12,10 +12,10 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80991572"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
@@ -38,7 +38,7 @@ ms.locfileid: "80991572"
 
 온-프레미스 HTTP 엔드포인트에서 데이터를 복사할 때 온-프레미스 환경 또는 Azure VM에서 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 다른 도구나 API를 사용하여 HTTP 소스의 데이터를 이동하는 복사 작업이 포함된 파이프라인을 만들 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "80991572"
 
 다음 표는 HTTP 연결 서비스에 해당하는 JSON 요소에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type | **type** 속성은 **Http**로 설정해야 합니다. | 예 |
 | url | 웹 서버의 기본 URL입니다. | 예 |
@@ -65,7 +65,7 @@ ms.locfileid: "80991572"
 
 **authenticationType**을 **Basic**, **Digest** 또는 **Windows**로 설정합니다. 이전 섹션에서 설명한 일반 HTTP 커넥터 속성 외에 다음 속성을 설정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**username**)의 암호입니다. | 예 |
@@ -93,7 +93,7 @@ ms.locfileid: "80991572"
 
 기본 인증을 사용하려면 **authenticationType**을 **ClientCertificate**로 설정합니다. 이전 섹션에서 설명한 일반 HTTP 커넥터 속성 외에 다음 속성을 설정합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | embeddedCertData | PFX 파일의 이진 데이터의 Base64 인코딩 콘텐츠입니다. | **EmbeddedCertData** 또는 **certthumbprint** 를 지정 합니다. |
 | certThumbprint | 게이트웨이 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에만 적용됩니다. | **EmbeddedCertData** 또는 **certthumbprint** 를 지정 합니다. |
@@ -157,7 +157,7 @@ ms.locfileid: "80991572"
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식 마다 다릅니다. **typeProperties** 섹션은 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **Http** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type**을 **Http**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | 아니요 |
@@ -220,7 +220,7 @@ ms.locfileid: "80991572"
 
 현재 복사 작업의 원본이 **HttpSource** 형식인 경우 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 아니요<br />(기본값: **00:01:40**) |
 

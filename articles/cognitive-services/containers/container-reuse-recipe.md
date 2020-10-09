@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 7380ff58d033a68565de7e419ff318f7bdec121d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80875081"
 ---
 # <a name="create-containers-for-reuse"></a>재사용할 컨테이너 만들기
@@ -29,7 +29,7 @@ ms.locfileid: "80875081"
 
 * Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
 * Windows 이외의 운영 체제 또는 Windows 콘솔 이외의 다른 운영 체제를 사용 하는 경우 콘솔 및 시스템에 올바른 콘솔/터미널, 탑재를 위한 폴더 구문 및 줄 연속 문자를 사용 합니다.  Cognitive Services 컨테이너는 Linux 운영 체제 이므로 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
-* `docker run`예를 들어 드라이브에서 디렉터리를 사용 `c:` 하 여 Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다.
+* `docker run` 예를 들어 드라이브에서 디렉터리를 사용 `c:` 하 여 Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다.
 
 ## <a name="store-no-configuration-settings-in-image"></a>이미지에 구성 설정 저장 안 함
 

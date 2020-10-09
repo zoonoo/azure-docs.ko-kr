@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80653625"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
@@ -89,7 +89,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 확장명
+- 내선 번호
 - 새 내선 번호
 - 차단
 - 차단 이유
@@ -109,7 +109,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 확장명
+- 내선 번호
 - 새 내선 번호
 - 바이패스 이유
 - 완료 타임스탬프

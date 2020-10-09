@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75609777"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors 구성--KVSActorStateProvider
@@ -41,7 +41,7 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>구성 이름
-| 이름 | 단위 | 기본값 | 설명 |
+| 속성 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
 | ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
@@ -58,7 +58,7 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>구성 이름
-| 이름 | 단위 | 기본값 | 설명 |
+| 속성 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |밀리초 |200 |지속형 로컬 저장소 커밋에 대한 최대 배치 간격을 설정합니다. |
 | MaxVerPages |페이지 수 |16384 |로컬 저장소 데이터베이스의 최대 버전 페이지 수. 처리되지 않은 트랜잭션의 최대 수를 결정합니다. |

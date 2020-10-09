@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83997012"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
@@ -281,13 +281,13 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예제 |
+| JSON 속성 | 유형 | 필수 | 기본값 | 유효한 값 | 예 |
 | --- | --- | --- | --- | --- | --- |
-| **startTime** | string | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **방법** | 개체 | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **간격은** | number | 아니요 | 1 | 1~1000 | `"interval":10` |
-| **endTime** | string | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **일정과** | 개체 | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | 문자열 | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **방법** | object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **간격은** | number | No | 1 | 1~1000 | `"interval":10` |
+| **endTime** | 문자열 | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **일정과** | object | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.

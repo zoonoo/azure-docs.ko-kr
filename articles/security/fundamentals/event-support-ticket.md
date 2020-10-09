@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80548598"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>보안 이벤트 지원 티켓을 로그하는 방법
@@ -43,7 +43,7 @@ ms.locfileid: "80548598"
     - 문제에 대해 Microsoft에 알릴 내용이 있는 경우 모든 통신에서 확인 번호를 사용합니다.
     - 언제든지 문제에 대한 진행률을 확인할 수 있습니다.
 
-5. 다음 작업 문제 및 심각도에 따라 다음 단계를 수행할 수 있습니다.
+5. 다음 단계는 무엇인가요? 문제 및 심각도에 따라 다음 단계를 수행할 수 있습니다.
 
     - 평가 결과를 귀하에게 알려 드릴 것입니다. 결과에 따라 귀하의 제품을 수정하도록 요청하거나 제거할 수 있습니다. 이 경우 영향을 받는 고객의 사용 중단을 최소화하기 위해 노력할 것입니다.
     - 인시던트/취약성이 고객에게 미치는 영향을 완화하기 위해 노력할 것입니다.

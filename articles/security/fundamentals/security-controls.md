@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2222c1d5e434e1c51cb66c2c5943badd58f95af9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84013030"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Azure 서비스에 대 한 "기본 제공 보안 컨트롤" 문서의 인덱스
@@ -25,7 +25,7 @@ ms.locfileid: "84013030"
 
 - [API Management](../../api-management/api-management-security-controls.md)
 - [Azure App Service](../../app-service/app-service-security-controls.md)
-- [Azure 리소스 관리자](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
+- [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
 - [Azure Backup](../../backup/backup-security-controls.md)
 - [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
 - [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)

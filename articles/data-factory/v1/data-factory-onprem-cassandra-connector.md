@@ -13,10 +13,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80991504"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
@@ -63,7 +63,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Cassandra 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |type 속성은 다음으로 설정해야 함: **OnPremisesCassandra** |예 |
 | host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
@@ -82,7 +82,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **CassandraTable** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
@@ -261,19 +261,19 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 ### <a name="type-mapping-for-cassandra"></a>Cassandra에 대한 형식 매핑
 | Cassandra 형식 | .NET 기반 형식 |
 | --- | --- |
-| ASCII |String |
+| ASCII |문자열 |
 | bigint |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |부울 |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |
-| INET |String |
+| INET |문자열 |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |문자열 |
 | timestamp |DateTime |
-| TIMEUUID |Guid |
-| UUID |Guid |
+| TIMEUUID |GUID |
+| UUID |GUID |
 | VARCHAR |String |
 | VARINT |Decimal |
 
@@ -296,10 +296,10 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 
 [복사 마법사](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity)를 사용하여 가상 테이블을 비롯한 Cassandra 데이터베이스의 테이블 목록을 표시하고 내부의 데이터를 미리 볼 수 있습니다. 또한 복사 마법사에서 쿼리를 생성하고 결과가 유효한지 확인할 수도 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 예를 들어 다음 "ExampleTable"은 "pk_int"라는 정수 기본 키 열, value라는 텍스트 열, 목록 열, 맵 열, 집합 열("StringSet")을 포함하는 Cassandra 데이터베이스 테이블입니다.
 
-| pk_int | 값 | 목록 | 맵 | StringSet |
+| pk_int | 값 | 목록 | 지도 | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

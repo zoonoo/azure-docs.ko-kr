@@ -216,7 +216,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80585705"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 로그 쿼리 언어 차이점
@@ -24,7 +24,7 @@ ms.locfileid: "80585705"
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 명령문
 
-* [앤티앨리어스](/azure/kusto/query/aliasstatement)
+* [별칭](/azure/kusto/query/aliasstatement)
 * [쿼리 매개 변수](/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 함수
@@ -33,7 +33,7 @@ ms.locfileid: "80585705"
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [데이터베이스 ()](/azure/kusto/query/databasefunction)
+* [database()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)

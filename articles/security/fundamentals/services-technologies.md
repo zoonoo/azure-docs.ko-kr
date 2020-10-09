@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80549198"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
@@ -91,5 +91,5 @@ ms.locfileid: "80549198"
 | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)| 전역 DNS 부하 분산 장치입니다.|
 | [Azure 애플리케이션 프록시](/azure/active-directory/active-directory-application-proxy-get-started)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
 |[Azure Firewall](/azure/firewall/overview)|Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.|
-|[Azure DDoS 보호](/azure/virtual-network/ddos-protection-overview)|애플리케이션 설계 모범 사례와 결합하여 DDoS 공격을 방어합니다.|
+|[Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)|애플리케이션 설계 모범 사례와 결합하여 DDoS 공격을 방어합니다.|
 |[Virtual Network 서비스 끝점](/azure/virtual-network/virtual-network-service-endpoints-overview)|직접 연결을 통해 가상 네트워크 프라이빗 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|

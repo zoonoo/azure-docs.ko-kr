@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182237"
 ---
 #### <a name="to-attach-the-sas-cables"></a>SAS 케이블을 연결하려면
@@ -18,7 +18,7 @@ ms.locfileid: "67182237"
    
     **기본 엔클로저 및 EBOD 엔클로저의 뒷면 보기**
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |기본 인클로저 |
    | 2 |EBOD 인클로저 |
@@ -28,7 +28,7 @@ ms.locfileid: "67182237"
    
     **일련 번호 스티커의 위치**
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |인클로저의 귀 |
 3. 제공된 SAS 케이블을 사용하여 다음과 같이 EBOD 엔클로저를 기본 엔클로저에 연결합니다.

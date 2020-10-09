@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80550267"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Android 디바이스의 공유 디바이스 모드
@@ -86,7 +86,7 @@ private IPublicClientApplication mApplication;
 | **계정**     | 단일 계정 | 여러 계정 |
 | **로그인** | 전역 | 전역 |
 | **로그아웃** | 전역 | 각 응용 프로그램은 로그 아웃이 앱 또는 응용 프로그램 제품군에 대해 로컬 인지 여부를 제어할 수 있습니다. |
-| **지원 되는 계정 유형** | 회사 계정만 | 개인 및 회사 계정 지원  |
+| **지원되는 계정 유형** | 회사 계정만 | 개인 및 회사 계정 지원  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>단일 계정 모드만 지원 해야 하는 이유
 
