@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331165"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850424"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Foodee 구성
 
@@ -55,7 +55,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Foodee를 �
 
 1. [Foodee](https://www.food.ee/login/)에 로그인 한 다음 테 넌 트 ID를 선택 합니다.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Foodee enterprise portal의 주 메뉴 스크린샷 테 넌 트 id 자리 표시 자가 메뉴에 표시 됩니다." border="false":::
 
 1. **Enterprise portal**에서 **Single Sign On**을 선택 합니다.
 
@@ -63,7 +63,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Foodee를 �
 
 1. 나중에 사용 하기 위해 **API 토큰** 상자에서 값을 복사 합니다. Azure Portal에서 Foodee 응용 프로그램의 **프로 비전** 탭에 있는 **비밀 토큰** 상자에 입력 합니다.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Foodee enterprise portal의 주 메뉴 스크린샷 테 넌 트 id 자리 표시 자가 메뉴에 표시 됩니다." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>갤러리에서 Foodee 추가
 
@@ -71,7 +71,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Foodee를 �
 
 Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 
     ![Azure Active Directory 명령](common/select-azuread.png)
 
@@ -130,20 +130,20 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
 1. **매핑**아래에서 **Foodee에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
-    ![Foodee 사용자 매핑](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Foodee enterprise portal의 주 메뉴 스크린샷 테 넌 트 id 자리 표시 자가 메뉴에 표시 됩니다." border="false":::
 
 1. **특성 매핑**아래에서 Azure AD에서 Foodee로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Foodee의 *사용자 계정을* 일치 시키는 데 사용 됩니다. 
 
-    ![Foodee 사용자 매핑](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Foodee enterprise portal의 주 메뉴 스크린샷 테 넌 트 id 자리 표시 자가 메뉴에 표시 됩니다." border="false":::
 
 1. 변경 내용을 커밋하려면 **저장**을 선택 합니다.
 1. **매핑**아래에서 **Foodee에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
-    ![Foodee 사용자 매핑](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Foodee enterprise portal의 주 메뉴 스크린샷 테 넌 트 id 자리 표시 자가 메뉴에 표시 됩니다." border="false":::
 
 1. **특성 매핑**아래에서 Azure AD에서 Foodee로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Foodee의 *그룹 계정을* 일치 시키는 데 사용 됩니다.
 
-    ![Foodee 사용자 매핑](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Foodee enterprise portal의 주 메뉴 스크린샷 테 넌 트 id 자리 표시 자가 메뉴에 표시 됩니다." border="false":::
 
 1. 변경 내용을 커밋하려면 **저장**을 선택 합니다.
 1. 범위 지정 필터를 구성 합니다. 방법에 대 한 자세한 내용은 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)의 지침을 참조 하세요.

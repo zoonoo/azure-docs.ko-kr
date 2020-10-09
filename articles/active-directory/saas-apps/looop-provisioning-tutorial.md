@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333565"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850696"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Looop 구성
 
@@ -55,11 +55,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop을 구
 
 1. [Looop 관리 콘솔](https://app.looop.co/#/login) 에 로그인 하 고 **계정**을 선택 합니다. **계정 설정** 에서 **인증**을 선택 합니다.
 
-    ![Looop 추가 SCIM](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Looop 관리 콘솔의 스크린샷 계정 탭이 강조 표시 되 고 열립니다. 계정 설정에서 인증이 강조 표시 됩니다." border="false":::
 
 2. **Scim 통합**에서 **토큰 다시 설정** 을 클릭 하 여 새 토큰을 생성 합니다.
 
-    ![Looop 추가 SCIM](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Looop 관리 콘솔의 스크린샷 계정 탭이 강조 표시 되 고 열립니다. 계정 설정에서 인증이 강조 표시 됩니다." border="false":::
 
 3. **Scim 끝점과** **토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 Looop 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다. 
 

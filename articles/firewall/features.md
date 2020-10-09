@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408510"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850594"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -101,7 +101,11 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
-모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다. 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요.
+모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다. Azure Monitor 로그 예제는 [Azure 방화벽에 대 한 Azure Monitor 로그](log-analytics-samples.md)를 참조 하세요.
+
+자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요. 
+
+Azure 방화벽 통합 문서는 Azure 방화벽 데이터 분석을 위한 유연한 캔버스를 제공 합니다. 이를 사용 하 여 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있습니다. 자세한 내용은 [Azure 방화벽 통합 문서를 사용 하 여 로그 모니터링](firewall-workbook.md)을 참조 하세요.
 
 ## <a name="forced-tunneling"></a>강제 터널링
 

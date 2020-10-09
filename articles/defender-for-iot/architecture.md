@@ -4,21 +4,21 @@ description: IoT 서비스용 Azure Defender의 정보 흐름에 대해 알아�
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 3d26d9e3d686ad7c34e7493dc1413b7a9e7a2f6b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 3fc695770350e5a60ae3da9ab1796da5cac99370
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940984"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843416"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>IoT 용 Azure Defender 아키텍처
 
@@ -43,11 +43,11 @@ IoT 용 Defender는 기본 제공 및 향상 된 두 가지 기능 워크플로 
 
 ### <a name="enhanced"></a>향상된
 
-**고급** 모드에서는 IoT Hub의 **보안** 옵션을 설정 하 고 장치에 IoT 장치 에이전트를 설치 하 고 나면 에이전트는 장치에서 원시 보안 이벤트를 수집, 집계 및 분석 합니다. 원시 보안 이벤트에는 IP 연결, 프로세스 만들기, 사용자 로그인 및 기타 보안 관련 정보가 포함 될 수 있습니다. IoT 용 Defender 장치 에이전트는 또한 높은 네트워크 처리량을 방지 하기 위해 이벤트 집계를 처리 합니다. 에이전트는 항상 사용자 지정이 가능 하므로, 가장 빠른 SLA에서 중요 한 정보만 보내거나 광범위 한 보안 정보 및 컨텍스트를 더 큰 세그먼트로 집계 하 여 더 높은 서비스 비용을 방지 하는 등의 특정 작업에 사용할 수 있습니다.
+**고급** 모드에서는 IoT Hub의 **보안** 옵션을 설정 하 고 장치에 IoT 장치 에이전트를 설치 하 고 나면 에이전트는 장치에서 원시 보안 이벤트를 수집, 집계 및 분석 합니다. 원시 보안 이벤트에는 IP 연결, 프로세스 만들기, 사용자 로그인 및 기타 보안 관련 정보가 포함 될 수 있습니다. IoT 용 방어자 장치 에이전트는 또한 높은 네트워크 처리량을 방지 하기 위해 이벤트 집계를 처리 합니다. 에이전트는 항상 사용자 지정이 가능 하므로, 가장 빠른 SLA에서 중요 한 정보만 보내거나 광범위 한 보안 정보 및 컨텍스트를 더 큰 세그먼트로 집계 하 여 더 높은 서비스 비용을 방지 하는 등의 특정 작업에 사용할 수 있습니다.
 
 ![IoT 용 Defender 아키텍처](./media/architecture/azure-iot-security-architecture.png)
 
-장치 에이전트 및 기타 응용 프로그램은 **Azure send security MESSAGE SDK** 를 사용 하 여 Azure IoT Hub에 보안 정보를 보냅니다. IoT Hub이 정보를 선택 하 고 IoT 서비스용 Defender에 전달 합니다.
+장치 에이전트 및 기타 응용 프로그램은 **Azure send security MESSAGE SDK** 를 사용 하 여 Azure IoT Hub에 보안 정보를 보냅니다. IoT Hub이 정보를 가져와 IoT 서비스용 Defender에 전달 합니다.
 
 IoT 용 Defender 서비스를 사용 하도록 설정 하면 전달 된 데이터 외에도 IoT 용 Defender에서 분석할 수 있도록 모든 내부 데이터를 전송 IoT Hub. 이 데이터에는 장치-클라우드 작업 로그, 장치 id 및 허브 구성이 포함 됩니다. 이 모든 정보를 통해 IoT 분석 파이프라인에 대 한 Defender를 만들 수 있습니다.
 

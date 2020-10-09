@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 1274679bdd9892e2dc39f3c5e94d8d8d486928b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329196"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849346"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 BitaBIZ 구성
 
@@ -54,11 +54,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 BitaBIZ를 �
 
 1. [BitaBIZ 관리 콘솔](https://www.bitabiz.com/login?lang=en)에 로그인 합니다. **SETUP ADMIN(설치 관리자)** 을 클릭합니다.
 
-    ![BitaBIZ 관리 콘솔](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="설치 관리자가 강조 표시 된 BitaBIZ 관리 콘솔의 스크린샷" border="false":::
 
 2.  **통합**으로 이동 합니다.
 
-    ![BitaBIZ 관리 콘솔](media/bitabiz-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="설치 관리자가 강조 표시 된 BitaBIZ 관리 콘솔의 스크린샷" border="false":::
 
 2.  **Microsoft Azure AD 프로 비전**으로 이동 합니다.  자동 사용자 프로 비전에서 **사용** 을 선택 합니다. **Scim 프로 비전 끝점 URL** 및 **전달자 토큰**에 대 한 값을 복사 합니다. 이러한 값은 Azure Portal에서 BitaBIZ 응용 프로그램의 프로 비전 탭에 있는 테 넌 트 URL 및 비밀 토큰 필드에 입력 됩니다.
 
@@ -154,7 +154,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 * BitaBIZ에는 **사용자 이름**, **전자 메일**, **firstName** 및 **lastName** 이 필수 특성으로 필요 합니다. 
 * BitaBIZ는 현재 하드 삭제를 지원 하지 않습니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

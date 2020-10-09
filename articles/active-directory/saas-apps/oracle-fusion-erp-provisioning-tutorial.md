@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3f835c021e20edba21583e71c6c1a480eca7fd89
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45a1ae281a8a1acb1cfd12efe500f5a623033ef3
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255843"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850045"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 Oracle Fusion ERP 구성
 
@@ -56,11 +56,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Oracle Fusio
 
 2. 왼쪽 위 모서리에서 탐색기를 클릭 합니다. **도구**아래에서 **보안 콘솔**을 선택 합니다.
 
-    ![Oracle Fusion ERP 추가 SCIM](media/oracle-fusion-erp-provisioning-tutorial/login.png)
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/login.png" alt-text="Oracle Fusion E R P admin console에서 탐색기 페이지의 스크린샷 도구 및 보안 콘솔이 강조 표시 됩니다." border="false":::
 
 3. **사용자**로 이동 합니다.
     
-    ![Oracle Fusion ERP 추가 SCIM](media/oracle-fusion-erp-provisioning-tutorial/user.png)
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Oracle Fusion E R P admin console에서 탐색기 페이지의 스크린샷 도구 및 보안 콘솔이 강조 표시 됩니다." border="false":::
 
 4. Oracle Fusion ERP 관리 콘솔에 로그인 하는 데 사용할 관리 사용자 계정의 사용자 이름 및 암호를 저장 합니다. 이러한 값은 Azure Portal Oracle Fusion ERP 응용 프로그램의 프로 비전 탭에 있는 **관리자 사용자 이름** 및 **암호** 필드에 입력 해야 합니다.
 
@@ -116,7 +116,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Oracle Fusio
 
 5. **관리자 자격 증명** 섹션 아래에 `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **관리자** 사용자 이름 및 **암호** 필드에 검색 한 관리자 사용자 이름 및 암호를 입력 합니다. Azure AD와 Oracle Fusion ERP 간의 **연결 테스트** 를 클릭 합니다. 
 
-    ![Oracle Fusion ERP 추가 SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Oracle Fusion E R P admin console에서 탐색기 페이지의 스크린샷 도구 및 보안 콘솔이 강조 표시 됩니다." border="false":::
 
 6. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
@@ -126,11 +126,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Oracle Fusio
 
 8. **매핑** 섹션에서 **사용자 AZURE ACTIVE DIRECTORY Oracle Fusion ERP에 동기화**를 선택 합니다.
 
-    ![Oracle Fusion ERP 추가 SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Oracle Fusion E R P admin console에서 탐색기 페이지의 스크린샷 도구 및 보안 콘솔이 강조 표시 됩니다." border="false":::
 
 9. **특성 매핑** 섹션에서 Azure AD에서 ORACLE Fusion ERP로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 ORACLE Fusion ERP의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Oracle Fusion ERP 추가 SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Oracle Fusion E R P admin console에서 탐색기 페이지의 스크린샷 도구 및 보안 콘솔이 강조 표시 됩니다." border="false":::
 
 10. **매핑** 섹션에서 **Oracle Fusion ERP에 Azure Active Directory 그룹 동기화를**선택 합니다.
 

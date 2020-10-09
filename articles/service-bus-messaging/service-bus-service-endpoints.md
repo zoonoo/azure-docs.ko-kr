@@ -4,12 +4,12 @@ description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552988"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843382"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
 
@@ -54,6 +54,10 @@ TCP/IP에서 HTTPS를 수행하는 경로를 비롯한 구획 간의 즉시 IP �
 Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 끝점** 을 만들고 [서비스 끝점 개요][vnet-sep]에 설명 된 대로 **ServiceBus** 에 대해 사용 하도록 설정 해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 **가상 네트워크 규칙**을 사용하여 Service Bus 네임스페이스를 바인딩합니다.
 
 가상 네트워크 규칙은 가상 네트워크 서브넷을 사용하는 Service Bus 네임스페이스의 연결입니다. 규칙이 있는 한 서브넷에 바인딩된 모든 워크로드는 Service Bus 네임스페이스에 대한 액세스 권한이 부여됩니다. Service Bus 자체는 아웃바운드 연결을 설정하지 않고, 액세스 권한을 가져올 필요도 없습니다. 따라서 이 규칙을 사용하여 서브넷에 대한 액세스 권한이 부여되지 않습니다.
+
+> [!NOTE]
+> 네트워크 서비스 끝점은 가상 네트워크에서 실행 되는 응용 프로그램에 Service Bus 네임 스페이스에 대 한 액세스를 제공 합니다. 가상 네트워크는 끝점의 연결을 제어 하지만 Service Bus 엔터티 (큐, 토픽 또는 구독)에서 수행할 수 있는 작업은 제공 하지 않습니다. Azure AD (Azure Active Directory)를 사용 하 여 응용 프로그램이 네임 스페이스 및 해당 엔터티에 대해 수행할 수 있는 작업에 권한을 부여 합니다. 자세한 내용은 [Service Bus 엔터티에 액세스 하기 위해 AZURE AD를 사용 하 여 응용 프로그램 인증 및 권한 부여](authenticate-application.md)를 참조 하세요.
+
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 이 섹션에서는 Azure Portal를 사용 하 여 가상 네트워크 서비스 끝점을 추가 하는 방법을 보여 줍니다. 액세스를 제한 하려면이 Event Hubs 네임 스페이스에 대 한 가상 네트워크 서비스 끝점을 통합 해야 합니다.

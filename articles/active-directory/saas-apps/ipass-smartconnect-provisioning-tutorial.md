@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0af8df35bc2cc323e5165b973c889a0ab10f4cbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304920"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850511"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 iPass SmartConnect 구성
 
@@ -114,11 +114,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 iPass SmartConnec
 
 8. **매핑** 섹션 아래에서 **Azure Active Directory 사용자를 Ipass Smartconnect에 동기화를**선택 합니다.
 
-    ![iPass SmartConnect 사용자 매핑](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="매핑 섹션의 스크린샷 이름 아래에서 Azure Active Directory 사용자를 iPass SmartConnect에 동기화가 표시 됩니다." border="false":::
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Ipass smartconnect로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Ipass smartconnect의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![iPass SmartConnect 사용자 매핑](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="매핑 섹션의 스크린샷 이름 아래에서 Azure Active Directory 사용자를 iPass SmartConnect에 동기화가 표시 됩니다." border="false":::
 
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.

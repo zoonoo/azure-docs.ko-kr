@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 40fd048e1ace56af7a9198088d6129925033be93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c26a581df7ac10777687bf268027eb94862605b1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331219"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850135"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 15Five 구성
 
@@ -54,21 +54,21 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전에 15Five를 구성 �
 
 1. [15Five 관리 콘솔](https://my.15five.com/)에 로그인 합니다. **기능 > 통합**으로 이동 합니다.
 
-    ![15Five 관리 콘솔](media/15five-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/integration.png" alt-text="15Five 관리 콘솔의 스크린샷 통합은 메뉴의 기능 아래에 표시 되 고 기능과 통합은 모두 강조 표시 됩니다." border="false":::
 
 2.  **Scim 2.0**을 클릭 합니다.
 
-    ![15Five 관리 콘솔](media/15five-provisioning-tutorial/image00.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="15Five 관리 콘솔의 스크린샷 통합은 메뉴의 기능 아래에 표시 되 고 기능과 통합은 모두 강조 표시 됩니다." border="false":::
 
 3.  >는 **Scim 통합**으로 이동 하 여 OAuth 토큰을 생성 합니다.
 
-    ![15Five SCIM 추가](media/15five-provisioning-tutorial/image02.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="15Five 관리 콘솔의 스크린샷 통합은 메뉴의 기능 아래에 표시 되 고 기능과 통합은 모두 강조 표시 됩니다." border="false":::
 
 4.  **Scim 2.0 기준 URL** 및 **액세스 토큰**의 값을 복사 합니다. 이 값은 Azure Portal에서 15Five 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **암호 토큰** 필드에 입력 됩니다.
     
-    ![15Five SCIM 추가](media/15five-provisioning-tutorial/image03.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="15Five 관리 콘솔의 스크린샷 통합은 메뉴의 기능 아래에 표시 되 고 기능과 통합은 모두 강조 표시 됩니다." border="false":::
 
-## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 15Five 추가
+## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 15Five 추가
 
 15 5로 프로 비전 관리를 시작 하려면 Azure AD 응용 프로그램 갤러리에서 15Five를 추가 합니다. 이전에 SSO에 대해 15Five를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -128,8 +128,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User: location|String|
-   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User::/|String|
+   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User: location|문자열|
+   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User::/|문자열|
 
 10. **매핑** 섹션에서 **Azure Active Directory 그룹을 15Five로 동기화를**선택 합니다.
 
@@ -172,7 +172,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * 06/16/2020-사용자에 대 한 엔터프라이즈 확장 특성 "Manager" 및 사용자 지정 특성 "위치" 및 "시작 날짜"에 대 한 지원이 추가 되었습니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305019"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850903"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 Infor CloudSuite 구성
 
@@ -68,11 +68,11 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
     
     ![CloudSuite 암호](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Infor CloudSuite 식별자](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="강조 표시 된 테이블 행을 표시 하는 Infor CloudSuite 관리 콘솔의 스크린샷 해당 행에는 사용자 식별자, 암호 및 타임 스탬프가 포함 됩니다." border="false":::
 
 5. 전달자 토큰을 생성 하려면 **사용자 id** 와 **scim 암호**를 복사 합니다. 콜론으로 구분 된 메모장에 붙여넣습니다. **플러그 인 > MIME 도구 > Basic64 인코드**로 이동 하 여 문자열 값을 인코딩합니다. 
 
-    ![Infor CloudSuite 식별자](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="강조 표시 된 테이블 행을 표시 하는 Infor CloudSuite 관리 콘솔의 스크린샷 해당 행에는 사용자 식별자, 암호 및 타임 스탬프가 포함 됩니다." border="false":::
 
 3.  전달자 토큰을 복사 합니다. 이 값은 Azure Portal에서 Infor CloudSuite 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
 

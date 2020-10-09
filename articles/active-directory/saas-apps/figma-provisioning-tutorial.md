@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322039"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850907"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 자동 사용자 프로 비전 구성
 
@@ -53,23 +53,23 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Azure AD를 
 
 1. 사용자의 사용자 [관리 콘솔](https://www.Figma.com/)에 로그인 합니다. 테 넌 트 옆의 기어 아이콘을 클릭 합니다.
 
-    ![직원-프로 비전](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="고가 관리 콘솔의 스크린샷 A D Scim 테스트 라는 테 넌 트가 표시 됩니다. 테 넌 트 옆에 기어 아이콘이 강조 표시 됩니다." border="false":::
 
 2. **일반 > 업데이트 로그인 설정**으로 이동 합니다.
 
-    ![직원-프로 비전](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="고가 관리 콘솔의 스크린샷 A D Scim 테스트 라는 테 넌 트가 표시 됩니다. 테 넌 트 옆에 기어 아이콘이 강조 표시 됩니다." border="false":::
 
 3. **테 넌 트 ID**를 복사 합니다. 이 값은 Azure Portal에 있는 Conma 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 url** 필드에 입력 될 scim 끝점 url을 생성 하는 데 사용 됩니다.
 
-    ![로 토큰 만들기](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="고가 관리 콘솔의 스크린샷 A D Scim 테스트 라는 테 넌 트가 표시 됩니다. 테 넌 트 옆에 기어 아이콘이 강조 표시 됩니다." border="false":::
 
 4. 아래로 스크롤하여 **API 토큰 생성**을 클릭 합니다.
 
-    ![로 토큰 만들기](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="고가 관리 콘솔의 스크린샷 A D Scim 테스트 라는 테 넌 트가 표시 됩니다. 테 넌 트 옆에 기어 아이콘이 강조 표시 됩니다." border="false":::
 
 5. **API 토큰** 값을 복사 합니다. 이 값은 Azure Portal에서 고가와 같은 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다. 
 
-    ![로 토큰 만들기](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="고가 관리 콘솔의 스크린샷 A D Scim 테스트 라는 테 넌 트가 표시 됩니다. 테 넌 트 옆에 기어 아이콘이 강조 표시 됩니다." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>갤러리에서가는 추가
 

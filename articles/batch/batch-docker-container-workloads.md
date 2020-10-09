@@ -2,26 +2,28 @@
 title: 컨테이너 워크로드
 description: Azure Batch의 컨테이너 이미지에서 앱을 실행하고 크기를 조정하는 방법을 알아봅니다. 컨테이너 작업 실행을 지원하는 컴퓨팅 노드 풀을 만듭니다.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018512"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843450"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
 Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작업을 실행하고 확장할 수 있습니다. Batch 작업은 Batch 풀의 가상 머신(노드)에서 직접 실행할 수 있지만 노드에서 Docker 호환 컨테이너의 작업을 실행하도록 Batch 풀을 설정할 수도 있습니다. 이 문서에서는 컨테이너 작업의 실행을 지원하는 컴퓨팅 노드 풀을 만드는 방법과 풀에서 컨테이너 작업을 실행하는 방법을 보여 줍니다.
 
-컨테이너 개념과 Batch 풀 및 Batch 작업을 만드는 방법을 잘 알고 있어야 합니다. 코드 예제는 Batch .NET 및 Python SDK를 사용합니다. Azure Portal을 포함하여 다른 Batch SDK 및 도구를 사용하여 컨테이너 사용이 가능한 Batch 풀을 만들고 컨테이너 작업을 실행할 수도 있습니다.
+이 코드 예제에서는 Batch .NET 및 Python Sdk를 사용 합니다. Azure Portal을 포함하여 다른 Batch SDK 및 도구를 사용하여 컨테이너 사용이 가능한 Batch 풀을 만들고 컨테이너 작업을 실행할 수도 있습니다.
 
 ## <a name="why-use-containers"></a>컨테이너를 사용하는 이유
 
 컨테이너를 사용하면 환경 및 종속 파일을 관리할 필요없이 Batch 작업을 실행하여 애플리케이션을 쉽게 실행할 수 있습니다. 컨테이너는 애플리케이션을 다양한 환경에서 실행될 수 있는 이식이 가능한 일체형 경량 단위로 배포합니다. 예를 들어, 컨테이너를 로컬로 빌드 및 테스트한 다음, Azure의 레지스트리 또는 다른 위치로 컨테이너 이미지를 업로드할 수 있습니다. 컨테이너 배포 모델은 애플리케이션을 호스트하는 어느 곳이든 애플리케이션의 런타임 환경이 항상 올바르게 설치 및 구성되도록 합니다. Batch의 컨테이너 기반 작업은 리소스 파일 및 출력 파일 관리, 애플리케이션 패키지 등 컨테이너가 아닌 작업의 기능을 활용할 수도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
+컨테이너 개념과 Batch 풀 및 Batch 작업을 만드는 방법을 잘 알고 있어야 합니다.
 
 - **SDK 버전**: Batch SDK에서 지원하는 컨테이너 이미지의 버전은 다음과 같습니다.
   - Batch REST API 버전 2017-09-01.6.0
@@ -282,6 +284,12 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 - 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션은 Batch에 의해 처리되므로 추가 `--runtime` 옵션이 필요하지 않습니다.
 
 - 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
+
+- Windows의 경우 [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) 을로 설정 하 여 작업을 실행 해야 합니다 `admin` . 
+
+- Linux의 경우 Batch는 컨테이너에 사용자/그룹 권한을 매핑합니다. 컨테이너 내의 폴더에 대 한 액세스 권한이 필요한 경우 관리자 권한 수준으로 태스크를 풀 범위로 실행 해야 할 수 있습니다. 이렇게 하면 일괄 처리가 컨테이너 컨텍스트의 루트로 태스크를 실행 하 게 됩니다. 그렇지 않으면 관리자가 아닌 사용자에 게 해당 폴더에 대 한 액세스 권한이 없을 수 있습니다.
+
+- GPU 사용 하드웨어가 있는 컨테이너 풀의 경우 Batch는 컨테이너 작업에 대해 GPU를 자동으로 사용 하도록 설정 하므로 인수를 포함 하지 않아야 `–gpus` 합니다.
 
 ### <a name="container-task-command-line"></a>컨테이너 작업 명령줄
 

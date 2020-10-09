@@ -2,13 +2,13 @@
 title: Azure Batch 풀 만들기 이벤트
 description: 풀을 만든 후 내보내는 Batch 풀 만들기 이벤트에 대한 참조입니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: eee512bbeed223269c43bde77435fbff2b67b533
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 10/08/2020
+ms.openlocfilehash: dea0e04fa506274e645ba7a578039a0d6f021043
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147317"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850951"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
@@ -41,7 +41,7 @@ ms.locfileid: "86147317"
     "resizeTimeout": "300000",
     "targetDedicatedNodes": 2,
     "targetLowPriorityNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
@@ -64,7 +64,7 @@ ms.locfileid: "86147317"
 |`enableAutoScale`|Bool|풀 크기가 시간이 지남에 따라 자동으로 조정되는지 여부를 지정합니다.|
 |`enableInterNodeCommunication`|Bool|풀에 노드 간 직접 통신이 설정되어 있는지 여부를 지정합니다.|
 |`isAutoPool`|Bool|풀이 작업의 자동 풀 메커니즘을 통해 만들어졌는지 여부를 지정합니다.|
-|`maxTasksPerNode`|Int32|풀의 단일 컴퓨팅 노드에서 동시에 실행할 수 있는 최대 태스크 수입니다.|
+|`taskSlotsPerNode`|Int32|풀의 단일 컴퓨팅 노드에서 동시에 실행할 수 있는 최대 태스크 수입니다.|
 |`vmFillType`|String|Batch 서비스는 풀의 컴퓨팅 노드 간에 태스크를 분배하는 방법을 정의합니다. 유효한 값은 Spread 또는 Pack입니다.|
 
 ###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration

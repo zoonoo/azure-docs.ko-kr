@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987993"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848911"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Azure 기밀 컴퓨팅 FAQ
 
@@ -56,6 +56,10 @@ DC 시리즈 VM은 Intel SGX를 사용하는 이전 6코어 Intel 프로세서�
 **DCsv2 가상 머신을 전 세계적으로 사용할 수 있나요?**
 
 아니요. 이번에는 일부 지역에서만 이러한 가상 머신을 사용할 수 있습니다. 사용 가능한 지역에 대한 최신 정보는 [지역별 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)를 확인하세요. 
+
+**이러한 컴퓨터에서 하이퍼 스레딩을 해제 하 고 있습니까?**
+
+모든 Azure 기밀 컴퓨팅 클러스터에 대해 하이퍼 스레딩을 사용할 수 없습니다.
 
 **DCsv2 가상 머신에 Open Enclave SDK를 설치하려면 어떻게 해야 하나요?**
    

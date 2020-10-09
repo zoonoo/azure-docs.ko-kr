@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547072"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>자습서: Jobscience와 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ Jobscience를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 
 Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자세한 내용은 [응용 프로그램 액세스 및 Azure Active Directory Single Sign-On](../manage-apps/what-is-single-sign-on.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Jobscience와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -61,19 +61,19 @@ Jobscience가 Azure AD에 통합되도록 구성하려면 갤러리에서 Jobsci
 
 1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![애플리케이션][2]
+    ![모든 응용 프로그램을 선택 하 고 관리 아래에서 선택한 Azure Portal 엔터프라이즈 응용 프로그램을 보여 주는 스크린샷][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![애플리케이션][3]
+    ![선택한 새 응용 프로그램을 보여 주는 스크린샷][3]
 
 1. 검색 상자에 **Jobscience**를 입력합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/jobscience-tutorial/tutorial_jobscience_search.png)
+    ![스크린샷을 입력 한 갤러리에서 추가를 보여 주는 스크린샷](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
 1. 결과 창에서 **Jobscience**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
+    ![스크린샷은 Jobscience을 포함 하는 결과를 보여 줍니다.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
@@ -98,15 +98,15 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. Azure Portal의 **Jobscience** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Azure Portal의 관리에서 선택 된 Single sign-on을 보여 주는 스크린샷][4]
 
 1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-on 구성](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
+    ![선택한 SAML 기반 로그온 모드를 보여 주는 스크린샷](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
 1. **Jobscience 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/jobscience-tutorial/tutorial_jobscience_url.png)
+    ![스크린샷에는 로그온 U R L이 표시 됩니다.](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
     **로그온 url** 텍스트 상자에 다음 패턴을 사용 하 여 URL을 입력 합니다.`http://<company name>.my.salesforce.com`
     
@@ -115,21 +115,21 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
 1. **SAML 서명 인증서** 섹션에서 **인증서 (Base64)** 를 클릭 한 다음 컴퓨터에 인증서 파일을 저장 합니다.
 
-    ![Single Sign-on 구성](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![스크린샷 인증서를 다운로드할 수 있는 SAML 서명 인증서 창을 보여 줍니다.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
 1. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/jobscience-tutorial/tutorial_general_400.png)
+    ![스크린샷은 저장 단추를 표시 합니다.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. **Jobscience 구성** 섹션에서 **Jobscience 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션** 에서 **로그 아웃 URL, saml 엔터티 ID 및 Saml SINGLE sign-on 서비스 URL** 을 복사 합니다.
+1. **Jobscience 구성** 섹션에서 **Jobscience 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션** 에서 **로그 아웃 URL, saml 엔터티 ID 및 Saml SINGLE Sign-On 서비스 URL** 을 복사 합니다.
 
-    ![Single Sign-on 구성](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
+    ![스크린샷-Jobscience 구성 창을 보여 줍니다.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
 1. Jobscience 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. **설정**으로 이동합니다.
    
-   ![설치](./media/jobscience-tutorial/IC784358.png "설치 프로그램")
+   ![스크린샷 회사의 설정 항목을 표시 합니다.](./media/jobscience-tutorial/IC784358.png "설정")
 
 1. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다. 
    
@@ -141,7 +141,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. Jobscience 회사 사이트에서 **보안 제어**를 클릭한 다음 **Single Sign-On 설정**을 클릭합니다.
     
-    ![보안 제어](./media/jobscience-tutorial/ic784364.png "Single Sign On 설정")
+    ![보안 컨트롤에서 선택한 단일 Sign-On 설정을 보여 주는 스크린샷](./media/jobscience-tutorial/ic784364.png "Single Sign On 설정")
 
 1. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
     
@@ -179,15 +179,15 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **내 도메인** 페이지의 **로그인 페이지 브랜딩** 섹션에서 **편집**을 클릭합니다.
     
-    ![로그인 페이지 브랜딩](./media/jobscience-tutorial/ic767826.png "로그인 페이지 브랜딩")
+    ![스크린샷 편집 단추가 있는 로그인 페이지 브랜딩 섹션을 보여 줍니다.](./media/jobscience-tutorial/ic767826.png "로그인 페이지 브랜딩")
 
 1. **로그인 페이지 브랜딩** 페이지의 **인증 서비스** 섹션에 **SAML SSO 설정** 이름이 표시됩니다. 이름을 선택하고 **저장**을 클릭합니다.
     
-    ![로그인 페이지 브랜딩](./media/jobscience-tutorial/ic784366.png "로그인 페이지 브랜딩")
+    ![이 스크린샷에서는 PPE를 사용 하 고 저장을 선택 하 여 로그인 페이지 브랜딩 섹션을 보여 줍니다.](./media/jobscience-tutorial/ic784366.png "로그인 페이지 브랜딩")
 
 1. SP에서 시작한 Single Sign-On 로그인 URL을 가져오려면 **보안 제어** 메뉴 섹션에서 **Single Sign-On 설정**을 클릭합니다.
 
-    ![보안 제어](./media/jobscience-tutorial/ic784368.png "Single Sign On 설정")
+    ![단일 Sign-On 설정이 선택 된 관리 보안 컨트롤을 보여 주는 스크린샷](./media/jobscience-tutorial/ic784368.png "Single Sign On 설정")
     
     위 단계에서 만든 SSO 프로필을 클릭합니다. 이 페이지에서는 회사의 Single Sign-On URL을 보여줍니다(예: `https://companyname.my.salesforce.com?so=companyid`.    
 
@@ -204,19 +204,19 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭 합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/jobscience-tutorial/create_aaduser_01.png) 
+    ![스크린샷 Azure Portal의 Azure A D 아이콘이 표시 됩니다.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
 1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
-    ![Azure AD 테스트 사용자 만들기](./media/jobscience-tutorial/create_aaduser_02.png) 
+    ![모든 사용자가 선택 된 상태에서 관리 메뉴에서 선택한 사용자 및 그룹을 보여 주는 스크린샷](./media/jobscience-tutorial/create_aaduser_02.png) 
 
 1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
-    ![Azure AD 테스트 사용자 만들기](./media/jobscience-tutorial/create_aaduser_03.png) 
+    ![스크린샷 추가 단추를 표시 하 여 사용자 대화 상자를 엽니다.](./media/jobscience-tutorial/create_aaduser_03.png) 
 
 1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
-    ![Azure AD 테스트 사용자 만들기](./media/jobscience-tutorial/create_aaduser_04.png) 
+    ![스크린샷이 단계에서 값을 입력할 수 있는 사용자 대화 상자를 표시 합니다.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
@@ -240,7 +240,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 
 1. 설정으로 이동합니다.
    
-   ![설치](./media/jobscience-tutorial/ic784358.png "설치 프로그램")
+   ![설치 항목을 보여 주는 스크린샷](./media/jobscience-tutorial/ic784358.png "설정")
 1. **사용자 관리 \> 사용자**로 이동합니다.
    
    ![사용자](./media/jobscience-tutorial/ic784369.png "사용자")
@@ -273,25 +273,25 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Jobscience에 대한 액세스 권한을 부여합니다.
 
-![사용자 할당][200] 
+![스크린샷 계정 표시 이름을 표시 합니다.][200] 
 
 **Britta Simon을 Jobscience에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![모든 응용 프로그램을 선택 하 여 Azure Portal 메뉴의 엔터프라이즈 응용 프로그램을 보여 주는 스크린샷][201] 
 
 1. 애플리케이션 목록에서 **Jobscience**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
+    ![선택한 Jobscience을 보여 주는 스크린샷](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![사용자 할당][202] 
+    ![Azure Portal 메뉴에서 선택한 사용자 및 그룹을 보여 주는 스크린샷][202] 
 
 1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 할당][203]
+    ![스크린 샷에서는 할당을 추가 하는 데 사용 되는 추가 단추를 표시 합니다.][203]
 
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 

@@ -3,15 +3,15 @@ title: 디스크 암호화가 사용된 풀 생성
 description: 디스크 암호화 구성을 사용 하 여 플랫폼 관리 키를 사용 하 여 노드를 암호화 하는 방법을 알아봅니다.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267050"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849265"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>디스크 암호화가 사용된 풀 생성
 
@@ -21,7 +21,7 @@ ms.locfileid: "89267050"
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>디스크 암호화 구성에서 풀을 사용 하는 이유
 
-Batch 풀을 사용 하면 OS 및 계산 노드의 임시 디스크에 데이터를 액세스 하 고 저장할 수 있습니다. 플랫폼 관리 키를 사용 하 여 서버 쪽 디스크를 암호화 하면 오버 헤드가 적고 편리 하 게이 데이터를 보호할 수 있습니다.  
+Batch 풀을 사용 하면 OS 및 계산 노드의 임시 디스크에 데이터를 액세스 하 고 저장할 수 있습니다. 플랫폼 관리 키를 사용 하 여 서버 쪽 디스크를 암호화 하면 오버 헤드가 적고 편리 하 게이 데이터를 보호할 수 있습니다.
 
 Batch는 풀 구성 및 지역별 지원 가능성을 기준으로 계산 노드에 이러한 디스크 암호화 기술 중 하나를 적용 합니다.
 
@@ -35,8 +35,8 @@ Batch는 풀 구성 및 지역별 지원 가능성을 기준으로 계산 노드
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 풀의 노드에 적용 되는 암호화 방법을 지정할 수 없습니다. 대신, 노드에서 암호화 하려는 대상 디스크를 제공 하 고 Batch에서 적절 한 암호화 방법을 선택 하 여 지정 된 디스크가 계산 노드에서 암호화 되도록 할 수 있습니다.
- 
-## <a name="azure-portal"></a>Azure portal 
+
+## <a name="azure-portal"></a>Azure portal
 
 Azure Portal에서 Batch 풀을 만들 때 **디스크 암호화 구성**에서 **TemporaryDisk** 또는 **OsAndTemporaryDisk** 를 선택 합니다.
 
@@ -44,7 +44,7 @@ Azure Portal에서 Batch 풀을 만들 때 **디스크 암호화 구성**에서 
 
 풀을 만든 후에는 풀의 **속성** 섹션에서 디스크 암호화 구성 대상을 확인할 수 있습니다.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Azure Portal의 디스크 암호화 구성 대상을 보여 주는 스크린샷":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Azure Portal에서 디스크 암호화 구성 옵션의 스크린샷":::
 
 ## <a name="examples"></a>예
 
@@ -87,7 +87,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }

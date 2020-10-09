@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328074"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848962"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Dialpad 구성
 
@@ -54,13 +54,13 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Dialpad를 �
 
 1. [Dialpad 관리 콘솔](https://dialpadbeta.com/login) 에 로그인 하 고 **관리 설정**을 선택 합니다. 드롭다운 목록에서 **내 회사** 가 선택 되어 있는지 확인 합니다. **인증 > API 키**로 이동 합니다.
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
 2. **키 추가** 를 클릭 하 고 비밀 토큰의 속성을 구성 하 여 새 키를 생성 합니다.
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
 3. 최근에 만든 API 키에 대 한 **값을 표시 하려면 클릭** 단추를 클릭 하 고 표시 된 값을 복사 합니다. 이 값은 Azure Portal Dialpad 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다. 
 
@@ -89,19 +89,19 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 Dialpad를 구성
 
 5. 별도의 브라우저에서 아래 강조 표시 된 **URL** 로 이동 합니다. 
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
 6. 오른쪽 위 모서리에서 로그인을 선택 **> Dialpad online을 사용**합니다.
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
 7. Dialpad는 OpenIDConnect 앱 이므로 Microsoft 회사 계정을 사용 하 여 Dialpad에 로그인 하도록 선택 합니다.
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
 8. 인증에 성공 하면 동의 페이지에 대 한 동의 확인 프롬프트를 수락 합니다. 그러면 응용 프로그램이 테 넌 트에 자동으로 추가 되 고 사용자가 Dialpad 계정으로 리디렉션됩니다.
 
-    ![Dialpad SCIM 추가](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="설정 아이콘, 내 회사, 인증 및 P I 키가 강조 표시 되 고 회사가 선택 된 Dialpad 관리 콘솔의 스크린샷" border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Dialpad에 자동 사용자 프로 비전 구성
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825494"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843433"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -50,7 +50,7 @@ ms.locfileid: "91825494"
 
 <sup>1</sup> 2017년 12월 이전에 생성된 기본 서비스는 인덱스에서 낮은 제한(15 대신 5)을 갖습니다. 기본 계층은 인덱스당 100개 필드 제한보다 더 낮은 SKU입니다.
 
-<sup>2</sup> 많은 수의 저장소 사용률이 높은 경우에는 요소에 대 한 상한이 존재 합니다. 복합 컬렉션의 요소는 해당 컬렉션의 멤버로 정의 됩니다. 예를 들어 [대화방 복합 컬렉션을 사용 하는 호텔 문서](search-howto-complex-data-types.md#indexing-complex-types)를 가정 합니다. 대화방 컬렉션의 각 공간은 요소로 간주 됩니다. 인덱싱 중에 인덱싱 엔진은 문서 전체에서 최대 3000 개의 요소를 안전 하 게 처리할 수 있습니다. [이 제한은](search-api-migration.md#upgrade-to-2019-05-06) 에서 도입 되었으며, `api-version=2019-05-06` 문자열 컬렉션이 나 복잡 한 필드에만 적용 되는 것이 아니라 복잡 한 컬렉션에만 적용 됩니다.
+<sup>2</sup> 너무 많은 요소가 인덱스에 필요한 저장소를 크게 증가 하므로 요소에 대 한 상한이 있습니다. 복합 컬렉션의 요소는 해당 컬렉션의 멤버로 정의 됩니다. 예를 들어 [대화방 복합 컬렉션을 사용 하는 호텔 문서](search-howto-complex-data-types.md#indexing-complex-types)를 가정 합니다. 대화방 컬렉션의 각 공간은 요소로 간주 됩니다. 인덱싱 중에 인덱싱 엔진은 문서 전체에서 최대 3000 개의 요소를 안전 하 게 처리할 수 있습니다. [이 제한은](search-api-migration.md#upgrade-to-2019-05-06) 에서 도입 되었으며, `api-version=2019-05-06` 문자열 컬렉션이 나 복잡 한 필드에만 적용 되는 것이 아니라 복잡 한 컬렉션에만 적용 됩니다.
 
 <a name="document-limits"></a>
 

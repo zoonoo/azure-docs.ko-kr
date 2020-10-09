@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321983"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850502"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 myPolicies 구성
 
@@ -118,7 +118,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 myPolicies를 구
 
 9. **매핑** 섹션 아래에서 **myPolicies에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
-    ![myPolicies 사용자 매핑](media/mypolicies-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="매핑 섹션의 스크린샷 이름에서 customappsso에 대 한 사용자 Azure Active Directory 동기화가 표시 됩니다." border="false":::
 
 10. **특성 매핑** 섹션에서 Azure AD에서 myPolicies로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 myPolicies의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 

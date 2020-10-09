@@ -2,14 +2,14 @@
 title: 다중 인스턴스 작업을 사용하여 MPI 애플리케이션 실행
 description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 애플리케이션을 실행하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 03/13/2019
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: fd39af127d975f085bbd55fe2a21f925b5aae8e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6207fc5295de28d4caf956b74e14f97f1113120c
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926374"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850628"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
@@ -39,7 +39,7 @@ Batch에서 각 태스크는 일반적으로 단일 컴퓨팅 노드에서 실�
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>다중 인스턴스 작업에 대한 요구 사항
-다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 동시 작업 실행을 사용하지 않도록 설정하려면 [CloudPool.MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool) 속성을 1로 설정합니다.
+다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 동시 작업 실행을 사용 하지 않도록 설정 하려면 [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) 속성을 1로 설정 합니다.
 
 > [!NOTE]
 > 일괄 처리는 노드 간 통신을 사용하도록 설정한 풀의 크기를 [제한](batch-quota-limit.md#pool-size-limits)합니다.
@@ -58,11 +58,11 @@ CloudPool myCloudPool =
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
 myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.MaxTasksPerComputeNode = 1;
+myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 
+> 노드 간 통신을 사용 하지 않도록 설정 하거나 1 보다 큰 *taskSlotsPerNode* 값을 사용 하 여 풀에서 다중 인스턴스 작업을 실행 하려고 하면 작업이 예약 되지 않으며 "활성" 상태로 무기한 유지 됩니다.
 
 
 ### <a name="use-a-starttask-to-install-mpi"></a>StartTask를 사용하여 MPI 설치
@@ -99,7 +99,7 @@ Batch 풀에서 컴퓨팅 노드에 대해 A9 등, [RDMA 지원 크기](../virtu
   * [Azure에서 가상 머신 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
 
 > [!NOTE]
-> [Linux 컴퓨팅 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다. 
+> [Linux 컴퓨팅 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다.
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Batch .NET을 사용하여 다중 인스턴스 작업 만들기

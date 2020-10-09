@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449114"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850968"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Azure Defender for App Service 소개
 
@@ -27,7 +27,7 @@ Azure에서 클라우드 공급자로 제공하는 표시 유형을 사용하면
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기|
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[Azure Defender for App Service](azure-defender.md)는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
 |지원되는 App Service 요금제:|![예](./media/icons/yes-icon.png) Basic, Standard, Premium, Isolated 또는 Linux<br>![아니요](./media/icons/no-icon.png) 무료, 공유 또는 소비<br>[App Service 요금제에 대한 자세한 정보](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|

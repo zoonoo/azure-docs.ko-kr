@@ -2,14 +2,14 @@
 title: 템플릿을 사용하여 엔드투엔드 작업 실행
 description: CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494930"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848724"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
 
@@ -65,7 +65,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 -   **매개 변수**
 
     -   템플릿이 사용될 때 제공해야 하는 매개 변수 값으로 속성 값을 본문 섹션에서 지정할 수 있습니다. 예를 들어 풀에 대한 전체 정의를 본문에 배치하고 하나의 매개 변수만을 `poolId`에 정의할 수 있습니다. 따라서 풀을 만드는 데 풀 ID 문자열을 제공해야 합니다.
-        
+
     -   Batch 및 Batch에서 실행할 애플리케이션에 대한 지식이 있는 사용자가 템플릿 본문을 작성할 수 있습니다. 템플릿이 사용될 때 작성자 정의 매개 변수에 대한 값만을 제공해야 합니다. 따라서 깊이 있는 Batch 및/또는 애플리케이션 지식이 없는 사용자는 템플릿을 사용할 수 있습니다.
 
 -   **변수**
@@ -121,7 +121,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -209,7 +209,7 @@ ffmpeg의 MP4 비디오 파일을 두 개 중 더 낮은 해상도로 코드 변
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ Batch 풀 또는 작업을 만들려면 [Batch Explorer](https://github.com/Azur
 Batch CLI 확장은 파일을 클라이언트에서 지정된 파일 그룹으로 업로드하고 지정된 파일 그룹에서 클라이언트로 다운로드하는 명령을 제공합니다.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

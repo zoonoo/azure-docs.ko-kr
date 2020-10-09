@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312608"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850902"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Flock 구성
 
@@ -54,15 +54,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Flock를 구
 
 1. [Flock](https://web.flock.com/?)에 로그인 합니다. **설정 아이콘**  >  **팀 관리**를 클릭 합니다.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Flock 웹 사이트의 스크린샷 설정 아이콘이 강조 표시 되 고 바로 가기 메뉴가 표시 됩니다. 해당 메뉴에서 팀 관리가 강조 표시 됩니다." border="false":::
 
 2. **인증 및 프로 비전**을 선택 합니다.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Flock 웹 사이트의 스크린샷 설정 아이콘이 강조 표시 되 고 바로 가기 메뉴가 표시 됩니다. 해당 메뉴에서 팀 관리가 강조 표시 됩니다." border="false":::
 
 3. **API 토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 Flock 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Flock 웹 사이트의 스크린샷 설정 아이콘이 강조 표시 되 고 바로 가기 메뉴가 표시 됩니다. 해당 메뉴에서 팀 관리가 강조 표시 됩니다." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>갤러리에서 Flock 추가

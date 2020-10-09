@@ -2,14 +2,14 @@
 title: Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정
 description: 풀의 컴퓨팅 노드 수를 동적으로 조정하려면 클라우드 풀에서 자동 크기 조정을 사용하도록 설정합니다.
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932324"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849795"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 컴퓨팅 노드의 크기를 조정하는 자동 수식 만들기
 
@@ -281,7 +281,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 다음 메서드를 사용 하 여 서비스 정의 변수에 대 한 샘플 데이터를 가져올 수 있습니다.
 
-| 메서드 | Description |
+| 방법 | Description |
 | --- | --- |
 | GetSample() |`GetSample()` 메서드는 데이터 샘플의 벡터를 반환합니다.<br/><br/>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 즉 30초마다 샘플을 가져옵니다. 그러나 아래에서 설명하듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.<ul><li>`doubleVec GetSample(double count)`: 수집 된 최신 샘플에서 가져올 샘플 수를 지정 합니다. `GetSample(1)`은 사용 가능한 마지막 샘플을 반환합니다. 그러나와 같은 메트릭의 경우 `$CPUPercent` `GetSample(1)` 샘플이 수집 된 *시기* 를 알 수 없기 때문에를 사용할 수 없습니다. 최근 일 수도 있고 시스템 문제로 인해 훨씬 오래 된 것일 수도 있습니다. 이러한 경우에는 아래와 같이 시간 간격을 사용 하는 것이 좋습니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: 샘플 데이터를 수집 하기 위한 시간 프레임을 지정 합니다. 선택적으로 요청 시간 프레임에 있어야 하는 샘플의 백분율을 지정합니다. 예를 들어은 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 지난 10 분 동안의 모든 샘플이 기록에 있는 경우 20 개 샘플을 반환 합니다 `CPUPercent` . 최근 기록 시간 (분)을 사용할 수 없는 경우 18 개의 샘플만 반환 됩니다. 이 경우 `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 샘플의 90%만 사용할 수 있지만 성공 하기 때문에 실패 `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 합니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: 시작 시간과 종료 시간을 모두 사용 하 여 데이터를 수집 하기 위한 시간 프레임을 지정 합니다. 위에서 언급 한 것 처럼 샘플이 수집 되는 시간과 수식에서 사용할 수 있는 시간 사이에 지연이 발생 합니다. `GetSample` 메서드를 사용할 때 이 지연을 고려해 보세요. 아래 `GetSamplePercent` 참조 |
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
@@ -648,6 +648,24 @@ Result:
 Error:
 ```
 
+## <a name="get-autoscale-run-history-using-pool-autoscale-events"></a>풀 자동 크기 조정 이벤트를 사용 하 여 자동 크기 조정 실행 기록 가져오기
+[PoolAutoScaleEvent](batch-pool-autoscale-event.md)를 쿼리하여 자동 크기 조정 기록을 확인할 수도 있습니다. 이 이벤트는 자동 크기 조정 수식 평가 및 실행의 각 항목을 기록 하기 위해 Batch 서비스에서 내보내집니다 .이는 잠재적 문제를 해결 하는 데 도움이 될 수 있습니다.
+
+PoolAutoScaleEvent에 대 한 샘플 이벤트:
+```json
+{
+    "id": "poolId",
+    "timestamp": "2020-09-21T23:41:36.750Z",
+    "formula": "...",
+    "results": "$TargetDedicatedNodes=10;$NodeDeallocationOption=requeue;$curTime=2016-10-14T18:36:43.282Z;$isWeekday=1;$isWorkingWeekdayHour=0;$workHours=0",
+    "error": {
+        "code": "",
+        "message": "",
+        "values": []
+    }
+}
+```
+
 ## <a name="example-autoscale-formulas"></a>자동 크기 조정 수식 예제
 
 풀의 컴퓨팅 리소스 양을 조정하는 여러 가지 방법을 보여 주는 몇 가지 수식을 살펴보겠습니다.
@@ -691,7 +709,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>예 3: 병렬 작업용 계정
 
-이 c # 예제에서는 작업의 수에 따라 풀 크기를 조정 합니다. 이 수식은 또한 풀에 대해 설정된 [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) 값을 고려합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
+이 c # 예제에서는 작업의 수에 따라 풀 크기를 조정 합니다. 또한이 수식은 풀에 대해 설정 된 [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) 값을 고려 합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -699,7 +717,7 @@ $NodeDeallocationOption = taskcompletion;
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // Set the number of nodes to add to one-fourth the number of active tasks
-// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// (the TaskSlotsPerNode property on this pool is set to 4, adjust
 // this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;

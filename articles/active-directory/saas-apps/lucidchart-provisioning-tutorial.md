@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265479"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850662"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Lucidchart 구성
 
@@ -49,17 +49,17 @@ ms.locfileid: "91265479"
 
 1. [Lucidchart 관리 콘솔](https://www.lucidchart.com)에 로그인 합니다. **팀 > 앱 통합**으로 이동 합니다.
 
-      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Lucidchart 관리 콘솔의 스크린샷 팀 메뉴가 강조 표시 되 고 열립니다. 관리 아래에서 앱 통합이 강조 표시 됩니다." border="false":::
 
 2. **Scim**으로 이동 합니다.
 
-      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Lucidchart 관리 콘솔의 스크린샷 팀 메뉴가 강조 표시 되 고 열립니다. 관리 아래에서 앱 통합이 강조 표시 됩니다." border="false":::
 
 3. 아래로 스크롤하여 **전달자 토큰** 및 **Lucidchart Base URL**을 확인 합니다. **전달자 토큰**을 복사 하 고 저장 합니다. 이 값은 Azure Portal LucidChart 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** * 필드에 입력 됩니다. 
 
       ![Lucidchart 토큰](./media/lucidchart-provisioning-tutorial/token.png)
 
-## <a name="step-3-add-lucidchart-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Lucidchart 추가
+## <a name="step-3-add-lucidchart-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Lucidchart 추가
 
 Azure AD 응용 프로그램 갤러리에서 Lucidchart를 추가 하 여 Lucidchart에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 Lucidchart를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

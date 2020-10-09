@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360619"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850084"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MediusFlow 구성
 
@@ -62,7 +62,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 1.  테넌트 ID를 제공하여 [MediusFlow 관리 콘솔](https://office365.cloudapp.mediusflow.com/)에 로그인합니다.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/1-auth.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 2. MediusFlow와의 연결을 확인합니다.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. 구성을 저장합니다.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 5. 사용자 프로비저닝을 선택하고 **확인**을 클릭합니다.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 6. **비밀 키 생성**을 클릭합니다. 이 값을 복사하고 저장합니다. 이 값은 Azure Portal에서 MediusFLow 애플리케이션의 **프로비저닝** 탭에 있는 **비밀 토큰** 필드에 입력됩니다.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 7. **확인**을 클릭합니다.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 8. MediusFlow에서 미리 정의 된 역할, 회사 및 기타 일반 구성 집합을 사용 하 여 가져온 사용자를 가져오려면 먼저 구성 해야 합니다. 먼저 **새 구성 추가**를 클릭하여 구성을 추가합니다.
 
-    ![사용자 구성](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 9. 사용자에 대한 기본 설정을 지정합니다. 이 보기에서는 기본 특성을 설정할 수 있습니다. 표준 설정이 괜찮으면 유효한 회사 이름만 지정하면 됩니다. 이러한 구성 설정은 Mediusflow에서 가져오므로 Mediusflow를 먼저 구성해야 합니다. 자세한 내용은 이 문서의 **필수 조건** 섹션을 참조하세요.
 
-    ![사용자 구성](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 10. **저장**을 클릭하여 사용자 구성을 저장합니다.
 
-    ![사용자 구성](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 11. 사용자 프로비저닝 링크를 가져오려면 **SCIM 링크 복사**를 클릭합니다. 이 값을 복사하여 저장합니다. 이 값은 Azure Portal의 MediusFLow 애플리케이션에서 **프로비저닝** 탭에 있는 **테넌트 URL** 필드에 입력됩니다.
  
-    ![사용자 구성](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="MediusFlow 관리 콘솔의 스크린샷 첫 번째 통합 단계에서 MediusFlow 테 넌 트 이름 상자와 인증 단추가 강조 표시 됩니다." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 MediusFlow 추가
 
