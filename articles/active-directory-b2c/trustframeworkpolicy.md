@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203098"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -38,14 +38,14 @@ ms.locfileid: "85203098"
 
 **TrustFrameworkPolicy** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
 | TenantObjectId | 아니요 | Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 고유 개체 식별자입니다. |
 | TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
 | PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
 | PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
-| DeploymentMode | 아니요 | 가능한 값은 `Production` , 또는 `Development` 입니다. `Production`은 기본 버전입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조 하세요. |
+| DeploymentMode | 아니요 | 가능한 값은 `Production` , 또는 `Development` 입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조 하세요. |
 | UserJourneyRecorderEndpoint | 아니요 | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조 하세요. |
 
 
@@ -88,7 +88,7 @@ ms.locfileid: "85203098"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |

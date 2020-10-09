@@ -1,6 +1,6 @@
 ---
 title: Azure Database Migration Service란 무엇인가요?
-description: 많은 데이터베이스 소스에서 Azure 데이터 플랫폼으로의 원활한 마이그레이션을 제공 하는 Azure Database Migration Service의 개요입니다.
+description: 많은 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션을 제공하는 Azure Database Migration Service 개요입니다.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,26 +11,26 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 02/20/2020
 ms.openlocfilehash: 77b121dca4ed5966487268cf47353dc43b7e9a1d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91292084"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Azure Database Migration Service란 무엇인가요?
 
-Azure Database Migration Service는 가동 중지 시간 (온라인 마이그레이션)을 최소화 하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활 하 게 마이그레이션할 수 있도록 설계 된 완전히 관리 되는 서비스입니다.
+Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션(온라인 마이그레이션)할 수 있도록 설계된 완전 관리형 서비스입니다.
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>익숙한 도구로 Azure에 데이터베이스 마이그레이션
 
-Azure Database Migration Service는 기존 도구 및 서비스의 일부 기능을 통합 합니다. 고객에게 포괄적이고 항상 사용 가능한 솔루션을 제공합니다. 서비스는 [Data Migration Assistant](https://aka.ms/dma)를 사용하여 마이그레이션을 수행하기 전에 필요한 변경 사항을 안내하는 권장 사항을 제공하는 평가 보고서를 생성합니다. 필요한 모든 수정 작업을 수행하는 것은 사용자의 몫입니다. 마이그레이션 프로세스를 시작할 준비가 되 면 Azure Database Migration Service 필요한 모든 단계를 수행 합니다. 프로세스가 Microsoft에서 확인한 모범 사례를 활용한다는 사실에 안심하고 마이그레이션 프로젝트를 시작하고 잊어버릴 수 있습니다. 
+Azure Database Migration Service는 기존 도구 및 서비스의 일부 기능을 통합합니다. 고객에게 포괄적이고 항상 사용 가능한 솔루션을 제공합니다. 서비스는 [Data Migration Assistant](https://aka.ms/dma)를 사용하여 마이그레이션을 수행하기 전에 필요한 변경 사항을 안내하는 권장 사항을 제공하는 평가 보고서를 생성합니다. 필요한 모든 수정 작업을 수행하는 것은 사용자의 몫입니다. 마이그레이션 프로세스를 시작할 준비가 되면 Azure Database Migration Service는 필요한 단계를 모두 수행합니다. 프로세스가 Microsoft에서 확인한 모범 사례를 활용한다는 사실에 안심하고 마이그레이션 프로젝트를 시작하고 잊어버릴 수 있습니다. 
 
 > [!NOTE]
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-Azure Database Migration Service 지역 가용성에 대 한 최신 정보는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)을 참조 하세요.
+Azure Database Migration Service의 지역별 가용성에 대한 최신 정보는 [지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)을 참조하세요.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -38,9 +38,9 @@ Azure Database Migration Service 가격 책정에 대한 최신 정보는 [Azure
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태](resource-scenario-status.md)입니다.
-* [Azure Portal를 사용 하 여 Azure Database Migration Service의 인스턴스를 만듭니다](quickstart-create-data-migration-service-portal.md).
-* [Azure SQL Database로 SQL Server을 마이그레이션합니다](tutorial-sql-server-to-azure-sql.md).
-* [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](pre-reqs.md)
-* [Azure Database Migration Service 사용에 대 한 FAQ](faq.md)입니다.
-* [데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구](dms-tools-matrix.md)입니다.
+* [Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태](resource-scenario-status.md).
+* [Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다](quickstart-create-data-migration-service-portal.md).
+* [SQL Server를 Azure SQL Database로 마이그레이션](tutorial-sql-server-to-azure-sql.md).
+* [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](pre-reqs.md).
+* [Azure Database Migration Service 사용에 대한 FAQ](faq.md).
+* [데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구](dms-tools-matrix.md).
