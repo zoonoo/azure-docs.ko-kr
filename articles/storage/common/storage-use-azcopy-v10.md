@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716061"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856786"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -32,7 +32,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 - [Windows 64](https://aka.ms/downloadazcopy-v10-windows) 비트 (zip)
 - [Windows 32](https://aka.ms/downloadazcopy-v10-windows-32bit) 비트 (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac)(zip)
+- [Macos](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 이러한 파일은 zip 파일 (Windows 및 Mac) 또는 tar 파일 (Linux)로 압축 됩니다. Linux에서 tar 파일을 다운로드 하 고 압축을 풀려면 Linux 배포에 대 한 설명서를 참조 하세요.
 
@@ -50,7 +50,9 @@ AzCopy 디렉터리를 경로에 추가 하지 않도록 선택 하는 경우 Az
 
 특정 명령에 대 한 자세한 내용을 보려면 명령의 이름 (예:)을 포함 하면 `azcopy list -h` 됩니다.
 
-![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 각 명령 및 명령 매개 변수에 대 한 자세한 참조 설명서를 찾으려면 [azcopy](storage-ref-azcopy.md) 를 참조 하세요.
 

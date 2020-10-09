@@ -8,12 +8,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: cb3ef1e802546d5a8b1574b304770fe7a364e2df
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91844077"
+ms.locfileid: "91856435"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 비즈니스 연속성 아키텍처
 
@@ -206,8 +206,6 @@ Active-Active 설정에는 MirrorMaker를 사용 하는 양방향 비동기 복�
 
 이 문서에서 설명 하는 항목에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [Apache Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Azure PowerShell 모듈 Az 설치 및 구성](/powershell/azure/)
-* [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
-* [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure HDInsight 비즈니스 연속성](./hdinsight-business-continuity.md)
+* [Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구](./hdinsight-high-availability-case-study.md)
+* [Azure HDInsight의 Apache Hive 및 HiveQL 무엇 인가요?](./hadoop/hdinsight-use-hive.md)

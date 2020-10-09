@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 73a097907a5b44c77ba5e1a9ead4cb4e3a8077c6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777747"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857812"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Cognitive Services docs: 2020 년 9 월 1 일-9 월 30 2020 일의 새로운 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "91777747"
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [빠른 시작: Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기](cognitive-services-apis-create-account-cli.md)
+- [빠른 시작: CLI (Azure Command-Line Interface)를 사용 하 여 Cognitive Services 리소스 만들기](cognitive-services-apis-create-account-cli.md)
 - [빠른 시작: Azure Management 클라이언트 라이브러리를 사용하여 Cognitive Services 리소스 만들기](cognitive-services-apis-create-account-client-library.md)
 - [빠른 시작: Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기](cognitive-services-apis-create-account.md)
 - [빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기](create-account-resource-manager-template.md)
@@ -80,7 +80,7 @@ ms.locfileid: "91777747"
 - [빠른 시작: REST API를 사용하여 솔루션 사용자 지정](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
 - [방법: 후크를 사용 하 여 경고 구성 및 알림 가져오기](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
 
-## <a name="text-analytics"></a>Text Analytics
+## <a name="text-analytics"></a>텍스트 분석
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
@@ -90,7 +90,7 @@ ms.locfileid: "91777747"
 
 ## <a name="community-contributors"></a>커뮤니티 기여자
 
-이 기간 동안 Cognitive Services 문서에 적용 되는 사용자는 다음과 같습니다. 감사합니다. [새로운 기능 소개 페이지](index.yml)의 "관련 항목 가져오기" 아래에 있는 링크를 따라 참여 하는 방법을 알아봅니다.
+이 기간 동안 Cognitive Services 문서에 적용 되는 사용자는 다음과 같습니다. 감사합니다! [새로운 기능 소개 페이지](index.yml)의 "관련 항목 가져오기" 아래에 있는 링크를 따라 참여 하는 방법을 알아봅니다.
 
 - [Azurementor](https://github.com/AzureMentor) (1)
 - [BeigeBadger](https://github.com/BeigeBadger) -Matt Stannett (1)
@@ -99,3 +99,5 @@ ms.locfileid: "91777747"
 - [iAmBipinPaul](https://github.com/iAmBipinPaul) -bipin Paul (1)
 - [rexwan](https://github.com/rexwan) -렉스 Wang (1)
 - [rglidden](https://github.com/rglidden) -Richard Glidden (1)
+
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

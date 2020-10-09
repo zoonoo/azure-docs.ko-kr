@@ -3,18 +3,18 @@ title: .NET-Azure Storage를 사용 하 여 Azure Queue storage 시작
 description: Azure 큐는 애플리케이션 구성 요소 간에 안정적인 비동기 메시징을 제공합니다. 클라우드 메시징을 사용하면 애플리케이션 구성 요소를 독립적으로 조정할 수 있습니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001113"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855925"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 
@@ -30,12 +30,9 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 
 **예상 완료 시간:** 45분
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [.NET 용 Azure Storage 공용 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [.NET 용 Azure Storage 큐 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - [Azure storage 계정](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -55,7 +52,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 3. **콘솔 앱 (.NET Framework)을** 선택 합니다.
 4. **다음**을 선택합니다.
 5. **프로젝트 이름** 필드에 응용 프로그램의 이름을 입력 합니다.
-6. **만들기**를 선택합니다.
+6. **만들기**
 
 이 자습서의 모든 코드 예제는 콘솔 응용 프로그램의 **Program.cs** 파일의 **Main ()** 메서드에 추가 될 수 있습니다.
 
@@ -95,11 +92,6 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다�
 1. 온라인에서 "Microsoft.Azure.ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Azure Configuration Manager를 설치 합니다.
 
 ---
-
-> [!NOTE]
-> Storage 클라이언트 라이브러리 패키지는 [.net 용 AZURE SDK](https://azure.microsoft.com/downloads/)에도 포함 되어 있습니다. 그러나 NuGet에서 저장소 클라이언트 라이브러리를 설치 하 여 항상 최신 버전이 있는지 확인 하는 것이 좋습니다.
->
-> .NET 용 저장소 클라이언트 라이브러리의 ODataLib 종속성은 WCF Data Services 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인 됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 저장소 클라이언트 라이브러리에서 사용 되는 특정 ODataLib 패키지는 [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)및 [공간](https://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table storage 클래스에서 사용 되지만 저장소 클라이언트 라이브러리를 사용한 프로그래밍에 대 한 종속성이 필요 합니다.
 
 ### <a name="determine-your-target-environment"></a>대상 환경 확인
 
@@ -185,7 +177,7 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-[CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) 클래스를 사용하면 Queue Storage에 저장된 큐를 검색할 수 있습니다. 서비스 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
+[CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) 클래스를 사용하면 Queue Storage에 저장된 큐를 검색할 수 있습니다. 서비스 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -237,7 +229,7 @@ queue.CreateIfNotExists();
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-기존 큐에 메시지를 삽입하려면 먼저 새 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy)를 만듭니다. 다음으로 [Addmessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy) 메서드를 호출 합니다. 는 `CloudQueueMessage` `string` (utf-8 형식) 또는 배열에서 만들 수 있습니다 `byte` . 큐를 만들고 (없는 경우) "Hello, 세계" 라는 메시지를 삽입 하는 코드는 다음과 같습니다.
+기존 큐에 메시지를 삽입하려면 먼저 새 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true)를 만듭니다. 다음으로 [Addmessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) 메서드를 호출 합니다. 는 `CloudQueueMessage` `string` (utf-8 형식) 또는 배열에서 만들 수 있습니다 `byte` . 큐를 만들고 (없는 경우) "Hello, 세계" 라는 메시지를 삽입 하는 코드는 다음과 같습니다.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -270,7 +262,7 @@ queue.AddMessage(message);
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-큐에서 메시지를 제거 하지 않고도 [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy) 메서드를 호출 하 여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다.
+큐에서 메시지를 제거 하지 않고도 [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) 메서드를 호출 하 여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -333,7 +325,7 @@ queue.UpdateMessage(message,
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy)를 호출하면 큐에서 다음 메시지를 가져올 수 있습니다. `GetMessage`에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy)도 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드 `DeleteMessage` 는 메시지가 처리 된 직후에 호출 됩니다.
+다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true)를 호출하면 큐에서 다음 메시지를 가져올 수 있습니다. `GetMessage`에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true)도 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드 `DeleteMessage` 는 메시지가 처리 된 직후에 호출 됩니다.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -357,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>일반적인 Queue Storage API와 함께 Async-Await 패턴 사용
 
-이 예제에서는 일반적인 Queue Storage API와 함께 Async- Await 패턴을 사용하는 방법을 보여 줍니다. 샘플의 경우 지정된 각 메서드의 비동기 버전을 호출하는데, 이 버전은 각 메서드의 *Async* 접미사로 표시됩니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async-Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET에서 비동기 대기 패턴을 사용 하는 방법에 대 한 자세한 내용은 [async And wait (c # 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) 를 참조 하세요.
+이 예제에서는 일반적인 Queue Storage API와 함께 Async- Await 패턴을 사용하는 방법을 보여 줍니다. 샘플의 경우 지정된 각 메서드의 비동기 버전을 호출하는데, 이 버전은 각 메서드의 *Async* 접미사로 표시됩니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async-Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET의 Async-Await 패턴 사용에 대 한 자세한 내용은 [Async And wait (c # 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) 를 참조 하세요.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -406,7 +398,7 @@ Console.WriteLine("Deleted message");
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-다음 코드 예제는 [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 `foreach` 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5 분은 모든 메시지에 대해 동시에 시작 되므로,에 대 한 호출 이후로 5 분이 경과 된 후에는 `GetMessages` 삭제 되지 않은 모든 메시지가 다시 표시 됩니다.
+다음 코드 예제는 [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 `foreach` 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5 분은 모든 메시지에 대해 동시에 시작 되므로,에 대 한 호출 이후로 5 분이 경과 된 후에는 `GetMessages` 삭제 되지 않은 모든 메시지가 다시 표시 됩니다.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -438,7 +430,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) 메서드는 메시지 수를 포함하여 큐 특성을 검색하도록 큐 서비스에 요청합니다. [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) 속성은 `FetchAttributes` 큐 서비스를 호출 하지 않고 메서드에서 검색 된 마지막 값을 반환 합니다.
+큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) 메서드는 메시지 수를 포함하여 큐 특성을 검색하도록 큐 서비스에 요청합니다. [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) 속성은 `FetchAttributes` 큐 서비스를 호출 하지 않고 메서드에서 검색 된 마지막 값을 반환 합니다.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -473,7 +465,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) 메서드를 호출합니다.
+큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) 메서드를 호출합니다.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -499,16 +491,8 @@ queue.Delete();
 - 사용 가능한 API에 대한 자세한 내용은 큐 서비스 참조 설명서를 참조하십시오.
   - [Storage Client Library for .NET 참조](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)
-- [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 사용하여 Azure Storage 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
   - [.NET을 사용하여 Azure Table Storage를 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md) 하여 구조화된 데이터를 저장합니다.
   - [.NET을 사용하여 Azure Blob Storage를 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 하여 구조화되지 않은 데이터를 저장합니다.
   - [.NET(C#)을 사용하여 SQL Database에 연결](../../azure-sql/database/connect-query-dotnet-core.md)하여 관계형 데이터를 저장합니다.
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 사용하여 Azure Storage 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.

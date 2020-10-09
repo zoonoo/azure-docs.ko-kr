@@ -5,16 +5,16 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 05/28/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538248"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857727"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -37,7 +37,7 @@ Azure AD 인증 토큰은 다음 두 가지 방법으로 가져올 수 있습니
 
 ## <a name="account-keys"></a>계정 키
 
-가장 간단한 시작 방법은 계정 키를 사용하여 Azure Spatial Anchors 계정에 액세스하는 것입니다. Azure Portal에서 계정 키를 찾을 수 있습니다. 계정으로 이동하여 "키" 탭을 선택합니다.
+가장 간단한 시작 방법은 계정 키를 사용하여 Azure Spatial Anchors 계정에 액세스하는 것입니다. Azure Portal에서 계정 키를 찾을 수 있습니다. 계정으로 이동 하 여 "키" 탭을 선택 합니다.
 
 !["기본 키"에 대해 "복사" 단추가 강조 표시 된 "키" 페이지를 보여 주는 스크린샷](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
@@ -95,28 +95,28 @@ configuration.AccountKey(LR"(MyAccountKey)");
 Azure Active Directory 사용자를 대상으로 하는 애플리케이션의 경우 사용자에게 Azure AD 토큰을 사용하는 것이 좋으며 이는 [MSAL 라이브러리](../../active-directory/develop/msal-overview.md)를 사용하여 얻을 수 있습니다. [앱 빠른 시작 등록](../../active-directory/develop/quickstart-register-app.md)에 나열된 다음 단계를 수행해야 합니다.
 
 1. Azure Portal의 구성
-    1.  Azure AD에서 애플리케이션을 **네이티브 애플리케이션**으로 등록합니다. 등록하는 과정에서 애플리케이션이 다중 테넌트인지 여부를 확인하고 애플리케이션에 허용되는 리디렉션 URL을 제공해야 합니다.
+    1.    Azure AD에서 애플리케이션을 **네이티브 애플리케이션**으로 등록합니다. 등록하는 과정에서 애플리케이션이 다중 테넌트인지 여부를 확인하고 애플리케이션에 허용되는 리디렉션 URL을 제공해야 합니다.
         1.  **API 사용 권한** 탭으로 전환합니다.
         2.  **사용 권한 추가**를 선택합니다.
-            1.  **내 조직에서 사용하는 API** 탭에서 **Microsoft Mixed Reality**를 선택합니다.
+            1.  내 조직에서 탭을 **사용 하 여** **혼합 현실 리소스 공급자** 를 선택 합니다.
             2.  **위임된 권한**을 선택합니다.
             3.  **mixedreality**에서 **mixedreality.signin**에 대한 확인란을 선택합니다.
             4.  **사용 권한 추가**를 선택합니다.
         3.  **관리자 동의 허용**을 선택합니다.
-    2.  리소스에 애플리케이션 또는 사용자 액세스 권한을 부여합니다.
-        1.  Azure Portal의 Spatial Anchors 리소스로 이동합니다.
-        2.  **액세스 제어(IAM)** 탭으로 전환합니다.
-        3.  **역할 할당 추가**를 누릅니다.
-            1.  [역할을 선택합니다.](#role-based-access-control)
-            2.  **선택** 필드에서 액세스 권한을 할당하려는 사용자, 그룹 및/또는 애플리케이션의 이름을 입력합니다.
-            3.  **저장**을 누릅니다.
+    2.    리소스에 애플리케이션 또는 사용자 액세스 권한을 부여합니다.
+        1.    Azure Portal의 Spatial Anchors 리소스로 이동합니다.
+        2.    **액세스 제어(IAM)** 탭으로 전환합니다.
+        3.    **역할 할당 추가**를 누릅니다.
+            1.    [역할을 선택합니다.](#role-based-access-control)
+            2.    **선택** 필드에서 액세스 권한을 할당하려는 사용자, 그룹 및/또는 애플리케이션의 이름을 입력합니다.
+            3.    **저장**을 누릅니다.
 2. 코드에서:
-    1.  Azure AD 애플리케이션의 **애플리케이션 ID** 및 **리디렉션 URI**를 MSAL의 **클라이언트 ID** 및 **RedirectUri** 매개 변수로 사용해야 합니다.
-    2.  테넌트 정보 설정:
-        1.  애플리케이션이 **내 조직만**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
-        2.  애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **조직**으로 바꿉니다.
-        3.  애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 **공용**으로 바꿉니다.
-    3.  토큰 요청에서 **범위**를 "https://sts.mixedreality.azure.com//.default"로 설정합니다. 이 범위는 애플리케이션이 Mixed Reality STS(보안 토큰 서비스)에 대한 토큰을 요청하고 있음을 Azure AD에 나타냅니다.
+    1.    Azure AD 애플리케이션의 **애플리케이션 ID** 및 **리디렉션 URI**를 MSAL의 **클라이언트 ID** 및 **RedirectUri** 매개 변수로 사용해야 합니다.
+    2.    테넌트 정보 설정:
+        1.    애플리케이션이 **내 조직만**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+        2.    애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **조직**으로 바꿉니다.
+        3.    애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 **공용**으로 바꿉니다.
+    3.    토큰 요청에서 **범위**를 "https://sts.mixedreality.azure.com//.default"로 설정합니다. 이 범위는 애플리케이션이 Mixed Reality STS(보안 토큰 서비스)에 대한 토큰을 요청하고 있음을 Azure AD에 나타냅니다.
 
 이를 통해 애플리케이션은 MSAL에서 Azure AD 토큰을 얻을 수 있어야 합니다. 클라우드 세션 구성 개체에서 Azure AD 토큰을 **authenticationToken**으로 설정할 수 있습니다.
 
@@ -170,24 +170,24 @@ configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 
 Azure AD 액세스 토큰은 [MSAL 라이브러리](../../active-directory/develop/msal-overview.md)를 사용하여 검색됩니다. [앱 빠른 시작 등록](../../active-directory/develop/quickstart-register-app.md)에 나열된 다음 단계를 수행해야 합니다.
 
-1.  Azure Portal의 구성:
-    1.  Azure AD에 애플리케이션을 등록합니다.
-        1.  Azure Portal에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.
-        2.  **새 애플리케이션 등록**을 선택합니다.
-        3.  애플리케이션 이름을 입력하고 애플리케이션 유형으로 **웹앱/API**를 선택한 후 서비스의 인증 URL을 입력합니다. 그런 다음 **만들기**를 누릅니다.
-        4.  해당 응용 프로그램에서 **설정**을 클릭 한 다음 **인증서 및 암호** 탭을 선택 합니다. 새 클라이언트 암호를 만들고, 기간을 선택 하 고, **추가**를 누릅니다. 웹 서비스의 코드에 포함 해야 하므로 비밀 값을 저장 해야 합니다.
-    2.  애플리케이션 및/또는 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
-        1.  Azure Portal의 Spatial Anchors 리소스로 이동합니다.
-        2.  **액세스 제어(IAM)** 탭으로 전환합니다.
-        3.  **역할 할당 추가**를 누릅니다.
-        1.  [역할을 선택합니다.](#role-based-access-control)
-        2.  **선택** 필드에 만든 애플리케이션의 이름을 입력하고 액세스 권한을 할당합니다. 앱의 사용자에게 Spatial Anchors 계정에 다른 역할을 지정하려면 Azure AD에서 여러 애플리케이션을 등록하고 각 사용자에게 별도 역할을 할당해야 합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
-        3.  참고- **역할 할당 추가** 선택에서 **할당 액세스** 를 "Azure AD 사용자, 그룹 또는 서비스 사용자"로 설정 하려고 합니다.
-    3.  **저장**을 누릅니다.
-2.  코드에서(참고: GitHub에 포함된 서비스 샘플을 사용할 수 있음):
-    1.  고유의 Azure AD 애플리케이션의 애플리케이션 ID, 애플리케이션 비밀 및 리디렉션 URI를 MSAL의 클라이언트 ID, 비밀 및 RedirectUri 매개 변수로 사용해야 합니다.
-    2.  MSAL의 인증 기관 매개 변수에서 테넌트 ID를 고유의 Azure ADD 테넌트 ID로 설정합니다.
-    3.  토큰 요청에서 **범위**를 "https://sts.mixedreality.azure.com//.default"로 설정합니다.
+1.    Azure Portal의 구성:
+    1.    Azure AD에 애플리케이션을 등록합니다.
+        1.    Azure Portal에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.
+        2.    **새 애플리케이션 등록**을 선택합니다.
+        3.    애플리케이션 이름을 입력하고 애플리케이션 유형으로 **웹앱/API**를 선택한 후 서비스의 인증 URL을 입력합니다. 그런 다음 **만들기**를 누릅니다.
+        4.    해당 응용 프로그램에서 **설정**을 클릭 한 다음 **인증서 및 암호** 탭을 선택 합니다. 새 클라이언트 암호를 만들고, 기간을 선택 하 고, **추가**를 누릅니다. 웹 서비스의 코드에 포함 해야 하므로 비밀 값을 저장 해야 합니다.
+    2.    애플리케이션 및/또는 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
+        1.    Azure Portal의 Spatial Anchors 리소스로 이동합니다.
+        2.    **액세스 제어(IAM)** 탭으로 전환합니다.
+        3.    **역할 할당 추가**를 누릅니다.
+        1.    [역할을 선택합니다.](#role-based-access-control)
+        2.    **선택** 필드에 만든 애플리케이션의 이름을 입력하고 액세스 권한을 할당합니다. 앱의 사용자에 게 공간 앵커 계정에 대해 다른 역할을 지정 하려면 Azure AD에서 여러 응용 프로그램을 등록 하 고 별도의 각 역할에 할당 해야 합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
+        3.    참고- **역할 할당 추가** 선택에서 **할당 액세스** 를 "Azure AD 사용자, 그룹 또는 서비스 사용자"로 설정 하려고 합니다.
+    3.    **저장**을 누릅니다.
+2.    코드에서(참고: GitHub에 포함된 서비스 샘플을 사용할 수 있음):
+    1.    고유의 Azure AD 애플리케이션의 애플리케이션 ID, 애플리케이션 비밀 및 리디렉션 URI를 MSAL의 클라이언트 ID, 비밀 및 RedirectUri 매개 변수로 사용해야 합니다.
+    2.    MSAL의 인증 기관 매개 변수에서 테넌트 ID를 고유의 Azure ADD 테넌트 ID로 설정합니다.
+    3.    토큰 요청에서 **범위**를 "https://sts.mixedreality.azure.com//.default"로 설정합니다.
 
 이를 통해 백 엔드 서비스는 Azure AD 토큰을 검색할 수 있습니다. 그런 다음 클라이언트로 다시 반환할 MR 토큰으로 교환할 수 있습니다. Azure AD 토큰을 사용한 MR 토큰 검색은 REST 호출을 통해 수행됩니다. 다음은 샘플 호출입니다.
 

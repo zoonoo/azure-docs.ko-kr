@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358324"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857540"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -28,6 +28,7 @@ ms.locfileid: "91358324"
 * Azure Active Directory 테넌트
 * [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
 * 조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
+* [GitHub Enterprise 클라우드 조직을 위해 구성 된 SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * [여기](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization) 에 설명 된 대로 조직에 대 한 OAuth 액세스가 제공 되었는지 확인 합니다.
 * 단일 조직에 대 한 SCIM 프로 비전은 조직 수준에서 SSO를 사용 하도록 설정한 경우에만 지원 됩니다.
 
@@ -51,9 +52,6 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ## <a name="configuring-user-provisioning-to-github"></a>GitHub에 사용자 프로비전 구성
 
 이 섹션에서는 Azure AD를 GitHub의 사용자 계정 프로비전 API에 연결하고 Azure AD의 사용자 및 그룹 할당을 기반으로 GitHub에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 과정을 안내합니다.
-
-> [!TIP]
-> [Azure Portal](https://portal.azure.com)에 제공된 지침에 따라 GitHub에 대해 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Azure AD에서 GitHub에 자동 사용자 계정 프로비전 구성
 

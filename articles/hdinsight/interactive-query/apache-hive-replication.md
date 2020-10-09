@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: b6a7b9d4e4b8a7caf79e2dbcc1059adc3c9122d7
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843854"
+ms.locfileid: "91857744"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Apache Hive 복제를 사용 하는 방법
 
@@ -224,8 +224,7 @@ Azure AD DS 복제본 집합 기능을 사용 하 여 여러 지역에서 Azure 
 
 이 문서에서 설명 하는 항목에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Apache Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-- [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-- [Azure PowerShell 모듈 Az 설치 및 구성](/powershell/azure/)
-- [Apache Ambari를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md)
-- [Linux 기반 HDInsight 클러스터 프로비전을](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Azure HDInsight 비즈니스 연속성](../hdinsight-business-continuity.md)
+- [Azure HDInsight 비즈니스 연속성 아키텍처](../hdinsight-business-continuity-architecture.md)
+- [Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구](../hdinsight-high-availability-case-study.md)
+- [Azure HDInsight의 Apache Hive 및 HiveQL 무엇 인가요?](../hadoop/hdinsight-use-hive.md)

@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: 80a05fd389ecaf504f58d12bf8efe87debd4ab86
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604397"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856156"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Azure RBAC의 범위 이해
 
@@ -22,9 +22,13 @@ ms.locfileid: "91604397"
 
 ## <a name="scope-levels"></a>범위 수준
 
-Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 수준으로 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 계층의 각 수준은 범위를 보다 구체적으로 만듭니다. 이러한 범위의 수준에서 역할을 할당할 수 있습니다. 선택한 수준에 따라 역할이 적용 되는 방식이 결정 됩니다. 하위 수준은 상위 수준에서 역할 권한을 상속 합니다. 
+Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 수준으로 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 계층의 각 수준은 범위를 보다 구체적으로 만듭니다. 이러한 범위 수준에서 역할을 할당할 수 있습니다. 선택한 수준에 따라 역할이 적용 되는 방식이 결정 됩니다. 하위 수준은 상위 수준에서 역할 권한을 상속 합니다. 
 
 ![역할 할당 범위](./media/scope-overview/rbac-scope-no-label.png)
+
+관리 그룹은 구독의 범위 수준 이지만 관리 그룹은 더 복잡 한 계층을 지원 합니다. 다음 다이어그램은 사용자가 정의할 수 있는 관리 그룹 및 구독의 계층 구조 예를 보여 줍니다. 관리 그룹에 대 한 자세한 내용은 [Azure 관리 그룹 이란?](../governance/management-groups/overview.md)을 참조 하세요.
+
+![관리 그룹 및 구독 계층 구조](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## <a name="scope-format"></a>범위 형식
 
@@ -62,7 +66,7 @@ Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독
 ## <a name="scope-examples"></a>범위 예
 
 > [!div class="mx-tableFixed"]
-> | 범위 | 예제 |
+> | 범위 | 예 |
 > | --- | --- |
 > | 관리 그룹 | `/providers/Microsoft.Management/managementGroups/marketing-group` |
 > | Subscription | `/subscriptions/00000000-0000-0000-0000-000000000000` |
@@ -118,6 +122,6 @@ Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독
 
 ## <a name="next-steps"></a>다음 단계
 
-- [역할 할당을 추가 하는 단계](role-assignments-steps.md)
+- [역할 할당을 추가하는 단계](role-assignments-steps.md)
 - [Azure 서비스의 리소스 공급자](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
+- [Azure 관리 그룹이란?](../governance/management-groups/overview.md)

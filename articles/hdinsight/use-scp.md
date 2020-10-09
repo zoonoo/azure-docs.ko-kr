@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2f602c23f182ede2b9897563a8421163e1328e24
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 44c87a3415a236f614510aa3163ad2e9cbd1f64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079193"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856180"
 ---
 # <a name="use-scp-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop에 SCP 사용
 
@@ -42,7 +42,7 @@ SSH 세션에서 사용할 리소스를 업로드해야 할 때 `scp`를 사용�
 HDFS 호환 스토리지로 데이터 직접 로드에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Storage를 사용하는 HDInsight](hdinsight-hadoop-use-blob-storage.md)
-* [Azure Data Lake Storage를 사용하는 HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+* [Azure Data Lake Storage Gen1를 사용 하는 HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ## <a name="next-steps"></a>다음 단계
 

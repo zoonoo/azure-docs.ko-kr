@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332967"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856112"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
 
@@ -68,7 +68,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 - **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. BULK INSERT는 기본적으로 트리거를 실행 하지 않습니다. FIRE_TRIGGERS 지정 하지 않으면 삽입 트리거가 실행 되지 않습니다. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
 - **데이터 동기화:** 데이터 동기화는 허브 및 스포크 모델에서 설계 되었습니다. 허브는 각 멤버와 개별적으로 동기화 됩니다. 허브의 변경 내용이 구성원에 다운로드 된 다음 멤버의 변경 내용이 허브로 업로드 됩니다.
@@ -126,7 +126,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 > - 동기화가 문제를 보고 하지 않더라도 허브와 구성원 간의 데이터는 손실 될 수 있습니다.
 > - 기본 키 변경으로 인해 추적 테이블의 원본에서 존재 하지 않는 행이 있으므로 동기화가 실패할 수 있습니다.
 
-- 스냅샷 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
+- 동기화 구성원과 허브 모두에 대해 스냅숏 격리를 사용 하도록 설정 해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
@@ -137,7 +137,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 - 개체 이름 (데이터베이스, 테이블 및 열)에는 인쇄 가능한 문자 마침표 (.), 왼쪽 대괄호 ([) 또는 오른쪽 대괄호 (])를 사용할 수 없습니다.
 - Azure Active Directory 인증은 지원 되지 않습니다.
 - 이름이 같지만 스키마가 다른 테이블 (예: dbo. customers 및 sales. customers)은 지원 되지 않습니다.
-- 사용자 정의 데이터 형식이 있는 열은 지원 되지 않습니다.
+- User-Defined 데이터 형식이 있는 열은 지원 되지 않습니다.
 - 서로 다른 구독 간에 서버를 이동 하는 것은 지원 되지 않습니다. 
 
 #### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식

@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/24/2020
-ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/08/2020
+ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078640"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856673"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
 > [!IMPORTANT]
 > 원래 AS2 커넥터는 사용 되지 않으므로 추적 기능이 필요 하지 않는 한 **AS2 (v2)** 커넥터를 대신 사용 합니다. 추적을 제외 하 고, v2 커넥터는 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임의 기본 기능을 제공 하며, 메시지 크기, 처리량 및 대기 시간에 상당한 성능 향상을 제공 합니다. 또한 v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
 
-Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2 통신을 관리하는 트리거 및 작업을 제공하는 AS2 커넥터를 사용하면 됩니다. 예를 들어 메시지를 전송할 때 보안 및 안정성을 설정 하려면 다음 작업을 사용할 수 있습니다.
+Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 (버전 1.2) 통신을 지원 하 고 관리 하는 트리거 및 작업을 제공 하는 AS2 커넥터를 사용할 수 있습니다. 예를 들어 메시지를 전송할 때 보안 및 안정성을 설정 하려면 다음 작업을 사용할 수 있습니다.
 
 * 비 거부를 지 원하는 MDN (메시지 처리 알림)을 통해 암호화, 디지털 서명 및 승인을 제공 하기 위한 [ **AS2 인코딩** 동작](#encode) 입니다. 예를 들어이 작업은 AS2/HTTP 헤더를 적용 하 고 구성 될 때 이러한 작업을 수행 합니다.
 
@@ -49,7 +49,7 @@ Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2 통신을 관리하�
 
 이 문서에서는 기존 논리 앱에 AS2 인코딩 및 디코딩 작업을 추가 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 

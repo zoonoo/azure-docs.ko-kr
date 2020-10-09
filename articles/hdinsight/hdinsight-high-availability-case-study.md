@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: a77dba165d76cc131f7a2a25a4b2f62e945a3089
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843902"
+ms.locfileid: "91855041"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구
 
@@ -86,8 +86,6 @@ Azure Pipelines에 통합 되 고 Azure 외부에 호스트 되는 버전 제어
 
 이 문서에서 설명 하는 항목에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [Apache Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Azure PowerShell 모듈 Az 설치 및 구성](/powershell/azure/)
-* [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
-* [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure HDInsight 비즈니스 연속성](./hdinsight-business-continuity.md)
+* [Azure HDInsight 비즈니스 연속성 아키텍처](./hdinsight-business-continuity-architecture.md)
+* [Azure HDInsight의 Apache Hive 및 HiveQL 무엇 인가요?](./hadoop/hdinsight-use-hive.md)
