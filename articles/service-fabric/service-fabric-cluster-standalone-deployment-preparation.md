@@ -1,16 +1,14 @@
 ---
 title: 독립 실행형 클러스터 배포 준비
 description: 프로덕션 워크로드를 처리하기 위한 클러스터를 배포하기 전에 고려해야 하는 환경 준비 및 클러스터 구성 만들기와 관련된 설명서입니다.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
-ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261033"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842957"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 

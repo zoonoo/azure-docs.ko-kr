@@ -7,14 +7,14 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669059"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842872"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>미리 보기: Azure에서 Windows Vm에 대 한 자동 VM 게스트 패치
+# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>미리 보기: Azure에서 Windows VM에 대한 자동 VM 게스트 패치
 
 Windows Vm에 대 한 자동 VM 게스트 패치를 사용 하도록 설정 하면 안전 하 고 자동으로 가상 컴퓨터를 패치 하 여 보안 정책을 유지 하면서 업데이트를 쉽게 관리할 수 있습니다.
 
@@ -251,8 +251,10 @@ VM에 대 한 패치 설치 결과는 섹션에서 검토할 수 있습니다 `l
 ## <a name="on-demand-patch-assessment"></a>주문형 패치 평가
 VM에 대해 자동 VM 게스트 패치를 이미 사용 하도록 설정한 경우 vm의 사용량이 적은 시간에 VM에 대 한 주기적인 패치 평가가 수행 됩니다. 이 프로세스는 자동으로 진행 되며이 문서의 앞부분에서 설명한 대로 VM의 인스턴스 보기를 통해 최신 평가 결과를 검토할 수 있습니다. 언제 든 지 VM에 대 한 주문형 패치 평가를 트리거할 수도 있습니다. 패치 평가를 완료 하는 데 몇 분 정도 걸릴 수 있으며 VM의 인스턴스 보기에서 최신 평가의 상태가 업데이트 됩니다.
 
+미리 보기 기능을 사용 하도록 설정 하려면 구독 당 기능 *InGuestPatchVMPreview* 에 대 한 일회성 옵트인이 필요 합니다. 주문형 패치 평가를 위한 기능 미리 보기는 이전에 자동 VM 게스트 패치 적용에 대해 설명한 [미리 보기 사용 프로세스](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) 에 따라 사용 하도록 설정할 수 있습니다.
+
 > [!NOTE]
->주문형 패치 평가는 자동으로 패치를 트리거하지 않습니다. VM에 대 한 평가 및 적용 가능한 패치는이 문서의 앞부분에서 설명한 가용성 우선 패치 프로세스에 따라 VM의 사용량이 적은 시간 동안에만 설치 됩니다.
+>주문형 패치 평가는 자동으로 패치 설치를 트리거하지 않습니다. VM에 대 한 평가 및 적용 가능한 패치는이 문서의 앞부분에서 설명한 가용성 우선 패치 프로세스에 따라 VM의 사용량이 적은 시간 동안에만 설치 됩니다.
 
 ### <a name="rest-api"></a>REST API
 ```

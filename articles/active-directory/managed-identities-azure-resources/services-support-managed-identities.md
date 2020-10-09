@@ -4,19 +4,19 @@ description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원�
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/09/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 207b4a926e77ff55faad388b6eeaeb221ec252a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006783"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843178"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -252,6 +252,12 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 자세한 내용은 [Azure 스프링 클라우드 응용 프로그램에 대 한 시스템 할당 관리 id를 사용 하도록 설정 하는 방법](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md)을 참조 하세요.
 
+### <a name="azure-stack-edge"></a>Azure Stack Edge
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| 시스템 할당 | Azure Stack Edge 서비스를 사용할 수 있는 지역에서 사용할 수 있습니다. | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
 

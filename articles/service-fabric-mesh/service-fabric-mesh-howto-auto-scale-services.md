@@ -1,17 +1,17 @@
 ---
 title: Azure Service Fabric 메시에서 실행 되는 앱 자동 크기 조정
 description: Service Fabric Mesh 애플리케이션의 서비스에 대 한 자동 크기 조정 정책을 구성하는 방법에 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461981"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843059"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에 대한 자동 크기 조정 정책 만들기
 Service Fabric 메시에 응용 프로그램을 배포 하는 주요 이점 중 하나는 서비스를 쉽게 확장 하거나 축소할 수 있는 기능입니다. 이는 서비스의 다양 한 부하를 처리 하거나 가용성을 향상 시키는 데 사용 됩니다. 수동으로 서비스를 확대 또는 축소하거나 자동 크기 조정 정책을 설정할 수 있습니다.

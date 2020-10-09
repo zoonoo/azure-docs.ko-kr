@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826568"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843076"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>자습서: 데이터 시각화 및 모니터링
 
@@ -62,7 +62,7 @@ Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md) 한 후�
 ## <a name="create-new-workbook"></a>새 통합 문서 만들기
 
 1. **통합 문서**로 이동한 다음, **통합 문서 추가**를 선택하여 새 통합 문서를 처음부터 만듭니다.
-  ![통합 문서로 이동](./media/tutorial-monitor-data/create-workbook.png)
+  ![새 통합 문서 화면을 보여 주는 스크린샷](./media/tutorial-monitor-data/create-workbook.png)
 
 1. 통합 문서를 편집하려면 **편집**을 선택한 다음, 필요에 따라 텍스트, 쿼리 및 매개 변수를 추가합니다. 통합 문서를 사용자 지정하는 방법에 대한 자세한 내용은 [Azure Monitor 통합 문서를 사용하여 대화형 보고서를 만드는](../azure-monitor/platform/workbooks-overview.md) 방법을 참조하세요. 
 
@@ -72,7 +72,7 @@ Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md) 한 후�
 
 1. 조직의 다른 사용자가 통합 문서를 사용하도록 하려면 **저장 위치**에서 **공유 보고서**를 선택합니다. 이 통합 문서를 사용자만 사용할 수 있도록 하려면 **내 보고서**를 선택합니다.
 
-1. 작업 영역에서 통합 문서를 전환하려면 통합 문서의 위쪽 창에서 **열기** ![통합 문서 전환](./media/tutorial-monitor-data/switch.png)을 선택합니다. 오른쪽에 열리는 창에서 통합 문서 간에 전환합니다.
+1. 작업 영역에서 통합 문서를 전환 하려면 **Open** ![ 통합 문서 열기에 대 한 아이콘 열기를 선택할 수 있습니다. ](./media/tutorial-monitor-data/switch.png) 통합 문서의 위쪽 창에서 오른쪽에 열리는 창에서 통합 문서 간에 전환합니다.
 
    ![통합 문서 전환](./media/tutorial-monitor-data/switch-workbooks.png)
 

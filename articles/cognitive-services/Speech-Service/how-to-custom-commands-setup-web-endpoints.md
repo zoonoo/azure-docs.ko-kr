@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362113"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843127"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
@@ -79,7 +79,7 @@ ms.locfileid: "91362113"
     **간단한 편집기**에서 `{SubjectDevice} is {OnOff}`를 입력합니다.
    
    > [!div class="mx-imgBorder"]
-   > ![성공 시 웹 엔드포인트 호출 작업](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![성공 시-실행 화면 작업을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ ms.locfileid: "91362113"
 - 성공 시 응답
 저장, 학습 및 테스트
    > [!div class="mx-imgBorder"]
-   > ![성공 시 웹 엔드포인트 호출 작업](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![성공 응답을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - 실패 시 응답
 쿼리 매개 변수 중 하나 제거, 저장, 학습 및 테스트
    > [!div class="mx-imgBorder"]

@@ -1,16 +1,16 @@
 ---
 title: Azure Service Fabric 메시의 용어
 description: 이 문서에서는 설명서에 사용 된 용어를 더 잘 이해할 수 있도록 Azure Service Fabric 메시에서 사용 되는 용어에 대해 자세히 설명 합니다.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: fcd17c64ac41056420a22e328d13862e52bd99bd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d82df6ee598664c2b85cfa82395ac66f3865cf7f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246727"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843009"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
@@ -69,14 +69,14 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 | 애플리케이션 유형 | 설명 방법 | Azure Service Fabric Mesh | Azure Service Fabric 클러스터(모든 OS)| 로컬 클러스터 | 독립 실행형 클러스터 |
 |---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | 지원됨 |지원되지 않음 | Windows - 지원됨, Linux 및 Mac - 지원되지 않음 | Windows - 지원되지 않음 |
-|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | 지원되지 않음| 지원됨|지원 여부|Windows - 지원됨|
+|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | 지원되지 않음| 지원됨|지원됨|Windows - 지원됨|
 
 다음 표에서는 다양한 애플리케이션 모델 및 Service Fabric에 대한 애플리케이션 모델의 도구에 대해 설명합니다.
 
-| 애플리케이션 유형 | 설명 방법 | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
+| 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
-| Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원 안 함 |지원 안 함 | 지원됨 - Mesh 환경만 | 지원되지 않음|
-|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원 여부|지원됨|지원됨|지원됨|
+| Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원되지 않음 |지원되지 않음 | 지원됨 - Mesh 환경만 | 지원되지 않음|
+|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원됨|지원됨|지원됨|지원됨|
 
 ## <a name="next-steps"></a>다음 단계
 

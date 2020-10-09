@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566338"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843110"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>자습서: Azure 센티널을 사용 하 여 인시던트 조사
 
@@ -119,11 +119,11 @@ ms.locfileid: "88566338"
 - 거짓 긍정-잘못 된 데이터
 - 임의적인
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-텍스트}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="분류 선택 목록에서 사용할 수 있는 분류를 강조 표시 하는 스크린샷":::
 
 적절 한 분류를 선택한 후 **설명** 필드에 설명 텍스트를 추가 합니다. 이 문제는이 인시던트를 다시 참조 해야 하는 경우에 유용 합니다. 완료 되 면 **적용** 을 클릭 합니다. 그러면 인시던트가 닫힙니다.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-텍스트}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="분류 선택 목록에서 사용할 수 있는 분류를 강조 표시 하는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure 센티널을 사용 하 여 인시던트 조사를 시작 하는 방법을 배웠습니다. 자동화 된 플레이 북을 [사용 하 여 위협에 대응 하는 방법](tutorial-respond-threats-playbook.md)에 대 한 자습서를 계속 진행 합니다.

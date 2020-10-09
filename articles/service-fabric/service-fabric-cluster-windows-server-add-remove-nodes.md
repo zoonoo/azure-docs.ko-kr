@@ -1,19 +1,20 @@
 ---
 title: 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거
 description: Windows Server를 실행하는 실제 또는 가상 머신에서 Azure 서비스 패브릭 클러스터에 노드를 추가하거나 제거하는 방법(온-프레미스 또는 클라우드에 위치 가능)을 알아봅니다.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258713"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842923"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
-[Windows Server 컴퓨터에 독립 실행형 Service Fabric 클러스터를 만든](service-fabric-cluster-creation-for-windows-server.md) 후 비즈니스 요구는 변경될 수 있으며 클러스터에 노드를 추가 또는 제거해야 할 수 있습니다. 이 문서에서는 이 목표를 달성하는 자세한 단계를 제공합니다. 노드 추가/제거 기능은 로컬 개발 클러스터에서 지원되지 않습니다.
+[Windows Server 컴퓨터에 독립 실행형 Service Fabric 클러스터를 만든](service-fabric-cluster-creation-for-windows-server.md)후에는 (비즈니스) 요구가 변경 될 수 있으며이 문서에 설명 된 대로 클러스터에 노드를 추가 하거나 제거 해야 합니다.
+
+> [!NOTE]
+> 노드 추가 및 제거 기능은 로컬 개발 클러스터에서 지원 되지 않습니다.
 
 ## <a name="add-nodes-to-your-cluster"></a>클러스터에 노드 추가
 
@@ -29,7 +30,7 @@ ms.locfileid: "86258713"
 
 5. 승격 된 권한으로 PowerShell을 실행 하 고 압축을 푼 패키지의 위치로 이동 합니다.
 
-6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* 스크립트를 실행합니다. 다음 예에서는 NodeType0 및 IP 주소 182.17.34.52 이라는 VM5 라는 새 노드를 UD1 및 fd:/dc1/r 0에 추가 합니다. `ExistingClusterConnectionEndPoint`는 기존 클러스터에 이미 있는 노드에 대 한 연결 끝점으로, 클러스터에 *있는 노드의 IP* 주소일 수 있습니다. 
+6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* 스크립트를 실행합니다. 다음 예에서는 NodeType0 및 IP 주소 182.17.34.52 이라는 VM5 라는 새 노드를 UD1 및 fd:/dc1/r 0에 추가 합니다. `ExistingClusterConnectionEndPoint` 는 기존 클러스터에 이미 있는 노드에 대 한 연결 끝점으로, 클러스터에 *있는 노드의 IP* 주소일 수 있습니다. 
 
    안전 하지 않은 (프로토타입):
 
@@ -95,7 +96,7 @@ gMSA(그룹 관리 서비스 계정)로 구성된 클러스터의 경우(https:/
 다음과 같은 방식으로 구성 업그레이드를 사용하여 클러스터에서 노드를 제거할 수 있습니다.
 
 1. [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)을 실행하여 최신 구성 파일을 가져오고 "노드" 섹션에서 노드를 *제거*합니다.
-"FabricSettings" 섹션 내의 "설정" 섹션에 "NodesToBeRemoved" 매개 변수를 추가합니다. "값"은 제거되어야 하는 노드의 노드 이름의 쉼표로 구분된 목록이어야 합니다.
+"FabricSettings" 섹션 내의 "설정" 섹션에 "NodesToBeRemoved" 매개 변수를 추가합니다. "값"은 제거 해야 하는 노드의 노드 이름에 대 한 쉼표로 구분 된 목록 이어야 합니다.
 
     ```
          "fabricSettings": [
@@ -132,7 +133,7 @@ gMSA(그룹 관리 서비스 계정)로 구성된 클러스터의 경우(https:/
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>클러스터에서 노드 유형 제거
-노드 유형을 제거하기 전에 노드 유형을 참조하는 노드가 있는지 다시 확인합니다. 해당 노드 유형을 제거하기 전에 이러한 노드를 제거합니다. 모든 해당 노드가 제거된 후 클러스터 구성에서 NodeType을 제거하고 [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps)를 사용하여 구성 업그레이드를 시작할 수 있습니다.
+노드 유형을 제거하기 전에 노드 유형을 참조하는 노드가 있는지 확인합니다. 해당 노드 유형을 제거하기 전에 이러한 노드를 제거합니다. 모든 해당 노드가 제거된 후 클러스터 구성에서 NodeType을 제거하고 [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps)를 사용하여 구성 업그레이드를 시작할 수 있습니다.
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>클러스터의 주 노드 교체

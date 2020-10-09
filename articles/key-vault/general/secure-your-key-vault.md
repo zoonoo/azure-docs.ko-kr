@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: d110630ad3291473aee395259d1aaa623a935f5f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825469"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842838"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -42,7 +42,7 @@ Key Vault 인증에 대 한 자세한 내용은 [Azure Key Vault에 인증](auth
 
 ## <a name="key-vault-authentication-options"></a>Key Vault 인증 옵션
 
-Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 두 평면의 모든 호출자가 이 테넌트에 등록해야 하고, 해당 Key Vault에 액세스하기 위해 인증을 받아야 합니다. 두 경우 모두 애플리케이션에서 다음과 같은 두 가지 방법으로 Key Vault에 액세스할 수 있습니다.
+Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 두 평면의 모든 호출자가 이 테넌트에 등록해야 하고, 해당 Key Vault에 액세스하기 위해 인증을 받아야 합니다. 두 경우 모두 응용 프로그램은 다음 세 가지 방법으로 Key Vault에 액세스할 수 있습니다.
 
 - **응용 프로그램 전용**: 응용 프로그램은 서비스 주체 또는 관리 id를 나타냅니다. 이 id는 정기적으로 키 자격 증명 모음에서 인증서, 키 또는 암호에 액세스 해야 하는 응용 프로그램에 가장 일반적으로 사용 되는 시나리오입니다. 이 시나리오가 작동 하려면 `objectId` 응용 프로그램의를 액세스 정책에 지정 하 고을 `applicationId` 지정 _하지_ 않아야 하거나를 지정 해야 합니다 `null` .
 - **사용자 전용**: 사용자는 테 넌 트에 등록 된 응용 프로그램에서 키 자격 증명 모음에 액세스 합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 이 시나리오가 작동 하려면 `objectId` 사용자의을 액세스 정책에 지정 하 고을 `applicationId` 지정 _하지_ 않아야 하거나를 지정 해야 합니다 `null` .
@@ -71,7 +71,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 관리 평면에서 [AZURE RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 를 사용 하 여 호출자가 실행할 수 있는 작업에 권한을 부여 합니다. Azure RBAC 모델에서 각 Azure 구독은 Azure AD의 인스턴스를 포함 합니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다.
 
-Azure AD를 사용하여 리소스 그룹에 key vault를 만들고 액세스를 관리합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절 한 Azure 역할을 할당 하 여 특정 범위 수준에서 액세스 권한을 부여 합니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. Azure 역할에 할당 될 수 있는 범위 수준은 다음과 같습니다.
+Azure AD를 사용하여 리소스 그룹에 key vault를 만들고 액세스를 관리합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절 한 Azure 역할을 할당 하 여 특정 범위 수준에서 액세스 권한을 부여 합니다. 사용자에 게 키 자격 증명 모음을 관리할 수 있는 액세스 권한을 부여 하려면 미리 정의 된 [Key Vault 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) 역할을 특정 범위에서 사용자에 게 할당 합니다. Azure 역할에 할당 될 수 있는 범위 수준은 다음과 같습니다.
 
 - **구독**: 구독 수준에서 할당 된 Azure 역할은 해당 구독 내의 모든 리소스 그룹 및 리소스에 적용 됩니다.
 - **리소스 그룹**: 리소스 그룹 수준에서 할당 된 Azure 역할은 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
@@ -184,11 +184,11 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 
 | 역할 | 관리 평면 사용 권한 | 데이터 평면 권한-자격 증명 모음 액세스 정책 | 데이터 평면 권한-Azure RBAC (미리 보기)  |
 | --- | --- | --- | --- |
-| 보안 팀 | Key Vault 참가자 | 인증서: 모든 작업 <br> 키: 모든 작업 <br> 비밀: 모든 작업 | Key Vault 관리자 (미리 보기) |
+| 보안 팀 | [키 자격 증명 모음 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | 인증서: 모든 작업 <br> 키: 모든 작업 <br> 비밀: 모든 작업 | [Key Vault 관리자 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | None | None |
-| 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | Key Vault 판독기 (미리 보기) |
-| Azure Storage 계정 | None | 키: get, list, wrapKey, unwrapKey <br> | 암호화 서비스 암호화 Key Vault |
-| 애플리케이션 | None | 비밀: get, list <br> 인증서: get, list | Key Vault 판독기 (미리 보기), Key Vault 비밀 사용자 (미리 보기) |
+| 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | [Key Vault 판독기 (미리 보기)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Azure Storage 계정 | None | 키: get, list, wrapKey, unwrapKey <br> | [암호화 서비스 암호화 Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| 애플리케이션 | None | 비밀: get, list <br> 인증서: get, list | [Key Vault 판독기 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Key Vault 비밀 사용자 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. Vm (또는 Azure App Service의 Web Apps 기능)을 배포 하려면 개발자와 운영자에 게 배포 액세스 권한이 있어야 합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.
 
@@ -199,7 +199,11 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 
 ## <a name="resources"></a>리소스
 
-* [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+[Azure Key Vault 정보](overview.md) 
+ [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
+ [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
+ [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
+ [개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>다음 단계
 
