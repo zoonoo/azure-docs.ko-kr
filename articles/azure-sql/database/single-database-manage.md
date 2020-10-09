@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254993"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 서버 및 단일 데이터베이스 만들기 및 관리
@@ -65,7 +65,7 @@ Azure PowerShell를 사용 하 여 서버, 단일 및 풀링된 데이터베이�
 > [!TIP]
 > Powershell 예제 스크립트는 powershell [을 사용 하 여 SQL Database에서 데이터베이스 만들기 및 서버 수준 방화벽 규칙 구성](scripts/create-and-configure-database-powershell.md) 및 [powershell을 사용 하 여 SQL Database에서 데이터베이스 모니터링 및 크기 조정](scripts/monitor-and-scale-database-powershell.md)을 참조 하세요.
 
-| Cmdlet | Description |
+| cmdlet | Description |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|데이터베이스 만들기 |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|하나 이상의 데이터베이스 가져오기|
@@ -80,7 +80,7 @@ Azure PowerShell를 사용 하 여 서버, 단일 및 풀링된 데이터베이�
 |[AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|서버의 방화벽 규칙 가져오기|
 |[AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule)|서버에서 방화벽 규칙 수정|
 |[AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|서버에서 방화벽 규칙 삭제|
-| AzSqlServerVirtualNetworkRule | Virtual Network 서비스 엔드포인트인 서브넷을 기반으로 [*가상 네트워크 규칙*](vnet-service-endpoint-rule-overview.md)을 만듭니다. |
+| New-AzSqlServerVirtualNetworkRule | Virtual Network 서비스 엔드포인트인 서브넷을 기반으로 [*가상 네트워크 규칙*](vnet-service-endpoint-rule-overview.md)을 만듭니다. |
 
 ## <a name="the-azure-cli"></a>Azure CLI
 
@@ -90,7 +90,7 @@ Azure PowerShell를 사용 하 여 서버, 단일 및 풀링된 데이터베이�
 > Azure CLI 빠른 시작은 Azure CLI를 [사용 하 여 단일 Azure SQL Database 만들기](az-cli-script-samples-content-guide.md)를 참조 하세요. Azure CLI 예제 스크립트는 [cli를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기 및 SQL Database 방화벽 규칙 구성](scripts/create-and-configure-database-cli.md) 및 [cli를 사용 하 여 Azure SQL Database에서 데이터베이스 모니터링 및 크기 조정](scripts/monitor-and-scale-database-cli.md)을 참조 하세요.
 >
 
-| Cmdlet | Description |
+| cmdlet | Description |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
@@ -121,7 +121,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 서버를 만들거나 삭제할 수 없습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|새 단일 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |데이터베이스 또는 탄력적 풀을 수정 합니다. |
@@ -142,7 +142,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 
 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 이러한 REST API 요청을 사용 합니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[서버-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
 |[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|SQL 서버를 삭제합니다.|

@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650397"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Azure REST API에 사용자 지정 작업 추가
@@ -130,7 +130,7 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 action | *예로* | **ResourceProvider**에 정의 된 동작의 이름입니다.
 ids | *예로* | **ResourceProvider**의 리소스 ID입니다.
@@ -184,7 +184,7 @@ List 작업을 사용 하는 샘플 **ResourceProvider** :
 }
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 resourceIdentifier | *예로* | **ResourceProvider**의 리소스 ID입니다.
 apiVersion | *예로* | 리소스 런타임의 API 버전입니다. 이는 항상 "2018-09-01-preview" 여야 합니다.

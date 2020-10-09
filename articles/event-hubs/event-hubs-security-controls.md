@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs (네트워크, id, 데이터 �
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85315392"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 보안 제어

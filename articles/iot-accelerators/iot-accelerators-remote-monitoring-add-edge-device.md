@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72965382"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT Edge 디바이스 추가
@@ -26,7 +26,7 @@ ms.locfileid: "72965382"
 
 IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려면 웹 UI의 **Device Explorer** 페이지로 이동하고 **+새 디바이스**를 클릭합니다.
 
-**새 디바이스** 패널에서 **IoT Edge 디바이스**를 선택합니다. 다른 설정의 경우 기본값을 그대로 둡니다. 그런 다음 **적용**을 클릭 합니다.
+**새 디바이스** 패널에서 **IoT Edge 디바이스**를 선택합니다. 다른 설정의 경우 기본값을 그대로 둡니다. 그런 다음 **적용**을 클릭합니다.
 
 ![IoT Edge 디바이스 추가](media/iot-accelerators-remote-monitoring-add-edge-device/addedgedevice.png)
 

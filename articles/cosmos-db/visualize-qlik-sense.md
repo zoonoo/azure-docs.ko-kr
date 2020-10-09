@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263350"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Qlik Sense를 Azure Cosmos DB에 연결하고 데이터 시각화
@@ -62,15 +62,15 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 4. **사용자 DSN**으로 전환하고, 앞에서 만든 ODBC 연결을 선택합니다. 연결 이름을 입력하고 **만들기**를 선택합니다. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="새 연결 만들기":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="새 Qlik Sense 앱 만들기":::
 
 5. 연결을 만든 후에는 비디오 게임 데이터가 들어 있는 데이터베이스 및 컬렉션을 선택하여 미리 볼 수 있습니다.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="데이터베이스 및 컬렉션 선택"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="새 Qlik Sense 앱 만들기"::: 
 
 6. 다음으로, **데이터 추가**를 선택하여 Qlik Sense에 데이터를 로드합니다. Qlik Sense에 데이터를 로드한 후에는 데이터에 대한 인사이트를 생성하고 데이터를 분석할 수 있습니다. 인사이트를 사용할 수도 있고 비디오 게임 판매를 탐색하는 고유의 앱을 빌드할 수도 있습니다. 다음 이미지에 예가 나와 있습니다. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="데이터 시각화":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="새 Qlik Sense 앱 만들기":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>ODBC를 사용하여 연결할 때의 제한 사항 
 

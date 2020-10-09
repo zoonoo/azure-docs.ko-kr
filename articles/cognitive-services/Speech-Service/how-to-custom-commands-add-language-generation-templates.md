@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85308084"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>음성 응답을 위한 언어 생성 템플릿 추가
@@ -24,7 +24,7 @@ ms.locfileid: "85308084"
 - 언어 생성 템플릿 사용
 - 적응 식 사용
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 문서의 단계를 완료 해야 합니다.
 
@@ -64,10 +64,10 @@ LG 템플릿을 활용 하면 적응 식을 사용 하 여 명령에 대 한 복
 
 | 설정            | 제안 값       | 
 | ------------------ | --------------------- | 
-| Name               | `SubjectContext`         | 
+| 속성               | `SubjectContext`         | 
 | 전역          | unchecked             | 
 | 필수           | unchecked               | 
-| 형식               | String                |
+| Type               | String                |
 | 기본값      | `all` |
 | Configuration      | 내부 카탈로그에서 미리 정의 된 입력 값 허용 | 
 | 미리 정의 된 입력 값 | `room`, `bathroom`, `all`|

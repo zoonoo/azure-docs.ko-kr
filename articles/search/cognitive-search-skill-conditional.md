@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72792040"
 ---
 # <a name="conditional-cognitive-skill"></a>조건부 인식 기술
@@ -43,14 +43,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 -   주석 경로 (식의 경로는 "$ (" 및 ")"로 구분 되어야 합니다.)
  <br/>
-    예:
+    예제:
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
 -  리터럴 (문자열, 숫자, true, false, null) <br/>
-    예:
+    예제:
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
@@ -59,21 +59,21 @@ Microsoft.Skills.Util.ConditionalSkill
     ```
 
 -  비교 연산자를 사용 하는 식 (= =,! =, >=, >, <=, <) <br/>
-    예:
+    예제:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
 -   부울 연산자 (&&, | |,!, ^)를 사용 하는 식 <br/>
-    예:
+    예제:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
 -   숫자 연산자 (+,-, \* ,/,%)를 사용 하는 식 <br/>
-    예: 
+    예제: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
         "= $(/document/totalValue) * 1.10"       // multiplication
@@ -87,7 +87,7 @@ Microsoft.Skills.Util.ConditionalSkill
 
 | 입력   | Description |
 |-------------|-------------|
-| condition(조건)   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/s\\\ary/ \* /language) = = $ (/document/expectedLanguage)" <br/> |
+| condition(조건)   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예제: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/s\\\ary/ \* /language) = = $ (/document/expectedLanguage)" <br/> |
 | whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/> |
 | = False   | 이 입력은 조건이 *false*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/>
 

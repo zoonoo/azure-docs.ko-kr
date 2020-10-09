@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176031"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Azure AD Connect 1.4. x x x x. x 및 장치 disappearance 이해
@@ -30,14 +30,14 @@ Azure AD의 장치 개체 삭제가 내보내기 삭제 임계값을 초과 하�
 
 이 버전의 Azure AD Connect는 하이브리드 Azure AD에 연결 되도록 올바르게 구성 된 Windows 10 장치만 동기화 합니다. Azure AD 조인 특정 userCertificate 없는 Windows 10 장치 개체는 Azure AD에서 제거 됩니다.
 
-## <a name="down-level-windows-devices"></a>하위 수준 Windows 장치
+## <a name="down-level-windows-devices"></a>Down-Level Windows 장치
 Azure AD Connect는 [하위 Windows 장치](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)를 동기화 해서는 안 됩니다. Azure AD에서 이전에 잘못 동기화 된 모든 장치는 이제 Azure AD에서 삭제 됩니다. [하위 수준 windows 장치](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)를 삭제 하려고 시도 하는 Azure AD Connect 경우 해당 장치는 [windows 10이 아닌 컴퓨터에 대 한 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554) 에 의해 만들어진 MSI가 아닌 다른 Azure AD 기능에서 사용할 수 없습니다.
 
 일부 고객은 방법: Windows 장치를 올바르게 등록 하도록 [하이브리드 Azure Active Directory 조인 구현을 계획](../devices/hybrid-azuread-join-plan.md) 하 고 이러한 장치가 장치 기반 조건부 액세스에 완전히 참여할 수 있는지 확인 해야 할 수 있습니다. 
 
 ## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>이 업데이트를 사용 하 여 어떤 장치를 삭제 했는지 확인 하려면 어떻게 해야 하나요?
 
-삭제 된 장치를 확인 하려면 다음 PowerShell 스크립트를 사용할 수 있습니다.https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
+삭제 된 장치를 확인 하려면 다음 PowerShell 스크립트를 사용할 수 있습니다. https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
 
 이 스크립트는 Active Directory 컴퓨터 개체에 저장 된 인증서, 특히 하이브리드 Azure AD 조인 기능에서 발급 한 인증서에 대 한 보고서를 생성 합니다.
 AD에 있는 컴퓨터 개체의 UserCertificate 속성에 있는 인증서를 확인 하 고, 만료 되지 않은 각 인증서에 대해 인증서가 하이브리드 Azure AD 조인 기능 (즉, 주체 이름이 CN = {ObjectGUID}과 일치)에 대해 발급 되었는지 확인 합니다.

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85298551"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
@@ -127,7 +127,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다.**
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 유의하세요.
 
@@ -135,7 +135,7 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - 기본적으로 서비스 주체 자격 증명은 1 년 동안 유효 합니다. 언제 든 지 [서비스 주체 자격 증명을 업데이트 하거나 회전할][update-credentials] 수 있습니다.
 - 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터의 서비스 주체를 유효한 Azure AD 응용 프로그램 이름 (예:)에 연결할 수 있습니다 *https://www.contoso.org/example* . 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 - 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
-- Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일에 저장 됩니다.`/etc/kubernetes/azure.json`
+- Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일에 저장 됩니다. `/etc/kubernetes/azure.json`
 - [az aks create][az-aks-create] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
 - 추가 AKS CLI 명령에서 서비스 주체를 특별히 전달 하지 않으면에 있는 기본 서비스 주체가 `~/.azure/aksServicePrincipal.json` 사용 됩니다.  
 - 필요에 따라 파일에서 aksServicePrincipal.js를 제거 하 고 AKS에서 새 서비스 주체를 만들 수도 있습니다.
@@ -162,7 +162,7 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-서비스 사용자 자격 증명의 기본 만료 시간은 1 년입니다. 파일 *의aksServicePrincipal.js* 1 년 보다 오래 된 경우 파일을 삭제 하 고 AKS 클러스터 배포를 다시 시도 합니다.
+서비스 사용자 자격 증명의 기본 만료 시간은 1 년입니다. 파일 * 의aksServicePrincipal.js* 1 년 보다 오래 된 경우 파일을 삭제 하 고 AKS 클러스터 배포를 다시 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

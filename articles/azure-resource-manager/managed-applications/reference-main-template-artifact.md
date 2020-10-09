@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651463"
 ---
 # <a name="reference-deployment-template-artifact"></a>참조: 배포 템플릿 아티팩트
@@ -18,7 +18,7 @@ ms.locfileid: "75651463"
 
 ## <a name="deployment-template"></a>배포 템플릿
 
-다음 JSON은 Azure Managed Applications 파일 *에mainTemplate.js* 의 예를 보여 줍니다.
+다음 JSON은 Azure Managed Applications 파일 * 에mainTemplate.js* 의 예를 보여 줍니다.
 
 ```json
 {

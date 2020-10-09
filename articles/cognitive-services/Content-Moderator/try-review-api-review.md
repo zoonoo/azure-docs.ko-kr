@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72757134"
 ---
 # <a name="create-human-reviews-rest"></a>사용자 리뷰 만들기 (REST)
@@ -129,13 +129,13 @@ ms.locfileid: "72757134"
 
 ### <a name="submit-your-request"></a>요청 제출
   
-**보내기**를 선택 합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자에는 검토에 대 한 ID가 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
+**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자에는 검토에 대 한 ID가 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
 
 ![검토 - 콘솔 만들기 응답 콘텐츠 상자에 검토 ID 표시](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>새 검토를 검토 합니다.
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 사용 하는 내용에 따라**이미지**/**텍스트**/**비디오** **검토** > 를 선택 합니다. 업로드 한 콘텐츠는 사용자가 검토할 준비가 된 상태로 표시 되어야 합니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 **Review**  >  **Image** / **Text** / 사용 하는 내용에 따라 이미지 텍스트**비디오** 검토를 선택 합니다. 업로드 한 콘텐츠는 사용자가 검토할 준비가 된 상태로 표시 되어야 합니다.
 
 ![축구공 이미지 검토 도구](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ ms.locfileid: "72757134"
 
 ![검토 - 콘솔 만들기 결과 가져오기](images/test-drive-review-3.PNG)
   
-**보내기**를 선택 합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자는 다음과 같이 JSON 형식으로 검토 세부 정보를 표시 합니다.
+**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자는 다음과 같이 JSON 형식으로 검토 세부 정보를 표시 합니다.
 
 ```json
 {  

@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
 ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263547"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
@@ -145,7 +145,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 ## <a name="contact-the-azure-cosmos-db-team"></a>Azure Cosmos DB 팀에 문의
 이 가이드를 따라 대규모 마이그레이션에 대해 대규모 데이터 집합을 Azure Cosmos DB로 마이그레이션할 수 있지만, Azure Cosmos DB 제품 팀에 연락 하 여 데이터 모델링 및 일반 아키텍처 검토의 유효성을 검사 하는 것이 좋습니다. 제품 팀은 데이터 집합 및 워크 로드에 따라 사용자에 게 적용할 수 있는 다른 성능 및 비용 최적화를 제안할 수도 있습니다. 대규모 마이그레이션에 대 한 지원을 위해 Azure Cosmos DB 팀에 문의 하려면 아래와 같이 "일반 권고" 문제 유형 및 "큼 (TB +) 마이그레이션" 문제 하위 유형 아래에서 지원 티켓을 열 수 있습니다.
 
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="마이그레이션 지원 항목":::
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="마이그레이션 도구 설치":::
 
 
 ## <a name="next-steps"></a>다음 단계

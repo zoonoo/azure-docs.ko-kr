@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263264"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
@@ -61,7 +61,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 다음 그림은 Azure Portal에서 이 트리거에 대해 기록되는 코드를 보여 줍니다.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Azure Portal에서 Cosmos DB에 대 한 Azure Functions 트리거를 만듭니다.":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>재무 사용 사례 - 타이머 트리거 및 입력 바인딩
 
@@ -75,9 +75,9 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 다음 그림은 이 시나리오에 대한 Azure Portal의 코드를 보여 줍니다.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="재무 시나리오의 타이머 트리거에 대한 Index.js 파일":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="재무 시나리오의 타이머 트리거에 대한 Run.csx 파일":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Cosmos DB에 대 한 게임 사용 사례-Azure Functions 트리거 및 출력 바인딩 
 

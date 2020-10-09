@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651203"
 ---
 # <a name="reference-view-definition-artifact"></a>참조: 뷰 정의 아티팩트
@@ -18,7 +18,7 @@ ms.locfileid: "75651203"
 
 ## <a name="view-definition"></a>정의 보기
 
-다음 JSON은 Azure Managed Applications 파일 *에viewDefinition.js* 의 예를 보여 줍니다.
+다음 JSON은 Azure Managed Applications 파일 * 에viewDefinition.js* 의 예를 보여 줍니다.
 
 ```json
 {

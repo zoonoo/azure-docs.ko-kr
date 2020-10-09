@@ -4,10 +4,10 @@ description: 이 문서에서는 Event Hubs의 단일 테 넌 트 배포를 제�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322444"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
@@ -49,13 +49,13 @@ Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최�
 | 소비자 그룹 | 이벤트 허브 당 20 | CU당 제한 없음, 이벤트 허브당 1,000개 |
 | 조정된 연결 | 1000 포함, 최대 5000 | 100 K 포함 및 최대 |
 | 메시지 보존 | TU 당 7 일, 84 GB 포함 | 90일, CU당 10TB 포함 |
-| 캡처 | 시간당 요금 부과 | Included |
+| 캡처 | 시간당 요금 부과 | 포함 |
 
 ## <a name="how-to-onboard"></a>등록 방법
 
 [Azure Portal](https://aka.ms/eventhubsclusterquickstart) 을 통해 [Event Hubs 클러스터를 만드는](event-hubs-dedicated-cluster-create-portal.md) 셀프 서비스 환경은 이제 미리 보기로 제공 됩니다. 질문이 있거나 Event Hubs Dedicated 등록 하는 데 도움이 필요한 경우 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의 하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 #### <a name="what-can-i-achieve-with-a-cluster"></a>클러스터로 무엇을 할 수 있나요?
 

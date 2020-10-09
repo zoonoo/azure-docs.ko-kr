@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887158"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase 성능 문제 해결
@@ -57,7 +57,7 @@ Yahoo!와 같은 벤치 마크를 사용 하는 경우 클라우드를 제공 �
 
 ## <a name="migration-issues"></a>마이그레이션 문제
 
-Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매우 효율적이 고 정확 하 게 마이그레이션을 수행 해야 합니다. 수동 마이그레이션을 피합니다. 다음 사항을 확인합니다.
+Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매우 효율적이 고 정확 하 게 마이그레이션을 수행 해야 합니다. 수동 마이그레이션을 피합니다. 확인할 사항은 다음과 같습니다.
 
 - 테이블 특성은 정확 하 게 마이그레이션됩니다. 특성에는 압축, 블 룸 필터 등이 포함 될 수 있습니다.
 
@@ -110,7 +110,7 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누
 
 다음은 튜닝을 고려 하는 추가 매개 변수입니다.
 
-- `Hbase.rs.cacheblocksonwrite`– HDI에서는 기본적으로이 설정이 **true**로 설정 됩니다.
+- `Hbase.rs.cacheblocksonwrite` – HDI에서는 기본적으로이 설정이 **true**로 설정 됩니다.
 
 - 나중에 대 한 보조 압축을 연기할 수 있는 설정입니다.
 

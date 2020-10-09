@@ -1148,7 +1148,7 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SQL Server Data Tools(SSDT)
+    - name: SSDT(SQL Server Data Tools)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility

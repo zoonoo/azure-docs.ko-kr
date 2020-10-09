@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72754177"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>중재 워크플로 정의 및 사용 (REST)
@@ -43,7 +43,7 @@ ms.locfileid: "72754177"
 
 ### <a name="enter-a-workflow-definition"></a>워크플로 정의 입력
 
-1. **요청 본문** 상자를 편집 하 여 **설명** 및 **유형** ( `Image` 또는 `Text`)에 대 한 세부 정보가 포함 된 JSON 요청을 입력 합니다.
+1. **요청 본문** 상자를 편집 하 여 **설명** 및 **유형** (또는)에 대 한 세부 정보가 포함 된 JSON 요청을 입력 합니다 `Image` `Text` .
 2. **식**의 경우 기본 워크플로 JSON 식을 복사 합니다. 최종 JSON 문자열은 다음과 같습니다.
 
 ```json
@@ -80,11 +80,11 @@ ms.locfileid: "72754177"
 
 ### <a name="submit-your-request"></a>요청 제출
   
-**보내기**를 선택 합니다. 작업이 성공하면 **응답 상태**가 `200 OK`이고, **응답 콘텐츠** 상자에 `true`가 표시됩니다.
+**보내기**를 선택합니다. 작업이 성공하면 **응답 상태**가 `200 OK`이고, **응답 콘텐츠** 상자에 `true`가 표시됩니다.
 
 ### <a name="examine-the-new-workflow"></a>새 워크플로를 검사 합니다.
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com/)에서 **설정** > **워크플로**를 선택 합니다. 새 워크플로가 목록에 표시 됩니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com/)에서 **설정**  >  **워크플로**를 선택 합니다. 새 워크플로가 목록에 표시 됩니다.
 
 ![워크플로의 검토 도구 목록](images/workflow-console-new-workflow.PNG)
 
@@ -102,7 +102,7 @@ ms.locfileid: "72754177"
 
 ![쿼리 매개 변수 및 헤더 가져오기](images/workflow-get-default.PNG)
 
-**보내기**를 선택 합니다. 작업이 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자는 다음과 같이 워크플로를 JSON 형식으로 표시 합니다.
+**보내기**를 선택합니다. 작업이 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자는 다음과 같이 워크플로를 JSON 형식으로 표시 합니다.
 
 ```json
 {

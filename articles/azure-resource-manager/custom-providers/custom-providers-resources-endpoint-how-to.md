@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650527"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Azure REST API에 사용자 지정 리소스 추가
@@ -102,7 +102,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 is-full-object | *예로* | 속성 개체에 위치, 태그, SKU 및/또는 계획과 같은 다른 옵션이 포함된다는 것을 나타냅니다.
 id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **ResourceProvider** 에 있어야 합니다.
@@ -174,7 +174,7 @@ Azure Resource Manager 템플릿에는 `id` , `name` 및가 `type` 다운스트�
 }
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 resourceTypeName | *예로* | 사용자 지정 공급자에 정의 된 **resourceType** 의 **이름** 입니다.
 resourceProviderName | *예로* | 사용자 지정 리소스 공급자 인스턴스 이름입니다.

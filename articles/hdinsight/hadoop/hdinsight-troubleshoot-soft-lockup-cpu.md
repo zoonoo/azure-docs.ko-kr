@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75894115"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>시나리오: Azure HDInsight 클러스터의 "watchdog: 버그: 소프트 잠금-CPU" 오류
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 커널 syslog에는 오류 메시지가 포함 되어 `watchdog: BUG: soft lockup - CPU` 있습니다.
 
@@ -39,7 +39,7 @@ Linux 커널의 [버그로](https://bugzilla.kernel.org/show_bug.cgi?id=199437) 
     | 속성 | 값 |
     | --- | --- |
     | 스크립트 유형 | -Custom |
-    | 이름 |커널 소프트 잠금 문제에 대 한 수정 |
+    | 속성 |커널 소프트 잠금 문제에 대 한 수정 |
     | Bash 스크립트 URI |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | 노드 유형 |작업자, 사육 사 |
     | 매개 변수 |해당 없음 |

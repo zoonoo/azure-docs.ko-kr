@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887328"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>시나리오: `hbase hbck` 명령이 Azure HDInsight에서 불일치를 반환 합니다.
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>문제: 지역이에 없습니다.`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>문제: 지역이에 없습니다. `hbase:meta`
 
 지역 xxx (HDFS의 경우), `hbase:meta` 모든 지역 서버에 나열 되거나 배포 되지 않습니다.
 
@@ -67,7 +67,7 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ### <a name="resolution"></a>해결 방법
 
-이러한 겹치는 영역을 수동으로 병합 합니다. HBase HMaster 웹 UI 테이블 섹션으로 이동 하 여 문제가 있는 테이블 링크를 선택 합니다. 해당 테이블에 속하는 각 지역의 시작 키/끝 키가 표시 됩니다. 그런 다음 이러한 겹치는 영역을 병합 합니다. HBase shell에서를 수행 `merge_region 'xxxxxxxx','yyyyyyy', true` 합니다. 예를 들어:
+이러한 겹치는 영역을 수동으로 병합 합니다. HBase HMaster 웹 UI 테이블 섹션으로 이동 하 여 문제가 있는 테이블 링크를 선택 합니다. 해당 테이블에 속하는 각 지역의 시작 키/끝 키가 표시 됩니다. 그런 다음 이러한 겹치는 영역을 병합 합니다. HBase shell에서를 수행 `merge_region 'xxxxxxxx','yyyyyyy', true` 합니다. 예를 들면 다음과 같습니다.
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -81,7 +81,7 @@ RegionC, startkey:010, endkey:080.
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>문제: 로드할 수 없음`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>문제: 로드할 수 없음 `.regioninfo`
 
 `.regioninfo`영역에 대해 로드할 수 없습니다 `/hbase/data/default/tablex/regiony` .
 

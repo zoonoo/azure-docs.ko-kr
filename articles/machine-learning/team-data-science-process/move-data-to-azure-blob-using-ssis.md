@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322863"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
@@ -64,7 +64,7 @@ SSIS 기능 팩을 사용 하 여 온-프레미스에서 Azure blob 저장소로
 
 작업에 사용되는 매개 변수는 다음과 같습니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | **AzureStorageConnection** |기존 Azure Storage 연결 관리자를 지정 하거나 blob 파일이 호스트 되는 위치를 가리키는 Azure Storage 계정을 참조 하는 연결 관리자를 새로 만듭니다. |
 | **BlobContainer** |업로드 된 파일을 blob으로 보유 하는 blob 컨테이너의 이름을 지정 합니다. |

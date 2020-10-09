@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
 ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260749"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Azure Cosmos DB에서 작업의 처리량 또는 요청 단위 사용을 모니터링 하는 방법
@@ -42,11 +42,11 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 1. **메트릭** 창 > **리소스 선택**에서 필요한 **구독** 및 **리소스 그룹**을 선택합니다. **리소스 유형**으로 **Azure Cosmos DB 계정**을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용**을 선택합니다.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Azure Cosmos DB 계정을 선택 하 여 메트릭 보기":::
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Azure Monitor의 메트릭 창":::
 
 1. 다음으로 사용 가능한 메트릭 목록에서 **총 요청 단위** 메트릭을 선택 합니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **총 요청 단위** 및 **평균** 을 집계 값으로 선택 하겠습니다. 이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Azure Portal에서 메트릭 선택":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Azure Monitor의 메트릭 창":::
 
 ## <a name="filters-for-request-unit-usage"></a>요청 단위 사용에 대 한 필터
 
@@ -54,11 +54,11 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 합계 (합계) 또는 평균을 기준으로 각 작업의 요청 단위 사용을 가져오려면 **분할 적용** 을 선택 하 고 다음 이미지에 표시 된 것 처럼 **작업 유형** 및 필터 값을 선택 합니다.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Azure monitor에서 작업에 대 한 Cosmos DB 요청 단위":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Azure Monitor의 메트릭 창":::
 
 컬렉션 별 요청 단위 사용을 확인 하려면 **분할 적용** 을 선택 하 고 컬렉션 이름을 필터로 선택 합니다. 대시보드 내에서 컬렉션을 선택 하 여 다음과 같은 채팅을 보게 됩니다. 그런 다음 특정 컬렉션 이름을 선택 하 여 자세한 정보를 볼 수 있습니다.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure monitor에서 컬렉션에의 한 모든 작업에 대 한 Cosmos DB 요청 단위":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure Monitor의 메트릭 창":::
 
 ## <a name="next-steps"></a>다음 단계
 

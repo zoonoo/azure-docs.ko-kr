@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 80f984643d6d8be88b381881c6fc1cb1cb5f1815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887345"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 BindException가 이미 사용 중입니다.
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 Apache HBase 지역 서버에서 다시 시작 작업을 완료 하지 못했습니다. `region-server.log` `/var/log/hbase` 영역 서버가 시작 되지 않는 작업자 노드의 in 디렉터리에서 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
 
