@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70860313"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
@@ -66,7 +66,7 @@ Cloud Shell은 각 세션이 별도의 프로세스로 존재 하도록 허용 �
 ![웹 미리 보기](media/using-the-shell-window/preview.png)  
 <br>
 ![포트 구성](media/using-the-shell-window/preview-configure.png)  
-창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고 "미리 보기 포트 ..."를 선택 합니다. 새 탭에서 열린 포트를 미리 보려면 창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고 "포트 닫기 ..."를 선택 합니다. 열려 있는 포트를 닫습니다.  
+창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고 "미리 보기 포트 ..."를 선택 합니다. 새 탭에서 열린 포트를 미리 볼 수 있습니다. 창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고 "포트 닫기 ..."를 선택 합니다. 열려 있는 포트를 닫습니다.  
 ![미리 보기/닫기 포트](media/using-the-shell-window/preview-options.png)
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Cloud Shell 창 최소화 및 최대화

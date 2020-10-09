@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67870903"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
@@ -249,7 +249,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 ```
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```php
 <?php
@@ -309,7 +309,7 @@ SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공 합�
 php composer.phar require sendgrid/sendgrid 2.1.1
 ```
 
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
 
 ```php
 <?php

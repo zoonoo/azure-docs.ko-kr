@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77368312"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
@@ -26,9 +26,9 @@ Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2�
 
 ![WAF 사용][fig1]
 
-## <a name="example-1"></a>예 1
+## <a name="example-1"></a>예제 1
 
-웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 경우 요청 헤더의 사용자 에이전트 *evilbot* 를 차단 합니다.
+웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 경우 요청 헤더의 User-Agent *evilbot* 를 차단 합니다.
 
 논리: p
 
@@ -126,7 +126,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-## <a name="example-2"></a>예제 2
+## <a name="example-2"></a>예 2
 
 GeoMatch 연산자를 사용 하 여 미국에서 트래픽을 허용 하려고 합니다.
 
@@ -225,11 +225,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-해당 하는 CRS 규칙:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+해당 하는 CRS 규칙: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>예제 4
 
-이 예에서는 사용자 에이전트 *evilbot*및 192.168.5.0/24 범위의 트래픽을 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 두 *evilbot* 192.168.5.0/24 범위의 IP 주소 **와** 일치 하는 경우 요청이 차단 됩니다.
+이 예에서는 *evilbot*및 192.168.5.0/24 범위의 트래픽을 User-Agent 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 User-Agent 헤더의 두 *evilbot* 192.168.5.0/24 범위의 IP 주소 **와** 일치 하는 경우 요청이 차단 됩니다.
 
 논리: p **및** q
 

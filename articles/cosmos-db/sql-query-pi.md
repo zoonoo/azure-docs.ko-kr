@@ -8,16 +8,16 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 27832008e8922e339a648985192a58b111555bc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71349660"
 ---
 # <a name="pi-azure-cosmos-db"></a>PI (Azure Cosmos DB)
  파이의 상수 값을 반환합니다.  
   
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
   
 ```sql
 PI ()  
@@ -27,7 +27,7 @@ PI ()
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 `PI`의 값을 반환합니다.  
   

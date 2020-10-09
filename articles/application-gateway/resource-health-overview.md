@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67659503"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Azure 애플리케이션 Gateway Resource Health 개요
@@ -31,7 +31,7 @@ Application Gateway 상태는 다음 상태 중 하나로 표시 됩니다.
 
 ![사용 가능한 상태](media/resource-health-overview/available-full.png)
 
-## <a name="unavailable"></a>사용할 수 없음
+## <a name="unavailable"></a>Unavailable
 
 **사용할 수** 없는 상태는 서비스에서 게이트웨이의 상태에 영향을 주는 진행 중인 플랫폼 또는 비-플랫폼 이벤트를 검색 했음을 의미 합니다.
 
@@ -43,7 +43,7 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 
 ![사용할 수 없음 상태](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>알 수 없음
+## <a name="unknown"></a>Unknown
 
 **알 수 없음** 상태는 Resource Health 게이트웨이 정보를 10 분 넘게 수신 하지 못했음을 나타냅니다. 이 상태는 게이트웨이의 상태를 명확 하 게 표시 하지 않습니다. 하지만 문제 해결 프로세스의 중요 한 데이터 요소입니다.
 

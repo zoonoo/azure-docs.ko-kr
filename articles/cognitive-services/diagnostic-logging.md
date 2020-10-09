@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71827909"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Azure Cognitive Services에 대 한 진단 로깅 사용
@@ -115,7 +115,7 @@ by bin(TimeGenerated, 10s), OperationName
 
 * 로깅을 사용 하도록 설정 하는 방법 및 다양 한 Azure 서비스에서 지 원하는 메트릭 및 로그 범주를 이해 하려면 Microsoft Azure [메트릭 개요](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) 및 [Azure 진단 로그 개요](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) 문서를 참조 하세요.
 * Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
-  * [Azure Event Hubs 정의](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+  * [Azure Event Hubs란?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
   * [Event Hubs 시작](https://docs.microsoft.com/azure/event-hubs/event-hubs-csharp-ephcs-getstarted)
 * [Azure Storage에서 메트릭 및 진단 로그 다운로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs)를 읽어보세요.
 * [Azure Monitor 로그의 로그 검색 이해를](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new)참조 하세요.

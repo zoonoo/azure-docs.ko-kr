@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77057076"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari 하트비트 문제
@@ -20,7 +20,7 @@ ms.locfileid: "77057076"
 
 ## <a name="scenario-high-cpu-utilization"></a>시나리오: 높은 CPU 사용률
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Ambari 에이전트의 CPU 사용률이 높아,이로 인해 일부 노드에 대해 Ambari agent 하트 비트가 손실 된 Ambari UI의 경고가 발생 합니다. 하트 비트 손실 경고는 일반적으로 일시적입니다.
 
@@ -59,7 +59,7 @@ Ambari 에이전트의 CPU 사용률이 높아,이로 인해 일부 노드에 �
 
 ## <a name="scenario-ambari-agent-not-started"></a>시나리오: Ambari 에이전트가 시작 되지 않음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Ambari 에이전트가 시작 되지 않았기 때문에 Ambari UI에서 Ambari 에이전트 하트 비트가 손실 된 일부 노드에 대 한 경고가 발생 했습니다.
 
@@ -85,7 +85,7 @@ Ambari 에이전트가 실행 되 고 있지 않기 때문에 경고가 발생 �
 
 ## <a name="scenario-heartbeat-lost-for-ambari"></a>시나리오: Ambari에 대 한 하트 비트 손실
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Ambari 하트 비트 에이전트가 손실 되었습니다.
 
