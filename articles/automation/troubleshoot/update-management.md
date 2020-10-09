@@ -2,15 +2,15 @@
 title: Azure Automation 업데이트 관리 문제 해결
 description: 이 문서에서는 Azure Automation 업데이트 관리와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713513"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858407"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -57,27 +57,25 @@ Error details: Failed to enable the Update solution
 
 ### <a name="cause"></a>원인
 
-대체된 업데이트가 적용되지 않는 것으로 간주될 수 있는 거부됨으로 제대로 표시되지 않습니다.
+대체 업데이트는 WSUS (Windows Server Update Services)에서 거부 되지 않으므로 해당 되지 않는 것으로 간주할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-대체된 업데이트가 100% 적용할 수 없게 되면 해당 업데이트의 승인 상태를 `Declined`로 변경해야 합니다. 모든 업데이트에 대한 승인 상태를 변경하려면
+대체 된 업데이트가 100% 적용할 수 없게 되 면 WSUS에서 해당 업데이트의 승인 상태를로 변경 해야 합니다 `Declined` . 모든 업데이트에 대한 승인 상태를 변경하려면
 
 1. Automation 계정에서 **업데이트 관리**를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/update-mgmt-view-update-assessments.md)를 참조하세요.
 
 2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다.
 
-3. 업데이트에 대해 문의 사항이 없으면 업데이트를 거부됨으로 표시합니다.
+3. 컴퓨터에서 보고 하는 WSUS 서버에서 [업데이트를 거부](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates)합니다.
 
 4. **컴퓨터**를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/update-mgmt-manage-updates-for-vm.md)를 참조 하세요.
 
 5. 대체된 다른 업데이트에 대해 위 단계를 반복합니다.
 
-6. 정리 마법사를 실행하여 거부된 업데이트에서 파일을 삭제합니다. 
+6. WSUS (Windows Server Update Services)의 경우 대체 된 모든 업데이트를 정리 하 여 WSUS [서버 정리 마법사](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)를 사용 하 여 인프라를 새로 고칩니다.
 
-7. WSUS(Windows Server Update Services)의 경우 대체된 모든 업데이트를 수동으로 정리하여 인프라를 새로 고칩니다.
-
-8. 주기적으로 이 절차를 반복하여 표시 문제를 해결하고 업데이트 관리에 사용되는 디스크 공간의 크기를 최소화합니다.
+7. 주기적으로 이 절차를 반복하여 표시 문제를 해결하고 업데이트 관리에 사용되는 디스크 공간의 크기를 최소화합니다.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>시나리오: 포털의 업데이트 관리 아래에 머신이 표시되지 않음
 

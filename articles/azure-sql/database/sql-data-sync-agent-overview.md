@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333021"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858475"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>SQL 데이터 동기화에 대 한 데이터 동기화 에이전트
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,11 +24,11 @@ ms.locfileid: "91333021"
 Azure에서 SQL 데이터 동기화 데이터 동기화 에이전트를 설치 하 고 구성 하 여 SQL Server 데이터베이스와 데이터를 동기화 합니다. SQL 데이터 동기화에 대한 자세한 내용은 [SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
 
 > [!IMPORTANT]
-> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원 **하지** 않습니다.
+> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="download-and-install"></a>다운로드 및 설치
 
-데이터 동기화 에이전트를 다운로드 하려면 [SQL 데이터 동기화 에이전트로](https://www.microsoft.com/download/details.aspx?id=27693)이동 합니다.
+데이터 동기화 에이전트를 다운로드 하려면 [SQL 데이터 동기화 에이전트로](https://www.microsoft.com/download/details.aspx?id=27693)이동 합니다. 데이터 동기화 에이전트를 업그레이드 하려면 이전 에이전트와 동일한 위치에 에이전트를 설치 하 고 원래 에이전트를 재정의 합니다.
 
 ### <a name="install-silently"></a>자동 설치
 
@@ -38,7 +38,7 @@ Azure에서 SQL 데이터 동기화 데이터 동기화 에이전트를 설치 �
 
 - `LocalSystem` **SERVICEACCOUNT**의 값으로를 지정 하는 경우 SQL Server에 연결 하도록 에이전트를 구성할 때 SQL Server 인증을 사용 합니다.
 
-- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예들 들어 `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`입니다.
+- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -157,7 +157,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. **SQL 데이터 동기화 에이전트 속성**에서 **로그인** 탭을 선택합니다.
   1. **암호** 상자에 암호를 입력합니다.
   1. **암호 확인** 상자에 암호를 다시 입력합니다.
-  1. **적용** 및 **확인**을 차례로 선택합니다.
+  1. **적용**을 선택한 다음 **확인**을 선택합니다.
   1. **서비스** 창에서 **SQL 데이터 동기화 에이전트** 서비스를 마우스 오른쪽 단추로 클릭한 다음, **시작**을 클릭합니다.
   1. **서비스** 창을 닫습니다.
 
@@ -274,7 +274,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -307,7 +307,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true

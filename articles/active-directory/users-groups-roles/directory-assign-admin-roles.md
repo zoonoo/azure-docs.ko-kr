@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304223"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858130"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -274,7 +274,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="hybrid-identity-administrator"></a>[하이브리드 ID 관리자](#hybrid-identity-administrator-permissions)
 
-이 역할의 사용자는 Azure AD에서 하이브리드 ID 사용 설정과 관련된 서비스 및 설정을 사용하도록 설정하고, 구성하고, 관리할 수 있습니다. 이 역할은 지원되는 세 가지 인증 방법, 즉, PHS(암호 해시 동기화), PTA(통과 인증), 페더레이션(AD FS 또는 타사 페더레이션 공급자) 중 하나로 Azure AD를 구성하고, 관련 온-프레미스 인프라를 배포하여 이 방법을 사용하도록 설정할 수 있는 기능을 부여합니다. 온-프레미스 인프라에는 프로비저닝 및 PTA 에이전트가 포함되어 있습니다. 이 역할은 S-SSO(Seamless Single Sign-On)를 사용하도록 설정하여 Windows 10 이외의 디바이스 또는 Windows Server 2016 이외의 컴퓨터에서 원활한 인증이 가능하게 하는 기능을 부여합니다. 또한 이 역할은 모니터링 및 문제 해결을 위해 로그인 로그를 살펴보고 상태 및 분석에 액세스할 수 있는 기능을 부여합니다. 
+이 역할의 사용자는 클라우드 프로 비전을 사용 하 고 페더레이션 설정을 관리할 뿐만 아니라 AD에서 Azure AD로의 프로 비전 구성 설정을 만들고 관리 하 고 배포할 수 있습니다. 또한 사용자는이 역할을 사용 하 여 로그 문제를 해결 하 고 모니터링할 수 있습니다.  
 
 ### <a name="insights-administrator"></a>[Insights 관리자](#insights-administrator-permissions)
 이 역할의 사용자는 [M365 Insights 응용 프로그램](https://go.microsoft.com/fwlink/?linkid=2129521)의 전체 관리 기능 집합에 액세스할 수 있습니다. 이 역할에는 디렉터리 정보를 읽고, 서비스 상태를 모니터링 하 고, 파일 지원 티켓을 확인 하 고, Insights 관리 설정 측면에 액세스할 수 있는 기능이 있습니다.
@@ -1216,9 +1216,6 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Azure AD 클라우드 프로비저닝 서비스의 모든 속성을 읽고 구성합니다. |
 | microsoft.directory/federatedAuthentication/allProperties/allTasks | Azure AD에서 ADFS(Active Directory Federated Services) 또는 타사 페더레이션 공급자의 모든 것을 관리합니다. |
 | microsoft.directory/organization/dirSync/update | Azure Active Directory에서 organization.dirSync 속성을 업데이트합니다. |
-| microsoft.directory/passwordHashSync/allProperties/allTasks | Azure AD에서 PHS(암호 해시 동기화)의 모든 것을 관리합니다. |
-| microsoft.directory/passThroughAuthentication/allProperties/allTasks | Azure AD에서 PTA(통과 인증)의 모든 것을 관리합니다. |
-| microsoft.directory/seamlessSSO/allProperties/allTasks | Azure AD에서 Seamless SSO(Single Sign-On)의 모든 것을 관리합니다. |
 | microsoft.directory/servicePrincipals/audience/update | Azure Active Directory에서 servicePrincipals.audience 속성을 업데이트합니다. |
 | microsoft.directory/servicePrincipals/authentication/update | Azure Active Directory에서 servicePrincipals.authentication 속성을 업데이트합니다. |
 | microsoft.directory/servicePrincipals/basic/update | Azure Active Directory에서 servicePrincipals의 기본 속성을 업데이트합니다. |

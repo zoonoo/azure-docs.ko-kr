@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 9475d3f000bbfd84c16efc080cbbb9df63cac608
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 48345779ae702d854a216fcabe87d718e00f09b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653267"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858458"
 ---
 # <a name="hc-series"></a>HC 시리즈
 
@@ -22,8 +22,8 @@ HC 시리즈 Vm은 암시적 유한 요소 분석, 분자 dynamics 및 계산 �
 HC 시리즈 Vm 기능 100 g b/초 Mellanox EDR InfiniBand. 이러한 Vm은 최적화 되 고 일관 된 RDMA 성능을 위해 차단 되지 않는 fat 트리에 연결 됩니다. 이러한 Vm은 적응 라우팅 및 DCT (표준 RC 및 UD 전송에 대 한 추가)를 지원 합니다. 이러한 기능은 응용 프로그램의 성능, 확장성 및 일관성을 향상 시키고 이러한 기능을 사용 하는 것이 좋습니다.
 
 [Acu](acu.md): 297-315<br>
-[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
