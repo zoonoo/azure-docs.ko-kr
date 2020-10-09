@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Azure Arc를 사용하여 Azure Arc가 지원되는 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 74a0de494148f1f3315511c0bf6cb10f40cdc416
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540628"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855007"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc가 지원되는 Kubernetes 클러스터 연결(미리 보기)
 
@@ -68,10 +68,8 @@ Azure Arc 에이전트는 다음 프로토콜/포트/아웃바운드 URL이 작�
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | 에이전트가 Azure에 연결하고 클러스터를 등록하는 데 필요합니다.                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | 상태를 푸시하고 구성 정보를 가져오는 에이전트의 데이터 평면 엔드포인트                                      |
-| `https://docker.io`                                                                                            | 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                                         |
-| `https://github.com`, git://github.com                                                                         | 예제 GitOps 리포지토리는 GitHub에서 호스트됩니다. 구성 에이전트를 사용하려면 지정한 git 엔드포인트에 연결해야 합니다. |
 | `https://login.microsoftonline.com`                                                                            | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다.                                                                                    |
-| `https://azurearcfork8s.azurecr.io`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |
+| `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  시스템 할당 관리 id 인증서를 가져오는 데 필요 합니다.                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc가 지원되는 Kubernetes의 두 공급자 등록
@@ -183,17 +181,36 @@ AzureArcTest1  eastus      AzureArcTest
     az -v
     ```
 
-    `connectedk8s`아웃 바운드 프록시를 사용 하 여 에이전트를 설정 하려면 >= 0.2.3 확장 버전이 필요 합니다. 컴퓨터에 < 0.2.3 버전이 있으면 [업데이트 단계](#before-you-begin) 를 따라 컴퓨터에서 최신 버전의 확장을 가져옵니다.
+    `connectedk8s`아웃 바운드 프록시를 사용 하 여 에이전트를 설정 하려면 >= 0.2.5 확장 버전이 필요 합니다. 컴퓨터에 < 0.2.3 버전이 있으면 [업데이트 단계](#before-you-begin) 를 따라 컴퓨터에서 최신 버전의 확장을 가져옵니다.
 
-2. 프록시 매개 변수를 지정 하 여 connect 명령을 실행 합니다.
+2. 아웃 바운드 프록시 서버를 사용 하 Azure CLI에 필요한 환경 변수를 설정 합니다.
+
+    * Bash를 사용 하는 경우 적절 한 값을 사용 하 여 다음 명령을 실행 합니다.
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * PowerShell을 사용 하는 경우 적절 한 값을 사용 하 여 다음 명령을 실행 합니다.
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
+
+3. 프록시 매개 변수를 지정 하 여 connect 명령을 실행 합니다.
 
     ```console
-    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
 > [!NOTE]
 > 1. --Proxy-skip 범위에서 excludedCIDR을 지정 하는 것이 에이전트에 대해 클러스터 간 통신이 끊어지지 않았는지 확인 하는 데 중요 합니다.
-> 2. 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되 고 sourceControlConfiguration에서 사용 되는 flux pod는 적용 되지 않습니다. Arc enabled Kubernetes 팀은이 기능에서 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
+> 2. 대부분의 아웃 바운드 프록시 환경에--proxy-http,--pod 및--proxy-skip 범위가 필요 하지만--proxy-cert는 에이전트의 신뢰할 수 있는 인증서 저장소에 삽입 해야 하는 프록시의 신뢰할 수 있는 인증서가 있는 경우에만 필요 합니다.
+> 3. 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되며 sourceControlConfiguration에 사용 되는 flux pod는 적용 되지 않습니다. Arc enabled Kubernetes 팀은이 기능에서 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes용 Azure Arc 에이전트
 

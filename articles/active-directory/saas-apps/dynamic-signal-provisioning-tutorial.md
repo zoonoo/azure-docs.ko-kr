@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323837"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851223"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 동적 신호 구성
 
@@ -100,11 +100,11 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 6. 동적 신호 관리 콘솔에서 **관리자 > 고급 > API**로 이동 합니다.
 
-    ![동적 신호 프로 비전](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="동적 신호 관리 콘솔의 스크린샷 고급이 관리 메뉴에 강조 표시 됩니다. P가 강조 표시 된 고급 메뉴도 표시 됩니다." border="false":::
 
     **Scim API url** 을 **테 넌 트 url**에 복사 합니다. **새 토큰 생성** 을 클릭 하 여 **전달자 토큰** 을 생성 하 고 값을 **비밀 토큰**에 복사 합니다.
 
-    ![동적 신호 프로 비전](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="동적 신호 관리 콘솔의 스크린샷 고급이 관리 메뉴에 강조 표시 됩니다. P가 강조 표시 된 고급 메뉴도 표시 됩니다." border="false":::
 
 7. 5 단계에 표시 된 필드를 채우면 **연결 테스트** 를 클릭 하 여 Azure AD가 동적 신호에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Dynamic Signal 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 

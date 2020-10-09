@@ -8,27 +8,27 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: 4d3568e3869415a3223154af30b22d85c8104199
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1b684fde9123d3c12d5d69c1daec1c53c6519c44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087625"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855296"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML 서비스용 azure storage 솔루션
 
 HDInsight의 ML 서비스는 다른 저장소 솔루션을 사용 하 여 분석 결과를 포함 하는 데이터, 코드 또는 개체를 유지할 수 있습니다. 이러한 솔루션에는 다음 옵션이 포함 됩니다.
 
-- [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
+- [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)
 
 필요한 경우, HDInsight 클러스터가 있는 여러 Azure Storage 계정 또는 컨테이너에 액세스할 수도 있습니다. Azure File storage는 Azure storage 파일 공유를 Linux 파일 시스템에 탑재할 수 있도록 하는에 지 노드에서 사용할 수 있는 편리한 데이터 저장소 옵션입니다. 하지만, Azure File 공유는 마운팅이 가능하고 Windows 또는 Linux 등 지원되는 운영 체제가 있는 모든 시스템에서 사용할 수 있습니다.
 
-HDInsight에서 Apache Hadoop 클러스터를 만들 때 **Azure Storage** 계정 또는 **Data Lake Storage**를 지정 합니다. 해당 계정의 특정 스토리지 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 자세한 내용 및 지침은 다음을 참조하세요.
+HDInsight에서 Apache Hadoop 클러스터를 만들 때 **Azure Blob storage** 계정 또는 **Data Lake Storage Gen1**를 지정 합니다. 해당 계정의 특정 스토리지 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 자세한 내용 및 지침은 다음을 참조하세요.
 
-- [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure HDInsight 클러스터에 Data Lake Storage 사용](../hdinsight-hadoop-use-data-lake-store.md)
+- [HDInsight에서 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
+- [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Blob Storage 계정 사용
 
@@ -108,23 +108,23 @@ hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShar
 hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 ```
 
-## <a name="use-azure-data-lake-storage-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Data Lake Storage 사용
+## <a name="use-azure-data-lake-storage-gen1-with-ml-services-cluster"></a>ML 서비스 클러스터에서 Azure Data Lake Storage Gen1 사용
 
-HDInsight 클러스터에서 Data Lake Storage를 사용하려면 사용할 각 Azure Data Lake Storage에 대한 액세스 권한을 클러스터에 부여해야 합니다. Azure Portal에서 기본 스토리지 또는 추가 스토리지로 Azure Data Lake Storage 계정을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 Data Lake Storage를 포함한 HDInsight 클러스터 만들기](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+HDInsight 클러스터에서 Data Lake Storage Gen1를 사용 하려면 사용 하려는 각 Azure Data Lake Storage Gen1에 대 한 클러스터 액세스 권한을 부여 해야 합니다. Azure Portal를 사용 하 여 기본 저장소 또는 추가 저장소로 Azure Data Lake Storage Gen1을 사용 하 여 HDInsight 클러스터를 만드는 방법에 대 한 지침은 [Azure Portal를 사용 하 여 Data Lake Storage Gen1를 사용 하 여 hdinsight 클러스터 만들기](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조 하세요.
 
 그런 다음, 이전 절차에서 설명한 대로 보조 Azure Storage 계정을 사용할 때처럼 R 스크립트에서 스토리지를 사용합니다.
 
-### <a name="add-cluster-access-to-your-azure-data-lake-storage"></a>Azure Data Lake Storage에 클러스터 액세스 추가
+### <a name="add-cluster-access-to-your-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대 한 클러스터 액세스 추가
 
-HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Data Lake Storage에 액세스합니다.
+HDInsight 클러스터와 연결 된 Azure Active Directory (Azure AD) 서비스 주체를 사용 하 여 Data Lake Storage Gen1에 액세스 합니다.
 
-1. HDInsight 클러스터를 만들 때 **데이터 원본** 탭에서 **클러스터 AAD ID**를 선택합니다.
+1. HDInsight 클러스터를 만들 때 **데이터 원본** 탭에서 **클러스터 Azure AD id** 를 선택 합니다.
 
-2. **클러스터 AAD ID** 대화 상자의**AD 서비스 주체 선택**에서 **새로 만들기**를 선택합니다.
+2. **클러스터 AZURE Ad id** 대화 상자의 **AD 서비스 주체 선택**에서 **새로 만들기**를 선택 합니다.
 
 서비스 주체에 이름을 지정하고 암호를 만든 후에 **ADLS 액세스 관리**를 클릭하여 Data Lake Storage와 서비스 주체를 연결합니다.
 
-클러스터를 만든 후 하나 이상의 Data Lake 저장소 계정에 클러스터 액세스를 추가할 수도 있습니다. Data Lake Storage에 대한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가**로 이동합니다.
+클러스터를 만든 후 하나 이상의 Data Lake storage Gen1 계정에 클러스터 액세스를 추가할 수도 있습니다. Data Lake Storage Gen1에 대 한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가**로 이동 합니다.
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Data Lake Storage Gen1에 액세스하는 방법
 
@@ -151,7 +151,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 ```
 
-다음 명령은 RevoShare 디렉터리로 Data Lake Storage Gen1 계정을 구성하고 이전 예제의 샘플 .csv 파일을 추가하는 데 사용합니다.
+다음 명령은 Revoshare 디렉터리로 디렉터리를 사용 하 여 Data Lake Storage Gen1를 구성 하 고 이전 예제의 샘플 .csv 파일을 추가 하는 데 사용 됩니다.
 
 ```bash
 hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

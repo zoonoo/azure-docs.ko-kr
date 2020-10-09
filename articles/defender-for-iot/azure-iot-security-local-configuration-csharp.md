@@ -4,7 +4,7 @@ description: 'IoT 보안 서비스용 Defender, c #에 대 한 보안 에이전�
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 19fa5b2949888993954f3075d1e10c9e8f126e2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939556"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851236"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 이해 (c # 에이전트)
 
 IoT 용 Defender 보안 에이전트는 로컬 구성 파일의 구성을 사용 합니다.
 
-보안 에이전트는 에이전트가 시작 될 때 구성 파일을 한 번 읽습니다. 로컬 구성 파일에 있는 구성에는 인증 구성과 기타 에이전트 관련 구성이 모두 포함 됩니다.
+보안 에이전트는 에이전트가 실행 되기 시작할 때 구성 파일을 한 번 읽습니다. 로컬 구성 파일에 있는 구성에는 인증 구성과 기타 에이전트 관련 구성이 모두 포함 됩니다.
 
 C # 보안 에이전트는 여러 구성 파일을 사용 합니다.
 
@@ -57,7 +57,7 @@ Windows의 경우:
 | highPriorityQueueSizePercentage | 0 < 번호 < 1 | 우선 순위가 높은 메시지의 전용 총 캐시 부분입니다. |
 | logLevel | "Off", "치명적", "Error", "Warning", "Information", "Debug"  | 이 심각도가 같은 로그 메시지는 디버그 콘솔 (Linux의 Syslog)에 기록 됩니다. |
 | fileLogLevel |  "Off", "치명적", "Error", "Warning", "Information", "Debug"| 이 심각도가 같은 로그 메시지는 파일 (Linux의 Syslog)에 기록 됩니다. |
-| diagnosticVerbosityLevel | "None", "Some", "All", | 진단 이벤트의 자세한 표시 수준입니다. 없음-진단 이벤트가 전송 되지 않고 중요도가 높은 진단 이벤트가 모두 전송 되며 모든 로그가 진단 이벤트로도 전송 됩니다. |
+| diagnosticVerbosityLevel | "None", "Some", "All", | 진단 이벤트의 자세한 표시 수준입니다. 없음-진단 이벤트가 전송 되지 않습니다. 중요도가 높은 일부 전용 진단 이벤트가 전송 됩니다. 모두-모든 로그는 진단 이벤트로도 전송 됩니다. |
 | logFilePath | 파일 경로 | FileLogLevel > Off 인 경우 로그는이 파일에 기록 됩니다. |
 | defaultEventPriority | "높음", "낮음", "꺼짐" | 기본 이벤트 우선 순위입니다. |
 
@@ -85,10 +85,11 @@ Windows의 경우:
 | 구성 이름 | 가능한 값 | 세부 정보 |
 |:-----------|:---------------|:--------|
 | moduleName | 문자열 | 보안 모듈 id의 이름입니다. 이 이름은 장치의 모듈 id 이름과 일치 해야 합니다. |
-| deviceId | 문자열 | Azure IoT Hub에 등록 된 장치의 ID입니다. || schedulerInterval | TimeSpan 문자열 | 내부 스케줄러 간격입니다. |
+| deviceId | 문자열 | Azure IoT Hub에 등록 된 장치의 ID입니다. |
+| schedulerInterval | TimeSpan 문자열 | 내부 스케줄러 간격입니다. |
 | 게이트웨이 호스트 이름 | 문자열 | Azure Iot Hub의 호스트 이름입니다. 일반적으로 <내 허브>. azure-devices.net |
 | filePath | 문자열-파일의 경로 | 인증 암호를 포함 하는 파일의 경로입니다.|
-| 형식 | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 비밀이 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
+| type | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 암호가 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
 | identity | "DPS", "모듈", "장치" | 인증 id-dps를 통해 인증을 수행 하는 경우 dps, 모듈 자격 증명을 사용 하 여 인증을 수행 하는 경우 모듈, 장치 자격 증명을 사용 하 여 인증 하는 경우 장치
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile 인증서가 파일에 저장 된 경우 인증서가 인증서 저장소에 있는 경우 저장 합니다. |
 | idScope | 문자열 | DPS의 ID 범위 |

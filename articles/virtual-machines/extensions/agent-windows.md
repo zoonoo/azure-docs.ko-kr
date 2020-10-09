@@ -2,23 +2,17 @@
 title: Azure Virtual Machines 에이전트 개요
 description: Azure Virtual Machines 에이전트 개요
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.author: mimckitt
+ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612830"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855778"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -68,11 +62,11 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
-- Windows VM 에이전트는 .Net Framework 4.0를 사용 하 여 Windows Server 2008 SP2 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원을](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 참조 하세요.
+- Windows VM 에이전트는 .NET Framework 4.0를 사용 하 여 Windows Server 2008 SP2 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 참조 하세요.
 
-- VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?을](../../virtual-network/what-is-ip-address-168-63-129-16.md)참조 하세요.
+- VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
 
 - DHCP가 게스트 VM 내에서 사용 되도록 설정 되어 있는지 확인 합니다. IaaS VM 에이전트 및 확장이 작동 하려면 DHCP에서 호스트 또는 패브릭 주소를 가져오는 데 필요 합니다. 정적 개인 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .
 
@@ -87,7 +81,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 Azure VM에 대한 정�
 Get-AzVM
 ```
 
-다음의 요약 예제 출력에서는 *OSProfile* 내부에 중첩된 *ProvisionVMAgent* 속성을 보여줍니다. 이 속성을 사용하여 VM 에이전트가 VM에 배포되었는지 여부를 확인할 수 있습니다.
+다음 압축 예제 출력에서는 내부에 중첩 된 *ProvisionVMAgent* 속성을 보여 줍니다 `OSProfile` . 이 속성을 사용하여 VM 에이전트가 VM에 배포되었는지 여부를 확인할 수 있습니다.
 
 ```powershell
 OSProfile                  :
@@ -115,10 +109,19 @@ Microsoft VM에 로그인하면 작업 관리자를 사용하여 실행 중인 �
 
 
 ## <a name="upgrade-the-vm-agent"></a>VM 에이전트 업그레이드
-Windows 용 Azure VM 에이전트는 Azure marketplace에서 배포 된 이미지에서 자동으로 업그레이드 됩니다. 새 VM이 Azure에 배포되면 VM 프로비전 시 최신 VM 에이전트가 제공됩니다. 에이전트를 수동으로 설치 하거나 사용자 지정 VM 이미지를 배포 하는 경우에는 이미지를 만들 때 새 VM 에이전트를 포함 하도록 수동으로 업데이트 해야 합니다.
+Windows 용 Azure VM 에이전트는 Azure Marketplace에서 배포 된 이미지에서 자동으로 업그레이드 됩니다. 새 VM이 Azure에 배포되면 VM 프로비전 시 최신 VM 에이전트가 제공됩니다. 에이전트를 수동으로 설치 하거나 사용자 지정 VM 이미지를 배포 하는 경우에는 이미지를 만들 때 새 VM 에이전트를 포함 하도록 수동으로 업데이트 해야 합니다.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Windows 게스트 에이전트 자동 로그 수집
 Windows 게스트 에이전트에는 일부 로그를 자동으로 수집 하는 기능이 있습니다. 이 기능은 CollectGuestLogs.exe 프로세스에 의해 컨트롤러입니다. PaaS Cloud Services 및 IaaS Virtual Machines 모두에 대해 존재 하며,이는 VM에서 일부 진단 로그를 자동으로 수집 하 & 오프 라인 분석에 사용할 수 있도록 하는 것입니다. 수집 된 로그는 이벤트 로그, OS 로그, Azure 로그 및 일부 레지스트리 키입니다. VM의 호스트로 전송 되는 ZIP 파일을 생성 합니다. 그런 다음이 ZIP 파일을 검토 하 여 엔지니어링 팀과 지원 전문가에 게 VM을 소유 하는 고객의 요청에 대 한 문제를 조사할 수 있습니다.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>게스트 에이전트 및 OSProfile 인증서
+Azure VM 에이전트는 `OSProfile` vm 또는 가상 머신 확장 집합의에서 참조 되는 인증서를 설치 하는 일을 담당 합니다. 게스트 VM 내의 인증서 MMC 콘솔에서 이러한 인증서를 수동으로 제거 하는 경우 게스트 에이전트가 해당 인증서를 다시 추가 해야 합니다.
+인증서를 영구적으로 제거 하려면에서 인증서를 제거한 `OSProfile` 후 게스트 운영 체제 내에서 제거 해야 합니다.
+
+가상 컴퓨터의 경우 [AzVMSecret]() 를 사용 하 여에서 인증서를 제거 합니다 `OSProfile` .
+
+가상 머신 확장 집합 인증서에 대 한 자세한 내용은 [Virtual Machine Scale Sets-어떻게 할까요? 사용 되지 않는 인증서 제거](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates) 를 참조 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 VM 확장에 대한 자세한 내용은 [Azure 가상 머신 확장 및 기능 개요](overview.md)를 참조하세요.

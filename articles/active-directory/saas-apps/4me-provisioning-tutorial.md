@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: a6dc9aa70c55a0ed511a73570274c68708988451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331236"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851291"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 4me 구성
 
@@ -122,15 +122,15 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 10. **매핑** 섹션 아래에서 **Azure Active Directory 사용자와 4를 동기화**합니다 .를 선택 합니다.
 
-    ![4me 사용자 매핑](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 사용자 Azure Active Directory 동기화가 강조 표시 됩니다." border="false":::
     
 11. **특성 매핑** 섹션에서 Azure AD에서 4me로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 4me의 사용자 계정을 일치 시키는 데 사용 됩니다. 사용자가 선택한 일치 특성에 대 한 [필터링이 지원](https://developer.4me.com/v1/scim/users/) 되는지 확인 하세요. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![4me 사용자 매핑](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 사용자 Azure Active Directory 동기화가 강조 표시 됩니다." border="false":::
     
 12. **매핑** 섹션에서 **Azure Active Directory 그룹을 4로 동기화를**선택 합니다.
 
-    ![4me 사용자 매핑](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 사용자 Azure Active Directory 동기화가 강조 표시 됩니다." border="false":::
     
 13. **특성 매핑** 섹션에서 Azure AD에서 4me로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 4me의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 

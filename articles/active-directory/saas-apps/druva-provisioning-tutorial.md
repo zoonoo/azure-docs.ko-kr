@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323518"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851155"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Druva 구성
 
@@ -58,15 +58,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Druva를 구
 
 2. 배포 사용자 **관리**로 이동  >  **Deployments**  >  **Users**합니다.
 
-    ![Druva SCIM 추가](media/druva-provisioning-tutorial/manage.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/manage.png" alt-text="Druva 관리 콘솔의 스크린샷 관리가 강조 표시 되 고 관리 메뉴가 표시 됩니다. 이 메뉴의 배포 아래에서 사용자가 강조 표시 됩니다." border="false":::
 
 3.  **설정**으로 이동 합니다. **토큰 생성**을 클릭 합니다.
 
-    ![Druva SCIM 추가](media/druva-provisioning-tutorial/settings.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Druva 관리 콘솔의 스크린샷 관리가 강조 표시 되 고 관리 메뉴가 표시 됩니다. 이 메뉴의 배포 아래에서 사용자가 강조 표시 됩니다." border="false":::
 
 4.  **인증 토큰** 값을 복사 합니다. 이 값은 Azure Portal Druva 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다.
     
-    ![Druva SCIM 추가](media/druva-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Druva 관리 콘솔의 스크린샷 관리가 강조 표시 되 고 관리 메뉴가 표시 됩니다. 이 메뉴의 배포 아래에서 사용자가 강조 표시 됩니다." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>갤러리에서 Druva 추가
 
@@ -156,7 +156,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Druva를 구성 �
 
 * Druva에는 필수 특성으로 **메일** 을 사용 해야 합니다. 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

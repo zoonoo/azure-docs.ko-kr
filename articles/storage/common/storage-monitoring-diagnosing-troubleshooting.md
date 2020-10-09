@@ -4,17 +4,17 @@ description: 스토리지 분석, 클라이언트 쪽 로깅 기타 타사 도�
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/02/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667914"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854560"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,8 +23,6 @@ ms.locfileid: "91667914"
 클라우드 환경에서 호스트된 분산 애플리케이션의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 디바이스 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 일반적으로 애플리케이션의 네트워크 트래픽은 공용 네트워크와 프라이빗 네트워크를 트래버스할 수 있으며 애플리케이션은 Microsoft Azure Storage 테이블, Blob, 큐 또는 파일과 같은 여러 스토리지 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
 
 이러한 애플리케이션은 올바르게 관리하려면 미리 모니터링하여 애플리케이션과 종속 기술의 모든 측면을 진단하고 문제를 해결하는 방법을 파악해야 합니다. Azure Storage 서비스 사용자는 애플리케이션이 사용하는 Storage 서비스를 지속적으로 모니터링하여 정상적인 응답 시간보다 속도가 느려지는 등 예기치 않은 동작 변경을 파악해야 하며, 로깅을 사용하여 보다 자세한 데이터를 수집하고 문제를 자세하게 분석해야 합니다. 모니터링 및 로깅을 통해 얻은 진단 정로를 토대로 애플리케이션에 발생한 문제의 근본 원인을 확인할 수 있습니다. 그러면 문제를 해결하고 해당 문제를 완화하기 위해 수행할 수 있는 적절한 단계를 결정할 수 있습니다. Azure Storage는 핵심 Azure 서비스이며 고객이 Azure 인프라에 배포하는 대부분의 솔루션에서 중요한 역할을 합니다. Azure Storage에는 클라우드 기반 애플리케이션의 스토리지 문제 모니터링, 진단 및 해결 과정을 간소화하는 기능이 포함되어 있습니다.
-
-Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가이드는, [Azure Storage 및 로깅, AzCopy, 메시지 분석기를 사용한 엔드투엔드 문제 해결](../storage-e2e-troubleshooting.md)을 참조하세요.
 
 * [소개]
   * [이 가이드의 구성 방식]
@@ -68,7 +66,6 @@ Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가�
 * [부록]
   * [부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]
   * [부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]
-  * [부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]
   * [부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기]
   * [부록 5: Azure DevOps용 Application Insights를 사용한 모니터링]
 
@@ -92,14 +89,14 @@ Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가�
 
 &quot;[문제 해결 지침]&quot; 섹션에서는 발생 가능한 몇 가지 일반적인 스토리지 관련 문제에 대한 문제 해결 지침을 제공합니다.
 
-"[부록]"에는 Wireshark, Netmon 등의 기타 도구를 사용하여 네트워크 패킷 데이터를 분석하고, Fiddler를 사용하여 HTTP/HTTPS 메시징을 분석하며, .Microsoft Message Analyzer를 사용하여 로그 데이터의 상관 관계를 지정하는 방법을 설명합니다.
+"[부록]"에는 네트워크 패킷 데이터를 분석 하기 위해 Wireshark 및 Netmon과 같은 다른 도구를 사용 하는 방법 및 HTTP/HTTPS 메시지 분석을 위한 Fiddler에 대 한 정보가 포함 되어 있습니다.
 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>스토리지 서비스 모니터링
 Windows 성능 모니터링에 대해 잘 알고 있는 경우 Storage 메트릭은 Windows 성능 모니터 카운터의 Azure Storage 버전이라고 생각하면 됩니다. Storage 메트릭에서는 서비스 가용성, 처리할 총 요청 수, 처리할 성공한 요청의 백분율 등 포괄적인 메트릭(Windows 성능 모니터 용어로는 카운터) 집합이 제공됩니다. 사용 가능한 메트릭의 전체 목록은 [스토리지 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요. 스토리지 서비스가 메트릭을 수집 및 집계하는 간격(1시간마다/1분마다)을 지정할 수 있습니다. 메트릭을 사용하도록 설정하고 스토리지 계정을 모니터링하는 방법에 대한 자세한 내용은 [스토리지 메트릭 설정 및 메트릭 데이터 보기](https://go.microsoft.com/fwlink/?LinkId=510865)를 참조하세요.
 
 [Azure Portal](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)를 참조하세요.
 
-[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로, Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
+[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로 Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 스토리지 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 스토리지 작업을 기록하지는 못합니다.
 
@@ -221,10 +218,9 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리�
 
 * [Fiddler](https://www.telerik.com/fiddler) 는 HTTP/HTTPS 요청 및 응답 메시지의 헤더 및 페이로드 데이터를 검사하는 데 사용할 수 있는 무료 웹 디버깅 프록시입니다. 자세한 내용은 [부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처](#appendix-1)를 참조하세요.
 * [Microsoft 네트워크 모니터(Netmon)](https://cnet-downloads.com/network-monitor) 및 [Wireshark](https://www.wireshark.org/)는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인하는 데 사용할 수 있는 무료 네트워크 프로토콜 분석기입니다. Wireshark에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처](#appendix-2)”를 참조하세요.
-* Microsoft Message Analyzer는 Netmon을 대체하는 Microsoft의 도구로, 네트워크 패킷 데이터를 캡처할 뿐 아니라 다른 도구에서 캡처한 로그 데이터를 확인 및 분석할 수도 있습니다. 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처](#appendix-3)”를 참조하세요.
 * 기본 연결 테스트를 수행하여 클라이언트 컴퓨터가 네트워크를 통해 Azure Storage 서비스에 연결할 수 있는지를 확인하려는 경우 클라이언트에서 표준 **ping** 도구를 통해서는 이 작업을 수행할 수 없습니다. 그러나 [**tcping** 도구](https://www.elifulkerson.com/projects/tcping.php)를 사용하면 연결을 확인할 수 있습니다.
 
-대부분의 경우 스토리지 로깅 및 Storage 클라이언트 라이브러리의 로그 데이터로 문제를 충분히 진단할 수 있습니다. 그러나 이러한 네트워크 로깅 도구가 제공할 수 있는 상세 정보가 필요한 경우도 있습니다. 예를 들어 Fiddler를 통해 HTTP 및 HTTPS 메시지를 확인하면 스토리지 서비스가 보내고 받는 헤더 및 페이로드 데이터를 볼 수 있으므로 클라이언트 애플리케이션이 스토리지 작업을 다시 시도하는 방법을 검사할 수 있습니다. Wireshark 등의 프로토콜 분석기는 패킷 수준에서 작동하여 TCP 데이터를 확인할 수 있도록 합니다. 따라서 패킷 손실 및 연결 끊김 문제를 해결할 수 있습니다. 메시지 분석기는 HTTP 및 TCP 계층에서 모두 작동할 수 있습니다.
+대부분의 경우 스토리지 로깅 및 Storage 클라이언트 라이브러리의 로그 데이터로 문제를 충분히 진단할 수 있습니다. 그러나 이러한 네트워크 로깅 도구가 제공할 수 있는 상세 정보가 필요한 경우도 있습니다. 예를 들어 Fiddler를 통해 HTTP 및 HTTPS 메시지를 확인하면 스토리지 서비스가 보내고 받는 헤더 및 페이로드 데이터를 볼 수 있으므로 클라이언트 애플리케이션이 스토리지 작업을 다시 시도하는 방법을 검사할 수 있습니다. Wireshark 등의 프로토콜 분석기는 패킷 수준에서 작동하여 TCP 데이터를 확인할 수 있도록 합니다. 따라서 패킷 손실 및 연결 끊김 문제를 해결할 수 있습니다. 
 
 ## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>엔드투엔드 추적
 다양한 로그 파일을 사용하는 엔드투엔드 추적은 잠재적 문제를 조사하는 데 유용한 기술입니다. 메트릭 데이터의 날짜/시간 정보를 통해 로그 파일에서 문제를 해결하는 데 도움이 되는 상세 정보 찾기를 시작할 위치를 파악할 수 있습니다.
@@ -385,11 +381,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 클라이언트 쪽 로그를 통해 클라이언트 애플리케이션이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 애플리케이션 문제 해결을 시작하려면 [디버깅, 추적 및 프로파일링](https://msdn.microsoft.com/library/7fe0dd2y)을 참조하세요.
 
 #### <a name="investigating-network-latency-issues"></a>네트워크 대기 시간 문제 조사
-일반적으로 네트워크에서 발생하는 긴 엔드투엔드 대기 시간의 원인은 일시적인 상태 때문입니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 일시적인 네트워크 문제와 영구적인 네트워크 문제(예: 패킷 삭제)를 모두 조사해야 합니다.
+일반적으로 네트워크에서 발생하는 긴 엔드투엔드 대기 시간의 원인은 일시적인 상태 때문입니다. Wireshark와 같은 도구를 사용 하 여 삭제 된 패킷과 같은 일시적인 네트워크 문제를 조사할 수 있습니다.
 
 Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
-
-Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]”를 참조하세요.
 
 ### <a name="metrics-show-low-averagee2elatency-and-low-averageserverlatency-but-the-client-is-experiencing-high-latency"></a><a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>메트릭에서 AverageE2ELatency 및 AverageServerLatency는 낮게 표시되는데 클라이언트의 대기 시간이 길어짐
 이 시나리오에서는 스토리지 요청이 스토리지 서비스에 도착할 때까지의 대기 시간이 길어지는 경우로 인한 가능성이 가장 높습니다. 클라이언트의 요청이 Blob 서비스에 정상적인 속도로 도착하지 않는 원인을 조사해야 합니다.
@@ -402,11 +396,9 @@ Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하�
 * 클라이언트 로그를 검사합니다. 자세한 정보 로깅은 다시 시도가 발생된 것을 표시됩니다.
 * 코드를 디버깅하고 요청과 관련된 **OperationContext** 개체의 속성을 확인합니다. 작업을 다시 시도하는 경우 **RequestResults** 속성은 여러 고유한 서버 요청 ID를 포함합니다. 또한 각 요청에 대한 시작 및 종료 시간을 확인할 수 있습니다. 자세한 내용은 [서버 요청 ID]섹션의 코드 샘플을 참조하세요.
 
-클라이언트에 문제가 없으면 패킷 손실 등의 네트워크 문제 가능성을 조사해야 합니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 네트워크 문제를 조사할 수 있습니다.
+클라이언트에 문제가 없으면 패킷 손실 등의 네트워크 문제 가능성을 조사해야 합니다. Wireshark와 같은 도구를 사용 하 여 네트워크 문제를 조사할 수 있습니다.
 
 Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
-
-Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]”를 참조하세요.
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>메트릭에서 AverageServerLatency가 높게 표시됨
 Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되는 경우 Storage 로깅 로그를 사용하여 같은 Blob 또는 Blob 세트에 대해 요청이 반복되는지 여부를 확인해야 합니다. Blob 업로드 요청의 경우 클라이언트에서 사용 중인 블록 크기를 조사해야 합니다. 예를 들어 블록 크기가 64K보다 작은 경우 읽기도 64K 청크보다 작지 않으면 오버헤드가 발생합니다. 또한 여러 클라이언트가 같은 Blob에 병렬로 블록을 업로드하고 있는지도 조사해야 합니다. 요청 수가 급증하여 초당 확장성 목표가 초과되지 않는지 분당 메트릭도 확인해야 합니다. “[메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]”을 참조하세요.
@@ -476,7 +468,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>메트릭에서 PercentNetworkError가 증가하는 것으로 표시됨
 메트릭에서 스토리지 서비스 중 하나의 **PercentNetworkError** 가 증가하는 것으로 표시됩니다. **PercentNetworkError** 메트릭은 **NetworkError**, **AnonymousNetworkError** 및 **SASNetworkError** 메트릭을 집계한 것입니다. 이러한 오류는 클라이언트가 스토리지 요청을 수행할 때 스토리지 서비스에서 네트워크 오류를 검색하면 발생합니다.
 
-이 오류의 가장 일반적인 원인은 스토리지 서비스에서 제한 시간이 만료되기 전에 클라이언트의 연결이 끊기는 현상입니다. 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다. Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트의 네트워크 연결 문제를 조사할 수도 있습니다. 이러한 도구에 대해서는 [부록]에서 설명합니다.
+이 오류의 가장 일반적인 원인은 스토리지 서비스에서 제한 시간이 만료되기 전에 클라이언트의 연결이 끊기는 현상입니다. 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다. Wireshark 또는 Tcping을 사용 하 여 클라이언트에서 네트워크 연결 문제를 조사할 수도 있습니다. 이러한 도구에 대해서는 [부록]에서 설명합니다.
 
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>클라이언트에 HTTP 403(사용할 수 없음) 메시지가 표시됨
 클라이언트 애플리케이션에서 HTTP 403(사용할 수 없음) 오류가 throw되는 경우 클라이언트가 스토리지 요청을 보낼 때 만료된 SAS(공유 액세스 서명)를 사용 중이어서일 가능성이 높습니다. 그러나 클럭 오차, 잘못된 키, 빈 헤더 등의 다른 원인일 수도 있습니다. 만료된 SAS가 원인인 경우에는 서버 쪽 스토리지 로깅 로그 데이터에 항목이 표시되지 않습니다. 아래 표에는 이 문제가 발생함을 나타내는 Storage 클라이언트 라이브러리에서 생성된 클라이언트 쪽 로그의 샘플이 나와 있습니다.
@@ -719,13 +711,11 @@ sqllocaldb create v11.0
 
 * 예상한 기본 동작에서 변경된 사항이 있는지 메트릭을 확인합니다. 메트릭을 참조하여 문제가 일시적인지 영구적인지와 문제의 영향을 받는 스토리지 작업을 확인할 수 있습니다.
 * 메트릭 정보를 사용하면 서버 쪽 로그 데이터에서 발생하는 오류에 대한 보다 자세한 정보를 검색할 수 있습니다. 이 정보는 문제를 해결하는 데 도움이 될 수 있습니다.
-* 서버 쪽 로그의 정보만으로는 문제를 올바르게 해결할 수 없는 경우에는 Storage 클라이언트 라이브러리 클라이언트 쪽 로그를 사용하여 클라이언트 애플리케이션의 동작을 조사하고 Fiddler, Wireshark, Microsoft Message Analyzer 등의 도구를 사용하여 네트워크를 조사할 수 있습니다.
+* 서버 쪽 로그의 정보가 부족 하 여 문제를 성공적으로 해결할 수 없는 경우에는 저장소 클라이언트 라이브러리 클라이언트 쪽 로그를 사용 하 여 클라이언트 응용 프로그램의 동작을 조사 하 고 Fiddler, Wireshark 등의 도구를 사용 하 여 네트워크를 조사할 수 있습니다.
 
 Fiddler를 사용하는 방법에 대한 자세한 내용은 “[부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]”를 참조하세요.
 
 Wireshark를 사용하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
-
-Microsoft Message Analyzer를 사용하는 방법에 대한 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]”를 참조하세요.
 
 ## <a name="appendices"></a><a name="appendices"></a>부록
 부록에서는 Azure Storage 및 기타 서비스의 문제를 진단 및 해결할 때 유용할 수 있는 여러 가지 도구에 대해 설명합니다. 이러한 도구는 Azure Storage에 포함되지는 않으며, 타사 제품도 있습니다. 그러므로 이 부록에서 설명하는 도구에는 Microsoft Azure 또는 Azure Storage에 적용될 수 있는 지원 규약이 적용되지 않기 때문에 평가 프로세스의 일환으로 이러한 도구의 공급자가 제공하는 라이선스 및 지원 옵션을 확인해야 합니다.
@@ -776,40 +766,6 @@ TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확�
 > Wireshark를 사용하는 방법에 대한 자세한 내용은 [Wireshark 사용 설명서](https://www.wireshark.org/docs/wsug_html_chunked)를 참조하세요.
 >
 >
-
-### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처
-Microsoft Message Analyzer를 사용하여 Fiddler와 비슷한 방식으로 HTTP 및 HTTPS 트래픽을 캡처할 수 있으며 Wireshark와 비슷한 방식으로 네트워크 트래픽을 캡처할 수 있습니다.
-
-#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer를 사용하여 웹 추적 세션 구성
-Microsoft Message Analyzer를 사용하여 HTTP 및 HTTPS 트래픽에 대해 웹 추적 세션을 구성하려면 Microsoft Message Analyzer 애플리케이션을 시작하고 **파일** 메뉴에서 **캡처/추적**을 클릭합니다. 사용 가능한 추적 시나리오 목록에서 **웹 프록시**를 선택합니다. 그런 다음 **추적 시나리오 구성** 패널의 **HostnameFilter** 텍스트 상자에 스토리지 엔드포인트의 이름을 추가합니다. [Azure Portal](https://portal.azure.com)에서 이러한 이름을 조회할 수 있습니다. 예를 들어 Azure storage 계정의 이름이 **contosodata**인 경우 **HostnameFilter** 텍스트 상자에 다음을 추가해야 합니다.
-
-```
-contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-```
-
-> [!NOTE]
-> 호스트 이름이 여러 개이면 공백 문자로 구분합니다.
->
->
-
-추적 데이터 수집을 시작할 준비가 되면 **시작** 단추를 클릭합니다.
-
-Microsoft 메시지 분석기 **웹 프록시** 추적에 대한 자세한 내용은 [Microsoft-PEF-WebProxy 공급자](https://technet.microsoft.com/library/jj674814.aspx)를 참조하세요.
-
-Microsoft Message Analyzer의 기본 제공 **웹 프록시** 추적은 Fiddler를 기반으로 하며 클라이언트 쪽 HTTPS 트래픽을 캡처하고 암호화되지 않은 HTTPS 메시지를 표시할 수 있습니다. **웹 프록시** 추적은 암호화되지 않은 메시지 액세스 권한을 제공하는 모든 HTTP 및 HTTPS 트래픽에 대해 로컬 프록시를 구성하는 방식으로 작동합니다.
-
-#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer를 사용하여 네트워크 문제 진단
-Microsoft Message Analyzer **웹 프록시** 추적을 사용하여 클라이언트 애플리케이션과 스토리지 서비스 간의 HTTP/HTTPs 트래픽 세부 정보를 캡처할 수 있을 뿐 아니라, 기본 제공 **로컬 링크 계층** 추적을 사용하여 네트워크 패킷 정보를 캡처할 수도 있습니다. 그러면 Wireshark를 사용하여 캡처할 수 있는 것과 비슷한 데이터를 캡처하고 패킷 삭제 등의 네트워크 문제를 진단할 수 있습니다.
-
-아래 스크린샷에는 **DiagnosisTypes** 열에 **정보** 메시지가 몇 개 포함된 예제 **로컬 링크 계층** 추적이 나와 있습니다. **DiagnosisTypes** 열의 아이콘을 클릭하면 메시지 세부 정보가 표시됩니다. 이 예에서는 서버가 클라이언트에서 승인을 받지 못해 서버를 다시 전송 했습니다. 메시지가 #305.
-
-![DiagnosisTypes 열에 몇 가지 정보 메시지를 포함 하는 예제 로컬 링크 계층 추적을 보여 주는 스크린샷][9]
-
-Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이즈 양을 줄이기 위해 필터를 지정할 수 있습니다. 이렇게 하려면 추적을 정의하는 **캡처/추적** 페이지에서 **Microsoft-Windows-NDIS-PacketCapture** 옆의 **구성** 링크를 클릭합니다. 아래 스크린샷에는 3개 스토리지 서비스의 IP 주소에 대한 TCP 트래픽을 필터링하는 구성이 나와 있습니다.
-
-![3 개 저장소 서비스의 IP 주소에 대 한 TCP 트래픽을 필터링 하는 구성을 보여 주는 스크린샷][10]
-
-Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 [Microsoft-PEF-NDIS-PacketCapture 공급자](https://technet.microsoft.com/library/jj659264.aspx)를 참조하세요.
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기
 다양한 도구를 통해 Azure 테이블 스토리지에서 Storage 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob Storage의 스토리지 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 [스토리지 분석 로그 형식](https://msdn.microsoft.com/library/azure/hh343259.aspx) 및 [스토리지 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
@@ -897,7 +853,6 @@ Azure Storage의 분석에 대한 자세한 내용은 다음 리소스를 참조
 [부록]: #appendices
 [부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]: #appendix-1
 [부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
-[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
 [부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
 [부록 5: Azure DevOps용 Application Insights를 사용한 모니터링]: #appendix-5
 

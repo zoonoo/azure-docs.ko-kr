@@ -8,20 +8,23 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7941748f7f917847e551b0cf5cd0a7bf926d31a9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086979"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855670"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
-[Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) 또는 [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)에 데이터를 저장할 수 있습니다. 또는 이러한 옵션을 조합할 수도 있습니다. 이러한 스토리지 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+[Azure Blob storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)또는 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)에 데이터를 저장할 수 있습니다. 또는 이러한 옵션을 조합할 수도 있습니다. 이러한 스토리지 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터를 만드는 과정에서 Azure Storage의 Blob 컨테이너를 기본 파일 시스템으로 지정할 수 있습니다. HDInsight 3.6의 경우 몇 가지 예외를 제외하고 Azure Storage나 Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2를 기본 파일 시스템으로 선택할 수 있습니다. 기본 및 연결된 스토리지로 Data Lake Storage Gen1을 사용하는 지원 가능성은 [HDInsight 클러스터에 대한 가용성](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters)을 참조하세요.
+Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터를 만드는 과정에서 Azure Storage의 Blob 컨테이너를 기본 파일 시스템으로 지정할 수 있습니다. 또는 HDInsight 3.6를 사용 하 여 몇 가지 예외를 제외 하 고 기본 파일 시스템으로 Azure Blob storage 또는 Azure Data Lake Storage Gen1/Azure Data Lake Storage Gen2를 선택할 수 있습니다. Data Lake Storage Gen1를 기본 저장소와 연결 된 저장소로 사용 하는 경우의 지원 가능성은 [HDInsight 클러스터에 대 한 가용성](./hdinsight-hadoop-use-data-lake-storage-gen1.md#availability-for-hdinsight-clusters)을 참조 하세요.
 
-이 문서에서는 Azure Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. Data Lake Storage Gen 1이 HDInsight 클러스터에서 작동하는 방식에 대해 알아보려면 [Azure HDInsight 클러스터에서 Azure Data Lake Storage 사용](hdinsight-hadoop-use-data-lake-store.md)을 참조하세요. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+이 문서에서는 Azure Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. 
+* Data Lake Storage Gen1 HDInsight 클러스터에서 작동 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터와 함께 Azure Data Lake Storage Gen1 사용](./hdinsight-hadoop-use-data-lake-storage-gen1.md)을 참조 하세요.
+* Data Lake Storage Gen2 HDInsight 클러스터에서 작동 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터와 함께 Azure Data Lake Storage Gen2 사용](./hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조 하세요.
+* HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 > [!IMPORTANT]  
 > 스토리지 계정 종류 **BlobStorage**는 HDInsight 클러스터의 보조 스토리지로만 사용할 수 있습니다.
@@ -169,9 +172,9 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Azure Data Lake Storage 시작](../data-lake-store/data-lake-store-get-started-portal.md).
-* [HDInsight에 데이터 업로드](hdinsight-upload-data.md)
-* [Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한](hdinsight-storage-sharedaccesssignature-permissions.md)
+* [빠른 시작: Apache Hadoop 클러스터 만들기](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [자습서: HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [HDInsight에 데이터 업로드](hdinsight-upload-data.md)
 * [자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한](hdinsight-storage-sharedaccesssignature-permissions.md)

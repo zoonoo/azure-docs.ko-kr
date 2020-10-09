@@ -3,12 +3,12 @@ title: 백업 센터를 사용 하 여 작업 수행
 description: 이 문서에서는 Backup Center를 사용 하 여 작업을 수행 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997719"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854429"
 ---
 # <a name="perform-actions-using-backup-center"></a>백업 센터를 사용 하 여 작업 수행
 
@@ -70,7 +70,7 @@ ms.locfileid: "90997719"
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버를 복원 하는 경우
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 위쪽에서 **복원** 을 선택 합니다.
-2. 백업 하려는 데이터 원본 유형 (이 경우 Azure Database for PostgreSQL 서버)을 선택 합니다.
+2. 복원 하려는 데이터 원본 유형 (이 경우 Azure Database for PostgreSQL 서버)을 선택 합니다.
 
     ![Azure Database for PostgreSQL 서버 복원에 대 한 데이터 원본 선택](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

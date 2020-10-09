@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321738"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851104"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -334,7 +334,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 
    정책에 다음 그룹이 나열 됩니다.
 
-   - 관리자
+   - Administrators
 
    - Backup Operators
 
@@ -421,6 +421,7 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
 
 1. Windows VM에 로그인합니다.
 1. 관리자 권한으로 PowerShell 세션을 실행 합니다.
+1. Panther 디렉터리 (C:\Windows\Panther)를 삭제 합니다.
 1. 디렉터리를로 변경 `%windir%\system32\sysprep` 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
 1. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE (첫 실행 경험) 입력**을 선택 하 고 **일반화** 확인란을 선택 했는지 확인 합니다.
 
@@ -432,7 +433,7 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
 이제 VHD를 업로드할 수 있습니다. 일반화 된 디스크에서 VM을 만드는 방법에 대 한 자세한 내용은 [일반화 된 VHD 업로드 및이를 사용 하 여 Azure에서 새 vm 만들기](sa-upload-generalized.md)를 참조 하세요.
 
 >[!NOTE]
-> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. **AdditionalUnattendContent** 속성은 지원 하지만 Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft-windows 셸 설치](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
+> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. **AdditionalUnattendContent** 속성은 지원 하지만 Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft-windows 셸 설치](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>가상 디스크를 고정 크기의 VHD로 변환
 

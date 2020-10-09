@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319948"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851274"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 페더레이션된 디렉터리 구성
 
@@ -53,24 +53,24 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 페더레이
 
 1. [페더레이션된 디렉터리 관리 콘솔](https://federated.directory/of) 에 로그인
 
-    ![페더레이션된 디렉터리 자습서](media/federated-directory-provisioning-tutorial/companyname.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
 
 2. **디렉터리 > 사용자 디렉터리** 로 이동 하 여 테 넌 트를 선택 합니다. 
 
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
 
 3.  영구 전달자 토큰을 생성 하려면 디렉터리 키로 이동 하 **> 새 키를 만듭니다.** 
 
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/federated01.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
 
 4. 디렉터리 키를 만듭니다. 
 
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/federated02.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
     
 
 5. **액세스 토큰** 값을 복사합니다. 이 값은 Azure Portal에서 페더레이션된 디렉터리 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다. 
 
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/federated03.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>갤러리에서 페더레이션된 디렉터리 추가
 
@@ -96,15 +96,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 페더레이션�
 
 5. 별도의 브라우저에서 아래 강조 표시 된 **URL** 로 이동 합니다. 
 
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/loginpage1.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
 
 6. **로그인**을 클릭 합니다.
 
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/federated04.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
 
 7.  페더레이션된 디렉터리는 OpenIDConnect 앱 이므로 Microsoft 회사 계정을 사용 하 여 페더레이션된 디렉터리에 로그인 하도록 선택 합니다.
     
-    ![페더레이션된 디렉터리](media/federated-directory-provisioning-tutorial/loginpage3.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
  
 8. 인증에 성공 하면 동의 페이지에 대 한 동의 확인 프롬프트를 수락 합니다. 그러면 응용 프로그램이 테 넌 트에 자동으로 추가 되 고 페더레이션 디렉터리 계정으로 리디렉션됩니다.
 
@@ -146,12 +146,12 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 페더레이션�
 
 10. **매핑** 섹션 아래에서 **페더레이션 디렉터리에 Azure Active Directory 사용자 동기화를**선택 합니다.
 
-    ![페더레이션된 디렉터리 자습서](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
     
     
 11. **특성 매핑** 섹션에서 Azure AD에서 페더레이션된 디렉터리로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 페더레이션된 디렉터리의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![페더레이션된 디렉터리 자습서](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="회사 이름을 입력할 필드를 표시 하는 페더레이션된 디렉터리 관리 콘솔의 스크린샷 로그인 단추도 표시 됩니다." border="false":::
     
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
