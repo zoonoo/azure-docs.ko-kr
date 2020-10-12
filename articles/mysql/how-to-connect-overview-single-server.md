@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: 229011f11ad6898555f59b063910d80a679070e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940445"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Azure database for MySQL에 대 한 연결 및 쿼리 개요-단일 서버
@@ -21,7 +21,7 @@ ms.locfileid: "90940445"
 
 | 빠른 시작 | Description |
 |---|---|
-|[MySQL Workbench](connect-workbench.md)|이 빠른 시작에서는 MySQL 워크 벤치 클라이언트를 사용 하 여 데이터베이스에 연결 하는 방법을 보여 줍니다. 그런 다음 MySQL 문을 사용 하 여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제할 수 있습니다.|
+|[MySQL 워크 벤치](connect-workbench.md)|이 빠른 시작에서는 MySQL 워크 벤치 클라이언트를 사용 하 여 데이터베이스에 연결 하는 방법을 보여 줍니다. 그런 다음 MySQL 문을 사용 하 여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제할 수 있습니다.|
 |[Azure Cloud Shell](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|이 문서에서는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 에서 **mysql.exe** 를 실행 하 여 서버에 연결한 다음 문을 실행 하 여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제 하는 방법을 보여 줍니다.|
 |[Visual Studio를 사용 하는 MySQL](https://www.mysql.com/why-mysql/windows/visualstudio)|Mysql 서버에 연결 하기 위해 Visual Studio 용 MySQL을 사용할 수 있습니다. Visual Studio 용 MySQL은 새 연결을 쉽게 설정 하 고 데이터베이스 개체를 사용할 수 있도록 서버 탐색기에 직접 통합 됩니다.|
 |[PHP](connect-php.md)|이 빠른 시작에서는 PHP를 사용 하 여 데이터베이스에 연결 하 고 MySQL 문을 사용 하 여 데이터를 쿼리 하는 프로그램을 만드는 방법을 보여 줍니다.|

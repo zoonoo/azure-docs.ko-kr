@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320900"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
@@ -126,7 +126,7 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 - 계정이 여러 쓰기 위치에 대해 구성 되어야 하는 정책을 준수 하는 두 계정의 0
 - 두 계정 중 0은 리소스가 허용 된 Azure 지역에 배포 된 정책을 준수 합니다.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="나열 된 Azure Policy 할당에 대 한 호환성 결과":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Azure Cosmos DB 기본 제공 정책 정의 검색":::
 
 비준수 리소스를 재구성 하려면 Azure Policy를 사용 하 [여 리소스](../governance/policy/how-to/remediate-resources.md)를 관리 하는 방법을 참조 하세요.
 

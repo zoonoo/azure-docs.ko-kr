@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
 ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324470"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
@@ -40,7 +40,7 @@ ms.locfileid: "91324470"
 |[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Azure Blob Storage (JSON)**](#blob) | Basic<br>Microsoft.managedidentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
-|[**Azure 데이터 탐색기 (Kusto)**](#kusto) | Basic<br>Microsoft.managedidentity|
+|[**Azure Data Explorer(Kusto)**](#kusto) | Basic<br>Microsoft.managedidentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>서비스 주체<br>Key vault의 서비스 사용자<br> |
 |[**Azure SQL Database/SQL Server**](#sql) | Basic<br>Microsoft.managedidentity<br>서비스 주체<br>Key vault의 서비스 사용자<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
@@ -82,7 +82,7 @@ ms.locfileid: "91324470"
 
 * **컨테이너**: 메트릭 관리자는 단일 컨테이너 아래에 blob 파일 (타임 스탬프 당 하나의 blob)로 저장 된 시계열 데이터를 예상 합니다. 컨테이너 이름 필드입니다.
 
-* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. 지원 되는 매개 변수는 다음과 같습니다.
+* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예: `/%Y/%m/X_%Y-%m-%d-%h-%M.json` 지원 되는 매개 변수는 다음과 같습니다.
   * `%Y` 는로 서식이 지정 된 연도입니다. `yyyy`
   * `%m` 는로 형식이 지정 된 월입니다. `MM`
   * `%d` 날짜 형식이 `dd`
@@ -131,7 +131,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure 데이터 탐색기 (Kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer(Kusto)</span>
 
 * **연결 문자열**: Azure 데이터 탐색기 (Kusto)에서 연결 문자열을 검색 하는 방법에 대 한 자세한 내용은 [연결 문자열 보기 및 복사](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) 를 참조 하세요.
 
@@ -232,7 +232,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">HTTP 요청</span>
 
-* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`
 * **요청 HTTP 메서드**: GET 또는 POST를 사용 합니다.
 * **요청 헤더**: 기본 인증을 추가할 수 있습니다. 
 * **요청 페이로드**: JSON 페이로드만 지원 됩니다. 페이로드에서 자리 표시 자가 @StartTime 지원 됩니다. 응답은 다음과 같은 JSON 형식 이어야 합니다. [{"timestamp": "2018-01-01T00:00:00Z", "market": "en-us", "count": 11, "수익": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market": "zh-cn-cn", "count": 22, "수익": 4.56}]. (예: 2020-06-21T00:00:00Z의 데이터가 수집, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

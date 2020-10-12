@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 88c7d29681146f7b81f085bdf6452d5b35fb7dae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939617"
 ---
-# <a name="monitoring-log-analytics-billing-information-azure-portal-sql-managed-instance"></a>모니터링, 로그 분석, 청구 정보, Azure Portal (SQL Managed Instance)
+# <a name="monitoring-log-analytics-billing-information-azure-portal-sql-managed-instance"></a>모니터링, 로그 분석, 청구 정보, Azure Portal(SQL Managed Instance)
 
 이 문서에서는 Azure Arc 사용 데이터 서비스에서 사용할 수 있는 추가 환경을 보여 줍니다.
 

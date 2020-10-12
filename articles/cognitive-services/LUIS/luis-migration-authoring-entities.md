@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324691"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>V3 제작 엔터티로 마이그레이션
@@ -87,7 +87,7 @@ V2 복합의 각 자식은 V3 기계 학습 엔터티의 하위 엔터티로 표
 
 복합 엔터티에서 단어를 승격 하는 데 사용 되는 모든 구 목록은 기계 학습 (부모) 엔터티, 하위 엔터티 (자식) 엔터티 또는 의도 (문구 목록이 한 의도에만 적용 되는 경우)에 기능으로 적용 되어야 합니다. 가장 현저 하 게 향상 되어야 하는 엔터티에 기능을 추가 하도록 계획 합니다. 하위 엔터티 (자식)의 예측이 크게 향상 되는 경우 일반적으로 기계 학습 (부모) 엔터티에이 기능을 추가 하지 마십시오.
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 V3 제작에서 모든 엔터티 및 의도에 대 한 가능한 기능으로 엔터티를 평가 하는 계획 단계를 추가 합니다.
 

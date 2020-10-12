@@ -4,10 +4,10 @@ description: 이니셔티브 또는 정의 평가에서 리소스를 제외 하�
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968049"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy 예외 구조

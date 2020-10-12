@@ -7,10 +7,10 @@ ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945616"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 반복적인 자동화된 작업, 프로세스 및 워크플로 예약 및 실행
@@ -93,7 +93,7 @@ Logic Apps는 일정에 따라 자동화 된 되풀이 작업 및 프로세스�
 
 현재 날짜와 시간이 2017 년 9 월 8 일 오후 1:00 시로 가정 합니다. 시작 날짜 및 시간은 2017 년 9 월 7 일 오후 2:00 시로 지정 하 고, 이전에는 2 일 마다 실행 되는 되풀이로 지정 합니다.
 
-| 시작 시간 | 현재 시간 | 되풀이 | 일정 |
+| 시작 시간 | 현재 시간 | 되풀이 | 예약 |
 |------------|--------------|------------|----------|
 | 2017-09-**07**T14:00:00Z <br>(2017-09-**07** (2:00 PM)) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** , 1:00 PM) | 2 일 마다 | {없음} |
 |||||

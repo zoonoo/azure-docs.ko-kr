@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
 ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328856"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결
@@ -19,7 +19,7 @@ ms.locfileid: "91328856"
 
 보안 내보내기는 [ITSMC (IT 서비스 관리 커넥터](./itsmc-overview.md)의 업데이트 된 버전입니다. 두 버전 모두 Azure Monitor에서 경고를 보낼 때 ITSM 도구에서 작업 항목을 만들 수 있습니다. 이 기능에는 메트릭, 로그 및 활동 로그 경고가 포함 됩니다.
 
-ITSMC는 사용자 이름 및 암호 자격 증명을 사용 합니다. 보안 내보내기는 Azure Active Directory (Azure AD)를 사용 하기 때문에 더 강력한 인증이 있습니다. Azure AD는 Microsoft의 클라우드 기반 id 및 액세스 관리 서비스입니다. 사용자가 로그인 하 고 내부 또는 외부 리소스에 액세스할 수 있습니다. ITSM에서 Azure AD를 사용 하면 외부 시스템으로 보낸 azure 경고 (Azure AD 응용 프로그램 ID를 통해)를 식별할 수 있습니다.
+ITSMC는 사용자 이름 및 암호 자격 증명을 사용 합니다. 보안 내보내기는 Azure Active Directory (Azure AD)를 사용 하기 때문에 더 강력한 인증이 있습니다. Azure AD는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. 사용자가 로그인 하 고 내부 또는 외부 리소스에 액세스할 수 있습니다. ITSM에서 Azure AD를 사용 하면 외부 시스템으로 보낸 azure 경고 (Azure AD 응용 프로그램 ID를 통해)를 식별할 수 있습니다.
 
 > [!NOTE]
 > 보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결 하는 기능은 미리 보기 상태입니다.
@@ -107,7 +107,7 @@ BMC Helix 환경에서 다음 절차를 사용 합니다.
 
 다음 섹션에서는 Azure에서 BMC Helix 제품 및 보안 내보내기를 연결 하는 방법에 대 한 세부 정보를 제공 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 

@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3eb41b868aba7e7350f54594fa43f01eeeabebc4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940673"
 ---
-# <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Azure Arc 사용 데이터 서비스 배포 및 관리를 위한 클라이언트 도구 설치
+# <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스 배포 및 관리를 위한 클라이언트 도구 설치
 
 > [!IMPORTANT]
 > 새 월별 릴리스로 업데이트 하는 경우 최신 버전의 Azure Data Studio, Azure Data CLI (azdata) 도구, Azure Data CLI 및 Azure Data Studio 용 Azure Arc 확장도 업데이트 해야 합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "90940673"
 
 <sup>2</sup> 버전 1.13 이상을 사용 해야 `kubectl` 합니다. 또한 `kubectl` 버전은 Kubernetes 클러스터의 바로 이전 또는 이후 부 버전이어야 합니다. `kubectl` 클라이언트에서 특정 버전을 설치하려는 경우 [Install `kubectl` binary via curl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl)(curl을 통해 kubectl 이진 설치)를 참조하세요(Windows 10에서는 Windows PowerShell이 아닌 cmd.exe를 사용하여 curl 실행).
 
-<sup>3</sup> PowerShell을 사용 하는 경우, 말아은 호출 WebRequest cmdlet에 대 한 별칭입니다.
+<sup>3</sup> PowerShell을 사용 하는 경우에는 Invoke-WebRequest cmdlet에 대 한 별칭이 사용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

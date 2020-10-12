@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326476"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
@@ -18,7 +18,7 @@ ms.locfileid: "91326476"
 > [!NOTE]
 > Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 HTTP 트리거 함수가 있는 함수 앱이 필요합니다.
 

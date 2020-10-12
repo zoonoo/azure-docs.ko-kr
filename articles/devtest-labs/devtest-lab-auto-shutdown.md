@@ -4,10 +4,10 @@ description: 사용 하지 않을 때 가상 컴퓨터가 자동으로 종료 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320713"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 및 계산 가상 컴퓨터에 대 한 자동 종료 구성

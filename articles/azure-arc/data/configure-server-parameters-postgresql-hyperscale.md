@@ -11,15 +11,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939204"
 ---
-# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale에 대 한 데이터베이스 엔진 설정 설정
+# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 데이터베이스 엔진 설정 지정
 
-이 문서에서는 PostgreSQL Hyperscale 서버 그룹의 데이터베이스 엔진 설정을 사용자 지정 (기본값이 아닌) 값으로 설정 하는 단계에 대해 설명 합니다. 설정할 수 있는 데이터베이스 엔진 매개 변수에 대 한 자세한 내용 및 기본값은 [여기](https://www.postgresql.org/docs/current/runtime-config.html)에서 PostgreSQL 설명서를 참조 하세요.
+이 문서에서는 PostgreSQL 하이퍼스케일 서버 그룹의 데이터베이스 엔진 설정을 사용자 지정 값(기본값 아님)으로 설정하는 단계에 대해 설명합니다. 설정할 수 있는 데이터베이스 엔진 매개 변수에 대 한 자세한 내용 및 기본값은 [여기](https://www.postgresql.org/docs/current/runtime-config.html)에서 PostgreSQL 설명서를 참조 하세요.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -53,7 +53,7 @@ azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}
 azdata arc postgres server show -n <server group name>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server show -n postgres01
@@ -86,7 +86,7 @@ engine": {
 azdata arc postgres server show -n <server group name>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server show -n postgres01
@@ -115,13 +115,13 @@ azdata arc postgres server show -n postgres01
 kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 kubectl describe postgresql-12 postgres01
 ```
 
-엔진 설정에 대해 설정 된 사용자 지정 값이 있는 경우 반환 됩니다. 다음은 그 예입니다. 
+엔진 설정에 대해 설정 된 사용자 지정 값이 있는 경우 반환 됩니다. 예를 들면 다음과 같습니다.
 
 ```console
 Engine:
@@ -150,7 +150,7 @@ Engine:
 azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
@@ -162,7 +162,7 @@ azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
 azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
@@ -172,7 +172,7 @@ azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connec
 
 매개 변수를 기본값으로 다시 설정 하려면 값을 표시 하지 않고 매개 변수를 설정 합니다. 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server edit -n postgres01 -e shared_buffers=
@@ -184,7 +184,7 @@ azdata arc postgres server edit -n postgres01 -e shared_buffers=
 azdata arc postgres server edit -n <server group name> -e '' -re
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server edit -n postgres01 -e '' -re
@@ -198,7 +198,7 @@ azdata arc postgres server edit -n postgres01 -e '' -re
 azdata arc postgres server edit -n <server group name> -e '<parameter name>="<parameter value>"'
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
@@ -208,7 +208,7 @@ azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plp
 
 환경 변수는 설정 되기 전에 확인 되지 않도록 "' '" 안에 래핑해야 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다. 
 
 ```console
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'

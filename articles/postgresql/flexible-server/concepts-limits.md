@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940397"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
@@ -29,7 +29,7 @@ ms.locfileid: "90940397"
 | **버스터 블**        |        |             |                 |                      |
 | B1ms                 | 1      | 2 GiB       | 50              | 47                   |
 | B2s                  | 2      | 4 GiB       | 100             | 97                   |
-| **일반 용도**  |        |             |                 |                      |
+| **범용**  |        |             |                 |                      |
 | D2s_v3               | 2      | 8 GiB       | 214             | 211                  |
 | D4s_v3               | 4      | 16 GiB      | 429             | 426                  |
 | D8s_v3               | 8      | 32GiB      | 859             | 856                  |
@@ -75,7 +75,7 @@ ms.locfileid: "90940397"
 
 ### <a name="high-availability"></a>고가용성
 
-- 영역 중복 HA는 현재 간에 안정화 된 서버에 대해 지원 되지 않습니다.
+- Zone-Redundant HA는 현재 간에 안정화 된 서버에 대해 지원 되지 않습니다.
 - 서버에서 HA 대기로 장애 조치 (failover) 될 때 데이터베이스 서버 IP 주소가 변경 됩니다. 서버 IP 주소 대신 DNS 레코드를 사용 해야 합니다.
 
 ### <a name="availability-zones"></a>가용성 영역

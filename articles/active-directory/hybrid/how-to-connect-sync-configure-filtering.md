@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319982"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
@@ -123,7 +123,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 도메인 필터를 설정하려면 다음 단계를 수행합니다.
 
 1.  Azure AD Connect 마법사 시작
-2.  **구성**을 클릭합니다.
+2.  **Configure**를 클릭합니다.
 3.  **동기화 옵션 사용자 지정** 을 선택 하 고 **다음**을 클릭 합니다.
 4.  Azure AD 자격 증명 입력
 5.  **연결 된 디렉터리** 화면에서 **다음**을 클릭 합니다.
@@ -144,7 +144,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. 각 프로필에 대해 **추가된** 도메인과 **제거된** 도메인을 조정합니다.
     1. 각각의 5개 프로필에 대해 **추가된** 각 도메인에 다음 단계를 수행합니다.
         1. 실행 프로필을 선택하고 **새 단계**를 클릭합니다.
-        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 다음 **다음**을 클릭합니다.  
+        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 후 **Next** 를 클릭합니다.  
         ![커넥터 실행 프로필 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. **커넥터 구성** 페이지의 **파티션** 드롭다운 메뉴에서 도메인 필터에 추가한 파티션의 이름을 선택합니다.  
         ![커넥터 실행 프로필 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -279,7 +279,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 5. 팝업에서 **예** 를 선택하여 규칙의 복사본을 만듭니다.
 6. **설명** 페이지에서 50과 같은 사용하지 않는 값으로 **우선 순위**를 변경합니다.
 7. 왼쪽 탐색에서 **범위 지정 필터**를 클릭한 다음 **절 추가**를 클릭합니다. **특성**에서 **메일**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에 ** \@ contoso.com**를 입력 한 다음 **절 추가**를 클릭 합니다. **특성**에서 **userPrincipalName**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에 ** \@ contoso.com**를 입력 합니다.
-8. **저장**을 클릭합니다.
+8. **Save**을 클릭합니다.
 9. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 ## <a name="apply-and-verify-changes"></a>변경 사항을 적용하고 확인합니다
@@ -299,9 +299,9 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 동기화 후 모든 변경 사항을 내보낼 준비가 됩니다. Azure AD에서 실제로 변경하기 전에 모든 변경 사항이 올바른지 확인하려고 합니다.
 
 1. 명령 프롬프트를 시작하고 `%ProgramFiles%\Microsoft Azure AD Sync\bin`로 이동합니다.
-2. `csexport "Name of Connector" %temp%\export.xml /f:x`를 실행합니다.  
+2. `csexport "Name of Connector" %temp%\export.xml /f:x`을 실행합니다.  
    동기화 서비스에 커넥터의 이름이 있습니다. Azure AD에 대 한 "contoso.com – Azure AD"와 비슷한 이름이 있습니다.
-3. `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`를 실행합니다.
+3. `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`을 실행합니다.
 4. 이제 %temp%에 Microsoft Excel에서 검사할 수 있는 export.csv 라는 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
 5. 내보내려는 변경 사항이 예정될 때까지 데이터 또는 구성에 필요한 변경을 수행하고 이러한 단계(가져오기, 동기화 및 확인)를 다시 실행합니다.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938049"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>피드백을 사용하여 변칙 검색 조정
@@ -37,19 +37,19 @@ ms.locfileid: "90938049"
 
 **주석 텍스트 상자** 에 주석을 그대로 두고 **저장** 을 클릭 하 여 피드백을 저장 합니다.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="사용자 의견 메뉴.":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="피드백 주석 모드입니다.":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>여러 연속 요소에 대 한 피드백 제공
 
 마우스를 클릭 하 고 주석을 추가할 지점에서 마우스로 끌어 여러 연속 요소에 대 한 피드백을 한 번에 제공할 수 있습니다. 위와 동일한 피드백 메뉴가 표시 됩니다. **저장**을 클릭 한 후에는 선택한 모든 요소에 동일한 피드백이 적용 됩니다.
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="여러 요소 선택":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="피드백 주석 모드입니다.":::
 
 ## <a name="how-to-view-my-feedback"></a>내 피드백을 보는 방법
 
 지점의 변칙 검색이 변경 되었는지 확인 하려면 점을 마우스로 가리킵니다. **사용자 의견의 영향을 받는** 도구 설명이 표시 됩니다. 검색 내용이 변경 된 경우 true입니다. **False**가 표시 되 면 해당 시점에서 피드백 계산이 수행 되었지만 변칙 검색 결과가 변경 되지 않았습니다.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="피드백의 영향을 받는 지점":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="피드백 주석 모드입니다.":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>"Normal"로 변칙에 주석을 추가 해야 하는 경우
 

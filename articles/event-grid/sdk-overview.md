@@ -4,10 +4,10 @@ description: Azure Event Grid에 대한 SDK를 설명합니다. 이러한 SDK는
 ms.topic: reference
 ms.date: 07/07/2019
 ms.openlocfilehash: 5e93448ef703be88583cd59ae5eee9d1993c4054
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322532"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>관리 및 게시에 대한 Event Grid SDK
@@ -29,7 +29,7 @@ Event Grid는 사용자가 프로그래밍 방식으로 리소스를 관리하�
 
 데이터 평면 SDK를 사용하면 인증, 이벤트 형성, 지정된 엔드포인트에 비동기 게시를 처리하여 토픽에 이벤트를 게시할 수 있습니다. 또한 첫 번째 파티 이벤트를 사용할 수 있습니다. 현재는 다음 SDK를 사용할 수 있습니다.
 
-| 프로그래밍 언어 | SDK | 
+| 프로그래밍 언어 | SDK) | 
 | -------------------- | ---------- | ---------- | 
 | .NET | 안정적인 SDK: [Microsoft. Azure EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)<p>Preview SDK: [Azure. Messaging. EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/) |
 | Java | 안정적인 SDK: [azure-eventgrid](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)<p>Preview SDK: [azure-메시징-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid/)</p> |  

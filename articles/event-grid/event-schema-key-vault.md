@@ -4,10 +4,10 @@ description: Azure Key Vault 이벤트에 제공 되는 속성 및 스키마에 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324079"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 Azure Key Vault
@@ -20,7 +20,7 @@ ms.locfileid: "91324079"
 
 Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
-| 이벤트 전체 이름 | 이벤트 표시 이름 | Description |
+| 이벤트 전체 이름 | 이벤트 표시 이름 | 설명 |
 | ---------- | ----------- |---|
 | CertificateNewVersionCreated | 인증서 새 버전이 만들어짐 | 새 인증서 또는 새 인증서 버전이 만들어질 때 트리거됩니다. |
 | CertificateNearExpiry | 인증서 만료 임박 | 현재 버전의 인증서가 만료 될 때 트리거됩니다. 이 이벤트는 만료 날짜 30 일 전에 트리거됩니다. |
@@ -64,7 +64,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | 유형 | Description |
 | ---------- | ----------- |---|
 | id | 문자열 | 이 이벤트를 트리거한 개체의 ID입니다. |
 | vaultName | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름입니다. |
@@ -75,7 +75,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 | exp | number | 1970-01-01T00:00:00Z 이후이 이벤트를 트리거한 개체의 만료 날짜 (초)입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [Azure Event Grid를 사용 하 여 Key Vault 이벤트 모니터링](../key-vault/general/event-grid-overview.md) | Event Grid와 Key Vault 통합에 대 한 개요입니다. |
 | [자습서: Event Grid를 사용 하 여 Key Vault 이벤트 만들기 및 모니터링](../key-vault/general/event-grid-logicapps.md) | Key Vault에 대 한 Event Grid 알림을 설정 하는 방법을 알아봅니다. |

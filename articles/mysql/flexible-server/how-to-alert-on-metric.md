@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940517"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 메트릭에 대 한 경고를 설정 합니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "90940517"
     - **정적** 임계값을 사용 하는 경우 **임계값** 을 계속 정의 합니다 (예: 85%). 메트릭 차트는 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다.
     - **동적** 임계값을 사용 하는 경우 **임계값 민감도**를 계속 정의 합니다. 최근 데이터에 기반하여 계산된 임계값이 메트릭 차트에 표시됩니다. [동적 임계값 조건 형식 및 민감도 옵션에 대해 자세히 알아보세요](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. 집계 유형 함수를 사용 하 여 데이터 요소를 그룹화 하는 **집계 세분성 (기간)** 간격을 조정 하 여 조건을 구체화 합니다 (예: "30 분") 및 **Frequency** (예: "15 분 간격").
-10. **Done**을 클릭합니다.
+10. **완료**를 클릭합니다.
 11. 작업 그룹을 추가 합니다. 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. **작업** 그룹 섹션 내에서 **작업 그룹 선택** 을 선택 하 여 경고 규칙에 연결할 기존 작업 그룹을 선택 합니다.
 12. 경고에 대 한 알림을 수신 하는 새 작업 그룹을 만들 수도 있습니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../../azure-monitor/platform/action-groups.md) 를 참조 하세요.
 13. 새 작업 그룹을 만들려면 **+ 작업 그룹 만들기**를 선택 합니다. **구독**, **리소스 그룹**, **작업 그룹 이름** 및 **표시 이름을**사용 하 여 "작업 그룹 만들기" 양식을 작성 합니다.

@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320775"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
@@ -78,7 +78,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 >
 > 사용자 [Azure Active Directory의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID*를 복사 합니다.
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="' 개체 ID ' 필드에서 GUID를 강조 표시 하 Azure Portal의 사용자 페이지 보기" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창" lightbox="media/includes/user-id.png":::
 >
 > 그런 다음 위의 매개 변수에 대 한 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다 `assignee` .
 
@@ -115,7 +115,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 다음으로 Cloud Shell에이 파일을 업로드 합니다. Cloud Shell 창에서 "파일 업로드/다운로드" 아이콘을 클릭 하 고 "업로드"를 선택 합니다.
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="업로드 옵션 선택 항목을 보여 주는 Cloud Shell 창":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창":::
 방금 만든 *manifest.js* 로 이동 하 고 "열기"를 누릅니다.
 
 그런 다음, 다음 명령을 실행 하 여에 대 한 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* 회신 URL을 사용 하 여 앱 등록을 만듭니다 `http://localhost` . 필요한 경우 자리 표시자를 바꿉니다.
@@ -126,7 +126,7 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 다음은 사용자가 만든 등록에 대 한 정보를 보여 주는이 명령의 출력에 대 한 발췌입니다.
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="새 Azure AD 앱 등록의 Cloud Shell 출력":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창":::
 
 ### <a name="verify-success"></a>성공 확인
 
@@ -140,7 +140,7 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 그런 다음 메뉴 모음에서 *개요* 를 선택 하 여 앱 등록에 대 한 세부 정보를 확인 합니다.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="앱 등록에 대 한 중요 한 값의 포털 보기":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창":::
 
 **페이지에** 표시 된 *응용 프로그램 (클라이언트) id* 및 *디렉터리 (테 넌 트) id* 를 기록해 둡니다. 이러한 값은 나중에 [Azure Digital Twins api에 대해 클라이언트 앱을 인증](how-to-authenticate-client.md)하는 데 필요 합니다. 이러한 응용 프로그램에 대 한 코드를 작성 하는 사람이 아닌 경우이 값을 사용할 사용자와 공유 해야 합니다.
 

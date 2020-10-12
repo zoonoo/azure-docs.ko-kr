@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
 ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903719"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Visual Studio Code Azure Stream Analytics 도구에서 IntelliSense
@@ -34,10 +34,10 @@ VS Code에 대 한 Stream Analytics 도구의 IntelliSense 기능은 언어 서�
 
 IntelliSense for VS Code Stream Analytics 도구는 언어 서버 제안, 코드 조각 및 간단한 단어 기반 텍스트 완성을 포함 하 여 다양 한 유형의 완성 기능을 제공 합니다.
 
-|Completion     |  형식       |
+|Completion     |  Type       |
 | ----- | ------- |
 | 키워드 | `keyword`
-| 함수 | `build-in function`, `user defined function`  |
+| Functions | `build-in function`, `user defined function`  |
 | 데이터 집합 이름| `input`, `output`, `intermediate result set`|
 | 데이터 집합 열 이름|`input`, `intermediate result set`|
 

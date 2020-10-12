@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 24ae6c4014948639aa737a0d2d88ec15f98a7cb4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939524"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
@@ -52,7 +52,7 @@ IoT 용 Defender에는 직접 가격 책정에 속하지 않는 관련 비용이
 
 다음 표에서는 각 옵션의 관련 비용 및 의미에 대 한 요약을 제공 합니다.
 
-| 옵션 | 사용량 | 의견 |
+| 옵션 | 사용 | 주석 |
 | --- | --- | --- |
 | **Log Analytics 저장소** |  |
 | 장치 권장 사항 및 경고| 서비스에서 생성 하는 보안 권장 사항 및 경고 | 선택 사항 아님 |
@@ -71,7 +71,7 @@ IoT 용 Defender에는 직접 가격 책정에 속하지 않는 관련 비용이
 | | [경고](concept-security-alerts.md) 및 [권장 사항](concept-recommendations.md) 조사에 대 한 세부 정보를 사용할 수 없음 |
 |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [원시 보안 데이터](how-to-security-data-access.md) 액세스
 - [디바이스 조사](how-to-investigate-device.md)

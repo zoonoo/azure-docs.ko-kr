@@ -10,15 +10,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939628"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Kibana 및 Grafana를 사용 하 여 로그 및 메트릭 보기
 
-Kibana 및 Grafana 웹 대시보드는 Azure Arc 사용 데이터 서비스에서 사용 되는 Kubernetes 네임 스페이스에 대 한 통찰력 및 명확성을 제공 하기 위해 제공 됩니다.
+Kibana 및 Grafana 웹 대시보드는 Azure Arc 지원 데이터 서비스에서 사용되는 Kubernetes 네임스페이스에 대한 통찰력 및 명확성을 위해 제공됩니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,7 +28,7 @@ Kibana 및 Grafana 웹 대시보드는 Azure Arc 사용 데이터 서비스에�
 
 ### <a name="azure-virtual-machine"></a>Azure 가상 머신
 
-공용 IP 주소를 검색 하려면 다음 명령을 사용 합니다.
+공용 IP 주소를 검색하려면 다음 명령을 사용합니다.
 
 ```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table

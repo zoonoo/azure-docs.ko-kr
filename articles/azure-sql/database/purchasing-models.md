@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319455"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>VCore 및 DTU 구매 모델 중에서 선택-Azure SQL Database 및 SQL Managed Instance
@@ -127,7 +127,7 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 데이터베이스에
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>워크로드에 필요한 DTU 수 결정
 
-기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 SQL Database 워크 로드의 경우 [쿼리 성능 정보](query-performance-insight-use.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [DM_DB_RESOURCE_STATS](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 확인할 수 있습니다. [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분의 평균에 대 한 낮은 정확도로 표시 됩니다.
+기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 SQL Database 워크 로드의 경우 [쿼리 성능 정보](query-performance-insight-use.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [SYS.DM_DB_RESOURCE_STATS](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 볼 수 있습니다. [Sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분 분량의 평균을 사용 합니다.
 
 ### <a name="determine-dtu-utilization"></a>DTU 사용률 확인
 
@@ -135,7 +135,7 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 데이터베이스에
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-이 수식에 대 한 입력 값은 [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)및 [elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) dmv에서 가져올 수 있습니다. 즉, 데이터베이스 또는 탄력적 풀의 DTU/edtu 제한에 대 한 DTU/eDTU 사용률의 비율을 확인 하려면 `avg_cpu_percent` , `avg_data_io_percent` 및 `avg_log_write_percent` 지정 된 시간에서 가장 큰 비율 값을 선택 합니다.
+이 수식에 대 한 입력 값은 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)및 [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) dmv에서 가져올 수 있습니다. 즉, 데이터베이스 또는 탄력적 풀의 DTU/edtu 제한에 대 한 DTU/eDTU 사용률의 비율을 확인 하려면 `avg_cpu_percent` , `avg_data_io_percent` 및 `avg_log_write_percent` 지정 된 시간에서 가장 큰 비율 값을 선택 합니다.
 
 > [!NOTE]
 > 데이터베이스의 DTU 한도는 데이터베이스에 사용할 수 있는 CPU, 읽기, 쓰기 및 메모리에 따라 결정 됩니다. 그러나 SQL Database 엔진은 일반적으로 데이터 캐시에 사용할 수 있는 모든 메모리를 사용 하 여 성능을 향상 시킬 수 있으므로 `avg_memory_usage_percent` 현재 데이터베이스 로드에 관계 없이 값은 일반적으로 100%에 가깝습니다. 따라서 메모리가 DTU 제한에 간접적으로 영향을 주는 경우에도 DTU 사용률 수식에서 사용 되지 않습니다.

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 9d6a2f8a69d41d29e635b03425ed738484d6f408
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939054"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>미사용 데이터의 메트릭 관리자 서비스 암호화
@@ -23,7 +23,7 @@ ms.locfileid: "90939054"
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [메트릭 관리자 서비스 고객이 관리 하는 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. 메트릭 관리자 서비스와 함께 CMK를 사용 하도록 승인 되 면 새 메트릭 관리자 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 메트릭 관리자 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
+> 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [메트릭 Advisor 서비스 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)을 작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. 메트릭 관리자 서비스와 함께 CMK를 사용 하도록 승인 되 면 새 메트릭 관리자 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 메트릭 관리자 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
@@ -31,5 +31,5 @@ ms.locfileid: "90939054"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 관리자 서비스 고객이 관리 하는 키 요청 양식](https://aka.ms/cogsvc-cmk)
+* [메트릭 관리자 서비스 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
 * [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

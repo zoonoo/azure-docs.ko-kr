@@ -10,17 +10,17 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 71c84b35c001be7fafdc2df53014050ae21dec63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939114"
 ---
 # <a name="get-azure-arc-enabled-data-services-logs"></a>Azure Arc 사용 데이터 서비스 로그 가져오기
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Arc 사용 가능 데이터 서비스 로그를 검색 하려면 Azure 데이터 CLI 도구가 필요 합니다. [설치 지침](./install-client-tools.md)
 

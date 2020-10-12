@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
 ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325692"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
@@ -97,7 +97,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![스냅숏 정책 매월](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  **저장**을 클릭합니다.  
+4.  **Save**을 클릭합니다.  
 
 추가 스냅숏 정책을 만들어야 하는 경우 3 단계를 반복 합니다.
 만든 정책이 스냅숏 정책 페이지에 표시 됩니다.
@@ -221,6 +221,6 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스냅숏 정책 문제 해결](troubleshoot-snapshot-policies.md)
+* [스냅샷 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

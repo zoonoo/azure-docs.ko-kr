@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899553"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
@@ -28,7 +28,7 @@ ms.locfileid: "90899553"
 이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -83,7 +83,7 @@ Azure Portal를 통해 GitOps 구성을 배포 하도록 Azure Arc 리소스를 
 
 1. **구성 추가**에서 필드에 적절 한 값을 입력 하 고 **적용**을 선택 합니다.
 
-    |매개 변수  |설명 |
+    |매개 변수  |Description |
     |---------|---------|
     |구성 이름     | 구성 리소스의 이름입니다.        |
     |Operator 인스턴스 이름     |특정 구성을 식별 하는 운영자의 인스턴스 이름입니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |

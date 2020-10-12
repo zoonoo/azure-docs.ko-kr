@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
 ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939293"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>기본 제공 메트릭을 사용 하 여 유연한 서버 Azure Database for MySQL 모니터링
@@ -31,7 +31,7 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor를 통해 서버 모�
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다.
 
-|메트릭 표시 이름|메트릭|단위|설명|
+|메트릭 표시 이름|메트릭|단위|Description|
 |---|---|---|---|
 |호스트 CPU 백분율|cpu_percent|백분율|고객 작업 및 Azure MySQL 프로세스의 CPU 사용률을 포함 하 여 서버의 CPU 사용률 비율|
 |호스트 네트워크 |network_bytes_ingress|바이트|고객 데이터베이스의 트래픽과 복제, 모니터링, 로그 등과 같은 Azure MySQL 기능을 포함 하 여 서버에서 들어오는 네트워크 트래픽|

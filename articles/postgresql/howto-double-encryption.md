@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90901550"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 인프라 이중 암호화
 
 Azure Database for PostgreSQL에 대 한 인프라를 설정 하 고 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 
@@ -33,15 +33,15 @@ Azure Portal에서 인프라 이중 암호화를 사용 하 여 Azure Database f
 
 3. 서버에 대 한 기본 정보를 제공 합니다. **추가 설정을** 선택 하 고 **인프라 이중 암호화** 확인란을 설정 하 여 매개 변수를 설정 합니다.
 
-    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="Azure Database for PostgreSQL 선택":::
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 4. **검토 + 만들기**를 선택하여 서버를 프로비저닝합니다.
 
-    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="Azure Database for PostgreSQL 요약":::
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 5. 서버를 만든 후 **데이터 암호화** 서버 블레이드의 상태를 확인 하 여 인프라의 이중 암호화의 유효성을 검사할 수 있습니다.
 
-    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png" alt-text="Azure Database for MySQL 유효성 검사":::
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>인프라 이중 암호화를 사용 하 여 Azure Database for PostgreSQL 서버 만들기-CLI
 

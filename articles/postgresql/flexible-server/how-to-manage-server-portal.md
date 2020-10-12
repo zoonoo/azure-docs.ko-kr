@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938503"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 유연한 서버 관리
@@ -52,7 +52,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 2. 새 암호를 입력하고 암호를 확인합니다. 텍스트 상자에 암호 복잡성 요구 사항에 대 한 메시지가 표시 됩니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="유연한 서버에 대 한 암호 재설정":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="저장소 유연한 서버 크기 조정":::
 
 3. **저장** 을 선택 하 여 새 암호를 저장 합니다.
 
@@ -63,7 +63,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제**를 선택 합니다.
 2. 입력 상자에 서버 이름을 입력 하 여 서버 삭제를 확인 합니다.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="유연한 서버 삭제":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="저장소 유연한 서버 크기 조정":::
 
    > [!IMPORTANT]
    > 서버 삭제는 취소할 수 없습니다.

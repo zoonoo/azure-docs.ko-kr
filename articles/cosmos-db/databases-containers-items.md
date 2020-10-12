@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
 ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318792"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업
@@ -85,15 +85,15 @@ Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 
 
 | 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_없앨 | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 예 | 예 | 예 | 예 |
-|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 예 | 예 | 예 | 예 |
-|\_터미널 | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 예 | 예 | 예 | 예 |
-|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 예 | 예 | 예 | 예 |
+|\_없앨 | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|\_터미널 | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | 예 | 예 | 예 | 예 | 예 |
-|indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예 | 예 | 예 | 예 | 예 |
-|timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | 예 | 예 | 예 | 예 | 예 |
-|changeFeedPolicy | 사용자 구성 가능 | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 [변경 피드](change-feed.md)를 참조 하세요. | 예 | 예 | 예 | 예 | 예 |
-|uniqueKeyPolicy | 사용자 구성 가능 | 논리 파티션에서 하나 이상의 값에 대 한 고유성을 보장 하는 데 사용 됩니다. 자세한 내용은 [Unique key 제약 조건](unique-keys.md)을 참조 하세요. | 예 | 예 | 예 | 예 | 예 |
+|indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예 | 아니요 | 아니요 | 아니요 | 예 |
+|timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | 예 | 아니요 | 아니요 | 아니요 | 예 |
+|changeFeedPolicy | 사용자 구성 가능 | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 [변경 피드](change-feed.md)를 참조 하세요. | 예 | 아니요 | 아니요 | 아니요 | 예 |
+|uniqueKeyPolicy | 사용자 구성 가능 | 논리 파티션에서 하나 이상의 값에 대 한 고유성을 보장 하는 데 사용 됩니다. 자세한 내용은 [Unique key 제약 조건](unique-keys.md)을 참조 하세요. | 예 | 아니요 | 아니요 | 아니요 | 예 |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 작업
 
@@ -121,10 +121,10 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 | 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_없앨 | 시스템 생성 | 항목의 고유 식별자 | 예 | 예 | 예 | 예 | 예 |
-|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 예 | 예 | 예 | 예 |
-|\_터미널 | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | 예 | 예 | 예 | 예 | 예 |
-|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 예 | 예 | 예 | 예 |
+|\_없앨 | 시스템 생성 | 항목의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|\_터미널 | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. | 예 | 예 | 예 | 예 | 예 |
 |임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | 예 | 예 | 예 | 예 | 예 |
 
@@ -137,7 +137,7 @@ Azure Cosmos 항목은 다음 작업을 지원 합니다. Azure Cosmos Api를 �
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 삽입, 바꾸기, 삭제, Upsert, 읽기 | 예 | 예 | 예 | 예 | 예 | 예 |
+| 삽입, 바꾸기, 삭제, Upsert, 읽기 | 아니요 | 예 | 예 | 예 | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

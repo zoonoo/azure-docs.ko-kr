@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
 ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324334"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
@@ -42,7 +42,7 @@ ms.locfileid: "91324334"
 
 **사용 된 DIUs \* 복사 기간 \* 단가/dius 시간에 대 한**요금이 청구 됩니다. [여기](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)에서 현재 가격을 참조 하세요. 로컬 통화 및 별도의 크기 구독 유형별로 적용 될 수 있습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -100,7 +100,7 @@ ms.locfileid: "91324334"
 
 속성의 값을 지정 하는 경우 `parallelCopies` 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려 합니다. 또한 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 값을 줄여서 `parallelCopies` 로드를 완화 합니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -148,11 +148,11 @@ ms.locfileid: "91324334"
 
 복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을로 설정 하는 경우 `TRUE` 다음 표에 나열 된 추가 속성을 지정 합니다. 
 
-| 속성 | Description | 기본값 | 필수 |
+| 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
-| linkedServiceName |임시 스테이징 저장소로 사용 하는 저장소 인스턴스를 참조 하는 [Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 연결 된 서비스의 이름을 지정 합니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| path |준비 된 데이터를 포함할 경로를 지정 합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. |해당 없음 |예 |
+| linkedServiceName |임시 스테이징 저장소로 사용 하는 저장소 인스턴스를 참조 하는 [Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 연결 된 서비스의 이름을 지정 합니다. |N/A |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
+| path |준비 된 데이터를 포함할 경로를 지정 합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. |해당 없음 |아니요 |
 | enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 >[!NOTE]

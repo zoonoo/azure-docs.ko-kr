@@ -4,10 +4,10 @@ description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324096"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도

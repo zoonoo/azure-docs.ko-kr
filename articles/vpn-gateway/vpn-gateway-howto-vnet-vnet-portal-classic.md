@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84985465"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
@@ -73,7 +73,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 **예제**
 
-| Virtual Network | 주소 공간 | 지역 | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | Azure 지역 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -135,7 +135,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 각 VNet의 로컬 사이트는 다른 VNet입니다. 다음 예제 값은 여기의 구성에 사용됩니다.
 
-| Virtual Network | 주소 공간 | 지역 | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | Azure 지역 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

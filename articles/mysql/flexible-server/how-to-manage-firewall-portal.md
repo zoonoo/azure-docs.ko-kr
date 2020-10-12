@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 132319575147c2ff1075881b1f1faec8bc5029f4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940456"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 방화벽 규칙 만들기 및 관리
@@ -48,21 +48,21 @@ Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가�
 
 3. 방화벽 규칙에서 **현재 클라이언트 IP 주소 추가** 를 클릭 합니다. 이렇게 하면 Azure 시스템에서 감지한 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Add My IP":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
 
 4. 구성을 저장하기 전에 사용자의 IP 주소를 확인합니다. 상황에 따라 Azure Portal에서 관찰하는 IP 주소는 인터넷 및 Azure 서버에 액세스할 때 사용된 IP 주소와 다릅니다. 따라서 규칙 기능이 예상 대로 작동 하도록 하려면 시작 IP 주소와 끝 IP 주소를 변경 해야 할 수 있습니다.
 
    검색 엔진 또는 기타 온라인 도구를 사용 하 여 사용자 고유의 IP 주소를 확인할 수 있습니다. 예를 들어 "내 IP는 무엇입니까"를 검색합니다.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
 
 5. 추가 주소 범위를 추가합니다. Azure Database for MySQL 유연한 서버에 대 한 방화벽 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 규칙을 단일 IP 주소로 제한 하려는 경우 시작 IP 주소와 끝 IP 주소에 대 한 필드에 동일한 주소를 입력 합니다. 방화벽을 열면 관리자, 사용자 및 응용 프로그램이 유효한 자격 증명이 있는 MySQL 서버의 데이터베이스에 액세스할 수 있습니다.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - firewall rules":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - click Connection Security":::-->
 
 6. 도구 모음에서 **저장** 을 클릭 하 여이 방화벽 규칙을 저장 합니다. 방화벽 규칙에 대한 업데이트가 성공적으로 수행되었는지 확인될 때까지 기다립니다.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Save":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Connection Security":::-->
 
 ## <a name="connect-from-azure"></a>Azure에서 연결
 

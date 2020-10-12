@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323728"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
@@ -68,7 +68,7 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 디바이스의 방화벽, 라우터 내부의 방화벽 등 방화벽이 다음 포트를 차단하지 않는지 확인합니다.
 
-| 포트              | 프로토콜 | 허용    | Description |
+| 포트              | 프로토콜 | 허용    | 설명 |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | 나가는 포트 | 초기 연결 (HTTP 핸드셰이크) |
 | 8266              | UDP      | 나가는 포트 | 데이터 전송 |

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808436"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 내부 Load Balancer을 다른 지역으로 이동
@@ -89,7 +89,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus**지역 이름입니다.
 
-12. 또한 선택 하는 경우 파일 **의template.js** 에 있는 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택 사항입니다.
+12. 또한 선택 하는 경우 파일 ** 의template.js** 에 있는 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택 사항입니다.
 
     * **주소 공간** - **리소스**  >  **addressSpace** 섹션을 수정 하 고 파일 **의template.js** **addressPrefixes** 속성을 변경 하 여 저장 하기 전에 VNET의 주소 공간을 변경할 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 ]
         ```
 
-         파일 **의template.js** 에서 주소 접두사를 변경 하려면 위에 나열 된 섹션과 아래에 나열 된 **형식** 섹션에서 두 위치를 편집 해야 합니다.  **AddressPrefix** 속성을 위와 일치 하도록 변경 합니다.
+         파일 ** 의template.js** 에서 주소 접두사를 변경 하려면 위에 나열 된 섹션과 아래에 나열 된 **형식** 섹션에서 두 위치를 편집 해야 합니다.  **AddressPrefix** 속성을 위와 일치 하도록 변경 합니다.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -216,7 +216,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
              }
     ```
 
-6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음 파일 **의parameters.js** 에 복사 하 여 붙여넣어야 합니다. ID를 가져오려면 다음을 수행 합니다.
+6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음 파일 ** 의parameters.js** 에 복사 하 여 붙여넣어야 합니다. ID를 가져오려면 다음을 수행 합니다.
 
     1. [Azure portal](https://portal.azure.com)  >  다른 브라우저 탭 또는 창에서 Azure Portal**리소스 그룹** 에 로그인 합니다.
     2. 위의 단계에서 이동 된 가상 네트워크를 포함 하는 대상 리소스 그룹을 찾아 클릭 합니다.

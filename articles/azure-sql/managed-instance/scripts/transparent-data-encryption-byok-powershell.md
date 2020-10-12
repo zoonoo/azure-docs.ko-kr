@@ -13,10 +13,10 @@ ms.author: mlandzic
 ms.reviewer: vanto, sstein
 ms.date: 08/25/2020
 ms.openlocfilehash: 34a849fde315b45bdb1df577cf26c91f458abd72
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323235"
 ---
 # <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 고유한 키를 사용 하 여 SQL Managed Instance에서 투명한 데이터 암호화
@@ -25,7 +25,7 @@ ms.locfileid: "91323235"
 
 이 PowerShell 스크립트 예제에서는 Azure Key Vault의 키를 사용 하 여 Azure SQL Managed Instance에 대 한 고객 관리 키를 사용 하 여 TDE (투명한 데이터 암호화)를 구성 합니다. 이를 종종 TDE에 대 한 BYOK (BYOK) 시나리오 라고 합니다. 자세한 내용은 [고객 관리 키를 사용 하 여 AZURE SQL 투명한 데이터 암호화](../../database/transparent-data-encryption-byok-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 기존 관리형 인스턴스. [PowerShell을 사용 하 여 관리 되는 인스턴스 만들기를](create-configure-managed-instance-powershell.md)참조 하세요.
 

@@ -12,10 +12,10 @@ ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6f6b2ed9357acf4dceeb960b1abdf6813987f657
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324895"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
@@ -24,7 +24,7 @@ ms.locfileid: "91324895"
 
 이러한 동일한 마이그레이션 전략이 LargePersonGroup 및 LargeFaceList 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는 c #에서 Face .NET 클라이언트 라이브러리를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 항목이 필요 합니다.
 

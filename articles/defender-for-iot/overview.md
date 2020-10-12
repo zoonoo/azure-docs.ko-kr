@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 434a977a6d8c5b2243996063f758f409c20723fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940913"
 ---
 # <a name="introducing-azure-defender-for-iot"></a>IoT 용 Azure Defender 소개
 
-보안 관리를 통합 하 고 하이브리드 클라우드 워크 로드 및 Azure IoT 솔루션에서 종단 간 위협 검색 및 분석을 가능 하 게 합니다.
+보안 관리를 통합하고 하이브리드 클라우드 워크로드 및 Azure IoT 솔루션에서 엔드투엔드 위협 탐지 및 분석을 지원합니다.
 
 ## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>IoT 장치에서 Azure 클라우드로 전체 IoT 솔루션 보호
 
@@ -36,7 +36,7 @@ IoT for IoT는 edge, 온-프레미스, Azure 및 기타 클라우드에서 실�
 
 ### <a name="unified-visibility-and-control"></a>통합된 표시 유형 및 제어
 
-Azure IoT 솔루션을 포함 하 여 모든 온-프레미스 및 클라우드 워크 로드에서 통합 된 보안 보기를 가져옵니다. 새 장치를 등록 하 고 워크 로드 (리프 장치, Microsoft Edge 장치, IoT Hub)에 보안 정책을 적용 하 여 보안 표준 및 향상 된 보안 상태를 준수 하는지 확인 합니다.
+Azure IoT 솔루션을 포함 하 여 모든 온-프레미스 및 클라우드 워크 로드에서 통합 된 보안 보기를 가져옵니다. 새 디바이스를 온보딩하고, 워크로드(리프 디바이스, Microsoft Edge 디바이스, IoT Hub)에 보안 정책을 적용하여 보안 표준 준수 및 향상된 보안 상태를 보장합니다.
 
 ### <a name="adaptive-threat-prevention"></a>적응형 위협 방지
 

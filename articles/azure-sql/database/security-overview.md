@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
 ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321427"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
@@ -75,9 +75,9 @@ Azure SQL Database는 [가상 네트워크 규칙](vnet-service-endpoint-rule-ov
 
 ### <a name="row-level-security"></a>행 수준 보안
 
-RLS(행 수준 보안)를 사용하면 고객이 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)에 따라 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. 행 수준 보안을 사용 하 여 사용자 지정 레이블 기반 보안 개념을 구현할 수도 있습니다. 자세한 내용은 [행 수준 보안](/sql/relational-databases/security/row-level-security)을 참조 하세요.
+RLS(행 수준 보안)를 사용하면 고객이 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)에 따라 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. Row-Level 보안을 사용 하 여 사용자 지정 레이블 기반 보안 개념을 구현할 수도 있습니다. 자세한 내용은 [행 수준 보안](/sql/relational-databases/security/row-level-security)을 참조 하세요.
 
-![행 수준 보안이 클라이언트 앱을 통해 사용자가 액세스 하는 것을 차단 하는 행 수준 보안을 보여 주는 다이어그램입니다.](./media/security-overview/azure-database-rls.png)
+![Row-Level 보안이 클라이언트 앱을 통해 사용자가 액세스할 수 없도록 SQL 데이터베이스의 개별 행을 방패 함을 보여 주는 다이어그램입니다.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>위협 보호
 

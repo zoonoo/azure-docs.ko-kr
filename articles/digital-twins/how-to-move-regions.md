@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
 ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328499"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
@@ -30,7 +30,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 연결 합니다.
 4. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 고 다시 만들어야 하는 모든 부분을 명확 하 게 파악 하는 것이 좋습니다.
 
@@ -42,7 +42,7 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
 * 내 인스턴스에 있는 **경로** 는 무엇입니까? 필터가 있나요?
 * 내 인스턴스가 **다른 Azure 서비스에 연결**하는 위치 몇 가지 일반적인 통합 요소에는 다음이 포함 됩니다.
     - Event Grid, Event Hub 또는 Service Bus
-    - Azure Functions
+    - Azure 기능
     - Logic Apps
     - Time Series Insights
     - Azure Maps
@@ -88,7 +88,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 연결을 확인 하려면 *쿼리 실행* 단추를 클릭 하 여 그래프 *탐색기* 상자에서 그래프의 모든 쌍 및 관계를 표시 하는 기본 쿼리를 실행 합니다.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="창 위쪽에서 '쿼리 실행'이라는 단추가 강조 표시되어 있습니다." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/run-query.png":::
 
 이 문서의 뒷부분에서 다시 사용 하는 것 처럼 ADT 탐색기를 실행 상태로 유지 하 여 대상 지역의 새 인스턴스에 이러한 항목을 다시 업로드할 수 있습니다.
 
@@ -100,7 +100,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
  
 그런 다음 *그래프 뷰* 상자에서 *그래프 내보내기* 아이콘을 누릅니다.
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="그래프 뷰 상자에 아이콘이 강조 표시 됩니다. 클라우드에서 아래쪽을 가리키는 화살표를 표시 합니다." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/export-graph.png":::
 
 그러면 *그래프 보기*에서 *다운로드* 링크가 사용 됩니다. 모델, 쌍 및 관계를 포함 하 여 쿼리 결과의 JSON 기반 표현을 다운로드 하려면이를 선택 합니다. 이렇게 하면 *json* 파일이 컴퓨터에 다운로드 됩니다.
 
@@ -136,7 +136,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 현재 ADT 탐색기는 원래의 Azure Digital Twins 인스턴스에 연결 됩니다. 창 맨 위에 있는 *로그인* 단추를 눌러 새 인스턴스를 가리키도록 연결을 전환 합니다. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="창 위쪽 근처에 있는 로그인 아이콘이 강조 표시된 ADT 탐색기입니다. 이 아이콘은 열쇠의 실루엣과 겹쳐진 사람의 간단한 실루엣을 보여 줍니다." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/sign-in.png":::
 
 앱 등록을 다시 사용 하 고 있으므로 *ADT URL*만 바꾸면 됩니다. 이 값을 *https://{새 인스턴스 호스트 이름}* 을 읽도록 변경 합니다.
 
@@ -148,7 +148,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 **모델, twins 및 그래프**를 업로드 하려면 그래프 *뷰* 상자에서 *그래프 가져오기* 아이콘을 누릅니다. 이 옵션은이 세 구성 요소를 한 번에 모두 업로드 합니다 (그래프에서 현재 사용 되지 않는 모델에도 해당).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="그래프 보기 상자에서 아이콘이 강조 표시되어 있습니다. 이 아이콘은 클라우드를 가리키는 화살표를 보여 줍니다." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/import-graph.png":::
 
 파일 선택기 상자에서 다운로드 한 그래프로 이동 합니다. 그래프 *json* 파일을 선택 하 고 *열기*를 누릅니다.
 
@@ -158,7 +158,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="그래프 미리 보기 창에서 저장 아이콘이 강조 표시되어 있습니다." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -168,7 +168,7 @@ ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azur
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="그래프 가져오기 성공을 나타내는 대화 상자입니다. ' 가져오기 성공 '을 읽습니다. 2 개의 모델을 가져왔습니다. 4 개의 wins를 가져왔습니다. 2 개의 관계를 가져왔습니다. '" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -178,11 +178,11 @@ ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azur
 
 모든 항목이 성공적으로 업로드 되었는지 확인 하려면 *그래프 탐색기* 상자에서 *쿼리 실행* 단추를 클릭 하 여 그래프의 모든 쌍 및 관계를 표시 하는 기본 쿼리를 실행 합니다. 이렇게 하면 *모델 뷰의*모델 목록도 새로 고쳐집니다.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="창 위쪽의 이전에서 동일한 ' 쿼리 실행 ' 단추를 강조 표시 합니다." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/run-query.png":::
 
 그래프 *탐색기* 상자에 모든 해당 쌍 및 관계가 표시 되는 그래프가 표시 되어야 합니다. *모델 뷰* 상자에도 모델이 표시 됩니다.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="' 모델 뷰 ' 상자에 강조 표시 된 2 개의 모델 및 ' Graph 탐색기 ' 상자에 강조 표시 된 그래프를 보여 주는 ADT 탐색기의 뷰입니다." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/post-upload.png":::
 
 이렇게 하면 모델, 쌍 및 그래프가 대상 지역의 새 인스턴스에 다시 업로드 된 것을 확인할 수 있습니다.
 
@@ -234,4 +234,4 @@ Azure Portal를 사용 하 여 인스턴스를 삭제 하려면 브라우저 창
 
 *삭제* 단추를 누르고 표시 되는 메시지에 따라 삭제를 완료 합니다.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="개요 탭의 Azure Portal에 있는 Azure 디지털 Twins 인스턴스 세부 정보를 표시 합니다. 삭제 단추가 강조 표시 됩니다.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다.":::
