@@ -4,10 +4,10 @@ description: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 A
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288928"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Azure Pipelines CI/CD 파이프라인에 Azure DevTest Labs 통합
@@ -24,7 +24,7 @@ ms.locfileid: "87288928"
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure DevOps](https://dev.azure.com) 조직에 등록 또는 로그인 하 고 조직에 [프로젝트를 만듭니다](/vsts/organizations/projects/create-project) . 
   

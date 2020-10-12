@@ -4,10 +4,10 @@ description: Azure Portal을 사용하여 VHD 파일에서 Azure DevTest Labs에
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cac812a9c38fc1dedfd31659a626b122f9527e63
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289406"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기

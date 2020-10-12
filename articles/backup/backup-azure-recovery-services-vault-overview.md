@@ -4,10 +4,10 @@ description: Recovery Services 자격 증명 모음에 대 한 개요입니다.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975159"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
@@ -20,9 +20,9 @@ ms.locfileid: "90975159"
 
 - **RBAC(역할 기반 Access Control)**: RBAC는 Azure에서 세밀한 액세스 관리 제어를 제공합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 RBAC와 호환되어 백업을 제한하고 정의된 집합의 사용자 역할에 대한 액세스를 복원합니다. [자세한 정보](backup-rbac-rs-vault.md)
 
-- **일시 삭제**: 일시 삭제를 사용 하면 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존 기간은 아무런 비용이 들지 않습니다. [자세히 알아보기](backup-azure-security-feature-cloud.md).
+- **일시 삭제**: 일시 삭제를 사용 하면 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존 기간은 아무런 비용이 들지 않습니다. [자세히 알아봅니다](backup-azure-security-feature-cloud.md).
 
-- **지역 간 복원**: crr (지역 간 복원)을 사용 하면 azure 쌍을 이루는 지역에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. Azure가 주 지역에서 재해를 선언 하는 경우 보조 지역에서 복제 된 데이터를 보조 지역에서 복원 하 여 환경에 대 한 기본 지역의 실제 가동 중지 시간을 완화할 수 있습니다. [자세히 알아보기](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **지역 간 복원**: crr (지역 간 복원)을 사용 하면 azure 쌍을 이루는 지역에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. Azure가 주 지역에서 재해를 선언 하는 경우 보조 지역에서 복제 된 데이터를 보조 지역에서 복원 하 여 환경에 대 한 기본 지역의 실제 가동 중지 시간을 완화할 수 있습니다. [자세히 알아봅니다](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 저장소 설정
 
@@ -54,7 +54,7 @@ Azure Advisor는 백업 되지 않은 Vm에 대 한 시간별 [권장 사항을]
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [자격 증명 모음 지원 및 지원 되지 않는 시나리오](backup-support-matrix.md#vault-support)
 - [자격 증명 모음에 대 한 질문과 대답](backup-azure-backup-faq.md)

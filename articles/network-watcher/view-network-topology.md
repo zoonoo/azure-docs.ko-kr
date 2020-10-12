@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737532"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
@@ -128,7 +128,7 @@ ms.locfileid: "84737532"
 
 토폴로지에서 반환되는 모든 리소스에는 다른 리소스에 대한 다음 유형의 관계 중 하나가 있습니다.
 
-| 관계 유형 | 예제                                                                                                |
+| 관계 유형 | 예                                                                                                |
 | ---               | ---                                                                                                    |
 | Containment       | 가상 네트워크에 서브넷이 포함됩니다. 서브넷에 네트워크 인터페이스가 포함됩니다.                            |
 | 연결        | 네트워크 인터페이스가 VM과 연결됩니다. 공용 IP 주소가 네트워크 인터페이스에 연결됩니다. |

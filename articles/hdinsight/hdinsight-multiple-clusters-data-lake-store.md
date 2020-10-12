@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083953"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
@@ -89,7 +89,7 @@ Resource XXXX is not publicly accessible and as such cannot be part of the publi
 
 계층을 통해 **다른 사용자**에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 - [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)

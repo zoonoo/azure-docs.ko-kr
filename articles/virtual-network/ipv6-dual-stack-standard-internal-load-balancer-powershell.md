@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
 ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289573"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Azure에서 표준 내부 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
@@ -43,7 +43,7 @@ IPv6 지원 내부 Load Balancer를 만드는 절차는 [여기](virtual-network
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.
@@ -119,7 +119,7 @@ $DsSubnet = get-AzVirtualNetworkSubnetconfig -name dsSubnet -VirtualNetwork $vne
 
 ### <a name="create-front-end-ip"></a>프런트 엔드 IP 만들기
 
-[New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v4* 및 *dsLbFrontEnd_v6*라는 IPv4 및 IPv6 프런트 엔드 IP 구성을 만듭니다.
+[AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용 하 여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v4* 및 *dsLbFrontEnd_v6*라는 IPv4 및 IPv6 프런트 엔드 IP 구성을 만듭니다.
 
 ```azurepowershell
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `

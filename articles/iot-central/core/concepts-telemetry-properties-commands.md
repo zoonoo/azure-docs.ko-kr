@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291617"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>원격 분석, 속성 및 명령 페이로드
@@ -45,9 +45,9 @@ IoT Central를 사용 하 여 장치가 응용 프로그램에 전송 하는 원
 
 1. **원시 데이터** 탭을 선택 합니다.
 
-    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="원시 데이터 뷰":::
+    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="원시 데이터 보기":::
 
-    이 뷰에서 표시할 열을 선택 하 고 표시할 시간 범위를 설정할 수 있습니다. 모델링 되지 않은 **데이터** 열은 장치 템플릿의 속성 또는 원격 분석 정의와 일치 하지 않는 장치의 데이터를 표시 합니다.
+    이 보기에서 표시할 열을 선택하고 표시할 시간 범위를 설정할 수 있습니다. **모델링되지 않은 데이터** 열에는 디바이스 템플릿의 속성 또는 원격 분석 정의와 일치하지 않는 디바이스 데이터가 표시됩니다.
 
 ## <a name="telemetry"></a>원격 분석
 
@@ -347,7 +347,7 @@ DCM의 다음 코드 조각은 원격 분석 형식에 대 한 정의를 보여 
 }
 ```
 
-장치 클라이언트는 다음 예제와 같이 JSON으로 원격 분석을 전송 해야 합니다. `DateTime`형식은 ISO 8061 규격 이어야 합니다. 에 사용할 수 있는 값은, 및 이며 `Property3` `0` `1` IoT Central에, 및로 표시 됩니다 `Item1` `Item2` `Item3` .
+장치 클라이언트는 다음 예제와 같이 JSON으로 원격 분석을 전송 해야 합니다. `DateTime` 형식은 ISO 8061 규격 이어야 합니다. 에 사용할 수 있는 값은, 및 이며 `Property3` `0` `1` IoT Central에, 및로 표시 됩니다 `Item1` `Item2` `Item3` .
 
 ```json
 {
@@ -531,7 +531,7 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `date` .
 }
 ```
 
-장치 클라이언트는 다음 예제와 같은 JSON 페이로드를 장치 쌍에 보고 된 속성으로 전송 해야 합니다. `Date`형식은 ISO 8061 규격 이어야 합니다.
+장치 클라이언트는 다음 예제와 같은 JSON 페이로드를 장치 쌍에 보고 된 속성으로 전송 해야 합니다. `Date` 형식은 ISO 8061 규격 이어야 합니다.
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -766,18 +766,18 @@ DCM의 다음 코드 조각은 속성 형식 정의를 보여 줍니다 `vector`
 
 IoT Central 장치에서 쓰기 가능한 속성 업데이트에 대 한 응답을 예상 합니다. 응답 메시지에는 및 필드가 포함 되어야 합니다 `ac` `av` . `ad` 필드는 선택 사항입니다. 예제는 다음 코드 조각을 참조 하세요.
 
-`ac`는 다음 표의 값을 사용 하는 숫자 필드입니다.
+`ac` 는 다음 표의 값을 사용 하는 숫자 필드입니다.
 
 | 값 | 레이블 | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | 속성 변경 작업을 성공적으로 완료 했습니다. |
-| `'ac': 202`디스크나`'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
+| `'ac': 202`  디스크나 `'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
 | `'ac': 4xx` | Error | 요청 된 속성 변경이 잘못 되었거나 오류가 발생 했습니다. |
 | `'ac': 5xx` | Error | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
 
-`av`장치에 전송 된 버전 번호입니다.
+`av` 장치에 전송 된 버전 번호입니다.
 
-`ad`는 옵션 문자열 설명입니다.
+`ad` 는 옵션 문자열 설명입니다.
 
 DCM의 다음 코드 조각은 쓰기 가능한 속성 형식의 정의를 보여 줍니다 `string` .
 

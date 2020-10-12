@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84753595"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 리소스 로그
@@ -102,7 +102,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대 한 통신에서 TLS/SSL을 사용 하는지 여부입니다. 유효한 값은 on과 off입니다.|
-|host| 요청이 백 엔드 서버로 전송 된 호스트 이름입니다. 백 엔드 호스트 이름이 재정의 되는 경우이 이름에이 반영 됩니다.|
+|호스트| 요청이 백 엔드 서버로 전송 된 호스트 이름입니다. 백 엔드 호스트 이름이 재정의 되는 경우이 이름에이 반영 됩니다.|
 |originalHost| 클라이언트에서 Application Gateway 요청을 수신 하는 데 사용 된 호스트 이름입니다.|
 ```json
 {
@@ -150,7 +150,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 |serverRouted| Application gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
 |serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
 |serverResponseLatency| 백 엔드 서버의 응답 대기 시간입니다.|
-|host| 요청의 호스트 헤더에 나열 된 주소입니다.|
+|호스트| 요청의 호스트 헤더에 나열 된 주소입니다.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -191,7 +191,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
 |unHealthyHostCount     | 백 엔드 풀의 비정상 호스트 수        |
 |requestCount     | 처리된 요청 수        |
-|latency | 인스턴스와 요청을 처리하는 백 엔드 사이의 평균 요청 대기 시간(밀리초)입니다. |
+|대기 시간 | 인스턴스와 요청을 처리하는 백 엔드 사이의 평균 요청 대기 시간(밀리초)입니다. |
 |failedRequestCount| 실패한 요청 수|
 |throughput| 마지막 로그 이후의 평균 처리량(초당 바이트 수로 측정됨)|
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507486"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기

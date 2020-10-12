@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿을 사용하여 Service Fabric 클
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256512"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리

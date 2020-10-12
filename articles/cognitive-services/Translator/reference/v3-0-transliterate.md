@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 8b811c57eb163931c39a311418ac9f1513e9393a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592256"
 ---
 # <a name="translator-30-transliterate"></a>Translator 3.0: 음 차
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
     <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
-    <td>language</td>
+    <td>언어</td>
     <td>*필수 매개 변수*입니다.<br/>한 스크립트에서 다른 스크립트로 변환할 텍스트의 언어를 지정합니다. 사용 가능한 언어는 서비스에서 [지원되는 언어](./v3-0-languages.md)를 쿼리하여 표시되는 `transliteration` 범위에 표시됩니다.</td>
   </tr>
   <tr>
@@ -57,7 +57,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>인증 헤더</td>
@@ -88,7 +88,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ]
 ```
 
-다음 제한 사항이 적용됩니다.
+다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 10개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 1,000자를 초과할 수 없습니다.
@@ -114,7 +114,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>X-RequestId</td>

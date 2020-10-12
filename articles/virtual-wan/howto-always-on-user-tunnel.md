@@ -1,5 +1,5 @@
 ---
-title: Always On VPN 사용자 터널 구성
+title: Always-On VPN 사용자 터널 구성
 titleSuffix: Azure Virtual WAN
 description: 이 문서에서는 가상 WAN에 대 한 Always On VPN 사용자 터널을 구성 하는 방법을 설명 합니다.
 services: virtual-wan
@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: e83ca64d2b0e50ec02007a3cd878e6bf034d0961
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313589"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>가상 WAN에 대 한 Always On VPN 사용자 터널 구성
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 지점 및 사이트 간 구성을 만들고 가상 허브 할당을 편집 해야 합니다. 지침은 다음 섹션을 참조 하세요.
 
@@ -34,7 +34,7 @@ ms.locfileid: "91313589"
 
 프로필을 제거 하려면 다음 단계를 사용 합니다.
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령 실행:
 
    ```powershell
    C:\> Remove-VpnConnection UserTest  

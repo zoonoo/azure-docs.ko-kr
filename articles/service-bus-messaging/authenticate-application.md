@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus 엔터티 (큐, 토픽 등)�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064828"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스 하 Azure Active Directory 응용 프로그램 인증 및 권한 부여
@@ -153,8 +153,8 @@ GitHub의 [Service Bus에 대 한 역할 기반 액세스 제어](https://github
 - Azure RBAC에 대해 자세히 알아보려면 azure [역할 기반 액세스 제어 란? (AZURE rbac)](../role-based-access-control/overview.md)을 참조 하세요.
 - Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure 역할 할당을 할당 하 고 관리 하는 방법을 알아보려면 다음 문서를 참조 하세요.
     - [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-powershell.md)  
-    - [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-cli.md)
-    - [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)
+    - [Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-cli.md)
+    - [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)
     - [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-template.md)
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.

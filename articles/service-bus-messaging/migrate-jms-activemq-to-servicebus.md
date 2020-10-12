@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067157"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS (Java Message Service) 2.0 응용 프로그램 마이그레이션
@@ -64,7 +64,7 @@ Azure Service Bus와 상호 작용 하도록 클라이언트 응용 프로그램
 
 Azure Active Directory에 의해 지원 되는 RBAC (역할 기반 액세스 제어)는 Service Bus에 대 한 기본 인증 메커니즘입니다. RBAC 또는 클레임 기반 인증은 현재 Apache QPID JMS에서 지원 되지 않으므로 인증을 위해 SAS 키를 사용 해야 합니다.
 
-## <a name="pre-migration"></a>마이그레이션 전
+## <a name="pre-migration"></a>사전 마이그레이션
 
 ### <a name="version-check"></a>버전 확인
 
@@ -116,7 +116,7 @@ ActiveMQ 맵의 메트릭이 Azure Service Bus의 메트릭에 상관 관계를 
 |Broker|`CurrentConnectionsCount`|`activeConnections`|
 |Broker|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
 |Broker|`InactiveDurableTopicSubscribersCount`|구독 메트릭 사용|
-|Broker|`TotalMessageCount`|큐/토픽/구독 수준 사용`activeMessages`|
+|Broker|`TotalMessageCount`|큐/토픽/구독 수준 사용 `activeMessages`|
 |큐/토픽|`EnqueueCount`|`incomingMessages`|
 |큐/토픽|`DequeueCount`|`outgoingMessages`|
 |큐|`QueueSize`|`sizeBytes`|
@@ -134,7 +134,7 @@ Service Bus와 상호 작용 하도록 기존 JMS 2.0 응용 프로그램을 마
 > [!NOTE]
 > JMS 응용 프로그램의 경우 런타임 작업으로 큐, 토픽 및 구독을 만듭니다. 대부분의 JMS 공급자 (메시지 브로커)는 런타임에 이러한 공급자를 만드는 기능을 제공 합니다. 이러한 이유 때문에이 내보내기 단계가 선택 사항으로 간주 됩니다. 응용 프로그램에 런타임에 토폴로지를 만들 수 있는 권한이 있는지 확인 하려면 SAS 권한으로 연결 문자열을 사용 `Manage` 합니다.
 
-이렇게 하려면 다음을 수행합니다.
+가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 
 1. [Activemq 명령줄 도구](https://activemq.apache.org/activemq-command-line-tools-reference) 를 사용 하 여 토폴로지를 내보냅니다.
 1. [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)사용 하 여 동일한 토폴로지를 다시 만듭니다.
@@ -266,7 +266,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>마이그레이션 후
+## <a name="post-migration"></a>마이그레이션 후 작업
 
 이제 응용 프로그램을 수정 하 여 Service Bus에서 메시지를 보내고 받기 시작 했으므로 정상적으로 작동 하는지 확인 해야 합니다. 이 작업이 완료 되 면 계속 해 서 응용 프로그램 스택을 구체화 하 고 현대화 수 있습니다.
 

@@ -4,10 +4,10 @@ description: '환경 (예: Service Fabric 클러스터)을의 랩 가상 네트�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 31f924a4b6d7cbe1b6f71c7e34d43fd9c135bac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483774"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 가상 네트워크에 환경 연결

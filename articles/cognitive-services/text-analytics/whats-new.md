@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: aahi
 ms.openlocfilehash: 12f3ce506d8b4588dc9c670e49cabd3bc7767566
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460274"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
@@ -165,17 +165,17 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 * 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
     * PersonType
-    * 제품
+    * Product
     * 이벤트
     * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
     * 기술
 
 * 다음 개인 정보 엔터티 형식 인식 (영어만 해당):
-    * 사람
+    * Person
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * 전자 메일 
+    * Email 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소

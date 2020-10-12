@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
 ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705710"
 ---
 # <a name="saml-token-claims-reference"></a>SAML 토큰 클레임 참조
@@ -27,7 +27,7 @@ Microsoft id 플랫폼은 각 인증 흐름의 처리 과정에서 여러 유형
 ## <a name="claims-in-saml-tokens"></a>SAML 토큰의 클레임
 
 > [!div class="mx-codeBreakAll"]
-> | Name | 동등한 JWT 클레임 | Description | 예 |
+> | Name | 동등한 JWT 클레임 | 설명 | 예제 |
 > | --- | --- | --- | ------------|
 > |사용자 | `aud` |토큰의 의도한 수신자입니다. 토큰을 받는 애플리케이션에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | 인증 인스턴트 | |인증이 발생한 날짜 및 시간을 기록합니다. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
@@ -156,5 +156,5 @@ Microsoft id 플랫폼은 각 인증 흐름의 처리 과정에서 여러 유형
 
 * Microsoft Graph API를 사용 하 여 토큰 수명 정책을 관리 하는 방법에 대해 자세히 알아보려면 [AZURE AD 정책 리소스 개요](/graph/api/resources/policy)를 참조 하세요.
 * [사용자 지정 및 선택적 클레임](active-directory-optional-claims.md)을 애플리케이션의 토큰에 추가합니다.
-* [SAML을 사용 하 여 sso (Single sign-on)](single-sign-on-saml-protocol.md)를 사용 합니다.
-* [Azure Single Sign OUT SAML 프로토콜](single-sign-out-saml-protocol.md) 사용
+* [SAML을 사용 하는 sso (Single Sign-On)를](single-sign-on-saml-protocol.md)사용 합니다.
+* [Azure Single Sign-Out SAML 프로토콜](single-sign-out-saml-protocol.md) 사용

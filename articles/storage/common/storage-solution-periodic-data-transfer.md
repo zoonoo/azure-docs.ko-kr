@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504341"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
@@ -60,7 +60,7 @@ ms.locfileid: "85504341"
 | 데이터 형식                                   | Azure Blob, Azure Files   | Azure Blob, Azure Files | [데이터 저장소 및 형식을 위해 70개 이상의 데이터 커넥터 지원](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | 데이터 사전 처리                           | 아니요                         | 예, Edge 컴퓨팅 사용    | 예                                                           |
 | 로컬 캐시<br>(온-프레미스 데이터 저장)    | 예                        | 예                      | 아니요                                                            |
-| 다른 클라우드에서 전송                    | 아니요                         | 예                       | 예                                                           |
+| 다른 클라우드에서 전송                    | 아니요                         | 아니요                       | 예                                                           |
 | 가격 책정                                       | [가격](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [가격](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [가격](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>다음 단계

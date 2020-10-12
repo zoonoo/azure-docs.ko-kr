@@ -9,10 +9,10 @@ ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080456"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 모니터링 데이터 참조
@@ -28,7 +28,7 @@ ms.locfileid: "88080456"
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
 | **category** | **범주** | Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **queryruntimestatistics**, **파티션**, 파티션, **파티션**, **ControlPlaneRequests** 는 사용 가능한 로그 형식입니다. |
-| **operationName** | **OperationName** | 작업의 이름입니다. 작업 이름은 `Create` ,, `Update` `Read` , `ReadFeed` ,, `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` ,,,, `Upsert` ,, 또는 일 수 있습니다.   |
+| **operationName** | **OperationName** | 작업의 이름입니다. 작업 이름은  `Create` ,, `Update` `Read` , `ReadFeed` ,, `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` ,,,, `Upsert` ,, 또는 일 수 있습니다.   |
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |
 | **userAgent** | **userAgent_s** | 요청을 보낸 클라이언트 사용자 에이전트를 지정 하는 문자열입니다. 사용자 에이전트의 형식은 `{user agent name}/{version}` 입니다.|

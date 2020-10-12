@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705863"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588601"
 ---
 # <a name="translator-30-languages"></a>Translator 3.0: 언어
@@ -48,16 +48,16 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 요청 헤더는 다음과 같습니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*선택적 요청 헤더*<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
+    <td>*선택적 요청 헤더*입니다.<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
     </td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*선택적 요청 헤더*<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다.</td>
+    <td>*선택적 요청 헤더*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다.</td>
   </tr>
 </table> 
 
@@ -229,7 +229,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>ETag</td>

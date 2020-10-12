@@ -4,10 +4,10 @@ description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대�
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330284"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
@@ -77,7 +77,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name**이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>형식
+## <a name="type"></a>유형
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 

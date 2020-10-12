@@ -4,10 +4,10 @@ description: 이 문서에서는 예외 발생 시 수행할 수 있는 Azure Se
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4813ad7386af3d9dd730b74e6b815ff173cfe809
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885740"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
@@ -65,7 +65,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 ### <a name="namespaces"></a>네임스페이스
 
-네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 다음은 그 예입니다. 
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.

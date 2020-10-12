@@ -4,10 +4,10 @@ description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975098"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
@@ -149,7 +149,7 @@ $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" 
 $targetVault.ID
 ```
 
-Or
+또는
 
 ```powershell
 $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID

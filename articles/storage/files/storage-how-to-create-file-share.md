@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
 ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329405"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
@@ -32,7 +32,7 @@ Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 �
 
 이러한 세 가지 옵션에 대 한 자세한 내용은 [Azure Files 배포 계획](storage-files-planning.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)하세요.
 - Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하세요.
@@ -166,7 +166,7 @@ az storage account create \
 표준 파일 공유는 트랜잭션 최적화 (기본값), 핫 또는 쿨 계층 중 하나로 배포할 수 있습니다. 저장소 계정의 **blob 액세스 계층** 에 의해 영향을 받지 않는 파일 공유 계층 당입니다 .이 속성은 Azure blob 저장소에만 관련 되며 Azure Files와는 관련이 없습니다. 배포 후 언제 든 지 공유의 계층을 변경할 수 있습니다. 프리미엄 파일 공유는 모든 표준 계층의 표준 파일 공유로 직접 변환할 수 없습니다.
 
 > [!Important]  
-> GPv2 저장소 계정 유형 (트랜잭션 최적화, 핫 및 쿨) 내의 계층 간에 파일 공유를 이동할 수 있습니다. 계층 간 이동 공유 트랜잭션 발생: 더울 계층에서 냉각기 계층으로 이동 하면 공유의 각 파일에 대 한 냉각기 계층의 쓰기 트랜잭션 요금이 발생 하는 반면, 냉각기 계층에서 더울 계층으로 이동 하면 각 파일 공유에 대해 쿨 계층의 읽기 트랜잭션 요금이 발생 합니다.
+> GPv2 스토리지 계정 유형(트랜잭션 최적화, 핫 및 쿨) 내의 계층 간에 공유를 이동할 수 있습니다. 계층 간 공유 이동으로 인해 트랜잭션이 발생합니다. 핫 계층에서 쿨 계층으로 이동하면 공유의 각 파일에 대해 쿨 계층의 쓰기 트랜잭션 요금이 발생하는 반면, 쿨 계층에서 핫 계층으로 이동하면 각 파일 공유에 대해 쿨 계층의 읽기 트랜잭션 요금이 발생합니다.
 
 **할당량** 속성은 프리미엄 및 표준 파일 공유 간에 약간 다른 것을 의미 합니다.
 

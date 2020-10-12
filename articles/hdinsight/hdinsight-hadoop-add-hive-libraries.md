@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082236"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가
@@ -62,7 +62,7 @@ HDInsight에서 [Apache Hive](https://hive.apache.org/) 라이브러리를 미�
     |속성|라이브러리 |
     |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |노드 유형|헤드, 작업자|
-    |매개 변수|jar을 포함하는 컨테이너 및 스토리지 계정에 WASB 주소를 입력합니다. 예: `wasbs://libs@mystorage.blob.core.windows.net/`.|
+    |매개 변수|jar을 포함하는 컨테이너 및 스토리지 계정에 WASB 주소를 입력합니다. 예: `wasbs://libs@mystorage.blob.core.windows.net/`|
 
     > [!NOTE]
     > Apache Spark 2.1의 경우 bash 스크립트 URI를 사용 `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh` 합니다.

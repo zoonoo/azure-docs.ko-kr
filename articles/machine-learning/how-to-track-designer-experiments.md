@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885967"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Azure Machine Learning designer 파이프라인에서 로깅 사용
@@ -59,7 +59,7 @@ __Python 스크립트 실행__ 모듈을 사용 하 여 디자이너 파이프�
         return dataframe1,
     ```
     
-이 코드는 Azure Machine Learning Python SDK를 사용 하 여 값을 기록 합니다. Get_context ()를 사용 하 여 현재 실행의 컨텍스트를 가져옵니다. 그런 다음, run. parent. log () 메서드를 사용 하 여 해당 컨텍스트에 값을 기록 합니다. 를 사용 `parent` 하 여 모듈 실행이 아니라 부모 파이프라인 실행에 값을 기록 합니다.
+이 코드는 Azure Machine Learning Python SDK를 사용 하 여 값을 기록 합니다. Run.get_context ()를 사용 하 여 현재 실행의 컨텍스트를 가져옵니다. 그런 다음, run. parent. log () 메서드를 사용 하 여 해당 컨텍스트에 값을 기록 합니다. 를 사용 `parent` 하 여 모듈 실행이 아니라 부모 파이프라인 실행에 값을 기록 합니다.
 
 Python SDK를 사용 하 여 값을 기록 하는 방법에 대 한 자세한 내용은 [AZURE ML 학습 실행에서 로깅 사용](how-to-track-experiments.md)을 참조 하세요.
 

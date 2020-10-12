@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿을 사용 하 여 이미지를 빌
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82927771"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 ACR 작업 실행
@@ -16,7 +16,7 @@ ms.locfileid: "82927771"
 
 이 문서에서는 [az acr build][az-acr-build] 명령을 사용 하 여 수동으로 만들 수 있는 것과 마찬가지로 빠른 작업 실행을 큐에 대기 하는 Azure Resource Manager 템플릿 예제를 보여 줍니다.
 
-태스크 실행을 큐에 대기 하는 리소스 관리자 템플릿은 자동화 시나리오에서 유용 하 고의 기능을 확장 `az acr build` 합니다. 예를 들어:
+태스크 실행을 큐에 대기 하는 리소스 관리자 템플릿은 자동화 시나리오에서 유용 하 고의 기능을 확장 `az acr build` 합니다. 예를 들면 다음과 같습니다.
 
 * 템플릿을 사용 하 여 컨테이너 레지스트리를 만들고 작업 실행을 즉시 큐에 대기 하 여 컨테이너 이미지를 빌드하고 푸시합니다.
 * Azure 리소스에 대 한 관리 되는 id와 같은 빠른 작업 실행에서 사용할 수 있는 추가 리소스를 만들거나 사용 하도록 설정 합니다.

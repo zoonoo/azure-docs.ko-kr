@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329349"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
@@ -32,7 +32,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 | Windows Server 2012 R2 | SMB 3.0 | 예 | 예 |
 | Windows Server 2012 | SMB 3.0 | 예 | 예 |
 | Windows 7<sup>3</sup> | SMB 2.1 | 예 | 예 |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 예 |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 아니요 |
 
 <sup>1</sup> Windows 10, 버전 1507, 1607, 1803, 1809, 1903, 1909 및 2004입니다.  
 <sup>2</sup> Windows Server, 버전 1809, 1903, 1909, 2004.  
@@ -67,12 +67,12 @@ Azure Portal은 파일 공유를 호스트에 직접 탑재 하는 데 사용할
 
 1. **연결**을 선택합니다.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="파일 공유에 대 한 연결 아이콘의 스크린샷":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="예 들어":::
 
 1. 공유를 탑재할 드라이브 문자를 선택 합니다.
 1. 제공 된 스크립트를 복사 합니다.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="예제 텍스트":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="예 들어":::
 
 1. 파일 공유를 탑재 하려는 호스트의 셸에 스크립트를 붙여넣고 실행 합니다.
 

@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
 ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274439"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
@@ -71,7 +71,7 @@ Oracle Data Guard를 사용 하는 경우 읽기 전용으로 보조 데이터�
 > 활성 데이터 가드를 사용 하려면 추가 라이선스가 필요 합니다. 이 라이선스는 또한 Far 동기화 기능을 사용 하는 데 필요 합니다. Oracle 담당자와 연결 하 여 라이선스의 영향을 설명 하세요.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>FSFO을 사용한 Oracle Data Guard
-FSFO (빠른 시작 장애 조치 (Failover))을 사용 하는 Oracle Data Guard는 별도의 컴퓨터에서 broker를 설정 하 여 추가 복원 력을 제공할 수 있습니다. Data Guard broker와 보조 데이터베이스는 모두 관찰자를 실행 하 고 주 데이터베이스에서 가동 중지 시간을 관찰 합니다. 이를 통해 데이터 보호 관찰자 설정 에서도 중복성을 사용할 수 있습니다. 
+FSFO Fast-Start 장애 조치 (Failover)를 포함 한 Oracle Data Guard는 별도의 컴퓨터에서 broker를 설정 하 여 추가 복원 력을 제공할 수 있습니다. Data Guard broker와 보조 데이터베이스는 모두 관찰자를 실행 하 고 주 데이터베이스에서 가동 중지 시간을 관찰 합니다. 이를 통해 데이터 보호 관찰자 설정 에서도 중복성을 사용할 수 있습니다. 
 
 Oracle Database 버전 12.2 이상에서는 단일 Oracle Data Guard broker 구성으로 여러 관찰자를 구성할 수도 있습니다. 이 설치 프로그램은 하나의 관찰자와 보조 데이터베이스에 가동 중지 시간이 발생 하는 경우에 추가 가용성을 제공 합니다. Data Guard Broker는 경량 이며 비교적 작은 가상 머신에서 호스트할 수 있습니다. Data Guard Broker 및 그 이점에 대 한 자세한 내용은이 항목의 [Oracle 설명서](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) 를 참조 하세요.
 
@@ -152,7 +152,7 @@ Oracle 분할는 주로 다음 구성 요소로 구성 됩니다. 이러한 구�
 
 - **글로벌 서비스** -글로벌 서비스는 일반 데이터베이스 서비스와 비슷합니다. 글로벌 서비스는 데이터베이스 서비스의 모든 속성 외에도 클라이언트와 분할 된 데이터베이스 간의 지역 선호도와 같은 분할 된 데이터베이스의 속성 및 복제 지연 허용 오차를 포함 합니다. 분할 된 데이터베이스에서 데이터를 읽고 쓰기 위해 하나의 글로벌 서비스만 생성 해야 합니다. Active Data Guard를 사용 하 고 분할의 읽기 전용 복제본을 설정 하는 경우 읽기 전용 작업에 대 한 다른 gGobal 서비스를 만들 수 있습니다. 클라이언트는 이러한 글로벌 서비스를 사용 하 여 데이터베이스에 연결할 수 있습니다.
 
-- 분할 된 **데이터베이스** -분할 된 데이터베이스는 Oracle 데이터베이스입니다. 각 데이터베이스는 FSFO (빠른 시작 장애 조치 (Failover))이 설정 된 Broker 구성의 Oracle Data Guard를 사용 하 여 복제 됩니다. 각 분할 영역에서 Data Guard 장애 조치 (failover) 및 복제를 설정할 필요가 없습니다. 공유 데이터베이스를 만들 때 자동으로 구성 되 고 배포 됩니다. 특정 분할 된 데이터베이스에 오류가 발생 하면 Oracle 공유가 자동으로 주 데이터베이스에서 대기로 데이터베이스 연결을 장애 조치 (failover) 합니다.
+- 분할 된 **데이터베이스** -분할 된 데이터베이스는 Oracle 데이터베이스입니다. 각 데이터베이스는 FSFO (Fast-Start 장애 조치 (Failover))를 사용 하는 Broker 구성에서 Oracle Data Guard를 사용 하 여 복제 됩니다. 각 분할 영역에서 Data Guard 장애 조치 (failover) 및 복제를 설정할 필요가 없습니다. 공유 데이터베이스를 만들 때 자동으로 구성 되 고 배포 됩니다. 특정 분할 된 데이터베이스에 오류가 발생 하면 Oracle 공유가 자동으로 주 데이터베이스에서 대기로 데이터베이스 연결을 장애 조치 (failover) 합니다.
 
 Oracle Enterprise Manager Cloud Control GUI 및/또는 명령줄 유틸리티의 두 가지 인터페이스를 사용 하 여 Oracle 분할 된 데이터베이스를 배포 하 고 관리할 수 있습니다. `GDSCTL` 클라우드 제어를 사용 하 여 가용성 및 성능에 대 한 다양 한 분할 모니터링할 수 있습니다. `GDSCTL DEPLOY`명령은 자동으로 분할 및 해당 수신기를 만듭니다. 또한이 명령은 관리자가 지정한 분할 수준의 고가용성에 사용 되는 복제 구성을 자동으로 배포 합니다.
 
@@ -232,6 +232,6 @@ Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스
 
 - [Oracle Data Guard 소개](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Oracle Data Guard Broker 개념](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
-- [능동-활성 고가용성을 위한 Oracle GoldenGate 구성](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
+- [Active-Active 고가용성을 위한 Oracle GoldenGate 구성](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Oracle 분할 개요](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
 - [모든 거리에서 Oracle Active Data Guard Far 동기화 제로 데이터 손실](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

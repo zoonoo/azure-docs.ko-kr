@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
 ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590641"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Cognitive Services에 대 한 사용자 지정 하위 도메인 이름
@@ -68,7 +68,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 > [!NOTE]
 > Translator 서비스와 Bing Search API는 전역 끝점을 사용 합니다.
 
-| 엔드포인트 유형 | 지역 | 엔드포인트 |
+| 엔드포인트 유형 | Azure 지역 | 엔드포인트 |
 |---------------|--------|----------|
 | 공용 | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | 오스트레일리아 동부 | `https://australiaeast.api.cognitive.microsoft.com` |

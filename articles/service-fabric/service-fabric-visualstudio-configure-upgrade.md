@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256053"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 Service Fabric 애플리케이션의 업그레이드 구성

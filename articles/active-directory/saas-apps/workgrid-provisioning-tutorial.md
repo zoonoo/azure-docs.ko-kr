@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312246"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 작업 표 구성
@@ -27,7 +27,7 @@ ms.locfileid: "91312246"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -120,7 +120,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 워크 그�
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션에서 **사용자에 게 Azure Active Directory 사용자에 게 동기화 표에 동기화**를 선택 합니다.
 
@@ -136,7 +136,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 워크 그�
 
 12. **특성 매핑** 섹션에서 Azure AD에서 작동 그리드로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 작업 표에서 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![3 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](media/Workgrid-provisioning-tutorial/groupattribute.png)
+    ![3개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](media/Workgrid-provisioning-tutorial/groupattribute.png)
 
 13. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure�
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975454"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
@@ -127,7 +127,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 7. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(설치되지 않은 경우)을 설치하여 설치를 완료합니다.
 8. 에이전트가 설치되면 창을 **닫습니다**.
 
-    ![닫기](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![닫습니다](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>자격 증명 모음에 VMM 서버 등록
 

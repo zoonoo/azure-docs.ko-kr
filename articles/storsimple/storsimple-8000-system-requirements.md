@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80297719"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -63,7 +63,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
-| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
+| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 메모 |
 | --- | --- | --- | --- | --- |
 | TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |아니요 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
 | TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |예 |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
@@ -91,7 +91,7 @@ StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라
 StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
 > [!NOTE]
-> 디바이스(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+> 디바이스(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 ip는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653)로 설정 되어야 합니다.
 
 
 #### <a name="url-patterns-for-azure-portal"></a>Azure 포털의 URL 패턴
@@ -129,7 +129,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 * 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다.
 * 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 예제입니다.
 
-    | Linux | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
+    | 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
     | Data 1  | 2            | 20                       |

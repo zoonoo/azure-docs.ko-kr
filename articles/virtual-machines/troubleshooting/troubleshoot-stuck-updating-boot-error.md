@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084021"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 시작이 Windows 업데이트에서 중단되는 경우
@@ -71,7 +71,7 @@ ms.locfileid: "86084021"
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
     ```
-    예: 
+    예제: 
 
     ```
     dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

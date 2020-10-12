@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289591"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포

@@ -7,10 +7,10 @@ ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
 ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122371"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Azure Functions 진단 개요
@@ -31,11 +31,11 @@ Azure Functions 진단을 시작하는 방법은 다음과 같습니다.
 
 함수 앱의 문제에 가장 잘 맞는 홈페이지 범주를 선택하면 Genie라는 Azure Functions 진단의 대화형 인터페이스를 사용하여 앱의 문제를 진단하고 해결하는 과정을 안내받을 수 있습니다. Genie에서 제공하는 타일 바로 가기를 사용하여 관심 있는 문제 범주의 전체 진단 보고서를 볼 수 있습니다. 타일 바로 가기를 통해 진단 메트릭에 직접 액세스할 수 있습니다.
 
-:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Genie는 Azure Functions 진단 인터페이스입니다." border="false":::
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Azure Functions 진단을 찾습니다." border="false":::
 
 타일을 선택한 후 타일에 설명된 이슈와 관련된 토픽의 목록을 볼 수 있습니다. 이러한 토픽에서는 전체 보고서에서 주목할 만한 정보 조각을 제공합니다. 이러한 토픽 중 하나를 선택하여 이슈를 자세히 조사합니다. 또한 **전체 보고서 보기**를 선택하여 단일 페이지의 모든 토픽을 탐색할 수 있습니다.
 
-:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="진단 보고서 미리 보기" border="false":::
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Azure Functions 진단을 찾습니다." border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>진단 보고서 보기
 
@@ -45,9 +45,9 @@ Azure Functions 진단을 시작하는 방법은 다음과 같습니다.
 
 스크립트 기반 함수의 경우 **함수 앱 다운 또는 오류 보고** 아래의 **함수 실행 및 오류**를 사용하여 예외나 오류가 발생하는 코드 줄의 범위를 좁힐 수 있습니다. 이 도구를 사용하여 근본 원인을 파악하고 특정 코드 줄에서 문제를 수정할 수 있습니다. 미리 컴파일된 C# 및 Java 함수에는 이 옵션을 사용할 수 없습니다.
 
-:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="함수 실행 오류에 대한 진단 보고서" border="false":::
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Azure Functions 진단을 찾습니다." border="false":::
 
-:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="예외 세부 정보 보기" border="false":::.
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Azure Functions 진단을 찾습니다." border="false":::.
 
 ## <a name="next-steps"></a>다음 단계
 

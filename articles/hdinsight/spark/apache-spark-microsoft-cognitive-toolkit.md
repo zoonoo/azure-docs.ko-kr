@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ms.openlocfilehash: 659e44ddc13cf093d7e571e904e177136ed21127
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084497"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
@@ -82,7 +82,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 1. 노트북을 업로드 한 후에는 노트북의 이름을 클릭 한 다음, 데이터 집합을 로드 하 고 문서를 수행 하는 방법에 대 한 노트북 자체의 지침을 따릅니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 

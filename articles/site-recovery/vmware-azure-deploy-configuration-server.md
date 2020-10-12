@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287731"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
@@ -26,7 +26,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 구성 서버는 최소 하드웨어 및 크기 조정 요구 사항에 따라 항상 사용 가능한 VMware VM으로 설정 해야 합니다. 편리 하 고 쉬운 배포를 위해 Site Recovery는 여기에 나열 된 모든 요구 사항을 준수 하는 구성 서버를 설정 하는 다운로드 가능한 OVA (Open Virtualization Application) 템플릿을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 구성 서버에 대 한 최소 하드웨어 요구 사항은 다음 섹션에 요약 되어 있습니다.
 
@@ -146,7 +146,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 배포 & 연결 문제를 해결 하려면 [문제 해결 문서](vmware-azure-troubleshoot-configuration-server.md) 를 참조 하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * 지정 된로 구성 서버에 대 한 라이선스를 제공 하는 구성 서버에 유효한 시간 라이선스를 다시 활성화 하지 않으면 어떻게 되나요?
 

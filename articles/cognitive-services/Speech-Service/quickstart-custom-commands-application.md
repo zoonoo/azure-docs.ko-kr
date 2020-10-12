@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289425"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>사용자 지정 명령을 사용하여 음성 도우미 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "87289425"
 * 동아시아
 * 동남아시아
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.<span class="docon docon-navigate-external x-hidden-focus"></span></a> 지원 되는 지역 목록에 대해서는 위의 **지역 가용성** 섹션을 참조 하세요.
@@ -66,7 +66,7 @@ ms.locfileid: "87289425"
     > [!div class="mx-imgBorder"]
     > ![프로젝트 만들기](media/custom-commands/import-project.png)
 
-1.  **LUIS authoring 리소스** 목록에서 제작 리소스를 선택 합니다. 유효한 제작 리소스가 없는 경우 create **NEW LUIS authoring resource**를 선택 하 여 만듭니다.
+1.  **LUIS authoring 리소스** 목록에서 제작 리소스를 선택 합니다. 유효한 제작 리소스가 없는 경우 create  **NEW LUIS authoring resource**를 선택 하 여 만듭니다.
 
     > [!div class="mx-imgBorder"]
     > ![리소스 그룹 만들기](media/custom-commands/create-new-luis-resource.png)
@@ -101,7 +101,7 @@ Speech Studio 외부에서이 응용 프로그램에 액세스 하려면 먼저 
 ### <a name="update-prediction-luis-resource"></a>예측 LUIS 리소스 업데이트
 
 
-1. 왼쪽 창에서 **설정** 을 선택 하 고 가운데 창에서 **LUIS resources** 를 선택 합니다.
+1. 왼쪽 창에서 **설정** 을 선택 하 고 가운데 창에서  **LUIS resources** 를 선택 합니다.
 1. 예측 리소스를 선택 하거나 **새 리소스 만들기**를 선택 하 여 하나를 만듭니다.
 1. **저장**을 선택합니다.
     
@@ -113,7 +113,7 @@ Speech Studio 외부에서이 응용 프로그램에 액세스 하려면 먼저 
 
 ### <a name="publish-the-application"></a>애플리케이션 게시
 
-오른쪽 창 맨 위에서 **게시** 를 선택 합니다. 게시가 완료 되 면 새 창이 표시 됩니다. **응용 프로그램 ID** 및 **음성 리소스 키** 값을 적어둡니다. Speech Studio 외부에서 응용 프로그램에 액세스할 수 있으려면이 두 값이 필요 합니다.
+오른쪽 창 맨 위에서  **게시** 를 선택 합니다. 게시가 완료 되 면 새 창이 표시 됩니다. **응용 프로그램 ID** 및 **음성 리소스 키** 값을 적어둡니다. Speech Studio 외부에서 응용 프로그램에 액세스할 수 있으려면이 두 값이 필요 합니다.
 
 또는 **설정**  >  **일반** 섹션을 선택 하 여 이러한 값을 가져올 수도 있습니다.
 

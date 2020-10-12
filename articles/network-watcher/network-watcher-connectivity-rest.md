@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
 ms.openlocfilehash: 33a3c41f49833d669fd94ccf1e22afed971e544b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737974"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 연결 문제 해결
@@ -82,7 +82,7 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -198,7 +198,7 @@ null
 
 이 예제에서는 가상 컴퓨터와 원격 엔드포인트 간의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -294,7 +294,7 @@ null
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -381,7 +381,7 @@ null
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 스토리지 계정으로의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
