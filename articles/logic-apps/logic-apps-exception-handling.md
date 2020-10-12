@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704525"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
@@ -27,7 +27,7 @@ ms.locfileid: "84704525"
 
 재시도 정책 유형은 다음과 같습니다.
 
-| 형식 | Description |
+| 유형 | Description |
 |------|-------------|
 | **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. |
 | **기하급수적 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. |
@@ -69,16 +69,16 @@ ms.locfileid: "84704525"
 
 *필수*
 
-| 값 | 형식 | 설명 |
+| 값 | Type | 설명 |
 |-------|------|-------------|
 | <*다시 시도 정책-유형*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
 | <*다시 시도 간격*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
-| <*다시 시도 횟수*> | 정수 | 재시도 횟수이며, 1~90 사이여야 합니다. |
+| <*다시 시도 횟수*> | Integer | 재시도 횟수이며, 1~90 사이여야 합니다. |
 ||||
 
 *선택 사항*
 
-| 값 | 형식 | 설명 |
+| 값 | Type | 설명 |
 |-------|------|-------------|
 | <*최소 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
 | <*최대 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |

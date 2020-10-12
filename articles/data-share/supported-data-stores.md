@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 공유에서 지원 되는 데이터 저장소
+title: Azure Data Share에서 지원되는 데이터 저장소
 description: Azure 데이터 공유 사용에 대해 지원 되는 데이터 저장소에 대해 알아봅니다.
 ms.service: data-share
 author: jifems
@@ -7,13 +7,13 @@ ms.author: jife
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259016"
 ---
-# <a name="supported-data-stores-in-azure-data-share"></a>Azure 데이터 공유에서 지원 되는 데이터 저장소
+# <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
 
 Azure 데이터 공유는 다양 한 데이터 저장소에서 공유 하는 기능을 포함 하 여 유연한 개방형 데이터 공유 기능을 제공 합니다. 데이터 공급자는 특정 유형의 데이터 저장소에서 데이터를 공유할 수 있으며 데이터 소비자는 데이터를 받을 데이터 저장소를 선택할 수 있습니다. 
 

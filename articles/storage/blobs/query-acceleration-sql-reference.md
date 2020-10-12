@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659566"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>쿼리 가속 SQL 언어 참조
@@ -65,7 +65,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 CSV 형식 데이터에서 값을 읽는 경우 모든 값을 문자열로 읽습니다.  캐스트 식을 사용 하 여 문자열 값을 다른 형식으로 변환할 수 있습니다.  컨텍스트에 따라 값이 암시적으로 다른 형식으로 캐스팅 될 수 있습니다. 자세한 내용은 [데이터 형식 우선 순위 (transact-sql)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql)를 참조 하세요.
 
-## <a name="expressions"></a>표현식
+## <a name="expressions"></a>식
 
 ### <a name="referencing-fields"></a>참조 필드
 
@@ -94,7 +94,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 |[및](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |두 정수 값 간에 비트 논리 AND 연산을 수행합니다.|
 |[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Transact-sql 문 내의 이진 식으로 변환 되는 두 개의 지정 된 정수 값 간에 비트 논리적 OR 연산을 수행 합니다.|
 |[다음이 아님](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |부울 입력을 부정합니다.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |데이터 형식의 식을 다른 형식의 식으로 변환합니다.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |한 데이터 형식의 식을 다른 데이터 형식으로 변환합니다.|
 |[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |테스트할 범위를 지정합니다.|
 |[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |지정된 값과 일치하는 값이 하위 쿼리 또는 목록 내에 있는지 확인합니다.|
 |[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |지정된 두 식이 같으면 Null 값을 반환합니다.|
@@ -114,7 +114,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 쿼리 가속 SQL 언어는 다음과 같은 표준 SQL 문자열 함수를 지원 합니다.
 
-|기능|Description|
+|함수|Description|
 |--|--|
 |CHAR_LENGTH    | 문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHARACTER_LENGTH 함수와 동일 합니다.|
 |CHARACTER_LENGTH    |문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHAR_LENGTH 함수와 동일 합니다.|
@@ -250,7 +250,7 @@ SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 �
 
 ## <a name="table-descriptors"></a>테이블 설명자
 
-CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  다음은 그 예입니다. 
+CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  예를 들면 다음과 같습니다.
 
 ```sql
 SELECT * FROM BlobStorage
@@ -302,7 +302,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 쿼리가 모든 필드를 가져오지만 위도만 선택 합니다.
 
-JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 다음은 그 예입니다. 
+JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions

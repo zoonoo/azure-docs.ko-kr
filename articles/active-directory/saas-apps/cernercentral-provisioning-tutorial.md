@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529868"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>자습서: 동 사용자 프로비전을 위한 Cerner Central 구성
@@ -52,7 +52,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 섹션에서는 사용자의 Azure AD를 Cerner의 SCIM 사용자 계정 프로비전 API를 사용하여 Cerner Central의 사용자 명단에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 Cerner Central에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
 
 > [!TIP]
-> [Azure Portal](https://portal.azure.com)에 제공 된 지침에 따라 cerner central Central에 대해 SAML 기반 Single sign-on을 사용 하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다. 자세한 내용은 [Cerner Central Single Sign-On 자습서](cernercentral-tutorial.md)를 참조하세요.
+> [Azure Portal](https://portal.azure.com)에 제공 된 지침에 따라 cerner central CENTRAL에 SAML 기반 Single Sign-On을 사용 하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다. 자세한 내용은 [Cerner Central Single Sign-On 자습서](cernercentral-tutorial.md)를 참조하세요.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Azure AD에서 Cerner Central에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.
 
@@ -106,13 +106,13 @@ Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일** 필드에 입력하고 아래 확인란을 선택합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Cerner Central로 동기화될 사용자 및 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Cerner Central에서 사용자 계정 또는 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
 1. Cerner Central에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 사용자 및 그룹 섹션에서 Cerner Central에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Cerner Central 앱의 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 따를 수 있습니다.
 

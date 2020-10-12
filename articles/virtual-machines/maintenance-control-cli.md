@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
 ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90528179"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
 유지 관리 제어를 통해 격리 된 Vm 및 Azure 전용 호스트에 업데이트를 적용 하는 시기를 결정할 수 있습니다. 이 항목에서는 유지 관리 제어를 위한 Azure CLI 옵션을 설명 합니다. 유지 관리 제어, 제한 사항 및 기타 관리 옵션을 사용 하는 이점에 대 한 자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](maintenance-control.md)를 참조 하세요.
 
-## <a name="create-a-maintenance-configuration"></a>유지 관리 구성 만들기
+## <a name="create-a-maintenance-configuration"></a>유지 관리 구성을 만듭니다.
 
 `az maintenance configuration create`를 사용 하 여 유지 관리 구성을 만듭니다. 이 예제에서는 호스트로 범위가 지정 된 *Myconfig* 라는 유지 관리 구성을 만듭니다. 
 

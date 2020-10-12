@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055176"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드
@@ -203,7 +203,7 @@ public class Counter : ICounter
 
 ### <a name="example-client-signals-entity-through-interface"></a>예: 클라이언트에서 인터페이스를 통해 신호를 보냅니다.
 
-클라이언트 코드 `SignalEntityAsync<TEntityInterface>` 는를 사용 하 여을 구현 하는 엔터티에 신호를 보낼 수 있습니다 `TEntityInterface` . 다음은 그 예입니다.
+클라이언트 코드 `SignalEntityAsync<TEntityInterface>` 는를 사용 하 여을 구현 하는 엔터티에 신호를 보낼 수 있습니다 `TEntityInterface` . 예를 들면 다음과 같습니다.
 
 ```csharp
 [FunctionName("DeleteCounter")]

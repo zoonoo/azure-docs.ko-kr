@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707398"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>온-프레미스 StorSimple 디바이스(업데이트 3 이상) 배포
@@ -38,7 +38,7 @@ StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비
 | --- | --- |
 | **사전** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
-| [배포 필수 조건](#deployment-prerequisites) |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
+| [배포 사전 요구 사항](#deployment-prerequisites) |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 |  | |
 | **단계별 배포** |프로덕션 환경에서 StorSimple 디바이스를 배포하려면 다음 단계가 필요합니다. |
 | [1 단계: 새 서비스 만들기](#step-1-create-a-new-service) |StorSimple 디바이스에 대한 클라우드 관리 및 스토리지를 설정합니다. *다른 StorSimple 디바이스에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |

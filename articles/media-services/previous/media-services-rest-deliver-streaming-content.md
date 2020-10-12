@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 438a816ca28b9414557e64591d9ece2dbb173370
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256874"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시
@@ -152,20 +152,20 @@ Date: Wed, 18 Feb 2015 06:58:37 GMT
 
 부드러운 스트리밍: **경로** + 매니페스트 파일 이름 + "/manifest"
 
-다음과 같습니다.
+예제:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest`
 
 HLS: **경로** + 매니페스트 파일 이름 + "/ manifest(format=m3u8-aapl)"
 
-다음과 같습니다.
+예제:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)`
 
 
 DASH: **경로** + 매니페스트 파일 이름 + "/ manifest(format=mpd-time-csf)"
 
-다음과 같습니다.
+예제:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)`
 
@@ -175,7 +175,7 @@ DASH: **경로** + 매니페스트 파일 이름 + "/ manifest(format=mpd-time-c
 
 URL: **경로** + 자산 파일 mp4 이름
 
-다음과 같습니다.
+예제:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -206,7 +206,7 @@ public enum LocatorType
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)
 
 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)

@@ -10,10 +10,10 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
 ms.openlocfilehash: 0b5e6134de2260998e599bad0d1bf6b381898ffd
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88513174"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
@@ -63,7 +63,7 @@ IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모
 
 다음 몇 가지 섹션에서는 Azure Premium Storage VHD에 Write Accelerator를 사용하도록 설정하는 방법에 대해 설명합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 시점에서 Write Accelerator 사용에 적용되는 필수 조건은 다음과 같습니다.
 

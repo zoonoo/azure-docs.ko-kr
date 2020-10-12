@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533413"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
@@ -75,7 +75,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 적절 한 델타 처리를 위해 동일한 열려 있는 허브 테이블에 있는 다른 DTPs의 요청 Id를 가질 수 없습니다. 따라서 각 OHD (개방형 허브 대상)에 대해 두 개 이상의 DTP를 만들지 않아야 합니다. 동일한 InfoProvider에서 전체 및 델타 추출을 필요로 하는 경우 동일한 InfoProvider에 대해 두 개의 OHDs를 만들어야 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 SAP Business Warehouse 커넥터를 사용하려면 다음 작업을 수행해야 합니다.
 
@@ -111,12 +111,12 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 | type | Type 속성은 **SapOpenHub** 로 설정 해야 합니다. | 예 |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
-| messageServer | SAP 메시지 서버의 호스트 이름입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
-| messageServerService | 메시지 서버의 서비스 이름 또는 포트 번호입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
-| systemId | 테이블이 있는 SAP 시스템의 ID입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
-| logonGroup | SAP 시스템에 대 한 로그온 그룹입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
+| messageServer | SAP 메시지 서버의 호스트 이름입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
+| messageServerService | 메시지 서버의 서비스 이름 또는 포트 번호입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
+| systemId | 테이블이 있는 SAP 시스템의 ID입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
+| logonGroup | SAP 시스템에 대 한 로그온 그룹입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
-| language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
+| 언어 | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
 | password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
@@ -190,7 +190,7 @@ SAP BW 열려 있는 허브에서 데이터를 복사 하려면 복사 작업 **
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | 예 |
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | 아니요 (기본값은 **true**임) |
-| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 예 |
+| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.

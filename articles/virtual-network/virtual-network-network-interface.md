@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 99905e58cbcd9d0a5c5397aee125675a70e799fe
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657964"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>네트워크 인네트워크 인터페이스 만들기, 변경 또는 삭제
@@ -49,7 +49,7 @@ Azure Portal을 사용하여 가상 머신을 만들 때 Portal에서는 기본 
 
     |설정|필수 여부|세부 정보|
     |---|---|---|
-    |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다. 시간이 지남에 따라 Azure 구독에는 여러 개의 네트워크 인터페이스가 추가될 가능성이 많습니다. 여러 네트워크 인터페이스를 더 쉽게 관리할 수 있도록 명명 규칙을 만들 때 적용 가능한 권장 사항은 [명명 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming)을 참조하세요. 네트워크 인터페이스를 만든 후에는 이름을 변경할 수 없습니다.|
+    |속성|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다. 시간이 지남에 따라 Azure 구독에는 여러 개의 네트워크 인터페이스가 추가될 가능성이 많습니다. 여러 네트워크 인터페이스를 더 쉽게 관리할 수 있도록 명명 규칙을 만들 때 적용 가능한 권장 사항은 [명명 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming)을 참조하세요. 네트워크 인터페이스를 만든 후에는 이름을 변경할 수 없습니다.|
     |가상 네트워크|예|네트워크 인터페이스용 가상 네트워크를 선택합니다. 네트워크 인터페이스와 같은 구독 및 위치에 있는 가상 네트워크에만 네트워크 인터페이스를 할당할 수 있습니다. 네트워크 인터페이스를 만든 후에는 해당 인터페이스가 할당된 가상 네트워크를 변경할 수 없습니다. 네트워크 인터페이스에 추가하는 가상 머신은 네트워크 인터페이스와 같은 위치 및 구독에도 있어야 합니다.|
     |서브넷|예|선택한 가상 네트워크 내의 서브넷을 선택합니다. 네트워크 인터페이스를 만든 후에 해당 인터페이스가 할당된 서브넷을 변경할 수 있습니다.|
     |개인 IP 주소 할당|예| 이 설정에서는 IPv4 주소의 할당 방법을 선택합니다. 다음 할당 방법 중에서 선택합니다. **동적:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 다음 주소가 자동으로 할당됩니다. **고정:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 IP 주소를 수동으로 할당해야 합니다. 고정 및 동적 주소는 변경하거나 네트워크 인터페이스를 삭제할 때까지 변경되지 않습니다. 네트워크 인터페이스를 만든 후에 할당 방법을 변경할 수 있습니다. Azure DHCP 서버는 이 주소를 가상 머신 운영 체제 내의 네트워크 인터페이스에 할당합니다.|
@@ -57,7 +57,7 @@ Azure Portal을 사용하여 가상 머신을 만들 때 Portal에서는 기본 
     |Subscription|예|Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 중 하나를 선택합니다. 네트워크 인터페이스를 연결하는 가상 머신과 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 구독에 있어야 합니다.|
     |개인 IP 주소(IPv6)|아니요| 이 확인란을 선택하면 네트워크 인터페이스에 할당된 IPv4 주소 외에 IPv6 주소가 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스에서 IPv6을 사용하는 경우와 관련된 중요한 정보는 이 문서의 IPv6 섹션을 참조하세요. IPv6 주소에 대해서는 할당 방법을 선택할 수 없습니다. IPv6 주소를 할당하도록 선택하면 주소는 동적 방법으로 할당됩니다.
     |IPv6 이름(**개인 IP 주소(IPv6)** 확인란을 선택해야 표시됨) |예 - **개인 IP 주소(IPv6)** 확인란을 선택하는 경우| 이 이름은 네트워크 인터페이스의 보조 IP 구성에 할당됩니다. IP 구성에 대한 자세한 내용은 [네트워크 인터페이스 설정 보기](#view-network-interface-settings)를 참조하세요.|
-    |리소스 그룹|예|기존 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)을 선택하거나 리소스 그룹을 만듭니다. 네트워크 인터페이스는 연결하는 가상 머신이나 연결된 가상 네트워크와 같은 리소스 그룹에 있을 수도 있고 다른 리소스 그룹에 있을 수도 있습니다.|
+    |Resource group|예|기존 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)을 선택하거나 리소스 그룹을 만듭니다. 네트워크 인터페이스는 연결하는 가상 머신이나 연결된 가상 네트워크와 같은 리소스 그룹에 있을 수도 있고 다른 리소스 그룹에 있을 수도 있습니다.|
     |위치|예|네트워크 인터페이스를 연결하는 가상 컴퓨터와 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 [위치](https://azure.microsoft.com/regions)(지역이라고도 함)에 있어야 합니다.|
 
 Portal에서는 네트워크 인터페이스를 만들 때 공용 IP 주소를 네트워크 인터페이스에 할당하는 옵션을 제공하지 않습니다. 하지만 Portal을 사용하여 가상 머신을 만들 때는 공용 IP 주소가 작성되어 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스를 만든 후 공용 IP 주소를 추가하는 방법에 대한 자세한 내용은 [IP 주소 관리](virtual-network-network-interface-addresses.md)를 참조하세요. 공용 IP 주소가 있는 네트워크 인터페이스를 만들려면 CLI 또는 PowerShell을 사용하여 네트워크 인터페이스를 만들어야 합니다.

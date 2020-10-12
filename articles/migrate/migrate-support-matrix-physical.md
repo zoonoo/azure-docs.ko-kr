@@ -4,10 +4,10 @@ description: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평�
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660340"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
@@ -34,7 +34,7 @@ ms.locfileid: "89660340"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **실제 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 도메인에 가입된 컴퓨터에는 도메인 계정을 사용하고 도메인에 가입되지 않은 컴퓨터에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. <br/> 또는 다음 명령을 사용 하 여 필요한 기능이 설정 되었는지 확인 합니다. <br/> setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + eip/sbin/fdisk (/usr/sbin/fdisk이 없는 경우) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + eip"/sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/dmidecode <br/> chmod a + r/sys/class/dmi/id/product_uuid
+| **권한**           | **Windows:** 도메인에 가입된 컴퓨터에는 도메인 계정을 사용하고 도메인에 가입되지 않은 컴퓨터에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. <br/> 또는 다음 명령을 사용 하 여 필요한 기능이 설정 되었는지 확인 합니다. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk(/usr/sbin/fdisk가 없는 경우) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + eip"/sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/dmidecode <br/> chmod a + r/sys/class/dmi/id/product_uuid
 | **운영 체제** | 모든 Windows 및 Linux 운영 체제는 마이그레이션을 평가할 수 있습니다. |
 
 

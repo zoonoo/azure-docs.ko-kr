@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050517"
 ---
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 디바이스의 안전한 프로비전, 이러한 디바이스 및 클라우드 간의 보안 연결, 처리 및 스토리지 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 디바이스, 배포의 지리적 분산 및 솔루션 내 많은 수의 디바이스에 대한 작업이 포함됩니다.

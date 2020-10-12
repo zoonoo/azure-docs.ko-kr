@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737498"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 관리
@@ -26,7 +26,7 @@ Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 
 아래 표에서는 다양 한 서비스 공급자 작업 및 개인 끝점에 대 한 결과 연결 상태를 보여 줍니다.  서비스 공급자는 나중에 소비자 개입 없이 개인 끝점 연결의 연결 상태를 변경할 수도 있습니다. 작업은 소비자 쪽에서 끝점의 상태를 업데이트 합니다. 
 
 
-|서비스 공급자 작업   |서비스 소비자 전용 끝점 상태   |Description   |
+|서비스 공급자 작업   |서비스 소비자 전용 끝점 상태   |설명   |
 |---------|---------|---------|
 |None    |    Pending     |    연결이 수동으로 만들어지고 개인 링크 리소스 소유자의 승인 보류 중입니다.       |
 |승인    |  승인됨       |  연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다.     |
@@ -36,7 +36,7 @@ Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Azure PaaS 리소스에서 프라이빗 엔드포인트 연결 관리
 포털은 Azure PaaS 리소스에서 개인 끝점 연결을 관리 하는 데 선호 되는 방법입니다. 현재 Azure PaaS 리소스에 대 한 연결을 관리 하기 위해 PowerShell/CLI를 지원 하지 않습니다.
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 2. 개인 링크 센터로 이동 합니다.
 3. **리소스**에서 개인 끝점 연결을 관리 하려는 리소스 종류를 선택 합니다.
 4. 각 리소스 유형에 대해 연결 된 개인 끝점 연결의 수를 볼 수 있습니다. 필요에 따라 리소스를 필터링 할 수 있습니다.

@@ -4,10 +4,10 @@ description: DevTest Lab의 기본 개념과 Azure 가상 머신을 쉽게 만�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283846"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
@@ -71,7 +71,7 @@ DevTest Lab에서 사용자 지정 역할을 만드는 방법을 보려면 [특�
 
 범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 포함된 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 모든 가상 머신, 모든 가상 네트워크 및 모든 랩을 포함하는 구독의 모든 리소스에 대한 액세스를 가집니다. 따라서 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 랩 외부에 있는 가상 머신 또는 가상 네트워크 또는 리소스를 볼 수 없습니다.
 
-## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 이 문서에 설명된 모든 개념은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. 이러한 템플릿에서는 Azure 솔루션의 인프라/구성을 정의하고 반복적으로 일관된 상태로 배포할 수 있습니다.
 
 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.

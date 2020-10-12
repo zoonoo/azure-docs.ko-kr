@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: duau
 ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397953"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Express 경로 회로 대역폭 업그레이드 정보
@@ -45,4 +45,4 @@ Express 경로 다이렉트에 충분 한 용량이 없는 경우 더 이상 필
 
 * [회로 만들기 및 수정](expressroute-howto-circuit-portal-resource-manager.md)
 * [피어링 구성 만들기 및 수정](expressroute-howto-routing-portal-resource-manager.md)
-* [가상 네트워크를 ExpressRoute 회로에 연결합니다.](expressroute-howto-linkvnet-portal-resource-manager.md)
+* [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-portal-resource-manager.md)

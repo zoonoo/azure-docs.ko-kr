@@ -8,13 +8,13 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82838504"
 ---
-# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>네트워크 연결 Analysis Services에 대 한 질문과 대답
+# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Analysis Services 네트워크 연결과 관련된 질문과 대답
 
 이 문서에서는 저장소 계정, 데이터 원본, 방화벽 및 IP 주소에 연결 하는 방법에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 

@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: iainfou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283149"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 Ubuntu Linux 가상 컴퓨터 연결
@@ -77,7 +77,7 @@ sudo vi /etc/hosts
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-Vm을 관리 되는 도메인에 가입 하려면 VM에 몇 가지 추가 패키지가 필요 합니다. 이러한 패키지를 설치 하 고 구성 하려면를 사용 하 여 도메인 가입 도구를 업데이트 하 고 설치 합니다.`apt-get`
+Vm을 관리 되는 도메인에 가입 하려면 VM에 몇 가지 추가 패키지가 필요 합니다. 이러한 패키지를 설치 하 고 구성 하려면를 사용 하 여 도메인 가입 도구를 업데이트 하 고 설치 합니다. `apt-get`
 
 Kerberos 설치 중에 *krb5.conf* 패키지는 모두 대문자로 영역 이름을 입력 하 라는 메시지를 표시 합니다. 예를 들어 관리 되는 도메인의 이름이 *aaddscontoso.com*인 경우 *AADDSCONTOSO.COM* 를 영역으로 입력 합니다. 설치 `[realm]` `[domain_realm]` 시 및 섹션이 */etc/krb5.conf* 구성 파일에 기록 됩니다. 영역을 모두 대문자로 지정 해야 합니다.
 

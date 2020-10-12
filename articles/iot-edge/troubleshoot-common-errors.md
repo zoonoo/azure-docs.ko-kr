@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82783748"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
@@ -75,7 +75,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 1: 컨테이너 엔진 설정에서 DNS 서버 설정**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 예:
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -103,7 +103,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 2: 모듈 당 IoT Edge 배포에서 DNS 서버 설정**
 
-IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예:
+IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "createOptions": {

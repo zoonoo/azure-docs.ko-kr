@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527006"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
@@ -54,14 +54,14 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 | 시나리오 | 전화 인증 | 보안 키 | 비즈니스용 Windows Hello |
 | --- | --- | --- | --- |
 | **컴퓨터 로그인**: <br> 할당 된 Windows 10 장치에서 | **아니요** | **예** <br> 생체 인식 사용, PIN | **예**<br>생체 인식 인식 및 PIN 사용 |
-| **컴퓨터 로그인**: <br> 공유 Windows 10 장치에서 | **아니요** | **예** <br> 생체 인식 사용, PIN  | **아니요** |
+| **컴퓨터 로그인**: <br> 공유 Windows 10 장치에서 | **아니요** | **예** <br> 생체 인식 사용, PIN  | ‘아니요’ |
 | **웹 앱 로그인**: <br>사용자 전용 컴퓨터에서 | **예** | **예** <br> 컴퓨터 로그인으로 앱에 대 한 Single Sign-On 제공 됨 | **예**<br> 컴퓨터 로그인으로 앱에 대 한 Single Sign-On 제공 됨 |
 | **웹 앱 로그인**: <br> 모바일 또는 비 windows 장치에서 | **예** | **아니요** | **아니요** |
 | **컴퓨터 로그인**: <br> 비 Windows 컴퓨터 | **아니요** | **아니요** | **아니요** |
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](./concept-authentication-passwordless.md#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -118,7 +118,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 - [Microsoft Authenticator 앱에 등록](howto-authentication-passwordless-phone.md)
 - [휴대폰으로 로그인](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft는 Multi-factor authentication [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 하 여 커뮤니케이션을 간단 하 게 작성할 수 있도록 합니다. 사용자를 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/)으로 보내 해당 페이지에서 **보안 정보** 링크를 선택하여 직접 등록하게 할 수 있습니다.
+Microsoft는 Multi-factor authentication [통신 템플릿](https://aka.ms/mfatemplates), Self-Service 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 하 여 통신을 간단 하 게 작성할 수 있도록 합니다. 사용자를 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/)으로 보내 해당 페이지에서 **보안 정보** 링크를 선택하여 직접 등록하게 할 수 있습니다.
 
 ### <a name="plan-to-pilot"></a>파일럿 계획
 
@@ -308,7 +308,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="troubleshoot-phone-sign-in"></a>휴대폰 로그인 문제 해결
 
-| 시나리오 | 해결 방법 |
+| 시나리오 | 솔루션 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자가 휴대폰 로그인 인증자 앱을 사용 하도록 설정할 수 없습니다. | 사용자가 배포 범위에 있는지 확인 하세요. |
@@ -316,7 +316,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-| 시나리오 | 해결 방법 |
+| 시나리오 | 솔루션 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자는 [보안 설정](https://aka.ms/mysecurityinfo)에서 보안 키를 추가할 수 없습니다. | [보안 키](howto-authentication-passwordless-security-key.md) 를 사용할 수 있는지 확인 합니다. |

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906868"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>스프링 마이크로서비스 앱용 Java 및 기본 OS
 
-**이 문서는 다음에 적용 됩니다.** ✔️ Java
+**이 문서는 다음에 적용됩니다.** ✔️ Java
 
 다음은 스프링 마이크로 서비스 앱에 대 한 정상 Java 및 기본 운영 체제를 유지 관리 하기 위한 원칙입니다.
 ## <a name="principles-for-healthy-java-and-base-os"></a>정상 Java 및 기본 OS에 대 한 원칙

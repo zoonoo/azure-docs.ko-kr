@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: aa5d7efed1ce1f41ebb67e2ec377e862ad14ed7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84725038"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>PowerShell을 사용하여 Azure Network Watcher로 연결 문제 해결
@@ -44,7 +44,7 @@ ms.locfileid: "84725038"
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $rgName = "ContosoRG"
@@ -138,7 +138,7 @@ Hops             : [
 
 이 예제에서는 가상 머신과 원격 엔드포인트 간의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $rgName = "ContosoRG"
@@ -201,7 +201,7 @@ Hops             : [
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $rgName = "ContosoRG"
@@ -253,7 +253,7 @@ Hops             : [
 
 다음 예제에서는 가상 머신에서 Blob 스토리지 계정으로의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $rgName = "ContosoRG"

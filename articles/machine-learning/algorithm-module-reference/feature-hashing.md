@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907920"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
@@ -80,7 +80,7 @@ ms.locfileid: "90907920"
     > [!TIP]
     > 기능 해시는 형태소 분석 또는 잘림 같은 어휘 연산을 수행 하지 않으므로 기능 해시를 적용 하기 전에 텍스트를 전처리 하 여 더 나은 결과를 얻을 수 있습니다. 
 
-1. **대상 열** 을 해시 된 기능으로 변환할 텍스트 열로 설정 합니다. 다음 사항에 유의 하세요.
+1. **대상 열** 을 해시 된 기능으로 변환할 텍스트 열로 설정 합니다. 다음 사항에 유의하세요.
 
     * 열은 문자열 데이터 형식 이어야 합니다.
     
@@ -111,7 +111,7 @@ ms.locfileid: "90907920"
 
 변환 된 데이터 집합을 만든 후 모델 학습 모듈에 대 한 입력으로 사용할 수 있습니다.
  
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 다음 모범 사례는 기능 해싱 모듈을 최대한 활용 하는 데 도움이 될 수 있습니다.
 

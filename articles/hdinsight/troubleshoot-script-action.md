@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079262"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 작업 문제 해결
@@ -47,11 +47,11 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
 
     이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
 
-    * **헤드 노드**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **헤드 노드**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **작업자 노드**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **작업자 노드**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **사육 아웃 노드**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **사육 아웃 노드**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * 해당 호스트의 모든 **stdout** 및 **stderr**이 스토리지 계정에 업로드됩니다. 각 스크립트 동작에 대해 **output-\*.txt** 및 **errors-\*.txt**가 하나씩 있습니다. **output-*.txt** 파일에는 호스트에서 실행된 스크립트의 URI 정보를 포함되어 있습니다. 다음 텍스트는 이 정보의 예제입니다.
 
