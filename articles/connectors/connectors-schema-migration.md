@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: 114b8b32d4abb1fd9b7e641625cd1b132470bafd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281449"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>논리 앱을 최신 스키마 버전으로 마이그레이션
@@ -28,7 +28,7 @@ ms.locfileid: "87281449"
 
    스키마 업데이트 페이지가 나타나고 새 스키마의 향상된 기능을 설명하는 문서 링크를 보여줍니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 다음은 논리 앱을 최신 스키마 버전으로 마이그레이션하는 모범 사례입니다.
 

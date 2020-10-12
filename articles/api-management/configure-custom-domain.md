@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87024863"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Azure API Management 인스턴스에 대 한 사용자 지정 도메인 이름 구성
@@ -29,7 +29,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
 > [!WARNING]
 > 인증서 고정을 사용 하 여 응용 프로그램의 보안을 강화 하려는 고객은 기본 인증서가 아니라 관리 하는 사용자 지정 도메인 이름 및 인증서를 사용 해야 합니다. 대신 기본 인증서를 고정 하는 고객은 제어 하지 않는 인증서의 속성에 대 한 하드 종속성을 차지 하므로 권장 되는 방법은 아닙니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -64,7 +64,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`.
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
 
     > [!NOTE]

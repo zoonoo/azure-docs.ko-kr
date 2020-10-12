@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 1bedeb752a18d7a0212ede2b34526efb8ea09287
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905838"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
@@ -63,7 +63,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Azure Portal을 사용하여 MySQL용 Azure Database 서버를 방문한 다음 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정한 다음 **저장**을 클릭합니다. Microsoft는 향상된 보안을 위해 항상 **SSL 연결 적용**을 활성화하는 것을 권장합니다.
 
-:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Azure Database for MySQL에서 SSL 연결을 적용 하 Azure Portal의 스크린샷":::
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="SSL 구성 저장":::
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 

@@ -10,17 +10,17 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
 ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659647"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Azure Security Center에서 Azure Defender 경고 데이터 연결
 
 Azure Defender 경고 커넥터를 사용 하 여 [Azure Security Center](../security-center/security-center-intro.md) 에서 azure defender 경고를 수집 하 고 azure 센티널로 스트리밍합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 사용자는 스트리밍할 로그의 구독에 보안 읽기 권한자 역할이 있어야 합니다.
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658544"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
@@ -102,5 +102,5 @@ ID 동기화 프로세스
 > 
 > 
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)

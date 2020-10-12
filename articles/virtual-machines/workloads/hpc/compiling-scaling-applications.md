@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 72178b61d7033167ed48a8ddbb661daad6081df7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87020115"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 응용 프로그램 크기 조정
@@ -33,7 +33,7 @@ AMD 최적화 C/c + + 컴파일러 (AOCC) 컴파일러 시스템은 전역 최�
 
 ### <a name="clang"></a>Clang
 
-Clang는 C, c + + 및 목표-C 컴파일러 처리 전처리, 구문 분석, 최적화, 코드 생성, 어셈블리 및 연결입니다. Clang는 `-march=znver1` AMD의 Zen 기반 x86 아키텍처에 대해 최상의 코드 생성 및 조정을 사용할 수 있도록 플래그를 지원 합니다.
+Clang는 C, c + + 및 목표-C 컴파일러 처리 전처리, 구문 분석, 최적화, 코드 생성, 어셈블리 및 연결입니다. Clang는  `-march=znver1` AMD의 Zen 기반 x86 아키텍처에 대해 최상의 코드 생성 및 조정을 사용할 수 있도록 플래그를 지원 합니다.
 
 ### <a name="flang"></a>FLANG
 

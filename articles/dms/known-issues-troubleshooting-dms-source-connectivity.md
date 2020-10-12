@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2db941edef93b1e836e82753a6d6016adb977e65
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322600"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>원본 데이터베이스에 연결할 때 DMS 오류 문제 해결
@@ -58,7 +58,7 @@ ms.locfileid: "91322600"
 | Error         | 원인 및 문제 해결 세부 정보 |
 | ------------- | ------------- |
 | **오류 [101]**[08001]-연결에 실패 했습니다. 오류 [08001] 제한 시간이 만료 되었습니다. | 이 오류는 Postgres 드라이버를 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
-| **오류: 매개 변수 wal_level에 값 ' {value} '이 (가) 있습니다. 복제를 허용 하려면 ' 논리 '로 변경 하세요.** | 이 오류는 wal_level 매개 변수의 값이 잘못 된 경우에 발생 합니다. 문제를 해결 하려면 매개 변수 그룹의 logical_replication을 1로 변경 하 고 인스턴스를 다시 부팅 합니다. 자세한 내용은 [AMAZON RDS에서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html)DMS 또는 PostgreSQL [를 사용 하 여 Azure PostgreSQL로 마이그레이션하기 위한 필수](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) 구성 요소를 참조 하세요. |
+| **오류: 매개 변수 wal_level에 값 ' {value} '이 (가) 있습니다. 복제를 허용 하려면 ' 논리 '로 변경 하세요.** | 이 오류는 wal_level 매개 변수의 값이 잘못 된 경우에 발생 합니다. 문제를 해결 하려면 매개 변수 그룹의 rds.logical_replication을 1로 변경 하 고 인스턴스를 다시 부팅 합니다. 자세한 내용은 [AMAZON RDS에서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html)DMS 또는 PostgreSQL [를 사용 하 여 Azure PostgreSQL로 마이그레이션하기 위한 필수](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) 구성 요소를 참조 하세요. |
 
 > [!NOTE]
 > 원본 AWS RDS PostgreSQL 데이터베이스에 연결 하는 것과 관련 된 문제를 해결 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.

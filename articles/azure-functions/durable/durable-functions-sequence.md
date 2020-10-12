@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
 ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033567"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
@@ -78,7 +78,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 `E1_SayHello`의 구현은 비교적 간단한 문자열 형식 지정 작업입니다.
 
-에 바인딩하는 대신 `IDurableActivityContext` 작업 함수로 전달 되는 형식에 직접 바인딩할 수 있습니다. 예를 들어:
+에 바인딩하는 대신 `IDurableActivityContext` 작업 함수로 전달 되는 형식에 직접 바인딩할 수 있습니다. 예를 들면 다음과 같습니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 

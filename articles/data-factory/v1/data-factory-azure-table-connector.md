@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84702314"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 이동
@@ -60,7 +60,7 @@ Azure Blob Storage를 Azure Data Factory에 연결하는 데 사용할 수 있�
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureTable** 데이터 세트 형식에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |예. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 
@@ -82,7 +82,7 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | AzureTableSourceQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |Azure 테이블 쿼리 문자열. 다음 섹션의 예제를 참조하세요. |아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
-| azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. |TRUE<br/>FALSE |아니요 |
+| azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. |TRUE<br/>FALSE |예 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
 Azure 테이블 열이 문자열 형식인 경우:
@@ -101,8 +101,8 @@ Azure 테이블 열이 날짜/시간 형식인 경우:
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |문자열 값입니다. |아니요 |
-| azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. |열 이름 |아니요 |
+| azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |문자열 값입니다. |예 |
+| azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. |열 이름 |예 |
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |열 이름 |예 |
 | azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br>  이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. |병합(기본값)<br/>replace |예 |
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
@@ -534,7 +534,7 @@ Azure 테이블 OData 형식에서 .NET 형식에 형식 매핑을 지정하면 
 
 **Azure 테이블 스키마:**
 
-| 열 이름 | 형식 |
+| 열 이름 | Type |
 | --- | --- |
 | userId |Edm.Int64 |
 | name |Edm.String |

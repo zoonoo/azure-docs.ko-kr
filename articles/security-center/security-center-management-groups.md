@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440785"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
@@ -113,7 +113,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
-2. 다음 명령을 실행 합니다. 
+2. 다음 명령을 실행합니다. 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user

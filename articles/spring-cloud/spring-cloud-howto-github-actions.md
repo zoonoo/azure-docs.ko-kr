@@ -9,17 +9,17 @@ ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 9e635d606870d09e9aac82de7da32e074b124159
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906949"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
 
 GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 예에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)필요 합니다.
 
 ::: zone pivot="programming-language-csharp"

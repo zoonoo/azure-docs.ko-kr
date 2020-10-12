@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
 ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907780"
 ---
 # <a name="train-wide--deep-recommender"></a>넓은 & 심층적 추천 학습
@@ -66,7 +66,7 @@ ms.locfileid: "90907780"
 
 예를 들어 일반적인 사용자 기능 집합은 다음과 같습니다. 
 
-|UserId|나이|성별|Interest|Location|
+|UserId|나이|성별|Interest|위치|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|male| 드라마    |유럽|
 |223|40|female|테두리|아시아|

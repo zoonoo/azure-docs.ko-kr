@@ -1,7 +1,7 @@
 ---
-title: '2 클래스 평균 퍼셉트론: 모듈 참조'
+title: 'Two-Class 평균 퍼셉트론: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 2 클래스 평균 퍼셉트론 모듈을 사용 하 여 평균 퍼셉트론 알고리즘을 기반으로 기계 학습 모델을 만드는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에서 Two-Class 평균 퍼셉트론 모듈을 사용 하 여 평균 퍼셉트론 알고리즘을 기반으로 기계 학습 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907757"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>2 클래스 평균 퍼셉트론 모듈
+# <a name="two-class-averaged-perceptron-module"></a>Two-Class 평균 퍼셉트론 모듈
 
 이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "90907757"
 
 보다 단순한 퍼셉트론 모델은 선형으로 구분 가능한 패턴을 학습하는 데 적합한 반면 신경망, 특히 심층 신경망은 더 복잡한 클래스 경계를 모델링할 수 있습니다. 그러나 퍼셉트론은 속도가 더 빠르며 사례를 직렬로 처리하므로 연속 학습에서 사용할 수 있습니다.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>2 클래스 평균 퍼셉트론를 구성 하는 방법
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Two-Class 평균 퍼셉트론를 구성 하는 방법
 
 1.  **2 클래스 평균 퍼셉트론** 모듈을 파이프라인에 추가 합니다.  
 

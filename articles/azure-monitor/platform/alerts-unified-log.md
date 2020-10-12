@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294141"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
@@ -25,7 +25,7 @@ ms.locfileid: "91294141"
 > [!NOTE]
 > 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../log-query/saved-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/get-started-portal.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
 
@@ -182,7 +182,7 @@ requests
 
 이 경고 평가 예를 참조 하세요.
 
-| Time    | 로그 조건 평가 | 결과 
+| 시간    | 로그 조건 평가 | 결과 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | 경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다.
 | 00:10 | TRUE  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 새 경고 상태가 활성입니다.

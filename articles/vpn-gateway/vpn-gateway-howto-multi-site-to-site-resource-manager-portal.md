@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401200"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
@@ -35,7 +35,7 @@ ms.locfileid: "89401200"
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 다음 사항을 확인합니다.
 
 * 새 공존 Express 경로 및 VPN Gateway 구성을 구성 하지 않습니다.

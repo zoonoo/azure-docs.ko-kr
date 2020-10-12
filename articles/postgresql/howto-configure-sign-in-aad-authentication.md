@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 178c339f6f47569160a9a748794678c610f35734
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171642"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>PostgreSQL 인증에 Azure Active Directory 사용
@@ -54,7 +54,7 @@ Azure AD를 인식하지 못하고 PostgreSQL에 연결할 때 사용자 이름 
 
 다음은 사용자/애플리케이션에서 Azure AD로 인증해야 하는 단계입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cloud Shell, Azure VM 또는 로컬 컴퓨터에서 수행할 수 있습니다. [Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
 
@@ -137,7 +137,7 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgre
 
 연결할 때 중요 한 고려 사항:
 
-* `user@tenant.onmicrosoft.com`연결 하려는 Azure AD 사용자 또는 그룹의 이름입니다.
+* `user@tenant.onmicrosoft.com` 연결 하려는 Azure AD 사용자 또는 그룹의 이름입니다.
 * 항상 Azure AD 사용자/그룹 이름 뒤에 서버 이름을 추가 합니다 (예: `@mydb` ).
 * Azure AD 사용자 또는 그룹 이름에 대 한 정확한 방법을 사용 해야 합니다.
 * Azure AD 사용자 및 그룹 이름은 대/소문자를 구분 합니다.

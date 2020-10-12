@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906287"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Azure 센티널의 Advanced 다단계 공격 감지
@@ -40,7 +40,7 @@ ms.locfileid: "90906287"
 
 1. **활성 규칙**을 선택한 다음 **Fusion** 규칙 유형에 대 한 목록을 필터링 하 여 **이름** 열에서 **고급 다단계 공격 감지** 를 찾습니다. **상태** 열을 확인 하 여이 검색이 사용 되는지 여부를 확인 합니다.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-텍스트}":::
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{대체 텍스트}":::
 
 1. 상태를 변경 하려면이 항목을 선택 하 고 **Advanced 다단계 Attack 검색** 블레이드에서 **편집**을 선택 합니다.
 
@@ -422,7 +422,7 @@ ms.locfileid: "90906287"
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 실행, 측면 이동, 권한 상승
 
-**MITRE at&t&헤드 기술:** T1190 (공용 응용 프로그램) 악용, 클라이언트 실행을 위한 악용 (T1203), 원격 서비스의 악용 (T1210), 권한 상승에 대 한 악용 (T1068)
+**MITRE at&t&헤드 기술:** T1190 (악용 Public-Facing 응용 프로그램), T1203 (클라이언트 실행 악용), T1210 (원격 서비스 악용), 권한 상승에 대 한 악용 (T1068)
 
 **데이터 커넥터 원본:** Microsoft Defender for Endpoint (이전의 MDATP), Palo Alto Networks 
 

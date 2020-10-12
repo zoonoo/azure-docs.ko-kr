@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 868a8eb6cf38d471eb9dc1f47c903404d05ffc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294515"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>레거시 Log Analytics 경고 API에서 현재 로그 경고 API로 업그레이드
@@ -38,7 +38,7 @@ ms.locfileid: "91294515"
 - 현재 API를 사용 하 여 모든 새 규칙을 만들고 편집 해야 합니다. [Azure 리소스 템플릿을 통한 샘플 사용](alerts-log-create-templates.md) 및 [PowerShell을 통한 샘플 사용](alerts-log.md#managing-log-alerts-using-powershell)을 참조 하세요.
 - 규칙은 현재 API에서 추적 된 리소스가 Azure Resource Manager 되며 고유 해야 합니다. 규칙 리소스 ID는이 구조 ()로 변경 됩니다. `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` 경고 규칙의 표시 이름은 변경 되지 않고 그대로 유지 됩니다.
 
-## <a name="process"></a>Process
+## <a name="process"></a>프로세스
 
 전환 과정은 대화형이 아니며 대부분의 경우 수동 단계가 필요 하지 않습니다. 경고 규칙은 스위치 도중 이나 중단 되지 않습니다.
 특정 Log Analytics 작업 영역과 연결 된 모든 경고 규칙을 전환 하려면이 호출을 수행 합니다.

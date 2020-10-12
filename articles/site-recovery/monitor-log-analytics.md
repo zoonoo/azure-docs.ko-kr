@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
 ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006944"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
@@ -36,7 +36,7 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
-- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아보기](../azure-monitor/log-query/get-started-portal.md).
+- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아봅니다](../azure-monitor/log-query/get-started-portal.md).
 
 시작 하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md) 을 검토 하는 것이 좋습니다.
 
@@ -49,7 +49,7 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 2. **진단 설정**에서 이름을 지정 하 고 **Log Analytics로 보내기**상자를 선택 합니다.
 3. Azure Monitor 로그 구독 및 Log Analytics 작업 영역을 선택 합니다.
 4. 설정/해제에서 **Azure 진단** 를 선택 합니다.
-5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 후 **OK**를 클릭합니다.
 
     ![진단 설정 화면의 스크린샷](./media/monitoring-log-analytics/select-workspace.png)
 

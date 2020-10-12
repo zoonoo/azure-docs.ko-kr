@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
 ms.openlocfilehash: f78d5f839c5dd7816ae28eeed175503427abb43c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87035845"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
@@ -54,7 +54,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 | --- | --- | --- | --- |
 | SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
-| SAP BusinessObjects BI | Windows |N/A |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
+| SAP BusinessObjects BI | Windows |해당 없음 |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure에서 지원되는 다른 SAP 워크로드

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8690b1a4b8527a397fcf4c04892e167b5332358d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87035403"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>셀프 서비스 암호 재설정 Azure Active Directory 사용자 환경 사용자 지정

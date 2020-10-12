@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006520"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
@@ -75,7 +75,7 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
 
     **대상 FQDN 섹션**
 
-    | 속성 | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 참고 |
+    | 속성 | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 메모 |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용합니다. |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용합니다. |
@@ -97,13 +97,13 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
 
     | 속성|  값|
     |---|---|
-    |Name| FwNetRule|
+    |속성| FwNetRule|
     |우선 순위|200|
     |작업|Allow|
 
     **IP 주소 섹션**
 
-    | 속성 | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 참고 |
+    | 속성 | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | 시간 서비스 |
     | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | * | ESP(Enterprise Security Package)를 사용하는 경우 ESP 클러스터에 대해 AAD-DS와 통신할 수 있도록 하는 네트워크 규칙을 IP 주소 섹션에서 추가합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD-DS 섹션에서 찾을 수 있습니다. |

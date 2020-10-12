@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481836"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
@@ -48,7 +48,7 @@ Azure Cosmos DB 해시 기반 분할을 사용 하 여 실제 파티션에 논�
 **모든** 컨테이너에 대해 파티션 키는 다음을 수행 해야 합니다.
 
 * 값이 변경 되지 않는 속성 이어야 합니다. 속성이 파티션 키 인 경우 해당 속성의 값을 업데이트할 수 없습니다.
-* 높은 카디널리티를 가집니다. 즉, 속성에는 다양 한 값을 사용할 수 있어야 합니다.
+* 카디널리티가 높습니다. 즉, 속성에는 다양 한 값을 사용할 수 있어야 합니다.
 * 모든 논리적 파티션에 균등 하 게 분산 요청 단위 () 사용량과 데이터 저장소를 균등 하 게 분산 합니다. 이렇게 하면 실제 파티션에 대해 과도 한 사용량과 저장소 배포가 가능 합니다.
 
 Azure Cosmos DB에서 [다중 항목 ACID 트랜잭션이](database-transactions-optimistic-concurrency.md#multi-item-transactions) 필요한 경우에는 [저장 프로시저 또는 트리거](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures)를 사용 해야 합니다. 모든 JavaScript 기반 저장 프로시저와 트리거는 단일 논리 파티션으로 범위가 한정 됩니다.

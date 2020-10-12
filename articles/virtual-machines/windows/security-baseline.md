@@ -8,10 +8,10 @@ ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400384"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
@@ -969,7 +969,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Key Vault와 함께 관리 서비스 ID를 사용 하 여 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 하 고 보호 합니다.
 
-* [Azure 관리 Id와 통합 하는 방법](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [Azure-Managed Id와 통합 하는 방법](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Key Vault를 만드는 방법](../../key-vault/secrets/quick-create-portal.md)
 

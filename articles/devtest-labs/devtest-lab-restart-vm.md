@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure DevTest Labs에서 VM (가상 머신)을 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d2bcbcbea613aa84da91789fb9f118afd7023fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481993"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 시작

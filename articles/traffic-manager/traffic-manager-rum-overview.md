@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 45c889ef8d67570fb075ec710616f20d110b7f50
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401608"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager 실제 사용자 측정 개요
@@ -35,7 +35,7 @@ ms.locfileid: "89401608"
 
 실제 사용자 측정을 사용하면 Traffic Manager로 전송되는 측정값 수에 따라 요금이 청구됩니다. 가격 책정에 대한 자세한 내용은 [Traffic Manager 가격 책정 페이지](https://azure.microsoft.com/pricing/details/traffic-manager/)를 참조하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * [실제 사용자 측정을 사용하는 장점은 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
 

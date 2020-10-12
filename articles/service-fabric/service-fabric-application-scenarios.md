@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248172"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
@@ -23,7 +23,7 @@ Service Fabric의 고유한 아키텍처는 애플리케이션에서 거의 실�
 
 * **데이터 수집, 처리 및 IoT**: Service Fabric는 대규모 크기 조정을 처리 하 고 상태 저장 서비스를 통해 짧은 대기 시간을 갖습니다. 장치 및 계산에 대 한 데이터를 공동 배치 하는 수백만 대의 장치에서 데이터를 처리 하는 데 도움이 될 수 있습니다.
 
-    Service Fabric를 사용 하 여 IoT 서비스를 구축한 고객에 게는 [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL 생성](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [Bmw](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider 전기](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)및 [메시 시스템이](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions)포함 됩니다.
+    Service Fabric를 사용 하 여 IoT 서비스를 구축한 고객에 게는 [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL 생성](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure),  [Bmw](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider 전기](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)및 [메시 시스템이](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions)포함 됩니다.
 
 * **게임 및 세션 기반 대화형 응용 프로그램**: Service Fabric은 온라인 게임 또는 인스턴트 메시징과 같이 응용 프로그램에 짧은 대기 시간 읽기 및 쓰기가 필요한 경우에 유용 합니다. Service Fabric를 사용 하면 별도의 저장소나 캐시를 만들지 않고도 이러한 대화형 상태 저장 응용 프로그램을 빌드할 수 있습니다. [게임 서비스에서 Service Fabric를 사용 하](/gaming/azure/reference-architectures/multiplayer-synchronous-sf)는 방법에 대 한 디자인 지침은 [Azure 게임 솔루션](https://azure.microsoft.com/solutions/gaming/) 을 방문 하세요.
 

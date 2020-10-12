@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281483"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용하여 IBM 메인프레임에서 3270 화면 기반 앱을 Azure와 통합
@@ -207,7 +207,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 <a name="example-plan"></a>
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 이 예에서는 다음과 같은 단계를 포함 하는 "WBGB" 라는 CICS 트랜잭션을 실행 한다고 가정 합니다. 
 
@@ -358,12 +358,12 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 1. 연결이 아직 없으면 연결에 필요한 정보를 제공 하 고 **만들기**를 선택 합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> | 연결의 이름 |
    | **통합 계정 ID** | 예 | <*통합-계정 이름*> | 통합 계정의 이름 |
    | **통합 계정 SAS URL** | 예 | <*통합-계정-SAS URL*> | 통합 계정의 SAS (공유 액세스 서명) URL은 Azure Portal의 통합 계정 설정에서 생성할 수 있습니다. <p>1. 통합 계정 메뉴의 **설정**에서 **콜백 URL**을 선택 합니다. <br>2. 오른쪽 창에서 **생성 된 콜백 URL** 값을 복사 합니다. |
-   | **Server** | 예 | <*TN3270-이름*> | TN3270 서비스에 대 한 서버 이름 |
+   | **서버** | 예 | <*TN3270-이름*> | TN3270 서비스에 대 한 서버 이름 |
    | **포트** | 아니요 | <*TN3270-포트*> | TN3270 서버에서 사용 하는 포트입니다. 이 값을 비워 두면 커넥터에서을 `23` 기본값으로 사용 합니다. |
    | **디바이스 유형** | 아니요 | <*IBM-터미널 모델*> | 에뮬레이션할 IBM 터미널의 모델 이름 또는 번호입니다. 이 값을 비워 두면 커넥터에서 기본값을 사용 합니다. |
    | **코드 페이지** | 아니요 | <*코드 페이지 번호*> | 호스트의 코드 페이지 번호입니다. 이 값을 비워 두면 커넥터에서을 `37` 기본값으로 사용 합니다. |

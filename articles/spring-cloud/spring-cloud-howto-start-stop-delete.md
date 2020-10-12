@@ -8,15 +8,15 @@ ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90908285"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Azure 스프링 클라우드 응용 프로그램 시작, 중지 및 삭제
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 이 가이드에서는 Azure Portal 또는 Azure CLI를 사용 하 여 Azure 스프링 클라우드에서 응용 프로그램의 상태를 변경 하는 방법을 설명 합니다.
 

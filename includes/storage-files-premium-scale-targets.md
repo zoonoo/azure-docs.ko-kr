@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
 ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88057699"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>추가 프리미엄 파일 공유 수준 제한
 
-|Area  |대상  |
+|영역  |대상  |
 |---------|---------|
 |최소 크기 증가/감소    |GiB 1      |
 |기준 IOPS    |GiB 당 IOPS 1 개, 최대 10만|
@@ -23,7 +23,7 @@ ms.locfileid: "88057699"
 
 #### <a name="file-level-limits"></a>파일 수준 제한
 
-|Area  |표준 파일  |프리미엄 파일  |
+|영역  |표준 파일  |프리미엄 파일  |
 |---------|---------|---------|
 |크기     |1TiB         |4TiB         |
 |파일당 최대 IOPS      |1,000         |5,000         |

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056519"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
@@ -121,11 +121,11 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 예를 들면 다음과 같습니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예를 들면 다음과 같습니다. `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 

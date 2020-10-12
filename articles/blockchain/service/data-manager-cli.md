@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023741"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용하여 Blockchain Data Manager 구성
@@ -23,7 +23,7 @@ Blockchain Data Manager 인스턴스를 구성 하려면 다음을 수행 합니
 * 블록체인 애플리케이션 추가
 * 인스턴스 시작
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 최신 [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고를 사용 하 여 로그인 `az login` 합니다.
 * 빠른 시작 완료 [: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. Blockchain Data Manager를 사용 하는 경우 Azure Blockchain 서비스 *표준* 계층을 사용 하는 것이 좋습니다.
@@ -345,9 +345,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
-| 작업 | **Start** 를 사용 하 여 감시자를 실행 합니다. |
+| action | **Start** 를 사용 하 여 감시자를 실행 합니다. |
 | ids | 감시자 리소스 ID입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Watcher name\> 감시자 리소스의 값으로 바꿉니다.|
 
 ### <a name="start-instance-example"></a>시작 인스턴스 예제
@@ -370,9 +370,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
-| 작업 | **중지** 를 사용 하 여 감시자를 중지 합니다. |
+| action | **중지** 를 사용 하 여 감시자를 중지 합니다. |
 | ids | 감시자의 이름입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Watcher name\> 감시자 리소스의 값으로 바꿉니다. |
 
 ### <a name="stop-watcher-example"></a>감시자 중지 예

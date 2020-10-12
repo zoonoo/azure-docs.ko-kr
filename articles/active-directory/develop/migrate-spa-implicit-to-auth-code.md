@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027090"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
@@ -48,11 +48,11 @@ MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Azure Portal의 웹앱 타일에 대한 암시적 흐름 경고 배너":::
 1. MSAL.js 2.x를 사용할 애플리케이션의 리디렉션 *URI만* 선택한 후 **구성**을 선택합니다.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Azure Portal의 SPA 창에서 리디렉션 URI 창 선택":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Azure Portal의 웹앱 타일에 대한 암시적 흐름 경고 배너":::
 
 이러한 리디렉션 URI는 이제 **단일 페이지 애플리케이션** 플랫폼 타일에 표시되며, 이는 권한 부여 코드 흐름에 CORS가 지원되고 이러한 URI에 PKCE가 설정되어 있음을 보여 줍니다.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Azure Portal에서 앱 등록의 단일 페이지 애플리케이션 타일":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Azure Portal의 웹앱 타일에 대한 암시적 흐름 경고 배너":::
 
 기존 등록에서 리디렉션 URI를 업데이트하는 대신 [새 앱 등록을 만들 수도 있습니다](scenario-spa-app-registration.md).
 

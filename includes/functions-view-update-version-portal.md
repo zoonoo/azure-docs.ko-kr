@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: ggailey777
@@ -9,10 +9,10 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: aa9a715fdafc143a116458691965087b016dec1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83343357"
 ---
 현재 함수 앱에서 사용하는 런타임 버전을 보고 업데이트하려면 다음 절차를 따르세요.
@@ -27,4 +27,4 @@ ms.locfileid: "83343357"
 
 1. 런타임 버전을 변경한 경우 **개요** 탭으로 돌아와서 **다시 시작**을 선택해 앱을 다시 시작합니다.  버전 1.x 런타임에서 함수 앱 실행이 다시 시작되며 함수를 만들 때는 버전 1.x 템플릿이 사용됩니다.
 
-    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="함수 앱을 다시 시작 합니다." border="true":::
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="런타임 버전을 봅니다." border="true":::

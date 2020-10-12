@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: d72a981749af87e1b73625bdce2e0fd2d24fff0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84724924"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
@@ -29,7 +29,7 @@ ms.locfileid: "84724924"
 
 Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 추적하는 캡처 세션을 만들 수 있습니다. 원하는 트래픽만 캡처할 수 있도록 캡처 세션에 대 한 필터가 제공됩니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버깅할 수 있습니다. 이 기능은 원격으로 패킷 캡처를 트리거할 수 있게 하여 원하는 컴퓨터에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다.
 
-이 문서의 단계를 수행 하려면 [Mac, Linux 및 Windows 용 Azure 명령줄 인터페이스 (Azure CLI)를 설치](/cli/azure/install-azure-cli)해야 합니다.
+이 문서의 단계를 수행 하려면 [Mac, Linux 및 Windows 용 Azure Command-Line 인터페이스 (Azure CLI)를 설치](/cli/azure/install-azure-cli)해야 합니다.
 
 이 문서에서는 패킷 캡처를 위해 현재 사용할 수 있는 여러 관리 태스크를 설명합니다.
 

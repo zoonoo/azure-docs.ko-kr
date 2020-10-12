@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c1e7db129b29cfa1109b3c79bd8590a99779e361
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503092"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MariaDB 서버 다시 시작
@@ -21,7 +21,7 @@ ms.locfileid: "87503092"
 
 다시 시작을 완료하는 데 필요한 시간은 MariaDB 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)
 

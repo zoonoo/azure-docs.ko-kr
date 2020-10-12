@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90908289"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
@@ -22,7 +22,7 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 ::: zone pivot="programming-language-csharp"
 이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 절차를 따르려면 [Azure 스프링 클라우드에 배포 하기 위해 이미 준비한](spring-cloud-tutorial-prepare-app-deployment.md)Steeltoe 앱이 필요 합니다.
 

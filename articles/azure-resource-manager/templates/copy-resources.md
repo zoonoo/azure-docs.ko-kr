@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 복사 작업 및 배열을 
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293971"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
@@ -281,7 +281,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 다음 예제에서는 여러 리소스 또는 속성 인스턴스를 만들기 위한 일반적인 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[저장소 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
 |[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |

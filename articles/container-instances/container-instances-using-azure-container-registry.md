@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
 ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657002"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Instances에 배포할 때 Azure container registry에 저장 된 컨테이너 이미지를 가져오는 방법을 설명 합니다. 레지스트리 액세스를 구성 하는 권장 방법은 Azure Active Directory 서비스 주체와 암호를 만들고 Azure key vault에 로그인 자격 증명을 저장 하는 것입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 **Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 

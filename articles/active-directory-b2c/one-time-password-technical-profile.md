@@ -12,10 +12,10 @@ ms.date: 09/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89418911"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 일회성 암호 기술 프로필을 정의 합니다.
@@ -81,7 +81,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 | 작업(Operation) | 예 | 수행할 작업입니다. 가능한 값: `GenerateCode` . |
 | ReuseSameCode | 아니요 | 지정 된 코드가 만료 되지 않고 여전히 유효한 경우 새 코드를 생성 하는 대신 중복 코드를 지정 해야 하는지 여부입니다. 기본값은 `false`입니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 예제는 `TechnicalProfile` 코드를 생성 하는 데 사용 됩니다.
 
@@ -150,7 +150,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 | UserMessageIfVerificationFailedRetryAllowed | 아니요 | 사용자가 잘못 된 코드를 제공 하 고 사용자가 올바른 코드를 제공할 수 있는 경우 사용자에 게 표시할 메시지입니다.  |
 |UserMessageIfSessionConflict|아니요| 코드를 확인할 수 없는 경우 사용자에 게 표시할 메시지입니다.|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 예제는 `TechnicalProfile` 코드를 확인 하는 데 사용 됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: tanmaygore
@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507605"
 ---
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 
@@ -120,7 +120,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 
 | 서비스 | 구성 | 권장 |
 | --- | --- | --- |
-| 리소스 관리자 |클래식 리소스에 대 한 RBAC (역할 기반 Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
+| 리소스 관리자 |클래식 리소스에 대 한 RBAC (Role-Based Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
 | 컴퓨팅 |VM과 연결된 여러 서브넷 |한 서브넷만 참조하도록 서브넷 구성을 업데이트합니다. 이를 위해 VM에서 보조 NIC(다른 서브넷 의미)를 제거하고 마이그레이션이 완료되면 다시 연결해야 할 수 있습니다. |
 | 컴퓨팅 |가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 머신 |VM을 삭제할 수 있습니다(선택 사항). |
 | 컴퓨팅 |경고, 자동 크기 조정 정책이 있는 가상 머신 |마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다. |

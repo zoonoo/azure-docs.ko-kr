@@ -7,10 +7,10 @@ ms.date: 03/19/2018
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4eb8dd98909459feab72f61e46834e60c5b07ebd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89007760"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657809"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Microsoft Defender에서 Id에 대 한 데이터 연결 (이전의 Azure Advanced Threat Protection)
@@ -29,7 +29,7 @@ ms.locfileid: "89657809"
 
 한 번의 클릭으로 [Microsoft Defender에서 id에 대 한](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 로그를 Azure 센티널로 스트리밍할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 - Id에 대 한 microsoft defender의 미리 보기 고객이 고 Id 및 Microsoft Cloud App Security에 대해 Microsoft Defender를 통합할 수 있도록 설정 해야 합니다. 자세한 내용은 [Id 통합을 위한 Microsoft Defender](https://docs.microsoft.com/cloud-app-security/aatp-integration)를 참조 하세요.
