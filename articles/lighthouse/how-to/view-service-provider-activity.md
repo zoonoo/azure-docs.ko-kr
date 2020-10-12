@@ -4,10 +4,10 @@ description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131461"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기

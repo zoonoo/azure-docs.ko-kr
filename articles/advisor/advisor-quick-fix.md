@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
 ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968586"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Advisor에 대 한 빠른 수정 재구성
@@ -26,7 +26,7 @@ ms.locfileid: "90968586"
 
 2. 권장 사항 세부 정보 페이지에이 권장 사항이 있는 리소스 목록이 표시 됩니다. 권장 사항에 대해 재구성 하려는 모든 리소스를 선택 합니다.
 
-   :::image type="content" source="./media/quick-fix-2.png" alt-text="목록 항목과 빠른 수정 단추가 강조 표시 된 영향을 받는 리소스 창의 스크린샷":::
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="{권장 사항에서 빠른 수정 레이블을 보여 주는 Azure Advisor의 스크린샷}":::
    
    *이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.*
 

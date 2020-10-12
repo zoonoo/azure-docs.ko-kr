@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights의 가져오기 메트릭입니다.
+title: Azure Monitor의 Get-Metric Application Insights
 description: Azure Monitor를 사용 하 여 .NET 및 .NET Core 응용 프로그램에 대해 로컬로 미리 집계 된 메트릭을 캡처하기 위해 GetMetric () 호출을 효과적으로 사용 하는 방법을 알아봅니다 Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517147"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
-Azure Monitor Application Insights .NET 및 .NET Core Sdk에는 사용자 지정 메트릭, 및를 수집 하는 두 가지 방법이 있습니다 `TrackMetric()` `GetMetric()` . 이러한 두 방법의 주요 차이점은 로컬 집계입니다. `TrackMetric()`에 사전 집계가 없으므로 사전 집계가 `GetMetric()` 없습니다. 권장 되는 방법은 집계를 사용 하는 것입니다 `TrackMetric()` . 따라서 더 이상 사용자 지정 메트릭을 수집 하는 기본 방법이 아닙니다. 이 문서에서는 GetMetric () 메서드를 사용 하는 방법 및 작동 방식에 대 한 몇 가지 이유를 설명 합니다.
+Azure Monitor Application Insights .NET 및 .NET Core Sdk에는 사용자 지정 메트릭, 및를 수집 하는 두 가지 방법이 있습니다 `TrackMetric()` `GetMetric()` . 이러한 두 방법의 주요 차이점은 로컬 집계입니다. `TrackMetric()` 에 사전 집계가 없으므로 사전 집계가 `GetMetric()` 없습니다. 권장 되는 방법은 집계를 사용 하는 것입니다 `TrackMetric()` . 따라서 더 이상 사용자 지정 메트릭을 수집 하는 기본 방법이 아닙니다. 이 문서에서는 GetMetric () 메서드를 사용 하는 방법 및 작동 방식에 대 한 몇 가지 이유를 설명 합니다.
 
 ## <a name="trackmetric-versus-getmetric"></a>고가 및 GetMetric
 
-`TrackMetric()`메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()`는 모두 `TrackMetric(item)` 원격 분석 이니셜라이저 및 프로세서의 전체 SDK 파이프라인을 거치 므로 성능 측면 에서도 비효율적입니다. 와 달리 `TrackMetric()` 는 `GetMetric()` 로컬 사전 집계를 처리 한 다음 1 분의 고정 된 간격으로 집계 요약 메트릭을 제출 합니다. 따라서 두 번째 또는 그 밀리초 수준에서 일부 사용자 지정 메트릭을 면밀 하 게 모니터링 해야 하는 경우에는 1 분에 한 번만 모니터링 하는 저장소 및 네트워크 트래픽 비용을 발생 시킬 수 있습니다. 또한 집계 된 메트릭에 대해 전송 되어야 하는 원격 분석 항목의 총 수가 크게 감소 하기 때문에 제한 발생 위험이 크게 줄어듭니다.
+`TrackMetric()` 메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()` 는 모두 `TrackMetric(item)` 원격 분석 이니셜라이저 및 프로세서의 전체 SDK 파이프라인을 거치 므로 성능 측면 에서도 비효율적입니다. 와 달리 `TrackMetric()` 는 `GetMetric()` 로컬 사전 집계를 처리 한 다음 1 분의 고정 된 간격으로 집계 요약 메트릭을 제출 합니다. 따라서 두 번째 또는 그 밀리초 수준에서 일부 사용자 지정 메트릭을 면밀 하 게 모니터링 해야 하는 경우에는 1 분에 한 번만 모니터링 하는 저장소 및 네트워크 트래픽 비용을 발생 시킬 수 있습니다. 또한 집계 된 메트릭에 대해 전송 되어야 하는 원격 분석 항목의 총 수가 크게 감소 하기 때문에 제한 발생 위험이 크게 줄어듭니다.
 
 Application Insights에서 및를 통해 수집 된 사용자 지정 메트릭은 `TrackMetric()` `GetMetric()` [샘플링](./sampling.md)대상이 아닙니다. 중요 한 메트릭을 샘플링 하면 이러한 메트릭을 기반으로 작성 된 경고가 불안정 해질 수 있는 시나리오가 발생할 수 있습니다. 사용자 지정 메트릭을 샘플링 하지 않으면 일반적으로 경고 임계값이 위반 되는 경우 경고가 발생 한다는 것을 확신할 수 있습니다.  그러나 사용자 지정 메트릭이 샘플링 되지 않으므로 몇 가지 잠재적인 문제가 있습니다.
 
@@ -285,9 +285,9 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`메트릭에 포함할 수 있는 데이터 시계열의 최대 개수입니다. 이 한도에 도달 하면를 호출 `TrackValue()` 합니다.
-* `valuesPerDimensionLimit`비슷한 방식으로 차원 마다 고유한 값의 수를 제한 합니다.
-* `restrictToUInt32Values`음수가 아닌 정수 값만 추적 해야 하는지 여부를 결정 합니다.
+* `seriesCountLimit` 메트릭에 포함할 수 있는 데이터 시계열의 최대 개수입니다. 이 한도에 도달 하면를 호출 `TrackValue()` 합니다.
+* `valuesPerDimensionLimit` 비슷한 방식으로 차원 마다 고유한 값의 수를 제한 합니다.
+* `restrictToUInt32Values` 음수가 아닌 정수 값만 추적 해야 하는지 여부를 결정 합니다.
 
 다음은 cap 제한을 초과 하는지 확인 하는 메시지를 보내는 방법의 예입니다.
 

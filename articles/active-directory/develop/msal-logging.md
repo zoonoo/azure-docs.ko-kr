@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846227"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 응용 프로그램 로그인
@@ -48,10 +48,10 @@ MSAL은 여러 수준의 로깅 세부 정보를 제공 합니다.
 
 MSAL 3.x에서 로깅은 앱을 만들 때 `.WithLogging` 작성기 한정자를 사용하여 앱별로 설정됩니다. 이 메서드에서 사용하는 매개 변수는 다음과 같습니다.
 
-- `Level`원하는 로깅 수준을 결정할 수 있습니다. Errors로 설정하면 오류만 발생합니다.
-- `PiiLoggingEnabled`true로 설정 되 면 개인 및 조직 데이터를 기록할 수 있습니다. 애플리케이션에서 개인 데이터를 기록하지 않도록 기본적으로 false로 설정됩니다.
-- `LogCallback`는 로깅을 수행 하는 대리자로 설정 됩니다. 이 `PiiLoggingEnabled` true 인 경우이 메서드는 `containsPii` 매개 변수를 false로 설정 하 고 개인 데이터를 포함 하지 않는 메시지를 두 번 받게 되며, 매개 변수를 사용 하는 두 번째 시간은 `containsPii` true와 같으며 메시지에 개인 데이터가 포함 될 수 있습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
-- `DefaultLoggingEnabled`플랫폼에 대 한 기본 로깅을 사용 하도록 설정 합니다. 기본적으로 false입니다. true로 설정하면 데스크톱/UWP 애플리케이션의 이벤트 추적, iOS의 NSLog, Android의 logcat을 사용합니다.
+- `Level` 원하는 로깅 수준을 결정할 수 있습니다. Errors로 설정하면 오류만 발생합니다.
+- `PiiLoggingEnabled` true로 설정 되 면 개인 및 조직 데이터를 기록할 수 있습니다. 애플리케이션에서 개인 데이터를 기록하지 않도록 기본적으로 false로 설정됩니다.
+- `LogCallback` 는 로깅을 수행 하는 대리자로 설정 됩니다. 이 `PiiLoggingEnabled` true 인 경우이 메서드는 `containsPii` 매개 변수를 false로 설정 하 고 개인 데이터를 포함 하지 않는 메시지를 두 번 받게 되며, 매개 변수를 사용 하는 두 번째 시간은 `containsPii` true와 같으며 메시지에 개인 데이터가 포함 될 수 있습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
+- `DefaultLoggingEnabled` 플랫폼에 대 한 기본 로깅을 사용 하도록 설정 합니다. 기본적으로 false입니다. true로 설정하면 데스크톱/UWP 애플리케이션의 이벤트 추적, iOS의 NSLog, Android의 logcat을 사용합니다.
 
 ```csharp
 class Program
@@ -86,10 +86,10 @@ class Program
 
 로깅 콜백을 만들어 앱을 만들 때 로깅을 설정 합니다. 콜백은 다음과 같은 매개 변수를 사용 합니다.
 
-- `tag`는 라이브러리에 의해 콜백에 전달 되는 문자열입니다. 로그 항목과 연결 되며 로깅 메시지를 정렬 하는 데 사용할 수 있습니다.
-- `logLevel`원하는 로깅 수준을 결정할 수 있습니다. 지원 되는 로그 수준은 `Error` ,, `Warning` `Info` 및 `Verbose` 입니다.
-- `message`로그 항목의 내용입니다.
-- `containsPII`개인 데이터 또는 조직 데이터를 포함 하는 메시지가 기록 되는지 여부를 지정 합니다. 기본적으로이는 false로 설정 되어 있으므로 응용 프로그램이 개인 데이터를 기록 하지 않습니다. `containsPII`가 인 경우 `true` 이 메서드는 `containsPII` 매개 변수를로 설정 하 고 개인 데이터를 사용 하지 않고를 두 번 받게 되며 `false` `message` , `containsPii` 매개 변수를로 설정 하 `true` 고 메시지에 개인 데이터가 포함 될 수 있습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
+- `tag` 는 라이브러리에 의해 콜백에 전달 되는 문자열입니다. 로그 항목과 연결 되며 로깅 메시지를 정렬 하는 데 사용할 수 있습니다.
+- `logLevel` 원하는 로깅 수준을 결정할 수 있습니다. 지원 되는 로그 수준은 `Error` ,, `Warning` `Info` 및 `Verbose` 입니다.
+- `message` 로그 항목의 내용입니다.
+- `containsPII` 개인 데이터 또는 조직 데이터를 포함 하는 메시지가 기록 되는지 여부를 지정 합니다. 기본적으로이는 false로 설정 되어 있으므로 응용 프로그램이 개인 데이터를 기록 하지 않습니다. `containsPII`가 인 경우 `true` 이 메서드는 `containsPII` 매개 변수를로 설정 하 고 개인 데이터를 사용 하지 않고를 두 번 받게 되며 `false` `message` , `containsPii` 매개 변수를로 설정 하 `true` 고 메시지에 개인 데이터가 포함 될 수 있습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
 
 ```java
 private StringBuilder mLogs;
@@ -129,9 +129,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  인스턴스를 만드는 구성 중에로 거 개체를 전달 하 여 MSAL.js (JavaScript)에서 로깅을 사용 하도록 설정 합니다 `UserAgentApplication` . 로거 개체의 속성은 다음과 같습니다.
 
 - `localCallback`: 사용자 지정 방식으로 로그를 사용 하 고 게시 하기 위해 개발자가 제공할 수 있는 콜백 인스턴스입니다. 로그를 리디렉션하려는 방법에 따라 localCallback 메서드를 구현합니다.
-- `level`(선택 사항): 구성 가능한 로그 수준입니다. 지원 되는 로그 수준은 `Error` ,, `Warning` `Info` 및 `Verbose` 입니다. 기본값은 `Info`입니다.
-- `piiLoggingEnabled`(선택 사항): true로 설정 하면 개인 데이터와 조직 데이터를 기록 합니다. 기본적으로 응용 프로그램이 개인 데이터를 기록 하지 않도록 false입니다. 개인 데이터 로그는 콘솔, Logcat 또는 NSLog와 같은 기본 출력에 기록되지 않습니다.
-- `correlationId`(선택 사항): 디버깅을 위해 응답과 함께 요청을 매핑하는 데 사용 되는 고유 식별자입니다. 기본값은 RFC4122 버전 4 GUID(128비트)입니다.
+- `level` (선택 사항): 구성 가능한 로그 수준입니다. 지원 되는 로그 수준은 `Error` ,, `Warning` `Info` 및 `Verbose` 입니다. 기본값은 `Info`입니다.
+- `piiLoggingEnabled` (선택 사항): true로 설정 하면 개인 데이터와 조직 데이터를 기록 합니다. 기본적으로 응용 프로그램이 개인 데이터를 기록 하지 않도록 false입니다. 개인 데이터 로그는 콘솔, Logcat 또는 NSLog와 같은 기본 출력에 기록되지 않습니다.
+- `correlationId` (선택 사항): 디버깅을 위해 응답과 함께 요청을 매핑하는 데 사용 되는 고유 식별자입니다. 기본값은 RFC4122 버전 4 GUID(128비트)입니다.
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -177,7 +177,7 @@ MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그�
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
@@ -210,7 +210,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|Level  |Description |
+|Level  |설명 |
 |---------|---------|
 | `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
 | `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
@@ -218,7 +218,7 @@ IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 �
 | `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
 |`MSALLogLevelVerbose`     |  API 추적 |
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
@@ -226,9 +226,9 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>로그 메시지 형식
 
-MSAL 로그 메시지의 메시지 부분은 다음 형식으로 되어 있습니다.`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 로그 메시지의 메시지 부분은 다음 형식으로 되어 있습니다. `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
@@ -255,7 +255,7 @@ MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그�
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
@@ -287,7 +287,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|Level  |Description |
+|Level  |설명 |
 |---------|---------|
 | `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
 | `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
@@ -295,7 +295,7 @@ IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 �
 | `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
 |`MSALLogLevelVerbose`     |  API 추적 |
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
@@ -303,9 +303,9 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>로그 메시지 형식
 
-MSAL 로그 메시지의 메시지 부분은 다음 형식으로 되어 있습니다.`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 로그 메시지의 메시지 부분은 다음 형식으로 되어 있습니다. `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
@@ -389,6 +389,6 @@ Python 용 MSAL은 개인 데이터 나 조직 데이터를 기록 하지 않습
 
 표준 Python 로깅을 사용 하 여 원하는 모든 항목을 기록할 수 있지만 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 해야 합니다.
 
-Python 로그인에 대 한 자세한 내용은 Python의 [로깅 방법](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)을 참조 하세요.
+Python 로그인에 대 한 자세한 내용은 Python의  [로깅 방법](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)을 참조 하세요.
 
 ---

@@ -4,10 +4,10 @@ description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 72a7aca97067ce4e9ed0e901e4016c82b3549eb1
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90817902"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
@@ -20,7 +20,7 @@ ms.locfileid: "90817902"
 
 
 ## <a name="enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정
-Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 지원 티켓을 제출 해야 합니다. 지원 팀에서 요청을 받으면 최대 5 영업일 동안 요청을 확인 하 고 노드를 할당 합니다. 기존 Azure VMware 솔루션 사설 클라우드가 있고 더 많은 노드를 할당 하려는 경우 동일한 프로세스를 진행 합니다.
+Azure VMware Solution 리소스를 만들기 전에 노드가 할당되도록 지원 티켓을 제출해야 합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 
 1. Azure Portal의 **도움말 + 지원**에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.

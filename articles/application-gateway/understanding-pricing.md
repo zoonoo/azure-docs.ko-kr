@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460748"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽에 대 한 가격 책정 이해
@@ -58,7 +58,7 @@ Application Gateway와 관련 된 사전 비용이 나 종료 비용은 없습�
 | ------------------------------------------------- | ---------------|
 |                     작음                         |    $0.025      |
 |                     중간                        |    $0.07       |
-|                     큼                         |    $0.32       |
+|                     큰                         |    $0.32       |
 
 예상 월별 가격은 월 730 시간의 사용량을 기준으로 합니다.
 
@@ -66,8 +66,8 @@ Application Gateway와 관련 된 사전 비용이 나 종료 비용은 없습�
 
 |              처리 된 데이터             |  작음 ($/GB)  |  보통 ($/GB) |  큼 ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| 처음 10TB/월                       |     $0.008     |      Free      |     Free      |
-| 다음 30tb (10 ~ 40tb)/월             |     $0.008     |     $0.007     |     Free      |
+| 처음 10TB/월                       |     $0.008     |      무료      |     무료      |
+| 다음 30tb (10 ~ 40tb)/월             |     $0.008     |     $0.007     |     무료      |
 | 40 TB 초과/월                        |     $0.008     |     $0.007     |     $0.0035   |
 
 해당 지역에 따라 더 많은 가격 책정 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/)를 참조 하세요.
@@ -84,7 +84,7 @@ Application Gateway와 관련 된 사전 비용이 나 종료 비용은 없습�
 | ------------------------------------------------- | ---------------|
 |                     작음                         |       해당 없음       |
 |                     중간                        |     $0.126     |
-|                     큼                         |     $0.448     |
+|                     큰                         |     $0.448     |
 
 예상 월별 가격은 월 730 시간의 사용량을 기준으로 합니다.
 
@@ -92,8 +92,8 @@ Application Gateway와 관련 된 사전 비용이 나 종료 비용은 없습�
 
 |              처리 된 데이터             |  작음 ($/GB)  |  보통 ($/GB) |  큼 ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| 처음 10TB/월                       |     $0.008     |      Free      |     Free      |
-| 다음 30tb (10 ~ 40tb)/월             |     $0.008     |     $0.007     |     Free      |
+| 처음 10TB/월                       |     $0.008     |      무료      |     무료      |
+| 다음 30tb (10 ~ 40tb)/월             |     $0.008     |     $0.007     |     무료      |
 | 40 TB 초과/월                        |     $0.008     |     $0.007     |     $0.0035   |
 
 해당 지역에 따라 더 많은 가격 책정 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/)를 참조 하세요.

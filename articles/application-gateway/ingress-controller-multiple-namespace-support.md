@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556169"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러를 사용 하 여 AKS 클러스터에서 여러 네임 스페이스 지원 사용
@@ -29,11 +29,11 @@ AGIC 버전 0.7는 `default` 이를 투구 구성에서 하나 이상의 다른 
    - `watchNamespace`투구에서 키를 완전히 삭제 [합니다. yaml](#sample-helm-config-file) -AGIC에서 모든 네임 스페이스를 관찰 합니다.
    - `watchNamespace`빈 문자열로 설정-AGIC가 모든 네임 스페이스를 관찰 합니다.
    - 쉼표 ()로 구분 된 여러 네임 스페이스를 추가 `watchNamespace: default,secondNamespace` 합니다.-AGIC는 이러한 네임 스페이스를 독점적으로 관찰 합니다.
-2. 다음을 사용 하 여 투구 템플릿 변경 내용을 적용 합니다.`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+2. 다음을 사용 하 여 투구 템플릿 변경 내용을 적용 합니다. `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 여러 네임 스페이스를 관찰 하는 기능으로 배포 된 후에는 AGIC에서 다음을 수행 합니다.
   - 액세스 가능한 모든 네임 스페이스의 수신 리소스 나열
-  - 로 주석이 추가 된 수신 리소스를 필터링 합니다.`kubernetes.io/ingress.class: azure/application-gateway`
+  - 로 주석이 추가 된 수신 리소스를 필터링 합니다. `kubernetes.io/ingress.class: azure/application-gateway`
   - 구성 결합 [Application Gateway 구성](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
   - [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 을 통해 연결 된 Application Gateway에 구성을 적용 합니다.
 
@@ -84,11 +84,11 @@ spec:
 
 는에 대 한 두 개의 수신 리소스가 각각의 Kubernetes 네임 스페이스로 라우팅되도록 하기에도 불구 하 고 `www.contoso.com` 하나의 백 엔드가 트래픽을 처리 하는 데 사용할 수 있습니다. AGIC는 "먼저 리소스 중 하나에 대해" 처음 제공 되는 "기반 구성을 만듭니다. 동시에 두 개의 조절기 리소스를 만든 경우 해당 리소스의 앞에 있는 하나는 우선적으로 적용 됩니다. 위의 예제에서 수신에 대 한 설정만 만들 수 `production` 있습니다. Application Gateway는 다음 리소스로 구성 됩니다.
 
-  - 수신기`fl-www.contoso.com-80`
-  - 라우팅 규칙:`rr-www.contoso.com-80`
-  - 백 엔드 풀:`pool-production-contoso-web-service-80-bp-80`
-  - HTTP 설정:`bp-production-contoso-web-service-80-80-websocket-ingress`
-  - 상태 프로브:`pb-production-contoso-web-service-80-websocket-ingress`
+  - 수신기 `fl-www.contoso.com-80`
+  - 라우팅 규칙: `rr-www.contoso.com-80`
+  - 백 엔드 풀: `pool-production-contoso-web-service-80-bp-80`
+  - HTTP 설정: `bp-production-contoso-web-service-80-80-websocket-ingress`
+  - 상태 프로브: `pb-production-contoso-web-service-80-websocket-ingress`
 
 *수신기* 및 *라우팅 규칙*을 제외 하 고 만들어진 Application Gateway 리소스는 생성 된 네임 스페이스 ()의 이름을 포함 합니다 `production` .
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558038"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management에서 관리 되는 id 사용
@@ -281,7 +281,7 @@ API Management 인스턴스의 시스템 할당 id를 사용 하 여 Azure Key V
 3. **사용자 할당 됨** 탭에서 **추가**를 선택 합니다.
 4. 이전에 만든 id를 검색 하 여 선택 합니다. **추가**를 선택합니다.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="사용자 할당 관리 id 사용을 위한 선택 항목" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="시스템 할당 관리 id 사용을 위한 선택 항목" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -417,6 +417,6 @@ Azure Resource Manager 템플릿을 사용 하 여 모든 id를 제거 하려면
 
 Azure 리소스에 대 한 관리 id에 대해 자세히 알아보세요.
 
-* [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)
+* [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates)
 * [정책에서 관리 id를 사용 하 여 인증](./api-management-authentication-policies.md#ManagedIdentity)

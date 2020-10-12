@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-policy
 author: craigshoemaker
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182416"
 ---
 ## <a name="deleting-personal-information"></a>개인 정보 삭제
@@ -23,9 +23,9 @@ ms.locfileid: "67182416"
 
 - 담당자 이름
 - 전화 번호
-- 메일
+- Email
 - 주소
-- City
+- 구/군/시
 - 우편 번호
 - 시스템 상태
 - 국가/시/도/지역

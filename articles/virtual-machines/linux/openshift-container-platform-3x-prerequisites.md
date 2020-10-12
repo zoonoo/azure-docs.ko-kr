@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368186"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11을 배포 하기 위한 일반적인 필수 구성 요소
@@ -173,4 +173,4 @@ az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certif
 다음으로 OpenShift 클러스터를 배포합니다.
 
 - [OpenShift Container Platform 배포](./openshift-container-platform-3x.md)
-- [OpenShift Container Platform 자체 관리 Marketplace 제품 배포](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [OpenShift Container Platform Self-Managed Marketplace 제품 배포](./openshift-container-platform-3x-marketplace-self-managed.md)

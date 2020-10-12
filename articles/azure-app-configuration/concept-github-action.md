@@ -7,10 +7,10 @@ ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371824"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>App Configuration에 GitHub 리포지토리 동기화
@@ -25,7 +25,7 @@ GitHub Actions [워크플로](https://help.github.com/articles/about-github-acti
 GitHub [문서](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)에서는 GitHub 워크플로 및 작업의 자세한 보기를 제공합니다. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>리포지토리에서 GitHub Actions 사용
-이 GitHub 동작 사용을 시작 하려면 리포지토리로 이동 하 고 [ **작업** ] 탭을 선택 하세요. [ **새 워크플로**]를 선택한 다음 **워크플로를 직접 설정**합니다. 마지막으로 마켓플레이스에서 “Azure App Configuration 동기화”를 검색합니다.
+이 GitHub 동작 사용을 시작 하려면 리포지토리로 이동 하 여 **작업** 탭을 선택 합니다. **새 워크플로**를 선택한 다음 **직접 워크플로를 설정**합니다. 마지막으로 마켓플레이스에서 “Azure App Configuration 동기화”를 검색합니다.
 > [!div class="mx-imgBorder"]
 > ![작업 탭 선택](media/find-github-action.png)
 
@@ -252,7 +252,7 @@ jobs:
 ## <a name="use-max-depth-to-limit-github-action"></a>최대 깊이를 사용하여 GitHub 작업 제한
 중첩된 JSON 특성의 기본 동작은 전체 개체를 평면화하는 것입니다.  아래 JSON은 다음 키-값 쌍을 정의합니다.
 
-| Key | 값 |
+| 키 | 값 |
 | --- | --- |
 | Object:Inner:InnerKey | InnerValue |
 
@@ -312,10 +312,10 @@ jobs:
 | format | 예 | 구성 파일의 파일 형식입니다.  유효한 형식은 다음과 같습니다. JSON, YAML, 속성. |
 | connectionString | 예 | App Configuration 인스턴스의 연결 문자열입니다. GitHub 리포지토리에서는 연결 문자열을 비밀로 저장해야 하며 워크플로에서는 비밀 이름만 사용해야 합니다. |
 | 구분 기호 | 예 | 구성 파일을 키-값 쌍으로 평면화할 때 사용되는 구분 기호입니다.  유효한 값은 다음과 같습니다. , ; : - _ __ / |
-| 접두사 | 아니요 | 키의 시작 부분에 추가할 접두사입니다. |
-| label | 아니요 | 키-값 쌍을 설정할 때 사용되는 레이블입니다. 지정하지 않으면 null 레이블이 사용됩니다. |
-| strict | 아니요 | strict 모드를 사용하는지 여부를 결정하는 부울 값입니다. 기본값은 False입니다. |
-| depth | 아니요 | 구성 파일을 평면화할 최대 깊이입니다.  깊이는 양수여야 합니다.  기본값에는 최대 깊이가 없습니다. |
+| 접두사 | 예 | 키의 시작 부분에 추가할 접두사입니다. |
+| label | 예 | 키-값 쌍을 설정할 때 사용되는 레이블입니다. 지정하지 않으면 null 레이블이 사용됩니다. |
+| strict | 예 | strict 모드를 사용하는지 여부를 결정하는 부울 값입니다. 기본값은 False입니다. |
+| depth | 예 | 구성 파일을 평면화할 최대 깊이입니다.  깊이는 양수여야 합니다.  기본값에는 최대 깊이가 없습니다. |
 | tags | 예 | 키-값 쌍에 설정되는 태그를 지정합니다.  필요한 형식은 다음과 같은 JSON 개체의 문자열화된 형식입니다. { [propertyName: string]: string; } 각 속성 이름-값이 태그가 됩니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75448252"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
@@ -48,7 +48,7 @@ Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.m
 
    ![이미지 시도 - 평가 콘솔 샘플 이미지](images/sample-image.jpg) 
 
-5. **보내기**를 선택 합니다.
+5. **보내기**를 선택합니다.
 
 6. API는 각 분류의 확률 점수를 반환합니다. 또한 이미지가 조건을 충족하는지 확인 결과를 반환합니다(**true** 또는 **false**). 
 
@@ -74,7 +74,7 @@ Image Moderation API를 사용하여 이미지에서 얼굴을 찾을 수 있습
 
    ![이미지 시도 - 얼굴 찾기 샘플 요청](images/try-image-api-face-request.png)
 
-4. **보내기**를 선택 합니다. 이 예제에서는 API가 두 얼굴을 찾아서 이미지의 해당 좌표를 반환합니다.
+4. **보내기**를 선택합니다. 이 예제에서는 API가 두 얼굴을 찾아서 이미지의 해당 좌표를 반환합니다.
 
    ![이미지 시도 - 얼굴 찾기 샘플 응답 콘텐츠 상자](images/try-image-api-face-response.png)
 
@@ -96,7 +96,7 @@ Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할
 
 4. **요청 본문** 상자에서 기본 샘플 이미지를 사용합니다. 이전 섹션에서 사용한 것과 동일한 이미지입니다.
 
-5. **보내기**를 선택 합니다. 추출된 텍스트는 JSON으로 표시됩니다.
+5. **보내기**를 선택합니다. 추출된 텍스트는 JSON으로 표시됩니다.
 
    ![이미지 - OCR 샘플 응답 콘텐츠 상자](images/try-image-api-ocr.PNG)
 

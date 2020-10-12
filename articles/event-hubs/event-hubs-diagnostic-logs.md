@@ -4,10 +4,10 @@ description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88927734"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
@@ -97,7 +97,7 @@ Name | Description
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+Name | 설명
 ------- | -------
 `ActivityId` | 추적 목적으로 사용되는 내부 ID |
 `EventName` | 작업 이름 |
@@ -129,7 +129,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | 설명 |
 | ---- | ----------- | 
 | `TrackingId` | 추적 목적으로 사용되는 내부 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
@@ -148,7 +148,7 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | 설명 |
 | ---- | ----------- | 
 | `RequestId` | 추적 목적으로 사용되는 요청 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID |
@@ -219,7 +219,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 ## <a name="customer-managed-key-user-logs"></a>고객 관리형 키 사용자 로그
 고객 관리형 키 사용자 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | 설명 |
 | ---- | ----------- | 
 | `Category` | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
 | `ResourceId` | Azure 구독 ID 및 네임스페이스 이름을 포함하는 내부 리소스 ID |

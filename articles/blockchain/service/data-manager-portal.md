@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85200684"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal을 사용하여 Blockchain Data Manager 구성
@@ -40,9 +40,9 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 �
 
     다음 세부 정보를 입력합니다.
 
-    Setting | 설명
+    설정 | Description
     --------|------------
-    이름 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. Blockchain Data Manager 이름에는 소문자와 숫자가 포함 될 수 있으며 최대 길이는 20 자입니다.
+    속성 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. Blockchain Data Manager 이름에는 소문자와 숫자가 포함 될 수 있으며 최대 길이는 20 자입니다.
     트랜잭션 노드 | 트랜잭션 노드를 선택 합니다. 읽기 권한이 있는 트랜잭션 노드만 나열 됩니다.
     연결 이름 | 블록체인 트랜잭션 데이터가 전송되는 아웃바운드 연결의 고유 이름을 입력합니다.
     Event Grid 엔드포인트 | Blockchain Data Manager 인스턴스와 동일한 구독에서 event grid 항목을 선택 합니다.
@@ -108,9 +108,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     ![스토리지 계정 컨테이너 만들기](./media/data-manager-portal/create-container.png)
 
-    | 필드 | 설명 |
+    | 필드 | Description |
     |-------|-------------|
-    | 이름  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
+    | 속성  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
     | 공용 액세스 수준 | *프라이빗(익명 액세스 없음)* 선택 |
 
 1. **확인**을 선택하여 컨테이너를 만듭니다.
@@ -144,9 +144,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     블록체인 애플리케이션의 이름과 스마트 계약 ABI 및 바이트 코드 URL을 입력합니다.
 
-    Setting | 설명
+    설정 | Description
     --------|------------
-    이름 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
+    속성 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
     계약 ABI | 계약 ABI 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
     계약 바이트 코드 | 바이트 코드 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
 

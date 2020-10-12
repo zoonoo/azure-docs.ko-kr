@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80335818"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러에 대 한 주석 
@@ -29,9 +29,9 @@ Kubernetes 수신 리소스는 임의의 키/값 쌍으로 주석을 달 수 있
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
 | [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`까지의 | `30` | |
+| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` 까지의 | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`까지의 | `30` | |
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` 까지의 | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 
@@ -237,7 +237,7 @@ spec:
 
 ## <a name="backend-protocol"></a>백 엔드 프로토콜
 
-이 주석을 사용 하면 Application Gateway Pod 통신 하는 동안 사용 해야 하는 프로토콜을 지정할 수 있습니다. 지원 되는 프로토콜: `http` ,`https`
+이 주석을 사용 하면 Application Gateway Pod 통신 하는 동안 사용 해야 하는 프로토콜을 지정할 수 있습니다. 지원 되는 프로토콜: `http` , `https`
 
 > [!NOTE]
 > * Application Gateway에서 자체 서명 된 인증서가 지원 되지만, 현재 AGIC `https` 는 잘 알려진 CA에서 서명 된 인증서를 사용 하는 경우에만 지원 합니다.
@@ -248,7 +248,7 @@ spec:
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

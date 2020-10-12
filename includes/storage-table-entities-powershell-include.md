@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67181878"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -101,7 +101,7 @@ Get-AzTableRow -table $cloudTable `
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
-|필드(field)|값|
+|필드(field)|value|
 |----|----|
 | userId | 1 |
 | 사용자 이름 | Chris |
@@ -118,7 +118,7 @@ Get-AzTableRow `
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
-|필드(field)|값|
+|필드(field)|value|
 |----|----|
 | userId | 1 |
 | 사용자 이름 | Chris |
@@ -153,7 +153,7 @@ Get-AzTableRow -table $cloudTable `
 
 결과에서 Jessie2 레코드를 보여 줍니다.
 
-|필드(field)|값|
+|필드(field)|value|
 |----|----|
 | userId | 2 |
 | 사용자 이름 | Jessie2 |

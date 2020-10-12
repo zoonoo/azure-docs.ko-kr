@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: app-service
 author: cephalin
@@ -9,10 +9,10 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182807"
 ---
 응용 프로그램을 시작 하는 동안 Python에 오류가 발생 하는 경우에는 간단한 오류 페이지만 반환 됩니다. 예를 들어 내부 서버 오류가 발생 했기 때문에 페이지를 표시할 수 없습니다. "
