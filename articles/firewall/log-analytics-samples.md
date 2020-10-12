@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
 ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023876"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 방화벽에 대 한 Azure Monitor 로그
@@ -30,7 +30,7 @@ ms.locfileid: "90023876"
 2. **일반** 아래에서 **뷰 디자이너**를 엽니다.
 3. **가져오기**를 클릭합니다.
 4. 이전에 다운로드한 **AzureFirewall.omsview** 파일을 찾아 선택합니다.
-5. **저장**을 클릭합니다.
+5. **Save**을 클릭합니다.
 
 애플리케이션 규칙 로그 데이터에 대한 뷰는 다음과 같이 표시됩니다.
 

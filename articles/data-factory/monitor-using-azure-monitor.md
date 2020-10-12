@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563554"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Data Factory 모니터링 및 경고
@@ -221,7 +221,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>헤더
+##### <a name="headers"></a>headers
 
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
 * `{resource-id}`진단 설정을 편집 하려는 리소스의 ID로 대체 합니다. 자세한 내용은 [리소스 그룹을 사용 하 여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조 하세요.
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | --- | --- | --- |
 | **storageAccountId** |String | 진단 로그를 보낼 저장소 계정의 리소스 ID입니다. |
 | **serviceBusRuleId** |String | 진단 로그 스트리밍을 위해 Event Hubs 생성 하려는 service bus 네임 스페이스의 service bus 규칙 ID입니다. 규칙 ID의 형식은 `{service bus resource ID}/authorizationrules/{key name}` 입니다.|
@@ -341,7 +341,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>헤더
+##### <a name="headers"></a>headers
 
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
 * `{resource-id}`진단 설정을 편집 하려는 리소스의 ID로 대체 합니다. 자세한 내용은 [리소스 그룹을 사용 하 여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조 하세요.
@@ -442,21 +442,21 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | 설명 | 예제 |
+| 속성 | 유형 | 설명 | 예제 |
 | --- | --- | --- | --- |
-| **Level** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
+| **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | Timespan UTC 형식의 이벤트 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` 입니다. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| 작업 실행의 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| String| 파이프라인 실행의 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | 데이터 팩터리 리소스와 연결 된 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | 진단 로그의 범주입니다. 속성 값을 `ActivityRuns`로 설정합니다. | `ActivityRuns` |
-|**수준**| String | 진단 로그의 수준입니다. 속성 값을 `Informational`로 설정합니다. | `Informational` |
+|**level**| String | 진단 로그의 수준입니다. 속성 값을 `Informational`로 설정합니다. | `Informational` |
 |**operationName**| String | 상태의 작업 이름입니다. 활동이 시작 하트 비트 이면 속성 값은 `MyActivity -` 입니다. 활동이 끝 하트 비트 이면 속성 값은 `MyActivity - Succeeded` 입니다. | `MyActivity - Succeeded` |
 |**pipelineName**| String | 파이프라인의 이름 | `MyPipeline` |
 |**activityName**| String | 작업의 이름입니다. | `MyActivity` |
 |**start**| String | 작업의 시작 시간은 timespan UTC 형식으로 실행 됩니다. | `2017-06-26T20:55:29.5007959Z`|
-|**종단**| String | 활동의 종료 시간은 timespan UTC 형식으로 실행 됩니다. 진단 로그에 작업이 시작 되었지만 아직 종료 되지 않은 것으로 표시 되는 경우 속성 값은 `1601-01-01T00:00:00Z` 입니다. | `2017-06-26T20:55:29.5007959Z` |
+|**end**| String | 활동의 종료 시간은 timespan UTC 형식으로 실행 됩니다. 진단 로그에 작업이 시작 되었지만 아직 종료 되지 않은 것으로 표시 되는 경우 속성 값은 `1601-01-01T00:00:00Z` 입니다. | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>파이프라인-실행 로그 특성
 
@@ -488,19 +488,19 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | 설명 | 예제 |
+| 속성 | 유형 | 설명 | 예제 |
 | --- | --- | --- | --- |
-| **Level** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
+| **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | Timespan UTC 형식의 이벤트 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` 입니다. | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| 파이프라인 실행의 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | 데이터 팩터리 리소스와 연결 된 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | 진단 로그의 범주입니다. 속성 값을 `PipelineRuns`로 설정합니다. | `PipelineRuns` |
-|**수준**| String | 진단 로그의 수준입니다. 속성 값을 `Informational`로 설정합니다. | `Informational` |
+|**level**| String | 진단 로그의 수준입니다. 속성 값을 `Informational`로 설정합니다. | `Informational` |
 |**operationName**| String | 상태와 함께 파이프라인 이름입니다. 파이프라인 실행이 완료 되 면 속성 값은 `Pipeline - Succeeded` 입니다. | `MyPipeline - Succeeded`. |
 |**pipelineName**| String | 파이프라인의 이름 | `MyPipeline` |
 |**start**| String | 작업의 시작 시간은 timespan UTC 형식으로 실행 됩니다. | `2017-06-26T20:55:29.5007959Z`. |
-|**종단**| String | 활동의 종료 시간은 timespan UTC 형식으로 실행 됩니다. 진단 로그에 시작 되었지만 아직 종료 되지 않은 작업이 표시 되는 경우 속성 값은 `1601-01-01T00:00:00Z` 입니다.  | `2017-06-26T20:55:29.5007959Z` |
+|**end**| String | 활동의 종료 시간은 timespan UTC 형식으로 실행 됩니다. 진단 로그에 시작 되었지만 아직 종료 되지 않은 작업이 표시 되는 경우 속성 값은 `1601-01-01T00:00:00Z` 입니다.  | `2017-06-26T20:55:29.5007959Z` |
 |**status**| String | 파이프라인 실행의 최종 상태입니다. 가능한 속성 값은 `Succeeded` 및 `Failed` 입니다. | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>트리거-실행 로그 특성
@@ -531,15 +531,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | 설명 | 예제 |
+| 속성 | 유형 | 설명 | 예제 |
 | --- | --- | --- | --- |
-| **Level** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
+| **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | Timespan UTC 형식의 이벤트 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` 입니다. | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| 트리거의 실행 ID입니다. | `08587023010602533858661257311` |
 |**resourceId**| String | 데이터 팩터리 리소스와 연결 된 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | 진단 로그의 범주입니다. 속성 값을 `PipelineRuns`로 설정합니다. | `PipelineRuns` |
-|**수준**| String | 진단 로그의 수준입니다. 속성 값을 `Informational`로 설정합니다. | `Informational` |
+|**level**| String | 진단 로그의 수준입니다. 속성 값을 `Informational`로 설정합니다. | `Informational` |
 |**operationName**| String | 트리거가 성공적으로 실행 되었는지 여부를 나타내는 최종 상태의 트리거의 이름입니다. 하트 비트가 성공적으로 완료 되 면 속성 값은 `MyTrigger - Succeeded` 입니다. | `MyTrigger - Succeeded` |
 |**triggerName**| String | 트리거의 이름입니다. | `MyTrigger` |
 |**triggerType**| String | 트리거의 유형입니다. 가능한 속성 값은 `Manual Trigger` 및 `Schedule Trigger` 입니다. | `ScheduleTrigger` |
@@ -568,15 +568,15 @@ SSIS IR 시작/중지/유지 관리 작업의 로그 특성은 다음과 같습�
 }
 ```
 
-| 속성                   | Type   | 설명                                                   | 예제                        |
+| 속성                   | 유형   | 설명                                                   | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | 이벤트 시간 (UTC 형식):`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | SSIS IR 작업의 이름                            | `Start/Stop/Maintenance` |
 | **category**               | String | 진단 로그의 범주입니다.                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | 특정 작업을 추적 하기 위한 고유 ID             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | ADF의 이름                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | SSIS IR의 이름                                      | `MySSISIR` |
-| **수준**                  | String | 진단 로그의 수준                                  | `Informational` |
+| **level**                  | String | 진단 로그의 수준                                  | `Informational` |
 | **resultType**             | String | SSIS IR 작업의 결과입니다.                          | `Started/InProgress/Succeeded/Failed` |
 | **message**                | String | SSIS IR 작업의 출력 메시지                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | String | ADF 리소스의 고유 ID                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -608,17 +608,17 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | Type   | 설명                                                          | 예제                        |
+| 속성                   | 유형   | 설명                                                          | 예제                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | 이벤트 시간 (UTC 형식):`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | 이는로 설정 됩니다.`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **category**               | String | 진단 로그의 범주입니다.                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | String | 특정 작업을 추적 하기 위한 고유 ID                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | ADF의 이름                                                 | `MyADFv2` |
 | **integrationRuntimeName** | String | SSIS IR의 이름                                             | `MySSISIR` |
-| **수준**                  | String | 진단 로그의 수준                                         | `Informational` |
-| **operationId**            | String | SSISDB에서 특정 작업을 추적 하기 위한 고유 ID          | `1`(1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 작업을 나타냅니다.) |
-| **contextDepth**           | String | 이벤트 메시지 컨텍스트의 깊이입니다.                              | `0`(0은 패키지 실행이 시작 되기 전에 컨텍스트를 나타내고, 1은 오류가 발생 했을 때 컨텍스트를 나타내고, 컨텍스트는 오류에서 추가 될 때 더 커집니다.) |
+| **level**                  | String | 진단 로그의 수준                                         | `Informational` |
+| **operationId**            | String | SSISDB에서 특정 작업을 추적 하기 위한 고유 ID          | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 작업을 나타냅니다.) |
+| **contextDepth**           | String | 이벤트 메시지 컨텍스트의 깊이입니다.                              | `0` (0은 패키지 실행이 시작 되기 전에 컨텍스트를 나타내고, 1은 오류가 발생 했을 때 컨텍스트를 나타내고, 컨텍스트는 오류에서 추가 될 때 더 커집니다.) |
 | **packagePath**            | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 경로입니다.      | `\Package` |
 | **contextType**            | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 유형입니다.      | `60`( [추가 컨텍스트 형식](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)참조) |
 | **contextSourceName**      | String | 이벤트 메시지 컨텍스트 원본인 패키지 개체의 이름입니다.      | `MyPackage` |
@@ -658,16 +658,16 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | Type   | 설명                                                        | 예제                        |
+| 속성                   | 유형   | 설명                                                        | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **time**                   | String | 이벤트 시간 (UTC 형식):`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | 이는로 설정 됩니다.`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **category**               | String | 진단 로그의 범주입니다.                                    | `SSISPackageEventMessages` |
 | **correlationId**          | String | 특정 작업을 추적 하기 위한 고유 ID                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | ADF의 이름                                               | `MyADFv2` |
 | **integrationRuntimeName** | String | SSIS IR의 이름                                           | `MySSISIR` |
-| **수준**                  | String | 진단 로그의 수준                                       | `Informational` |
-| **operationId**            | String | SSISDB에서 특정 작업을 추적 하기 위한 고유 ID        | `1`(1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 작업을 나타냅니다.) |
+| **level**                  | String | 진단 로그의 수준                                       | `Informational` |
+| **operationId**            | String | SSISDB에서 특정 작업을 추적 하기 위한 고유 ID        | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 작업을 나타냅니다.) |
 | **messageTime**            | String | 이벤트 메시지가 UTC 형식으로 생성 되는 시간입니다.          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | String | 이벤트 메시지의 형식입니다.                                     | `70`( [자세한 메시지 유형](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)참조) |
 | **messageSourceType**      | String | 이벤트 메시지 원본의 형식입니다.                              | `20`( [자세한 메시지 원본 유형](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)참조) |
@@ -678,7 +678,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 | **messageSourceId**        | String | 이벤트 메시지 원본인 패키지 구성 요소의 고유 ID    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 | **subcomponentName**       | String | 이벤트 메시지 원본인 데이터 흐름 구성 요소의 이름입니다.       | `SSIS.Pipeline` |
 | **packagePath**            | String | 이벤트 메시지 원본인 패키지 개체의 경로입니다.            | `\Package\Data Flow Task` |
-| **executionPath**          | String | 부모 패키지에서 실행 된 구성 요소로의 전체 경로입니다.            | `\Transformation\Data Flow Task`(이 경로는 구성 요소 반복도 캡처합니다.) |
+| **executionPath**          | String | 부모 패키지에서 실행 된 구성 요소로의 전체 경로입니다.            | `\Transformation\Data Flow Task` (이 경로는 구성 요소 반복도 캡처합니다.) |
 | **threadId**               | String | 이벤트 메시지가 기록 될 때 실행 되는 스레드의 고유 ID | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>SSIS 실행 파일 통계 로그 특성
@@ -707,21 +707,21 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통
 }
 ```
 
-| 속성                   | Type   | 설명                                                      | 예제                        |
+| 속성                   | 유형   | 설명                                                      | 예제                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | 이벤트 시간 (UTC 형식):`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | 이는로 설정 됩니다.`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **category**               | String | 진단 로그의 범주입니다.                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | String | 특정 작업을 추적 하기 위한 고유 ID                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | ADF의 이름                                             | `MyADFv2` |
 | **integrationRuntimeName** | String | SSIS IR의 이름                                         | `MySSISIR` |
-| **수준**                  | String | 진단 로그의 수준                                     | `Informational` |
-| **executionId**            | String | SSISDB에서 특정 실행을 추적 하기 위한 고유 ID      | `1`(1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 실행을 나타냅니다.) |
-| **executionPath**          | String | 부모 패키지에서 실행 된 구성 요소로의 전체 경로입니다.          | `\Transformation\Data Flow Task`(이 경로는 구성 요소 반복도 캡처합니다.) |
+| **level**                  | String | 진단 로그의 수준                                     | `Informational` |
+| **executionId**            | String | SSISDB에서 특정 실행을 추적 하기 위한 고유 ID      | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 실행을 나타냅니다.) |
+| **executionPath**          | String | 부모 패키지에서 실행 된 구성 요소로의 전체 경로입니다.          | `\Transformation\Data Flow Task` (이 경로는 구성 요소 반복도 캡처합니다.) |
 | **startTime**              | String | 실행 파일이 UTC 형식으로 실행 전 단계로 전환 되는 시간입니다.  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | String | 실행 파일이 실행 후 단계를 UTC 형식으로 입력 하는 시간 | `2017-06-28T21:00:27.3534352Z` |
 | **executionDuration**      | String | 실행 파일의 실행 시간 (밀리초)                   | `1,125` |
-| **executionResult**        | String | 실행 중인 실행 파일의 결과                                 | `0`0은 성공, 1은 실패, 2는 완료를 나타내고, 3은 취소를 의미 합니다. |
+| **executionResult**        | String | 실행 중인 실행 파일의 결과                                 | `0` 0은 성공, 1은 실패, 2는 완료를 나타내고, 3은 취소를 의미 합니다. |
 | **executionValue**         | String | 실행 중인 실행 파일에서 반환 하는 사용자 정의 값입니다.            | `1` |
 | **resourceId**             | String | ADF 리소스의 고유 ID                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -752,16 +752,16 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                   | Type   | 설명                                                         | 예제                        |
+| 속성                   | 유형   | 설명                                                         | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | 이벤트 시간 (UTC 형식):`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | 이는로 설정 됩니다.`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **category**               | String | 진단 로그의 범주입니다.                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | String | 특정 작업을 추적 하기 위한 고유 ID                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | ADF의 이름                                                | `MyADFv2` |
 | **integrationRuntimeName** | String | SSIS IR의 이름                                            | `MySSISIR` |
-| **수준**                  | String | 진단 로그의 수준                                        | `Informational` |
-| **executionId**            | String | SSISDB에서 특정 실행을 추적 하기 위한 고유 ID         | `1`(1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 실행을 나타냅니다.) |
+| **level**                  | String | 진단 로그의 수준                                        | `Informational` |
+| **executionId**            | String | SSISDB에서 특정 실행을 추적 하기 위한 고유 ID         | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 실행을 나타냅니다.) |
 | **packageName**            | String | 실행 된 패키지 파일의 이름입니다.                              | `MyPackage.dtsx` |
 | **열의**               | String | 실행 된 데이터 흐름 태스크의 이름입니다.                                 | `Data Flow Task` |
 | **subcomponentName**       | String | 데이터 흐름 구성 요소의 이름입니다.                                     | `Derived Column` |
@@ -800,16 +800,16 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                     | Type   | 설명                                                        | 예제                        |
+| 속성                     | 유형   | 설명                                                        | 예제                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **time**                     | String | 이벤트 시간 (UTC 형식):`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**            | String | 이는로 설정 됩니다.`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **time**                     | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**            | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **category**                 | String | 진단 로그의 범주입니다.                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | String | 특정 작업을 추적 하기 위한 고유 ID                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**          | String | ADF의 이름                                               | `MyADFv2` |
 | **integrationRuntimeName**   | String | SSIS IR의 이름                                           | `MySSISIR` |
-| **수준**                    | String | 진단 로그의 수준                                       | `Informational` |
-| **executionId**              | String | SSISDB에서 특정 실행을 추적 하기 위한 고유 ID        | `1`(1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 실행을 나타냅니다.) |
+| **level**                    | String | 진단 로그의 수준                                       | `Informational` |
+| **executionId**              | String | SSISDB에서 특정 실행을 추적 하기 위한 고유 ID        | `1` (1은 T-SQL을 통해 SSISDB/호출 **된 패키지와** 관련 된 실행을 나타냅니다.) |
 | **packageName**              | String | 실행 된 패키지 파일의 이름입니다.                             | `MyPackage.dtsx` |
 | **열의**                 | String | 실행 된 데이터 흐름 태스크의 이름입니다.                                | `Data Flow Task` |
 | **dataflowPathIdString**     | String | 추적 데이터 흐름 경로에 대 한 고유 ID                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
@@ -829,7 +829,7 @@ Log Analytics는 다음과 같은 예외를 제외 하 고 모니터에서 스�
 * "Level" 열이 없습니다.
 * 동적 "속성" 열은 다음과 같은 동적 JSON blob 유형으로 유지 됩니다.
 
-    | Azure Monitor 열 | Log Analytics 열 | Type |
+    | Azure Monitor 열 | Log Analytics 열 | 유형 |
     | --- | --- | --- |
     | $. 속성. UserProperties | UserProperties | 동적 |
     | $. 속성. 달 | 주석 | 동적 |
@@ -841,7 +841,7 @@ Log Analytics는 다음과 같은 예외를 제외 하 고 모니터에서 스�
     | $. 속성. 이전 | 이전 | 동적 |
     | $. 속성. 변수의 | 매개 변수 | 동적 |
     | $.properties.SystemParameters | SystemParameters | 동적 |
-    | $. 속성. 사이 | 태그들 | 동적 |
+    | $. 속성. 사이 | 태그 | 동적 |
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Azure Monitor를 사용 하 여 SSIS 작업 모니터링
 

@@ -4,10 +4,10 @@ description: Azure VMware 솔루션의 주요 업그레이드 프로세스 및 �
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316803"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Azure VMware 솔루션 사설 클라우드 업데이트 및 업그레이드

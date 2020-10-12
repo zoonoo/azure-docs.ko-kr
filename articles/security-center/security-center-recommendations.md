@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 7f6c0f2a311590219fb59bfe1ec63831c03e8af2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314439"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
@@ -31,7 +31,7 @@ ms.locfileid: "91314439"
 
 권장 사항은 리소스를 보호 하기 위해 수행할 작업입니다.
 
-Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이러한 취약성을 해결 하는 방법에 대 한 권장 사항을 제공 합니다.
+Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다.
 
 각 권장 사항은 다음을 제공 합니다.
 
@@ -67,17 +67,17 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
         - **비정상 리소스** – 식별 된 문제의 영향을 받는 리소스입니다.
         - **해당 하지 않는 리소스** – 권장 구성이 명확한 답변을 제공할 수 없는 리소스입니다. 해당 없음 탭에는 각 리소스의 이유가 포함 됩니다. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="이유가 있는 해당 리소스가 아닙니다.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="권장 사항 세부 정보 페이지입니다.":::
 
 ## <a name="preview-recommendations"></a>미리 보기 권장 사항
 
 **미리 보기로** 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다.
 
-가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
+미리 보기 기간이 종료되면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정해야 합니다.
 
-미리 보기 권장 사항의 예는 다음과 같습니다.
+미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그를 사용 하는 권장 사항":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="권장 사항 세부 정보 페이지입니다.":::
  
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260864"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -31,7 +31,7 @@ ms.locfileid: "86260864"
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
 | provision | 외부 저장소의 '. .sfpkg ' 패키지를 사용 하는 클러스터 또는 이미지 저장소의 응용 프로그램 패키지를 사용 하 여 Service Fabric 응용 프로그램 유형을 프로 비전 하거나 등록 합니다. |
 | report-health | Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다. |
-| 형식 | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
+| type | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
 | type-list | Microsoft Azure Service Fabric 클러스터에서 애플리케이션의 유형 목록을 가져옵니다. |
 | unprovision | 클러스터에서 Microsoft Azure Service Fabric 애플리케이션 유형을 제거하거나 등록 취소합니다. |
 | 업그레이드 | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |
@@ -298,7 +298,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --application-type-name | 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 유형 이름은 애플리케이션 매니페스트에 있는 애플리케이션 유형의 이름을 나타냅니다. |
 | --애플리케이션-유형-버전 | 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 유형 버전은 애플리케이션 매니페스트에 있는 애플리케이션 유형의 버전을 나타냅니다. |
 | --external-provision | 애플리케이션 패키지를 등록하거나 프로비전할 수 있는 위치입니다. 외부 저장소에 이전에 업로드된 애플리케이션 패키지를 위한 프로비전임을 나타냅니다. 애플리케이션 패키지는 확장명이 *.sfpkg로 끝납니다. |
-| --no-wait | 프로비전을 비동기적으로 수행할지 여부를 나타냅니다. <br><br> true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 작업이 반환되며, 프로비전 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 False입니다. 대형 애플리케이션 패키지의 경우 값을 true로 설정하는 것이 좋습니다. |
+| --no-wait | 프로비전을 비동기적으로 수행할지 여부를 나타냅니다. <br><br> true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 작업이 반환되며, 프로비전 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 false입니다. 대형 애플리케이션 패키지의 경우 값을 true로 설정하는 것이 좋습니다. |
 | --timeout -t | 기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -403,7 +403,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 매니페스트에서 정의된 애플리케이션 유형의 버전입니다. |
-| --async-parameter | 프로비전 해제를 비동기적으로 수행할지 여부를 나타내는 플래그입니다. true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 해제 작업이 반환되며, 프로비전 해제 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 False입니다. 단, 프로비전된 대형 애플리케이션 패키지의 경우 true로 설정하는 것이 좋습니다. |
+| --async-parameter | 프로비전 해제를 비동기적으로 수행할지 여부를 나타내는 플래그입니다. true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 해제 작업이 반환되며, 프로비전 해제 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 false입니다. 단, 프로비전된 대형 애플리케이션 패키지의 경우 true로 설정하는 것이 좋습니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수

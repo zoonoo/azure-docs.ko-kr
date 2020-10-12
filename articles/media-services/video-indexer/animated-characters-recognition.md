@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047490"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 캐릭터 검색(미리 보기)
@@ -208,7 +208,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 
 ## <a name="limitations"></a>제한 사항
 
-* 현재는 "애니메이션 id" 기능이 동아시아 지역에서 지원 되지 않습니다.
+* 현재 "애니메이션 식별" 기능은 East-Asia 지역에서 지원 되지 않습니다.
 * 비디오에서 작거나 멀리 보이는 문자는 비디오 품질이 나쁜 경우 제대로 식별 되지 않을 수 있습니다.
 * 애니메이션 효과가 적용 되는 일련의 문자 집합에 따라 모델을 사용 하는 것이 좋습니다.
 

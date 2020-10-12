@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697445"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP 출력 바인딩
@@ -25,13 +25,13 @@ HTTP 트리거 함수의 기본 반환 값은 다음과 같습니다.
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|속성  |설명  |
+|속성  |Description  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |
 | **name** | 응답에 대한 함수 코드에 사용되는 변수 이름이거나 반환 값을 사용하는 `$return`입니다. |
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# 또는 C# 스크립트에서는 함수 반환 형식을 `IActionResult` 또는 `Task<IActionResult>`로 만듭니다. C#에서는 반환 값 특성이 필요 없습니다.
 
@@ -39,7 +39,7 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 버전 2.x 이상에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. 아래 파일에 host.js예제에는이 바인딩에 대 한 버전 2.x + 설정만 포함 되어 있습니다. 2.x 이상 버전의 전역 구성 설정에 대 한 자세한 내용은 [Azure Functions에 대 한 참조host.js](functions-host-json.md)를 참조 하세요.
+이 섹션에서는 버전 2.x 이상에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. 아래 파일에 host.js예제에는이 바인딩에 대 한 버전 2.x + 설정만 포함 되어 있습니다. 2.x 이상 버전의 전역 구성 설정에 대 한 자세한 내용은 [ Azure Functions에 대 한 참조host.js](functions-host-json.md)를 참조 하세요.
 
 > [!NOTE]
 > Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md#http)를 참조하세요.
@@ -64,7 +64,7 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 | customHeaders|없음|HTTP 응답에서 사용자 지정 헤더를 설정할 수 있습니다. 이전 예제에서는 `X-Content-Type-Options` 콘텐츠 형식 스니핑을 방지 하기 위해 헤더를 응답에 추가 합니다. |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|이 설정을 사용 하도록 설정 하면 요청 처리 파이프라인이 정기적으로 시스템 성능 카운터를 확인 하 `connections/threads/processes/memory/cpu/etc` 고, 기본 제공 높은 임계값 (80%)을 초과 하는 카운터가 있는 경우 `429 "Too Busy"` 카운터가 정상 수준으로 돌아올 때까지 요청을 응답으로 거부 합니다.<br/><sup>\*</sup>소비 계획의 기본값은 `true` 입니다. 전용 계획의 기본값은 `false` 입니다.|

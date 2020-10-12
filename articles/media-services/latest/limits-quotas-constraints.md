@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265493"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -26,7 +26,7 @@ ms.locfileid: "89265493"
 이 문서에는 할당량이 라고도 하는 가장 일반적인 Microsoft Azure Media Services 제한 중 일부가 나열 되어 있습니다.
 
 > [!NOTE]
-> 수정 되지 않은 리소스의 경우 할당량 증가를 요청 하는 지원 티켓을 엽니다. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
+> 고정되지 않은 리소스의 경우 지원 티켓을 열어 할당량 증가를 요청하세요. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
 
 ## <a name="account-limits"></a>계정 제한
 
@@ -47,11 +47,11 @@ ms.locfileid: "89265493"
 | 파일 크기| 일부 시나리오에서는 Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. <sup>(1)</sup> |
 | [스토리지 계정](storage-account-concept.md) | 100<sup>(2)</sup> (고정) |
 
-<sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. 서비스에서 사용 하는 VM 크기에 따라 Media Services에 추가 제한이 적용 됩니다. 크기 제한은 업로드 하는 파일 및 Media Services 처리 (인코딩 또는 분석)의 결과로 생성 되는 파일에도 적용 됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 
+<sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. 서비스에서 사용되는 VM 크기에 따라 Media Services에 추가 제한이 적용됩니다. 크기 제한은 업로드하는 파일과 Media Services 처리(인코딩 또는 분석)의 결과로 생성되는 파일에도 적용됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 
 
-다음 표에서는 미디어 예약 단위 S1, S2 및 S3의 제한을 보여 줍니다. 원본 파일이 테이블에 정의 된 제한 보다 큰 경우 인코딩 작업이 실패 합니다. 장시간의 4K 해상도 원본을 인코딩하는 경우 필요한 성능을 얻으려면 S3 미디어 예약 단위를 사용 해야 합니다. S3 미디어 예약 단위에서 260-GB 제한 보다 큰 4K 콘텐츠가 있는 경우 지원 티켓을 엽니다.
+다음 표에서는 각 미디어 예약 단위 S1, S2 및 S3에 대한 제한을 보여줍니다. 원본 파일이 표에 정의된 제한보다 크면 인코딩 작업이 실패합니다. 4K 해상도 원본을 오랜 기간 인코딩하는 경우 필요한 성능을 얻기 위해 S3 미디어 예약 단위를 사용해야 합니다. S3 미디어 예약 단위에서 260GB 제한보다 큰 4K 콘텐츠가 있는 경우 지원 티켓을 엽니다.
 
-|미디어 예약 단위 유형|최대 입력 크기 (GB)|
+|미디어 예약 단위 유형|최대 입력 크기(GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
 ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074344"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
@@ -127,7 +127,7 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>VM에 대 한 OS 디스크 교체
 
-Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이렇게 하려면 다음 단계를 수행하세요.
+Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이를 수행하려면 다음 단계를 따르십시오.
 
 1. [Azure Portal](https://portal.azure.com)로 이동 합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
 1. 왼쪽 창에서 **디스크**를 선택 하 고 **OS 디스크 교체**를 선택 합니다.

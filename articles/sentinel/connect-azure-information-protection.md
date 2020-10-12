@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88794435"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
@@ -35,7 +35,7 @@ Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Inform
     
     작업 영역을 변경 하는 경우 Azure Information Protection에 대 한 새 보고 데이터가 이제 Azure 센티널에 사용 하는 작업 영역에 저장 되며, Azure 센티널에서 기록 데이터를 사용할 수 없습니다. 또한 사용자 지정 쿼리, 경고 또는 REST Api에 대해 이전 작업 영역을 구성 하는 경우 Azure Information Protection에 사용 하려면 Azure 센티널 작업 영역에 대해 이러한 작업 영역을 다시 구성 해야 합니다. Azure Information Protection를 사용 하는 클라이언트와 서비스에는 재구성이 필요 하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 다음은 테 넌 트에 대 한 Azure AD 관리자 역할 중 하나입니다. 
     - Azure Information Protection 관리자

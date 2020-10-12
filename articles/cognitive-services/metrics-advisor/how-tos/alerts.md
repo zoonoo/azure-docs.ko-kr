@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977788"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>방법: 후크를 사용 하 여 경고 구성 및 알림 가져오기
@@ -36,7 +36,7 @@ ms.locfileid: "90977788"
 
 |매개 변수 |설명  |
 |---------|---------|
-| 이름 | 전자 메일 후크에 대 한 이름입니다. |
+| Name | 전자 메일 후크에 대 한 이름입니다. |
 | 전자 메일 주소| 경고를 보낼 전자 메일 주소|
 | 외부 링크 | 문제 해결 노트와 같이 사용자 지정 된 리디렉션을 사용 하도록 설정 하는 선택적 필드입니다. |
 | 사용자 지정 변칙 경고 제목 | 제목 템플릿은 `${severity}` ,, `${alertSettingName}` `${datafeedName}` , `${metricName}` , `${detectConfigName}` `${timestamp}` `${topDimension}` `${incidentCount}` ,,,,를 지원 합니다. `${anomalyCount}`
@@ -75,9 +75,9 @@ Azure DevOps 후크를 만들려면 다음 정보를 추가 해야 합니다.
 
 |매개 변수 |설명  |
 |---------|---------|
-| 이름 | 후크에 대 한 이름입니다. |
+| Name | 후크에 대 한 이름입니다. |
 | 조직 | DevOps가 속한 조직 |
-| Project | DevOps의 특정 프로젝트입니다. |
+| 프로젝트 | DevOps의 특정 프로젝트입니다. |
 | 액세스 토큰 |  DevOps에 인증 하기 위한 토큰입니다. | 
 
 > [!Note]
@@ -88,11 +88,11 @@ Azure DevOps 후크를 만들려면 다음 정보를 추가 해야 합니다.
 메트릭 세부 정보 페이지로 이동 하 여 메트릭 세부 정보 페이지의 왼쪽 아래에 있는 **경고 설정** 섹션을 찾습니다. 선택한 검색 구성에 적용 되는 모든 경고 설정이 나열 됩니다. 새 검색 구성이 만들어지면 경고 설정이 없으며 경고가 전송 되지 않습니다.  
 **추가**, **편집** 및 **삭제** 아이콘을 사용 하 여 경고 설정을 수정할 수 있습니다.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="경고 설정 메뉴 항목입니다.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="웹 후크 만들기 창.":::
 
 **추가** 또는 **편집** 단추를 클릭 하 여 경고 설정을 추가 하거나 편집할 수 있는 창을 가져옵니다.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="경고 설정 추가 또는 편집":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="웹 후크 만들기 창.":::
 
 **경고 설정 이름**:이 경고 설정의 이름입니다. 이 메시지는 경고 전자 메일 제목에 표시 됩니다.
 
@@ -134,7 +134,7 @@ Azure DevOps 후크를 만들려면 다음 정보를 추가 해야 합니다.
 |AND     | 계열이 각 경고 섹션과 일치 하 고 모든 데이터 요소가 비정상 인 경우에만 경고를 보냅니다. 메트릭에 차원 이름이 서로 다른 경우 경고가 트리거되지 않습니다.         |
 |또는     | 하나 이상의 섹션에 이상이 포함 되어 있는 경우 경고를 보냅니다.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="여러 경고 설정 섹션에 대 한 연산자":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="웹 후크 만들기 창.":::
 
 ## <a name="next-steps"></a>다음 단계
 

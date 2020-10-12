@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 925246eb2adae59ca74e363c4d4a6952f11c3744
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292325"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
@@ -33,7 +33,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|설명|  
+|요청 헤더|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
 |*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  

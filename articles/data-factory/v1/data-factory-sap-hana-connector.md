@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707143"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 이동
@@ -59,11 +59,11 @@ SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | string | 예
+서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 문자열 | 예
 authenticationType | 인증 유형입니다. | 문자열을 생성할 수 있습니다. "Basic" 또는 "Windows" | 예 
-사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
-password | 사용자에 대한 암호입니다. | string | 예
-gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
+password | 사용자에 대한 암호입니다. | 문자열 | 예
+gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
 encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 ## <a name="dataset-properties"></a>데이터 세트 속성

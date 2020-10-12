@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976007"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
 이 자습서는 CosmosDB의 원격 모니터링 솔루션 데이터를 Power BI에 연결하는 방법을 안내합니다. 이 연결이 설정되면 자신만의 사용자 지정 대시보드를 만들어서 원격 모니터링 솔루션 대시보드에 다시 추가할 수 있습니다. 이러한 작업 흐름을 통해 기본 제공 그래프뿐만 아니라 보다 전문화된 그래프를 만들 수 있습니다. 그런 다음 이 자습서를 사용하여 다른 데이터 스트림과 통합하거나 사용자 지정 대시보드를 작성하여 원격 모니터링 솔루션 외부에서 사용할 수 있습니다. Power BI에서 대시보드를 작성하고 특정 부분을 선택하면 각 패널이 상호 작용할 수 있습니다. 예를 들어 시뮬레이션된 트럭에 대한 정보만 보여주는 필터가 있으면 대시보드의 각 부분이 상호 작용하여 시뮬레이션된 트럭 정보만 표시됩니다. Power BI 이외의 도구를 사용하려는 경우 이 단계를 확장하여 원하는 시각화 도구를 사용하고 Cosmos 데이터베이스 또는 사용자 정의 데이터베이스(설정해 둔 경우)에 연결할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 현재 실행 중인 원격 모니터링 솔루션이 있어야 합니다.
 - [Azure Portal](https://portal.azure.com) 및 IoT Hub 및 솔루션이 실행 되는 구독에 대 한 액세스 권한이 있어야 합니다.

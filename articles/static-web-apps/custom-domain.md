@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563350"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Azure Static Web Apps에서 사용자 지정 도메인 설정 미리 보기
@@ -31,7 +31,7 @@ ms.locfileid: "87563350"
 
 | 원하는 경우                                 | 작업                                                |
 | -----------------------------------------------| --------------------------------------------------- |
-| 지원 `www.example.com` 또는`blog.example.net`| [CNAME 레코드 매핑](#map-a-cname-record)           |
+| 지원 `www.example.com` 또는 `blog.example.net`| [CNAME 레코드 매핑](#map-a-cname-record)           |
 | `example.com` 지원                          | [루트 도메인 구성](#configure-a-root-domain) |
 | `www.example.com`으로 모든 하위 도메인 가리키기      | [와일드카드 매핑](#map-a-wildcard-domain)            |
 

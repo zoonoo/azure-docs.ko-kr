@@ -14,10 +14,10 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074277"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
@@ -32,7 +32,7 @@ Azure API 클라이언트에 제한 오류가 발생하면 HTTP 상태가 429 �
 
 ## <a name="call-rate-informational-response-headers"></a>호출 속도 정보 응답 헤더 
 
-| 헤더                            | 값 형식                           | 예제                               | Description                                                                                                                                                                                               |
+| 헤더                            | 값 형식                           | 예제                               | 설명                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 이 요청의 대상을 비롯한 리소스 버킷 또는 작업 그룹을 포함하는 제한 정책의 나머지 API 호출 수                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | 호출 수는 해당 정책의 제한에 대한 이 HTTP 요청의 경우 "청구됨"으로 계산됩니다. 이 수는 가장 일반적으로 1입니다. 가상 머신 확장 집합 크기 조정의 경우와 같이 일괄 처리 요청은 여러 개수에 요금을 청구할 수 있습니다. |
@@ -89,7 +89,7 @@ API 호출 통계는 구독의 클라이언트 동작에 대한 유용한 인사
 PowerShell cmdlet은 클라이언트에서 직접 쉽게 호출될 수 있는 REST 서비스 API를 사용합니다. 하지만 정식 지원은 아직입니다. HTTP 요청 서식을 보려면 -Debug 스위치를 포함한 cmdlet을 실행하거나 Fiddler의 해당 실행을 참조합니다.
 
 
-## <a name="best-practices"></a>모범 사례 
+## <a name="best-practices"></a>최선의 구현 방법 
 
 - Azure 서비스 API 오류는 무조건 및/또는 즉시 다시 시도하지 않습니다. 다시 시도할 수 없는 오류가 발생하는 경우 클라이언트 코드가 신속한 다시 시도 반복 상태로 들어가는 것은 흔히 발생하는 일입니다. 다시 시도는 대상 작업 그룹에 대한 허용된 호출 제한을 다 소진시켜서 결국 구독의 다른 클라이언트에도 영향을 미칩니다. 
 - 대규모 API 자동화 사례에서 대상 작업 그룹에 대한 사용할 수 있는 호출 수가 낮은 임계값 아래로 떨어질 경우 사전에 클라이언트측에서 자체 제한을 실행하는 것이 좋습니다. 

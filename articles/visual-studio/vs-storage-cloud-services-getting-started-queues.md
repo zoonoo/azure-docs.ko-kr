@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89017620"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
@@ -150,7 +150,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>일반적인 Azure 큐 API와 함께 Async-Await 패턴 사용
-이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 이 샘플은 지정 된 각 메서드의 비동기 버전을 호출 합니다 .이는 각 메서드의 **async** 사후 수정에서 볼 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET에서 비동기 대기 패턴을 사용 하는 방법에 대 한 자세한 내용은 [async And wait (c # 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) 를 참조 하세요.
+이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 이 샘플은 지정 된 각 메서드의 비동기 버전을 호출 합니다 .이는 각 메서드의 **async** 사후 수정에서 볼 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET의 Async-Await 패턴 사용에 대 한 자세한 내용은 [Async And wait (c # 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) 를 참조 하세요.
 
 ```csharp
 // Create a message to put in the queue

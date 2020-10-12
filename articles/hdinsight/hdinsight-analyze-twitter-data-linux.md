@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086724"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
@@ -38,7 +38,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    |--- |--- |
    | Name |MyHDInsightApp |
    | 설명 |MyHDInsightApp |
-   | Website |`https://www.myhdinsightapp.com` |
+   | 웹 사이트 |`https://www.myhdinsightapp.com` |
 
 4. **예, 동의 함**을 선택한 다음 **Twitter 응용 프로그램 만들기**를 선택 합니다.
 

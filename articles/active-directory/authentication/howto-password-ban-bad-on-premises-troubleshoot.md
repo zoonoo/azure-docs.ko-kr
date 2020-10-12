@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116464"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>문제 해결: 온-프레미스 Azure AD 암호 보호
@@ -50,7 +50,7 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 
 1. 포리스트와 모든 프록시 서버가 동일한 Azure 테 넌 트에 등록 되었는지 확인 합니다.
 
-   및 PowerShell cmdlet을 실행 하 여이 요구 사항을 확인 `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` 한 다음 반환 된 `AzureTenant` 각 항목의 속성을 비교할 수 있습니다. 올바른 작업의 경우 보고 된 테 넌 트 이름은 모든 DC 에이전트와 프록시 서버에서 동일 해야 합니다.
+   및 PowerShell cmdlet을 실행 하 여이 요구 사항을 확인  `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` 한 다음 반환 된 `AzureTenant` 각 항목의 속성을 비교할 수 있습니다. 올바른 작업의 경우 보고 된 테 넌 트 이름은 모든 DC 에이전트와 프록시 서버에서 동일 해야 합니다.
 
    Azure 테 넌 트 등록 불일치 조건이 있는 경우 필요에 따라 `Register-AzureADPasswordProtectionProxy` 및/또는 PowerShell cmdlet을 실행 하 여 `Register-AzureADPasswordProtectionForest` 모든 등록에 대해 동일한 azure 테 넌 트의 자격 증명을 사용 하 여이 문제를 해결할 수 있습니다.
 
@@ -84,7 +84,7 @@ The forest has not been registered with Azure. Password policies cannot be downl
 
 이 문제에 대 한 두 가지 원인이 있을 수 있습니다.
 
-1. 포리스트가 실제로 등록 되지 않았습니다. 이 문제를 해결 하려면 [배포 요구 사항](howto-password-ban-bad-on-premises-deploy.md)에 설명 된 대로 AzureADPasswordProtectionForest 명령을 실행 하세요.
+1. 포리스트가 실제로 등록 되지 않았습니다. 이 문제를 해결 하려면 [배포 요구 사항](howto-password-ban-bad-on-premises-deploy.md)에 설명 된 대로 Register-AzureADPasswordProtectionForest 명령을 실행 하십시오.
 1. 포리스트가 등록 되었지만 DC 에이전트가 포리스트 등록 데이터를 해독할 수 없습니다. 이 경우 위에 나열 된 문제 #2의 근본 원인이 [DC 에이전트에서 암호 정책 파일을 암호화 하거나 암호 해독할 수 없습니다](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). 이 이론적으로 확인 하는 쉬운 방법은 windows server 2012 또는 Windows Server 2012R2 도메인 컨트롤러에서 실행 되는 DC 에이전트에만이 오류가 표시 되 고, Windows Server 2016 이상 도메인 컨트롤러에서 실행 되는 DC 에이전트는 잘 표시 된다는 것입니다. 해결 방법은 모든 도메인 컨트롤러를 Windows Server 2016 이상으로 업그레이드 하는 것과 같습니다.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>약한 암호는 허용 되지만

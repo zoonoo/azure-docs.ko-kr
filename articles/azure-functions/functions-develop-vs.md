@@ -5,10 +5,10 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88612812"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
@@ -27,7 +27,7 @@ Visual Studio는 함수를 개발할 때 다음과 같은 이점을 제공 합�
 
 별도로 언급 하지 않는 한, 표시 되는 프로시저와 예제는 Visual Studio 2019에 대 한 것입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Functions 도구. Azure 함수 도구를 추가 하려면 Visual Studio 설치에 **azure 개발** 워크 로드를 포함 합니다. Azure Functions 도구는 Visual Studio 2017부터 Azure 개발 워크 로드에서 사용할 수 있습니다.
 

@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
 ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88607413"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>상업용 Marketplace 목록과 Azure Active Directory 통합
@@ -33,7 +33,7 @@ Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용 
 
 | 제품 유형    | 연락 하기 위해 Azure AD SSO가 필요 한가요?  | 평가판에 Azure AD SSO가 필요 한가요? | 테스트 드라이브에는 Azure AD SSO가 필요 한가요?  | Transact-sql에 필요한 Azure AD SSO |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Virtual Machine | 해당 없음 | 예 | 예 | 예 |
+| Virtual Machine | 해당 없음 | 아니요 | 예 | 예 |
 | Azure 앱(솔루션 템플릿)  | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
 | 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
 | SaaS  | 예 | 예 | 예 | 예 |

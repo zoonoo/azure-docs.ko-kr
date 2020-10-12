@@ -4,10 +4,10 @@ description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056587"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색

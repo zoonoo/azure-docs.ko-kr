@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513492"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Azure 데이터 공유의 기존 공유에 데이터 집합을 추가 하는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "87513492"
 
 ## <a name="navigate-to-a-sent-data-share"></a>전송 된 데이터 공유로 이동 합니다.
 
-Azure 데이터 공유에서 보낸 공유로 이동 하 여 **데이터 집합** 탭을 선택 합니다. **데이터 집합 추가 단추를** 클릭 하 여 데이터 집합을 더 추가 합니다.
+Azure 데이터 공유에서 보낸 공유로 이동 하 여 **데이터 집합** 탭을 선택 합니다. **+ 데이터 집합 추가** 단추를 클릭 하 여 데이터 집합을 더 추가 합니다.
 
 ![데이터 세트 추가](./media/how-to/how-to-add-datasets/add-datasets.png)
 

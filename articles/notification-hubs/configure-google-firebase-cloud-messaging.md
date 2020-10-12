@@ -12,17 +12,17 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 0da103c11e2412108535ca322917632f5d95559d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760841"
 ---
 # <a name="configure-google-firebase-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure Portal에서 알림 허브에 대 한 Google Firebase 설정 구성
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure 알림 허브에 대 한 Google Firebase Cloud Messaging (FCM) 설정을 구성 하는 방법을 보여 줍니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에 Azure 알림 허브 만들기](create-notification-hub-portal.md)를 참조하세요.
 

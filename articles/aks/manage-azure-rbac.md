@@ -8,10 +8,10 @@ ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329094"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
@@ -27,7 +27,7 @@ Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>사전 요구 사항 
+### <a name="prerequisites"></a>필수 구성 요소 
 - Azure CLI 버전 2.9.0 이상 인지 확인 합니다.
 - `EnableAzureRBACPreview`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
 - `aks-preview` [CLI 확장][az-extension-add] v 0.4.55 이상을 설치 했는지 확인 합니다.
@@ -113,7 +113,7 @@ Azure AD 통합 및 Azure RBAC for Kubernetes 권한 부여를 사용 하 여 �
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다.
 
 
-| 역할                                | Description  |
+| 역할                                | 설명  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. `Secrets`비밀의 콘텐츠를 읽으면 네임 스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이는 네임 스페이스의 모든 ServiceAccount로 API 액세스를 허용 합니다 (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |

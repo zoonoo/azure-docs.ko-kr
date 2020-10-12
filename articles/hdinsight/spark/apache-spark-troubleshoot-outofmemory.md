@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709048"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
@@ -20,7 +20,7 @@ ms.locfileid: "84709048"
 
 ## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>시나리오: Apache Spark에 대 한 OutOfMemoryError 예외
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 OutOfMemoryError 처리 되지 않은 예외가 발생 하 여 Apache Spark 응용 프로그램이 실패 했습니다. 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
 
@@ -92,7 +92,7 @@ java.lang.OutOfMemoryError
 
 ## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>시나리오: Apache Spark 기록 서버를 열려고 할 때 Java 힙 공간 오류가 발생 했습니다.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Spark 기록 서버에서 이벤트를 열 때 다음과 같은 오류가 표시 됩니다.
 
@@ -132,7 +132,7 @@ Ambari에서 영향을 받는 모든 서비스를 다시 시작 해야 합니다
 
 ## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>시나리오: Apache Spark 클러스터에서 Livy 서버를 시작 하지 못함
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Livy 서버는 Apache Spark (Linux의 Spark 2.1 (HDI 3.6)]에서 시작할 수 없습니다. 다시 시작을 시도 하면 Livy 로그에서 다음 오류 스택이 생성 됩니다.
 
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>원인
 
-`java.lang.OutOfMemoryError: unable to create new native thread`운영 체제에서 Jvm에 더 많은 네이티브 스레드를 할당할 수 없는 경우를 강조 표시 합니다. 프로세스별 스레드 수 제한 위반으로 인해이 예외가 발생 한 것으로 확인 되었습니다.
+`java.lang.OutOfMemoryError: unable to create new native thread` 운영 체제에서 Jvm에 더 많은 네이티브 스레드를 할당할 수 없는 경우를 강조 표시 합니다. 프로세스별 스레드 수 제한 위반으로 인해이 예외가 발생 한 것으로 확인 되었습니다.
 
 Livy 서버가 예기치 않게 종료 되 면 Spark 클러스터에 대 한 모든 연결이 종료 됩니다. 즉, 모든 작업 및 관련 데이터가 손실 됩니다. HDP 2.6 세션 복구 메커니즘이 도입 되었습니다. Livy는 Livy 서버를 다시 시작한 후에 복구 될 수 있도록 세션 세부 정보를 사육 사육에 저장 합니다.
 
@@ -239,7 +239,7 @@ Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 �
 1. 위의 명령이 완료 될 때까지 기다리거나 커서를 통해 프롬프트가 반환 되 면 성공 해야 하는 Ambari에서 Livy service를 다시 시작 합니다.
 
 > [!NOTE]
-> `DELETE`livy 세션이 실행을 완료 한 후 Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. `DELETE`해당 엔터티를 삭제 하려면 호출이 필요 합니다. 또는 GC가 시작 될 때까지 기다려야 합니다.
+> `DELETE` livy 세션이 실행을 완료 한 후 Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. `DELETE`해당 엔터티를 삭제 하려면 호출이 필요 합니다. 또는 GC가 시작 될 때까지 기다려야 합니다.
 
 ---
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274795"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
@@ -781,7 +781,7 @@ GGSCI> VIEW REPORT INITEXT
 
 ### <a name="view-job-status-and-troubleshooting"></a>작업 상태 보기 및 문제 해결
 
-#### <a name="view-reports"></a>보고서 보기
+#### <a name="view-reports"></a>보고서를 봅니다.
 myVM1에서 보고서를 보려면 다음 명령을 실행합니다.
 
   ```bash

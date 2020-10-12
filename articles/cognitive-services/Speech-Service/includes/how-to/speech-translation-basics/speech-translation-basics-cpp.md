@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 1b54d0059e68c7e06904155fdd1a70782e07f493
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376501"
 ---
 음성 서비스의 핵심 기능 중 하나는 휴먼 음성을 인식 하 고 다른 언어로 번역 하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 음성 SDK를 사용 하 여 고품질 음성 번역을 수행 하는 방법에 대해 알아봅니다. 이 빠른 시작은 다음을 비롯 한 항목을 다룹니다.
@@ -19,7 +19,7 @@ ms.locfileid: "91376501"
 
 ## <a name="skip-to-samples-on-github"></a>GitHub의 샘플로 건너뛰기
 
-직접 샘플 코드를 건너뛰려면 GitHub의 [c + + 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/translate-speech-to-text) 을 참조 하세요.
+샘플 코드로 바로 건너뛰려면 GitHub의 [C++ 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/translate-speech-to-text)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

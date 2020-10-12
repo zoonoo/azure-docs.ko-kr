@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708785"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>지역 간 복제 사용을 위한 요구 사항 및 고려 사항 
@@ -40,8 +40,8 @@ Azure NetApp Files의 [볼륨의 지역 간 복제 기능 사용](cross-region-r
 * 복제 관계가 활성 상태 이거나 손상 된 경우 및 복제 관계가 삭제 된 후에 복제 관계의 원본 볼륨에서 수동 스냅숏을 삭제할 수 있습니다. 복제 관계가 끊어질 때까지 대상 볼륨의 수동 스냅숏을 삭제할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [복제 피어 링 만들기](cross-region-replication-create-peering.md)
-* [복제 관계의 상태를 표시 합니다.](cross-region-replication-display-health-status.md)
+* [복제 피어링 만들기](cross-region-replication-create-peering.md)
+* [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)

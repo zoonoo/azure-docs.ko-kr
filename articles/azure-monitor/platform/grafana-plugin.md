@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073461"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
@@ -120,7 +120,7 @@ Telegraf 및 InfluxDB를 설치하여 동일한 Grafana 인스턴스에서 사�
 
 ## <a name="advanced-grafana-features"></a>고급 Grafana 기능
 
-### <a name="variables"></a>변수
+### <a name="variables"></a>variables
 일부 쿼리 값은 UI 드롭다운을 통해 선택하고 쿼리에서 업데이트할 수 있습니다. 한 예로 다음 쿼리를 고려해 보세요.
 ```
 Usage 

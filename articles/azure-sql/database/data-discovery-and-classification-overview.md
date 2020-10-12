@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/21/2020
 tags: azure-synapse
 ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886509"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
@@ -25,7 +25,7 @@ ms.locfileid: "90886509"
 
 데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 고급 기능을 제공 합니다.
 
-가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
+가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
 
 - 규정 준수를 위한 데이터 개인 정보 및 요구 사항에 대 한 표준을 충족 하는 데 도움이 됩니다.
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
@@ -142,7 +142,7 @@ T-sql을 사용 하 여 열 분류를 추가 또는 제거 하 고 전체 데이
 
 - 하나 이상의 열에 대 한 분류를 추가 하거나 업데이트 하려면: [민감도 분류를 추가](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql) 합니다.
 - 하나 이상의 열에서 분류를 제거 하려면: [DROP 민감도 분류](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-- 데이터베이스의 모든 분류를 보려면: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- 데이터베이스의 모든 분류를 보려면 다음을 수행 하십시오. [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="use-powershell-cmdlets"></a>PowerShell cmdlet 사용
 PowerShell을 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 분류 및 권장 사항을 관리 합니다.

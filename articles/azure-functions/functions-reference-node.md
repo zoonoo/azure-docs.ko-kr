@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317179"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
@@ -133,7 +133,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
 
-### <a name="outputs"></a>출력
+### <a name="outputs"></a>outputs
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
@@ -293,7 +293,7 @@ context.log(message)
 기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
 
 
-| 메서드                 | Description                                |
+| 방법                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | **오류 (_메시지_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
 | **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
@@ -370,7 +370,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | Description                                                    |
+| 속성      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -385,7 +385,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | Description                                               |
+| 속성  | 설명                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |

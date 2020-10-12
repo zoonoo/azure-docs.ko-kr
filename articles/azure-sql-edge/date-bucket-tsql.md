@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886840"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket(Transact-SQL)
@@ -162,7 +162,7 @@ Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 + SELECT \<list>
 + WHERE
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>A. 원본 시간으로부터 1의 버킷 너비로 Date_Bucket을 계산
 

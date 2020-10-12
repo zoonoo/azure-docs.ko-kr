@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87069169"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
@@ -132,5 +132,5 @@ IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니�
 * 대상 가상 머신의 로컬 방화벽에 인바운드 또는 아웃바운드 SSH 트래픽을 방지하는 규칙이 있습니다.
 * Azure 가상 머신에서 실행 중인 침입 검색 또는 네트워크 모니터링 소프트웨어가 SSH 연결을 방지하고 있습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 애플리케이션 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 머신에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](./troubleshoot-app-connection.md)

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: jgao
 ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294221"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트에 대 한 개발 환경 구성 (미리 보기)
 
 배포 스크립트 이미지를 사용 하 여 배포 스크립트를 개발 하 고 테스트 하기 위한 개발 환경을 만드는 방법에 대해 알아봅니다. [Azure container instance](../../container-instances/container-instances-overview.md) 를 만들거나 [Docker](https://docs.docker.com/get-docker/)를 사용할 수 있습니다. 이 문서에서는 둘 다 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 배포 스크립트가 없으면 다음 콘텐츠를 사용 하 여 **hello.ps1** 파일을 만들 수 있습니다.
 

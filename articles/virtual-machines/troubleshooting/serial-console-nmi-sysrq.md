@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074365"
 ---
 # <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 Azure 직렬 콘솔 사용
@@ -51,7 +51,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 ### <a name="command-keys"></a>명령 키
 위의 SysRq 관리자 가이드에서:
 
-|명령| 함수
+|명령| 기능
 | ------| ----------- |
 |``b``  |   디스크를 동기화 또는 분리하지 않고 시스템을 즉시 재부팅합니다.
 |``c``  |   NULL 포인터 역참조에 의해 시스템 크래시를 수행합니다. 구성된 경우 크래시덤프가 수행됩니다.

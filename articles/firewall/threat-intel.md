@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655078"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure Firewall 위협 인텔리전스 기반 필터링
@@ -27,7 +27,7 @@ ms.locfileid: "83655078"
 
 기본적으로 위협 인텔리전스 기반 필터링은 경고 모드에서 사용하도록 설정됩니다. 해당 지역에서 포털 인터페이스를 사용할 수 있을 때까지 이 기능을 끄거나 모드를 변경할 수 없습니다.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="위협 인텔리전스 기반 필터링 포털 인터페이스":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="방화벽 위협 인텔리전스":::
 
 ## <a name="logs"></a>로그
 

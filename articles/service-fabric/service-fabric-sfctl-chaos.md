@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260826"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
@@ -25,7 +25,7 @@ ms.locfileid: "86260826"
 | --- | --- |
 | events | 연속 토큰 또는 시간 범위를 기반으로 Chaos 이벤트의 다음 세그먼트를 가져옵니다. |
 | Get | Chaos의 상태를 가져옵니다. |
-| start | 클러스터의 Chaos가 시작됩니다. |
+| 시작 | 클러스터의 Chaos가 시작됩니다. |
 | stop(정지) | 클러스터에서 실행되는 경우 Chaos를 중지하고 Chaos Schedule을 중지된 상태로 전환합니다. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events

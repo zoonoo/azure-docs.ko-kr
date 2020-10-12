@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317058"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
@@ -158,7 +158,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 
 ## <a name="excessive-wait-times"></a>과도한 대기 시간
 
-과도한 대기 시간 모델은 개별 데이터베이스 쿼리를 모니터링합니다. 이 모델은 시스템에서 관리하는 절대 임계값을 초과해 비정상적으로 높은 쿼리 대기 통계를 검색합니다. 다음 쿼리는 [쿼리 저장소 대기 통계 (query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)를 사용 하 여 과도 한 대기 시간 메트릭을 관찰 합니다.
+과도한 대기 시간 모델은 개별 데이터베이스 쿼리를 모니터링합니다. 이 모델은 시스템에서 관리하는 절대 임계값을 초과해 비정상적으로 높은 쿼리 대기 통계를 검색합니다. 다음 쿼리는 [쿼리 저장소 대기 통계 (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)를 사용 하 여 과도 한 대기 시간 메트릭을 관찰 합니다.
 
 - 리소스 제한에 도달
 - 탄력적 풀 리소스 제한에 도달
