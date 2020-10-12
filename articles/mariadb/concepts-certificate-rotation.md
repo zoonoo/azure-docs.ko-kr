@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.openlocfilehash: 3182f7fa913cd61e6c51ea91be6b46e83a1ab949
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540105"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
@@ -137,7 +137,7 @@ Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 
 
     CA_file, SSL_Cert 및 SSL_Key에 대 한 인증서가 제공 되는 것으로 확인 되 면 [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 추가 하 여 파일을 업데이트 해야 합니다.
 
-*   데이터 복제가 두 Azure Database for MySQL 사이에 있는 경우 MySQL 호출을 실행 하 여 복제본을 다시 설정 해야 **합니다. az_replication_change_master** 하 고 새 이중 루트 인증서를 [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication)마지막 매개 변수로 제공 합니다.
+*   데이터 복제가 두 Azure Database for MySQL 사이에 있는 경우 **호출 mysql.az_replication_change_master** 를 실행 하 여 복제본을 다시 설정 하 고 새 이중 루트 인증서를 [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication)마지막 매개 변수로 제공 해야 합니다.
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. SSL이 사용 중인지 확인 하는 서버 쪽 쿼리가 있나요?
 SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl 확인](howto-configure-ssl.md#verify-the-ssl-connection)을 참조 하세요.

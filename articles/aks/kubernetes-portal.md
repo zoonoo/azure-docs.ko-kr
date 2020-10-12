@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
 ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335605"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
@@ -24,7 +24,7 @@ Azure Portal의 Kubernetes 리소스 뷰가 사용 중단에 대해 설정 된 [
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Portal에서 Kubernetes 리소스를 보려면 AKS 클러스터가 필요 합니다. 모든 클러스터가 지원 되지만 Azure Active Directory (Azure AD) 통합을 사용 하는 경우 클러스터에서 [AKS로 관리 되는 AZURE ad 통합][aks-managed-aad]을 사용 해야 합니다. 클러스터에서 레거시 Azure AD를 사용 하는 경우 포털에서 또는 [Azure CLI][cli-aad-upgrade]를 사용 하 여 클러스터를 업그레이드할 수 있습니다.
 
@@ -48,19 +48,19 @@ Kubernetes 리소스를 보려면 Azure Portal AKS 클러스터로 이동 합니
 
 YAML 파일이 추가 되 면 리소스 뷰어에는 생성 된 Kubernetes 서비스가 모두 표시 됩니다. 내부 서비스 (azure-응답) 및 외부 서비스 (azure-투표)는 Azure 투표 응용 프로그램에 액세스 합니다. 외부 서비스는 브라우저에서 응용 프로그램을 쉽게 볼 수 있도록 연결 된 외부 IP 주소를 포함 합니다.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Azure Portal에 표시 되는 Azure 투표 응용 프로그램 정보입니다." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Azure Portal에 표시 되는 Kubernetes pod 정보입니다." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Deployment insights 모니터링
 
 [컨테이너에 대해 Azure Monitor][enable-monitor] 를 사용 하는 AKS 클러스터는 deployment insights를 빠르게 볼 수 있습니다. Kubernetes 리소스 보기에서 사용자는 CPU 및 메모리 사용량을 비롯 한 개별 배포의 라이브 상태와 Azure monitor로 전환 하 여 자세한 정보를 확인할 수 있습니다. 다음은 샘플 AKS 클러스터의 배포 정보에 대 한 예입니다.
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Azure Portal에 표시 되는 배포 정보입니다." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Azure Portal에 표시 되는 Kubernetes pod 정보입니다." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>YAML 편집
 
 Kubernetes 리소스 뷰에는 YAML 편집기도 포함 되어 있습니다. 기본 제공 되는 YAML 편집기는 포털 내에서 서비스 및 배포를 업데이트 하거나 만들고 변경 내용을 즉시 적용할 수 있음을 의미 합니다.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Azure Portal에 표시 되는 Kubernetes 서비스에 대 한 YAML 편집기입니다.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Azure Portal에 표시 되는 Kubernetes pod 정보입니다.":::
 
 YAML을 편집한 후에는 **검토 + 저장**을 선택 하 고 변경 내용을 확인 한 후 다시 저장 하 여 변경 내용을 적용 합니다.
 
@@ -82,7 +82,7 @@ Kubernetes 리소스에 액세스 하려면 AKS 클러스터, Kubernetes API 및
 
 기존 클러스터의 경우 Kubernetes 리소스 뷰를 사용 하도록 설정 해야 할 수 있습니다. 리소스 보기를 사용 하도록 설정 하려면 포털에서 클러스터에 대 한 메시지를 따릅니다.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Kubernetes 리소스 뷰를 사용 하도록 설정 하는 메시지를 Azure Portal 합니다." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal에 표시 되는 Kubernetes pod 정보입니다." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > Api [**server 권한이 부여 된 IP 범위**](api-server-authorized-ip-ranges.md) 에 대 한 AKS 기능을 추가 하 여 api 서버 액세스를 방화벽의 공용 끝점 으로만 제한할 수 있습니다. 이러한 클러스터에 대 한 또 다른 옵션은 `--api-server-authorized-ip-ranges` 로컬 클라이언트 컴퓨터 또는 IP 주소 범위 (포털을 검색 하는)에 대 한 액세스를 포함 하도록 업데이트 하는 것입니다. 이 액세스를 허용하려면 컴퓨터의 공용 IPv4 주소가 필요합니다. 아래 명령을 사용 하거나 인터넷 브라우저에서 "내 IP 주소는 무엇입니까"를 검색 하 여이 주소를 찾을 수 있습니다.

@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187815"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
@@ -105,7 +105,7 @@ SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저�
 
 ![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
-### <a name="set-up-permissions"></a><a name="perms"></a>권한 설정
+### <a name="set-up-permissions"></a><a name="perms"></a> 권한 설정
 
 Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야 합니다.
 
@@ -141,7 +141,7 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 
 - 그리고 가상 네트워크는 동일한 구독 및 동일한 지역에 있어야 합니다.
 
-### <a name="set-up-the-dns-server"></a><a name="dns_server"></a>DNS 서버 설정 
+### <a name="set-up-the-dns-server"></a><a name="dns_server"></a> DNS 서버 설정 
 개인 호스트 이름을 확인 하기 위해 Azure-SSIS IR에 연결 된 가상 네트워크에서 자체 DNS 서버를 사용 해야 하는 경우 글로벌 Azure 호스트 이름 (예: 라는 Azure Storage blob)도 확인할 수 있는지 확인 `<your storage account>.blob.core.windows.net` 합니다. 
 
 권장 되는 방법 중 하나는 다음과 같습니다. 
@@ -153,7 +153,7 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 > [!NOTE]
 > 사용자 `<your_private_server>.contoso.com` `<your_private_server>` 고유의 DNS 접미사를 자동으로 추가 하지 않으므로 개인 호스트 이름에 대 한 FQDN (정규화 된 도메인 이름)을 사용 하세요 (예: 대신 Azure-SSIS IR를 사용).
 
-### <a name="set-up-an-nsg"></a><a name="nsg"></a>NSG 설정
+### <a name="set-up-an-nsg"></a><a name="nsg"></a> NSG 설정
 Azure-SSIS IR에서 사용 하는 서브넷에 대 한 NSG를 구현 해야 하는 경우 다음 포트를 통해 인바운드 및 아웃 바운드 트래픽을 허용 합니다. 
 
 -   **Azure-SSIS IR의 인바운드 요구 사항**
@@ -175,7 +175,7 @@ Azure-SSIS IR에서 사용 하는 서브넷에 대 한 NSG를 구현 해야 하�
 | 아웃바운드 | TCP | VirtualNetwork | * | 스토리지 | 445 | (선택 사항) 이 규칙은 Azure Files에 저장된 SSIS 패키지를 실행하려는 경우에만 필요합니다. |
 ||||||||
 
-### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Azure Express 경로 또는 UDR 사용
+### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Azure Express 경로 또는 UDR 사용
 Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하려는 경우 [Azure express](https://azure.microsoft.com/services/expressroute/) 경로 force 터널링 (BGP 경로, 0.0.0.0/0을 가상 네트워크에 보급) 또는 Nva (네트워크 가상 어플라이언스)를 통해 [udrs](../virtual-network/virtual-networks-udr-overview.md) [를 통해 온](https://docs.microsoft.com/azure/firewall/) -프레미스 방화벽 어플라이언스로 Azure-SSIS IR 시작 된 트래픽을 라우팅할 수 있습니다. 
 
 ![Azure-SSIS IR에 대 한 NVA 시나리오](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
@@ -236,7 +236,7 @@ else
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure 공용      | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.clouddatahub.net</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*.blob.core.windows.net</li><li>\*. table.core.windows.net</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
     | Azure Government  | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.datamovement.azure.us</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*. table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*. azurecr.us</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*. servicebus.usgovcloudapi.net</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
-    | Azure China 21Vianet     | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
+    | Azure 중국 21Vianet     | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
 
     Azure Storage, Azure Container Registry 및 이벤트 허브의 Fqdn의 경우 이러한 끝점에 대 한 네트워크 트래픽이 방화벽 어플라이언스로 라우팅되지 않고 Azure 백본 네트워크를 통과 하도록 가상 네트워크에 대해 다음 서비스 끝점을 사용 하도록 선택할 수도 있습니다.
     -  Microsoft.Storage
@@ -279,7 +279,7 @@ Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하는 기능이 필요 �
 > [!NOTE]
 > 다음 홉 유형이 있는 경로 지정 **인터넷** 은 모든 트래픽이 인터넷을 통해 이동 하는 것을 의미 하지 않습니다. Azure의 서비스 중 하나에 대 한 대상 주소인 경우, Azure는 트래픽을 인터넷으로 라우팅하는 대신 Azure의 백본 네트워크를 통해 서비스로 직접 라우팅합니다.
 
-### <a name="set-up-the-resource-group"></a><a name="resource-group"></a>리소스 그룹 설정
+### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> 리소스 그룹 설정
 
 Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 해당 리소스는 다음과 같습니다.
 - 이름이 * \<Guid> -azurebatch-cloudserviceloadbalancer*인 Azure 부하 분산 장치
@@ -426,7 +426,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. 목록에서 Azure-SSIS IR를 사용 하 여 데이터 팩터리를 선택 합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 & 모니터** 타일을 선택 합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
+1. 목록에서 Azure-SSIS IR를 사용 하 여 데이터 팩터리를 선택 합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 & 모니터** 타일을 선택합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
 
    ![데이터 팩터리 홈페이지](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

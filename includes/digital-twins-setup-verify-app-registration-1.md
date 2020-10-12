@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: 9d09f29dc5fbe6ed6a358c37a6064319c28e35f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320774"
 ---
 사용 권한이 올바르게 구성 되었는지 확인 하려면 Azure Portal에서 [AZURE AD 앱 등록 개요 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 이동 합니다. 포털 검색 창에서 *앱 등록* 을 검색 하 여이 페이지로 직접 이동할 수 있습니다.

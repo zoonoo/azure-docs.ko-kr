@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87010872"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows 용 AMD GPU 드라이버 확장
 
-이 문서에서는 Windows [NVv4 시리즈](../nvv4-series.md) VM에서 AMD GPU 드라이버를 배포 하기 위한 VM 확장에 대 한 개요를 제공 합니다. 이 확장을 사용 하 여 AMD 드라이버를 설치 하는 경우 [Amd 최종 사용자 사용권 계약](https://amd.com/radeonsoftwarems)의 약관에 동의 하 고 동의 하는 것입니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
+이 문서에서는 Windows [NVv4 시리즈](../nvv4-series.md) VM에서 AMD GPU 드라이버를 배포 하기 위한 VM 확장에 대 한 개요를 제공 합니다. 이 확장을 사용 하 여 AMD 드라이버를 설치 하는 경우 [amd End-User 사용권 계약](https://amd.com/radeonsoftwarems)의 약관에 동의 하 고 동의 하는 것입니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
 드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-amd-driver-setup.md)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -33,7 +33,7 @@ ms.locfileid: "87010872"
 | 배포 | 버전 |
 |---|---|
 | Windows 10 EMS | 빌드 1903 |
-| Windows 10 | 빌드 1809 |
+| 윈도우 10 | 빌드 1809 |
 | Windows Server 2016 | 핵심 |
 | Windows Server 2019 | 핵심 |
 

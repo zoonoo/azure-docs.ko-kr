@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320730"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 시스템 요구 사항 
@@ -40,9 +40,9 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 Azure Stack에서 관리 되는 경우 다음과 같은 계층화 된 저장소 계정이 SMB/NFS/REST 인터페이스에서 지원 됩니다.
 
-|형식  |스토리지 계정  |의견  |
+|유형  |스토리지 계정  |주석  |
 |---------|---------|---------|
-|Standard     |GPv1: 블록 Blob         |         |
+|표준     |GPv1: 블록 Blob         |         |
 |    |  Blob storage: 블록 Blob       | NAS 에서만 지원 됨     |
 
 * 페이지 blob 및 Azure Files 현재 Azure Stack에서 지원 되지 않습니다.

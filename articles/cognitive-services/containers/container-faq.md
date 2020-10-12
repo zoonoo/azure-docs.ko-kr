@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900044"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
@@ -37,14 +37,14 @@ ms.locfileid: "90900044"
 
 **A:** 컨테이너 제품으로 사용할 수 있는 Cognitive Services 더 많이 만들어 드리겠습니다. 새 컨테이너 릴리스와 기타 Cognitive Services 공지에 대 한 업데이트를 얻으려면 로컬 Microsoft 계정 관리자에 게 문의 하세요.
 
-**Q: Cognitive Services 컨테이너에 대해 SLA (서비스 수준 계약)는 어떻게 되나요?**
+**Q: Cognitive Services 컨테이너에 대해 SLA (Service-Level 계약)는 어떻게 되나요?**
 
 **A:** Cognitive Services 컨테이너에는 SLA가 없습니다.
 
 리소스의 컨테이너 구성 Cognitive Services 고객에 의해 제어 되므로 Microsoft는 GA (일반 공급)에 대 한 SLA를 제공 하지 않습니다. 고객은 온-프레미스 컨테이너를 무료로 배포할 수 있으므로 호스트 환경을 정의 합니다.
 
 > [!IMPORTANT]
-> Cognitive Services 서비스 수준 계약에 대해 자세히 알아보려면 [SLA 페이지를 참조](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)하세요.
+> Cognitive Services Service-Level 계약에 대해 자세히 알아보려면 [SLA 페이지를 참조](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)하세요.
 
 **Q: 이러한 컨테이너는 소 버린 클라우드에서 사용할 수 있나요?**
 
@@ -86,7 +86,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 
 **A:** 상태 메시지 및 오류 목록은 다음 표를 참조 하세요.
 
-|Status  | 설명  |
+|상태  | Description  |
 |---------|---------|
 | `Valid` | API 키가 올바르지만 아무런 조치도 필요 하지 않습니다. |
 | `Invalid` |   API 키가 잘못 되었습니다. 컨테이너를 실행 하려면 올바른 API 키를 제공 해야 합니다. Azure Portal에서 Azure Cognitive Services 리소스에 대 한 **키 및 끝점** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
@@ -127,7 +127,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Computer Vision][cv-containers-billing]
 * [Face][fa-containers-billing]
 * [Form Recognizer][fr-containers-billing]
-* [Language Understanding (LUIS)][lu-containers-billing]
+* [언어 이해(LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [텍스트 분석][ta-containers-billing]
 
@@ -154,7 +154,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Computer Vision][cv-containers-recommendations]
 * [Face][fa-containers-recommendations]
 * [Form Recognizer][fr-containers-recommendations]
-* [Language Understanding (LUIS)][lu-containers-recommendations]
+* [언어 이해(LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
 * [텍스트 분석][ta-containers-recommendations]
  

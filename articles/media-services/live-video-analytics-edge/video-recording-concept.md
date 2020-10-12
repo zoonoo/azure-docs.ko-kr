@@ -4,10 +4,10 @@ description: CCTV 카메라에 대 한 비디오 관리 시스템의 컨텍스�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84260196"
 ---
 # <a name="video-recording"></a>비디오 녹화

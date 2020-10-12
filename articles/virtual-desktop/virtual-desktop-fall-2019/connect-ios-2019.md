@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c7efedadbba196223db2ad5700035e27d37fb414
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008460"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결

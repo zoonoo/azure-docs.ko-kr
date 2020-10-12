@@ -12,10 +12,10 @@ ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283040"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
@@ -33,7 +33,7 @@ _Recognition_03_ 모델 (게시 된 2020)은 현재 사용할 수 있는 가장 
 모델 충돌을 방지 하면서 여러 얼굴 작업에서 선택한 모델을 지정 하는 방법을 알아봅니다. 고급 사용자 이며 최신 모델로 전환 해야 하는지 여부를 결정 하려는 경우 [다른 모델 평가](#evaluate-different-models) 섹션으로 건너뛰어 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과를 비교 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 그렇지 않은 경우 먼저 다음 가이드를 참조 하세요.
 

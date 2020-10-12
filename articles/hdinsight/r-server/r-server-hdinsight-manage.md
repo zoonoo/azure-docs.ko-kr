@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
 ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087642"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
@@ -205,7 +205,7 @@ rxSparkDisconnect(myHadoopCluster)
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수**: 설치할 R 패키지 예를 들면 `bitops stringr arules`과 같습니다.
+   * **매개 변수**: 설치할 R 패키지 예, `bitops stringr arules`
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 

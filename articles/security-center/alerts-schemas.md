@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
 ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90901346"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
@@ -68,7 +68,7 @@ Azure 센티널에 대 한 자세한 내용은 [설명서](https://docs.microsof
 
 
 
-### <a name="azure-activity-log"></a>[Azure 동작 로그](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Azure 활동 로그](#tab/schema-activitylog)
 
 Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이벤트로 감사 합니다.
 
@@ -140,7 +140,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|설명|
+|필드|Description|
 |----|----|
 |**채널이**|상수, "Operation"|
 |**correlationId**|Azure Security Center 경고 ID|

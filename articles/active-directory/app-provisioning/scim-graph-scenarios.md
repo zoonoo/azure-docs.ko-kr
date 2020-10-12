@@ -12,10 +12,10 @@ ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
 ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235505"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
@@ -115,7 +115,7 @@ DELETE /Users/5171a35d82074e068ce2 HTTP/1.1
 > [!NOTE]
 > Microsoft에는 Workday 및 SuccessFactors와 같은 HR 응용 프로그램에서 데이터를 가져오는 프로 비전 서비스가 있습니다. 이러한 통합은 Microsoft에서 빌드하고 관리 합니다. 새 HR 응용 프로그램을 서비스에 온 보 딩 하기 위해 [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests)에서 요청할 수 있습니다. 
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [동기화 Microsoft Graph 설명서 검토](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [사용자 지정 SCIM 앱을 Azure AD와 통합](use-scim-to-provision-users-and-groups.md)

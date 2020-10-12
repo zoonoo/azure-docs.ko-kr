@@ -7,15 +7,15 @@ ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002393"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
-Windows 가상 데스크톱 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다. 이 문서에서는 Windows 가상 데스크톱에서 Azure Files 함수를 사용 하 여 FSLogix 프로필 컨테이너를 사용 하는 방법을 설명 합니다.
+Windows 가상 데스크톱 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 제공되어 시스템에서 네이티브 사용자 프로필과 똑같이 표시됩니다. 이 문서에서는 Windows 가상 데스크톱에서 Azure Files 함수를 사용 하 여 FSLogix 프로필 컨테이너를 사용 하는 방법을 설명 합니다.
 
 >[!NOTE]
 >Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
@@ -57,7 +57,7 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 성능 요구 사항을 해결 하려면 UPD [(S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 를 사용 스토리지 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다. S2D를 사용 하는 UPD Windows 가상 데스크톱에 권장 되는 솔루션입니다.
 
-#### <a name="cost"></a>비용
+#### <a name="cost"></a>Cost
 
 S2D 클러스터는 필요한 성능을 구현 하지만 기업 고객의 경우 비용이 많이 듭니다. 특히 중소기업 (중소기업) 고객의 경우 비용이 많이 듭니다. 이 솔루션의 경우 기업은 저장소 디스크에 대해 요금을 지불 하 고 공유에 대 한 디스크를 사용 하는 Vm의 비용을 지불 합니다.
 

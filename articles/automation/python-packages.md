@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987572"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure Automation에서 Python 2 패키지 관리
@@ -25,11 +25,11 @@ Automation 계정의 **공유 리소스** 아래에서 **Python 2 패키지**를
 
 Python 2 패키지 추가 페이지에서 업로드할 로컬 패키지를 선택합니다. 패키지는 **.whl** 또는 **.tar.gz** 파일일 수 있습니다. 패키지를 선택한 다음 **확인**을 클릭하여 업로드합니다.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="스크린샷 release.tar.gz 파일이 선택 된 Python 2 패키지 추가 페이지가 표시 됩니다.":::
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Python 2 패키지 페이지의 스크린샷 왼쪽 메뉴에 Python 2 패키지가 표시 되 고 Python 2 패키지가 강조 표시 됩니다.":::
 
 가져온 패키지는 Automation 계정의 Python 2 패키지 페이지에 나열됩니다. 패키지를 제거해야 하는 경우 해당 패키지를 선택하고 **삭제**를 선택합니다.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="패키지를 가져온 후의 스크린샷에는 Python 2 패키지 페이지가 표시 됩니다.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Python 2 패키지 페이지의 스크린샷 왼쪽 메뉴에 Python 2 패키지가 표시 되 고 Python 2 패키지가 강조 표시 됩니다.":::
 
 ## <a name="import-packages-with-dependencies"></a>종속성이 있는 패키지 가져오기
 
@@ -54,7 +54,7 @@ C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 * -a \<automationAccount\>
 * -m \<modulePackage\>
 
-:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="스크린샷 오른쪽에 있는 Runbook 시작 창을 사용 하 여 import_py2package_from_pypi에 대 한 개요 페이지를 표시 합니다.":::
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Python 2 패키지 페이지의 스크린샷 왼쪽 메뉴에 Python 2 패키지가 표시 되 고 Python 2 패키지가 강조 표시 됩니다.":::
 
 Runbook을 사용하여 다운로드할 패키지를 지정할 수 있습니다. 예를 들어 `Azure` 매개 변수를 사용하면 모든 Azure 모듈과 모든 종속성(약 105개)이 다운로드됩니다.
 

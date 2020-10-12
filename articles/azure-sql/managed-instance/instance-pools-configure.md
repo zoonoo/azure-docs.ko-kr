@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617437"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>인스턴스 풀에 Azure SQL Managed Instance 배포
@@ -30,11 +30,11 @@ ms.locfileid: "91617437"
 
 |명령|Azure portal|PowerShell|
 |:---|:---|:---|
-|인스턴스 풀 만들기|예|예|
-|인스턴스 풀 업데이트 (제한 된 속성 수)|예 |예 |
-|인스턴스 풀 사용 및 속성 확인|예|예 |
-|인스턴스 풀 삭제|예|예|
-|인스턴스 풀 내에서 관리 되는 인스턴스 만들기|예|예|
+|인스턴스 풀 만들기|아니요|예|
+|인스턴스 풀 업데이트 (제한 된 속성 수)|아니요 |예 |
+|인스턴스 풀 사용 및 속성 확인|아니요|예 |
+|인스턴스 풀 삭제|아니요|예|
+|인스턴스 풀 내에서 관리 되는 인스턴스 만들기|아니요|예|
 |관리 되는 인스턴스의 리소스 사용 업데이트|예 |예|
 |관리 되는 인스턴스의 사용 및 속성 확인|예|예|
 |풀에서 관리 되는 인스턴스 삭제|예|예|
@@ -259,5 +259,5 @@ $instanceOne | Set-AzSqlInstance -InstancePoolName "pool-mi-001" -PublicDataEndp
 - VNet 구성에 대한 자세한 내용은 [SQL Managed Instance VNet 구성](connectivity-architecture-overview.md)을 참조하세요.
 - 백업 파일에서 관리형 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
 - Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자습서는 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
-- 기본 제공 되는 문제 해결 인텔리전스를 사용 하 여 SQL Managed Instance 데이터베이스 성능에 대 한 고급 모니터링은 [Azure SQL 분석를 사용 하 여 AZURE sql Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조 하세요.
+- 기본 제공 문제 해결 인텔리전스를 사용하는 SQL Managed Instance 데이터베이스의 고급 성능 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조하세요.
 - 가격 책정 정보는 [SQL Managed Instance 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조 하세요.

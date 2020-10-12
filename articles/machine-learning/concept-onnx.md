@@ -12,10 +12,10 @@ author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
 ms.openlocfilehash: acaab8aaa12a107f4d0f8a8aac0baf7d5ebb8e4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012761"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 및 Azure Machine Learning: ML 모델 만들기 및 가속화
@@ -89,7 +89,7 @@ ONNX 모델을 만들고 배포 하는 Python 노트북 예는 [사용 방법-az
 
 다른 언어의 사용에 대 한 샘플은 [Onnx 런타임 GitHub](https://github.com/microsoft/onnxruntime/tree/master/samples)에서 찾을 수 있습니다.
 
-## <a name="more-info"></a>자세한 정보
+## <a name="more-info"></a>추가 정보
 
 **Onnx** 에 대해 자세히 알아보거나 프로젝트에 참여 하세요.
 + [ONNX 프로젝트 웹 사이트](https://onnx.ai)

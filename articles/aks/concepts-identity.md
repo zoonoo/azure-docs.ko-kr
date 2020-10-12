@@ -7,10 +7,10 @@ ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
 ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88007083"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
@@ -95,7 +95,7 @@ OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다.
  
 **[여기](managed-aad.md)에서 AAD와 AKS를 통합 하는 방법에 대해 알아봅니다.**
 
-## <a name="azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control (Azure RBAC)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
 Azure RBAC는 Azure 리소스에 대한 액세스를 세밀하게 관리할 수 있는 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반의 권한 부여 시스템입니다.
 

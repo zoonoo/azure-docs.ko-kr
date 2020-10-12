@@ -4,10 +4,10 @@ description: Azure Event Grid에서 Media Services 이벤트에 대해 제공되
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105934"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Media Services
@@ -22,7 +22,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| 모든 작업 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobScheduled| 작업이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -42,7 +42,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 의 오류 메시지는 `JobFinished` `JobCanceled` `JobError` 각 작업 출력에 대 한 집계 된 결과를 출력 합니다. 반면 작업 출력 이벤트는 각 태스크가 완료 될 때 발생 합니다. 예를 들어, 인코딩 출력이 있고 그 뒤에 비디오 분석 출력이 있으면 최종 JobFinished 이벤트가 집계 된 데이터로 시작 하기 전에 작업 출력 이벤트로 발생 하는 두 개의 이벤트가 발생 합니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| 모든 작업 출력 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobOutputScheduled| 작업 출력이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -56,7 +56,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-output-progress"></a>작업 출력 모니터링 진행률
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| 이 이벤트는 작업 처리 진행 상태를 0%에서 100%까지 반영합니다. 진행 상태 값이 5% 이상 증가했거나 마지막 이벤트(하트비트) 이후 30초가 넘은 경우 서비스에서 이벤트 전송을 시도합니다. 진행 상태 값이 0%에서 시작하거나 100%에 도달한다고 보장되지 않는 경우 시간에 따라 일정한 비율로 증가한다고 보장되지도 않습니다. 처리가 완료되었음을 확인하는 데 이 이벤트를 사용하면 안 됩니다. 대신, 상태 변경 이벤트를 사용해야 합니다.|
 
@@ -70,7 +70,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
@@ -87,7 +87,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 추적 수준 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
@@ -124,7 +124,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | previousState | 문자열 | 이벤트 전의 작업 상태입니다. |
 | state | 문자열 | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어 "예약 됨: 작업을 시작할 준비가 되었습니다." 또는 "완료 됨: 작업이 완료 되었습니다."와 같은 작업을 수행할 수 있습니다.|
@@ -194,7 +194,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | outputs | 배열 | 작업 출력을 가져옵니다.|
 
@@ -310,7 +310,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -346,7 +346,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
@@ -380,7 +380,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -392,7 +392,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 정상적인 연결 끊기 결과 코드는 다음과 같습니다.
 
-| 결과 코드 | Description |
+| 결과 코드 | 설명 |
 | ----------- | ----------- |
 | S_OK | 인코더의 연결이 성공적으로 끊어졌습니다. |
 | MPE_CLIENT_TERMINATED_SESSION | 인코더(RTMP)의 연결이 끊어졌습니다. |
@@ -430,11 +430,11 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다. |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
 | timestamp | 문자열 | 데이터 청크의 타임스탬프가 삭제되었습니다. |
 | timescale | 문자열 | 타임스탬프의 시간 간격입니다. |
 | resultCode | 문자열 | 데이터 청크가 삭제된 이유입니다. **FragmentDrop_OverlapTimestamp** 또는 **FragmentDrop_NonIncreasingTimestamp**입니다. |
@@ -470,11 +470,11 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
 | encoderIp | 문자열  | 인코더의 IP입니다. |
 | encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
@@ -509,7 +509,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | minLastTimestamp | 문자열 | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
 | typeOfTrackWithMinLastTimestamp | 문자열 | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
@@ -545,7 +545,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | firstTimestamp | 문자열 | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
 | firstDuration | 문자열 | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
@@ -587,17 +587,17 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
-| incomingBitrate | integer | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
+| incomingBitrate | 정수 | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
 | lastTimestamp | 문자열 | 마지막 20초 동안 한 트랙에 대해 받은 최신 타임스탬프입니다. |
 | timescale | 문자열 | 타임스탬프가 표시되는 시간 간격입니다. |
-| overlapCount | integer | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
-| discontinuityCount | integer | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
-| nonIncreasingCount | integer | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
+| overlapCount | 정수 | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
+| discontinuityCount | 정수 | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
+| nonIncreasingCount | 정수 | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
 | unexpectedBitrate | bool | 마지막 20초 동안 허용 한도를 초과하여 예상 및 실제 비트 전송률이 다릅니다. incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0인 경우에만 true입니다. |
 | state | 문자열 | 라이브 이벤트의 상태입니다. |
 | healthy | bool | 횟수 및 플래그에 기반하여 수집이 정상인지 여부를 나타냅니다. overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false이면 healthy가 true입니다. |
@@ -631,11 +631,11 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
 | previousTimestamp | 문자열 | 이전 조각의 타임스탬프입니다. |
 | newTimestamp | 문자열 | 현재 조각의 타임스탬프입니다. |
 | discontinuityGap | 문자열 | 위의 두 타임스탬프 사이의 간격입니다. |
@@ -645,7 +645,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
 | subject | 문자열 | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
