@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75497957"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
@@ -60,7 +60,7 @@ az group deployment show --name counter.sfreliablevolume.linux --resource-group 
 
 `Microsoft.ServiceFabricMesh/gateways`와 리소스 형식 같은 게이트웨이 리소스의 이름을 확인합니다. 이 앱의 공용 IP 주소 가져오는 데 사용됩니다.
 
-## <a name="open-the-application"></a>애플리케이션 열기
+## <a name="open-the-application"></a>애플리케이션을 엽니다.
 
 애플리케이션이 성공적으로 배포되면 앱에 대한 게이트웨이 리소스의 ipAddress를 가져옵니다. 위의 섹션에서 알게 게이트웨이 이름을 사용합니다.
 ```azurecli-interactive

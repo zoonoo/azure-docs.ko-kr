@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460550"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 디자인
@@ -46,7 +46,7 @@ SQL 풀에서 테이블의 조직을 표시 하려면 팩트, dim 및 int를 테
 
 | WideWorldImportersDW 테이블  | 테이블 유형입니다. | SQL 풀 |
 |:-----|:-----|:------|:-----|
-| City | 차원 | wwi.DimCity |
+| 구/군/시 | 차원 | wwi.DimCity |
 | 주문 | 팩트 | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>테이블 지속성
@@ -107,7 +107,7 @@ SQL 풀의 기본 기능은 [배포](massively-parallel-processing-mpp-architect
 |:---------------|:--------------------|
 | 팩트           | 클러스터형 columnstore 인덱스와 함께 해시 배포를 사용합니다. 동일한 배포 열에서 두 해시 테이블을 조인하면 성능이 향상됩니다. |
 | 차원      | 작은 테이블에는 복제를 사용합니다. 테이블이 너무 커서 각 컴퓨팅 노드에 저장할 수 없는 경우 해시 분산을 사용합니다. |
-| 준비        | 준비 테이블에는 라운드 로빈을 사용합니다. CTAS를 사용하면 빠르게 로드됩니다. 데이터가 준비 테이블에 있으면 INSERT ...를 사용 합니다. 데이터를 프로덕션 테이블로 이동 하려면 선택 합니다. |
+| 스테이징        | 준비 테이블에는 라운드 로빈을 사용합니다. CTAS를 사용하면 빠르게 로드됩니다. 데이터가 준비 테이블에 있으면 INSERT ...를 사용 합니다. 데이터를 프로덕션 테이블로 이동 하려면 선택 합니다. |
 
 ## <a name="table-partitions"></a>테이블 파티션
 

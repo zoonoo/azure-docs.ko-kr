@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706305"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
@@ -35,7 +35,7 @@ ms.locfileid: "90706305"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
 - Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
@@ -101,7 +101,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
 
 - **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../manage-apps/view-applications-portal.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
 
-  ![갤러리에 SAML 2.0 또는 WS-급지됨 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
+  ![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 
   * **Saml 2.0** 또는 **ws 급지됨**를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 표시 된 대로 **saml 2.0/ws 공급** 을 선택 합니다.
 
@@ -146,7 +146,7 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
 ## <a name="timelines"></a>타임라인
 
-갤러리에서 SAML 2.0 또는 WS (WS) 응용 프로그램을 나열 하는 프로세스에 대 한 타임 라인은 영업일의 7 ~ 10 일입니다.
+갤러리에서 SAML 2.0 또는 WS-Fed 응용 프로그램을 나열 하는 프로세스에 대 한 타임 라인은 영업일의 7 ~ 10 일입니다.
 
   ![갤러리에서 SAML 응용 프로그램을 나열 하기 위한 타임 라인](./media/howto-app-gallery-listing/timeline.png)
 

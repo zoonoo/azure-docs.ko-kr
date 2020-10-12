@@ -10,10 +10,10 @@ ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
 ms.openlocfilehash: 6ed0290abe91453058589b032fb5ed2dd71fe98a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87872568"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (Python)
@@ -38,7 +38,7 @@ ms.locfileid: "87872568"
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+## <a name="create-an-iot-hub"></a>IoT 허브 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

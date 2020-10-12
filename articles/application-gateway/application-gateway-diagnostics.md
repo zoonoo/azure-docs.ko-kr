@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517878"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
@@ -308,7 +308,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
 |message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
-|작업     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
+|action     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
 |자세히     | 트리거 이벤트의 세부 정보        |
 |details.message     | 규칙에 대한 설명        |

@@ -9,10 +9,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
 ms.openlocfilehash: 5cbf75ef2d9f0c1a65179e6a423b59f9763ce72b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87872245"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
@@ -135,7 +135,7 @@ adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 ## <a name="next-steps"></a>다음 단계
 * [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Data Lake Storage Gen1 Python(파일 시스템) 참조](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)

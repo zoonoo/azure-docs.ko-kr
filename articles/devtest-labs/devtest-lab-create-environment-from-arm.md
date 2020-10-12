@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88182411"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
@@ -123,7 +123,7 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 
 1. **추가** 창에서 환경 사용자에 게 표시할 **환경 이름** 값을 입력 합니다.
 
-   Azure Resource Manager 템플릿은 나머지 입력 필드를 정의 합니다. 파일 *에azuredeploy.parameter.js* 템플릿이 기본값을 정의 하는 경우 입력 필드에 해당 값이 표시 됩니다.
+   Azure Resource Manager 템플릿은 나머지 입력 필드를 정의 합니다. 파일 * 에azuredeploy.parameter.js* 템플릿이 기본값을 정의 하는 경우 입력 필드에 해당 값이 표시 됩니다.
 
    *보안 문자열*형식의 매개 변수는 Azure Key Vault의 비밀을 사용할 수 있습니다. 키 자격 증명 모음에 암호를 저장 하 고 랩 리소스를 만들 때 암호를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에 암호 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조 하세요.  
 

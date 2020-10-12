@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267723"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>시나리오: Vnet에 대 한 사용자 지정 격리
@@ -23,7 +23,7 @@ ms.locfileid: "91267723"
 
 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음과 같습니다.
 
-| 보낸 사람 | 대상:| *파란색 Vnet* | *레드 Vnet* | *분기*|
+| From | 아래와 같이 변경합니다.| *파란색 Vnet* | *레드 Vnet* | *분기*|
 |---|---|---|---|---|
 | **파란색 Vnet** |   &#8594;|      X        |               |       X      |
 | **레드 Vnet**  |   &#8594;|              |       X       |       X      |

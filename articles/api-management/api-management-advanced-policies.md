@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851684"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
 
-## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>고급 정책
+## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> 고급 정책
 
 -   [흐름 제어](api-management-advanced-policies.md#choose) - 부울 [식](api-management-policy-expressions.md)의 평가 결과에 따라 정책 문을 조건부로 적용합니다.
 -   [요청 전달](#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "87851684"
 -   [Trace](#Trace) -사용자 지정 추적을 [API 검사기](./api-management-howto-api-inspector.md) 출력, Application Insights 원격 분석 및 리소스 로그에 추가 합니다.
 -   [대기](#Wait) -계속 하기 전에 포함 되는 [보내기 요청](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey)또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책에 대해 대기 합니다.
 
-## <a name="control-flow"></a><a name="choose"></a>제어 흐름
+## <a name="control-flow"></a><a name="choose"></a> 제어 흐름
 
 `choose` 정책은 프로그래밍 언어의 if-then-else 또는 switch 생성과 마찬가지로 Boolean 식의 평가 결과에 따라 포함된 정책 문을 적용합니다.
 
@@ -63,9 +63,9 @@ ms.locfileid: "87851684"
 
 제어 흐름 정책에는 `<when/>` 요소가 하나 이상 포함되어 있어야 합니다. `<otherwise/>` 요소는 선택적입니다. 정책 내에 표시되는 순서대로 `<when/>` 요소의 조건이 평가됩니다. 조건 특성이 `true`인 첫 번째 `<when/>` 요소 내에 포함된 정책 문이 적용됩니다. 모든 `<when/>` 요소 조건 특성이 `false`인 경우 `<otherwise/>` 요소 내에 포함된 정책(있는 경우)이 적용됩니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
-#### <a name="example"></a><a name="ChooseExample"></a> 예제
+#### <a name="example"></a><a name="ChooseExample"></a> 예
 
 다음 예제에서는 [set-variable](api-management-advanced-policies.md#set-variable) 정책과 제어 흐름 정책 두 개를 보여 줍니다.
 
@@ -138,7 +138,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Boolean expression &#124; Boolean constant" | 포함하는 `when` 정책 문이 평가될 때 평가할 Boolean 식 또는 상수입니다. | 예      |
 
-### <a name="usage"></a><a name="ChooseUsage"></a>보려면
+### <a name="usage"></a><a name="ChooseUsage"></a> 보려면
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -146,7 +146,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 -   **정책 범위:** 모든 범위
 
-## <a name="forward-request"></a><a name="ForwardRequest"></a>요청 전달
+## <a name="forward-request"></a><a name="ForwardRequest"></a> 요청 전달
 
 `forward-request` 정책은 들어오는 요청을 요청 [컨텍스트](api-management-policy-expressions.md#ContextVariables)에 지정된 백 엔드 서비스에 전달합니다. 백 엔드 서비스 URL은 API [설정](./import-and-publish.md) 에 지정 되며 [백 엔드 서비스 설정](api-management-transformation-policies.md) 정책을 사용 하 여 변경할 수 있습니다.
 
@@ -159,7 +159,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 <forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="example"></a>예제
 
@@ -276,7 +276,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 </limit-concurrency>
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="example"></a>예제
 
@@ -358,8 +358,8 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 | attribute     | 설명                                                               | 필수                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | API Management 서비스에 등록 된로 거 ID입니다.         | 예                                                                  |
-| partition-id  | 메시지가 전송된 파티션의 인덱스를 지정합니다.             | 선택 사항입니다. `partition-key`가 사용된 경우에는 이 특성을 사용할 수 없습니다. |
-| 파티션 키 | 메시지가 전송된 파티션 할당에 사용된 값을 지정합니다. | 선택 사항입니다. `partition-id`가 사용된 경우에는 이 특성을 사용할 수 없습니다.  |
+| partition-id  | 메시지가 전송된 파티션의 인덱스를 지정합니다.             | (선택 사항) `partition-key`가 사용된 경우에는 이 특성을 사용할 수 없습니다. |
+| 파티션 키 | 메시지가 전송된 파티션 할당에 사용된 값을 지정합니다. | (선택 사항) `partition-id`가 사용된 경우에는 이 특성을 사용할 수 없습니다.  |
 
 ### <a name="usage"></a>사용
 
@@ -380,7 +380,7 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
@@ -413,7 +413,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 -   **정책 범위:** 모든 범위
 
-## <a name="retry"></a><a name="Retry"></a>Retry
+## <a name="retry"></a><a name="Retry"></a> Retry
 
 `retry`정책은 자식 정책을 한 번 실행 한 다음 다시 시도를 `condition` `false` 하거나 다시 시도할 때까지 실행을 다시 시도 합니다 `count` .
 
@@ -462,10 +462,10 @@ status code and media type. If no example or schema found, the content is empty.
 | attribute        | 설명                                                                                                                                           | 필수 | 기본값 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition(조건)        | 재시도를 중지(`false`) 또는 진행(`true`)해야 하는지 여부를 지정하는 부울 리터럴 또는 [식](api-management-policy-expressions.md)입니다.      | 예      | 해당 없음     |
-| 개수            | 최대 재시도 횟수를 지정하는 양수입니다.                                                                                | 예      | 해당 없음     |
+| count()            | 최대 재시도 횟수를 지정하는 양수입니다.                                                                                | 예      | 해당 없음     |
 | interval         | 재시도 횟수 간에 대기 간격을 지정하는 양수(초)입니다.                                                                 | 예      | 해당 없음     |
-| max-interval     | 재시도 횟수 간에 최대 대기 간격을 지정하는 양수(초)입니다. 지수 재시도 알고리즘을 구현하는 데 사용됩니다. | 예       | 해당 없음     |
-| delta            | 대기 간격 증분을 지정하는 양수(초)입니다. 선형 및 지수 재시도 알고리즘을 구현하는 데 사용됩니다.             | 예       | 해당 없음     |
+| max-interval     | 재시도 횟수 간에 최대 대기 간격을 지정하는 양수(초)입니다. 지수 재시도 알고리즘을 구현하는 데 사용됩니다. | 아니요       | 해당 없음     |
+| delta            | 대기 간격 증분을 지정하는 양수(초)입니다. 선형 및 지수 재시도 알고리즘을 구현하는 데 사용됩니다.             | 아니요       | 해당 없음     |
 | first-fast-retry | 로 설정 `true` 되 면 첫 번째 다시 시도가 즉시 수행 됩니다.                                                                                  | 아니요       | `false` |
 
 > [!NOTE]
@@ -521,7 +521,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute              | 설명                                                                                                                                                                          | 필수  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | 참조하는 컨텍스트 변수 이름(예: 업스트림 [send-request](api-management-advanced-policies.md#SendRequest) 정책 및 `Response` 개체 포함) | 선택 사항입니다. |
+| response-variable-name | 참조하는 컨텍스트 변수 이름(예: 업스트림 [send-request](api-management-advanced-policies.md#SendRequest) 정책 및 `Response` 개체 포함) | (선택 사항) |
 
 ### <a name="usage"></a>사용
 
@@ -593,7 +593,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 단추를 사용하여 새      |
+| mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 새로 만들기      |
 | name          | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
 | exists-action | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
 
@@ -677,7 +677,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 단추를 사용하여 새      |
+| mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 새로 만들기      |
 | response-variable-name="string" | 응답 개체를 받을 컨텍스트 변수의 이름입니다. 변수가 없는 경우 정책이 성공적으로 실행 될 때 생성 되며 컬렉션을 통해 액세스할 수 있게 됩니다 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) .                                                                                                                                                                                                                                                                                                                          | 예      | 해당 없음      |
 | timeout="integer"               | URL 호출이 실패하는 시간 초과 간격(초)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 아니요       | 60       |
 | ignore-error                    | true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -응답이 지정 된 경우 null 값을 포함 하는 변수 이름입니다.<br />-응답-변수 이름이 지정 되지 않은 경우 컨텍스트입니다. 요청은 업데이트 되지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                   | 아니요       | false    |
@@ -723,8 +723,8 @@ status code and media type. If no example or schema found, the content is empty.
 | attribute         | 설명                                            | 필수 | 기본값 |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="문자열"      | http://host:port 형식의 프록시 URL입니다.             | 예      | 해당 없음     |
-| 사용자 이름="문자열" | 프록시 인증에 사용할 사용자 이름입니다. | 예       | 해당 없음     |
-| 암호="문자열" | 프록시 인증에 사용할 암호입니다. | 예       | 해당 없음     |
+| 사용자 이름="문자열" | 프록시 인증에 사용할 사용자 이름입니다. | 아니요       | 해당 없음     |
+| 암호="문자열" | 프록시 인증에 사용할 암호입니다. | 아니요       | 해당 없음     |
 
 ### <a name="usage"></a>사용
 
@@ -848,7 +848,7 @@ status code and media type. If no example or schema found, the content is empty.
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-### <a name="example"></a><a name="set-variableExample"></a> 예제
+### <a name="example"></a><a name="set-variableExample"></a> 예
 
 다음 예는 인바운드 섹션에 변수 설정 정책이 있는 것을 보여 줍니다. 이 set-variable 정책은 `isMobile` 요청 헤더에 `User-Agent` 또는 `iPad` 텍스트가 있으면 true로 설정되는 `iPhone` Boolean [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수를 만듭니다.
 
@@ -867,7 +867,7 @@ status code and media type. If no example or schema found, the content is empty.
 | attribute | 설명                                                              | 필수 |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | 변수의 이름입니다.                                                | 예      |
-| 값     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | 예      |
+| value     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | 예      |
 
 ### <a name="usage"></a>사용
 
@@ -912,7 +912,7 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?
 -   System.DateTime?
 
-## <a name="trace"></a><a name="Trace"></a>추적
+## <a name="trace"></a><a name="Trace"></a> 추적
 
 `trace`정책은 API 검사기 출력, Application Insights 원격 분석 및/또는 리소스 로그에 사용자 지정 추적을 추가 합니다.
 
@@ -931,7 +931,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ```
 
-### <a name="example"></a><a name="traceExample"></a> 예제
+### <a name="example"></a><a name="traceExample"></a> 예
 
 ```xml
 <trace source="PetStore API" severity="verbose">
@@ -955,7 +955,7 @@ status code and media type. If no example or schema found, the content is empty.
 | source    | 추적 뷰어에 의미있고 메시지 원본을 지정하는 문자열 리터럴입니다.                                   | 예      | 해당 없음     |
 | severity  | 추적의 심각도 수준을 지정 합니다. 허용 되는 값은 `verbose` , `information` , `error` (가장 낮은 값에서 가장 높은 값)입니다. | 아니요       | 자세히 |
 | name      | 속성의 이름입니다.                                                                                                     | 예      | 해당 없음     |
-| 값     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
+| value     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
 
 ### <a name="usage"></a>사용
 
@@ -965,7 +965,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 -   **정책 범위:** 모든 범위
 
-## <a name="wait"></a><a name="Wait"></a>대기한
+## <a name="wait"></a><a name="Wait"></a> 대기한
 
 `wait` 정책은 직계 자식 정책을 병렬로 실행하고 정책이 완료되기 전에 직계 자식 정책 전체 또는 하나가 완료될 때까지 대기합니다. 대기 정책은 직계 자식 정책으로 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey), [제어 흐름](api-management-advanced-policies.md#choose) 정책을 포함할 수 있습니다.
 

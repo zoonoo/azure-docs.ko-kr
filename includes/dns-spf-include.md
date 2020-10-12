@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 9cc650cea17acb8d89933c819c4ca60e2c459d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182834"
 ---
 SPF(Sender Policy Framework) 레코드는 도메인 이름 대신 이메일을 전송할 수 있는 이메일 서버를 지정하는 데 사용합니다. SPF 레코드를 올바르게 구성하는 것은 수신자가 이메일을 정크로 지정하지 않도록 하는 데 중요합니다.

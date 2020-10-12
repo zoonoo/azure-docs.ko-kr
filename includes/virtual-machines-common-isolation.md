@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: ayshakeen
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084055"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다. 격리 된 크기는 라이브 및 특정 하드웨어 생성에 대해 작동 하며 하드웨어 생성이 사용 중지 되 면 사용 되지 않습니다.
@@ -36,12 +36,12 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 ## <a name="deprecation-of-isolated-vm-sizes"></a>격리 된 VM 크기의 사용 중단
 격리 된 VM 크기는 하드웨어를 사용 하는 크기 이므로 Azure는 크기의 공식 사용 중단 전에 미리 알림을 12 개월 전에 제공 합니다.  또한 Azure는 고객이 워크 로드를 이동 하는 것으로 간주할 수 있는 다음 하드웨어 버전에 업데이트 된 격리 된 크기를 제공 합니다.
 
-| Size | 격리 사용 중지 날짜 | 
+| 크기 | 격리 사용 중지 날짜 | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 5 월 15 일, 2020 |
-| Standard_D15_v2<sup>1</sup>  | 5 월 15 일, 2020 |
+| Standard_DS15_v2<sup>1</sup> | 2020년 5월 15일 |
+| Standard_D15_v2<sup>1</sup>  | 2020년 5월 15일 |
 
-<sup>1</sup> Standard_DS15_v2 및 Standard_D15_v2 격리 사용 중지 프로그램에 대 한 자세한 내용은 faq를 참조 하세요.
+<sup>1</sup>  Standard_DS15_v2 및 Standard_D15_v2 격리 사용 중지 프로그램에 대 한 자세한 내용은 faq를 참조 하세요.
 
 
 ## <a name="faq"></a>FAQ
@@ -62,10 +62,10 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>Q: D15_v2 또는 DS15_v2 격리 사용 중지에 대 한 마일스 톤은 무엇 인가요? 
 **A**: 
-| 날짜 | 작업 | 
+| Date | 작업 | 
 | --- | --- |
 | 2019년 11월 18일 | D/DS15i_v2의 가용성 (PAYG, 1 년 RI) |
 | 5 월 14 일, 2020  | D/DS15i_v2 1 년 RI의 최근 구매 날짜 | 
-| 5 월 15 일, 2020   | D/DS15_v2 격리 보장 제거 | 
+| 2020년 5월 15일   | D/DS15_v2 격리 보장 제거 | 
 | 5 월 15 일, 2021  | D/DS15i_v2 사용 중지 (2019 년 11 월 18 일 이전에 3 년 DS15_v2 RI를 구매한 사용자를 제외한 모든 고객)| 
 | 2022 년 11 월 17 일  | 3 년 RIs가 완료 될 때 D/DS15i_v2 사용 중지 (2019 년 11 월 18 일 이전에 3 년 RI의 D/DS15_v2를 구매한 고객의 경우) | 

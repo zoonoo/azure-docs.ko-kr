@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88566151"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Syslog를 사용 하 여 Linux 기반 원본에서 데이터 수집
@@ -30,7 +30,7 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 >
 > - Log Analytics **는 rsyslog 또는** **syslog-기능** 디먼에서 보낸 메시지의 컬렉션을 지원 합니다. 여기서 rsyslog는 기본값입니다. Red Hat Enterprise Linux (RHEL), CentOS 및 Oracle Linux 버전 (**sy log**)의 버전 5에 있는 기본 syslog 디먼은 syslog 이벤트 수집에 대해 지원 되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 **Syslog** 는 Linux에 공통적인 이벤트 로깅 프로토콜입니다. **Linux 용 Log Analytics 에이전트가** VM 또는 어플라이언스에 설치 된 경우 설치 루틴은 TCP 포트 25224의 에이전트로 메시지를 전달 하도록 로컬 Syslog 데몬을 구성 합니다. 그러면 에이전트는 HTTPS를 통해 Log Analytics 작업 영역으로 메시지를 보냅니다. 그러면 **Azure 센티널 > 로그**의 Syslog 테이블에 있는 이벤트 로그 항목으로 구문 분석 됩니다.
 

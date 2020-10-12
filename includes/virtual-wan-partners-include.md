@@ -9,10 +9,10 @@ ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4bf53561e7788b1d4ce9789c3b555cb1e089545b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267305"
 ---
 파트너가 제공하는 서비스에 대한 자세한 내용은 이 섹션의 링크를 참조하세요. 아래 섹션에 분기 디바이스 파트너가 나열되지 않으면 해당 분기 디바이스 공급자에게 Microsoft로 연락하도록 요청하세요. azurevirtualwan@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다.

@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556289"
 ---
 # <a name="msix-app-attach-glossary"></a>MSIX 앱 연결 용어집
@@ -71,7 +71,7 @@ Windows 가상 데스크톱에서 MSIX 패키지를 게시 하면 원격 앱 또
 
 Windows 가상 데스크톱에서 게시 된 MSIX 패키지는 Active Directory 도메인 서비스 (AD DS) 또는 Azure Active Directory (Azure AD) 사용자 또는 사용자 그룹에 할당 되어야 합니다.
 
-## <a name="staging"></a>준비
+## <a name="staging"></a>스테이징
 
 준비에는 다음 두 가지 작업이 포함 됩니다.
 
@@ -106,7 +106,7 @@ Destaging은 현재 실행 되 고 있지 않고 사용자에 대해 준비 되�
 
 . CIM은 CimFS (복합 이미지 파일 시스템)와 연결 된 새 파일 확장명입니다. CIM 파일 탑재 및 탑재 해제는 VHD 파일 보다 더 빠릅니다. 또한 CIM은 VHD 보다 더 작은 CPU와 메모리를 사용 합니다.
 
-다음 표는 VHD와 CimFS 간의 성능 비교입니다. 이러한 숫자는 DSv4 컴퓨터에서 실행 되는 각 형식의 800 MB 파일을 사용 하 여 테스트를 실행 한 결과입니다.
+다음 표는 VHD와 CimFS 간의 성능 비교입니다. 이러한 숫자는 DSv4 컴퓨터에서 실행 되는 각 형식의 500 300 MB 파일을 사용 하 여 테스트를 실행 한 결과입니다.
 
 |  사양                          | VHD                    | CimFS   |
 |---------------------------------|--------------------------|-----------|

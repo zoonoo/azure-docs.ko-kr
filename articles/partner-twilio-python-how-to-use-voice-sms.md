@@ -14,10 +14,10 @@ ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
 ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87850154"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Python에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -104,7 +104,7 @@ SSH를 통해 Virtual Machine에 연결할 수 있으면 선택한 웹 프레임
    
   `$ pip install twilio`
 
-    또는
+    -또는-
 
 * GitHub ()에서 Python 용 Twilio 라이브러리를 다운로드 [https://github.com/twilio/twilio-python][twilio_python] 하 고 다음과 같이 설치 합니다.
 

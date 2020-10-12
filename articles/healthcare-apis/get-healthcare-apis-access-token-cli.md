@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: matjazl
 ms.openlocfilehash: 7528f9d4e3b3043af1e4790c063eb6ddc6d9a828
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87849049"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure API 용 Azure API에 대 한 액세스 토큰 가져오기

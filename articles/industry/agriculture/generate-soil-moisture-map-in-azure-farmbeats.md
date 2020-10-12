@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482570"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>토양 습기 열 지도 생성
@@ -81,7 +81,7 @@ Azure FarmBeats에 센서 계정을 연결한 후에는 관심 있는 팜에 토
 
 ### <a name="download-the-soil-moisture-heatmap"></a>토양 습기 열 지도 다운로드
 
-다음 단계를 따르십시오.
+다음 단계를 사용합니다.
 
 1. **작업** 페이지에서 마지막 절차에서 만든 작업의 **작업 상태** 를 확인 합니다.
 2. 작업 상태가 **성공**으로 표시 되 면 메뉴에서 **맵** 을 선택 합니다.

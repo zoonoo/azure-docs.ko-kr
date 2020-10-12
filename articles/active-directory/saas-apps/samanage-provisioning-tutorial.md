@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0941c95ee6215a710ebb1bbc2fba9fae09ccf16d
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707269"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SolarWinds 서비스 데스크 (이전 Samanage) 구성
@@ -49,7 +49,7 @@ SolarWinds Service Desk와 기존 통합이 있는 경우 예정 된 변경 내�
 > * SolarWinds Service Desk에서 그룹 및 그룹 멤버 자격 프로 비전
 > * SolarWinds Service Desk에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/samanage-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -67,7 +67,7 @@ SolarWinds Service Desk와 기존 통합이 있는 경우 예정 된 변경 내�
 
 인증용 비밀 토큰을 생성 하려면 [자습서 토큰 인증 API 통합](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657)을 참조 하세요.
 
-## <a name="step-3-add-solarwinds-service-desk-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 SolarWinds Service Desk 추가
+## <a name="step-3-add-solarwinds-service-desk-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 SolarWinds Service Desk 추가
 
 Azure AD 응용 프로그램 갤러리에서 SolarWinds Service Desk를 추가 하 여 SolarWinds Service Desk로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 SolarWinds Service Desk를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

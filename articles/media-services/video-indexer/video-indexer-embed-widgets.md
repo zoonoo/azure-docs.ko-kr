@@ -12,10 +12,10 @@ ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268624"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 Video Indexer 위젯을 포함 합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "91268624"
 
 이 섹션에서는 공용 및 개인 콘텐츠를 앱에 포함 하는 방법을 설명 합니다.
 
-`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
 
 > [!IMPORTANT]
 > **플레이어** 또는 **Insights** 위젯에 대 한 링크를 공유 하면 액세스 토큰이 포함 되며 계정에 읽기 전용 권한을 부여 합니다.
@@ -291,7 +291,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조 하세요.
 
-| 파일/폴더                       | Description                                |
+| 파일/폴더                       | 설명                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오를 로드 합니다.                        |
 | `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보를 포함 합니다.                             |

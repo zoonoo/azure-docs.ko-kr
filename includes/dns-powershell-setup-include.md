@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
 ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67133433"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS를 위한 Azure PowerShell 설정
@@ -24,7 +24,7 @@ ms.locfileid: "67133433"
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azureps-cmdlets-docs)을 참조 하세요.
+* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 또한 Private Zones(공용 미리 보기)를 사용하려면 아래의 PowerShell 모듈과 버전이 있는지 확인해야 합니다. 
 * AzureRM.Dns - [버전 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) 이상

@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 147b73b6772675d5143e41ddfff030614e393b95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84031734"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
@@ -68,7 +68,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
     ![표시된 앱 ID](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. **API 권한**  >  **추가 권한 추가**를 선택 합니다.
+2. **API 권한** > **권한 추가**를 선택합니다.
 
     ![등록된 앱의 권한 설정](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 

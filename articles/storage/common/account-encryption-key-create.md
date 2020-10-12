@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967469"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 

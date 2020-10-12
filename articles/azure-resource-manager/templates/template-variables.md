@@ -4,17 +4,17 @@ description: Azure Resource Manager 템플릿에서 변수를 정의 하는 방�
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75483818"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 변수
 
 이 문서에서는 Azure Resource Manager 템플릿에서 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 변수를 사용 하 여 템플릿을 단순화 합니다. 템플릿 전체에서 복잡 한 식을 반복 하는 대신 복잡 한 식을 포함 하는 변수를 정의 합니다. 그런 다음 템플릿 전체에서 필요에 따라 해당 변수를 참조 합니다.
 
-리소스 관리자는 배포 작업을 시작 하기 전에 변수를 확인 합니다. 템플릿에서 변수를 사용 하는 모든 경우에는 리소스 관리자를 확인 된 값으로 바꿉니다.
+리소스 관리자는 배포 작업을 시작 하기 전에 변수를 확인 합니다. 템플릿에서 변수를 사용하는 모든 경우에는 Resource Manager는 변수를 확인된 값으로 바꿉니다.
 
 ## <a name="define-variable"></a>변수 정의
 

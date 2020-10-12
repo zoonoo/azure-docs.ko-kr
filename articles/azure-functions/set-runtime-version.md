@@ -4,10 +4,10 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. A
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: a7d86ef26d50d60389ae09bf3245ed97fea2c3e3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88926578"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법

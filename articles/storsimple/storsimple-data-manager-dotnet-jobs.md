@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: e34701640de24a4c3c13f8d10073b4392af2f28a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88183652"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
@@ -26,7 +26,7 @@ ms.locfileid: "88183652"
  
   이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있어야 합니다.
 *   다음을 실행하는 컴퓨터:
@@ -36,7 +36,7 @@ ms.locfileid: "88183652"
     - Azure Powershell. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   리소스 그룹 내 StorSimple 데이터 관리자에 올바르게 구성된 작업 정의
 *   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)GitHub 리포지토리에서 스크립트를 시작 합니다.
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) GitHub 리포지토리에서 스크립트를 시작 합니다.
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 

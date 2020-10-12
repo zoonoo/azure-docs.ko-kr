@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269049"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure Resource Manager 템플릿을 사용 하 여 Azure Logic Apps에 대 한 배포 자동화
@@ -63,7 +63,7 @@ Logic Apps REST API [Azure Logic Apps REST API 개요](/rest/api/logic)를 사�
 
 논리 앱 템플릿의 경우 주로 다음 템플릿 개체를 사용 합니다.
 
-| attribute | Description |
+| attribute | 설명 |
 |-----------|-------------|
 | `parameters` | Azure에서 배포용 리소스를 만들고 사용자 지정할 때 사용할 값을 허용 하는 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters) 를 선언 합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름 및 위치, 연결 및 배포에 필요한 기타 리소스에 대 한 값을 허용 합니다. 이러한 매개 변수 값은이 항목의 뒷부분에서 설명 하는 [매개 변수 파일](#template-parameter-files)에 저장할 수 있습니다. 일반 정보는 [매개 변수-리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#parameters)을 참조 하세요. |
 | `resources` | 논리 앱, 연결, Azure storage 계정 등의 Azure 리소스 그룹을 만들거나 업데이트 하 고 배포할 [리소스](../azure-resource-manager/templates/template-syntax.md#resources) 를 정의 합니다. 일반 정보는 [리소스 리소스 관리자 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)을 참조 하세요. |
@@ -330,10 +330,10 @@ Azure 리소스 그룹의 모든 리소스에 대 한 리소스 정의를 검토
 | attribute | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | `state` | 예 | String | 배포 시 논리 앱의 상태입니다. 여기서는 논리 앱 `Enabled` 이 라이브 상태 이며 `Disabled` 논리 앱이 비활성 상태임을 의미 합니다. 예를 들어 논리 앱을 라이브 상태로 전환할 준비가 되지 않았지만 초안 버전을 배포 하려는 경우 옵션을 사용할 수 있습니다 `Disabled` . |
-| `integrationAccount` | 예 | 개체 | 논리 앱에서 B2B (기업 간) 시나리오에 대 한 아티팩트를 저장 하는 통합 계정을 사용 하는 경우이 개체에는 `id` 통합 계정에 대 한 ID를 지정 하는 특성이 포함 됩니다. |
+| `integrationAccount` | 아니요 | Object | 논리 앱에서 B2B (기업 간) 시나리오에 대 한 아티팩트를 저장 하는 통합 계정을 사용 하는 경우이 개체에는 `id` 통합 계정에 대 한 ID를 지정 하는 특성이 포함 됩니다. |
 | `definition` | 예 | Object | 논리 앱의 기본 워크플로 정의는 코드 보기에 표시 되는 것과 동일한 개체 이며 [워크플로 정의 언어에 대 한 스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md) 항목에 자세히 설명 되어 있습니다. 이 워크플로 정의에서 개체는 `parameters` 논리 앱 런타임에서 사용할 값에 대 한 매개 변수를 선언 합니다. 자세한 내용은 [워크플로 정의 및 매개 변수](#workflow-definition-parameters)를 참조 하세요. <p><p>논리 앱의 워크플로 정의에서 특성을 보려면 Azure Portal 또는 Visual Studio에서 "디자인 뷰"를 "코드 보기"로 전환 하거나 [Azure Resource Explorer](https://resources.azure.com)와 같은 도구를 사용 하 여 전환 합니다. |
-| `parameters` | 예 | 개체 | 논리 앱 런타임에서 사용할 [워크플로 정의 매개 변수 값](#workflow-definition-parameters) 입니다. 이러한 값에 대 한 매개 변수 정의는 [워크플로 정의의 parameters 개체](#workflow-definition-parameters)내에 표시 됩니다. 또한 논리 앱이 [관리 되는 커넥터](../connectors/apis-list.md) 를 사용 하 여 다른 서비스 및 시스템에 액세스 하는 경우이 개체에는 `$connections` 런타임에 사용할 연결 값을 설정 하는 개체가 포함 됩니다. |
-| `accessControl` | 예 | 개체 | 논리 앱에 대 한 보안 특성을 지정 하기 위한 것입니다. 예를 들어 트리거를 요청 하거나 기록 입력 및 출력을 요청 하는 IP 액세스를 제한 합니다. 자세한 내용은 [논리 앱에 대 한 보안 액세스](../logic-apps/logic-apps-securing-a-logic-app.md)를 참조 하세요. |
+| `parameters` | 아니요 | Object | 논리 앱 런타임에서 사용할 [워크플로 정의 매개 변수 값](#workflow-definition-parameters) 입니다. 이러한 값에 대 한 매개 변수 정의는 [워크플로 정의의 parameters 개체](#workflow-definition-parameters)내에 표시 됩니다. 또한 논리 앱이 [관리 되는 커넥터](../connectors/apis-list.md) 를 사용 하 여 다른 서비스 및 시스템에 액세스 하는 경우이 개체에는 `$connections` 런타임에 사용할 연결 값을 설정 하는 개체가 포함 됩니다. |
+| `accessControl` | 아니요 | Object | 논리 앱에 대 한 보안 특성을 지정 하기 위한 것입니다. 예를 들어 트리거를 요청 하거나 기록 입력 및 출력을 요청 하는 IP 액세스를 제한 합니다. 자세한 내용은 [논리 앱에 대 한 보안 액세스](../logic-apps/logic-apps-securing-a-logic-app.md)를 참조 하세요. |
 ||||
 
 이러한 Logic Apps 개체에 대 한 리소스 정의에 대 한 자세한 내용은 [Microsoft 논리 리소스 형식](/azure/templates/microsoft.logic/allversions)을 참조 하세요.
@@ -970,7 +970,7 @@ Azure Blob Storage 연결에 대 한 계정 이름 및 액세스 키를 제공 �
 }
 ```
 
-| attribute | Description |
+| attribute | 설명 |
 |-----------|-------------|
 | `token:clientId` | 서비스 사용자와 연결 된 응용 프로그램 또는 클라이언트 ID입니다. |
 | `token:clientSecret` | 서비스 사용자와 연결 된 키 값입니다. |
