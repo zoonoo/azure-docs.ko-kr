@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: bd53feb175c5be77f559a4d2e724a55e41df48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85562818"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>수치 연산 함수 (Azure Cosmos DB)  
@@ -42,20 +42,20 @@ ms.locfileid: "85562818"
 * [CEILING](sql-query-ceiling.md)
 * [COS](sql-query-cos.md)
 * [COT](sql-query-cot.md)
-* [도씩](sql-query-degrees.md)
-* [.EXP](sql-query-exp.md)
-* [평면](sql-query-floor.md)
-* [로깅할](sql-query-log.md)
+* [DEGREES](sql-query-degrees.md)
+* [EXP](sql-query-exp.md)
+* [FLOOR](sql-query-floor.md)
+* [LOG](sql-query-log.md)
 * [LOG10](sql-query-log10.md)
 * [PI](sql-query-pi.md)
 * [POWER](sql-query-power.md)
-* [각도](sql-query-radians.md)
+* [RADIANS](sql-query-radians.md)
 * [RAND](sql-query-rand.md)
-* [둥근](sql-query-round.md)
-* [로그인](sql-query-sign.md)
+* [ROUND](sql-query-round.md)
+* [SIGN](sql-query-sign.md)
 * [SIN](sql-query-sin.md)
 * [SQRT](sql-query-sqrt.md)
-* [대괄호](sql-query-square.md)
+* [SQUARE](sql-query-square.md)
 * [TAN](sql-query-tan.md)
 * [TRUNC](sql-query-trunc.md)
 

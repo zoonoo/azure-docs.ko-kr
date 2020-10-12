@@ -1,7 +1,7 @@
 ---
 title: CDN 통합을 사용 하 여 콘텐츠 스트리밍
 titleSuffix: Azure Media Services
-description: CDN 통합을 사용 하 여 콘텐츠를 스트리밍하는 방법과 프리페치 및 원본 지원 CDN-프리페치에 대해 알아봅니다.
+description: Cdn 통합을 사용 하 여 콘텐츠를 스트리밍하는 방법과 CDN 프리페치 및 Origin-Assist 프리페치에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291282"
 ---
 # <a name="stream-content-with-cdn-integration"></a>CDN 통합을 사용 하 여 콘텐츠 스트리밍
@@ -32,7 +32,7 @@ CDN은 코덱 당 Media Services [스트리밍 끝점 (원본)](streaming-endpoi
 또한 적응 스트리밍의 작동 방식도 고려해야 합니다. 각 개별 비디오 조각은 자체 엔터티로 캐시 됩니다. 예를 들어 특정 비디오가 처음으로 시청 될 때를 가정 합니다. 뷰어에서 몇 초 동안만 감시 하는 것을 건너뛴 경우, 사용자가 감시 하는 것과 관련 된 비디오 조각만 표시 됩니다. 적응 스트리밍을 사용하면 비디오의 비트 전송률이 일반적으로 5~ 7 사이의 차이를 보입니다. 한 사용자가 하나의 비트 전송률을 감시 하 고 다른 사용자가 다른 비트 전송률을 감시 하는 경우 각 사용자는 CDN에서 별도로 캐시 됩니다. 두 명의 사용자가 동일한 비트 전송률을 시청 하는 경우에도 서로 다른 프로토콜을 통해 스트리밍할 수 있습니다. 각 프로토콜(HLS, MPEG DASH, 부드러운 스트리밍)은 별도로 캐시됩니다. 따라서 각 비트 전송률 및 프로토콜은 개별적으로 캐시되고, 요청된 비디오 조각만 캐시됩니다.
 
 테스트 환경을 제외 하 고 표준 및 프리미엄 스트리밍 끝점 모두에 대해 CDN을 사용 하도록 설정 하는 것이 좋습니다. 각 스트리밍 끝점 유형에는 서로 다른 지원 되는 처리량 제한이 있습니다.
-스트리밍 끝점에서 지원 되는 최대 동시 스트림 수에 대해 정확한 계산을 수행 하는 것은 어려울 수 있습니다. 여기에는 다음이 포함됩니다.
+스트리밍 끝점에서 지원 되는 최대 동시 스트림 수에 대해 정확한 계산을 수행 하는 것은 어려울 수 있습니다. 내용은 다음과 같습니다.
 
 - 스트리밍에 사용 되는 최대 비트 전송률
 - 플레이어 사전 버퍼 및 전환 동작 플레이어는 원본에서 세그먼트 버스트를 시도 하 고 로드 속도를 사용 하 여 적응 비트 전송률 전환을 계산 합니다. 스트리밍 끝점이 채도에 근접 하는 경우 응답 시간은 다를 수 있으며 플레이어는 더 낮은 품질로 전환 하기 시작 합니다. 스트리밍 끝점 플레이어에서 부하가 줄어들기 때문에 더 높은 품질로 확장 하 여 원치 않는 전환 트리거를 만듭니다.
@@ -67,7 +67,7 @@ Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 �
 
 을 사용 하 여 스트리밍 끝점에서 DNS 변경이 수행 되었는지 (트래픽이 Azure CDN로 전달 되 고 있는지) 확인할 수 있습니다 <https://www.digwebinterface.com> . Azureedge.net 도메인 이름이 결과에 표시 되는 경우에는 이제 트래픽을 CDN 이라고 합니다.
 
-## <a name="origin-assist-cdn-prefetch"></a>원본-CDN 지원-프리페치
+## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
 
 CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 하는 항목을 예측할 수 있는 경우 CDN은 사전에 다음 개체를 요청 하 고 캐시할 수 있습니다. 이 프로세스를 사용 하면 개체의 모든 (또는 대부분)에 대해 캐시 적중을 수행 하 여 성능을 향상 시킬 수 있습니다.
 
@@ -115,7 +115,7 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 * 대시 (CMAF)
 * 부드러운 스트리밍
 
-### <a name="faqs"></a>FAQ
+### <a name="faqs"></a>FAQ(질문과 대답)
 
 * CDN 프리페치에서 404을 가져오기 위해 프리페치 경로 URL이 잘못 된 경우는 어떻게 되나요?
 
@@ -125,11 +125,11 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 
     아니요. CDN-프리페치는 클라이언트에서 시작한 요청/응답 후에만 수행 됩니다. CDN-프리페치는 프리페치 루프를 방지 하기 위해 프리페치에 의해 트리거되지 않습니다.
 
-* 원본 지원 CDN-프리페치 기능을 항상 설정 하 시겠습니까? 설정/해제 하려면 어떻게 해야 하나요?
+* Origin-Assist CDN-Prefetch 기능이 항상 켜져 있나요? 설정/해제 하려면 어떻게 해야 하나요?
 
     이 기능은 기본적으로 해제되어 있습니다. 고객이 Akamai API를 통해 설정 해야 합니다.
 
-* 라이브 스트리밍의 경우 출처는 다음 세그먼트 또는 조각을 아직 사용할 수 없는 경우에 도움이 될 것입니다.
+* 라이브 스트리밍의 경우 다음 세그먼트 또는 조각을 아직 사용할 수 없는 경우 Origin-Assist 하는 것이 어떻게 되나요?
 
     이 경우 Media Services 원본은 헤더를 제공 하지 않고 `CDN-Origin-Assist-Prefetch-Path` CDN 프리페치는 발생 하지 않습니다.
 

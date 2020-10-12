@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207808"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
@@ -58,7 +58,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 1. VM이 Azure Portal 대시보드에 고정됩니다. 배포가 완료되면 VM 요약이 자동으로 열립니다. 
 
-1. VM 창에서 **id** 탭으로 이동 합니다. vm에 시스템 할당 Id가 **On**으로 설정 되어 있는지 확인 합니다. 
+1. VM 창에서 **id** 탭으로 이동 합니다. VM의 시스템 할당 id가 **On**으로 설정 되어 있는지 확인 합니다. 
  
     ![Telegraf VM ID 미리 보기](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  

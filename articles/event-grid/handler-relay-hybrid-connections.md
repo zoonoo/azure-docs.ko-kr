@@ -3,11 +3,11 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로 릴레이 하
 description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 Azure Relay 하이브리드 연결을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3807e2d125d652b8f5ed7c9dec1b972d69f699f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91270205"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로 릴레이 하이브리드 연결
@@ -40,9 +40,6 @@ Azure Relay 하이브리드 연결을 이벤트 처리기로 사용하는 예제
     }
 }
 ```
-
-> [!NOTE]
-> **다른 테 넌 트에서** Azure Relay 하이브리드 연결에 이벤트를 전달 하는 것은 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

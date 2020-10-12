@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362427"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 감사 로그
@@ -31,7 +31,7 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 - `audit_log_exclude_users`: 로깅에서 제외할 Aadb 사용자입니다. 최대 4 명의 사용자를 허용 합니다. 매개 변수의 최대 길이는 256 자입니다.
 
 > [!Note]
-> `audit_log_include_users`보다 우선 순위가 높습니다 `audit_log_exclude_users` . 예를 들어 및의 경우 `audit_log_include_users`  =  `demouser` `audit_log_exclude_users`  =  `demouser` `audit_log_include_users` 우선 순위가 더 높기 때문에 사용자는 감사 로그에 포함 됩니다.
+> `audit_log_include_users` 보다 우선 순위가 높습니다 `audit_log_exclude_users` . 예를 들어 및의 경우 `audit_log_include_users`  =  `demouser` `audit_log_exclude_users`  =  `demouser` `audit_log_include_users` 우선 순위가 더 높기 때문에 사용자는 감사 로그에 포함 됩니다.
 
 | **이벤트** | **설명** |
 |---|---|
@@ -59,10 +59,10 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
-| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
-| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB`입니다. |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
 | `Resource` | 서버의 이름 |
@@ -89,10 +89,10 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
-| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
-| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB`입니다. |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
 | `Resource` | 서버의 이름 |
@@ -102,7 +102,7 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | UNIX 타임 스탬프의 쿼리 시작 시간 (초) |
-| `error_code_d` | 쿼리가 실패 한 경우 오류 코드입니다. `0`오류가 없음을 의미 합니다. |
+| `error_code_d` | 쿼리가 실패 한 경우 오류 코드입니다. `0` 오류가 없음을 의미 합니다. |
 | `thread_id_d` | 쿼리를 실행 한 스레드의 ID |
 | `host_s` | 비어 있음 |
 | `ip_s` | MariaDB에 연결 하는 클라이언트의 IP 주소 |

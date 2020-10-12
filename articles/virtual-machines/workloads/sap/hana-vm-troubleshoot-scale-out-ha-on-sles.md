@@ -1,5 +1,5 @@
 ---
-title: Azure Vm의 SLES을 사용 하 여 Pacemaker HSR-확장을 확장 합니다. 문제 해결 | SAP HANA Microsoft Docs
+title: Azure Vm의 SLES를 사용 하 여 스케일 아웃 HSR-Pacemaker SAP HANA 문제 해결 | Microsoft Docs
 description: Azure 가상 머신에서 실행되는 SLES 12 SP3의 SAP HSR(HANA System Replication) 및 Pacemaker에 기반한 복잡한 SAP HANA 스케일 아웃 고가용성 구성 확인 및 문제 해결 가이드
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088311"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310937"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 실시간 공용 전송 데이터 요청
@@ -22,7 +22,7 @@ ms.locfileid: "91310937"
 
 이 문서에서는 지정 된 중지 시간에 도착 하는 모든 줄에 대해 다음 실시간 도착 한를 요청 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure Maps 계정 및 구독 키가 있어야 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account) 의 지침에 따라 Azure Maps 계정을 만드세요. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 

@@ -1,17 +1,17 @@
 ---
-title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
+title: Visual Studio Code를 사용하여 Azure Functions 개발
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206752"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions 개발
 
 [Visual Studio Code에 대 한 Azure Functions 확장] 을 사용 하면 함수를 로컬로 개발 하 고 Azure에 배포할 수 있습니다. Azure Functions를 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
 
@@ -191,7 +191,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트를 따라 파일의 f
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
-| **코드에서이 바인딩을 식별 하는 데 사용 되는 이름입니다.** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
+| **코드에서 이 바인딩을 식별하는 데 사용하는 이름** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
 | **메시지가 전송될 큐** | `outqueue` | 바인딩이 데이터를 쓰는 큐의 이름입니다. 바인딩을 처음 사용할 때 *queueName*이 없으면 바인딩이 알아서 만듭니다. |
 | **"local.settings.js에서 설정"을 선택 합니다.** | `MyStorageConnection` | 저장소 계정에 대 한 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 이 `AzureWebJobsStorage` 설정에는 함수 앱을 사용 하 여 만든 저장소 계정에 대 한 연결 문자열이 포함 됩니다. |
 

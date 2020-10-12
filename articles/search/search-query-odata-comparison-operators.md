@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934874"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Azure Cognitive Search의 OData 비교 연산자- `eq` , `ne` ,,, `gt` `lt` `ge` 및 `le`
 
-Azure Cognitive Search의 [OData 필터 식](query-odata-filter-orderby-syntax.md) 에서 가장 기본적인 작업은 필드를 지정 된 값과 비교 하는 것입니다. 비교에는 같음 비교 및 범위 비교가 있습니다. 다음 연산자를 사용 하 여 필드를 상수 값과 비교할 수 있습니다.
+Azure Cognitive Search의 [OData 필터 식](query-odata-filter-orderby-syntax.md) 에서 가장 기본적인 작업은 필드를 지정 된 값과 비교 하는 것입니다. 비교에는 같음 비교 및 범위 비교가 있습니다. 다음 연산자를 사용하여 필드를 상수 값과 비교할 수 있습니다.
 
 같음 연산자:
 
@@ -49,7 +49,7 @@ Azure Cognitive Search의 [OData 필터 식](query-odata-filter-orderby-syntax.m
 
 ## <a name="syntax"></a>구문
 
-다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 비교 연산자를 사용 하는 OData 식의 문법을 정의 합니다.
+다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 비교 연산자를 사용 하는 OData 식의 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74873423"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 쿼리 상수  
@@ -19,17 +19,17 @@ ms.locfileid: "74873423"
   
  **지원되는 스칼라 데이터 형식:**  
   
-|**Type**|**값 순서**|  
+|**형식**|**값 순서**|  
 |-|-|  
-|**Undefined**|단일 값: **undefined**|  
+|**되지**|단일 값: **undefined**|  
 |**Null**|단일 값: **null**|  
 |**Boolean**|값: **false**, **true**.|  
 |**Number**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
 |**String**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
 |**배열**|0개 이상의 요소 시퀀스입니다. 각 요소는 **Undefined**를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  
-|**개체**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
+|**Object**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
   
-## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
+## <a name="syntax"></a><a name="bk_syntax"></a>구문
   
 ```sql  
 <constant> ::=  
@@ -59,7 +59,7 @@ ms.locfileid: "74873423"
   
 ```  
   
-##  <a name="arguments"></a><a name="bk_arguments"></a>인수의
+##  <a name="arguments"></a><a name="bk_arguments"></a> 인수
   
 * `<undefined_constant>; Undefined`  
   

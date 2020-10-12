@@ -12,10 +12,10 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589166"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
@@ -141,7 +141,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md)를 참조 하세요.
 
-### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>원격 데스크톱 게이트웨이 게시 시나리오에서 Kerberos 제한 된 위임 (Single Sign-on-Windows 통합 인증)을 사용할 수 있나요?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>원격 데스크톱 게이트웨이 게시 시나리오에서 Kerberos 제한 된 위임 (단일 Sign-On-Windows 통합 인증)을 사용할 수 있나요?
 
 아니요,이 시나리오는 지원 되지 않습니다.  
 

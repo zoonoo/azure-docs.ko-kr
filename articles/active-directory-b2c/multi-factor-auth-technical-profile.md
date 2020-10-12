@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385946"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Azure MFA 기술 프로필 정의
@@ -57,7 +57,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 **Inputclaims** 요소는 Azure MFA로 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 MFA 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필요한 공간 | 설명 |
+| ClaimReferenceId | 필수 | Description |
 | --------- | -------- | ----------- |
 | userPrincipalName | 예 | 전화 번호를 소유 하는 사용자의 식별자입니다. |
 | phoneNumber | 예 | SMS 코드를 보낼 전화 번호입니다. |
@@ -74,15 +74,15 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 ### <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 연산 | 예 | **OneWaySMS**이어야 합니다.  |
+| 작업(Operation) | 예 | **OneWaySMS**이어야 합니다.  |
 
 #### <a name="ui-elements"></a>UI 요소
 
 다음 메타 데이터를 사용 하 여 SMS 오류를 보낼 때 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-mfa-error-messages)될 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfCouldntSendSms | 아니요 | 제공한 전화 번호에 SMS가 허용 되지 않는 경우 사용자 오류 메시지입니다. |
 | UserMessageIfInvalidFormat | 아니요 | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 오류 메시지입니다. |
@@ -119,7 +119,7 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 **Inputclaims** 요소는 Azure MFA로 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 MFA 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필요한 공간 | 설명 |
+| ClaimReferenceId | 필수 | Description |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| 예 | 이전에 코드를 전송 하는 데 사용한 것과 동일한 전화 번호입니다. 전화 확인 세션을 찾는 데도 사용 됩니다. |
 | verificationCode  | 예 | 사용자가 제공 하는 확인 코드를 확인 합니다. |
@@ -134,15 +134,15 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 ### <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 연산 | 예 | **확인** 해야 함 |
+| 작업(Operation) | 예 | **확인** 해야 함 |
 
 #### <a name="ui-elements"></a>UI 요소
 
 다음 메타 데이터를 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-mfa-error-messages)될 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfMaxAllowedCodeRetryReached| 아니요 | 사용자가 확인 코드를 너무 많이 시도 하는 경우 사용자 오류 메시지입니다. |
 | UserMessageIfServerError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 오류 메시지입니다. |

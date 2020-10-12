@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure �
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: 3e19701abe152e947e87ef624a003538ab7062a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271803"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
@@ -57,7 +57,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 
 #### <a name="nsg-tags"></a>NSG 태그
 
-NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD (*AzureActiveDirectory*) 및 Azure Storage (*저장소*)에 대해 유사한 [nsg 규칙](../virtual-network/security-overview.md#service-tags) 을 만들어 인증 및 데이터 전송에 대 한 연결을 허용 해야 합니다.  다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
+NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD(*AzureActiveDirectory*) 및 Azure Storage(*Storage*)에 대해 유사한 [NSG 규칙](../virtual-network/security-overview.md#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결을 허용해야 합니다.  다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
 
 1. **모든 서비스**에서 **네트워크 보안 그룹**으로 이동하여 네트워크 보안 그룹을 선택합니다.
 

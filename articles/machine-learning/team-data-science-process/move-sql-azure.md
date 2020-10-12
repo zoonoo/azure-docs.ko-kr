@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087427"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동
@@ -43,13 +43,13 @@ Machine Learning SQL Server으로 데이터를 이동 하는 옵션을 설명 �
 
 자신의 데이터 세트에 여기에 설명된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. SQL Server 데이터베이스에 NYC Taxi 데이터 집합을 업로드 하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명 된 절차를 따르세요.
 
-## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>플랫 파일 원본에서 Azure SQL Database 데이터 이동
+## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> 플랫 파일 원본에서 Azure SQL Database 데이터 이동
 대량 삽입 SQL 쿼리를 사용 하 여 플랫 파일 (CSV 또는 TSV 형식)의 데이터를 Azure SQL Database 이동할 수 있습니다.
 
-### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>대량 삽입 SQL 쿼리
+### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> 대량 삽입 SQL 쿼리
 대량 삽입 SQL 쿼리를 사용 하는 절차에 대 한 단계는 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터를 이동 하는 방향과 비슷합니다. 자세한 내용은 [대량 삽입 SQL 쿼리](move-sql-server-virtual-machine.md#insert-tables-bulkquery)를 참조하세요.
 
-## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>SQL Server에서 Azure SQL Database로 데이터 이동
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> SQL Server에서 Azure SQL Database로 데이터 이동
 원본 데이터가 SQL Server에 저장 된 경우 데이터를 Azure SQL Database으로 이동할 수 있는 여러 가지 방법이 있습니다.
 
 1. [플랫 파일로 내보내기](#export-flat-file)

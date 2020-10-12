@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
 ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087546"
 ---
 # <a name="configure-azure-firewall-rules"></a>Azure 방화벽 규칙 구성
@@ -65,7 +65,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 패킷이 *허용-웹* 네트워크 규칙과 일치 하기 때문에 google.com에 대 한 연결이 허용 됩니다. 이 시점에서 규칙 처리를 중지 합니다.
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 높은 우선 순위의 *거부* 네트워크 규칙 컬렉션은이를 차단 하므로 SSH 트래픽이 거부 됩니다.
 

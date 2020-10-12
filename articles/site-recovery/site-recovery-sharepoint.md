@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135398"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
@@ -34,7 +34,7 @@ Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 �
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -62,9 +62,9 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | Yes
-**VMware** | 예 | Yes
-**물리적 서버** | 예 | Yes
+**Hyper-V** | 예 | 예
+**VMware** | 예 | 예
+**실제 서버** | 예 | 예
 **Azure** | 해당 없음 | 예
 
 
@@ -102,7 +102,7 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 인터넷 연결 사이트의 경우 Azure 구독에서 [‘우선 순위’ 형식의 Traffic Manager 프로필을 만듭니다](../traffic-manager/quickstart-create-traffic-manager-profile.md) . 그런 다음, 다음과 같은 방법으로 DNS 및 Traffic Manager 프로필을 구성합니다.
 
 
-| **위치** | **소스** | **Target**|
+| **Where** | **원본** | **대상**|
 | --- | --- | --- |
 | 공용 DNS | SharePoint 사이트에 대한 공용 DNS <br/><br/> 예: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | 온-프레미스 DNS | sharepointonprem.contoso.com | 온-프레미스 팜의 공용 IP |

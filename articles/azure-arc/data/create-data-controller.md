@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273044"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
@@ -33,7 +33,7 @@ ms.locfileid: "91273044"
 - OpenShift Container Platform (OCP)
 - AWS EKS(Elastic Kubernetes Service)
 - Google Cloud Kubernetes Engine (GKE)
-- 오픈 소스, 업스트림 Kubernetes 일반적으로 kubeadm를 사용 하 여 배포
+- 오픈 소스, 일반적으로 kubeadm을 사용하여 배포되는 업스트림 Kubernetes
 
 > [!IMPORTANT]
 > * Kubernetes의 지원 되는 최소 버전은 v 1.14입니다.
