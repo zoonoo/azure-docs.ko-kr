@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318303"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 범주
@@ -347,7 +347,7 @@ ms.locfileid: "87318303"
 |---|---|
 |ArchiveLogs|보관 로그|
 |AutoScaleLogs|자동 크기 조정 로그|
-|CustomerManagedKeyUserLogs|고객이 관리 하는 키 로그|
+|CustomerManagedKeyUserLogs|키 로그 Customer-Managed|
 |EventHubVNetConnectionEvent|VNet/IP 필터링 연결 로그|
 |KafkaCoordinatorLogs|Kafka 코디네이터 로그|
 |KafkaUserErrorLogs|Kafka 사용자 오류 로그|

@@ -9,10 +9,10 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77914861"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Azure Data Lake Storage에 대한 다중 프로토콜 액세스
@@ -40,7 +40,7 @@ Blob Api 및 Data Lake Storage Gen2 Api는 계층적 네임 스페이스를 포�
 
 기존 도구와 Blob API를 사용 하는 응용 프로그램은 이러한 혜택을 자동으로 얻습니다. 개발자는이를 수정할 필요가 없습니다. Data Lake Storage Gen2는 도구 및 응용 프로그램에서 데이터에 액세스 하는 데 사용 하는 프로토콜에 관계 없이 디렉터리 및 파일 수준 Acl을 일관 되 게 적용 합니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능](data-lake-storage-supported-blob-storage-features.md)
 - [Azure Data Lake Storage Gen2를 지원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)

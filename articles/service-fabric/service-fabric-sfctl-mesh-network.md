@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2b2b2c444bb492fa6c6b945a82090e91963fb1a8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245863"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
@@ -21,7 +21,7 @@ ms.locfileid: "86245863"
 | --- | --- |
 | 삭제 | 네트워크 리소스를 삭제합니다. |
 | list | 모든 네트워크 리소스를 나열합니다. |
-| 표시 | 지정된 이름의 네트워크 리소스를 가져옵니다. |
+| show | 지정된 이름의 네트워크 리소스를 가져옵니다. |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh network delete
 네트워크 리소스를 삭제합니다.

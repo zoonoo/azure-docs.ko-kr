@@ -6,10 +6,10 @@ ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
 ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974033"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
@@ -194,7 +194,7 @@ Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경
 
 스프링 부팅 스타터는 spring.application.name 속성에 대해 사용자가 입력 한 값에 클라우드 역할 이름을 자동으로 할당 합니다.
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");

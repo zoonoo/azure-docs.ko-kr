@@ -16,10 +16,10 @@ ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266390"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당
@@ -77,7 +77,7 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 1. 사용자 할당 관리 ID를 나열하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 검색 상자에 *관리 ID*를 입력하고, 서비스 아래에서 **관리 ID**를 클릭합니다.
 3. 구독의 사용자 할당 관리 ID 목록이 반환됩니다.  역할을 할당하려는 사용자 할당 관리 ID를 선택합니다.
-4. **액세스 제어(IAM)**, **역할 할당 추가**를 차례로 선택합니다.
+4. **액세스 제어(IAM)** , **역할 할당 추가**를 차례로 선택합니다.
 
    ![사용자 할당 관리 ID 시작](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 

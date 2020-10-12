@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273146"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Azure Data Studio에서 데이터 컨트롤러 만들기
@@ -22,7 +22,7 @@ ms.locfileid: "91273146"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Kubernetes 클러스터에 액세스 하 고 배포 하려는 Kubernetes 클러스터를 가리키도록 kubeconfig 파일을 구성 해야 합니다.
 - **Azure Arc** 및 **azure Data CLI**라는 Azure Data Studio 확장 **Azure Data Studio** 포함 하 [는 클라이언트 도구를 설치](install-client-tools.md) 해야 합니다.

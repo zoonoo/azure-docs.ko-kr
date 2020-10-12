@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75429145"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Azure IoT hub를 다른 지역에 복제 하는 방법
@@ -407,7 +407,7 @@ DPS를 사용 하 여 장치를 새 위치로 이동 하려면 장치를 [다시
 
 이제 허브와 해당 장치 마이그레이션이 완료 되었습니다. [정리](#clean-up)로 건너뛸 수 있습니다.
 
-## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>가져오기-내보내기를 사용 하 여 장치를 새 허브로 이동
+## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Import-Export를 사용 하 여 장치를 새 허브로 이동
 
 응용 프로그램은 .NET Core를 대상으로 하므로 Windows 또는 Linux에서 실행할 수 있습니다. 샘플을 다운로드 하 고, 연결 문자열을 검색 하 고, 실행 하려는 비트의 플래그를 설정 하 고, 실행할 수 있습니다. 코드를 열지 않고도이 작업을 수행할 수 있습니다.
 

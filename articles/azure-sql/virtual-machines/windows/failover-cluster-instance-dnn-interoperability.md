@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272619"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI와의 기능 상호 운용성 & DNN
@@ -86,7 +86,7 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 
 다음 이미지 예제와 같이 명명 된 인스턴스에 대 한 전체 인스턴스 이름을 사용 합니다. 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="명명 된 인스턴스에 대 한 네트워크 별칭을 구성할 때 전체 인스턴스 이름을 사용 합니다." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="SQL Server 구성 관리자를 사용 하 여 DNN DNS 이름을 네트워크 별칭으로 구성 합니다." :::
 
 ## <a name="database-mirroring"></a>데이터베이스 미러링
 
@@ -177,5 +177,5 @@ GO
 자세한 내용은 다음을 참조하세요. 
 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치 (failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

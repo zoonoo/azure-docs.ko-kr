@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331015"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>원호의 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 연결 끝점 및 폼 연결 문자열 가져오기
@@ -39,7 +39,7 @@ azdata login --endpoint https://<external IP address of host/data controller>:30
 ```
 
 #### <a name="2-show-the-connection-endpoints"></a>2. 연결 끝점 표시
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
@@ -62,7 +62,7 @@ azdata arc postgres endpoint list -n <server group name>
 ```
 이러한 끝점을 사용 하 여 다음을 수행 합니다.
 - 연결 문자열을 구성 하 고 클라이언트 도구나 응용 프로그램에 연결 합니다.
-- 브라우저에서 Grafana 및 Kibana 대시보드 액세스
+- 브라우저에서 Grafana 및 Kibana 대시보드 액세스합니다.
 
 예를 들어 _PostgreSQL Instance_ 라는 끝점을 사용 하 여 psql을 서버 그룹에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
 ```console

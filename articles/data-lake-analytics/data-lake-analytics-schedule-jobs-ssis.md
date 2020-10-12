@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318707"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
 이 문서에서는 SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업을 오케스트레이션하고 만드는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure Feature Pack for Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)에서는 Azure Data Lake Analytics 서비스에 연결하는 데 유용한 [Azure Data Lake Analytics 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) 및 [Azure Data Lake Analytics 태스크](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)를 제공합니다. 이 태스크를 사용하려면 다음을 설치해야 합니다.
 

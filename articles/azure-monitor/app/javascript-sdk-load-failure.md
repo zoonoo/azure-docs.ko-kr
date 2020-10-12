@@ -7,10 +7,10 @@ ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333259"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
@@ -30,7 +30,7 @@ Sdk 로드 실패 예외는 SDK 스크립트를 다운로드 하거나 초기화
 
 스택 정보에는 최종 사용자가 사용 하는 Url의 기본 정보가 포함 됩니다.
 
-| Name                      | Description                                                                                                  |
+| Name                      | 설명                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN &nbsp; 끝점&gt; | SDK를 다운로드 하는 데 사용 되거나 실패 한 URL입니다.                                                      |
 | &lt;도움말 &nbsp; 링크&gt;    | 문제 해결 설명서 (이 페이지)에 연결 되는 URL입니다.                                              |
@@ -64,7 +64,7 @@ NPM 패키지 솔루션을 통해 SDK를 사용 하는 경우에도 마찬가지
 
 [NPM 패키지](#use-npm-packages-to-embed-the-application-insight-sdk) 를 사용 하 여 Application Insights SDK를 포함할 수도 있습니다.
 
-일시적인 네트워크 연결 오류를 최소화 하기 위해 모든 CDN 파일에 Cache-control 헤더를 구현 했습니다. 그러면 최종 사용자의 브라우저에서 현재 버전의 SDK를 다운로드 한 후에는 다시 다운로드할 필요가 없으며 브라우저에서 이전에 가져온 복사본을 다시 사용 하 게 됩니다 ( [캐싱이 작동 하는 방법](../../cdn/cdn-how-caching-works.md)참조). 캐싱 확인이 실패 하거나 새 릴리스가 있는 경우 최종 사용자의 브라우저에서 업데이트 된 버전을 다운로드 해야 합니다. 따라서 확인 실패 시나리오에서 _"노이즈"_ 의 배경 수준이 표시 되거나 새 릴리스가 발생 하 고 일반 공급 (CDN에 배포) 될 때 임시 스파이크가 발생할 수 있습니다.
+일시적인 네트워크 연결 오류를 최소화 하기 위해 모든 CDN 파일에 Cache-Control 헤더를 구현 했습니다. 그러면 최종 사용자의 브라우저가 현재 버전의 SDK를 다운로드 한 후에는 다시 다운로드할 필요가 없으며 브라우저에서 이전에 가져온 복사본을 다시 사용 하 게 됩니다 ( [캐싱이 작동 하는 방법](../../cdn/cdn-how-caching-works.md)참조). 캐싱 확인이 실패 하거나 새 릴리스가 있는 경우 최종 사용자의 브라우저에서 업데이트 된 버전을 다운로드 해야 합니다. 따라서 확인 실패 시나리오에서 _"노이즈"_ 의 배경 수준이 표시 되거나 새 릴리스가 발생 하 고 일반 공급 (CDN에 배포) 될 때 임시 스파이크가 발생할 수 있습니다.
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights CDN 중단
 

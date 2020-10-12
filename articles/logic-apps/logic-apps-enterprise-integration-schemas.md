@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75979371"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 스키마로 XML 유효성 검사
@@ -99,7 +99,7 @@ ms.locfileid: "75979371"
 
    * Blob 컨테이너에 공용 액세스 권한이 있는 경우 **취소**를 선택 하 고이 페이지의 뒷부분에서 [공용 액세스를 사용 하 여 컨테이너에 업로드](#public-access) 를 수행 합니다.
 
-     ![공용 액세스](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+     ![퍼블릭 액세스](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
    * Blob 컨테이너에 공용 액세스 권한이 없는 경우 **취소**를 선택 하 고이 페이지의 뒷부분에 있는 다음 단계를 수행 합니다. [공용 액세스 없이 컨테이너에 업로드](#public-access) 합니다.
 

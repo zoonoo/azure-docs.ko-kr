@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Stack 허브 (미리 보기)의 Event Hub
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 1c876ed36be6aec9395a1acba3a1deb25a47de2c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87039228"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Blob Storage를 검사점 저장소로 사용-Azure Stack 허브 (미리 보기)에서 Event Hubs
@@ -15,7 +15,7 @@ Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 또는  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
 - Python- [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ The value for one of the HTTP headers is not in the correct format
 
 
 ## <a name="sample-error-message-in-python"></a>Python의 샘플 오류 메시지
-Python의 경우 오류는 `azure.core.exceptions.HttpResponseError` 의 오류 처리기에 전달 됩니다 `on_error(partition_context, error)` `EventHubConsumerClient.receive()` . 그러나 메서드는 `receive()` 예외를 발생 시 키 지 않습니다. `print(error)`는 다음과 같은 예외 정보를 인쇄 합니다.
+Python의 경우 오류는 `azure.core.exceptions.HttpResponseError` 의 오류 처리기에 전달 됩니다 `on_error(partition_context, error)` `EventHubConsumerClient.receive()` . 그러나 메서드는 `receive()` 예외를 발생 시 키 지 않습니다. `print(error)` 는 다음과 같은 예외 정보를 인쇄 합니다.
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.

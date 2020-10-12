@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065085"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포를 지원하는 SAP 소프트웨어
@@ -117,7 +117,7 @@ Azure Vm의 경우 이러한 SAPS 처리량 번호는 [SAP support note #1928533
 
 [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)를 살펴보면 다음과 같은 주의 사항을 적용 합니다.
 
-- **M 시리즈 azure vm 및 Mv2 시리즈 azure Vm의 경우 다른 AZURE vm 유형에 비해 다른 최소 OS 릴리스가 적용**됩니다. 최신 OS 릴리스를 위한 요구 사항은 특정 Azure VM 유형에 서 실행 중인 운영 체제를 사용 하도록 설정 하거나 해당 VM 유형에 서 SAP 워크 로드의 성능 및 처리량을 최적화 하기 위해 운영 체제 릴리스에서 제공 해야 하는 다양 한 운영 체제 공급 업체의 변경 사항을 기반으로 합니다.
+- **M 시리즈 azure vm 및 Mv2-Series azure Vm의 경우 다른 AZURE VM 유형에 비해 다른 최소 OS 릴리스가 적용**됩니다. 최신 OS 릴리스를 위한 요구 사항은 특정 Azure VM 유형에 서 실행 중인 운영 체제를 사용 하도록 설정 하거나 해당 VM 유형에 서 SAP 워크 로드의 성능 및 처리량을 최적화 하기 위해 운영 체제 릴리스에서 제공 해야 하는 다양 한 운영 체제 공급 업체의 변경 사항을 기반으로 합니다.
 - 서로 다른 VM 유형을 지정 하는 두 개의 테이블이 있습니다. 두 번째 테이블은 Azure standard Storage만 지 원하는 Azure VM 형식에 대 한 SAPS 처리량을 지정 합니다. 메모의 두 번째 테이블에 지정 된 단위에 대 한 DBMS 배포가 지원 되지 않습니다.
 
 

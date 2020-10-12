@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333208"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
@@ -112,7 +112,7 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 자세한 내용은 [serviceTopologies 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/serviceTopologies)를 참조하세요.
 
-### <a name="services"></a>서비스
+### <a name="services"></a>Services
 
 다음 예제에서는 서비스 리소스의 일반 형식을 보여 줍니다. 각 서비스에서 서비스 배포에 사용할 위치 및 Azure 구독 ID를 제공합니다. 여러 지역에 배포하려면 각 지역의 서비스를 정의합니다. 서비스는 서비스 토폴로지에 따라 다릅니다.
 

@@ -12,10 +12,10 @@ ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 90b107b2335bd5f08eeb0b9aa66c7a9db9b74eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388564"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인하도록 설정
@@ -50,7 +50,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Manual`을 선택합니다.
-7. 정책 키의 **이름**을 입력합니다. `AmazonSecret`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+7. 정책 키의 **이름**을 입력합니다. 예들 들어 `AmazonSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 8. 이전에 기록해 두었던 클라이언트 비밀을 **비밀**에 입력합니다.
 9. **키 사용**에서 `Signature`를 선택합니다.
 10. **만들기**를 클릭합니다.
@@ -124,7 +124,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInAmazon`.
+5. 사용자 경험 ID의 이름을 바꿉니다. 예들 들어 `SignUpSignInAmazon`입니다.
 
 ### <a name="display-the-button"></a>단추 표시
 
@@ -148,7 +148,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 
-    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. `Amazon-OAuth`)을 입력합니다.
+    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예들 들어 `Amazon-OAuth`입니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 

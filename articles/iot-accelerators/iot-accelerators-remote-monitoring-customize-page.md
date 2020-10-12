@@ -10,10 +10,10 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: e585bc52121943102522f8c44291a4f9453d6214
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318401"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 페이지 추가
@@ -25,12 +25,12 @@ ms.locfileid: "91318401"
 
 다른 방법 가이드에서는 이 시나리오를 확장하여 추가하는 페이지에 더 많은 기능을 추가합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.JS](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>UI에 대한 로컬 개발 환경 준비
 

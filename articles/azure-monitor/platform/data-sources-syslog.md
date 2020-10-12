@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
 ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322315"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
@@ -205,7 +205,7 @@ Log Analytics 에이전트는 포트 25224에서 로컬 클라이언트의 Syslo
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터입니다. |
 | Facility |메시지를 생성한 시스템의 부분을 정의합니다. |

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 0904ac36a9453e51dbb1efc50eee2b9bf3c669c7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708820"
 ---
 # <a name="delete-replications"></a>복제 삭제
@@ -39,6 +39,6 @@ ms.locfileid: "90708820"
 
 * [지역 간 복제](cross-region-replication-introduction.md)
 * [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)
-* [복제 관계의 상태를 표시 합니다.](cross-region-replication-display-health-status.md)
+* [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
 

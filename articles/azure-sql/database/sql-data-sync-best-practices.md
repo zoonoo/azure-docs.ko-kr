@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332987"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화 모범 사례 
@@ -52,7 +52,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 -   자격 증명을 다른 단계로 변경합니다(예를 들어 설정에는 *credentials1*, 진행 중에는 *credentials2*).  
 -   자격 증명의 권한을 변경합니다(즉, 동기화를 설정한 후 사용 권한을 변경).
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설정
 
 ### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> 데이터베이스 고려 사항 및 제약 조건
 

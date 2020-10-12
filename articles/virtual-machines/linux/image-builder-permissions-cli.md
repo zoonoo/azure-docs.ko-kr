@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068239"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 이미지 작성기 서비스 사용 권한 구성
@@ -41,7 +41,7 @@ Azure 이미지 작성기를 사용 하려면 [azure 사용자 할당 관리 id]
 
 다음 예제에서는 Azure 사용자 할당 관리 id를 만드는 방법을 보여 줍니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |---------|-------------|
 | \<Resource group\> | 사용자 할당 관리 id를 만들 리소스 그룹입니다. |
 
@@ -118,7 +118,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 예제의 값을 간단 하 게 바꾸기 위해 다음 변수를 먼저 설정 합니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |---------|-------------|
 | \<Subscription ID\> | Azure 구독 ID |
 | \<Resource group\> | 사용자 지정 이미지에 대 한 리소스 그룹 |
@@ -160,7 +160,7 @@ az role assignment create \
 
 예제의 값을 간단 하 게 바꾸기 위해 다음 변수를 먼저 설정 합니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |---------|-------------|
 | \<Subscription ID\> | Azure 구독 ID |
 | \<Resource group\> | VNET 리소스 그룹 |
@@ -227,14 +227,14 @@ az role assignment create \
 
 다음 자리 표시자 설정을 바꿉니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |---------|-------------|
 | \<Region\> | 템플릿 영역 |
 | \<Resource group\> | Resource group |
 | \<Storage account container\> | 스토리지 계정 컨테이너 이름 |
 | \<Subscription ID\> | Azure 구독 |
 
-사용자 할당 관리 id를 사용 하는 방법에 대 한 자세한 내용은 [Azure 사용자 할당 관리 id를 사용 하 여 원활 액세스 Azure Storage 파일을 하는 사용자 지정 이미지 만들기](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage)를 참조 하세요. 빠른 시작은 사용자 할당 관리 id를 만들고 구성 하 여 저장소 계정에 액세스 하는 방법을 안내 합니다.
+사용자 할당 관리 id를 사용 하는 방법에 대 한 자세한 내용은 [Azure User-Assigned 관리 id를 사용 하 여 Azure Storage 액세스 파일을 원활 하는 사용자 지정 이미지 만들기](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage)를 참조 하세요. 빠른 시작은 사용자 할당 관리 id를 만들고 구성 하 여 저장소 계정에 액세스 하는 방법을 안내 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

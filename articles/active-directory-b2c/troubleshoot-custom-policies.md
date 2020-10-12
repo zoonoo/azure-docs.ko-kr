@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85384960"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
@@ -43,7 +43,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 * ClaimType 값의 철자가 틀렸거나 ClaimType 값이 스키마에 없습니다.
 * ClaimType 값이 정책 파일 중 하나 이상에 정의되어 있어야 합니다.
-    예: `<ClaimType Id="issuerUserId">`
+    `<ClaimType Id="issuerUserId">`
 * ClaimType이 확장 파일에 정의되어 있지만 기본 파일의 TechnicalProfile 값에도 사용된 경우 기본 파일을 업로드하면 오류가 발생합니다.
 
 > 오류 코드 조각: `...makes a reference to a ClaimsTransformation with id...`
