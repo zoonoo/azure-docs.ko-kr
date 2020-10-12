@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
 ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409768"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
@@ -45,15 +45,15 @@ ms.locfileid: "91409768"
 
 다음은 그래프 개체의 속성에 대한 모범 사례입니다.
 
-| 개체 | 속성 | 형식 | 메모 |
+| Object | 속성 | Type | 참고 |
 | --- | --- | --- |  --- |
 | 꼭짓점 | ID | String | 파티션별로 고유하게 적용됩니다. 삽입 시 값이 제공되지 않으면 자동 생성된 GUID가 저장됩니다. |
 | 꼭짓점 | label | String | 이 속성은 꼭짓점이 나타내는 엔터티 유형을 정의하는 데 사용됩니다. 값을 제공하지 않으면 기본값인 "꼭짓점"이 사용됩니다. |
 | 꼭짓점 | properties | 문자열, 부울, 숫자 | 꼭짓점마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 | 꼭짓점 | 파티션 키 | 문자열, 부울, 숫자 | 이 속성은 꼭짓점과 나가는 가장자리를 저장할 위치를 정의합니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 읽어보세요. |
-| Microsoft Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
-| Microsoft Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
-| Microsoft Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
+| Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
+| Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
+| Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 
 > [!NOTE]
 > 가장자리 값은 원본 꼭짓점에 따라 자동으로 할당되기 때문에 가장자리에는 파티션 키 값이 필요하지 않습니다. 자세한 내용은 [그래프 분할](graph-partitioning.md) 문서를 참조하세요.
@@ -105,7 +105,7 @@ ms.locfileid: "91409768"
 * 관계에 레이블을 지정할 때는 제네릭이 아닌 용어를 사용합니다.
 * 원본 꼭짓점의 레이블을 관계 이름을 사용하여 대상 꼭짓점의 레이블과 연결합니다.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="관계 레이블 지정 예시." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="속성에 대한 꼭짓점이 있는 엔터티 모델입니다." border="false":::
 
 트래버서(traverser)가 가장자리를 필터링하는 데 사용하는 레이블이 구체적일수록 좋습니다. 이 결정은 쿼리 비용에도 상당한 영향을 줄 수 있습니다. 쿼리 비용은 [executionProfile 단계를 사용](graph-execution-profile.md)하여 언제든지 평가할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 만들기 또는 업데이트 작업에 대 한 호출 배치
+title: 만들기 또는 업데이트 작업에 대한 PUT 호출
 description: 계산 리소스에 대 한 만들기 또는 업데이트 작업에 대 한 호출을 추가 합니다.
 author: mimckitt
 ms.author: mimckitt
@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
 ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347496"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>계산 리소스에 대 한 만들기 또는 업데이트에 대 한 호출을 추가 합니다.

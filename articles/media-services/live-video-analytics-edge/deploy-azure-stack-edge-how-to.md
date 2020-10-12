@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Stack Edge에 라이브 비디오 분석�
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937714"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Live Video Analytics 배포
@@ -19,7 +19,7 @@ ms.locfileid: "90937714"
 > [!TIP]
 > 사용자 지정 배포에 Kubernetes (K8s) API를 사용 하는 것은 고급 사례입니다. 고객은 Kubernetes API를 사용 하는 대신 edge 모듈을 만들고 각 Azure Stack에 지 리소스에 IoT Hub를 통해 배포 하는 것이 좋습니다. 이 문서에서는 IoT Hub 사용 하 여 라이브 비디오 분석 모듈을 배포 하는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [소유자 권한이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)있는 Azure 구독입니다.
 * [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) 리소스
@@ -58,11 +58,11 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
     |Name|IoT Hub 리소스의 이름을 입력합니다.|
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge 시작":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
 1. **만들기**를 선택합니다. IoT Hub 리소스 만들기는 몇 분 정도 걸립니다. IoT Hub 리소스가 만들어지면 컴퓨팅 구성을 표시하도록 **컴퓨팅 구성** 타일이 업데이트됩니다. Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **컴퓨팅 구성** 타일의 **컴퓨팅 보기**를 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="리소스 만들기 IoT Hub":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
 
     > [!NOTE]
     > IoT Hub이 Azure Stack에 지 리소스와 연결 되기 전에 계산 구성 대화 상자가 닫히면 IoT Hub 생성 되지만 계산 구성에는 표시 되지 않습니다. 몇 분 후에 페이지를 다시 로드 하 고 표시 되는지 확인 합니다.
@@ -72,7 +72,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
     모든 정보가 채워지면 Edge 계산 카드 구성이 다음과 같이 표시 됩니다.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="에 지 계산 카드 구성 ":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
  
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Azure Stack Edge 로컬 UI에서 계산 전제 조건 사용
 
@@ -89,7 +89,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
         * 적용 선택-이 작업에는 약 2 분이 소요 됩니다.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Azure Stack Edge 로컬 UI에서 필수 구성 요소 계산":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
 
         * Kubernetes API 및 Azure Stack Edge 리소스에 대해 DNS가 구성 되지 않은 경우 창의 호스트 파일을 업데이트할 수 있습니다.
         
@@ -185,7 +185,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
     1. **만들기**를 클릭 합니다.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="로컬 공유":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
     
 1. 파일 동기화 저장소에 대 한 원격 공유를 만듭니다.
 
@@ -203,36 +203,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
     1. **만들기**를 클릭 합니다.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="원격 공유":::
-    
-    > [!TIP]
-    > Azure Stack Edge에 연결 된 Windows 클라이언트를 사용 하 여 [이 문서에 설명](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share)된 단계를 수행 하 여 SMB 공유에 연결 합니다.
-    
-1. 볼륨 탑재를 사용 하려면 Live Video Analytics Edge 모듈의 컨테이너 만들기 옵션을 업데이트 합니다 ( [모듈 추가 문서](deploy-iot-edge-device.md#add-modules)에서 지점 4 참조).
-
-   ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
             }]
         }
     }
@@ -248,7 +219,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
 1. 모듈 타일을 선택 합니다. 그러면 모듈 블레이드로 이동됩니다. 모듈 목록에서, 배포한 모듈을 찾습니다. 추가한 모듈의 런타임 상태가 실행 중일 것입니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="사용자 지정 모듈":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Azure IoT Tools 확장 구성
 

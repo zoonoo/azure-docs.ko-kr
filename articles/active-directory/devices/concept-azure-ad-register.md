@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91256441"
 ---
 # <a name="azure-ad-registered-devices"></a>Azure AD 등록 디바이스
 
 Azure AD 등록 장치의 목표는 사용자에 게 BYOD (사용자 장치) 또는 모바일 장치 시나리오에 대 한 지원을 제공 하는 것입니다. 이러한 시나리오에서 사용자는 개인 장치를 사용 하 여 조직의 Azure Active Directory 제어 되는 리소스에 액세스할 수 있습니다.
 
-| 등록 된 Azure AD | Description |
+| 등록 된 Azure AD | 설명 |
 | --- | --- |
 | **정의** | 조직 계정이 장치에 로그인 할 필요 없이 Azure AD에 등록 됨 |
 | **기본 대상 그룹** | 다음 조건에 해당 하는 모든 사용자에 게 적용 됩니다. |

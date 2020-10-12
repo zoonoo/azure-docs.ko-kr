@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.openlocfilehash: b5f7ed1f2ded8f6ec0320d417b59bab016d75028
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777278"
 ---
 # <a name="personalizer-troubleshooting"></a>Personalizer 문제 해결
@@ -18,11 +18,11 @@ ms.locfileid: "91777278"
 
 ## <a name="configuration-issues"></a>구성 문제
 
-### <a name="i-changed-a-configuration-setting-and-now-my-loop-isnt-performing-at-the-same-learning-level-what-happened"></a>구성 설정을 변경 했 고 이제 루프가 동일한 학습 수준에서 수행 되지 않습니다. 무슨 일이 일어났나요?
+### <a name="i-changed-a-configuration-setting-and-now-my-loop-isnt-performing-at-the-same-learning-level-what-happened"></a>구성 설정을 변경 했 고 이제 루프가 동일한 학습 수준에서 수행 되지 않습니다. 어떻게 되었나요?
 
 일부 구성 설정은 [모델을 다시 설정](how-to-settings.md#settings-that-include-resetting-the-model)합니다. 구성 변경 내용을 신중 하 게 계획 해야 합니다.
 
-### <a name="when-configuring-personalizer-with-the-api-i-received-an-error-what-happened"></a>API를 사용 하 여 Personalizer를 구성 하는 경우 오류가 발생 합니다. 무슨 일이 일어났나요?
+### <a name="when-configuring-personalizer-with-the-api-i-received-an-error-what-happened"></a>API를 사용 하 여 Personalizer를 구성 하는 경우 오류가 발생 합니다. 어떻게 되었나요?
 
 단일 API 요청을 사용 하 여 서비스를 구성 하 고 학습 동작을 변경 하는 경우 오류가 발생 합니다. 두 개의 별도 API 호출을 수행 해야 합니다. 먼저 서비스를 구성한 다음 학습 동작을 전환 합니다.
 
@@ -70,7 +70,7 @@ Azure Portal의 **모델 및 학습 설정** 페이지에서 모델이 마지막
 
 ## <a name="offline-evaluations"></a>오프라인 평가
 
-### <a name="an-offline-evaluations-feature-importance-returns-a-long-list-with-hundreds-or-thousands-of-items-what-happened"></a>오프 라인 평가의 기능 중요도는 수백 또는 수천 개의 항목을 포함 하는 긴 목록을 반환 합니다. 무슨 일이 일어났나요?
+### <a name="an-offline-evaluations-feature-importance-returns-a-long-list-with-hundreds-or-thousands-of-items-what-happened"></a>오프 라인 평가의 기능 중요도는 수백 또는 수천 개의 항목을 포함 하는 긴 목록을 반환 합니다. 어떻게 되었나요?
 
 이는 일반적으로 타임 스탬프, 사용자 Id 또는 기타 일부 세분화 된 기능으로 인해 발생 합니다.
 

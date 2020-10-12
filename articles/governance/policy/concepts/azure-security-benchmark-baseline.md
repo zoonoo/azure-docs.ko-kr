@@ -8,10 +8,10 @@ ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540985"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure 보안 벤치 마크에 대 한 Azure Policy 보안 기준
@@ -76,7 +76,7 @@ Azure Policy는 _책임_대신 _소유권_ 이라는 용어를 사용 합니다.
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Policy에 대 한 액세스를 제어 합니다.
 
-* [Azure Policy의 Azure RBAC 권한](../overview.md#azure-rbac-permissions-in-azure-policy)
+* [Azure Policy의 Azure RBAC 사용 권한](../overview.md#azure-rbac-permissions-in-azure-policy)
 
 * [Azure RBAC를 구성 하는 방법](../../../role-based-access-control/role-assignments-portal.md)
 

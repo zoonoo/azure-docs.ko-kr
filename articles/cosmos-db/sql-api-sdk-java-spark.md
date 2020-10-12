@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: afee95f6a8776c3506e10c29cfd8e776734a915a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326680"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 Azure Cosmos DB Apache Spark 커넥터: 릴리스 정보 및 리소스
@@ -27,7 +27,7 @@ ms.locfileid: "91326680"
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
@@ -64,7 +64,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 ## <a name="release-history"></a>릴리스 기록
 
 ### <a name="330"></a>3.3.0
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 - 새 구성 옵션인를 추가 합니다 .이 옵션을 `changefeedstartfromdatetime` 사용 하 여 플랫폼인 처리 되어야 하는 시작 시간을 지정할 수 있습니다. 자세한 내용은 [Config options](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references)를 참조 하세요.
 
 ### <a name="320"></a>3.2.0
@@ -76,7 +76,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 * 에 `ID` 구성이 적용 된 파이프 문자 (|)가 포함 된 스트리밍 검사점에 지 사례를 수정 `ChangeFeedMaxPagesPerBatch` 합니다.
 
 ### <a name="310"></a>3.1.0
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 중첩 된 파티션 키를 사용 하는 경우 대량 업데이트에 대 한 지원을 추가 합니다.
 * Azure Cosmos DB에 쓰는 동안 Decimal 및 Float 데이터 형식에 대 한 지원을 추가 합니다.
 * Long (Unix epoch)를 값으로 사용 하는 경우 타임 스탬프 형식에 대 한 지원을 추가 합니다.
@@ -86,7 +86,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 * 구성을 사용할 때 발생 하는 형식 캐스팅 예외를 수정 `WriteThroughputBudget` 합니다.
 
 ### <a name="307"></a>3.0.7 이상을
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 대량 실패에 대 한 오류 정보를 예외 및 로그에 추가 합니다.
 
 ### <a name="306"></a>3.0.6
@@ -114,7 +114,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 * TCP를 통한 직접 전송이 RequestTimeoutException을 사용 하 여 실패 하는 종속성 문제를 해결 합니다.
 
 ### <a name="300"></a>3.0.0
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 연결 관리 및 연결 풀링을 개선 하 여 메타 데이터 호출의 수를 줄입니다.
 
 ## <a name="faq"></a>FAQ

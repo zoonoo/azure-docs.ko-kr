@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542192"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
@@ -48,7 +48,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 |Nested grouping utterance 예제|설명|
 |--|--|
 |RedWest-C|외부 그룹화 엔터티와 일치|
-|시애틀|내부 그룹화 엔터티 중 하 나와 일치|
+|Seattle|내부 그룹화 엔터티 중 하 나와 일치|
 |Cairo|내부 그룹화 엔터티 중 하 나와 일치|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>선택적인 구문을 사용 하 여 그룹에 대 한 중첩 제한

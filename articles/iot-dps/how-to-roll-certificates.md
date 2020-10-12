@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531409"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
@@ -94,7 +94,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 1. **개별 등록**을 클릭하고 목록에서 등록 ID 항목을 클릭합니다. 
 
-2. **보조 인증서**를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **저장**을 클릭합니다.
+2. **보조 인증서**를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **Save**을 클릭합니다.
 
     ![보조 인증서 만료를 사용 하 여 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +177,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 1. **등록 그룹**을 클릭하고 목록에서 그룹 이름을 클릭합니다. 
 
-2. **보조 인증서**를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **저장**을 클릭합니다.
+2. **보조 인증서**를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **Save**을 클릭합니다.
 
     이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md#x509-certificates)를 참조하세요.
 

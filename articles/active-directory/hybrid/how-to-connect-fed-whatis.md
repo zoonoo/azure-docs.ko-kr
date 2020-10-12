@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660855"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 | [AD FS 클레임 규칙 수정](how-to-connect-fed-management.md#modclaims) |Azure AD Connect 동기화 구성에 해당하는 AD FS의 클레임 규칙을 수정 또는 추가합니다. |
 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [단일 AD FS를 사용하여 2개의 Azure AD 페더레이션](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [Azure에서 AD FS 배포](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 * [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)

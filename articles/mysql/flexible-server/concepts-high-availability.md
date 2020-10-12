@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937133"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 고가용성 개념
@@ -18,7 +18,7 @@ ms.locfileid: "90937133"
 > [!IMPORTANT] 
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
-유연한 서버 (미리 보기)를 Azure Database for MySQL **영역 중복** 고가용성 옵션을 사용 하 여 자동 장애 조치 (failover)를 통해 고가용성을 구성할 수 있습니다. 영역 중복 구성으로 배포 하는 경우 유연한 서버는 다른 가용성 영역에서 대기 복제본을 자동으로 프로 비전 하 고 관리 합니다. 저장소 수준 복제를 사용 하 여 데이터는 장애 조치 (failover) 후 데이터 손실이 발생 하지 않도록 보조 영역의 대기 서버에 **동기식으로 복제** 됩니다. 장애 조치 (failover)는 클라이언트 응용 프로그램에서 완전히 투명 하며 사용자 작업은 필요 하지 않습니다. 대기 서버는 읽기 또는 쓰기 작업에 사용할 수 없지만 빠른 장애 조치 (failover)를 사용 하려면 수동 대기 상태입니다. 장애 조치 (failover) 시간은 일반적으로 60-120 초 범위에 있습니다.
+유연한 서버 (미리 보기)를 Azure Database for MySQL **영역 중복** 고가용성 옵션을 사용 하 여 자동 장애 조치 (failover)를 통해 고가용성을 구성할 수 있습니다. 영역 중복 구성으로 배포하는 경우 유동 서버는 다른 가용성 영역에서 대기 복제본을 자동으로 프로비저닝하고 관리합니다. 저장소 수준 복제를 사용 하 여 데이터는 장애 조치 (failover) 후 데이터 손실이 발생 하지 않도록 보조 영역의 대기 서버에 **동기식으로 복제** 됩니다. 장애 조치 (failover)는 클라이언트 응용 프로그램에서 완전히 투명 하며 사용자 작업은 필요 하지 않습니다. 대기 서버는 읽기 또는 쓰기 작업에 사용할 수 없지만 빠른 장애 조치 (failover)를 사용 하려면 수동 대기 상태입니다. 장애 조치 (failover) 시간은 일반적으로 60-120 초 범위에 있습니다.
 
 영역 중복 고가용성 구성을 사용 하면 사용자가 시작한 규모 계산 작업 및 기본 하드웨어 및 소프트웨어 오류, 네트워크 오류, 가용성 영역 오류 등의 계획 되지 않은 이벤트 동안 자동 장애 조치 (failover)가 가능 합니다.
 

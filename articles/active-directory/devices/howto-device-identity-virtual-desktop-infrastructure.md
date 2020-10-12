@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089669"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
@@ -58,7 +58,7 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 |   |   |   | 비영구 | 아니요 |
 |   | 관리 대상 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
-| Azure AD 등록 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 없음 |
+| Azure AD 등록 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 사항 없음 |
 
 <sup>1</sup> **windows 현재** 장치는 Windows 10, Windows Server 2016 및 windows server 2019를 나타냅니다.
 

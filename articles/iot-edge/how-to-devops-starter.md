@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297133"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
@@ -62,7 +62,7 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 
    ![이름 및 프로젝트 만들기](media/how-to-devops-starter/create-project.png)
 
-몇 분 후에 DevOps 스타터 대시보드가 Azure Portal 표시 됩니다. 진행률을 보려면 프로젝트 이름을 선택합니다. 페이지를 새로 고쳐야 할 수도 있습니다. 샘플 IoT Edge 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 IoT Edge 디바이스에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
+잠시 후에 DevOps Starter 대시보드가 Azure Portal에 표시됩니다. 진행률을 보려면 프로젝트 이름을 선택합니다. 페이지를 새로 고쳐야 할 수도 있습니다. 샘플 IoT Edge 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 IoT Edge 디바이스에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
 
    ![Azure Portal에서 프로젝트 보기](./media/how-to-devops-starter/portal.png)
 

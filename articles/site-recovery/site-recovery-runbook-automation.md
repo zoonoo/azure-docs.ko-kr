@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: ramamill
 ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89424874"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
@@ -115,7 +115,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>복구 계획 사용자 지정
 
 1. 자격 증명 모음에서 **복구 계획 (Site Recovery)** 을 선택 합니다.
-2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세한 정보를 알아보세요](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
+2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아봅니다](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
 3. 복구 계획 페이지에서 **사용자 지정**을 클릭 합니다.
 
     ![[사용자 지정] 단추 클릭](media/site-recovery-runbook-automation-new/custom-rp.png)
@@ -192,7 +192,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장
 
-일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의하십시오.
+일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의하세요.
 
 - 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다.
 - 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다.

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439092"
 ---
 # <a name="train-pytorch-model"></a>Pytorch 모델 학습
@@ -58,7 +58,7 @@ ms.locfileid: "91439092"
 ## <a name="technical-notes"></a>기술 정보
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 속성               | 유형                    | 설명                              |
+| Name               | 유형                    | 설명                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델    | UntrainedModelDirectory | 학습 되지 않은 모델, pytorch 필요         |
 | 학습 데이터 세트   | ImageDirectory          | 학습 데이터 세트                         |
@@ -66,7 +66,7 @@ ms.locfileid: "91439092"
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 속성          | 범위            | Type    | 기본값 | 설명                              |
+| Name          | 범위            | Type    | 기본값 | 설명                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoch        | >0               | 정수 | 5       | 레이블 또는 결과 열이 포함된 열을 선택합니다. |
 | Batch 크기    | >0               | 정수 | 16      | 일괄 처리에서 학습 하는 인스턴스 수   |
@@ -74,9 +74,9 @@ ms.locfileid: "91439092"
 | 무작위 초기값   | 모두              | 정수 | 1       | 모델에서 사용하는 난수 생성기의 초기값입니다. |
 | 주셔서      | >0               | 정수 | 3       | 조기에 교육을 중지할 epoch 수   |
 
-###  <a name="outputs"></a>출력  
+###  <a name="outputs"></a>outputs  
 
-| 속성          | 유형           | 설명   |
+| Name          | 유형           | 설명   |
 | ------------- | -------------- | ------------- |
 | 학습된 모델 | ModelDirectory | 학습된 모델 |
 

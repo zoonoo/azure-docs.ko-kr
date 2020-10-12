@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531056"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
@@ -110,7 +110,7 @@ ms.locfileid: "90531056"
 
 식의 맨 위에 주석을 입력 하면 변환 텍스트 상자에 표시 되어 변환 식을 문서화할 수 있습니다.
 
-![변환 텍스트 상자의 주석](media/data-flow/comment-expression.png "의견")
+![변환 텍스트 상자의 주석](media/data-flow/comment-expression.png "주석")
 
 ## <a name="regular-expressions"></a>정규식
 
