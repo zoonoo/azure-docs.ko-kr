@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618117"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
@@ -36,7 +36,7 @@ SQL Managed Instance에는 기본 인프라와 아키텍처에 따라 달라 지
 | **하드웨어** | Intel® E5-2673 v3 (Haswell) 2.4 g h z 프로세서, 연결 된 SSD vCore = 1PP (물리적 코어) | Intel® E5-2673 v4 (Broadwell) 2.3 g h z, Intel® SP-8160 (Skylake) 및 Intel® 8272CL (Cascade Lake) 2.5 GHz 프로세서, fast NVMe SSD, vCore = 1 LP (하이퍼 스레드) |
 | **VCores 수** | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **최대 메모리 (메모리/코어 비율)** | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
-| **최대 메모리 내 OLTP 메모리** | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
+| **최대 In-Memory OLTP 메모리** | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
 | **최대 인스턴스 예약 된 저장소** |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 몇 가지 추가 고려 사항: 
 
 - **현재 사용할 수 있는 인스턴스 저장소 크기** 는 예약 된 인스턴스 크기와 사용 된 저장소 공간의 차이입니다.
-- 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 모두 최대 저장소 크기 제한과 비교 하 여 인스턴스 저장소 크기에 포함 됩니다. [Master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) 시스템 뷰를 사용 하 여 데이터베이스에서 사용 하는 총 공간을 확인 합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
+- 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 모두 최대 저장소 크기 제한과 비교 하 여 인스턴스 저장소 크기에 포함 됩니다. [Sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) 시스템 뷰를 사용 하 여 데이터베이스에서 사용 하는 총 공간을 확인할 수 있습니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
 - 범용 계층의 처리량 및 IOPS는 SQL Managed Instance에 의해 명시적으로 제한 되지 않는 [파일 크기](#file-io-characteristics-in-general-purpose-tier) 에 따라서도 달라 집니다.
   [자동 장애 조치 그룹](../database/auto-failover-group-configure.md) 을 사용 하 여 다른 Azure 지역에서 읽을 수 있는 다른 복제본을 만들 수 있습니다.
 - 최대 인스턴스 IOPS는 파일 레이아웃 및 워크 로드 배포에 따라 달라 집니다. 예를 들어 각각 최대 5K IOPS를 사용 하 여 7 x 1TB 파일을 만들고 각각 500 IOPS를 사용 하는 7 개의 작은 파일 (128 미만)을 만드는 경우 워크 로드에서 모든 파일을 사용할 수 있는 경우 인스턴스당 38500 IOPS (7x5000 + 7x500)를 가져올 수 있습니다. 일부 IOPS는 자동 백업에도 사용 됩니다.
@@ -110,7 +110,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 
 최대 로그 쓰기 처리량 (22 m b/초)에도 인스턴스 수준 제한이 있으므로 인스턴스 처리량 제한에 도달 하 여 로그 파일 전체에서 최대 파일에 도달 하지 못할 수 있습니다.
 
-## <a name="supported-regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a>지원되는 지역
 
 SQL Managed Instance은 [지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)에서만 만들 수 있습니다. 현재 지원 되지 않는 지역에서 SQL Managed Instance를 만들려면 [Azure Portal를 통해 지원 요청을 보낼](../database/quota-increase-request.md)수 있습니다.
 

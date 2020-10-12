@@ -7,10 +7,10 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87048663"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Azure Service Bus에서 Azure Logic Apps 순차 호위 (convoy)를 사용 하 여 관련 메시지 보내기
@@ -31,7 +31,7 @@ ms.locfileid: "87048663"
 
 자세한 내용은 [순차 호위 (convoy) 패턴-Azure 아키텍처 클라우드 디자인 패턴](/azure/architecture/patterns/sequential-convoy)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "87048663"
 
 ![템플릿의 최상위 워크플로](./media/send-related-messages-sequential-convoy/template-top-level-flow.png)
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | 지정 된 되풀이에 따라이 Service Bus 트리거는 지정 된 Service Bus 큐에서 메시지를 확인 합니다. 메시지가 큐에 있으면 트리거가 발생 하 여 워크플로 인스턴스를 만들고 실행 합니다. <p><p>용어 *피킹 (peeking) 잠금은* 트리거를 통해 큐에서 메시지를 검색 하는 요청을 보냅니다. 메시지가 있는 경우 트리거는 잠금 기간이 만료 될 때까지 해당 메시지에서 다른 처리가 발생 하지 않도록 메시지를 검색 하 고 잠급니다. 자세한 내용을 보려면 [세션을 초기화](#initialize-session)하십시오. |
 | **`Init isDone`** | 이 [ **변수 초기화** 작업](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) 은로 설정 된 부울 변수를 만들고 `false` 다음 조건이 true 인 경우를 나타냅니다. <p><p>-세션에서 읽을 수 있는 메시지가 더 이상 없습니다. <br>-현재 워크플로 인스턴스를 완료할 수 있도록 세션 잠금을 더 이상 갱신할 필요가 없습니다. <p><p>자세한 내용은 [세션 초기화](#initialize-session)를 참조 하세요. |
@@ -133,7 +133,7 @@ ms.locfileid: "87048663"
 
 !["시도" 범위 동작 워크플로](./media/send-related-messages-sequential-convoy/try-scope-action.png)
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | **`Send initial message to topic`** | 이 작업을 큐의 세션에서 첫 번째 메시지를 처리 하려는 작업으로 바꿀 수 있습니다. 세션 ID는 세션을 지정 합니다. <p><p>이 템플릿의 경우 Service Bus 작업은 첫 번째 메시지를 Service Bus 토픽으로 보냅니다. 자세한 내용은 [초기 메시지 처리](#handle-initial-message)를 참조 하세요. |
 | (병렬 분기) | 이 [병렬 분기 작업](../logic-apps/logic-apps-control-flow-branches.md) 은 두 개의 경로를 만듭니다. <p><p>-Branch #1: 메시지를 계속 처리 합니다. 자세한 내용은 [분기 #1: 큐에서 초기 메시지 완료](#complete-initial-message)를 참조 하세요. <p><p>-Branch #2: 오류가 발생 한 경우 메시지를 중단 하 고 다른 트리거에서 픽업을 위한 릴리스를 실행 합니다. 자세한 내용은 [분기 #2: 큐에서 초기 메시지 중단](#abandon-initial-message)을 참조 하세요. <p><p>두 경로는 나중에 **큐의 닫기 세션에서 조인 하 고 성공** 작업은 다음 행에 설명 되어 있습니다. |
@@ -144,7 +144,7 @@ ms.locfileid: "87048663"
 
 #### <a name="branch-1-complete-initial-message-in-queue"></a>분기 #1: 큐의 초기 메시지 완료
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | `Complete initial message in queue` | 이 Service Bus 작업은 성공적으로 검색 된 메시지를 완료로 표시 하 고 다시 처리 하지 않도록 메시지를 큐에서 제거 합니다. 자세한 내용은 [초기 메시지 처리](#handle-initial-message)를 참조 하세요. |
 | `While there are more messages for the session in the queue` | 이 [ **until** 루프](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 는 메시지가 존재 하거나 1 시간이 지날 때까지 메시지를 계속 받습니다. 이 루프의 동작에 대 한 자세한 내용은 [큐의 세션에 대 한 추가 메시지가](#while-more-messages-for-session)있는 경우를 참조 하세요. |
@@ -168,7 +168,7 @@ ms.locfileid: "87048663"
 
 !["Catch" 범위 동작 워크플로](./media/send-related-messages-sequential-convoy/catch-scope-action.png)
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | **`Close a session in a queue and fail`** | 이 Service Bus 작업은 세션 잠금이 열린 상태를 유지 하지 않도록 큐의 세션을 닫습니다. 자세한 내용은 [큐의 세션 닫기 및 실패](#close-session-fail)를 참조 하세요. |
 | **`Find failure msg from 'Try' block`** | 이 [ **필터 배열** 작업](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) 은 `Try` 지정 된 조건에 따라 범위 내의 모든 작업에서 입력 및 출력을 사용 하 여 배열을 만듭니다. 이 경우이 작업은 상태를 발생 시킨 작업에서 출력을 반환 합니다 `Failed` . 자세한 내용은 [' Try ' 블록에서 실패 메시지 찾기](#find-failure-message)를 참조 하십시오. |
@@ -193,7 +193,7 @@ ms.locfileid: "87048663"
   > [!NOTE]
   > 처음에는 논리 앱이 예상 보다 더 자주 실행 되지 않고 예상치 못한 청구 요금이 발생 하도록 폴링 간격이 3 분으로 설정 됩니다. 메시지 도착 시 논리 앱이 즉시 트리거되는 간격 및 빈도를 30 초로 설정 하는 것이 가장 좋습니다.
 
-  | 속성 | 이 시나리오에 필요 합니다. | Value | 설명 |
+  | 속성 | 이 시나리오에 필요 합니다. | 값 | 설명 |
   |----------|----------------------------|-------|-------------|
   | **큐 이름** | 예 | <*큐 이름*> | 이전에 만든 Service Bus 큐의 이름입니다. 이 예에서는 "Fabrikam-Service-Bus-큐"를 사용 합니다. |
   | **큐 유형** | 예 | **기본** | 기본 Service Bus 큐 |

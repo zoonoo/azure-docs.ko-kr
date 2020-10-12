@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
 ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347579"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Azure Communication Services를 Event Grid 원본으로
@@ -31,9 +31,9 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.SMSReceived                         | Communication Service와 연결된 전화 번호로 SMS를 받을 때 게시됩니다. |
 | Microsoft.Communication.SMSDeliveryReportReceived           | Communication Service에서 보낸 SMS에 대해 배달 보고서를 받을 때 게시됩니다.     |
-| ChatMessageReceived *                | 자신이 속한 채팅 스레드에서 사용자에 대한 메시지를 받을 때 게시됩니다.        |
-| Microsoft. 통신.                   | 자신이 속한 채팅 스레드에서 메시지가 편집될 때 게시됩니다.                |
-| Microsoft. 통신.                  | 자신이 속한 채팅 스레드에서 메시지가 삭제될 때 게시됩니다.               |
+| Microsoft.Communication.ChatMessageReceived*                | 자신이 속한 채팅 스레드에서 사용자에 대한 메시지를 받을 때 게시됩니다.        |
+| Microsoft.Communication.ChatMessageEdited*                   | 자신이 속한 채팅 스레드에서 메시지가 편집될 때 게시됩니다.                |
+| Microsoft.Communication.ChatMessageDeleted*                  | 자신이 속한 채팅 스레드에서 메시지가 삭제될 때 게시됩니다.               |
 | Microsoft.Communication.ChatThreadCreatedWithUser           | 채팅 스레드를 만들 때 사용자가 멤버로 추가되면 게시됩니다.           |
 | Microsoft.Communication.ChatThreadWithUserDeleted           | 자신이 속한 채팅 스레드가 삭제되면 게시됩니다.                           |
 | Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | 자신이 속한 채팅 스레드의 속성이 업데이트되면 게시됩니다.              |
@@ -41,7 +41,7 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 | Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | 채팅 스레드에서 사용자가 제거되면 게시됩니다.                                         |
 
 
-* 이러한 이벤트가 트리거될 수 있도록 "메시지 보내기" API 호출에 "보낸 사람 이름"을 입력 해야 합니다.
+*이러한 이벤트가 트리거되도록 "메시지 보내기" API 호출에 "보낸 사람 이름"을 입력했는지 확인하세요.
 
 ## <a name="event-subjects"></a>이벤트 제목
 
@@ -339,7 +339,7 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 
 ## <a name="tutorials"></a>자습서
 
-| 제목 | Description |
+| 제목 | 설명 |
 |---------|---------|
 | [빠른 시작: SMS 이벤트 처리](../communication-services/quickstarts/telephony-sms/handle-sms-events.md) | Event Grid를 사용 하 여 SMS 이벤트를 구독 하는 방법을 보여 줍니다.   |
 

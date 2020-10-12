@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318430"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
@@ -88,7 +88,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 | 기능 | 설명|
 | -| -|
-| [사용자 프로비전](../app-provisioning/plan-auto-user-provisioning.md)| Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. |
+| [사용자 프로 비전](../app-provisioning/plan-auto-user-provisioning.md)| Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. |
 | [클라우드 HR 사용자 프로 비전](../app-provisioning/plan-cloud-hr-provision.md)| Active Directory에 대 한 클라우드 HR 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만들고 권한 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다. Workday 또는 Successfactors와 같은 클라우드 HR 제품에서이 기능을 사용 하는 경우 Leaver 프로세스 (예: 새 고용, 종료, 전송)를 IT 프로 비전 작업 (만들기, 사용, 사용 안 함)에 매핑하는 규칙을 구성 하 여 직원과 불확정 작업자의 id 수명 주기를 원활 하 게 관리할 수 있습니다. |
 
 ## <a name="deploy-governance-and-reporting"></a>거 버 넌 스 및 보고 배포

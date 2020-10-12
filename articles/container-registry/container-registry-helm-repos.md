@@ -4,10 +4,10 @@ description: Azure Container Registry 리포지토리를 사용 하 여 Kubernet
 ms.topic: article
 ms.date: 06/12/2020
 ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537870"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Azure container registry에 투구 차트 푸시 및 끌어오기
@@ -33,7 +33,7 @@ Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경�
 > [!NOTE]
 > 투구 3부터 투구 2 클라이언트와 함께 사용 하기 위한 [az acr 투구][az-acr-helm] 명령은 더 이상 사용 되지 않습니다. [제품 로드맵](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga)을 참조 하세요. 이전에 투구 2 차트를 배포한 경우 [v3로 투구 V2 마이그레이션](https://helm.sh/docs/topics/v2_v3_migration/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 시나리오에는 다음 리소스가 필요 합니다.
 

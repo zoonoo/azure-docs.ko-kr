@@ -4,10 +4,10 @@ description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253646"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
@@ -46,7 +46,7 @@ Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure A
 ```http
 GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
-다음은 각 문자에 대한 설명입니다.
+여기서
 
 | 요소 | 설명 |
 | ------- | ----------- |
@@ -68,7 +68,7 @@ Content-Type: application/json
     "resource":  "https://vault.azure.net/"
 }
 ```
-다음은 각 문자에 대한 설명입니다.
+여기서
 
 | 요소 | 설명 |
 | ------- | ----------- |

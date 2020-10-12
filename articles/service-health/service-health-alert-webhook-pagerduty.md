@@ -4,10 +4,10 @@ description: 서비스 상태 이벤트에 대한 개인 설정 알림을 PagerD
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091541"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>웹 후크를 사용 하 여 PagerDuty로 Azure 서비스 상태 경고 보내기
@@ -27,7 +27,7 @@ ms.locfileid: "87091541"
 
     a. **통합 형식**: Microsoft Azure
 
-    b. **통합 이름**:\<Name\>
+    b. **통합 이름**: \<Name\>
 
     ![PagerDuty에서 "통합 설정"](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "87091541"
 
     b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "87091541"
 
     b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 

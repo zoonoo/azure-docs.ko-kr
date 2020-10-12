@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
 ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279436"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
@@ -50,14 +50,14 @@ Azure를 사용 하려면 보증 Linux 배포판의 게시자가 분기별 또�
 
 ## <a name="azure-tuned-kernels"></a>Azure 조정 커널
 
-Azure는 다양 한 보증 Linux 배포판과 긴밀 하 게 협력 하 여 Azure Marketplace에 게시 된 이미지를 최적화 합니다. 이 공동 작업의 한 가지 측면은 Azure 플랫폼에 최적화 되 고 Linux 배포판의 완전히 지원 되는 구성 요소로 제공 되는 "조정 된" Linux 커널을 개발 하는 것입니다. Azure에 의해 조정 되는 커널에는 배포에서 사용할 수 있는 기본 또는 일반 커널을 비교 하 여 새로운 기능과 성능이 개선 되 고 더 빠르게 (일반적으로 분기별) 주기가 통합 됩니다.
+Azure는 다양 한 보증 Linux 배포판과 긴밀 하 게 협력 하 여 Azure Marketplace에 게시 된 이미지를 최적화 합니다. 이 공동 작업의 한 가지 측면은 Azure 플랫폼에 최적화 되 고 Linux 배포판의 완전히 지원 되는 구성 요소로 제공 되는 "조정 된" Linux 커널을 개발 하는 것입니다. Azure-Tuned 커널에서는 배포에서 사용할 수 있는 기본 또는 일반 커널에 비해 새로운 기능 및 성능 향상과 더 빠르게 (일반적으로 분기별) 흐름을 통합 합니다.
 
-대부분의 경우 이러한 커널은 Azure Marketplace의 기본 이미지에 미리 설치 되어 있으므로 고객이 이러한 최적화 된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure 조정 커널에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
+대부분의 경우 이러한 커널은 Azure Marketplace의 기본 이미지에 미리 설치 되어 있으므로 고객이 이러한 최적화 된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure-Tuned 커널에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
 
-- [CentOS Azure 튜닝 된 커널-CentOS 가상화 SIG를 통해 사용 가능](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned 커널-CentOS 가상화 SIG를 통해 사용 가능](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian 클라우드 커널-Azure의 Debian 10 및 Debian 9 "backports" 이미지에서 사용할 수 있음](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [SLES Azure 튜닝 커널](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Ubuntu Azure 조정 커널](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [SLES Azure-Tuned 커널](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Ubuntu Azure-Tuned 커널](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 ## <a name="partners"></a>파트너
 

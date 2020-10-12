@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343023"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
 `X-EC-Debug` 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이러한 헤더는 **Verizon의 Azure CDN Premium** 제품에만 해당됩니다.
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 POP 서버에서 사용자에게 보내는 응답에는 다음 조건이 충족되는 경우에만 `X-EC-Debug` 헤더가 포함됩니다.
 
 - [디버그 캐시 응답 헤더 기능](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm)은 지정된 요청에서 활성화됩니다.
@@ -41,7 +41,7 @@ X-EC-Debug: x-ec-check-cacheable | [캐시 가능](#cacheable-response-header)
 X-EC-Debug: x-ec-cache-key | [캐시 키](#cache-key-response-header)
 X-EC-Debug: x-ec-cache-state | [캐시 상태](#cache-state-response-header)
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 
 디버그 캐시 응답 헤더는 요청에 다음 헤더 및 지정된 지시문을 포함하여 요청할 수 있습니다.
 
@@ -107,7 +107,7 @@ X-EC-Debug 헤더는 캐시 상태 코드 정보를 다음과 같은 형식으�
 -------| --------
 YES    | 요청된 콘텐츠가 캐싱에 적합했음을 나타냅니다.
 아니요     | 요청된 콘텐츠가 캐싱에 적합하지 않았음을 나타냅니다. 이 상태는 다음 이유 중 하나로 인해 발생할 수 있습니다. <br /> - 고객별 구성: 계정별 구성으로 인해 POP 서버에서 자산을 캐시하지 못할 수 있습니다. 예를 들어 규칙 엔진은 인증 요청에 대한 캐시 무시 기능을 사용하도록 설정하여 자산을 캐시하지 못하도록 방지할 수 있습니다.<br /> - 캐시 응답 헤더: 요청된 자산의 Cache-Control 및 Expires 헤더로 인해 POP 서버에서 자산을 캐시하지 못하도록 방지할 수 있습니다.
-알 수 없음 | 서버에서 요청된 자산을 캐시할 수 있는지 여부를 평가할 수 없었음을 나타냅니다. 이 상태는 일반적으로 토큰 기반 인증에 따라 요청이 거부될 때 발생합니다.
+UNKNOWN | 서버에서 요청된 자산을 캐시할 수 있는지 여부를 평가할 수 없었음을 나타냅니다. 이 상태는 일반적으로 토큰 기반 인증에 따라 요청이 거부될 때 발생합니다.
 
 ### <a name="sample-response-header"></a>응답 헤더 샘플
 

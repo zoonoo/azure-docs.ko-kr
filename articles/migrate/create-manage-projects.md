@@ -4,10 +4,10 @@ description: Azure Migrate에서 프로젝트를 찾고 만들고 관리 하 고
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071799"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
@@ -57,7 +57,7 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
 
 ## <a name="delete-a-project"></a>프로젝트 삭제
 
-다음과 같이 삭제 합니다.
+삭제하는 방법은 다음과 같습니다.
 
 1. 프로젝트가 생성 된 Azure 리소스 그룹을 엽니다.
 2. 리소스 그룹 페이지에서 **숨겨진 유형 표시**를 선택 합니다.
@@ -65,7 +65,7 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
     - 리소스 유형은 **Microsoft. 마이그레이션/migrateprojects**입니다.
     - 리소스 그룹이 Azure Migrate 프로젝트에 독점적으로 사용 되는 경우 전체 리소스 그룹을 삭제할 수 있습니다.
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 를 삭제 하면 검색 된 컴퓨터에 대 한 프로젝트와 메타 데이터가 모두 삭제 됩니다.
 - 이전 버전의 Azure Migrate을 사용 하는 경우 프로젝트를 만든 Azure 리소스 그룹을 엽니다. 삭제할 마이그레이션 프로젝트를 선택 합니다 (리소스 종류는 **마이그레이션 프로젝트**).

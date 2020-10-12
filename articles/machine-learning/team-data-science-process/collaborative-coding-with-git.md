@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090215"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
@@ -49,7 +49,7 @@ git checkout <working branch name>
 
 작업 분기로 전환한 후에는 코드 또는 문서 아티팩트 개발을 시작 하 여 작업 항목을 완료할 수 있습니다. 를 실행 `git checkout master` 하면 분기로 다시 전환 `master` 됩니다.
 
-각 사용자 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 (Task) 작업 항목에 대해 사용자 스토리 분기를 기반으로 분기를 만들 수 있습니다. 동일한 프로젝트에 대해 여러 사용자 스토리를 작업 하거나 동일한 사용자 스토리에 대해 다른 작업을 수행 하는 사용자가 여러 명 있는 경우 사용자 스토리-작업 관계에 해당 하는 계층의 분기를 구성 합니다. 분기를 공유 하는 경우 각 팀 멤버가 다른 분기 또는 다른 코드 또는 다른 아티팩트에 대해 작업을 수행 하 여 충돌을 최소화할 수 있습니다. 
+각 사용자 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 (Task) 작업 항목에 대해 사용자 스토리 분기를 기반으로 분기를 만들 수 있습니다. 동일한 프로젝트에 대해 여러 사용자 스토리에서 작업 하는 사용자가 여러 명 이거나 동일한 사용자 스토리에 대해 다른 작업을 수행 하는 경우 사용자 Story-Task 관계에 해당 하는 계층의 분기를 구성 합니다. 분기를 공유 하는 경우 각 팀 멤버가 다른 분기 또는 다른 코드 또는 다른 아티팩트에 대해 작업을 수행 하 여 충돌을 최소화할 수 있습니다. 
 
 다음 다이어그램은 TDSP에 권장 되는 분기 전략을 보여 줍니다. 여기에 표시 된 것과 같이 분기가 여러 개 필요 하지 않을 수 있습니다. 특히 한 명의 사용자만 프로젝트에서 작업 하거나 한 명의 사용자만이 사용자 스토리의 모든 작업에 대해 작업 하는 경우입니다. 하지만 개발 분기를 기본 분기에서 분리 하는 것이 항상 좋은 방법 이며, 개발 작업으로 인해 릴리스 분기가 중단 되지 않도록 방지 하는 데 도움이 될 수 있습니다. Git 분기 모델에 대 한 전체 설명은 [성공적인 Git 분기 모델](https://nvie.com/posts/a-successful-git-branching-model/)을 참조 하세요.
 

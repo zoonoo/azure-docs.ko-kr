@@ -4,10 +4,10 @@ description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 �
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071941"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
@@ -152,7 +152,7 @@ sudo chown -R edgeuser /var/local/mediaservices
 1. `sudo apt-get autoremove1`
 
     자동 제거 옵션을 사용 하면 다른 패키지에 필요한 패키지는 제거 되지만, 다른 패키지는 제거 되었으므로 더 이상 필요 하지 않으므로 자동으로 설치 된 패키지가 제거 됩니다.
-1. `sudo docker image ls`–에 지 시스템의 Docker 이미지 목록을 제공 합니다.
+1. `sudo docker image ls` –에 지 시스템의 Docker 이미지 목록을 제공 합니다.
 1. `sudo docker system prune `
 
     Docker는 이미지, 컨테이너, 볼륨 및 네트워크와 같은 사용 되지 않는 개체 ("가비지 수집"이 라고도 함)를 정리 하는 데 특별 한 접근 방법을 사용 합니다. 이러한 개체는 Docker가 명시적으로 수행 하도록 요청 하지 않는 한 일반적으로 제거 되지 않습니다. 이로 인해 Docker에서 추가 디스크 공간을 사용할 수 있습니다. 각 개체 형식에 대해 Docker는 정리 명령을 제공 합니다. 또한 docker 시스템 정리를 사용 하 여 한 번에 여러 유형의 개체를 정리할 수 있습니다. 자세한 내용은 [사용 하지 않는 Docker 개체 정리](https://docs.docker.com/config/pruning/)를 참조 하세요.

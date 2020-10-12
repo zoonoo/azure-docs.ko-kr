@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935061"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 로그 데이터 수집 및 분석
@@ -23,7 +23,7 @@ ms.locfileid: "88935061"
 
 진단 로깅을 설정 하면 저장소 메커니즘을 지정 하 라는 메시지가 표시 됩니다. 다음 표에서는 데이터를 수집 하 고 유지 하기 위한 옵션을 열거 합니다.
 
-| 리소스 | 사용 대상 |
+| 리소스 | 사용 목적 |
 |----------|----------|
 | [Log Analytics 작업 영역으로 보내기](../azure-monitor/learn/tutorial-resource-logs.md) | 이벤트 및 메트릭은 자세한 정보를 반환 하기 위해 포털에서 쿼리할 수 있는 Log Analytics 작업 영역으로 전송 됩니다. 소개는 [Azure Monitor 로그 시작](../azure-monitor/log-query/get-started-portal.md) 을 참조 하세요. |
 | [Blob storage를 사용 하 여 보관](../storage/blobs/storage-blobs-overview.md) | 이벤트 및 메트릭은 Blob 컨테이너에 보관 되어 JSON 파일에 저장 됩니다. 로그는 특정 인시던트를 조사 하는 데 유용 하지만 열기 종료 조사에는 유용 하지 않을 수 있습니다 (시간/분). JSON 편집기를 사용 하 여 로그 데이터를 집계 하 고 시각화 하는 원시 로그 파일 또는 Power BI을 볼 수 있습니다.|
@@ -39,7 +39,7 @@ ms.locfileid: "88935061"
 
 + [이벤트 허브 만들기](../event-hubs/event-hubs-create.md)
 
-## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
+## <a name="enable-data-collection"></a>데이터 수집 사용
 
 진단 설정은 기록 된 이벤트 및 메트릭을 수집 하는 방법을 지정 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "88935061"
 
 1. **Log Analytics**를 확인 하 고 작업 영역을 선택한 후 **Operationlogs** 및 **allmetrics**을 선택 합니다.
 
-   ![데이터 컬렉션 구성](./media/search-monitor-usage/configure-storage.png "데이터 수집 구성")
+   ![데이터 수집 구성](./media/search-monitor-usage/configure-storage.png "데이터 수집 구성")
 
 1. 설정을 저장 합니다.
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련 된 이벤트를 포함 합니다. Log Analytics의 **Azurediagnostics** 테이블은 쿼리 및 인덱싱과 관련 된 운영 데이터를 수집 합니다.
 
-| OperationName | Description |
+| OperationName | 설명 |
 |---------------|-------------|
 | ServiceStats | 이 작업은 로드 되거나 새로 고쳐질 때 포털 개요 페이지를 채우도록 직접 또는 암시적으로 호출 되는 [서비스 통계를 가져오는](/rest/api/searchservice/get-service-statistics)루틴 호출입니다. |
 | 쿼리. 검색 |  인덱스에 대 한 쿼리 요청은 쿼리 [모니터링](search-monitor-queries.md) 에서 기록 된 쿼리에 대 한 정보를 확인 합니다.|
@@ -138,7 +138,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 
 다음 표는 리소스 로깅에 공통적인 필드의 일부 목록입니다.
 
-| 속성 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
@@ -154,7 +154,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 
 아래 속성은 Azure Cognitive Search에만 적용 됩니다.
 
-| 속성 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | Description_s |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | Documents_d |int |42 |처리된 문서 수 |
@@ -165,7 +165,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 
 메트릭은 쿼리 요청에 대해 캡처되고 1 분 간격으로 측정 됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조 하세요.
 
-| 속성 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |
@@ -174,7 +174,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 | minimum |int |37 |메트릭 시간 간격에서 원시 샘플의 최소값 (초 단위)입니다. |
 | maximum |int |78 |메트릭 시간 간격에서 원시 샘플의 최대값 (초 단위)입니다.  |
 | total |int |258 |메트릭 시간 간격에서 원시 샘플의 합계 값 (초 단위)입니다.  |
-| count |int |4 |1 분 간격 내에 노드에서 로그로 내보낸 메트릭 수입니다.  |
+| count() |int |4 |1 분 간격 내에 노드에서 로그로 내보낸 메트릭 수입니다.  |
 | timegrain |문자열 |"PT1M" |ISO 8601에 있는 메트릭의 시간 수준입니다. |
 
 쿼리가 실행 되는 데 일반적으로 밀리초 단위로 계산 되므로 초 단위로 측정 되는 쿼리만 QPS와 같은 메트릭에 표시 됩니다.

@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387271"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML Single Sign-On
@@ -72,7 +72,7 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Sin
 
 1. Azure Portal에서 응용 프로그램이 열려 있는 상태에서 **Single sign-on**을 선택 합니다. 
 
-2. SAML을 **사용 하 여 Single Sign-on 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. 응용 프로그램 프록시에서 구성한 **외부 url** 이 **식별자**, **회신 url**및 **로그 아웃 url** 필드에 채워졌는지 확인 합니다. 이러한 Url은 응용 프로그램 프록시가 제대로 작동 하는 데 필요 합니다. 
+2. **SAML을 사용 하 여 단일 Sign-On 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. 응용 프로그램 프록시에서 구성한 **외부 url** 이 **식별자**, **회신 url**및 **로그 아웃 url** 필드에 채워졌는지 확인 합니다. 이러한 Url은 응용 프로그램 프록시가 제대로 작동 하는 데 필요 합니다. 
 
 3. 응용 프로그램 프록시를 통해 인터넷에서 도메인에 연결할 수 있도록 이전에 구성 된 **회신 URL** 을 편집 합니다. 예를 들어 **외부 url** 이이 `https://contosotravel-f128.msappproxy.net` 고 원래 **회신 url** 이 인 경우 `https://contosotravel.com/acs` 원래 **회신 url** 을로 업데이트 해야 `https://contosotravel-f128.msappproxy.net/acs` 합니다.
 

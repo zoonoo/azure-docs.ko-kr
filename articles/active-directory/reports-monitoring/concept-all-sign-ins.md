@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347712"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Azure Active Directory 로그인 활동 보고서-미리 보기
@@ -47,7 +47,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능을 사용 하기 전에 다음에 대 한 답변을 알고 있어야 합니다.
 
@@ -214,7 +214,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 - 리소스 ID
 
 
-다음을 수행할 수 있습니다.
+다음과 같습니다.
 
 - 노드를 확장 하 여 그룹의 개별 항목을 표시 합니다.  
 
@@ -271,7 +271,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 - 리소스 이름 또는 ID
 
-다음을 수행할 수 있습니다.
+다음과 같습니다.
 
 - 노드를 확장 하 여 그룹의 개별 항목을 표시 합니다.  
 

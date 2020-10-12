@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.openlocfilehash: 6e472c65897fa57cdb1e0b09d94c62913e268040
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087473"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>HDInsight의 Apache Spark에서 자동화 된 Machine Learning을 사용 하 여 Azure Machine Learning 작업 실행
@@ -21,7 +21,7 @@ Azure Machine Learning는 기계 학습 모델의 빌드, 학습 및 배포를 �
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 Azure Machine Learning 설치
 
 자동화 된 기계 학습에 대 한 일반적인 자습서는 [자습서: 자동화 된 machine learning을 사용 하 여 회귀 모델 빌드](../../machine-learning/tutorial-auto-train-models.md)를 참조 하세요.
-모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK를 사용 하 여 사전 설치 됩니다.
+모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK와 함께 사전 설치 됩니다.
 
 > [!Note]
 > Azure Machine Learning 패키지는 Python3 conda 환경에 설치됩니다. 설치된 Jupyter 노트는 PySpark3 커널을 사용하여 실행해야 합니다.

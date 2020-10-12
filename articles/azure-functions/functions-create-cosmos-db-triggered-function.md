@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829842"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
@@ -50,7 +50,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 1. **새 함수** 페이지의 검색 필드에 `cosmos`를 입력한 다음, **Azure Cosmos DB 트리거** 템플릿을 선택합니다.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Azure Portal의 Functions 페이지":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Azure Cosmos DB 코드":::
 
 
 1. 다음 표에 지정된 설정을 사용하여 새 트리거를 구성합니다.
@@ -64,7 +64,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     | **임대 컬렉션 이름** | 임대 | 임대를 저장하는 컬렉션의 이름입니다. |
     | **임대 컬렉션이 없는 경우 만들기** | 예 | 임대 컬렉션이 있는지 확인하고 자동으로 만듭니다. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Azure Cosmos DB에 의해 트리거되는 함수 만들기":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Azure Cosmos DB 코드":::
 
 1. **함수 만들기**를 선택합니다. 
 
@@ -72,7 +72,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 1. 템플릿 기반 함수 코드를 표시하려면 **코드 + 테스트**를 선택합니다.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="C#의 Cosmos DB 함수 템플릿":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Azure Cosmos DB 코드":::
 
     이 함수 템플릿은 문서 수와 첫 번째 문서 ID를 로그에 기록합니다.
 
@@ -111,15 +111,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 1. Data Explorer에서 새 **항목** 컨테이너를 확장하고 **항목**을 선택한 다음, **새 항목**을 선택합니다.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="항목 컨테이너에 항목 만들기":::
-
-1. 새 문서의 콘텐츠를 다음 콘텐츠로 바꾼 다음, **저장**을 선택합니다.
-
-    ```yaml
-    {
-        "id": "task1",
-        "category": "general",
-        "description": "some task"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Azure Cosmos DB 코드"
     }
     ```
 

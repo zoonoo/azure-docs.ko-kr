@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310549"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>휴지 상태의 데이터 암호화 Content Moderator
@@ -23,7 +23,7 @@ Content Moderator은 클라우드에 유지 될 때 데이터를 자동으로 �
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [고객이 관리 하는 키 요청 양식 Content Moderator](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. Content Moderator 서비스를 사용 하 여 CMK를 승인한 후에는 새 Content Moderator 리소스를 만들고, 해당 가격 책정 계층으로 E0를 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 Content Moderator 리소스가 만들어지면 Azure Key Vault를 사용 하 여 관리 되는 id를 설정할 수 있습니다.
+> 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [Content Moderator Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)을 작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. Content Moderator 서비스를 사용 하 여 CMK를 승인한 후에는 새 Content Moderator 리소스를 만들고, 해당 가격 책정 계층으로 E0를 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 Content Moderator 리소스가 만들어지면 Azure Key Vault를 사용 하 여 관리 되는 id를 설정할 수 있습니다.
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
@@ -40,5 +40,5 @@ Content Moderator 검토 팀에 데이터 암호화를 사용 하도록 설정 �
 
 * CMK를 지 원하는 서비스의 전체 목록은 [Cognitive Services의 고객 관리 키](../encryption/cognitive-services-encryption-keys-portal.md) 를 참조 하세요.
 * [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Cognitive Services 고객이 관리 하는 키 요청 양식](https://aka.ms/cogsvc-cmk)
+* [Cognitive Services Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
 

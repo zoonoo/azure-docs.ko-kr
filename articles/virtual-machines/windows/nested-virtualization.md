@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074246"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
@@ -139,13 +139,13 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 #### <a name="install-dhcp-server-on-the-azure-vm"></a>Azure VM에 DHCP 서버 설치
 
-1. [서버 관리자]를 엽니다. 대시보드에서 **역할 및 기능 추가**를 클릭합니다. 역할 및 기능 추가 마법사가 나타납니다.
+1. 서버 관리자를 엽니다. 대시보드에서 **역할 및 기능 추가**를 클릭합니다. 역할 및 기능 추가 마법사가 나타납니다.
   
 2. 마법사에서 서버 역할 페이지가 표시될 때까지 **다음**을 클릭합니다.
   
 3. **DHCP 서버** 확인란을 선택하고 **기능 추가**를 클릭한 다음 마법사가 완료될 때까지 **다음**을 클릭합니다.
   
-4. **설치**를 클릭합니다.
+4. **Install**을 클릭합니다.
 
 #### <a name="configure-a-new-dhcp-scope"></a>새 DHCP 범위 구성
 
