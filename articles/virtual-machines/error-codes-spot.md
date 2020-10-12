@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: 3e151145bd3c4d1db87ef5d1b0d553555a580279
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816748"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>지점 Vm 및 확장 집합에 대 한 오류 메시지
@@ -19,7 +19,7 @@ ms.locfileid: "88816748"
 다음은 스폿 Vm 및 확장 집합을 사용할 때 받을 수 있는 몇 가지 오류 코드입니다.
 
 
-| 키 | 메시지 | Description |
+| Key | 메시지 | Description |
 |-----|---------|-------------|
 | SkuNotAvailable | ' ' 리소스에 대해 요청 된 계층은 현재 ' ' \<resource\> \<location\> 구독에 대 한 ' ' 위치에서 사용할 수 없습니다 \<subscriptionID\> . 다른 계층을 시도 하거나 다른 위치에 배포 하세요. | 이 위치에는 VM 또는 확장 집합 인스턴스를 만들 수 있는 Azure 스폿 용량이 부족 합니다. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  제거 정책은 Azure 스폿 Virtual Machines에만 설정할 수 있습니다. | 이 VM은 스폿 VM이 아니므로 제거 정책을 설정할 수 없습니다. |

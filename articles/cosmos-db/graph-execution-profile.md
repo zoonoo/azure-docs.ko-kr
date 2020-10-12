@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
 ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408235"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>실행 프로필 단계를 사용하여 Gremlin 쿼리를 평가하는 방법
@@ -155,7 +155,7 @@ ExecutionProfile () 함수의 응답은 다음 구조를 사용 하 여 JSON 개
     - `storeOps.count`:이 저장소 작업이 반환 하는 결과 수를 나타냅니다.
     - `storeOps.size`: 지정 된 저장소 작업의 결과 크기 (바이트)를 나타냅니다.
 
-Cosmos DB Gremlin Runtime 연산자|Description
+Cosmos DB Gremlin Runtime 연산자|설명
 ---|---
 `GetVertices`| 이 단계에서는 지 속성 계층에서 예측 된 개체 집합을 가져옵니다. 
 `GetEdges`| 이 단계는 꼭 짓 점 집합에 인접 한 가장자리를 가져옵니다. 이 단계를 수행 하면 하나 이상의 저장소 작업이 발생할 수 있습니다.

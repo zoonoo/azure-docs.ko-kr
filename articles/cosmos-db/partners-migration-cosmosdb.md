@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707781"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
@@ -25,7 +25,7 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, 소매점 (인벤토리), 운영 분석 (Spark), 서버를 사용 하지 않는 아키텍처, 앱 개발 | 미국 |
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, 개인 설정 일반 정품 (인벤토리), 서버 리스 아키텍처 NoSQL 마이그레이션, 앱 개발|   미국 |
 |[Avanade](https://www.avanade.com/) | IoT, 소매점 (인벤토리), 서버를 사용 하지 않는 아키텍처, 앱 개발 | 오스트리아, 독일, 스위스, 이탈리아, 노르웨이, 스페인, 영국, 캐나다 |
-|[Accenture](https://www.accenture.com/) | IoT, 소매점 (인벤토리), 서버를 사용 하지 않는 아키텍처, 앱 개발 |전역|
+|[Accenture](https://www.accenture.com/) | IoT, 소매점 (인벤토리), 서버를 사용 하지 않는 아키텍처, 앱 개발 |Global|
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, 개인 설정, 소매 (인벤토리), 운영 분석 (Spark), 서버 리스 아키텍처, 앱 개발|    미국     |  
 | [Capgemini](https://www.capgemini.com/) | 소매점 (재고), IoT, 운영 분석 (Spark), 앱 개발 | 미국, 프랑스, 영국, 네덜란드, 핀란드  |
 | [Cognizant](https://www.cognizant.com/) | IoT, 개인 설정, 소매점 (인벤토리), 운영 분석 (Spark), 앱 개발 |미국, 캐나다, 영국, 덴마크, 네덜란드, 스위스, 오스트레일리아, 일본 |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320684"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services를 사용 하 여 비디오 및 오디오 파일 분석
@@ -75,10 +75,10 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
-|language|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
+|언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예:
+예제:
 
 ```json
 "transcript": [
@@ -114,7 +114,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |id|OCR 줄 ID입니다.|
 |text|OCR 텍스트입니다.|
 |신뢰도|인식 신뢰도입니다.|
-|language|OCR 언어입니다.|
+|언어|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
 
 ```json
@@ -306,7 +306,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
-|language|레이블 이름 언어(번역된 경우)입니다. BCP-47|
+|언어|레이블 이름 언어(번역된 경우)입니다. BCP-47|
 |인스턴스|레이블이 나타나는 시간 범위 목록(레이블은 여러 번 나타날 수 있음)입니다. 인스턴스마다 신뢰도 필드가 있습니다. |
 
 ```json
@@ -365,7 +365,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
 |신뢰도|키워드의 인식 신뢰도입니다.|
-|language|키워드 언어(번역된 경우)입니다.|
+|언어|키워드 언어(번역된 경우)입니다.|
 |인스턴스|키워드가 표시되는 시간 범위 목록(키워드가 여러 번 나타날 수 있음)입니다.|
 
 ```json

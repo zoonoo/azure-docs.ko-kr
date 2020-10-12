@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: f1a3cc5ccb326d6a198895f9f459e661f7805b1e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401540"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
@@ -70,7 +70,7 @@ Azure Portal에서 테이블 형식으로 트래픽 보기 데이터를 볼 수 
 
 트래픽 보기를 사용할 경우 제공되는 정보를 생성하는 데 사용된 데이터 요소 수에 따라 요금이 청구됩니다. 현재 사용되는 유일한 데이터 요소 형식은 Traffic Manager 프로필에 대해 수신된 쿼리입니다. 가격 책정에 대한 자세한 내용은 [Traffic Manager 가격 책정 페이지](https://azure.microsoft.com/pricing/details/traffic-manager/)를 참조하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * [트래픽 보기의 기능은 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
 

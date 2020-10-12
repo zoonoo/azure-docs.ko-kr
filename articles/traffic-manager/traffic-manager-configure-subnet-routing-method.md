@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401370"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
@@ -26,7 +26,7 @@ ms.locfileid: "89401370"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 실행 중인 Traffic Manager를 보려면 이 자습서에서 다음 항목을 배포해야 합니다.
 - 서로 다른 Azure 지역에서 실행되는 두 개의 기본 웹 사이트 - **미국 동부**(내부 웹 사이트로 사용) 및 **서유럽**(프로덕션 웹 사이트로 사용).
 - Traffic Manager를 테스트하기 위한 두 개의 테스트 VM - **미국 동부**에 VM 하나 및 **서유럽**에 두 번째 VM.
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |Name|myIISVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |리소스 그룹| **새로 만들기**를 선택한 다음, *myResourceGroupTM1*을 입력합니다.|
+    |Resource group| **새로 만들기**를 선택한 다음, *myResourceGroupTM1*을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
     |||
 
@@ -74,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     |설정|값|
     |---|---|
-    |리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroupTM2*를 입력합니다.|
+    |Resource group | **새로 만들기**를 선택하고 *myResourceGroupTM2*를 입력합니다.|
     |위치|서유럽|
     |VM 이름 | myIISVMWEurope|
     |가상 네트워크 | **가상 네트워크**를 선택하고 **가상 네트워크 만들기**에서 **이름**에 *myVNet2*를 입력하고 서브넷에 *mySubnet*을 입력합니다.|
@@ -140,7 +140,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     |Name|myVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |리소스 그룹| **기존 항목 사용**을 선택한 다음, *myResourceGroupTM1*을 선택합니다.|
+    |Resource group| **기존 항목 사용**을 선택한 다음, *myResourceGroupTM1*을 선택합니다.|
     |||
 
 4. **크기 선택**에서 VM 크기를 선택합니다.
@@ -160,7 +160,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     |설정|값|
     |---|---|
     |VM 이름 | *myVMWEurope*|
-    |리소스 그룹 | **기존**을 선택한 다음, *myResourceGroupTM2*을 입력합니다.|
+    |Resource group | **기존**을 선택한 다음, *myResourceGroupTM2*을 입력합니다.|
     |가상 네트워크 | **가상 네트워크**를 선택하고 **가상 네트워크 만들기**에서 **이름**에 *myVNet4*를 입력하고 서브넷에 *mySubnet4*를 입력합니다.|
     |||
 
@@ -193,7 +193,7 @@ IIS 서버 ( *myIISVMEastUS*myIISVMWEurope)를 실행 하는 두 개의 vm을 �
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Type                    | Azure 엔드포인트                                   |
+    | 형식                    | Azure 엔드포인트                                   |
     | Name           | myTestWebSiteEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
     | 대상 리소스          | 공용 **ip 주소를 선택** 하 여 동일한 구독에서 공용 ip 주소를 사용 하는 리소스 목록을 표시 합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323297"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
@@ -25,7 +25,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
@@ -397,7 +397,7 @@ client.config.PROPERTYNAME = VALUE;
 
 이러한 속성은 클라이언트 마다 고유 하므로 `appInsights.defaultClient` 를 사용 하 여 만든 클라이언트와 별도로 구성할 수 있습니다 `new appInsights.TelemetryClient()` .
 
-| 속성                        | Description                                                                                                |
+| 속성                        | 설명                                                                                                |
 | ------------------------------- |------------------------------------------------------------------------------------------------------------|
 | instrumentationKey              | Application Insights 리소스의 식별자입니다.                                                      |
 | endpointUrl                     | 원격 분석 페이로드를 보낼 수집 끝점입니다.                                                      |

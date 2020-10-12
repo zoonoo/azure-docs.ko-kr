@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540611"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc 사용 Kubernetes 문제 해결(미리 보기)

@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
 ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409666"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>MongoDB 용 Azure Cosmos DB API 계정에 대 한 MongoDB 유선 프로토콜 버전을 업그레이드 합니다.
@@ -62,27 +62,27 @@ ms.locfileid: "91409666"
 
 2. 왼쪽의 옵션에서 블레이드를 선택 합니다 `Features` . 그러면 데이터베이스 계정에 사용할 수 있는 계정 수준 기능이 표시 됩니다.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="MongoDB 계정 개요와 함께 Azure Portal 기능 블레이드가 강조 표시 됨" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="MongoDB 계정을 사용 하 여 Azure Portal 개요" border="false":::
 
 3. 행을 클릭 `Upgrade to Mongo server version 3.6` 합니다. 이 옵션이 표시 되지 않으면 계정이이 업그레이드에 적합 하지 않을 수 있습니다. 해당 하는 경우 [지원 티켓을 파일에](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 입력 하세요.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="옵션이 있는 기능 블레이드." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="MongoDB 계정을 사용 하 여 Azure Portal 개요" border="false":::
 
 4. 이 특정 업그레이드에 대해 표시 된 정보를 검토 합니다. 업그레이드는 응용 프로그램에서이 섹션에 강조 표시 된 대로 업데이트 된 끝점을 사용할 때 까지만 완료 됩니다. 프로세스를 `Enable` 시작할 준비가 되 면 즉시를 클릭 합니다.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="업그레이드 지침이 확장 되었습니다." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="MongoDB 계정을 사용 하 여 Azure Portal 개요" border="false":::
 
 5. 프로세스를 시작 하면 메뉴에 `Features` 업그레이드 상태가 표시 됩니다. 상태는에서로,에서로 이동 `Pending` `In Progress` `Upgraded` 합니다. 이 프로세스는 데이터베이스 계정의 기존 기능이 나 작업에는 영향을 주지 않습니다.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="시작 후 업그레이드 상태입니다." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="MongoDB 계정을 사용 하 여 Azure Portal 개요" border="false":::
 
 6. 업그레이드가 완료 되 면 상태는로 표시 됩니다 `Upgraded` . 이를 클릭 하 여 프로세스를 완료 하기 위해 수행 해야 하는 다음 단계 및 작업에 대해 자세히 알아보세요. 요청을 처리 하는 동안 문제가 발생 한 경우 [지원 담당자에 게 문의](https://azure.microsoft.com/en-us/support/create-ticket/) 하세요.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="업그레이드 된 계정 상태." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="MongoDB 계정을 사용 하 여 Azure Portal 개요" border="false":::
 
 7. **업그레이드 된 버전의 데이터베이스 계정 사용을 시작 하려면**블레이드로 돌아가서 `Overview` 응용 프로그램에서 사용할 새 연결 문자열을 복사 합니다. 응용 프로그램은 새 끝점에 연결 하는 즉시 업그레이드 된 버전을 사용 하 여 시작 됩니다. 기존 연결은 중단 되지 않으며 사용자가 편리 하 게 업데이트할 수 있습니다. 일관 된 환경을 보장 하기 위해 모든 응용 프로그램은 새 끝점을 사용 해야 합니다.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="새 개요 블레이드." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="MongoDB 계정을 사용 하 여 Azure Portal 개요" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

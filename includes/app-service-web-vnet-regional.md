@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255255"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.

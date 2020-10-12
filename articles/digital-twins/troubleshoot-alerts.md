@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087214"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Azure Digital Twins 문제 해결: 경고
@@ -44,17 +44,17 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용 하도록 설정 하
 
 Azure Digital Twins에 사용할 수 있는 경고 신호의 유형을 보여 주는 *Select 조건* 프로세스의 발췌 정보는 다음과 같습니다. 이 페이지에서 신호의 유형을 필터링 하 고 목록에서 원하는 신호를 선택할 수 있습니다.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="첫 번째 신호 논리 구성 페이지를 보여 주는 스크린샷 메트릭 또는 활동 로그를 선택 하는 신호 유형 상자에 강조 표시 되 고, 아래에서 선택할 수 있는 메트릭 목록이 표시 됩니다.":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="범위, 조건, 작업 그룹 및 경고 규칙 세부 정보에 대 한 섹션을 포함 하는 경고 규칙 만들기 페이지를 보여 주는 스크린샷":::
 
 신호를 선택한 후에는 경고의 논리를 구성 하 라는 메시지가 표시 됩니다. 차원을 필터링 하 고, 경고에 대 한 임계값을 설정 하 고, 조건에 대 한 확인 빈도를 설정할 수 있습니다. 평균 라우팅 실패율 메트릭이 5%를 초과 하는 경우에 대 한 경고를 설정 하는 예는 다음과 같습니다.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="두 번째 신호 논리 구성 페이지를 보여 주는 스크린샷 이 페이지에는 메트릭 기록이 표시 되 고 Event Grid 작업과 같은 차원에서 필터링 할 영역이 있으며 ' 평균이 5 보다 큼 '과 같은 경고 논리를 정의 하는 섹션이 있습니다.":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="범위, 조건, 작업 그룹 및 경고 규칙 세부 정보에 대 한 섹션을 포함 하는 경고 규칙 만들기 페이지를 보여 주는 스크린샷":::
 
 ### <a name="verify-success"></a>성공 확인
 
 경고를 설정 하면 인스턴스에 대 한 *경고* 페이지에 다시 표시 됩니다.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="경고 페이지 및 추가할 단추를 보여 주는 스크린샷 구성 된 경고가 하나 있습니다." lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="범위, 조건, 작업 그룹 및 경고 규칙 세부 정보에 대 한 섹션을 포함 하는 경고 규칙 만들기 페이지를 보여 주는 스크린샷" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

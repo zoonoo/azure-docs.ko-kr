@@ -4,10 +4,10 @@ description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파�
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180986"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업

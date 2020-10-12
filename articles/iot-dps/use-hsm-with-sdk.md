@@ -11,17 +11,17 @@ ms.custom:
 - mvc
 - amqp
 ms.openlocfilehash: 0a32e2f055b2914fa0008e043e80092ac2da0814
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531511"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
 
 이 문서에서는 C용 Device Provisioning 서비스 클라이언트 SDK에서 다른 [증명 메커니즘](concepts-service.md#attestation-mechanism)을 사용하는 방법을 보여줍니다. 물리적 디바이스 또는 시뮬레이터를 사용할 수 있습니다. 프로비전 서비스는 X.509 및 TPM(신뢰할 수 있는 플랫폼 모듈)의 두 가지 증명 메커니즘에 대한 인증을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [시뮬레이션된 디바이스 만들기 및 프로비전](./quick-create-simulated-device.md) 가이드의 "개발 환경 준비" 섹션에 따라 개발 환경을 준비합니다.
 

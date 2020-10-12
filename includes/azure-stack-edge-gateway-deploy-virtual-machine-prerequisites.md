@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/31/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89419408"
 ---
 Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 단계는 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md)로 이동 합니다.
@@ -16,13 +16,13 @@ Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 
 
 클라이언트에서 장치에 액세스 하는 데 다음 단계를 사용할 수 있는지 확인 합니다 (Azure Resource Manager에 연결할 때이 구성을 완료 했 고 구성이 정상적으로 완료 되었는지 확인 하는 중). 
 
-1. Azure Resource Manager 통신이 작동 하는지 확인 합니다. 유형:     
+1. Azure Resource Manager 통신이 작동 하는지 확인 합니다. 형식:     
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
-1. 로컬 장치 Api를 호출 하 여 인증 합니다. 유형: 
+1. 로컬 장치 Api를 호출 하 여 인증 합니다. 형식: 
 
     `login-AzureRMAccount -EnvironmentName <Environment Name>`
 

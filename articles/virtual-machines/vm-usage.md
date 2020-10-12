@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322925"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
@@ -59,7 +59,7 @@ Azure 갤러리의 일부 이미지의 경우 추가 정보 필드에 이미지 
 - Windows Server 미리 보기 
 
 ## <a name="service-type"></a>서비스 유형
-추가 정보 필드에 있는 서비스 유형 필드는 배포한 정확한 VM 크기에 해당합니다. Premium Storage VM(SSD 기반) 및 비 Premium Storage VM(HDD 기반)은 같은 가격이 책정됩니다. 표준 d s 2 v 2와 같은 SSD 기반 크기를 배포 하는 경우 \_ \_ 미터 하위 범주 열에 비 ssd 크기 ()가 표시 되 `Standard\_D2\_v2 VM` 고 `Standard\_DS2\_v2` 추가 정보 필드에 ssd 크기 ()가 표시 됩니다.
+추가 정보 필드에 있는 서비스 유형 필드는 배포한 정확한 VM 크기에 해당합니다. Premium Storage VM(SSD 기반) 및 비 Premium Storage VM(HDD 기반)은 같은 가격이 책정됩니다. 표준 d s 2 v 2와 같은 SSD 기반 크기를 배포 하는 경우 \_ \_ 추가 정보 필드에는 ssd 크기 ( `Standard\_D2\_v2 VM` )가 측정기 Sub-Category 열에 표시 되 고 ssd 크기 ( `Standard\_DS2\_v2` )가 표시 됩니다.
 
 ## <a name="region-names"></a>지역 이름
 사용 세부 정보의 리소스 위치 필드에 채워진 지역 이름은 Azure Resource Manager에서 사용된 지역 이름마다 다릅니다. 지역 값 사이의 매핑은 다음과 같습니다.

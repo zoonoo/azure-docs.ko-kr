@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704731"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
@@ -33,7 +33,7 @@ Machine learning 모델을 학습 하는 경우 관리 되는 Azure Machine Lear
 * 낮은 우선 순위의 가상 머신 (VM) 사용
 * Azure Reserved VM Instance 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. 
 
@@ -109,11 +109,11 @@ AmlCompute는 [할당량 (또는 제한) 구성과](how-to-manage-quotas.md#azur
 
 ## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> 우선 순위가 낮은 Vm 사용
 
-Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 서비스에서 낮은 우선 순위의 Vm으로 과도 하 게 사용 되는 용량을 사용할 수 있습니다. 이러한 할당은 emptible는 하지만 전용 Vm과 비교 하 여 저렴 한 가격으로 제공 됩니다. 일반적으로 Batch 워크 로드에 우선 순위가 낮은 Vm을 사용 하는 것이 좋습니다. 다시 전송 (Batch 추론의 경우) 또는 다시 시작 (검사점을 사용한 심층 학습 교육)을 통해 중단을 복구할 수 있는 경우에도이를 사용 해야 합니다.
+Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 서비스에서 Low-Priority Vm으로 과도 하 게 사용 되는 용량을 사용할 수 있습니다. 이러한 할당은 emptible는 하지만 전용 Vm과 비교 하 여 저렴 한 가격으로 제공 됩니다. 일반적으로 일괄 작업에 Low-Priority Vm을 사용 하는 것이 좋습니다. 다시 전송 (Batch 추론의 경우) 또는 다시 시작 (검사점을 사용한 심층 학습 교육)을 통해 중단을 복구할 수 있는 경우에도이를 사용 해야 합니다.
 
-우선 순위가 낮은 Vm은 VM 제품군에 따라 전용 할당량 값과 별도의 단일 할당량이 있습니다. [AmlCompute 할당량에](how-to-manage-quotas.md)대해 자세히 알아보세요.
+Low-Priority Vm에는 VM 제품군의 전용 할당량 값과 별도의 단일 할당량이 있습니다. [AmlCompute 할당량에](how-to-manage-quotas.md)대해 자세히 알아보세요.
 
- 낮은 우선 순위 Vm은 대화형 노트북 환경을 지원 해야 하기 때문에 계산 인스턴스에 대해 작동 하지 않습니다.
+ Low-Priority Vm은 대화형 노트북 환경을 지원 해야 하기 때문에 계산 인스턴스에 대해 작동 하지 않습니다.
 
 ## <a name="use-reserved-instances"></a>예약 인스턴스 사용
 

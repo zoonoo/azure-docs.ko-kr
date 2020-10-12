@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
 ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376641"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
@@ -21,7 +21,7 @@ ms.locfileid: "89376641"
 
 함수에 *base64*로 인코딩된 문자열이 필요합니다. 인코딩 형식에 대한 조정(데이터를 *base64*로 인코딩된 문자열로 준비하기 위해)은 호출 서비스에 구현되어야 합니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 새 항목이 큐에 수신될 때 큐 트리거를 사용하여 함수를 시작합니다. 큐 메시지는 함수에 입력으로 제공됩니다.
 
@@ -363,7 +363,7 @@ public class QueueTriggerDemo {
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|Type|설명|
+|속성|형식|설명|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
@@ -402,7 +402,7 @@ public class QueueTriggerDemo {
 
 큐 트리거는 함수가 큐 메시지를 여러 번 처리 하는 것을 자동으로 방지 합니다.
 
-## <a name="hostjson-properties"></a>속성 host.js
+## <a name="hostjson-properties"></a>host.json 속성
 
 [host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [ 설정에](functions-bindings-storage-queue-output.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
 

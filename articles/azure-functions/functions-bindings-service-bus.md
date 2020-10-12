@@ -8,17 +8,17 @@ ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530372"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Service Bus](https://azure.microsoft.com/services/service-bus) 와 통합 됩니다. Service Bus와 통합 하면 큐 또는 토픽 메시지에 응답 하는 함수를 작성할 수 있습니다.
 
-| 작업 | 형식 |
+| 작업 | 유형 |
 |---------|---------|
 | Service Bus 큐 또는 토픽 메시지가 만들어지면 함수를 실행 합니다. | [트리거](./functions-bindings-service-bus-trigger.md) |
 | Azure Service Bus 메시지 보내기 |[출력 바인딩](./functions-bindings-service-bus-output.md) |

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 260125b5e7aa4537c6e204d93263b65be042793a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540747"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Windows 가상 데스크톱 (클래식) 호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 |RDP 속성 | 데스크톱 | RemoteApp |
 |---|---| --- |
-| 다중 모니터 모드 | 사용 | 해당 없음 |
+| 다중 모니터 모드 | 사용 | N/A |
 | 드라이브 리디렉션 사용 | 드라이브, 클립보드, 프린터, COM 포트, USB 장치 및 스마트 카드| 드라이브, 클립보드 및 프린터 |
 | 원격 오디오 모드 | 로컬로 재생 | 로컬로 재생 |
 
@@ -49,7 +49,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![사용자 지정 R D P 속성을 편집 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/singlecustomrdpproperty.png)
+> ![사용자 지정 R D P 속성을 편집 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet Get-RDSRemoteApp의 스크린샷](../media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>여러 사용자 지정 RDP 속성 추가 또는 편집
 
@@ -61,7 +61,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![사용자 지정 R D P 속성을 편집 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/multiplecustomrdpproperty.png)
+> ![사용자 지정 R D P 속성을 편집 하기 위해 이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet Set-RDSRemoteApp의 스크린샷](../media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>모든 사용자 지정 RDP 속성 다시 설정
 
@@ -72,7 +72,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/resetcustomrdpproperty.png)
+> ![이름 및 FriendlyName이 강조 표시 된 PowerShell cmdlet Get-RDSRemoteApp의 스크린샷](../media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>다음 단계
 

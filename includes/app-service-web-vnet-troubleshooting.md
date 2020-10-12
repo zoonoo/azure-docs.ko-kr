@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255254"
 ---
 이 기능을 설정 하는 것은 쉽지만 사용자 환경이 문제가 없는 것은 아닙니다. 원하는 끝점에 액세스 하는 데 문제가 발생 하는 경우 응용 프로그램 콘솔에서 연결을 테스트 하는 데 사용할 수 있는 몇 가지 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이 고 다른 하나는 콘솔 Azure Portal입니다. 앱에서 Kudu 콘솔에 연결 하려면 **도구**  >  **Kudu**로 이동 합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 된 후 **디버그 콘솔** 탭으로 이동 합니다. 앱에서 Azure Portal 호스트 콘솔로 이동 하려면 **도구**  >  **콘솔**로 이동 합니다.

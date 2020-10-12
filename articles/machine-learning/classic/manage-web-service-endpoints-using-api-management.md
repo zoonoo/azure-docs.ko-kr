@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 45f63aed410c4d140259808044872cbbecfaa95b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355570"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio(클래식) 웹 서비스 관리
 
-**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 ## <a name="overview"></a>개요

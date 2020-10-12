@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
 ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347771"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Windows 중지 오류-0xC000021A 상태 시스템 프로세스가 종료 되었습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "91347771"
 
 오류 0xC000021A는 **STATUS_SYSTEM_PROCESS_TERMINATED**을 의미 합니다.
 
-이 오류는 WinLogon (winlogon.exe) 또는 클라이언트 서버 런타임 하위 시스템 (csrss.exe)과 같은 중요 한 프로세스가 실패할 때 발생 합니다. 커널이 이러한 서비스 중 하나라도 중지 된 것을 감지 하면 **STOP 0xC000021A** 오류가 발생 합니다. 이 오류는 다음과 같은 여러 원인이 있을 수 있습니다.
+이 오류는 WinLogon (winlogon.exe) 또는 클라이언트 서버 Run-Time 하위 시스템 (csrss.exe)과 같은 중요 한 프로세스가 실패할 때 발생 합니다. 커널이 이러한 서비스 중 하나라도 중지 된 것을 감지 하면 **STOP 0xC000021A** 오류가 발생 합니다. 이 오류는 다음과 같은 여러 원인이 있을 수 있습니다.
 
 - 일치 하지 않는 시스템 파일을 설치 했습니다.
 - 서비스 팩 또는 KB 업데이트 설치에 실패 했습니다.

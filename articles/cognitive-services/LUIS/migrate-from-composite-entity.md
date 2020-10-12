@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322860"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>복합 엔터티를 기계 학습 엔터티로 업그레이드
@@ -34,7 +34,7 @@ ms.locfileid: "91322860"
 
 다음 차트를 사용 하 여 모델이 어떻게 변경 되는지 이해할 수 있습니다.
 
-|이전 개체|새 개체|메모|
+|이전 개체|새 개체|참고|
 |--|--|--|
 |복합 엔터티|구조를 사용 하는 기계 학습 엔터티|두 개체는 모두 부모 개체입니다.|
 |복합의 자식 엔터티는 **단순 엔터티입니다** .|대상|두 개체는 모두 자식 개체입니다.|

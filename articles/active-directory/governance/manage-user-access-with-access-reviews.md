@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798310"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 > [!NOTE]
 > 게스트 사용자 액세스만 검토하고 모든 종류의 사용자 액세스는 검토하지 않으려면 [액세스 검토를 사용하여 게스트 사용자 액세스 관리](manage-guest-access-with-access-reviews.md)를 참조하세요. 전역 관리자와 같은 관리 역할에서 사용자의 멤버 자격을 검토하려면 [Azure AD Privileged Identity Management에서 액세스 검토를 시작하는 방법](../privileged-identity-management/pim-how-to-start-security-review.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Premium P2
 

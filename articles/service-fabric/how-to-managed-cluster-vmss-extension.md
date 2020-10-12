@@ -4,10 +4,10 @@ description: Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨�
 ms.topic: article
 ms.date: 09/28/2020
 ms.openlocfilehash: 10487bad4fce41c68b4e2cb90c311b986d709eee
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410321"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확장 집합 확장 추가 (미리 보기)
@@ -55,7 +55,7 @@ Service Fabric 관리 클러스터의 각 노드 유형은 가상 머신 확장 
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric 관리 되는 클러스터에 대 한 자세한 내용은 다음을 참조 하세요.
+Service Fabric 관리형 클러스터에 대해 자세히 알아보려면 다음을 참고하세요.
 
 > [!div class="nextstepaction"]
-> [Service Fabric 관리 클러스터에 대 한 질문과 대답](./faq-managed-cluster.md)
+> [Service Fabric 관리형 클러스터 질문과 대답](./faq-managed-cluster.md)

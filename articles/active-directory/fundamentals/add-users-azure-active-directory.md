@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321092"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
@@ -40,9 +40,9 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
 1. **사용자** 페이지에서이 사용자에 대 한 정보를 입력 합니다.
 
-   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
+   - **이름**. 필수 사항입니다. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
 
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
+   - **사용자 이름**. 필수 사항입니다. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`
 
      사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 * \<yourdomainname> onmicrosoft.com*을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 

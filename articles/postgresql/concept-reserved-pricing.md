@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907561"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>선불 for Azure Database for PostgreSQL-예약 된 용량의 단일 서버 계산 리소스
@@ -54,7 +54,7 @@ ms.locfileid: "90907561"
 | 필드 | 설명 |
 | :------------ | :------- |
 | Subscription   | 예약 된 Azure Database for PostgreSQL 용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 결제 방법은 Azure Database for PostgreSQL 예약 된 용량 예약에 대 한 선행 비용으로 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
-| Scope | vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for PostgreSQL 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**에서 vcore 예약 할인은이 구독의 Azure Database for PostgreSQL 서버에 적용 됩니다. </br></br> **단일 리소스 그룹**-예약 할인이 선택한 구독의 Azure Database for PostgreSQL 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
+| 범위 | vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for PostgreSQL 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**에서 vcore 예약 할인은이 구독의 Azure Database for PostgreSQL 서버에 적용 됩니다. </br></br> **단일 리소스 그룹**-예약 할인이 선택한 구독의 Azure Database for PostgreSQL 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
 | 지역 | Azure Database for PostgreSQL 예약 된 용량 예약이 적용 되는 Azure 지역입니다.
 | 배포 유형 | 예약을 구입할 Azure Database for PostgreSQL 리소스 형식입니다.
 | 성능 계층 | Azure Database for PostgreSQL 서버에 대 한 서비스 계층입니다.

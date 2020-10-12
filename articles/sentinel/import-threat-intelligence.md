@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
 ms.openlocfilehash: e04d7fa1f319ca3969d8acdc0235e2838bb3a88d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997611"
 ---
-# <a name="import-threat-intelligence-into-azure-sentinel"></a>Azure 센티널로 위협 인텔리전스 가져오기
+# <a name="import-threat-intelligence-into-azure-sentinel"></a>Azure Sentinel로 위협 인텔리전스 가져오기
 
 ## <a name="introduction-to-threat-intelligence"></a>위협 인텔리전스 소개
 
@@ -78,7 +78,7 @@ Azure 센티널의 다른 모든 이벤트 데이터와 마찬가지로 위협 �
 
 1. 응용 프로그램 등록의 이름을 선택 하 고, **단일 테 넌 트** 라디오 단추를 선택 하 고, **등록**을 선택 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="애플리케이션 등록":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 1. 결과 화면에서 **응용 프로그램 (클라이언트) id** 및 **디렉터리 (테 넌 트) id** 값을 복사 합니다. 다음은 나중에 Azure 센티널에 위협 지표를 보내도록 팁 또는 사용자 지정 솔루션을 구성 하는 데 필요한 첫 번째 두 가지 정보입니다.
 
@@ -96,13 +96,13 @@ Azure 센티널의 다른 모든 이벤트 데이터와 마찬가지로 위협 �
 
 1. **ThreatIndicators** 을 선택 하 고 **사용 권한 추가** 를 선택 하 여 앱의 사용 권한 목록에이 권한을 추가 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="권한 지정":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 **조직에서 이러한 사용 권한을 부여 하는 동의 얻기**
 
 1. 동의를 부여 하려면 앱의 API 사용 권한 페이지에서 **테 넌 트에 대 한 관리자 동의 부여** 단추를 선택할 수 있는 전역 관리자 Azure Active Directory 필요 합니다. 계정에 전역 관리자 역할이 없으면이 단추를 사용할 수 없으며 조직의 전역 관리자에 게이 단계를 수행 하도록 요청 해야 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="동의 권한 부여":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 1. 앱에 동의가 부여 되 면 **상태**아래에 녹색 확인 표시가 표시 됩니다.
  
@@ -114,7 +114,7 @@ Azure 센티널의 다른 모든 이벤트 데이터와 마찬가지로 위협 �
 
 1. 메뉴에서 **인증서 & 암호** 를 선택 하 고 **새 클라이언트 암호** 단추를 클릭 하 여 앱에 대 한 비밀 (API 키)을 가져옵니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="클라이언트 암호 가져오기":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 1. **추가** 단추를 클릭 하 고이 페이지에서 다른 곳으로 이동 하는 경우이 암호를 다시 검색할 수 없기 때문에 **클라이언트 암호를 복사**해야 합니다. 팁 또는 사용자 지정 솔루션을 구성할 때이 값이 필요 합니다.
 
@@ -145,7 +145,7 @@ Azure 센티널의 다른 모든 이벤트 데이터와 마찬가지로 위협 �
 
 위협 인텔리전스를 전송 하기 위해 가장 널리 채택 된 업계 표준은 [STIX 데이터 형식과 TAXII 프로토콜의 조합](https://oasis-open.github.io/cti-documentation/)입니다. 조직이 현재 STIX/TAXII 버전 (2.0 또는 2.1)을 지 원하는 솔루션에서 위협 지표를 가져오는 경우 **위협 인텔리전스-TAXII** data connector를 사용 하 여 위협 지표를 Azure 센티널로 가져올 수 있습니다. 위협 인텔리전스-TAXII 데이터 커넥터를 사용 하면 Azure 센티널에서 기본 제공 TAXII 클라이언트를 사용 하 여 TAXII 2.x 서버에서 위협 인텔리전스를 가져올 수 있습니다.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="TAXII 가져오기 경로":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="위협 인텔리전스 가져오기 경로":::
  
 TAXII 서버에서 Azure 센티널로 STIX 형식의 위협 지표를 가져오려면 다음 단계를 수행 합니다.
 
@@ -287,7 +287,7 @@ TAXII 서버에서 Azure 센티널로 위협 지표를 가져오려면 다음 �
 
 1. 이 TAXII 서버 컬렉션, **API 루트 URL**, **컬렉션 ID**, **사용자 이름** (필요한 경우) 및 **암호** (필요한 경우)에 대 한 **이름을** 입력 하 고 **추가** 단추를 클릭 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="TAXII 서버 구성":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="위협 인텔리전스 가져오기 경로":::
  
 TAXII 서버에 대 한 연결이 성공적으로 설정 되었다는 확인 메시지가 표시 되 고, 동일한 서버나 다른 TAXII 서버에서 여러 컬렉션에 연결 하는 데 필요한 횟수 만큼 위의 단계 (4)를 반복할 수 있습니다.
 
@@ -307,7 +307,7 @@ TAXII 서버에 대 한 연결이 성공적으로 설정 되었다는 확인 메
 
 결과는 아래에 표시 된 샘플 위협 표시기와 유사 하 게 표시 됩니다.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="예제 쿼리 데이터":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="위협 인텔리전스 가져오기 경로":::
  
 ## <a name="manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel"></a>Azure 센티널의 새로운 위협 인텔리전스 영역에서 위협 지표 관리
 
@@ -322,7 +322,7 @@ Azure 센티널 메뉴에서 액세스할 수 있는 새 **위협 인텔리전�
 
 1. 페이지의 상단 메뉴에서 **새로 추가** 단추를 선택 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="새 위협 지표 추가" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="위협 인텔리전스 가져오기 경로" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. 표시기 유형을 선택한 다음 **새 표시기** 패널에서 빨간색 별표 (*)로 표시 된 필수 필드를 완료 합니다.
 
@@ -330,7 +330,7 @@ Azure 센티널 메뉴에서 액세스할 수 있는 새 **위협 인텔리전�
 
 위협 표시기를 태그를 지정 하 여 쉽게 찾을 수 있도록 그룹화 하는 쉬운 방법입니다. 일반적으로 특정 인시던트에 관련 된 표시기에 태그를 적용 하거나 특정 한 알려진 작업자 또는 잘 알려진 공격 캠페인의 위협을 나타내는 표시기를 적용할 수 있습니다. 위협 표시기를 개별적으로 태그를 지정할 수도 있고, 한 번에 여러 지표를 표시 하 고 태그를 지정할 수도 있습니다. 인시던트 ID를 사용 하 여 여러 지표에 태그를 지정 하는 예제는 다음과 같습니다. 태그 지정은 자유 형식 이므로 위협 지표 태그의 표준 명명 규칙을 만드는 것이 좋습니다. 각 표시기에 여러 태그를 적용할 수 있습니다.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="위협 표시기에 태그 적용" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="위협 인텔리전스 가져오기 경로" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
 
 ## <a name="analytics-puts-your-threat-indicators-to-work-detecting-potential-threats"></a>분석은 위협 표시기를 사용 하 여 잠재적 위협을 검색 합니다.
 
@@ -350,11 +350,11 @@ Azure 센티널에 위협 지표를 공급 했습니다. 이러한 항목을 보
 
 1. **TI IP 엔터티를 AzureActivity로 매핑** 이라는 규칙으로 이동 하 여 아래와 같이 필요한 모든 데이터 원본을 연결 했는지 확인 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="필요한 데이터 원본":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 1. 이 규칙을 선택 하 고 **규칙 만들기** 단추를 선택 합니다. 그러면 규칙을 구성 하는 마법사가 열립니다. 여기에서 설정을 완료 하 고 **다음: 규칙 논리 설정 >** 단추를 선택 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="분석 규칙 만들기":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 1. 마법사의 규칙 논리 부분에는 다음이 포함 됩니다.
     - 규칙에 사용 될 쿼리입니다.
@@ -397,7 +397,7 @@ Azure 센티널에 제공 된 위협 인텔리전스 통합 문서를 찾는 방
 
 1. **위협 인텔리전스** 라는 통합 문서로 이동 하 여 아래와 같이 **ThreatIntelligenceIndicator** 테이블에 데이터가 있는지 확인 합니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="데이터 확인":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="위협 인텔리전스 가져오기 경로":::
  
 1. **저장** 단추를 선택 하 고 통합 문서를 저장할 Azure 위치를 선택 합니다. 이 단계는 어떤 방식으로든 통합 문서를 수정 하 고 변경 내용을 저장 하려는 경우에 필요 합니다.
 
@@ -417,7 +417,7 @@ Azure 센티널에 제공 된 위협 인텔리전스 통합 문서를 찾는 방
 
 1. **편집 완료** 단추를 선택 합니다. 통합 문서에 대 한 새 차트를 만들었습니다.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="가로 막대형 차트":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
 통합 문서는 Azure 센티널의 모든 측면에 대 한 정보를 제공 하는 강력한 대화형 대시보드를 제공 합니다. 통합 문서를 사용 하면 많은 작업을 수행할 수 있으며, 제공 된 템플릿이 좋은 출발점 이지만, 이러한 템플릿을 사용 하 여 사용자 지정 하거나, 다양 한 데이터 소스를 결합 하는 새로운 대시보드를 만들어 데이터를 고유한 방식으로 시각화할 수 있습니다. Azure 센티널 통합 문서는 Azure Monitor 통합 문서를 기반으로 하기 때문에 이미 광범위 한 설명서를 사용할 수 있으며 더 많은 템플릿이 있습니다. [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/platform/workbooks-overview.md)방법에 대 한이 문서를 시작 하는 것이 좋습니다. 
 

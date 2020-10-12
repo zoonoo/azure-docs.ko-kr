@@ -14,10 +14,10 @@ ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
 ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336533"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
@@ -55,7 +55,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 
 지역 간 부하 분산 장치의 상태 프로브는 20 초 마다 가용성에 대 한 정보를 수집 합니다. 한 지역 부하 분산 장치에서 가용성을 0으로 설정 하면 지역 간 부하 분산 장치에서 오류를 검색 합니다. 그러면 지역 부하 분산 장치는 순환에서 제외 됩니다. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="글로벌 지역 트래픽 보기의 다이어그램입니다." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="영역 간 부하 분산 장치 다이어그램." border="true":::
 
 ### <a name="ultra-low-latency"></a>매우 낮은 대기 시간
 

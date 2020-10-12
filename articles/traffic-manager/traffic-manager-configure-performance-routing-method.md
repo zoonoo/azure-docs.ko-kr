@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: duau
 ms.openlocfilehash: 46d71a38b79f449084f7353527f2dfb05d5b92a4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401030"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>성능 트래픽 라우팅 방법 구성
@@ -25,7 +25,7 @@ ms.locfileid: "89401030"
 
 ##  <a name="to-configure-performance-routing-method"></a>성능 라우팅 방법을 구성하려면 다음을 수행합니다.
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다. 아직 계정이 없는 경우 [1 개월 무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다. 
 2. 포털의 검색 창에서 **Traffic Manager 프로필**을 검색한 다음, 라우팅 방법을 구성하려는 프로필 이름을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 사용자 구성에 포함할 클라우드 서비스 및 웹 사이트가 모두 있는지 확인합니다.
 4. **설정** 섹션에서 **구성**을 클릭하고 **구성** 블레이드에서 다음과 같이 완료합니다.

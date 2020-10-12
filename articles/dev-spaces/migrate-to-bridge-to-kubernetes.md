@@ -1,18 +1,18 @@
 ---
-title: Kubernetes로의 브리지로 마이그레이션
+title: Bridge to Kubernetes로 마이그레이션
 services: azure-dev-spaces
 ms.date: 09/21/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스를 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
 ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997168"
 ---
-# <a name="migrating-to-bridge-to-kubernetes"></a>Kubernetes로의 브리지로 마이그레이션
+# <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
 
 Kubernetes에 연결 하면 Azure Dev Spaces와 함께 작동 하는 여러 개발 시나리오에 대 한 보다 간단한 가중치를 제공 합니다. Kubernetes에 대 한 브리지는 [Visual Studio][vs]   및 [Visual Studio Code][vsc]에서 확장을 사용 하는 클라이언트 쪽 전용 환경입니다.  
 
@@ -34,28 +34,28 @@ Kubernetes에 연결 하면 개발자가 나머지 클러스터와 상호 작용
 
 Kubernetes에는 비슷한 기능이 포함 되어 있으며, 다음과 같은 여러 영역에서 차이가 있습니다. Azure Dev Spaces
 
-| 요구 사항  | Azure Dev Spaces  | Kubernetes에 연결  |
+| 요구 사항  | Azure Dev Spaces  | Kubernetes에 대한 브리지  |
 |---------------|-------------------|--------------------------------|
 | Azure Kubernetes Service | Azure 지역 15 개 | 모든 AKS 서비스 지역    |
 | **보안** |
 | 클러스터에 필요한 보안 액세스  | AKS 클러스터 기여자  | Kubernetes RBAC-배포 업데이트   |
-| 개발 컴퓨터에 필요한 보안 액세스  | 해당 없음  | 로컬 관리자/sudo   |
+| 개발 컴퓨터에 필요한 보안 액세스  | N/A  | 로컬 관리자/sudo   |
 | **유용성** |
-| Kubernetes 및 Docker 아티팩트와 독립적  | 예  | 예   |
-| 변경 내용 자동 롤백, 사후 디버그  | 예  | 예   |
+| Kubernetes 및 Docker 아티팩트와 독립적  | 아니요  | 예   |
+| 변경 내용 자동 롤백, 사후 디버그  | 아니요  | 예   |
 | **환경** |
 | Visual Studio 2019에서 작동  | 예  | 예   |
 | Visual Studio Code에서 작동  | 예  | 예   |
-| CLI에서 작동  | 예  | 예   |
+| CLI에서 작동  | 예  | 아니요   |
 | **운영 체제 호환성** |
 | Windows 10에서 작동  | 예  | 예  |
 | Linux에서 작동  | 예  | 예  |
 | MacOS에서 작동  | 예  | 예  |
 | **Capabilities** |
 | 개발자 격리 또는 팀 개발  | 예  | 예  |
-| 선택적으로 환경 변수 덮어쓰기  | 예  | 예  |
-| Dockerfile 및 투구 차트 만들기  | 예  | 예  |
-| Kubernetes에 코드를 지속적으로 배포  | 예  | 예  |
+| 선택적으로 환경 변수 덮어쓰기  | 아니요  | 예  |
+| Dockerfile 및 투구 차트 만들기  | 예  | 아니요  |
+| Kubernetes에 코드를 지속적으로 배포  | 예  | 아니요  |
 | Kubernetes pod에서 원격 디버깅  | 예  | 아니요  |
 | Kubernetes에 연결 된 로컬 디버깅  | 아니요  | 예  |
 | 동일한 워크스테이션에서 동시에 여러 서비스 디버깅  | 예  | 예  |
@@ -120,7 +120,7 @@ Kubernetes 및 Azure Dev Spaces에 대 한 브리지는 모두 응용 프로그�
 Kubernetes에 대 한 브리지가 작동 하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Kubernetes 작동 방식][how-it-works-bridge-to-kubernetes]
+> [Bridge to Kubernetes 작동 방식][how-it-works-bridge-to-kubernetes]
 
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli

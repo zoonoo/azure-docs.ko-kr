@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
 ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409700"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 마이그레이션 후 최적화 단계

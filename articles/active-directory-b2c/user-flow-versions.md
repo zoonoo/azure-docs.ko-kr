@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67949c31c710d88a05e1e110860fe703caf66d04
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481328"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름 버전
@@ -22,7 +22,7 @@ ms.locfileid: "87481328"
 Azure Active Directory B2C (Azure AD B2C)의 사용자 흐름은 고객 id 환경을 완벽 하 게 설명 하는 공통 [정책을](user-flow-overview.md) 설정 하는 데 도움이 됩니다. 이러한 환경에는 가입, 로그인, 암호 재설정 또는 프로필 편집이 포함됩니다. 아래 표에는 Azure AD B2C에서 사용할 수 있는 사용자 흐름이 설명 되어 있습니다.
 
 > [!IMPORTANT]
-> 사용자 흐름 버전을 참조 하는 방법이 변경 되었습니다. 이전에는 V1 (프로덕션 준비) 버전 및 V 1.1 및 V2 (preview) 버전이 제공 되었습니다. 이제 사용자 흐름을 두 가지 버전으로 통합 했습니다.
+> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름을 두 가지 버전으로 통합 했습니다.
 >
 >- **권장** 사용자 흐름은 사용자 흐름의 새로운 미리 보기 버전입니다. 이러한 기능은 철저 하 게 테스트 되었으며 레거시 **V2** 및 **v 1.1** 버전의 모든 기능을 결합 합니다. 향후에는 새로운 권장 사용자 흐름이 유지 되 고 업데이트 됩니다. 이러한 새로운 권장 사용자 흐름으로 이동 하면 새 기능이 출시 될 때 새 기능에 액세스할 수 있습니다.
 >- 이전의 **V1**이라고 하는 **표준** 사용자 흐름이 일반적으로 사용 가능한 프로덕션 맞춤형 사용자 흐름입니다. 사용자 흐름이 중요 하 고 안정적인 버전에 따라 달라 지는 경우 표준 사용자 흐름을 계속 사용할 수 있으므로 이러한 버전이 유지 되 고 업데이트 되지 않습니다.
@@ -33,7 +33,7 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 흐름은 고객 id 환�
 
 권장 사용자 흐름은 새로운 기능을 레거시 V2 및 V 1.1 기능과 결합 하는 미리 보기 버전입니다. 앞으로는 권장 사용자 흐름이 유지 되 고 업데이트 됩니다.
 
-| 사용자 흐름 | Description |
+| 사용자 흐름 | 설명 |
 | --------- | ----------- |
 | 암호 재설정 (미리 보기) | 사용자가 이메일을 확인한 후 새 암호를 선택할 수 있습니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[다단계 인증](custom-policy-multi-factor-authentication.md)</li><li>토큰 호환성 설정</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](user-flow-password-complexity.md)</li></ul> |
 | 프로필 편집 (미리 보기) | 사용자가 사용자 특성을 구성할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[토큰 수명](tokens-overview.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li></ul> |
@@ -45,7 +45,7 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 흐름은 고객 id 환�
 
 표준 사용자 흐름 (이전의 V1 이라고 함)은 일반적으로 프로덕션이 준비 된 사용자 흐름입니다. 표준 사용자 흐름은 향후 업데이트 되지 않습니다.
 
-| 사용자 흐름 | Description |
+| 사용자 흐름 | 설명 |
 | --------- | ----------- | ----------- |
 | 암호 재설정 | 사용자가 이메일을 확인한 후 새 암호를 선택할 수 있습니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[다단계 인증](custom-policy-multi-factor-authentication.md)</li><li>토큰 호환성 설정</li><li>[암호 복잡성 요구 사항](user-flow-password-complexity.md)</li></ul> |
 | 프로필 편집 | 사용자가 사용자 특성을 구성할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[토큰 수명](tokens-overview.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li></ul> |
@@ -69,7 +69,7 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 흐름은 고객 id 환�
    2. 삭제 하려는 사용자 흐름을 찾습니다.
    3. 마지막 열에서 상황에 맞는 메뉴 (**...**)를 선택 하 고 **삭제**를 선택 합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="can-i-still-create-legacy-v2-and-v11-user-flows"></a>여전히 레거시 V2 및 V 1.1 사용자 흐름을 만들 수 있나요?
 

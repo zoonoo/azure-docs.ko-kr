@@ -4,10 +4,10 @@ description: 이 문서는 백업 센터에 대 한 자주 묻는 질문에 답�
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997684"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>백업 센터-질문과 대답
@@ -26,7 +26,7 @@ ms.locfileid: "90997684"
 
 백업 센터는 실시간 정보를 제공 하기 위한 것입니다. 엔터티가 개별 자격 증명 모음 화면에 표시 되는 시간과 동일한 엔터티가 백업 센터에 표시 되는 시간 사이에 몇 초 정도 지연 될 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="do-i-need-to-configure-anything-to-see-data-in-backup-center"></a>백업 센터에서 데이터를 볼 수 있도록 아무것도 구성 해야 하나요?
 

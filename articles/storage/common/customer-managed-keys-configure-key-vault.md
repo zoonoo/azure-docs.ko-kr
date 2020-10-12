@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90995989"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성
@@ -157,7 +157,7 @@ az keyvault key create \
 
 ---
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 구성
+## <a name="configure-encryption-with-customer-managed-keys"></a>고객 관리형 키로 암호화 구성
 
 그런 다음 Azure Key Vault에서 고객 관리 키를 사용 하도록 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
 
@@ -190,7 +190,7 @@ Azure Portal에서 키 버전의 자동 업데이트를 사용 하 여 고객 �
 
 키를 지정한 후에는 키 버전의 자동 업데이트가 사용 하도록 설정 되어 있으며 현재 암호화에 사용 중인 키 버전을 표시 하는 Azure Portal 나타냅니다.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="사용할 수 있는 키 버전의 자동 업데이트를 보여 주는 스크린샷":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="주요 자격 증명 모음을 만들 때 보호 제거를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

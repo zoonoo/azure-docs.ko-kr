@@ -8,10 +8,10 @@ ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408218"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
@@ -114,7 +114,7 @@ PHP는 연결 풀링을 지원 하지 않지만 백 엔드 서버에 대 한 영
 
 아웃 바운드 TCP 제한을 방지 하는 것은 작업자의 크기에 따라 제한이 설정 되므로 더 쉽게 해결할 수 있습니다. [샌드박스에서 VM 간 숫자 제한-TCP 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 의 제한을 확인할 수 있습니다.
 
-|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 
@@ -146,7 +146,7 @@ TCP 연결 및 SNAT 포트는 직접 관련 되지 않습니다. TCP 연결 사�
 * TCP 연결 제한은 작업자 인스턴스 수준에서 발생 합니다. Azure 네트워크 아웃 바운드 부하 분산에서는 SNAT 포트 제한에 TCP 연결 메트릭을 사용 하지 않습니다.
 * TCP 연결 제한은 [샌드박스 교차 VM 숫자 제한-Tcp 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 에 설명 되어 있습니다.
 
-|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 

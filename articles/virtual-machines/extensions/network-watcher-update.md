@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
 ms.openlocfilehash: c386685d63894472623ffc4392a529541a91391c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410343"
 ---
 # <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Network Watcher 확장을 최신 버전으로 업데이트 하는 방법 
@@ -25,7 +25,7 @@ ms.locfileid: "91410343"
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Network Watcher 에이전트 가상 머신 확장은 Azure 가상 머신에서 요청 시 네트워크 트래픽 캡처 및 기타 고급 기능을 위한 요구 사항입니다. Network Watcher 확장은 연결 모니터, 연결 모니터 (미리 보기), 연결 문제 해결 및 패킷 캡처와 같은 기능에서 사용 됩니다.   
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 가상 머신에 Network Watcher 확장 프로그램이 설치 되어 있는 것으로 가정 하 고 최신 버전으로 업데이트 하는 지침을 제공 합니다. 
 
 ## <a name="latest-version"></a>최신 버전
