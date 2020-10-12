@@ -11,17 +11,17 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213400"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Synapse SQL 풀에서 저장 프로시저 사용
 
 이 문서에서는 저장 프로시저를 구현 하 여 SQL 풀 솔루션을 개발 하기 위한 팁을 제공 합니다.
 
-## <a name="what-to-expect"></a>예상 프로그램
+## <a name="what-to-expect"></a>필요한 항목
 
 SQL 풀은 SQL Server에서 사용 되는 다양 한 T-sql 기능을 지원 합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다.
 

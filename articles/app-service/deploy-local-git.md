@@ -7,10 +7,10 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77152995"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대 한 로컬 Git 배포
@@ -152,9 +152,9 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|중에 분기를 지정 하지 `git push` 않았거나에서 값을 설정 하지 않았습니다 `push.default` `.gitconfig` .|`git push`마스터 분기를 지정 하 여를 다시 실행 `git push azure master` 합니다.|
 |`src refspec [branchname] does not match any.`|' Azure ' 원격의 마스터가 아닌 다른 분기에 푸시 하려고 했습니다.|`git push`마스터 분기를 지정 하 여를 다시 실행 `git push azure master` 합니다.|
 |`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예: `git config --global http.postBuffer 524288000`|
-|`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 파일 _에package.js_ 를 사용 하 여 Node.js 앱을 배포 했습니다.|오류 `npm ERR!` 에 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 메시지는 다음과 같습니다 `npm ERR!` .<br /><br />**파일의 package.js형식이 잘못**되었습니다.`npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가**없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 파일 _ 에package.js_ 를 사용 하 여 Node.js 앱을 배포 했습니다.|오류 `npm ERR!` 에 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 메시지는 다음과 같습니다 `npm ERR!` .<br /><br />**파일의 package.js형식이 잘못**되었습니다. `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가**없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
 - [Azure App Service에 대 한 연속 배포](deploy-continuous-deployment.md)

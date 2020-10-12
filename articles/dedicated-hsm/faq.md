@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88189876"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
@@ -210,7 +210,7 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 16 HA 그룹의 멤버는 뛰어난 결과를 포함 하는 낮은 수준의 전체 스로틀 테스트를 포함 합니다.
 
-## <a name="support"></a>고객 지원팀
+## <a name="support"></a>지원
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q: Dedicated HSM 서비스에 대한 SLA는 어떻게 되나요?
 
@@ -286,7 +286,7 @@ Dedicated HSM 서비스는 SafeNet Luna Network HSM 7 어플라이언스를 프�
 
 프로비전 해제를 요청하기 전에 고객이 Gemalto에서 제공한 HSM 클라이언트 도구를 사용하여 HSM을 초기화해야 합니다.
 
-## <a name="performance-and-scale"></a>성능 및 확장
+## <a name="performance-and-scale"></a>성능 및 크기 조정
 
 ### <a name="q-how-many-cryptographic-operations-are-supported-per-second-with-dedicated-hsm"></a>Q: Dedicated HSM에서 지원하는 초당 암호화 작업 수는 어떻게 되나요?
 

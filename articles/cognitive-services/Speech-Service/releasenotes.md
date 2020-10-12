@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462380"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
@@ -164,7 +164,7 @@ ms.locfileid: "89462380"
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
-    | 언어 | 음성 오류 감소 |
+    | Language | 음성 오류 감소 |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -177,7 +177,7 @@ ms.locfileid: "89462380"
 * 통화 판독값
     * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
      
-    | 언어 | 입력 | 개선 후의 기능 |
+    | Language | 입력 | 개선 후의 기능 |
     |---|---|---|
     | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
@@ -263,8 +263,8 @@ ms.locfileid: "89462380"
 - C #, c + +: `UtteranceId` `ConversationTranscriptionResult` 모든 intermediates 및 최종 음성 인식 결과에서 일관 된 ID를에 추가 했습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대 한 세부 정보입니다.
 - Python:에 대 한 지원이 추가 되었습니다 `Language ID` . [GitHub 리포지토리의](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)speech_sample py를 참조 하세요.
 - Windows: 모든 win32 콘솔 응용 프로그램에 대해 Windows 플랫폼에서 압축 된 오디오 입력 형식 지원을 추가 했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)를 참조 하세요. 
-- JavaScript: NodeJS에서 음성 합성 (텍스트-음성)을 지원 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech)에서 자세한 내용을 알아보세요. 
-- JavaScript: 모든 송신 및 수신 메시지를 검사할 수 있도록 새 API를 추가 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript)에서 자세한 내용을 알아보세요. 
+- JavaScript: NodeJS에서 음성 합성 (텍스트-음성)을 지원 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech)를 참조하세요. 
+- JavaScript: 모든 송신 및 수신 메시지를 검사할 수 있도록 새 API를 추가 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript)를 참조하세요. 
         
 **버그 수정**
 - C #, c + +: `SendMessageAsync` 이제 이진 메시지를 이진 형식으로 전송 하는 문제가 해결 되었습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)에 대 한 세부 정보입니다.
@@ -293,7 +293,7 @@ ms.locfileid: "89462380"
  - DialogServiceConnector는 이제 BotFrameworkConfig에서 선택적 "bot ID" 매개 변수를 지원 합니다. 이 매개 변수를 사용 하면 단일 Azure 음성 리소스에서 여러 개의 직접 라인 음성 봇을 사용할 수 있습니다. 매개 변수를 지정 하지 않으면 기본 봇 (직접 선 음성 채널 구성 페이지에 의해 결정 됨)이 사용 됩니다.
  - DialogServiceConnector에는 이제 SpeechActivityTemplate 속성이 있습니다. 이 JSON 문자열의 내용은 음성 인식과 같은 이벤트에 대 한 응답으로 자동으로 생성 되는 활동을 포함 하 여 직접 라인 음성 봇에 도달 하는 모든 활동에서 다양 한 지원 필드를 미리 채우도록 사용 됩니다.
  - 이제 TTS는 인증에 구독 키를 사용 하 여 신시사이저를 만든 후 첫 번째 합성 결과의 첫 번째 바이트 대기 시간을 줄입니다.
- - 18.6%의 평균 단어 오류 비율 절감을 위해 19 개 로캘에 대 한 음성 인식 모델 업데이트 (es, es-MX, fr-fr, fr-fr, it-zh-cn, ko-kr, ko-kr, pt-BR,, zh-cn-HK, nb,, fi,, pl,, zh-cn,,,)를 차례로 찾을 수 있습니다 .이에 대 한 자세한 내용은 새 모델은 받아쓰기, 콜 센터 기록 및 비디오 인덱싱 시나리오를 비롯 한 여러 도메인에 걸쳐 상당한 향상 된 기능을 가져옵니다.
+ - 18.6%의 평균 단어 오류 비율 절감을 위해 19 개 로캘에 대 한 음성 인식 모델 업데이트 (es, es-MX, fr-fr, fr-fr, it-zh-cn, ko-kr, ko-kr, pt-BR,, zh-cn-HK, nb,, fi,, pl,, zh-cn,,,)를 차례로 찾을 수 있습니다 .이에 대 한 자세한 내용은 새 모델은 받아쓰기, Call-Center 기록 및 비디오 인덱싱 시나리오를 비롯 한 여러 도메인에서 상당한 개선을 가져옵니다.
 
 **버그 수정**
 

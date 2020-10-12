@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525044"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
@@ -54,7 +54,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 
 * Veeam 백업 서버 및 프록시 서버가 사설 클라우드의 동일한 VM에 설치 되어 있어야 합니다.
 * Azure의 Linux 기반 기본 백업 리포지토리는 백업 작업의 대상으로 구성 됩니다.
-* `azcopy`다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
+* `azcopy` 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
 
 ![기본 배포 시나리오](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 * Veeam에 권장 된 대로 vSAN 클러스터의 노드당 하나의 프록시 서버.
 * 빠른 복원을 위해 5 일간의 데이터를 캐시 하는 사설 클라우드의 Windows 기반 주 백업 리포지토리입니다.
 * 더 긴 보존 기간 동안 백업 복사 작업을 위한 대상으로 Azure의 Linux 백업 리포지토리 이 리포지토리는 스케일 아웃 백업 리포지토리로 구성 되어야 합니다.
-* `azcopy`다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
+* `azcopy` 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
 
 ![기본 배포 시나리오](media/veeam-advanceddeployment.png)
 
@@ -260,7 +260,7 @@ Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자�
 
 권한을 에스컬레이션 하려면 [권한 승격](escalate-private-cloud-privileges.md#de-escalate-privileges)을 참조 하세요.
 
-## <a name="references"></a>참고 자료
+## <a name="references"></a>참조
 
 ### <a name="cloudsimple-references"></a>CloudSimple 참조
 

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83ab2c6b97435ace0d2bc508cbf522600391b60b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88926833"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $orderby 구문
@@ -32,7 +32,7 @@ ms.locfileid: "88926833"
 
 ## <a name="syntax"></a>구문
 
-**$Orderby** 매개 변수는 최대 32 개의 **order by 절**에 대 한 쉼표로 구분 된 목록을 허용 합니다. Order by 절의 구문은 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에서 설명 합니다.
+**$Orderby** 매개 변수는 최대 32 개의 **order by 절**에 대 한 쉼표로 구분 된 목록을 허용 합니다. Order by 절의 구문은 다음 EBNF ([확장 Backus-Naur 양식](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에서 설명 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -62,7 +62,7 @@ sortable_function ::= geo_distance_call | 'search.score()'
 
 **$orderby**에서 `search.score`에 대한 구문은 `search.score()`입니다. 함수는 `search.score` 매개 변수를 사용 하지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 호텔을 기본 요금의 오름차순으로 정렬합니다.
 

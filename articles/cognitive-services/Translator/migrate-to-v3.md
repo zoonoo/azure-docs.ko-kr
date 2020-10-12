@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523981"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator V2에서 V3로 마이그레이션
@@ -86,7 +86,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
-Global
+전역
 
 * api.cognitive.microsofttranslator.com
 
@@ -141,7 +141,7 @@ Api.cognitive.microsofttranslator.com 끝점을 사용 하는 경우 변환기�
 
 * [Microsoft 개인 정보 취급 방침](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure 법률 정보](https://azure.microsoft.com/support/legal)
-* [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* [온라인 서비스 약관.](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
 ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461734"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
@@ -36,7 +36,7 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 
 다음과 같은 지원 되는 작업을 감사할 수 있습니다.
 
-|작업 이름|    리소스 종류|
+|작업 이름|    리소스 유형|
 |----|----|
 |통합 문서 만들기 또는 업데이트  |Microsoft Insights/통합 문서|
 |통합 문서 삭제    |Microsoft Insights/통합 문서|

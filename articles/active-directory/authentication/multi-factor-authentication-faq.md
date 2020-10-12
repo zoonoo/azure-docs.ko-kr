@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706271"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
@@ -182,7 +182,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 타사 보안 앱은 확인 코드 문자 메시지 또는 전화 통화를 차단할 수도 있습니다. 타사 보안 앱을 사용 하는 경우 보호를 사용 하지 않도록 설정 하 고 다른 MFA 확인 코드를 보내도록 요청 하세요.
 
-사용자에 게 문자 메시지를 안정적으로 수신 하는 데 문제가 있는 경우 대신 Microsoft Authenticator 앱 또는 전화 통화 방법을 사용 하도록 지시 합니다. Microsoft Authenticator 셀룰러 및 Wi-fi 연결 모두에 대 한 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)및 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)에서 사용할 수 있습니다.
+사용자에 게 문자 메시지를 안정적으로 수신 하는 데 문제가 있는 경우 대신 Microsoft Authenticator 앱 또는 전화 통화 방법을 사용 하도록 지시 합니다. Microsoft Authenticator 셀룰러 및 Wi-Fi 연결 모두에 대 한 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)및 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)에서 사용할 수 있습니다.
 
 ### <a name="can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out"></a>시스템 시간이 초과되기 전에 사용자가 문자 메시지를 통해 확인 코드를 입력해야 하는 시간을 변경할 수 있나요?
 
@@ -190,7 +190,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스트리 키를 설정하여 시간 제한 설정을 구성할 수 있습니다. MFA 클라우드 서비스가 텍스트 메시지를 보내면 확인 코드(또는 일회용 암호)가 MFA 서버에 반환됩니다. MFA 서버는 코드를 기본적으로 300초 동안 메모리에 저장합니다. 300초가 경과하기 전에 사용자가 코드를 입력하지 않으면 인증이 거부됩니다. 기본 시간 제한 설정을 변경하려면 다음 단계를 사용합니다.
 
-1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` 로 이동합니다.
+1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`로 이동합니다.
 2. *Pfsvc_pendingSmsTimeoutSeconds* 라는 **DWORD** 레지스트리 키를 만들고 Azure MFA 서버에서 일회성 암호을 저장 하는 시간 (초)을 설정 합니다.
 
 >[!TIP]

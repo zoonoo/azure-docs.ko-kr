@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460119"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
@@ -69,7 +69,7 @@ ms.locfileid: "89460119"
 7. `IPconfig`을 입력합니다.
 8. IPV4 주소 값을 적습니다.
 9. Internet Explorer를 엽니다.
-10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`.
+10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`
 
 웹 사이트를 탐색하면 이제 더 구체적인 오류 메시지가 반환됩니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "89460119"
 * 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
 * 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 !['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

@@ -9,10 +9,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069411"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
@@ -46,7 +46,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
@@ -70,7 +70,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 관련된 Azure PowerShell 참조 설명서를 검토하려면, [Azure PowerShell 참조](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)를 참조하세요.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="declare-the-variables"></a>변수 선언
 

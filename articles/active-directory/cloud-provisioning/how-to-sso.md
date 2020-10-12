@@ -12,13 +12,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca9afda3303d828bdbb162a9e18ac817b7f8091e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85360659"
 ---
-# <a name="using-single-sign-on-with-cloud-provisioning"></a>클라우드 프로 비전에서 Single Sign-on 사용
+# <a name="using-single-sign-on-with-cloud-provisioning"></a>클라우드 프로 비전에 단일 Sign-On 사용
 다음 문서에서는 클라우드 프로 비전에 Single Sign-On를 사용 하는 방법을 설명 합니다.
 
 [!INCLUDE [active-directory-cloud-provisioning-sso.md](../../../includes/active-directory-cloud-provisioning-sso.md)]

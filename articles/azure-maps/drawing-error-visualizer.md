@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524746"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Azure Maps 그리기 오류 시각화 도우미 사용
@@ -82,11 +82,11 @@ _VisualizationTool.zip_ 폴더의 압축을 풉니다. 여기에는 다음 항�
 
 _ConversionWarningsAndErrors.json_ 파일은 다운로드된 디렉터리의 루트에 배치되었습니다. _ConversionWarningsAndErrors.json_을 로드하려면 파일을 상자로 끌어서 놓거나 상자를 클릭하고 파일 탐색기 대화 상자에서 파일을 찾은 다음, 파일을 업로드할 수 있습니다.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="그리기 오류 시각화 도우미 앱 - 끌어서 놓기로 데이터 로드":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="그리기 오류 시각화 도우미 앱 - 시작 페이지":::
 
 _ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 오류 및 경고 목록이 표시됩니다. 각 오류 또는 경고에는 레이어, 수준 및 자세한 메시지가 명시됩니다. 오류 또는 경고에 대 한 자세한 정보를 보려면 **세부 정보** 링크를 클릭 합니다. 그러면 intractable 섹션이 목록 아래에 표시 됩니다. 이제 각 오류로 이동하여 오류를 해결하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="그리기 오류 시각화 도우미 앱 - 오류 및 경고":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="그리기 오류 시각화 도우미 앱 - 시작 페이지":::
 
 ## <a name="next-steps"></a>다음 단계
 

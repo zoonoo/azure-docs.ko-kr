@@ -7,17 +7,17 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88586395"
 ---
 # <a name="keys-and-values"></a>키 및 값
 
 Azure 앱 구성은 구성 데이터를 키 값으로 저장 합니다. 키-값은 개발자가 사용 하는 응용 프로그램 설정을 간단 하 고 유연 하 게 표현한 것입니다.
 
-## <a name="keys"></a>구성
+## <a name="keys"></a>키
 
 키는 키 값에 대 한 식별자 역할을 하며 해당 값을 저장 하 고 검색 하는 데 사용 됩니다. `/` 또는 `:`과 같은 문자 구분 기호를 사용하여 키를 계층 구조 네임스페이스에 구성하는 일반적인 방식입니다. 응용 프로그램에 가장 적합 한 규칙을 사용 합니다. App Configuration은 전체적으로 키를 처리합니다. 키를 구문 분석하여 키 이름을 구성하는 방법을 파악하거나 규칙을 적용하지 않습니다.
 
@@ -67,7 +67,7 @@ App Configuration의 키 값은 레이블 특성을 선택할 수 있습니다. 
 
 각 키 값은 `\0`일 수 있는 레이블 및 해당 키로만 식별됩니다. 패턴을 지정 하 여 응용 프로그램 구성 저장소에서 키 값을 쿼리 합니다. 앱 구성 저장소는 해당 값과 특성을 포함 하 여 패턴과 일치 하는 모든 키 값을 반환 합니다. App Configuration에 대한 REST API 호출에서 사용하는 키 패턴은 다음과 같습니다.
 
-| 키 | Description |
+| Key | 설명 |
 |---|---|
 | `key`은 생략 또는 `key=*` | 모든 키와 일치 |
 | `key=abc` | **abc** 키 이름과 정확하게 일치 |

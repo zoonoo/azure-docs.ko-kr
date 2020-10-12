@@ -13,10 +13,10 @@ ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89292898"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
@@ -29,7 +29,7 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애�
 
 토큰은 다음을 비롯 한 여러 유형의 응용 프로그램에서 가져올 수 있습니다.
 
-- 웹앱
+- 웹 앱
 - 모바일 앱
 - 데스크톱 앱
 - Web API
@@ -82,7 +82,7 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애�
 Microsoft id 플랫폼 끝점은 이러한 앱 아키텍처에 대 한 인증을 지원 합니다.
 
 - 단일 페이지 앱
-- 웹앱
+- 웹 앱
 - Web API
 - 모바일 앱
 - 네이티브 앱

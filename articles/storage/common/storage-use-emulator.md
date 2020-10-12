@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588197"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Azure Storage 에뮬레이터를 사용 하 여 개발 및 테스트
@@ -182,7 +182,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | Description | 명령 | 인수 |
+| 옵션 | 설명 | 명령 | 인수 |
 | --- | --- | --- | --- |
 | **시작** |저장소 에뮬레이터를 시작 합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |저장소 에뮬레이터를 중지 합니다. |`AzureStorageEmulator.exe stop` | |

@@ -8,10 +8,10 @@ ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88587636"
 ---
 # <a name="understand-event-data"></a>이벤트 데이터 이해
@@ -103,7 +103,7 @@ Azure Digital Twins에서 Event Grid에 내보내는 알림은 Event Grid 토픽
 
 다음은 수명 주기 알림의 본문에 있는 필드입니다.
 
-| 속성 | 값 |
+| Name | 값 |
 | --- | --- |
 | `id` | UUID 또는 서비스에서 유지 관리 되는 카운터와 같은 알림의 식별자입니다. `source` + `id` 각 고유 이벤트에 대해 고유 합니다. |
 | `source` | *Myhub.azure-devices.net* 또는 *Mydigitaltwins.westus2.azuredigitaltwins.net* 와 같은 IoT Hub 또는 Azure Digital twins 인스턴스의 이름 |
@@ -189,7 +189,7 @@ Azure Digital Twins에서 Event Grid에 내보내는 알림은 Event Grid 토픽
 
 다음은에 지 변경 알림 본문의 필드입니다.
 
-| 속성    | 값 |
+| Name    | 값 |
 | --- | --- |
 | `id` | UUID 또는 서비스에서 유지 관리 되는 카운터와 같은 알림의 식별자입니다. `source` + `id` 각 고유 이벤트에 대해 고유 합니다. |
 | `source` | *Mydigitaltwins.westus2.azuredigitaltwins.net* 와 같은 Azure 디지털 twins 인스턴스의 이름 |
@@ -245,7 +245,7 @@ Create 또는 delete 관계 알림의 예는 다음과 같습니다.
 
 다음은 디지털 쌍 변경 알림 본문의 필드입니다.
 
-| 속성    | 값 |
+| Name    | 값 |
 | --- | --- |
 | `id` | UUID 또는 서비스에서 유지 관리 되는 카운터와 같은 알림의 식별자입니다. `source` + `id` 각 고유 이벤트에 대해 고유 합니다. |
 | `source` | *Myhub.azure-devices.net* 또는 *Mydigitaltwins.westus2.azuredigitaltwins.net* 와 같은 IoT Hub 또는 Azure Digital twins 인스턴스의 이름

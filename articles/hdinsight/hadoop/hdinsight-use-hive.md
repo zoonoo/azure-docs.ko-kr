@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462278"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
@@ -23,12 +23,12 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-|클러스터 유형 |Description|
+|클러스터 유형 |설명|
 |---|---|
 |대화형 쿼리|[LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.|
 |Hadoop은|일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.|
 |Spark|Apache Spark에는 Hive 작업을 위한 기본 제공 기능이 있습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](../spark/apache-spark-jupyter-spark-sql.md) 문서를 참조하세요.|
-|HBase는|HiveQL은 Apache HBase에 저장된 데이터를 쿼리하는 데 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.|
+|HBase|HiveQL은 Apache HBase에 저장된 데이터를 쿼리하는 데 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.|
 
 ## <a name="how-to-use-hive"></a>Hive 사용 방법
 

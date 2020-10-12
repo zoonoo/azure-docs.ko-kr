@@ -4,10 +4,10 @@ description: 이 문서에서는 두 개의 클라이언트 역할 및 역할에
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75451890"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>서비스 패브릭 클라이언트용 역할 기반 액세스 제어

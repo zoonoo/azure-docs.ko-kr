@@ -5,17 +5,17 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262997"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 
 이 문서에서는 Microsoft Azure Backup Server(MABS)를 구성하여 Azure에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 Azure Backup Server가 [설치 및 준비](backup-azure-microsoft-azure-backup.md)되어 있는지 확인합니다.
 

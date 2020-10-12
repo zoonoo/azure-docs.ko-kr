@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83e9ae4aa68bc0c819d02a0cc6c39758549811cb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928856"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 OData 식 구문 참조
@@ -34,7 +34,7 @@ Azure Cognitive Search는 API 전체에서 [OData 식을](https://docs.oasis-ope
 
 ## <a name="formal-grammar"></a>공식 문법
 
-EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 문법을 사용 하 여 Azure Cognitive Search에서 지 원하는 OData 언어의 하위 집합을 설명할 수 있습니다. 규칙은 "하향식"으로 나열 되며 가장 복잡 한 식부터 시작 하 여 더 많은 기본 식으로 구분 됩니다. 위쪽에는 Azure Cognitive Search REST API의 특정 매개 변수에 해당 하는 문법 규칙이 있습니다.
+EBNF ([확장 Backus-Naur 양식](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 문법을 사용 하 여 Azure Cognitive Search에서 지 원하는 OData 언어의 하위 집합을 설명할 수 있습니다. 규칙은 "하향식"으로 나열 되며 가장 복잡 한 식부터 시작 하 여 더 많은 기본 식으로 구분 됩니다. 위쪽에는 Azure Cognitive Search REST API의 특정 매개 변수에 해당 하는 문법 규칙이 있습니다.
 
 - [`$filter`](search-query-odata-filter.md)규칙으로 정의 된 `filter_expression` 입니다.
 - [`$orderby`](search-query-odata-orderby.md)규칙으로 정의 된 `order_by_expression` 입니다.

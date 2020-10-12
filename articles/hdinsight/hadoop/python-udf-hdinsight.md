@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462244"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
@@ -25,13 +25,13 @@ Python2.7은 기본적으로 HDInsight 3.0 이상에 설치됩니다. 스트림 
 
 HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Jython은 Java Virtual Machine에서 직접 실행 되며 스트리밍을 사용 하지 않습니다. Jython는 Pig와 함께 Python을 사용할 때 권장되는 Python 인터프리터입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. `wasb://` `abfs://` Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는 wasbs://이 됩니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 * **저장소 구성이 변경 될 수 있습니다.**  저장소 계정 종류를 사용 하는 경우 [저장소 구성](#storage-configuration) 을 참조 하세요 `BlobStorage` .
-* 선택 사항입니다.  PowerShell 사용을 계획 하는 경우 [AZ 모듈이](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 설치 되어 있어야 합니다.
+* (선택 사항)  PowerShell 사용을 계획 하는 경우 [AZ 모듈이](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 설치 되어 있어야 합니다.
 
 > [!NOTE]  
 > 이 문서에 사용 된 저장소 계정은 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 설정에 Azure Storage 되어 있으므로이 `wasbs` 문서 전체에서 사용 됩니다.
@@ -100,7 +100,7 @@ while True:
 1. STDIN에서 데이터 줄을 읽습니다.
 2. `string.strip(line, "\n ")`를 사용하여 후행 줄 바꿈 문자를 제거합니다.
 3. 스트림 처리를 할 때 모든 값과 각 값 사이의 탭 문자가 한 줄에 포함됩니다. 따라서 `string.split(line, "\t")` 를 사용하여 각 탭의 입력을 분할하여 필드만 반환할 수 있습니다.
-4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예들 들어 `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`입니다.
 5. `while` 루프는 `line`이 읽히지 않을 때까지 반복됩니다.
 
 스크립트 출력은 `devicemake` 및 `devicemodel`의 입력 값과 연결된 값의 해시를 연결합니다.

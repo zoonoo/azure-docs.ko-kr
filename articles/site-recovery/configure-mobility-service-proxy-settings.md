@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133223"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Azure에 대 한 azure 재해 복구에 대 한 모바일 서비스 프록시 설정 구성

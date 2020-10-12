@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415455"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
@@ -169,7 +169,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbMongoDbApiSink**로 설정해야 합니다. |예 |
-| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**Upsert** 의 동작은 문서가 이미 있는 경우 문서를 바꾸는 것이 고, 그렇지 않으면 문서를 삽입 하는 것입니다 `_id` .<br /><br />**참고**: `_id` 가 `_id` 원본 문서 또는 열 매핑에서 지정 되지 않은 경우 Data Factory 문서에 대해를 자동으로 생성 합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />(기본값: **insert**) |
+| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**Upsert** 의 동작은 문서가 이미 있는 경우 문서를 바꾸는 것이 고, 그렇지 않으면 문서를 삽입 하는 것입니다 `_id` .<br /><br />**참고**: `_id` 가 `_id` 원본 문서 또는 열 매핑에서 지정 되지 않은 경우 Data Factory 문서에 대해를 자동으로 생성 합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />기본값은 **insert**입니다. |
 | writeBatchSize | **writeBatchSize** 속성은 각 일괄 처리에서 작성할 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄여 볼 수 있습니다. |아니요<br />(기본값: **10,000**) |
 | writeBatchTimeout | 제한 시간이 초과 되기 전에 일괄 삽입 작업이 완료 될 때까지 대기 하는 시간입니다. 허용 되는 값은 timespan입니다. | 아니요<br/>(기본값은 **00:30:00** - 30분) |
 

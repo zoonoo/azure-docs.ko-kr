@@ -7,10 +7,10 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852398"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>최신 경고에 대 한 마이그레이션 옵션 이해
@@ -150,11 +150,11 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | SASSuccess | 차원이 "ResponseType" = "Success" 및 "Authentication" = "SAS" 인 트랜잭션 메트릭 | |
 | ServerOtherError | 차원이 "ResponseType" = "ServerOtherError" 인 트랜잭션 메트릭 | |
 | ServerTimeOutError | 차원이 "ResponseType" = "ServerTimeOutError" 인 트랜잭션 메트릭  | |
-| Success | 차원이 "ResponseType" = "Success" 인 트랜잭션 메트릭 | |
-| TotalBillableRequests| 의 | |
+| 성공 | 차원이 "ResponseType" = "Success" 인 트랜잭션 메트릭 | |
+| TotalBillableRequests| 트랜잭션 | |
 | TotalEgress | 송신 | |
 | TotalIngress | 수신 | |
-| TotalRequests | 의 | |
+| TotalRequests | 트랜잭션 | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft 인 사이트/구성 요소
 
@@ -171,16 +171,16 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 | clientPerformance | browserTimings/receiveDuration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
 | clientPerformance | browserTimings/sendDuration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
 | clientPerformance. total. 값 | browserTimings/totalDuration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
-| available_bytes. 값 | performanceCounters/memoryAvailableBytes|   |
-| io_data_bytes_per_sec. 값 | performanceCounters/processIOBytesPerSecond|   |
-| number_of_exceps_thrown_per_sec. 값 | performanceCounters/exceptionsPerSecond|   |
-| percentage_processor_time_normalized. 값 | performanceCounters/processCpuPercentage|   |
-| percentage_processor_time. 값 | performanceCounters/processCpuPercentage| 원래 메트릭이 모든 코어에서 수행 되 고 새 메트릭이 하나의 코어로 정규화 되므로 임계값을 적절 하 게 수정 해야 합니다. 마이그레이션 도구는 임계값을 변경 하지 않습니다.  |
-| percentage_processor_total. 값 | performanceCounters/processorCpuPercentage|   |
-| process_private_bytes. 값 | performanceCounters/processPrivateBytes|   |
-| request_execution_time. 값 | performanceCounters/requestExecutionTime|   |
-| requests_in_application_queue. 값 | performanceCounters/requestsInQueue|   |
-| requests_per_sec. 값 | performanceCounters/requestsPerSecond|   |
+| performanceCounter.available_bytes. 값 | performanceCounters/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec. 값 | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec. 값 | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized. 값 | performanceCounters/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time. 값 | performanceCounters/processCpuPercentage| 원래 메트릭이 모든 코어에서 수행 되 고 새 메트릭이 하나의 코어로 정규화 되므로 임계값을 적절 하 게 수정 해야 합니다. 마이그레이션 도구는 임계값을 변경 하지 않습니다.  |
+| performanceCounter.percentage_processor_total. 값 | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes. 값 | performanceCounters/processPrivateBytes|   |
+| performanceCounter.request_execution_time. 값 | performanceCounters/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue. 값 | performanceCounters/requestsInQueue|   |
+| performanceCounter.requests_per_sec. 값 | performanceCounters/requestsPerSecond|   |
 | 요청. 기간 | requests/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
 | 요청 요금 | 요청/속도|   |
 | requestFailed | requests/failed| ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다.   |

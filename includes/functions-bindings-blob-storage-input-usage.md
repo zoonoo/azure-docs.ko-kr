@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: craigshoemaker
@@ -10,10 +10,10 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 512d05b245f1279a977ba61d5b4c4904fc0f6bf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77202126"
 ---
 Blob 입력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있습니다.

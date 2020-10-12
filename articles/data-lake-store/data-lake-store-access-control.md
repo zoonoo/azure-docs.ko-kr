@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88190160"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
@@ -71,11 +71,11 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-| 연산 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | 목록      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |

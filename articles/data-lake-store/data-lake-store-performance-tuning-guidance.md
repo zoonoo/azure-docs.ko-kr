@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88190237"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>성능에 대 한 Azure Data Lake Storage Gen1 조정
@@ -124,7 +124,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
-| 워크로드               | 작업을 설정하는 매개 변수                                                         |
+| 작업               | 작업을 설정하는 매개 변수                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
 | [HDInsight의 Spark](data-lake-store-performance-tuning-spark.md)  | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |

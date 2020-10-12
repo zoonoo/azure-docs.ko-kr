@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 6677f9275d3b6f0569216eb16046d096c574beab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030904"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 솔루션 템플릿에 대한 기술 가이드

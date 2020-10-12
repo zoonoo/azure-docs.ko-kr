@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: iot-accelerators
 author: avneet723
@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182636"
 ---
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
@@ -54,7 +54,7 @@ git submodule foreach git pull origin master
 
 1. **start.cmd** 스크립트를 실행합니다. 스크립트에서 다음 정보를 요구하는 메시지가 표시됩니다.
    * 솔루션 이름
-   * Azure 구독을 사용합니다.
+   * 사용할 Azure 구독입니다.
    * 사용할 Azure 데이터 센터의 위치
 
      스크립트는 솔루션 이름을 사용하여 Azure에서 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용하는 Azure 리소스가 포함됩니다. 해당 리소스가 더 이상 필요하지 않으면 이 리소스 그룹을 삭제할 수 있습니다.

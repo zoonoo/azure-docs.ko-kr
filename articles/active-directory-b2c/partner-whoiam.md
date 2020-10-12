@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89293153"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 WhoIAM 구성에 대 한 자습서
@@ -24,7 +24,7 @@ ms.locfileid: "89293153"
 
 BRIMS은 사용자 환경에 배포 되는 앱 및 서비스 집합입니다. 사용자 기반에 대 한 음성, SMS 및 전자 메일 확인을 제공 합니다. BRIMS는 기존 id 및 액세스 관리 솔루션과 함께 작동 하며 플랫폼에 관계 없이 작동 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -50,7 +50,7 @@ WhoIAM 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![WhoIAM와 통합 Azure AD B2C의 아키텍처 다이어그램](media/partner-whoiam/whoiam-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자는 Azure AD B2C를 id 공급자로 사용 하는 앱에 대 한 등록 또는 로그인 요청을 시작 하기 위해 페이지에 도착 합니다.
 | 2. | 인증의 일부로 사용자는 전자 메일 또는 전화의 소유권을 확인 하거나 음성을 생체 인식 확인 요소로 사용 하도록 요청 합니다.  

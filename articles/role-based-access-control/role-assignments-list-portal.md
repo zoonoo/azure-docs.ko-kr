@@ -11,15 +11,15 @@ ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85361858"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 Azure Portal를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 이 문서에서는 Azure Portal를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.

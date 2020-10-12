@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526438"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Azure 직렬 콘솔 내 일반적인 오류
@@ -34,7 +34,7 @@ Error                             |   완화 방법
 이 VM의 부트 진단 스토리지 계정에 액세스할 경우 &quot;사용할 수 없음&quot; 응답이 발생했습니다. | 부트 진단에 계정 방화벽이 없는지 확인하세요. 직렬 콘솔이 작동하려면 액세스 가능한 부트 진단 스토리지 계정이 필요합니다. 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽과 함께 작동할 수 없습니다.
 직렬 콘솔에서 이 VM을 사용하는 데 필요한 사용 권한이 없습니다. Virtual Machine Contributor 역할 이상의 권한이 있는지 확인합니다.| 직렬 콘솔 액세스에는 VM 또는 가상 머신 확장 집합에 대 한 참가자 수준 액세스 권한이 있어야 합니다. 자세한 내용은 [개요 페이지](serial-console-overview.md)를 참조 하세요.
 이 VM에서 부팅 진단에 사용 되는 저장소 계정 ' '을 (를) 찾을 수 없습니다. 이 VM에 대해 부팅 진단이 사용 하도록 설정 되어 있고,이 저장소 계정이 삭제 되지 않았는지,이 저장소 계정에 대 한 액세스 권한이 있는지 확인 하세요. | VM 또는 가상 머신 확장 집합에 대 한 부트 진단 저장소 계정을 삭제 하지 않았는지 다시 한 번 확인 합니다.
-VM에 대 한 직렬 콘솔 연결에서 ' 잘못 된 요청 ' (400) 오류가 발생 했습니다. | 이 문제는 부팅 진단 URI가 잘못 된 경우에 발생할 수 있습니다. 예를 들어 "https://" 대신 "http://"가 사용 되었습니다. 다음 명령을 사용 하 여 부팅 진단 URI를 수정할 수 있습니다.`az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
+VM에 대 한 직렬 콘솔 연결에서 ' 잘못 된 요청 ' (400) 오류가 발생 했습니다. | 이 문제는 부팅 진단 URI가 잘못 된 경우에 발생할 수 있습니다. 예를 들어 "https://" 대신 "http://"가 사용 되었습니다. 다음 명령을 사용 하 여 부팅 진단 URI를 수정할 수 있습니다. `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
 이 VM에 대 한 부팅 진단 저장소 계정에 쓰는 데 필요한 권한이 없습니다. VM 참가자 이상의 권한이 있는지 확인 하세요. | 액세스 직렬 콘솔 하려면 부트 진단 저장소 계정에 대 한 참가자 수준 액세스 권한이 필요 합니다. 자세한 내용은 [개요 페이지](serial-console-overview.md)를 참조 하세요.
 부트 진단 저장소 계정 * &lt; storageaccountname &gt; *에 대 한 리소스 그룹을 확인할 수 없습니다. 이 VM에 부트 진단이 활성화되어 있고 스토리지 계정에 액세스 권한이 있는지 확인합니다. | 액세스 직렬 콘솔 하려면 부트 진단 저장소 계정에 대 한 참가자 수준 액세스 권한이 필요 합니다. 자세한 내용은 [개요 페이지](serial-console-overview.md)를 참조 하세요.
 이 VM에 대 한 프로 비전이 아직 성공 하지 않았습니다. VM이 완전히 배포 되었는지 확인 하 고 직렬 콘솔 연결을 다시 시도 하세요. | VM 또는 가상 머신 확장 집합을 계속 프로 비전 할 수 있습니다. 잠시 기다린 후 다시 시도 하세요.
