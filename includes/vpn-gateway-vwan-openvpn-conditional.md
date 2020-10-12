@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77471549"
 ---
 조건부 액세스를 통해 응용 프로그램 별로 세분화 된 액세스 제어를 사용할 수 있습니다. 조건부 액세스를 사용 하려면 조건부 액세스 규칙이 적용 되는 사용자에 게 하나 이상의 라이선스가 적용 Azure AD Premium 해야 합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "77471549"
    - **사용자 및 그룹 선택**을 클릭합니다.
    - **사용자 및 그룹**을 확인 합니다.
    - **선택** 을 클릭 하 여 MFA의 영향을 받을 그룹 또는 사용자 집합을 선택 합니다.
-   - **Done**을 클릭합니다.
+   - **완료**를 클릭합니다.
 
    ![할당](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
 3. **새** 창에서 **액세스 제어-> 부여** 창으로 이동 합니다.

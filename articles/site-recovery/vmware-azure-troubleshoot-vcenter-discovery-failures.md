@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135343"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>vCenter Server 검색 오류 문제 해결
@@ -20,7 +20,7 @@ ms.locfileid: "86135343"
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>MaxSnapShots 속성의 숫자가 아닌 값
 
-9.20 이전 버전에서는 VM의 property 속성에 대해 숫자가 아닌 값을 검색할 때 vCenter의 연결이 끊깁니다 `snapshot.maxSnapShots` .
+9.20 이전 버전에서는 VM의 property 속성에 대해 숫자가 아닌 값을 검색할 때 vCenter의 연결이 끊깁니다  `snapshot.maxSnapShots` .
 
 이 문제는 오류 ID 95126으로 식별 됩니다.
 
@@ -32,7 +32,7 @@ System.FormatException: Input string was not in a correct format.
     at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
 ```
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 - VM을 식별 하 고 값을 숫자 값 (vCenter의 VM 편집 설정)으로 설정 합니다.
 
@@ -52,7 +52,7 @@ vCenter 검색은 시스템 사용자가 구성한 시스템 기본 프록시 �
 - 오류가 발생 하 여 vCenter 서버에 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. \<vCenter> 원격 서버에 연결할 수 없습니다.
 - VCenter/ESXi 서버에 연결할 수 없습니다.
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 [PsExec 도구](https://aka.ms/PsExec)를 다운로드합니다. 
 

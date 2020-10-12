@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202223"
 ---
 # <a name="general-claims-transformations"></a>일반 클레임 변환
@@ -49,7 +49,7 @@ ms.locfileid: "85202223"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **Inputclaim**:bob@contoso.com
+    - **Inputclaim**: bob@contoso.com
 - 출력 클레임:
     - **outputClaim**: bob@contoso.com
 
@@ -78,7 +78,7 @@ ms.locfileid: "85202223"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **Inputclaim**:someone@contoso.com
+  - **Inputclaim**: someone@contoso.com
 - 출력 클레임:
   - **outputClaim**: true
 
@@ -88,9 +88,9 @@ ms.locfileid: "85202223"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | plaintext | string | 암호화할 입력 클레임입니다. |
-| InputClaim | salt | string | 솔트 매개 변수입니다. `CreateRandomString` 클레임 변환을 사용하여 임의 값을 만들 수 있습니다. |
-| InputParameter | randomizerSecret | string | 기존 Azure AD B2C **정책 키**를 가리킵니다. 새 정책 키를 만들려면: Azure AD B2C 테 넌 트에서 **관리**아래에서 **Id 경험 프레임 워크**를 선택 합니다. 테 넌 트에서 사용할 수 있는 키를 보려면 **정책 키** 를 선택 합니다. **추가**를 선택합니다. **옵션**에서 **수동**을 선택합니다. 이름 (접두사 *B2C_1A_* 자동으로 추가 될 수 있음)을 입력 합니다. **비밀** 텍스트 상자에 사용 하려는 비밀 (예: 1234567890)을 입력 합니다. **키 사용**으로는 **서명**을 선택합니다. **만들기**를 선택합니다. |
+| InputClaim | plaintext | 문자열 | 암호화할 입력 클레임입니다. |
+| InputClaim | salt | 문자열 | 솔트 매개 변수입니다. `CreateRandomString` 클레임 변환을 사용하여 임의 값을 만들 수 있습니다. |
+| InputParameter | randomizerSecret | 문자열 | 기존 Azure AD B2C **정책 키**를 가리킵니다. 새 정책 키를 만들려면: Azure AD B2C 테 넌 트에서 **관리**아래에서 **Id 경험 프레임 워크**를 선택 합니다. 테 넌 트에서 사용할 수 있는 키를 보려면 **정책 키** 를 선택 합니다. **추가**를 선택합니다. **옵션**에서 **수동**을 선택합니다. 이름 (접두사 *B2C_1A_* 자동으로 추가 될 수 있음)을 입력 합니다. **비밀** 텍스트 상자에 사용 하려는 비밀 (예: 1234567890)을 입력 합니다. **키 사용**으로는 **서명**을 선택합니다. **만들기**를 선택합니다. |
 | OutputClaim | hash | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. `plaintext` inputClaim에구성 된 클레임입니다. |
 
 ```xml
@@ -111,7 +111,7 @@ ms.locfileid: "85202223"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **일반 텍스트**:MyPass@word1
+  - **일반 텍스트**: MyPass@word1
   - **salt**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - 출력 클레임:

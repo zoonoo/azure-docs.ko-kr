@@ -7,15 +7,15 @@ ms.date: 11/26/2018
 ms.topic: reference
 ms.custom: devx-track-java
 ms.openlocfilehash: 3a1aa004f47ba700ef4b96004dfe5b835788dcc7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372470"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric Mesh에 대한 Maven 플러그 인
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Java SDK
 - Maven
@@ -153,7 +153,7 @@ mvn azure-sfmesh:addsecretvalue -DsecretValue=someVal -DsecretValueName=secret1/
 
 - `secretvalue_secret1_v1`라고 명명된 `servicefabric->appresources`번 폴더에 비밀 값 YAML을 만듭니다.
 
-### <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
+### <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
 `azure-sfmesh:deploytocluster` 목표를 활용하여 아래 명령을 사용해 로컬에서 애플리케이션을 실행할 수 있습니다.
 

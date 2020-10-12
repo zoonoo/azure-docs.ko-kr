@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81271984"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 저속 쿼리 로그
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 느린 쿼리 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
 
 MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 참조 설명서의 [느린 쿼리 로그 섹션](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)을 참조하세요.
@@ -59,18 +59,18 @@ Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQ
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`시간은 | UTC에 로그가 기록된 때의 타임스탬프 |
-| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `TimeGenerated` 시간은 | UTC에 로그가 기록된 때의 타임스탬프 |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
-| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMYSQL`입니다. |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | 서버의 이름 |
-| `start_time_t`시간은 | 쿼리가 시작된 시간 |
+| `start_time_t` 시간은 | 쿼리가 시작된 시간 |
 | `query_time_s` | 쿼리를 실행 하는 데 걸린 총 시간 (초)입니다. |
 | `lock_time_s` | 쿼리가 잠긴 총 시간 (초)입니다. |
 | `user_host_s` | 사용자 이름 |

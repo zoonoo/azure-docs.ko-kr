@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 07/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 54487cc8992149e6d8b599bb2a4b35e2c252404d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522444"
 ---
 <!--
     Common for all ADF file-based connectors
 -->
 
-Azure Data Factory은 다음과 같은 파일 형식을 지원 합니다. 서식 기반 설정에 대 한 각 문서를 참조 하세요.
+Azure Data Factory는 다음과 같은 파일 형식을 지원합니다. 형식 기반 설정에 대한 각 문서를 참조하세요.
 
 - [Avro 형식](../articles/data-factory/format-avro.md)
 - [이진 형식](../articles/data-factory/format-binary.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523505"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
@@ -41,7 +41,7 @@ WHERE <filter_condition>
 
   일치 필터의 일부로 절에 파티션 키를 포함 하는 경우 `WHERE` 쿼리는 관련 파티션만 자동으로 필터링 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 쿼리는 값이 인 속성을 포함 하는 항목을 요청 합니다 `id` `AndersenFamily` . 속성이 없거나 해당 값이 일치 하지 않는 항목은 제외 `id` `AndersenFamily` 됩니다.
 
@@ -72,8 +72,8 @@ WHERE <filter_condition>
 |**연산자 유형**  | **값** |
 |---------|---------|
 |산술 | +,-,*,/,% |
-|비트 단위    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
-|논리적    | AND, OR, NOT      |
+|비트    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
+|논리    | AND, OR, NOT      |
 |비교 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |String     |  \|\|(연결) |
 

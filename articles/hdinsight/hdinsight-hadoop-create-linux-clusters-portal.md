@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87874030"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |클러스터 로그인 사용자 이름|사용자 이름을 입력합니다. 기본값은 **admin**입니다.|
 |클러스터 로그인 암호|암호를 입력합니다.|
 |클러스터 로그인 암호 확인|암호 다시 입력|
-|SSH(Secure Shell) 사용자 이름|사용자 이름을 입력합니다. 기본값은 **sshuser**입니다.|
+|SSH(보안 셸) 사용자 이름|사용자 이름을 입력합니다. 기본값은 **sshuser**입니다.|
 |SSH에 클러스터 로그인 암호 사용|이전에 지정한 관리자 암호와 동일한 SSH 암호를 **사용 하려면 ssh에 대 한 클러스터 로그인 암호 사용** 확인란을 선택 합니다. 그렇지 않으면 SSH 사용자를 인증할 수 있는 **암호** 또는 **공개 키**를 제공합니다. 공개 키는 추천되는 방법입니다. 아래쪽에서 **선택**을 클릭하여 자격 증명 구성을 저장합니다.  자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
 
 다음 **: 저장소 >>** 를 선택 하 여 다음 탭으로 이동 합니다.
@@ -145,7 +145,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |개요|클러스터에 대 한 모든 필수 정보를 제공 합니다. 예를 들어 이름, 이 이름이 속한 리소스 그룹, 위치, 운영 체제 및 클러스터 대시보드의 URL이 있습니다.|
 |클러스터 대시보드|사용자를 클러스터와 연결 된 Ambari 포털로 보냅니다.|
 |SSH + 클러스터 로그인|SSH를 사용 하 여 클러스터에 액세스 하는 데 필요한 정보를 제공 합니다.|
-|삭제|HDInsight 클러스터를 삭제합니다.|
+|DELETE|HDInsight 클러스터를 삭제합니다.|
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932545"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
@@ -101,7 +101,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
 
 다음 섹션에서는 솔루션이 클라우드에서 실행될 때 큐, Blob 및 애플리케이션 데이터베이스에 대해 Azure 클라우드 리소스를 사용하도록 솔루션을 구성합니다. 로컬에서 계속 실행하고 클라우드 스토리지 및 데이터베이스 리소스를 사용하려면 그렇게 할 수 있습니다. 어떻게 할지는 연결 문자열을 설정하기에 달려 있습니다.
 
-## <a name="deploy-the-application-to-azure"></a>애플리케이션을 Azure에 배포합니다.
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 클라우드에서 애플리케이션을 실행하려면 다음 단계를 수행합니다.
 
 * Azure 클라우드 서비스를 만듭니다.

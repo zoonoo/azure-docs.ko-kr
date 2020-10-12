@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372674"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux Vm에서 Azure AD를 사용 하 여 Azure Disk Encryption 사용 (이전 릴리스)
@@ -25,7 +25,7 @@ Azure Disk Encryption의 새 릴리스는 VM 디스크 암호화를 사용 하�
 - [네트워킹 및 그룹 정책](disk-encryption-overview-aad.md#networking-and-group-policy)
 - [암호화 키 스토리지 요구 사항](disk-encryption-overview-aad.md#encryption-key-storage-requirements)
 
-디스크를 암호화 하기 전에 [스냅숏](snapshot-copy-managed-disk.md)만들기, 백업 또는 둘 다를 수행 합니다. 백업은 암호화 도중에 예기치 않은 오류가 발생할 경우 복구 옵션을 사용할 수 있습니다. 암호화가 수행되기 전에 관리 디스크가 있는 VM은 백업해야 합니다. 백업이 수행 된 후에는 AzVMDiskEncryptionExtension cmdlet을 사용 하 여-skipVmBackup 매개 변수를 지정 하 여 관리 디스크를 암호화할 수 있습니다. 암호화 된 Vm을 백업 및 복원 하는 방법에 대 한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md)를 참조 하세요. 
+디스크를 암호화 하기 전에 [스냅숏](snapshot-copy-managed-disk.md)만들기, 백업 또는 둘 다를 수행 합니다. 백업은 암호화 도중에 예기치 않은 오류가 발생할 경우 복구 옵션을 사용할 수 있습니다. 암호화가 수행되기 전에 관리 디스크가 있는 VM은 백업해야 합니다. 백업이 수행 된 후에는 Set-AzVMDiskEncryptionExtension cmdlet을 사용 하 여-skipVmBackup 매개 변수를 지정 하 여 관리 디스크를 암호화할 수 있습니다. 암호화 된 Vm을 백업 및 복원 하는 방법에 대 한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md)를 참조 하세요. 
 
 >[!WARNING]
  > - 이전에 [AZURE AD 앱과 Azure Disk Encryption](disk-encryption-overview-aad.md) 를 사용 하 여이 vm을 암호화 한 경우에는이 옵션을 계속 사용 하 여 vm을 암호화 해야 합니다. 이 암호화 된 vm에는 [Azure Disk Encryption](disk-encryption-overview.md) 를 사용할 수 없습니다 .이 시나리오는 지원 되지 않습니다. 즉,이 암호화 된 vm에 대 한 Azure AD 응용 프로그램에서 외부로의 전환이 아직 지원 되지 않습니다.
@@ -41,7 +41,7 @@ Azure Disk Encryption의 새 릴리스는 VM 디스크 암호화를 사용 하�
 이 시나리오에서는 Azure Resource Manager 템플릿, PowerShell cmdlet 또는 Azure CLI 명령을 사용 하 여 암호화를 사용 하도록 설정할 수 있습니다. 
 
 >[!IMPORTANT]
- >Azure Disk Encryption를 사용 하도록 설정 하기 전에 스냅숏을 만들거나 관리 디스크 기반 VM 인스턴스를의 외부에서 백업 해야 합니다. Azure Portal에서 관리 디스크의 스냅숏을 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)를 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업이 수행 된 후-skipVmBackup 매개 변수를 지정 하 여 AzVMDiskEncryptionExtension cmdlet을 사용 하 여 관리 디스크를 암호화 합니다. AzVMDiskEncryptionExtension 명령은 백업이 수행 되 고이 매개 변수가 지정 될 때까지 관리 디스크 기반 Vm에 대해 실패 합니다. 
+ >Azure Disk Encryption를 사용 하도록 설정 하기 전에 스냅숏을 만들거나 관리 디스크 기반 VM 인스턴스를의 외부에서 백업 해야 합니다. Azure Portal에서 관리 디스크의 스냅숏을 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)를 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업이 수행 된 후에는 Set-AzVMDiskEncryptionExtension cmdlet을 사용 하 여-skipVmBackup 매개 변수를 지정 하 여 관리 디스크를 암호화 합니다. 백업이 수행 되 고이 매개 변수가 지정 될 때까지 Set-AzVMDiskEncryptionExtension 명령은 관리 디스크 기반 Vm에 대해 실패 합니다. 
 >
 >암호화를 암호화 하거나 사용 하지 않도록 설정 하면 VM이 다시 부팅 될 수 있습니다. 
 >
@@ -81,7 +81,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-powershell"></a><a name="bkmk_RunningLinuxPSH"> </a> PowerShell을 사용 하 여 기존 또는 실행 중인 Linux VM에서 암호화 사용
 [AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 사용 하 여 Azure에서 실행 중인 IaaS 가상 컴퓨터에서 암호화를 사용 하도록 설정 합니다. 디스크를 암호화 하기 전에 [스냅숏을](snapshot-copy-managed-disk.md) 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 를 사용 하 여 VM의 백업을 수행 합니다. 실행 중인 Linux VM을 암호화하기 위해 PowerShell 스크립트에 -skipVmBackup 매개 변수가 이미 지정되어 있습니다.
 
-- **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 다음 스크립트는 변수를 초기화 하 고 AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다. 암호화를 진행 중인 디스크를 지정하도록 -VolumeType 매개 변수를 수정합니다.
+- **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 다음 스크립트는 변수를 초기화 하 고 Set-AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다. 암호화를 진행 중인 디스크를 지정하도록 -VolumeType 매개 변수를 수정합니다.
 
      ```azurepowershell
          $VMRGName = 'MyVirtualMachineResourceGroup';
@@ -187,7 +187,7 @@ EncryptFormatAll 옵션을 사용 하려면 Linux VM을 암호화 하 고 AzureD
 ### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a><a name="bkmk_EFAPSH"> </a> PowerShell Cmdlet에 EncryptFormatAll 매개 변수 사용
 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 EncryptFormatAll 매개 변수와 함께 사용합니다.
 
-**클라이언트 암호 및 EncryptFormatAll를 사용 하 여 실행 중인 VM을 암호화 합니다.** 예를 들어 다음 스크립트는 변수를 초기화 하 고 EncryptFormatAll 매개 변수를 사용 하 여 AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다.
+**클라이언트 암호 및 EncryptFormatAll를 사용 하 여 실행 중인 VM을 암호화 합니다.** 예를 들어 다음 스크립트는 변수를 초기화 하 고 EncryptFormatAll 매개 변수를 사용 하 여 Set-AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다.
   
    ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -227,7 +227,7 @@ LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음 모든 예제에
         echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab
         ```
 
-    4. -EncryptFormatAll을 사용 하 여 AzVMDiskEncryptionExtension PowerShell cmdlet을 실행 하 여 이러한 디스크를 암호화 합니다.
+    4. -EncryptFormatAll을 사용 하 여 Set-AzVMDiskEncryptionExtension PowerShell cmdlet을 실행 하 여 이러한 디스크를 암호화 합니다.
 
        ```azurepowershell-interactive
         Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
@@ -246,7 +246,7 @@ LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음 모든 예제에
 * [사전에 암호화된 Linux VHD 준비](disk-encryption-sample-scripts.md)
 
 >[!IMPORTANT]
- >Azure Disk Encryption를 사용 하도록 설정 하기 전에 스냅숏을 만들거나 관리 디스크 기반 VM 인스턴스를의 외부에서 백업 해야 합니다. 포털에서 관리 디스크의 스냅숏을 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)를 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업이 수행 된 후-skipVmBackup 매개 변수를 지정 하 여 AzVMDiskEncryptionExtension cmdlet을 사용 하 여 관리 디스크를 암호화 합니다. AzVMDiskEncryptionExtension 명령은 백업이 수행 되 고이 매개 변수가 지정 될 때까지 관리 디스크 기반 Vm에 대해 실패 합니다. 
+ >Azure Disk Encryption를 사용 하도록 설정 하기 전에 스냅숏을 만들거나 관리 디스크 기반 VM 인스턴스를의 외부에서 백업 해야 합니다. 포털에서 관리 디스크의 스냅숏을 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)를 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업이 수행 된 후에는 Set-AzVMDiskEncryptionExtension cmdlet을 사용 하 여-skipVmBackup 매개 변수를 지정 하 여 관리 디스크를 암호화 합니다. 백업이 수행 되 고이 매개 변수가 지정 될 때까지 Set-AzVMDiskEncryptionExtension 명령은 관리 디스크 기반 Vm에 대해 실패 합니다. 
 >
 >암호화를 암호화 하거나 사용 하지 않도록 설정 하면 VM이 다시 부팅 될 수 있습니다.
 
@@ -285,7 +285,7 @@ PowerShell 구문과 달리 CLI에서는 암호화를 사용 하도록 설정할
  PowerShell을 사용 하 여 Linux 용 새 디스크를 암호화 하는 경우 새 시퀀스 버전을 지정 해야 합니다. 시퀀스 버전은 고유해야 합니다. 다음 스크립트는 시퀀스 버전에 대 한 GUID를 생성 합니다. 
  
 
--  **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 다음 스크립트는 변수를 초기화 하 고 AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다. -VolumeType 매개 변수는 OS 디스크가 아닌 데이터 디스크로 설정됩니다. VM이 이전에 "OS" 또는 "All" 볼륨 유형으로 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록-Vetype 매개 변수를 All로 변경 해야 합니다.
+-  **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 다음 스크립트는 변수를 초기화 하 고 Set-AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다. -VolumeType 매개 변수는 OS 디스크가 아닌 데이터 디스크로 설정됩니다. VM이 이전에 "OS" 또는 "All" 볼륨 유형으로 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록-Vetype 매개 변수를 All로 변경 해야 합니다.
 
      ```azurepowershell
          $KVRGname = 'MyKeyVaultResourceGroup';

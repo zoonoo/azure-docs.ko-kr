@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203812"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
@@ -36,34 +36,34 @@ ms.locfileid: "85203812"
 
 **Predicates** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | Predicate | 1:n | 조건자 목록입니다. |
 
 **Predicate** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 메서드 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
+| 방법 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
 | HelpText | 아니요 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 0:1 | Mapi 검사에 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
 | 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | 매개 변수의 식별자입니다. |
 
@@ -73,10 +73,10 @@ ms.locfileid: "85203812"
 
 IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최소 및 최대 매개 변수 범위 내에 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필요한 공간 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
 | 최대 | 예 | 입력할 수 있는 최대 문자 수입니다. |
-| 최소값 | 예 | 입력 해야 하는 최소 문자 수입니다. |
+| 최소 | 예 | 입력 해야 하는 최소 문자 수입니다. |
 
 
 다음 예제에서는 `Minimum` `Maximum` 문자열의 길이 범위를 지정 하는 및 매개 변수를 사용 하는 IsLengthRange 메서드를 보여 줍니다.
@@ -94,7 +94,7 @@ IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최�
 
 MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필요한 공간 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
 | RegularExpression | 예 | 일치 항목을 찾을 정규식 패턴입니다. |
 
@@ -112,9 +112,9 @@ MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는�
 
 IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포함 되어 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필요한 공간 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| CharacterSet | 예 | 입력할 수 있는 문자 집합입니다. 예를 들어 소문자 `a-z` , 대문자 `A-Z` , 숫자 `0-9` 또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` 있습니다. |
+| CharacterSet | 예 | 입력할 수 있는 문자 집합입니다. 예를 들어 소문자  `a-z` , 대문자 `A-Z` , 숫자 `0-9` 또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` 있습니다. |
 
 다음 예제에서는 문자 집합을 지정하는 `CharacterSet` 매개 변수가 포함된 `IncludesCharacters` 메서드를 보여 줍니다.
 
@@ -130,10 +130,10 @@ IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포�
 
 IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사이에서 날짜 클레임 값이 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필요한 공간 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
 | 최대 | 예 | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` . |
-| 최소값 | 예 | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` .|
+| 최소 | 예 | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` .|
 
 다음 예제에서는 `yyyy-mm-dd` 및 `Today` 형식의 날짜 범위를 지정하는 `Minimum` 및 `Maximum` 매개 변수가 포함된 `IsDateRange` 메서드를 보여 줍니다.
 
@@ -172,56 +172,56 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateValidations** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | 조건자 그룹 목록입니다. |
 
 **PredicateGroups** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 조건자 목록입니다. |
 
 **PredicateGroup** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 0:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. |
 | PredicateReferences | 1:n | 조건자 참조 목록입니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. 지정 하지 않으면 값이 모든 조건자 정의와 일치 해야 합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | 조건자에 대한 참조입니다. |
 
 **PredicateReference** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
 

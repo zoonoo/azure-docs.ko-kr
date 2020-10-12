@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: b7881d38e04f9b5793f61110e0e3e4c76baeddf2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70886537"
 ---
 보안 제어는 보안 취약성을 방지, 탐지 및 대응할 수 있는 서비스의 기능에 기여하는 Azure 서비스의 품질 또는 기능입니다.

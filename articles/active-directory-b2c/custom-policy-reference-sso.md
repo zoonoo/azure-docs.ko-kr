@@ -12,10 +12,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4824b64236270c422f22809e9eeb191ee3be27fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202571"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
@@ -26,7 +26,7 @@ ms.locfileid: "85202571"
 
 Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다.
 
-|세션 공급자  |Scope  |
+|세션 공급자  |범위  |
 |---------|---------|
 |[NoopSSOSessionProvider](#noopssosessionprovider)     |  없음       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | 내부 세션 관리자를 Azure AD B2C 합니다.      |       
@@ -121,7 +121,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 #### <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명|
+| attribute | 필수 | Description|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
 
@@ -163,7 +163,7 @@ B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우은 `Regis
 
 #### <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명|
+| attribute | 필수 | Description|
 | --- | --- | --- |
 | IncludeSessionIndex | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다.|
 | RegisterServiceProviders | 아니요 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|

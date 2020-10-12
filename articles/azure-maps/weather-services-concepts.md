@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972032"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps의 날씨 서비스
@@ -56,27 +56,27 @@ ms.locfileid: "90972032"
 
 | 아이콘 번호 |아이콘| 일 | 모드 | 텍스트 |
 |-------------|:----:|-----|-------|------|
-| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | 예 |  예    | 맑음|
-| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | 예 |  예    | 대부분 Sunny|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | 예 |  아니요    | 맑음|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | 예 |  아니요    | 대부분 Sunny|
 | 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | 예 |  아니요    | 부분적으로 Sunny|
-| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | 예 |  예    | 간헐적인 클라우드|
-| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | 예 |  예    | Hazy 햇빛과 |
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | 예 |  아니요    | 간헐적인 클라우드|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | 예 |  아니요    | Hazy 햇빛과 |
 | 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | 예 |  아니요    | 대부분 Cloudy|
 | 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | 예 |  예   | Cloudy |
 | 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | 예 |  예   | Dreary (과잉 캐스트)|
 | 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | 예 |  예   | 안개|
 | 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | 예 |  예   | 샤워|
 | 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | 예 |  아니요    | 주로 Showers로 Cloudy|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | 예 |  예    | Showers를 사용 하는 부분적으로 Sunny|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | 예 |  아니요    | Showers를 사용 하는 부분적으로 Sunny|
 | 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | 예 |  예   | Thunderstorms|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | 예 |  예    | 주로 Thunderstorms로 Cloudy|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | 예 |  예    | Thunderstorms를 사용 하 여 부분적으로 Sunny|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | 예 |  아니요    | 주로 Thunderstorms로 Cloudy|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | 예 |  아니요    | Thunderstorms를 사용 하 여 부분적으로 Sunny|
 | 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | 예 |  예   | 비가|
 | 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | 예 |  예   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | 예 |  예    | 대부분 Flurries를 사용 하 여 Cloudy|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | 예 |  아니요    | 대부분 Flurries를 사용 하 여 Cloudy|
 | 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | 예 |  아니요    | Flurries를 사용 하 여 부분적으로 Sunny|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | 예 |  예   | 덮인|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 예 |  예    | 주로 눈에 Cloudy|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 예 |  아니요    | 주로 눈에 Cloudy|     
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | 예 |  예   | Ice |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | 예 |  예   | Sleet|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | 예 |  예   | 고정|
@@ -84,7 +84,7 @@ ms.locfileid: "90972032"
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | 예 |  예   | 핫|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | 예 |  예   | 콜드|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | 예 |  예   | Windy|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | 예  |  예   | 지우기|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | 아니요  |  예   | 지우기|
 | 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | 예  |  예   | 대부분 지우기|
 | 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | 예  |  예   | 부분적으로 Cloudy|
 | 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | 예  |  예   | 간헐적인 클라우드|
@@ -93,9 +93,9 @@ ms.locfileid: "90972032"
 | 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | 예  |  예   | Showers를 사용 하는 부분적으로 Cloudy|
 | 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | 아니요  |  예   | 주로 Showers로 Cloudy|
 | 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | 아니요  |  예   | Thunderstorms를 사용 하 여 부분적으로 Cloudy|
-| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | 예  |  예   | 주로 Thunderstorms로 Cloudy|
-| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | 예  |  예   | 대부분 Flurries를 사용 하 여 Cloudy|
-| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 예  |  예   | 주로 눈에 Cloudy|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | 아니요  |  예   | 주로 Thunderstorms로 Cloudy|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | 아니요  |  예   | 대부분 Flurries를 사용 하 여 Cloudy|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 아니요  |  예   | 주로 눈에 Cloudy|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>방사형 및 위성 이미지 색 눈금
@@ -108,22 +108,22 @@ ms.locfileid: "90972032"
 
 | 16 진수 색 코드 | 색 보기 | 날씨 조건 |
 |----------------|--------------|-------------------|
-| #93c701        | ![비 조명의 색입니다.](./media/weather-services-concepts/color-93c701.png) | 비-밝게 |
-| #ffd701        | ![비-보통의 색입니다.](./media/weather-services-concepts/color-ffd701.png) | 비-보통 |
-| #f05514        | ![매우 많은 색입니다.](./media/weather-services-concepts/color-f05514.png) | 매우 무거운 |
-| #dc250e        | ![매우 심각한 색입니다.](./media/weather-services-concepts/color-dc250e.png) | 매우 심각한 |
-| #9ec8f2        | ![눈 덮인 색입니다.](./media/weather-services-concepts/color-9ec8f2.png) | 눈 덮인 빛 |
-| #2a8fdb        | ![눈 덮인 색입니다.](./media/weather-services-concepts/color-2a8fdb.png) | 눈-보통 |
-| #144bed        | ![눈에 잘 맞는 색입니다.](./media/weather-services-concepts/color-144bed.png) | 눈 덮인 |
-| #020096        | ![눈 중심 색입니다.](./media/weather-services-concepts/color-020096.png) | 눈에 잘 심각한 |
-| #e6a5c8        | ![아이스 색-밝게.](./media/weather-services-concepts/color-e6a5c8.png) | 아이스-라이트 |
-| #d24fa0        | ![Ice 색-보통](./media/weather-services-concepts/color-d24fa0.png) | 아이스-보통 |
-| #b71691        | ![아이스의 색-심각도](./media/weather-services-concepts/color-b71691.png) | 아이스-심각 |
-| #7a1570        | ![아이스크림 색입니다.](./media/weather-services-concepts/color-7a1570.png) | 아이스-무거운 |
-| #c196e6        | ![혼합-밝은 색입니다.](./media/weather-services-concepts/color-c196e6.png) | 혼합-밝은 |
-| #ae6ee6        | ![혼합할 색-보통](./media/weather-services-concepts/color-ae6ee6.png) | 믹스-보통 |
-| #8a32d7        | ![혼합-무거운 색입니다.](./media/weather-services-concepts/color-8a32d7.png) | 혼합-중형 |
-| #6500ba        | ![믹스-심각도의 색입니다.](./media/weather-services-concepts/color-6500ba.png) | 믹스-심각 |
+| #93c701        | ![비 조명의 색입니다.](./media/weather-services-concepts/color-93c701.png) | Rain-Light |
+| #ffd701        | ![비-보통의 색입니다.](./media/weather-services-concepts/color-ffd701.png) | Rain-Moderate |
+| #f05514        | ![매우 많은 색입니다.](./media/weather-services-concepts/color-f05514.png) | Rain-Heavy |
+| #dc250e        | ![매우 심각한 색입니다.](./media/weather-services-concepts/color-dc250e.png) | Rain-Severe |
+| #9ec8f2        | ![눈 덮인 색입니다.](./media/weather-services-concepts/color-9ec8f2.png) | Snow-Light |
+| #2a8fdb        | ![눈 덮인 색입니다.](./media/weather-services-concepts/color-2a8fdb.png) | Snow-Moderate |
+| #144bed        | ![눈에 잘 맞는 색입니다.](./media/weather-services-concepts/color-144bed.png) | Snow-Heavy |
+| #020096        | ![눈 중심 색입니다.](./media/weather-services-concepts/color-020096.png) | Snow-Severe |
+| #e6a5c8        | ![아이스 색-밝게.](./media/weather-services-concepts/color-e6a5c8.png) | Ice-Light |
+| #d24fa0        | ![Ice 색-보통](./media/weather-services-concepts/color-d24fa0.png) | Ice-Moderate |
+| #b71691        | ![아이스의 색-심각도](./media/weather-services-concepts/color-b71691.png) | Ice-Severe |
+| #7a1570        | ![아이스크림 색입니다.](./media/weather-services-concepts/color-7a1570.png) | Ice-Heavy |
+| #c196e6        | ![혼합-밝은 색입니다.](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
+| #ae6ee6        | ![혼합할 색-보통](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderate |
+| #8a32d7        | ![혼합-무거운 색입니다.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
+| #6500ba        | ![믹스-심각도의 색입니다.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
 16 진수 색 코드 및 dBZ 값을 사용 하는 방사형 타일에 대 한 자세한 색상표는 다음과 같습니다. dBZ는 날씨 레이더의 강 강도를 나타냅니다. 
 
@@ -199,7 +199,7 @@ ms.locfileid: "90972032"
 
 | 16 진수 색 코드 | 색 보기 | 클라우드 온도 |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![#B5b5b5에 대 한 색 타일입니다.](./media/weather-services-concepts/color-b5b5b5.png) | 온도-낮음 | 
+| #b5b5b5        | ![#B5b5b5에 대 한 색 타일입니다.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
 | #d24fa0        | ![#D24fa0에 대 한 색 타일입니다.](./media/weather-services-concepts/color-d24fa0.png) |  |
 | #8a32d7        | ![#8a32d7에 대 한 색 타일입니다.](./media/weather-services-concepts/color-8a32d7.png) |  |
 | #144bed        | ![#144bed에 대 한 색 타일입니다.](./media/weather-services-concepts/color-144bed.png) |  |
@@ -210,7 +210,7 @@ ms.locfileid: "90972032"
 | #f05514        | ![#F05514에 대 한 색 타일입니다.](./media/weather-services-concepts/color-f05514.png) |  |
 | #dc250e        | ![#Dc250e에 대 한 색 타일입니다.](./media/weather-services-concepts/color-dc250e.png) |  |
 | #ba0808        | ![#Ba0808에 대 한 색 타일입니다.](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![#1f1f1f에 대 한 색 타일입니다.](./media/weather-services-concepts/color-1f1f1f.png) | 온도-높음 |
+| #1f1f1f        | ![#1f1f1f에 대 한 색 타일입니다.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
 
 적외선 위성 타일에 대 한 자세한 색상표는 다음과 같습니다.
@@ -494,7 +494,7 @@ ms.locfileid: "90972032"
   먼지 & Dander              |18| [낮은-익스트림 1](#low-extreme-1)
   필드 준비            |32| [나쁨-양호 1](#poor-excellent-1)
   낚시                    |13| [나쁨-양호 1](#poor-excellent-1)
-  비행 지연              |-3|  [매우 가능성 높음-매우 가능성 2](#very-unlikely-very-likely-2)
+  비행 지연              |-3|  [매우 Unlikely-Very 2 일 가능성이 높습니다.](#very-unlikely-very-likely-2)
   감기                        |26|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
   비행 여행 인덱스        |31| [매우 나쁨](#excellent-poor)
   연료 경제               |37| [나쁨-양호 1](#poor-excellent-1)
@@ -523,7 +523,7 @@ ms.locfileid: "90972032"
   Sinus 골칫거리             |30|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
   코팅 안 보 딩              | 7| [나쁨-양호 1](#poor-excellent-1)
   Ski 날씨                | 15| [나쁨-양호 1](#poor-excellent-1)
-  눈이 날                  | 19| [매우 가능성 높음-매우 가능성 높음](#very-unlikely-very-likely)
+  눈이 날                  | 19| [매우 Unlikely-Very 가능성이 높습니다.](#very-unlikely-very-likely)
   토양 습기              | 34| [나쁨-양호 1](#poor-excellent-1)
   Stargazing                 | 12| [나쁨-양호 1](#poor-excellent-1)
 
@@ -549,7 +549,7 @@ ms.locfileid: "90972032"
 
 [매일 인덱스 가져오기 API](https://aka.ms/AzureMapsWeatherDailyIndices) 는 각 인덱스 ID에 대해 원거리 값과 관련 된 범주 이름을 반환 합니다. 모든 인덱스에 대해 범위 집합이 동일 하지는 않습니다. 아래 표에는 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids)에 나열 된 지원 되는 인덱스에서 사용 하는 다양 한 범위 집합이 나와 있습니다. 범위 집합을 사용 하는 인덱스를 확인 하려면이 문서의 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids) 섹션으로 이동 합니다.
 
-### <a name="poor-excellent-1"></a>나쁨-양호 1
+### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
   | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
@@ -557,9 +557,9 @@ ms.locfileid: "90972032"
   보통              |  3  |               4.99
   좋음              |  5  |              6.99
   아주 좋아요         |  7  |               8.99
-  우수         |  9  |               10
+  최고         |  9  |               10
 
-### <a name="poor-excellent-2"></a>매우 나쁨 2
+### <a name="poor-excellent-2"></a>Poor-Excellent 2
 
  | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
@@ -567,19 +567,19 @@ ms.locfileid: "90972032"
   보통           |3.01           |  6
   좋음           |6.01           |  7.5
   아주 좋아요      |7.51           |  8.99
-  우수      |9              |  10
+  최고      |9              |  10
 
-### <a name="excellent-poor"></a>매우 나쁨
+### <a name="excellent-poor"></a>Excellent-Poor
 
  | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
-  우수      |     0.00        |    1.00
+  최고      |     0.00        |    1.00
   아주 좋아요        |   1.01          |  3.00
   좋음             |   3.01          |  5.00
   보통             |   5.01          |  7.00
   나쁨             |   7.01          |  10.00
 
-### <a name="low-extreme-1"></a>낮은-익스트림 1
+### <a name="low-extreme-1"></a>Low-Extreme 1
 
    | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
@@ -589,7 +589,7 @@ ms.locfileid: "90972032"
   매우 높음          |  6         |        7.99
   극단            |  8         |        10
 
-### <a name="low-extreme-2"></a>낮은-익스트림 2
+### <a name="low-extreme-2"></a>Low-Extreme 2
 
    | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
@@ -599,7 +599,7 @@ ms.locfileid: "90972032"
   매우 높음          |  7            |      8.99
   극단            |  9            |      10
 
-### <a name="very-unlikely-very-likely"></a>매우 가능성 높음-매우 가능성 높음
+### <a name="very-unlikely-very-likely"></a>매우 Unlikely-Very 가능성이 높습니다.
 
  | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
@@ -609,7 +609,7 @@ ms.locfileid: "90972032"
   높음             | 6     |           7.99
   높음        | 8     |           10
 
-### <a name="very-unlikely-very-likely-2"></a>매우 가능성 높음-매우 가능성 2
+### <a name="very-unlikely-very-likely-2"></a>매우 Unlikely-Very 2 일 가능성이 높습니다.
 
  | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
@@ -619,17 +619,17 @@ ms.locfileid: "90972032"
   높음             |  5.01     |         7.00
   높음        |  7.01     |         10.00
 
-### <a name="unlikely-emergency"></a>가능성 낮음-응급
+### <a name="unlikely-emergency"></a>Unlikely-Emergency
 
 | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
   많지         |  0     |          2.99
   조사식            |  3     |          4.99
   권고         |  5     |          6.99
-  경고          |  7     |          8.99
+  Warning          |  7     |          8.99
   응급        |  9     |          10
 
-### <a name="beneficial-at-extreme-risk"></a>유용한 기능-심각한 위험
+### <a name="beneficial-at-extreme-risk"></a>심각한 위험 Beneficial-At
 
 | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------

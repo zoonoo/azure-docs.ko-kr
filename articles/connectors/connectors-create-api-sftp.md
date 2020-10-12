@@ -10,10 +10,10 @@ ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
 ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033305"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Azure Logic Apps에서 SFTP 파일 모니터링, 만들기 및 관리
@@ -34,7 +34,7 @@ SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다�
 
 SFTP 커넥터는 *50 MB 미만의* 파일만 처리 하 고 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용 합니다. Sftp 커넥터와 SFTP-ssh 커넥터 간의 차이점을 보려면 SFTP-ssh 문서에서 [Sftp 비교-ssh와 sftp](../connectors/connectors-sftp-ssh.md#comparison) 를 검토 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 

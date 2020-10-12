@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure DevTest Labs 학습을 위한 랩을 설�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2de9550c62f04286a4f9ad42238bfefb9846477
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294852"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용

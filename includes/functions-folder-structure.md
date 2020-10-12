@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -8,13 +8,13 @@ ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5f5f682c8c31c17f1a645bcdacdc78f32bd5c001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77205688"
 ---
-특정 함수 앱의 모든 기능에 대한 코드는 호스트 구성 파일 및 하나 이상의 하위 폴더를 포함하는 루트 프로젝트 폴더에 있습니다. 각 하위 폴더에는 별도의 함수에 대 한 코드가 포함 되어 있습니다. 폴더 구조는 다음과 같은 표현으로 표시 됩니다.
+특정 함수 앱의 모든 기능에 대한 코드는 호스트 구성 파일 및 하나 이상의 하위 폴더를 포함하는 루트 프로젝트 폴더에 있습니다. 각 하위 폴더에는 개별 함수에 대한 코드가 포함됩니다. 폴더 구조는 다음과 같은 표현으로 표시됩니다.
 
 ```
 FunctionApp
@@ -29,9 +29,9 @@ FunctionApp
  | - bin
 ```
 
-버전 2.x 이상의 함수 런타임에서 함수 앱의 모든 함수는 동일한 언어 스택을 공유 해야 합니다.  
+Functions 런타임의 2.x 이상 버전부터 함수 앱의 모든 함수는 동일한 언어 스택을 공유해야 합니다.  
 
-파일 [의host.js](../articles/azure-functions/functions-host-json.md) 에는 런타임 관련 구성이 포함 되며 함수 앱의 루트 폴더에 있습니다. *Bin* 폴더에는 함수 앱에 필요한 패키지 및 기타 라이브러리 파일이 포함 되어 있습니다. 함수 앱 프로젝트에 대한 언어별 요구 사항을 참조하세요.
+[host.json](../articles/azure-functions/functions-host-json.md) 파일은 런타임별 구성을 포함하며 함수 앱의 루트 폴더에 있습니다. *bin* 폴더에는 함수 앱에 필요한 패키지 및 기타 라이브러리 파일이 포함되어 있습니다. 함수 앱 프로젝트에 대한 언어별 요구 사항을 참조하세요.
 
 * [C# 클래스 라이브러리(.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
 * [C# 스크립트(.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
