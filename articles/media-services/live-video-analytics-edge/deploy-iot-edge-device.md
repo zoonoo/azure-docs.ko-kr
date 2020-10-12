@@ -4,10 +4,10 @@ description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석�
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887235"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
@@ -18,7 +18,7 @@ ms.locfileid: "90887235"
 > ARM64 장치에 대 한 지원은 IoT Edge 빌드 이상에서 라이브 비디오 분석에 제공 됩니다 `1.0.4` .
 > ARM64 디바이스에서 Azure IoT Edge 런타임을 실행하는 것에 대한 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [지원 되는 Linux 운영 체제](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독

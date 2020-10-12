@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87530268"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 일반 정보 및 지침
@@ -95,7 +95,7 @@ Url 인증을 사용 하는 경우:
 
 * IP 주소 기반 정책을 사용 하 여 조건부 액세스 정책을 사용 하지 않도록 설정 합니다. 이렇게 하려면 클러스터가 배포 되는 Vnet 서비스 끝점을 사용 하도록 설정 해야 합니다. MFA에 외부 서비스를 사용 하는 경우 (AAD 이외의) IP 주소 기반 정책이 작동 하지 않음
 
-* `AllowCloudPasswordValidation`페더레이션된 사용자에 대 한 정책이 필요 합니다. HDInsight는 사용자 이름/암호를 직접 사용 하 여 Azure AD에서 토큰을 가져오기 때문에 모든 페더레이션된 사용자에 대해이 정책을 사용 하도록 설정 해야 합니다.
+* `AllowCloudPasswordValidation` 페더레이션된 사용자에 대 한 정책이 필요 합니다. HDInsight는 사용자 이름/암호를 직접 사용 하 여 Azure AD에서 토큰을 가져오기 때문에 모든 페더레이션된 사용자에 대해이 정책을 사용 하도록 설정 해야 합니다.
 
 * 신뢰할 수 있는 Ip를 사용 하는 조건부 액세스 무시가 필요한 경우 서비스 끝점을 사용 하도록 설정 합니다.
 

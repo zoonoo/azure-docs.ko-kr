@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
 ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87567934"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-armclient"></a>ARMClient를 사용 하 여 연결 모니터 (미리 보기) 만들기
@@ -314,7 +314,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
         * checksFailedPercent-원본에서 지정 된 조건을 사용 하 여 대상에 대 한 연결을 확인할 때 실패할 수 있는 검사 비율을 설정 합니다. TCP 또는 ICMP 프로토콜의 경우 실패 한 검사의 백분율이 패킷 손실의 백분율에 동일시 수 있습니다. HTTP 프로토콜의 경우이 필드는 응답을 받지 못한 HTTP 요청 비율을 나타냅니다.
         * roundTripTimeMs-소스에서 테스트 구성을 통해 대상에 연결 하는 데 걸리는 시간 (밀리초)을 설정 합니다.
 
-## <a name="scale-limits"></a>크기 제한
+## <a name="scale-limits"></a> 확장 한도
 
 연결 모니터의 크기 제한은 다음과 같습니다.
 

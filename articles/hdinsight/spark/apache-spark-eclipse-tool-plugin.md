@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 4b0e18e7bcc85dace93962c557d05d114df215d7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082219"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
@@ -111,7 +111,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. Eclipse IDE 작업 영역에서 **파일**  >  **새로 만들기**  >  **프로젝트**...를 선택 합니다.
 
-1. **새 프로젝트** 마법사에서 hdinsight의 hdinsight **프로젝트**  >  **Spark (Scala)** 를 선택 합니다. **다음**을 선택합니다.
+1. **새 프로젝트** 마법사에서 hdinsight의 hdinsight **프로젝트**  >  **Spark (Scala)** 를 선택 합니다. 그런 후 **다음**을 선택합니다.
 
    ![HDInsight의 Spark(Scala) 프로젝트 선택](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -128,7 +128,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. **패키지 탐색기**에서 앞서 만든 프로젝트를 확장 합니다. **Src**를 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기**  >  ...를**선택 합니다.**
 
-1. **마법사 선택** 대화 상자에서 **Scala 마법사**  >  **Scala 개체**를 선택 합니다. **다음**을 선택합니다.
+1. **마법사 선택** 대화 상자에서 **Scala 마법사**  >  **Scala 개체**를 선택 합니다. 그런 후 **다음**을 선택합니다.
 
    ![마법사 선택 Scala 개체 만들기](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -248,7 +248,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행 하는 
 
 1. Eclipse를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음과 같이 선택하고 **다음**을 선택합니다.
 
-1. **새 프로젝트** 마법사에서 hdinsight **Project**  >  **Spark on hdinsight 로컬 실행 샘플 (Scala)** 을 선택 합니다. **다음**을 선택합니다.
+1. **새 프로젝트** 마법사에서 hdinsight **Project**  >  **Spark on hdinsight 로컬 실행 샘플 (Scala)** 을 선택 합니다. 그런 후 **다음**을 선택합니다.
 
    ![새 프로젝트 마법사 대화 상자 선택](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -327,7 +327,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행 하는 
 
 ![클러스터 사용량이 yarn 때 eclipse 가져오기 오류](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "클러스터 사용량이 yarn 때 eclipse 가져오기 오류")
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 

@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318983"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
@@ -181,9 +181,9 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
     Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
     ```
 
-#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>확장-보관을 사용 하 여 nupkg 압축 풀기 (v 1.1.0.0)
+#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Expand-Archive (v 1.1.0.0)를 사용 하 여 nupkg 압축 풀기
 
-- 설명: 확장을 변경 하지 않고 nupkg 파일의 압축을 푸는 데 현재 버전의 Expand-Archive를 사용 합니다.
+- 설명: 확장을 변경 하지 않고 Expand-Archive의 현재 버전을 사용 하 여 nupkg 파일의 압축을 풉니다.
 - 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - 명령:
 

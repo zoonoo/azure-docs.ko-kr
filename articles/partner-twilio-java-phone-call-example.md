@@ -14,10 +14,10 @@ ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
 ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305910"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
@@ -176,7 +176,7 @@ catch (Exception e)
 2. **startup.cmd** 를 수정하여 TwilioCloud WAR의 압축을 풉니다.
 3. 컴퓨팅 에뮬레이터에 대해 애플리케이션을 컴파일합니다.
 4. 컴퓨팅 에뮬레이터에서 배포를 시작합니다.
-5. 브라우저를 열고 `http://localhost:8080/TwilioCloud/callform.jsp`를 실행합니다.
+5. 브라우저를 열고를 실행 `http://localhost:8080/TwilioCloud/callform.jsp` 합니다.
 6. 양식에 값을 입력하고 **Make this call**을 클릭한 다음 makecall.jsp의 결과를 확인합니다.
 
 Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴파일하고 Azure에 배포한 다음 브라우저에서 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp를 실행합니다(*your_hosted_name*의 값 대체).

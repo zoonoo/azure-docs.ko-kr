@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: victorh
 ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437856"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호
@@ -24,7 +24,7 @@ Kubernetes는 사용 가능한 계산 리소스 및 각 컨테이너의 리소�
 
 이 문서의 지침에 따라 azure 방화벽을 사용 하 여 Azure Kubernetes 클러스터에 대 한 추가 보호를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 응용 프로그램을 실행 하는 배포 된 Azure Kubernetes 클러스터.
 

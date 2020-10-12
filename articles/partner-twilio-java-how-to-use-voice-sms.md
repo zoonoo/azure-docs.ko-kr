@@ -14,10 +14,10 @@ ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
 ms.openlocfilehash: f2f30230418637b53826bd314e395e760db7087f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87306017"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -74,7 +74,7 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](�
 
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 ID 및 인증 토큰은 [Twilio 콘솔][twilio_console]의 **ACCOUNT SID** 및 **AUTH TOKEN** 필드에서 각각 확인할 수 있습니다.
 
-## <a name="create-a-java-application"></a><a id="create_app"></a>Java 애플리케이션 만들기
+## <a name="create-a-java-application"></a><a id="create_app"></a>Java 응용 프로그램 만들기
 1. Twilio JAR을 다운로드하여 Java 빌드 경로 및 WAR 배포 어셈블리에 추가합니다. 에서 [https://github.com/twilio/twilio-java][twilio_java] GitHub 소스를 다운로드 하 고 사용자 고유의 jar를 만들거나 미리 작성 된 jar (종속성 유무 또는 제외)을 다운로드할 수 있습니다.
 2. JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 [https://api.twilio.com][twilio_api_service] Twilio api를 사용할 때 호출 되는 서비스에 대 한 CA (인증 기관) 인증서입니다. JDK의 **cacerts** keystore에 올바른 CA 인증서가 포함되어 있는지 확인하는 방법에 대한 자세한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
 

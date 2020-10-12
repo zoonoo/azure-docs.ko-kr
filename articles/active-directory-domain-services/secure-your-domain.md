@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 50cf58f83115cfb8c84fe7b2a37b6664c2d9c567
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116685"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인을 보호 하기 위해 약한 암호화 및 암호 해시 동기화 사용 안 함
@@ -24,7 +24,7 @@ ms.locfileid: "88116685"
 
 이 문서에서는 NTLM v1 및 TLS v1 암호화를 사용 하지 않도록 설정 하 고 NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 

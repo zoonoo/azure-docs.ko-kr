@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87290728"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>SOLIDWORKS를 사용 하 여 엔지니어링 클래스에 대 한 랩 설정
@@ -31,7 +31,7 @@ SOLIDWORKS 네트워크 라이선스를 사용 하려면 라이선스 서버에 
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만드세요. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정을 설정 하는 방법](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)에 대 한 자습서를 참조 하세요. 기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정을 설정 하는 방법](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)에 대 한 자습서를 참조 하세요. 기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
@@ -76,7 +76,7 @@ SOLIDWORKS 네트워크 라이선스를 사용 하려면 라이선스 서버에 
     > [!NOTE]
     > **서버 추가** 대화 상자에 라이선스 서버에 사용 되는 **포트 번호** 와 라이선스 서버의 이름 또는 IP 주소를 입력 하 라는 메시지가 표시 됩니다.
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 
 이 클래스에 대해 가능한 예상 비용을 살펴보겠습니다. 이러한 예상치는 라이선스 서버를 실행 하는 비용을 포함 하지 않습니다. 25 명의 학생 클래스를 사용 합니다. 예약 된 클래스 시간은 20 시간입니다. 또한 각 학생은 예약 된 클래스 시간 외에도 과제 또는 배정에 대해 10 시간 할당량을 얻습니다. 선택한 가상 컴퓨터 크기는 **작은 GPU (시각화)** 이며 랩 단위는 160입니다.
 

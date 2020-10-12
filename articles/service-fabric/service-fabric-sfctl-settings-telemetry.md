@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: ef720a14617b4131474d50875701d0ef27df4151
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245513"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
@@ -43,7 +43,7 @@ sfctl telemetry는 제공된 매개 변수 없이 명령 이름이나 해당 값
 | --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 원격 분석을 끕니다.
 

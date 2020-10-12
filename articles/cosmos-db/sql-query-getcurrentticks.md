@@ -8,10 +8,10 @@ ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88606936"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
@@ -34,7 +34,7 @@ GetCurrentTicks ()은 비결 정적 함수입니다. 반환 된 결과는 UTC (�
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음은 틱 단위로 측정 되는 현재 시간을 반환 하는 예입니다.
 

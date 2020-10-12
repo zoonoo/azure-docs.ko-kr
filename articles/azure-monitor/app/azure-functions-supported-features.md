@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033516"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
@@ -23,7 +23,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure Functions                       | V1                | V2 & V3   | 
+| Azure 기능                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
 | | | | 
 | **자동 컬렉션**        |                 |                   |               
@@ -42,7 +42,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | &bull; 샘플링                     | 예             | 예               | 
 | &bull; 하트비트                   |                 | 예               | 
 | | | | 
-| **Correlation**(상관 관계)                       |                   |                   |               
+| **Correlation**                       |                   |                   |               
 | &bull; ServiceBus                     |                   | 예               | 
 | &bull; EventHub                       |                   | 예               | 
 | | | | 

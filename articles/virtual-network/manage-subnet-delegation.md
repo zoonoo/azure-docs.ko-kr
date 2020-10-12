@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
 ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84703906"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
@@ -27,7 +27,7 @@ ms.locfileid: "84703906"
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
@@ -38,12 +38,12 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력 합니다. |
+    | 속성 | *MyVirtualNetwork*를 입력 합니다. |
     | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **Eastus**를 선택 합니다.|
-    | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
+    | 서브넷 - 이름 | *Mysubnet*을 입력 합니다. |
     | 서브넷 - 주소 범위 | *10.0.0.0/24*를 입력합니다. |
     |||
 1. 나머지를 기본값으로 유지 하 고 **만들기**를 선택 합니다.
@@ -177,7 +177,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Azure 연결
+### <a name="connect-to-azure"></a>Azure에 연결
 
 ```azurepowershell-interactive
   Connect-AzAccount

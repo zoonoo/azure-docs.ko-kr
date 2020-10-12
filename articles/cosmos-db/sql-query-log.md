@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 74d07076fb322214348d52fe65dbc98bdff3cd44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798264"
 ---
 # <a name="log-azure-cosmos-db"></a>로그 (Azure Cosmos DB)
@@ -45,7 +45,7 @@ LOG (<numeric_expr> [, <base>])
 
   이 시스템 함수는 인덱스를 활용 하지 않습니다.
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 로그 값을 반환합니다.  
   

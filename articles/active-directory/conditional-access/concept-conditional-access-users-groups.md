@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552903"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
@@ -39,7 +39,7 @@ ms.locfileid: "87552903"
       - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
    - 디렉터리 역할
       - 관리자가 할당을 확인 하는 데 사용 되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다.
-   - 개요
+   - 사용자 및 그룹
       - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어, 조직에서는 HR 앱이 클라우드 앱으로 선택 된 경우 HR 부서의 모든 구성원을 포함 하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다. 정책이 중첩 된 사용자 및 그룹에 적용 됩니다.
 
 > [!WARNING]
@@ -61,7 +61,7 @@ ms.locfileid: "87552903"
    - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
 - 디렉터리 역할
    - 관리자가 할당을 확인 하는 데 사용 되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다.
-- 개요
+- 사용자 및 그룹
    - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어, 조직에서는 HR 앱이 클라우드 앱으로 선택 된 경우 HR 부서의 모든 구성원을 포함 하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
 
 ### <a name="preventing-administrator-lockout"></a>관리자 잠금 방지

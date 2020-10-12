@@ -4,10 +4,10 @@ description: 인증, 이미지 푸시, 이미지 풀 등의 Azure Container Regi
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553379"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>진단 평가 및 감사에 대 한 Azure Container Registry 로그
@@ -37,7 +37,7 @@ Azure Monitor를 사용 하 여 리소스 로그 데이터를 수집 하면 추�
 
 리소스 로그는 내부 작업을 설명 하는 Azure 리소스에서 내보낸 정보를 포함 합니다. Azure container registry의 경우 로그에는 다음 표에 저장 된 인증 및 리포지토리 수준 이벤트가 포함 됩니다. 
 
-* **ContainerRegistryLoginEvents** -들어오는 ID 및 IP 주소를 포함 하는 레지스트리 인증 이벤트 및 상태
+* **ContainerRegistryLoginEvents**  -들어오는 ID 및 IP 주소를 포함 하는 레지스트리 인증 이벤트 및 상태
 * **ContainerRegistryRepositoryEvents** -이미지 및 레지스트리 리포지토리의 기타 아티팩트에 대 한 푸시 및 가져오기와 같은 작업
 * **Azuremetrics**  -  집계 된 푸시 및 끌어오기 개수와 같은 [컨테이너 레지스트리 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries)
 

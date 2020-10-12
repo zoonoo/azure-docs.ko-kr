@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
 ms.openlocfilehash: 2cf4859d3bf4c34fff4cb076eec11bcd2d81e4ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780779"
 ---
 # <a name="scenario-invalidnetworksecuritygroupsecurityrules---cluster-creation-fails-in-azure-hdinsight"></a>시나리오: InvalidNetworkSecurityGroupSecurityRules-Azure HDInsight에서 클러스터 만들기 실패
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 `InvalidNetworkSecurityGroupSecurityRules`"서브넷으로 구성 된 네트워크 보안 그룹의 보안 규칙은 필요한 인바운드 및/또는 아웃 바운드 연결을 허용 하지 않습니다."와 비슷한 설명이 포함 된 오류 코드를 수신 합니다.
 

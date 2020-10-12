@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888228"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Azure SQL Edge 연결 및 쿼리
@@ -22,7 +22,7 @@ Azure SQL Edge에서 컨테이너를 배포한 후에는 다음 위치 중 하�
 
 - 컨테이너 내부에서
 - 동일한 호스트에서 실행 되는 다른 Docker 컨테이너에서
-- 호스트 컴퓨터에서
+- 호스트 머신에서
 - 네트워크에 있는 다른 클라이언트 컴퓨터에서
 
 ## <a name="tools-to-connect-to-azure-sql-edge"></a>Azure SQL Edge에 연결하기 위한 도구

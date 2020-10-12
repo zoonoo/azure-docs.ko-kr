@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117620"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
@@ -82,7 +82,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   
 * **관리자 동의** - 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 관리자 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다. [관리자 동의를 부여하는 방법에 대해 자세히 알아봅니다](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 ### <a name="client-best-practices"></a>클라이언트 모범 사례
 

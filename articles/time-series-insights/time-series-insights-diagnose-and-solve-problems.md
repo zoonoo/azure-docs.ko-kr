@@ -12,20 +12,20 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530139"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경에서 문제 진단 및 해결
 
 > [!CAUTION]
-> Gen1 문서입니다.
+> 이는 Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 문제를 설명 합니다. 이 문서에서는 잠재적인 원인 및 해결 방법을 제안합니다.
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 ### <a name="learn-about-common-azure-time-series-insights-challenges-and-mitigationsbr"></a>일반적인 Azure Time Series Insights 과제 및 완화 방법에 대 한 자세한 정보</br>
 

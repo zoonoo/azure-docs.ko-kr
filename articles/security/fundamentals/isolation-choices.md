@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533906"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
@@ -54,7 +54,7 @@ Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory
 
 - Azure AD 사용자는 물리적 자산 또는 위치에 액세스할 수 없으므로 다음과 같은 논리적 RBAC 정책 검사를 무시할 수 없습니다.
 
-진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. PIM (Azure AD Privileged Identity Management)은 적격 관리자의 개념을 소개 합니다. [적격 관리자](../../active-directory/privileged-identity-management/pim-configure.md) 는 현재 권한 있는 액세스가 필요한 사용자 여야 하지만 매일은 아닙니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
+진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. PIM (Azure AD Privileged Identity Management)은 적격 관리자의 개념을 소개 합니다. [적격 관리자](../../active-directory/privileged-identity-management/pim-configure.md) 는 현재 권한 있는 액세스가 필요한 사용자 여야 하며 매일은 아닙니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 
 여러 Azure Active Directory 테넌트의 메타데이터가 동일한 물리적 디스크에 저장되어있는 경우에도 디렉터리 서비스에서 정의된 것 이외의 컨테이너 간에는 아무 관계가 없으므로 디렉터리 서비스에서 테넌트를 결정합니다.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control (Azure RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
 Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 사용 하면 azure에 대 한 세분화 된 액세스 관리를 제공 하 여 azure 구독 내에서 사용 가능한 다양 한 구성 요소를 공유할 수 있습니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
@@ -74,9 +74,9 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 - **참가자** 는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다.
 
-- **읽기 권한자** 는 기존 Azure 리소스를 볼 수 있습니다.
+- **판독기** 는 기존 Azure 리소스를 볼 수 있습니다.
 
-![Azure 역할 기반 access control (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
+![Azure RBAC(Azure 역할 기반 액세스 제어)](./media/isolation-choices/azure-isolation-fig3.png)
 
 Azure의 나머지 Azure 역할은 특정 Azure 리소스의 관리를 허용 합니다. 예를 들어 Virtual Machine 참여자 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 가상 머신이 연결되는 Azure Virtual Network 또는 서브넷에 대한 액세스 권한을 부여하지 않습니다.
 

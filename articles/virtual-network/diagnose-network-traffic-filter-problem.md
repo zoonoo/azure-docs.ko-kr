@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704984"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
@@ -175,7 +175,7 @@ az vm show \
 | 대상             | VM의 IP 주소, IP 주소의 범위 또는 서브넷에 있는 모든 주소입니다. |
 | 대상 포트 범위 | 80                                                                                 |
 | 프로토콜                | TCP                                                                                |
-| 작업                  | Allow                                                                              |
+| 작업                  | 허용                                                                              |
 | 우선 순위                | 100                                                                                |
 | 이름                    | Allow-HTTP-All                                                                     |
 

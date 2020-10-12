@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797805"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
@@ -30,7 +30,7 @@ ms.locfileid: "88797805"
 
 또한 계층은 IoT Hub가 모든 작업에 강제로 적용하는 조정 제한을 결정합니다.
 
-## <a name="iot-plug-and-play"></a>IoT 플러그 앤 플레이
+## <a name="iot-plug-and-play"></a>IoT Plug and Play
 
 IoT 플러그 앤 플레이 장치는 루트를 포함 하 여 각 인터페이스에 대 한 원격 분석 메시지를 하나 이상 전송 하 여 메시지 할당량으로 계산 되는 메시지 수를 늘릴 수 있습니다.
 
@@ -97,7 +97,7 @@ IoT 플러그 앤 플레이 장치는 루트를 포함 하 여 각 인터페이�
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 작업 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
 | 디바이스 | 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
 | 파일 업로드 | 장치 당 10 개의 동시 파일 업로드. |

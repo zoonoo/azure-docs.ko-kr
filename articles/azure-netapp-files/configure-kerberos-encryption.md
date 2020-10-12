@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 9/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461481"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
@@ -89,7 +89,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다. 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 

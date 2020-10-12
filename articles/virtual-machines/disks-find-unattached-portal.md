@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542741"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>연결되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제 - Azure Portal
@@ -45,17 +45,17 @@ VM에 연결되지 않은 비관리 디스크가 있으며 해당 디스크의 �
 
     모든 비관리 디스크의 목록이 표시됩니다. **다음에 연결됨** 열에 " **-** "가 있는 디스크는 연결되지 않은 디스크입니다.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="비관리 디스크 블레이드의 스크린샷 이 블레이드에서 다음에 연결됨 열에 -가 있는 디스크는 연결되지 않은 디스크입니다.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="개별 관리 디스크 블레이드의 스크린샷 연결되지 않은 디스크는 이 블레이드에 연결되지 않음 상태로 표시됩니다. 해당 데이터를 더 이상 유지하지 않아도 되는 경우 이 디스크를 삭제할 수 있습니다.":::
 
 1. 삭제할 연결되지 않은 디스크를 선택하면 해당 디스크의 블레이드가 열립니다.
 
 1. 디스크의 블레이드에서 **다음에 연결됨**이 여전히 **-** 이기 때문에 연결되지 않았음을 확인할 수 있습니다.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="개별 비관리 디스크 블레이드의 스크린샷 연결되지 않은 경우 다음에 연결됨 값이 -입니다. 이 디스크 데이터가 더 이상 필요하지 않은 경우 삭제할 수 있습니다.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="개별 관리 디스크 블레이드의 스크린샷 연결되지 않은 디스크는 이 블레이드에 연결되지 않음 상태로 표시됩니다. 해당 데이터를 더 이상 유지하지 않아도 되는 경우 이 디스크를 삭제할 수 있습니다.":::
 
 1. **삭제**를 선택합니다.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="삭제가 강조 표시된 개별 비관리 디스크 블레이드의 스크린샷":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="개별 관리 디스크 블레이드의 스크린샷 연결되지 않은 디스크는 이 블레이드에 연결되지 않음 상태로 표시됩니다. 해당 데이터를 더 이상 유지하지 않아도 되는 경우 이 디스크를 삭제할 수 있습니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

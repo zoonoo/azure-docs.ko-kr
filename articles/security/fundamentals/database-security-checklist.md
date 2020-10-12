@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: ad8f15f7d1cf69824bfb9298d7ccf097e4893ea8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542979"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
 Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제한하고 제어하는 데 사용할 수 있는 다양한 기본 제공 보안 컨트롤이 포함되어 있습니다.
 
-여기에는 다음이 포함됩니다.
+내용은 다음과 같습니다.
 
 -    IP 주소로 연결을 제한하는 [방화벽 규칙](../../azure-sql/database/firewall-configure.md)을 만들 수 있는 방화벽
 -    Azure Portal에서 액세스할 수 있는 서버 수준 방화벽
@@ -48,7 +48,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 | ------------ | -------- |
 |**데이터 보호**||
 | <br> 진행 중/전송 중 암호화| <ul><li>[전송 계층 보안](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) - 데이터가 네트워크로 이동할 때의 데이터 암호화용</li><li>데이터베이스에는 TLS(전송 계층 보안)를 통한 [TDS(Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) 프로토콜에 기반한 클라이언트로부터의 보안 통신이 필요합니다.</li></ul> |
-|<br>휴지 상태의 암호화| <ul><li>[투명한 데이터 암호화](https://go.microsoft.com/fwlink/?LinkId=526242) - 비활성 데이터가 디지털 형식으로 물리적으로 저장되는 경우</li></ul>|
+|<br>미사용 암호화| <ul><li>[투명한 데이터 암호화](https://go.microsoft.com/fwlink/?LinkId=526242) - 비활성 데이터가 디지털 형식으로 물리적으로 저장되는 경우</li></ul>|
 |**액세스 제어**||  
 |<br> 데이터베이스 액세스 | <ul><li>[인증](../../azure-sql/database/logins-create-manage.md)(Azure Active Directory 인증) - AD 인증은 Azure Active Directory에서 관리되는 ID를 사용합니다.</li><li>[권한 부여](../../azure-sql/database/logins-create-manage.md) - 사용자에게 필요한 최소 권한을 부여합니다.</li></ul> |
 |<br>애플리케이션 액세스| <ul><li>[행 수준 보안](https://msdn.microsoft.com/library/dn765131) - 보안 정책을 사용하는 동시에 사용자의 ID, 역할 또는 실행 컨텍스트에 따라 행 수준 액세스를 제한합니다.</li><li>[동적 데이터 마스킹](../../azure-sql/database/dynamic-data-masking-overview.md) - 권한 및 정책을 사용하여 권한이 없는 사용자에게 중요한 데이터를 마스킹함으로써 이러한 데이터의 노출을 제한합니다.</li></ul>|

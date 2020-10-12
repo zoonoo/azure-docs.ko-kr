@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012401"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
@@ -44,7 +44,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들면 다음과 같습니다.
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.

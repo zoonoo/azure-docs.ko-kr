@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530615"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
@@ -87,7 +87,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 슬롯은 슬롯을 만들 때 비어 있습니다. [지원 되는 배포 기술](./functions-deployment-technologies.md) 중 하나를 사용 하 여 응용 프로그램을 슬롯에 배포할 수 있습니다.
 
-## <a name="scaling"></a>크기 조정
+## <a name="scaling"></a>확장
 
 모든 슬롯은 프로덕션 슬롯과 동일한 수의 작업자로 확장 됩니다.
 

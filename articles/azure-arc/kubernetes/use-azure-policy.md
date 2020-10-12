@@ -9,17 +9,17 @@ ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050038"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 대규모(미리 보기)
 
 ## <a name="overview"></a>개요
 
-Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리소스 또는 Git Ops 사용 `Microsoft.ContainerService/managedClusters` 리소스가 특정 리소스 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` 에 적용 되도록 적용 합니다. Azure Policy를 사용하려면 기존 정책 정의를 선택하고 정책 할당을 만듭니다. 정책 할당을 만들 때 할당 범위를 설정합니다. 이는 Azure 리소스 그룹 또는 구독이 됩니다. 또한 생성되는 `sourceControlConfiguration`에 대한 매개 변수를 설정합니다. 할당이 만들어지면 정책 엔진에서 범위 내에 있는 모든 `connectedCluster` 또는 `managedCluster` 리소스를 식별하고 각 리소스에 `sourceControlConfiguration`을 적용합니다.
+Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리소스 Git-Ops 또는 사용 가능한 `Microsoft.ContainerService/managedClusters` 리소스가 특정 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` 적용 되도록 적용 합니다. Azure Policy를 사용하려면 기존 정책 정의를 선택하고 정책 할당을 만듭니다. 정책 할당을 만들 때 할당 범위를 설정합니다. 이는 Azure 리소스 그룹 또는 구독이 됩니다. 또한 생성되는 `sourceControlConfiguration`에 대한 매개 변수를 설정합니다. 할당이 만들어지면 정책 엔진에서 범위 내에 있는 모든 `connectedCluster` 또는 `managedCluster` 리소스를 식별하고 각 리소스에 `sourceControlConfiguration`을 적용합니다.
 
 각 클러스터에 대한 진실 공급원으로 여러 Git 리포지토리를 사용하는 경우(예: 중앙 IT/클러스터 운영자용 리포지토리 하나, 그 외 애플리케이션 리포지토리), 여러 정책을 할당하여 이를 사용할 수 있습니다. 각 정책 할당은 다른 Git 리포지토리를 사용하도록 구성되었습니다.
 
@@ -35,7 +35,7 @@ Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리�
 4. 정책 범위에서 리소스를 제외하려면 **제외**를 설정합니다.
 5. 정책 할당에 쉽게 식별할 수 있도록 **이름**과 **설명**을 지정합니다.
 6. **정책 적용**이 *사용됨*으로 설정되어 있는지 확인합니다.
-7. **새로 만들기**를 선택합니다.
+7. **다음**을 선택합니다.
 8. `sourceControlConfiguration`을 만드는 동안 사용할 매개 변수 값을 설정합니다.
 9. **다음**을 선택합니다.
 10. **수정 작업 만들기**를 사용합니다.

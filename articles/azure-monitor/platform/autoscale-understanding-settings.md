@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317470"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
@@ -91,7 +91,7 @@ ms.locfileid: "87317470"
 | 설정 | name | 자동 크기 조정 설정 이름입니다. |
 | 설정 | 위치 | 자동 크기 조정 설정의 위치입니다. 이 위치는 크기가 조정되는 리소스의 위치와 다를 수 있습니다. |
 | properties | targetResourceUri | 크기가 조정되는 리소스의 리소스 ID입니다. 리소스당 하나의 자동 크기 조정 설정만 있을 수 있습니다. |
-| properties | 프로필 | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
+| properties | profiles | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
 | profile | name | 프로필의 이름입니다. 프로필을 식별하는 데 도움이 되는 어떤 이름도 선택할 수 있습니다. |
 | profile | Capacity.maximum | 허용되는 최대 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 높게 조정하지 않게 됩니다. |
 | profile | Capacity.minimum | 허용되는 최소 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 낮게 조정하지 않게 됩니다. |

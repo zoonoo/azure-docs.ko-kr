@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261328"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
@@ -52,12 +52,12 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | --- | --- | --- |
 | **이름**<br/><br/> 필수 |**xs:string** |미디어 자산 파일 이름입니다. |
 | **크기**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
-| **Duration**<br/><br/> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. |
+| **기간**<br/><br/> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. |
 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **원본** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 Source 요소를 참조하세요. |
+| **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 Source 요소를 참조하세요. |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 VideoTracks 요소를 참조하세요. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다. 자세한 내용은 AudioTracks 요소를 참조하세요. |
 
@@ -101,8 +101,8 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 인덱스 (0부터 시작)입니다. **참고:**  이 **id** 는 MP4 파일에 사용 되는 것과 같은 것은 아닙니다. |
 | **FourCC**<br/><br/> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
-| **프로필** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
-| **Level** |**xs:string** |H264 수준입니다(H264 코덱에만 적용). |
+| **Profile** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
+| **수준** |**xs:string** |H264 수준입니다(H264 코덱에만 적용). |
 | **Width**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |인코딩된 비디오 너비(픽셀)입니다. |
 | **높이**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |인코딩된 비디오 높이(픽셀)입니다. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:double** |비디오 디스플레이 가로 세로 비율의 분자입니다. |

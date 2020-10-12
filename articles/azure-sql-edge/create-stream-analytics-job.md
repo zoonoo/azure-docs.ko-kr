@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888099"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 스트리밍 작업 만들기 
@@ -240,7 +240,7 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 
 스트리밍 작업에는 다음 상태 중 하나를 사용할 수 있습니다.
 
-| Status | Description |
+| 상태 | Description |
 |--------| ------------|
 | 생성일 | 스트리밍 작업이 만들어졌지만 아직 시작 되지 않았습니다. |
 | 시작 중 | 스트리밍 작업이 시작 단계에 있습니다. |

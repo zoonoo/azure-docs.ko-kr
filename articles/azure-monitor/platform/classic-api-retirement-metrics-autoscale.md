@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317385"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
@@ -85,7 +85,7 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 질문이 있으면 MonitorClassicAPIhelp@microsoft.com으로 문의하세요.  
 
-## <a name="references"></a>참고 문헌
+## <a name="references"></a>참조
 
 - [Azure Monitor용 최신 REST API](/rest/api/monitor/) 
 - [최신 Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

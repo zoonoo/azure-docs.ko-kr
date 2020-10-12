@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
 ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314727"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
@@ -94,7 +94,7 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 검색 서비스에 대 한 액세스를 세부적으로 제어 하기 위해 특정 IP 주소 또는 IP 주소 범위에 대 한 액세스를 허용 하는 인바운드 방화벽 규칙을 만들 수 있습니다. 모든 클라이언트 연결은 허용 된 IP 주소를 통해 수행 되어야 합니다. 그렇지 않으면 연결이 거부 됩니다.
 
-:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="ip 제한 액세스에 대 한 샘플 아키텍처 다이어그램":::
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="각 서비스 계약 수준에서 다양 한 유형의 보안을 보여 주는 다이어그램":::
 
 포털을 사용 하 여 [인바운드 액세스를 구성할](service-configure-firewall.md)수 있습니다.
 
@@ -106,7 +106,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 개인 끝점은 검색 서비스에 대 한 연결을 위해 가상 네트워크 주소 공간의 IP 주소를 사용 합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크 및 Microsoft 백본 네트워크의 개인 링크를 순회 하 여 공용 인터넷에서 노출 되는 것을 제거 합니다. VNET은 온-프레미스 네트워크와 인터넷을 통해 리소스 간 보안 통신을 허용 합니다.
 
-:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="개인 끝점 액세스를 위한 샘플 아키텍처 다이어그램":::
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="각 서비스 계약 수준에서 다양 한 유형의 보안을 보여 주는 다이어그램":::
 
 이 솔루션은 가장 안전 하지만, 추가 서비스를 사용 하는 것이 추가 비용 이므로,이에 대해서는 살펴보기 전에 혜택을 명확 하 게 이해 하 고 있어야 합니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/private-link/)를 참조 하세요. 이러한 구성 요소가 함께 작동 하는 방법에 대 한 자세한 내용은이 문서의 맨 위에 있는 비디오를 시청 하세요. 개인 끝점 옵션은 5:48에서 시작 하 여 비디오에 적용 됩니다. 끝점을 설정 하는 방법에 대 한 지침은 [Azure Cognitive Search에 대 한 개인 끝점 만들기](service-create-private-endpoint.md)를 참조 하세요.
 
@@ -126,7 +126,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터*로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | Description |
+| 접근 방식 | 설명 |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 Azure cloud platform의 [무료 서비스](https://azure.microsoft.com/free/) 중 하나인 Azure Active Directory (azure AD)에서 id를 검색 하는 단계를 제공 하는 이전 문서를 확장 합니다. |
@@ -150,8 +150,8 @@ Azure Policy는 azure에 기본 제공 되는 기능으로, Azure 보안 벤치 
 
 Azure Cognitive Search의 경우 현재 기본 제공 정의가 하나 있습니다. 진단 로깅에 대 한 것입니다. 이 기본 제공 기능을 사용 하면 진단 로깅이 누락 된 검색 서비스를 식별 하는 정책을 할당 한 후이를 켤 수 있습니다. 자세한 내용은 [Azure Cognitive Search에 대 한 규정 준수 제어 Azure Policy](security-controls-policy.md)를 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure 보안 기본 사항](../security/fundamentals/index.yml)
-+ [Azure 보안](https://azure.microsoft.com/overview/security)
++ [Azure Security](https://azure.microsoft.com/overview/security)
 + [Azure Security Center](../security-center/index.yml)

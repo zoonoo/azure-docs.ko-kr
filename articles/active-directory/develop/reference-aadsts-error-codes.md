@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115104"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
@@ -48,7 +48,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 }
 ```
 
-| 매개 변수         | Description    |
+| 매개 변수         | 설명    |
 |-------------------|----------------|
 | `error`       | 발생 한 오류 유형을 분류 하는 데 사용할 수 있고 오류에 대응 하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용 하 여 코드의 오류에 대응 하지 마십시오. |
@@ -78,7 +78,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| 오류 | Description |
+| Error | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -188,7 +188,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
-| AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용 하 여 SAML에 대해 나열 된 해상도를 사용해 보세요.[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용 하 여 SAML에 대해 나열 된 해상도를 사용해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | 앱은 `(\"{name}\")` 조직에서 `\"{organization}\"` 구독 하거나 사용 하도록 설정 하지 않은 서비스에 액세스 해야 합니다. IT 관리자에 게 문의 하 여 서비스 구독의 구성을 검토 합니다. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
@@ -315,7 +315,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |
 | AADSTS700023 | InvalidResourcelessScope - 액세스 토큰을 요청할 때 입력 매개 변수 범위에 대해 제공한 값이 잘못되었습니다. |
 | AADSTS7000215 | 잘못된 클라이언트 비밀을 제공합니다. 개발자 오류-앱에서 필수 또는 올바른 인증 매개 변수를 사용 하지 않고 로그인 하려고 합니다.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal를 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다.[https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal를 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다. [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant 제공 된 권한 부여 코드는 다른 테 넌 트에 대해 사용 하기 위한 것 이므로 거부 됩니다. OAuth2 인증 코드는에 대해 획득 한 것과 동일한 테 넌 트에 대해 (또는/또는 Tenant-id} 적절 하 게) 회수 되어야 합니다. |
 | AADSTS1000000 | UserNotBoundError - 바인딩 API를 사용하려면 Azure AD 사용자가 외부 IDP에도 인증해야 하는데, 아직 인증하지 않았습니다. |
 | AADSTS1000002 | BindCompleteInterruptError - 바인딩이 성공적으로 완료되었지만 사용자에게 알려야 합니다. |

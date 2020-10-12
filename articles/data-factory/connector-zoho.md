@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 78e7fc6b2a4c9804fbba60aa9946cc612b494461
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87531288"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
@@ -61,9 +61,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | clientSecrect | Zoho 응용 프로그램에 연결 된 clientsecret입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | OAuth 2.0 인증의 경우 예 | 
 | refreshToken | Zoho 응용 프로그램과 연결 된 OAuth 2.0 새로 고침 토큰이 만료 되 면 액세스 토큰을 새로 고치는 데 사용 됩니다. 새로 고침 토큰은 만료 되지 않습니다. 새로 고침 토큰을 가져오려면 access_type를 요청 해야 합니다 `offline` . [이 문서](https://www.zoho.com/crm/developer/docs/api/auth-request.html)에서 자세히 알아보세요. <br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.| OAuth 2.0 인증의 경우 예 |
 | accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
 
 **예: OAuth 2.0 인증**
 
