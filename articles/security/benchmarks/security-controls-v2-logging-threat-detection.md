@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295467"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>보안 제어 V2: 로깅 및 위협 검색
@@ -44,7 +44,7 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -81,7 +81,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -115,7 +115,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -143,7 +143,7 @@ Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 
 
 **고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 인프라 및 엔드포인트 보안 
 
@@ -203,7 +203,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [파트너 규정 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 

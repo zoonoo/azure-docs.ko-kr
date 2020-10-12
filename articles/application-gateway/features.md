@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355740"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 애플리케이션 게이트웨이 기능
@@ -24,7 +24,7 @@ Application Gateway에는 다음과 같은 기능이 포함 되어 있습니다.
 
 - [SSL(Secure Sockets Layer)/TLS 종료](#secure-sockets-layer-ssltls-termination)
 - [자동 확장](#autoscaling)
-- [영역 중복성](#zone-redundancy)
+- [영역 중복](#zone-redundancy)
 - [정적 VIP](#static-vip)
 - [웹 애플리케이션 방화벽](#web-application-firewall)
 - [AKS용 Ingress Controller](#ingress-controller-for-aks)
@@ -155,7 +155,7 @@ Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](.
 
 다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 v1 인스턴스의 평균 성능 처리량을 보여줍니다.
 
-| 평균 백 엔드 페이지 응답 크기 | 작음 | 중형 | 큼 |
+| 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
 | --- | --- | --- | --- |
 | 6KB |7.5Mbps |13Mbps |50Mbps |
 | 100KB |35Mbps |100Mbps |200Mbps |

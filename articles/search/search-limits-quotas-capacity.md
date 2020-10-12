@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843433"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
@@ -108,9 +108,9 @@ ms.locfileid: "91843433"
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 전용 끝점 인덱서 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
-| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
-| 최대 개인 끝점 | 해당 없음 | 10 또는 30 | 100 | 400 | 400 | 해당 없음 | 20 | 20 |
+| 전용 끝점 인덱서 지원 | 아니요 | 예 | 예 | 예 | 예 | 아니요 | 예 | 예 |
+| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 아니요 | 아니요 | 아니요 | 예 | 예 | 아니요 | 예 | 예 |
+| 최대 개인 끝점 | N/A | 10 또는 30 | 100 | 400 | 400 | N/A | 20 | 20 |
 | 최대 고유 리소스 유형<sup>2</sup> | 해당 없음 | 4 | 7 | 15 | 15 | 해당 없음 | 4 | 4 |
 
 <sup>1</sup> AI 보강 및 이미지 분석은 계산 집약적 이며 사용 가능한 처리 능력의 불균형을 사용 합니다. 따라서 낮은 검색 서비스 계층에서 개인 환경에서 실행 되도록 설정 하면 검색 서비스의 성능 및 안정성에 부정적인 영향을 줄 수 있습니다.

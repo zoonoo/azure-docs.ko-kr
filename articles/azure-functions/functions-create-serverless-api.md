@@ -7,17 +7,17 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083024"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions에서 HTTP 끝점 사용자 지정
 
 이 문서에서는 Azure Functions를 사용 하 여 확장성이 뛰어난 Api를 빌드하는 방법을 알아봅니다. Azure Functions는 Node.js, c # 등을 비롯 한 다양 한 언어로 끝점을 쉽게 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션과 함께 제공 됩니다. 이 문서에서는 API 디자인의 특정 작업을 처리 하도록 HTTP 트리거를 사용자 지정 합니다. 또한 Azure Functions 프록시와 통합 하 고 모의 Api를 설정 하 여 API를 확장할 준비를 합니다. 이러한 작업은 서버를 사용 하지 않는 계산 환경에서 수행 되므로 리소스 크기 조정에 대해 걱정할 필요가 없습니다. API 논리에만 집중할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -62,7 +62,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
  
 1. URL의 쿼리 문자열에 매개 변수를 추가 합니다. 
 
-   예: `/api/hello/?name=John`.
+   예: `/api/hello/?name=John`
  
 1. Enter 키를 눌러 작동 하는지 확인 합니다. "*Hello John*" 이라는 응답이 표시 되어야 합니다.
 
@@ -73,7 +73,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 다음 섹션에서는 프록시를 통해 API를 노출 합니다. Azure Functions 프록시를 사용하면 요청을 다른 리소스로 전달할 수 있습니다. Http 트리거를 사용 하는 것과 같은 방식으로 HTTP 끝점을 정의 합니다. 그러나 해당 끝점이 호출 될 때 실행할 코드를 작성 하는 대신 원격 구현에 대 한 URL을 제공 합니다. 이렇게 하면 여러 API 소스를 단일 API 화면으로 구성할 수 있습니다 .이는 클라이언트에서 사용 하기 쉬우며 마이크로 서비스로 API를 빌드 하려는 경우에 유용 합니다.
 
 프록시는 다음과 같은 HTTP 리소스를 가리킬 수 있습니다.
-- Azure Functions 
+- Azure 기능 
 - [Azure App Service](../app-service/overview.md)의 API 앱
 - [Linux의 App Service](../app-service/containers/app-service-linux-intro.md)에 있는 Docker 컨테이너
 - 기타 호스트된 API
@@ -107,18 +107,18 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
     | 필드 | 샘플 값 | Description |
     |---|---|---|
-    | Name | HelloProxy | 관리에 대해서만 사용되는 이름 |
+    | 속성 | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |
     | 백 엔드 URL | https://%HELLO_HOST%/api/hello | 요청을 프록시 처리할 엔드포인트를 지정합니다. |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="프록시 만들기":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="HTTP 함수 사용자 지정":::
 
     Azure Functions 프록시은 `/api` 경로 템플릿에 포함 되어야 하는 기본 경로 접두사를 제공 하지 않습니다. `%HELLO_HOST%`구문은 앞에서 만든 앱 설정을 참조 합니다. 확인된 URL은 원래 함수를 가리킵니다.
 
 1. 프록시 URL을 복사 하 여 브라우저에서 테스트 하거나 즐겨 사용 하는 HTTP 클라이언트를 사용 하 여 새 프록시를 사용해 보세요.
-    - 익명 함수의 경우를 사용 `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` 합니다.
-    - 권한 부여를 사용 하는 함수의 경우를 사용 `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` 합니다.
+    - 익명 함수의 경우를 사용   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` 합니다.
+    - 권한 부여를 사용 하는 함수의 경우를 사용   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` 합니다.
 
 ## <a name="create-a-mock-api"></a>모의 API 만들기
 

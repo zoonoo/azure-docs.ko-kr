@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
 ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324708"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대 한 제한
@@ -63,7 +63,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 다음 이름에는 다음 문자를 사용 하지 마십시오.
 
-|개체|문자 제외|
+|Object|문자 제외|
 |--|--|
 |의도, 엔터티 및 역할 이름|`:`<br>`$` <br> `&`|
 |버전 이름|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
@@ -96,7 +96,7 @@ _kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용
 |F0-무료 계층 |10000/월, 5/초|
 |S0-표준 계층|50/초|
 
-### <a name="sentiment-analysis"></a>감정 분석
+### <a name="sentiment-analysis"></a>정서 분석
 
 감정 정보를 제공 하는 [감정 analysis 통합](luis-how-to-publish-app.md#enable-sentiment-analysis)은 다른 Azure 리소스를 요구 하지 않고 제공 됩니다.
 
@@ -108,7 +108,7 @@ _kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | Description |
+|키보드 입력 | 설명 |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 

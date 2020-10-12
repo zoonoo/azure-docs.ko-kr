@@ -4,10 +4,10 @@ description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324164"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 구성 
@@ -35,7 +35,7 @@ ms.locfileid: "91324164"
 이 섹션에서는 Azure CLI 명령을 사용 하 여 인바운드 IP 규칙을 사용 하 여 항목을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인**에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 다음 명령을 실행 하 여 CLI의 Azure Event Grid 확장을 업데이트 합니다. 
 
 ```azurecli-interactive
@@ -162,7 +162,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>PowerShell 사용
 이 섹션에서는 Azure PowerShell 명령을 사용 하 여 인바운드 IP 방화벽 규칙을 사용 하 여 Azure Event Grid 항목을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인**에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 에 대 한 지침을 수행 하 여 Azure Active Directory 응용 프로그램을 만들고 다음 값을 적어둡니다.
 
 - 디렉터리(테넌트) ID

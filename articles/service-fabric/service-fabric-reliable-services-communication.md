@@ -7,10 +7,10 @@ ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018640"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
@@ -208,7 +208,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예를 들어:
+다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

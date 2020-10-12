@@ -4,10 +4,10 @@ description: 에이전트 기반 VMWare 마이그레이션의 Azure Migrate 복�
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532123"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
@@ -88,8 +88,8 @@ Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 �
 https:\//management.azure.com | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
 time.windows.com | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | 어플라이언스 설정에 이러한 Url에 대 한 액세스 권한이 필요 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료 합니다. 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | 어플라이언스 설정에 이러한 Url에 대 한 액세스 권한이 필요 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료하려면 일부 지역에서는 다운로드가 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
 
 
 ## <a name="azure-government-url-access"></a>Azure Government URL 액세스
@@ -105,8 +105,8 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 https:\//management.usgovcloudapi.net | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
 time.nist.gov | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | OVA로 어플라이언스를 설정 하려면 이러한 Url에 액세스 해야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료 합니다. 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVA로 어플라이언스를 설정 하려면 이러한 Url에 액세스 해야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료하려면 일부 지역에서는 다운로드가 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
 
 ## <a name="port-access"></a>포트 액세스
 

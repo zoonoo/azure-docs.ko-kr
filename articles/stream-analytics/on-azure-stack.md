@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88860983"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Azure Stack에서 Azure Stream Analytics 실행 (미리 보기)
@@ -128,7 +128,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    > [!div class="mx-imgBorder"]
    > [![IoT Hub 입력 ](media/on-azure-stack/iot-hub-input.png)](media/on-azure-stack/iot-hub-input.png#lightbox)
 
-6. 다른 필드는 기본값을 유지하고 저장을 선택합니다.
+6. 다른 필드의 기본값을 그대로 두고 저장을 선택합니다.
 7. 작업 토폴로지에서 출력을 열고 추가를 선택합니다.
 8. 드롭다운 목록에서 Blob Storage, Event Hub 또는 Edge Hub를 선택 합니다.
 9. 출력이 이벤트 허브 이거나 Azure Stack Hub 구독의 Blob Storage 경우 아래와 같이 정보를 수동으로 입력 하세요.

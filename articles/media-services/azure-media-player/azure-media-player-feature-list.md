@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296368"
 ---
 # <a name="feature-list"></a>기능 목록 #
@@ -59,7 +59,7 @@ ms.locfileid: "91296368"
 | 분석                               |        | X                |          |             | AMP는 선택한 분석 백 엔드에 보내기 위해 분석 및 진단 이벤트를 수신 하는 기능을 제공 합니다.  플랫폼 제한으로 인해 모든 이벤트 및 속성은 techs에서 사용할 수 없습니다.                                                                            |
 | 사용자 지정 스킨                            |        |                  | X        |             | 이 시나리오는 AMP에서 컨트롤을 false로 설정 하 고 고유한 HTML 및 CSS를 사용 하 여 구현할 수 있습니다.           |
 | 검색 표시줄 스크러빙                      |        |                  |          | X           |                                                                                                                      |
-| 트릭 재생                              |        |                  |          | X           |                                                                                                                      |
+| Trick-Play                              |        |                  |          | X           |                                                                                                                      |
 | 오디오만                              | X      |                  |          |           | AzureHtml5JS에서 지원 됩니다. 프로그레시브 MP3 재생은 플랫폼에서 지원 되는 경우 HTML5 기술에 사용할 수 있습니다.                                                                                                        |
 | 비디오만                              | X      |                  |          |           | AzureHtml5JS에서 지원 됩니다.                                                                                                        |
 | 여러 기간 프레젠테이션               |        |                  |          | X                                                                                                                                  |

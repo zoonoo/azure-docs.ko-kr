@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
 ms.openlocfilehash: ad6fd62178ec8e987e1e3b6e05cc961bbe15e377
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541965"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
@@ -22,7 +22,7 @@ ms.locfileid: "91541965"
 ## <a name="subtypes"></a>하위 유형
 지리적 위치에는 하위 유형이 있습니다.
 
-|Subtype|용도|
+|Subtype|목적|
 |--|--|
 |`poi`|관심 지점|
 |`city`|도시 이름|

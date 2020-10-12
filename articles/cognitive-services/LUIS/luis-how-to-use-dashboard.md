@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541410"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>대시보드를 사용 하 여 앱을 개선 하는 방법
@@ -152,7 +152,7 @@ ms.locfileid: "91541410"
 
 필터를 사용 하 여 특정 문제에 대 한 의도를 찾을 수 있습니다.
 
-|Assert|제안 된 비율|용도|
+|Assert|제안 된 비율|목적|
 |--|--|--|
 |가장 문제가 있는 의도|-|**여기부터 시작** -이 의도에서 길이 발언를 수정 하면 앱이 다른 픽스 보다 더 향상 됩니다.|
 |아래에서 올바른 예측|60%|이 값은 선택 된 의도에서 올바르지만 정확도 점수가 임계값 보다 길이 발언 비율입니다. |

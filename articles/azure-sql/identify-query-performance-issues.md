@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619766"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 검색 가능한 쿼리 성능 병목 상태 유형
@@ -153,8 +153,8 @@ RECOMPILE 힌트를 사용 하는 경우에는 계획이 캐시 되지 않습니
 - [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) 를 사용 하 여 리소스 제한 검색
 - [Dmv](database/monitoring-with-dmvs.md)를 사용 하 여 리소스 문제 검색:
 
-  - [Dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV는 데이터베이스에 대 한 CPU, i/o 및 메모리 소비량을 반환 합니다. 데이터베이스에 활동이 없는 경우에도 15 초 간격 마다 하나의 행이 존재 합니다. 기록 데이터는 한 시간 동안 유지됩니다.
-  - [Resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV는 Azure SQL Database에 대 한 CPU 사용량 및 저장소 데이터를 반환 합니다. 데이터는 5 분 간격으로 수집 되 고 집계 됩니다.
+  - [Sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV는 데이터베이스에 대 한 CPU, i/o 및 메모리 소비량을 반환 합니다. 데이터베이스에 활동이 없는 경우에도 15 초 간격 마다 하나의 행이 존재 합니다. 기록 데이터는 한 시간 동안 유지됩니다.
+  - [Sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV는 Azure SQL Database에 대 한 CPU 사용량 및 저장소 데이터를 반환 합니다. 데이터는 5 분 간격으로 수집 되 고 집계 됩니다.
   - [점증적으로 CPU 사용량이 높은 여러 개별 쿼리](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 리소스 부족으로 인 한 문제를 식별 하는 경우 리소스를 업그레이드 하 여 CPU 요구 사항을 충족 하기 위해 데이터베이스의 용량을 늘릴 수 있습니다. 자세한 내용은 [Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정](database/single-database-scale.md) 및 [Azure SQL Database에서 탄력적 풀 리소스 크기](database/elastic-pool-scale.md)조정을 참조 하세요. 관리 되는 인스턴스의 크기를 조정 하는 방법에 대 한 자세한 내용은 [서비스 계층 리소스 제한](managed-instance/resource-limits.md#service-tier-characteristics) 을 참조 하세요.
@@ -203,16 +203,16 @@ Intelligent Insights를 사용 하 여 [작업 부하를 늘리고](database/int
 이러한 메서드는 일반적으로 대기 유형의 최상위 범주를 표시 하는 데 사용 됩니다.
 
 - [대기 시간이 증가](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) 하 여 성능이 저하 된 쿼리를 식별 하는 Intelligent Insights 사용
-- [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 를 사용 하 여 시간에 따른 각 쿼리에 대 한 대기 통계를 찾을 수 있습니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주는 query_store_wait_stats의 대기 형식에 대 한 매핑을 찾을 수 있습니다 [.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)
-- [Dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 를 사용 하 여 쿼리 작업을 수행 하는 동안 실행 된 스레드에서 발생 한 모든 대기에 대 한 정보를 반환 합니다. 이 집계 뷰를 사용 하 여 Azure SQL Database 및 특정 쿼리 및 일괄 처리와 관련 된 성능 문제를 진단할 수 있습니다. 쿼리는 리소스, 큐 대기 또는 외부 대기를 기다릴 수 있습니다.
-- [Dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 를 사용 하 여 일부 리소스에서 대기 중인 작업의 큐에 대 한 정보를 반환 합니다.
+- [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 를 사용 하 여 시간에 따른 각 쿼리에 대 한 대기 통계를 찾을 수 있습니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주는 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)의 대기 유형에 대 한 매핑을 찾을 수 있습니다.
+- [Sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 를 사용 하 여 쿼리 작업 중에 실행 된 스레드에 의해 발생 한 모든 대기에 대 한 정보를 반환 합니다. 이 집계 뷰를 사용 하 여 Azure SQL Database 및 특정 쿼리 및 일괄 처리와 관련 된 성능 문제를 진단할 수 있습니다. 쿼리는 리소스, 큐 대기 또는 외부 대기를 기다릴 수 있습니다.
+- [Sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 를 사용 하 여 일부 리소스에서 대기 중인 작업의 큐에 대 한 정보를 반환 합니다.
 
 CPU를 많이 사용 하는 시나리오에서는 다음과 같은 경우 쿼리 저장소 및 대기 통계가 CPU 사용량을 반영 하지 않을 수 있습니다.
 
 - CPU 사용량이 많은 쿼리가 아직 실행 되 고 있습니다.
 - 장애 조치 (failover)가 발생 하면 CPU 사용량이 많은 쿼리가 실행 중입니다.
 
-쿼리 저장소 및 대기 통계를 추적 하는 Dmv는 성공적으로 완료 되 고 시간이 초과 된 쿼리만의 결과만 표시 합니다. 문이 완료 될 때까지 현재 실행 중인 문의 데이터를 표시 하지 않습니다. 동적 관리 뷰를 사용 하 여 현재 실행 중인 쿼리와 관련 작업자 시간을 추적 하는 [dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) .
+쿼리 저장소 및 대기 통계를 추적 하는 Dmv는 성공적으로 완료 되 고 시간이 초과 된 쿼리만의 결과만 표시 합니다. 문이 완료 될 때까지 현재 실행 중인 문의 데이터를 표시 하지 않습니다. 동적 관리 뷰 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 현재 실행 중인 쿼리와 연결 된 작업자 시간을 추적할 수 있습니다.
 
 > [!TIP]
 > 추가 도구:

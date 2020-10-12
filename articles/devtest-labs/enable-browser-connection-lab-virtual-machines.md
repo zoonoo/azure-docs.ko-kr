@@ -4,10 +4,10 @@ description: DevTest Labs는 이제 Azure 방호와 통합 됩니다. 랩의 소
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870496"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Azure DevTest Labs 가상 컴퓨터에서 브라우저 연결 사용 
@@ -18,7 +18,7 @@ DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도�
 
 이 문서에서는 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 - 기존 랩의 가상 네트워크에 요새 호스트를 배포 **하거나,** 가상 네트워크로 랩을 연결 합니다.
 가상 네트워크에 요새 호스트를 배포 하는 방법을 알아보려면  [Azure 방호 호스트 만들기](../bastion/bastion-create-host-portal.md)를 참조 하세요. 요새 호스트를 만들 때 랩의 가상 네트워크를 선택 합니다. 
 - 랩 사용자에 게는 요새 호스트와 요새가 구성 된 가상 네트워크에 대 한 **읽기 권한자** 역할이 있어야 합니다. 

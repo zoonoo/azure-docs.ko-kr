@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295992"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용 하 여 데이터베이스 작업 추적
 
 > [!IMPORTANT] 
 > Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
-> [!NOTE]
-> 로그에 액세스 하는 Azure Monitor 진단 설정과의 통합은 배포 중 이며 곧 전체 기능을 사용할 수 있습니다.
 
 유연한 서버 Azure Database for MySQL는 사용자에 게 감사 로그를 구성할 수 있는 기능을 제공 합니다. 감사 로그를 사용 하 여 연결, 관리, DDL 및 DML 이벤트를 비롯 한 데이터베이스 수준 작업을 추적할 수 있습니다. 이러한 유형의 로그는 일반적으로 규정 준수를 위해 사용됩니다.
 
@@ -52,9 +49,6 @@ ms.locfileid: "91295992"
 | `TABLE_ACCESS` | -MySQL 5.7에만 사용할 수 있음 <br> -SELECT 또는 INSERT INTO ...와 같은 테이블 읽기 문 [ <br> -DELETE 또는 TRUNCATE TABLE와 같은 Table delete 문 <br> -INSERT 또는 REPLACE와 같은 테이블 insert 문 <br> -UPDATE와 같은 테이블 업데이트 문 |
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
-
-> [!NOTE]
-> 로그에 액세스 하는 Azure Monitor 진단 설정과의 통합은 배포 중 이며 곧 전체 기능을 사용할 수 있습니다.
 
 감사 로그는 Azure Monitor 진단 설정과 통합 됩니다. MySQL 유연한 서버에서 감사 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. 진단 설정에 대해 자세히 알아보려면 [진단 로그 설명서](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요. Azure Portal에서 진단 설정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [감사 로그 포털 문서](how-to-configure-audit-logs-portal.md#set-up-diagnostics)를 참조 하세요.
 

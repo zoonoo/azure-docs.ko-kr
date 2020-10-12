@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937004"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>유연한 서버에서 영역 중복 고가용성 관리
@@ -35,26 +35,26 @@ ms.locfileid: "90937004"
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="구독 및 지역 보기":::
 
 2.  **가용성 영역**을 선택 합니다. 이는 대기 시간을 줄이기 위해 데이터베이스와 동일한 가용성 영역에 응용 프로그램을 배치 하는 경우에 유용 합니다. 유연한 서버를 모든 가용성 영역에 배포 하려면 **기본 설정 없음** 을 선택 합니다.
-    ![AZ selection ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Availability zone selection":::  
+    ![AZ selection ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="구독 및 지역 보기":::  
 
 3.  가용성 옵션에서 **영역 중복 고가용성** 확인란을 클릭 합니다.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="고가용성 확인란":::
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="구독 및 지역 보기":::
 
 4.  기본 계산 및 저장소를 변경 하려면  **서버 구성**을 클릭 합니다.
  
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="서버 구성-계산 + 저장소":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="구독 및 지역 보기":::  
 
 5.  고가용성 옵션을 선택한 경우에는 삼 계층을 선택할 수 없습니다. 범용 또는 **메모리** 액세스에 최적화 된 계산 **계층 중 하나** 를 선택할 수 있습니다. 그런 다음 드롭다운에서 원하는 **계산 크기** 를 선택할 수 있습니다.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="계산 계층 선택":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="구독 및 지역 보기":::  
 
 
 6.  슬라이딩 막대를 사용 하 여 GiB에서 **저장소 크기** 를 선택 하 고 7 일에서 35 일 사이의 **백업 보존 기간** 을 선택 합니다.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="저장소 백업"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="구독 및 지역 보기"::: 
 
-7. **저장**을 클릭합니다. 
+7. **Save**을 클릭합니다. 
 
 ## <a name="enable-high-availability-post-server-creation"></a>고가용성 게시 서버 만들기 사용
 
@@ -64,11 +64,11 @@ ms.locfileid: "90937004"
 
 2.  유연한 서버 페이지의 왼쪽 패널에서 **고가용성을 클릭 하** 여 고가용성 페이지를 엽니다.
    
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="왼쪽 패널 선택"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="구독 및 지역 보기"::: 
 
 3.  **영역 중복 고가용성** 확인란을 클릭 하 여 옵션을 **사용 하도록 설정** 하 고 **저장**을 클릭 하 여   변경 내용을 저장 합니다.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="고가용성 사용"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="구독 및 지역 보기"::: 
 
 4.  고가용성을 사용 하도록 설정 하면 추가 서버 및 저장소 배포로 인해 비용이 증가 한다는 확인 대화 상자가 표시 됩니다.
 
@@ -84,11 +84,11 @@ ms.locfileid: "90937004"
 
 2.  유연한 서버 페이지의 전면 패널에서 **고가용성을 클릭 하** 여 고가용성 페이지를 엽니다.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="왼쪽 패널 선택"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="구독 및 지역 보기"::: 
 
 3.  **영역 중복 고가용성** 확인란을 클릭 하 여 옵션을 **사용 하지 않도록 설정** 합니다. 그런 다음 **저장**   을 클릭 하 여 변경 내용을 저장 합니다.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="고가용성 사용 안 함"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="구독 및 지역 보기"::: 
 
 4.  고가용성을 사용 하지 않도록 설정할 수 있는 확인 대화 상자가 표시 됩니다.
 

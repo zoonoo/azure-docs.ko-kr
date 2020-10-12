@@ -4,10 +4,10 @@ description: 스크립트를 사용 하 여 Azure Migrate 어플라이언스를 
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91438923"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용 하 여 어플라이언스 설정
@@ -20,7 +20,7 @@ ms.locfileid: "91438923"
 - 물리적 서버용 어플라이언스를 설정 하려면 스크립트만 사용 하면 됩니다. [이 문서](how-to-set-up-appliance-physical.md)를 따릅니다.
 - Azure Government 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script-government.md)를 따릅니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 
@@ -51,7 +51,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 포털에서 또는 [�
 
     **알고리즘** | **다운로드** | **SHA256**
     --- | --- | ---
-    VMware (85.8 MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df9c7969fe1b9d0fe72
+    VMware(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df9c7969fe1b9d0fe72
 
 
 
@@ -100,7 +100,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 포털 또는 [여기]
 
     **시나리오** | **다운로드** | **SHA256**
     --- | --- | ---
-    Hyper-v (85.8) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) |  9bbef62e2e22481eda4b77c7fdf05db98c3767c20f0a873114fb0dcfa6ed682a
+    Hyper-V(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) |  9bbef62e2e22481eda4b77c7fdf05db98c3767c20f0a873114fb0dcfa6ed682a
 
 ### <a name="run-the-script"></a>스크립트 실행
 

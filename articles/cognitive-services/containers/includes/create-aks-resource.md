@@ -10,21 +10,21 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87298756"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Azure Kubernetes Service 클러스터 리소스 만들기
 
 1. [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks)로 이동 하 고 **만들기**를 선택 합니다.
 
-1. **기본 사항** 탭에서 다음 정보를 입력 합니다.
+1. **기본** 탭에서 다음 정보를 입력합니다.
 
     |설정|값|
     |--|--|
-    |구독|적합한 구독을 선택합니다.|
+    |Subscription|적합한 구독을 선택합니다.|
     |리소스 그룹|사용 가능한 리소스 그룹을 선택합니다.|
     |Kubernetes 클러스터 이름|이름 (소문자)을 입력 합니다.|
     |지역|근처 위치를 선택합니다.|
