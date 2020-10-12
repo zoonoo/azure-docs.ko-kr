@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730004"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
@@ -99,7 +99,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
 | StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *거부됨* <br/> *삭제* |
 | 설명        | *StatusCode* 에 대 한 문자열 값 |
-| deviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
+| DeviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
 클라우드-장치 메시지에서 해당 피드백과 원래 메시지의 상관 관계를 지정 하려면 서비스에서 *MessageId*를 지정 해야 합니다.

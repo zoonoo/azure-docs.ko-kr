@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861064"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Azure Service Bus 네임 스페이스를 다른 영역으로 이동
@@ -22,7 +22,7 @@ ms.locfileid: "88861064"
 1. 항목에 대 한 네임 스페이스, 큐, 토픽 및 구독이 모두 대상 지역에 만들어졌는지 확인 하려면 배포를 확인 합니다. 
 1. 모든 메시지를 처리 한 후 소스 영역에서 네임 스페이스를 삭제 하 여 이동 작업을 완료 합니다. 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 계정에서 사용 하는 Azure Service Bus 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
  
 ## <a name="prepare"></a>준비
@@ -48,19 +48,19 @@ ms.locfileid: "88861064"
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 2. **Marketplace 검색**에서 검색 텍스트에 대 한 **템플릿 배포** 를 입력 하 고 **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)** 를 선택한 다음 **enter**키를 누릅니다.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="새 템플릿 배포":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="리소스 관리자 템플릿 다운로드":::    
 1. **템플릿 배포** 페이지에서 **만들기**를 선택 합니다.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="새 템플릿 배포-만들기 단추":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="리소스 관리자 템플릿 다운로드":::        
 1. **사용자 지정 배포** 페이지에서 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="편집기에서 사용자 고유의 템플릿 빌드-링크":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="리소스 관리자 템플릿 다운로드":::            
 1. **템플릿 편집** 페이지의 도구 모음에서 **파일 로드** 를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="템플릿 선택":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="리소스 관리자 템플릿 다운로드":::                
 1. **저장** 을 선택 하 여 템플릿을 저장 합니다. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="템플릿 저장":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="리소스 관리자 템플릿 다운로드":::                    
 1. **사용자 지정 배포** 페이지에서 다음 단계를 수행 합니다. 
     1. Azure **구독**을 선택 합니다. 
     2. 기존 **리소스 그룹**을 선택하거나 리소스 그룹을 만듭니다. 
@@ -68,26 +68,26 @@ ms.locfileid: "88861064"
     4. **네임 스페이스의 새 이름을**입력 합니다.
     1. **검토 + 만들기**를 선택합니다. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 배포":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 다운로드":::
     1. **검토 + 만들기** 페이지의 페이지 맨 아래에서 **만들기** 를 선택 합니다. 
     
 ## <a name="verify"></a>확인
 1. 배포가 성공적으로 완료 되 면 **리소스 그룹으로 이동**을 선택 합니다.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="리소스 그룹으로 이동 링크":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="리소스 관리자 템플릿 다운로드":::    
 1. **리소스 그룹** 페이지에서 Service Bus 네임 스페이스를 선택 합니다. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Service Bus 네임 스페이스 선택":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="리소스 관리자 템플릿 다운로드":::    
 1. **Service Bus 네임 스페이스** 페이지에서 원본 지역의 큐, 토픽 및 구독이 표시 되는지 확인 합니다. 
     1. 오른쪽 창 맨 아래에 있는 네임 스페이스에 **큐** 가 표시 됩니다.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="네임 스페이스의 큐":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="리소스 관리자 템플릿 다운로드":::
     2. **항목** 탭으로 전환 하 여 네임 스페이스의 항목을 확인 합니다.
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="네임 스페이스의 항목":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="리소스 관리자 템플릿 다운로드":::
     3. 구독을 만들었는지 확인 하려면 항목을 선택 합니다. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="토픽 구독":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="리소스 관리자 템플릿 다운로드":::      
     
     
 

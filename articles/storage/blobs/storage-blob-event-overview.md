@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
 ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87826571"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
@@ -36,7 +36,7 @@ Blob storage 이벤트를 시도 하려면 다음 빠른 시작 문서를 참조
 Azure 함수를 사용 하 여 Blob 저장소 이벤트에 대응 하는 자세한 예제를 보려면 다음 문서를 참조 하세요.
 
 - [자습서: Azure Data Lake Storage Gen2 이벤트를 사용 하 여 Databricks 델타 테이블을 업데이트](data-lake-storage-events.md)합니다.
-- [자습서: Event Grid을 사용 하 여 업로드 된 이미지 크기 조정 자동화](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
+- [자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
 > Kind **StorageV2 (범용 v2)**, **Blockblobstorage**및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **Storage (범용 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.

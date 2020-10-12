@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84736733"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
@@ -79,7 +79,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 ## <a name="delete-a-packet-capture"></a>패킷 캡처 삭제
 
 1. 패킷 캡처 보기에서 패킷 캡처의 오른쪽에 있는 **...** 를 선택하거나 기존 패킷 캡처를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
-2. 패킷 캡처를 삭제할지 확인하는 메시지가 표시됩니다. **Yes**를 선택합니다.
+2. 패킷 캡처를 삭제할지 확인하는 메시지가 표시됩니다. **예**를 선택합니다.
 
 > [!NOTE]
 > 패킷 캡처를 삭제해도 스토리지 계정 또는 가상 머신에서 캡처 파일이 삭제되지는 않습니다.

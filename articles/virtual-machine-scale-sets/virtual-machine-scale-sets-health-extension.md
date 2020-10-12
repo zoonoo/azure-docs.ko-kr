@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783047"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
@@ -57,20 +57,20 @@ ms.locfileid: "84783047"
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식
+| 속성 | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | string |
+| publisher | `Microsoft.ManagedServices` | 문자열 |
 | type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | 문자열 |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>설정
 
-| Name | 값/예제 | 데이터 형식
+| 속성 | 값/예제 | 데이터 형식
 | ---- | ---- | ----
-| protocol | `http` 또는 `https` 또는 `tcp` | string |
-| 포트 | 프로토콜이 또는 인 경우 선택 사항이 `http` `https` 고, 프로토콜이 이면 필수입니다.`tcp` | int |
-| requestPath | 프로토콜이 또는 인 경우 필수입니다. `http` `https` 프로토콜이 일 때 허용 되지 않습니다.`tcp` | string |
+| protocol | `http` 또는 `https` 또는 `tcp` | 문자열 |
+| 포트 | 프로토콜이 또는 인 경우 선택 사항이 `http` `https` 고, 프로토콜이 이면 필수입니다. `tcp` | int |
+| requestPath | 프로토콜이 또는 인 경우 필수입니다. `http` `https` 프로토콜이 일 때 허용 되지 않습니다. `tcp` | 문자열 |
 
 ## <a name="deploy-the-application-health-extension"></a>애플리케이션 상태 확장 배포
 아래 예제에서 자세히 설명한 대로 애플리케이션 상태 확장은 확장 집합에 여러 가지 방법으로 배포할 수 있습니다.

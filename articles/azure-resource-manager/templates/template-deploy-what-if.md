@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: tomfitz
 ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810074"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM 템플릿 배포 가상 작업 (미리 보기)
@@ -110,18 +110,18 @@ Resource changes: 1 to modify.
 
 템플릿을 배포 하기 전에 변경 내용을 미리 보려면 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 또는 [AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment)를 사용 합니다. `-Whatif`스위치 매개 변수를 deployment 명령에 추가 합니다.
 
-* `New-AzResourceGroupDeployment -Whatif`리소스 그룹 배포의 경우
+* `New-AzResourceGroupDeployment -Whatif` 리소스 그룹 배포의 경우
 * `New-AzSubscriptionDeployment -Whatif``New-AzDeployment -Whatif`구독 수준 배포의 경우
 
 `-Confirm`스위치 매개 변수를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
 
-* `New-AzResourceGroupDeployment -Confirm`리소스 그룹 배포의 경우
+* `New-AzResourceGroupDeployment -Confirm` 리소스 그룹 배포의 경우
 * `New-AzSubscriptionDeployment -Confirm``New-AzDeployment -Confirm`구독 수준 배포의 경우
 
 이전 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환 합니다. 프로그래밍 방식으로 변경 내용을 검사할 수 있는 개체를 가져오려면 [AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) 또는 [AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult)를 사용 합니다.
 
-* `$results = Get-AzResourceGroupDeploymentWhatIfResult`리소스 그룹 배포의 경우
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult`또는 `$results = Get-AzDeploymentWhatIfResult` 구독 수준 배포의 경우
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` 리소스 그룹 배포의 경우
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` 또는 `$results = Get-AzDeploymentWhatIfResult` 구독 수준 배포의 경우
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -172,7 +172,7 @@ REST API의 경우 다음을 사용 합니다.
 
 ## <a name="result-format"></a>결과 형식
 
-예측 된 변경 내용에 대해 반환 되는 세부 정보 수준을 제어 합니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+예측 된 변경 내용에 대해 반환 되는 세부 정보 수준을 제어 합니다. 다음과 같은 두 가지 옵션이 있습니다.
 
 * **FullResourcePayloads** -변경 되는 리소스 목록 및 변경 되는 속성에 대 한 세부 정보를 반환 합니다.
 * **ResourceIdOnly** -변경 되는 리소스의 목록을 반환 합니다.

@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687134"
 ---
-# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용 하 여 음성 언어 자동 식별
+# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용하여 음성 언어 자동 식별
 
 Video Indexer는 오디오에서 음성 언어 콘텐츠를 자동으로 식별 하 고 식별 된 주요 언어로 transcribed 미디어 파일을 보내는 프로세스 인 자동 언어 식별 (LID)을 지원 합니다. 
 
@@ -67,4 +67,4 @@ API를 사용 하 여 [비디오를 인덱싱하거나 인덱싱할 때](https:/
 ## <a name="next-steps"></a>다음 단계
 
 * [개요](video-indexer-overview.md)
-* [자동으로 다국어 콘텐츠 식별 및 높여줄](multi-language-identification-transcription.md)
+* [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)

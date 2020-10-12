@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415816"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
@@ -33,7 +33,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 이 문서에서는 Data Factory 데이터 복사 도구를 사용 하 여 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 데이터를 복사 하는 방법을 보여 줍니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터가 있는 Azure Data Lake Storage Gen1 계정
@@ -84,7 +84,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
   
    b. **연결 테스트** 를 선택 하 여 설정의 유효성을 검사 합니다. 그런 다음, **마침**을 선택합니다.
   
-   c. 새 연결이 생성 된 것을 볼 수 있습니다. **다음**을 선택합니다.
+   다. 새 연결이 생성 된 것을 볼 수 있습니다. **다음**을 선택합니다.
    
    > [!IMPORTANT]
    > 이 연습에서는 Azure 리소스에 관리 되는 id를 사용 하 여 Azure Data Lake Storage Gen1을 인증 합니다. Azure Data Lake Storage Gen1에서 관리 되는 id에 적절 한 권한을 부여 하려면 [다음 지침](connector-azure-data-lake-store.md#managed-identity)을 따르세요.
@@ -107,7 +107,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
    a. **저장소 계정 이름** 드롭다운 목록에서 Data Lake Storage Gen2 사용할 수 있는 계정을 선택 합니다.
    
-   b. **마침**을 선택하여 연결을 만듭니다. **다음**을 선택합니다.
+   b. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
    
    ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
@@ -159,7 +159,7 @@ Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2 일반으로 업
 
 Data Lake Storage Gen1에서 데이터를 읽고 Data Lake Storage Gen2에 데이터를 쓰는 Data Factory 복사 작업의 동시성을 제어할 수 있습니다. 이러한 방식으로 해당 저장소 i/o에서 사용을 관리 하 여 마이그레이션하는 동안 Data Lake Storage Gen1의 정상적인 비즈니스 작업에 영향을 주지 않도록 할 수 있습니다.
 
-### <a name="permissions"></a>권한 
+### <a name="permissions"></a>사용 권한 
 
 Data Factory에서 [Data Lake Storage Gen1 커넥터](connector-azure-data-lake-store.md) 는 Azure 리소스 인증에 대 한 서비스 주체 및 관리 id를 지원 합니다. [Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md) 는 Azure 리소스 인증에 대 한 계정 키, 서비스 주체 및 관리 id를 지원 합니다. 필요한 모든 파일 또는 Acl (액세스 제어 목록)을 탐색 하 고 복사할 수 Data Factory 있도록 하려면 사용자가 제공 하는 계정에 대 한 충분 한 권한을 부여 하 여 모든 파일을 액세스, 읽기 또는 작성 하 고 원하는 경우 Acl을 설정 합니다. 마이그레이션 기간 중에 슈퍼 사용자 또는 소유자 역할을 부여 합니다. 
 

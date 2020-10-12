@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445001"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>MATLAB를 학습 하기 위한 랩 설정
@@ -36,7 +36,7 @@ ms.locfileid: "85445001"
 
 | 가상 머신 크기 | 이미지 |
 | -------------------- | ----- |
-| 중간 | Windows 10 |
+| 중간 | 윈도우 10 |
 
 MATLAB은 더 많은 운영 체제에서 지원 됩니다.  자세한 내용은 [MATLAB 시스템 요구 사항](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) 을 참조 하세요.
 
@@ -102,7 +102,7 @@ MathWorks 웹 사이트에서 ISO 이미지를 다운로드할 수도 있습니�
 
 이 클래스에 대 한 예상 비용 예상 예는 다음과 같습니다.
 
-25 개의 학생 \* (20 개의 예약 된 시간 + 10 할당량 시간) \* 55 lab 단위 \* 0.01 usd/시간 = 412.50 USD
+25 개의 학생 \* (20 개의 예약 된 시간 + 10 할당량 시간) \* 55 lab 단위 \*  0.01 usd/시간 = 412.50 USD
 
 >[!IMPORTANT]
 > 비용 예측은 예를 들어 목적 으로만 사용 됩니다.  가격 책정에 대 한 최신 정보는 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조 하세요.  

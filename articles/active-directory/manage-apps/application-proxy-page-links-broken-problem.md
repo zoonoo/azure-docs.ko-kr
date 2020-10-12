@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84760204"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>페이지의 링크가 애플리케이션 프록시 애플리케이션에서 작동하지 않습니다.
@@ -26,7 +26,7 @@ ms.locfileid: "84760204"
 ## <a name="overview"></a>개요 
 애플리케이션 프록시 앱을 게시한 후에 애플리케이션에서 기본적으로 작동하는 유일한 링크는 게시된 루트 URL 내에 포함된 대상에 대한 링크입니다. 애플리케이션 내에 있는 링크가 작동하지 않으면 애플리케이션의 내부 URL은 아마도 애플리케이션 내에서 링크의 모든 대상을 포함하지 않습니다.
 
-**이런 문제가 발생하는 이유는 무엇인가요?** 애플리케이션에서 링크를 클릭하면 애플리케이션 프록시는 동일한 애플리케이션 내에서 내부 URL 또는 외부에서 사용 가능한 URL을 확인하려고 합니다. 링크가 동일한 애플리케이션에 속하지 않는 내부 URL을 가리키는 경우 이러한 버킷 중 하나에 속하지 않고 찾을 수 없다는 오류가 발생합니다.
+**이유는 무엇입니까?** 애플리케이션에서 링크를 클릭하면 애플리케이션 프록시는 동일한 애플리케이션 내에서 내부 URL 또는 외부에서 사용 가능한 URL을 확인하려고 합니다. 링크가 동일한 애플리케이션에 속하지 않는 내부 URL을 가리키는 경우 이러한 버킷 중 하나에 속하지 않고 찾을 수 없다는 오류가 발생합니다.
 
 ## <a name="ways-you-can-resolve-broken-links"></a>끊어진 링크 문제를 해결할 수 있는 방법
 
