@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85361907"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 게스트 사용자에 대 한 Azure 역할 할당 추가 또는 제거
@@ -79,7 +79,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 1. **액세스 제어(IAM)** 를 클릭합니다.
 
-    다음 스크린샷은 리소스 그룹에 대 한 액세스 제어 (IAM) 블레이드의 예를 보여 줍니다. 여기에서 액세스 제어를 변경 하는 경우 리소스 그룹에만 적용 됩니다.
+    다음 스크린샷은 리소스 그룹의 액세스 제어(IAM) 블레이드를 보여 주는 예입니다. 여기에서 액세스 제어를 변경 하는 경우 리소스 그룹에만 적용 됩니다.
 
     ![리소스 그룹의 액세스 제어(IAM) 블레이드](./media/role-assignments-external-users/access-control-resource-group.png)
 
@@ -89,7 +89,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
     역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-    ![역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
+    ![역할 할당 추가 메뉴](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 창이 열립니다.
 
@@ -121,7 +121,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 1. **추가** > **역할 할당 추가**를 클릭하여 역할 할당 추가 창을 엽니다.
 
-    ![역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
+    ![역할 할당 추가 메뉴](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 창이 열립니다.
 

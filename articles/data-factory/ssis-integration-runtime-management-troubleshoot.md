@@ -12,10 +12,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86172029"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
@@ -78,7 +78,7 @@ IR을 실행 하는 동안 오류가 발생 하는 경우 네트워크 보안 �
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-이러한 종류의 오류 메시지는 다음과 같습니다. "잘못 된 개체 이름 ' 카탈로그. catalog_properties '." 이 경우 이름이 SSISDB 인 데이터베이스가 이미 있지만 SSIS IR을 통해 생성 되지 않았거나 마지막 SSIS IR 프로 비전에서 오류로 인해 데이터베이스가 잘못 된 상태에 있습니다. 이름이 SSISDB 인 기존 데이터베이스를 삭제 하거나 IR에 대 한 새 SQL Database 또는 SQL Managed Instance을 구성할 수 있습니다.
+이러한 종류의 오류 메시지는 "잘못 된 개체 이름 ' catalog.catalog_properties '입니다."와 같습니다. 이 경우 이름이 SSISDB 인 데이터베이스가 이미 있지만 SSIS IR을 통해 생성 되지 않았거나 마지막 SSIS IR 프로 비전에서 오류로 인해 데이터베이스가 잘못 된 상태에 있습니다. 이름이 SSISDB 인 기존 데이터베이스를 삭제 하거나 IR에 대 한 새 SQL Database 또는 SQL Managed Instance을 구성할 수 있습니다.
 
 ## <a name="custom-setup-issues"></a>사용자 지정 설치 문제
 
@@ -192,4 +192,4 @@ Azure-SSIS IR은 정기적으로 자동으로 업데이트 됩니다. 업그레�
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공 해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용 되 고 다른 하나는 IR을 업그레이드 하는 동안 사용 됩니다. 업그레이드 하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우이 오류가 발생할 수 있습니다. 가능한 원인은 [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) 를 참조 하세요.
+사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공 해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용 되 고 다른 하나는 IR을 업그레이드 하는 동안 사용 됩니다. 업그레이드 하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우이 오류가 발생할 수 있습니다. 가능한 원인은  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) 를 참조 하세요.

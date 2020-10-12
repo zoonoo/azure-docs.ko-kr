@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: 63cfe7968ec88ed75dfe23e8a3d34ac2649f6776
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84307828"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Azure Key Vault를 사용하는 고객 관리형 키
@@ -87,7 +87,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 
 ## <a name="update-the-key-version"></a>키 버전 업데이트
 
-새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Cognitive Services 리소스를 업데이트 합니다. 다음 단계를 수행하세요.
+새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Cognitive Services 리소스를 업데이트 합니다. 다음 단계를 수행합니다.
 
 1. Cognitive Services 리소스로 이동 하 여 **암호화** 설정을 표시 합니다.
 1. 새 키 버전의 URI를 입력 합니다. 또는 키 자격 증명 모음을 다시 선택 하 고 키를 다시 선택 하 여 버전을 업데이트할 수 있습니다.
@@ -103,13 +103,13 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 
 ## <a name="rotate-customer-managed-keys"></a>고객 관리 키 회전
 
-규정 준수 정책에 따라 Azure Key Vault에서 고객이 관리 하는 키를 회전할 수 있습니다. 키를 회전 하는 경우 새 키 URI를 사용 하도록 Cognitive Services 리소스를 업데이트 해야 합니다. Azure Portal에서 새 버전의 키를 사용 하도록 리소스를 업데이트 하는 방법을 알아보려면 [키 버전 업데이트](#update-the-key-version)를 참조 하세요.
+규정 준수 정책에 따라 Azure Key Vault에서 고객 관리형 키를 순환할 수 있습니다. 키를 회전 하는 경우 새 키 URI를 사용 하도록 Cognitive Services 리소스를 업데이트 해야 합니다. Azure Portal에서 새 버전의 키를 사용 하도록 리소스를 업데이트 하는 방법을 알아보려면 [키 버전 업데이트](#update-the-key-version)를 참조 하세요.
 
 키를 회전 해도 리소스의 데이터를 다시 암호화 하는 것은 트리거되지 않습니다. 사용자에 게 필요한 추가 작업은 없습니다.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대 한 액세스 취소
 
-고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조 하세요. Cognitive Services에서 암호화 키에 액세스할 수 없으므로 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
+고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. Cognitive Services에서 암호화 키에 액세스할 수 없으므로 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
 
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 

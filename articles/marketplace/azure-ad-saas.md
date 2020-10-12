@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483629"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>상업적 marketplace의 Azure AD 및 불가능 SaaS 제품
@@ -45,13 +45,13 @@ Azure AD는 상업적 marketplace 솔루션의 원활한 구매, 처리 및 관�
 
 다음 그림에서는 구매 관리를 위한 4 가지 프로세스 단계를 보여 줍니다.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="구매 관리를 위한 4 가지 처리 단계를 보여 줍니다.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="구매 관리, 구독 관리 및 선택적 사용자 관리 프로세스 단계를 보여 줍니다.":::
 
 이 표에서는 구매 관리 프로세스 단계에 대 한 세부 정보를 제공 합니다.
 
 | 처리 단계 | 게시자 동작 | 게시자에 대해 권장 또는 필수 |
 | ------------ | ------------- | ------------- |
-| 1. 구매자는 Azure ID id를 사용 하 여 상업적 marketplace에 로그인 하 고 SaaS 제안을 선택 합니다. | 게시자 작업이 필요 하지 않습니다. | 해당 없음 |
+| 1. 구매자는 Azure ID id를 사용 하 여 상업적 marketplace에 로그인 하 고 SaaS 제안을 선택 합니다. | 게시자 작업이 필요 하지 않습니다. | 적용할 수 없음 |
 | 2. 구매 후에 구매자는 Azure Marketplace에서 **계정 구성** 을 선택 하거나 appsource에서 **지금 구성** 합니다 .이는 구매자를이 제안의 게시자의 방문 페이지로 안내 합니다. 구매자는 Azure AD SSO를 사용 하 여 게시자의 SaaS 응용 프로그램에 로그인 할 수 있어야 하며, Azure AD 관리자 승인이 필요 하지 않은 최소한의 동의를 요청 해야 합니다. | Azure AD 또는 Microsoft 계정 (MSA) id를 사용 하 여 사용자를 받고 필요한 추가 프로 비전 또는 설치를 용이 하 게 하는 제품의 [방문 페이지](azure-ad-transactable-saas-landing-page.md) 를 디자인 합니다. | 필수 |
 | 3. 게시자가 SaaS 처리 API에서 구매 정보를 요청 합니다. | 방문 페이지의 응용 프로그램 ID에서 생성 된 [액세스 토큰](./partner-center-portal/pc-saas-registration.md) 을 사용 하 여 [확인 끝점을 호출](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) 하 여 구매에 대 한 세부 정보를 검색 합니다. | 필수 |
 | 4. Azure AD 및 Microsoft Graph API를 통해 게시자는 게시자의 SaaS 응용 프로그램에서 구매자를 프로 비전 하는 데 필요한 회사 및 사용자 세부 정보를 수집 합니다.  | Azure AD 사용자 토큰을 분해 하 여 이름 및 전자 메일을 찾거나, [MICROSOFT GRAPH API를 호출](https://docs.microsoft.com/graph/use-the-api) 하 고, 위임 된 사용 권한을 사용 하 여 로그인 한 사용자에 대 한 [정보를 검색](https://docs.microsoft.com/graph/api/user-get) 합니다. | 필수 |
@@ -61,7 +61,7 @@ Azure AD는 상업적 marketplace 솔루션의 원활한 구매, 처리 및 관�
 
 다음 그림에서는 구독 관리에 대 한 두 가지 프로세스 단계를 보여 줍니다.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="구독 관리에 대 한 두 가지 프로세스 단계를 보여 줍니다.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="구매 관리, 구독 관리 및 선택적 사용자 관리 프로세스 단계를 보여 줍니다.":::
 
 다음 표에서는 구독 관리 프로세스 단계에 대 한 세부 정보를 설명 합니다.
 
@@ -75,13 +75,13 @@ Azure AD는 상업적 marketplace 솔루션의 원활한 구매, 처리 및 관�
 
 이 그림에서는 사용자 관리를 위한 세 가지 프로세스 단계를 보여 줍니다.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="사용자 관리에 대 한 세 가지 선택적 처리 단계를 보여 줍니다.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="구매 관리, 구독 관리 및 선택적 사용자 관리 프로세스 단계를 보여 줍니다.":::
 
 프로세스 7 ~ 9 단계는 선택적 사용자 관리 프로세스 단계입니다. Azure AD Single Sign-On (SSO)를 지 원하는 게시자에 게 추가 혜택을 제공 합니다. 다음 표에서는 사용자 관리 프로세스 단계에 대 한 세부 정보를 설명 합니다.
 
 | 처리 단계 | 게시자 동작 | 게시자에 대해 권장 또는 필수 |
 | ------------ | ------------- | ------------- |
-| 7. 구매자의 회사에서 azure AD 관리자는 Azure AD를 통해 사용자 및 그룹에 대 한 액세스를 선택적으로 관리할 수 있습니다. | 사용자에 대해 Azure AD SSO를 설정 하는 경우 (9 단계) 게시자 작업이 필요 하지 않습니다. | 해당 없음 |
+| 7. 구매자의 회사에서 azure AD 관리자는 Azure AD를 통해 사용자 및 그룹에 대 한 액세스를 선택적으로 관리할 수 있습니다. | 사용자에 대해 Azure AD SSO를 설정 하는 경우 (9 단계) 게시자 작업이 필요 하지 않습니다. | 적용할 수 없음 |
 | 8. azure ad 프로 비전 서비스는 Azure AD와 게시자의 SaaS 응용 프로그램 간에 변경 사항을 전달 합니다. | 사용자가 추가 및 제거 될 때 Azure AD에서 업데이트를 수신 하도록 [SCIM 끝점을 구현](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 합니다. | 권장 |
 | 9. 앱이 permissioned 되 고 프로 비전 되 면 구매자 회사의 사용자가 Azure AD SSO를 사용 하 여 게시자의 SaaS 응용 프로그램에 로그인 할 수 있습니다. | [AZURE AD SSO를 사용](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 하 여 사용자가 한 계정으로 게시자의 SaaS 응용 프로그램에 한 번 로그인 할 수 있도록 합니다. | 권장 |
 ||||

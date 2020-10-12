@@ -11,10 +11,10 @@ ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387527"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Azure Portal를 사용 하 여에서 소비자 사용자를 만들고 삭제 Azure AD B2C
@@ -40,7 +40,7 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **관리** 아래에서 **사용자**를 선택합니다.
+1. **관리**에서 **사용자**를 선택합니다.
 1. **새 사용자**를 선택합니다.
 1. **사용자 Azure AD B2C 만들기**를 선택 합니다.
 1. **로그인 방법을** 선택 하 고 새 사용자에 대 한 **전자 메일** 주소 또는 **사용자 이름을** 입력 합니다. 여기에서 선택 하는 로그인 방법은 Azure AD B2C 테 넌 트의 *로컬 계정* id 공급자에 대해 지정한 설정과 일치 해야 합니다 ( **Manage**  >  Azure AD B2C 테 넌 트에서**id 공급자** 관리 참조).

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84267979"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
@@ -361,8 +361,8 @@ RUL을 예측하는 데 사용되는 회귀 모델은 유출 문제의 영향을
 PdM에서는 하나의 클래스가 다른 클래스에 비해 심각하게 대표값이 부족한 불균형 데이터 세트 문제에 직면하게 됩니다. 경우에 따라 소수 클래스는 총 데이터 요소의 0.001%만을 구성할 수 있습니다. 클래스 불균형은 PdM에서만 발생하지 않습니다. 오류 및 잘못된 부분이 드물게 발생하는 다른 도메인의 경우 비슷한 문제(예: 부정 행위 감지 및 네트워크 침입)가 발생합니다. 이러한 오류는 소수 클래스 예제를 구성합니다.
 
 데이터의 클래스 불균형이 발생하면 전체 오류율을 최소화하는 것을 목표로 하므로 대부분의 표준 학습 알고리즘의 성능이 저하됩니다. 99% 음수와 1% 양수 예제를 포함한 데이터 집합의 경우 모든 인스턴스의 레이블을 음수로 지정하여 99% 정확도를 가진 모델을 보여줄 수 있습니다. 하지만 해당 모델은 모든 양수 예제를 잘못 분류합니다. 따라서 정확도가 높더라도 알고리즘은 유용하지 않습니다. 따라서 _오류율에 대한 전체 정확도_와 같은 기존의 평가 메트릭만으로는 불균형 학습에서 충분하지 않습니다. 불균형 데이터 세트가 존재하는 경우 다른 메트릭을 모델 평가에 사용합니다.
-- 전체 자릿수
-- 회수
+- 자릿수
+- 회차
 - F1 점수
 - 비용이 조정된 ROC(수신기 작동 특성)
 

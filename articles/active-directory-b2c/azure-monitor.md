@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386218"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
@@ -193,14 +193,14 @@ Parameters              :
 
 템플릿을 배포한 후 리소스 프로젝션을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 다음 섹션으로 이동 하 여 구독을 선택 하기 전에 몇 분 (일반적으로 5 개이 하)을 기다려야 할 수 있습니다.
 
-## <a name="select-your-subscription"></a>구독을 선택합니다.
+## <a name="select-your-subscription"></a>구독 선택
 
 템플릿을 배포 하 고 리소스 프로젝션이 완료 될 때까지 몇 분 정도 기다린 후에는 다음 단계를 사용 하 여 구독을 Azure AD B2C 디렉터리에 연결 합니다.
 
 1. 현재 로그인 되어 있는 경우 Azure Portal에서 **로그 아웃** 합니다. 이 단계와 다음 단계를 수행 하 여 포털 세션에서 자격 증명을 새로 고칠 수 있습니다.
 1. Azure AD B2C 관리 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
-1. 구독을 포함 하는 디렉터리를 선택 합니다.
+1. 구독이 포함된 디렉터리를 선택합니다.
 
     ![디렉터리 전환](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
 1. 올바른 디렉터리 및 구독을 선택 했는지 확인 합니다. 이 예에서는 모든 디렉터리와 구독이 선택 됩니다.
@@ -234,7 +234,7 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 1. 아직 없는 경우 설정 이름을 지정 합니다.
 1. 로그를 보낼 각 대상에 대 한 확인란을 선택 합니다. **구성** 을 선택 하 여 다음 표에 설명 된 대로 설정을 지정 합니다.
 
-    | Setting | 설명 |
+    | 설정 | Description |
     |:---|:---|
     | 스토리지 계정에 보관 | 저장소 계정의 이름입니다. |
     | 이벤트 허브로 스트림 | 이벤트 허브가 생성 되는 네임 스페이스 (처음으로 로그를 스트리밍하는 경우) 또는 스트리밍되는 경우 (해당 로그 범주를이 네임 스페이스로 스트리밍하는 리소스가 이미 있는 경우).

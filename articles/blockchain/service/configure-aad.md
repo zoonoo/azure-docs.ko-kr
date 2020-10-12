@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85208776"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Azure Blockchain 서비스에 대 한 Azure Active Directory 액세스를 구성 하는 방법
@@ -33,11 +33,11 @@ Azure AD는 클라우드 기반 id 관리 기능을 제공 하며 전체 엔터�
 1. **액세스 제어 (IAM) > 추가 하 > 역할 할당**추가로 이동 합니다.
 1. **Blockchain Member Node access (Preview)** 역할을 선택 하 고 액세스 권한을 부여 하려는 AZURE AD ID 개체를 추가 합니다. Azure AD ID 개체는 다음과 같을 수 있습니다.
 
-    | Azure AD 개체 | 예제 |
+    | Azure AD 개체 | 예 |
     |-----------------|---------|
     | Azure AD 사용자   | `kim@contoso.onmicrosoft.com` |
     | Azure AD 그룹  | `sales@contoso.onmicrosoft.com` |
-    | 애플리케이션 ID  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
+    | 애플리케이션 UI  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
     ![역할 할당 추가](./media/configure-aad/add-role-assignment.png)
 
@@ -63,7 +63,7 @@ git clone https://github.com/Microsoft/azure-blockchain-connector.git
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Azure AD 사용자 계정을 사용 하 여 연결
 
-1. 다음 명령을 실행 하 여 Azure AD 사용자 계정을 사용 하 여 인증 합니다. \<myAADDirectory\>을 AZURE AD 도메인으로 바꿉니다. 예: `yourdomain.onmicrosoft.com`.
+1. 다음 명령을 실행 하 여 Azure AD 사용자 계정을 사용 하 여 인증 합니다. \<myAADDirectory\>을 AZURE AD 도메인으로 바꿉니다. 예: `yourdomain.onmicrosoft.com`
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -87,9 +87,9 @@ git clone https://github.com/Microsoft/azure-blockchain-connector.git
 connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myClientID> -client-secret "<myClientSecret>" -tenant-id <myAADDirectory>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
-| 테 넌 트-id | Azure AD 도메인 (예:)`yourdomain.onmicrosoft.com`
+| 테 넌 트-id | Azure AD 도메인 (예:) `yourdomain.onmicrosoft.com`
 | 클라이언트 id | Azure AD에서 등록 된 응용 프로그램의 클라이언트 ID
 | 클라이언트-비밀 | Azure AD에서 등록 된 응용 프로그램의 클라이언트 암호
 

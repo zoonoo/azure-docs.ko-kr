@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86144716"
 ---
 # <a name="adsync-service-account"></a>ADSync 서비스 계정
@@ -55,7 +55,7 @@ Microsoft는 가상 서비스 계정 또는 독립 실행형 또는 그룹 관�
 
 ADSync 서비스는 시작할 수 없는 경우 이벤트 로그에 오류 수준 메시지를 발행 합니다.  메시지의 내용은 기본 제공 데이터베이스 (localdb) 또는 전체 SQL의 사용 여부에 따라 달라 집니다.  다음은 표시 될 수 있는 이벤트 로그 항목의 예입니다.
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 
 AdSync 서비스 암호화 키를 찾을 수 없어서 다시 만들었습니다.  이 문제가 해결 될 때까지 동기화가 수행 되지 않습니다.
 
@@ -63,7 +63,7 @@ AdSync 서비스 암호화 키를 찾을 수 없어서 다시 만들었습니다
 
 자세한 내용은 다음 [문서](https://go.microsoft.com/fwlink/?linkid=2086764) 를 참조 하세요.
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 로컬 데이터베이스 (localdb)에 대 한 연결을 설정할 수 없기 때문에 서비스를 시작할 수 없습니다.
 

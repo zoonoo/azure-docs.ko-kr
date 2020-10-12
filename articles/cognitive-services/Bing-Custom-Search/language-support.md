@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310583"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
@@ -36,13 +36,13 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |오스트리아|AT|
 |벨기에|BE|
 |브라질|BR|
-|캐나다|CA|
+|Canada|CA|
 |칠레|CL|
 |덴마크|DK|
 |핀란드|FI|
 |프랑스|FR|
 |독일|DE|
-|홍콩 특별행정구|HK|
+|홍콩 특별 행정구|HK|
 |인도|IN|
 |인도네시아|ID|
 |이탈리아|IT|
@@ -65,7 +65,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |스위스|CH|
 |대만|TW|
 |터키|TR|
-|영국|GB|
+|United Kingdom|GB|
 |미국|US|
 
 
@@ -86,12 +86,12 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별행정구|중국어(번체)|zh-HK|
+|홍콩 특별행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|ko-KR|
+|한국|한국어|en-US|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -103,13 +103,13 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어(번체)|zh-TW|
+|대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|en-US|
+|미국|영어|ko-KR|
 |미국|스페인어|es-US|
