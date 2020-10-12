@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433707"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
@@ -125,7 +125,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### <a name="disable-storage-sense"></a>저장소 센스 사용 안 함
 
-Windows 10 Enterprise 또는 Windows 10 Enterprise 다중 세션을 사용 하는 Windows 가상 데스크톱 세션 호스트의 경우 저장소 센스를 사용 하지 않도록 설정 하는 것이 좋습니다. 다음 스크린샷에 표시 된 것 처럼 **저장소**의 설정 메뉴에서 저장소 센스를 사용 하지 않도록 설정할 수 있습니다.
+Windows 10 Enterprise 또는 Windows 10 Enterprise 다중 세션을 사용하는 Windows Virtual Desktop 세션 호스트의 경우 저장 공간 센스를 사용하지 않도록 설정하는 것이 좋습니다. 다음 스크린샷에 표시 된 것 처럼 **저장소**의 설정 메뉴에서 저장소 센스를 사용 하지 않도록 설정할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > ![설정 아래의 저장소 메뉴 스크린샷 "저장소 센스" 옵션이 꺼져 있습니다.](media/storagesense.png)
@@ -138,7 +138,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>추가 언어 지원 포함
 
-이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 항목을 참조하세요.
+이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 - [Windows 이미지에 언어 추가](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [주문형 기능](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)

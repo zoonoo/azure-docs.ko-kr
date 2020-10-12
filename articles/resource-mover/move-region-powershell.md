@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89670542"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>PowerShell에서 지역 간 리소스 이동
@@ -19,7 +19,7 @@ ms.locfileid: "89670542"
 Azure 리소스 이동의 PowerShell을 사용 하 여 Azure 리소스를 다른 지역으로 이동 하는 방법을 알아봅니다. 
 
 > [!NOTE]
-> Azure 리소스 이동 기는 현재 미리 보기로 제공 됩니다.
+> Azure Resource Mover는 현재 미리 보기로 제공됩니다.
 
 
 
@@ -344,10 +344,10 @@ Invoke-AzResourceMoverInitiateMove -SubscriptionId <subscription-id> -ResourceGr
 
 ## <a name="discard-or-commit-the-move"></a>이동 취소 또는 커밋
 
-처음 이동한 후에는 이동을 커밋하거나 삭제할지 여부를 결정할 수 있습니다. 
+처음 이동한 후에는 이동을 커밋할지 아니면 취소할지 결정할 수 있습니다. 
 
-- **취소**: 테스트 하는 경우에는 이동을 취소할 수 있으며 실제로 원본 리소스를 이동 하지는 않습니다. 이동을 삭제 하면 리소스가 *시작 보류 중*상태로 돌아갑니다. 그런 다음 필요한 경우 이동을 다시 시작할 수 있습니다.
-- **Commit**: commit이 대상 지역으로 이동 하는 작업을 완료 합니다. 커밋 후 원본 리소스는 *삭제 원본 보류*중 상태가 되며, 해당 리소스를 삭제할지 여부를 결정할 수 있습니다.
+- **취소**: 테스트하는 중에 원본 리소스를 실제로 이동하지 않으려는 경우 이동을 취소할 수 있습니다. 이동을 취소하면 리소스가 *이동 시작 보류 중* 상태로 돌아갑니다. 그런 다음 필요한 경우 이동을 다시 시작할 수 있습니다.
+- **커밋**: 커밋은 대상 지역으로의 이동을 완료합니다. 커밋 후 원본 리소스는 *원본 삭제 보류 중* 상태가 되며 삭제 여부를 결정할 수 있습니다.
 
 ### <a name="discard"></a>취소
 

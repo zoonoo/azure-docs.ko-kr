@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728491"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893359"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -28,7 +28,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
@@ -138,10 +138,6 @@ Docker 로그인 작업에 사용할 암호를 정의 합니다.
 
 다음 예제에서는 Node.JS Docker 이미지를 작성 하는 워크플로의 일부를 보여 줍니다. [Docker 로그인](https://github.com/azure/docker-login) 을 사용 하 여 개인 컨테이너 레지스트리에 로그인 합니다. 이 예제에서는 Azure Container Registry를 사용 하지만 다른 레지스트리에서 동일한 작업이 작동 합니다. 
 
-# <a name="publish-profile"></a>[프로필 게시](#tab/publish-profile)
-
-이 예제에서는 인증을 위해 게시 프로필을 사용 하 여 Node.JS Docker 이미지를 빌드하는 방법을 보여 줍니다.
-
 
 ```yaml
 name: Linux Container Node Workflow
@@ -191,41 +187,6 @@ jobs:
         docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
-# <a name="service-principal"></a>[서비스 주체](#tab/service-principal)
-
-이 예제에서는 인증을 위해 서비스 주체를 사용 하 여 Node.JS Docker 이미지를 빌드하는 방법을 보여 줍니다. 
-
-```yaml
-on: [push]
-
-name: Linux_Container_Node_Workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}   
-    - uses: azure/docker-login@v1
-      with:
-        login-server: mycontainer.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}  
-    - run: |
-        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
-        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}      
-    - name: Azure logout
-      run: |
-        az logout
-```
-
----
 
 ## <a name="deploy-to-an-app-service-container"></a>App Service 컨테이너에 배포
 
@@ -237,7 +198,7 @@ App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 �
 | **publish-profile** | (선택 사항) 웹 배포 비밀을 포함하는 게시 프로필 파일 콘텐츠 |
 | **images** | 정규화 된 컨테이너 이미지 이름입니다. 예: ' myregistry.azurecr.io/nginx:latest ' 또는 ' python: 3.7.2-알파인/'. 다중 컨테이너 시나리오의 경우 여러 컨테이너 이미지 이름을 제공할 수 있습니다 (여러 줄로 구분). |
 | **slot-name** | (선택 사항) 프로덕션 슬롯이 아닌 기존 슬롯 입력 |
-| **구성-파일** | 필드 Docker 작성 파일의 경로 |
+| **구성-파일** | 필드 Docker-Compose 파일의 경로 |
 
 # <a name="publish-profile"></a>[프로필 게시](#tab/publish-profile)
 

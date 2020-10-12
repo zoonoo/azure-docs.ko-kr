@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f06ae55dc48152c2c10183cc60cb098b6c3786fa
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433758"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의
@@ -111,7 +111,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
  
 다음 설정을 사용 하 여 오류 발생 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 Openid connect Connect 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#sign-up-or-sign-in-error-messages)될 수 있습니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 제공 된 사용자 이름을 가진 계정이 디렉터리에 없는 경우 사용자에 게 표시할 메시지입니다. |
 | UserMessageIfInvalidPassword | 아니요 | 암호가 잘못 된 경우 사용자에 게 표시할 메시지입니다. |
@@ -121,7 +121,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |
 

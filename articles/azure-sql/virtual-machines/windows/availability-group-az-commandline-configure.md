@@ -14,10 +14,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6c591bfa911663503b3e8a9101910034c91a8251
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298782"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 (PowerShell & Az CLI)
@@ -27,7 +27,7 @@ ms.locfileid: "91298782"
 
 가용성 그룹의 배포는 아직 SSMS (SQL Server Management Studio) 또는 T-sql (Transact-sql)을 통해 수동으로 수행 됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Always On 가용성 그룹을 구성 하려면 다음 필수 구성 요소가 있어야 합니다. 
 

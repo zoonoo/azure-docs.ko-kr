@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434642"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>클라우드 초기화를 사용 하 여 VM 프로 비전 문제 해결
@@ -89,7 +89,7 @@ VM이 실행 되는 동안 VM의 로그가 있어야 프로 비전이 실패 한
 
 기본적으로 우선 순위가 debug 이상인 모든 클라우드 초기화 이벤트는에 기록 됩니다 `/var/log/cloud-init.log` . 이는 클라우드 초기화를 초기화 하는 동안 발생 한 모든 이벤트에 대 한 자세한 로그를 제공 합니다. 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -124,7 +124,7 @@ Stderr: mount: unknown filesystem type 'udf'
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>4 단계: 구성이 적용 되지 않는 이유 조사
-클라우드 초기화의 모든 오류로 인해 심각한 프로 비전 오류가 발생 하는 것은 아닙니다. 예를 들어 `runcmd` 클라우드 init 구성에서 모듈을 사용 하는 경우 실행 중인 명령에서 0이 아닌 종료 코드가 발생 하면 VM 프로 비전이 실패 합니다. 이는 클라우드 초기화의 처음 3 단계에서 발생 하는 코어 프로 비전 기능 후에 실행 되기 때문입니다. 구성이 적용 되지 않는 이유를 해결 하려면 3 단계에서 로그를 검토 하 고 클라우드 초기화 모듈을 수동으로 검토 합니다. 다음은 그 예입니다. 
+클라우드 초기화의 모든 오류로 인해 심각한 프로 비전 오류가 발생 하는 것은 아닙니다. 예를 들어 `runcmd` 클라우드 init 구성에서 모듈을 사용 하는 경우 실행 중인 명령에서 0이 아닌 종료 코드가 발생 하면 VM 프로 비전이 실패 합니다. 이는 클라우드 초기화의 처음 3 단계에서 발생 하는 코어 프로 비전 기능 후에 실행 되기 때문입니다. 구성이 적용 되지 않는 이유를 해결 하려면 3 단계에서 로그를 검토 하 고 클라우드 초기화 모듈을 수동으로 검토 합니다. 예를 들면 다음과 같습니다.
 
 - `runcmd` -스크립트가 오류 없이 실행 되나요? 터미널에서 구성을 수동으로 실행 하 여 예상 대로 실행 되는지 확인 합니다.
 - 패키지를 설치 하는 중-VM이 패키지 리포지토리에 액세스할 수 있나요?

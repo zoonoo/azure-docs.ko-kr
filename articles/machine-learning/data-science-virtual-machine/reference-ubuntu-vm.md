@@ -10,10 +10,10 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440340"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
@@ -253,7 +253,7 @@ VM에서 모델을 R 또는 Python으로 빌드한 다음, Azure Machine Learnin
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 여기에는 다음이 포함됩니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 내용은 다음과 같습니다.
 
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.

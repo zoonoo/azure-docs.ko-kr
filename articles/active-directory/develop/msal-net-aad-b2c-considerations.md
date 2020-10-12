@@ -14,10 +14,10 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166436"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
@@ -31,11 +31,11 @@ ms.locfileid: "88166436"
 
 ## <a name="authority-for-an-azure-ad-b2c-tenant-and-policy"></a>Azure AD B2C 테 넌 트 및 정책에 대 한 권한
 
-Azure AD B2C의 인증 기관 형식은 다음과 같습니다.`https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
+Azure AD B2C의 인증 기관 형식은 다음과 같습니다. `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname`-Azure AD B2C 테 넌 트와 호스트의 이름입니다. 예를 들면 *contosob2c.b2clogin.com*입니다.
-- `tenant`-Azure AD B2C 테 넌 트의 도메인 이름 또는 디렉터리 (테 넌 트) ID입니다. 예를 들어 *contosob2c.onmicrosoft.com* 또는 GUID가 각각입니다.
-- `policyName`-적용할 사용자 흐름 또는 사용자 지정 정책의 이름입니다. 예를 들어 *b2c_1_susi*와 같은 등록/로그인 정책이 있습니다.
+- `azureADB2CHostname` -Azure AD B2C 테 넌 트와 호스트의 이름입니다. 예를 들면 *contosob2c.b2clogin.com*입니다.
+- `tenant` -Azure AD B2C 테 넌 트의 도메인 이름 또는 디렉터리 (테 넌 트) ID입니다. 예를 들어 *contosob2c.onmicrosoft.com* 또는 GUID가 각각입니다.
+- `policyName` -적용할 사용자 흐름 또는 사용자 지정 정책의 이름입니다. 예를 들어 *b2c_1_susi*와 같은 등록/로그인 정책이 있습니다.
 
 Azure AD B2C 기관에 대 한 자세한 내용은 [리디렉션 url을 b2clogin.com로 설정](../../active-directory-b2c/b2clogin.md)을 참조 하세요.
 
@@ -76,9 +76,9 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 위의 코드 조각에서 다음을 수행 합니다.
 
-- `policy`Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
-- `ParentActivityOrWindow`는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 다음은 그 예입니다. 
+- `policy` Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
+- `ParentActivityOrWindow` 는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 예를 들면 다음과 같습니다.
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -136,7 +136,7 @@ ROPC flow에서 사용자 이름/암호를 사용 하 여 다음과 같은 몇 �
 
 Azure AD B2C 테 넌 트에서 새 사용자 흐름을 만들고 **ROPC를 사용 하 여 로그인** 을 선택 하 여 사용자 흐름에 ropc를 사용 하도록 설정 합니다. 자세한 내용은 [리소스 소유자 암호 자격 증명 흐름 구성](../../active-directory-b2c/configure-ropc.md)을 참조 하세요.
 
-`IPublicClientApplication`메서드를 포함 합니다 `AcquireTokenByUsernamePassword` .
+`IPublicClientApplication` 메서드를 포함 합니다 `AcquireTokenByUsernamePassword` .
 
 ```csharp
 AcquireTokenByUsernamePassword(
@@ -169,7 +169,7 @@ MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 현재 MSAL.NET는 토큰 캐시 키를 작성 하는 데 두 가지 클레임이 필요 합니다.
 
-- `tid`(Azure AD 테 넌 트 ID)
+- `tid` (Azure AD 테 넌 트 ID)
 - `preferred_username`
 
 일부 소셜 id 공급자 (Facebook, Google 및 기타)가 Azure AD B2C 반환 하는 토큰으로 반환 하기 때문에 Azure AD B2C 시나리오에서는 이러한 클레임이 모두 누락 될 수 있습니다.
@@ -194,6 +194,6 @@ MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰을 가져오는 방법에 대 한 자세한 내용은 다음 샘플에서 제공 됩니다.
 
-| 샘플 | 플랫폼 | Description|
+| 예제 | 플랫폼 | 설명|
 |------ | -------- | -----------|
 |[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 한 후 반환 된 토큰을 사용 하 여 web API에 액세스 하는 Xamarin Forms 앱입니다.|

@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 단일 가상 머신 또는 가상 머신 확장 집합에 대 한 Azure Monitor를 사용 하도록 설정
+title: Azure Portal에서 단일 가상 머신 또는 가상 머신 확장 집합에 대한 Azure Monitor 사용
 description: Azure Portal를 사용 하 여 단일 Azure 가상 머신 또는 가상 머신 확장 집합에서 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87328238"
 ---
-# <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 단일 가상 머신 또는 가상 머신 확장 집합에 대 한 Azure Monitor를 사용 하도록 설정
+# <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 단일 가상 머신 또는 가상 머신 확장 집합에 대한 Azure Monitor 사용
 이 문서에서는 Azure Portal를 사용 하 여 가상 머신 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
 
 - Azure 가상 머신

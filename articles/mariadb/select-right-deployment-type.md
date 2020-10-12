@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 47aff04dfd44ea7fd892fdee763e93d7fd13a9d1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542396"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Azure에서 적절 한 MariaDB 서버 옵션 선택
@@ -33,7 +33,7 @@ Azure를 사용 하는 경우에는 호스트 된 가상 머신 IaaS (infrastruc
 
 | attribute          | Azure Database for MariaDB | Azure Vm의 MariaDB    |
 |:-------------------|:-----------------------------|:--------------------|
-| SLA (서비스 수준 계약)                | 99.99% 가용성의 SLA를 제공 합니다.| 동일한 가용성 집합에서 두 개 이상의 인스턴스를 사용 하 여 최대 99.95%의 가용성을 제공 합니다.<br/><br/>premium storage를 사용 하는 단일 인스턴스 VM의 99.9% 가용성.<br/><br/>99.99% 여러 가용성 집합에 여러 인스턴스가 있는 가용성 영역를 사용 합니다.<br/><br/>[VIRTUAL MACHINES SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 참조 하세요. |
+| SLA(서비스 수준 계약)                | 99.99% 가용성의 SLA를 제공 합니다.| 동일한 가용성 집합에서 두 개 이상의 인스턴스를 사용 하 여 최대 99.95%의 가용성을 제공 합니다.<br/><br/>premium storage를 사용 하는 단일 인스턴스 VM의 99.9% 가용성.<br/><br/>99.99% 여러 가용성 집합에 여러 인스턴스가 있는 가용성 영역를 사용 합니다.<br/><br/>[VIRTUAL MACHINES SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 참조 하세요. |
 | 운영 체제 패치        | 자동  | 고객이 관리 |
 | MariaDB 패치     | 자동  | 고객이 관리 |
 | 고가용성 | HA (고가용성) 모델은 노드 수준의 중단이 발생 한 경우에 대 한 기본 제공 장애 조치 (failover) 메커니즘을 기반으로 합니다. 이 경우 서비스는 새 인스턴스를 자동으로 만들고이 인스턴스에 저장소를 연결 합니다. | 고객은 고가용성을 설계, 구현, 테스트 및 유지 관리 합니다. 기능에는 always on 장애 조치 (failover) 클러스터링, always on 그룹 복제, 로그 전달 또는 트랜잭션 복제가 포함 될 수 있습니다.|
@@ -43,7 +43,7 @@ Azure를 사용 하는 경우에는 호스트 된 가상 머신 IaaS (infrastruc
 | 데이터베이스 작업 모니터링 | 는 데이터베이스 작업에 대해 [경고를 설정](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) 하 고 임계값에 도달 하는 데 사용할 수 있는 기능을 고객에 게 제공 합니다. | 고객이 관리 |
 | Advanced Threat Protection | [고급 위협 방지 기능](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal)을 제공 합니다. 이 보호는 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 잠재적으로 유해한 시도를 감지 합니다.<br/><br/>Advanced Threat Protection은 현재 공개 미리 보기로 제공 됩니다.| 고객은 스스로이 보호를 구축 해야 합니다.
 | 재해 복구 | 자동 백업을 사용자가 구성한 [로컬 중복 또는 지역 중복 저장소](https://docs.microsoft.com/azure/MariaDB/howto-restore-server-portal)에 저장 합니다. 또한 백업은 서버를 특정 시점으로 복원할 수 있습니다. 보존 기간은 7 일에서 35 일 사이입니다. 복원은 Azure Portal를 사용 하 여 수행 됩니다. | 고객이 완전히 관리 합니다. 책임은 예약, 테스트, 보관, 저장소 및 보존을 포함 하지만이에 국한 되지 않습니다. 추가 옵션은 Azure Recovery Services 자격 증명 모음을 사용 하 여 Vm에서 Azure Vm 및 데이터베이스를 백업 하는 것입니다. 이 옵션은 미리 보기 상태입니다. |
-| 성능 권장 사항 | 시스템에서 생성 된 사용 현황 로그 파일을 기반으로 고객에 게 [성능 권장 사항을](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) 제공 합니다. 권장 사항은 워크 로드를 최적화 하는 데 도움이 됩니다.<br/><br/>성능 권장 사항은 현재 공개 미리 보기로 제공 됩니다. | 고객이 관리 |
+| 성능 추천 사항 | 시스템에서 생성 된 사용 현황 로그 파일을 기반으로 고객에 게 [성능 권장 사항을](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) 제공 합니다. 권장 사항은 워크 로드를 최적화 하는 데 도움이 됩니다.<br/><br/>성능 권장 사항은 현재 공개 미리 보기로 제공 됩니다. | 고객이 관리 |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>PaaS 또는 IaaS 선택을 위한 비즈니스 동기
 
@@ -102,4 +102,4 @@ Azure Database for MariaDB은 서비스에 대 한 99.99% SLA 보장을 유지 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Database for MariaDB 가격 책정](https://azure.microsoft.com/pricing/details/MariaDB/)을 참조 하세요.
-* [첫 번째 서버를 만들어](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal)시작 하세요.
+* [첫 번째 서버를 만들어서](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal) 시작합니다.

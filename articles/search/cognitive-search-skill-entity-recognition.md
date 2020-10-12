@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542464"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
@@ -47,7 +47,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 | 입력 이름      | 설명                   |
 |---------------|-------------------------------|
-| `languageCode`    | 선택 사항입니다. 기본값은 `"en"`입니다.  |
+| `languageCode`    | (선택 사항) 기본값은 `"en"`입니다.  |
 | `text`          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력

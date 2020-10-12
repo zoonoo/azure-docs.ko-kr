@@ -8,17 +8,17 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324644"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
 이 문서에서는 사물 인터넷 (IoT) Edge 모듈 기술 자산이 Azure Marketplace에 게시 되기 전에 충족 해야 하는 요구 사항을 설명 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 IoT Edge 모듈은 IoT Edge 장치에서 실행 되는 Docker와 호환 되는 컨테이너입니다.
 
@@ -64,7 +64,7 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원 해야 합니다
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 모듈에는 IoT Edge 장치에 최대한 간단 하 게 배포 하는 기본 구성 설정이 포함 되어야 합니다. 이 정보는 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)의 계획에 대 한 **기술 구성** 페이지에서 제공 됩니다. 컨테이너에는 Edge 허브 및 IoT Hub와 통신할 수 있도록 IoT Edge Module SDK가 포함 될 수도 있습니다.
 

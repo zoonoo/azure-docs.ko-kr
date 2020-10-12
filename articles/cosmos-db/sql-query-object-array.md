@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 2b882e1e39f035d27fc6d09d1a9d0c04691b499c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426251"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
@@ -54,7 +54,7 @@ FROM f
 
 ## <a name="iteration"></a><a id="Iteration"></a>반복
 
-SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는 [in 키워드](sql-query-keywords.md#in) 를 통해 새 구문을 추가 합니다. 다음 예제에서,
+SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는 [in 키워드](sql-query-keywords.md#in) 를 통해 새 구문을 추가 합니다. 다음 예제에서는
 
 ```sql
 SELECT *

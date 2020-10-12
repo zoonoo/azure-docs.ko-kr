@@ -1,5 +1,5 @@
 ---
-title: 큐 레이트 환경
+title: 큐레이팅 환경
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 사용할 수 있는 큐 레이트 환경의 컬렉션
 services: machine-learning
@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: reference
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662083"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning 큐 레이트 환경
@@ -311,7 +311,7 @@ ms.locfileid: "89662083"
 * azureml-train-automl-runtime
 * azureml-dnn-자동 ml-예측
 
-## <a name="azureml-minimal"></a>AzureML-최소
+## <a name="azureml-minimal"></a>AzureML-Minimal
 
 **패키지 채널:**
 
@@ -937,7 +937,7 @@ ms.locfileid: "89662083"
 * tensorflow-gpu
 * horovod
 
-## <a name="azureml-tutorial"></a>AzureML-자습서
+## <a name="azureml-tutorial"></a>AzureML-Tutorial
 
 **패키지 채널:**
 

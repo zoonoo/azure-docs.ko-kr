@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258645"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 요구
@@ -24,7 +24,7 @@ ms.locfileid: "91258645"
 
 이 문서에서는 관리 장치가 사용자 환경의 특정 클라우드 앱에 액세스 하도록 요구 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 클라우드 앱 액세스를 위한 관리 되는 장치 요구는 **AZURE Ad 조건부 액세스** 와 **azure ad 장치 관리** 를 함께 연결 합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 

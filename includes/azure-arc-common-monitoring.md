@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 09/05/2020
 ms.author: mikeray
 ms.openlocfilehash: 4bb2089d4240e5ff926e9bf667a2252ffaa9011f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939604"
 ---
-- **[Azure Monitor에 리소스 인벤토리, 사용 현황 데이터, 메트릭 및 로그 업로드](../articles/azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md)**
+- **[Azure Monitor에 리소스 인벤토리, 사용량 현황 데이터, 메트릭 및 로그 업로드](../articles/azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md)**
 
 - **[Azure Portal에서 Azure Arc 데이터 컨트롤러 리소스 보기](../articles/azure-arc/data/view-data-controller-in-azure-portal.md)**
 

@@ -4,10 +4,10 @@ description: Azure Lighthouse를 사용 하 여 여러 테 넌 트에 정책 정
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167286"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포

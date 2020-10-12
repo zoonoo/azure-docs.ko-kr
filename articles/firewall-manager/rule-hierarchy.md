@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893722"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Azure 방화벽 정책을 사용 하 여 규칙 계층 구조 정의
@@ -48,7 +48,7 @@ Azure 방화벽 정책을 사용 하 여 규칙 계층을 정의 하 고 규정 
 - 데이터베이스 방화벽 정책입니다. 데이터베이스 방화벽 정책은 기본 방화벽 정책을 상속 합니다.
 - 엔지니어링 방화벽 정책입니다. 또한 엔지니어링 방화벽 정책은 기본 방화벽 정책을 상속 합니다.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="정책 계층" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="팀 및 요구 사항" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>규칙 컬렉션 그룹에 액세스 하기 위한 사용자 지정 역할 만들기 
 
@@ -62,7 +62,7 @@ Azure 방화벽 정책을 사용 하 여 규칙 계층을 정의 하 고 규정 
 2. 다음 명령을 실행합니다.
 
    `Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize`
-3. AzRoleDefinition 명령을 사용 하 여 JSON 형식의 판독기 역할을 출력 합니다. 
+3. Get-AzRoleDefinition 명령을 사용 하 여 JSON 형식의 판독기 역할을 출력 합니다. 
 
    `Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json`
 4. 편집기에서 파일의 ReaderSupportRole.js를 엽니다.
@@ -122,21 +122,21 @@ JSON 파일은 다음 예제와 같이 표시 됩니다.
                              "/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx"] 
 } 
 ```
-9. 새 사용자 지정 역할을 만들려면 AzRoleDefinition 명령을 사용 하 고 JSON 역할 정의 파일을 지정 합니다. 
+9. 새 사용자 지정 역할을 만들려면 New-AzRoleDefinition 명령을 사용 하 고 JSON 역할 정의 파일을 지정 합니다. 
 
    `New-AzRoleDefinition -InputFile "C:\CustomRoles\RuleCollectionGroupRole.json`
 
 ### <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
-모든 사용자 지정 역할을 나열 하려면 AzRoleDefinition 명령을 사용할 수 있습니다.
+Get-AzRoleDefinition 명령을 사용 하 여 모든 사용자 지정 역할을 나열할 수 있습니다.
 
    `Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom`
 
 Azure Portal에서 사용자 지정 역할을 볼 수도 있습니다. 구독으로 이동 하 여 **액세스 제어 (IAM)**, **역할**을 선택 합니다.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="팀 및 요구 사항":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="SalesAppPolicy 읽기 권한":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="팀 및 요구 사항":::
 
 자세한 내용은 [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](../role-based-access-control/tutorial-custom-role-powershell.md)를 참조 하세요.
 

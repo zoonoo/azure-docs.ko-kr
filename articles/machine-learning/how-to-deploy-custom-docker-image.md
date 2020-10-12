@@ -12,10 +12,10 @@ ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: ea8b100e8a690cf4f400dda02f2a58b6500d5f31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328448"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
@@ -39,7 +39,7 @@ Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사�
 * 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) 

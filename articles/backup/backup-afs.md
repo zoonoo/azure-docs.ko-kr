@@ -4,10 +4,10 @@ description: Azure Portal를 사용 하 여 Recovery Services 자격 증명 모�
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890351"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
@@ -21,7 +21,7 @@ ms.locfileid: "88890351"
 * 파일 공유 창에서 백업 구성
 * 주문형 백업 작업을 실행하여 복원 지점 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 파일 공유 스냅숏 기반 백업 솔루션에 [대해 알아봅니다](azure-file-share-backup-overview.md) .
 * 파일 공유가 지원 되는 [저장소 계정 유형](azure-file-share-support-matrix.md)중 하나에 있는지 확인 하세요.
@@ -211,7 +211,7 @@ ms.locfileid: "88890351"
 >[!NOTE]
 >Azure Backup는 해당 계정의 파일 공유에 대 한 보호를 구성할 때 저장소 계정을 잠급니다. 이렇게 하면 백업 된 파일 공유와 함께 저장소 계정이 실수로 삭제 되는 것을 방지할 수가 있습니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 * Azure Backup에서 만든 스냅숏은 삭제 하지 마세요. 스냅샷을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
 

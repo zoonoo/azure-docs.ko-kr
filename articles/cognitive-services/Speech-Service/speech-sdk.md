@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870717"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
@@ -159,7 +159,7 @@ Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나�
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-macos.md)]
 
-# <a name="android"></a>[OWA(Outlook Web Access)](#tab/android)
+# <a name="android"></a>[Android](#tab/android)
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-android.md)]
 

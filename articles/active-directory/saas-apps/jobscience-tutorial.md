@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>자습서: Jobscience와 Azure Active Directory 통합
@@ -29,7 +29,7 @@ Jobscience를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 
 Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자세한 내용은 [응용 프로그램 액세스 및 Azure Active Directory Single Sign-On](../manage-apps/what-is-single-sign-on.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Jobscience와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 

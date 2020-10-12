@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
 ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400860"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정
@@ -274,7 +274,7 @@ NodeTypes       : {HeadNode, WorkerNode}
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 예: `--roles headnode workernode`.
+    유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 예: `--roles headnode workernode`
 
     스크립트를 유지하려면 `--persist-on-success`를 추가합니다. 나중에 `az hdinsight script-action promote`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 
@@ -321,7 +321,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-cli"></a>Azure CLI
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |클러스터의 지정 된 지속형 스크립트 작업을 삭제 합니다. 이 명령은 스크립트에 의해 수행 된 작업을 실행 취소 하지 않으며 지속형 플래그만 제거 합니다.|
 |[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다.|

@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 35b1f57a2361c5a4360e2ff1944b93e767168799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259393"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
@@ -80,31 +80,31 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
-| IdTokenAudience | 예 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
+| IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
 | authorization_endpoint | 예 | RFC 6749에 따른 권한 부여 엔드포인트의 URL입니다. |
 | AccessTokenEndpoint | 예 | RFC 6749에 따른 토큰 엔드포인트의 URL입니다. |
 | ClaimsEndpoint | 예 | RFC 6749에 따른 사용자 정보 엔드포인트의 URL입니다. |
-| AccessTokenResponseFormat | 예 | 액세스 토큰 엔드포인트 호출의 형식입니다. 예를 들어 Facebook에는 HTTP GET 메서드가 필요하지만 액세스 토큰 응답은 JSON 형식입니다. |
-| AdditionalRequestQueryParameters | 예 | 추가 요청 쿼리 매개 변수입니다. 예를 들어 ID 공급자에 추가 매개 변수를 보내려고 할 수 있습니다. 쉼표 구분 기호를 사용하여 여러 매개 변수를 포함할 수 있습니다. |
-| ClaimsEndpointAccessTokenName | 예 | 액세스 토큰 쿼리 문자열 매개 변수의 이름입니다. 일부 ID 공급자의 클레임 엔드포인트가 GET HTTP 요청을 지원합니다. 이 경우 전달자 토큰은 권한 부여 헤더 대신 쿼리 문자열 매개 변수를 사용하여 전송됩니다. |
-| ClaimsEndpointFormatName | 예 | 형식 쿼리 문자열 매개 변수의 이름입니다. 예를 들어 이 LinkedIn 클레임 엔드포인트 `https://api.linkedin.com/v1/people/~?format=json`에서 이름을 `format`으로 설정할 수 있습니다. |
-| ClaimsEndpointFormat | 예 | 형식 쿼리 문자열 매개 변수의 값입니다. 예를 들어 이 LinkedIn 클레임 엔드포인트 `https://api.linkedin.com/v1/people/~?format=json`에서 값을 `json`으로 설정할 수 있습니다. |
-| ProviderName | 예 | ID 공급자의 이름입니다. |
-| response_mode | 예 | ID 공급자가 결과를 다시 Azure AD B2C에 보내는 데 사용하는 방법입니다. 가능한 값은 `query`, `form_post`(기본값) 또는 `fragment`입니다. |
-| scope | 예 | OAuth2 id 공급자 사양에 따라 정의 된 요청의 범위입니다. 예를 들어 `openid`, `profile` 및 `email`입니다. |
-| HttpBinding | 예 | 액세스 토큰 및 클레임 토큰 엔드포인트에 필요한 HTTP 바인딩입니다. 가능한 값은 `GET` 또는 `POST`입니다.  |
-| ResponseErrorCodeParamName | 예 | HTTP 200 (Ok)을 통해 반환된 오류 메시지를 포함하는 매개 변수의 이름입니다. |
-| ExtraParamsInAccessTokenEndpointResponse | 예 | 일부 ID 공급자가 **AccessTokenEndpoint**의 응답으로 반환할 수 있는 추가 매개 변수를 포함합니다. 예를 들어 **AccessTokenEndpoint**의 응답에는 **ClaimsEndpoint** 요청 쿼리 문자열에서 access_token 이외의 필수 매개 변수인 `openid`와 같은 추가 매개 변수가 포함됩니다. 여러 매개 변수 이름은 이스케이프되고 쉼표 ',' 구분 기호로 구분되어야 합니다. |
-| ExtraParamsInClaimsEndpointRequest | 예 | 일부 ID 공급자가 **ClaimsEndpoint** 요청으로 반환할 수 있는 추가 매개 변수를 포함합니다. 여러 매개 변수 이름은 이스케이프되고 쉼표 ',' 구분 기호로 구분되어야 합니다. |
-| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
-| ResolveJsonPathsInJsonTokens  | 예 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#outputclaims)에서을 `PartnerClaimType` 출력 하려는 JSON 경로 요소로 설정 합니다. 예를 들면 `firstName.localized` , 또는 `data.0.to.0.email` 입니다.|
-|token_endpoint_auth_method| 예| Azure AD B2C 인증 헤더를 토큰 끝점으로 전송 하는 방법을 지정 합니다. 가능한 값: `client_secret_post` (기본값) 및 `client_secret_basic` (공개 미리 보기). 자세한 내용은 [Openid connect Connect 클라이언트 인증 섹션](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조 하세요. |
+| AccessTokenResponseFormat | 아니요 | 액세스 토큰 엔드포인트 호출의 형식입니다. 예를 들어 Facebook에는 HTTP GET 메서드가 필요하지만 액세스 토큰 응답은 JSON 형식입니다. |
+| AdditionalRequestQueryParameters | 아니요 | 추가 요청 쿼리 매개 변수입니다. 예를 들어 ID 공급자에 추가 매개 변수를 보내려고 할 수 있습니다. 쉼표 구분 기호를 사용하여 여러 매개 변수를 포함할 수 있습니다. |
+| ClaimsEndpointAccessTokenName | 아니요 | 액세스 토큰 쿼리 문자열 매개 변수의 이름입니다. 일부 ID 공급자의 클레임 엔드포인트가 GET HTTP 요청을 지원합니다. 이 경우 전달자 토큰은 권한 부여 헤더 대신 쿼리 문자열 매개 변수를 사용하여 전송됩니다. |
+| ClaimsEndpointFormatName | 아니요 | 형식 쿼리 문자열 매개 변수의 이름입니다. 예를 들어 이 LinkedIn 클레임 엔드포인트 `https://api.linkedin.com/v1/people/~?format=json`에서 이름을 `format`으로 설정할 수 있습니다. |
+| ClaimsEndpointFormat | 아니요 | 형식 쿼리 문자열 매개 변수의 값입니다. 예를 들어 이 LinkedIn 클레임 엔드포인트 `https://api.linkedin.com/v1/people/~?format=json`에서 값을 `json`으로 설정할 수 있습니다. |
+| ProviderName | 아니요 | ID 공급자의 이름입니다. |
+| response_mode | 아니요 | ID 공급자가 결과를 다시 Azure AD B2C에 보내는 데 사용하는 방법입니다. 가능한 값은 `query`, `form_post`(기본값) 또는 `fragment`입니다. |
+| scope | 아니요 | OAuth2 id 공급자 사양에 따라 정의 된 요청의 범위입니다. 예를 들어 `openid`, `profile` 및 `email`입니다. |
+| HttpBinding | 아니요 | 액세스 토큰 및 클레임 토큰 엔드포인트에 필요한 HTTP 바인딩입니다. 가능한 값은 `GET` 또는 `POST`입니다.  |
+| ResponseErrorCodeParamName | 아니요 | HTTP 200 (Ok)을 통해 반환된 오류 메시지를 포함하는 매개 변수의 이름입니다. |
+| ExtraParamsInAccessTokenEndpointResponse | 아니요 | 일부 ID 공급자가 **AccessTokenEndpoint**의 응답으로 반환할 수 있는 추가 매개 변수를 포함합니다. 예를 들어 **AccessTokenEndpoint**의 응답에는 **ClaimsEndpoint** 요청 쿼리 문자열에서 access_token 이외의 필수 매개 변수인 `openid`와 같은 추가 매개 변수가 포함됩니다. 여러 매개 변수 이름은 이스케이프되고 쉼표 ',' 구분 기호로 구분되어야 합니다. |
+| ExtraParamsInClaimsEndpointRequest | 아니요 | 일부 ID 공급자가 **ClaimsEndpoint** 요청으로 반환할 수 있는 추가 매개 변수를 포함합니다. 여러 매개 변수 이름은 이스케이프되고 쉼표 ',' 구분 기호로 구분되어야 합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+| ResolveJsonPathsInJsonTokens  | 아니요 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#outputclaims)에서을 `PartnerClaimType` 출력 하려는 JSON 경로 요소로 설정 합니다. 예를 들면 `firstName.localized` , 또는 `data.0.to.0.email` 입니다.|
+|token_endpoint_auth_method| 아니요| Azure AD B2C 인증 헤더를 토큰 끝점으로 전송 하는 방법을 지정 합니다. 가능한 값: `client_secret_post` (기본값) 및 `client_secret_basic` (공개 미리 보기). 자세한 내용은 [Openid connect Connect 클라이언트 인증 섹션](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조 하세요. |
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타 데이터가로 설정 된 경우 `id_token` 암호화 키를 생략할 수 있습니다. |
 

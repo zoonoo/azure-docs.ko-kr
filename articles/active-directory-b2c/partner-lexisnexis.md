@@ -11,10 +11,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259257"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 LexisNexis 구성에 대 한 자습서
@@ -23,11 +23,11 @@ ms.locfileid: "91259257"
 
 이 통합은 등록 흐름 중에 사용자가 제공 하는 몇 가지 사용자 정보를 기반으로 프로 파일링을 수행 합니다. ThreatMetrix는 사용자가 로그인 할 수 있도록 허용할지 여부를 결정 합니다. 다음 특성은 ThreatMetrix의 위험 분석에서 고려 됩니다.
 
-- 메일
+- Email
 - 전화 번호
 - 사용자의 컴퓨터에서 수집 된 프로 파일링 정보
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -49,7 +49,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![lexisnexis에 대 한 스크린샷-다이어그램](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:--------------|:-------------|
 |1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -82,7 +82,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 응용 프로그램 설정은 [Azure의 App service에서 구성할](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)수 있습니다.  이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: Url | ThreatMetrix 계정 구성 |     |
 |ThreatMetrix: OrgId | ThreatMetrix 계정 구성 |     |

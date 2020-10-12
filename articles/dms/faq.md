@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: ad49db3eb61b77805b0c7a3e1e9583fb22bd4373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8f570c2cd5f3939bab0df0c4fefe1becc3c81da
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291973"
+ms.locfileid: "91893444"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대 한 FAQ
 
@@ -59,7 +59,7 @@ Azure Migrate 온-프레미스 가상 머신을 Azure IaaS로 마이그레이션
 지원되는 모든 마이그레이션 시나리오에 공통적인 Azure Database Migration Service 필구 구성 요소는 다음을 수행해야 합니다.
 
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다.
-* 가상 네트워크 네트워크 보안 그룹 규칙이 다음 통신 포트 443, 53, 9354, 445, 12000을 차단 하지 않는지 확인 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+* 가상 네트워크 네트워크 보안 그룹 규칙이 다음 통신 포트 443, 53, 5671-5672, 9350-9354, 445, 12000을 차단 하지 않는지 확인 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 
 Azure Database Migration Service를 사용 하 여 특정 마이그레이션 시나리오를 경합 하는 데 필요한 모든 필수 구성 요소 목록은 docs.microsoft.com의 Azure Database Migration Service [설명서](https://docs.microsoft.com/azure/dms/dms-overview) 에서 관련 자습서를 참조 하십시오.

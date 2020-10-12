@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 07/21/2020
 ms.openlocfilehash: 8ffa2a92dd33d16bf047035fb98a79a53b5f2246
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620174"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
@@ -394,7 +394,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |최대 동시 세션|30000|30000|30000|30000|30000|30000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0-8|0-10|0-12|0-14|0-16|0-18|
 |복제본 수|4|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|예|
+|다중 AZ|아니요|아니요|아니요|아니요|아니요|아니요|
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -429,7 +429,7 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|2,000|2,400|3,200|6,400|12,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|
+|다중 AZ|아니요|아니요|아니요|아니요|아니요|
 |읽기 확장|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 

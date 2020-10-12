@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401744"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
@@ -50,10 +50,10 @@ ms.locfileid: "89401744"
 
 클라우드 교환 위치, 지점 간 이더넷 또는 직접 연결 모델이 사용 되는 경우 CEs (2) MSEEs (5)와 BGP 피어 링을 설정 합니다. 
 
-임의 (IPVPN) 연결 모델을 사용 하는 경우 PE는 (4) MSEEs (5)를 사용 하 여 BGP 피어 링을 설정 합니다. PE는 IPVPN 서비스 공급자 네트워크를 통해 Microsoft에서 받은 경로를 고객 네트워크에 다시 전파 합니다.
+임의 (IPVPN) 연결 모델을 사용 하는 경우 PE-MSEEs (4) MSEEs (5)와 BGP 피어 링을 설정 합니다. Microsoft에서 받은 경로를 IPVPN 서비스 공급자 네트워크를 통해 고객 네트워크에 다시 전파 PE-MSEEs 합니다.
 
 > [!NOTE]
->고가용성을 위해 Microsoft는 MSEEs (5)와 PE (4) 쌍 사이에 완전 한 중복 병렬 연결을 설정 합니다. 고객 네트워크와 PE CEs 쌍 간에도 완전 한 중복 병렬 네트워크 경로가 권장 됩니다. 고가용성에 대 한 자세한 내용은 Express 경로를 [사용 하 여 고가용성을 위한 디자인][HA] 문서를 참조 하세요.
+>고가용성을 위해 Microsoft는 MSEEs (5)와 PE-MSEEs (4) 쌍 사이에 완전 한 중복 병렬 연결을 설정 합니다. 고객 네트워크와 PE-CEs 쌍 사이에도 완전 한 중복 병렬 네트워크 경로가 권장 됩니다. 고가용성에 대 한 자세한 내용은 Express 경로를 [사용 하 여 고가용성을 위한 디자인][HA] 문서를 참조 하세요.
 >
 >
 

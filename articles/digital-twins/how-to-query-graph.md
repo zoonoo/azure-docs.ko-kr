@@ -8,10 +8,10 @@ ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 72658a97f89b14529e8ccb3639cb1b78f1b92316
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91848810"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
@@ -202,7 +202,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 기능 | 설명 |
+| 함수 | 설명 |
 | -------- | ----------- |
 | IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
 | IS_OF_MODEL | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -215,7 +215,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 기능 | 설명 |
+| 함수 | 설명 |
 | -------- | ----------- |
 | STARTSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | ENDSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |

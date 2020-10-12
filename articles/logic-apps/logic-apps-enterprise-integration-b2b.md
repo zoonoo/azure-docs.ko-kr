@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542379"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B AS2 메시지 받기 및 확인
@@ -21,7 +21,7 @@ ms.locfileid: "91542379"
 
 이 문서에서는 요청 트리거를 사용 하 여 HTTP 요청을 수신 하 고, AS2 및 X12 작업을 사용 하 여 메시지 콘텐츠를 디코딩하고, 응답 작업을 사용 하 여 응답을 반환 하는 논리 앱을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 

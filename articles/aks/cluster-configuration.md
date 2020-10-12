@@ -7,10 +7,10 @@ ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255301"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
@@ -211,7 +211,7 @@ Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합
 az extension add --name aks-preview
 ```
 
-Aks-preview CLI 확장을 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
+aks-preview CLI 확장을 업데이트하려면 다음 Azure CLI 명령을 사용합니다.
 
 ```azurecli
 az extension update --name aks-preview
@@ -270,7 +270,7 @@ Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합
 az extension add --name aks-preview
 ```
 
-Aks-preview CLI 확장을 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
+aks-preview CLI 확장을 업데이트하려면 다음 Azure CLI 명령을 사용합니다.
 
 ```azurecli
 az extension update --name aks-preview

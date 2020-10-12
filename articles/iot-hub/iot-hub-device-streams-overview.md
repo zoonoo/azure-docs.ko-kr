@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Technical Support'
 ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327687"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
@@ -194,7 +194,7 @@ IoT Hub 페이지에는 두 개의 [빠른 시작 샘플이](/azure/iot-hub) 있
 
 4. 서비스-로컬 프록시가 사용자의 새 SSH 연결을 기다리도록 지정된 포트에서 수신 대기합니다(샘플에서는 2222 포트가 사용되지만 사용 가능한 다른 포트로 구성될 수 있음). 사용자가 SSH 클라이언트에서 localhost의 서비스-로컬 프록시 포트를 가리킵니다.
 
-### <a name="notes"></a>메모
+### <a name="notes"></a>참고
 
 * 위 단계는 SSH 클라이언트(오른쪽)와 SSH 디먼(왼쪽) 간의 엔드투엔드 터널을 완료합니다. 이 엔드투엔드 연결의 일부는 디바이스 스트림을 통해 IoT Hub로 트래픽을 보내는 것과 관련이 있습니다.
 
