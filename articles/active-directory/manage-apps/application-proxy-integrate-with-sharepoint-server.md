@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764539"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
@@ -47,9 +47,9 @@ ms.locfileid: "84764539"
 > - 회사 DNS (Domain Name System)에서 별칭 (CName)이 아닌 SharePoint WFE (또는 부하 분산 장치)를 가리키는 호스트 (A)를 만듭니다.
 
 이 문서에서는 다음 값을 사용 합니다.
-- 내부 URL:`https://sharepoint`
-- 외부 URL:`https://spsites-demo1984.msappproxy.net/`
-- SharePoint 웹 응용 프로그램에 대 한 응용 프로그램 풀 계정:`Contoso\spapppool`
+- 내부 URL: `https://sharepoint`
+- 외부 URL: `https://spsites-demo1984.msappproxy.net/`
+- SharePoint 웹 응용 프로그램에 대 한 응용 프로그램 풀 계정: `Contoso\spapppool`
 
 ## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>1 단계: 응용 프로그램 프록시를 사용 하는 Azure AD에서 응용 프로그램 구성
 

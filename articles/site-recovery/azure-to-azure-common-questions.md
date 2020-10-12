@@ -6,10 +6,10 @@ manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534025"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
@@ -187,7 +187,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Linux 서버에서 응용 프로그램 일관성을 사용 하 여 복제를 사용 하도록 설정할 수 있나요?
 
-예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세히 알아보기](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세한 정보](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>다중 VM 일관성
 

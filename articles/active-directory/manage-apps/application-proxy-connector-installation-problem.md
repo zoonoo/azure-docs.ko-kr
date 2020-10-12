@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764692"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
@@ -81,7 +81,7 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 
 가능한 **IsInUserStore** 값과 의미는 다음과 같습니다.
 
-- **false** -설치 또는 등록을 시작 하는 동안 클라이언트 인증서가 등록-AppProxyConnector 명령을 통해 생성 되었습니다. 이 파일은 로컬 컴퓨터의 인증서 저장소에 있는 개인 컨테이너에 저장 됩니다. 
+- **false** -Register-AppProxyConnector 명령으로 설치 또는 등록을 시작 하는 동안 클라이언트 인증서가 생성 되었습니다. 이 파일은 로컬 컴퓨터의 인증서 저장소에 있는 개인 컨테이너에 저장 됩니다. 
 
 인증서를 확인 하려면 다음 단계를 수행 합니다.
 
@@ -112,7 +112,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Register-AppProxyConnector 명령에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시 커넥터에 대 한 무인 설치 스크립트 만들기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell) 를 참조 하세요.
+Register-AppProxyConnector 명령에 대해 자세히 알아보려면 [Azure AD 응용 프로그램 프록시 커넥터에 대 한 무인 설치 스크립트 만들기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell) 를 참조 하세요.
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>관리자가 커넥터를 설치했는지 확인합니다.
 

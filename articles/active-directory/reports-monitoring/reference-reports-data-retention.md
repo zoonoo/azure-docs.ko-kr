@@ -1,5 +1,5 @@
 ---
-title: Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요? | Microsoft 문서
+title: Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요? | Microsoft Docs
 description: Azure에서 다양 한 유형의 보고 데이터를 저장 하는 기간을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80239556"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?

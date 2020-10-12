@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: ea7c54e229178320329204a3199ab2b4c44058fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85807743"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>지원 되는 Azure Blockchain 서비스 원장 버전
@@ -37,7 +37,7 @@ Geth 또는 진단 로그 보기를 사용 하 여 노드에 연결 하 여 Azur
 
 ### <a name="using-geth"></a>Geth 사용
 
-Geth를 사용 하 여 Azure Blockchain 서비스 노드에 연결 합니다. 예: `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`.
+Geth를 사용 하 여 Azure Blockchain 서비스 노드에 연결 합니다. 예: `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`
 
 노드가 연결 되 면 geth는 다음 출력과 유사한 쿼럼 버전을 보고 합니다.
 

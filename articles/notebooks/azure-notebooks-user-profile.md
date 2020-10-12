@@ -4,10 +4,10 @@ description: 공유 전자 필기장의 URL에 포함 되는 Azure Notebooks을 
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831355"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Azure Notebooks 미리 보기용 프로필 및 사용자 ID
@@ -61,4 +61,4 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 ## <a name="next-steps"></a>다음 단계  
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 수행 하는 Jupyter 노트북 만들기 및 실행](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 수행하는 Jupyter Notebook 만들기 및 실행](tutorial-create-run-jupyter-notebook.md)

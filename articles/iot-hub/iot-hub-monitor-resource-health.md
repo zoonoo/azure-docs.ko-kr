@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438404"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
@@ -352,7 +352,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
@@ -386,7 +386,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
 | **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
@@ -418,7 +418,7 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
 | **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |
@@ -478,7 +478,7 @@ IoT Hub 구성 로그는 자동 장치 관리 기능 집합에 대 한 이벤트
 
 다음 표에서는 다양 한 Azure IoT Sdk에 사용 되는 SDK 이름을 보여 줍니다.
 
-| SdkVersion 속성의 SDK 이름 | 언어 |
+| SdkVersion 속성의 SDK 이름 | Language |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft. azure. 장치 | .NET (c #) 서비스 SDK |

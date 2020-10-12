@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068274"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
@@ -26,7 +26,7 @@ ms.locfileid: "88068274"
 
 * [' 불안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)으로,이를 통해 최신 업데이트 및 기능을 사용 하 여 고객을 ' 안정적인 ' 작업으로 승격 하기 전에 테스트할 수 있습니다. 보고 된 문제가 없고 원격 분석에서 약 1 주일 후에 문제를 표시 하지 않으면 작업 코드를 ' 안정 '로 승격 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.
@@ -139,12 +139,12 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
 
 다음 예제에서는이 작업을 수행 하는 방법을 설명 합니다.
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="계층을 보여 주는 디렉터리 구조입니다.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="릴리스 파이프라인에서 아티팩트 추가를 선택 합니다.":::
 
 
 * Windows-파일은에 `C:\` 있습니다. 디렉터리를 포함 하는 라는 디렉터리를 `buildArtifacts` 만듭니다 `webapp` .
 
-* Linux 파일은에 `/tmp` 있습니다. `webapp`모든 파일 및 디렉터리를 포함 하는 디렉터리가 만들어집니다. 이 디렉터리에서 파일을 이동 해야 합니다. 그렇지 않으면 임시 디렉터리에 있기 때문에 삭제 됩니다.
+* Linux 파일은에  `/tmp` 있습니다. `webapp`모든 파일 및 디렉터리를 포함 하는 디렉터리가 만들어집니다. 이 디렉터리에서 파일을 이동 해야 합니다. 그렇지 않으면 임시 디렉터리에 있기 때문에 삭제 됩니다.
 
 #### <a name="inline-customization-script"></a>인라인 사용자 지정 스크립트
 
@@ -314,7 +314,7 @@ starting run template...
 
 VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 예를 들면 다음과 같습니다.
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="오류를 표시 하는 DevOps 태스크의 예입니다.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="릴리스 파이프라인에서 아티팩트 추가를 선택 합니다.":::
 
 문제 해결에 대 한 자세한 내용은 [Azure 이미지 작성기 서비스 문제 해결](image-builder-troubleshoot.md)을 참조 하세요. 
 

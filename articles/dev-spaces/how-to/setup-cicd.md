@@ -9,10 +9,10 @@ manager: gwallace
 description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080269"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
@@ -23,7 +23,7 @@ ms.locfileid: "88080269"
 
 이 문서에서는 Azure DevOps를 기준으로 설명하지만 Jenkins, TeamCity 등의 CI/CD 시스템에도 동일한 개념이 적용됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터
 * [Azure Dev Spaces CLI 설치](upgrade-tools.md)
 * [프로젝트가 있는 Azure DevOps 조직](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -77,7 +77,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 1. **새** 빌드 파이프라인을 만드는 옵션을 선택 합니다.
 1. 원본으로 **github** 를 선택 하 고, 필요한 경우 github 계정에 대 한 권한을 부여 하 고, 분기 버전의 _개발-공간_ 예제 응용 프로그램 리포지토리의 _azds_updates_ 분기를 선택 합니다.
 1. 템플릿으로 **구성을 코드**또는 **yaml**로 선택 합니다.
-1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. 예: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. 예들 들어 `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`입니다.
 1. [ **변수** ] 탭으로 이동 합니다.
 1. 수동으로 _dockerId_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 사용자 이름입니다. (필수 구성 요소 문서에 설명됨)
 1. 수동으로 _dockerPassword_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 암호입니다. 보안상의 이유로 _dockerPassword_는 비밀로 지정해야 합니다(잠금 아이콘 선택).
@@ -160,7 +160,7 @@ http://dev.webfrontend.fedcba098.eus.azds.io  Available
 
 CI/CD 파이프라인의 _prod_ 단계는 개발 공간 수신 컨트롤러 대신 부하 분산 장치를 사용 하 여 _prod_ 서비스에 대 한 액세스를 제공 합니다. _Prod_ 단계에 배포 된 서비스는 DNS 이름이 아닌 IP 주소로 액세스할 수 있습니다. 프로덕션 환경에서는 자체 DNS 구성에 따라 서비스를 호스트 하는 사용자 고유의 수신 컨트롤러를 만들도록 선택할 수 있습니다.
 
-Webfrontend 엔드 서비스의 IP를 확인 하려면 **Print webfrontend 엔드 공용 IP** 단계를 클릭 하 여 로그 출력을 확장 합니다. 로그 출력에 표시 되는 IP를 사용 하 여 **webfrontend 엔드** 응용 프로그램에 액세스 합니다.
+Webfrontend 엔드 서비스의 IP를 확인 하려면  **Print webfrontend 엔드 공용 IP** 단계를 클릭 하 여 로그 출력을 확장 합니다. 로그 출력에 표시 되는 IP를 사용 하 여 **webfrontend 엔드** 응용 프로그램에 액세스 합니다.
 
 ```cmd
 ...
@@ -185,7 +185,7 @@ Dev Spaces 계측은 애플리케이션의 정상 작동 중에는 개입하지 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](../how-dev-spaces-works.md)

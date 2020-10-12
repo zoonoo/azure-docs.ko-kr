@@ -1,14 +1,14 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 ms.topic: include
 ms.custom: include file
 ms.date: 03/11/2020
 ms.openlocfilehash: b34d3ed2481600cde7ffb3275d635b8a57926bd6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83666011"
 ---
 공동 작업을 위해 제공 되는 역할은 다음과 같습니다.

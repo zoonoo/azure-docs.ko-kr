@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/17/2020
 ms.author: tamram
 ms.openlocfilehash: 85e7cb86217340e77a6f597a357c3de1f91fb8d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070567"
 ---
 Azurite은 단일 고정 계정 및 공유 키 인증에 대 한 잘 알려진 인증 키를 지원 합니다. Azurite와 함께 사용할 수 있는 유일한 공유 키 자격 증명은이 계정과 키입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.

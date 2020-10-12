@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763213"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
@@ -59,12 +59,12 @@ Saml **서명 인증서 제목의** **편집** 아이콘 (연필)을 선택 하 
 1. 영향을 받는 응용 프로그램을 선택 합니다. 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
 1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on**을 선택 합니다.
 1. **Single Sign-On 방법 선택** 페이지가 표시 되 면 **SAML**을 선택 합니다.
-1. **Saml 미리 보기를 사용 하 여 Single Sign-on 설정** 페이지에서 **saml 서명 인증서** 제목을 찾고 **편집** 아이콘 (연필)을 선택 합니다. **SAML 서명 인증서** 페이지가 표시 됩니다. 여기에는 각 인증서의 상태 (**활성** 또는 **비활성**), 만료 날짜 및 지문 (해시 문자열)이 표시 됩니다.
+1. **Saml 미리 보기를 사용 하 여 단일 Sign-On 설정** 페이지에서 **saml 서명 인증서** 제목을 찾고 **편집** 아이콘 (연필)을 선택 합니다. **SAML 서명 인증서** 페이지가 표시 됩니다. 여기에는 각 인증서의 상태 (**활성** 또는 **비활성**), 만료 날짜 및 지문 (해시 문자열)이 표시 됩니다.
 1. **새 인증서**를 선택 합니다. 인증서 목록 아래에 새 행이 나타납니다. 여기에서 만료 날짜의 기본값은 현재 날짜에서 정확히 3 년입니다. 변경 내용이 아직 저장 되지 않았으므로 만료 날짜를 수정할 수 있습니다.
 1. 새 인증서 행에서 만료 날짜 열 위로 마우스를 이동 하 고 **날짜 선택** 아이콘 (일정)을 선택 합니다. 새 행의 현재 만료 날짜의 월을 표시 하는 달력 컨트롤이 나타납니다.
 1. 달력 컨트롤을 사용 하 여 새 날짜를 설정할 수 있습니다. 현재 날짜와 3 년 사이에 현재 날짜 사이의 날짜를 설정할 수 있습니다.
 1. **저장**을 선택합니다. 이제 새 인증서에 **비활성**상태, 선택한 만료 날짜 및 지문이 표시 됩니다.
-1. **SAML 미리 보기를 사용 하 여 Single Sign-on 설정** 페이지로 돌아가려면 **X** 를 선택 합니다.
+1. **SAML 미리 보기 페이지를 사용 하 여 단일 Sign-On 설정** 으로 돌아가려면 **X** 를 선택 합니다.
 
 ### <a name="upload-and-activate-a-certificate"></a>인증서 업로드 및 활성화
 

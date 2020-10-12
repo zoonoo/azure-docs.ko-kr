@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87062055"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
@@ -21,7 +21,7 @@ Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍**�
 > [!TIP]
 > "Azure Digital Twins"는 전체 Azure 서비스를 의미 합니다. "Digital 쌍" 또는 "쌍"은 서비스 인스턴스 내의 개별 쌍 노드를 나타냅니다.
 
-## <a name="digital-twins"></a>디지털 쌍
+## <a name="digital-twins"></a>Digital Twins
 
 Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [*개념: 사용자 지정 모델*](concepts-models.md)을 참조 하세요.
 
@@ -116,11 +116,11 @@ JSON 개체로 표시 되는 경우 디지털 쌍은 다음 필드를 표시 합
 | `$metadata.{propertyName}.desiredValue` | [쓰기 가능한 속성에만 해당] 지정 된 속성의 원하는 값입니다. |
 | `$metadata.{propertyName}.desiredVersion` | [쓰기 가능한 속성에만 해당] 원하는 값의 버전입니다. |
 | `$metadata.{propertyName}.ackVersion` | 디지털 쌍을 구현 하는 장치 앱에서 인정 하는 버전 |
-| `$metadata.{propertyName}.ackCode` | [쓰기 가능한 속성에만 해당] `ack`디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
-| `$metadata.{propertyName}.ackDescription` | [쓰기 가능한 속성에만 해당] `ack`디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
+| `$metadata.{propertyName}.ackCode` | [쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
+| `$metadata.{propertyName}.ackDescription` | [쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
 | `{componentName}` | 루트 개체의 속성 값과 메타 데이터를 포함 하는 JSON 개체입니다. 이 개체는 구성 요소에 속성이 없는 경우에도 존재 합니다. |
 | `{componentName}.{propertyName}` | JSON의 구성 요소 속성 값 ( `string` , 숫자 형식 또는 개체)입니다. |
-| `{componentName}.$metadata` | 루트 수준과 비슷한 구성 요소에 대 한 메타 데이터 정보입니다.`$metadata` |
+| `{componentName}.$metadata` | 루트 수준과 비슷한 구성 요소에 대 한 메타 데이터 정보입니다. `$metadata` |
 
 JSON 개체로 형식이 지정 된 디지털 쌍의 예는 다음과 같습니다.
 

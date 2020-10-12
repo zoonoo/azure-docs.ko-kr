@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534382"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
@@ -45,7 +45,7 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 - MDX 쿼리를 사용하여 **InfoCubes 및 QueryCubes**(BEx 쿼리 포함)에서 데이터를 복사합니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 SAP Business Warehouse 커넥터를 사용 하려면 다음을 수행해야 합니다.
 

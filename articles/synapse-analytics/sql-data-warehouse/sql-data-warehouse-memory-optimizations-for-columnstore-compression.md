@@ -11,11 +11,11 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 85a9c758f46150c422b55c6ac5cf7e62a429c74f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797771"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
@@ -46,7 +46,7 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
 
-DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 는 SQL db와 일치 하는 뷰 정의를 포함 하며, 행 그룹의 행 수 및 트리밍 이유가 있는 경우이에 대 한 이유를 제공 합니다.
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([SYS.DM_DB_COLUMN_STORE_ROW_GROUP_PHYSICAL_STATS](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) SQL db와 일치 하는 뷰 정의가 포함 되어 있습니다.)는 행 그룹의 행 수와 트리밍 이유 (트리밍 이유)와 같은 유용한 정보를 노출 합니다.
 
 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
 
@@ -74,9 +74,6 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
-
->[!TIP]
-> Synapse SQL의 성능 향상을 위해 영구 사용자 테이블에서 **pdw_table_mappings** 대신 **pdw_permanent_table_mappings** 를 사용 하는 것이 좋습니다. 자세한 내용은 **[pdw_permanent_table_mappings &#40;transact-sql&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** 을 참조 하십시오.
 
 trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_reason_desc = NO_TRIM은 행 그룹이 잘리지 않았으며 최적의 품질임을 나타냅니다. 아래의 잘림 이유는 행 그룹이 중간에 잘렸음을 나타냅니다.
 

@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439778"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새로운 DBA – 마이그레이션 후 Azure SQL Database 관리
@@ -66,7 +66,7 @@ Azure SQL Database에서 백업을 만들지 않습니다 .이는 필요 하지 
 |서비스 계층|보존 기간(일)|
 |---|:---:|
 |Basic|7|
-|Standard|35|
+|표준|35|
 |Premium|35|
 |||
 
@@ -127,7 +127,7 @@ Azure AD는 azure [Multi-Factor Authentication](authentication-mfa-ssms-overview
 - VNet 서비스 엔드포인트
 - 예약된 IP
 
-#### <a name="firewall"></a>Firewall
+#### <a name="firewall"></a>방화벽
 
 방화벽은 특정 엔터티만 서버에 액세스 하도록 허용 하 여 외부 엔터티에서 서버에 액세스 하지 못하도록 합니다. 기본적으로 다른 Azure 서비스에서 들어오는 (optionally7) 연결은 제외 하 고 서버 내의 데이터베이스에 대 한 모든 연결은 허용 되지 않습니다. 방화벽 규칙을 사용하여 방화벽을 통해 개발자 컴퓨터의 IP 주소를 허용하면 직접 승인하는 엔터티(예: 개발자 머신)에 대해서만 서버 액세스를 개방할 수 있습니다. 또한 서버에 대 한 액세스를 허용 하려는 Ip 범위를 지정할 수 있습니다. 예를 들어 방화벽 설정 페이지에서 범위를 지정하여 조직의 개발자 머신 IP 주소들을 동시에 추가할 수 있습니다.
 
@@ -293,7 +293,7 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 성능 문제 해결의 경우 애플리케이션 성능에 영향을 주는 것이 문제 해결을 지원하는 애플리케이션 또는 데이터베이스뿐인지 여부를 식별하는 것이 중요합니다. 성능 문제는 애플리케이션 레이어에 있는 경우가 많습니다. 즉, 아키텍처 또는 데이터 액세스 패턴이 문제일 수 있습니다. 예를 들어 네트워크 대기 시간에 중요한 대화 애플리케이션이 있다고 생각해 보겠습니다. 이 경우 애플리케이션은 애플리케이션과 서버 사이를 오가는 짧은 요청("대화")이 많이 있고 혼잡한 네트워크에서는 이러한 왕복이 빠르게 증가하므로 문제가 발생합니다. 이 경우 성능을 개선하려면 [일괄 쿼리](performance-guidance.md#batch-queries)를 사용할 수 있습니다. 일괄 처리를 사용하면 이제 요청이 일괄 처리되므로 크게 도움이 되며, 따라서 왕복 대기 시간을 줄이고 애플리케이션 성능을 개선하는 데 도움이 됩니다.
 
-또한 데이터베이스의 전반적인 성능이 저하 되는 경우 CPU, IO 및 메모리 소비를 이해 하기 위해 [dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 컴퓨팅 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다.
+또한 데이터베이스의 전반적인 성능이 저하 되는 경우 CPU, IO 및 메모리 소비를 이해 하기 위해 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 를 모니터링 하 고 동적 관리 뷰를 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 컴퓨팅 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다.
 
 성능 문제 조정에 대한 포괄적인 권장 사항은 [데이터베이스 조정](performance-guidance.md#tune-your-database)을 참조하세요.
 

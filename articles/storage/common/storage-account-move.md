@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515017"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
@@ -111,11 +111,11 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
 
 4. **만들기**를 선택합니다.
 
-5. **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
+5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 
 6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
-7. 파일 **의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
+7. 파일 ** 의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -143,7 +143,7 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
 
 PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. 파일 **의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
+1. 파일 ** 의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -182,7 +182,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 파일 **에template.js** 을 저장 합니다.
+1. 파일 ** 에template.js** 을 저장 합니다.
 
 2. 속성 값을 입력 하거나 선택 합니다.
 

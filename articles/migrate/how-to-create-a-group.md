@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
 ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85549917"
 ---
 # <a name="create-a-group-for-assessment"></a>평가를 위한 그룹 만들기
@@ -36,7 +36,7 @@ ms.locfileid: "85549917"
 평가를 만드는 외부에서 그룹을 수동으로 만들려면 다음을 수행 합니다.
 
 1. Azure Migrate 프로젝트 > **개요**에서 **서버 평가 및 마이그레이션**을 클릭 합니다. **Azure Migrate: 서버 평가**에서 **그룹** 을 클릭 합니다.
-    - Azure Migrate: 서버 평가 도구를 아직 추가 하지 않은 경우 클릭 하 여 추가 합니다. [자세히 알아보기](how-to-assess.md).
+    - Azure Migrate: 서버 평가 도구를 아직 추가 하지 않은 경우 클릭 하 여 추가 합니다. [자세히 알아봅니다](how-to-assess.md).
     - Azure Migrate 프로젝트를 아직 만들지 않은 경우 자세히 [알아보세요](how-to-add-tool-first-time.md).
 
     ![그룹 선택](./media/how-to-create-a-group/select-groups.png)
@@ -60,7 +60,7 @@ ms.locfileid: "85549917"
 
 1. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **그룹**을 클릭 합니다.
 2. 구체화 하려는 그룹을 클릭 합니다.
-    - 종속성 매핑을 아직 설정 하지 않은 경우 **종속성** 열에는 **설치 필요** 상태가 표시 됩니다. 종속성을 시각화 하려는 각 VM에 대해 **설치 필요**를 클릭 합니다. 각 VM에 두 개의 에이전트를 설치 하 여 컴퓨터 종속성을 매핑해야 합니다. [자세히 알아보기](how-to-create-group-machine-dependencies.md).
+    - 종속성 매핑을 아직 설정 하지 않은 경우 **종속성** 열에는 **설치 필요** 상태가 표시 됩니다. 종속성을 시각화 하려는 각 VM에 대해 **설치 필요**를 클릭 합니다. 각 VM에 두 개의 에이전트를 설치 하 여 컴퓨터 종속성을 매핑해야 합니다. [자세히 알아봅니다](how-to-create-group-machine-dependencies.md).
 
         ![종속성 매핑 추가](./media/how-to-create-a-group/add-dependency-mapping.png)
 

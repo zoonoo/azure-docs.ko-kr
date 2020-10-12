@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798587"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
@@ -35,7 +35,7 @@ StringToArray(<str_expr>)
 ## <a name="remarks"></a>설명
   중첩 된 문자열 값은 큰따옴표를 사용 하 여 유효한 JSON으로 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/)를 참조 하세요. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는가 `StringToArray` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
   

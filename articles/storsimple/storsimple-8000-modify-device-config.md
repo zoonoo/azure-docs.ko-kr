@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514679"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 구성 수정
@@ -44,7 +44,7 @@ Azure Portal을 사용하여 디바이스 이름을 변경하거나 사용자가
 
 StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스에는 기본 이름이 할당됩니다. 기본 이름에는 일반적으로 디바이스의 일련 번호가 반영됩니다. 예를 들어, 기본 디바이스 이름은 8600-SHX0991003G44HT와 같이 다음을 나타내는 15자 길이의 문자입니다.
 
-* **8600** – 장치 모델을 나타냅니다.
+* **8600**  – 장치 모델을 나타냅니다.
 * **SHX** – 제조 사이트를 나타냅니다.
 * **0991003** - 특정 제품을 나타냅니다.
 * **G44HT** - 마지막 5자리는 고유한 일련 번호를 만들기 위해 증분되며, 순차적인 집합이 아닐 수 있습니다.

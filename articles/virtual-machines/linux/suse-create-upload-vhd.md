@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292116"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE 가상 머신 준비
@@ -136,8 +136,8 @@ ms.locfileid: "87292116"
    | # | Alias                 | Name                  | 사용 | 새로 고침
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | 클라우드: Tools_13.1      | 클라우드: Tools_13.1      | 예     | 예
-   | 2 | openSUSE_13 1_OSS     | openSUSE_13 1_OSS     | 예     | 예
-   | 3 | openSUSE_13 1_Updates | openSUSE_13 1_Updates | 예     | 예
+   | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | 예     | 예
+   | 3 | openSUSE_13 openSUSE_13.1_Updates | openSUSE_13 openSUSE_13.1_Updates | 예     | 예
 
     명령이 "정의된 리포지토리가 없습니다..."를 반환하면 다음 명령을 사용하여 해당 리포지토리를 추가합니다.
 
