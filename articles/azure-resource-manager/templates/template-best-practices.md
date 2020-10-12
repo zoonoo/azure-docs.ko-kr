@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방�
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87809258"
 ---
 # <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
@@ -28,7 +28,7 @@ ms.locfileid: "87809258"
 
 중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)을 참조하세요.
 
-## <a name="resource-group"></a>리소스 그룹
+## <a name="resource-group"></a>Resource group
 
 리소스 그룹에 리소스를 배포 하는 경우 리소스 그룹은 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "87809258"
 
 * 매개 변수 이름에 카멜식 대/소문자를 사용합니다.
 
-* SKU, 크기 또는 용량과 같은 환경에 따라 달라지는 설정에 대해 매개 변수를 사용합니다.
+* SKU, 크기 또는 용량과 같이 환경에 따라 달라지는 설정에는 매개 변수를 사용합니다.
 
 * 쉽게 식별할 수 있도록 지정하려는 리소스 이름에 대해 매개 변수를 사용합니다.
 

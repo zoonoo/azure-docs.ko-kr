@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88652851"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>메인프레임 저장소를 Azure로 이동
@@ -51,7 +51,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 <table>
 <thead>
-    <tr><th>유형</th><th>설명</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
+    <tr><th>형식</th><th>설명</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure 파일
@@ -94,7 +94,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 Ssd는 Azure에서 가장 높은 저장소 성능을 제공 합니다. 이 문서를 작성할 때 사용할 수 있는 옵션은 다음과 같습니다.
 
-| 유형         | 크기           | IOPS                  |
+| 형식         | 크기           | IOPS                  |
 |--------------|----------------|-----------------------|
 | 울트라 SSD    | 4gb ~ 64 TB  | 1200 ~ 16만 IOPS |
 | 프리미엄 SSD  | 32 g b-32 TB | 12 ~ 15000 IOPS     |

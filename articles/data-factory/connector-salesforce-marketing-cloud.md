@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020
 ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076807"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Marketing Cloud에서 데이터 복사
@@ -49,7 +49,7 @@ Salesforce 마케팅 클라우드 커넥터는 OAuth 2 인증을 지원 하 고 
 
 Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SalesforceMarketingCloud**로 설정되어야 합니다. | 예 |
 | connectionProperties | Salesforce Marketing Cloud에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
@@ -142,7 +142,7 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
 
 Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **SalesforceMarketingCloudObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **SalesforceMarketingCloudObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -172,7 +172,7 @@ Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 세트�
 
 Salesforce Marketing Cloud에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SalesforceMarketingCloudSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **SalesforceMarketingCloudSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

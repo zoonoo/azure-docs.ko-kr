@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus 메시징 엔터티 (큐, 토
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 3ee03fe5219736a1b1ca66c652fe6ac410cb40cb
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799619"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
@@ -54,7 +54,7 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드(*ReceiveAndDelete
 
 전체 작업 예제는 GitHub의 [BasicSendReceiveUsingTopicSubscriptionClient 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) 을 참조 하세요.
 
-### <a name="rules-and-actions"></a>규칙 및 동작
+### <a name="rules-and-actions"></a>규칙 및 작업
 
 대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 *필터 동작*이라고 합니다. 구독을 만들 때 메시지의 속성에 대해 작동 하는 필터 식을 제공할 수 있습니다. 여기에는 시스템 속성 (예: **Label**) 및 사용자 지정 응용 프로그램 속성 (예: **StoreName**)이 있습니다. 이 경우 SQL 필터 식은 선택 사항입니다. SQL 필터 식이 없으면 구독에 정의 된 모든 필터 동작이 해당 구독의 모든 메시지에 대해 수행 됩니다.
 

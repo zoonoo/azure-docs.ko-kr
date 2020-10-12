@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
 ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982984"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
@@ -99,18 +99,18 @@ FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 
 
 2. 변환 매핑 JSON을 복사할 **"커넥터"** 를 선택 합니다.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > 이 프로세스를 사용 하 여 **"FHIR 매핑 구성"** JSON의 내용을 복사 하 고 저장할 수도 있습니다.
 
 3. **"장치 매핑 구성"** 을 선택 합니다.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. JSON의 콘텐츠를 선택 하 고 복사 작업을 수행 합니다 (예: Ctrl + c 선택). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. 편집기 내의 새 파일 (예: Visual Studio Code, 메모장)에 붙여넣기 작업 (예: Ctrl + v 선택)을 수행 하 고 *. i n i 확장명을 사용 하 여 파일을 저장 합니다.
 

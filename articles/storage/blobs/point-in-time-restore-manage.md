@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280473"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 blob 데이터에 지정 시간 복원 수행
@@ -52,7 +52,7 @@ Azure Portal를 사용 하 여 지정 시간 복원을 구성 하려면 다음 �
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 지정 시간 복원을 구성 하려면 먼저 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 2.6.0 이상을 설치 합니다. 그런 다음 AzStorageBlobRestorePolicy 명령을 호출 하 여 저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 합니다.
+PowerShell을 사용 하 여 지정 시간 복원을 구성 하려면 먼저 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 2.6.0 이상을 설치 합니다. 그런 다음 Enable-AzStorageBlobRestorePolicy 명령을 호출 하 여 저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 합니다.
 
 다음 예에서는 일시 삭제를 사용 하도록 설정 하 고 일시 삭제 보존 기간을 설정 하 고, 변경 피드 및 버전 관리를 사용 하도록 설정 하 고, 특정 시점 복원을 사용 하도록 설정 합니다.    예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
 
@@ -122,7 +122,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 1. 확인란을 선택 하 여 계속 진행할 것인지 확인 합니다.
 1. 복원 **을 선택 하** 여 복원 작업을 시작 합니다.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="모든 컨테이너를 지정 된 복원 지점으로 복원 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Azure Portal에서 지정 시간 복원을 구성 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,14 +169,14 @@ Azure Portal를 사용 하 여 하나 이상의 컨테이너에 있는 blob 범�
 1. 복원할 범위를 지정 합니다. 슬래시 (/)를 사용 하 여 blob 접두사에서 컨테이너 이름을 구분할 수 있습니다.
 1. 기본적으로 **선택한 컨테이너 복원** 창은 컨테이너의 모든 blob을 포함 하는 범위를 지정 합니다. 전체 컨테이너를 복원 하지 않으려면이 범위를 삭제 합니다. 기본 범위는 다음 이미지에 나와 있습니다.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="사용자 지정 범위를 지정 하기 전에 삭제할 기본 blob 범위를 보여 주는 스크린샷":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Azure Portal에서 지정 시간 복원을 구성 하는 방법을 보여 주는 스크린샷":::
 
 1. 확인란을 선택 하 여 계속 진행할 것인지 확인 합니다.
 1. 복원 **을 선택 하** 여 복원 작업을 시작 합니다.
 
 다음 이미지는 범위 집합에 대 한 복원 작업을 보여 줍니다.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="하나 이상의 컨테이너에서 blob 범위를 복원 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Azure Portal에서 지정 시간 복원을 구성 하는 방법을 보여 주는 스크린샷":::
 
 이미지에 표시 된 복원 작업은 다음 작업을 수행 합니다.
 

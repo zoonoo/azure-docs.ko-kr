@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983254"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
@@ -23,16 +23,16 @@ Azure Key Vault는 클라우드 응용 프로그램에 대 한 암호를 저장 
 
 |컨테이너 유형|지원 되는 개체 유형|데이터 평면 끝점|
 |--|--|--|
-| **자격 증명 모음**|<ul><li>소프트웨어 보호 된 키</li><li>HSM 보호 된 키 (프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-이름}. 자격 증명 모음. azure .net
-|**관리 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}. managedhsm. azure .net
+| **자격 증명 모음**|<ul><li>소프트웨어 보호 키</li><li>HSM 보호 된 키 (프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-name}.vault.azure.net
+|**관리형 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}.managedhsm.azure.net
 
 각 개체 형식에 액세스 하는 데 사용 되는 URL 접미사는 다음과 같습니다.
 
 |개체 유형|URL 접미사|
 |--|--|
-|소프트웨어 보호 된 키| /키 |
-|HSM 보호 키| /키 |
-|비밀|/비밀|
+|소프트웨어 보호 키| /keys |
+|HSM 보호 키| /keys |
+|비밀|/secrets|
 |인증서| /certificates|
 |Storage 계정 키|/storageaccounts
 ||

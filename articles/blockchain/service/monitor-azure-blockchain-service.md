@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076927"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Azure Monitor를 통해 Azure Blockchain 서비스 모니터링  
@@ -36,7 +36,7 @@ Azure Blockchain 서비스는 다른 Azure 리소스와 동일한 종류의 모�
 
 **Blockchain 프록시 로그** – NGNIX 프록시 로그를 모니터링 하려는 경우 범주를 선택 합니다. 모든 고객 트랜잭션 정보는 감사 및 디버그 목적으로 사용할 수 있습니다.  
 
-**블록 체인 응용 프로그램 로그** – 범주를 선택 하 여 관리 되는 서비스에서 호스트 되는 블록 체인 응용 프로그램의 로그를 가져옵니다. 예를 들어 ABS 쿼럼 멤버의 경우 이러한 로그는 쿼럼 자체의 로그가 됩니다.  
+**블록 체인 응용 프로그램 로그** – 범주를 선택 하 여 관리 되는 서비스에서 호스트 되는 블록 체인 응용 프로그램의 로그를 가져옵니다. 예를 들어 ABS-Quorum 멤버의 경우 이러한 로그는 쿼럼 자체의 로그가 됩니다.  
 
 **메트릭 요청**: Azure 메트릭에 자동으로 수집 되는 진단 설정의 대상 Azure Cosmos DB에서 메트릭 데이터를 수집 하는 옵션을 선택 합니다. 리소스 로그를 사용 하 여 메트릭 데이터를 수집 하 여 두 종류의 데이터를 함께 분석 하 고 Azure Monitor 외부에서 메트릭 데이터를 보냅니다.
 
@@ -158,7 +158,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 
 | 메트릭 이름 | 단위  |  집계 유형| 설명   |
 |---|---|---|---|
-| CPU 사용량 비율   | 백분율  |  최대 | CPU 사용량의 백분율입니다.     |
+| CPU 사용량 비율   | 백분율  |  최대값 | CPU 사용량의 백분율입니다.     |
 | IO 읽기 바이트   | 킬로바이트   | 합계  |  Blockchain 멤버 리소스의 모든 노드에 걸친 IO 읽기 바이트의 합계입니다.      |
 |IO 쓰기 바이트     | 킬로바이트   | 합계  | IO의 합계는 블록 체인 멤버 리소스의 모든 노드에 걸쳐 바이트를 씁니다.     |
 |메모리 제한       |  7.8gb   | 평균    | 노드당 blockchain 프로세스에 사용할 수 있는 최대 메모리입니다. |

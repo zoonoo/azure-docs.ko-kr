@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266292"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
@@ -371,7 +371,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 
 이 섹션에서는 가능한 오류 응답을 문서화합니다. "200 확인" 상태는 성공적인 응답이며 액세스 토큰은 access_token 요소의 JSON 응답 본문에 포함되어 있습니다.
 
-| 상태 코드 | 오류 | 오류 설명 | 해결 방법 |
+| 상태 코드 | Error | 오류 설명 | 솔루션 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 잘못된 요청 | invalid_resource | AADSTS50001: 라는 테 넌 트에서 라는 응용 프로그램을 *\<URI\>* 찾을 수 없습니다 *\<TENANT-ID\>* . 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다. | (Linux만 해당) |
 | 400 잘못된 요청 | bad_request_102 | 필수 메타데이터 헤더가 지정되지 않았습니다. | `Metadata` 요청 헤더 필드가 요청에서 누락되거나 형식이 잘못되었습니다. 값은 모두 소문자이며 `true`으로 지정해야 합니다. 예제는 이전 REST 섹션에서 "샘플 요청"을 참조하세요.|

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109844"
 ---
 # <a name="scale-migration-of-vms"></a>Vm의 규모 마이그레이션 
@@ -25,7 +25,7 @@ Site Recovery 스크립트는 GitHub의 [Azure PowerShell 샘플](https://github
 
 ## <a name="how-does-it-work"></a>작동 원리
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음 단계를 수행해야 합니다.
 - Site Recovery 자격 증명 모음이 Azure 구독에 생성되었는지 확인
 - 구성 서버 및 프로세스 서버가 원본 환경에 설치되었으며 자격 증명 모음이 환경을 검색할 수 있는지 확인

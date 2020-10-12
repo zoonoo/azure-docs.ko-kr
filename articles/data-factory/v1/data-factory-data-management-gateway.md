@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441122"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
@@ -71,7 +71,7 @@ ms.locfileid: "89441122"
 * 데이터 저장소가 **Azure IaaS VM**의 클라우드에 있더라도 **게이트웨이를 사용**해야 합니다.
 
 ## <a name="installation"></a>설치
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 * 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 현재 도메인 컨트롤러에 데이터 관리 게이트웨이를 설치하도록 지원되지 않습니다.
 * .NET Framework 4.5.1 이상이 필요합니다. Windows 7 컴퓨터에 게이트웨이를 설치하는 경우 .NET Framework 4.5 이상을 설치하세요. 자세한 내용은 [.NET Framework 시스템 요구 사항](https://msdn.microsoft.com/library/8z6watww.aspx)을 참조하세요.
 * 게이트웨이 컴퓨터에 권장 되는 **구성은** 최소 2ghz, 4 개 코어, 8gb RAM 및 80 gb 디스크입니다.
@@ -140,7 +140,7 @@ ms.locfileid: "89441122"
 
 회사 방화벽 수준에서 다음 도메인 및 아웃바운드 포트를 구성 해야 합니다.
 
-| 도메인 이름 | 포트 | Description |
+| 도메인 이름 | 포트 | 설명 |
 | --- | --- | --- |
 | \*.servicebus.windows.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 | *.core.windows.net |443 |Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)|
@@ -364,7 +364,7 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.
 
-모니터링 속성 | Description
+모니터링 속성 | 설명
 :------------------ | :----------
 Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요.
@@ -520,7 +520,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     ```
     Agent registration is successful!
     ```
-    IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예:
+    IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예제:
 
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true

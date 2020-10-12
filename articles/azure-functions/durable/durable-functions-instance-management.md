@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87809377"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
@@ -137,7 +137,7 @@ module.exports = async function(context, input) {
 > [!NOTE]
 > 이 예제는 Durable Functions 버전 2.x를 대상으로 합니다. 버전 1.x에서는 대신을 사용 `orchestrationClient` `durableClient` 합니다.
 
-**__init__py**
+**__init__.py**
 
 ```python
 import logging

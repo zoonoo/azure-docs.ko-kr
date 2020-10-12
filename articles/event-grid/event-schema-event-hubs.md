@@ -4,10 +4,10 @@ description: Azure Event Grid를 사용하여 이벤트 허브 이벤트에 제�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113686"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs Event Grid 원본으로
@@ -53,10 +53,10 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
@@ -66,21 +66,21 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | fileUrl | 문자열 | 캡처 파일에 대한 경로입니다. |
 | fileType | 문자열 | 캡처 파일의 파일 형식입니다. |
 | partitionId | 문자열 | shard ID입니다. |
-| sizeInBytes | integer | 파일 크기입니다. |
-| eventCount | integer | 파일에 있는 이벤트의 수입니다. |
-| firstSequenceNumber | integer | 큐의 가장 작은 시퀀스 번호입니다. |
-| lastSequenceNumber | integer | 큐의 마지막 시퀀스 번호입니다. |
+| sizeInBytes | 정수 | 파일 크기입니다. |
+| eventCount | 정수 | 파일에 있는 이벤트의 수입니다. |
+| firstSequenceNumber | 정수 | 큐의 가장 작은 시퀀스 번호입니다. |
+| lastSequenceNumber | 정수 | 큐의 마지막 시퀀스 번호입니다. |
 | firstEnqueueTime | 문자열 | 큐의 처음 시간입니다. |
 | lastEnqueueTime | 문자열 | 큐의 마지막 시간입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [자습서: 데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md) | Event Hubs가 캡처 파일을 만들 때 Event Grid는 함수 앱에 이벤트를 보냅니다. 앱은 캡처 파일을 검색하고 데이터를 데이터 웨어하우스에 마이그레이션합니다. |
 

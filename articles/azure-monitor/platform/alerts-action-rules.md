@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983136"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
@@ -54,7 +54,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -103,7 +103,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 ### <a name="action-rule-details"></a>작업 규칙 세부 정보
 
 마지막으로, 작업 규칙에 대 한 다음 세부 정보를 구성 합니다.
-* 이름
+* Name
 * 저장 된 리소스 그룹
 * 설명
 
@@ -251,7 +251,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 * * *
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 [결과 수](alerts-unified-log.md) 옵션을 사용 하 여 만든 로그 경고는 전체 검색 결과 (여러 컴퓨터에 걸쳐 있을 수 있음)를 사용 하 여 단일 경고 인스턴스를 생성 합니다. 이 시나리오에서 작업 규칙은 **경고 컨텍스트 (페이로드)** 필터를 사용 하는 경우 일치 하는 항목이 있는 한 경고 인스턴스에 대해 작동 합니다. 앞서 설명한 시나리오 2에서는 생성 된 로그 경고에 대 한 검색 결과에 **컴퓨터-01** 과 **컴퓨터-02**가 모두 포함 되어 있으면 전체 알림이 표시 되지 않습니다. **컴퓨터 02** 에 대해 전혀 생성 된 알림이 없습니다.
 
