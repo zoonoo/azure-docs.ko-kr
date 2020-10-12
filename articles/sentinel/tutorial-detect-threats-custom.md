@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617182"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>자습서: 위협 검색을 위한 사용자 지정 분석 규칙 만들기

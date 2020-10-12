@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566588"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
@@ -44,7 +44,7 @@ ms.locfileid: "89566588"
 
 이러한 한도에 도달 하거나 초과할 짧은 시간 동안 할당량의 일부를 너무 많이 보내면 할당량 초과 응답이 수신 될 가능성이 높습니다. 동시 요청에는 제한이 없습니다.
 
-| 계층 | 문자 제한 |
+| 서비스 계층 | 문자 제한 |
 |------|-----------------|
 | F0 | 시간당 2백만 자 |
 | S1 | 시간당 4천만 자 |
@@ -64,7 +64,7 @@ ms.locfileid: "89566588"
 
 [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) 함수를 사용하는 경우 문장 길이는 275자로 제한됩니다. 이러한 언어에 대한 예외가 있습니다.
 
-| 언어 | 코드 | 문자 제한 |
+| Language | 코드 | 문자 제한 |
 |----------|------|-----------------|
 | 중국어 | zh | 166 |
 | 독일어 | de | 800 |

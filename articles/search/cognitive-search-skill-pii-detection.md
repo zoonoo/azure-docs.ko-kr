@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540526"
 ---
 # <a name="pii-detection-cognitive-skill"></a>PII 검색 인식 기술
@@ -50,14 +50,14 @@ Microsoft.Skills.Text.PIIDetectionSkill
 
 | 입력 이름      | 설명                   |
 |---------------|-------------------------------|
-| `languageCode`    | 선택 사항입니다. 기본값은 `en`입니다.  |
+| `languageCode`    | (선택 사항) 기본값은 `en`입니다.  |
 | `text`          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
 
 | 출력 이름      | 설명                   |
 |---------------|-------------------------------|
-| `piiEntities` | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>텍스트 (추출 된 실제 PII)</li> <li>형식</li><li>하위 형식</li><li>점수 (큰 값은 실제 엔터티가 될 가능성이 높음)</li><li>입력 텍스트에 대 한 오프셋입니다.</li><li>length</li></ul> </br> [가능한 유형 및 하위 유형은 여기에서 찾을 수 있습니다.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
+| `piiEntities` | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>텍스트 (추출 된 실제 PII)</li> <li>type</li><li>하위 형식</li><li>점수 (큰 값은 실제 엔터티가 될 가능성이 높음)</li><li>입력 텍스트에 대 한 오프셋입니다.</li><li>length</li></ul> </br> [가능한 유형 및 하위 유형은 여기에서 찾을 수 있습니다.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | `maskingMode`가 이외의 값으로 설정 된 경우 `none` 이 출력은 선택한에 설명 된 대로 입력 텍스트에서 수행 된 마스킹의 문자열 결과가 됩니다 `maskingMode` .  `maskingMode`가로 설정 된 경우에는 `none` 이 출력이 표시 되지 않습니다. |
 
 ## <a name="sample-definition"></a>샘플 정의

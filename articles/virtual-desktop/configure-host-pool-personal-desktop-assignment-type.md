@@ -7,10 +7,10 @@ ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88007814"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
@@ -69,7 +69,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 
 Azure Portal에서 세션 호스트에 사용자를 직접 할당 하려면 다음을 수행 합니다.
 
-1. <https://portal.azure.com> 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
 2. 검색 창에 **Windows 가상 데스크톱** 을 입력 합니다.
 3. **서비스**에서 **Windows 가상 데스크톱**을 선택 합니다.
 4. Windows 가상 데스크톱 페이지에서 창의 왼쪽에 있는 메뉴로 이동 하 여 **호스트 풀**을 선택 합니다.

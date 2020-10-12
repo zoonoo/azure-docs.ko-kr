@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87479849"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
@@ -56,7 +56,7 @@ ms.locfileid: "87479849"
 
 2. **AzSubscription**를 사용 하 여 필요한 구독을 선택 합니다. 
 
-3. 지정 된 사용자에 게 할당 된 모든 역할을 나열 하려면 **AzRoleAssignment-SignInName [사용자 전자 메일]-IncludeClassicAdministrators**를 사용 합니다. 
+3. 지정 된 사용자에 게 할당 된 모든 역할을 나열 하려면  **AzRoleAssignment-SignInName [사용자 전자 메일]-IncludeClassicAdministrators**를 사용 합니다. 
 
 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 

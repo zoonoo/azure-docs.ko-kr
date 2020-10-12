@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336312"
 ---
-# <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL-유연한 서버에서 예약 된 유지 관리
+# <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL에서 예약된 유지 관리 – 유동 서버
  
 Azure Database for PostgreSQL 유연한 서버는 정기적으로 유지 관리를 수행 하 여 관리 되는 데이터베이스를 안전 하 고 안정적으로 최신 상태로 유지 합니다. 유지 관리 중에 서버는 새로운 기능, 업데이트 및 패치를 가져옵니다.
  

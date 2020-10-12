@@ -4,10 +4,10 @@ description: Advisor 점수를 사용 하 여 Azure를 최대한 활용 하세�
 ms.topic: article
 ms.date: 09/09/2020
 ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335622"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Advisor 점수를 사용 하 여 Azure 워크 로드 최적화
@@ -17,11 +17,11 @@ ms.locfileid: "91335622"
 Azure Advisor는 워크 로드에 대 한 모범 사례 권장 사항을 제공 합니다. 이러한 권장 사항은 다음과 같은 도움을 주는 맞춤형 이며 조치를 취할 수 있습니다.
 * 워크 로드의 상태를 개선 하 고 Azure 배포를 최적화 합니다.
 * 모범 사례에 따라 주요 문제를 사전에 방지
-* [Microsoft Azure 잘 설계 된 프레임 워크](https://docs.microsoft.com/azure/architecture/framework/) 의 5 핵심 요소에 대해 Azure 워크 로드를 평가 합니다.
+* [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) 의 5 가지 핵심 요소에 대해 Azure 워크 로드를 평가 합니다.
 
 Advisor의 핵심 기능인 **advisor 점수** 는 이러한 목표를 효과적이 고 효율적으로 달성 하는 데 도움이 됩니다. 
 
-Azure를 최대한 활용 하려면 워크 로드 최적화 과정에서 어떤 서비스/리소스를 사용 하 고 있는지를 이해 하는 것이 중요 합니다. 또한 권장 사항에 따라 작업의 우선 순위를 지정 하 여 결과를 최대화 하는 방법을 알아야 합니다. 이 최적화 과정에서 수행 하는 진행 상황을 추적 하 고 보고 하는 것도 중요 합니다. **Advisor 점수**를 사용 하면 새로운 gamification 환경을 통해 이러한 모든 작업을 쉽게 수행할 수 있습니다. 개인 설정 된 클라우드 컨설턴트는 사용 원격 분석 및 리소스 구성을 지속적으로 평가 하 여 업계 모범 사례를 확인 Azure Advisor. 그런 다음 Advisor는 해당 결과를 단일 점수에 집계 하 여 신뢰할 수 있고 안전 하며 비용 효율적인 솔루션을 구축 하는 데 필요한 단계를 수행 하는 경우를 한눈에 파악할 수 있습니다. Advisor 점수는 전체 점수로 구성 되며,이 점수는 잘 구성 된 프레임 워크의 5 핵심 요소을 나타내는 각 Azure Advisor 범주에 대해 하나씩 5 개의 범주 점수를 추가로 나눌 수 있습니다. 매일, 매주, 매월 추세를 사용 하 여 전체 점수 및 범주 점수를 확인 하 여 시간에 따른 진행 상황을 추적할 수 있으며, 목표를 달성 하는 데 도움이 되도록 벤치 마크를 설정할 수 있습니다. 
+Azure를 최대한 활용 하려면 워크 로드 최적화 과정에서 어떤 서비스/리소스를 사용 하 고 있는지를 이해 하는 것이 중요 합니다. 또한 권장 사항에 따라 작업의 우선 순위를 지정 하 여 결과를 최대화 하는 방법을 알아야 합니다. 이 최적화 과정에서 수행 하는 진행 상황을 추적 하 고 보고 하는 것도 중요 합니다. **Advisor 점수**를 사용 하면 새로운 gamification 환경을 통해 이러한 모든 작업을 쉽게 수행할 수 있습니다. 개인 설정 된 클라우드 컨설턴트는 사용 원격 분석 및 리소스 구성을 지속적으로 평가 하 여 업계 모범 사례를 확인 Azure Advisor. 그런 다음 Advisor는 해당 결과를 단일 점수에 집계 하 여 신뢰할 수 있고 안전 하며 비용 효율적인 솔루션을 구축 하는 데 필요한 단계를 수행 하는 경우를 한눈에 파악할 수 있습니다. Advisor 점수는 전체 점수로 구성 되며,이 점수는 Well-Architected 프레임 워크의 5 핵심 요소을 나타내는 각 Azure Advisor 범주에 대해 하나씩 5 개의 범주 점수를 추가로 나눌 수 있습니다. 매일, 매주, 매월 추세를 사용 하 여 전체 점수 및 범주 점수를 확인 하 여 시간에 따른 진행 상황을 추적할 수 있으며, 목표를 달성 하는 데 도움이 되도록 벤치 마크를 설정할 수 있습니다. 
 
  ![Advisor 점수 매기기 환경](./media/advisor-score-1.png)
 

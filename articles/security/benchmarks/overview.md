@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777108"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Azure 보안 벤치 마크 (V2) 개요
@@ -22,13 +22,13 @@ ASB (Azure 보안 벤치 마크)는 Azure에서 작업, 데이터 및 서비스�
 이 벤치 마크는 다음을 포함 하는 전체적인 보안 지침 집합의 일부입니다.
 
 - **클라우드 채택 프레임 워크** – [전략](/azure/cloud-adoption-framework/strategy/define-security-strategy), [역할 및 책임](/azure/cloud-adoption-framework/organize/cloud-security), [Azure 상위 10 가지 보안 모범 사례](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)및 [참조 구현을](/azure/cloud-adoption-framework/ready/enterprise-scale/)포함 하 여 보안에 대 한 지침입니다.
-- **Azure의 잘 설계 되는 프레임 워크** – azure에서 [작업을 보호 하](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) 는 방법에 대 한 지침입니다.
+- **Azure Well-Architected Framework** – azure에서 [워크 로드를 보호 하](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) 는 방법에 대 한 지침입니다.
 - **Microsoft 보안 모범 사례** – Azure에 대 한 예제에 대 한 [권장 사항](/security/compass/microsoft-security-compass-introduction) 입니다.
 
  Azure 보안 벤치 마크는 클라우드 중심 제어 영역을 집중적으로 다룹니다. 이러한 컨트롤은 CI (Internet Security)의 중앙 컨트롤 버전 7.1 및 NIST (표준 및 기술) SP800-53에 설명 된 것과 같은 잘 알려진 보안 벤치 마크와 일치 합니다.
 Azure 보안 벤치 마크에는 다음 컨트롤이 포함 되어 있습니다.
 
-| ASB 제어 도메인 | 설명: 
+| ASB 제어 도메인 | 설명 
 |--|--|
 | [네트워크 &nbsp; 보안 &nbsp; (NS)](security-controls-v2-network-security.md) | 네트워크 보안은 가상 네트워크 보안 유지, 개인 연결 설정, 외부 공격 방지 및 방지, DNS 보안 등 Azure 네트워크를 보호 하 고 보호 하는 컨트롤을 포함 합니다. |
 | [Id &nbsp; 관리 &nbsp; (IM)](security-controls-v2-identity-management.md) | Id 관리에서는 Single Sign-On, 강력한 인증, 관리 되는 id (및 서비스 원칙)를 사용 하 여 응용 프로그램에 대 한 조건부 액세스 및 계정 변칙 모니터링을 비롯 하 여 Azure Active Directory를 사용 하는 보안 id 및 액세스 제어를 설정 하는 컨트롤을 다룹니다. |

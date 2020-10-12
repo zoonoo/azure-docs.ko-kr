@@ -4,10 +4,10 @@ description: Azure container registry에 로그인 할 때 발생 하는 일반�
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91253357"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
@@ -56,13 +56,13 @@ ms.locfileid: "91253357"
 
 ### <a name="specify-correct-registry-name"></a>올바른 레지스트리 이름 지정
 
-를 사용 하는 경우 `docker login` *myregistry.azurecr.io*와 같은 레지스트리의 전체 로그인 서버 이름을 제공 합니다. 소문자만 사용 해야 합니다. 예:
+를 사용 하는 경우 `docker login` *myregistry.azurecr.io*와 같은 레지스트리의 전체 로그인 서버 이름을 제공 합니다. 소문자만 사용 해야 합니다. 예제:
 
 ```console
 docker login myregistry.azurecr.io
 ```
 
-Azure Active Directory id로 [az acr login](/cli/azure/acr#az-acr-login) 을 사용 하는 경우 먼저 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)한 후 레지스트리의 Azure 리소스 이름을 지정 합니다. 리소스 이름은 *myregistry* (도메인 접미사 제외)와 같이 레지스트리를 만들 때 제공 되는 이름입니다. 예:
+Azure Active Directory id로 [az acr login](/cli/azure/acr#az-acr-login) 을 사용 하는 경우 먼저 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)한 후 레지스트리의 Azure 리소스 이름을 지정 합니다. 리소스 이름은 *myregistry* (도메인 접미사 제외)와 같이 레지스트리를 만들 때 제공 되는 이름입니다. 예제:
 
 ```azurecli
 az acr login --name myregistry

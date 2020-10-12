@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ms.openlocfilehash: f5f640f8895cd6defe31a68b790ce841c4679a6f
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777354"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>QnA Maker 대답 텍스트에서 지원 되는 Markdown 형식
@@ -28,7 +28,7 @@ Markdown는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](Quickst
 
 다음은 QnA Maker의 대답 텍스트에서 사용할 수 있는 markdown 형식 목록입니다.
 
-|목적|서식|예제 Markdown|렌더링<br>채팅 봇에 표시 된 대로|
+|목적|형식|예제 Markdown|렌더링<br>채팅 봇에 표시 된 대로|
 |--|--|--|--|
 두 문장 사이에 있는 새 줄입니다.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![두 문장 사이에 새 줄 서식 지정](./media/qnamaker-concepts-datasources/format-newline.png)|
 |H1부터 h6 까지의 헤더,의 수는 `#` 헤더를 나타냅니다. 1 `#` 은 h1입니다.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![markdown 헤더를 사용 하 여 형식 지정](./media/qnamaker-concepts-datasources/format-headers.png)<br>![markdown 헤더 H1을 H5로 서식 지정](./media/qnamaker-concepts-datasources/format-h1-h5.png)|

@@ -3,12 +3,12 @@ title: 동작을 감지하고 Azure Media Services에 비디오 녹화
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 라이브 비디오 스트림의 동작을 감지하고 Azure Media Services에 비디오 클립을 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569012"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776479"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>빠른 시작: 동작을 감지하고 Media Services에 비디오 녹화
 
@@ -39,6 +39,16 @@ ms.locfileid: "89569012"
 ## <a name="use-direct-method-calls"></a>직접 메서드 호출 사용
 
 이 모듈을 통해 직접 메서드를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다. 모듈에서 제공하는 모든 직접 메서드를 이해하려면 [Live Video Analytics on IoT Edge의 직접 메서드](direct-methods.md)를 읽어 보세요. 
+
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="동작 이벤트를 기반으로 이벤트 기반 비디오를 자산에 녹화":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="동작 이벤트를 기반으로 이벤트 기반 비디오를 자산에 녹화":::
 
 ### <a name="invoke-graphtopologylist"></a>GraphTopologyList 호출
 이 단계를 수행하면 모듈에 모든 [그래프 토폴로지](media-graph-concept.md#media-graph-topologies-and-instances)가 열거됩니다.

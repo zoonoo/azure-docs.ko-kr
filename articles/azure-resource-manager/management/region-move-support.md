@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004309"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945166"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>지역 간 Azure 리소스 이동에 대 한 지원
 
@@ -411,7 +411,7 @@ ms.locfileid: "90004309"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | containerservices | 아닙니다.<br/><br/> 서비스가 사용 [중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)되었습니다.
+> | containerservices | 아니요.<br/><br/> 서비스가 사용 [중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)되었습니다.
 > | managedclusters | 예 | 
 > | openshiftmanagedclusters | 예 | 
 
@@ -579,9 +579,9 @@ ms.locfileid: "90004309"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | elasticpools | 아닙니다. 리소스가 노출 되지 않습니다.
-> | elasticpools / iothubtenants | 아닙니다. 리소스가 노출 되지 않습니다.
-> | iothubs | 예. [자세히 알아보기](../../iot-hub/iot-hub-how-to-clone.md)
+> | elasticpools | 아니요. 리소스가 노출 되지 않습니다.
+> | elasticpools / iothubtenants | 아니요. 리소스가 노출 되지 않습니다.
+> | iothubs | 예. [자세한 정보](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | 아니요 | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
@@ -696,7 +696,7 @@ ms.locfileid: "90004309"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 계정 | 예 | 
+> | 계정 | 아니요. [자세한 정보를 알아보세요](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
 > | actiongroups |  아니요 | 
 > | activitylogalerts | 예 | 
 > | alertrules |  예 | 
@@ -716,13 +716,13 @@ ms.locfileid: "90004309"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | checknameavailability |  아닙니다.<br/><br/> IoT Central는 지역이 아닌 지역에서 작동 합니다.
+> | checknameavailability |  아니요.<br/><br/> IoT Central는 지역이 아닌 지역에서 작동 합니다.
 > | graph | 아니요
 
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 영역 이동 | 
+> | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > |  iothub |  예 (허브 복제) <br/><br/> [IoT hub를 다른 지역에 복제](../../iot-hub/iot-hub-how-to-clone.md)
 
@@ -1012,7 +1012,7 @@ ms.locfileid: "90004309"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | vaults | 아닙니다.<br/><br/> Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br/><br/> Azure Site Recovery에 대 한 Recovery Services 자격 증명 모음에서 대상 지역에 [자격 증명 모음을 사용 하지 않도록 설정 하 고 다시 만들](../../site-recovery/move-vaults-across-regions.md) 수 있습니다. | 
+> | vaults | 아니요.<br/><br/> Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br/><br/> Azure Site Recovery에 대 한 Recovery Services 자격 증명 모음에서 대상 지역에 [자격 증명 모음을 사용 하지 않도록 설정 하 고 다시 만들](../../site-recovery/move-vaults-across-regions.md) 수 있습니다. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -1047,7 +1047,7 @@ ms.locfileid: "90004309"
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 영역 이동 | 
+> | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | flows |  아니요 |  
 > | jobcollections |  예 | 
@@ -1294,7 +1294,7 @@ ms.locfileid: "90004309"
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft WindowsVirtualDesktop
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 영역 이동 | 
+> | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | applicationgroups | 예 | 
 > | hostpools | 예 | 

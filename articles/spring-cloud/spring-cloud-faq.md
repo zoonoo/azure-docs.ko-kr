@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888705"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945399"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -45,7 +45,7 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 Azure 스프링 클라우드에는 다음과 같은 알려진 제한 사항이 있습니다.
     
 * `spring.application.name` 는 각 응용 프로그램을 만드는 데 사용 되는 응용 프로그램 이름으로 재정의 됩니다.
-* `server.port` 기본값은 포트 1025입니다. 다른 값이 적용 되 면 1025으로 재정의 됩니다.
+* `server.port` 기본값은 포트 1025입니다. 다른 값이 적용 되 면 재정의 됩니다. 또한이 설정을 준수 하 고 코드에서 서버 포트를 지정 하지 마십시오.
 * Azure Portal 및 Azure Resource Manager 템플릿은 응용 프로그램 패키지 업로드를 지원 하지 않습니다. Azure CLI를 통해 응용 프로그램을 배포 해야만 응용 프로그램 패키지를 업로드할 수 있습니다.
 
 ### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요? 

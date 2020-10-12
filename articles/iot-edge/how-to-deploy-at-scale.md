@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855386"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal를 사용 하 여 규모에 IoT Edge 모듈 배포
@@ -115,7 +115,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 배포에 모듈을 추가한 후에는 해당 이름을 선택 하 여 **IoT Edge 모듈 업데이트** 페이지를 열 수 있습니다. 이 페이지에서 모듈 설정, 환경 변수, 만들기 옵션 및 모듈 쌍을 편집할 수 있습니다. Marketplace에서 모듈을 추가한 경우 이러한 매개 변수 중 일부가 이미 채워져 있을 수 있습니다.
 
-계층화 된 배포를 만드는 경우 동일한 장치를 대상으로 하는 다른 배포에 존재 하는 모듈을 구성 하 고 있을 수 있습니다. 다른 버전을 덮어쓰지 않고 모듈 쌍을 업데이트 하려면 모듈 쌍 **설정** 탭을 엽니다. 모듈 쌍의 desired 속성 내에서 하위 섹션에 대 한 고유한 이름으로 새 **모듈 쌍 속성** 을 만듭니다 (예 `properties.desired.settings` :). 필드 내에서 속성을 정의 하는 경우 `properties.desired` 우선 순위가 낮은 배포에 정의 된 모듈의 desired 속성을 덮어씁니다.
+계층화 된 배포를 만드는 경우 동일한 장치를 대상으로 하는 다른 배포에 존재 하는 모듈을 구성 하 고 있을 수 있습니다. 다른 버전을 덮어쓰지 않고 모듈 쌍을 업데이트 하려면 모듈 쌍 **설정** 탭을 엽니다. 모듈 쌍의 desired 속성 내에서 하위 섹션에 대 한 고유한 이름으로 새 **모듈 쌍 속성** 을 만듭니다 (예:) `properties.desired.settings` . 필드 내에서 속성을 정의 하는 경우 `properties.desired` 우선 순위가 낮은 배포에 정의 된 모듈의 desired 속성을 덮어씁니다.
 
 ![계층화 된 배포에 대 한 모듈 쌍 속성 설정](./media/how-to-deploy-monitor/module-twin-property.png)
 

@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136042"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 모델링
@@ -299,7 +299,7 @@ Book documents:
 관계형 데이터베이스에서 *다대다* 관계는 다른 테이블의 레코드를 단순히 하나로 조인하는 조인 테이블을 사용해서 모델링되는 경우가 많습니다.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="테이블 조인" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="관계형 데이터베이스 모델" border="false":::
 
 여기에서도 문서를 사용해서 동일한 방식을 따르고 다음과 비슷하게 보이는 데이터 모델을 만들고 싶을 수도 있습니다.
 
@@ -442,4 +442,4 @@ Azure Cosmos DB에 대한 자세한 내용은 서비스의 [설명서](https://a
 
 여러 파티션에 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 데이터 분할](sql-api-partition-data.md)을 참조하세요.
 
-실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법에 대 한 자세한 내용은 [데이터 모델링 및 분할-실제 예](how-to-model-partition-example.md)를 참조 하세요.
+실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법에 대 한 자세한 내용은 [ 데이터 모델링 및 분할-Real-World 예](how-to-model-partition-example.md)를 참조 하세요.
