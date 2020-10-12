@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.openlocfilehash: f967d061ece5887457375b4e93469809f6a575f9
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88814776"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell-서버 쪽 암호화 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정 합니다.
@@ -32,7 +32,7 @@ SSE에서 고객 관리 키를 사용 하려면 Azure Key Vault 및 DiskEncrypti
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음은 각각의 시나리오를 포함 하는 예제 스크립트 이며,이 스크립트는 관리 디스크를 보호 하는 데 사용할 수 있습니다.
 

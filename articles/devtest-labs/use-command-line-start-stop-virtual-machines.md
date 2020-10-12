@@ -4,10 +4,10 @@ description: 명령줄 도구를 사용 하 여 Azure DevTest Labs에서 가상 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476419"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>명령줄 도구를 사용 하 여 가상 컴퓨터 Azure DevTest Labs 시작 및 중지

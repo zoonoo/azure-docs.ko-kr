@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322638"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider for .NET Core ILogger logs
@@ -104,7 +104,7 @@ public class ValuesController : ControllerBase
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>ASP.NET Core apps의 Startup.cs 및 Program.cs에서 ILogger 로그 캡처
 
 > [!NOTE]
-> ASP.NET Core 3.0 이상에서는 더 이상 `ILogger` Startup.cs 및 Program.cs에 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353를 참조하세요.
+> ASP.NET Core 3.0 이상에서는 더 이상 `ILogger` Startup.cs 및 Program.cs에 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353을 참조하십시오.
 
 새 ApplicationInsightsLoggerProvider는 응용 프로그램 시작 파이프라인 초기에 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider는 Application Insights (버전 2.7.1부터)에서 자동으로 사용 하도록 설정 되지만 파이프라인에서 나중에까지 계측 키를 설정 하지 않습니다. 따라서 **컨트롤러**/기타 클래스의 로그만 캡처됩니다. **Program.cs** 및 **Startup.cs** 자체에서 시작 하는 모든 로그를 캡처하려면 ApplicationInsightsLoggerProvider에 대 한 계측 키를 명시적으로 사용 하도록 설정 해야 합니다. 또한 **Program.cs** 또는 **Startup.cs** 자체에서 로그 하는 경우 *TelemetryConfiguration* 는 완전히 설정 되지 않습니다. 따라서 이러한 로그에는 InMemoryChannel, 샘플링, 표준 원격 분석 이니셜라이저 또는 프로세서를 사용 하지 않는 최소 구성이 포함 됩니다.
 
@@ -210,7 +210,7 @@ public class Startup
 - 이전 공급자는 [로그 범위](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes)를 지원 하지 않습니다. 새 공급자에서 범위의 속성은 수집 된 원격 분석에 자동으로 사용자 지정 속성으로 추가 됩니다.
 - 이제 응용 프로그램 시작 파이프라인에서 로그를 훨씬 일찍 캡처할 수 있습니다. 이제 **프로그램** 의 로그 및 **시작** 클래스를 캡처할 수 있습니다.
 - 새 공급자를 사용 하 여 필터링은 프레임 워크 수준 자체에서 수행 됩니다. 콘솔, 디버그 등의 기본 제공 공급자를 비롯 한 다른 공급자와 동일한 방식으로 로그를 Application Insights 공급자로 필터링 할 수 있습니다. 여러 공급자에 동일한 필터를 적용할 수도 있습니다.
-- ASP.NET Core (2.0 이상)에서 [로깅 공급자를 사용 하도록 설정](https://github.com/aspnet/Announcements/issues/255) 하는 권장 방법은 **Program.cs** 의 ILoggingBuilder에 대 한 확장 메서드를 사용 하는 것입니다.
+- ASP.NET Core (2.0 이상)에서  [로깅 공급자를 사용 하도록 설정](https://github.com/aspnet/Announcements/issues/255) 하는 권장 방법은 **Program.cs** 의 ILoggingBuilder에 대 한 확장 메서드를 사용 하는 것입니다.
 
 > [!Note]
 > 새 공급자는 NETSTANDARD 2.0 이상을 대상으로 하는 응용 프로그램에 사용할 수 있습니다. 2.14.0 [SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 버전부터: net461 이상을 .NET Framework 대상으로 하는 응용 프로그램 에서도 새 공급자를 사용할 수 있습니다. 응용 프로그램이 .NET Core 1.1 같은 이전 버전의 .NET Core를 대상으로 하거나 고 NET46 보다 작은 .NET Framework 대상으로 지정 하는 경우 이전 공급자를 계속 사용 합니다.
@@ -319,7 +319,7 @@ class Program
 
 ## <a name="control-logging-level"></a>제어 로깅 수준
 
-ASP.NET Core *ILogger* 인프라에는 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering)을 적용 하는 기본 제공 메커니즘이 있습니다. 이렇게 하면 Application Insights 공급자를 포함 하 여 등록 된 각 공급자로 전송 되는 로그를 제어할 수 있습니다. 필터링은 구성에서 (일반적으로 파일 *에appsettings.js* 를 사용 하 여) 또는 코드에서 수행할 수 있습니다. 이 기능은 프레임 워크 자체에서 제공 됩니다. Application Insights 공급자와는 관련이 없습니다.
+ASP.NET Core *ILogger* 인프라에는 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering)을 적용 하는 기본 제공 메커니즘이 있습니다. 이렇게 하면 Application Insights 공급자를 포함 하 여 등록 된 각 공급자로 전송 되는 로그를 제어할 수 있습니다. 필터링은 구성에서 (일반적으로 파일 * 에appsettings.js* 를 사용 하 여) 또는 코드에서 수행할 수 있습니다. 이 기능은 프레임 워크 자체에서 제공 됩니다. Application Insights 공급자와는 관련이 없습니다.
 
 다음 예에서는 ApplicationInsightsLoggerProvider에 필터 규칙을 적용 합니다.
 
@@ -356,7 +356,7 @@ ApplicationInsightsLoggerProvider의 경우 공급자 별칭은 `ApplicationInsi
                         ("Microsoft", LogLevel.Error);
 ```
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>ApplicationInsightsLoggerProvider의 이전 버전 및 새 버전은 무엇 인가요?
 
@@ -378,7 +378,7 @@ ApplicationInsightsLoggerProvider [SDK](https://www.nuget.org/packages/Microsoft
  }
 ```
 
-Visual Studio에서 디버그할 때 이중 로깅이 발생 하 `EnableDebugLogger` 는 경우 다음과 같이 Application Insights를 사용 하도록 설정 하는 코드에서를 *false* 로 설정 합니다. 이 중복 및 픽스는 응용 프로그램을 디버깅 하는 경우에만 관련이 있습니다.
+Visual Studio에서 디버그할 때 이중 로깅이 발생 하 `EnableDebugLogger` 는 경우 다음과 같이 Application Insights를 사용 하도록 설정 하는 코드에서를  *false* 로 설정 합니다. 이 중복 및 픽스는 응용 프로그램을 디버깅 하는 경우에만 관련이 있습니다.
 
 ```csharp
  public void ConfigureServices(IServiceCollection services)
@@ -444,7 +444,7 @@ public class MyController : ApiController
 
 ApplicationInsightsLoggerProvider는 ILogger 로그를 캡처하여 해당 로그에서 TraceTelemetry를 만듭니다. ILogger의 **Log ()** 메서드에 예외 개체가 전달 되는 경우 TraceTelemetry 대신 *exceptiontelemetry 분석이* 생성 됩니다. 이러한 원격 분석 항목은 포털, 분석 또는 Visual Studio 로컬 디버거를 비롯 한 Application Insights에 대 한 다른 TraceTelemetry 또는 ExceptionTelemetry 분석과 동일한 위치에서 찾을 수 있습니다.
 
-항상 TraceTelemetry을 보내려면 다음 코드 조각을 사용 합니다.```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
+항상 TraceTelemetry을 보내려면 다음 코드 조각을 사용 합니다. ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
 ### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>SDK가 설치 되어 있지 않으며, Azure Web Apps 확장을 사용 하 여 내 ASP.NET Core 응용 프로그램에 대 한 Application Insights를 사용 하도록 설정 합니다. 새 공급자를 사용 어떻게 할까요?? 
 

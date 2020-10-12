@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
 ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287937"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
@@ -73,7 +73,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 | 메타데이터 유형   | 매개 변수 유형  | 설명     | 샘플 값    |
 |---|---|---|---|
 | **baseuri**     | 문자열          | 배포 패키지의 기본 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **이름**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
+| **username**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
 | **password**    | 보안 문자열    | 새 임의 암호 | Lp!ACS\^2kh     |
 | **세션 id**   | 문자열          | 고유 테스트 드라이브 세션 ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -122,7 +122,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 }
 ```
 
-샘플 값:`admin68876`
+샘플 값: `admin68876`
 
 솔루션에 임의 또는 상수 사용자 이름을 사용할 수 있습니다.
 
@@ -144,7 +144,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 }
 ```
 
-샘플 값:`Lp!ACS^2kh`
+샘플 값:  `Lp!ACS^2kh`
 
 솔루션에 임의 또는 상수 암호를 사용할 수 있습니다.
 
@@ -166,7 +166,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 }
 ```
 
-샘플 값:`b8c8693e-5673-449c-badd-257a405a6dee`
+샘플 값: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 이 매개 변수를 사용 하 여 필요한 경우 테스트 드라이브 세션을 고유 하 게 식별할 수 있습니다.
 
@@ -266,7 +266,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ### <a name="subscription-limits"></a>구독 한도
 
-구독 및 서비스 제한에 대해 잊지 마세요. 예를 들어 최대 4 코어 가상 머신을 배포 하려는 경우 랩에 사용 하는 구독을 통해 40 코어를 사용할 수 있는지 확인 해야 합니다. Azure 구독 및 서비스 제한에 대 한 자세한 내용은 [azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요. 동시에 여러 테스트 드라이브를 사용할 수 있으므로 구독에서 사용할 수 있는 총 동시 테스트 드라이브 수를 곱한 코어 수를 처리할 수 있는지 확인 합니다.
+구독 및 서비스 제한에 대해 잊지 마세요. 예를 들어 최대 10 4 코어 가상 머신을 배포 하려는 경우 랩에 사용 하는 구독을 통해 40 코어를 사용할 수 있는지 확인 해야 합니다. Azure 구독 및 서비스 제한에 대 한 자세한 내용은 [azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요. 동시에 여러 테스트 드라이브를 사용할 수 있으므로 구독에서 사용할 수 있는 총 동시 테스트 드라이브 수를 곱한 코어 수를 처리할 수 있는지 확인 합니다.
 
 ### <a name="what-to-upload"></a>업로드할 사항
 

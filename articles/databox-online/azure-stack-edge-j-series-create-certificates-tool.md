@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891092"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서 만들기 
@@ -37,7 +37,7 @@ Azure Stack 허브 준비 검사기 도구 (AzsReadinessChecker)를 사용 하 �
 - VPN 인증서
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확인 합니다. 
 
@@ -65,7 +65,7 @@ Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확�
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. 모든 인증서가 없는 경우 디렉터리를 만듭니다. 유형: 
+3. 모든 인증서가 없는 경우 디렉터리를 만듭니다. 형식: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
@@ -142,11 +142,11 @@ CA (인증 기관)에서 가져오는 인증서 파일은 Edge Pro 장치의 인
 
     `New-AzsCertificateFolder -CertificateType AzureStackEdge -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
 
-3. PFX 암호를 보안 문자열로 변환 합니다. 유형:       
+3. PFX 암호를 보안 문자열로 변환 합니다. 형식:       
 
     `$pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString` 
 
-4. 그런 다음 인증서의 유효성을 검사 합니다. 유형:
+4. 그런 다음 인증서의 유효성을 검사 합니다. 형식:
 
     `Invoke-AzsCertificateValidation -CertificateType AzureStackEdge -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
 

@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317024"
 ---
-# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례 (Azure Vm의 SQL Server)
+# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 클러스터는 Azure Virtual Machines (Vm)에서 SQL Server를 사용 하 여 고가용성 및 재해 복구 (HADR)에 사용 됩니다. 
@@ -58,7 +58,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 시작 하려면 [디스크 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원 되는 OS**: 모두   
+**지원되는 OS**: 모두   
 
 
 ### <a name="cloud-witness"></a>클라우드 감시
@@ -68,7 +68,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 시작 하려면 [클라우드 감시 구성](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)을 참조 하세요.
 
 
-**지원 되는 OS**: Windows Server 2016 이상   
+**지원되는 OS**: Windows Server 2016 이상   
 
 
 ### <a name="file-share-witness"></a>파일 공유 감시
@@ -80,7 +80,7 @@ Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 �
 시작 하려면 [파일 공유 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원 되는 OS**: Windows Server 2012 이상   
+**지원되는 OS**: Windows Server 2012 이상   
 
 ## <a name="connectivity"></a>연결
 
@@ -105,8 +105,8 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 시작 하려면 [FCI에 대 한 Azure Load Balancer를 구성](hadr-vnn-azure-load-balancer-configure.md)하는 방법을 알아봅니다. 
 
-**지원 되는 OS**: 모두   
-**지원 되는 SQL 버전**: 모두   
+**지원되는 OS**: 모두   
+**지원되는 SQL 버전**: 모두   
 **지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
@@ -125,7 +125,7 @@ DNN 리소스가 생성 되 면 클러스터는 클러스터에 있는 모든 �
 
 시작 하려면 [FCI에 대해 DNN 리소스를 구성](hadr-distributed-network-name-dnn-configure.md)하는 방법을 알아봅니다. 
 
-**지원 되는 OS**: Windows Server 2016 이상   
+**지원되는 OS**: Windows Server 2016 이상   
 **지원 되는 SQL 버전**: SQL Server 2019 이상   
 **지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스만
 
@@ -136,9 +136,9 @@ FCI 또는 가용성 그룹을 사용 하 고 Azure Virtual Machines에서 SQL S
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines는 azure 공유 디스크를 사용 하는 SQL Server Vm 또는 [표준 LOAD BALANCER](../../../load-balancer/load-balancer-standard-overview.md) CSV (클러스터 공유 볼륨)의 저장소를 사용 하 여 Windows Server 2019에서 Microsoft DTC(DISTRIBUTED TRANSACTION COORDINATOR) (MSDTC)를 지원 합니다. 
+Azure Virtual Machines는 CSV(클러스터형 공유 볼륨)의 스토리지와 [Azure 표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)가 있는 Windows Server 2019에서 또는 Azure 공유 디스크를 사용하는 SQL Server VM에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다. 
 
-Azure Virtual Machines에서 MSDTC는 클러스터 된 공유 볼륨이 있는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다. 이유는 다음과 같습니다.
+Azure Virtual Machines는 클러스터링된 공유 볼륨이 있는 Windows Server 2016 또는 이전 버전에서 MSDTC를 지원하지 않으며, 이유는 다음과 같습니다.
 
 - 클러스터형 MSDTC 리소스는 공유 스토리지를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 스토리지가 사용 가능하더라도 사용 가능한 공유 스토리지가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 부하 분산 장치는 RPC 포트를 처리하지 않습니다.

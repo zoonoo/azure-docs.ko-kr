@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
 ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332732"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
@@ -164,7 +164,7 @@ Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> 
 중복 제거된 VM/디스크 백업 및 복원 | Azure Backup은 중복 제거를 지원 하지 않습니다. 자세한 내용은 관련 [문서](./backup-support-matrix.md#disk-deduplication-support)를 참조하세요. <br/> <br/>  -Azure Backup Recovery Services 자격 증명 모음의 Vm 간에 중복 되지 않습니다. <br/> <br/>  -복원 중에 중복 제거 상태의 Vm이 있는 경우 자격 증명 모음에서 형식을 인식 하지 못하기 때문에 파일을 복원할 수 없습니다. 그러나 전체 VM 복원을 성공적으로 수행할 수 있습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.
-공유 스토리지| CSV (클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
+공유 스토리지| CSV (클러스터 공유 볼륨) 또는 Scale-Out 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
 [공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원

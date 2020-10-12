@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396691"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure Lab Services에서 Windows 템플릿 컴퓨터를 설정 하는 방법에 대 한 가이드
@@ -216,7 +216,7 @@ Windows 10에는 특정 클래스에 필요 하지 않을 수 있는 다양 한 
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name
 ```
 
-응용 프로그램을 제거 하려면 제거-Appx cmdlet을 사용 합니다.  아래 예제에서는 XBox와 관련 된 모든 항목을 제거 하는 방법을 보여 줍니다.
+응용 프로그램을 제거 하려면 Remove-Appx cmdlet을 사용 합니다.  아래 예제에서는 XBox와 관련 된 모든 항목을 제거 하는 방법을 보여 줍니다.
 
 ```powershell
 Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-AppxPackage $_} }

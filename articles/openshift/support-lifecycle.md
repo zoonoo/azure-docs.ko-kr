@@ -7,13 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854509"
 ---
-# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4의 지원 주기
+# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4 지원 수명 주기
 
 Red Hat는 약 3 개월 마다 Red Hat OCP (OpenShift Container Platform)의 부 버전을 릴리스 합니다. 이러한 릴리스에는 새로운 기능과 향상된 기능이 포함됩니다. 패치 릴리스는 자주 발생 하며 (주로 매주) 부 버전 내에서 중요 한 버그 수정을 위한 것입니다. 이러한 패치 릴리스에는 보안 취약점 또는 주요 버그에 대 한 수정 사항이 포함 될 수 있습니다.
 
@@ -108,7 +108,7 @@ Azure Red Hat OpenShift SRE 팀은 새로운/기존 버전을 추가 하거나 �
 
 **사용자가 지원 되지 않는 부 버전으로 OpenShift 클러스터를 업그레이드 하면 어떻게 되나요?**
 
-N-2 버전이 나 이전 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 의미 합니다. 버전 N-2에서 N-1로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들어:
+N-2 버전이 나 이전 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 의미 합니다. 버전 N-2에서 N-1로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들면 다음과 같습니다.
 * 가장 오래 전에 지원 되는 Azure Red Hat OpenShift 버전이 4.4. z이 고 사용자가 4.3. z 또는 이전 버전인 경우 지원 외부에 있습니다.
 * 4.3에서 4.4. z 이상으로 업그레이드 하는 경우 지원 정책 내에서 다시 시작 됩니다.
 

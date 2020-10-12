@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816186"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>모바일 서비스 푸시 설치 문제 해결
@@ -226,7 +226,7 @@ Azure Site Recovery에서 지 원하는 운영 체제 및 커널 버전의 목�
 
 _/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc/default/grub_(전체 통합 부팅 로더) 구성 파일에는 **ROOT** 매개 변수 값이 포함 될 수 있으며 UUID (범용 고유 식별자) 대신 실제 장치 이름으로 **다시 시작** 됩니다. VM을 다시 부팅 하는 동안 장치 이름이 변경 될 수 있으므로 UUID 접근 방식을 Site Recovery 합니다. 예를 들어 장애 조치 (failover) 시 VM이 동일한 이름으로 온라인 상태가 되지 않을 수 있으며이로 인해 문제가 발생 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 - 다음 줄은 GRUB 파일 _/boot/grub2/grub.cfg_에서 가져온 것입니다.
 
@@ -245,7 +245,7 @@ _/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc
 
 1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid \<device name>` .
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ```shell
    blkid /dev/sda1
@@ -347,7 +347,7 @@ VSS (볼륨 섀도 복사본 서비스) 설치는 모바일 에이전트 설치�
     - Exit code: 802
     ```
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 DCOM 문제 해결에 대 한 지원을 받으려면 [Microsoft Windows 플랫폼 팀](https://aka.ms/Windows_Support) 에 문의 하세요.
 
@@ -394,7 +394,7 @@ _C:\ProgramData\ASRSetupLogs\UploadedLogs \<date-time> UA_InstallLogFile_ 의 �
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
 ```
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 1. 이 컴퓨터가 클러스터가 아닌 컴퓨터이 고 클러스터 구성 요소가 사용 되 고 있지 않은지 확인 하십시오.
 1. 구성 요소가 사용 되지 않는 경우 컴퓨터에서 클러스터 구성 요소를 제거 합니다.
@@ -403,7 +403,7 @@ COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Ex
 
 모바일 에이전트 설치에 실패 하는 경우 _C:\ProgramData\ASRSetupLogs_ 아래의 로그를 검토 하 여 일부 컨트롤 집합에서 필요한 드라이버 중 일부가 누락 되었는지 확인 합니다.
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 1. 와 같은 레지스트리 편집기를 사용 하 여 `regedit.msc` 레지스트리를 엽니다.
 1. 노드를 엽니다 `HKEY_LOCAL_MACHINE\SYSTEM` .

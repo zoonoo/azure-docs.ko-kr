@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983001"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
@@ -74,11 +74,11 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
 **오류가 발생 했습니다.**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="웹 브라우저에서 발생 하는 일반 오류의 예를 보여 주는 스크린샷":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
 **웹 사이트에서 페이지를 표시할 수 없습니다.**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="웹 사이트를 표시 하는 스크린샷에는 웹 브라우저에 페이지 오류가 표시 되지 않습니다.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
 오류의 원인을 찾는 가장 쉬운 방법은 주로 자세한 오류 메시지를 사용하도록 설정하는 것입니다. 이전 스크린샷 중 첫 번째 스크린샷에 그 방법이 설명되어 있습니다. 배포된 Web.config 파일의 변경이 필요합니다. 프로젝트에서 *Web.config* 파일을 편집한 후 프로젝트를 다시 배포하거나 [Web.config 변환](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)을 만들고 디버그 빌드를 배포할 수도 있지만 더 빠른 방법이 있습니다. **솔루션 탐색기**에서 *원격 보기* 기능을 사용하면 원격 앱의 파일을 직접 보고 편집할 수 있습니다.
 
@@ -139,25 +139,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. **서버 탐색기**에서 앱을 마우스 오른쪽 단추로 클릭한 다음, **디버거 연결**을 클릭합니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="선택한 앱을 표시 하 고 디버거 연결을 클릭 하 여 서버 탐색기 창의 스크린샷":::
-
-    브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 48시간 내 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 동일한 시간에 디버깅을 다시 시작하면 지연이 발생하지 않습니다
-
-    > [!NOTE] 
-    > 디버거를 시작하는 데 문제가 있는 경우 **서버 탐색기** 대신 **클라우드 탐색기**를 사용해 보세요.
-    >
-
-1. 메뉴에서 **정보** 를 클릭합니다.
-
-    Visual Studio가 중단점에서 중지되고 코드는 로컬 컴퓨터가 아닌 Azure에서 실행됩니다.
-
-1. `currentTime` 변수를 마우스 포인터로 가리켜 시간 값을 봅니다.
-
-    ![Azure에서 실행 중인 디버그 모드의 변수 보기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
-
-    보이는 시간은 Azure 서버 시간이며 이는 로컬 컴퓨터의 표준 시간대와 다를 수 있습니다.
-
-1. `currentTime` 변수에 "현재 Azure에서 실행 중" 같은 새 값을 입력합니다.
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷" 같은 새 값을 입력합니다.
 
 1. F5 키를 눌러 계속 실행합니다.
 
@@ -192,7 +174,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 8. **디버거 연결**을 클릭합니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="드롭다운 메뉴와 디버거 연결 선택에서 선택한 ContosoAdsWebJob을 보여 주는 서버 탐색기의 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
     브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 48시간 내 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 동일한 시간에 디버깅을 다시 시작하면 지연이 발생하지 않습니다
 
@@ -340,11 +322,11 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
 1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd` 합니다.
 1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="첫 번째 줄에서 선택한 보기 정보를 표시 하는 웹 브라우저의 응용 프로그램 추적 페이지 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
     **요청 세부 정보** 페이지가 나타나며, **추적 정보** 섹션에서 `Index` 메서드에 추가한 trace 문의 출력을 확인합니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="추적 정보 섹션에 강조 표시 된 메시지를 표시 하는 웹 브라우저의 요청 정보 페이지 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
     기본적으로 `trace.axd` 는 로컬에서만 사용할 수 있습니다. 원격 앱에서 사용할 수 있도록 하려면, 다음 예제에 표시된 것처럼 *Web.config* 파일의 `trace` 요소에 `localOnly="false"`를 추가하면 됩니다.
 
@@ -361,40 +343,16 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
     Visual Studio에서 업데이트가 게시된 후 **연결** 탭의 **대상 URL**의 확인란을 선택 취소하지 않은 경우 브라우저 창이 열리고 사용자의 홈 페이지가 표시됩니다.
 3. **서버 탐색기**에서 앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 보기**를 선택합니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="새 창에서 스트리밍 로그 보기를 선택 하 여 앱을 마우스 오른쪽 단추로 클릭 한 후 서버 탐색기의 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
     **출력** 창에는 현재 로그 스트리밍 서비스에 연결되어 있음이 표시되고, 로그는 표시되지 않은 상태로 매분마다 알림 줄이 추가됩니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="알림 줄이 있는 로그 스트리밍 서비스에 대 한 연결의 예를 보여 주는 출력 창의 스크린샷":::
-
-4. 애플리케이션 홈 페이지가 표시된 브라우저 창에서 **연락처**를 클릭합니다.
-
-    몇 초 이내에 `Contact` 메서드에 추가한 오류 수준의 추적에 대한 출력이 **출력** 창에 나타납니다.
-
-    ![출력 창의 오류 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
-
-    로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 App Service 앱을 만드는 경우 사이트 설정에서 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다.
-
-    ![애플리케이션 로깅 끄기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
-
-    하지만 **스트리밍 로그 보기**를 선택한 경우 Visual Studio는 자동으로 **애플리케이션 로깅(파일 시스템)** 을 **오류**로 변경합니다. 이는 오류 수준의 로그가 보고된다는 의미입니다. 추적 로그를 모두 보려면 이 설정을 **자세한 정보 표시**로 변경할 수 있습니다. 심각도 수준을 오류보다 낮은 수준으로 선택하면 그보다 더 높은 심각도 수준의 모든 로그가 보고됩니다. 따라서 자세한 정보 표시를 선택하는 경우 정보, 경고 및 오류 로그도 볼 수 있습니다.  
-
-5. **서버 탐색기**에서 앱을 마우스 오른쪽 단추로 클릭하고 이전과 마찬가지로 **설정 보기**를 클릭합니다.
-6. **애플리케이션 로깅(파일 시스템)** 을 **자세한 정보 표시**로 변경한 다음, **저장**을 클릭합니다.
-
-    ![추적 수준을 자세한 정보 표시로 설정](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
-7. 이제 **연락처** 페이지가 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
-
-    몇 초 이내에 **출력** 창에 추적 출력이 모두 표시됩니다.
-
-    ![자세한 정보 표시 추적 출력](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
-
-    이 섹션에서는 앱 설정을 사용하여 로깅을 사용 및 사용하지 않도록 설정했습니다. 또한 Web.config 파일을 수정하여 추적 수신기를 사용 또는 사용하지 않도록 설정할 수도 있습니다. 하지만 Web.config 파일을 수정하면 앱 도메인이 재순환할 수 있습니다. 반면에 앱 구성을 통해 로깅을 사용하도록 설정하면 재순환하지 않습니다. 문제를 재현하는 데 오랜 시간이 걸리는 경우 또는 문제가 일시적인 경우 앱 도메인을 재순환하면 문제를 "해결" 할 수도 있지만 문제가 다시 발생할 때까지 강제로 대기해야 합니다. Azure에서 진단을 사용하도록 설정하면 앱 도메인을 재사용하지 않고 즉시 오류 정보를 캡처하기 시작할 수 있습니다.
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷" 할 수도 있지만 문제가 다시 발생할 때까지 강제로 대기해야 합니다. Azure에서 진단을 사용하도록 설정하면 앱 도메인을 재사용하지 않고 즉시 오류 정보를 캡처하기 시작할 수 있습니다.
 
 ### <a name="output-window-features"></a>출력 창 기능
 **출력** 창의 **Microsoft Azure 로그** 탭에는 여러 단추와 하나의 입력란이 있습니다.
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="출력 창의 Microsoft Azure 로그 탭에 있는 단추 및 텍스트 상자를 보여 주는 스크린샷":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
 이들은 다음 기능을 수행합니다.
 
@@ -458,15 +416,15 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
 
 1. **출력** 창에서 **스트리밍 로그 다운로드**를 클릭합니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="스트리밍 로그 다운로드 단추가 강조 표시 된 출력 창의 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
     파일 탐색기에서 다운로드한 파일이 선택된 상태로 *Downloads* 폴더가 열립니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="다운로드 한 파일이 선택 된 파일 탐색기에서 다운로드 폴더의 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
 2. *.zip* 파일의 압축을 풀면 다음 폴더 구조가 표시됩니다.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="파일이 추출 된 후의 .zip 파일 폴더 구조 스크린샷":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="웹 브라우저에서 '/' 응용 프로그램 오류에 서버 오류가 표시 된 스크린샷":::
 
    * 애플리케이션 추적 로그는 *LogFiles\Application* 폴더에 *.txt* 파일로 기록됩니다.
    * 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.

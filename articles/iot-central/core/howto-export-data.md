@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
 ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974407"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
@@ -35,7 +35,7 @@ ms.locfileid: "90974407"
 > [!Tip]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 내보내기 기능을 사용 하려면 [V3 응용 프로그램이](howto-get-app-info.md)있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
 
@@ -97,9 +97,9 @@ ms.locfileid: "90974407"
 
     |성능 계층|계정 유형|
     |-|-|
-    |Standard|범용 V2|
-    |Standard|범용 V1|
-    |Standard|Blob Storage|
+    |표준|범용 V2|
+    |표준|범용 V1|
+    |표준|Blob Storage|
     |Premium|블록 Blob 저장소|
 
 1. 저장소 계정에서 컨테이너를 만들려면 저장소 계정으로 이동 합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
@@ -275,8 +275,8 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
 | 기능  | 레거시 데이터 내보내기 | 새 데이터 내보내기 |
 | :------------- | :---------- | :----------- |
 | 사용 가능한 데이터 형식 | 원격 분석, 장치, 장치 템플릿 | 원격 분석, 속성 변경 |
-| 필터링 | None | 내보내는 데이터 형식에 따라 달라 집니다. 원격 분석, 원격 분석을 통한 필터링, 메시지 속성, 속성 값 |
-| 강화 | None | 사용자 지정 문자열 또는 장치에서 속성 값을 사용 하 여 보강 |
+| 필터링 | 없음 | 내보내는 데이터 형식에 따라 달라 집니다. 원격 분석, 원격 분석을 통한 필터링, 메시지 속성, 속성 값 |
+| 강화 | 없음 | 사용자 지정 문자열 또는 장치에서 속성 값을 사용 하 여 보강 |
 | Destinations | Azure Event Hubs, Azure Service Bus 큐 및 토픽 Azure Blob Storage | 레거시 데이터 내보내기 및 webhook와 동일 합니다.|
 | 지원되는 애플리케이션 버전 | V2, V3 | V3만 |
 | 주목할 만한 제한 | 앱 당 내보내기 5 개, 내보내기 당 하나의 대상 | 10 개의 내보내기-앱 당 대상 연결 |

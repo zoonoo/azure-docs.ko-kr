@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82691892"
 ---
-# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>정규화 된 데이터베이스 스키마를 Azure SQL Database에서 Azure CosmosDB 비 정규화 된 컨테이너로 마이그레이션
+# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>정규화된 데이터베이스 스키마를 Azure SQL Database에서 Azure CosmosDB 비정규화 컨테이너로 마이그레이션
 
 이 가이드에서는 Azure SQL Database에서 기존의 정규화 된 데이터베이스 스키마를 가져와서 azure CosmosDB로 로드 하기 위해 Azure CosmosDB 비 정규화 된 스키마로 변환 하는 방법을 설명 합니다.
 

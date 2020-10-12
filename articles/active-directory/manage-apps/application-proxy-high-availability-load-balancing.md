@@ -17,15 +17,15 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764590"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>응용 프로그램 프록시 커넥터 및 응용 프로그램의 고가용성 및 부하 분산
 
-이 문서에서는 응용 프로그램 프록시 배포와 트래픽 배포가 작동 하는 방식을 설명 합니다. 다음에 대해 설명 합니다.
+이 문서에서는 응용 프로그램 프록시 배포와 트래픽 배포가 작동 하는 방식을 설명 합니다. 다음에 대해 설명합니다.
 
 - 커넥터 성능 최적화에 대 한 팁과 함께 사용자 및 커넥터 간에 트래픽이 분산 되는 방식
 

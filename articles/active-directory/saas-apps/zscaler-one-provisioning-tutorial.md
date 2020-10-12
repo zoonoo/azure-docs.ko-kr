@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545865"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전에 대해 Zscaler One 구성
@@ -106,7 +106,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![Zscaler One 구성 SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. **기본 URL** 및 **전달자 토큰**에서 설정을 가져오려면 **Scim 기반 프로 비전 사용** 을 선택 합니다. 그런 다음 설정을 저장 합니다. **기본 url** 설정을 Azure Portal **테 넌 트 url** 에 복사 합니다. **전달자 토큰** 설정을 Azure Portal의 **비밀 토큰** 에 복사 합니다.
+    b. **기본 URL** 및 **전달자 토큰**에서 설정을 가져오려면 **SCIM-Based 프로 비전 사용** 을 선택 합니다. 그런 다음 설정을 저장 합니다. **기본 url** 설정을 Azure Portal **테 넌 트 url** 에 복사 합니다. **전달자 토큰** 설정을 Azure Portal의 **비밀 토큰** 에 복사 합니다.
 
 7. 5 단계에 표시 된 상자를 입력 한 후 **연결 테스트** 를 선택 하 여 Azure AD가 Zscaler One에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Zscaler 한 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

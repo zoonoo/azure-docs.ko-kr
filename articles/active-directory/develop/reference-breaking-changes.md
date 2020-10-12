@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115036"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
@@ -69,9 +69,9 @@ Azure AD에 직접 로그인 하는 256 자 보다 긴 암호를 사용 하는 �
 
 로그인 로그의 오류는 AADSTS 50052: InvalidPasswordExceedsMaxLength이 됩니다.
 
-메시지:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+메시지: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-재구성
+수정:
 
 암호가 허용 된 최대 길이를 초과 하기 때문에 사용자가 로그인 할 수 없습니다. 암호를 재설정 하려면 관리자에 게 문의 해야 합니다. SSPR가 테 넌 트에 대해 사용 하도록 설정 된 경우 "암호 잊음" 링크를 따라 암호를 다시 설정할 수 있습니다.
 
@@ -102,7 +102,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 9/2 주부터 POST 메서드를 사용 하는 인증 요청은 보다 엄격한 HTTP 표준을 사용 하 여 유효성이 검사 됩니다.  특히 공백과 큰따옴표 (")는 요청 양식 값에서 더 이상 제거 되지 않습니다. 이러한 변경으로 인해 기존 클라이언트는 중단 되지 않으며, Azure AD로 전송 되는 요청은 매번 안정적으로 처리 됩니다. 나중에 (위 참조) 요청 내에서 중복 된 매개 변수를 거부 하 고 BOM을 무시할 계획입니다.
 
-예:
+예제:
 
 현재 `?e=    "f"&g=h` 는와 동일 하 게 구문 분석 됩니다 `?e=f&g=h` `e`  ==  `f` .  이 변경으로 인해 이제는이를 구문 분석 하 여 `e`  ==  `    "f"` 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다.
 
@@ -127,7 +127,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 #### <a name="example-request"></a>요청 예
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 Contoso 테 넌 트에 대해 호출 되는 단일 테 넌 트 앱 이며, `gateway.contoso.com/api` 클라이언트 앱입니다 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` 이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 Contoso 테 넌 트에 대해 호출 되는 단일 테 넌 트 앱 이며, `gateway.contoso.com/api` 클라이언트 앱입니다 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.
 
 그러나 Contoso 게이트웨이 앱이 다중 테 넌 트 응용 프로그램이 면 Contoso.com 내에서 서비스 사용자가 있는 클라이언트 앱에 관계 없이 요청이 계속 됩니다.
 

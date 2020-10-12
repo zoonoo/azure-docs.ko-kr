@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045266"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Azure Stream Analytics 지 오 펜싱 및 지리 공간적 집계 시나리오
@@ -70,7 +70,7 @@ WHERE DeviceStreamInput.DeviceID = SiteReferenceInput.AllowedDeviceID
 
 ### <a name="site-with-multiple-allowed-devices"></a>허용 되는 장치가 여러 개인 사이트
 
-사이트에서 여러 장치를 허용 하는 경우에는 장치 Id의 배열을에 정의할 수 `AllowedDeviceID` 있으며, 사용자 정의 함수를 절에서 사용 `WHERE` 하 여 스트림 장치 id가 해당 목록의 모든 장치 id와 일치 하는지 확인할 수 있습니다. 자세한 내용은 클라우드 작업에 대 한 [JAVASCRIPT udf](stream-analytics-javascript-user-defined-functions.md) 자습서 및 edge 작업에 대 한 [c # udf](stream-analytics-edge-csharp-udf.md) 자습서를 참조 하세요.
+사이트에서 여러 장치를 허용 하는 경우에는 장치 id의 배열을에 정의할 수 `AllowedDeviceID` 있으며, 절에서 User-Defined 함수를 사용 `WHERE` 하 여 스트림 장치 id가 해당 목록의 모든 장치 id와 일치 하는지 확인할 수 있습니다. 자세한 내용은 클라우드 작업에 대 한 [JAVASCRIPT udf](stream-analytics-javascript-user-defined-functions.md) 자습서 및 edge 작업에 대 한 [c # udf](stream-analytics-edge-csharp-udf.md) 자습서를 참조 하세요.
 
 ## <a name="geospatial-aggregation"></a>지리 공간적 집계
 

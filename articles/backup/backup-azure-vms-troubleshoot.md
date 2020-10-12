@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316735"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
@@ -132,7 +132,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 - VM에 대 한 부하가 가장 낮은 경우 사용량이 적은 시간에 백업을 수행 하도록 백업 정책을 변경 합니다.
 - 더 높은 IOPs를 지원 하도록 Azure 디스크를 업그레이드 합니다. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
-### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-VSS (볼륨 섀도 복사본) 서비스가 잘못 된 상태 여 서 스냅숏 작업이 실패 했습니다.
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState - VSS(볼륨 섀도 복사본) 서비스가 잘못된 상태여서 스냅샷 작업이 실패했습니다.
 
 오류 코드: Extensionfailedstateful Serviceinbadstate <br/>
 오류 메시지: VSS (볼륨 섀도 복사본) 서비스가 잘못 된 상태 여 서 스냅숏 작업이 실패 했습니다.
@@ -318,7 +318,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 #### <a name="disks-appear-offline-after-file-restore"></a>파일이 복원 된 후 오프 라인으로 표시 되는 디스크
 
 복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다. 
-* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
 
 

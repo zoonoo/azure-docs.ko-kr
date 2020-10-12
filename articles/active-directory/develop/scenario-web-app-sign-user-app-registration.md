@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118674"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
@@ -50,7 +50,7 @@ ms.locfileid: "88118674"
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. 응용 프로그램에 대해 지원 되는 계정 유형을 선택 합니다. ( [지원 되는 계정 유형](./v2-supported-account-types.md)을 참조 하세요.)
    1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **AspNetCore-WebApp**를 입력 합니다.
-   1. **리디렉션 uri**의 경우 인증에 성공한 후 반환 된 토큰 응답을 받을 응용 프로그램의 형식 및 URI 대상을 추가 합니다. 예를 들어을 입력 **https://localhost:44321** 합니다. 그런 다음 **등록**을 선택 합니다.
+   1. **리디렉션 uri**의 경우 인증에 성공한 후 반환 된 토큰 응답을 받을 응용 프로그램의 형식 및 URI 대상을 추가 합니다. 예를 들어을 입력 **https://localhost:44321** 합니다. 그런 다음 **등록**을 선택합니다.
    ![registration](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
    1. **회신 URL**의 경우 **https://localhost:44321/signin-oidc** **웹**형식의를 추가 합니다.

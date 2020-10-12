@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833388"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure Backup
@@ -43,7 +43,7 @@ File Storage 공유는 표준 SMB 파일 공유이므로 Azure에서 실행되�
 
 ## <a name="azure-blobxfer-utility-details"></a>Azure blobxfer 유틸리티 정보
 
-Azure Storage에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShell을 사용하거나 [Azure SDK](https://azure.microsoft.com/downloads/) 중 하나를 사용하여 도구를 개발할 수 있습니다. Azure storage로 데이터를 복사 하는 즉시 사용 가능한 유틸리티인 AzCopy도 있습니다. [AzCopy 명령줄 유틸리티를 사용 하 여 데이터 전송](../../../storage/common/storage-use-azcopy-v10.md)을 참조 하세요.
+Azure Storage에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShell을 사용하거나 [Azure SDK](https://azure.microsoft.com/downloads/) 중 하나를 사용하여 도구를 개발할 수 있습니다. Azure storage로 데이터를 복사 하는 즉시 사용 가능한 유틸리티인 AzCopy도 있습니다. [AzCopy Command-Line 유틸리티를 사용 하 여 데이터 전송](../../../storage/common/storage-use-azcopy-v10.md)을 참조 하세요.
 
 따라서 blobxfer 유틸리티가 SAP HANA 백업 파일을 복사하는 데 사용되었습니다. 이 유틸리티는 프로덕션 환경에서 많은 고객이 사용하는 오픈 소스이며 [GitHub](https://github.com/Azure/blobxfer)에서 사용할 수 있습니다. Azure File Storage는 클라우드 기반 SMB 파일 공유를 제공하므로 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 신속하게 Azure로 마이그레이션할 수 있습니다. 또한 여러 파일을 사용 하 여 디렉터리를 복사할 때 md5 해시 또는 자동 병렬 처리와 같은 다양 한 유용한 기능을 제공 합니다.
 

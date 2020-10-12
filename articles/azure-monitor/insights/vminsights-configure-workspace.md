@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성
+title: VM용 Azure Monitor에 대해 Log Analytics 작업 영역 구성
 description: VM용 Azure Monitor에서 사용 하는 Log Analytics 작업 영역을 만들고 구성 하는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,13 +8,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828560"
 ---
-# <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성
+# <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대해 Log Analytics 작업 영역 구성
 VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM용 Azure Monitor에 대해 구성 합니다.
 
 ## <a name="overview"></a>개요

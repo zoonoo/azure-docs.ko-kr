@@ -8,10 +8,10 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974423"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>데이터 내보내기를 사용 하 여 IoT 데이터를 클라우드 대상으로 내보내기 (레거시)
@@ -30,7 +30,7 @@ ms.locfileid: "90974423"
 > [!Note]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 권한이 있어야 합니다.
 
@@ -67,9 +67,9 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
     |성능 계층|계정 유형|
     |-|-|
-    |Standard|범용 V2|
-    |Standard|범용 V1|
-    |Standard|Blob Storage|
+    |표준|범용 V2|
+    |표준|범용 V1|
+    |표준|Blob Storage|
     |Premium|블록 Blob 저장소|
 
 2. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.

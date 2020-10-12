@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440595"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
@@ -127,7 +127,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 #### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | Description | 필수 여부 |
+| 속성 | 설명 | 필수 여부 |
 |:--- |:--- |:--- |
 | type | 복사 활동의 경우를로 설정 합니다. `Copy` | 예 |
 | 입력 | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
@@ -183,7 +183,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 ## <a name="add-additional-columns-during-copy"></a>복사 하는 동안 다른 열 추가
 
-원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 다음은 그 예입니다. 
+원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 파일 기반 원본에서 복사 하는 경우 데이터를 가져온 파일에서 추적할 추가 열로 상대 파일 경로를 저장 합니다.
 - ADF 식으로 열을 추가 하 고, 파이프라인 이름/파이프라인 ID와 같은 ADF 시스템 변수를 연결 하거나, 업스트림 활동의 출력에서 다른 동적 값을 저장 합니다.
@@ -198,7 +198,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 프로그래밍 방식으로 구성 하려면 `additionalColumns` 복사 작업 원본에 속성을 추가 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`** -예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 예 |
 

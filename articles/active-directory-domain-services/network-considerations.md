@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396334"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
@@ -91,7 +91,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 관리 되는 도메인은 배포 중에 일부 네트워킹 리소스를 만듭니다. 이러한 리소스는 관리 되는 도메인의 성공적인 작업 및 관리에 필요 하며 수동으로 구성할 수 없습니다.
 
-| Azure 리소스                          | Description |
+| Azure 리소스                          | 설명 |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
 | 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/public-ip-addresses.md)을 참조 하세요. |
@@ -175,5 +175,5 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 Azure AD DS에서 사용 하는 몇 가지 네트워크 리소스 및 연결 옵션에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 * [Azure 가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md)
-* [Azure VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
+* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)

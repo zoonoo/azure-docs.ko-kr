@@ -13,10 +13,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441088"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
@@ -205,7 +205,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ### <a name="configuration"></a>Configuration
 복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결된 서비스가 아직 없는 경우 만들어야 합니다.
 
-| 속성 | Description | 기본값 | 필수 |
+| 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 포함 된 저장소를 사용 하 여 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
