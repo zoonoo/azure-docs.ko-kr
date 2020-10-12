@@ -8,10 +8,10 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255165"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
@@ -122,9 +122,9 @@ SCM URL은 Kudu 콘솔에 액세스 하거나 웹 배포를 사용 하 여 앱�
 
 ### <a name="dns-configuration"></a>DNS 구성 
 
-외부 ASE를 사용 하는 경우 ASE에서 만든 앱이 Azure DNS 등록 됩니다. 외부 ASE에는 앱을 공개적으로 사용할 수 있는 추가 단계가 없습니다. ILB ASE를 사용 하 여 사용자 고유의 DNS를 관리 해야 합니다. 사용자의 DNS 서버에서 또는 Azure DNS 개인 영역을 사용 하 여이 작업을 수행할 수 있습니다.
+External ASE를 사용하는 경우 ASE에서 만든 앱이 Azure DNS로 등록됩니다. External ASE에는 앱을 공개적으로 사용할 수 있는 추가 단계가 없습니다. ILB ASE를 사용하여 자체 DNS를 관리해야 합니다. 사용자의 DNS 서버에서 또는 Azure DNS 프라이빗 영역을 사용하여 이 작업을 수행할 수 있습니다.
 
-ILB ASE를 사용 하 여 자체 DNS 서버에서 DNS를 구성 하려면:
+ILB ASE를 사용하여 자체 DNS 서버에서 DNS를 구성하려면 다음을 수행합니다.
 
 1. &lt;ASE 이름&gt;.appserviceenvironment.net 영역 만들기
 1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
@@ -132,16 +132,16 @@ ILB ASE를 사용 하 여 자체 DNS 서버에서 DNS를 구성 하려면:
 1. &lt;ASE 이름&gt;.appserviceenvironment.net에 scm이라는 영역 만들기
 1. scm 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 
-Azure DNS 개인 영역에서 DNS를 구성 하려면:
+Azure DNS 프라이빗 영역에서 DNS를 구성하려면 다음을 수행합니다.
 
 1. ASE 이름이 appserviceenvironment.net 인 Azure DNS 개인 영역을 만듭니다 &lt; &gt; .
 1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
-1. 해당 영역에서 ILB IP 주소에 * scm을 가리키는 A 레코드를 만듭니다.
+1. 해당 영역에 *.scm으로 ILB IP 주소를 가리키는 A 레코드 만들기
 
-ASE 기본 도메인 접미사에 대 한 DNS 설정은 해당 이름 으로만 액세스할 수 있도록 앱을 제한 하지 않습니다. ILB ASE의 앱에 대 한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net*이라는 영역을 만들려는 경우이를 수행 하 고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동 하지만 scm 사이트의 경우에는 작동 하지 않습니다. Scm 사이트는 * &lt; appname &gt; . scm &lt; 에서만 사용할 수 있습니다. asename &gt; . appserviceenvironment.net*. 
+ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 액세스할 수 있도록 앱을 제한하지 않습니다. ILB ASE의 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net*이라는 영역을 만들려는 경우이를 수행 하 고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. Scm 사이트는 * &lt; appname &gt; . scm &lt; 에서만 사용할 수 있습니다. asename &gt; . appserviceenvironment.net*. 
 
-이라는 영역 *입니다. &lt; &gt;appserviceenvironment.net* 는 전역적으로 고유 합니다. 2019 년 5 월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *contoso.com* 를 사용 하려는 경우이 작업을 수행할 수 있으며 scm 사이트를 포함 합니다. 이 모델에는 다음을 비롯 한 과제가 있습니다. 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드 카드 인증서를 사용 하기 위한 요구 사항 ILB ASE 기본 인증서 업그레이드 프로세스도 중단 되어 응용 프로그램을 다시 시작 했습니다. 이러한 문제를 해결 하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용 하도록 변경 되었습니다. ILB ASE 동작은 2019 년 5 월 이후 ILB Ase 적용 됩니다. 기존 ILB Ase는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리 해야 합니다.
+이라는 영역 *입니다. &lt; &gt;appserviceenvironment.net* 는 전역적으로 고유 합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *contoso.com* 를 사용 하려는 경우이 작업을 수행할 수 있으며 scm 사이트를 포함 합니다. 이 모델에는 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
 
 ## <a name="publishing"></a>게시
 

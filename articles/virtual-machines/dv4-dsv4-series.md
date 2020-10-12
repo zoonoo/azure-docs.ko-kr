@@ -9,22 +9,22 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 59c00b06f1fef613b00ade13c7cacc0b88e61bf1
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 959906f25cbae0158dfb0baf0b7664b8f9b9b5d4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649549"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945671"
 ---
 # <a name="dv4-and-dsv4-series"></a>Dv4 및 Dsv4 시리즈
 
-Dv4 및 Dsv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되므로 대부분의 범용 작업에 대해 더 나은 가치를 제공 합니다. 3.4 GHz의 모든 코어 터보 클록 속도를 제공 합니다. 
+Dv4 및 Dsv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되므로 대부분의 범용 작업에 대해 더 나은 가치를 제공 합니다. 3.4 g h z의 모든 코어 터보 클록 속도를 제공 합니다. 
 
 > [!NOTE]
 > 질문과 대답은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 ## <a name="dv4-series"></a>Dv4 시리즈
 
-Dv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 원격 저장소 옵션의 조합을 제공 합니다. Dv4 시리즈 Vm은 [Intel &reg; 하이퍼 스레딩 기술을](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)특징으로 합니다.
+Dv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 원격 저장소 옵션의 조합을 제공 합니다. Dv4 시리즈 Vm은 [Intel &reg; Hyper-Threading 기술을](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)기능 합니다.
 
 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Dsv4 크기를 사용 합니다. Dsv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Dv4 시리즈와 동일 합니다.
 
@@ -48,7 +48,7 @@ Dv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 
 
 ## <a name="dsv4-series"></a>Dsv4 시리즈
 
-Dsv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 원격 저장소 옵션의 조합을 제공 합니다. Dsv4 시리즈 Vm은 [Intel &reg; 하이퍼 스레딩 기술을](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)특징으로 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
+Dsv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 원격 저장소 옵션의 조합을 제공 합니다. Dsv4 시리즈 Vm은 [Intel &reg; Hyper-Threading 기술을](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)기능 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
 
 [Acu](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>

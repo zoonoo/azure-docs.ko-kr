@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236688"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사 합니다.
@@ -55,7 +55,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>시나리오 2: 허브 및 스포크 아키텍처-개인 끝점 및 가상 컴퓨터에 대 한 공유 가상 네트워크
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="동일한 Virtual Network의 전용 끝점 및 Virtual Machines" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="전용 끝점에 대 한 전용 Virtual Network" border="true":::
 
 이 시나리오는 다음과 같은 경우에 구현 됩니다.
 
@@ -78,7 +78,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 ## <a name="scenario-3-single-virtual-network"></a>시나리오 3: 단일 가상 네트워크
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="단일 가상 네트워크" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="전용 끝점에 대 한 전용 Virtual Network" border="true":::
 
 구현에 대 한 몇 가지 제한 사항이 있습니다. 허브 및 스포크 아키텍처로의 마이그레이션은 가능 하지 않습니다. 시나리오 2에서와 동일한 고려 사항이 적용 됩니다. 이 시나리오에서는 가상 네트워크 피어 링 요금이 적용 되지 않습니다.
 
@@ -87,7 +87,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>시나리오 4: 전용 끝점에 대 한 온-프레미스 트래픽
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="전용 끝점에 대 한 온-프레미스 트래픽" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="전용 끝점에 대 한 전용 Virtual Network" border="true":::
 
 다음 중 하나를 사용 하 여 온-프레미스 네트워크와의 연결을 구성한 경우이 아키텍처를 구현할 수 있습니다. 
 
@@ -177,7 +177,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | 지역 | **(US) 남부 중부 US**를 선택 합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다**를 그대로 둡니다. |
     | 이미지 | **Ubuntu Server 18.04 LTS-Gen1**을 선택 합니다. |
-    | Size | **Standard_B2s**를 선택 합니다. |
+    | 크기 | **Standard_B2s**를 선택 합니다. |
     | **관리자 계정** |  |
     | 인증 유형 | **암호**를 선택합니다. |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
@@ -332,7 +332,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | **네트워킹** | |
     | 가상 네트워크 | **MyPEVnet**를 선택 합니다. |
     | 서브넷 | **PrivateEndpointSubnet**를 선택 합니다. |
-    | **사설 DNS 통합** | |
+    | **프라이빗 DNS 통합** | |
     | 프라이빗 DNS 영역과 통합 | **예**를 선택합니다. |
     | Subscription | 구독을 선택합니다. |
     | 사설 DNS 영역 | 기본 **privatelink.database.windows.net**을 그대로 둡니다. |
@@ -374,7 +374,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | 원격 가상 네트워크에서 myAzFwVNet로 전달 된 트래픽 허용    | **사용**을 선택합니다. |
     | MyAzFwVNet에서 원격 가상 네트워크로 전달 된 트래픽 허용 | **사용**을 선택합니다. |
     | **게이트웨이 전송 설정 구성** | |
-    | 게이트웨이 전송 허용 | 선택 하지 않은 상태로 유지 |
+    | 게이트웨이 전송 허용 | 확인되지 않은 상태로 둡니다. |
     |||
 
 4. **확인**을 선택합니다.
@@ -400,7 +400,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | 원격 가상 네트워크에서 myAzFwVNet로 전달 된 트래픽 허용    | **사용**을 선택합니다. |
     | MyAzFwVNet에서 원격 가상 네트워크로 전달 된 트래픽 허용 | **사용**을 선택합니다. |
     | **게이트웨이 전송 설정 구성** | |
-    | 게이트웨이 전송 허용 | 선택 하지 않은 상태로 유지 |
+    | 게이트웨이 전송 허용 | 확인되지 않은 상태로 둡니다. |
 
 7. **확인**을 선택합니다.
 
@@ -456,17 +456,17 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **SQLPrivateEndpoint**를 입력 합니다. |
+    | Name | **SQLPrivateEndpoint**를 입력 합니다. |
     | 우선 순위 | **100**을 입력합니다. |
     | 작업 | **허용**을 입력 합니다. |
     | **규칙.** |  |
     | **FQDN 태그** | |
-    | 이름  | 비워 둡니다.  |
+    | Name  | 비워 둡니다.  |
     | 소스 형식 | 기본 **IP 주소**를 그대로 둡니다.    |
     | 원본 | 비워 둡니다. |
     | FQDN 태그 | 기본값 0을 **선택**된 상태로 둡니다. |
     | **대상 Fqdn** | |
-    | 이름 | **SQLPrivateEndpoint**를 입력 합니다.    |
+    | Name | **SQLPrivateEndpoint**를 입력 합니다.    |
     | 소스 형식 | 기본 **IP 주소**를 그대로 둡니다. |
     | 원본 | **10.1.0.0/16**을 입력 합니다. |
     | 프로토콜: 포트 | **Mssql: 1433**을 입력 합니다. |
@@ -483,7 +483,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 경로는 Azure 방화벽을 통해 **Myvm** 서브넷의 트래픽을 가상 네트워크 **myPEVNet**의 주소 공간으로 보냅니다.
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 
 2. 검색 상자에 **경로 테이블** 을 입력 하 고 **enter**키를 누릅니다.
 
@@ -498,7 +498,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | Resource group | **myResourceGroup**을 선택합니다.  |
     | **인스턴스 세부 정보** |  |
     | 지역 | **남부 중부 US**를 선택 합니다. |
-    | 이름 | **VMsubnet 대 AzureFirewall을**입력 합니다. |
+    | Name | **VMsubnet 대 AzureFirewall을**입력 합니다. |
     | 게이트웨이 경로 전파 | **아니오**를 선택합니다. |
 
 5. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.

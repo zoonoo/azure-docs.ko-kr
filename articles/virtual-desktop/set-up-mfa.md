@@ -7,10 +7,10 @@ ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089924"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대해 Azure Multi-Factor Authentication을 사용하도록 설정
@@ -24,7 +24,7 @@ Windows 용 windows 클라이언트 가상 데스크톱은 로컬 컴퓨터와 W
 
 자격 증명을 기억 하는 것은 편리 하지만 엔터프라이즈 시나리오 또는 개인 장치에 대 한 배포는 보안 수준이 떨어질 수도 있습니다. 사용자를 보호 하려면 클라이언트가 MFA (Azure Multi-Factor Authentication) 자격 증명을 계속 요청 하는지 확인 해야 합니다. 이 문서에서는 Windows 가상 데스크톱에 대 한 조건부 액세스 정책을 구성 하 여이 설정을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하는 데 필요한 항목은 다음과 같습니다.
 
@@ -45,7 +45,7 @@ Windows 가상 데스크톱에 연결할 때 multi-factor authentication을 요�
 4. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 5. **할당**에서 **사용자 및 그룹**을 선택합니다.
 6. **포함**아래에서 **사용자 및 그룹 선택**  >  **사용자 및 그룹** 을 선택 하 > [필수 구성 요소](#prerequisites) 단계에서 만든 그룹을 선택 합니다.
-7. **완료**를 선택합니다.
+7. **완료** 를 선택합니다.
 8. **클라우드 앱 또는 작업**  >  **포함**아래에서 **앱 선택**을 선택 합니다.
 9. 사용 중인 Windows 가상 데스크톱의 버전에 따라 다음 앱 중 하나를 선택 합니다.
    

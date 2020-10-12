@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540968"
 ---
 # <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가
@@ -205,7 +205,7 @@ LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 �
 > [!div class="nextstepaction"]
 > [미리 작성된 모델 사용](howto-add-prebuilt-models.md)
 
-다음에 대해 자세히 알아보세요.
+다음에 대해 자세히 알아봅니다.
 * [학습](luis-how-to-train.md) 방법
 * [테스트](luis-interactive-test.md) 방법
 * [게시](luis-how-to-publish-app.md) 하는 방법

@@ -9,23 +9,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2c6540513c46307e4bd51b163dd77984395006c5
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649510"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945433"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
-Ev4 및 Esv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되며, 다양 한 메모리 집약적 엔터프라이즈 응용 프로그램 및 RAM의 최대 504GiB 기능에 적합 합니다. 3.4 GHz의 모든 코어 터보 클록 속도를 제공 합니다.
+Ev4 및 Esv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되며, 다양 한 메모리 집약적 엔터프라이즈 응용 프로그램 및 RAM의 최대 504GiB 기능에 적합 합니다. 3.4 g h z의 모든 코어 터보 클록 속도를 제공 합니다.
 
 > [!NOTE]
 > 질문과 대답은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
 ## <a name="ev4-series"></a>Ev4 시리즈
 
-Ev4 시리즈 크기는 Intel Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Ev4 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. Ev4 시리즈 Vm은 Intel &reg; 하이퍼 스레딩 기술을 특징으로 합니다.
+Ev4 시리즈 크기는 Intel Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Ev4 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. Ev4 시리즈 Vm은 Intel &reg; Hyper-Threading 기술을 기능 합니다.
 
 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Esv4 크기를 사용 합니다. Esv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Ev4 시리즈와 동일 합니다.
 
@@ -51,7 +51,7 @@ Ev4 시리즈 크기는 Intel Xeon &reg; Platinum 8272CL (캐스케이드 Lake)�
 
 ## <a name="esv4-series"></a>Esv4 시리즈
 
-Esv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Esv4 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. Evs4 시리즈 Vm은 Intel &reg; 하이퍼 스레딩 기술을 특징으로 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
+Esv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Esv4 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. Evs4 시리즈 Vm은 Intel &reg; Hyper-Threading 기술을 기능 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
 
 [Acu](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>

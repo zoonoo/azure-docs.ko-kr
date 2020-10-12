@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541478"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
@@ -54,7 +54,7 @@ ms.locfileid: "91541478"
 
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
-* 감정 분석
+* 정서 분석
 * [맞춤법 수정](luis-tutorial-bing-spellcheck.md) -v2 예측 끝점만
 * 음성 초기화
 
@@ -66,7 +66,7 @@ ms.locfileid: "91541478"
 
 엔드포인트 URL이 필요한 경우 링크를 선택하세요. 상단 메뉴에서 **관리** 를 선택 하 고 왼쪽 메뉴에서 **Azure 리소스** 를 선택 하 여 끝점 url로 이동할 수도 있습니다.
 
-## <a name="sentiment-analysis"></a>감정 분석
+## <a name="sentiment-analysis"></a>정서 분석
 
 <a name="enable-sentiment-analysis"></a>
 

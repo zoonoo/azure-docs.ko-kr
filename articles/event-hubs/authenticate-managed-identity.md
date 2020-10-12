@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89010021"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
@@ -67,7 +67,7 @@ Event Hubs 리소스에 역할을 할당 하려면 Azure Portal에서 해당 리
 역할을 할당 하면 웹 응용 프로그램은 정의 된 범위에서 Event Hubs 리소스에 액세스할 수 있습니다. 
 
 ### <a name="test-the-web-application"></a>웹 애플리케이션 테스트
-1. Event Hubs 네임 스페이스 및 이벤트 허브를 만듭니다. 
+1. Event Hubs 네임스페이스 및 이벤트 허브 만들기 
 2. Azure에 웹 앱을 배포 합니다. GitHub에서 웹 응용 프로그램에 대 한 링크는 다음 탭 섹션을 참조 하세요. 
 3. SendReceive .aspx가 웹 앱에 대 한 기본 문서로 설정 되었는지 확인 합니다. 
 3. 웹 앱에 대 한 **id** 를 사용 하도록 설정 합니다. 

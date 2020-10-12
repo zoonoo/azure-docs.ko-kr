@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
 ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596121"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
@@ -36,7 +36,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 ### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Azure PowerShell를 통해 자체 호스팅 IR 만들기
 
-1. 이 작업에 Azure PowerShell를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+1. 이 작업에 Azure PowerShell를 사용할 수 있습니다. 다음은 예제입니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -66,7 +66,7 @@ Azure Data Factory UI를 사용 하 여 자체 호스팅 IR을 만들려면 다�
 
 1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅**을 차례로 선택 하 고 **계속**을 선택 합니다. 
 
-1. 다음 페이지에서 자체 **호스팅** 을 선택 하 여 자체 호스팅 IR을 만든 다음, **계속**을 선택 합니다.
+1. 다음 페이지에서 **자체 호스팅** 을 선택 하 여 Self-Hosted IR을 만든 다음, **계속**을 선택 합니다.
    ![Selfhosted IR 만들기](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. IR의 이름을 입력 하 고 **만들기**를 선택 합니다.
@@ -153,7 +153,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
 - FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   + Windows 7 서비스 팩 1
@@ -163,7 +163,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
   + Windows Server 2012
   + Windows Server 2012 R2
   + Windows Server 2016
-  + 시작
+  + Windows Server 2019
    
    도메인 컨트롤러에 자체 호스팅 통합 런타임 설치가 지원 되지 않습니다.
 - .NET Framework 4.6.1 이상이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.

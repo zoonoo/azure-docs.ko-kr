@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082616"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
 Chef Software는 실제 및 가상 서버 구성의 관리를 활성화하는 Linux 및 Windows용 DevOps 자동화 플랫폼을 제공합니다. Chef VM 확장은 가상 머신에서 Chef를 사용하도록 설정하는 확장입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -67,16 +67,16 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 
 ### <a name="core-property-values"></a>핵심 속성 값
 
-| Name | 값/예제 | 데이터 형식
+| 속성 | 값/예제 | 데이터 형식
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | 문자열(날짜) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | 문자열 |
+| 게시자 | `Chef.Bootstrap.WindowsAzure` | 문자열 |
 | type | `LinuxChefClient`(Linux), `ChefClient`(Windows) | 문자열 |
 | typeHandlerVersion | `1210.13` | 문자열(double) |
 
 ### <a name="settings"></a>설정
 
-| Name | 값/예제 | 데이터 형식 | 필수 여부
+| 속성 | 값/예제 | 데이터 형식 | 필수 여부
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 문자열(URL) | Y |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | 문자열 | Y |
@@ -84,7 +84,7 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 
 ### <a name="protected-settings"></a>보호 설정
 
-| Name | 예제 | 데이터 형식 | 필수 여부
+| 속성 | 예 | 데이터 형식 | 필수 여부
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 문자열 | Y |
 

@@ -1,14 +1,14 @@
 ---
-title: 백업 Azure Database for PostgreSQL
+title: Azure Database for PostgreSQL 백업
 description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대 한 자세한 내용 (미리 보기)
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
 ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997312"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)

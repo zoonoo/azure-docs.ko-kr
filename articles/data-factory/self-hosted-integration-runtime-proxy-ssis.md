@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
 ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595023"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
@@ -72,7 +72,7 @@ ms.locfileid: "89595023"
 
 1. **고급 설정** 섹션에서 다음을 수행 합니다.
 
-   1. **Azure-SSIS Integration Runtime에 대 한 프록시로 자체 호스트 된 Integration Runtime 설정** 확인란을 선택 합니다. 
+   1. **Azure-SSIS Integration Runtime에 대 한 프록시로 Self-Hosted Integration Runtime 설정** 확인란을 선택 합니다. 
 
    1. **자체 호스팅 Integration Runtime** 드롭다운 목록에서 기존 자체 호스팅 IR을 Azure-SSIS IR 프록시로 선택 합니다.
 

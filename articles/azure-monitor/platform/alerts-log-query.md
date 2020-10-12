@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294362"
 ---
 # <a name="optimizing-log-alert-queries"></a>로그 경고 쿼리 최적화
@@ -72,7 +72,7 @@ workspace('Contoso-workspace1').Perf
 ## <a name="examples"></a>예제
 다음 예에서는 및를 사용 하는 로그 쿼리를 비롯 하 여 `search` `union` 경고 규칙에 사용 하기 위해 이러한 쿼리를 수정 하는 데 사용할 수 있는 단계를 제공 합니다.
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 을 사용 하 여 성능 정보를 검색 하는 다음 쿼리를 사용 하 여 로그 경고 규칙을 만들 수 있습니다 `search` . 
 
 ``` Kusto
@@ -99,7 +99,7 @@ Perf
 | where CounterValue < 30
 ```
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 을 사용 하 여 성능 정보를 검색 하는 다음 쿼리를 사용 하 여 로그 경고 규칙을 만들 수 있습니다 `search` . 
 
 ``` Kusto

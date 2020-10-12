@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326459"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Azure Event Grid 리소스에 대 한 네트워크 보안
@@ -27,13 +27,13 @@ ms.locfileid: "91326459"
 
 | 서비스 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | 모두 | 예 | 예 |
+| AzureEventGrid | Azure Event Grid. | 모두 | 예 | 아니요 |
 
 
 ## <a name="ip-firewall"></a>IP 방화벽 
 Azure Event Grid는 항목과 도메인에 게시 하기 위한 IP 기반 액세스 제어를 지원 합니다. IP 기반 컨트롤을 사용 하면 게시자를 토픽 또는 도메인으로 승인 된 컴퓨터 및 클라우드 서비스 집합 으로만 제한할 수 있습니다. 이 기능은 Event Grid에서 지 원하는 [인증 메커니즘](security-authentication.md) 을 보완 합니다.
 
-기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한, 항목 및 도메인은 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용 하면 [CIDR (클래스 없는 도메인 간 라우팅)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 ip 주소 또는 ip 주소 범위 집합 으로만 제한할 수 있습니다. 다른 IP 주소에서 시작 된 게시자는 거부 되며 403 (사용할 수 없음) 응답을 받게 됩니다.
+기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한, 항목 및 도메인은 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용 하면 [CIDR (클래스 없는 Inter-Domain 라우팅)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 ip 주소 또는 ip 주소 범위 집합으로 제한할 수 있습니다. 다른 IP 주소에서 시작 된 게시자는 거부 되며 403 (사용할 수 없음) 응답을 받게 됩니다.
 
 항목 및 도메인에 대 한 IP 방화벽을 구성 하는 단계별 지침은 [ip 방화벽 구성](configure-firewall.md)을 참조 하세요.
 
@@ -57,7 +57,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 개인 끝점을 사용 하 여 VNet 외부에서 토픽 또는 도메인 끝점 URL을 확인 하면 서비스의 공용 끝점으로 확인 됩니다. ' TopicA '의 DNS 리소스 레코드는 개인 끝점을 호스트 하는 **VNet 외부** 에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                          | Type      | 값                                         |
+| Name                                          | 유형      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -66,7 +66,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 개인 끝점을 호스트 하는 VNet에서 확인 되 면 토픽 또는 도메인 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다. ' TopicA ' 항목에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 **VNet 내부** 에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                          | Type      | 값                                         |
+| Name                                          | 유형      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
@@ -84,9 +84,9 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 | 연결 상태   |  게시 함 (예/아니요) |
 | ------------------ | -------------------------------|
 | 승인됨           | 예                            |
-| 거부됨           | 예                             |
-| Pending            | 예                             |
-| 연결 끊김       | 예                             |
+| 거부됨           | 아니요                             |
+| Pending            | 아니요                             |
+| 연결 끊김       | 아니요                             |
 
 게시에 성공 하려면 개인 끝점 연결 상태를 **승인**해야 합니다. 연결이 거부 되 면 Azure Portal를 사용 하 여 승인할 수 없습니다. 유일한 방법은 연결을 삭제 하 고 새 연결을 만드는 것입니다.
 

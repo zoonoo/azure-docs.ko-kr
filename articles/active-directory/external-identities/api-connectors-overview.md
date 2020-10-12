@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdb6e85b6d81de3d4b88ba315ddd35bd5b37ae7a
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165212"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>API 커넥터를 사용 하 여 셀프 서비스 등록 사용자 지정 및 확장 

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614022"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893138"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -197,6 +197,23 @@ AKS 클러스터를 만드는 경우 사용자를 대신하여 리소스를 만�
 AKS 클러스터의 송신 트래픽을 제한하는 경우 AKS에 대한 [필수 및 선택적 추천](limit-egress-traffic.md) 아웃바운드 포트/네트워크 규칙 및 FQDN/애플리케이션 규칙이 있습니다. 설정이 이러한 규칙 중 하나와 충돌하면 특정 `kubectl` 명령이 제대로 작동하지 않습니다. AKS 클러스터를 만들 때도 오류가 표시될 수 있습니다.
 
 설정이 필수 또는 선택적 추천 아웃바운드 포트/네트워크 규칙 및 FQDN/애플리케이션 규칙과 충돌하지 않는지 확인합니다.
+
+## <a name="im-receiving-429---too-many-requests-errors"></a>"429-너무 많은 요청" 오류를 받고 있습니다. 
+
+Azure (AKS 또는 no)의 kubernetes 클러스터가 잦은 규모를 확대/축소 하거나 클러스터 autoscaler (CA)를 사용 하는 경우 이러한 작업으로 인해 많은 수의 HTTP 호출이 발생 하 여 할당 된 구독 할당량을 초과 하 게 되 면 오류가 발생 합니다. 오류는 다음과 같습니다.
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+이러한 제한 오류는 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) 와 [여기](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors) 에 자세히 설명 되어 있습니다.
+
+AKS 엔지니어링 팀은 많은 기능이 향상 된 버전의 1.18를 실행 하 고 있는지 확인 하는 것이 좋습니다. 자세한 내용은 [여기](https://github.com/Azure/AKS/issues/1413) 및 [여기](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)에서 향상 된 기능을 참조 하세요.
+
+이러한 제한 오류는 구독 수준에서 측정 되며 다음과 같은 경우에도 발생할 수 있습니다.
+- GET 요청을 수행 하는 타사 응용 프로그램 (예: 응용 프로그램을 모니터링 하는 등). 이러한 호출의 빈도를 줄이는 것이 좋습니다.
+- VMSS에는 많은 AKS 클러스터/nodepools 있습니다. 일반적인 권장 사항은 지정 된 구독에서 20-30 미만의 클러스터를 포함 하는 것입니다.
+
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage 및 AKS 문제 해결
 

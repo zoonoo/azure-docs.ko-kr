@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: d4ab3bccf281928be2b55eb5a36ae20a0aa8a08a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288718"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Synapse SQL을 사용 하 여 테이블 디자인
@@ -27,27 +27,27 @@ ms.locfileid: "91288718"
 
 | 항목                                                        | SQL 풀 | SQL 주문형 |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [테이블 범주 확인](#determine-table-category)        | 예                | 예                      |
+| [테이블 범주 확인](#determine-table-category)        | 예                | 아니요                      |
 | [스키마 이름](#schema-names)                                | 예                | 예                     |
-| [테이블 이름](#table-names)                                  | 예                | 예                      |
-| [테이블 지속성](#table-persistence)                      | 예                | 예                      |
-| [일반 테이블](#regular-table)                              | 예                | 예                      |
+| [테이블 이름](#table-names)                                  | 예                | 아니요                      |
+| [테이블 지속성](#table-persistence)                      | 예                | 아니요                      |
+| [일반 테이블](#regular-table)                              | 예                | 아니요                      |
 | [임시 테이블](#temporary-table)                          | 예                | 예                     |
 | [외부 테이블](#external-table)                            | 예                | 예                     |
 | [데이터 형식](#data-types)                                    | 예                | 예                     |
-| [분산 테이블](#distributed-tables)                    | 예                | 예                      |
-| [해시 분산 테이블](#hash-distributed-tables)          | 예                | 예                      |
-| [복제된 테이블](#replicated-tables)                      | 예                | 예                      |
-| [라운드 로빈 테이블](#round-robin-tables)                    | 예                | 예                      |
-| [테이블에 대한 일반적인 분산 방법](#common-distribution-methods-for-tables) | 예                | 예                      |
+| [분산 테이블](#distributed-tables)                    | 예                | 아니요                      |
+| [해시 분산 테이블](#hash-distributed-tables)          | 예                | 아니요                      |
+| [복제된 테이블](#replicated-tables)                      | 예                | 아니요                      |
+| [라운드 로빈 테이블](#round-robin-tables)                    | 예                | 아니요                      |
+| [테이블에 대한 일반적인 분산 방법](#common-distribution-methods-for-tables) | 예                | 아니요                      |
 | [파티션](#partitions)                                    | 예                | 예                     |
-| [columnstore 인덱스](#columnstore-indexes)                  | 예                | 예                      |
+| [columnstore 인덱스](#columnstore-indexes)                  | 예                | 아니요                      |
 | [통계](#statistics)                                    | 예                | 예                     |
-| [기본 키 및 고유 키](#primary-key-and-unique-key)    | 예                | 예                      |
-| [테이블을 만드는 명령](#commands-for-creating-tables) | 예                | 예                      |
-| [원본 데이터를 데이터 웨어하우스에 맞춤](#align-source-data-with-the-data-warehouse) | 예                | 예                      |
-| [지원 되지 않는 테이블 기능](#unsupported-table-features)    | 예                | 예                      |
-| [테이블 크기 쿼리](#table-size-queries)                    | 예                | 예                      |
+| [기본 키 및 고유 키](#primary-key-and-unique-key)    | 예                | 아니요                      |
+| [테이블을 만드는 명령](#commands-for-creating-tables) | 예                | 아니요                      |
+| [원본 데이터를 데이터 웨어하우스에 맞춤](#align-source-data-with-the-data-warehouse) | 예                | 아니요                      |
+| [지원 되지 않는 테이블 기능](#unsupported-table-features)    | 예                | 아니요                      |
+| [테이블 크기 쿼리](#table-size-queries)                    | 예                | 아니요                      |
 
 ## <a name="determine-table-category"></a>테이블 범주 확인
 
@@ -207,7 +207,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | Description |
+| T-SQL 문 | 설명 |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 외부 테이블을 만듭니다. 테이블의 정의는 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob storage 또는 Azure Data Lake Storage에 저장 됩니다. |

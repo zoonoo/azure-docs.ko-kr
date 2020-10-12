@@ -10,10 +10,10 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530695"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>자습서: Power Apps에서 Cognitive Search 인덱스 쿼리
@@ -49,7 +49,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
 1. **+ 새 사용자 지정 커넥터**, **빈 페이지에서 만들기**를 차례로 선택합니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="빈 페이지에서 만들기 메뉴" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. 사용자 지정 커넥터 이름(예: *AzureSearchQuery*)을 지정한 다음, **계속**을 클릭합니다.
 
@@ -60,15 +60,15 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
    * [호스트]에서 검색 서비스 URL(예: `<yourservicename>.search.windows.net`)을 입력해야 합니다.
    * 기준 URL에 대해 "/"만 입력하면 됩니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="일반 정보 대화 상자" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. [보안] 페이지에서 **인증 유형**으로 *API 키*를 설정하고, 매개 변수 레이블과 매개 변수 이름을 모두 *api-key*로 설정합니다. **매개 변수 위치**에 대해 아래와 같이 *헤더*를 선택합니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="인증 유형 옵션" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. [정의] 페이지에서 **+ 새 작업**을 선택하여 인덱스를 쿼리하는 작업을 만듭니다. 요약 값으로 "쿼리"를 입력하고, 작업 ID의 이름을 입력합니다. *"검색 인덱스 쿼리"* 와 같은 설명을 입력합니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="새 작업 옵션" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. 아래로 스크롤합니다. [요청]에서 **+ 샘플에서 가져오기** 단추를 선택하여 검색 서비스에 대한 쿼리 요청을 구성합니다.
 
@@ -80,23 +80,23 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
      **Power Apps**는 구문을 사용하여 쿼리에서 매개 변수를 추출합니다. 검색 필드는 명시적으로 정의되었습니다. 
 
-       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="샘플에서 가져오기" border="true":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. **가져오기**를 클릭하여 요청을 자동으로 채웁니다. 각 매개 변수 옆에 있는 **...** 기호를 클릭하여 매개 변수 메타데이터 설정을 완료합니다. 각 매개 변수를 업데이트한 후 **뒤로**를 클릭하여 [요청] 페이지로 돌아갑니다.
 
-   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="샘플에서 가져오기 대화 상자" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. *search*: `*`를 **기본값**으로, **필수**를 *False*로, **표시 유형**을 *none*으로 설정합니다. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="search 매개 변수 메타데이터" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. *select*: `HotelName,Description,Address/City`를 **기본값**으로, **필수**를 *False*로, **표시 유형**을 *none*으로 설정합니다.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="매개 변수 메타데이터 선택" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. *api-version*: `2020-06-30`을 **기본값**으로, **필수**를 *True*로, **표시 유형**을 *internal*로 설정합니다.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="version 매개 변수 메타데이터" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. *Content-Type*: `application/json`로 설정합니다.
 
@@ -158,7 +158,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
 1. 커넥터를 선택하고, 작업 목록을 펼친 다음, **속성 보기**를 선택합니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="속성 보기" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. 오른쪽 위에서 **편집**을 선택합니다.
 
@@ -170,7 +170,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
 1. [작업]에서 **테스트 작업** 단추를 클릭합니다. 성공하면 200 상태가 표시되고, 응답 본문에는 검색 결과를 설명하는 JSON이 표시됩니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON 응답" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 ## <a name="3---visualize-results"></a>3 - 결과 시각화
 
@@ -178,7 +178,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
 1. 왼쪽에서 **앱** >  **+ 새 앱** > **캔버스**를 차례로 펼칩니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="캔버스 앱 만들기" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. 애플리케이션 유형을 선택합니다. 이 자습서에서는 **휴대폰 레이아웃**이 있는 **빈 앱**을 만듭니다. **Power Apps Studio**가 표시됩니다.
 
@@ -186,13 +186,13 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
    쿼리 API 키를 입력합니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="커넥터 연결" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
     이제 *AzureSearchQuery*는 애플리케이션에서 사용할 수 있는 데이터 원본입니다.
 
 1. **탭 삽입**에서 몇 가지 컨트롤을 캔버스에 추가합니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="컨트롤 삽입" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. 다음 요소를 삽입합니다.
 
@@ -203,7 +203,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
     캔버스는 다음과 같습니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="컨트롤 레이아웃" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
 1. **검색 단추**에서 쿼리를 실행하도록 하려면 다음 작업을 **OnSelect**에 붙여넣습니다.
 
@@ -214,7 +214,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
    다음 스크린샷에서는 **OnSelect** 작업에 대한 수식 입력줄을 보여 줍니다.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="단추 OnSelect" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::
 
    이 작업을 수행하면 단추에서 *txtQuery* 텍스트 상자의 텍스트를 쿼리 용어로 사용하여 *azResult*라는 새 컬렉션을 검색 쿼리의 결과로 업데이트합니다.
 
@@ -236,17 +236,17 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
     커넥터를 정의할 때 결과 샘플을 제공했으므로 앱에서 인덱스에 사용할 수 있는 필드를 인식합니다.
     
-    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="갤러리 필드" border="true":::   
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::   
  
 1. **F5** 키를 눌러 앱을 미리 봅니다.  
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="최종 앱" border="true":::    
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::    
 
 <!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="사용자 지정 커넥터 메뉴" border="true":::         -->
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

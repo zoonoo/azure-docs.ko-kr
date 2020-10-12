@@ -19,10 +19,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231132"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>보고용 Azure AD PowerShell cmdlet
@@ -51,10 +51,10 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 
 | 시나리오                      | PowerShell 명령 |
 | :--                           | :--                |
-| 응용 프로그램 표시 이름      | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 동기화 '" |
-| 범주                      | AzureADAuditDirectoryLogs-Filter "category eq ' ApplicationManagement '" |
-| 작업 날짜 시간            | AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
-| 위 항목 모두              | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 Sync ' 및 category eq ' ApplicationManagement ' 및 activityDateTime gt 2019-04-18"|
+| 응용 프로그램 표시 이름      | Get-AzureADAuditDirectoryLogs-"initiatedBy/app/displayName eq ' Azure AD 클라우드 동기화 '"를 필터링 합니다. |
+| 범주                      | Get-AzureADAuditDirectoryLogs 필터 "category eq ' ApplicationManagement '" |
+| 작업 날짜 시간            | Get-AzureADAuditDirectoryLogs 필터 "activityDateTime gt 2019-04-18" |
+| 위 항목 모두              | Get-AzureADAuditDirectoryLogs-"initiatedBy/app/displayName eq ' Azure AD 클라우드 동기화 ' 및 category eq ' ApplicationManagement ' 및 activityDateTime gt 2019-04-18"|
 
 
 다음 이미지는이 명령에 대 한 예를 보여 줍니다. 
@@ -72,11 +72,11 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 
 | 시나리오                      | PowerShell 명령 |
 | :--                           | :--                |
-| 사용자 표시 이름             | AzureADAuditSignInLogs-Filter "userDisplayName eq ' TimosPerkins '" |
-| 만든 날짜 시간              | AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (4/18 5:30 pm 이후의 모든 항목) |
-| Status                        | AzureADAuditSignInLogs-Filter "status/errorCode eq 50105" |
-| 응용 프로그램 표시 이름      | AzureADAuditSignInLogs-Filter "appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
-| 위 항목 모두              | AzureADAuditSignInLogs-Filter "userDisplayName eq ' TimosPerkins ' 및 status/errorCode ne 0 및 appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
+| 사용자 표시 이름             | Get-AzureADAuditSignInLogs-"userDisplayName eq ' TimosPerkins '" 필터 |
+| 만든 날짜 시간              | Get-AzureADAuditSignInLogs-필터 "createdDateTime gt 2019-04-18T17:30:00.0 Z" (4/18 5:30 pm 이후의 모든 항목) |
+| 상태                        | Get-AzureADAuditSignInLogs 필터 "status/errorCode eq 50105" |
+| 응용 프로그램 표시 이름      | Get-AzureADAuditSignInLogs-"appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" 필터 |
+| 위 항목 모두              | Get-AzureADAuditSignInLogs 필터 "userDisplayName eq ' TimosPerkins ' 및 status/errorCode ne 0 및 appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
 
 
 다음 이미지는이 명령에 대 한 예를 보여 줍니다. 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/07/2020
 ms.author: yelevin
 ms.openlocfilehash: 822d0c742bbd54b5bab0c69e82652743584a0696
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659611"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>IoT 용 Azure Defender (이전의 Azure Security Center)에서 Azure 센티널로 데이터 연결 
@@ -29,7 +29,7 @@ ms.locfileid: "89659611"
 
 IoT 용 Azure Defender 커넥터를 사용 하 여 모든 IoT 용 Azure Defender 이벤트를 Azure 센티널로 스트리밍합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널이 배포 된 작업 영역에 대 한 **읽기** 및 **쓰기** 권한
 - **IoT 용 Azure Defender는** 관련 IoT Hub에서 **사용 하도록 설정** 해야 합니다.

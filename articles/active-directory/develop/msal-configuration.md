@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854910"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
@@ -143,7 +143,7 @@ HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 | `connect_timeout` | Int | 아니요 | 시간 (밀리초) |
 | `read_timeout` | Int | 아니요 | 시간 (밀리초) |
 
-### <a name="logging"></a>로깅
+### <a name="logging"></a>logging
 
 로깅에 대 한 전역 설정은 다음과 같습니다.
 

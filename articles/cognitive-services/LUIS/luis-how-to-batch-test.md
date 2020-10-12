@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540951"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
@@ -34,7 +34,7 @@ ms.locfileid: "91540951"
 
 3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다.**** 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다.
 
-4. **완료**를 선택합니다. 데이터 세트 파일이 추가됩니다.
+4. **완료** 를 선택합니다. 데이터 세트 파일이 추가됩니다.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>데이터 세트 실행, 이름 바꾸기, 내보내기 또는 삭제
 

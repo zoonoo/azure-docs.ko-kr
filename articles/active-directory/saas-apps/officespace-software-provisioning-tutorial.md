@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
 ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287218"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Officespace software 소프트웨어 구성
@@ -27,7 +27,7 @@ ms.locfileid: "91287218"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -117,7 +117,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 Officespac
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **Officespace software Software에 사용자 Azure Active Directory 동기화를**선택 합니다.
 

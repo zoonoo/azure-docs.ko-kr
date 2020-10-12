@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659866"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
@@ -22,7 +22,7 @@ ms.locfileid: "89659866"
 
 쿼리 가속을 사용 하면 응용 프로그램 및 분석 프레임 워크에서 지정 된 작업을 수행 하는 데 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있습니다. 자세히 알아보려면 [쿼리 가속 Azure Data Lake Storage](data-lake-storage-query-acceleration.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "89659866"
 
   ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  해당 없음
+  적용할 수 없음
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -236,7 +236,7 @@ pip install azure-storage-blob==12.4.0
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-해당 없음
+적용할 수 없음
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 

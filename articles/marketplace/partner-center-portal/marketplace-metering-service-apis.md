@@ -8,10 +8,10 @@ ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319986"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 Api
@@ -65,7 +65,7 @@ TLS 버전 1.2 버전은 HTTPS 통신을 위한 최소 버전으로 적용 됩�
 ```
 
 >[!NOTE]
->`resourceId`SaaS 앱과 관리 되는 앱 내보내기 사용자 지정 측정기에 대 한 의미가 다릅니다. 
+>`resourceId` SaaS 앱과 관리 되는 앱 내보내기 사용자 지정 측정기에 대 한 의미가 다릅니다. 
 
 Azure 애플리케이션 관리 앱 계획의 경우 `resourceId`는 관리 앱 메타데이터 개체의 `billingDetails` 아래에 있는 `resourceUsageId`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
 
@@ -95,7 +95,7 @@ OK. 추가 처리 및 청구를 위해 사용 현황 내보내기가 Microsoft �
 잘못된 요청입니다.
 
 * 제공 된 요청 데이터가 없거나 잘못 되었습니다.
-* `effectiveStartTime`는 지난 24 시간 이상입니다. 이벤트가 만료 되었습니다.
+* `effectiveStartTime` 는 지난 24 시간 이상입니다. 이벤트가 만료 되었습니다.
 * SaaS 구독이 구독 상태에 있지 않습니다.
 
 응답 페이로드 예: 
@@ -189,7 +189,7 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 리소스에
 ```
 
 >[!NOTE]
->`resourceId`SaaS 앱과 관리 되는 앱 내보내기 사용자 지정 측정기에 대 한 의미가 다릅니다. 
+>`resourceId` SaaS 앱과 관리 되는 앱 내보내기 사용자 지정 측정기에 대 한 의미가 다릅니다. 
 
 Azure 애플리케이션 관리 앱 계획의 경우 `resourceId`는 관리 앱 메타데이터 개체의 `billingDetails` 아래에 있는 `resourceUsageId`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
 

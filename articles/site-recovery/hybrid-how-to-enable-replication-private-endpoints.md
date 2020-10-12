@@ -7,10 +7,10 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658792"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>개인 끝점을 사용 하 여 온-프레미스 컴퓨터 복제
@@ -57,7 +57,7 @@ Recovery Services 자격 증명 모음에는 컴퓨터의 복제 정보가 포�
 
 1. Recovery Services 자격 증명 모음으로 이동 합니다. **설정**아래에서 **id** 를 선택 합니다.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Id 설정 페이지를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 1. **상태** 를 **켜기** 로 변경 하 고 **저장**을 선택 합니다.
 
@@ -69,21 +69,21 @@ Recovery Services 자격 증명 모음에는 컴퓨터의 복제 정보가 포�
 
 1. Azure Portal 검색 상자에서 "개인 링크"를 검색 합니다. 비공개 **링크를 선택 하** 여 개인 링크 센터로 이동 합니다.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="개인 링크 센터에 대 한 Azure Portal 검색을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 1. 왼쪽 창에서 **개인 끝점**을 선택 합니다. **개인 끝점** 페이지에서 **추가** 를 선택 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="개인 링크 센터에서 개인 끝점을 만드는 방법을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 1. **개인 끝점 만들기** 페이지에서 세부 정보를 지정 하 여 개인 끝점 연결을 만듭니다.
 
    1. **기본 사항**. 개인 끝점에 대 한 기본 세부 정보를 제공 합니다. 바이패스 네트워크에 사용한 지역을 사용 합니다.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="개인 끝점을 만들기 위한 기본 탭을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
    1. **리소스**. 이 탭에서 연결을 만들 platform.object (platform as a service) 리소스를 지정 해야 합니다. 선택한 구독에 대 한 **리소스 유형** 에서 **Microsoft recoveryservices/자격 증명 모음**을 선택 합니다. **리소스**에서 Recovery Services 자격 증명 모음의 이름을 선택 합니다. **대상 하위 리소스로** **Azure Site Recovery** 를 선택 합니다.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="전용 끝점에 연결 하기 위한 리소스 탭을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
    1. **구성**. 이 탭에서 개인 끝점을 만들려는 바이패스 네트워크 및 서브넷을 지정 합니다. 
 
@@ -96,7 +96,7 @@ Recovery Services 자격 증명 모음에는 컴퓨터의 복제 정보가 포�
 
       개인 DNS 영역을 수동으로 만들려면 [개인 dns 영역 만들기 및 수동으로 DNS 레코드 추가](#create-private-dns-zones-and-add-dns-records-manually)의 단계를 따르세요.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="개인 끝점의 구성에 대 한 구성 탭을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
    1. **태그**. 필요에 따라 개인 끝점에 대 한 태그를 추가할 수 있습니다.
 
@@ -114,7 +114,7 @@ Recovery Services 자격 증명 모음에는 컴퓨터의 복제 정보가 포�
 
 계속 하기 전에 개인 끝점 리소스로 이동 하 여 연결 상태를 검토할 수 있습니다.
 
-:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="자격 증명 모음의 개인 끝점 연결 페이지와 연결 목록을 보여 주는 스크린샷":::
+:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 ### <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a><a name="create-private-endpoints-for-the-cache-storage-account"></a>필드 캐시 저장소 계정에 대 한 개인 끝점 만들기
 
@@ -147,11 +147,11 @@ Recovery Services 자격 증명 모음에는 컴퓨터의 복제 정보가 포�
 
 1. **역할 할당 추가** 섹션에서 **추가**를 선택 합니다.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="저장소 계정에 대 한 액세스 제어 (IAM) 페이지를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 1. **역할 할당 추가** 페이지의 **역할** 목록에서이 섹션의 시작 부분에 있는 목록에서 역할을 선택 합니다. 자격 증명 모음의 이름을 입력 하 고 **저장**을 선택 합니다.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="역할 할당 추가 페이지를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 이러한 권한을 추가한 후에는 Microsoft 신뢰할 수 있는 서비스에 대 한 액세스를 허용 해야 합니다. **방화벽 및 가상 네트워크** 로 이동 하 여 **예외**에서 **신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용** 을 선택 합니다.
 
@@ -174,13 +174,13 @@ Site Recovery 공급자 (Hyper-v 컴퓨터의 경우) 또는 프로세스 서버
 
    1. **모든 서비스** 검색 상자에서 "개인 DNS 영역"을 검색 한 다음 결과에서 **영역 사설 DNS** 선택 합니다.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Azure Portal의 새 리소스 페이지에서 개인 dns 영역 검색을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
    1. **사설 DNS 영역** 페이지에서 **추가** 단추를 선택 하 여 새 영역 만들기를 시작 합니다.
 
    1. **개인 DNS 영역 만들기** 페이지에서 필요한 세부 정보를 입력 합니다. 개인 DNS 영역 이름에 **privatelink.siterecovery.windowsazure.com** 를 입력 합니다. 모든 리소스 그룹 및 구독을 선택할 수 있습니다.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="사설 DNS 영역 만들기 페이지의 기본 탭을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
    1. **검토 \+ 만들기** 탭으로 이동 하 여 DNS 영역을 검토 하 고 만듭니다.
 
@@ -192,7 +192,7 @@ Site Recovery 공급자 (Hyper-v 컴퓨터의 경우) 또는 프로세스 서버
 
    1. 필요한 세부 정보를 입력 합니다. **구독** 및 **가상 네트워크** 목록에서 바이패스 네트워크에 해당 하는 세부 정보를 선택 합니다. 다른 필드에는 기본값을 그대로 둡니다.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="가상 네트워크 추가 링크 페이지를 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 1. DNS 레코드를 추가 합니다.
 
@@ -209,7 +209,7 @@ Site Recovery 공급자 (Hyper-v 컴퓨터의 경우) 또는 프로세스 서버
 
       이러한 정규화 된 도메인 이름은이 패턴과 일치 합니다. `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="레코드 집합 추가 페이지를 보여 주는 스크린샷":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Azure Site Recovery 및 전용 끝점의 아키텍처를 보여 주는 다이어그램입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

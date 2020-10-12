@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: iainfou
 ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505732"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>복제본이 Azure Active Directory Domain Services (미리 보기)에 대 한 개념 및 기능을 설정 합니다.
 
-Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인을 만들 때 고유한 네임 스페이스를 정의 합니다. 이 네임 스페이스는 *aaddscontoso.com*와 같은 도메인 이름이 고, 두 개의 dc (도메인 컨트롤러)는 선택한 Azure 지역에 배포 됩니다. 이 Dc 배포를 복제본 집합 이라고 합니다.
+Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인을 만들 때 고유한 네임 스페이스를 정의 합니다. 이 네임스페이스는 *aaddscontoso.com* 같은 도메인 이름이며, 두 개의 DC(도메인 컨트롤러)가 선택한 Azure 지역에 배포됩니다. 이 DC 배포를 복제본 세트라고 합니다.
 
-관리 되는 도메인을 확장 하 여 Azure AD 테 넌 트 당 복제본 집합을 두 개 이상 포함할 수 있습니다. Azure AD DS을 지 원하는 모든 Azure 지역의 피어 링 가상 네트워크에 복제본 집합을 추가할 수 있습니다. 다른 Azure 지역에 있는 추가 복제본 집합은 Azure 지역이 오프 라인 상태가 되는 경우 레거시 응용 프로그램에 대 한 지리적 재해 복구를 제공 합니다.
+관리되는 도메인을 확장하여 Azure AD 테넌트마다 복제본 세트를 2개 이상 포함할 수 있습니다. Azure AD DS을 지원하는 Azure 지역의 피어링된 가상 네트워크에 복제본 세트를 추가할 수 있습니다. 다른 Azure 지역에 있는 추가 복제본 세트는 Azure 지역이 오프라인 상태가 될 때 레거시 애플리케이션에 대한 지리적 재해 복구를 제공합니다.
 
-복제본 집합은 현재 미리 보기로 제공 됩니다.
+복제본 세트는 현재 미리 보기로 제공됩니다.
 
 > [!NOTE]
 > 복제본 집합을 사용 하면 단일 Azure 테 넌 트에 여러 개의 고유 관리 도메인을 배포할 수 없습니다. 각 복제본 집합에는 동일한 데이터가 포함 되어 있습니다.
 
 ## <a name="how-replica-sets-work"></a>복제본 집합의 작동 방식
 
-*Aaddscontoso.com*와 같은 관리 되는 도메인을 만들 때 초기 복제본 세트가 만들어집니다. 추가 복제본 세트는 동일한 네임 스페이스와 구성을 공유 합니다. 구성, 사용자 id 및 자격 증명, 그룹, 그룹 정책 개체, 컴퓨터 개체 및 기타 변경 내용을 포함 하 여 Azure AD DS에 대 한 변경 내용은 AD DS 복제를 사용 하 여 관리 되는 도메인의 모든 복제본 집합에 적용 됩니다.
+*aaddscontoso.com* 같은 관리되는 도메인을 만들 때 초기 복제본 세트가 만들어집니다. 추가 복제본 세트는 동일한 네임스페이스와 구성을 공유합니다. 구성, 사용자 ID 및 자격 증명, 그룹, 그룹 정책 개체, 컴퓨터 개체를 비롯한 Azure AD DS 변경 내용과 기타 변경 내용은 AD DS 복제를 사용하는 관리되는 도메인의 모든 복제본 세트에 적용됩니다.
 
 가상 네트워크에서 각 복제본 집합을 만듭니다. 각 가상 네트워크는 관리 되는 도메인의 복제본 세트를 호스트 하는 다른 모든 가상 네트워크에 피어 링 해야 합니다. 이 구성은 디렉터리 복제를 지 원하는 메시 네트워크 토폴로지를 만듭니다. 각 복제본 집합이 다른 가상 서브넷에 있는 경우 가상 네트워크는 여러 개의 복제본 집합을 지원할 수 있습니다.
 
@@ -60,11 +60,11 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인을 
 
 각 복제본 세트에 대 한 청구는 도메인 구성 SKU를 기반으로 합니다. 예를 들어 *Enterprise* SKU를 사용 하는 관리 되는 도메인이 있고 3 개의 복제본 집합을 사용 하는 경우 세 개의 복제본 집합 각각에 대해 구독이 시간당 청구 됩니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>이 미리 보기에서 내 프로덕션 관리 되는 도메인을 사용할 수 있나요?
 
-복제 세트는 Azure AD Domain Services의 공개 미리 보기 기능입니다. 프로덕션 관리 되는 도메인을 사용할 수 있지만 미리 보기 상태에 있는 기능에 대해 존재 하는 지원 차이점에 대해 알고 있어야 합니다. 미리 보기에 대 한 자세한 내용은 [미리 보기 SLA를 Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+복제본 세트는 Azure AD Domain Services의 공개 미리 보기 기능입니다. 프로덕션 관리 되는 도메인을 사용할 수 있지만 미리 보기 상태에 있는 기능에 대해 존재 하는 지원 차이점에 대해 알고 있어야 합니다. 미리 보기에 대한 자세한 내용은 [Azure Active Directory 미리 보기 SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 참조하세요.
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>구독에서 관리 되는 도메인과 다른 복제본 집합을 만들 수 있나요?
 

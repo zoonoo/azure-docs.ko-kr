@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816442"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 프로젝트, 템플릿, 이미지 스트림 관리
@@ -25,9 +25,9 @@ OpenShift 컨테이너 플랫폼에서 프로젝트는 관련 개체를 그룹�
 
 프로젝트 요청이 제출 되 면 API는 템플릿에서 다음 매개 변수를 대체 합니다.
 
-| 매개 변수               | Description                                    |
+| 매개 변수               | 설명                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | 프로젝트의 이름입니다. 필수 요소.             |
+| PROJECT_NAME            | 프로젝트의 이름입니다. 필수 사항입니다.             |
 | PROJECT_DISPLAYNAME     | 프로젝트의 표시 이름입니다. 비어 있을 수 있습니다. |
 | PROJECT_DESCRIPTION     | 프로젝트에 대한 설명입니다. 비어 있을 수 있습니다.  |
 | PROJECT_ADMIN_USER      | 관리 사용자의 사용자 이름입니다.       |

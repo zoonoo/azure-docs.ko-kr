@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662146"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
@@ -165,7 +165,7 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 * **Active Directory Domain Services**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 모든 AD DS 포리스트를 표시합니다. 포리스트를 선택하면 열리는 블레이드에 해당 포리스트에 대한 정보가 표시됩니다. 이 정보에는 중요한 정보의 개요, 도메인 컨트롤러 대시보드, 복제 상태 대시보드, 경고 및 모니터링이 포함됩니다. [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)에서 기능에 대해 자세히 알아보세요.
 * **구성**: 이 섹션에는 다음 기능을 켜거나 끄는 옵션이 포함되어 있습니다.
 
-   - Azure AD Connect Health 에이전트를 최신 버전으로 **자동 업데이트** : Azure AD Connect Health 에이전트가 새 버전을 사용할 수 있을 때마다 자동으로 업데이트 됩니다. 이 옵션은 기본적으로 사용됩니다.
+   - Azure AD Connect Health 에이전트를 최신 버전으로 **자동 업데이트** : Azure AD Connect Health 에이전트가 새 버전을 사용할 수 있을 때마다 자동으로 업데이트 됩니다. 기본적으로 이 옵션은 사용하도록 설정됩니다.
    - 문제 해결을 위해 Microsoft에서 제공 하는 Azure AD 디렉터리 무결성의 **데이터에** 대 한 액세스:이 옵션을 사용 하도록 설정 하면 microsoft는 사용자가 본 동일한 데이터에 액세스할 수 있습니다. 이 정보는 문제를 해결 하 고 필요한 지원을 제공 하는 데 유용할 수 있습니다. 이 옵션은 기본적으로 사용 되지 않습니다.
 * **역할 기반 액세스 제어(IAM)** 섹션은 기본 역할에서 Connect Health 데이터에 대한 액세스를 관리합니다. 
 

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541325"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
@@ -156,7 +156,7 @@ LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-h
 ### <a name="prebuilt-entities"></a>미리 빌드된 엔터티
 [미리 빌드된 엔터티](luis-prebuilt-entities.md)가 변경되었습니다. V2 미리 빌드된 엔터티를 사용하고 있는지 확인합니다. 여기에는 datetime 대신에 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 사용이 포함됩니다.
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 작업 속성이 더 이상 유효하지 않습니다. 비어 있어야 함
 
 ### <a name="labeled-utterances"></a>레이블이 지정된 발화

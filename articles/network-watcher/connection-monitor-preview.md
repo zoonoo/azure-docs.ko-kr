@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408871"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
@@ -199,7 +199,7 @@ Network Watcher에서 연결 모니터 (미리 보기)로 이동 하는 경우 �
 * **상태 기반 필터** – 연결 모니터, 테스트 그룹 또는 테스트의 상태별로 필터링 합니다. 다음 그림의 상자 2를 참조 하세요.
 * **경고 기반 필터** -연결 모니터 리소스에 대해 발생 하는 경고로 필터링 합니다. 다음 그림의 상자 3을 참조 하세요.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="연결 모니터 (미리 보기)에서 연결 모니터, 테스트 그룹 및 테스트의 뷰를 필터링 하는 방법을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
 예를 들어 연결 모니터 (미리 보기)에서 원본 IP가 10.192.64.56 인 모든 테스트를 확인 하려면 다음을 수행 합니다.
 1. **테스트**를 위해 보기를 변경 합니다.
@@ -218,16 +218,16 @@ Network Watcher에서 연결 모니터 (미리 보기)로 이동 하는 경우 �
 1. 검색 필드에 *outlook.office365.com* 를 입력 합니다.
 1. 최상위 수준 필터의 **범위** 에서 **대상**을 선택 합니다.
   
-  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Outlook.Office365.com 대상에 대해 실패 한 테스트만 표시 하도록 필터링 된 보기를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
 연결 모니터 또는 테스트 그룹이 나 테스트의 실패 이유를 확인 하려면 reason 이라는 열을 클릭 합니다.  이는 임계값 (실패 한% 또는 RTT 검사)을 위반 하 고 관련 진단 메시지를 나타냅니다.
   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="연결 모니터, 테스트 또는 테스트 그룹 실패의 원인을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
     
 RTT 추세 및 연결 모니터에 대해 실패 한 검사 비율을 보려면 다음을 수행 합니다.
 1. 조사할 연결 모니터를 선택 합니다.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="테스트 그룹에 의해 표시 되는 연결 모니터에 대 한 메트릭을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
 1. 다음 섹션이 표시 됩니다.  
     1. Essentials-선택한 연결 모니터의 리소스 관련 속성 
@@ -237,7 +237,7 @@ RTT 추세 및 연결 모니터에 대해 실패 한 검사 비율을 보려면 
     1. 테스트 그룹, 소스, 대상 및 테스트 구성에 대 한 탭-연결 모니터의 테스트 그룹, 원본 또는 대상을 나열 합니다. 검사 테스트가 실패 했습니다. RTT를 집계 하 고 실패 한% 값을 확인 합니다.  뒤로 이동 하 여 데이터를 볼 수도 있습니다. 
     1. 문제-연결 모니터의 각 테스트에 대해 발생 하는 홉 수준 문제입니다. 
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="테스트 그룹 파트 2에 의해 표시 되는 연결 모니터에 대 한 메트릭을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
 1. 이 문서의 설명에 따라 Azure Automation Hybrid Runbook Worker를 제거할 수 있습니다.
     * 모든 테스트 보기를 클릭 하 여 연결 모니터의 모든 테스트를 봅니다.
@@ -247,7 +247,7 @@ RTT 추세 및 연결 모니터에 대해 실패 한 검사 비율을 보려면 
 1. 모든 테스트 보기 보기에서 다음을 수행할 수 있습니다.
     * 테스트를 선택 하 고 비교를 클릭 합니다.
     
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="2 개 테스트의 비교를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
     
     * 클러스터를 사용 하 여 VNET, 서브넷과 같은 복합 리소스를 자식 리소스에 확장
     * 토폴로지를 클릭 하 여 모든 테스트에 대 한 토폴로지를 표시 합니다.
@@ -259,7 +259,7 @@ RTT 추세와 테스트 그룹에 대해 실패 한 검사 비율을 보려면 �
 RTT 추세와 테스트에 대 한 실패 한 검사 비율을 보려면 다음을 수행 합니다.
 1. 조사할 테스트를 선택 합니다. 네트워크 토폴로지 및 종단 간 추세 차트에서 실패 한%와 왕복 시간을 확인할 수 있습니다. 식별 된 문제를 확인 하려면 토폴로지에서 경로에 있는 홉을 선택 합니다. 이러한 홉은 Azure 리소스입니다. 이 기능은 현재 온-프레미스 네트워크에서 사용할 수 없습니다.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="테스트의 토폴로지 보기를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Log Analytics의 로그 쿼리
 
@@ -269,11 +269,11 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 연결 모니터 (미리 보기) 환경 전에 만들어진 연결 모니터에서 4 가지 메트릭을 모두 사용할 수 있습니다 .% 프로브 실패, AverageRoundtripMs, ChecksFailedPercent (미리 보기) 및 RoundTripTimeMs (미리 보기). 연결 모니터 (미리 보기) 환경에서 만든 연결 모니터에서는 *(미리 보기)* 태그가 지정 된 메트릭에 대해서만 데이터를 사용할 수 있습니다.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="연결 모니터 (미리 보기)의 메트릭을 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 메트릭을 사용 하는 경우 리소스 종류를 Microsoft. Network/networkWatchers/connectionMonitors로 설정 합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | 실패한 프로브 % | 백분율 | 평균 | 연결 모니터링 프로브 비율이 실패 했습니다. | 차원 없음 |
 | AverageRoundtripMs | 평균 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |
@@ -300,7 +300,7 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
     1. 경고 세부 정보를 제공 합니다.
     1. 경고 규칙을 만듭니다.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Azure Monitor에서 규칙 만들기 영역을 보여 주는 스크린샷 원본 주소와 소스 끝점 이름이 강조 표시 됩니다." lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="연결 모니터 (미리 보기)에서 만든 연결 모니터를 보여 주는 스크린샷" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>네트워크에서 문제 진단
 

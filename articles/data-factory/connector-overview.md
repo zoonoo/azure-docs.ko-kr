@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: a729d470cccd4121523c767ada9077a51361c061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b346c24b6a363e66e56f6c16b70058df3864c88
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181982"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945834"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 커넥터 개요
 
@@ -39,7 +39,7 @@ Azure Data Factory은 위에서 언급 한 목록 보다 더 광범위 한 데�
 
 ## <a name="supported-file-formats"></a>지원되는 파일 형식
 
-Azure Data Factory은 다음과 같은 파일 형식을 지원 합니다. 서식 기반 설정에 대 한 각 문서를 참조 하세요.
+Azure Data Factory는 다음과 같은 파일 형식을 지원합니다. 형식 기반 설정에 대한 각 문서를 참조하세요.
 
 - [Avro 형식](format-avro.md)
 - [이진 형식](format-binary.md)

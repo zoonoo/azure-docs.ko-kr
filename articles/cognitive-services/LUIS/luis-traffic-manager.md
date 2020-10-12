@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.openlocfilehash: e37b35e3473b2da397904d01be5e65cf8cafbbe5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541121"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
@@ -76,7 +76,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-Name|luis-profile-eastus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
@@ -95,7 +95,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     ```
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-EndpointName|luis-east-endpoint|프로필 아래에 표시되는 엔드포인트 이름|
     |-TrafficManagerProfile|$eastprofile|1단계에서 만든 프로필 개체 사용|
@@ -144,7 +144,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-Name|luis-profile-westus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
@@ -164,7 +164,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-EndpointName|luis-west-endpoint|프로필 아래에 표시되는 엔드포인트 이름|
     |-TrafficManagerProfile|$westprofile|1단계에서 만든 프로필 개체 사용|
@@ -211,7 +211,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-Name|luis-profile-parent|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
@@ -231,7 +231,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-EndpointName|child-endpoint-useast|East 프로필|
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|
@@ -268,7 +268,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
 
-    |구성 매개 변수|변수 이름 또는 값|용도|
+    |구성 매개 변수|변수 이름 또는 값|목적|
     |--|--|--|
     |-EndpointName|child-endpoint-uswest|West 프로필|
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|

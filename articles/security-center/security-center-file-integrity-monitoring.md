@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541172"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
@@ -29,8 +29,8 @@ ms.locfileid: "91541172"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
-|필요한 역할 및 사용 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
+|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
+|필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
 |클라우드:|![예 ](./media/icons/yes-icon.png) 상업적 클라우드<br>![예 ](./media/icons/yes-icon.png) US Gov<br>![](./media/icons/no-icon.png)중국 .gov, 기타 .gov<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역 에서만 지원 됩니다.<br>[연결 된 Log Analytics 작업 영역에 대해 지원 되는 지역을](../automation/how-to/region-mappings.md)참조 하세요.<br>[변경 내용 추적에 대 한 자세한 정보](../automation/change-tracking.md) |
 |||
 

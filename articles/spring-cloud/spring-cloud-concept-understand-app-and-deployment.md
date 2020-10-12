@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323640"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 앱 및 배포 이해
@@ -29,7 +29,7 @@ Azure 스프링 클라우드 표준 계층을 사용 하면 한 앱에서 하나
 ## <a name="app"></a>앱
 다음 기능/속성은 앱 수준에 정의 됩니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 |:--|:----------------|
 | 공용</br>엔드포인트 | 앱에 액세스 하기 위한 URL입니다. |
 | 사용자 지정</br>도메인 | 사용자 지정 도메인을 보호 하는 CNAME 레코드 |
@@ -48,14 +48,14 @@ Azure 스프링 클라우드 표준 계층을 사용 하면 한 앱에서 하나
 | 인스턴스</br>개수 | 앱 인스턴스 수, 수동 또는 자동으로 설정 |
 | 자동 크기 조정 | 미리 정의 된 규칙 및 일정에 따라 자동으로 인스턴스 개수 조정 |
 | JVM</br>옵션 | JVM 옵션 설정  |
-| Environment</br>변수 | 환경 변수 설정 |
+| Environment</br>variables | 환경 변수 설정 |
 | 런타임</br>버전 | Java 8/Java 11|
 
 ## <a name="restrictions"></a>제한
 
 * **앱은 프로덕션 배포를 하나 포함 해야**합니다. 프로덕션 배포 삭제는 API에 의해 차단 됩니다. 삭제 하기 전에 준비로 바꾸어야 합니다.
 * **앱에는 최대 두 개의 배포가 있을 수 있습니다**. 두 개 이상의 배포를 만드는 작업은 API에 의해 차단 됩니다. 기존 프로덕션 또는 스테이징 배포에 새 이진 파일을 배포 합니다.
-* **배포 관리는 기본 계층에서 사용할 수 없습니다**. 파란색-녹색 배포 기능을 사용 하려면 표준 계층을 사용 하세요.
+* **배포 관리는 기본 계층에서 사용할 수 없습니다**. Blue-Green 배포 기능을 사용 하려면 표준 계층을 사용 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure 스프링 클라우드에서 스테이징 환경 설정](spring-cloud-howto-staging-environment.md)
