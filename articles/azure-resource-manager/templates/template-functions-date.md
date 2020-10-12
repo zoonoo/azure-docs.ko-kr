@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 날짜 작업에 사용할 �
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058047"
 ---
 # <a name="date-functions-for-arm-templates"></a>ARM 템플릿에 대 한 날짜 함수
@@ -25,10 +25,10 @@ ms.locfileid: "86058047"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| base | 예 | string | 더하기의 시작 날짜/시간 값입니다. [ISO 8601 타임 스탬프 형식을](https://en.wikipedia.org/wiki/ISO_8601)사용 합니다. |
-| duration | 예 | string | 밑에 더할 시간 값입니다. 음수 값일 수 있습니다. [ISO 8601 기간 형식을](https://en.wikipedia.org/wiki/ISO_8601#Durations)사용 합니다. |
+| base | 예 | 문자열 | 더하기의 시작 날짜/시간 값입니다. [ISO 8601 타임 스탬프 형식을](https://en.wikipedia.org/wiki/ISO_8601)사용 합니다. |
+| duration | 예 | 문자열 | 밑에 더할 시간 값입니다. 음수 값일 수 있습니다. [ISO 8601 기간 형식을](https://en.wikipedia.org/wiki/ISO_8601#Durations)사용 합니다. |
 | format | 예 | 문자열 | 날짜/시간 결과의 출력 형식입니다. 지정 하지 않으면 기준 값의 형식이 사용 됩니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -74,7 +74,7 @@ ms.locfileid: "86058047"
 
 위의 템플릿이 기본 시간을 사용 하 여 배포 된 경우 `2020-04-07 14:53:14Z` 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | add3Years | String | 오후 4/7/2023 2:53:14 |
 | subtract9Days | String | 오후 3/29/2020 2:53:14 |
@@ -142,7 +142,7 @@ ms.locfileid: "86058047"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
 
@@ -201,11 +201,11 @@ ms.locfileid: "86058047"
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 2019/03/05 |
-| utcCustomOutput | string | 3 5 |
+| utcOutput | 문자열 | 20190305T175318Z |
+| utcShortOutput | 문자열 | 2019/03/05 |
+| utcCustomOutput | 문자열 | 3 5 |
 
 다음 예제에서는 태그 값을 설정할 때 함수의 값을 사용 하는 방법을 보여 줍니다.
 

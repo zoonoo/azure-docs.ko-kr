@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036813"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응
 
 Azure Maps는 사용자가 다른 서비스로 이벤트 알림을 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합 됩니다. 이 문서의 목적은 Azure Maps 이벤트를 수신 하도록 비즈니스 응용 프로그램을 구성 하는 데 도움이 됩니다. 이를 통해 사용자는 안정적이 고 확장 가능 하 고 안전한 방식으로 중요 한 이벤트에 대응할 수 있습니다. 예를 들어, 사용자가 응용 프로그램을 빌드하여 데이터베이스를 업데이트 하 고, 티켓을 만들고, 장치를 지 오로 가져갈 때마다 전자 메일 알림을 배달할 수 있습니다.
 
-Azure Event Grid는 게시-구독 모델을 사용 하는 완전히 관리 되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 및 [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview)와 같은 Azure 서비스에 대 한 지원이 기본적으로 제공 됩니다. 웹 후크를 사용 하 여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](https://docs.microsoft.com/azure/event-grid/overview)를 참조하세요.
+Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 및 [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview)와 같은 Azure 서비스에 대한 지원이 기본적으로 제공됩니다. 웹후크를 사용하여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](https://docs.microsoft.com/azure/event-grid/overview)를 참조하세요.
 
 
 ![Azure Event Grid 기능 모델](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)

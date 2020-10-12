@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710544"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
@@ -43,7 +43,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 구성 정보에 대한 다음 표를 사용하여 리소스 그룹에 두 개의 웹 App Service 계획을 만듭니다. App Service 계획을 만드는 방법에 대한 자세한 내용은 [Azure에서 App Service 계획 관리](../app-service/app-service-plan-manage.md)를 참조하세요.
 
 
-|이름  |운영 체제  |위치  |가격 책정 계층  |
+|속성  |운영 체제  |위치  |가격 책정 계층  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|미국 동부|개발/테스트 D1-공유|
 |ASP-02     |Windows|미국 중부|개발/테스트 D1-공유|
@@ -58,10 +58,10 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 4. **만들기**를 선택합니다.
 5. 기본값을 적용하고, 다음 표를 사용하여 두 개의 웹앱을 구성합니다.
 
-   |이름<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|지역|App Service 계획/위치
+   |속성<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|Azure 지역|App Service 계획/위치
    |---------|---------|-|-|-------|
-   |App-01|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 동부|ASP-01 (D1)|
-   |App-02|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 중부|ASP-02 (D1)|
+   |App-01|기존 항목 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 동부|ASP-01 (D1)|
+   |App-02|기존 항목 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 중부|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>몇 가지 세부 정보 수집
 
@@ -104,7 +104,7 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용 하 여 레코드 집합을 추가 합니다. 값에 대해 이전에 기록한 실제 웹 앱 URL을 사용 합니다.
 
-   |이름  |Type  |값|
+   |속성  |유형  |값|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,7 +132,7 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용하여 레코드 집합을 추가합니다.
 
-   |이름  |Type  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
+   |속성  |유형  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
    |---------|---------|---------|---------|-----|
    |@     |A|예|Azure 리소스|Traffic Manager - 프로필|
 

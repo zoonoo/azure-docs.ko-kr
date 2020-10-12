@@ -4,10 +4,10 @@ description: 엔터프라이즈 환경의 CI (지속적인 통합) 및 CD (지�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481071"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Azure DevTest Labs 및 Azure DevOps 통합
@@ -40,7 +40,7 @@ CI/CD 파이프라인은 개발자의 끌어오기 요청에서 코드를 이동
 ### <a name="test"></a>테스트 
 DevTest Labs는 CI/CD 파이프라인이 자동화 된 수동 테스트를 위해 사용할 수 있는 Azure 리소스 (Vm, 환경)의 생성을 자동화할 수 있도록 합니다. 빌드 프로세스의 정보를 사용 하 여 테스트에 필요한 다양 한 사용자 지정 구성을 만드는 아티팩트 또는 수식을 사용 하 여 Vm을 만듭니다.   
 
-### <a name="release"></a>Release 
+### <a name="release"></a>해제 
 DevTest Labs는 코드를 배포 하기 전에 릴리스 섹션에서 확인 하는 데 주로 사용 됩니다. 빌드 섹션에서 테스트와 유사 합니다. 프로덕션 리소스는 DevTest Labs 내에 배포할 수 없습니다. 
 
 ### <a name="customization"></a>사용자 지정 

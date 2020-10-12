@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80234248"
 ---
 ### <a name="standard-and-neural-voices"></a>표준 및 신경망
@@ -18,24 +18,24 @@ ms.locfileid: "80234248"
 | 지역 | 엔드포인트 | 표준 음성 | 신경망 |
 |--------|----------|-----------------|---------------|
 | 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 미국 동부 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 인도 중부 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 일본 서부 | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 일본 서부 | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 동남 아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 
 ### <a name="custom-voices"></a>사용자 지정 음성

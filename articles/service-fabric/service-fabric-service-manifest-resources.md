@@ -4,10 +4,10 @@ description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91354762"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
@@ -220,7 +220,7 @@ ServiceManifest에서 다음을 지정했습니다.
 
 응용 프로그램 매개 변수에 대 한 Port1 및 Protocol1 값이 null 이거나 비어 있다고 가정 합니다. 포트는 ServiceFabric에서 결정 되며 프로토콜은 tcp입니다.
 
-잘못된 값을 지정한다고 가정해 보겠습니다. 예를 들어 포트에서 int 대신 "Foo" 문자열 값을 지정 했습니다.  Get-servicefabricapplication 명령이 실패 하 고 오류가 발생 합니다. `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+잘못된 값을 지정한다고 가정해 보겠습니다. 예를 들어 포트에서 int 대신 "Foo" 문자열 값을 지정 했습니다.  오류가 발생 하 여 New-ServiceFabricApplication 명령이 실패 합니다. `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## <a name="next-steps"></a>다음 단계
 

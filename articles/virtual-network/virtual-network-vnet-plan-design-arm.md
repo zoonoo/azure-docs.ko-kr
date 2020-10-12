@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045504"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
@@ -35,7 +35,7 @@ ms.locfileid: "86045504"
 - 데이터 상주, 주권, 규정 준수 또는 복원력 요구 사항이 있나요? 그렇다면 요구 사항에 맞는 지역을 선택하는 것이 매우 중요합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요.
 - 배포하는 리소스에 대해 동일한 Azure 지역 내의 Azure 가용성 영역에서 복원력이 필요한가요? VM(가상 머신)과 같은 리소스를 동일한 가상 네트워크 내의 여러 가용성 영역에 배포할 수 있습니다. 하지만 일부 Azure 지역은 가용성 영역을 지원하지 않습니다. 가용성 영역 및 이를 지원하는 지역에 대한 자세한 내용은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
-## <a name="subscriptions"></a>구독
+## <a name="subscriptions"></a>Subscriptions
 
 각 구독 내에서 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy)를 참조하세요.
 

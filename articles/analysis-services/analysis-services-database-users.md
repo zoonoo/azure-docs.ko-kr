@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015275"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
@@ -71,7 +71,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 3. 사용 권한을 선택합니다.
 
-   |사용 권한|Description|  
+   |사용 권한|설명|  
    |----------------|-----------------|  
    |**모든 권한(관리자)**|멤버는 모델 스키마, 프로세스를 수정할 수 있으며 모든 데이터를 쿼리할 수 있습니다.| 
    |**Process Database**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
@@ -135,7 +135,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
  해당 특정 역할의 멤버가 쿼리할 수 있는 행을 정의하려면 행 필터에 DAX 수식이 필요하며, 이 수식은 TRUE/FALSE 값으로 계산되어야 합니다. DAX 수식에 포함되지 않은 행은 쿼리할 수 없습니다. 예를 들어 다음 행 필터 식, *= Customers [Country] = "USA"* 를 가진 customers 테이블에서 Sales 역할의 멤버는 미국의 고객만 볼 수 있습니다.  
   
-행 필터는 지정된 행과 관련 행에 적용됩니다. 테이블에 여러 관계가 있는 경우 필터는 활성 관계에 대한 보안을 적용합니다. 행 필터는 관련 테이블에 대해 정의된 다른 행 필터와 교차됩니다. 예를 들면 다음과 같습니다.  
+행 필터는 지정된 행과 관련 행에 적용됩니다. 테이블에 여러 관계가 있으면 필터는 활성 관계에 대한 보안을 적용합니다. 행 필터는 관련 테이블에 대해 정의된 다른 행 필터와 교차됩니다. 예를 들면 다음과 같습니다.  
   
 |테이블|DAX 식|  
 |-----------|--------------------|  

@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400979"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Batch에 대 한 Azure 보안 기준
@@ -366,7 +366,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **책임**: Customer
 
-### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory을 사용 하 여 SSO (Single Sign-on)를 활용 합니다.
+### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory를 사용 하 여 SSO (Single Sign-On)를 활용 합니다.
 
 **지침**: 해당 없음, AZURE BATCH Azure AD 인증을 지 원하는 Single Sign-On 지원 되지 않습니다.
 
@@ -1135,7 +1135,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리 키의 보호 보장
 
-**지침**: Azure Batch 풀 저장소 계정과 관련 된 키를 저장 하는 데 Azure Key Vault를 사용 하는 경우 Azure Key Vault에서 일시 삭제를 사용 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 합니다.
+**지침**: Azure Batch 풀 저장소 계정과 관련 된 키를 저장 하는 데 Azure Key Vault를 사용 하는 경우 Azure Key Vault에서 Soft-Delete를 사용 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 합니다.
 
 Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법:
 

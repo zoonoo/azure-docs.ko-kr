@@ -4,10 +4,10 @@ description: 이 항목에서는 IoT Edge Faq에서 라이브 비디오 분석�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87011518"
 ---
 # <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
@@ -20,7 +20,7 @@ ms.locfileid: "87011518"
 
 |변수   |설명|
 |---|---|
-|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|일반적으로 날짜와 시간으로 표현된 시간의 한 순간을 나타냅니다.|
+|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다.|
 |GraphTopologyName   |그래프의 청사진을 보유 하는 미디어 그래프 토폴로지를 나타냅니다.|
 |System.object 인스턴스 이름|  미디어 그래프 인스턴스를 나타내고, 매개 변수 값을 보유 하 고, 토폴로지를 참조 합니다.|
 

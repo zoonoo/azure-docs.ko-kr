@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight에 대 한 가상 네트워크 계획
+title: Azure HDInsight에 대한 가상 네트워크 계획
 description: Azure Virtual Network 배포를 계획 하 여 다른 클라우드 리소스 또는 데이터 센터의 리소스에 HDInsight를 연결 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82786617"
 ---
-# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
+# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대한 가상 네트워크 계획
 
 이 문서에서는 Azure HDInsight와 함께 [azure vnet (가상 네트워크](../virtual-network/virtual-networks-overview.md) )를 사용 하는 방법에 대 한 배경 정보를 제공 합니다. 또한 HDInsight 클러스터에 대 한 가상 네트워크를 구현 하기 위해 수행 해야 하는 디자인 및 구현 결정에 대해 설명 합니다. 계획 단계가 완료 되 면 [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 계속할 수 있습니다. NSGs (네트워크 보안 그룹) 및 사용자 정의 경로를 올바르게 구성 하는 데 필요한 HDInsight 관리 IP 주소에 대 한 자세한 내용은 [hdinsight 관리 ip 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
 

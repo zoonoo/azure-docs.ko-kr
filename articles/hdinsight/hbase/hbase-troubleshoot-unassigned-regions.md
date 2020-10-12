@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707653"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight에서 지역 서버 문제
@@ -20,7 +20,7 @@ ms.locfileid: "84707653"
 
 ## <a name="scenario-unassigned-regions"></a>시나리오: 할당 되지 않은 영역
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 명령을 실행 하면 `hbase hbck` 다음과 비슷한 오류 메시지가 표시 됩니다.
 
@@ -54,7 +54,7 @@ Apache HBase Master UI에서 모든 지역 서버에서 불균형 한 지역 수
 
 ## <a name="scenario-dead-region-servers"></a>시나리오: 비활성 지역 서버
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 영역 서버를 시작할 수 없습니다.
 

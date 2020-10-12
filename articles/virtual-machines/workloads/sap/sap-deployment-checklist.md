@@ -16,10 +16,10 @@ ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650687"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
@@ -135,7 +135,7 @@ ms.locfileid: "89650687"
             - Oracle Linux 7.5. RHCKL 커널을 사용 하는 경우 3.10.0-862.13.1 el7가 필요 합니다. Oracle UEK 커널을 사용 하는 경우 릴리스 5가 필요 합니다.
         - Sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간을 테스트 하 고 평가 합니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다.
         - ILB 배포가 Direct Server Return을 사용 하도록 설정 되었는지 확인 합니다. 이 설정은 DBMS 계층에서 고가용성 구성에 Azure ILBs를 사용 하는 경우 대기 시간을 줄입니다.
-        - Azure Load Balancer를 Linux 게스트 운영 체제와 함께 사용 하는 경우 Linux 네트워크 매개 변수 net.tcp. **tcp_timestamps** 가 **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
+        - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.ipv4.tcp_timestamps** **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
         - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](../../linux/co-location.md) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
    4. 고가용성 및 재해 복구 배포.
         - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../windows/manage-availability.md)에 배포 되었는지 확인 합니다.
@@ -161,7 +161,7 @@ ms.locfileid: "89650687"
             -   [SAP support note #2753418-타이머 대체로 인 한 잠재적 성능 저하](https://launchpad.support.sap.com/#/notes/2753418)
             -   [SAP support note #2791572-Azure에서 Hyper-v에 대 한 VDSO 지원이 누락 되어 성능 저하가 발생 합니다.](https://launchpad.support.sap.com/#/notes/2791572)
             -   [SAP support note #2382421-HANA 및 OS 수준에서 네트워크 구성 최적화](https://launchpad.support.sap.com/#/notes/2382421)
-            -   [SAP support note #2694118-Azure의 Red Hat Enterprise Linux HA 추가 기능](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [SAP support note #2694118-Azure의 Red Hat Enterprise Linux HA Add-On](https://launchpad.support.sap.com/#/notes/2694118)
             -   [SAP support note #1984787-SUSE LINUX Enterprise Server 12: 설치 참고 사항](https://launchpad.support.sap.com/#/notes/1984787)
             -   [SAP support note #2002167-Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/0002002167)
             -   [SAP Support Note #2292690 - SAP HANA DB: RHEL 7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/0002292690)(영문)

@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
 ms.openlocfilehash: 555e53899ed78a5200009d04659e974f8157057e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87268242"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Azure에 미리 작성 된 Flatcar 이미지 사용
 
 Flatcar 지원 되는 각 채널에 대해 Flatcar Container Linux의 미리 작성 된 Azure 가상 하드 디스크 이미지를 다운로드할 수 있습니다.
 
-- [안정](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [안정화](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [베타](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [채널](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [alpha](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [테두리](https://edge.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 
 이 이미지는 이미 완전 하 게 설정 되 고 Azure에서 실행 되도록 최적화 되었습니다. 압축을 푸는 데만 필요 합니다.

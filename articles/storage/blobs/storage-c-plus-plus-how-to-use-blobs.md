@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033634"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob Storage를 사용하는 방법
@@ -31,8 +31,8 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
-- **Linux:** [C + + 용 Azure Storage 클라이언트 라이브러리 추가 정보: Linux에서 시작](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) 페이지에 제공 된 지침을 따릅니다.
-- **Windows:** Windows에서는 종속성 관리자로 [vcpkg](https://github.com/microsoft/vcpkg) 을 사용 합니다. Vcpkg를 초기화 하려면 [빠른](https://github.com/microsoft/vcpkg#quick-start) 시작을 따르세요. 그런 후, 다음 명령을 사용하여 라이브러리를 설치합니다.
+- **Linux:** [Azure Storage Client Library for C++ README: Linux에서 시작](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) 페이지에 제공된 지침을 따릅니다.
+- **Windows:** Windows에서는 종속성 관리자로 [vcpkg](https://github.com/microsoft/vcpkg)를 사용합니다. Vcpkg를 초기화 하려면 [빠른](https://github.com/microsoft/vcpkg#quick-start) 시작을 따르세요. 그런 후, 다음 명령을 사용하여 라이브러리를 설치합니다.
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp

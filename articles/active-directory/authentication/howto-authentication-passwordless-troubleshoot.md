@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecab82e43bff6c0d1d83c9c1cdc38cafd809e277
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236664"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Azure AD에서 FIDO2 보안 키 하이브리드 배포에 대 한 문제 해결 (미리 보기)
@@ -46,7 +46,7 @@ FIDO2 보안 키 및 온-프레미스 리소스에 대 한 하이브리드 액�
 
 Windows Hello Face는 사용자가 등록 된 장치에 대 한 최상의 환경입니다. FIDO2 보안 키는 공유 장치 또는 비즈니스용 Windows Hello 등록이 장벽에 사용 하기 위한 것입니다.
 
-Windows Hello Face에서 사용자가 FIDO2 보안 키 로그인 시나리오를 시도 하지 않는 경우 사용자는 **설정 > 로그인 옵션**에서 얼굴 등록을 제거 하 여 Hello 얼굴 로그인을 해제할 수 있습니다.
+Windows Hello Face에서 사용자가 FIDO2 보안 키 로그인 시나리오를 시도 하지 않는 경우 **설정 > Sign-In 옵션**에서 얼굴 등록을 제거 하 여 Hello 얼굴 로그인을 해제할 수 있습니다.
 
 ### <a name="users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine"></a>사용자는 하이브리드 Azure AD 조인 컴퓨터를 만든 직후에 FIDO2 보안 키를 사용할 수 없습니다.
 
@@ -86,9 +86,9 @@ Windows에 로그인 하거나 Windows 10 장치에서 온-프레미스 리소�
 
 **레지스트리 키**
 
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\FIDO [ \* ]*
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\PasswordForWork \* [ \* ]*
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Policies\PasswordForWork \* [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FIDO [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PasswordForWork\* [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Policies\PasswordForWork\* [ \* ]*
 
 **진단 정보**
 
@@ -143,7 +143,7 @@ Azure AD Kerberos 서버 개체를 확인 하 고 적절 한 순서 대로 확�
 
 첫 번째 속성 집합은 온-프레미스 AD DS 환경의 개체에서 가져온 것입니다. 두 번째 절반 (* Cloud * *로 시작 하는 속성)은 Azure AD의 Kerberos 서버 개체에서 가져온 것입니다.
 
-| 속성           | Description  |
+| 속성           | 설명  |
 |--------------------|--------------|
 | Id                 | AD DS 도메인 컨트롤러 개체의 고유 *Id* 입니다. |
 | DomainDnsName      | AD DS 도메인의 DNS 도메인 이름입니다. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86023128"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 제작할 때 디버그 오류
@@ -48,7 +48,7 @@ LUIS 응용 프로그램을 삭제 하는 데 실패 한 경우 [LUIS](https://w
 사용 중인 웹 끝점은 삭제할 수 없습니다. 웹 끝점을 제거 하기 전에이 웹 끝점을 사용 하는 모든 **호출 웹 끝점** 작업을 제거 합니다.
 
 ## <a name="errors-when-training-an-application"></a>응용 프로그램을 학습할 때 발생 하는 오류
-### <a name="built-in-intents"></a>기본 제공 의도
+### <a name="built-in-intents"></a>Built-In 의도
 LUIS에는 기본 제공 예/아니요가 있습니다. "예", "아니요"만 포함 하는 샘플 문장이 있으면 학습에 실패 합니다. 
 
 | 키워드 | 변형 | 
@@ -76,7 +76,7 @@ LUIS 교육은 더 작은 예제로 신속 하 게 학습할 수 있습니다. �
 
 예를 들어 아래 예제 문장에 대 한 매개 변수 {차량}을 정의 하 고 예제 문장에 "책 a {차량}"만 추가할 수 있습니다.
 
-| 예제 문장 | 무늬 | 
+| 예제 문장 | 패턴 | 
 | ------- | ------- | 
 | 차량 책 | 책 a {차량} | 
 | 항공권 예약 | 책 a {차량} |

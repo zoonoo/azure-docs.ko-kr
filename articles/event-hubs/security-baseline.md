@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401132"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Event Hubs에 대 한 Azure 보안 기준
@@ -970,7 +970,7 @@ Azure Event Hubs에 대 한 지역 재해 복구 이해: https://docs.microsoft.
 
 **지침**: azure Event Hubs는 azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Azure Key Vault를 사용 하 여 고객이 관리 하는 키를 저장 하는 경우 키의 자동 백업을 정기적으로 수행 해야 합니다.
 
-다음 PowerShell 명령을 사용 하 여 Key Vault 암호를 정기적으로 자동 백업 하도록 합니다. Backup-AzKeyVaultSecret
+다음 PowerShell 명령을 사용 하 여 Key Vault 암호의 자동 백업을 정기적으로 수행 하세요. Backup-AzKeyVaultSecret
 
 미사용 Azure Event Hubs 데이터를 암호화 하기 위해 고객이 관리 하는 키를 구성 하는 방법: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 

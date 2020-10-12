@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710561"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing News Search API에 대한 언어 및 지역 지원
@@ -38,8 +38,8 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |스위스|독일어|de-CH|
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
-|Canada|영어|en-CA|
-|United Kingdom|영어|en-GB|
+|캐나다|영어|en-CA|
+|영국|영어|en-GB|
 |인도네시아|영어|en-ID|
 |아일랜드|영어|en-IE|
 |인도|영어|en-IN|
@@ -50,7 +50,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |미국|영어|ko-KR|
 |영어|일반|en-WW|
 |영어|일반|en-XA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |아르헨티나|스페인어|es-AR|
 |칠레|스페인어|es-CL|
 |스페인|스페인어|es-ES|
@@ -59,13 +59,13 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |스페인어|일반|es-XL|
 |핀란드|핀란드어|fi-FI|  
 |프랑스|프랑스어|fr-BE|
-|Canada|프랑스어|fr-CA|
+|캐나다|프랑스어|fr-CA|
 |벨기에|네덜란드어|nl-BE|
 |스위스|프랑스어|fr-CH|
 |프랑스|프랑스어|fr-FR|  
 |이탈리아|이탈리아어|it-IT|
-|홍콩 특별 행정구|중국어(번체)|zh-HK|  
-|대만|중국어(번체)|zh-TW|
+|홍콩 특별행정구|중국어 번체|zh-HK|  
+|대만|중국어 번체|zh-TW|
 |일본|일본어|ja-JP|  
 |한국|한국어|en-US|  
 |네덜란드|네덜란드어|nl-NL|  
@@ -85,14 +85,14 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |덴마크|덴마크어|da-DK|
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
-|United Kingdom|영어|en-GB|
+|영국|영어|en-GB|
 |미국|영어|ko-KR|
 |영어|일반|en-WW|
 |칠레|스페인어|es-CL|
 |멕시코|스페인어|es-MX|
 |미국|스페인어|es-US|
 |핀란드|핀란드어|fi-FI|  
-|Canada|프랑스어|fr-CA|
+|캐나다|프랑스어|fr-CA|
 |프랑스|프랑스어|fr-FR|  
 |이탈리아|이탈리아어|it-IT|
 |브라질|포르투갈어|pt-BR|
@@ -107,12 +107,12 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |---------------------|--------------|-----------------|
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
-|United Kingdom|영어|en-GB|
+|영국|영어|en-GB|
 |미국|영어|ko-KR|
-|Canada|영어|en-CA|
+|캐나다|영어|en-CA|
 |인도|영어|en-IN|
 |프랑스|프랑스어|fr-FR|
-|Canada|프랑스어|fr-CA|
+|캐나다|프랑스어|fr-CA|
 |브라질|포르투갈어|pt-BR|
 |중국|중국어|zh-CN|
 

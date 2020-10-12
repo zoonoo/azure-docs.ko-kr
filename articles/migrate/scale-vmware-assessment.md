@@ -4,10 +4,10 @@ description: Azure Migrate 서비스를 사용 하 여 Azure로 마이그레이�
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171911"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 VMware Vm 평가
@@ -37,7 +37,7 @@ ms.locfileid: "87171911"
 - **검색을 위한 계정 계획**: Azure Migrate 어플라이언스는 평가 및 마이그레이션을 위해 vm을 검색 하기 위해 vCenter Server에 대 한 액세스 권한이 있는 계정을 사용 합니다. 1만 개 보다 많은 Vm을 검색 하는 경우, 필요한 경우 여러 계정을 설정 합니다 .이는 프로젝트의 두 어플라이언스에서 검색 된 Vm 간에 중복 되지 않습니다. 
 
 > [!NOTE]
-> 여러 어플라이언스를 설정 하는 경우 제공 된 vCenter 계정에 있는 Vm 간에 겹치지 않도록 해야 합니다. 이러한 겹치는 검색은 지원 되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색 및 문제가 중복 되며 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정할 수 있습니다.
+> 여러 어플라이언스를 설정 하는 경우 제공 된 vCenter 계정에 있는 Vm 간에 겹치지 않도록 해야 합니다. 이러한 겹치는 검색은 지원되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색 및 문제가 중복 되며 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정할 수 있습니다.
 
 ## <a name="planning-limits"></a>제한 계획
  
@@ -56,9 +56,9 @@ ms.locfileid: "87171911"
 **vCenter 서버** | **서버의 Vm** | **권장** | **동작**
 ---|---|---|---
 하나 | < 1만 | Azure Migrate 프로젝트 하나<br/> 어플라이언스 하나<br/> 검색을 위한 vCenter 계정이 하나 있습니다. | 어플라이언스를 설정 하 고 계정을 사용 하 여 vCenter Server에 연결 합니다.
-하나 | > 1만 | Azure Migrate 프로젝트 하나<br/> 여러 어플라이언스.<br/> 여러 vCenter 계정. | 1만 Vm 마다 어플라이언스를 설정 합니다.<br/><br/> VCenter 계정을 설정 하 고, 계정에 대 한 액세스를 1만 Vm 미만으로 제한 하도록 인벤토리를 나눕니다.<br/> 계정을 사용 하 여 각 어플라이언스를 vCenter server에 연결 합니다.<br/> 다른 어플라이언스로 검색 된 컴퓨터 간에 종속성을 분석할 수 있습니다. <br/> <br/> 제공 된 vCenter 계정에 있는 Vm 간에 중복이 없는지 확인 합니다. 이러한 겹치는 검색은 지원 되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색에서 중복이 발생 하 고, 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정 하는 데 문제가 발생 합니다.
+하나 | > 1만 | Azure Migrate 프로젝트 하나<br/> 여러 어플라이언스.<br/> 여러 vCenter 계정. | 1만 Vm 마다 어플라이언스를 설정 합니다.<br/><br/> VCenter 계정을 설정 하 고, 계정에 대 한 액세스를 1만 Vm 미만으로 제한 하도록 인벤토리를 나눕니다.<br/> 계정을 사용 하 여 각 어플라이언스를 vCenter server에 연결 합니다.<br/> 다른 어플라이언스로 검색 된 컴퓨터 간에 종속성을 분석할 수 있습니다. <br/> <br/> 제공 된 vCenter 계정에 있는 Vm 간에 중복이 없는지 확인 합니다. 이러한 겹치는 검색은 지원되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색에서 중복이 발생 하 고, 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정 하는 데 문제가 발생 합니다.
 여러 | < 1만 |  Azure Migrate 프로젝트 하나<br/> 여러 어플라이언스.<br/> 검색을 위한 vCenter 계정이 하나 있습니다. | 어플라이언스를 설정 하 고 계정을 사용 하 여 vCenter Server에 연결 합니다.<br/> 다른 어플라이언스로 검색 된 컴퓨터 간에 종속성을 분석할 수 있습니다.
-여러 | > 1만 | Azure Migrate 프로젝트 하나<br/> 여러 어플라이언스.<br/> 여러 vCenter 계정. | 1만 Vm < vCenter Server 경우 각 vCenter Server에 대 한 어플라이언스를 설정 합니다.<br/><br/> 1만 Vm > vCenter Server 경우 1만 Vm 마다 어플라이언스를 설정 합니다.<br/> VCenter 계정을 설정 하 고, 계정에 대 한 액세스를 1만 Vm 미만으로 제한 하도록 인벤토리를 나눕니다.<br/> 계정을 사용 하 여 각 어플라이언스를 vCenter server에 연결 합니다.<br/> 다른 어플라이언스로 검색 된 컴퓨터 간에 종속성을 분석할 수 있습니다. <br/><br/> 제공 된 vCenter 계정에 있는 Vm 간에 중복이 없는지 확인 합니다. 이러한 겹치는 검색은 지원 되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색에서 중복이 발생 하 고, 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정 하는 데 문제가 발생 합니다.
+여러 | > 1만 | Azure Migrate 프로젝트 하나<br/> 여러 어플라이언스.<br/> 여러 vCenter 계정. | 1만 Vm < vCenter Server 경우 각 vCenter Server에 대 한 어플라이언스를 설정 합니다.<br/><br/> 1만 Vm > vCenter Server 경우 1만 Vm 마다 어플라이언스를 설정 합니다.<br/> VCenter 계정을 설정 하 고, 계정에 대 한 액세스를 1만 Vm 미만으로 제한 하도록 인벤토리를 나눕니다.<br/> 계정을 사용 하 여 각 어플라이언스를 vCenter server에 연결 합니다.<br/> 다른 어플라이언스로 검색 된 컴퓨터 간에 종속성을 분석할 수 있습니다. <br/><br/> 제공 된 vCenter 계정에 있는 Vm 간에 중복이 없는지 확인 합니다. 이러한 겹치는 검색은 지원되지 않는 시나리오입니다. 하나 이상의 어플라이언스에서 VM을 검색 하는 경우이로 인해 검색에서 중복이 발생 하 고, 서버 마이그레이션의 Azure Portal를 사용 하 여 VM에 대 한 복제를 사용 하도록 설정 하는 데 문제가 발생 합니다.
 
 
 
@@ -68,7 +68,7 @@ ms.locfileid: "87171911"
 
 - 어플라이언스 검색 범위는 vCenter Server 데이터 센터, 클러스터 또는 클러스터, 호스트 또는 호스트의 폴더 또는 개별 Vm으로 설정할 수 있습니다.
 - 사용자 환경이 테 넌 트 간에 공유 되 고 각 테 넌 트를 개별적으로 검색 하려는 경우 어플라이언스에서 검색에 사용 하는 vCenter 계정에 대 한 액세스 범위를 지정할 수 있습니다. 
-    - 테 넌 트가 호스트를 공유 하는 경우 VM 폴더로 범위를 지정할 수 있습니다. Vcenter 계정에 vCenter VM 폴더 수준에서 액세스 권한이 부여 된 경우 Vm을 검색할 수 Azure Migrate. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다. [자세한 정보를 알아보세요](set-discovery-scope.md).
+    - 테 넌 트가 호스트를 공유 하는 경우 VM 폴더로 범위를 지정할 수 있습니다. Vcenter 계정에 vCenter VM 폴더 수준에서 액세스 권한이 부여 된 경우 Vm을 검색할 수 Azure Migrate. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다. [자세히 알아봅니다](set-discovery-scope.md).
 
 ## <a name="prepare-for-assessment"></a>평가 준비
 
@@ -88,7 +88,7 @@ ms.locfileid: "87171911"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세히 알아보기](how-to-add-tool-first-time.md)
+[자세한 정보](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

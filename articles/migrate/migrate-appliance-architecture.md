@@ -4,10 +4,10 @@ description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322260"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
@@ -85,7 +85,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 어플라이언스에서 실행되는 Azure Migrate 에이전트가 업데이트되면 어플라이언스가 업그레이드됩니다. 이는 기본적으로 어플라이언스에서 자동 업데이트를 사용 하기 때문에 자동으로 발생 합니다. 이 기본 설정을 변경 하 여 에이전트를 수동으로 업데이트할 수 있습니다.
 
-HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "자동 업데이트" 키를 0 (DWORD)로 설정 하 여 레지스트리에서 자동 업데이트를 해제 합니다.
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "자동 업데이트" 키를 0 (DWORD)로 설정 하 여 레지스트리에서 자동 업데이트를 해제 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

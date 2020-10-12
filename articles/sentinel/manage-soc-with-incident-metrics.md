@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761726"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
@@ -82,9 +82,9 @@ SecurityIncident
 
 Azure 센티널 탐색 메뉴에서 **통합 문서** 를 선택 하 고 **템플릿** 탭을 선택 하 여이 새 통합 문서 템플릿을 찾을 수 있습니다. 갤러리에서 **보안 작업 효율성** 을 선택 하 고 **저장 된 통합 문서 보기** 및 **템플릿 보기** 단추 중 하나를 클릭 합니다.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="보안 인시던트 통합 문서 갤러리":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="보안 인시던트 표":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="보안 인시던트 통합 문서 완료":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="보안 인시던트 표":::
 
 템플릿을 사용 하 여 특정 요구 사항에 맞게 사용자 고유의 사용자 지정 통합 문서를 만들 수 있습니다.
 
