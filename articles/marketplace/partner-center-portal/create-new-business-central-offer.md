@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 08/07/2020
 ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774581"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
@@ -130,7 +130,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명:
+9. 설명
 10. 스크린샷/비디오
 
 ### <a name="name"></a>속성

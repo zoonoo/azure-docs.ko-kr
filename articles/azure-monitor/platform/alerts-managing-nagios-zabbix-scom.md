@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.subservice: alerts
 ms.openlocfilehash: 9fbad920bdfa26419e4b865db5d4e53dad97acce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539451"
 ---
 # <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Azure Monitor에서 System Center Operations Manager, Zabbix 및 Nagios의 경고 관리
 
 이제 [Azure Monitor](https://aka.ms/azure-alerts-overview)에서 Nagios, Zabbix 및 System Center Operations Manager의 경고를 볼 수 있습니다. 이러한 경고는 Nagios/Zabbix 서버 또는 System Center Operations Manager와의 통합에서 Log Analytics로 제공됩니다. 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 Log Analytics 리포지토리에서 경고 유형인 모든 레코드를 Azure Monitor로 가져오므로, 이러한 레코드를 수집하는 데 필요한 구성을 수행해야 합니다.
 1. **Nagios** 및 **Zabbix** 경고의 경우 Log Analytics에 경고를 [보내도록](./data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json) [해당 서버를 구성](../learn/quick-collect-linux-computer.md) 합니다.
 1. **System Center Operations Manager** 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](./om-agents.md)합니다. 이 작업 후에 Azure 솔루션 Marketplace에서 [경고 관리](./alert-management-solution.md) 솔루션을 배포합니다. 완료되면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.

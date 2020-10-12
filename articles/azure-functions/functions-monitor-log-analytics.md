@@ -7,10 +7,10 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208364"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure Functions 모니터링
@@ -38,7 +38,7 @@ Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/a
 
 1. **진단 설정 이름을**입력 하 고 **저장**을 선택 합니다.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="진단 설정 추가":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="진단 설정 선택":::
 
 ## <a name="user-generated-logs"></a>사용자 생성 로그
 
@@ -89,7 +89,7 @@ logging.info('My app logs here.')
 
    Azure Functions은 **Logmanagement**의 **FunctionAppLogs** 테이블에 모든 로그를 기록 합니다. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Log Analytics 작업 영역의 쿼리 창":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="진단 설정 선택":::
 
 다음은 몇 가지 샘플 쿼리입니다.
 

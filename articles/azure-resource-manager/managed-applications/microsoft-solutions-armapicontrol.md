@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: bbe36e072d10b81c421331b2212d8b161afd2693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87098156"
 ---
 # <a name="microsoftcommonarmapicontrol-ui-element"></a>ArmApiControl UI 요소
@@ -49,7 +49,7 @@ ArmApiControl를 사용 하면 Azure Resource Manager API 작업에서 결과를
 - `request.path`속성은 URL의 상대 경로를 지정 합니다. 정적 경로 이거나 다른 컨트롤의 출력 값을 참조 하 여 동적으로 생성 될 수 있습니다.
 - `request.body` 속성은 선택 사항입니다. 이를 사용 하 여 요청과 함께 전송 되는 JSON 본문을 지정 합니다. 본문은 정적 콘텐츠 이거나 다른 컨트롤의 출력 값을 참조 하 여 동적으로 생성 될 수 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 예제에서 `providersApi` 요소는 API를 호출 하 여 공급자 개체의 배열을 가져옵니다.
 

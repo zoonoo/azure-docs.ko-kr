@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982495"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
@@ -344,7 +344,7 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 형식 |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -429,7 +429,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 형식 |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |

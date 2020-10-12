@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935996"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
@@ -45,7 +45,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | Description |
+| 출력 이름    | 설명 |
 |--------------------|-------------|
 | `languageCode` | 식별된 언어에 대한 ISO 6391 언어 코드입니다. 예: "en". |
 | `languageName` | 언어의 이름입니다. 예: "영어". |

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88660515"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
@@ -101,7 +101,7 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 방법 중 �
 
 ## <a name="automated-deployment"></a>자동화된 배포
 
-대상 컴퓨터에서 다음 단계를 수행 하 여 PowerShell 스크립트 **New-OnPremiseHybridWorker.ps1**를 사용 하 여 Windows Hybrid Worker 역할의 설치와 구성을 자동화 합니다. 스크립트에서 수행하는 단계는 다음과 같습니다.
+대상 컴퓨터에서 다음 단계를 수행 하 여 PowerShell 스크립트 **New-OnPremiseHybridWorker.ps1**를 사용 하 여 Windows Hybrid Worker 역할의 설치와 구성을 자동화 합니다. 스크립트는 다음 단계를 수행합니다.
 
 * 필요한 모듈을 설치 합니다.
 * Azure 계정으로 로그인

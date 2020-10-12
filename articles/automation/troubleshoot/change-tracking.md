@@ -10,10 +10,10 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187237"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
@@ -24,7 +24,7 @@ ms.locfileid: "86187237"
 
 ### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 및 인벤토리 레코드가 Windows 머신에 표시되지 않음
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 기능에 대해 사용하도록 설정된 Windows 머신에 대한 변경 내용 추적 및 인벤토리 결과가 표시되지 않습니다.
 

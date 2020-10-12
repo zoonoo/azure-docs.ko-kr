@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898529"
 ---
 # <a name="decision-forest-regression-module"></a>의사 결정 포리스트 회귀 모듈
@@ -24,7 +24,7 @@ ms.locfileid: "90898529"
 
 모델을 구성한 후에는 레이블이 지정 된 데이터 집합 및 [모델 학습](./train-model.md) 모듈을 사용 하 여 모델을 학습 해야 합니다. 그러면 학습된 모델을 예측에 사용할 수 있습니다. 
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 의사 결정 트리는 리프 노드(의사 결정)에 도달할 때까지 이진 트리 데이터 구조를 트래버스하며 각 인스턴스에 대해 일련의 간단한 테스트를 수행하는 비파라메트릭 모델입니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "90898529"
 
 이 회귀 모델은 의사 결정 트리의 앙상블로 구성되어 있습니다. 회귀 의사 결정 포리스트의 각 트리는 가우스 분포를 예측으로 출력 합니다. 모델의 모든 트리에 대해 결합 된 분포와 가장 가까운 가우스 분포를 찾기 위해 트리의 앙상블 대해 집계가 수행 됩니다.
 
-이 알고리즘과 해당 구현에 대 한 이론적인 프레임 워크에 대 한 자세한 내용은 [의사 결정 포리스트: 분류, 회귀, 밀도 예측, 다 기관의 학습 및 반 감독 학습을 위한 통합 프레임 워크](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#) 문서를 참조 하세요.
+이 알고리즘과 해당 구현에 대 한 이론적 프레임 워크에 대 한 자세한 내용은 [의사 결정 포리스트: 분류, 회귀, 밀도 예측, 다 기관의 학습 및 Semi-Supervised 학습을 위한 통합 프레임 워크](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#) 문서를 참조 하세요.
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>의사 결정 포리스트 회귀 모델을 구성 하는 방법
 

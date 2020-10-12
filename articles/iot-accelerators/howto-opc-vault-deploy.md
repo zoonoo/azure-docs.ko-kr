@@ -9,23 +9,23 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282026"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
 
 > [!IMPORTANT]
-> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 이 문서에서는 Azure에서 OPC 자격 증명 모음 인증서 관리 서비스를 배포 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 자세한 내용은 GitHub [OPC 자격 증명 모음 리포지토리](https://github.com/Azure/azure-iiot-opc-vault-service)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="install-required-software"></a>필수 소프트웨어 설치
 
@@ -97,7 +97,7 @@ PowerShell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
 2. 서비스가 배포 된 리소스 그룹으로 이동 합니다.
 3. **리소스 그룹 삭제**를 선택하고 확인합니다.
 4. 잠시 후에는 배포 된 모든 서비스 구성 요소가 삭제 됩니다.
-5. **Azure Active Directory**  >  **앱 등록**로 이동 합니다.
+5. **Azure Active Directory** > **앱 등록**으로 이동합니다.
 6. 배포 된 각 리소스 그룹에 대해 등록 된 세 가지 등록이 있습니다. 등록의 이름은 `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` 입니다. 각 등록을 개별적으로 삭제 합니다.
 
 이제 배포 된 모든 구성 요소가 제거 됩니다.

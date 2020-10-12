@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921421"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>다중 장치 대화 (미리 보기) 란?
@@ -79,7 +79,7 @@ ms.locfileid: "87921421"
 -    음성 또는 텍스트 입력에 대 한 각 사용자의 선택 된 애칭 및 주 언어를 포함 하는 대화의 모든 참가자 목록입니다.
 
 
-대화에는 **호스트** 와 **참가자**라는 두 가지 유형의 사용자가 있습니다.
+대화에는  **호스트** 와 **참가자**라는 두 가지 유형의 사용자가 있습니다.
 
 **호스트** 는 대화를 시작 하 고 해당 대화의 관리자 역할을 하는 사용자입니다.
 - 각 대화에는 하나의 호스트만 있을 수 있습니다.

@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945310"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Azure 플랫폼 로그 개요
@@ -53,7 +53,7 @@ ms.locfileid: "84945310"
 - 활동 로그 또는 리소스 로그에 대 한 진단 설정을 만드는 방법에 대 한 자세한 내용은 [진단 설정 만들기를 참조 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보냅니다](diagnostic-settings.md). 
 - Azure Active Directory 로그에 대 한 진단 설정을 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
   - [Azure Monitor 로그와 Azure AD 로그 통합](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-  - [자습서: Azure 이벤트 허브에 Azure Active Directory 로그 스트림](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+  - [자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
   - [자습서: azure storage 계정에 Azure AD 로그 보관](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984785"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>인증서 인증을 사용하여 지점 및 사이트 간 연결 구성(클래식)
@@ -35,7 +35,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 지점 및 사이트 간 인증서 인증 연결을 사용하려면 다음 필수 조건이 필요합니다.
 
@@ -81,7 +81,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 VNet(가상 네트워크)이 아직 없는 경우 만듭니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다. Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 사용하세요.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. **새로 만들기** 페이지가 열립니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. **새로 만들기** 페이지가 열립니다.
 
 2. **Marketplace 검색** 필드에 *가상 네트워크*를 입력하고 반환된 목록에서 **가상 네트워크**를 선택합니다. **가상 네트워크** 페이지가 열립니다.
 
@@ -93,7 +93,7 @@ VNet(가상 네트워크)이 아직 없는 경우 만듭니다. 스크린샷은 
 
 5. 드롭다운 목록에서 사용할 **구독**을 선택합니다.
 
-6. 기존 **리소스 그룹**을 선택합니다. 또는 **새로 만들기**를 선택하고 이름을 입력하여 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대 한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md#resource-groups)를 참조 하세요.
+6. 기존 **리소스 그룹**을 선택 합니다. 또는 **새로 만들기**를 선택하고 이름을 입력하여 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
 
 7. VNet의 **위치**를 선택합니다. 이 설정은 이 VNet에 배포하는 리소스의 지리적 위치를 결정합니다.
 
@@ -272,7 +272,7 @@ Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 �
 3. 클래식 가상 네트워크로 이동 합니다. **지점 및 사이트 간 VPN 연결**을 선택한 다음, **인증서 관리**를 선택하여 **인증서** 페이지를 엽니다.
 4. **해지 목록**을 선택하여 **해지 목록** 페이지를 엽니다. 
 5. **인증서 추가**를 선택하여 **해지 목록에 인증서 추가** 페이지를 엽니다.
-6. **지문**에서 인증서 지문을 공백 없이한 줄의 텍스트로 붙여넣습니다. **확인** 을 선택 하 여 마칩니다.
+6. **지문**에서 인증서 지문을 공백 없이한 줄의 텍스트로 붙여넣습니다. **확인** 을 선택하여 작업을 마칩니다.
 
 업데이트가 완료된 후에는 인증서를 더 이상 연결에 사용할 수 없습니다. 이 인증서를 사용하여 연결하려는 클라이언트는 인증서가 더 이상 유효하지 않다는 메시지를 받습니다.
 

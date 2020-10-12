@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297793"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
@@ -296,11 +296,11 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |-|빼기|
 |/|사업부|
 |*|곱하기|
-|^|전력|
+|^|전원|
 |!|계승|
 |.|Decimal|
 |()|우선 순위 그룹화|
-|[]|기능|
+|[]|함수|
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
@@ -480,6 +480,6 @@ cors-proxy-server
 
 * [요청 제한](throttling-requests.md) 설명서를 검토합니다.  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 * [Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

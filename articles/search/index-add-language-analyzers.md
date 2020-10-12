@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935886"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
@@ -68,7 +68,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 ## <a name="language-analyzer-list"></a>언어 분석기 목록 
  다음은 Lucene 및 Microsoft 분석기 이름으로 지원되는 언어의 목록입니다.  
 
-|언어|Microsoft 분석기 이름|Lucene 분석기 이름|  
+|Language|Microsoft 분석기 이름|Lucene 분석기 이름|  
 |--------------|-----------------------------|--------------------------|  
 |아랍어|ar.microsoft|ar.lucene|  
 |아르메니아어||hy.lucene|  
@@ -129,7 +129,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 + [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](/rest/api/searchservice/create-index)  
 

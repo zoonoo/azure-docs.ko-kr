@@ -12,17 +12,17 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86170227"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Arkose Labs를 구성 하기 위한 자습서
 
 이 자습서에서는 Arkose Labs를 사용 하 여 Azure AD B2C 인증을 통합 하는 방법에 대해 알아봅니다. Arkose Labs는 봇 공격, 계정 인수 공격 및 사기성 계정 입구에 대해 조직을 지원 합니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -166,7 +166,7 @@ Git Bash를 다운로드 하 고 다음 단계를 수행 합니다.
 
    b. **회신 url** -리디렉션 url을 선택 합니다.
 
-   c. **사용자 흐름 실행**을 선택합니다.
+   다. **사용자 흐름 실행**을 선택합니다.
 
 4. 등록 흐름을 진행 하 고 계정을 만듭니다.
 

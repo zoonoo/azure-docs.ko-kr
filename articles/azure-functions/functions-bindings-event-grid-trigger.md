@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214134"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
@@ -407,7 +407,7 @@ Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수의 �
 
 이 링크를 선택하면 포털에서 현재 트리거 엔드포인트가 이미 정의된 **이벤트 구독 만들기** 페이지가 열립니다.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="함수 엔드포인트가 이미 정의된 이벤트 구독 만들기" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="포털에서 새 이벤트 구독을 트리거에 연결합니다." :::
 
 Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 설명서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 

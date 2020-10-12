@@ -4,10 +4,10 @@ description: IoT Edge의 Live Video Analytics는 여러 가지 직접 메서드�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091830"
 ---
 # <a name="direct-methods"></a>직접 메서드
@@ -42,7 +42,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
     * 공백 없음
     * 최대 32 문자
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```
 {
@@ -98,7 +98,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 }
 ```
 
-|상태|    자세한 코드   |Description|
+|상태|    자세한 코드   |설명|
 |---|---|---|
 |400|   GraphValidationError|   주기 또는 분할과 같은 일반적인 그래프 오류 등|
 |400|   ModuleValidationError|  모듈 특정 유효성 검사 오류입니다.|
@@ -194,7 +194,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 기존 엔터티 업데이트 됨 |200|   해당 없음|
-새 엔터티 생성  |201|   N/A|
+새 엔터티 생성  |201|   해당 없음|
 일반 사용자 오류 |400 범위  ||
 그래프 유효성 검사 오류 |400    |GraphValidationError|
 모듈 유효성 검사 오류|   400 |ModuleValidationError|
@@ -230,7 +230,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |엔터티 삭제 됨|    200|    해당 없음|
-|엔터티를 찾을 수 없음|  204|    N/A|
+|엔터티를 찾을 수 없음|  204|    해당 없음|
 |일반 사용자 오류|   400 범위   ||
 |하나 이상의 graph 인스턴스에서 그래프 토폴로지를 참조 하 고 있습니다.| 409 |GraphTopologyInUse|
 |일반 서버 오류| 500 범위   ||
@@ -278,7 +278,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 
 #### <a name="filter-support"></a>필터 지원
 
-|작업      |개 필드   |연산자|
+|작업(Operation)      |개 필드   |연산자|
 |---|---|---|
 |$orderby|name  |asc|
 
@@ -287,7 +287,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
-|성공|   200 |해당 없음|
+|Success|   200 |해당 없음|
 |일반 사용자 오류|   400 범위   ||
 |일반 서버 오류| 500 범위   ||
 
@@ -376,7 +376,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |기존 엔터티 업데이트 됨    |200    |해당 없음|
-|새 엔터티 생성|    201 |N/A|
+|새 엔터티 생성|    201 |해당 없음|
 |일반 사용자 오류|   400 범위   ||
 |그래프 유효성 검사 오류    |400|   GraphValidationError|
 |모듈 유효성 검사 오류|  400 |ModuleValidationError|
@@ -417,7 +417,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |그래프가 삭제 됨|    200|    해당 없음|
-|그래프를 찾을 수 없음|   204|    N/A|
+|그래프를 찾을 수 없음|   204|    해당 없음|
 |일반 사용자 오류    |400 범위  ||
 |그래프가 "중지 됨" 상태에 있지 않습니다.    |409    |OperationNotAllowedInState|
 |일반 서버 오류| 500 범위   ||
@@ -466,7 +466,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 
 #### <a name="filter-support"></a>필터 지원
 
-|작업  |   개 필드|   연산자|
+|작업(Operation)  |   개 필드|   연산자|
 |---|---|---|
 |$orderby|  name|   asc|
 
@@ -474,7 +474,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
-|성공    |200    |해당 없음|
+|Success    |200    |해당 없음|
 |일반 사용자 오류|   400 범위   ||
 |일반 서버 오류| 500 범위   ||
 
@@ -519,7 +519,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |그래프가 활성화 되었습니다.   |200    |해당 없음|
-|새 엔터티 생성 |201|   N/A|
+|새 엔터티 생성 |201|   해당 없음|
 |일반 사용자 오류    |400 범위  ||
 |모듈 유효성 검사 오류   |400|   ModuleValidationError|
 |리소스 유효성 검사 오류|    409|    ResourceValidationError|
@@ -568,7 +568,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |그래프가 활성화 되었습니다.   |200|   해당 없음|
-|새 엔터티 생성 |201|   N/A|
+|새 엔터티 생성 |201|   해당 없음|
 |일반 사용자 오류    |400 범위  ||
 |그래프가 활성화 상태입니다.   |409|   OperationNotAllowedInState|
 |일반 서버 오류  |500 범위  ||

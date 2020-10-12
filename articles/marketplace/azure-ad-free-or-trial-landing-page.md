@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488612"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드
@@ -69,7 +69,7 @@ Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구�
 
 [Openid connect Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 흐름의 일부로 Azure AD는 사용자가 방문 페이지로 전송 될 때 요청에 [ID 토큰](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) 을 추가 합니다. 이 토큰에는이 표에 표시 된 정보를 비롯 하 여 활성화 프로세스에 유용할 수 있는 여러 가지 기본 정보가 포함 되어 있습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ------------ | ------------- |
 | aud | 이 토큰의 대상입니다. 이 경우 응용 프로그램 ID와 일치 하 고 유효성을 검사 해야 합니다. |
 | preferred_username | 방문 사용자의 기본 사용자 이름입니다. 전자 메일 주소, 전화 번호 또는 기타 식별자 일 수 있습니다. |
@@ -84,7 +84,7 @@ Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구�
 
 ID 토큰에는 사용자를 식별 하기 위한 기본 정보가 포함 되어 있지만 활성화 프로세스에는 온 보 딩 프로세스를 완료 하는 데 필요한 추가 정보 (예: 사용자 회사)가 필요할 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api) 를 사용 하 여이 정보를 요청 하면 사용자가이 정보를 다시 입력 하지 않도록 방지할 수 있습니다. 표준 **사용자. 읽기** 권한에는 기본적으로 다음 정보가 포함 됩니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ------------ | ------------- |
 | displayName | 사용자의 주소록에 표시 되는 이름입니다. |
 | givenName | 사용자의 이름입니다. |

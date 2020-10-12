@@ -12,10 +12,10 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319183"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
@@ -130,12 +130,12 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 
 **고급 구성 표시**를 클릭하면 다음 구성이 표시됩니다.  
 
-|열1  |열2  |
+|열1  |Column2  |
 |---------|---------|
 |검색 상자 텍스트 자리 표시자   | 입력 전에 검색 상자에 표시되는 텍스트입니다.        |
 |제목 링크 URL    |제목 링크의 대상입니다.         |
 |로고 URL     | 제목 옆에 표시되는 이미지입니다.         |
-|즐겨찾기 아이콘    | 브라우저 제목 표시줄에 표시되는 아이콘입니다.          |
+|Favicon    | 브라우저 제목 표시줄에 표시되는 아이콘입니다.          |
 
 다음 구성은 HTML 엔드포인트를 통해 호스트된 UI를 사용하는 경우에만 적용됩니다(JavaScript 코드 조각을 사용하는 경우에는 적용되지 않음).
 

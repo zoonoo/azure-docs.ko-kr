@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84976679"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Azure Cognitive Search에서 개념 기술
@@ -223,7 +223,7 @@ Azure Cognitive Search에서 인덱서는 생성 하는 출력을 저장 합니�
 
 #### <a name="shaper-skill-and-projection"></a>쉐이퍼 기술 및 프로젝션
 
-이 
+이번 
 
 > [!Note]
 > 이 예제에서는 간단한 설명을 위해 문서 테이블의 일부 열을 제거했습니다.

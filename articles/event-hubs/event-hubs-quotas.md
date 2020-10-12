@@ -4,10 +4,10 @@ description: '이 문서에서는 Azure Event Hubs에 대 한 제한 및 할당�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f07176d01dd2444f3def93d4295ef898cca61561
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512387"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Azure Event Hubs 할당량 및 제한

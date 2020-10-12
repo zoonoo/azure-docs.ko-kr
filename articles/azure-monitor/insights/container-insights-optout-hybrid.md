@@ -4,10 +4,10 @@ description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 �
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986046"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>하이브리드 클러스터 모니터링을 중지 하는 방법
@@ -44,7 +44,7 @@ Kubernetes 클러스터의 모니터링을 사용 하도록 설정한 후에는 
 
     `helm delete <releaseName>`
 
-    예:
+    예제:
 
     `helm delete azmon-containers-release-1`
 
@@ -96,7 +96,7 @@ $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $service
 $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```powershell
 \disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId

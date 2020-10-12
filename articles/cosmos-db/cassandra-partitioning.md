@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423323"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 분할
@@ -58,7 +58,7 @@ CREATE TABLE uprofile.user (
 
 ## <a name="compound-primary-key"></a>복합 기본 키
 
-Apache Cassandra의 개념도 `compound keys` 있습니다. 복합은 `primary key` 두 개 이상의 열로 구성 되며, 첫 번째 열은이 `partition key` 고, 추가 열은 `clustering keys` 입니다. 에 대 한 구문은 `compound primary key` 다음과 같습니다.
+Apache Cassandra의 개념도  `compound keys` 있습니다. 복합은 `primary key` 두 개 이상의 열로 구성 되며, 첫 번째 열은이 `partition key` 고, 추가 열은 `clustering keys` 입니다. 에 대 한 구문은 `compound primary key` 다음과 같습니다.
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])
