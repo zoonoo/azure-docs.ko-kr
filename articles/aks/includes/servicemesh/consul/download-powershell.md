@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77594273"
 ---
 Windows의 PowerShell 기반 셸에서를 사용 `Invoke-WebRequest` 하 여 Consul 투구 차트 릴리스를 다운로드 한 후 다음과 같이를 사용 하 여 추출 합니다 `Expand-Archive` .

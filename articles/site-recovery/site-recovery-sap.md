@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133696"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
@@ -24,7 +24,7 @@ Site Recovery의 기능은 다음과 같습니다.
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 SAP NetWeaver 응용 프로그램 배포를 보호할 수 있습니다. 이 문서에서는 Site Recovery를 사용 하 여 다른 Azure 데이터 센터에 복제 하는 경우 Azure에서 3 계층 SAP NetWeaver 배포를 보호 하기 위한 모범 사례를 설명 합니다. 이 문서에서는 지원 되는 시나리오 및 구성을 설명 하 고 테스트 장애 조치 (failover) 및 실제 장애 조치 (failover)를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -101,7 +101,7 @@ Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 �
 
 다음은이 예에 사용 된 각 계층의 재해 복구에 대 한 권장 사항입니다.
 
- **SAP 계층** | **추천 사항**
+ **SAP 계층** | **권장**
  --- | ---
 **SAP Web Dispatcher 풀** |  Site Recovery를 사용 하 여 복제 
 **SAP 애플리케이션 서버 풀** |  Site Recovery를 사용 하 여 복제 

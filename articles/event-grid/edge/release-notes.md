@@ -4,10 +4,10 @@ description: IoT Edge 릴리스 정보에 대 한 Azure Event Grid
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: a7582750f5230f02c784b14f50dfc6efa7af8698
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171417"
 ---
 # <a name="release-notes-azure-event-grid-on-iot-edge"></a>릴리스 정보: IoT Edge에서 Azure Event Grid
@@ -28,7 +28,7 @@ IoT Edge Azure Event Grid의 초기 릴리스입니다. 포함 된 기능:
 * 메타 데이터의 지속형 상태
 * Blob storage 모듈 통합
 
-사이`1.0.0-preview1`
+사이 `1.0.0-preview1`
 
 ## <a name="100-preview2"></a>1.0.0-미리 보기 2
 
@@ -42,4 +42,4 @@ Azure Event Grid의 미리 보기 2 IoT Edge 추가 됨:
 * 대상으로 Service Bus 토픽에 게시
 * 저장소 큐에 대상으로 게시
 
-태그: `1.0.0-preview2` , `1.0` ,`latest`
+태그: `1.0.0-preview2` , `1.0` , `latest`

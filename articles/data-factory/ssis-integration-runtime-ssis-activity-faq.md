@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
 ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84118090"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
@@ -32,7 +32,7 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 
 ## <a name="common-errors-causes-and-solutions"></a>일반적인 오류, 원인 및 해결 방법
 
-### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>오류 메시지: "연결 제한 시간이 만료 되었습니다." 또는 "서비스에서 요청을 처리 하는 동안 오류가 발생 했습니다. 다시 시도하세요."
+### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>오류 메시지: "연결 제한 시간이 만료 되었습니다." 또는 "서비스에서 요청을 처리 하는 동안 오류가 발생 했습니다. 다시 시도하세요”와 같은 오류로 인해 실패합니다.
 
 가능한 원인 및 권장 되는 작업은 다음과 같습니다.
 * 데이터 원본 또는 대상이 오버 로드 됩니다. 데이터 원본 또는 대상에 대 한 부하를 확인 하 고 용량이 충분 한지 확인 합니다. 예를 들어 Azure SQL Database 사용 하는 경우 데이터베이스가 시간 초과 될 가능성이 있는 경우 확장 하는 것이 좋습니다.
@@ -76,8 +76,8 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
     * Azure 파일을 사용 하는 경우:
       * 파일 경로는. file.core.windows.net로 시작 해야 합니다 \\ \\ \<storage account name\> .\\\<file share path\>
       * 도메인은 "Azure" 여야 합니다.
-      * 사용자 이름은 이어야 합니다.\<storage account name\>
-      * 암호는\<storage access key\>
+      * 사용자 이름은 이어야 합니다. \<storage account name\>
+      * 암호는 \<storage access key\>
     * 온-프레미스 파일을 사용 하는 경우 Azure SSIS 통합 런타임에서 온-프레미스 파일 공유에 액세스할 수 있도록 VNet, 패키지 액세스 자격 증명 및 권한이 올바르게 구성 되어 있는지 확인 하세요.
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>오류 메시지: "파일 이름 ' ... ' 연결에 지정 된가 잘못 되었습니다. "
@@ -136,36 +136,36 @@ SSIS integration runtime에서 많은 패키지가 병렬로 실행 되는 경�
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>오류 메시지: "작업 guid를 사용 하 여 준비 작업 요청 ... 오류 발생 후 실패: 다음 오류 메시지와 함께 준비 작업을 디스패치하지 못했습니다. Microsoft.sqlserver.management.integrationservices. "데이터 프록시를 로드 하지 못했습니다."
 
-Azure SSIS 통합 런타임이 자체 호스팅 통합 런타임을 사용 하 여 구성 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md)에서 찾을 수 있습니다.
+Self-Hosted integration runtime을 사용 하 여 Azure SSIS 통합 런타임이 구성 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 Self-Hosted IR 구성](self-hosted-integration-runtime-proxy-ssis.md)에서 찾을 수 있습니다.
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>오류 메시지: "준비 작업 상태: 실패 준비 작업 오류: ErrorCode: 2010, ErrorMessage: 자체 호스팅 Integration Runtime ... 오프 라인 상태 "
 
-자체 호스팅 integration runtime이 설치 및 시작 되었는지 확인 합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md) 에서 찾을 수 있습니다.
+Self-Hosted integration runtime이 설치 및 시작 되었는지 확인 합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md) 에서 찾을 수 있습니다.
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>오류 메시지: "준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {" OperationErrorMessages ":" 오류: 요청 된 OLE DB 공급자 ... 이 등록 되지 않은 경우 64 비트 드라이버가 설치 되지 않은 경우 32 비트 모드에서 패키지를 실행 합니다.
 
-패키지의 OLE DB 커넥터에서 사용 하는 해당 공급자가 자체 호스팅 통합 런타임 컴퓨터에 제대로 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir) 에서 찾을 수 있습니다.
+패키지의 OLE DB 커넥터에서 사용 하는 해당 공급자가 Self-Hosted integration runtime 컴퓨터에 제대로 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF에서 Azure-SSIS IR에 대 한 프록시로 Self-Hosted IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir) 에서 찾을 수 있습니다.
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>오류 메시지: "준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {" OperationErrorMessages ":" 오류: FileLoadException: 파일이 나 어셈블리 ' Windowsazure.servicebus, Version = ..., Culture = 중립, PublicKeyToken = 31bf3856ad364e35 ' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 찾은 어셈블리의 매니페스트 정의가 어셈블리 참조와 일치 하지 않습니다. ' ..."
 
-자체 호스팅 통합 런타임이 제대로 설치 또는 업그레이드 되지 않는 한 가지 잠재적인 원인이 있습니다. 최신 자체 호스팅 통합 런타임을 다운로드 하 고 다시 설치 하는 것이 좋습니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md#installation-best-practices) 에서 찾을 수 있습니다.
+Self-Hosted integration runtime이 올바르게 설치 되지 않았거나 업그레이드 되지 않았기 때문일 수 있습니다. 최신 자체 호스팅 통합 런타임을 다운로드 하 고 다시 설치 하는 것이 좋습니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md#installation-best-practices) 에서 찾을 수 있습니다.
 
 ### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>오류 메시지: "메타 데이터를 요청할 때 연결이 필요 합니다. 오프 라인으로 작업 하는 경우 SSIS 메뉴에서 오프 라인으로 작업을 선택 취소 하 여 연결을 설정 합니다.
 
 * 잠재적인 원인 & 권장 조치:
-  * "구성 요소에서 연결 관리자를 사용 하 여 연결 관리자의 연결 관리자 사용을 지원 하지 않습니다." 라는 경고 메시지가 나타나면 "ConnectByProxy"를 아직 지원 하지 않는 구성 요소에서 연결 관리자를 사용 하는 것을 의미 합니다. 지원 되는 구성 요소는 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy) 에서 찾을 수 있습니다.
+  * "구성 요소에서 연결 관리자를 사용 하 여 연결 관리자의 연결 관리자 사용을 지원 하지 않습니다." 라는 경고 메시지가 나타나면 "ConnectByProxy"를 아직 지원 하지 않는 구성 요소에서 연결 관리자를 사용 하는 것을 의미 합니다. 지원 되는 구성 요소는 [ADF의 Azure-SSIS IR에 대 한 프록시로 Self-Hosted IR 구성](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy) 에서 찾을 수 있습니다.
   * 실행 로그는 [SSMS 보고서](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
   * vNet은 다른 방법으로 온-프레미스 데이터에 액세스 하는 데도 사용할 수 있습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md) 에서 찾을 수 있습니다.
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패 준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ executionlog \\ ... "," effectiveIntegrationRuntime ":" ... "," executionlog ": ...," durationInQueue ": {" integrationRuntimeQueue ": ...}}"
 
-Visual C++ 런타임이 자체 호스팅 integration runtime 컴퓨터에 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir) 에서 찾을 수 있습니다.
+Visual C++ 런타임이 Self-Hosted integration runtime 컴퓨터에 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF에서 Azure-SSIS IR에 대 한 프록시로 Self-Hosted IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir) 에서 찾을 수 있습니다.
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>여러 패키지 실행이 예기치 않게 트리거됨
 
 * 잠재적인 원인 & 권장 조치:
   * ADF 저장 프로시저 작업 또는 조회 작업은 SSIS 패키지 실행을 트리거하는 데 사용 됩니다. T-sql 명령은 일시적인 문제를 발생 시킬 수 있으며 여러 패키지를 실행 하는 다시 실행을 트리거할 수 있습니다.
-  * 사용자가 작업에서 다시 시도 횟수를 설정 하지 않으면 패키지 실행이 다시 실행 되지 않도록 하는 ExecuteSSISPackage 작업을 대신 사용 합니다. 세부 정보는 다음 위치에서 찾을 수 있습니다.[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * 사용자가 작업에서 다시 시도 횟수를 설정 하지 않으면 패키지 실행이 다시 실행 되지 않도록 하는 ExecuteSSISPackage 작업을 대신 사용 합니다. 세부 정보는 다음 위치에서 찾을 수 있습니다. [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
   * 실행이 이미 트리거 되었는지 확인 하 여 다시 실행할 수 있도록 t-sql 명령을 구체화 합니다.
 
 ### <a name="package-execution-takes-too-long"></a>패키지 실행 시간이 너무 오래 걸립니다.

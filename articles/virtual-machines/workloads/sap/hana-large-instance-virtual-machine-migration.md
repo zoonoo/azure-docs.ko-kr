@@ -14,10 +14,10 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: db51ec682f43366f5637c461e3fe4037dec8e364
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085217"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Azure Virtual Machines에 대 한 Azure Large Instance 마이그레이션 SAP HANA
@@ -51,14 +51,14 @@ HLI 고객이 있는 일반적인 배포 모델은 다음 표에 요약 되어 �
 | --- | --- | --- | --- |
 | 1 | [SID가 1개인 단일 노드](./hana-supported-scenario.md#single-node-with-one-sid) | 예 | - |
 | 2 | [MCOS를 사용 하는 단일 노드](./hana-supported-scenario.md#single-node-mcos) | 예 | - |
-| 3 | [저장소 복제를 사용 하는 DR이 있는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | 예 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
-| 4 | [저장소 복제를 사용 하는 DR (다목적)이 포함 된 단일 노드](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | 예 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
+| 3 | [저장소 복제를 사용 하는 DR이 있는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | 아니요 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
+| 4 | [저장소 복제를 사용 하는 DR (다목적)이 포함 된 단일 노드](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | 아니요 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
 | 5 | [고가용성을 위한 STONITH가 있는 HSR](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | 예 | 대상 Vm에 대 한 미리 구성 된 SBD 없습니다.  STONITH 솔루션을 선택 하 고 배포 합니다.  가능한 옵션: Azure 펜스 에이전트 ( [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)모두에 지원 됨), SBD |
-| 6 | [HSR, 저장소 복제를 사용 하는 DR을 사용한 HA](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | 예 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
+| 6 | [HSR, 저장소 복제를 사용 하는 DR을 사용한 HA](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | 아니요 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
 | 7 | [호스트 자동 장애 조치(Failover)(1+1)](./hana-supported-scenario.md#host-auto-failover-11) | 예 | Azure Vm에서 공유 저장소에 ANF 사용 |
 | 8 | [대기 상태로 스케일 아웃](./hana-supported-scenario.md#scale-out-with-standby) | 예 | M128s, M416s, M416ms Vm을 사용 하 여 저장소 전용으로 ANF를 사용 하는 BW/4HANA |
 | 9 | [대기 없이 스케일 아웃](./hana-supported-scenario.md#scale-out-without-standby) | 예 | M128s, M416s, M416ms Vm (저장소에 대해 ANF를 사용 하거나 사용 하지 않음)을 사용 하는 BW/4HANA |
-| 10 | [저장소 복제를 사용 하 여 DR 확장](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | 예 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
+| 10 | [저장소 복제를 사용 하 여 DR 확장](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | 아니요 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
 | 11 | [HSR를 사용 하는 DR을 사용 하는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | 예 | - |
 | 12 | [단일 노드 HSR에서 DR으로 (비용 최적화)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | 예 | - |
 | 13 | [HSR에서 HA 및 DR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | 예 | - |

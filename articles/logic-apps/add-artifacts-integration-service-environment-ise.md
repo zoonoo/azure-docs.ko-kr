@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269746"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
@@ -20,7 +20,7 @@ ms.locfileid: "91269746"
 > [!IMPORTANT]
 > 논리 앱과 통합 계정이 ISE에서 함께 작동하려면 둘 다 각자 위치와 동일한 ISE를 사용해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -42,7 +42,7 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
    ![예제 정보가 입력 된 "논리 앱" "만들기" 창을 보여 주는 스크린샷](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 만들 논리 앱의 이름 |
    | **구독** | 예 | 사용할 Azure 구독의 이름입니다. |
@@ -74,7 +74,7 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
    ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 만들려는 통합 계정의 이름입니다. |
    | **구독** | 예 | 사용 하려는 Azure 구독의 이름입니다. |

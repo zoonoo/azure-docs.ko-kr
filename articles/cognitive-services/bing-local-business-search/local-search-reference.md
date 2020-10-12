@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84171466"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
@@ -47,7 +47,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 > 최대 URL 길이는 2,048자입니다. URL 길이가 한도를 초과하지 않도록 하려면 쿼리 매개 변수의 최대 길이가 1,500자 미만이어야 합니다. URL이 2,048자를 초과하면 서버에서 404 찾을 수 없음이 반환됩니다.  
   
   
-## <a name="headers"></a>헤더  
+## <a name="headers"></a>headers  
 다음은 요청 및 응답이 포함할 수 있는 헤더입니다.  
   
 |헤더|설명|  
@@ -76,7 +76,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |<a name="count"></a>count|매개 변수로 지정 된 인덱스부터 시작 하 여 반환할 결과 수입니다 `offset` .|String|아니요|   
 |<a name="localCategories"></a>localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|String|아니요|  
 |<a name="mkt"></a>mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|String|예|
-|<a name="offset"></a>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수|아니요|  
+|<a name="offset"></a>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수|예|  
 |<a name="query"></a>q|사용자의 검색 용어입니다.|String|아니요|  
 |<a name="responseformat"></a>responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|String|아니요|  
 |<a name="safesearch"></a>safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지 또는 비디오는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:**`site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |String|아니요|  
@@ -87,7 +87,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 다음은 응답에 포함할 수 있는 JSON 응답 개체입니다. 요청이 성공하는 경우 응답의 최상위 개체는 [SearchResponse](#searchresponse) 개체입니다. 요청이 실패할 경우 최상위 개체는 [ErrorResponse](#errorresponse) 개체입니다.
 
 
-|Object|Description|  
+|Object|설명|  
 |------------|-----------------|  
 |[Place](#place)|식당 또는 호텔과 같은 로컬 비즈니스에 대한 정보를 정의합니다.|  
 
@@ -131,7 +131,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|String|  
 |text|표시 텍스트입니다.|String|  
-|url|URL입니다. 하이퍼링크를 만들려면 URL과 표시 텍스트를 사용합니다.|String|  
+|url|URL. 하이퍼링크를 만들려면 URL과 표시 텍스트를 사용합니다.|String|  
   
 
 
@@ -167,10 +167,10 @@ Bing이 요청에 사용한 쿼리 컨텍스트를 정의합니다.
   
 |요소|설명|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|지정한 쿼리에 성인 의도가 있는지 여부를 나타내는 부울 값입니다. 쿼리에 성인 의도가 있으면 값이 **true**이고, 없으면 **false**입니다.|Boolean|  
+|adultIntent|지정한 쿼리에 성인 의도가 있는지 여부를 나타내는 부울 값입니다. 쿼리에 성인 의도가 있으면 값이 **true**이고, 없으면 **false**입니다.|부울|  
 |alterationOverrideQuery|Bing에서 원래 문자열을 사용하도록 강제하는 데 사용할 쿼리 문자열입니다. 예를 들어 쿼리 문자열이 *saling downwind*인 경우 대체 쿼리 문자열은 *+saling downwind*가 됩니다. 쿼리 문자열을 인코드하여 *%2Bsaling+downwind*로 만들어야 합니다.<br /><br /> 이 필드는 원래 쿼리 문자열에 오타가 있는 경우에만 포함됩니다.|String|  
 |alteredQuery|Bing에서 쿼리를 수행하는 데 사용하는 쿼리 문자열입니다. Bing은 원래 쿼리 문자열에 오타가 포함된 경우 변경된 쿼리 문자열을 사용합니다. 예를 들어 쿼리 문자열이 `saling downwind`이면 변경된 쿼리 문자열은 `sailing downwind`가 됩니다.<br /><br /> 이 필드는 원래 쿼리 문자열에 오타가 있는 경우에만 포함됩니다.|String|  
-|askUserForLocation|Bing에서 정확한 결과를 제공하기 위해 사용자 위치가 필요한지 여부를 나타내는 부울 값입니다. [X-MSEdge-ClientIP](#clientip) 및 [X-Search-Location](#location) 헤더를 사용하여 사용자 위치를 지정한 경우에는 이 필드를 무시해도 됩니다.<br /><br /> 정확한 결과를 제공하기 위해 사용자 위치가 필요한 위치 인식 쿼리의 경우(예: “today's weather” 또는 “restaurants near me”) 이 필드가 **true**로 설정됩니다.<br /><br /> 위치를 포함하는 위치 인식 쿼리의 경우(예: “Seattle weather”) 이 필드가 **false**로 설정됩니다. “best sellers”와 같이 위치 인식이 아닌 쿼리의 경우에도 이 필드가 **false**로 설정됩니다.|Boolean|  
+|askUserForLocation|Bing에서 정확한 결과를 제공하기 위해 사용자 위치가 필요한지 여부를 나타내는 부울 값입니다. [X-MSEdge-ClientIP](#clientip) 및 [X-Search-Location](#location) 헤더를 사용하여 사용자 위치를 지정한 경우에는 이 필드를 무시해도 됩니다.<br /><br /> 정확한 결과를 제공하기 위해 사용자 위치가 필요한 위치 인식 쿼리의 경우(예: “today's weather” 또는 “restaurants near me”) 이 필드가 **true**로 설정됩니다.<br /><br /> 위치를 포함하는 위치 인식 쿼리의 경우(예: “Seattle weather”) 이 필드가 **false**로 설정됩니다. “best sellers”와 같이 위치 인식이 아닌 쿼리의 경우에도 이 필드가 **false**로 설정됩니다.|부울|  
 |originalQuery|요청에 지정된 쿼리 문자열입니다.|String|  
 
 ### <a name="identifiable"></a>Identifiable
@@ -191,10 +191,10 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 
 |속성|값|Type|  
 |-------------|-----------------|----------|
-|resultIndex|답변에서 표시할 항목의 0부터 시작 인덱스입니다. 항목에 이 필드가 없는 경우 답변에 있는 모든 항목을 표시합니다. 예를 들어 뉴스 답변에 있는 모든 뉴스 기사를 표시합니다.|정수|
+|resultIndex|답변에서 표시할 항목의 0부터 시작 인덱스입니다. 항목에 이 필드가 없는 경우 답변에 있는 모든 항목을 표시합니다. 예를 들어 뉴스 답변에 있는 모든 뉴스 기사를 표시합니다.|Integer|
 |answerType|표시할 항목이 포함된 답변입니다. 예를 들어 뉴스입니다.<br /><br />유형을 사용하여 SearchResponse 개체에서 답변을 찾습니다. 유형은 SearchResponse 필드의 이름입니다.<br /><br /> 그러나 이 개체에 value 필드가 포함된 경우에만 답변 유형을 사용합니다. value 필드가 없으면 무시합니다.|String|
 |textualIndex|textualAnswers에서 표시할 답변의 인덱스입니다.| 부호 없는 정수|
-|값|표시할 답변 또는 표시할 답변 항목을 식별하는 ID입니다. ID가 답변을 식별하는 경우 답변의 모든 항목을 표시합니다.|Identifiable|
+|value|표시할 답변 또는 표시할 답변 항목을 식별하는 ID입니다. ID가 답변을 식별하는 경우 답변의 모든 항목을 표시합니다.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 검색 결과 페이지에서 콘텐츠를 배치할 위치와 순서를 정의합니다.  

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462431"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>방법: Fortanix Enclave Manager를 사용 하 여 응용 프로그램 실행 
@@ -28,12 +28,12 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
 
 
 
-이 자습서에서는 응용 프로그램 이미지를 기밀 계산 보호 이미지로 변환 하는 방법을 보여 줍니다. 이 환경에서는 Azure의 DCsv2 시리즈 Intel SGX 지원 가상 머신에서 제공 되는 [Fortanix](https://www.fortanix.com/) software를 사용 합니다. 이 솔루션은 id 확인 및 데이터 액세스 제어와 같은 중요 한 보안 정책을 오케스트레이션 합니다.
+이 자습서에서는 응용 프로그램 이미지를 기밀 계산 보호 이미지로 변환 하는 방법을 보여 줍니다. 이 환경은 Azure의 DCsv2-Series Intel SGX 지원 가상 컴퓨터에서 제공 하는 [Fortanix](https://www.fortanix.com/) software를 사용 합니다. 이 솔루션은 id 확인 및 데이터 액세스 제어와 같은 중요 한 보안 정책을 오케스트레이션 합니다.
 
  Fortanix에 대 한 지원은 [Fortanix 여유 커뮤니티](https://fortanix.com/community/) 에 가입 하 고 채널 #enclavemanager를 사용 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. Fortanix Enclave Manager 계정이 없는 경우 시작 하기 전에 [등록](https://em.fortanix.com/auth/sign-up) 합니다.
 1. 변환 된 응용 프로그램 이미지를 푸시하는 개인 [Docker](https://docs.docker.com/) 레지스트리
@@ -117,10 +117,10 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
      ![marketplace 검색](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
 1. **지금 가져오기**를 선택 하 고 필요한 경우 정보를 입력 하 고 **계속**을 선택 합니다. Azure Portal으로 리디렉션됩니다. 
 1. **만들기** 를 선택 하 여 Fortanix 기밀 컴퓨팅 노드 에이전트 배포 페이지를 입력 합니다.
-1. 이 페이지에서 가상 머신을 배포 하기 위한 정보를 입력 합니다. 특히이 VM은 Azure에서 Fortanix Node Agent 소프트웨어가 설치 된 DCsv2 시리즈 Intel SGX 지원 가상 머신입니다. 노드 에이전트는 변환 된 이미지가 Azure의 Intel SGX 노드에서 안전 하 게 실행 될 수 있도록 합니다.  가상 컴퓨터 및 관련 리소스를 배포 하려는 **구독** 및 **리소스 그룹** 을 선택 합니다. 
+1. 이 페이지에서 가상 머신을 배포 하기 위한 정보를 입력 합니다. 특히이 VM은 Fortanix Node Agent 소프트웨어가 설치 된 Azure에서 Intel SGX 지원 가상 컴퓨터 DCsv2-Series입니다. 노드 에이전트는 변환 된 이미지가 Azure의 Intel SGX 노드에서 안전 하 게 실행 될 수 있도록 합니다.  가상 컴퓨터 및 관련 리소스를 배포 하려는 **구독** 및 **리소스 그룹** 을 선택 합니다. 
  
     > [!NOTE]
-    > Azure에서 DCsv2 시리즈 가상 머신을 배포 하는 경우 제약 조건이 있습니다. 추가 코어에 대 한 할당량을 요청 해야 할 수도 있습니다. 자세한 내용은 [Azure vm의 기밀 컴퓨팅 솔루션](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) 을 참조 하세요. 
+    > Azure에서 DCsv2-Series 가상 머신을 배포 하는 경우 제약 조건이 있습니다. 추가 코어에 대 한 할당량을 요청 해야 할 수도 있습니다. 자세한 내용은 [Azure vm의 기밀 컴퓨팅 솔루션](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) 을 참조 하세요. 
 
 1. 사용 가능한 지역을 선택합니다.
 1. **노드 이름** 필드에 가상 컴퓨터의 이름을 입력 합니다. 
@@ -166,7 +166,7 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 
 만든 Fortanix Enclave Manager 계정을 삭제 하려면 Enclave Manager의 [계정 페이지로](https://em.fortanix.com/accounts) 이동 합니다. 삭제 하려는 계정 위로 마우스를 가져갑니다. 오른쪽 위 모서리에서 세로 검은색 점을 선택 하 고 **계정 삭제**를 선택 합니다.
 
-  ![delete](media/how-to-fortanix-enclave-manager/delete-account.png)
+  ![삭제](media/how-to-fortanix-enclave-manager/delete-account.png)
 
 ## <a name="next-steps"></a>다음 단계
 

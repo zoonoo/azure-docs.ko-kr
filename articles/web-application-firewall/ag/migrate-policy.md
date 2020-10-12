@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143851"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 정책 마이그레이션
@@ -27,7 +27,7 @@ ms.locfileid: "86143851"
 1. 다음 cloud shell 창을 열거나 포털 내에서 하나를 엽니다.
 2. Cloud shell 창에 스크립트를 복사 하 여 실행 합니다.
 3. 이 스크립트는 구독 ID, 리소스 그룹 이름, WAF 구성이 연결 된 Application Gateway 이름 및 만들 새 WAF 정책의 이름을 묻는 메시지를 표시 합니다. 이러한 입력을 입력 하면 스크립트가 실행 되 고 새 WAF 정책을 만듭니다.
-4. 새 WAF 정책을 응용 프로그램 게이트웨이와 연결 합니다. 포털의 WAF 정책으로 이동 하 여 **연결 된 응용 프로그램 게이트웨이** 탭을 선택 합니다. **Application Gateway 연결** 을 선택한 다음 waf 정책을 연결할 Application Gateway를 선택 합니다.
+4. 새 WAF 정책을 응용 프로그램 게이트웨이와 연결 합니다. 포털의 WAF 정책으로 이동 하 고 **연결 된 응용 프로그램 게이트웨이** 탭을 선택 합니다. **Application Gateway 연결** 을 선택한 다음 waf 정책을 연결할 Application Gateway를 선택 합니다.
 
 > [!NOTE]
 > 다음 조건에 해당 하는 경우 스크립트에서 마이그레이션을 완료 하지 않습니다.

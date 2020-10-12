@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
 ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294597"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>사용자 지정 처리기 Azure Functions (미리 보기)
@@ -58,7 +58,7 @@ ms.locfileid: "89294597"
 | handler.exe
 ```
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 응용 프로그램은 *host.js* 를 통해 구성 되 고 파일 * 에local.settings.js* 됩니다.
 

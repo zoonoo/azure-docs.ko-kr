@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
 ms.openlocfilehash: 28ddc4f0e47d853df6b026cf2495d710bebfa980
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368934"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
@@ -20,7 +20,7 @@ ms.locfileid: "87368934"
 
 이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 애플리케이션을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 애플리케이션이 로컬 개발 클러스터에서 실행됩니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 [Linux 개발 환경](service-fabric-get-started-linux.md)에서 Service Fabric SDK, Service Fabric CLI, Yeoman을 설치하고, Java 개발 환경을 설정하고, 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Docker를 사용하여 Mac에서 개발 환경 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 [Service Fabric CLI](service-fabric-cli.md)도 설치합니다.
@@ -293,7 +293,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="others"></a>기타
+### <a name="others"></a>Others
 #### <a name="transport"></a>전송
 
 Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 전송 계층에서 프로그래밍하지 않으면 Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다.

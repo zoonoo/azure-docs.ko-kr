@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171349"
 ---
 # <a name="common-issues"></a>일반적인 문제
@@ -100,7 +100,7 @@ sudo docker logs eventgridmodule
 
 * Event Grid 모듈이 배포 된 VM에 로그온 하 여 해당 로그를 확인 합니다.
 
-* **Broker: logDeliverySuccess = true** 를 설정 하 고 Event Grid 모듈을 다시 배포 하 고 요청을 다시 시도 하 여 배달 로깅을 설정 합니다. 배달 당 로깅을 켜면 처리량 및 대기 시간에 영향을 줄 수 있으므로 디버깅이 완료 되 면 다시 **broker: logDeliverySuccess = false** 로 설정 하 고 Event Grid 모듈을 다시 배포 하는 것이 좋습니다.
+* **Broker: logDeliverySuccess = true** 를 설정 하 고 Event Grid 모듈을 다시 배포 하 고 요청을 다시 시도 하 여 배달 로깅을 설정 합니다. 배달 당 로깅을 켜면 처리량 및 대기 시간에 영향을 줄 수 있으므로 디버깅이 완료 되 면 다시 **broker: logDeliverySuccess = false**  로 설정 하 고 Event Grid 모듈을 다시 배포 하는 것이 좋습니다.
 
 * **메트릭: reportertype = console** 을 설정 하 여 메트릭을 켜고 모듈 Event Grid 다시 배포 합니다. 그 다음의 작업을 수행 하면 추가 디버깅에 사용할 수 있는 Event Grid 모듈의 콘솔에 메트릭이 기록 됩니다. 메트릭을 사용 하 여 디버깅을 수행 하 고 완료 한 후에는 **메트릭: reportertype = none** 을 설정 하 고 Event Grid module을 다시 배포 하는 것이 좋습니다.
 

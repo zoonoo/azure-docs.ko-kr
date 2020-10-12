@@ -13,10 +13,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295788"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>사용자 지정 변환-Azure CLI를 사용 하 여 인코딩하는 방법
@@ -142,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 지정 된 비디오 또는 오디오에 변환을 적용 하는 Media Services 해당 변환에서 작업을 제출 해야 합니다. 변환 하에서 작업을 제출 하는 방법을 보여 주는 전체 예제는 빠른 시작 [: 비디오 파일 스트리밍-Azure CLI](stream-files-cli-quickstart.md)를 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Azure CLI](/cli/azure/ams)

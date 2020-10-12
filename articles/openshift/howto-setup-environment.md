@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: container-service
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b468f967e68b72e3c9da276dc2077fc09256c895
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470037"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
@@ -47,7 +47,7 @@ az --version
 
 이러한 공급자 및 기능을 수동으로 등록 하려면 CLI를 설치한 경우 Bash 셸에서 또는 Azure Portal의 Azure Cloud Shell (Bash) 세션에서 다음 지침을 사용 합니다.
 
-1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정 합니다.
+1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정합니다.
 
     ```azurecli
     az account set --subscription <SUBSCRIPTION ID>

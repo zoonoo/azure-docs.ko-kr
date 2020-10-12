@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
 ms.openlocfilehash: 9ecb4e0b8a74a163632967781c84d1a110ab3a9a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297215"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
@@ -48,9 +48,9 @@ Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpol
 
 ## <a name="get-a-streaming-policy-definition"></a>스트리밍 정책 정의 가져오기  
 
-스트리밍 정책의 정의를 확인 하려면 [Get](/rest/api/media/streamingpolicies/get) 을 사용 하 여 정책 이름을 지정 합니다. 다음은 그 예입니다. 
+스트리밍 정책의 정의를 확인 하려면 [Get](/rest/api/media/streamingpolicies/get) 을 사용 하 여 정책 이름을 지정 합니다. 예를 들면 다음과 같습니다.
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 
 요청:
 

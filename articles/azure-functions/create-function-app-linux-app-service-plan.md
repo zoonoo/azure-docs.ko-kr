@@ -4,10 +4,10 @@ description: Azure Portal를 사용 하 여 Linux에서 첫 번째 Azure Functio
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970734"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
@@ -44,7 +44,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     |**버전**| 버전 번호 | 설치된 런타임의 버전을 선택합니다.  |
     |**지역**| 기본 지역 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="기본 페이지":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Azure Portal에서 함수 앱 만들기":::
 
 1. **다음: 호스팅**을 선택합니다. **호스팅** 페이지에서 다음 설정을 입력합니다.
 
@@ -54,7 +54,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     |**운영 체제**| **Linux** | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
     | **[계획](../azure-functions/functions-scale.md)** | **소모량(서버리스)** | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. 기본 **소비** 계획에서 함수의 필요에 따라 리소스가 동적으로 추가됩니다. 이 [서버리스](https://azure.microsoft.com/overview/serverless-computing/) 호스팅에서는 함수가 실행되는 시간 만큼만 요금을 지불하면 됩니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](../azure-functions/functions-scale.md)을 관리해야 합니다.  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="호스팅 페이지":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Azure Portal에서 함수 앱 만들기":::
 
 1. **다음: 모니터링**을 선택합니다. **모니터링** 페이지에서 다음 설정을 입력합니다.
 
@@ -62,7 +62,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **예**(기본값) | 가장 가까운 지원 영역에 동일한 *앱 이름*의 Application Insight 리소스를 만듭니다. 이 설정을 확장하거나 **새로 만들기**를 선택하면 Application Insights 이름을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 지역을 선택할 수 있습니다. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="모니터링 페이지":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Azure Portal에서 함수 앱 만들기":::
 
 1. **검토 + 만들기**를 선택하여 앱 구성 선택을 검토합니다.
 

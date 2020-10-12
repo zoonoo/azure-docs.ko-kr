@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383720"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
@@ -99,7 +99,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
     | **서비스** | `All services` |
     | **리소스** | `General question/Resource not available` |
     | **문제 유형** | `ACS to SAS Migration` |
-    | **제목** | 문제 설명 |
+    | **Subject** | 문제 설명 |
 
    ![새 기술 지원 요청의 예를 보여 줍니다.](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 

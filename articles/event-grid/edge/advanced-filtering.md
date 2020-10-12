@@ -8,18 +8,18 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171774"
 ---
 # <a name="advanced-filtering"></a>고급 필터링
 Event Grid json 페이로드의 모든 속성에 필터를 지정할 수 있습니다. 이러한 필터는 조건 집합으로 모델링 되며 `AND` 각 외부 조건은 선택적 내부 `OR` 조건이 있습니다. 각 조건에 대해 `AND` 다음 값을 지정 합니다.
 
-* `OperatorType`-비교 유형입니다.
-* `Key`-필터를 적용할 속성의 json 경로입니다.
-* `Value`-필터가 실행 되는 참조 값 (또는) `Values` -필터가 실행 되는 참조 값의 집합입니다.
+* `OperatorType` -비교 유형입니다.
+* `Key` -필터를 적용할 속성의 json 경로입니다.
+* `Value` -필터가 실행 되는 참조 값 (또는) `Values` -필터가 실행 되는 참조 값의 집합입니다.
 
 ## <a name="json-syntax"></a>JSON 구문
 
@@ -55,7 +55,7 @@ Event Grid은 현재 값 배열에 대 한 필터링을 지원 하지 않습니�
 > [!CAUTION]
 > NOT 연산자- `NumberNotIn` and는 `StringNotIn` 필드에 지정 된 각 값에서 및 조건으로 동작 `Values` 합니다.
 >
-> 이렇게 하지 않으면 모두 수락 필터로 설정 되 고 필터링의 목적이 무효화 됩니다.
+> 그렇게 하지 않으면 필터 Accept-All 필터링 하 고 필터링의 목적을 무 찌 르도 집니다.
 
 ## <a name="floating-point-rounding-behavior"></a>부동 소수점 반올림 동작
 
@@ -76,8 +76,8 @@ Event Grid는 .Net 형식을 사용 하 여 `decimal` 모든 숫자 값을 처�
 Event Grid 스키마의 이벤트:
 
 * ID
-* 토픽
-* 제목
+* 항목
+* 주체
 * EventType
 * DataVersion
 * Prop1

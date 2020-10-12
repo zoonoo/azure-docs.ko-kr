@@ -10,10 +10,10 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971041"
 ---
 - 각 관리 ID는 [Azure AD 서비스 한도 및 제한 사항](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md)에 설명된 대로 Azure AD 테넌트의 개체 할당량 한도 계산에 포함됩니다.

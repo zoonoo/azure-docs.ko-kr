@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
 ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526013"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>그룹 정책 로컬 사용자 및 그룹 정책을 적용 하는 동안 VM이 응답 하지 않음
@@ -31,7 +31,7 @@ ms.locfileid: "86526013"
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012 R2).":::
 
 ## <a name="cause"></a>원인
 
@@ -66,23 +66,7 @@ ms.locfileid: "86526013"
 1. 복구 VM에서 레지스트리 편집기를 엽니다.
 1. 키 **HKEY_LOCAL_MACHINE** 를 찾고 메뉴에서 **파일**  >  **로드 하이브** 를 선택 합니다.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="강조 표시된 HKEY_LOCAL_MACHINE 및 Hive 로드가 포함된 메뉴를 보여 주는 스크린샷.":::
-
-    - Load Hive를 사용 하 여 오프 라인 시스템에서 레지스트리 키를 로드할 수 있습니다. 이 경우 시스템은 복구 VM에 연결 된 손상 된 디스크입니다.
-    - 시스템 수준 설정은에 저장 되며 `HKEY_LOCAL_MACHINE` "HKLM"으로 축약 될 수 있습니다.
-1. 연결된 디스크에서 `\windows\system32\config\SOFTWARE` 파일로 이동하고 파일을 엽니다.
-
-    1. 이름을 입력 하 라는 메시지가 표시 되 면 BROKENSOFTWARE를 입력 합니다.
-    1. BROKENSOFTWARE가 로드되었는지 확인하려면 **HKEY_LOCAL_MACHINE**을 확장하고 추가된 BROKENSOFTWARE 키를 검색합니다.
-1. BROKENSOFTWARE으로 이동 하 여 CleanupProfile 키가 로드 된 하이브에 있는지 확인 합니다.
-
-    1. 키가 있는 경우 CleanupProfile 정책이 설정 됩니다. 해당 값은 일 단위로 측정 된 보존 정책을 나타냅니다. 키를 계속 삭제합니다.
-    1. 키가 없는 경우 CleanupProfile 정책이 설정되지 않습니다. 연결된 OS 디스크의 Windows 디렉터리에 있는 memory.dmp 파일을 포함하여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
-
-1. 다음 명령을 사용 하 여 CleanupProfiles 키를 삭제 합니다.
-
-    ```
-    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012 R2)." /v CleanupProfiles /f
     ```
 1.  다음 명령을 사용 하 여 BROKENSOFTWARE hive를 언로드합니다.
 

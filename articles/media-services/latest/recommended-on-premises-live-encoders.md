@@ -10,10 +10,10 @@ ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: media-services
 ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295362"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>확인 된 온-프레미스 라이브 스트리밍 인코더
@@ -116,7 +116,7 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 > [!IMPORTANT]
 > 클라우드로의 업로드에는 CPU 및 IO 작업이 포함 되므로 컴퓨터의 물리적 상태 (CPU/메모리/등)를 시청 하세요. 인코더에서 설정을 변경 하는 경우 변경 내용을 적용 하려면 특정 채널/라이브 이벤트를 다시 설정 해야 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
 

@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87845088"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
@@ -108,7 +108,7 @@ def index():
 
 ---
 
-### <a name="signin-action-of-the-controller"></a>`SignIn`컨트롤러의 동작
+### <a name="signin-action-of-the-controller"></a>`SignIn` 컨트롤러의 동작
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -221,7 +221,7 @@ def _get_token_from_cache(scope=None):
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-응용 프로그램을 등록 하는 동안 사후 로그 아웃 URI를 등록 합니다. 이 자습서에서는 `https://localhost:44321/signout-oidc` **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [webApp 앱 등록](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)을 참조 하세요.
+응용 프로그램을 등록 하는 동안 사후 로그 아웃 URI를 등록 합니다. 이 자습서에서는 `https://localhost:44321/signout-oidc` **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [ webApp 앱 등록](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)을 참조 하세요.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -325,7 +325,7 @@ Python 빠른 시작에서 로그 아웃 단추는 [templates/index.html # L10](
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`SignOut`컨트롤러의 동작
+### <a name="signout-action-of-the-controller"></a>`SignOut` 컨트롤러의 동작
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

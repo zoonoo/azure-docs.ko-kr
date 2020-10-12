@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904958"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Azure API Management에서 외부 Redis 호환 캐시 사용
@@ -74,7 +74,7 @@ Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외�
 3. **+추가** 단추를 클릭합니다.
 4. **캐시 인스턴스** 드롭다운 필드에서 캐시를 선택합니다.
 5. **기본값** 을 선택 하거나 **사용** 드롭다운 필드에서 원하는 지역을 지정 합니다.
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>현재 Azure 구독 또는 Azure(일반적) 외부에서 호스트되는 Azure Cache for Redis 추가
 
@@ -84,7 +84,7 @@ Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외�
 4. **캐시 인스턴스** 드롭다운 필드에서 **사용자 지정**을 선택합니다.
 5. **기본값** 을 선택 하거나 **사용** 드롭다운 필드에서 원하는 지역을 지정 합니다.
 6. **연결 문자열** 필드에서 Azure Cache for Redis 연결 문자열을 제공합니다.
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>자체 호스팅 게이트웨이에 Redis cache 추가
 
@@ -94,7 +94,7 @@ Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외�
 4. **캐시 인스턴스** 드롭다운 필드에서 **사용자 지정**을 선택합니다.
 5. 원하는 자체 호스팅 게이트웨이 위치를 지정 하거나, **사용** 드롭다운 필드에서 **기본값** 을 지정 합니다.
 6. **연결 문자열** 필드에서 Redis 캐시 연결 문자열을 제공합니다.
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 ## <a name="use-the-external-cache"></a>외부 캐시 사용
 

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
 ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85559406"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 관리 되는 id
@@ -46,7 +46,7 @@ Azure Portal에서 관리 되는 id를 설정 하려면 먼저 Azure SignalR Ser
 
 5. 이전에 만든 id를 검색 하 여 선택 합니다. **추가**를 선택합니다.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="포털에서 사용자 할당 id 추가":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="포털에서 시스템 할당 id 추가":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>서버를 사용 하지 않는 시나리오에서 관리 되는 id 사용
 
@@ -59,7 +59,7 @@ Azure SignalR Service는 완전히 관리 되는 서비스 이므로 관리 되�
 2. 업스트림 설정을 구성 하 고 **인증** 설정으로 **microsoft.managedidentity** 을 사용 합니다. 인증을 사용 하 여 업스트림 설정을 만드는 방법을 알아보려면 [업스트림 설정](concept-upstream.md)을 참조 하세요.
 
 3. 관리 되는 id 인증 설정에서 **리소스**에 대해 대상 리소스를 지정할 수 있습니다. 리소스는 `aud` 획득 된 액세스 토큰의 클레임이 되며 업스트림 끝점에서 유효성 검사의 일부로 사용할 수 있습니다. 리소스는 다음 중 하나일 수 있습니다.
-    - Empty
+    - 비어 있음
     - 서비스 주체의 응용 프로그램 (클라이언트) ID
     - 서비스 주체의 응용 프로그램 ID URI
     - [Azure 서비스의 리소스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
