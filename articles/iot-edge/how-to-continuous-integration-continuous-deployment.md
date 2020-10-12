@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281629"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Azure IoT Edge 장치에 연속 통합 및 연속 배포
@@ -23,7 +23,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
 이 문서에서는 Azure Pipelines에 대해 기본 제공 [Azure IoT Edge 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/build/azure-iot-edge) 을 사용 하 여 IoT Edge 솔루션에 대 한 빌드 및 릴리스 파이프라인을 만드는 방법에 대해 알아봅니다. 파이프라인에 추가 된 각 Azure IoT Edge 작업은 다음 네 가지 작업 중 하나를 구현 합니다.
 
- | 작업 | Description |
+ | 작업 | 설명 |
  | --- | --- |
  | 빌드 모듈 이미지 | IoT Edge 솔루션 코드를 사용 하 고 컨테이너 이미지를 빌드합니다.|
  | 모듈 이미지 푸시 | 지정한 컨테이너 레지스트리에 모듈 이미지를 푸시합니다. |
@@ -38,7 +38,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 * [환경 변수](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
 * [출력 변수](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](how-to-visual-studio-develop-csharp-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule**이라는 모듈에 대 한 코드를 포함 하는 **IoTEdgeSolution**라는 리포지토리에 솔루션을 만들었습니다.
@@ -108,7 +108,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
    * 작업: **파일 복사**
 
-       | 매개 변수 | Description |
+       | 매개 변수 | 설명 |
        | --- | --- |
        | 원본 폴더 | 복사할 원본 폴더입니다. Empty는 리포지토리의 루트입니다. 파일이 리포지토리에 없으면 변수를 사용 합니다. 예: `$(agent.builddirectory)`.
        | 콘텐츠 | 및의 두 줄 `deployment.template.json` 을 추가 `**/module.json` 합니다. |
@@ -116,7 +116,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
    * 작업: **빌드 아티팩트 게시**
 
-       | 매개 변수 | Description |
+       | 매개 변수 | 설명 |
        | --- | --- |
        | 게시할 경로 | 변수를 지정 `$(Build.ArtifactStagingDirectory)` 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요. |
        | 아티팩트 이름 | 기본 이름을 지정 합니다. `drop` |

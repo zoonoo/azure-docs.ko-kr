@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ms.custom: devx-track-js
 ms.openlocfilehash: c185075feed71556f8a20ab0e40ffa700f3fdbac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333616"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 사용자 정보 액세스

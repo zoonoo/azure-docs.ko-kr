@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905145"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
@@ -26,7 +26,7 @@ ms.locfileid: "87905145"
 > [!IMPORTANT]
 > 개발자 계층은 비프로덕션 사용 사례 및 평가를 위한 것입니다. SLA는 제공 하지 않습니다.
 
-| 기능                                                                                      | 소비 | 개발자 | Basic | Standard | Premium |
+| 기능                                                                                      | Consumption | 개발자 | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Azure AD 통합<sup>1</sup>                                                             | 아니요          | 예       | 아니요    | 예      | 예     |
 | 가상 네트워크(VNet) 지원                                                               | 아니요          | 예       | 아니요    | 아니요       | 예     |
@@ -39,7 +39,7 @@ ms.locfileid: "87905145"
 | [TLS 설정](api-management-howto-manage-protocols-ciphers.md)                             | 예         | 예       | 예   | 예      | 예     |
 | [외부 캐시](https://aka.ms/apimbyoc)                                                    | 예         | 예       | 예   | 예      | 예     |
 | [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md) | 예         | 예       | 예   | 예      | 예     |
-| [Backup and Restore (백업 및 복원)](api-management-howto-disaster-recovery-backup-restore.md)               | 아니요          | 예       | 예   | 예      | 예     |
+| [Backup 및 복원](api-management-howto-disaster-recovery-backup-restore.md)               | 아니요          | 예       | 예   | 예      | 예     |
 | [Git을 통한 관리](api-management-configuration-repository-git.md)                        | 아니요          | 예       | 예   | 예      | 예     |
 | 직접 관리 API                                                                        | 아니요          | 예       | 예   | 예      | 예     |
 | Azure Monitor 로그 및 메트릭                                                               | 예         | 예       | 예   | 예      | 예     |

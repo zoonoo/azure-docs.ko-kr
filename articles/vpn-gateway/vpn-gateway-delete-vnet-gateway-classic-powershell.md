@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: ded1887248e7313c2a284388e8338af96ad7614c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84987417"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
@@ -92,7 +92,7 @@ Status : Successful
  </Gateway>
 ```
 
-예:
+예제:
 
 ```
 <Gateway>
@@ -148,7 +148,7 @@ P2S를 VNet에 연결한 경우 **VPNClientAddressPool**이 있습니다. 삭제
  </Gateway>
 ```
 
-예:
+예제:
 
 ```
 <Gateway>
@@ -171,7 +171,7 @@ VNet에 해당 하는 **게이트웨이 서브넷** 을 삭제 합니다.
  </Subnets>
 ```
 
-예:
+예제:
 
 ```
 <Subnets>

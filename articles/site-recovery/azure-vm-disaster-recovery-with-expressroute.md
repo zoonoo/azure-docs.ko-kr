@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654381"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure Vm에 대 한 재해 복구와 Express 경로 통합
@@ -104,7 +104,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 #### <a name="spoke-to-hub"></a>스포크-허브
 
-**Direction** | **설정** | **State**
+**방향** | **설정** | **State**
 --- | --- | ---
 스포크-허브 | 가상 네트워크 주소 허용 | 사용
 스포크-허브 | 전달된 트래픽 허용 | 사용
@@ -115,7 +115,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 #### <a name="hub-to-spoke"></a>허브-스포크
 
-**Direction** | **설정** | **State**
+**방향** | **설정** | **State**
 --- | --- | ---
 허브-스포크 | 가상 네트워크 주소 허용 | 사용
 허브-스포크 | 전달된 트래픽 허용 | 사용

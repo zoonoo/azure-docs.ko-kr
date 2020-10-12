@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935758"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기
@@ -46,7 +46,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
     | ------- | ----- |
     | 구독 | 구독 선택|
     | 리소스 그룹 | **새로 만들기**를 선택 하 고 *myresourcegroup*을 입력 한 다음 **확인** 을 선택 합니다. |
-    | 속성 | *MyVirtualNetwork* 입력 |
+    | Name | *MyVirtualNetwork* 입력 |
     | 지역 | 원하는 지역 선택 |
     |||
 
@@ -86,7 +86,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | 위치 | **미국 서부**를 선택합니다.|
-    | 속성 | *myPrivateEndpoint*를 입력합니다.  |
+    | Name | *myPrivateEndpoint*를 입력합니다.  |
     | 대상 하위 리소스 | 기본 **Searchservice**를 그대로 둡니다. |
     | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |

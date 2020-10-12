@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84463759"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Id 보호에서 위험 감지 시뮬레이션
@@ -127,7 +127,7 @@ ms.locfileid: "84463759"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [위험 이란?](concept-identity-protection-risks.md)
+- [위험이란?](concept-identity-protection-risks.md)
 
 - [방법: 위험 정책 구성 및 사용](howto-identity-protection-configure-risk-policies.md)
 

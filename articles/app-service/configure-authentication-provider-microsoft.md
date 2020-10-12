@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83772839"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Microsoft 계정 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
@@ -28,7 +28,7 @@ ms.locfileid: "83772839"
 1. Azure Portal의 [**앱 등록**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)으로 이동합니다. 필요한 경우 Microsoft 계정으로 로그인합니다.
 1. **새 등록**을 선택하고 애플리케이션 이름을 입력합니다.
 1. **지원되는 계정 유형**에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
-1. **리디렉션 URI**에서 **웹**을 선택한 다음, `https://<app-domain-name>/.auth/login/aad/callback`를 입력합니다. *\<app-domain-name>* 을 앱의 도메인 이름으로 바꿉니다.  `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. URL에서 HTTPS 체계를 사용해야 합니다.
+1. **리디렉션 URI**에서 **웹**을 선택한 다음, `https://<app-domain-name>/.auth/login/aad/callback`를 입력합니다. 를 *\<app-domain-name>* 앱의 도메인 이름으로 바꿉니다.  `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. URL에서 HTTPS 체계를 사용해야 합니다.
 
 1. **등록**을 선택합니다.
 1. **애플리케이션(클라이언트) ID**를 복사합니다. 나중에 필요합니다.

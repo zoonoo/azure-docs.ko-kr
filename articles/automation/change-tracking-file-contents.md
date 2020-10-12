@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185605"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 관리
@@ -47,7 +47,7 @@ ms.locfileid: "86185605"
     |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
     |경로 입력     | 파일을 확인할 경로입니다(예: **c:\temp\\\*.txt**). `%winDir%\System32\\\*.*`와 같은 환경 변수를 사용할 수도 있습니다.       |
     |경로 유형     | 경로의 유형입니다. 가능한 값은 파일 및 폴더입니다.        |    
-    |재귀     | 추적할 항목을 찾을 때 재귀가 사용되면 True이고, 그렇지 않으면 False입니다.        |    
+    |재귀     | 추적할 항목을 찾을 때 재귀가 사용되면 True이 고, 그렇지 않으면 False입니다.        |    
     |파일 콘텐츠 업로드 | 추적된 변경 내용에 대한 파일 콘텐츠를 업로드하려면 True이고, 그렇지 않으면 False입니다.|
 
 5. **파일 콘텐츠 업로드**에 대해 True를 지정해야 합니다. 이 설정은 표시된 파일 경로에 대해 파일 콘텐츠 추적을 사용합니다.
@@ -143,8 +143,8 @@ ms.locfileid: "86185605"
 
 |쿼리  |Description  |
 |---------|---------|
-|`ConfigurationData`<br> &#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br> &#124; `where SvcState == "Stopped"`<br> &#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | 자동으로 설정되었지만 중지됨으로 보고된 Microsoft 서비스에 대한 최근의 인벤토리 레코드를 표시합니다. 결과는 지정된 소프트웨어 이름 및 컴퓨터에 대한 최신 레코드로 제한됩니다.    |
-|`ConfigurationChange`<br> &#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br> &#124; `order by TimeGenerated desc`|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | 자동으로 설정되었지만 중지됨으로 보고된 Microsoft 서비스에 대한 최근의 인벤토리 레코드를 표시합니다. 결과는 지정된 소프트웨어 이름 및 컴퓨터에 대한 최신 레코드로 제한됩니다.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
 
 ## <a name="create-alerts-on-changes"></a>변경에 대한 경고 만들기
 

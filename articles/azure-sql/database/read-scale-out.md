@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319430"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 오프 로드
@@ -89,14 +89,14 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| CPU, 데이터 IO 및 서비스 목표 제한과 관련 된 로그 쓰기 사용률을 포함 하 여 지난 1 시간 동안 리소스 사용률 메트릭을 제공 합니다.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| 데이터베이스 엔진 인스턴스에 대 한 집계 대기 통계를 제공 합니다. |
-|[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| 복제본 성능 상태 및 동기화 통계를 제공 합니다. Redo queue size 및 redo rate는 읽기 전용 복제본의 데이터 대기 시간 표시기로 제공 됩니다. |
+|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| 복제본 성능 상태 및 동기화 통계를 제공 합니다. Redo queue size 및 redo rate는 읽기 전용 복제본의 데이터 대기 시간 표시기로 제공 됩니다. |
 |[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| 데이터베이스 엔진 성능 카운터를 제공 합니다.|
 |[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| 실행 수, 사용한 CPU 시간 등 쿼리 별 실행 통계를 제공 합니다.|
-|[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| 캐시 된 쿼리 계획을 제공 합니다. |
-|[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| 캐시 된 쿼리 계획에 대 한 쿼리 텍스트를 제공 합니다.|
+|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| 캐시 된 쿼리 계획을 제공 합니다. |
+|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| 캐시 된 쿼리 계획에 대 한 쿼리 텍스트를 제공 합니다.|
 |[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| 쿼리가 실행 되는 동안 실시간 쿼리 진행률을 제공 합니다.|
-|[sys. dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| 쿼리의 런타임 통계를 포함 하 여 마지막으로 알려진 실제 실행 계획을 제공 합니다.|
-|[sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| 모든 데이터베이스 파일에 대 한 저장소 IOPS, 처리량 및 대기 시간 통계를 제공 합니다. |
+|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| 쿼리의 런타임 통계를 포함 하 여 마지막으로 알려진 실제 실행 계획을 제공 합니다.|
+|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| 모든 데이터베이스 파일에 대 한 저장소 IOPS, 처리량 및 대기 시간 통계를 제공 합니다. |
 
 > [!NOTE]
 > `sys.resource_stats` `sys.elastic_pool_resource_stats` 논리적 master 데이터베이스의 및 dmv는 주 복제본의 리소스 사용률 데이터를 반환 합니다.
@@ -123,7 +123,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 > 읽기 전용 복제본에 대해 쿼리를 실행할 때 오류 3961 또는 오류 1219이 발생 하면 쿼리를 다시 시도 하십시오.
 
 > [!TIP]
-> 프리미엄 및 중요 비즈니스용 서비스 계층에서 읽기 전용 복제본에 연결 된 경우, `redo_queue_size` `redo_rate` dm_database_replica_states DMV의 및 열은 읽기 전용 복제본의 데이터 대기 시간 표시기로 사용 되는 데이터 동기화 프로세스를 모니터링 하는 데 사용 될 수 있습니다 [.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)
+> 프리미엄 및 중요 비즈니스용 서비스 계층에서 읽기 전용 복제본에 연결 된 경우 `redo_queue_size` `redo_rate` [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV의 및 열을 사용 하 여 읽기 전용 복제본의 데이터 대기 시간 표시기로 제공 되는 데이터 동기화 프로세스를 모니터링할 수 있습니다.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 및 사용 안 함

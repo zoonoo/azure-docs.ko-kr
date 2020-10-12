@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335333"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 웹 페이지에서 맵 컨트롤를 사용 하려면 다음 필수 구성 요소 중 하나가 있어야 합니다.
 
@@ -254,12 +254,12 @@ Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 
 
 ## <a name="javascript-frameworks"></a>JavaScript 프레임 워크
 
-JavaScript 프레임 워크를 사용 하 여 개발 하는 경우 다음과 같은 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
+JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
 
-- azure maps에 대 [한 azure](https://github.com/arnaudleclerc/ng-azure-maps) 맵-총 10 개 래퍼.
-- [Azuremapscontrol](https://github.com/arnaudleclerc/AzureMapsControl.Components) -Azure Maps 구성 요소입니다.
-- [Azure Maps 반응 구성 요소](https://github.com/WiredSolutions/react-azure-maps) -Azure Maps 컨트롤의 반응 래퍼입니다.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) -vue 응용 프로그램에 대 한 Azure Maps 구성 요소입니다.
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Azure 맵 주변의 Angular 10 래퍼.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Azure Maps Blazor 구성 요소.
+- [Azure Maps React 구성 요소](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 컨트롤의 반응 래퍼.
+- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 애플리케이션용 Azure Maps 구성 요소.
 
 ## <a name="next-steps"></a>다음 단계
 

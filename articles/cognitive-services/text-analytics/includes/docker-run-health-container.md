@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 72a877ab8cfda126016376017c0a7eb42b1186d6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108950"
 ---
 컨테이너를 실행 하려면 먼저 해당 이미지 ID를 찾습니다.
@@ -29,7 +29,7 @@ docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 | **{API_KEY}** | Text Analytics 리소스의 키입니다. 리소스의 **키 및 끝점** 페이지의 Azure Portal에서 찾을 수 있습니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | 텍스트 분석 API에 액세스 하기 위한 끝점입니다. 리소스의 **키 및 끝점** 페이지의 Azure Portal에서 찾을 수 있습니다. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | **{IMAGE_ID}** | 컨테이너의 이미지 ID입니다. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | 컨테이너의 입력 디렉터리입니다. | Windows: `C:\healthcareMount` <br> Linux/MacOS:`/home/username/input` |
+| **{INPUT_DIR}** | 컨테이너의 입력 디렉터리입니다. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \

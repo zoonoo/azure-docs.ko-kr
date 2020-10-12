@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764981"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 쿼리
@@ -49,7 +49,7 @@ ms.locfileid: "84764981"
 
 인덱싱 정책에 공간 인덱싱을 포함하면 "거리 쿼리"가 인덱스를 통해 효율적으로 처리됩니다. 공간 인덱스에 대 한 자세한 내용은 [지리 공간적 인덱싱](sql-query-geospatial-index.md)을 참조 하세요. 지정 된 경로에 대 한 공간 인덱스가 없는 경우 쿼리는 컨테이너에 대 한 검색을 수행 합니다.
 
-`ST_WITHIN`는 점이 다각형 내에 있는지 여부를 확인 하는 데 사용할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
+`ST_WITHIN` 는 점이 다각형 내에 있는지 여부를 확인 하는 데 사용할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
 
 의 Polygon 인수에는 `ST_WITHIN` 단일 링만 포함 될 수 있습니다. 즉, 다각형에는 구멍이 포함 되지 않아야 합니다.
 
@@ -99,7 +99,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
     }]
 ```
 
-`ST_ISVALID`및 `ST_ISVALIDDETAILED` 은 공간 개체가 유효한 지 여부를 확인 하는 데 사용할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. `ST_ISVALID`부울 값만 반환 하 고 `ST_ISVALIDDETAILED` 부울 및 잘못 된 것으로 간주 되는 이유를 포함 하는 문자열을 반환 합니다.
+`ST_ISVALID` 및 `ST_ISVALIDDETAILED` 은 공간 개체가 유효한 지 여부를 확인 하는 데 사용할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. `ST_ISVALID` 부울 값만 반환 하 고 `ST_ISVALIDDETAILED` 부울 및 잘못 된 것으로 간주 되는 이유를 포함 하는 문자열을 반환 합니다.
 
 **쿼리**
 

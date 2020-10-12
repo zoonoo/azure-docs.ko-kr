@@ -4,10 +4,10 @@ description: Azure Backup 서비스에서 Azure virtual machines를 복원 하�
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985338"
 ---
 # <a name="about-azure-vm-restore"></a>Azure VM 복원 정보
@@ -32,7 +32,7 @@ ms.locfileid: "90985338"
 - **가용성 (복제 유형)**: Azure Backup는 저장소/데이터를 항상 사용 가능 하 게 유지 하는 두 가지 유형의 복제를 제공 합니다.
   - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy.md#locally-redundant-storage)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
   - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 더 많은 비용이 들지만, 지역 가동 중단이 발생하는 경우에도 높은 수준의 데이터 내구성을 제공합니다.
-  - [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. ZRS에는 가동 중지 시간이 없습니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)필요 하 고 가동 중지 시간이 없어야 하는 중요 한 워크 로드를 ZRS로 백업할 수 있습니다.
+  - [ZRS(영역 중복 스토리지)](../storage/common/storage-redundancy.md#zone-redundant-storage)는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. ZRS에는 가동 중지 시간이 없습니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)가 필요하고, 가동 중지 시간이 없어야 하는 중요한 워크로드를 ZRS에서 백업할 수 있습니다.
 
 - **Crr (영역 간 복원)**: [복원 옵션](./backup-azure-arm-restore-vms.md#restore-options)중 하나로, crr (지역 간 복원)을 사용 하면 azure [쌍을 이루는 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)에 있는 보조 지역에서 azure vm을 복원할 수 있습니다.
 

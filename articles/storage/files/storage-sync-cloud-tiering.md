@@ -8,10 +8,10 @@ ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538183"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
@@ -137,7 +137,7 @@ Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
         
         | 특성 문자 | attribute | 정의 |
         |:----------------:|-----------|------------|
-        | A | 보관 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
+        | A | 아카이브 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
         | P | 스파스 파일 | 파일이 스파스 파일인지를 나타냅니다. 스파스 파일은 디스크 스트림의 파일이 대부분 비어 있을 때 효율적으로 사용하기 위해 NTFS가 제공하는 특수한 형식의 파일입니다. Azure 파일 동기화는 파일이 완전히 계층화되거나 부분적으로 회수되기 때문에 스파스 파일을 사용합니다. 완전히 계층화된 파일에서 파일 스트림은 클라우드에 저장됩니다. 부분적으로 회수된 파일에서 파일의 해당 부분은 이미 디스크에 있습니다. 파일이 디스크에 완전히 회수되면 Azure 파일 동기화는 스파스 파일에서 일반 파일로 변환합니다. 이 특성은 Windows Server 2016 이상 에서만 설정 됩니다.|
         | M | 데이터 액세스 시 회수 | 파일의 데이터가 로컬 저장소에 완전히 표시 되지 않음을 나타냅니다. 파일을 읽으면 서버 끝점이 연결 된 Azure 파일 공유에서 하나 이상의 파일 콘텐츠를 인출 하 게 됩니다. 이 특성은 Windows Server 2019에만 설정 됩니다. |
         | L | 재분석 지점 | 파일에 재분석 지점이 있음을 나타냅니다. 재분석 지점은 파일 시스템 필터에서 사용되는 특별한 포인터입니다. Azure 파일 동기화는 재분석 지점을 사용하여 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)에 파일이 저장되는 클라우드 위치를 정의합니다. 원활한 액세스를 지원합니다. 사용자는 Azure 파일 동기화가 사용되는지 또는 Azure 파일 공유에 있는 파일에 액세스하는 방법을 알 필요가 없습니다. 파일을 완전하게 회수되면 Azure 파일 동기화는 파일에서 재분석 지점을 제거합니다. |
@@ -184,7 +184,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 ``` 
 
 > [!Note]  
-> - Invoke-storagesyncfilerecall cmdlet을 사용 하 여 새 서버 끝점을 기존 동기화 그룹에 추가할 때 파일 다운로드 성능을 향상 시킬 수도 있습니다.  
+> - Invoke-StorageSyncFileRecall cmdlet을 사용 하 여 새 서버 끝점을 기존 동기화 그룹에 추가할 때 파일 다운로드 성능을 향상 시킬 수도 있습니다.  
 >- 서버를 호스트하는 로컬 볼륨에 모든 계층화된 데이터를 기억할 충분한 사용 가능한 공간이 없으면 `Invoke-StorageSyncFileRecall` cmdlet이 실패합니다.  
 
 <a id="sizeondisk-versus-size"></a>

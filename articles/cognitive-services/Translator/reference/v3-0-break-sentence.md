@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904006"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3.0:가 중 문장
@@ -36,16 +36,16 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 | 쿼리 매개 변수 | 설명 |
 | -------| ----------- |
 | api-version <img width=200/>   | **필수 쿼리 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
-| language | **선택적 쿼리 매개 변수**입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
+| 언어 | **선택적 쿼리 매개 변수**입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
 | 스크립트    | **선택적 쿼리 매개 변수**입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
 
-| 헤더 | 설명 |
+| headers | Description |
 | ------- | ----------- |
-| 인증 헤더 <img width=200/>  | **필요한 요청 헤더**입니다.<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
-| 콘텐츠 형식 | **필요한 요청 헤더**입니다.<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
-| Content-Length    | **필요한 요청 헤더**입니다.<br/>요청 본문의 길이입니다.  | 
+| 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
+| 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
+| Content-Length    | **필수 요청 헤더**<br/>요청 본문의 길이입니다.  | 
 | X-ClientTraceId   | **선택 사항입니다**.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.  | 
 
 ## <a name="request-body"></a>요청 본문
@@ -96,8 +96,8 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
-  <th>설명</th>
+  <th width="20%">headers</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>요청을 식별하기 위해 서비스에서 생성한 값입니다. 문제 해결을 위해 사용됩니다.</td>
@@ -143,7 +143,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제에서는 단일 문장에 대한 문장 경계를 가져오는 방법을 보여 줍니다. 문장의 언어는 서비스에서 자동으로 검색됩니다.
 

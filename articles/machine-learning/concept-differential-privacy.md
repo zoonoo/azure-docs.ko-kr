@@ -10,10 +10,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86199796"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>차등 개인 정보 및 WhiteNoise 패키지 (미리 보기)를 사용 하 여 데이터 개인 정보 유지
@@ -56,14 +56,14 @@ ms.locfileid: "86199796"
 
 차등 비공개 시스템을 구현하기는 어렵습니다. WhiteNoise는 글로벌 차등 비공개 시스템을 구축하는 다양한 구성 요소가 포함된 오픈 소스 프로젝트입니다. WhiteNoise는 다음과 같은 최상위 구성 요소로 이루어집니다.
 
-- 코어
+- 핵심
 - 시스템
 
 ### <a name="core"></a>핵심
 
 핵심 라이브러리에는 차등 비공개 시스템을 구현하기 위해 다음과 같은 프라이버시 메커니즘이 포함되어 있습니다.
 
-|구성 요소  |설명  |
+|구성 요소  |Description  |
 |---------|---------|
 |분석     | 임의 계산에 대한 그래프 설명입니다. |
 |유효성 검사기     | 분석에 차등 비공개를 적용하는 데 필요한 조건을 확인하고 도출하기 위한 도구 세트가 포함된 Rust 라이브러리입니다.          |

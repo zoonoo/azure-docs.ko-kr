@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012181"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
@@ -28,8 +28,8 @@ Machine Learning을 위해 Azure SQL Database로 데이터를 이동하기 위�
 
 | <b>원본</b> | <b>대상: Azure VM의 SQL Server</b> |
 | --- | --- |
-| <b>플랫 파일</b> |1. <a href="#insert-tables-bcp">명령줄 BCP (대량 복사 유틸리티)</a><br> 2. <a href="#insert-tables-bulkquery">대량 삽입 SQL 쿼리 </a><br> 3. <a href="#sql-builtin-utilities">SQL Server의 그래픽 기본 제공 유틸리티</a> |
-| <b>온-프레미스 SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">MICROSOFT AZURE VM 마법사에 SQL Server 데이터베이스 배포</a><br> 2. <a href="#export-flat-file">플랫 파일로 내보내기</a><br> 3. <a href="#sql-migration">SQL Database 마이그레이션 마법사 </a> <br> 4. <a href="#sql-backup">데이터베이스 백업 및 복원 </a><br> |
+| <b>플랫 파일</b> |1. <a href="#insert-tables-bcp">명령줄 BCP (대량 복사 유틸리티) </a><br> 2. <a href="#insert-tables-bulkquery">대량 삽입 SQL 쿼리 </a><br> 3. <a href="#sql-builtin-utilities">SQL Server의 그래픽 기본 제공 유틸리티</a> |
+| <b>온-프레미스 SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">MICROSOFT AZURE VM 마법사에 SQL Server 데이터베이스 배포</a><br> 2. <a href="#export-flat-file">플랫 파일로 내보내기 </a><br> 3. <a href="#sql-migration">SQL Database 마이그레이션 마법사 </a> <br> 4. <a href="#sql-backup">데이터베이스 백업 및 복원 </a><br> |
 
 이 문서에서는 SQL Server Management Studio 또는 Visual Studio 데이터베이스 탐색기에서 SQL 명령이 실행 되는 것으로 가정 합니다.
 

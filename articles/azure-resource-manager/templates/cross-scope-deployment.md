@@ -4,10 +4,10 @@ description: 배포 중에 둘 이상의 범위를 대상으로 하는 방법을
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 6161401ac039551a814b595715f56df1ac62dd6c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374529"
 ---
 # <a name="deploy-azure-resources-across-scopes"></a>범위 간 Azure 리소스 배포

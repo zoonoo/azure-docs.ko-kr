@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318486"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs 메시징 예외-.NET (레거시)

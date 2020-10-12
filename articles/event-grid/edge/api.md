@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171757"
 ---
 # <a name="rest-api"></a>REST API
@@ -22,8 +22,8 @@ ms.locfileid: "86171757"
 ### <a name="base-url"></a>기준 URL
 IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 제공 되는 다음 Api가 있습니다.
 
-* HTTP의 기준 URL:http://eventgridmodule:5888
-* HTTPS의 기준 URL:https://eventgridmodule:4438
+* HTTP의 기준 URL: http://eventgridmodule:5888
+* HTTPS의 기준 URL: https://eventgridmodule:4438
 
 ### <a name="request-query-string"></a>요청 쿼리 문자열
 모든 API 요청에는 다음 쿼리 문자열 매개 변수가 필요 합니다.
@@ -72,7 +72,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="put-topic-create--update"></a>항목 배치 (만들기/업데이트)
 
-**요청**:``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**요청**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **페이로드**:
 
@@ -105,7 +105,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="get-topic"></a>항목 가져오기
 
-**요청**:``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**요청**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **응답**: HTTP 200
 
@@ -125,7 +125,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="get-all-topics"></a>모든 항목 가져오기
 
-**요청**:``` GET /topics?api-version=2019-01-01-preview ```
+**요청**: ``` GET /topics?api-version=2019-01-01-preview ```
 
 **응답**: HTTP 200
 
@@ -157,7 +157,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="delete-topic"></a>항목 삭제
 
-**요청**:``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**요청**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **응답**: HTTP 200, 빈 페이로드
 
@@ -166,7 +166,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="put-event-subscription-create--update"></a>이벤트 구독 배치 (만들기/업데이트)
 
-**요청**:``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**요청**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **페이로드**:
 ```json
@@ -371,7 +371,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="get-event-subscription"></a>이벤트 구독 가져오기
 
-**요청**:``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**요청**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **응답**: HTTP 200
 
@@ -476,7 +476,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="get-event-subscriptions"></a>이벤트 구독 가져오기
 
-**요청**:``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**요청**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **응답**: HTTP 200
 
@@ -494,7 +494,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="delete-event-subscription"></a>이벤트 구독 삭제
 
-**요청**:``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**요청**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **응답**: HTTP 200, 페이로드 없음
 
@@ -503,7 +503,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ### <a name="send-batch-of-events-in-event-grid-schema"></a>이벤트 일괄 처리 보내기 (Event Grid 스키마)
 
-**요청**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**요청**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -526,17 +526,17 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 **페이로드 필드 설명**
 - ```Id```는 필수입니다. 호출자가 채운 임의의 문자열 값일 수 있습니다. Event Grid은 중복 검색을 수행 하거나이 필드에 대 한 의미 체계를 적용 하지 않습니다.
-- ```Topic```는 선택 사항 이지만 지정 된 경우 요청 URL의 topic_name와 일치 해야 합니다.
-- ```Subject```필수 이며 임의의 문자열 값일 수 있습니다.
-- ```EventType```필수 이며 임의의 문자열 값일 수 있습니다.
-- ```EventTime```필수 이며 유효성을 검사 하지는 않지만 올바른 날짜/시간 이어야 합니다.
+- ```Topic``` 는 선택 사항 이지만 지정 된 경우 요청 URL의 topic_name와 일치 해야 합니다.
+- ```Subject``` 필수 이며 임의의 문자열 값일 수 있습니다.
+- ```EventType``` 필수 이며 임의의 문자열 값일 수 있습니다.
+- ```EventTime``` 필수 이며 유효성을 검사 하지는 않지만 올바른 날짜/시간 이어야 합니다.
 - ```DataVersion```는 필수입니다.
-- ```MetadataVersion```는 선택 사항이 며, 지정 된 경우 값이 포함 된 문자열 이어야 합니다.```"1"```
-- ```Data```는 선택 사항이 며 임의의 JSON 토큰 (number, string, boolean, array, object)이 될 수 있습니다.
+- ```MetadataVersion``` 는 선택 사항이 며, 지정 된 경우 값이 포함 된 문자열 이어야 합니다. ```"1"```
+- ```Data``` 는 선택 사항이 며 임의의 JSON 토큰 (number, string, boolean, array, object)이 될 수 있습니다.
 
 ### <a name="send-batch-of-events-in-custom-schema"></a>사용자 지정 스키마에서 이벤트 일괄 처리 보내기
 
-**요청**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**요청**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -754,7 +754,7 @@ Service Bus 항목에 게시 하려면를로 설정 하 `endpointType` `serviceB
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>저장소 큐를 대상으로 설정
 
-저장소 큐에 게시 하려면를로 설정 하 `endpointType` `storageQueue` 고 다음을 제공 합니다.
+저장소 큐에 게시 하려면를로 설정 하  `endpointType` `storageQueue` 고 다음을 제공 합니다.
 
 * queueName: 게시 하는 저장소 큐의 이름입니다.
 * connectionString: 저장소 큐가 있는 저장소 계정에 대 한 연결 문자열입니다.
