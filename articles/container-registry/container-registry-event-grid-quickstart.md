@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78403242"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
@@ -200,7 +200,7 @@ Are you sure you want to continue? (y/n):
 
 ![ImagePushed 및 ImageDeleted 이벤트가 있는 샘플 앱을 보여주는 웹 브라우저][sample-app-03]
 
-지금까지 `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
+축하합니다. `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

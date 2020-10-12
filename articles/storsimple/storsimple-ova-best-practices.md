@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81460650"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple 가상 배열 모범 사례
@@ -43,7 +43,7 @@ StorSimple 가상 배열은 호스트 서버의 하이퍼바이저(Hyper-V 또�
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **가상 머신 유형** |**2세대** 이미지와 함께 사용할 *2세대* VM. <br></br> **1세대** 이미지와 함께 사용할 *1세대* VM. |*.vmdk* 이미지를 사용할 경우에는 가상 머신 버전 8을 사용합니다. |
+| **가상 컴퓨터 유형** |**2세대** 이미지와 함께 사용할 *2세대* VM. <br></br> **1세대** 이미지와 함께 사용할 *1세대* VM. |*.vmdk* 이미지를 사용할 경우에는 가상 머신 버전 8을 사용합니다. |
 | **메모리 유형** |**정적 메모리**로 구성합니다. <br></br> **동적 메모리** 옵션은 사용하지 마세요. | |
 | **데이터 디스크 유형** |**동적 확장**으로 프로비전합니다.<br></br> **고정 크기** 는 시간이 오래 걸립니다. <br></br> **차이점 보관용** 옵션은 사용하지 마세요. |**씬 프로비전** 옵션을 사용하세요. |
 | **데이터 디스크 수정** |확장 또는 축소는 허용되지 않습니다. 확장 또는 축소를 시도하면 디바이스의 모든 로컬 데이터가 손실됩니다. |확장 또는 축소는 허용되지 않습니다. 확장 또는 축소를 시도하면 디바이스의 모든 로컬 데이터가 손실됩니다. |

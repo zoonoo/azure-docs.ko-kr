@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495946"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
@@ -50,7 +50,7 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 - 장애 조치(failover)가 발생하면 서브넷이 연결된 VM과 함께 이동됩니다.
 - 이 방법의 주요 단점은 오류 발생 시 전체 서브넷을 이동해야 한다는 것입니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 전체 서브넷 장애 조치(failover)의 예는 다음과 같습니다. 
 
@@ -105,7 +105,7 @@ $ip.address
     Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
     ```
     
-### <a name="example"></a>예제 
+### <a name="example"></a>예 
 
 이 예제에서는 기본 사이트와 보조 사이트의 IP 주소가 다릅니다. 그리고 기본 사이트 또는 복구 사이트에서 호스트되는 애플리케이션이 액세스할 수 있는 세 번째 사이트도 있습니다.
 

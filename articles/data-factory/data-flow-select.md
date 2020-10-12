@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
 ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84322093"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름에서 변환 선택
@@ -72,7 +72,7 @@ ms.locfileid: "84322093"
 
 ![규칙 기반 매핑](media/data-flow/rule-based-hierarchy.png "규칙 기반 매핑")
 
-위의 예는 복합 열의 모든 하위 열에서 일치 합니다 `a` . `a`에는 두 개의 하위 열 및가 포함 되어 있습니다 `b` `c` . 출력 스키마는 두 개의 열을 포함 `b` 하 고 `c` ' Name as ' 조건은입니다 `$$` .
+위의 예는 복합 열의 모든 하위 열에서 일치 합니다 `a` . `a` 에는 두 개의 하위 열 및가 포함 되어 있습니다 `b` `c` . 출력 스키마는 두 개의 열을 포함 `b` 하 고 `c` ' Name as ' 조건은입니다 `$$` .
 
 ### <a name="parameterization"></a>매개 변수화
 

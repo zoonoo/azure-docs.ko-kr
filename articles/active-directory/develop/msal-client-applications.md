@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81534315"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>공용 클라이언트 및 기밀 클라이언트 응용 프로그램
@@ -49,4 +49,4 @@ ADAL을 사용한 경우 ADAL의 인증 컨텍스트와 달리 MSAL에서 클라
 자세한 정보:
 - [클라이언트 응용 프로그램 구성 옵션](msal-client-application-configuration.md)
 - [MSAL.NET를 사용 하 여 클라이언트 응용 프로그램 인스턴스화](msal-net-initializing-client-applications.md)
-- [MSAL.js를 사용 하 여 클라이언트 응용 프로그램 인스턴스화](msal-js-initializing-client-applications.md)
+- [MSAL.js를 사용 하 여 클라이언트 응용 프로그램 인스턴스화 ](msal-js-initializing-client-applications.md)

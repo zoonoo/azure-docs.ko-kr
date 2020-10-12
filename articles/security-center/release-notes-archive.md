@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
 ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289806"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
@@ -265,7 +265,7 @@ Windows Admin Center는 Azure에 배포되지 않은 Windows 서버용 관리 �
 
 ## <a name="september-2019"></a>2019년 9월
 
-9 월의 업데이트는 다음과 같습니다.
+9월의 업데이트는 다음과 같습니다.
 
  - [적응형 애플리케이션 제어 향상으로 규칙 관리](#managing-rules-with-adaptive-application-controls-improvements)
  - [Azure Policy를 사용하여 컨테이너 보안 권장 사항 제어](#control-container-security-recommendation-using-azure-policy)
@@ -286,7 +286,7 @@ Windows Admin Center는 Azure에 배포되지 않은 Windows 서버용 관리 �
 
 ## <a name="august-2019"></a>2019년 8월
 
-8 월의 업데이트는 다음과 같습니다.
+8월의 업데이트는 다음과 같습니다.
 
  - [Azure Firewall에 대한 JIT(just-in-time) VM 액세스](#just-in-time-jit-vm-access-for-azure-firewall)
  - [보안 태세를 높이기 위한 단일 클릭 수정(미리 보기)](#single-click-remediation-to-boost-your-security-posture-preview)

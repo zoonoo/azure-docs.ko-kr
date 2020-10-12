@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 8dc4c77cf54769451928bd1f0dafeac34a889675
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85378539"
 ---
 ## <a name="install-the-azure-functions-extension"></a>Azure Functions 확장 설치
 
 Azure Functions 확장을 사용하여 함수를 생성 및 테스트하고 Azure에 배포할 수 있습니다.
 
-1. Visual Studio Code에서 **확장** 을 열고 **azure 함수**를 검색 하거나 Visual Studio Code:에서이 링크를 선택 `vscode:extension/ms-azuretools.vscode-azurefunctions` 합니다.
+1. Visual Studio Code에서 **확장**을 열고 **Azure Functions**를 검색하거나 Visual Studio Code의 링크(`vscode:extension/ms-azuretools.vscode-azurefunctions`)를 선택합니다.
 
 1. **설치**를 선택하여 Visual Studio Code에 대한 확장을 설치합니다.
 

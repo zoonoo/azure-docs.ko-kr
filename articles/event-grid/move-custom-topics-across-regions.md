@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145345"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>사용자 지정 항목 Azure Event Grid 다른 지역으로 이동
@@ -38,22 +38,10 @@ ms.locfileid: "89145345"
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Event Grid 항목 검색 및 선택":::
 3. 리소스 관리자 템플릿으로 내보내려는 **항목** 을 선택 합니다. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="사용자 지정 항목 선택":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Event Grid 항목 검색 및 선택":::   
 4. **Event Grid 항목** 페이지에서 왼쪽 메뉴의 **설정** 아래에서 **템플릿 내보내기** 를 선택한 다음 도구 모음에서 **다운로드** 를 선택 합니다. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="템플릿 내보내기-> 다운로드":::   
-
-    > [!IMPORTANT]
-    > 토픽만 템플릿으로 내보내집니다. 항목에 대 한 구독은 내보내지 않습니다. 따라서 항목을 대상 지역으로 이동한 후 항목에 대 한 구독을 만들어야 합니다. 
-5. 포털에서 다운로드 한 **.zip** 파일을 찾고 원하는 폴더에 해당 파일의 압축을 풉니다. 이 zip 파일에는 템플릿 및 매개 변수 JSON 파일이 포함 되어 있습니다. 
-1. 선택한 편집기에서 **template.js** 를 엽니다. 
-8. `location` **토픽** 리소스를 대상 지역 또는 위치로 업데이트 합니다. 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요. 영역에 대 한 코드는 공백을 사용 하지 않는 지역 이름입니다 (예: `West US` ) `westus` .
-
-    ```json
-    "type": "Microsoft.EventGrid/topics",
-    "apiVersion": "2020-06-01",
-    "name": "[parameters('topics_mytopic0130_name')]",
-    "location": "westus"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Event Grid 항목 검색 및 선택"
     ```
 1. 템플릿을 **저장** 합니다. 
 
@@ -74,14 +62,14 @@ ms.locfileid: "89145345"
     1. **항목 이름**에 항목의 새 이름을 입력 합니다. 
     1. 페이지 아래쪽에서 **검토 + 만들기**를 선택합니다. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="사용자 지정 배포":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Event Grid 항목 검색 및 선택":::
     1. **검토 + 만들기** 페이지에서 설정을 검토 하 고 **만들기**를 선택 합니다. 
 
 ## <a name="verify"></a>확인
 
 1. 배포에 성공한 후 **리소스로 이동**을 선택 합니다. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="리소스로 이동":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Event Grid 항목 검색 및 선택":::
 1. 사용자 지정 항목에 대 한 **Event Grid 항목** 페이지가 표시 되는지 확인 합니다.   
 1. [웹 끝점에 대 한 사용자 지정 이벤트 라우팅](custom-event-quickstart-portal.md#send-an-event-to-your-topic) 의 단계에 따라 항목에 이벤트를 보냅니다. Webhook 이벤트 처리기가 호출 되는지 확인 합니다. 
 

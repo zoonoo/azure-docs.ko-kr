@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249555"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
@@ -156,7 +156,7 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>서비스 데이터 암호화 키 변경을 시작하려면
 1. 옵션 1을 선택하여 모든 권한으로 로그온합니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. cmdlet이 성공적으로 완료되면 새 서비스 데이터 암호화 키를 얻을 수 있습니다. 이 키를 복사하고 저장해 두었다가 이 프로세스의 3단계에서 사용합니다. 이 키는 StorSimple 관리자 서비스에 등록된 나머지 모든 디바이스를 업데이트하는 데 사용됩니다.
@@ -196,16 +196,16 @@ Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바�
 | 업데이트 검사, 다운로드 및 설치                                                                                             | 예            |
 | 디바이스 비활성화                                                                                                               | 예            |
 | 디바이스 삭제                                                                                                                   | 예            |
-| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 예             |
-| 볼륨 만들기, 수정 및 삭제                                                                                             | 예             |
-| 백업 정책 만들기, 수정 및 삭제                                                                                      | 예             |
-| 수동 백업 수행                                                                                                            | 예             |
-| 예약된 백업 수행                                                                                                         | 해당 없음 |
-| backupset에서 복원                                                                                                        | 예             |
+| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니요             |
+| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
+| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
+| 수동 백업 수행                                                                                                            | 아니요             |
+| 예약된 백업 수행                                                                                                         | 적용할 수 없음 |
+| backupset에서 복원                                                                                                        | 아니요             |
 | 업데이트 3.0 이상을 실행하는 디바이스에 복제 <br> 원본 디바이스는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
-| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 예             |
+| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 아니요             |
 | 원본 디바이스로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 디바이스에서 업데이트 3.0 이후 버전을 실행하는 디바이스로)                                                               | 예            |
-| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 예             |
+| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 아니요             |
 | 경고 지우기                                                                                                                  | 예            |
 | 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 예            |
 | 디바이스 컨트롤러 설정 및 해제                                                                                              | 예            |

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74931778"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
@@ -78,14 +78,14 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 ## <a name="db2-linked-service-properties"></a>DB2 연결된 서비스 속성
 다음 표에는 DB2 연결된 서비스와 관련된 JSON 속성이 나열되어 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **type** |이 속성을 **OnPremisesDb2**로 설정해야 합니다. |예 |
 | **server** |DB2 서버의 이름입니다. |예 |
 | **database** |DB2 데이터베이스의 이름입니다. |예 |
 | **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
 | **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
-| **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
+| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
 | **password** |사용자 계정의 암호입니다. |아니요 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
@@ -94,7 +94,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스에서 참조하는 DB2 데이터베이스 인스턴스의 테이블 이름입니다. 대/소문자를 구분합니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -105,7 +105,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
+| **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.
@@ -316,8 +316,8 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | 숫자 |Decimal |
-| 날짜 |DateTime |
-| Time |TimeSpan |
+| Date |DateTime |
+| 시간 |TimeSpan |
 | 타임스탬프 |DateTime |
 | Xml |Byte[] |
 | Char |String |
@@ -342,8 +342,8 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | 숫자 |Decimal |
-| 날짜 |DateTime |
-| Time |TimeSpan |
+| Date |DateTime |
+| 시간 |TimeSpan |
 | 타임스탬프 |DateTime |
 | Xml |Byte[] |
 | Char |String |

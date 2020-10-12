@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250031"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 애플리케이션 설정 구성 미리 보기
@@ -110,7 +110,7 @@ Azure Portal은 애플리케이션 설정을 만들고 업데이트하고 삭제
 
 1. **확인**을 클릭합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -144,7 +144,7 @@ Azure CLI 명령을 사용하려면 업로드를 실행하기 위해 계정과 �
 2. 리소스 그룹 이름
 3. 구독 ID
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Azure Static Web Apps 개요":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Azure Static Web Apps 구성 보기":::
 
 4. 터미널 또는 명령줄에서 다음 명령을 실행합니다. `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>` 및 `<YOUR_SUBSCRIPTION_ID>`의 자리 표시자를 _개요_ 창의 값으로 바꾸어야 합니다.
 

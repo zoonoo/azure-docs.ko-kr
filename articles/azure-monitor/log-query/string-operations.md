@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75397459"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
@@ -46,7 +46,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>문자열 비교
 
-연산자       |설명                         |대/소문자 구분|예제(`true` 생성)
+연산자       |Description                         |대/소문자 구분|예제(`true` 생성)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |같음                              |예           |`"aBc" == "aBc"`
 `!=`           |같지 않음                          |예           |`"abc" != "ABC"`
@@ -85,7 +85,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 문자열의 부분 문자열 발생을 계산합니다. 일반 문자열을 일치하거나 정규식을 사용할 수 있습니다. 일반 문자열 일치는 겹칠 수 있으며, 정규식 일치는 겹칠 수 없습니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 ```
 countof(text, search [, kind])
 ```
@@ -174,7 +174,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 - *isempty*는 인수가 빈 문자열이거나 null인 경우 true를 반환합니다(*isnull* 참조).
 - *isnotempty*는 인수가 빈 문자열이거나 null이 아닌 경우 true를 반환합니다(*isnotnull* 참조). 별칭: *notempty*
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 
 ```Kusto
 isempty(value)
@@ -200,7 +200,7 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 
 URL을 해당 부분(프로토콜, 호스트, 포트 등)을 분할하고 이러한 부분을 문자열로 포함하는 사전 개체를 반환합니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 
 ```
 parseurl(urlstring)
@@ -262,11 +262,11 @@ SecurityEvent
 4663 - 개체에 액세스하려고 했습니다.  |활동 ID 4663: 개체에 액세스하려고 했습니다.
 
 
-## <a name="split"></a>split
+## <a name="split"></a>분할
 
 지정된 구분 기호에 따라 지정된 문자열을 분할하고 결과 부분 문자열의 배열을 반환합니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 ```
 split(source, delimiter [, requestedIndex])
 ```
@@ -293,7 +293,7 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 
 문자열 인수를 연결합니다(1-16개 인수 지원).
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 ```
 strcat("string1", "string2", "string3")
 ```
@@ -308,7 +308,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 문자열의 길이를 반환합니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 ```
 strlen("text_to_evaluate")
 ```
@@ -323,7 +323,7 @@ print strlen("hello")   // result: 5
 
 지정된 인덱스에서 시작하여 지정된 소스 문자열의 부분 문자열을 추출합니다. 선택적으로 요청된 부분 문자열의 길이를 지정할 수 있습니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 ```
 substring(source, startingIndex [, length])
 ```
@@ -347,7 +347,7 @@ print substring("ABCD", 0, 2);  // result: "AB"
 
 지정된 문자열을 모두 소문자 또는 모두 대문자로 변환합니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 ```
 tolower("value")
 toupper("value")

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
 ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719702"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성에 설정 푸시
@@ -87,7 +87,7 @@ ms.locfileid: "88719702"
 - **레이블**: 응용 프로그램 구성 저장소 내의 레이블로 각 키 값에 추가 되는 문자열입니다.
 - **콘텐츠 형식**: 앱 구성 저장소 내에서 콘텐츠 형식으로 각 키 값에 추가 되는 문자열입니다.
 - **태그**: `{"tag1":"val1", "tag2":"val2"}` 앱 구성 저장소에 푸시되는 각 키 값에 추가 되는 태그를 정의 하는 형식의 JSON 개체입니다.
-- **지정 된 접두사 및 레이블을 사용 하 여 저장소의 다른 모든 키 값을 삭제**합니다. 기본값은 **선택 취소**되어 있습니다.
+- **지정 된 접두사 및 레이블을 사용 하 여 저장소의 다른 모든 Key-Values 삭제**: 기본값은 **선택 취소**되어 있습니다.
   - **선택**됨: 구성 파일에서 새 키 값을 푸시 하기 전에 지정 된 접두사와 레이블과 일치 하는 앱 구성 저장소의 모든 키 값을 제거 합니다.
   - **Unchecked**: 구성 파일의 모든 키 값을 앱 구성 저장소로 푸시하고 앱 구성 저장소에 있는 다른 모든 항목을 그대로 유지 합니다.
 

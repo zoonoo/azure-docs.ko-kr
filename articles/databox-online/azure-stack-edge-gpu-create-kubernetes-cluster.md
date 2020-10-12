@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903212"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 하 고 관리 합니다.
@@ -22,7 +22,7 @@ Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클�
 이 문서에서는 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 하 고 *kubectl*를 사용 하 여 관리 하는 방법을 설명 합니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -50,7 +50,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
 이 방법에서는 네임 스페이스와 사용자를 만듭니다. 그런 다음 사용자를 네임 스페이스와 연결 합니다. 또한 Kubernetes client를 사용 하 여 Azure Stack Edge Pro 장치의 PowerShell 인터페이스에 연결 하지 않고도 만든 Kubernetes 클러스터와 직접 통신할 수 있도록 하는 *구성* 파일을 가져와야 합니다.
 
-1. 네임스페이스 만들기 유형:
+1. 네임스페이스 만들기 형식:
 
     `New-HcsKubernetesNamespace -Namespace <string>` 
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
     `[10.100.10.10]: PS> New-HcsKubernetesNamespace -Namespace "myasetest1"`
 
-2. 사용자를 만들고 구성 파일을 가져옵니다. 유형:
+2. 사용자를 만들고 구성 파일을 가져옵니다. 형식:
 
     `New-HcsKubernetesUser -UserName <string>`
 
@@ -105,7 +105,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
     ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
 
-5. 만든 사용자와 네임 스페이스를 연결 합니다. 유형:
+5. 만든 사용자와 네임 스페이스를 연결 합니다. 형식:
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <string> -UserName <string>`
 

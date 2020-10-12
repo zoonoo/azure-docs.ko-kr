@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 4dd592cb1b0037e2e1054bb24d987d4456f15e2c
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380978"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>SaaS 제품 속성을 구성 하는 방법
@@ -43,7 +43,7 @@ ms.locfileid: "89380978"
 
 ## <a name="provide-terms-and-conditions"></a>사용 약관 제공
 
-**법률**에서 제품에 대 한 사용 약관을 제공 합니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+**법률**에서 제품에 대 한 사용 약관을 제공 합니다. 다음과 같은 두 가지 옵션이 있습니다.
 
 - [선택적 개정 함께 표준 계약 사용](#use-the-standard-contract)
 - [사용자 고유의 사용 약관 사용](#use-your-own-terms-and-conditions)
