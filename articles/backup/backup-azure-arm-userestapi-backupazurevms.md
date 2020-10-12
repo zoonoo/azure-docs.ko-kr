@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89506630"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-to-get-operation"></a>가져오기 작업에 대 한 응답
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
@@ -323,7 +323,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -348,7 +348,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -477,7 +477,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

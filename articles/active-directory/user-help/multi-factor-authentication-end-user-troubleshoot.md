@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
 ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322605"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정에 대한 일반적인 문제
@@ -109,7 +109,7 @@ Azure Active Directory (Azure AD) 조직은 계정에 대해 2 단계 인증을 
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>여행 중 모바일 디바이스에 로그인하는 데 문제가 있는 경우
 
-국제 행선지에 있는 동안 문자 메시지와 같은 모바일 디바이스 관련 확인 방법을 사용하는 것이 더 어려울 수 있습니다. 또한 모바일 디바이스에서 로밍 요금이 발생할 수도 있습니다. 이 경우 Wi-fi 핫 스폿에 연결 하는 옵션과 함께 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 모바일 장치에서 Microsoft Authenticator 앱을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서를 참조 하세요.
+국제 행선지에 있는 동안 문자 메시지와 같은 모바일 디바이스 관련 확인 방법을 사용하는 것이 더 어려울 수 있습니다. 또한 모바일 디바이스에서 로밍 요금이 발생할 수도 있습니다. 이 경우 Wi-Fi 핫 스폿에 연결 하는 옵션과 함께 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 모바일 장치에서 Microsoft Authenticator 앱을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서를 참조 하세요.
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>사용할 앱 암호를 수신할 수 없는 경우
 

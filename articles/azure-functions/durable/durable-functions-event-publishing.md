@@ -4,10 +4,10 @@ description: Durable Functions에 대한 자동 Azure Event Grid 게시를 구�
 ms.topic: conceptual
 ms.date: 04/25/2020
 ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081749"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
@@ -132,11 +132,11 @@ Azure Portal을 사용하여 Durable Functions 앱에서 게시한 이벤트를 
 
 1. **Event Grid**를 검색한 다음, **Azure Event Grid 트리거** 템플릿을 선택합니다. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Azure Portal에서 Event Grid 트리거 템플릿을 선택합니다." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Azure Portal에서 함수 앱을 추가합니다." border="true":::
 
 1. 새 트리거의 이름을 지정한 다음, **함수 만들기**를 선택합니다.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Azure Portal에서 Event Grid 트리거의 이름을 지정합니다." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Azure Portal에서 함수 앱을 추가합니다." border="true":::
 
 
     다음 코드가 있는 함수가 만들어집니다.
@@ -172,11 +172,11 @@ Azure Portal을 사용하여 Durable Functions 앱에서 게시한 이벤트를 
 
 1. 새 함수에서 **통합**을 선택한 다음, **Event Grid 트리거(eventGridEvent)** 를 선택합니다. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Event Grid 트리거 링크를 선택합니다." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Azure Portal에서 함수 앱을 추가합니다." border="true":::
 
 1. **Event Grid 설명 만들기**를 선택합니다.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Event Grid 구독을 만듭니다." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Azure Portal에서 함수 앱을 추가합니다." border="true":::
 
 1. 이벤트 구독의 이름을 지정하고 **Event Grid 토픽** 유형을 선택합니다. 
 
@@ -184,7 +184,7 @@ Azure Portal을 사용하여 Durable Functions 앱에서 게시한 이벤트를 
 
 1. **만들기**를 선택합니다.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Event Grid 구독을 만듭니다." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Azure Portal에서 함수 앱을 추가합니다." border="true":::
 
 이제 수명 주기 이벤트를 받을 준비가 되었습니다.
 

@@ -4,10 +4,10 @@ description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 �
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89569172"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스

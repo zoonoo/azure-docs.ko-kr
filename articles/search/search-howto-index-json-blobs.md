@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403639"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
@@ -63,7 +63,7 @@ Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Sto
    
 + **스토리지 컨테이너**는 스토리지 계정 및 컨테이너 또는 컨테이너로 확인되는 연결 문자열을 지정해야 합니다. Blob service 포털 페이지에서 연결 문자열을 가져올 수 있습니다.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Blob 데이터 원본 정의" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="포털에서 데이터 가져오기 명령" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-마법사에서 "콘텐츠 보강" 페이지 건너뛰기
 
@@ -81,7 +81,7 @@ Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Sto
 
 시간을 내서 선택 항목을 검토합니다. 마법사를 실행하면 실제 데이터 구조가 만들어지며, 모든 개체를 삭제했다가 다시 만들지 않으면 이러한 필드를 편집할 수 없습니다.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Blob 인덱스 정의" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="포털에서 데이터 가져오기 명령" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - 인덱서 만들기
 
@@ -89,7 +89,7 @@ Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Sto
 
 인덱서에 익숙하지 않은 경우 *인덱서* 는 검색 가능한 콘텐츠를 위해 외부 데이터 원본을 탐색 하는 Azure Cognitive Search의 리소스입니다. **데이터 가져오기** 마법사의 출력은 JSON 데이터 원본을 탐색 하 고, 검색 가능한 콘텐츠를 추출 하 고, Azure Cognitive Search의 인덱스로 가져오는 인덱서입니다.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Blob 인덱서 정의" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="포털에서 데이터 가져오기 명령" border="false":::
 
 **확인**을 클릭하여 마법사를 실행하고 모든 개체를 만듭니다. 인덱싱이 즉시 시작됩니다.
 
@@ -455,7 +455,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
 요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search/)에서 입력을 제공하세요. 기존 기능을 사용 하는 데 도움이 필요 하면 [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870)에 질문을 게시 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [Azure Cognitive Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md)

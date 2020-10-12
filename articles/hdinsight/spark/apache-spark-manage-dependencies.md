@@ -9,13 +9,13 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064177"
 ---
-# <a name="manage-spark-application-dependencies"></a>Spark 응용 프로그램 종속성 관리
+# <a name="manage-spark-application-dependencies"></a>Spark 애플리케이션 종속성 관리
 
 이 문서에서는 HDInsight에서 실행 되는 Spark 응용 프로그램에 대 한 종속성을 관리 하는 방법을 알아봅니다. Spark 응용 프로그램 및 클러스터 범위에서 Scala 및 PySpark를 모두 다룹니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "90064177"
 * [Jupyter 노트북을 사용 하 여 Spark 작업 jar 종속성 설정](#use-jupyter-notebook)
 * [Use Azure Toolkit for IntelliJ를 사용 하 여 Spark 작업 jar 종속성 설정](#use-azure-toolkit-for-intellij)
 * [Spark 클러스터에 대 한 jar 종속성 구성](#jar-libs-for-cluster)
-* [Jar 종속성을 안전 하 게 관리](#safely-manage-jar-dependencies)
+* [안전하게 jar 종속성 관리](#safely-manage-jar-dependencies)
 * [Jupyter 노트북을 사용 하 여 Spark 작업 Python 패키지 설정](#use-jupyter-notebook-1)
 * [Spark 클러스터에 대 한 Python 패키지 안전 하 게 관리](#python-packages-for-cluster)
 
@@ -98,7 +98,7 @@ import com.microsoft.azure.cosmosdb.spark._
 
 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)을 사용 하 여 단계를 자동화할 수 있습니다. [Hive 사용자 지정 라이브러리를 추가](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) 하는 스크립트 작업은 좋은 참조입니다. Spark 서비스 configs를 변경 하는 경우 구성 파일을 직접 수정 하는 대신 Ambari Api를 사용 해야 합니다. 
 
-## <a name="safely-manage-jar-dependencies"></a>Jar 종속성을 안전 하 게 관리
+## <a name="safely-manage-jar-dependencies"></a>안전하게 jar 종속성 관리
 HDInsight 클러스터에는 기본 제공 jar 종속성이 있으며 이러한 jar 버전에 대 한 업데이트는 시간에서 발생 합니다. 기본 제공 jar과 참조를 위해 가져오는 jar 간의 버전 충돌을 방지 하려면 [응용 프로그램 종속성을 음영](./safely-manage-jar-dependency.md)처리 하십시오.
 
 ## <a name="python-packages-for-one-spark-job"></a>단일 Spark 작업에 대 한 Python 패키지

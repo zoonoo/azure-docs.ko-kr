@@ -9,10 +9,10 @@ ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505355"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Azure Red Hat OpenShift 4 프라이빗 클러스터 만들기
@@ -29,25 +29,25 @@ CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="register-the-resource-providers"></a>리소스 공급자 등록
 
-1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정 합니다.
+1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정합니다.
 
     ```azurecli-interactive
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. 리소스 공급자를 등록 합니다 `Microsoft.RedHatOpenShift` .
+1. `Microsoft.RedHatOpenShift` 리소스 공급자를 등록합니다.
 
     ```azurecli-interactive
     az provider register -n Microsoft.RedHatOpenShift --wait
     ```
 
-1. 리소스 공급자를 등록 합니다 `Microsoft.Compute` .
+1. `Microsoft.Compute` 리소스 공급자를 등록합니다.
 
     ```azurecli-interactive
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. 리소스 공급자를 등록 합니다 `Microsoft.Storage` .
+1. `Microsoft.Storage` 리소스 공급자를 등록합니다.
 
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait

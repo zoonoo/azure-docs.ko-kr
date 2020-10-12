@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438827"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
@@ -32,10 +32,10 @@ Azure Analysis Services의 경우 처음으로 게이트웨이를 사용 하 여
 
 
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 조직의 컴퓨터에 설치하는 게이트웨이는 Windows 서비스인 **온-프레미스 데이터 게이트웨이**로 실행됩니다. 이 로컬 서비스는 Azure Service Bus를 통해 게이트웨이 클라우드 서비스로 등록됩니다. 그런 다음 Azure 구독에 대 한 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 Azure Analysis Services 서버가 Azure 게이트웨이 리소스에 연결 됩니다. 서버의 모델을 쿼리 또는 처리를 위해 온-프레미스 데이터 원본에 연결해야 하는 경우 쿼리 및 데이터 흐름은 게이트웨이 리소스, Azure Service Bus, 로컬 온-프레미스 데이터 게이트웨이 서비스 및 데이터 원본을 통과합니다. 
 
-![작동 방식](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![작동 방법](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 쿼리 및 데이터 흐름:
 
@@ -62,7 +62,7 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 
 다음은 게이트웨이에서 사용 되는 정규화 된 도메인 이름입니다.
 
-| 도메인 이름 | 아웃바운드 포트 | 설명 |
+| 도메인 이름 | 아웃바운드 포트 | Description |
 | --- | --- | --- |
 | *.powerbi.com |80 |설치 프로그램을 다운로드하는 데 사용되는 HTTP입니다. |
 | *.powerbi.com |443 |HTTPS |

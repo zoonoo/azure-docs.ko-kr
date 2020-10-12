@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88959794"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
@@ -37,7 +37,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 | **CPU(일)** | 하루에 이 앱에 허용되는 총 CPU 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
 | **메모리** | 이 앱에 허용되는 총 메모리 양입니다. |
 | **대역폭** | 하루에 이 앱에 허용되는 나가는 총 대역폭 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
-| **있어** | 허용되는 총 스토리지 양입니다. |
+| **파일 시스템** | 허용되는 총 스토리지 양입니다. |
 
 *Basic*, *Standard*및 *Premium* 에서 호스트 되는 앱에 적용 가능한 유일한 할당량은 파일 시스템입니다.
 

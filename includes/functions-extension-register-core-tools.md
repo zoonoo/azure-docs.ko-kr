@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/07/2020
 ms.author: glenga
 ms.openlocfilehash: a4f03223b5067d18f5d6e747b3bb630a86031b8f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88689565"
 ---
 확장 번들을 사용할 수 없는 경우 Azure Functions Core Tools를 로컬로 사용 하 여 프로젝트에 필요한 특정 확장 패키지를 설치할 수 있습니다.

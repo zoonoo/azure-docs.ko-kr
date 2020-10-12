@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510881"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "88510881"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 작업을 수행 하려면 전역 관리자, 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자 권한으로 로그인 해야 합니다.
 

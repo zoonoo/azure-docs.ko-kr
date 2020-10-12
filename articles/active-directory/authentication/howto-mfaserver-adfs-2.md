@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5bcb63a325ca6bbf464faf9c5f9934879ccf9a3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949663"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
@@ -45,10 +45,10 @@ ms.locfileid: "88949663"
 
    ![MFA 서버 IIS 인증 창](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색 하려면 `https://sso.contoso.com/adfs/ls` 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL (예:)을 입력 하 고 **확인**을 클릭 합니다.
+4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색 하려면 `https://sso.contoso.com/adfs/ls` Form-Based 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL (예:)을 입력 하 고 **확인**을 클릭 합니다.
 5. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 6. 페이지 변수를 자동으로 검색할 수 없는 경우 **수동으로 지정...** 을 클릭합니다. 양식 기반 웹 사이트 자동 구성 대화 상자의 단추.
-7. [양식 기반 웹 사이트 추가] 대화 상자에서 등록 URL 필드 (예:)에 AD FS 로그인 페이지의 URL을 입력 하 `https://sso.contoso.com/adfs/ls` 고 응용 프로그램 이름 (선택 사항)을 입력 합니다. 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+7. Form-Based 웹 사이트 추가 대화 상자에서 등록 URL 필드에 AD FS 로그인 페이지의 URL (예:)을 입력 하 `https://sso.contoso.com/adfs/ls` 고 응용 프로그램 이름 (선택 사항)을 입력 합니다. 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 8. 요청 형식을 **POST 또는 GET**으로 설정 합니다.
 9. Username 변수(ctl00$ContentPlaceHolder1$UsernameTextBox) 및 Password 변수(ctl00$ContentPlaceHolder1$PasswordTextBox)를 입력합니다. 양식 기반 로그인 페이지에 도메인 텍스트 상자가 표시되면 Domain 변수도 입력합니다. 로그인 페이지에서 입력 상자의 이름을 찾으려면 웹 브라우저에서 로그인 페이지로 이동하고 해당 페이지를 마우스 오른쪽 단추로 클릭하여 **소스 보기**를 선택합니다.
 10. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "88949663"
     - 쿠키를 사용하는 웹 사이트로 성공한 인증 캐시
     - 기본 자격 증명을 인증하는 방법 선택
 
-12. AD FS 프록시 서버는 도메인에 연결될 가능성이 낮으므로 LDAP를 사용하여 사용자 가져오기 및 사전 인증을 위해 도메인 컨트롤러에 연결할 수 있습니다. 고급 양식 기반 웹 사이트 대화 상자에서 **기본 인증** 탭을 클릭 하 고 사전 인증 인증 유형에 대해 **LDAP 바인딩** 을 선택 합니다.
+12. AD FS 프록시 서버는 도메인에 연결될 가능성이 낮으므로 LDAP를 사용하여 사용자 가져오기 및 사전 인증을 위해 도메인 컨트롤러에 연결할 수 있습니다. 고급 Form-Based 웹 사이트 대화 상자에서 **기본 인증** 탭을 클릭 하 고 사전 인증 인증 유형에 대해 **LDAP 바인딩** 을 선택 합니다.
 13. 작업을 완료하면 **확인**을 클릭하여 양식 기반 웹 사이트 추가 대화 상자로 돌아갑니다.
 14. **확인** 을 클릭하여 대화 상자를 닫습니다.
 15. URL 및 페이지 변수가 검색되거나 입력되면 양식 기반 패널에 웹 사이트 데이터가 표시됩니다.

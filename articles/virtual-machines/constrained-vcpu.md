@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.openlocfilehash: c7852bd1b6d93357c1c9127686d1edbb5c702a3c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88701653"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기
@@ -24,7 +24,7 @@ vCPU 수를 원래 VM 크기의 절반이나 1/4로 제한할 수 있습니다. 
 SQL Server 또는 Oracle에 대해 청구되는 라이선스 요금은 새 vCPU 개수로 제한되며 다른 제품은 새 vCPU 수를 기준으로 청구됩니다. 따라서 활성(청구 가능) vCPU에 대한 VM 사양의 비율이 50~75% 증가합니다. 이러한 새 VM 크기를 통해 고객 작업은 소프트웨어 라이선스 비용을 최적화 하는 동시에 동일한 메모리, 저장소 및 i/o 대역폭을 사용할 수 있습니다. 현재 OS 라이선스를 포함하는 컴퓨팅 비용은 원래 크기와 동일하게 유지됩니다. 자세한 내용은 [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)(비용 효율적인 데이터베이스 워크로드를 위한 Azure VM 크기)를 참조하세요.
 
 
-| 이름                | vCPU | 사양           |
+| Name                | vCPU | 사양           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | M8ms와 동일    |
 | Standard_M8-4ms     | 4    | M8ms와 동일    |

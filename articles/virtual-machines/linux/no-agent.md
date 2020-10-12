@@ -10,10 +10,10 @@ ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322554"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
@@ -78,7 +78,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 또한 VM 내에서 Azure Linux 에이전트를 제거 했으므로 준비를 보고 하는 메커니즘을 제공 해야 합니다. 
 
-#### <a name="python-script"></a>Python 스크립트
+#### <a name="python-script"></a>Python 스크립트 실행
 
 ```python
 import http.client

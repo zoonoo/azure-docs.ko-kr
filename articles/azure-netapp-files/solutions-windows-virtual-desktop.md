@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
 ms.openlocfilehash: a003090fd610f2ac75895cccbf97750adbd4cfcd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258322"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Azure NetApp Files 사용의 이점 
+# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점 
 
 이 문서에서는 Azure NetApp Files으로 WVD (Windows 가상 데스크톱)를 배포 하는 방법에 대 한 모범 사례 지침을 제공 합니다.
 
@@ -35,7 +35,7 @@ Azure NetApp Files은 Azure에서 고성능 파일 저장소 서비스입니다.
 
 풀링된 시나리오의 경우 Windows 가상 데스크톱 팀은 사용자 수를 vCPU로 사용 하 여 다음 지침을 [권장](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) 합니다. 이 권장 사항에는 가상 머신 크기가 지정 되지 않습니다.
 
-|     워크로드 유형     |     밝음    |     보통    |     Heavy    |
+|     워크로드 유형     |     밝음    |     중간    |     Heavy    |
 |-----------------------|--------------|---------------|--------------|
 |     VCPU 당 사용자 수    |     6        |     4         |     2        |
 

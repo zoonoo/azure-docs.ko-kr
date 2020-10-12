@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: becbc3e59663c1898cc4e635f61f63d54360a6f5
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086541"
 ---
 # <a name="sources-for-site-reliability-engineering-information"></a>사이트 안정성 엔지니어링 정보에 대 한 원본
@@ -24,7 +24,7 @@ ms.locfileid: "90086541"
 
 * [놀라운 사이트 안정성 엔지니어링](https://github.com/dastergon/awesome-sre)
 * [놀라운 사이트 안정성 엔지니어링 도구](https://github.com/SquadcastHub/awesome-sre-tools)
-* [확장 가능 하 고 안정적 이며 성능이 뛰어난 대규모 시스템의 패턴](http://awesome-scalability.com)
+* [확장 가능 하 고 안정적 이며 성능이 뛰어난 Large-Scale 시스템의 패턴](http://awesome-scalability.com)
 * [놀라운 분산 시스템](https://github.com/theanalyst/awesome-distributed-systems)
 * [놀라운 합의](https://github.com/dgryski/awesome-consensus)
 * [놀라운 모니터링](https://github.com/crazy-canux/awesome-monitoring)

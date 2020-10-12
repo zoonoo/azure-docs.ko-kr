@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
 ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323385"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
@@ -26,7 +26,7 @@ Application Gateway는 요청이 `Pick host name from backend target` Applicatio
 - 백 엔드 풀을 편집 하 고 여기에 App Service 추가
 - ' 호스트 선택 ' 스위치를 사용 하 여 HTTP 설정 편집
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Application gateway: 백 엔드 풀 대상을 사용 하지 않고 응용 프로그램 게이트웨이를 만듭니다. 자세한 내용은 [빠른 시작: Azure 애플리케이션 게이트웨이를 사용 하 여 웹 트래픽 직접 사용-Azure Portal](quick-create-portal.md) 을 참조 하세요.
 
@@ -56,7 +56,7 @@ Application Gateway는 요청이 `Pick host name from backend target` Applicatio
 3. **호스트 이름 재정의**에서 **백 엔드 대상에서 호스트 이름**선택을 선택 합니다.
 4. **저장**을 선택합니다.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="백 엔드 http 설정에서 호스트 이름 선택":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="App service 백 엔드":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>App service의 상대 경로로 리디렉션하는 경우 추가 구성
 

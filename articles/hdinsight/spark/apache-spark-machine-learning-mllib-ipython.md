@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
 ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230418"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
@@ -44,7 +44,7 @@ MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티�
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Apache Spark MLlib 기계 학습 앱 만들기
 
-1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 지침은 [Jupyter 노트북 파일 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file)를 참조 하세요.
+1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter Notebook 파일 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file)를 참조하세요.
 
 2. 이 애플리케이션에 필요한 형식을 가져옵니다. 다음 코드를 복사 하 여 빈 셀에 붙여넣은 다음 **shift + enter**를 누릅니다.
 
@@ -84,7 +84,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
     inspections.take(1)
     ```
 
-    출력은 다음과 같습니다.
+    결과는 다음과 같습니다.
 
     ```
     [['413707',
@@ -129,7 +129,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
     df.show(5)
     ```
 
-    출력은 다음과 같습니다.
+    결과는 다음과 같습니다.
 
     ```
     +------+--------------------+-------+--------------------+
@@ -153,7 +153,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
     df.select('results').distinct().show()
     ```
 
-    출력은 다음과 같습니다.
+    결과는 다음과 같습니다.
 
     ```
     +--------------------+
@@ -176,7 +176,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
 
     `-o countResultsdf` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [countResultsdf](https://pandas.pydata.org/) 라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
-    출력은 다음과 같습니다.
+    결과는 다음과 같습니다.
 
     ![SQL 쿼리 출력](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 쿼리 출력")
 
@@ -227,7 +227,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
     labeledData.take(1)
     ```
 
-    출력은 다음과 같습니다.
+    결과는 다음과 같습니다.
 
     ```
     [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764012"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
@@ -142,7 +142,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 ## <a name="publish-and-share-a-dashboard"></a>대시보드 게시 및 공유
 
-대시보드를 만들 때 기본적으로 비공개입니다. 즉, 사용자가 볼 수 있는 유일한 사용자입니다. 다른 사용자가 대시보드를 사용할 수 있도록 하려면 해당 대시보드를 게시 하 고 공유할 수 있습니다. 자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조 하세요.
+대시보드를 만들 때 기본적으로 비공개입니다. 즉, 사용자가 볼 수 있는 유일한 사용자입니다. 다른 사용자가 대시보드를 사용할 수 있도록 하려면 해당 대시보드를 게시 하 고 공유할 수 있습니다. 자세한 내용은 [Role-Based Access Control를 사용 하 여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조 하세요.
 
 ### <a name="open-a-shared-dashboard"></a>공유 대시보드 열기
 
@@ -178,5 +178,5 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 ## <a name="next-steps"></a>다음 단계
 
-* [역할 기반 Access Control을 사용하여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)
+* [역할 기반 액세스 제어를 사용하여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)
 * [Azure 대시보드를 프로그래밍 방식으로 만들기](azure-portal-dashboards-create-programmatically.md)

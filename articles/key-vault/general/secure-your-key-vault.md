@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
 ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842838"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
@@ -187,7 +187,7 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 | 보안 팀 | [키 자격 증명 모음 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | 인증서: 모든 작업 <br> 키: 모든 작업 <br> 비밀: 모든 작업 | [Key Vault 관리자 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | None | None |
 | 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | [Key Vault 판독기 (미리 보기)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Azure Storage 계정 | None | 키: get, list, wrapKey, unwrapKey <br> | [암호화 서비스 암호화 Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Azure Storage 계정 | 없음 | 키: get, list, wrapKey, unwrapKey <br> | [암호화 서비스 암호화 Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
 | 애플리케이션 | None | 비밀: get, list <br> 인증서: get, list | [Key Vault 판독기 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Key Vault 비밀 사용자 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. Vm (또는 Azure App Service의 Web Apps 기능)을 배포 하려면 개발자와 운영자에 게 배포 액세스 권한이 있어야 합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.

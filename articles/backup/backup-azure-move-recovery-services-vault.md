@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
 ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773368"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
 이 문서에서는 Azure 구독 간에 또는 동일한 구독의 다른 리소스 그룹에 Azure Backup에 대해 구성된 Recovery Services 자격 증명 모음을 이동하는 방법을 설명합니다. Azure Portal 또는 PowerShell을 사용하여 Recovery Services 자격 증명 모음을 이동할 수 있습니다.
 
-## <a name="supported-regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a>지원되는 지역
 
 Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트레일리아 동부에서 지원 됩니다. 오스트레일리아 남부 동부, 캐나다 중부, 캐나다 동부, 남부 동아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부 2, 브라질 남부, 인도 서 부, 인도 남부, 일본 서 부, 일본 서 부, 대한민국 중부, 대한민국 , 북부 유럽, 유럽 서부, 남아프리카 북부, 남아프리카 공화국 서 부, 영국 남부 및 영국 서부.
 

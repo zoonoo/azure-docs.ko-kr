@@ -4,10 +4,10 @@ description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841070"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 독립 실행형 클러스터 개요

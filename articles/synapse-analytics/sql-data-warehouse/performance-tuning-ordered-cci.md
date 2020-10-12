@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841597"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
@@ -134,7 +134,7 @@ OPTION (MAXDOP 1);
 5.    Table_A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
 6.    모든 파티션이 Table_A에서 Table_B로 전환 되 고 다시 작성 된 후 Table_A를 삭제 하 고 Table_A Table_B 이름을 바꿉니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 **은. 정렬 된 열 및 주문 서 수를 확인 하려면:**
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs 네임 스페이스를 현재 
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89375196"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임 스페이스를 다른 지역으로 이동
@@ -15,7 +15,7 @@ ms.locfileid: "89375196"
  
 Azure 리소스 그룹에 Event Hubs 네임 스페이스가 포함 된 다른 리소스가 있는 경우 모든 관련 된 리소스를 한 번에 새 지역으로 이동할 수 있도록 리소스 그룹 수준에서 템플릿을 내보내야 할 수 있습니다. 이 문서의 단계에서는 **네임 스페이스** 를 템플릿으로 내보내는 방법을 보여 줍니다. **리소스 그룹** 을 템플릿으로 내보내는 단계는 비슷합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 - 네임 스페이스에서 event hubs에 대해 **캡처 기능** 을 사용 하도록 설정한 경우 Event Hubs 네임 스페이스를 이동 하기 전에 [Azure Storage 또는 Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) 또는 [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) 계정을 이동 합니다. 이 문서에서 설명 하는 것과 유사한 단계를 수행 하 여 저장소 및 Event Hubs 네임 스페이스를 포함 하는 리소스 그룹을 다른 지역으로 이동할 수도 있습니다. 
