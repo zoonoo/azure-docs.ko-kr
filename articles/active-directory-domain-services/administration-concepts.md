@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
 ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489676"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 사용자 계정, 암호 및 관리에 대 한 관리 개념
@@ -80,8 +80,8 @@ Azure AD DS에서 사용 가능한 성능 및 기능은 SKU를 기반으로 합�
 
 | SKU name   | 최대 개체 수 | Backup 주기 | 최대 아웃 바운드 포리스트 트러스트 수 |
 |------------|----------------------|------------------|----|
-| Standard   | 제한 없음            | 7 일 마다     | 0  |
-| 엔터프라이즈 | 제한 없음            | 3 일 마다     | 5  |
+| 표준   | 제한 없음            | 7 일 마다     | 0  |
+| Enterprise | 제한 없음            | 3 일 마다     | 5  |
 | 프리미엄    | 제한 없음            | 매일            | 10 |
 
 이러한 Azure AD DS Sku 이전에 관리 되는 도메인의 개체 수 (사용자 및 컴퓨터 계정)를 기반으로 하는 청구 모델이 사용 되었습니다. 관리 되는 도메인의 개체 수를 기반으로 하는 변수 가격은 더 이상 없습니다.

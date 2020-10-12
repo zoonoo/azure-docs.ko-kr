@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850695"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
@@ -171,7 +171,7 @@ Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하�
 
 이 정보를 보면 중요한 정보와 중요하지 않은 정보를 신속하게 감지할 수 있으므로 다음과 같은 “사다리”가 만들어집니다.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="사다리 패턴의 다이어그램" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="상대 관계형 모델을 보여 주는 다이어그램" border="false":::
 
 가장 작은 단계는 사용자를 식별하는 정보의 최소 조각인 UserChunk로서, 데이터 중복에 사용됩니다. 중복된 데이터의 크기를 “표시”할 정보로만 줄이면 대량 업데이트의 가능성이 줄어듭니다.
 
@@ -216,7 +216,7 @@ Azure Cosmos DB를 사용 하 고 있으므로 검색 프로세스 및 UI 이외
 
 이 프로세스는 왜 그렇게 쉬울까요?
 
-Azure Cognitive Search는 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-create-index-portal.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 끝났습니다. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
+Azure Cognitive Search는 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-create-index-portal.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 정말 간단하죠. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
 
 Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 방문 [하 여 검색할](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)수 있습니다.
 
@@ -248,7 +248,7 @@ Cosmos DB는 모든 파티션에 투명하게 쿼리([집계](https://azure.micr
 
 시간이 지나면 결국 트래픽이 증가하고 리소스 사용([RU](request-units.md) 또는 요청 단위)도 증가합니다. 사용자 기반이 커지면 좀 더 자주 읽고 쓰게 됩니다. 사용자 기반은 더 많은 콘텐츠를 만들고 읽기 시작합니다. 따라서 **처리량 크기 조정** 기능이 반드시 필요합니다. RU를 늘리는 것은 쉽습니다. Azure Portal에서 몇 번 클릭하거나 [API를 통해 명령을 실행](/rest/api/cosmos-db/replace-an-offer)하여 수행할 수 있습니다.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="파티션 키 확장 및 정의":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="상대 관계형 모델을 보여 주는 다이어그램":::
 
 상황이 계속 좋아질 수 있습니다. 다른 지역, 국가 또는 대륙의 사용자들이 여러분의 플랫폼을 알게 되고 사용하게 된다고 가정해보세요. 대단한 일이지요.
 
@@ -259,13 +259,13 @@ Cosmos DB를 사용하면 몇 번의 클릭으로 투명하게 [데이터를 전
 
 전역적으로 데이터를 복제하는 경우 클라이언트에서 활용할 수 있는지 확인합니다. 웹 프런트 엔드를 사용하거나 모바일 클라이언트의 API에 액세스하는 경우 확장된 글로벌 범위를 지원하는 성능 구성을 사용하여 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 배포하고 원하는 모든 지역에서 Azure App Service를 복제할 수 있습니다. 클라이언트가 프런트 엔드 또는 API에 액세스하는 경우 가장 가까운 App Service에 라우팅되고 따라서 로컬 Cosmos DB 복제본에 연결됩니다.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="소셜 플랫폼에 전역적 적용 범위 추가" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="상대 관계형 모델을 보여 주는 다이어그램" border="false":::
 
 ## <a name="conclusion"></a>결론
 
 이 문서에서는 저렴한 비용 서비스를 사용하여 Azure에서 소셜 네트워크를 완벽하게 만들 수 있는 대안을 살펴보았습니다. 그 결과 다중 계층 스토리지 솔루션 및 "사다리"라는 데이터 배포를 사용하는 것이 권장됩니다.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="소셜 네트워킹에 대한 Azure 서비스 간 상호 작용의 다이어그램" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="상대 관계형 모델을 보여 주는 다이어그램" border="false":::
 
 이러한 종류의 시나리오에 대한 묘책은 없습니다. 뛰어난 환경을 구축할 수 있는 훌륭한 서비스의 조합에 의해 생성 된 시너지 효과입니다. 뛰어난 소셜 응용 프로그램을 제공 하 고, Azure Cognitive Search와 같은 고급 검색 솔루션의 인텔리전스를 제공 하는 Azure Cosmos DB의 속도와 자유는 Azure 앱 서비스의 유연성을 활용 하 여 언어에 관계 없이 응용 프로그램을 호스팅할 수 있는 유연성, 강력한 백그라운드 프로세스 및 대규모 데이터를 저장 하 고 Azure 컴퓨터의 분석 기능 Azure SQL Database Azure Storage 프로세스에 대 한 피드백을 제공 하 고 올바른 사용자에 게 적절 한 콘텐츠를 제공 하는 데 도움이 되는 지식과 인텔리전스를 만드는 방법을 배웁니다.
 

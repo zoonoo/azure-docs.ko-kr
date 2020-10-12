@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489642"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>기존 Azure Active Directory Domain Services 관리 되는 도메인에 대 한 SKU 변경
@@ -40,7 +40,7 @@ Azure Active Directory Domain Services (Azure AD DS)에서 사용할 수 있는 
 
 관리 되는 도메인이 배포 된 후 Sku를 위아래로 변경할 수 있습니다. 그러나 리소스 포리스트를 사용 하 고 Azure AD DS에서 온-프레미스 AD DS 환경으로의 단방향 아웃 바운드 포리스트 트러스트를 만든 경우 SKU 변경 작업에 대 한 몇 가지 제한 사항이 있습니다. *Premium* 및 *Enterprise* sku는 만들 수 있는 트러스트의 수에 대 한 제한을 정의 합니다. 현재 구성 된 것 보다 낮은 최대 제한이 있는 SKU로 변경할 수 없습니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 * *프리미엄* SKU에서 두 포리스트 트러스트를 만든 경우 *표준* SKU로 변경할 수 없습니다. *표준* SKU는 포리스트 트러스트를 지원 하지 않습니다.
 * 또는 *프리미엄* SKU에서 7 개의 트러스트를 만든 경우 *Enterprise* SKU로 변경할 수 없습니다. *Enterprise* SKU는 최대 5 개의 트러스트를 지원 합니다.

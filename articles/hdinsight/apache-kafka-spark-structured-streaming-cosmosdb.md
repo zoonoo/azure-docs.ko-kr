@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203467"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
@@ -66,8 +66,8 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     |속성 |값 |
     |---|---|
-    |구독|Azure 구독을 선택합니다.|
-    |리소스 그룹|그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.|
+    |Subscription|Azure 구독을 선택합니다.|
+    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.|
     |Cosmos DB 계정 이름|이 값은 Cosmos DB 계정의 이름으로 사용됩니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~31자여야 합니다.|
     |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **myhdi**를 입력하면 __spark-myhdi__라는 Spark 클러스터와 **kafka-myhdi**라는 Kafka 클러스터가 만들어집니다.|
     |클러스터 버전|HDInsight 클러스터 버전입니다. 이 예제는 HDInsight 3.6을 사용하여 테스트되고 다른 클러스터 형식에서 작동하지 않을 수 있습니다.|
@@ -78,7 +78,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     ![HDInsight 사용자 지정 배포 값](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. 사용 **약관**을 읽은 다음 **위에 명시 된 사용 약관에 동의 함**을 선택 합니다.
+1. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
 1. 마지막으로, **구매**를 선택합니다. 클러스터, 가상 네트워크 및 Cosmos DB 계정을 만드는 데 최대 45분이 걸릴 수 있습니다.
 

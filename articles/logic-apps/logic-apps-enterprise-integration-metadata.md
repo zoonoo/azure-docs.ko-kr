@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792476"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 통합 계정에서 아티팩트 메타데이터 관리
@@ -61,7 +61,7 @@ ms.locfileid: "74792476"
 
 1. 찾으려는 아티팩트에 대해 다음 정보를 제공합니다.
 
-   | 속성 | 필수 | 값 | 설명 | 
+   | 속성 | 필수 | 값 | Description | 
    |----------|---------|-------|-------------| 
    | **아티팩트 형식** | 예 | **스키마**, **맵**, **파트너**, **규약** 또는 사용자 지정 형식 | 원하는 아티팩트에 대한 형식 | 
    | **아티팩트 이름** | 예 | <*아티팩트-이름*> | 원하는 아티팩트에 대한 이름 | 
@@ -87,11 +87,11 @@ ms.locfileid: "74792476"
       |----------|----------|-------|-------------| 
       | **메서드** | 예 | <*작업 실행*> | 아티팩트에서 실행할 HTTP 작업입니다. 예를 들어 이 HTTP 작업은 **GET** 메서드를 사용합니다. | 
       | **URI** | 예 | <*메타 데이터-위치*> | 검색한 아티팩트에서 `routingUrl` 메타데이터 값에 액세스하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **헤더** | 아니요 | <*헤더-값*> | HTTP 작업에 전달하려는 트리거의 모든 헤더 출력입니다. 예를 들어 트리거의 `headers` 속성 값을 전달하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@triggeroutputs()['headers']` | 
+      | **헤더** | 예 | <*헤더-값*> | HTTP 작업에 전달하려는 트리거의 모든 헤더 출력입니다. 예를 들어 트리거의 `headers` 속성 값을 전달하기 위해 식을 사용할 수 있습니다. 예를 들면 다음과 같습니다. <p>`@triggeroutputs()['headers']` | 
       | **본문** | 예 | <*본문-콘텐츠*> | HTTP 작업의 `body` 속성을 통해 전달하려는 다른 콘텐츠입니다. 이 예제에서는 아티팩트의 `properties` 값을 HTTP 작업으로 전달합니다. <p>1. **본문** 속성 내부를 클릭 하 여 동적 콘텐츠 목록이 표시 되도록 합니다. 속성이 표시되지 않는 경우 **자세히 보기**를 선택합니다. <br>2. 동적 콘텐츠 목록의 **통합 계정 아티팩트 조회**에서 **속성**을 선택 합니다. | 
       |||| 
 
-      예를 들어:
+      예를 들면 다음과 같습니다.
 
       ![HTTP 작업에 대한 값 및 식 지정](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

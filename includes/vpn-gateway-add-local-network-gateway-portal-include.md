@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: bc9e18427bb3b8094911d2ac7f285d271ecd1a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91025184"
 ---
 1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기**를 선택합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "91025184"
 
    이는 동일한 페이지이지만, FQDN이 강조 표시됩니다.
 
-   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-gateway-fqdn.png" alt-text="로컬 네트워크 게이트웨이 FQDN 만들기":::
+   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-gateway-fqdn.png" alt-text="로컬 네트워크 게이트웨이 IP 주소 만들기":::
 
    > [!NOTE]
    >

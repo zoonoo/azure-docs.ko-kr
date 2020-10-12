@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86998938"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>메인프레임 계산을 Azure로 이동
@@ -57,7 +57,7 @@ Azure Virtual Machines 다양 한 크기와 형식으로 계산 능력을 제공
 
 현재 Azure 가상 머신 크기 범위는 1 ~ 128 vCPUs를 제공 합니다. VM (가상 머신) 유형은 특정 워크 로드에 대해 최적화 됩니다. 예를 들어 다음 목록에는 VM 유형 (이 문서를 작성할 때 현재)과 권장 사용이 나와 있습니다.
 
-| Size     | 유형 및 설명                                                                 |
+| 크기     | 유형 및 설명                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | D 시리즈 | 64 vCPU 및 최대 3.5 GHz 클럭 속도를 사용 하는 일반적인 용도                           |
 | E 시리즈 | 최대 64 vCPUs로 최적화 된 메모리                                                 |

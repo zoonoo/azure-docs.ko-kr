@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008783"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 클러스터 운영자 및 개발자의 모범 사례
@@ -21,7 +21,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 
 클러스터 운영자는 애플리케이션 소유자 및 개발자와 협력하여 요구 사항을 파악합니다. 그런 다음, 다음과 같은 모범 사례를 사용하여 필요에 따라 AKS 클러스터를 구성합니다.
 
-**다중 테넌트**
+**다중 테넌트 지원**
 
 * [클러스터 격리에 대한 모범 사례](operator-best-practices-cluster-isolation.md)
     * 다중 테넌트 핵심 구성 요소 및 네임스페이스를 통한 논리적 격리와 관련이 있습니다.

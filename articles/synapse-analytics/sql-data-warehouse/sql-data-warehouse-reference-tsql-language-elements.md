@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289500"
 ---
 # <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Synapse SQL 풀에서 지원 되는 t-sql 언어 요소
@@ -233,7 +233,7 @@ Synapse SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서에 
 * [YEAR](/sql/t-sql/functions/year-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [XACT_STATE](/sql/t-sql/functions/xact-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="transactions"></a>의
+## <a name="transactions"></a>트랜잭션
 
 * [트랜잭션](/sql/t-sql/language-elements/transactions-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 

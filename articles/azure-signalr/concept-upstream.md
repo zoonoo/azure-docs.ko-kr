@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514240"
 ---
 # <a name="upstream-settings"></a>업스트림 설정
@@ -34,13 +34,13 @@ ms.locfileid: "89514240"
 
 URL을 매개 변수화 하 여 다양 한 패턴을 지원할 수 있습니다. 세 가지 미리 정의 된 매개 변수가 있습니다.
 
-|미리 정의 된 매개 변수|Description|
+|미리 정의 된 매개 변수|설명|
 |---------|---------|
 |hub-and-spoke| 허브는 Azure SignalR 서비스의 개념입니다. 허브는 격리 단위입니다. 사용자의 범위와 메시지 배달은 허브로 제한 됩니다.|
 |범주| 범주는 다음 값 중 하나일 수 있습니다. <ul><li>**연결**: 연결 수명 이벤트입니다. 클라이언트 연결이 연결 되거나 연결이 끊어진 경우에 발생 합니다. 연결 된 이벤트와 연결이 끊어진 이벤트를 포함 합니다.</li><li>**메시지**: 클라이언트에서 허브 메서드를 호출할 때 발생 합니다. **연결** 범주에 있는 이벤트를 제외 하 고 다른 모든 이벤트를 포함 합니다.</li></ul>|
 |이벤트| **메시지** 범주의 경우 이벤트는 클라이언트가 보내는 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) 의 대상입니다. **연결** 범주에 대해서는 *연결* 된 연결 및 연결 *끊김* 만 사용 됩니다.|
 
-이러한 미리 정의 된 매개 변수는 URL 패턴에서 사용할 수 있습니다. 업스트림 URL을 평가 하는 경우 매개 변수가 지정 된 값으로 대체 됩니다. 다음은 그 예입니다.  
+이러한 미리 정의 된 매개 변수는 URL 패턴에서 사용할 수 있습니다. 업스트림 URL을 평가 하는 경우 매개 변수가 지정 된 값으로 대체 됩니다. 예를 들면 다음과 같습니다. 
 ```
 http://host.com/{hub}/api/{category}/{event}
 ```
@@ -82,7 +82,7 @@ http://host.com/chat/api/messages/broadcast
 3. **업스트림 Url 패턴**에서 url을 추가 합니다. 그런 다음 **허브 규칙과** 같은 설정이 기본값을 표시 합니다.
 4. **허브 규칙**, **이벤트 규칙**, **범주 규칙**및 **업스트림 인증**에 대 한 설정을 설정 하려면 **허브 규칙**값을 선택 합니다. 설정을 편집할 수 있는 페이지가 나타납니다.
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="업스트림 설정 정보":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="업스트림 설정":::
 
 5. **업스트림 인증**을 설정 하려면 먼저 관리 되는 id를 사용 하도록 설정 했는지 확인 합니다. 그런 다음 **관리 되는 Id 사용**을 선택 합니다. 사용자의 요구 사항에 따라 **Auth 리소스 ID**에서 옵션을 선택할 수 있습니다. 자세한 내용은 [Azure SignalR 서비스에 대 한 관리 되는 id](howto-use-managed-identity.md) 를 참조 하세요.
 
@@ -123,7 +123,7 @@ POST
 
 ### <a name="request-header"></a>요청 헤더
 
-|Name |Description|
+|Name |설명|
 |---------|---------|
 |X ASRS-연결 Id |클라이언트 연결에 대 한 연결 ID입니다.|
 |X ASRS-허브 |클라이언트 연결이 속한 허브입니다.|
@@ -145,7 +145,7 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json`
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |Error |문자열 |닫힌 연결의 오류 메시지입니다. 연결이 오류 없이 닫힐 때 비어 있습니다.|
 
@@ -153,10 +153,10 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json` 또는 `application/x-msgpack`
 
-|Name  |Type  |Description  |
+|Name  |유형  |설명  |
 |---------|---------|---------|
 |InvocationId |문자열 | 호출 메시지를 나타내는 선택적 문자열입니다. [호출](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations)에서 세부 정보를 찾습니다.|
-|Target |문자열 | 이벤트와 동일 하며 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)의 대상과 동일 합니다. |
+|대상 |문자열 | 이벤트와 동일 하며 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)의 대상과 동일 합니다. |
 |인수 |개체의 배열 |에서 참조 되는 메서드에 적용할 인수를 포함 하는 배열입니다 `Target` . |
 
 ### <a name="signature"></a>서명

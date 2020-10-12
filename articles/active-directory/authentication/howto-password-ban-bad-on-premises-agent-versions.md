@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74847852"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
@@ -34,14 +34,14 @@ ms.locfileid: "74847852"
 
 릴리스 날짜: 3/13/2019
 
-* 이제 AzureADPasswordProtectionProxy 및 AzureADPasswordProtectionDCAgent cmdlet은 소프트웨어 버전 및 현재 Azure 테 넌 트를 보고 하며 다음과 같은 제한 사항이 있습니다.
+* 이제 Get-AzureADPasswordProtectionProxy 및 Get-AzureADPasswordProtectionDCAgent cmdlet은 소프트웨어 버전 및 현재 Azure 테 넌 트를 보고 하며 다음과 같은 제한 사항이 있습니다.
   * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 버전 1.2.116.0 이상을 실행 하는 DC 에이전트 및 프록시에만 사용할 수 있습니다.
   * Azure 테 넌 트 데이터는 프록시 또는 포리스트를 다시 등록 하거나 갱신할 때까지 보고 되지 않을 수 있습니다.
 * 이제 프록시 서비스에 .NET 4.7이 설치 되어 있어야 합니다.
   * .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
   * Server Core 시스템에서는/q 플래그를 .NET 4.7 설치 관리자에 전달 하 여 성공 하도록 해야 할 수 있습니다.
 * 이제 프록시 서비스에서 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있습니다.
-* AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
+* Set-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. Get-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
 * DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent.exe (으)로 바뀌었습니다.
 * 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy.exe로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
   * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는 *proxyservice.exe.config* 에서 *AzureADPasswordProtectionProxy.exe.config*로 이름을 변경 해야 합니다.

@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89536458"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 다음은 그 예입니다. 
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 [

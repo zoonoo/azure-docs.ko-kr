@@ -4,10 +4,10 @@ description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure S
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378324"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
@@ -32,7 +32,7 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 * MABS는 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 Azure Backup 서버 등록 등이 포함됩니다.
 

@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378137"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업적 marketplace의 SaaS 등록 Api 버전 2
@@ -588,7 +588,7 @@ SaaS 구독에 대해 구매한 기존 계획을 새 요금제 (공용 또는 �
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -653,7 +653,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다.  |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -718,7 +718,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
 
 코드: 400 잘못 된 요청입니다.  `allowedCustomerOperations`이 SaaS 구독의 삭제는 목록에 없습니다.
 

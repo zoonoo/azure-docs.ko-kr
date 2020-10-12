@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
 ms.openlocfilehash: 7ce49873b4e59bcf474deaea4420f56a72c9c589
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085746"
 ---
 VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅 리소스의 양이 결정됩니다. 가상 머신은 워크로드에 맞는 VM 크기로 만들어야 합니다. 모든 컴퓨터가 동일한 하드웨어에서 실행 되는 경우에도 컴퓨터 크기는 디스크 액세스에 대해 서로 다른 제한을 가지 지만 Vm 전체에서 전체 디스크 액세스를 관리 하는 데 도움이 될 수 있습니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수도 있습니다.

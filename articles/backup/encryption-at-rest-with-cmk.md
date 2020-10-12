@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 �
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378290"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
@@ -31,7 +31,7 @@ Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫
 
 - 이 기능은 현재 **MARS 에이전트를 사용 하 여 백업을 지원 하지**않으며, 동일한 경우 cmk 암호화 자격 증명 모음을 사용 하지 못할 수 있습니다. MARS 에이전트는 사용자 암호 기반 암호화를 사용 합니다. 또한이 기능은 클래식 Vm의 백업을 지원 하지 않습니다.
 
-- 이 기능은 BitLocker (Windows 용) 및 DM (Linux)을 사용 하 여 VM 디스크의 게스트 기반 암호화를 사용 하는 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)와 관련이 없습니다.
+- 이 기능은 BitLocker (Windows) 및 DM-Crypt (Linux)를 사용 하 여 VM 디스크의 게스트 기반 암호화를 사용 하는 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)와 관련이 없습니다.
 
 - Recovery Services 자격 증명 모음은 **동일한 지역**에 있는 Azure Key Vault에 저장 된 키로만 암호화할 수 있습니다. 또한 키는 **RSA 2048 키** 여야 하며 **사용** 상태 여야 합니다.
 
@@ -98,7 +98,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
 다음 단계를 사용 하 여 PowerShell을 통해 일시 삭제 및 제거 보호를 사용 하도록 설정할 수도 있습니다.
 
-1. Azure 계정에 로그인 합니다.
+1. Azure 계정에 로그인합니다.
 
     ```azurepowershell
     Login-AzAccount

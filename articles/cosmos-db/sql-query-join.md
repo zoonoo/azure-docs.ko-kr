@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74871145"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB의 조인
@@ -19,7 +19,7 @@ ms.locfileid: "74871145"
 
 내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 이 언어는 구문을 지원 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` 합니다. 이 쿼리는 값이 있는 튜플 집합을 반환 `N` 합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다. 
 
@@ -224,7 +224,7 @@ JOIN 절의 실제 유틸리티는 프로젝트에 어려움이 있는 셰이프
     }
 ```
 
-`AndersenFamily`에는 애완 동물을 가진 자식이 하나 있으므로 교차곱은이 제품군에서 1 개의 행 (1 1 1)을 생성 합니다 \* \* . `WakefieldFamily`에는 두 개의 자식이 있는데, 그 중 하나에는 애완 동물이 있지만 해당 자식에는 애완 동물 2 개가 있습니다. 이 패밀리의 교차곱은 1 \* 1 \* 2 = 2 개의 행을 생성 합니다.
+`AndersenFamily` 에는 애완 동물을 가진 자식이 하나 있으므로 교차곱은이 제품군에서 1 개의 행 (1 1 1)을 생성 합니다 \* \* . `WakefieldFamily` 에는 두 개의 자식이 있는데, 그 중 하나에는 애완 동물이 있지만 해당 자식에는 애완 동물 2 개가 있습니다. 이 패밀리의 교차곱은 1 \* 1 \* 2 = 2 개의 행을 생성 합니다.
 
 다음 예제에서는에 대 한 추가 필터를 사용할 수 있습니다 .이 필터는 `pet` 애완 동물 이름이 아닌 모든 튜플을 제외 합니다 `Shadow` . 배열에서 튜플을 빌드하고, 튜플의 요소를 필터링 하 고, 요소 조합을 프로젝션 할 수 있습니다.
 

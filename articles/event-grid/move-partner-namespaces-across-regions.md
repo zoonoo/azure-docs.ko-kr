@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086213"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Azure Event Grid 파트너 네임 스페이스를 다른 지역으로 이동
@@ -24,7 +24,7 @@ ms.locfileid: "89086213"
     > - 고객이 파트너 토픽을 직접 만들 수 없기 때문에 **파트너 토픽** 을 Azure Resource Manager 템플릿으로 내보낼 수는 없습니다. 
     > - **파트너 등록** 은 특정 지역에 연결 되지 않은 전역 리소스 이므로 한 지역에서 다른 지역으로 이동 하는 것은 적용 되지 않습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - 대상 지역에서 Event Grid 서비스를 사용할 수 있는지 확인 합니다. [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
 ## <a name="prepare"></a>준비

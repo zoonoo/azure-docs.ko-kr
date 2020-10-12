@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086214"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Azure Event Grid 도메인을 다른 지역으로 이동
@@ -25,7 +25,7 @@ ms.locfileid: "89086214"
 - **배포 확인**. 도메인의 도메인 항목에 이벤트를 보내고 구독과 연결 된 이벤트 처리기가 호출 되었는지 확인 합니다. 
 - **이동을 완료**하려면 원본 영역에서 도메인을 삭제 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - 대상 지역에서 Event Grid 서비스를 사용할 수 있는지 확인 합니다. [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
 ## <a name="prepare"></a>준비
@@ -37,10 +37,10 @@ ms.locfileid: "89086214"
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Event Grid 도메인 검색 및 선택":::
 3. 리소스 관리자 템플릿으로 내보내려는 **도메인** 을 선택 합니다. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="도메인 선택":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Event Grid 도메인 검색 및 선택":::   
 4. **Event Grid 도메인** 페이지에서 왼쪽 메뉴의 **설정** 아래에서 **템플릿 내보내기** 를 선택한 다음 도구 모음에서 **다운로드** 를 선택 합니다. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="템플릿 내보내기-> 다운로드" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Event Grid 도메인 검색 및 선택" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > 도메인 및 도메인 항목을 내보냅니다. 도메인 항목에 대 한 구독을 내보내지 않습니다. 따라서 도메인 항목을 이동한 후 도메인 항목에 대 한 구독을 만들어야 합니다. 
@@ -73,7 +73,7 @@ ms.locfileid: "89086214"
     1. **도메인 이름**에 도메인의 새 이름을 입력 합니다. 
     1. **검토 + 만들기**를 선택합니다. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="템플릿 배포":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Event Grid 도메인 검색 및 선택":::        
     1. 템플릿의 유효성 검사가 성공 하면 페이지 맨 아래에서 **만들기** 를 선택 하 여 리소스를 배포 합니다. 
     1. 배포에 성공한 후 **리소스 그룹으로 이동** 을 선택 하 여 리소스 그룹 페이지로 이동 합니다. 리소스 그룹에 도메인이 있는지 확인 합니다. 도메인을 선택 합니다. 도메인에 도메인 항목이 있는지 확인 합니다. 
 

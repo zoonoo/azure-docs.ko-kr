@@ -1,5 +1,5 @@
 ---
-title: Cognitive Services에 대 한 고객 관리 키
+title: Cognitive Services에 대 한 Customer-Managed 키
 titleSuffix: Cognitive Services
 description: Azure Portal를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키를 구성 하는 방법을 알아봅니다. 고객 관리형 키를 사용하면 액세스 제어를 만들고, 회전하고, 비활성화하고, 철회할 수 있습니다.
 services: cognitive-services
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310702"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Cognitive Services에 대 한 Azure Key Vault를 사용 하 여 고객 관리 키 구성
 
-Cognitive Services에 대 한 Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 설정 하는 프로세스는 제품 마다 다릅니다. 다음 링크를 사용 하 여 서비스별 지침을 따르세요.
+Cognitive Services에 대 한 Azure Key Vault에서 Customer-Managed 키를 사용 하도록 설정 하는 프로세스는 제품 마다 다릅니다. 다음 링크를 사용 하 여 서비스별 지침을 따르세요.
 
 ## <a name="vision"></a>시각
 
@@ -39,4 +39,4 @@ Cognitive Services에 대 한 Azure Key Vault에서 고객이 관리 하는 키�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Cognitive Services 고객이 관리 하는 키 요청 양식](https://aka.ms/cogsvc-cmk)
+* [Cognitive Services Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)

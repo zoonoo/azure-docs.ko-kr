@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: mblythe
 ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85852386"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
@@ -45,17 +45,17 @@ ms.locfileid: "85852386"
 
 1. **지원 요청** 페이지에서 **변경**을 선택 합니다.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="지원 요청 심각도 변경":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="모든 지원 요청":::
 
 1. Azure Portal는 요청이 지원 엔지니어에 게 이미 할당 되었는지 여부에 따라 다음 두 화면 중 하나를 표시 합니다.
 
     - 요청이 할당 되지 않은 경우 다음과 같은 화면이 표시 됩니다. 새 심각도 수준을 선택한 다음 **변경**을 선택 합니다.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="새 심각도 수준을 선택 합니다.":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="모든 지원 요청":::
 
     - 요청이 할당 된 경우 다음과 같은 화면이 표시 됩니다. **확인**을 선택한 다음 [새 메시지](#send-a-message) 를 만들어 심각도 수준의 변경을 요청 합니다.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="새 심각도 수준을 선택할 수 없습니다.":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="모든 지원 요청":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Azure 지원에 진단 정보 공유
 
@@ -69,7 +69,7 @@ ms.locfileid: "85852386"
     
     1. **지원 요청** 페이지에서 **권한 부여**를 선택 하 고 **예** , **확인**을 차례로 선택 합니다.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="진단 정보에 대 한 사용 권한 부여":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="모든 지원 요청":::
 
 ## <a name="upload-files"></a>파일 업로드
 
@@ -79,7 +79,7 @@ ms.locfileid: "85852386"
 
 1. **지원 요청** 페이지에서 파일을 찾은 다음 **업로드**를 선택 합니다. 파일이 여러 개인 경우 프로세스를 반복 합니다.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="파일 업로드":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="모든 지원 요청":::
 
 ### <a name="file-upload-guidelines"></a>파일 업로드 지침
 

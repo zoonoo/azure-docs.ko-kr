@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961706"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET 앱 구성
@@ -83,7 +83,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들어:
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <system.web>

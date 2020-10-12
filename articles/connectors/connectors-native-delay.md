@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74787339"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Azure Logic Apps에서 다음 작업 실행 지연
@@ -50,10 +50,10 @@ ms.locfileid: "74787339"
 
    ![지연 시간 설정](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | 속성 | JSON 이름 | 필수 | Type | 설명 |
+   | 속성 | JSON 이름 | 필수 | Type | Description |
    |----------|-----------|----------|------|-------------|
-   | 개수 | count | 예 | 정수 | 지연할 시간 단위 수 |
-   | 단위 | 단위 | 예 | String | 시간 단위 (예: `Second` ,,,, `Minute` `Hour` `Day` `Week` 또는)`Month` |
+   | 개수 | count() | 예 | 정수 | 지연할 시간 단위 수 |
+   | 단위 | 단위 | 예 | String | 시간 단위 (예: `Second` ,,,, `Minute` `Hour` `Day` `Week` 또는) `Month` |
    ||||||
 
 1. 워크플로에서 실행 하려는 다른 작업을 추가 합니다.

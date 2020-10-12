@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086184"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Azure Event Grid 시스템 항목을 다른 영역으로 이동
@@ -22,7 +22,7 @@ ms.locfileid: "89086184"
 - **배포 확인**. 대상 지역의 blob 저장소에 파일을 업로드할 때 webhook가 호출 되는지 확인 합니다. 
 - **이동을 완료**하려면 원본 영역에서 리소스 (이벤트 원본 및 시스템 항목)를 삭제 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - 빠른 시작: 소스 지역에서 Azure Portal를 사용 하 여 [웹 끝점으로 Blob storage 이벤트 라우팅을](blob-event-quickstart-portal.md) 완료 합니다. 이 단계는 **선택 사항**입니다. 이 문서의 단계를 테스트 합니다. App Service 및 App Service 계획의 별도 리소스 그룹에 저장소 계정을 유지 합니다. 
 - 대상 지역에서 Event Grid 서비스를 사용할 수 있는지 확인 합니다. [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
@@ -35,22 +35,7 @@ ms.locfileid: "89086184"
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="리소스 그룹 페이지":::        
 3. 왼쪽 메뉴의 **설정**에서 **템플릿 내보내기** 를 선택한 다음 도구 모음에서 **다운로드** 를 선택 합니다. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="저장소 바운드 계정-템플릿 내보내기 페이지":::        
-5. 포털에서 다운로드 한 **.zip** 파일을 찾아 원하는 폴더에 해당 파일의 압축을 풉니다. 이 zip 파일에는 템플릿 및 매개 변수 JSON 파일이 포함 되어 있습니다. 
-1. 선택한 편집기에서 **template.js** 를 엽니다. 
-1. Webhook에 대 한 URL을 템플릿으로 내보내지 않습니다. 따라서 다음 단계를 수행 합니다.
-    1. 템플릿 파일에서 **WebHook**를 검색 합니다. 
-    1. **속성** 섹션에서 `,` 마지막 줄의 끝에 쉼표 () 문자를 추가 합니다. 이 예에서는 `"preferredBatchSizeInKilobytes": 64`입니다. 
-    1. `endpointUrl`다음 예제와 같이 WEBHOOK URL에 설정 된 값을 사용 하 여 속성을 추가 합니다. 
-
-        ```json
-        "destination": {
-            "properties": {
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64,
-                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-            },
-            "endpointType": "WebHook"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="리소스 그룹 페이지"
         }
         ```
 
@@ -91,7 +76,7 @@ ms.locfileid: "89086184"
     1. **시스템 항목 이름**에 저장소 계정과 연결 될 시스템 항목의 이름을 입력 합니다.  
     1. **저장소 계정 이름**에는 대상 지역에 만들 저장소 계정의 이름을 입력 합니다. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 배포":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="리소스 그룹 페이지":::
     5. 페이지 아래쪽에서 **검토 + 만들기**를 선택합니다. 
     1. **검토 + 만들기** 페이지에서 설정을 검토 하 고 **만들기**를 선택 합니다. 
 
@@ -110,7 +95,7 @@ Azure Portal를 사용 하 여 리소스 그룹 (원본 또는 대상)을 삭제
 1. Azure Portal의 맨 위에 있는 검색 창에서 **리소스 그룹**을 입력 하 고 검색 결과에서 **리소스 그룹** 을 선택 합니다. 
 2. 삭제할 리소스 그룹을 선택 하 고 도구 모음에서 **삭제** 를 선택 합니다. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="리소스 그룹 삭제":::
+    리소스 그룹 삭제
 3. 확인 페이지에서 리소스 그룹의 이름을 입력 하 고 **삭제**를 선택 합니다.  
 
 ## <a name="next-steps"></a>다음 단계

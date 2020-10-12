@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489846"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI 사용 하 여 저장소 이벤트를 웹 끝점으로 라우팅

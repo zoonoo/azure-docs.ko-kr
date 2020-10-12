@@ -11,10 +11,10 @@ ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2dccfebed26c8064db697413e7417ae08d69a3ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86998982"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
@@ -47,7 +47,7 @@ GPU 디바이스 상태를 쿼리하려면 드라이버와 함께 설치된 명�
 
 1. 명령 프롬프트를 열고 **C:\Program Files\NVIDIA Corporation\NVSMI** 디렉터리로 변경합니다.
 
-2. `nvidia-smi`를 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 작업을 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
+2. `nvidia-smi`을 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 작업을 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi.png)  
 

@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289772"
 ---
 # <a name="configure-azure-defender-for-storage"></a>저장소에 대 한 Azure Defender 구성
@@ -69,7 +69,7 @@ Azure Defender는 이제이 구독의 모든 저장소 계정에 대해 사용 �
 1. 스토리지 계정으로 이동합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
 1. **저장소에 Azure Defender 사용**을 선택 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Azure Storage 계정에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 이제이 저장소 계정에 대해 Azure Defender를 사용할 수 있습니다.
 
@@ -84,15 +84,15 @@ Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장�
 1. Azure **정책 정의** 페이지를 시작 합니다.
 1. **저장소 계정에 Azure Defender 배포** 정책을 검색 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="저장소 계정에 Azure Defender를 사용 하도록 설정 하는 정책 적용":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 1. Azure 구독 또는 리소스 그룹을 선택 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="정책 범위에 대 한 구독 또는 리소스 그룹을 선택 합니다. ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 1. 정책을 할당 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="저장소에 Azure Defender를 사용 하도록 설정 하는 정책 할당":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
@@ -125,11 +125,11 @@ Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 Azure Defen
 
 또한 이메일에는 가능한 원인에 대한 세부 정보와 잠재적 위협을 조사하고 완화하기 위한 권장 조치가 포함됩니다.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="저장소 경고 전자 메일에 대 한 Azure Defender":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 Azure Security Center의 [보안 경고 타일](../../security-center/security-center-managing-and-responding-alerts.md)에서 현재 보안 경고를 검토 하 고 관리할 수 있습니다. 특정 경고를 클릭하면 현재 위협을 조사하고 향후 위협을 해결하기 위한 추가 세부 정보 및 조치가 제공됩니다.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Azure Defender for Storage 경고":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="security-alerts"></a>보안 경고
 

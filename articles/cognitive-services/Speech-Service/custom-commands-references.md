@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851838"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>사용자 지정 명령 개념 및 정의
@@ -40,13 +40,13 @@ ms.locfileid: "85851838"
 
 매개 변수는 명령에서 작업을 완료 하는 데 필요한 정보입니다. 복잡 한 시나리오에서 매개 변수를 사용 하 여 사용자 지정 작업을 트리거하는 조건을 정의할 수도 있습니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>Name
 매개 변수는 name 속성으로 식별 됩니다. 매개 변수에 대 한 설명이 포함 된 이름을 항상 지정 해야 합니다. 조건, 음성 응답 또는 기타 작업을 생성 하는 경우와 같이 여러 섹션에서 매개 변수를 참조할 수 있습니다.
  
 ### <a name="isglobal"></a>IsGlobal
 이 확인란은이 매개 변수의 범위가 응용 프로그램의 모든 명령에서 공유 되는지 여부를 나타냅니다. 매개 변수가 전역 이면 모든 명령 범위에서 해당 값을 제공할 수 있습니다. 값을 할당 한 후에는 모든 명령에서 값을 참조할 수 있습니다. 
 
-### <a name="required"></a>필요한 공간
+### <a name="required"></a>필수
 이 확인란은 명령 처리 또는 완료에이 매개 변수의 값이 필요한 지 여부를 나타냅니다. 매개 변수가 필수로 표시 된 경우 사용자에 게 값을 제공 하 라는 메시지를 표시 하려면 응답을 구성 해야 합니다.
 
 ### <a name="type"></a>형식
@@ -54,7 +54,7 @@ ms.locfileid: "85851838"
 
 * DateTime
 * Geography
-* number
+* 숫자
 * String
 
 이러한 모든 매개 변수 형식은 Azure Portal에서 구성할 수 있는 기본 값 구성을 지원 합니다.
@@ -72,12 +72,12 @@ ms.locfileid: "85851838"
 유효성 검사는 매개 변수 값에 대 한 제약 조건을 구성할 수 있도록 하는 특정 매개 변수 형식에 적용할 수 있는 구문입니다. 현재 사용자 지정 명령은 다음 매개 변수 형식에 대 한 유효성 검사를 지원 합니다.
 
 * DateTime
-* number
+* 숫자
 
 ## <a name="rules-configuration"></a>규칙 구성
 사용자 지정 명령의 규칙은 충족 될 경우 일련의 *작업*을 실행 하는 *조건* 집합으로 정의 됩니다. 규칙을 사용 하 여 다음 번에 *실행 후 상태* 와 *기대치* 를 구성할 수도 있습니다.
 
-### <a name="types"></a>형식
+### <a name="types"></a>유형
 사용자 지정 명령은 다음 규칙 범주를 지원 합니다.
 
 * **완료 규칙**: 이러한 규칙은 명령 처리 시 실행 되어야 합니다. 조건을 충족 하는이 섹션에서 구성 된 모든 규칙이 실행 됩니다. 
