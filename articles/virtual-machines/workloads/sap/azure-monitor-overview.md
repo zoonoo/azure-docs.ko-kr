@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 8d97c713dfec574a8ef7f3f0dde4701ddea0e98b
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669007"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>SAP 솔루션에 대 한 Azure monitor (미리 보기)
@@ -114,5 +114,5 @@ SAP 솔루션에 대 한 Azure Monitor은 무료 제품 (라이선스 요금 없
 
 공급자에 대해 알아보고 SAP Solutions 리소스에 대 한 첫 번째 Azure Monitor를 만듭니다.
  - [공급자](./azure-monitor-providers.md) 에 대해 자세히 알아보기
- - [Azure PowerShell를 사용 하 여 SAP 솔루션에 대 한 Azure Monitor 배포](azure-monitor-sap-quickstart-powershell.md)
+ - [Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포](azure-monitor-sap-quickstart-powershell.md)
  - SAP 솔루션의 Azure Monitor에 대 한 질문이 있나요? [FAQ](./azure-monitor-faq.md) 섹션 확인

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
 ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89667505"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
@@ -147,7 +147,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프**를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
-    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 ** \\ "** into ** \\ \\ \\ "** 를 바꿉니다. 다음은 그 예입니다. 
+    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 ** \\ "** into ** \\ \\ \\ "** 를 바꿉니다. 예를 들면 다음과 같습니다.
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -344,7 +344,7 @@ Azure PowerShell를 사용 하 여 구독 또는 리소스 그룹 범위에서 �
 - [AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): 배포 스크립트와 연결 된 리소스를 제거 합니다.
 - [AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): 배포 스크립트 실행 로그를 디스크에 저장 합니다.
 
-AzDeploymentScript 출력은 다음과 유사 합니다.
+Get-AzDeploymentScript 출력은 다음과 유사 합니다.
 
 ```output
 Name                : runPowerShellInlineWithOutput

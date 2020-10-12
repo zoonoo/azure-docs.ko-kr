@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708614"
 ---
 # <a name="logical-decoding"></a>논리 디코딩
@@ -79,7 +79,7 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. SQL 명령을 실행 합니다. 예:
+2. SQL 명령을 실행 합니다. 예를 들면 다음과 같습니다.
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

@@ -11,10 +11,10 @@ ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356070"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
@@ -152,7 +152,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 - 다시 A 단추를 누른 후 흔들어서 새 트윗을 검색합니다.
 - B 단추를 눌러 나머지 트윗을 스크롤합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 ![다이어그램은 azure 함수 앱을 트리거하여 앱으로 다시 전송 되 고 허브 및 모바일 장치로 전달 되는 azure 함수 앱을 트리거하여 azure I o T Hub에 이벤트를 보내는 모바일 장치를 표시 합니다. 트 윗를 요청 합니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 

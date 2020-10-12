@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50e202d26574c0fc8adfeb7f73eb150ebb1781af
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664123"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장 문제 해결
@@ -104,29 +104,29 @@ Azure AD Connect를 다시 설치 하면 Azure AD와 로컬 Active Directory Dom
 1. Azure AD Connect 서버에 로그인하고 **시작** > **동기화 서비스**를 선택하여 **Synchronization Service Manager**를 시작합니다.
 1. **커넥터** 탭 아래에서 온-프레미스 **Active Directory Domain Services** 커넥터를 선택한 후 **속성**을 선택합니다.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="속성을 편집하는 방법을 보여 주는 Synchronization Service Manager" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
   
 1. 팝업 창에서 **Active Directory 포리스트에 연결**을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이 속성은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다.
 
     Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다. 다음 단계에서이 사용자 계정에 대 한 사용 권한을 확인 합니다.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="동기화 서비스 Active Directory 사용자 계정 찾기" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
   
 1. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 애플리케이션을 시작합니다.
 1. **보기**를 선택하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Active Directory 사용자 및 컴퓨터에 고급 기능 표시" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
   
 1. 확인 하려는 AD DS 사용자 계정을 찾습니다. 계정 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
 1. 팝업 창에서 **보안** 탭으로 이동하고 **고급**을 선택합니다.  
 1. **관리자에 대한 고급 보안 설정** 팝업 창에서 **유효한 액세스** 탭으로 이동합니다.
 1. **사용자 선택**을 선택 하 고 Azure AD Connect에서 사용 하는 AD DS 계정을 선택한 다음 **유효한 액세스 보기**를 선택 합니다.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="동기화 계정을 표시하는 유효한 액세스 탭" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
   
 1. 아래로 스크롤하여 **암호 재설정**을 검색합니다. 해당 항목에 선택 표시가 있는 경우 AD DS 계정에 선택한 Active Directory 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="동기화 계정에 비밀번호 재설정 권한이 있는지 확인" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>일반적인 비밀 번호 쓰기 저장 오류
 
@@ -217,7 +217,7 @@ Azure AD 및 셀프 서비스 암호 재설정에 대 한 일반적인 질문이
 * **지원 코드**: 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었나요?
    * 이 코드를 찾으려면 오류를 재현한 후 화면 아래에서 **지원 코드** 링크를 선택하고 지원 엔지니어에게 결과로 표시된 GUID를 보내세요.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="지원 코드는 웹 브라우저 창의 오른쪽 아래에 있습니다.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작":::
 
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 선택하고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
 * **날짜, 시간 및 표준 시간대**: 오류가 발생한 *표준 시간대와* 정확한 날짜 및 시간을 포함해주세요.

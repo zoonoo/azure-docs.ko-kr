@@ -11,10 +11,10 @@ ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326816"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
@@ -162,7 +162,7 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.JS](#tab/node-js)
+# <a name="nodejs"></a>[Node.js](#tab/node-js)
 
 자세한 내용은을 참조 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
 
@@ -197,15 +197,15 @@ NSString* value =
 
 ## <a name="customer-lockbox"></a>고객 Lockbox
 
-[Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md) 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스 해야 하는 경우에 사용 됩니다. 이후 검토 및 감사를 위해 고객 Lockbox 요청을 시작, 추적 및 저장 하는 방법에 대 한 자세한 내용은 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)을 참조 하세요. 
+[Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md) 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다. 이후 검토 및 감사를 위해 고객 Lockbox 요청을 시작, 추적 및 저장 하는 방법에 대 한 자세한 내용은 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)을 참조 하세요. 
 
 이 인식 서비스에 대해 고객 Lockbox를 사용할 수 있습니다.
 
-* Translator
+* 변환기
 
 다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
-* Language Understanding
+* 언어 이해
 * Face
 * Content Moderator
 * Personalizer

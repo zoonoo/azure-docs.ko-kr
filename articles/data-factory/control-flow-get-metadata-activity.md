@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297609"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
@@ -76,7 +76,7 @@ ms.locfileid: "91297609"
 
 메타 데이터 가져오기 작업 필드 목록에서 다음 메타 데이터 형식을 지정 하 여 해당 정보를 검색할 수 있습니다.
 
-| 메타데이터 유형 | Description |
+| 메타데이터 유형 | 설명 |
 |:--- |:--- |
 | itemName | 파일 또는 폴더의 이름입니다. |
 | itemType | 파일 또는 폴더의 형식입니다. 반환 된 값은 `File` 또는 `Folder` 입니다. |
@@ -166,12 +166,12 @@ ms.locfileid: "91297609"
 
 현재, 메타 데이터 가져오기 작업은 다음과 같은 유형의 메타 데이터 정보를 반환할 수 있습니다.
 
-속성 | Description | 필수
+속성 | 설명 | 필수
 -------- | ----------- | --------
 fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | 예 
 데이터 세트 | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | 예
-formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
-나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
+formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
+나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
 
 ## <a name="sample-output"></a>샘플 출력
 

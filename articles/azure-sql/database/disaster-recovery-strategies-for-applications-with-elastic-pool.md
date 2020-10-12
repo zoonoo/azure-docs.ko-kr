@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357789"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Azure SQL Database 탄력적 풀을 사용 하는 응용 프로그램에 대 한 재해 복구 전략
@@ -186,7 +186,7 @@ DR 지역에서 애플리케이션을 복원한 *후* Azure에 의해 주 지역
 ## <a name="next-steps"></a>다음 단계
 
 * 자동화 된 백업 Azure SQL Database에 대 한 자세한 내용은 [자동화 된 백업 Azure SQL Database](automated-backups-overview.md)을 참조 하세요.
-* 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조 하세요.
+* 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
 * 복구를 위해 자동화 된 백업을 사용 하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조 하세요.
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](active-geo-replication-overview.md)와 [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md)을 참조하세요.
 * 보관을 위해 자동화 된 백업을 사용 하는 방법에 대 한 자세한 내용은 [데이터베이스 복사](database-copy.md)를 참조 하세요.

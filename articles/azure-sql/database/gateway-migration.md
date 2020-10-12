@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90004275"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
@@ -70,7 +70,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 기존 SQL 게이트웨이는 다음 지역에서 트래픽을 수락 하기 시작 합니다. 이러한 SQL 게이트웨이는 **1 월 2020** 일에 고객 트래픽을 수락 하기 시작 합니다.
 - 일본 동부: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[완료됨](#tab/completed-ip)
+# <a name="completed"></a>[Completed](#tab/completed-ip)
 
 다음 게이트웨이 마이그레이션이 완료 되었습니다. 
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937292"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 지정 시간 복원
@@ -21,7 +21,7 @@ ms.locfileid: "90937292"
 
 이 문서에서는 백업을 사용 하 여 유연한 서버에서 지정 시간 복구를 수행 하는 단계별 절차를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "90937292"
 
 6.  **새 서버에 복원** 필드에 새 서버 이름을 제공 합니다. 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="개요 보기":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="가장 빠른 복원 시간":::
  
 7.  **확인**을 클릭합니다.
 

@@ -4,10 +4,10 @@ description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원�
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442308"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
@@ -86,7 +86,7 @@ time.nist.gov | 시스템 시간과 글로벌 시간 간의 시간 동기화를 
 
 Azure로 복제 된 모든 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다.
 
-**구성 요소** | **요구 사항** | **세부 정보**
+**구성 요소** | **Requirements** | **세부 정보**
 --- | --- | ---
 운영 체제 디스크 크기 | 최대 2,048GB. | 지원되지 않는 경우 확인이 실패합니다.
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 확인이 실패합니다.

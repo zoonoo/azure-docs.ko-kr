@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359157"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
@@ -91,5 +91,5 @@ HSM 디바이스에는 소프트웨어 라이브러리를 통해 대체 HSM에 �
 - [지원 가능성](supportability.md)
 - [고가용성](high-availability.md)
 - [물리적 보안](physical-security.md)
-- [모니터링](monitoring.md)
+- [Monitoring](monitoring.md)
 - [배포 아키텍처](deployment-architecture.md)

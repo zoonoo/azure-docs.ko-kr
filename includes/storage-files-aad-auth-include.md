@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 1da1cfff05418219fdf5217b612103e50efca05d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87841907"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) [은 온-프레미스 Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 및 [Azure Active Directory Domain Services (AZURE AD DS)](../articles/active-directory-domain-services/overview.md)를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 이 문서에서는 Azure 파일 공유에서 온-프레미스 또는 Azure에서 도메인 서비스를 사용 하 여 SMB를 통해 Azure 파일 공유에 대 한 id 기반 액세스를 지 원하는 방법에 대해 집중적으로 설명 합니다. Azure 파일 공유에 대해 id 기반 액세스를 사용 하도록 설정 하면 기존 디렉터리 서비스를 대체 하지 않고 기존 파일 서버를 Azure 파일 공유로 대체 하 여 원활한 사용자 액세스를 공유할 수 있습니다. 

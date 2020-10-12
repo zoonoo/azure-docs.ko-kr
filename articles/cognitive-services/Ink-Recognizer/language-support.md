@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
 ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051086"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
@@ -48,7 +48,7 @@ ms.locfileid: "89051086"
 | 프랑스어(프랑스)                            |     `fr-FR`     |
 | 갈리시아어                                   |     `gl-ES`     |
 | 독일어 (스위스)                      |     `de-CH`     |
-| 독일어(독일)                           |     `de-DE`     |
+| 독일어 (독일)                           |     `de-DE`     |
 | 그리스어                                      |     `el-GR`     |
 | 힌디어                                      |     `hi-IN`     |
 | 인도네시아어                                 |     `id-ID`     |

@@ -4,10 +4,10 @@ description: Azure Service Fabric의 주요 영역과 핵심 개념에 대해 �
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: d09d774ed32c98222b71423ca733f1b4294957ef
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836703"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
@@ -30,7 +30,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 애플리케이션 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 애플리케이션 형식으로부터 명명된 애플리케이션을 만들 수 있습니다. 명명 된 응용 프로그램을 만든 후에는 응용 프로그램 형식의 서비스 유형 중 하나에서 명명 된 서비스를 만들 수 있습니다. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>런타임: 클러스터 및 노드, 명명된 애플리케이션, 명명된 서비스, 파티션 및 복제본
-[Service Fabric 클러스터](service-fabric-deploy-anywhere.md) 는 마이크로 서비스가 배포 되 고 관리 되는 네트워크로 연결 된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
+[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
 
 클러스터의 일부인 컴퓨터나 VM을 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`이라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 개발 또는 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
@@ -105,7 +105,7 @@ Service Fabric은 웹 및 API 애플리케이션 빌드를 위한 첫 번째 클
 * [장애 조치(failover) 시나리오](service-fabric-testability-scenarios.md#failover-test) - 다른 서비스의 영향을 받지 않고 특정 서비스 파티션을 대상으로 하는 비정상 상황 테스트 시나리오의 버전입니다.
 
 ## <a name="clusters"></a>클러스터
-[Service Fabric 클러스터](service-fabric-deploy-anywhere.md) 는 마이크로 서비스가 배포 되 고 관리 되는 네트워크로 연결 된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM에는 자동 시작 서비스인 `FabricHost.exe`가 있습니다. 이 서비스는 부팅 시 실행된 다음 Fabric.exe, FabricGateway.exe 등의 두 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
+[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM에는 자동 시작 서비스인 `FabricHost.exe`가 있습니다. 이 서비스는 부팅 시 실행된 다음 Fabric.exe, FabricGateway.exe 등의 두 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
 Windows Server 또는 Linux를 실행하는 가상 또는 물리적 컴퓨터에 Service Fabric 클러스터를 만들 수 있습니다. 온-프레미스, Microsoft Azure 또는 다른 모든 클라우드 공급자에서 Windows Server 또는 Linux 컴퓨터가 서로 연결된 모든 환경에 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다.
 
