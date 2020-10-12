@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89004565"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
@@ -118,7 +118,7 @@ ms.locfileid: "89004565"
 | **참조**              | [Azure App Service에서 HTTPS 적용](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 애플리케이션에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 애플리케이션으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 애플리케이션 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제에는 들어오는 모든 트래픽이 강제로 HTTPS를 사용하도록 하는 기본 URL 다시 쓰기 규칙이 포함되어 있습니다.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -217,7 +217,7 @@ ms.locfileid: "89004565"
 | **참조**              | [인증서 및 공개 키 고정](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)(영문) |
 | **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 TLS MITM 공격을 시도 하면 TLS 핸드셰이크 중에 공격자의 서버에서 키가 고정 된 인증서의 키와 다르므로 요청이 삭제 되므로 ServicePointManager의 대리자를 구현 하 여 MITM 인증서를 고정할 수 없습니다 `ServerCertificateValidationCallback` .</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```csharp
 using System;
 using System.Net;
@@ -305,7 +305,7 @@ namespace CertificatePinningExample
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
 | **단계** | <ul><li>**설명:** 보호 수준을 "none"으로 설정하면 메시지 보호를 사용하지 않도록 설정됩니다. 적절한 수준의 설정을 통해 기밀성과 무결성을 보장합니다.</li><li>**관련**<ul><li>`Mode=None`인 경우 - 메시지 보호를 사용하지 않도록 설정</li><li>`Mode=Sign`인 경우 - 메시지를 서명하지만 암호화하지 않습니다. 데이터 무결성이 중요한 경우에 사용해야 합니다.</li><li>`Mode=EncryptAndSign`인 경우 - 메시지를 서명하고 암호화합니다.</li></ul></li></ul><p>기밀성에 대한 우려 없이 정보 무결성의 유효성을 검사하기만 하면 암호화를 해제하고 메시지에 서명하는 것이 좋습니다. 이렇게 하면 원래 보낸 사람의 유효성을 검사해야 하지만 중요한 데이터는 전송되지 않는 작업 또는 서비스 계약에 유용할 수 있습니다. 보호 수준을 낮출 때 메시지에 개인 데이터가 포함 되지 않도록 주의 해야 합니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제에서는 메시지 서명만 수행하도록 서비스와 작업을 구성합니다. `ProtectionLevel.Sign`의 서비스 계약 예제: 다음은 서비스 계약 수준에서 ProtectionLevel.Sign을 사용합니다. 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
@@ -315,7 +315,7 @@ public interface IService
   } 
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 `ProtectionLevel.Sign`의 작업 계약 예제(세부적 제어의 경우): 다음은 OperationContract 수준에서 `ProtectionLevel.Sign`을 사용합니다.
 
 ```
@@ -345,7 +345,7 @@ string GetData(int value);
 | **참조**              | [Web API 컨트롤러에서 SSL 적용](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **단계** | 애플리케이션에 HTTPS와 HTTP 바인딩이 모두 있는 경우 클라이언트에서 HTTP를 계속 사용하여 사이트에 액세스할 수 있습니다. 이를 방지하려면 작업 필터를 사용하여 보호된 API에 대한 요청이 항상 HTTPS를 통과하도록 합니다.|
 
-### <a name="example"></a>예제 
+### <a name="example"></a>예 
 다음 코드에서는 TLS를 확인 하는 Web API 인증 필터를 보여 줍니다. 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute

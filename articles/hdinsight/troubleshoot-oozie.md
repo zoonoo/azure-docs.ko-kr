@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045861"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Oozie 문제 해결
@@ -28,7 +28,7 @@ Apache Oozie UI를 사용 하 여 Oozie 로그를 볼 수 있습니다. Oozie UI
 
 ## <a name="ja009-cant-initialize-cluster"></a>JA009: 클러스터를 초기화할 수 없음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 작업 상태가 **일시 중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunHiveScript` 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
@@ -48,7 +48,7 @@ JA009: Cannot initialize Cluster. Please check your configuration for map
 
 ## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie 사용자를 가장할 수 없습니다. &lt;&gt;
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 작업 상태가 **일시 중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunHiveScript` 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음 오류 메시지가 표시됩니다.
 
@@ -75,7 +75,7 @@ sudo adduser USERNAME users
 
 ## <a name="launcher-error-sqoop"></a>시작 관리자 오류(Sqoop)
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 작업 상태가 **중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunSqoopExport` 상태가 **ERROR**로 표시됩니다. 동작을 선택하면 다음 오류 메시지가 표시됩니다.
 

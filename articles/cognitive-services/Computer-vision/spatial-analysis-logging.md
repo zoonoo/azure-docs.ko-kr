@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
 ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254077"
 ---
 # <a name="telemetry-and-troubleshooting"></a>원격 분석 및 문제 해결
 
-공간 분석에는 시스템 상태를 모니터링 하 고 문제를 진단 하는 데 도움이 되는 기능 집합이 포함 되어 있습니다.
+공간 분석에는 시스템 상태를 모니터링하고 문제를 진단하는 데 도움이 되는 기능 집합이 포함되어 있습니다.
 
 ## <a name="enable-visualizations"></a>시각화 사용
 
@@ -103,7 +103,7 @@ Telegraf 모듈이 배포 되 면 Azure Monitor 서비스를 통해 또는 Azure
 
 ### <a name="system-health-events"></a>시스템 상태 이벤트
 
-| 이벤트 이름 | Description|
+| 이벤트 이름 | 설명|
 |------|---------|
 |archon_exit    |사용자가 공간 분석 모듈 상태를 *실행 중* 에서 *중지 됨*으로 변경 하면 전송 됩니다.  |
 |archon_error   |컨테이너 내 프로세스가 충돌 하는 경우 전송 됩니다. 이것은 심각한 오류입니다.  |
@@ -229,7 +229,7 @@ IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합�
 >[!NOTE]
 > `getRTCVLogs`빈 페이로드를 사용 하 여 메서드를 호출 하면 장치에 배포 된 모든 컨테이너 목록이 반환 됩니다. 메서드 이름은 대/소문자를 구분합니다. 잘못 된 메서드 이름이 지정 된 경우 501 오류가 발생 합니다.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="GetRTCVLogs 메서드 호출 ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Azure Monitor 원격 분석 보고서":::
 ![getRTCVLogs Direct 메서드 페이지](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -244,11 +244,11 @@ IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합�
 | ContainerId | 로그를 인출 하기 위한 대상 컨테이너입니다.| `null`컨테이너 ID가 없는 경우입니다. API는 Id를 사용 하 여 사용 가능한 모든 컨테이너 정보를 반환 합니다.|
 | DoPost | 업로드 작업을 수행 합니다. 로 설정 되 면 `false` 요청 된 작업을 수행 하 고 업로드를 수행 하지 않고 업로드 크기를 반환 합니다. 로 설정 되 면 `true` 선택한 로그의 비동기 업로드가 시작 됩니다. | `false`, 업로드 하지 않습니다.|
 | 제한 | 일괄 처리당 업로드할 로그의 줄 수를 표시 합니다. | `1000`이 매개 변수를 사용 하 여 post 속도를 조정 합니다. |
-| 필터 | 업로드할 로그를 필터링 합니다. | `null`에서는 공간 분석 로그 구조를 기반으로 하는 키 값 쌍으로 필터를 지정할 수 있습니다 `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . 예: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| 필터 | 업로드할 로그를 필터링 합니다. | `null`에서는 공간 분석 로그 구조를 기반으로 하는 키 값 쌍으로 필터를 지정할 수 있습니다 `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 다음 표에서는 쿼리 응답의 특성을 나열 합니다.
 
-| 키워드 | Description|
+| 키워드 | 설명|
 |--|--|
 |DoPost| *True* 또는 *false*입니다. 로그가 업로드 되었는지 여부를 나타냅니다. 로그를 업로드 하지 않도록 선택 하면 api가 정보를 ***동기적***으로 반환 합니다. 로그를 업로드 하도록 선택 하는 경우 api는 200을 반환 하 고, 요청이 올바르면 로그를 ***비동기식***으로 업로드 하기 시작 합니다.|
 |TimeFilter| 로그에 적용 된 시간 필터입니다.|
@@ -400,7 +400,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ### <a name="useful-commands"></a>유용한 명령
 
-|명령  |Description  |
+|명령  |설명  |
 |---------|---------|
 |`Get-HcsKubernetesUserConfig -AseUser`     | Kubernetes 구성 파일을 생성 합니다. 명령을 사용 하는 경우이 정보를 *config*라는 파일로 복사 합니다. 파일 확장명을 사용 하 여 파일을 저장 하지 않습니다.        |
 | `Get-HcsApplianceInfo` | 장치에 대 한 정보를 반환 합니다. |

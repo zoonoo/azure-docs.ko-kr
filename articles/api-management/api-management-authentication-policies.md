@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243718"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>인증 정책
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> 인증 정책
 
 -   [기본 사용 인증](api-management-authentication-policies.md#Basic) - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "86243718"
 <authentication-basic username="username" password="password" />
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```xml
 <authentication-basic username="testuser" password="testpassword" />
@@ -54,7 +54,7 @@ ms.locfileid: "86243718"
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|Name|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
@@ -75,7 +75,7 @@ ms.locfileid: "86243718"
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 이 예제에서 클라이언트 인증서는 지 문으로 식별 됩니다.
 
@@ -103,11 +103,11 @@ ms.locfileid: "86243718"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
 |인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
-|본문|클라이언트 인증서 (바이트 배열)입니다.|예|해당 없음|
+|본문|클라이언트 인증서 (바이트 배열)입니다.|아니요|해당 없음|
 |password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|해당 없음|
   
 ### <a name="usage"></a>사용  
@@ -117,7 +117,7 @@ ms.locfileid: "86243718"
   
 -   **정책 범위:** 모든 범위  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>관리 id를 사용 하 여 인증  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> 관리 id를 사용 하 여 인증  
  `authentication-managed-identity`관리 id를 사용 하 여 백 엔드 서비스로 인증 하려면 정책을 사용 합니다. 이 정책은 기본적으로 관리 id를 사용 하 여 Azure Active Directory에서 지정 된 리소스에 액세스 하기 위한 액세스 토큰을 가져옵니다. 토큰을 성공적으로 가져오면 정책에서 `Authorization` 스키마를 사용 하 여 헤더의 토큰 값을 설정 합니다 `Bearer` .
 
 시스템 할당 id와 여러 사용자 할당 id를 모두 사용 하 여 토큰을 요청할 수 있습니다. `client-id`를 제공 하지 않으면 시스템 할당 id로 간주 됩니다. `client-id`변수가 제공 된 경우 해당 사용자 할당 id에 대 한 토큰이 요청 됩니다 Azure Active Directory
@@ -128,7 +128,7 @@ ms.locfileid: "86243718"
 <authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
 #### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>관리 id를 사용 하 여 백 엔드 서비스 인증
 ```xml  
 <authentication-managed-identity resource="https://graph.microsoft.com"/> 
@@ -180,11 +180,11 @@ ms.locfileid: "86243718"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|resource|문자열입니다. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
-|클라이언트 id|문자열입니다. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
-|출력-토큰 변수-이름|문자열입니다. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |예|해당 없음|  
+|resource|문자열. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
+|클라이언트 id|문자열. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
+|출력-토큰 변수-이름|문자열. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |아니요|해당 없음|  
 |ignore-error|Boolean입니다. 로 설정 하면 `true` 액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
   
 ### <a name="usage"></a>사용  

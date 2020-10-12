@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044586"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
@@ -54,7 +54,7 @@ ms.locfileid: "86044586"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | EntryTime |요금 창구에 차량이 진입하는 날짜 및 시간(UTC) |
@@ -81,7 +81,7 @@ ms.locfileid: "86044586"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | ExitTime |차량이 요금소를 빠져 나가는 날짜 및 시간(UTC) |
@@ -101,7 +101,7 @@ ms.locfileid: "86044586"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 | --- | --- |
 | LicensePlate |차량 번호판 번호 |
 | RegistrationId |차량 등록 ID |

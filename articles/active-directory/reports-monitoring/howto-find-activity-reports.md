@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230622"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
@@ -106,7 +106,7 @@ ms.locfileid: "89230622"
 
 로그인 보고서를 사용하여 사용자 이름 또는 애플리케이션 이름을 필터링하여 애플리케이션 사용량에 대한 세부 정보를 볼 수 있습니다.
 
-![로그인 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "로그인 이벤트 필터링 페이지")
+![Sign-In 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "Sign-In 이벤트 필터링 페이지")
 
 ## <a name="security-reports"></a>보안 보고서
 
@@ -147,7 +147,7 @@ ms.locfileid: "89230622"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 무엇일까요? 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
 
  ![보고](./media/troubleshoot-missing-data-download/01.png)
  
@@ -205,7 +205,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 무엇일까요? 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
 
  ![보고](./media/troubleshoot-missing-audit-data/03.png)
 

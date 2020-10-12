@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005652"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
@@ -19,7 +19,7 @@ ms.locfileid: "89005652"
 메모리, 디스크, CPU 사용량 등이 모두 메트릭의 예입니다. 이러한 메트릭은 노드에서 관리해야 하는 물리적 리소스에 해당하는 물리적 메트릭입니다. 메트릭은 논리 메트릭이 될 수도 있으며 이것이 일반적인 경우이기도 합니다. “MyWorkQueueDepth”, "MessagesToProcess" 또는 "TotalRecords" 등이 논리 메트릭입니다. 논리 메트릭은 애플리케이션에서 정의하며 간접적으로 일부 물리적 리소스 사용량에 해당합니다. 서비스별로 물리적 리소스 사용량을 측정하고 보고하는 것이 어려울 수 있기 때문에 논리 메트릭이 일반적입니다. 사용자 고유의 메트릭을 측정하고 보고하는 복잡성은 Service Fabric에서 몇 가지 기본 메트릭을 제공하는 이유이기도 합니다.
 
 ## <a name="default-metrics"></a>기본 메트릭
-서비스를 작성하고 배포하기 시작한다고 가정해 보겠습니다. 이 시점에서는 어떤 물리적 또는 논리적 리소스를 사용하는지 알 수 없습니다. 이것으로 끝입니다. 다른 메트릭이 지정되지 않은 경우 Service Fabric 클러스터 리소스 관리자에서는 일부 기본 메트릭을 사용합니다. 해당 항목은 다음과 같습니다.
+서비스를 작성하고 배포하기 시작한다고 가정해 보겠습니다. 이 시점에서는 어떤 물리적 또는 논리적 리소스를 사용하는지 알 수 없습니다. 이것으로 끝입니다. 다른 메트릭이 지정되지 않은 경우 Service Fabric 클러스터 리소스 관리자에서는 일부 기본 메트릭을 사용합니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
   - PrimaryCount - 노드의 주 복제본 수 
   - ReplicaCount - 노드의 총 상태 저장 복제본 수
@@ -136,7 +136,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 이제 각각의 설정을 자세히 살펴보고 영향을 받는 동작에 대해 설명하겠습니다.
 
 ## <a name="load"></a>로드
-메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드* 는 지정 된 노드의 일부 서비스 인스턴스 또는 복제본에서 사용 되는 지정 된 메트릭의 양입니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 예를 들어:
+메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드* 는 지정 된 노드의 일부 서비스 인스턴스 또는 복제본에서 사용 되는 지정 된 메트릭의 양입니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 예를 들면 다음과 같습니다.
 
   - 서비스를 만들 때 로드를 정의할 수 있습니다. 이를 _기본 로드_라고 합니다.
   - 기본 로드를 포함하여 서비스에 대한 메트릭 정보는 서비스를 만든 후에 업데이트될 수 있습니다. 이를 _서비스 업데이트_라고 합니다. 

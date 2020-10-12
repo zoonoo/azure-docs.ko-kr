@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2fec54c19b9040e7cb44f1a5d2b7909510ab7313
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82734606"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>CloudSimple 사설 클라우드에 대 한 부하 분산 솔루션 선택
@@ -25,7 +25,7 @@ CloudSimple 사설 클라우드에서 가상 또는 소프트웨어 기반 부�
 
 VCenter 인터페이스를 통해 VMware 환경에 가상 부하 분산 장치 어플라이언스를 배포 하 고 응용 프로그램 트래픽을 프런트 엔드 하도록 구성할 수 있습니다.
 
-널리 사용 되는 공급 업체는 다음과 같습니다. NginX: http://nginx.org/en/docs/http/load_balancing.html F5-이상 ip-Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC:https://www.citrix.com/products/citrix-adc/
+널리 사용 되는 공급 업체는 다음과 같습니다. NginX: http://nginx.org/en/docs/http/load_balancing.html F5-이상 ip-Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
 
 ## <a name="azure-l7-load-balancer"></a>Azure L7 부하 분산 장치
 

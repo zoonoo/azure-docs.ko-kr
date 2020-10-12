@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530066"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
@@ -33,7 +33,7 @@ ms.locfileid: "90530066"
 
 강제 설치는 [복제를 사용 하도록 설정](vmware-azure-enable-replication.md#enable-replication)하기 위해 Azure Portal에서 실행 되는 작업의 필수적인 부분입니다. 보호 하려는 Vm 집합을 선택 하 고 복제를 사용 하도록 설정 하 고 나면 구성 서버에서 모바일 서비스 에이전트를 서버에 푸시하고, 에이전트를 설치 하 고, 구성 서버에서 에이전트의 등록을 완료 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 푸시 설치 [필수 구성 요소가](vmware-azure-install-mobility-service.md) 충족 되는지 확인 합니다.
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "90530066"
 
 ## <a name="install-the-mobility-service-using-ui"></a>UI를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -85,19 +85,19 @@ ms.locfileid: "90530066"
 
 1. **설치 진행률**에서 설치를 모니터링합니다. 설치가 완료되면 **구성으로 계속 진행**을 선택하여 Mobility 서비스를 구성 서버에 등록합니다.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="모바일 서비스 등록 페이지.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
 1. **구성 서버 세부 정보**에서 구성 된 IP 주소 및 암호를 지정 합니다.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="모바일 서비스 등록 페이지.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
 1. **등록**을 선택하여 등록을 완료합니다.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="모바일 서비스 등록 마지막 페이지입니다.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>명령 프롬프트를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -135,7 +135,7 @@ Setting | 세부 정보
 `/Role` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `/InstallLocation`| 선택적 매개 변수입니다. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
 `/Platform` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .<br/><br/> Azure Vm을 물리적 컴퓨터로 처리 하는 경우 **VMware**를 지정 합니다.
-`/Silent`| 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+`/Silent`| (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
 
@@ -175,7 +175,7 @@ Setting | 세부 정보
 `-r` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `-d` | 선택적 매개 변수입니다. 모바일 서비스 설치 위치를 지정 합니다 `/usr/local/ASR` .
 `-v` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .
-`-q` | 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+`-q` | (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
 
@@ -205,7 +205,7 @@ Setting | 세부 정보
 [다운로드 하 여이 폴더에 수동으로 배치](#rhel-5-or-centos-5-server) | Red Hat Enterprise Linux (RHEL) 5 </br> CentOS 5
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux(RHEL) 7 </br> CentOS 7
-`Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 8 </br> CentOS 8
+`Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` | RHEL(Red Hat Enterprise Linux) 8 </br> CentOS 8
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> SP2 및 SP3을 포함 합니다.
 [다운로드 하 여이 폴더에 수동으로 배치](#suse-11-sp3-server) | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4

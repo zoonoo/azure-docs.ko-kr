@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232528"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>음성 장치 SDK 마이크 배열 권장 사항
@@ -30,7 +30,7 @@ ms.locfileid: "86232528"
 | Mics & 기 하 도형 | 순환 배열 | 순환 배열 | 선형 배열 | 선형 배열 |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \#Mics | 7 | 4 | 4 | 2 |
+| \# Mics | 7 | 4 | 4 | 2 |
 | 기하 도형 | 6 개 외부, 1 중심, 반경 = 42.5 mm, 고르게 간격 | 3 외부, 1 중심, 반경 = 42.5 mm, 고르게 간격 | 길이 = 120 mm, 간격 = 40 mm | 간격 = 40 mm |
 
 마이크 채널은 위의 각 배열에 대해 표시 되는 번호 매기기에 따라 정렬 되며 0에서 늘립니다. Microsoft 오디오 스택은 반향 취소를 수행 하기 위해 오디오 재생의 추가 참조 스트림이 필요 합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "86232528"
 
 | 매개 변수          | 권장                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \>63 dB (1Khz 신호 94 dBSPL, 가중치가 적용 된 노이즈) |
+| SNR                | \> 63 dB (1Khz 신호 94 dBSPL, 가중치가 적용 된 노이즈) |
 | 출력 민감도 | -26 dBFS/Pa @ 1 kHz (권장)                  |
 | 진폭 일치 | ± 2 dB, 200-8000 Hz                                |
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 다섯 번째 순서             |
@@ -81,7 +81,7 @@ ms.locfileid: "86232528"
 | 선형 고려 사항 | 스피커가 참조 된 후에는 비선형 처리가 수행 되지 않습니다. 그렇지 않으면 하드웨어 기반 루프백 참조 스트림이 필요 합니다. |
 | 스피커 루프백 | WASAPI, 개인 Api, 사용자 지정 ALSA 플러그 인 (Linux)을 통해 제공 되거나 펌웨어 채널을 통해 제공 됩니다. |
 | THD% | 세 번째 되며 밴드 최소 5 순서, 70 dBA 재생 @ 0.8 m ≤ 6.3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| 마이크와 마이크 결합 | \>-10 dB TCLw를 사용 하 여-T G. 122 부록 b. 4 메서드 (mic 수준으로 정규화)<br />TCLw = Tclw측정 됨 \+ (측정 된 수준-대상 출력 민감도)<br />TCLw = Tclw측정 됨 \+ (측정 된 수준-(-26)) |
+| 마이크와 마이크 결합 | \> -10 dB TCLw를 사용 하 여-T G. 122 부록 b. 4 메서드 (mic 수준으로 정규화)<br />TCLw = Tclw측정 됨 \+ (측정 된 수준-대상 출력 민감도)<br />TCLw = Tclw측정 됨 \+ (측정 된 수준-(-26)) |
 
 ## <a name="integration-design-architecture"></a>통합 디자인 아키텍처
 

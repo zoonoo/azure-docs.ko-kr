@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243157"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
@@ -29,7 +29,7 @@ ms.locfileid: "86243157"
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 
 -   [API](#API)  
 -   [API 요약](#APISummary)  
@@ -38,7 +38,7 @@ ms.locfileid: "86243157"
 -   [코드 샘플](#Sample)  
 -   [설명](#Comment)  
 -   [필터링](#Filtering)  
--   [헤더](#Header)  
+-   [Header](#Header)  
 -   [HTTP 요청](#HTTPRequest)  
 -   [HTTP 응답](#HTTPResponse)  
 -   [문제점](#Issue)  
@@ -47,8 +47,8 @@ ms.locfileid: "86243157"
 -   [작업 메뉴 항목](#MenuItem)  
 -   [페이징](#Paging)  
 -   [매개 변수](#Parameter)  
--   [Product](#Product)  
--   [공급 기업](#Provider)  
+-   [제품](#Product)  
+-   [공급자](#Provider)  
 -   [표현](#Representation)  
 -   [구독](#Subscription)  
 -   [구독 요약](#SubscriptionSummary)  
@@ -68,9 +68,9 @@ ms.locfileid: "86243157"
 |`path`|문자열|API Management 서비스 인스턴스 내의 이 API 및 모든 해당 리소스 경로를 고유하게 식별하는 상대 URL입니다. 이 API에 대한 공용 URL을 형성하는 서비스 인스턴스를 만드는 동안 지정된 API 엔드포인트 기준 URL에 추가됩니다.|  
 |`protocols`|숫자의 배열|이 API의 작업을 호출할 수 있는 프로토콜을 설명합니다. 허용되는 값은 `1 - http` 및 `2 - https` 또는 둘 다입니다.|  
 |`authenticationSettings`|[권한 부여 서버 인증 설정](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|이 API에 포함된 인증 설정의 컬렉션입니다.|  
-|`subscriptionKeyParameterNames`|개체|구독 키가 포함된 쿼리 및/또는 헤더 매개 변수에 대한 사용자 지정 이름을 지정하는 데 사용할 수 있는 선택적 속성입니다. 이 속성이 있으면 다음 두 속성 중 하나 이상을 포함해야 합니다.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|`subscriptionKeyParameterNames`|object|구독 키가 포함된 쿼리 및/또는 헤더 매개 변수에 대한 사용자 지정 이름을 지정하는 데 사용할 수 있는 선택적 속성입니다. 이 속성이 있으면 다음 두 속성 중 하나 이상을 포함해야 합니다.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="api-summary"></a><a name="APISummary"></a>API 요약  
+##  <a name="api-summary"></a><a name="APISummary"></a> API 요약  
  `API summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -79,7 +79,7 @@ ms.locfileid: "86243157"
 |`name`|문자열|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |`description`|문자열|API에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
   
-##  <a name="application"></a><a name="Application"></a>프로그램별  
+##  <a name="application"></a><a name="Application"></a> 프로그램별  
  `application` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -97,7 +97,7 @@ ms.locfileid: "86243157"
 |`Attachments`|[첨부 파일](#Attachment) 엔터티의 컬렉션입니다.|스크린샷 또는 아이콘과 같은 애플리케이션에 대한 첨부 파일입니다.|  
 |`Icon`|[Attachment](#Attachment)|애플리케이션에 대한 아이콘입니다.|  
   
-##  <a name="attachment"></a><a name="Attachment"></a>파일로  
+##  <a name="attachment"></a><a name="Attachment"></a> 파일로  
  `attachment` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -107,7 +107,7 @@ ms.locfileid: "86243157"
 |`Type`|문자열|첨부 파일의 형식입니다.|  
 |`ContentType`|문자열|첨부 파일의 미디어 형식입니다.|  
   
-##  <a name="code-sample"></a><a name="Sample"></a>코드 샘플  
+##  <a name="code-sample"></a><a name="Sample"></a> 코드 샘플  
   
 |속성|형식|Description|  
 |--------------|----------|-----------------|  
@@ -124,7 +124,7 @@ ms.locfileid: "86243157"
 |`headers`|[헤더](#Header) 엔터티의 컬렉션입니다.|이 작업에 대한 헤더입니다.|  
 |`parameters`|[매개 변수](#Parameter) 엔터티의 컬렉션입니다.|이 작업에 대해 정의된 매개 변수입니다.|  
   
-##  <a name="comment"></a><a name="Comment"></a>주석의  
+##  <a name="comment"></a><a name="Comment"></a> 주석의  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -134,7 +134,7 @@ ms.locfileid: "86243157"
 |`DeveloperCompany`|문자열|개발자의 회사 이름입니다.|  
 |`PostedOn`|DateTime|의견이 게시된 날짜 및 시간입니다.|  
   
-##  <a name="issue"></a><a name="Issue"></a>문제  
+##  <a name="issue"></a><a name="Issue"></a> 문제  
  `issue` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -150,7 +150,7 @@ ms.locfileid: "86243157"
 |`Attachments`|[첨부 파일](api-management-template-data-model-reference.md#Attachment) 엔터티의 컬렉션입니다.|문제에 대한 첨부 파일입니다.|  
 |`Services`|[API](#API) 엔터티의 컬렉션입니다.|문제를 정리하는 사용자가 구독한 API입니다.|  
   
-##  <a name="filtering"></a><a name="Filtering"></a>필터링  
+##  <a name="filtering"></a><a name="Filtering"></a> 필터링  
  `filtering` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -158,7 +158,7 @@ ms.locfileid: "86243157"
 |`Pattern`|문자열|검색 용어가 없는 경우 현재 검색 용어 또는 `null`입니다.|  
 |`Placeholder`|문자열|지정된 검색 용어가 없는 경우 검색 상자에 표시할 텍스트입니다.|  
   
-##  <a name="header"></a><a name="Header"></a>머리글이  
+##  <a name="header"></a><a name="Header"></a> 머리글이  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
 |속성|형식|Description|  
@@ -171,7 +171,7 @@ ms.locfileid: "86243157"
 |`required`|boolean|필수 헤더인지 여부입니다.|  
 |`readOnly`|boolean|헤더가 읽기 전용인지 여부입니다.|  
   
-##  <a name="http-request"></a><a name="HTTPRequest"></a>HTTP 요청  
+##  <a name="http-request"></a><a name="HTTPRequest"></a> HTTP 요청  
  이 섹션에서는 `request` 표현을 설명합니다.  
   
 |속성|형식|Description|  
@@ -181,7 +181,7 @@ ms.locfileid: "86243157"
 |`parameters`|[매개 변수](#Parameter)의 배열|작업 요청 매개 변수의 컬렉션입니다.|  
 |`representations`|[표현](#Representation)의 배열|작업 요청 표현의 컬렉션입니다.|  
   
-##  <a name="http-response"></a><a name="HTTPResponse"></a>HTTP 응답  
+##  <a name="http-response"></a><a name="HTTPResponse"></a> HTTP 응답  
  이 섹션에서는 `response` 표현을 설명합니다.  
   
 |속성|형식|설명|  
@@ -190,7 +190,7 @@ ms.locfileid: "86243157"
 |`description`|문자열|작업 응답 설명입니다.|  
 |`representations`|[표현](#Representation)의 배열|작업 응답 표현의 컬렉션입니다.|  
   
-##  <a name="operation"></a><a name="Operation"></a>연산의  
+##  <a name="operation"></a><a name="Operation"></a> 연산의  
  `operation` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -224,7 +224,7 @@ ms.locfileid: "86243157"
 |`Title`|문자열|작업에 대한 설명입니다.|  
 |`HttpMethod`|문자열|작업의 Http 메서드입니다.|  
   
-##  <a name="paging"></a><a name="Paging"></a>페이징  
+##  <a name="paging"></a><a name="Paging"></a> 페이징  
  `paging` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -235,7 +235,7 @@ ms.locfileid: "86243157"
 |`ShowAll`|boolean|단일 페이지에 모든 결과를 표시할지 여부입니다.|  
 |`PageCount`|number|결과의 페이지 수입니다.|  
   
-##  <a name="parameter"></a><a name="Parameter"></a>변수에  
+##  <a name="parameter"></a><a name="Parameter"></a> 매개 변수  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
 |속성|형식|Description|  
@@ -248,7 +248,7 @@ ms.locfileid: "86243157"
 |`kind`|number|이 매개 변수가 경로 매개 변수(1) 또는 쿼리 문자열 매개 변수(2)인지 여부입니다.|  
 |`typeName`|문자열|매개 변수 유형입니다.|  
   
-##  <a name="product"></a><a name="Product"></a>제품은  
+##  <a name="product"></a><a name="Product"></a> 제품은  
  `product` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -261,7 +261,7 @@ ms.locfileid: "86243157"
 |`AllowMultipleSubscriptions`|boolean|사용자가 동시에 이 제품에 여러 구독을 소유할 수 있는지 여부를 지정합니다.|  
 |`MultipleSubscriptionsCount`|number|사용자가 동시에 가질 수 있는 이 제품의 최대 구독 수입니다.|  
   
-##  <a name="provider"></a><a name="Provider"></a>공급자별  
+##  <a name="provider"></a><a name="Provider"></a> 공급자별  
  `provider` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -270,7 +270,7 @@ ms.locfileid: "86243157"
 |`AuthenticationType`|문자열|공급자 유형입니다. (Azure Active Directory, Facebook 로그인, Google 계정, Microsoft 계정, Twitter).|  
 |`Caption`|문자열|공급자의 표시 이름입니다.|  
   
-##  <a name="representation"></a><a name="Representation"></a>텍스트로  
+##  <a name="representation"></a><a name="Representation"></a> 텍스트로  
  이 섹션에서는 `representation`을 설명합니다.  
   
 |속성|형식|Description|  
@@ -325,7 +325,7 @@ ms.locfileid: "86243157"
 |`ProviderName`|문자열|인증 공급자 이름입니다.|  
 |`IsBasicAccount`|boolean|이 계정이 전자 메일 및 암호를 사용하여 등록된 경우 true이며 공급자를 사용하여 등록된 경우 false입니다.|  
   
-##  <a name="user-sign-in"></a><a name="UseSignIn"></a>사용자 로그인  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a> 사용자 로그인  
  `user sign in` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|Description|  
@@ -343,7 +343,7 @@ ms.locfileid: "86243157"
 |`UserRegistrationTerms`|문자열|로그인하기 전에 사용자가 동의해야 하는 약관입니다.|  
 |`UserRegistrationTermsEnabled`|boolean|약관이 활성화되었는지 여부입니다.|  
   
-##  <a name="user-sign-up"></a><a name="UserSignUp"></a>사용자 등록  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a> 사용자 등록  
  `user sign up` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  

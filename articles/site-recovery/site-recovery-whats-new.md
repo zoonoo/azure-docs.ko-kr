@@ -4,10 +4,10 @@ description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 1bf051afaeb61c80e3708a72a4a0605b68533977
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527346"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
@@ -31,7 +31,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
 
-## <a name="update-september-2020"></a>업데이트 (9 월 2020)
+## <a name="update-september-2020"></a>업데이트(2020년 9월)
 
 [업데이트 롤업 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -63,7 +63,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 **문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
 
 > [!NOTE]
-> 업데이트 롤업 48에는 ADE를 사용 하 여 암호화 된 Linux 컴퓨터에 대해 복제를 사용 하도록 설정 하는 알려진 문제가 있습니다. [자세히 알아보기](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
+> 업데이트 롤업 48에는 ADE를 사용 하 여 암호화 된 Linux 컴퓨터에 대해 복제를 사용 하도록 설정 하는 알려진 문제가 있습니다. [자세히 알아봅니다](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>업데이트 롤업 47
 
@@ -109,7 +109,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 ### <a name="azure-vmware-disaster-recovery"></a>Azure VMware 재해 복구
 
-Azure virtual machines는 이제 고객이 관리 하는 키를 사용 하 여 미사용 암호화를 사용 하도록 설정 하는 Vm을 지원 합니다. [자세히 알아보기](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+Azure virtual machines는 이제 고객이 관리 하는 키를 사용 하 여 미사용 암호화를 사용 하도록 설정 하는 Vm을 지원 합니다. [자세히 알아봅니다](azure-to-azure-how-to-enable-replication-cmk-disks.md).
 
 
 ### <a name="update-rollup-43"></a>업데이트 롤업 43
@@ -188,7 +188,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 **기능** | **세부 정보**
 --- | ---
-**테스트 장애 조치 (failover) 설정** | 테스트 장애 조치 (failover)를 설정할 때 이제 IP 주소, NSG, 내부 부하 분산 및 각 컴퓨터 NIC의 공용 IP 주소를 포함 하 여 테스트 장애 조치 (failover) VM 및 네트워크에 대 한 설정을 구성할 수 있습니다. 이러한 설정은 선택 사항이 며 현재 동작을 변경 하지 않습니다. 이러한 설정을 구성 하지 않으면 테스트 장애 조치 (failover) 시 Azure VNet을 선택할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**테스트 장애 조치 (failover) 설정** | 테스트 장애 조치 (failover)를 설정할 때 이제 IP 주소, NSG, 내부 부하 분산 및 각 컴퓨터 NIC의 공용 IP 주소를 포함 하 여 테스트 장애 조치 (failover) VM 및 네트워크에 대 한 설정을 구성할 수 있습니다. 이러한 설정은 선택 사항이 며 현재 동작을 변경 하지 않습니다. 이러한 설정을 구성 하지 않으면 테스트 장애 조치 (failover) 시 Azure VNet을 선택할 수 있습니다. [자세히 알아봅니다](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
 **복구 계획** | 이제 복구 계획이 장애 조치 (failover) 안정성을 보장 하기 위해 100 Vm으로 제한 됩니다.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>VMware에서 Azure로 재해 복구
@@ -229,7 +229,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 **기능** | **세부 정보**
 --- | ---
-새 프로세스 서버 경고 | 새 프로세스 서버 경고가 추가 되었습니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md).
+새 프로세스 서버 경고 | 새 프로세스 서버 경고가 추가 되었습니다. [자세히 알아봅니다](vmware-physical-azure-monitor-process-server.md).
 
 ### <a name="hyper-v-disaster-recovery"></a>Hyper-v 재해 복구
 
@@ -321,8 +321,8 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 **기능** | **세부 정보**
 --- | ---
-**추가 된 디스크 복제** | 이미 재해 복구를 사용 하도록 설정 된 Azure VM에 추가 된 데이터 디스크에 대해 복제를 사용 하도록 설정 합니다. [자세히 알아보기](azure-to-azure-enable-replication-added-disk.md).
-**자동 업데이트** | 재해 복구를 위해 사용 하도록 설정 된 Azure Vm에서 실행 되는 모바일 서비스 확장에 대 한 자동 업데이트를 구성 하는 경우, 이제 Site Recovery에서 만든 기본 계정을 사용 하는 대신 사용할 기존 automation 계정을 선택할 수 있습니다. [자세히 알아보기](azure-to-azure-autoupdate.md).
+**추가 된 디스크 복제** | 이미 재해 복구를 사용 하도록 설정 된 Azure VM에 추가 된 데이터 디스크에 대해 복제를 사용 하도록 설정 합니다. [자세히 알아봅니다](azure-to-azure-enable-replication-added-disk.md).
+**자동 업데이트** | 재해 복구를 위해 사용 하도록 설정 된 Azure Vm에서 실행 되는 모바일 서비스 확장에 대 한 자동 업데이트를 구성 하는 경우, 이제 Site Recovery에서 만든 기본 계정을 사용 하는 대신 사용할 기존 automation 계정을 선택할 수 있습니다. [자세히 알아봅니다](azure-to-azure-autoupdate.md).
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
@@ -331,7 +331,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 **기능** | **세부 정보**
 --- | ---
-**프로세스 서버 모니터링** | 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 향상 된 서버 상태 보고 및 경고와 함께 프로세스 서버 문제를 모니터링 하 고 문제를 해결 합니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md).
+**프로세스 서버 모니터링** | 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 향상 된 서버 상태 보고 및 경고와 함께 프로세스 서버 문제를 모니터링 하 고 문제를 해결 합니다. [자세히 알아봅니다](vmware-physical-azure-monitor-process-server.md).
 
 
 
@@ -408,7 +408,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 가속화 된 네트워킹을 사용 하면 VM에 대 한 단일 루트 i/o 가상화 (SR-IOV)를 사용 하 여 네트워킹 성능을 향상 시킬 수 있습니다. Azure VM에 복제를 사용하도록 설정하면 Site Recovery는 가속화된 네트워킹의 사용 여부를 감지합니다. 사용되는 경우 장애 조치(failover) 후 Site Recovery는 자동으로 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms)의 대상 복제본 Azure VM에서 가속화된 네트워킹을 구성합니다.
 
-[자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
+[자세히 알아봅니다](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 ### <a name="update-rollup-32"></a>업데이트 롤업 32
 
@@ -476,7 +476,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 Site Recovery는 모바일 서비스 확장의 자동 업데이트 옵션을 추가했습니다. 모바일 서비스 확장은 Site Recovery에서 복제한 각 Azure VM에 설치됩니다. 복제를 사용하도록 설정할 때 Site Recovery에서 확장 업데이트를 관리하도록 허용할 것인지 여부를 선택합니다.
 
-업데이트 후 VM을 다시 시작할 필요가 없으며 복제에 영향을 주지 않습니다. [자세히 알아보기](azure-to-azure-autoupdate.md).
+업데이트 후 VM을 다시 시작할 필요가 없으며 복제에 영향을 주지 않습니다. [자세히 알아봅니다](azure-to-azure-autoupdate.md).
 
 ### <a name="pricing-calculator-for-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 새 가격 책정 계산기
 
@@ -507,7 +507,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 **기능** | **세부 정보**
 --- | ---
 **지역 지원** | 오스트레일리아 중부 1 및 오스트레일리아 중부 2에 대 한 Site Recovery 지원이 추가 되었습니다.
-**디스크 암호화 지원** | Azure AD 앱으로 Azure Disk Encryption (ADE)로 암호화 된 Azure Vm의 재해 복구를 위한 지원이 추가 되었습니다. [자세히 알아보기](azure-to-azure-how-to-enable-replication-ade-vms.md).
+**디스크 암호화 지원** | Azure AD 앱으로 Azure Disk Encryption (ADE)로 암호화 된 Azure Vm의 재해 복구를 위한 지원이 추가 되었습니다. [자세히 알아봅니다](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **디스크 제외** | 초기화 되지 않은 디스크는 이제 Azure VM을 복제 하는 동안 자동으로 제외 됩니다.
 **방화벽 사용 저장소 (PowerShell)** | [방화벽 사용 저장소 계정](../storage/common/storage-network-security.md)에 대 한 지원이 추가 되었습니다.<br/><br/> 재해 복구를 위해 방화벽 사용 저장소 계정에서 관리 되지 않는 디스크를 사용 하 여 Azure Vm을 다른 Azure 지역에 복제할 수 있습니다.<br/><br/> 방화벽 사용 저장소 계정을 관리 되지 않는 디스크에 대 한 대상 저장소 계정으로 사용할 수 있습니다.<br/><br/> PowerShell을 사용 하는 경우에만 지원 됩니다.
 
@@ -540,7 +540,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 --- | ---
 **Linux 지원** | RedHat Enterprise Linux 6.10에 대해 지원 됨 CentOS 6.10.<br/><br/>
 **클라우드 지원** | 독일 클라우드의 Azure Vm에 대해 지원 되는 재해 복구.
-**구독 간 재해 복구** | 동일한 Azure Active Directory 테 넌 트 내에서 다른 구독의 Azure Vm을 다른 지역으로 복제 하는 기능을 지원 합니다. [자세히 알아보기](https://aka.ms/cross-sub-blog).
+**구독 간 재해 복구** | 동일한 Azure Active Directory 테 넌 트 내에서 다른 구독의 Azure Vm을 다른 지역으로 복제 하는 기능을 지원 합니다. [자세히 알아봅니다](https://aka.ms/cross-sub-blog).
 
 ### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.

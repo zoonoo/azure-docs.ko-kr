@@ -4,10 +4,10 @@ description: DevTest Lab에서 Azure 가상 머신을 쉽게 만들고 관리하
 ms.topic: article
 ms.date: 06/20/2020
 ms.openlocfilehash: b7e6493e5fb1c99dfa7962ed464dca3ebc6b0c7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480204"
 ---
 # <a name="about-azure-devtest-labs"></a>Azure DevTest Labs 정보

@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 149de14ed2430613e9ca6d5d12f8dce6ba425dfe
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039996"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 문제에 대 한 전자 메일 알림 구성
@@ -57,7 +57,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 기존 전자 메일 알림 받는 사람을 검토 하거나 수신자를 더 추가 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다.
+1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다.
 1. 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. Azure AD DS 리소스 창의 왼쪽에서 **알림 설정**을 선택 합니다. 전자 메일 알림의 기존 받는 사람이 표시 됩니다.
 1. 전자 메일 받는 사람을 추가 하려면 추가 받는 사람 테이블에 전자 메일 주소를 입력 합니다.
@@ -68,7 +68,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 ## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 무슨 일이 일어났나요?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 되었나요?
 
 경고가 해결 되 면 Azure Portal에서 경고가 지워집니다. 전자 메일 알림을 받는 사용자가 관리 되는 도메인에 대 한 경고를 해결 했거나 Azure platform에 의해 autoresolved 이유 때문일 수 있습니다.
 
@@ -76,7 +76,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 Azure Portal에서 알림 설정 페이지에 액세스할 수 없는 경우 관리 되는 도메인을 편집할 수 있는 권한이 없습니다. 전역 관리자에 게 문의 하 여 Azure AD DS 리소스를 편집 하거나 받는 사람 목록에서 제거할 수 있는 권한을 얻으십시오.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 이유
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 그 이유는
 
 전자 메일에서 알림을 받을 스팸 또는 정크 폴더를 확인 하 고의 발신자를 허용 해야 `azure-noreply@microsoft.com` 합니다.
 

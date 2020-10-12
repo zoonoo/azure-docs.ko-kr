@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006605"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
@@ -23,7 +23,7 @@ ms.locfileid: "87006605"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
+* HDInsight의 Apache Hadoop 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 * PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/)이 설치되었습니다.
 
@@ -33,13 +33,13 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 사용됩니다.
 
-|cmdlet | Description |
+|cmdlet | 설명 |
 |---|---|
 |연결 AzAccount|Azure 구독에 대해 Azure PowerShell을 인증합니다.|
-|AzHDInsightMapReduceJobDefinition|지정한 MapReduce 정보를 사용하여 새 *작업 정의*를 만듭니다.|
-|AzHDInsightJob|HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.|
-|대기 AzHDInsightJob|작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.|
-|AzHDInsightJobOutput|작업의 출력을 검색하는 데 사용합니다.|
+|New-AzHDInsightMapReduceJobDefinition|지정한 MapReduce 정보를 사용하여 새 *작업 정의*를 만듭니다.|
+|Start-AzHDInsightJob|HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.|
+|Wait-AzHDInsightJob|작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.|
+|Get-AzHDInsightJobOutput|작업의 출력을 검색하는 데 사용합니다.|
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246693"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
@@ -23,7 +23,7 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 - **데이터 손실의 경우**: 서비스를 실수로 삭제 하거나 손상 합니다. 예를 들어 관리자가 실수로 서비스를 삭제합니다.
 - **데이터 손상의 경우**: 서비스의 버그로 인해 데이터가 손상 됩니다. 예를 들어 신뢰할 수 있는 컬렉션에 잘못된 데이터를 작성하는 서비스 코드가 업그레이드되는 경우 데이터 손상이 발생할 수 있습니다. 그러한 경우 코드와 데이터 모두 이전 상태로 복구해야 할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 복구를 트리거하려면 클러스터에 _FAS(Fault Analysis Service)_ 를 사용하도록 설정해야 합니다.
 - _BRS(Backup Restore Service)_ 가 백업을 생성합니다.

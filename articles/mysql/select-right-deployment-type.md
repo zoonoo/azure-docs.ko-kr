@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: a1b66528bee63fb123271e4277e122603ced2e75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906503"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절 한 MySQL Server 옵션을 선택 합니다.
@@ -48,7 +48,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 | 온라인 저장소 크기 조정 | 지원됨| 지원됨| 지원되지 않음|
 | 자동 저장소 크기 조정 | 지원됨| 미리 보기에서 지원 되지 않음| 지원되지 않음|
 | 네트워크 연결 | -서버 방화벽을 사용 하는 공용 끝점.<br/> -개인 링크를 지 원하는 개인 액세스|-서버 방화벽을 사용 하는 공용 끝점.<br/> -Virtual Network 통합을 사용한 개인 액세스| -서버 방화벽을 사용 하는 공용 끝점.<br/> -개인 링크를 지 원하는 개인 액세스|
-| SLA (서비스 수준 계약) | 99.99% 가용성 SLA |미리 보기에 SLA 없음| 가용성 영역 사용 하는 99.99%|
+| SLA(서비스 수준 계약) | 99.99% 가용성 SLA |미리 보기에 SLA 없음| 가용성 영역 사용 하는 99.99%|
 | 운영 체제 패치| 자동  | 사용자 지정 유지 관리 기간 제어를 사용 하 여 자동 | 최종 사용자가 관리 |
 | MySQL 패치     | 자동  | 사용자 지정 유지 관리 기간 제어를 사용 하 여 자동 | 최종 사용자가 관리 |
 | 고가용성 | 단일 가용성 영역 내의 기본 제공 HA| 가용성 영역 내 및 가용성 영역 간 기본 제공 HA | 클러스터링, 복제 등을 사용 하 여 사용자 지정 관리|
@@ -131,4 +131,4 @@ PaaS를 선택하면 Microsoft에서 다음 작업을 처리합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Database for MySQL 가격 책정](https://azure.microsoft.com/pricing/details/MySQL/)을 참조 하세요.
-* [첫 번째 서버를 만들어](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal)시작 하세요.
+* [첫 번째 서버를 만들어서](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal) 시작합니다.

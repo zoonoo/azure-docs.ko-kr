@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026188"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
@@ -301,10 +301,10 @@ sqlResults
  Spark 커널은 코드를 실행한 후 SQL(HiveQL) 쿼리의 출력을 자동으로 시각화합니다. 여러 형식의 시각화 요소 중에서 선택할 수 있습니다.
 
 * 테이블
-* 원형
-* 줄
-* Area
-* 막대형
+* Pie
+* 꺾은선형
+* 영역형
+* 가로 막대형
 
 다음은 데이터를 그리는 코드입니다.
 

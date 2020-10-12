@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86231712"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
@@ -150,7 +150,7 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 ## <a name="network-security-groups-nsgs"></a>NSG(네트워크 보안 그룹)
 이 시나리오에서 NSG는 사용되지 않습니다. 그러나 들어오고 나가는 트래픽을 제한하기 위해 각 서브넷에 NSG를 적용할 수 있습니다. 예를 들어 외부 FW 서브넷에 다음 NSG 규칙을 적용할 수 있습니다.
 
-**수신**
+**수신 중**
 
 * 서브넷의 모든 VM에서 포트 80에 대한 인터넷에서 오는 모든 TCP 트래픽을 허용합니다.
 * 인터넷에서 오는 다른 모든 트래픽을 거부합니다.

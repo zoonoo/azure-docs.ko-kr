@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034773"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Hive, HDInsight & Azure Data Lake Storage Gen2
@@ -58,7 +58,7 @@ I/O 집약적인 워크로드의 경우 Tez 컨테이너 크기를 줄여 더 �
 병렬 처리에서 실행 중인 동시 태스크 수는 총 YARN 메모리의 제약을 받습니다.  YARN 컨테이너 수에 따라 실행할 수 있는 동시 태스크 수가 결정됩니다.  노드당 YARN 메모리를 찾으려면 Ambari로 이동할 수 있습니다.  YARN으로 이동 하 여 Configs 탭을 확인 합니다.  YARN 메모리가이 창에 표시 됩니다.  
 
 - Total YARN memory = nodes * 노드당 YARN memory
-- \#YARN 컨테이너 = Total YARN memory/Tez 컨테이너 크기
+- \# YARN 컨테이너 = Total YARN memory/Tez 컨테이너 크기
 
 Data Lake Storage Gen2를 사용하여 성능을 향상시키는 핵심 요소는 동시성을 최대한 높이는 것입니다.  Tez가 생성할 태스크 수를 자동으로 계산하므로 설정할 필요가 없습니다.   
 
@@ -68,7 +68,7 @@ Data Lake Storage Gen2를 사용하여 성능을 향상시키는 핵심 요소�
 
 - Total YARN memory = nodes * 노드당 YARN memory
 - Total YARN memory = 8 노드 * 96GB = 768GB
-- \#YARN 컨테이너 = 768GB/3072MB = 256
+- \# YARN 컨테이너 = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Hive 조정에 대한 추가 정보
 
