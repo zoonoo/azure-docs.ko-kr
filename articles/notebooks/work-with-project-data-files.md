@@ -4,10 +4,10 @@ description: 외부 원본에서 Azure Notebooks Preview 프로젝트로 데이�
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85834117"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Azure Notebooks 미리 보기 프로젝트에서 데이터 파일 작업
@@ -114,4 +114,4 @@ pandas `write_csv` 함수 같은 파일을 만드는 코드를 사용하는 경�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Notebook에서 클라우드 데이터 액세스](access-data-resources-jupyter-notebooks.md)
+- [노트북의 클라우드 데이터에 액세스](access-data-resources-jupyter-notebooks.md)

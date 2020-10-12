@@ -13,10 +13,10 @@ ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
 ms.openlocfilehash: ced4e920936ad94c3d4140d51d5e7d4e867ee848
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84196081"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
@@ -106,6 +106,6 @@ EA Azure 등록 관리자가 관리할 수 있는 타사 서비스용 Azure Mark
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>EA 구독의 ClearDB 서비스의 요금에 대한 질문이 있는 경우 누구에게 문의해야 하나요?
 EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 지원](https://aka.ms/AzureEntSupport) 에 문의하세요. EA 포털 지원 팀이 질문에 대답하거나 문제를 해결하는데 도움을 줄 것입니다.
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)
 

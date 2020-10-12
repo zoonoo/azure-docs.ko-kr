@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
 ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418238"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 복사
@@ -52,7 +52,7 @@ Azure Cognitive Search 연결 된 서비스에 대해 지원 되는 속성은 �
 > [!IMPORTANT]
 > 클라우드 데이터 저장소에서 검색 인덱스로 데이터를 복사 하는 경우 Azure Cognitive Search 연결 된 서비스에서에 명시적 지역이 있는 Azure Integration Runtime을 참조 해야 합니다. 검색 서비스가 있는 영역으로 영역을 설정 합니다. [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -133,7 +133,7 @@ AzureSearchSink는 AzureSearch SDK를 사용하여 다음 두 가지 삽입 동�
 
 Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있도록 지원 합니다. 일괄 처리는 1~1,000개의 동작을 포함할 수 있습니다. 하나의 동작에서 하나의 문서를 처리하여 업로드/병합 작업을 수행합니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -171,7 +171,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 | Azure Cognitive Search 데이터 형식 | Azure Cognitive Search 싱크에서 지원 됨 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 문자열 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |

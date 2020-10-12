@@ -4,10 +4,10 @@ description: 응용 프로그램 컨테이너 이미지에 대 한 기본 이미
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85918511"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>ACR 작업의 기본 이미지 업데이트 정보
@@ -46,7 +46,7 @@ Dockerfile의 이미지 빌드의 경우 ACR 태스크는 다음 위치의 기�
 * **Docker 허브 또는 MCR의 공용 리포지토리의 기본 이미지** -공용 리포지토리의 기본 이미지의 경우 ACR 태스크는 10 분에서 60 분 사이의 임의 간격으로 이미지 업데이트를 확인 합니다. 종속 태스크는 그에 따라 실행 됩니다.
 * **Azure container registry의 기본 이미지** -azure container registry의 기본 이미지에 대해 ACR 작업은 기본 이미지가 업데이트 될 때 실행을 즉시 트리거합니다. 기본 이미지는 작업이 실행 되는 동일한 ACR에 있거나 모든 지역의 다른 ACR에 있을 수 있습니다.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 * **응용 프로그램 이미지에 대 한 기본 이미지** -현재 ACR 작업은 응용 프로그램 (*런타임*) 이미지에 대 한 기본 이미지 업데이트만 추적 합니다. 다중 단계 Dockerfiles에서 사용되는 중간(*buildtime*) 이미지에 대한 기본 이미지 업데이트는 추적하지 않습니다.  
 

@@ -4,10 +4,10 @@ description: 응용 프로그램에 대 한 소프트웨어 및 데이터를 사
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851291"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>관리 되는 이미지를 사용 하 여 사용자 지정 이미지 풀 만들기

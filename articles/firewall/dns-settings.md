@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610645"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Azure 방화벽 DNS 설정 (미리 보기)
@@ -66,7 +66,7 @@ DNS 프록시를 구성 하려면 방화벽 개인 IP 주소를 사용 하도록
 4. **DNS 서버** 구성을 검토 하 여 해당 설정이 사용자 환경에 적합 한지 확인 합니다.
 5. **저장**을 선택합니다.
 
-:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="DNS 프록시":::
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="DNS 서버":::
 
 ## <a name="next-steps"></a>다음 단계
 

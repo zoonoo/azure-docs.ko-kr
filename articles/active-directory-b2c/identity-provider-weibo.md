@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 08aa7e4af6dc5d5e5bff470bc4c5d023e25b3014
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387884"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
@@ -55,5 +55,5 @@ Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 id 공급자로 
 1. **Id 공급자**를 선택한 다음 **Weibo (미리 보기)** 를 선택 합니다.
 1. **이름**을 입력합니다. 예를 들면 *Weibo*입니다.
 1. **클라이언트 ID**에 대해 앞에서 만든 Weibo 응용 프로그램의 앱 키를 입력 합니다.
-1. **클라이언트 암호**에는 기록한 앱 비밀을 입력합니다.
+1. **클라이언트 암호**에는 기록했던 앱 비밀을 입력합니다.
 1. **저장**을 선택합니다.

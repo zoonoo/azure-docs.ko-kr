@@ -15,13 +15,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272398"
 ---
-# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 보안 고려 사항
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 항목에는 Azure VM(Virtual Machine)에서 SQL Server 인스턴스로의 보안 액세스를 설정하는 데 도움이 되는 전반적인 보안 지침이 포함되어 있습니다.
@@ -59,7 +59,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ## <a name="encryption"></a>암호화
 
-관리 디스크는 서버 쪽 암호화 및 Azure Disk Encryption을 제공 합니다. [서버 쪽 암호화](/azure/virtual-machines/windows/disk-encryption) 는 미사용 암호화를 제공 하 고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 합니다. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)은 Bitlocker 또는 DM-Crypt 기술을 사용하고 Azure Key Vault와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
+관리 디스크는 Server-Side 암호화 및 Azure Disk Encryption를 제공 합니다. [서버 쪽 암호화](/azure/virtual-machines/windows/disk-encryption) 는 미사용 암호화를 제공 하 고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 합니다. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)은 Bitlocker 또는 DM-Crypt 기술을 사용하고 Azure Key Vault와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
 
 ## <a name="use-a-non-default-port"></a>기본 포트가 아닌 포트 사용
 

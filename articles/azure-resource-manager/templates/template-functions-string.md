@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 문자열 작업을 수행�
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85962070"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿에 대 한 문자열 함수
@@ -55,7 +55,7 @@ ms.locfileid: "85962070"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | inputString |예 |문자열 |base64 표현으로 반환할 값입니다. |
 
@@ -106,7 +106,7 @@ Base64 표현을 포함하는 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -120,7 +120,7 @@ base64 표현을 JSON 개체로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | Description |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |예 |문자열 |JSON 개체로 변환할 base64 표현입니다. |
 
@@ -171,7 +171,7 @@ JSON 개체입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -185,7 +185,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | Description |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |예 |문자열 |문자열로 변환할 base64 표현입니다. |
 
@@ -236,7 +236,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -250,7 +250,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 배열 |연결할 첫 번째 문자열 또는 배열입니다. |
 | 추가 인수 |예 |문자열 또는 배열 |연결에 대 한 순서 대로 추가 문자열 또는 배열 |
@@ -287,7 +287,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -328,11 +328,11 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>포함
+## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
@@ -340,7 +340,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -404,7 +404,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -421,7 +421,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |예 |문자열 |데이터 URI로 변환할 값입니다. |
 
@@ -463,7 +463,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -476,7 +476,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |예 |문자열 |변환할 데이터 URI 값입니다. |
 
@@ -518,12 +518,12 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
 
-## <a name="empty"></a>empty
+## <a name="empty"></a>비어 있음
 
 `empty(itemToTest)`
 
@@ -531,7 +531,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -582,7 +582,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -596,7 +596,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |문자열 |찾을 값입니다. |
@@ -645,7 +645,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -662,7 +662,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -701,7 +701,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -714,9 +714,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| formatString | 예 | string | 합성 형식 문자열입니다. |
+| formatString | 예 | 문자열 | 합성 형식 문자열입니다. |
 | arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
 | 추가 인수 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
 
@@ -759,7 +759,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User. 형식이 지정 된 숫자: 8175133 |
 
@@ -771,9 +771,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| baseString |예 |string |GUID를 만들기 위해 해시 함수에 사용되는 값입니다. |
+| baseString |예 |문자열 |GUID를 만들기 위해 해시 함수에 사용되는 값입니다. |
 | 필요에 따라 추가하는 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
@@ -842,7 +842,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |문자열 |찾을 값입니다. |
@@ -887,7 +887,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -903,7 +903,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -942,7 +942,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -955,7 +955,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |문자열 |찾을 값입니다. |
@@ -1000,7 +1000,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1016,7 +1016,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
@@ -1078,7 +1078,7 @@ int입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1135,9 +1135,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
-| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 다음 예에서는 newGuid 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 만듭니다. 이 템플릿은 저장소 계정이 짧은 시간 동안 존재 하 고 다시 배포 되지 않는 테스트 환경에 사용할 수 있습니다.
 
@@ -1178,9 +1178,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
-| nameOutput | string | storagenziwvyru7uxie |
+| nameOutput | 문자열 | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1191,7 +1191,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToPad |예 |문자열 또는 int |오른쪽으로 맞출 값입니다. |
 | totalLength |예 |int |반환된 문자열에서 문자의 총수입니다. |
@@ -1229,7 +1229,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1241,7 +1241,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalString |예 |문자열 |다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함하는 값입니다. |
 | oldString |예 |문자열 |원래 문자열에서 제거할 문자열입니다. |
@@ -1281,7 +1281,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1294,7 +1294,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열이 나 문자열의 길이 보다 크면 빈 배열 또는 문자열이 반환 됩니다. |
@@ -1349,12 +1349,12 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["three"] |
 | stringOutput | String | two three |
 
-## <a name="split"></a>split
+## <a name="split"></a>분할
 
 `split(inputString, delimiter)`
 
@@ -1362,7 +1362,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | inputString |예 |문자열 |분할할 문자열입니다. |
 | 구분 기호 |예 |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
@@ -1408,7 +1408,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | 배열 | [“one”, “two”, “three”] |
 | secondOutput | 배열 | [“one”, “two”, “three”] |
@@ -1421,7 +1421,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |문자열 |찾을 값입니다. |
@@ -1470,7 +1470,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1479,7 +1479,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-## <a name="string"></a>string
+## <a name="string"></a>문자열
 
 `string(valueToConvert)`
 
@@ -1487,7 +1487,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 | 모두 |문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다. |
 
@@ -1544,7 +1544,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -1558,7 +1558,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
 | startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
@@ -1607,7 +1607,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1619,7 +1619,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정 된 배열 또는 문자열의 길이 보다 크면 배열 또는 문자열의 모든 요소가 반환 됩니다. |
@@ -1674,7 +1674,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["one", "two"] |
 | stringOutput | String | On |
@@ -1687,7 +1687,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToChange |예 |문자열 |소문자로 변환할 값입니다. |
 
@@ -1725,7 +1725,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1738,7 +1738,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToChange |예 |문자열 |대문자로 변환할 값입니다. |
 
@@ -1776,7 +1776,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1789,9 +1789,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |예 |string |자를 값입니다. |
+| stringToTrim |예 |문자열 |자를 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1823,7 +1823,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -1835,9 +1835,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| baseString |예 |string |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 값입니다. |
+| baseString |예 |문자열 |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 값입니다. |
 | 필요에 따라 추가하는 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
@@ -1913,10 +1913,10 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| baseUri |예 |string |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 ('/')의 처리와 관련 된 동작을 주의 해 서 살펴봅니다.  |
-| relativeUri |예 |string |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
+| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 ('/')의 처리와 관련 된 동작을 주의 해 서 살펴봅니다.  |
+| relativeUri |예 |문자열 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
 * **Baseuri** 가 후행 슬래시로 끝나는 경우 결과는 **relativeUri** **이 뒤에 오는 것** 입니다.
 
@@ -1926,7 +1926,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
    * **Baseuri** 에 슬래시가 있지만 슬래시가 끝나지 않는 경우 마지막 슬래시의 모든 항목은 **baseuri** 에서 제거 되 고 **결과는** **relativeUri**.
 
-예를 들어 다음과 같은 노래를 선택할 수 있다.
+몇 가지 예제는 다음과 같습니다.
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
@@ -1979,7 +1979,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1993,7 +1993,7 @@ URI를 인코딩합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |예 |문자열 |인코딩할 값입니다. |
 
@@ -2034,7 +2034,7 @@ URI로 인코딩된 값의 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2048,7 +2048,7 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. |
 
@@ -2089,7 +2089,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 3050f701c11773207aa6054d4d08d908d87b2ce7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932069"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 문제 해결
@@ -171,10 +171,10 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
     이 식은 허용 되지만 조건이 겹치면 유용 하지 않습니다.
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - ,,, 또는를 포함 하는 간단한 비교 식은 `eq` `lt` `le` `gt` `ge` 와 함께 사용할 수 있습니다 `and` / `or` . 예를 들면
+  - ,,, 또는를 포함 하는 간단한 비교 식은 `eq` `lt` `le` `gt` `ge` 와 함께 사용할 수 있습니다 `and` / `or` . 예를 들면 다음과 같습니다.
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - (접속사)와 결합 된 비교 식은을 `and` 사용 하 여 추가로 결합할 수 있습니다 `or` . 이 형식은 부울 논리에서 Dnf ([분리 Normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form))로 알려져 있습니다. 예를 들면
+  - (접속사)와 결합 된 비교 식은을 `and` 사용 하 여 추가로 결합할 수 있습니다 `or` . 이 형식은 부울 논리에서 Dnf ([분리 Normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form))로 알려져 있습니다. 예를 들면 다음과 같습니다.
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
 - 규칙 `all` :
   - 단순 같음 식은 다른 식과 유용한 결합할 수 없습니다. 예를 들어이 식은 다음과 같이 사용할 수 있습니다.
@@ -185,10 +185,10 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
     이 식은 허용 되지만 조건이 겹치면 유용 하지 않습니다.
     - `ratings/all(r: r eq 5 and r le 7)`
-  - ,,, 또는를 포함 하는 간단한 비교 식은 `ne` `lt` `le` `gt` `ge` 와 함께 사용할 수 있습니다 `and` / `or` . 예를 들면
+  - ,,, 또는를 포함 하는 간단한 비교 식은 `ne` `lt` `le` `gt` `ge` 와 함께 사용할 수 있습니다 `and` / `or` . 예를 들면 다음과 같습니다.
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - (Disjunctions)과 결합 된 비교 식은을 `or` 사용 하 여 추가로 결합할 수 있습니다 `and` . 이 형식은 부울 논리에서 "[결합 Normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (my.cnf)로 알려져 있습니다. 예를 들면
+  - (Disjunctions)과 결합 된 비교 식은을 `or` 사용 하 여 추가로 결합할 수 있습니다 `and` . 이 형식은 부울 논리에서 "[결합 Normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (my.cnf)로 알려져 있습니다. 예를 들면 다음과 같습니다.
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>

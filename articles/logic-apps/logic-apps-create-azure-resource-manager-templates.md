@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971788"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
@@ -122,7 +122,7 @@ Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileN
 | 매개 변수 | 필수 | 설명 |
 |------------|----------|-------------|
 | TemplateFile | 예 | 템플릿 파일에 대 한 파일 경로입니다. |
-| KeyVault | 예 | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |
+| KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |
 ||||
 
 ## <a name="next-steps"></a>다음 단계

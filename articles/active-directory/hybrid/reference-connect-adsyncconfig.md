@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850971"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
@@ -1087,7 +1087,7 @@ SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 
    | Type | 속성 | 액세스 권한 | 적용 대상 |
    |------|------|--------|------------|
-   | 허용 | SYSTEM | 모든 권한 | 이 개체 |
+   | Allow | SYSTEM | 모든 권한 | 이 개체 |
    | Allow | 엔터프라이즈 관리자 | 모든 권한 | 이 개체 |
    | Allow | 도메인 관리자 | 모든 권한 | 이 개체 | 
    | Allow | 관리자 | 모든 권한 | 이 개체 |

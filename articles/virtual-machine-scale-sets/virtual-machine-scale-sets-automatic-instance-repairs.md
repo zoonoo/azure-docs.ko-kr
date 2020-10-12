@@ -10,10 +10,10 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527424"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
@@ -287,7 +287,7 @@ Get-AzVmss `
     -InstanceView
 ```
 
-자동 인스턴스 복구를 위해 AzVmssOrchestrationServiceState cmdlet을 사용 하 여 *Servicestate* 를 업데이트 합니다. 크기 집합을 자동 복구 기능에 옵트인 한 후에는이 cmdlet을 사용 하 여 확장 집합에 대 한 자동 복구를 일시 중단 하거나 다시 시작할 수 있습니다.
+자동 인스턴스 복구를 위해 Set-AzVmssOrchestrationServiceState cmdlet을 사용 하 여 *Servicestate* 를 업데이트 합니다. 크기 집합을 자동 복구 기능에 옵트인 한 후에는이 cmdlet을 사용 하 여 확장 집합에 대 한 자동 복구를 일시 중단 하거나 다시 시작할 수 있습니다.
 
 ```azurepowershell-interactive
 Set-AzVmssOrchestrationServiceState `

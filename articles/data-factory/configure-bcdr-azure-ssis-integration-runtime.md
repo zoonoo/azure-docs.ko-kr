@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
 ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195723"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS 통합 런타임 구성
@@ -122,7 +122,7 @@ When failover occurs, take the following steps:
 
 이 시나리오는 현재 지역에서 Azure Data Factory 또는 Azure-SSIS IR 재해가 발생할 때 SSISDB가 새 지역의 새 Azure-SSIS IR로 작업하도록 하려는 경우에 적합합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 장애 조치(failover)가 발생하는 경우 다음 단계를 수행합니다.
 
@@ -193,7 +193,7 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
 
 이 시나리오는 Azure-SSIS IR이 주 서버 엔드포인트를 가리키고 있는 경우 적합합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 장애 조치(failover)가 발생하는 경우 다음 단계를 수행합니다.
 

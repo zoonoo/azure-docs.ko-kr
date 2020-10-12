@@ -12,10 +12,10 @@ ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
 ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86145654"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
@@ -109,7 +109,7 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
   - 테이블 감사는 더 이상 사용되지 않습니다.
   - 따라서 [Blob 감사](../../azure-sql/database/auditing-overview.md)로 전환하는 것이 좋습니다.
 
-## <a name="related-resources"></a>관련 참고 자료
+## <a name="related-resources"></a>관련 리소스
 
 - 재해 복구를 포함하는 [Azure SQL Database의 비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 - [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)

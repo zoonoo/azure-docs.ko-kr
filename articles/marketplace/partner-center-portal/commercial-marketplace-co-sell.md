@@ -8,10 +8,10 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
 ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033254"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
@@ -52,7 +52,7 @@ ms.locfileid: "90033254"
 | 장치 (하드웨어) | 장치 제조업체에서 하드웨어를 빌드 또는 판매 하는 것을 포함 하는 제품입니다. |
 | IP (응용 프로그램) | 고객 사용에 대 한 라이선스를 받은 앱 또는 기타 copyrightable 자료입니다. 예: 온-프레미스에서 사용이 허가 되 고 설치 될 수 있는 CRM 프로그램입니다. |
 | 서비스 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
-| 관리 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
+| 관리형 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
 
 ### <a name="solution-areas"></a>솔루션 영역
 
@@ -60,7 +60,7 @@ ms.locfileid: "90033254"
 
 제품에 대 한 최대 3 개의 솔루션 영역을 추가할 수 있습니다. 각 솔루션 영역에 대해 최대 두 개의 솔루션 하위 영역을 선택할 수 있습니다. 여러 하위 범주를 선택 하려면 `Ctrl` 키 (Windows) 또는 명령 키 (Mac OS)를 사용 합니다.
 
-## <a name="documents"></a>Documents
+## <a name="documents"></a>문서
 
 Microsoft에서 제품에 대 한 자세한 정보를 확인 하 고 고객의 요구에 맞게이를 평가 하는 데 사용할 수 있는 문서를 제공 하는 옵션이 있습니다. 아래 표에 나열 된 모든 문서는 선택 사항입니다.
 

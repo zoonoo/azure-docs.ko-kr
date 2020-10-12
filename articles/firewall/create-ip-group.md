@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85602536"
 ---
 # <a name="create-ip-groups"></a>IP 그룹 만들기
@@ -27,7 +27,7 @@ IP 그룹을 사용 하 여 Azure 방화벽 규칙에 대 한 IP 주소를 그�
 5. 리소스 그룹을 선택하거나 새로 만듭니다.
 6. IP 그룹의 고유한 이름을 입력 한 다음 지역을 선택 합니다.
 
-6. **다음: IP 주소**를 선택 합니다.
+6. 완료되면 **다음: IP 주소**를 선택합니다.
 7. IP 주소, 여러 IP 주소 또는 IP 주소 범위를 입력 합니다.
 
    IP 주소를 입력 하는 방법에는 두 가지가 있습니다.

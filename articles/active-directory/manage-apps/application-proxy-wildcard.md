@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367736"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
@@ -156,7 +156,7 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 ![예제 구성에 의해 구현 된 구조를 보여 줍니다.](./media/application-proxy-wildcard/05.png)
 
-| 색상 | 설명 |
+| 색 | Description |
 | ---   | ---         |
 | 파랑  | 응용 프로그램을 명시적으로 게시 하 고 Azure Portal에 표시 합니다. |
 | 회색  | 부모 애플리케이션을 통해 액세스할 수 있는 애플리케이션입니다. |
