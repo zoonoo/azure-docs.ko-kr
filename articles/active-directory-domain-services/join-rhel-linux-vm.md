@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: iainfou
 ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005092"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 Red Hat Enterprise Linux 가상 컴퓨터 연결
@@ -24,7 +24,7 @@ ms.locfileid: "87005092"
 
 이 문서에서는 관리 되는 도메인에 Red Hat Enterprise Linux (RHEL) VM을 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -225,7 +225,7 @@ Successfully enrolled machine in realm
 
 VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경우 VM의 네트워크 보안 그룹에서 TCP + UDP 포트 464에 대 한 아웃 바운드 Kerberos 트래픽을 관리 되는 도메인의 가상 네트워크 서브넷으로 허용 하는지 확인 합니다.
 
-이제를 사용 하 여 사용자 AD 정보를 쿼리할 수 있는지 확인 합니다.`getent`
+이제를 사용 하 여 사용자 AD 정보를 쿼리할 수 있는지 확인 합니다. `getent`
 
 ```console
 sudo getent passwd contosoadmin

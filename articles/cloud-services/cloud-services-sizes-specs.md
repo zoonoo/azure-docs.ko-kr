@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82086252"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
@@ -79,9 +79,9 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
-| 소형           | 1         | 1.75         | 225                  | 1/보통 |
+| 작음           | 1         | 1.75         | 225                  | 1/보통 |
 | 중간          | 2         | 3.5          | 490                  | 1/보통 |
-| 대형           | 4         | 7            | 1000                 | 2/높음 |
+| 큰           | 4         | 7            | 1000                 | 2/높음 |
 | 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
 | A5              | 2         | 14           | 490                  | 1/보통 |
 | A6              | 4         | 28           | 1000                 | 2/높음 |

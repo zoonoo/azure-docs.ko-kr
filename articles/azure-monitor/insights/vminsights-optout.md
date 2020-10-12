@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79480524"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 Vm 모니터링 사용 안 함
@@ -39,7 +39,7 @@ Vm 모니터링을 사용 하지 않도록 준비할 때 다음 사항을 염두
 Log Analytics 작업 영역이 필요한 경우 다음 단계에 따라 VM용 Azure Monitor를 완전히 제거 합니다. `VMInsights`작업 영역에서 솔루션을 제거 합니다.  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택 합니다.
+2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택합니다.
 3. Log Analytics 작업 영역 목록에서 VM용 Azure Monitor을 사용 하도록 설정할 때 선택한 작업 영역을 선택 합니다.
 4. 왼쪽에서 **솔루션**을 선택 합니다.  
 5. 솔루션 목록에서 **VMInsights (작업 영역 이름)** 을 선택 합니다. 솔루션에 대 한 **개요** 페이지에서 **삭제**를 선택 합니다. 확인 하 라는 메시지가 표시 되 면 **예**를 선택 합니다.

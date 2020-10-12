@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79499657"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure에 연결된 Video Indexer 계정 관리
@@ -50,18 +50,18 @@ ms.locfileid: "79499657"
 
 계정에 약간의 조정이 필요한 경우 **설정** 페이지에서 계정 구성에 대 한 관련 오류 및 경고가 표시 됩니다. 메시지에는 변경해야 하는 Azure Portal의 정확한 위치에 대한 링크가 포함되어 있습니다. 자세한 내용은 뒤에 나오는 [오류 및 경고](#errors-and-warnings) 섹션을 참조하세요.
 
-## <a name="repair-the-connection-to-azure"></a>Azure에 대 한 연결 복구
+## <a name="repair-the-connection-to-azure"></a>Azure에 대한 연결 복구
 
 [Video Indexer](https://www.videoindexer.ai/) 페이지의 **Azure Media Services에 대 한 연결 업데이트** 대화 상자에서 다음 설정에 대 한 값을 제공 하 라는 메시지가 표시 됩니다.
 
-|Setting|설명|
+|설정|Description|
 |---|---|
 |Azure 구독 ID|구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 클릭 하 고 "구독"을 검색 합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
-|애플리케이션 ID|이 Video Indexer 계정에 대해 만든 Azure AD 응용 프로그램 ID (지정 된 Media Services 계정에 대 한 사용 권한 포함)입니다. <br/><br/>앱 ID를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. **서비스 주체 Azure AD 앱를 사용 하 여 Media Services API에 연결을**선택  ->  **Azure AD App**합니다. 관련 매개 변수를 복사 합니다.|
+|애플리케이션 UI|이 Video Indexer 계정에 대해 만든 Azure AD 응용 프로그램 ID (지정 된 Media Services 계정에 대 한 사용 권한 포함)입니다. <br/><br/>앱 ID를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. **서비스 주체 Azure AD 앱를 사용 하 여 Media Services API에 연결을**선택  ->  **Azure AD App**합니다. 관련 매개 변수를 복사 합니다.|
 |애플리케이션 키|위에서 지정한 Media Services 계정과 연결 된 Azure AD 응용 프로그램 키입니다. <br/><br/>앱 키를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. **서비스 주체를 사용 하 여 Media Services API에 연결을 선택 하 여**  ->  **응용 프로그램**  ->  **인증서 & 암호**를 관리 합니다. 관련 매개 변수를 복사 합니다.|
 
-## <a name="autoscale-reserved-units"></a>자동 크기 조정 예약 단위
+## <a name="autoscale-reserved-units"></a>예약 단위 자동 크기 조정
 
 **설정** 페이지에서 미디어 예약 단위 (자동 크기 조정)의 자동 크기 조정을 설정할 수 있습니다. 옵션이 **켜기**인 경우 최대 RU 수를 할당하고, Video Indexer에서 RU를 자동으로 중지/시작하는지 확인할 수 있습니다. 이 옵션을 사용 하는 경우 유휴 시간에 대 한 추가 비용을 지불 하지 않고 인덱싱 부하가 높으면 긴 시간 동안 인덱싱 작업이 완료 될 때까지 기다리지 않습니다.
 

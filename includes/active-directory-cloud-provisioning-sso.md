@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79504366"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Single Sign-on을 사용 하도록 설정 하는 단계
@@ -18,7 +18,7 @@ ms.locfileid: "79504366"
 ### <a name="step-1-download-and-extract-azure-ad-connect-files"></a>1 단계: Azure AD Connect 파일 다운로드 및 추출
 1.  먼저 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 의 최신 버전을 다운로드 합니다.
 2.  관리 권한을 사용 하 여 명령 프롬프트를 열고 방금 다운로드 한 msi로 이동 합니다.
-3.  다음을 실행 합니다.`msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
+3.  다음을 실행 합니다.  `msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
 4. 파일 경로 및 추출 폴더의 이름과 일치 하도록 filepath 및 extractfolder를 변경 합니다.  이제 콘텐츠는 추출 폴더에 있습니다.
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>2 단계: 원활한 SSO PowerShell 모듈 가져오기

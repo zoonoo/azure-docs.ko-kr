@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388683"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
@@ -131,7 +131,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 1. **변수** 탭을 선택 합니다.
 1. **파이프라인 변수** 아래에 다음 변수를 추가 하 고 지정 된 대로 값을 설정 합니다.
 
-    | 이름 | 값 |
+    | 속성 | 값 |
     | ---- | ----- |
     | `clientId` | 이전에 등록 한 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다. |
     | `clientSecret` | 이전에 만든 **클라이언트 암호** 의 값입니다. <br /> 변수 유형을 **secret** (잠금 아이콘 선택)로 변경 합니다. |

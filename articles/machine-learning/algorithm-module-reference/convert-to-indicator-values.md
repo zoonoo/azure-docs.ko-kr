@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79477666"
 ---
 # <a name="convert-to-indicator-values"></a>표시기 값으로 변환
@@ -49,7 +49,7 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 | --------- | ------------- |
 | 10301     | 낮음           |
 | 10302     | 중간        |
-| 10303     | 높은          |
+| 10303     | 높음          |
 
 **변환을 표시기 값으로**적용 하는 경우 디자이너는 단일 레이블 열을 부울 값을 포함 하는 여러 열로 변환 합니다.  
 
@@ -98,7 +98,7 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 
 -   범주로 표시된 열만 표시기 열로 변환할 수 있습니다. 다음 오류가 표시 되는 경우 선택한 열 중 하나가 범주에 속하지 않을 수 있습니다.  
 
-     오류 0056: 이름이 인 열 \<column name> 이 허용 되는 범주에 없습니다.  
+     오류 0056: 이름이 인 열  \<column name> 이 허용 되는 범주에 없습니다.  
 
      기본적으로 대부분의 문자열 열은 문자열 기능으로 처리 되므로 [메타 데이터 편집](edit-metadata.md)을 사용 하 여 범주로 명시적으로 표시 해야 합니다.  
 

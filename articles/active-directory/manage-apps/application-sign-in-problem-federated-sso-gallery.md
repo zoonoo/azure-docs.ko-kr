@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68dc90cdb096849df17bc25ac185b1239b46ec72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85413147"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 갤러리 애플리케이션에 로그인하는 문제
@@ -263,7 +263,7 @@ Single Sign-On 하는 동안 로그인 요청에 명시적 회신 URL (Assertion
 
 6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. **회신 url (Assertion Consumer Service URL)** 에서 시스템에 의해 생성 된 사용 하지 않거나 기본 회신 url을 삭제 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
+7.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. **회신 url (Assertion Consumer Service URL)** 에서 시스템에 의해 생성 된 사용 하지 않거나 기본 회신 url을 삭제 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>애플리케이션에 전송된 SAML 클레임을 사용자 지정할 때 발생하는 문제
 

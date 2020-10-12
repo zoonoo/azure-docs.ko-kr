@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.openlocfilehash: 05e55d1608323b8e746a1c82ccb915a2db58ce97
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132095"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL 데이터베이스 내보내기
@@ -49,7 +49,7 @@ ms.locfileid: "87132095"
 
 내보내기 대상에 대해 다른 설정을 구성할 수도 있습니다. 구성에 대한 설명은 다음 표에 나와 있습니다.
 
-|구성|Description|
+|구성|설명|
 |-------------|-----------|
 |대상 이름|내보내는 데이터베이스 리소스를 저장할 위치를 나타냅니다. 예를 들어 어셈블리, 추가 파일 및 샘플 데이터가 있습니다. 이 이름을 갖는 폴더가 로컬 데이터 루트 폴더 아래에 만들어집니다.|
 |프로젝트 디렉터리|내보내는 U-SQL 스크립트를 저장할 위치를 정의합니다. 모든 데이터베이스 개체 정의는 이 위치에 저장됩니다.|

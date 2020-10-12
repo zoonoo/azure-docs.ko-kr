@@ -12,10 +12,10 @@ ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388156"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정
@@ -66,7 +66,7 @@ Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 애플�
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키** 를 선택 하 고 **추가**를 선택 합니다.
 6. **옵션**으로는 `Manual`을 선택합니다.
-7. 정책 키의 **이름**을 입력합니다. `LinkedInSecret`)을 입력합니다. *B2C_1A_* 접두사는 키 이름에 자동으로 추가 됩니다.
+7. 정책 키의 **이름**을 입력합니다. 예들 들어 `LinkedInSecret`입니다. *B2C_1A_* 접두사는 키 이름에 자동으로 추가 됩니다.
 8. **비밀**에서 이전에 기록한 클라이언트 암호를 입력 합니다.
 9. **키 사용**에서 `Signature`를 선택합니다.
 10. **만들기**를 클릭합니다.
@@ -246,7 +246,7 @@ LinkedIn [은 최근에 해당 api를 v1.0에서 v 2.0으로 업데이트 했습
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-대상:
+아래와 같이 변경합니다.
 
 ```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -272,7 +272,7 @@ LinkedIn [은 최근에 해당 api를 v1.0에서 v 2.0으로 업데이트 했습
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-대상:
+아래와 같이 변경합니다.
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />

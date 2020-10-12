@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479562"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
@@ -32,7 +32,7 @@ Azure FarmBeats를 설치 하는 경우 Azure 구독에 다음과 같은 리소�
 |---------|---------|
 | Application Insights   |      Datahub & 액셀러레이터      |
 | App Service     |     Datahub & 액셀러레이터     |
-| App Service 계획   | Datahub & 액셀러레이터  |
+| App Service 플랜   | Datahub & 액셀러레이터  |
 | API 연결    |  Datahub       |
 | Azure Cache for Redis       | Datahub      |
 | Azure Cosmos DB   |  Datahub       |
@@ -172,7 +172,7 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 **Datahub** 는 https://-api.azurewebsites.net/swagger에서 찾을 수 있습니다 \<FarmBeats-website-name> . 여기에서 다양 한 FarmBeats API 개체를 보고 Api에 대 한 REST 작업을 수행 합니다.
 
-## <a name="upgrade"></a>Upgrade
+## <a name="upgrade"></a>업그레이드
 
 FarmBeats를 최신 버전으로 업그레이드 하려면 PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계를 실행 합니다. 사용자가 FarmBeats가 설치 된 구독의 소유자 여야 합니다.
 

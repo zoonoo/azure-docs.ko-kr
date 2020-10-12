@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272776"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
@@ -74,7 +74,7 @@ Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 *
 
 * **위치** - 클러스터와 리소스의 Azure 위치를 선택합니다.
 
-완료 되 면 **확인을** 클릭 합니다.
+작업이 완료되면 **확인**을 클릭합니다.
 
 > [!NOTE]
 > 클러스터 컨트롤러에 공용 IP 주소를 사용하려는 경우 기존 네트워크를 선택하는 대신 클러스터용으로 새 가상 네트워크를 만듭니다. 이 설정은 2페이지에 있습니다.

@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009361"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 문제 해결 개요, 피드백 및 지원
@@ -40,7 +40,7 @@ Azure Resource Manager 통합으로 Windows 가상 데스크톱에 대 한 문�
 | 호스트 풀 및 응용 프로그램 그룹에 연결 되는 Windows 가상 데스크톱 구성 관리 (앱 그룹)      | [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하거나, [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **windows 가상 데스크톱** 을 선택한 다음, 적절 한 문제 유형을 선택 합니다.|
 | FSLogix 프로필 컨테이너 배포 및 관리 | [Fslogix 제품에 대 한 문제 해결 가이드](/fslogix/fslogix-trouble-shooting-ht/) 를 참조 하 고, 문제가 해결 되지 않으면 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **Windows 가상 데스크톱** 을 선택 하 고, 문제 유형으로 **fslogix** 를 선택한 다음, 적절 한 문제 하위 유형을 선택 합니다. |
 | 시작 시 원격 데스크톱 클라이언트 오작동                                                 | [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md) 을 참조 하 고, 문제가 해결 되지 않으면 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **Windows 가상 데스크톱** 을 선택한 다음, 문제 유형으로 **원격 데스크톱 클라이언트** 를 선택 합니다.  <br> <br> 네트워크 문제인 경우 사용자는 네트워크 관리자에 게 문의 해야 합니다. |
-| 연결 되었지만 피드 없음                                                                 | 사용자 연결을 사용 하 여 문제를 해결 합니다. 그러나 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md)의 경우 [아무 것도 표시 되지 않습니다 (피드 없음)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) . <br> <br> 사용자가 앱 그룹에 할당 된 경우 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대해 **Windows 가상 데스크톱** 을 선택한 다음, 문제 유형으로 **원격 데스크톱 클라이언트** 를 선택 합니다. |
+| 연결 되었지만 피드 없음                                                                 | 사용자 연결을 사용 하 여 문제를 해결 합니다. 그러나 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md)의 경우 [아무 것도 표시 되지 않습니다 (피드 없음)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) . <br> <br> 사용자가 앱 그룹에 할당 된 경우  [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대해 **Windows 가상 데스크톱** 을 선택한 다음, 문제 유형으로 **원격 데스크톱 클라이언트** 를 선택 합니다. |
 | 네트워크로 인 한 피드 검색 문제                                            | 사용자가 네트워크 관리자에 게 문의 해야 합니다. |
 | 클라이언트 연결                                                                    | [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md) 을 참조 하 고, 문제가 해결 되지 않으면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요. |
 | 원격 응용 프로그램 또는 데스크톱의 응답성                                      | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |

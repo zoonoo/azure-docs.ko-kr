@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389193"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
@@ -90,9 +90,9 @@ KMSI 확인란을 등록 및 로그인 페이지에 추가 하려면 `setting.en
     </UserJourneyBehaviors>
     ```
 
-    - **Ssosession** -세션이 및에 지정 된 시간 만큼 확장 되는 방법을 `SessionExpiryInSeconds` 나타냅니다 `KeepAliveInDays` . `Rolling`값 (기본값)은 사용자가 인증을 수행할 때마다 세션이 확장 됨을 나타냅니다. `Absolute`값은 지정 된 기간이 지나면 사용자가 강제로 다시 인증 함을 나타냅니다.
+    - **Ssosession** -세션이 및에 지정 된 시간 만큼 확장 되는 방법을 `SessionExpiryInSeconds` 나타냅니다  `KeepAliveInDays` . `Rolling`값 (기본값)은 사용자가 인증을 수행할 때마다 세션이 확장 됨을 나타냅니다. `Absolute`값은 지정 된 기간이 지나면 사용자가 강제로 다시 인증 함을 나타냅니다.
 
-    - **SessionExpiryInSeconds** - *로그인 유지* 가 사용 하도록 설정 되어 있지 않거나 사용자가 *로그인 유지*를 선택 하지 않은 경우 세션 쿠키의 수명입니다. 이 전달 되 면 세션이 만료 `SessionExpiryInSeconds` 되거나 브라우저가 닫힙니다.
+    - **SessionExpiryInSeconds**  - *로그인 유지* 가 사용 하도록 설정 되어 있지 않거나 사용자가 *로그인 유지*를 선택 하지 않은 경우 세션 쿠키의 수명입니다. 이 전달 되 면 세션이 만료 `SessionExpiryInSeconds` 되거나 브라우저가 닫힙니다.
 
     - **KeepAliveInDays** - *로그인 유지* 가 사용 되 고 사용자가 *로그인 유지*를 선택 하는 경우 세션 쿠키의 수명입니다.  값 `KeepAliveInDays` 이 값 보다 우선적으로 적용 `SessionExpiryInSeconds` 되 고 세션 만료 시간을 결정 합니다. 사용자가 브라우저를 닫고 나중에 다시 여는 경우 KeepAliveInDays 기간 내에 있는 동안에도 자동으로 로그인 할 수 있습니다.
 
@@ -130,7 +130,7 @@ SessionExpiryInSeconds의 값을 짧은 기간 (1200 초)으로 설정 하는 �
 1. 변경 내용을 저장하고 파일을 업로드합니다.
 1. 업로드 한 사용자 지정 정책을 테스트 하려면 Azure Portal에서 정책 페이지로 이동한 다음 **지금 실행**을 선택 합니다.
 1. **사용자 이름** 및 **암호**를 입력 하 고 로그인 **유지**를 선택한 다음 **로그인**을 클릭 합니다.
-1. Azure 포털로 돌아갑니다. 정책 페이지로 이동한 다음 **복사** 를 선택 하 여 로그인 URL을 복사 합니다.
+1. Azure Portal로 돌아갑니다. 정책 페이지로 이동한 다음 **복사** 를 선택 하 여 로그인 URL을 복사 합니다.
 1. 브라우저 주소 표시줄에서 `&prompt=login` 쿼리 문자열 매개 변수를 제거 하 여 사용자가 해당 요청에 대 한 자격 증명을 입력 하도록 합니다.
 1. 브라우저에서 **이동**을 클릭 합니다. 이제 Azure AD B2C는 다시 로그인 하 라는 메시지를 표시 하지 않고 액세스 토큰을 발급 합니다. 
 

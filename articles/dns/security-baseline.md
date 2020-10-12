@@ -8,10 +8,10 @@ ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89225669"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Azure DNS에 대 한 Azure 보안 기준
@@ -260,7 +260,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
-**지침**: azure RBAC (역할 기반 Access Control)는 azure 사용자, 그룹 및 리소스에 대 한 세밀 한 액세스 관리를 가능 하 게 합니다. Azure RBAC를 사용 하면 사용자에 게 필요한 액세스 수준을 부여할 수 있습니다. 
+**지침**: azure RBAC (azure Role-Based Access Control)를 사용 하면 azure 사용자, 그룹 및 리소스에 대 한 세밀 한 액세스 관리를 지원 합니다. Azure RBAC를 사용 하면 사용자에 게 필요한 액세스 수준을 부여할 수 있습니다. 
 
 Azure DNS에는 DNS 영역 참가자 역할 뿐만 아니라 영역 수준 및 레코드 집합 수준 Azure RBAC도 있습니다. 또한 세부적인 제어를 제공 하기 위해 사용자 지정 Azure 역할을 빌드할 수 있습니다.
 

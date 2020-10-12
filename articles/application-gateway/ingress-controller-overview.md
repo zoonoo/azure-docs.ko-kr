@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84668103"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러는 무엇입니까?
@@ -36,16 +36,16 @@ AGIC는 서비스 및 배포/Pod와 함께 Kubernetes [수신 리소스](https:/
   - 공용, 개인 및 하이브리드 웹 사이트 지원
   - 통합 웹 응용 프로그램 방화벽
 
-## <a name="difference-between-helm-deployment-and-aks-add-on"></a>투구 배포 및 AKS 추가 기능 간의 차이점
+## <a name="difference-between-helm-deployment-and-aks-add-on"></a>투구 배포와 AKS Add-On 간의 차이점
 AKS 클러스터에 대해 AGIC를 배포 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 투구를 통한 것입니다. 두 번째는 AKS를 추가 기능으로 설정 하는 것입니다. AGIC를 AKS 추가 기능으로 배포 하는 경우의 주요 장점은 투구를 통해 배포 하는 것 보다 훨씬 간단 하다는 것입니다. 새 설치의 경우 Azure CLI에서 한 줄에 AGIC를 추가 기능으로 사용 하 여 새 Application Gateway 및 새 AKS 클러스터를 배포할 수 있습니다. 또한 추가 기능은 완전히 관리 되는 서비스 이며, 자동 업데이트 및 지원 증가와 같은 추가 이점을 제공 합니다. AKS는 투구를 통해 배포 된 AGIC를 지원 하지 않지만 AKS 추가 기능으로 배포 된 AGIC는 AKS에서 지원 됩니다. 
 
 AGIC 추가 기능은 여전히 고객의 AKS 클러스터에 pod로 배포 되지만, 투구 배포 버전과 AGIC의 추가 기능 버전 간에는 몇 가지 차이점이 있습니다. 다음은 두 버전 간의 차이점 목록입니다. 
   - AKS 추가 기능에서 투구 배포 값을 수정할 수 없습니다.
-    - `verbosityLevel`기본적으로 5로 설정 됩니다.
+    - `verbosityLevel` 기본적으로 5로 설정 됩니다.
     - `usePrivateIp`기본적으로 false로 설정 됩니다. 이는 [사용-개인-ip 주석](ingress-controller-annotations.md#use-private-ip) 으로 덮어쓸 수 있습니다.
-    - `shared`추가 기능에서 지원 되지 않음 
-    - `reconcilePeriodSeconds`추가 기능에서 지원 되지 않음
-    - `armAuth.type`추가 기능에서 지원 되지 않음
+    - `shared` 추가 기능에서 지원 되지 않음 
+    - `reconcilePeriodSeconds` 추가 기능에서 지원 되지 않음
+    - `armAuth.type` 추가 기능에서 지원 되지 않음
   - 투구를 통해 배포 된 AGIC는 ProhibitedTargets을 지원 합니다. 즉, AGIC는 기존 백 엔드에 영향을 주지 않고 AKS 클러스터에 대해 특별히 Application Gateway를 구성할 수 있습니다. AGIC 추가 기능에서 현재이 기능을 지원 하지 않습니다. 
   - AGIC 추가 기능이 관리 되는 서비스 이기 때문에 고객이 AGIC를 수동으로 업데이트 해야 하는 투구를 통해 배포 된 AGIC와 달리 고객은 최신 버전의 AGIC 추가 기능으로 자동 업데이트 됩니다. 
 
@@ -69,12 +69,12 @@ AGIC 추가 기능은 여전히 고객의 AKS 클러스터에 pod로 배포 되�
 ### <a name="helm-deployed-agic-2-aks-clusters"></a>AGIC 배포 된 투구 (2 개 이상의 AKS 클러스터)
 |                  |1 Application Gateway |2 + 응용 프로그램 게이트웨이 |
 |------------------|---------|--------|
-|**AGIC 1**|N/A |해당 없음 |
+|**AGIC 1**|해당 없음 |해당 없음 |
 |**2 + AGICs**|Shared ProhibitedTarget 기능을 사용 해야 합니다. |해당 없음 |
 
 ## <a name="next-steps"></a>다음 단계
-- [**AKS 추가 기능 최적의 배포**](tutorial-ingress-controller-add-on-new.md): AGIC 추가 기능, AKS 및 Application Gateway를 설치 하는 방법에 대 한 지침은 빈 슬레이트 인프라에 있습니다.
-- [**AKS 추가 기능 Brownfield 배포**](tutorial-ingress-controller-add-on-existing.md): 기존 Application Gateway를 사용 하 여 AKS 클러스터에 AGIC 추가 기능을 설치 합니다.
+- [**AKS Add-On 최적의 배포**](tutorial-ingress-controller-add-on-new.md): AGIC 추가 기능, AKS 및 Application Gateway를 빈 슬레이트 인프라에 설치 하는 방법에 대 한 지침입니다.
+- [**AKS Add-On Brownfield Deployment**](tutorial-ingress-controller-add-on-existing.md): 기존 Application Gateway를 사용 하 여 AKS 클러스터에 AGIC 추가 기능을 설치 합니다.
 - [**투구 최적의 배포**](ingress-controller-install-new.md): 빈 슬레이트 인프라에서 투구, new AKS 클러스터 및 새로운 Application Gateway를 통해 AGIC를 설치 합니다.
 - [**투구 Brownfield 배포**](ingress-controller-install-existing.md): 기존 AKS 클러스터에 대 한 AGIC를 통해, Application Gateway을 배포 합니다.
 

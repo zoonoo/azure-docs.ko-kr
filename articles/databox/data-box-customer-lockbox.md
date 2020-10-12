@@ -9,10 +9,10 @@ ms.date: 07/10/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: 9c95760d03db976b59537adcecbe39a942b72126
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86209566"
 ---
 # <a name="use-customer-lockbox-for-azure-data-box-preview"></a>Azure Data Box에 대 한 고객 Lockbox 사용 (미리 보기)
@@ -76,7 +76,7 @@ Lockbox를 사용 하도록 설정 하지 않은 경우 데이터 액세스에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Azure에 대 한 고객 Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+- [Microsoft Azure에 대한 고객 Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 <!--- [Approve, audit support access requests to VMs using Customer Lockbox for Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)-->
 

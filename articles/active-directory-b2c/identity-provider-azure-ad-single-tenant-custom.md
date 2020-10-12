@@ -12,10 +12,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06ba565de8ca24c8c0baa576b74e70035384be09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388428"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정
@@ -40,7 +40,7 @@ ms.locfileid: "85388428"
 1. **정책**에서 **Identity Experience Framework**를 선택합니다.
 1. **정책 키** 를 선택 하 고 **추가**를 선택 합니다.
 1. **옵션**으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름**을 입력합니다. `ContosoAppSecret`)을 입력합니다.  접두사는 `B2C_1A_` 생성 될 때 키의 이름에 자동으로 추가 되므로 다음 섹션의 XML 참조는 *B2C_1A_ContosoAppSecret*하는 것입니다.
+1. 정책 키의 **이름**을 입력합니다. 예들 들어 `ContosoAppSecret`입니다.  접두사는 `B2C_1A_` 생성 될 때 키의 이름에 자동으로 추가 되므로 다음 섹션의 XML 참조는 *B2C_1A_ContosoAppSecret*하는 것입니다.
 1. **비밀**에서 이전에 기록한 클라이언트 암호를 입력 합니다.
 1. **키 사용**에서 `Signature`를 선택합니다.
 1. **만들기**를 선택합니다.
@@ -107,9 +107,9 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 1. **DisplayName**의 값을 업데이트합니다. 이 값은 로그인 화면의 로그인 단추에 표시됩니다.
 1. **설명**값을 업데이트합니다.
 1. Azure AD는 OpenID Connect 프로토콜을 사용하므로 **Protocol** 값이 `OpenIdConnect`인지 확인합니다.
-1. **METADATA** 값을 `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`으로 설정합니다. 여기서 `tenant-name`는 Azure AD 테넌트 이름입니다. 예를 들면 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`과 같습니다.
+1. **METADATA** 값을 `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`으로 설정합니다. 여기서 `tenant-name`는 Azure AD 테넌트 이름입니다. 예, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. **client_id**를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
-1. **CryptographicKeys**에서 **StorageReferenceId** 의 값을 앞에서 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_ContosoAppSecret`.
+1. **CryptographicKeys**에서 **StorageReferenceId** 의 값을 앞에서 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_ContosoAppSecret`
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
@@ -127,7 +127,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 1. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 1. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-1. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInContoso`.
+1. 사용자 경험 ID의 이름을 바꿉니다. 예들 들어 `SignUpSignInContoso`입니다.
 
 ### <a name="display-the-button"></a>단추 표시
 
@@ -151,7 +151,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 **Id** 로 업데이트 합니다. `OIDC-Contoso`)을 입력합니다.
+    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 **Id** 로 업데이트 합니다. 예들 들어 `OIDC-Contoso`입니다.
 
 1. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
@@ -167,7 +167,7 @@ Azure AD B2C와의 통신은 B2C 테넌트에서 등록하는 애플리케이션
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어, 파일 이름을 *SignUpSignInContoso.xml*로 바꿉니다.
 1. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInContoso`입니다.
-1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`.
+1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`
 1. **Defaultuserjourney** 에서 **ReferenceId** 특성의 값을 이전에 만든 사용자 경험의 ID와 일치 하도록 업데이트 합니다. 예를 들면 *SignUpSignInContoso*입니다.
 1. 변경 내용을 저장하고 파일을 업로드합니다.
 1. **사용자 지정 정책**아래의 목록에서 새 정책을 선택 합니다.

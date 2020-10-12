@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498840"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB 연산자
@@ -21,14 +21,14 @@ ms.locfileid: "87498840"
 
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **배열** |
+| **Op** | **되지** | **Null** | **Boolean** | **Number** | **String** | **Object** | **배열** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **그래** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | 정의되지 않음 | **그래** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Boolean** | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined | Undefined |
 | **Number** | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined |
 | **String** | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | 정의되지 않음 |
 | **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** |
 
 ,,,, 등의 비교 연산자의 경우 `>` `>=` 형식 간 `!=` `<` `<=` 또는 두 개체 또는 배열 간의 비교는을 생성 `Undefined` 합니다.  
@@ -51,31 +51,31 @@ WHERE 7 = 'a'
 
 `true`조건 중 하나가 인 경우을 반환 합니다 `true` .
 
-|  | **True** | **False** | **Undefined** |
+|  | **True** | **False** | **되지** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |참 |False |Undefined |
-| **Undefined** |참 |Undefined |Undefined |
+| **False** |True |False |정의되지 않음 |
+| **Undefined** |True |Undefined |Undefined |
 
 **AND 연산자**
 
 `true`두 식이 모두 이면를 반환 `true` 합니다.
 
-|  | **True** | **False** | **Undefined** |
+|  | **True** | **False** | **되지** |
 | --- | --- | --- | --- |
-| **True** |참 |거짓 |Undefined |
+| **True** |True |False |정의되지 않음 |
 | **False** |False |False |False |
-| **Undefined** |Undefined |False |Undefined |
+| **Undefined** |정의되지 않음 |False |정의되지 않음 |
 
 **NOT 연산자**
 
 부울 식의 값을 반대로 바꿉니다.
 
-|  | **NOT** |
+|  | **다음이 아님** |
 | --- | --- |
 | **True** |False |
-| **False** |참 |
-| **Undefined** |Undefined |
+| **False** |True |
+| **Undefined** |정의되지 않음 |
 
 **연산자 우선 순위**
 
@@ -83,13 +83,13 @@ WHERE 7 = 'a'
 
 | **연산자** | **우선 순위** |
 | --- | --- |
-| **NOT** |1 |
-| **하거나** |2 |
+| **다음이 아님** |1 |
+| **및** |2 |
 | **OR** |3 |
 
 ## <a name="-operator"></a>* 연산자
 
-특수 연산자 *는 전체 항목을 있는 그대로 프로젝션 합니다. 사용할 경우 프로젝션되는 유일한 필드여야 과 같은 쿼리는 `SELECT * FROM Families f` 유효 하지만 `SELECT VALUE * FROM Families f` 및 `SELECT *, f.id FROM Families f` 는 유효 하지 않습니다.
+특수 연산자 *는 전체 항목을 있는 그대로 프로젝션 합니다. 사용할 경우 프로젝션되는 유일한 필드여야 과 같은 쿼리는 `SELECT * FROM Families f` 유효 하지만 `SELECT VALUE * FROM Families f` 및  `SELECT *, f.id FROM Families f` 는 유효 하지 않습니다.
 
 ## <a name="-and--operators"></a>? ? 연산자
 
@@ -121,5 +121,5 @@ C # 및 JavaScript와 같은 프로그래밍 언어에서와 같이 삼항 (?) �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [C++ 키워드](sql-query-keywords.md)
+- [키워드](sql-query-keywords.md)
 - [SELECT 절](sql-query-select.md)

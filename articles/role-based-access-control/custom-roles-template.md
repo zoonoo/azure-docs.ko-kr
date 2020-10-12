@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
 ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85398042"
 ---
 # <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기
@@ -74,7 +74,7 @@ ms.locfileid: "85398042"
 
 1. 사용자 지정 역할에 대 한 작업 목록을 *Microsoft .resources/resources/read, Microsoft .resources/subscription/resourceGroups/read*와 같이 쉼표로 구분 된 목록으로 입력 합니다.
 
-1. 필요한 경우 Enter 키를 눌러 AzDeployment 명령을 실행 합니다.
+1. 필요한 경우 Enter 키를 눌러 New-AzDeployment 명령을 실행 합니다.
 
     [AzDeployment](/powershell/module/az.resources/new-azdeployment) 명령은 템플릿을 배포 하 여 사용자 지정 역할을 만듭니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "85398042"
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
-    다음과 비슷한 내용이 출력됩니다.
+    다음과 비슷한 결과가 나타나야 합니다.
 
     ```azurepowershell
     {

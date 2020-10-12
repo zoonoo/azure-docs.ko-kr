@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
 ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723166"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 온-프레미스 도메인에 대 한 Azure Active Directory Domain Services 리소스 포리스트 및 아웃 바운드 포리스트 트러스트 만들기
@@ -36,7 +36,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 > [!IMPORTANT]
 > 관리 되는 도메인 리소스 포리스트는 현재 Azure HDInsight 또는 Azure Files을 지원 하지 않습니다. 기본 관리 되는 도메인 사용자 포리스트는 이러한 추가 서비스를 모두 지원 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 

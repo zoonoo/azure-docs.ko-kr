@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000620"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 c # 사용자 정의 함수 사용
@@ -56,7 +56,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 2. **새 프로젝트 만들기**를 선택합니다.
 
-3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. **다음**을 선택합니다.
+3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 후 **다음**을 선택합니다.
 
 4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *hivecsharp.exe*를 입력 하 고 새 프로젝트를 저장할 **위치로** 이동 하거나 만듭니다. 그런 다음 **만들기**를 선택합니다.
 
@@ -123,7 +123,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 2. **시작** 창에서 **새 프로젝트 만들기**를 선택합니다.
 
-3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. **다음**을 선택합니다.
+3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 후 **다음**을 선택합니다.
 
 4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *문은 pigudf.exe*를 입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기**를 선택합니다.
 

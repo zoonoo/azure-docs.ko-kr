@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660539"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
@@ -80,13 +80,13 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
    3. **연결 테스트** 를 클릭 하 여 설정의 유효성을 검사 한 다음, **만들기**를 선택 합니다.
 
       ![Amazon S3 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   4. 새 AmazonS3 연결이 생성 되는 것을 볼 수 있습니다. **새로 만들기**를 선택합니다. 
+   4. 새 AmazonS3 연결이 생성 되는 것을 볼 수 있습니다. **다음**을 선택합니다. 
 
 5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택한 다음 선택을 선택 **합니다.**
 
     ![입력 파일 또는 폴더 선택](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
 
-6. **재귀적** 및 **이진 복사** 옵션을 선택 하 여 복사 동작을 지정 합니다. **새로 만들기**를 선택합니다.
+6. **재귀적** 및 **이진 복사** 옵션을 선택 하 여 복사 동작을 지정 합니다. **다음**을 선택합니다.
 
     ![출력 폴더 지정](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
@@ -97,7 +97,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 8. **새 연결 된 서비스 (Azure Data Lake Storage Gen2)** 페이지에서 다음 단계를 수행 합니다.
 
    1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
-   2. **만들기** 를 선택 하 여 연결을 만듭니다. **다음**을 선택합니다.   
+   2. **만들기** 를 선택 하 여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.   
 
         ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 

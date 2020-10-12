@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81759294"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
@@ -68,7 +68,7 @@ RedHat 계획 할인은 구매할 때 선택한 VM 크기에만 적용 됩니다
 
 예약을 관리 하는 방법에 대 한 자세한 내용은 [Azure 예약 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)를 참조 하세요.
 
-자세히 알아보려면 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Azure에서 Reservations 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)

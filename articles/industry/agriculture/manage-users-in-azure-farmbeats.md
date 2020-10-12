@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79502054"
 ---
 # <a name="manage-users"></a>사용자 관리
 
 Azure FarmBeats에는 Azure Active Directory (Azure AD) 인스턴스에 속한 사용자를 위한 사용자 관리가 포함 되어 있습니다. Azure FarmBeats 인스턴스에 사용자를 추가 하 여 Api에 액세스 하 고, 생성 된 맵을 확인 하 고, 팜에서 센서 원격 분석에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure FarmBeats 설치가 필요 합니다. 자세한 내용은 [Azure FarmBeats 설치](install-azure-farmbeats.md)를 참조 하세요.
 - Azure FarmBeats 인스턴스에서 추가 하거나 제거할 사용자의 전자 메일 Id입니다.
