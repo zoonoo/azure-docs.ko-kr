@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997144"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
@@ -47,15 +47,13 @@ UEBA 솔루션에 대 한 Gartner의 패러다임에서 제공 되는 Azure 센�
 
 - **분석:** 다양 한 기계 학습 (기계 학습) 알고리즘을 사용 하 여 Azure 센티널은 비정상적인 활동을 식별 하 고, 상황별 강화 형식으로 증거를 명확 하 게 제시 합니다. 이러한 몇 가지 예가 아래에 나와 있습니다.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="동작 분석의 외부 접근 방식":::
-
-Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을 명확 하 게 이해 하 고 사용자의 기준 프로필을 비교 하는 데 도움이 되는 아티팩트를 제공 합니다. 사용자 (또는 호스트 또는 주소)가 수행 하는 작업은 컨텍스트 평가 됩니다. 여기서 "true" 결과는 식별 된 비정상을 나타냅니다.
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="엔터티 동작 분석 아키텍처" 결과는 식별 된 비정상을 나타냅니다.
 - 지리적 위치, 장치 및 환경에서
 - 시간 및 빈도 horizons (사용자 고유의 기록과 비교).
 - 피어 동작과 비교 합니다.
 - 조직의 동작과 비교해 볼 수 있습니다.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="엔터티 컨텍스트":::
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="엔터티 동작 분석 아키텍처":::
 
 
 ### <a name="scoring"></a>점수 매기기
@@ -79,7 +77,7 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 ### <a name="the-timeline"></a>타임 라인
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="엔터티 페이지 타임 라인":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="엔터티 동작 분석 아키텍처":::
 
 타임 라인은 Azure 센티널의 동작 분석에 대 한 엔터티 페이지 기여의 주요 부분입니다. 엔터티 관련 이벤트에 대 한 스토리를 제공 하 여 특정 시간 프레임 내에서 엔터티의 작업을 이해 하도록 도와줍니다.
 
@@ -107,7 +105,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 엔터티 페이지는 여러 사용 시나리오의 일부로 설계 되었으며 인시던트 관리, 조사 그래프, 책갈피에서 액세스 하거나 Azure 센티널 주 메뉴의 **엔터티 동작 분석** 에 있는 엔터티 검색 페이지에서 직접 액세스할 수 있습니다.
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="엔터티 페이지 사용 사례":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="엔터티 동작 분석 아키텍처":::
 
 
 ## <a name="data-schema"></a>데이터 스키마
@@ -156,7 +154,7 @@ BehaviorAnalytics
 
 Azure **센티널은 사용자** 의 Azure AD 보안 그룹 구성원 자격, 메일 그룹, et 오일을 1-20을 기반으로 사용자의 동료를 계산 하 고 순위를 매깁니다. 아래 스크린샷은 UserPeerAnalytics 테이블의 스키마를 표시 하 고 사용자 Kendall Collins의 상위 8 개 순위 피어를 표시 합니다. Azure 센티널은 *빈도-역 문서 빈도* (TF IDF) 알고리즘을 사용 하 여 순위 계산을 위해 평가 계수를 표준화 합니다. 그룹이 작을수록 가중치가 높아집니다. 
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="사용자 피어 메타 데이터 테이블의 스크린샷":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="엔터티 동작 분석 아키텍처":::
 
 Azure 센티널 GitHub 리포지토리에 제공 된 [Jupyter 노트북](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) 을 사용 하 여 사용자 피어 메타 데이터를 시각화할 수 있습니다. 노트북을 사용 하는 방법에 대 한 자세한 내용은 [단계별 분석-사용자 보안 메타 데이터](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) 노트북을 참조 하세요.
 
@@ -166,7 +164,7 @@ Azure 센티널 GitHub 리포지토리에 제공 된 [Jupyter 노트북](https:/
 
 Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트*에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 RBAC입니다.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="사용자 액세스 분석 테이블의 스크린샷":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="엔터티 동작 분석 아키텍처":::
 
 Azure 센티널 GitHub 리포지토리에서 [Jupyter 노트북](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) (위에서 언급 한 것과 동일한 노트북)을 사용 하 여 권한 분석 데이터를 시각화할 수 있습니다. 노트북을 사용 하는 방법에 대 한 자세한 내용은 [단계별 분석-사용자 보안 메타 데이터](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) 노트북을 참조 하세요.
 

@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481600"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름
@@ -68,7 +68,7 @@ Azure AD B2C에는 다음과 같은 여러 유형의 사용자 흐름이 포함 
 대부분의 사용자 흐름 유형에는 **권장** 버전과 **표준** 버전이 모두 있습니다. 자세한 내용은 [사용자 흐름 버전](user-flow-versions.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> 이전에 Azure AD B2C 사용자 흐름으로 작업 한 경우 사용자 흐름 버전을 참조 하는 방법을 변경 했습니다. 이전에는 V1 (프로덕션 준비) 버전 및 V 1.1 및 V2 (preview) 버전이 제공 되었습니다. 이제 사용자 흐름을 두 가지 버전으로 통합 했습니다.
+> 이전에 Azure AD B2C 사용자 흐름으로 작업 한 경우 사용자 흐름 버전을 참조 하는 방법을 변경 했습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름을 두 가지 버전으로 통합 했습니다.
 >
 >- **권장** 사용자 흐름은 사용자 흐름의 새로운 미리 보기 버전입니다. 이러한 기능은 철저 하 게 테스트 되었으며 레거시 **V2** 및 **v 1.1** 버전의 모든 기능을 결합 합니다. 향후에는 새로운 권장 사용자 흐름이 유지 되 고 업데이트 됩니다. 이러한 새로운 권장 사용자 흐름으로 이동 하면 새 기능이 출시 될 때 새 기능에 액세스할 수 있습니다.
 >- 이전의 **V1**이라고 하는 **표준** 사용자 흐름이 일반적으로 사용 가능한 프로덕션 맞춤형 사용자 흐름입니다. 사용자 흐름이 중요 하 고 안정적인 버전에 따라 달라 지는 경우 표준 사용자 흐름을 계속 사용할 수 있으므로 이러한 버전이 유지 되 고 업데이트 되지 않습니다.

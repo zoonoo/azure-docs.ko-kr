@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566605"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: 변환
@@ -43,7 +43,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 <code>3.0</code>이어야 합니다.</td>
   </tr>
   <tr>
-    <td>을</td>
+    <td>to</td>
     <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 <a href="./v3-0-languages.md">지원되는 언어</a> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
   </tr>
 </table>
@@ -103,19 +103,19 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>인증 헤더</td>
-    <td><em>필요한 요청 헤더</em>입니다.<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
+    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
-    <td><em>필요한 요청 헤더</em>입니다.<br/>페이로드의 콘텐츠 형식을 지정합니다.<br/> 허용 되는 값은 <code>application/json; charset=UTF-8</code> 입니다.</td>
+    <td><em>필수 요청 헤더</em><br/>페이로드의 콘텐츠 형식을 지정합니다.<br/> 허용되는 값은 <code>application/json; charset=UTF-8</code>입니다.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td><em>필요한 요청 헤더</em>입니다.<br/>요청 본문의 길이입니다.</td>
+    <td><em>필수 요청 헤더</em><br/>요청 본문의 길이입니다.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -181,7 +181,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
     <tr>
     <td>X-RequestId</td>
@@ -236,7 +236,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
@@ -391,7 +391,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   </tr>
 </table> 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -551,4 +551,4 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 ]
 ```
 
-이 기능은 `textType=text` 또는 `textType=html`을 사용할 때와 같은 결과를 가져옵니다. 이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있는 경제적 여유가 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. [Custom Translator에 대해 자세히 알아보세요](../customization.md).
+이 기능은 `textType=text` 또는 `textType=html`을 사용할 때와 같은 결과를 가져옵니다. 이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있는 경제적 여유가 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. [사용자 지정 번역기에 대해 자세히 알아보세요](../customization.md).

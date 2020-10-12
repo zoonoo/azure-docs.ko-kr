@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Arc 사용 서버에서 발생 하는 Azu
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: ffd7db5ff7da3d7f60762117f80d7b9b5af6f646
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347459"
 ---
 # <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Arc 사용 서버 VM 확장 문제 해결

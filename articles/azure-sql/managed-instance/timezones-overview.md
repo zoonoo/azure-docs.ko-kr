@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
 ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617930"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 표준 시간대
@@ -34,7 +34,7 @@ UTC (협정 세계시)는 클라우드 솔루션의 데이터 계층에 권장 �
 
 [일광 절약 시간/표준 시간대 변경 정책은](https://aka.ms/time) 2010 전달의 과거 정확도를 보장 합니다.
 
-지원 되는 표준 시간대의 이름을 포함 하는 목록은 [time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) 시스템 뷰를 통해 노출 됩니다.
+지원 되는 표준 시간대의 이름이 있는 목록은 [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) 시스템 뷰를 통해 노출 됩니다.
 
 ## <a name="set-a-time-zone"></a>표준 시간대 설정
 
@@ -144,7 +144,7 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 | 세인트, 표준시 | (UTC-03:00) 생피에르앤드미클롱 |
 | 바이아 표준시 | (UTC-03:00) 살바도르 |
 | UTC-02 | (UTC-02:00) 협정 세계시-02 |
-| 중부-대서양 표준시 | (UTC-02:00) 중부-대서양-이전 |
+| Mid-Atlantic 표준 시간 | (UTC-02:00) Mid-Atlantic-이전 |
 | 아조레스 표준시 | (UTC-01:00) 아조레스 |
 | 카보베르데 표준시 | (UTC-01:00) 카보베르데 |
 | UTC | (UTC) 협정 세계시 |
@@ -199,7 +199,7 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 | 옴스크 표준시 | (UTC + 06:00) 옴스크 |
 | 미얀마 표준시 | (UTC + 06:30) 양곤 (랑 군) |
 | 동남 아시아 표준시 | (UTC + 07:00) 방콕, 하노이, 자카르타 |
-| 알타이 표준시 표준시 | (UTC + 07:00) 바르나울, 고르노알타이스크 |
+| 알타이 표준시 표준시 | (UTC + 07:00) 바르나울, Gorno-Altaysk |
 | W. 몽골 표준시 | (UTC + 07:00) 호브드 |
 | 북아시아 표준시 | (UTC + 07:00) 크라스노야르스크 |
 | 14. 중앙 아시아 표준시 | (UTC + 07:00) 노보시비르스크 |
@@ -230,11 +230,11 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 | 노퍽 표준 시간 | (UTC + 11:00) 노퍽 섬 |
 | 사할린 표준시 | (UTC + 11:00) 사할린 |
 | 중부 태평양 표준시 | (UTC + 11:00) 솔로몬 제도, 뉴칼레도니아 |
-| 러시아 표준 시간대 11 | (UTC + 12:00) 아나디리, 페트로파블롭스크-캄 차 스키 |
+| 러시아 표준 시간대 11 | (UTC + 12:00) 아나디리, Petropavlovsk-Kamchatsky |
 | 뉴질랜드 표준시 | (UTC + 12:00) 오클랜드, 웰링턴 |
 | UTC + 12 | (UTC + 12:00) 협정 세계시 + 12 |
 | 피지 표준시 | (UTC + 12:00) 피지 |
-| 캄차카 반도 표준시 | (UTC + 12:00) 페트로파블롭스크-캄 차 스키-이전 |
+| 캄차카 반도 표준시 | (UTC + 12:00) Petropavlovsk-Kamchatsky-이전 |
 | 체 텀 제도 표준 시간 | (UTC + 12:45) 체 텀 제도 |
 | UTC + 13 | (UTC + 13:00) 협정 세계시 + 13 |
 | 통가 표준시 | (UTC + 13:00) 누쿠알로파 |
@@ -246,4 +246,4 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 - [CURRENT_TIMEZONE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
 - [AT TIME ZONE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys. time_zone_info (Transact-sql)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys.time_zone_info (Transact-sql)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

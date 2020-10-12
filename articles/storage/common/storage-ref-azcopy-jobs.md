@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 25e5ac7fc0a76f0686eeb874542a84224de4c40f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281908"
 ---
 # <a name="azcopy-jobs"></a>azcopy jobs
@@ -26,7 +26,7 @@ ms.locfileid: "87281908"
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ```azcopy
 azcopy jobs show [jobID]

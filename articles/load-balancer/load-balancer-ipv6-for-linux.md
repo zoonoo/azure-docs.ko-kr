@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: d8bd62bab627beb70a8fcba276bf8c2eca309c45
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259736"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
@@ -61,7 +61,7 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
 
 Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( https://netplan.io)입니다.  설치/인스턴스화 시간에 NETPLAN은이 위치에 있는 YAML 구성 파일의 네트워크 구성을 읽습니다 (예:/{lib).
 
-구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예:
+구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예를 들면 다음과 같습니다.
 
 ```config
 network:

@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperfq1
 ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565926"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로

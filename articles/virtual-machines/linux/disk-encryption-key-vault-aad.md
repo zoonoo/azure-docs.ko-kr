@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950071"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Linux Vm 용 Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성
@@ -129,7 +129,7 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 3. [애플리케이션 ID 및 인증 키 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 
      - 인증 키는 클라이언트 암호 이며 AzVMDiskEncryptionExtension의 AadClientSecret로 사용 됩니다. 
         - 인증 키는 애플리케이션에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
-     - 응용 프로그램 ID는 나중에 AzVMDiskEncryptionExtension에 대 한 AadClientId 및 ServicePrincipalName (AzKeyVaultAccessPolicy의 경우)로 사용 됩니다. 
+     - 응용 프로그램 ID는 나중에 Set-AzVMDiskEncryptionExtension의 경우 AadClientId, ServicePrincipalName의 경우에는 AzKeyVaultAccessPolicy로 사용 됩니다. 
 
 ## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a> Azure AD 앱에 대 한 키 자격 증명 모음 액세스 정책 설정
 지정된 Key Vault에 암호화 비밀을 쓰려면 Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure Active Directory 애플리케이션의 클라이언트 ID와 클라이언트 비밀이 Azure Disk Encryption에 필요합니다. 
@@ -220,7 +220,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/disk-encryption/keyvault-portal-fig4.png)
 

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718818"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
@@ -82,7 +82,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 > [!NOTE]
 > Copy API는 [Aek/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) 기능을 투명 하 게 지원 합니다. 특별 한 처리가 필요 하지는 않지만 암호화 되지 않은 리소스를 암호화 된 리소스로 복사 하는 경우 요청 헤더를 포함 해야 합니다 `x-ms-forms-copy-degrade: true` . 이 헤더가 포함 되지 않은 경우 복사 작업이 실패 하 고이 반환 됩니다 `DataProtectionTransformServiceError` .
 
-`202\Accepted`작업 위치 헤더를 사용 하 여 응답을 받게 됩니다. 이 값은 작업의 진행률을 추적 하는 데 사용 하는 URL입니다. 다음 단계를 위해 임시 위치에 복사 합니다.
+`202\Accepted`Operation-Location 헤더를 사용 하 여 응답을 받게 됩니다. 이 값은 작업의 진행률을 추적 하는 데 사용 하는 URL입니다. 다음 단계를 위해 임시 위치에 복사 합니다.
 
 ```
 HTTP/1.1 202 Accepted
@@ -91,7 +91,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>일반 오류
 
-|오류|해결 방법|
+|Error|해결 방법|
 |:--|:--|
 | 400/잘못 된 요청 `"code:" "1002"` | 유효성 검사 오류 또는 잘못 된 형식의 복사 요청을 나타냅니다. 일반적인 문제는 다음과 같습니다. a) 잘못 되었거나 수정 된 `copyAuthorization` 페이로드입니다. b) 토큰에 대 한 만료 `expirationDateTimeTicks` 된 값 ( `copyAuhtorization` 페이로드는 24 시간 동안 유효). c)가 잘못 되었거나 지원 되지 않습니다 `targetResourceRegion` . d) 잘못 되었거나 형식이 잘못 된 `targetResourceId` 문자열입니다.
 |
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>일반 오류
 
-|오류|해결 방법|
+|Error|해결 방법|
 |:--|:--|
 |"errors": [{"code": "AuthorizationError",<br>"message": "다음으로 인 한 인증 실패 <br>권한 부여 클레임이 없거나 잘못 되었습니다. "}]   | `copyAuthorization`API에서 반환 된 내용 으로부터 페이로드 또는 콘텐츠를 수정할 때 발생 합니다 `copyAuthorization` . 페이로드가 이전 호출에서 반환 된 것과 동일한 정확한 콘텐츠 인지 확인 `copyAuthorization` 합니다.|
 |"errors": [{"code": "AuthorizationError",<br>"메시지": "권한 부여를 검색할 수 없습니다. <br>메타. 이 문제가 지속 되 면 다른를 사용 하십시오. <br>복사할 대상 모델입니다. "}] | `copyAuthorization`페이로드가 복사 요청에 다시 사용 됨을 나타냅니다. 성공 하는 복사 요청은 동일한 페이로드를 사용 하는 추가 요청을 허용 하지 않습니다 `copyAuthorization` . 아래에 나와 있는 것 처럼 별도의 오류를 발생 시키고 이후에 동일한 권한 부여 페이로드를 사용 하 여 복사본을 다시 시도 하면이 오류가 발생 합니다. 해결 방법은 새 페이로드를 생성 한 다음 복사 요청을 다시 실행 하는 것입니다 `copyAuthorization` .|

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88244315"
 ---
 # <a name="how-to-sign-up-for-translator"></a>번역기에 등록 하는 방법
@@ -57,7 +57,7 @@ Translator에 등록 하면 구독에 고유한 개인 설정 된 액세스 키�
 
 ## <a name="customization"></a>사용자 지정
 
-사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세히 알아보기](customization.md)
+사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세한 정보](customization.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 

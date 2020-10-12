@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285820"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 눈송이 구성
@@ -34,7 +34,7 @@ ms.locfileid: "91285820"
 > * 눈송이에서 그룹 및 그룹 멤버 자격 프로 비전
 > * 눈송이에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/snowflake-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -64,7 +64,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 눈송이를
 
     ![텍스트 필드에 복사 된 토큰과 Done 옵션을 모두 표시 하는 세부 정보 섹션의 스크린샷](media/Snowflake-provisioning-tutorial/image02.png)
 
-## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 눈송이 추가
+## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 눈송이 추가
 
 Azure AD 응용 프로그램 갤러리에서 눈송이를 추가 하 여 눈송이로의 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 눈송이를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -107,7 +107,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-8. **저장**을 클릭합니다.
+8. **Save**을 클릭합니다.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 눈송이에 동기화를**선택 합니다.
 
@@ -164,7 +164,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * 07/21/2020-활성 특성을 통해 모든 사용자에 대해 일시 삭제를 사용 합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

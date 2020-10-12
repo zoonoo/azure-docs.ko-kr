@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
 ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961519"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
@@ -75,7 +75,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 다음 표에서는 앱을 실행하는 언어 런타임의 Windows 버전을 확인하는 방법을 보여 줍니다.
 
-| 정보 산업 | 찾는 위치 | 
+| 정보 | 찾는 위치 | 
 |-|-|
 | Windows 버전 | `https://<appname>.scm.azurewebsites.net/Env.cshtml` 참조(시스템 정보 아래에 제공됨) |
 | .NET 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
@@ -90,7 +90,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 >
 >
 
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
 [보안 센터: 보안](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure App Service의 64비트 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

@@ -8,13 +8,13 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322452"
 ---
-# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>장치의 데이터가 Azure에 표시 되지 않는 이유를 해결 IoT Central
+# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
 이 문서는 장치 개발자가 IoT Central로 전송 되는 데이터가 응용 프로그램에 표시 되지 않을 수 있는 이유를 확인 하는 데 도움이 됩니다.
 

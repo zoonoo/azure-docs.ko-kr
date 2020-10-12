@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
 ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540730"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
@@ -29,7 +29,7 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 > [!IMPORTANT]
 > 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 Azure Analysis Services 방화벽의 승인 된 목록에 추가 해야 합니다. 지역별 Azure Logic Apps IP 범위에 대해 자세히 알아보려면 [Azure Logic Apps에 대 한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#configuration)를 참조 하세요.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 #### <a name="create-a-service-principal-spn"></a>SPN(서비스 사용자 이름) 만들기
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128559"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Open Geospatial Consortium에서 지도 계층 추가 (OGC)
@@ -23,7 +23,7 @@ ms.locfileid: "87128559"
 
 **WMS (웹 맵 서비스)**
 
-- 지원 되는 버전: `1.0.0` ,, `1.1.0` `1.1.1` 및`1.3.0`
+- 지원 되는 버전: `1.0.0` ,, `1.1.0` `1.1.1` 및 `1.3.0`
 - 서비스에서 `EPSG:3857` 프로젝션 시스템을 지원 하거나 다시 프로젝션을 처리 해야 합니다.
 - GetFeatureInfo를 사용 하려면 서비스가 다시 `EPSG:4326` 프로젝션을 지원 하거나 처리 해야 합니다. 
 - 지원 되는 작업:
@@ -36,9 +36,9 @@ ms.locfileid: "87128559"
 
 **WMTS (웹 맵 타일 서비스)**
 
-- 지원 되는 버전:`1.0.0`
+- 지원 되는 버전: `1.0.0`
 - 타일은 사각형 이어야 합니다 `TileWidth == TileHeight` .
-- 지원 되는 CRS: `EPSG:3857` 또는`GoogleMapsCompatible` 
+- 지원 되는 CRS: `EPSG:3857` 또는 `GoogleMapsCompatible` 
 - TileMatrix identifier는 맵의 확대/축소 수준에 해당 하는 정수 값 이어야 합니다. Azure 맵에서 확대/축소 수준은 및 사이의 값입니다 `"0"` `"22"` . 따라서 `"0"` 는 지원 되지만 `"00"` 지원 되지 않습니다.
 - 지원 되는 작업:
 

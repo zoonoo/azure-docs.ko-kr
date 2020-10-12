@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711462"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 가상 네트워크를 다른 지역으로 이동
@@ -252,5 +252,5 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 이 자습서에서는 PowerShell을 사용 하 여 가상 네트워크를 한 지역에서 다른 지역으로 이동한 다음 불필요 한 소스 리소스를 정리 했습니다. Azure에서 지역 및 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- [리소스를 새 리소스 그룹 또는 구독으로 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [다른 지역으로 Azure 가상 머신 이동](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

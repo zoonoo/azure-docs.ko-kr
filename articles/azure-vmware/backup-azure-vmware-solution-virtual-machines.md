@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용 하 여 Azure VMware 솔루션 Vm 백업
 description: Azure Backup Server를 사용 하 여 가상 컴퓨터를 백업 하도록 Azure VMware 솔루션 환경을 구성 합니다.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: a62bccb729cfa6aec89a3ce6de7283f5d9412428
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580312"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893019"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Azure Backup Server를 사용 하 여 Azure VMware 솔루션 Vm 백업
 
@@ -105,36 +105,6 @@ VMware 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다
 
 1. TLS를 마우스 오른쪽 단추로 클릭 합니다. REG 파일을 선택 하 고 **병합** 또는 **열기** 를 선택 하 여 설정을 레지스트리에 추가 합니다.
 
-## <a name="add-the-provisioning-ip-address"></a>프로 비전 IP 주소 추가 
-
-미리 보기 중에 Azure VMware 솔루션은 가상 네트워크에 배포 된 가상 컴퓨터에서 ESX 호스트를 확인 하지 않습니다. Azure Backup Server 가상 컴퓨터에 호스트 파일 항목을 추가 하려면 추가 단계를 수행 해야 합니다.
-
-### <a name="identify-the-ip-address-for-esxi-hosts"></a>ESXi 호스트의 IP 주소를 확인 합니다.
-
-1. 브라우저를 열고 vCenter Url에 로그인 합니다. 
-
-   > [!TIP]
-   > [사설 클라우드의 로컬 vCenter에 연결](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud)에서 url을 찾을 수 있습니다.
-
-1. VSphere 클라이언트에서 백업을 사용 하도록 설정할 클러스터를 선택 합니다.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vsphere-client-select-host.png" alt-text="vSphere Web Client":::
-
-1. **Configure**  >  **네트워킹**  >  **vmkernel 어댑터**구성을 선택 합니다. 장치 목록에서 **프로 비전** 역할이 사용 하도록 설정 된 네트워크 어댑터를 확인 합니다. **IP 주소** 와 ESXi 호스트 이름을 적어 둡니다.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="vSphere Web Client":::
-
-1. 백업을 사용 하도록 설정 하려는 모든 클러스터에서 각 ESXi 호스트에 대해 이전 단계를 반복 합니다.
-
-### <a name="update-the-host-file-on-azure-backup-server"></a>Azure Backup Server에서 호스트 파일 업데이트
-
-1. 관리자 권한으로 메모장을 엽니다.
-
-1. **파일**  >  **열기**를 선택 하 고 c:\Windows\System32\Drivers\etc\hosts.를 검색 합니다.
-
-1. 이전 섹션에서 확인 한 IP 주소와 함께 각 ESXi 호스트에 대 한 항목을 추가 합니다.
-
-1. 변경 내용을 저장 하 고 메모장을 닫습니다.
 
 ## <a name="add-the-account-on-azure-backup-server"></a>Azure Backup Server에 계정 추가
 

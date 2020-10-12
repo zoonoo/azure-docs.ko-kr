@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950207"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호 사용자 환경
@@ -80,7 +80,7 @@ IT 담당자는 사용자가 다시 로그인 할 수 있도록 [차단](howto-i
 
 IT 담당자는 사용자가 다시 로그인 할 수 있도록 [차단](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) 해제 섹션의 지침을 따를 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [위험 재구성 및 사용자 차단 해제](howto-identity-protection-remediate-unblock.md)
 

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 레코드, 재생, matroska, .mkv
 ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501783"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Azure Kinect 센서 SDK를 사용 하 여 파일 형식 기록
@@ -22,7 +22,7 @@ ms.locfileid: "87501783"
 
 | 트랙 이름 | 코덱 형식                          |
 |------------|---------------------------------------|
-| 색      | 모드 종속적 (MJPEG, NV12 또는 YUY2) |
+| 색      | Mode-Dependent (MJPEG, NV12 또는 YUY2) |
 | DEPTH      | b16g (16 비트 회색조, 빅 endian)   |
 | IR         | b16g (16 비트 회색조, 빅 endian)   |
 | IMU        | 사용자 지정 구조 아래의 [Imu 샘플 구조](record-file-format.md#imu-sample-structure) 를 참조 하세요. |

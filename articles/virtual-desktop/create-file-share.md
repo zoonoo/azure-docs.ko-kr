@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287324"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용 하 여 프로필 컨테이너 만들기
@@ -19,7 +19,7 @@ ms.locfileid: "91287324"
 
 이 프로세스는 온-프레미스 디렉터리 서비스인 Active Directory Domain Services (AD DS)를 사용 합니다. Azure AD DS를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법에 대 한 자세한 내용은 [Azure Files를 사용 하 여 fslogix 프로필 컨테이너 만들기](create-profile-container-adds.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 도메인 컨트롤러가 Azure에 동기화 되 고 세션 호스트가 연결 된 Azure VNET (가상 네트워크)에서 확인할 수 있는지 확인 합니다.
 
@@ -131,7 +131,7 @@ UNC 경로를 가져오는 방법은 다음과 같습니다.
     - 슬래시를 백슬래시로 바꿉니다 `/` `\` .
     - [Azure 파일 공유 만들기](#create-an-azure-file-share) 에서 만든 파일 공유의 이름을 UNC의 끝에 추가 합니다.
 
-        예: `\\customdomain.file.core.windows.net\<fileshare-name>`
+        `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>스토리지 계정 키 가져오기
 

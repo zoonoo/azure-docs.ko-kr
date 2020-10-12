@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403554"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
@@ -75,7 +75,7 @@ Azure Monitor의 최우선 과제는 고객 데이터가 손실되지 않도록 
 ## <a name="checking-ingestion-time"></a>수집 시간 확인
 수집 시간은 리소스와 상황에 따라 달라질 수 있습니다. 로그 쿼리를 사용하여 현재 환경의 특정 동작을 파악할 수 있습니다. 다음 표에서는 레코드를 만들고 Azure Monitor 전송 되는 레코드에 대해 다른 시간을 결정 하는 방법을 지정 합니다.
 
-| 단계 | 속성 또는 함수 | 의견 |
+| 단계 | 속성 또는 함수 | 주석 |
 |:---|:---|:---|
 | 데이터 원본에 생성 되는 레코드 | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>데이터 원본에서이 값을 설정 하지 않으면 _TimeReceived와 같은 시간으로 설정 됩니다. |
 | Azure Monitor 수집 끝점에서 받은 레코드 | [_TimeReceived](log-standard-properties.md#_timereceived) | |

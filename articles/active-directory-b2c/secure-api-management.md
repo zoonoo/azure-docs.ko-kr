@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87482841"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용하여 Azure API Management API 보호
@@ -60,7 +60,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 다음으로 Azure AD B2C 사용자 흐름 중 하나에 대한 잘 알려진 구성 URL을 가져옵니다. 또한 Azure API Management에서 지원하려는 토큰 발급자 엔드포인트 URI가 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테넌트로 이동합니다.
-1. **정책**에서 **사용자 흐름**을 선택 합니다.
+1. **정책** 아래에서 **사용자 흐름**을 선택합니다.
 1. 기존 정책(예: *B2C_1_signupsignin1*)을 선택하고 **사용자 흐름 실행**을 선택합니다.
 1. 페이지 맨 위에 있는 **사용자 흐름 실행** 제목 아래에 표시되는 하이퍼링크에 URL을 적어 둡니다. 이 URL은 사용자 흐름에 대한 OpenID Connect의 잘 알려진 검색 엔드포인트로, 다음 섹션에서 Azure API Management에서 인바운드 정책을 구성할 때 이 URL을 사용합니다.
 
@@ -126,7 +126,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 먼저 Postman의 `Authorization` 헤더에서 사용하기 위해 Azure AD B2C에서 발급한 토큰이 필요합니다. 필수 조건 중 하나로 만들어야 하는 등록/로그인 사용자 흐름의 **지금 실행** 기능을 사용하여 토큰을 하나 가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테넌트로 이동합니다.
-1. **정책**에서 **사용자 흐름**을 선택 합니다.
+1. **정책** 아래에서 **사용자 흐름**을 선택합니다.
 1. 기존 등록/로그인 사용자 흐름을 선택합니다(예: *B2C_1_signupsignin1*).
 1. **애플리케이션**으로 *webapp1*을 선택합니다.
 1. **회신 URL**로 `https://jwt.ms`를 선택합니다.

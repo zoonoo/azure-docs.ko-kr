@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure event grid 토픽 또는 도메인의 진
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116746"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Azure Event Grid 토픽/도메인에 대 한 진단 로그
@@ -18,14 +18,14 @@ ms.locfileid: "86116746"
 
 | 속성 이름 | 데이터 형식 | Description |
 | ------------- | --------- | ----------- | 
-| Time | DateTime | 로그 항목이 생성 된 시간입니다. <p>**값 예:** 01-29-2020 09:52:02.700</p> |
+| Time | DateTime | 로그 항목이 생성 된 시간입니다. <p>**값 예:**  01-29-2020 09:52:02.700</p> |
 | EventSubscriptionName | String | 이벤트 구독의 이름 <p>**값 예:** "EVENTSUB1"</p> <p>이 속성은 배달 실패 로그에 대해서만 존재 합니다.</p>  |
 | 범주 | String | 로그 범주 이름입니다. <p>**예제 값:** "DeliveryFailures" 또는 "오류 발생" | 
 | OperationName | String | 오류가 발생 하는 동안 수행 되는 작업의 이름입니다.<p>**예제 값:** 배달 실패를 "전달" 합니다. |
 | 메시지 | String | 오류의 원인과 기타 추가 정보를 설명 하는 사용자에 대 한 로그 메시지입니다. |
 | ResourceId | String | 토픽/도메인 리소스에 대 한 리소스 ID<p>**예제 값:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 ```json
 {

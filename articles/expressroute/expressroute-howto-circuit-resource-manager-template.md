@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
 ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566180"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Express 경로 회로 만들기
@@ -63,7 +63,7 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU 계층** 은 express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, * Standard 또는 *Premium*을 지정할 수 있습니다. *Standard/Premium* 에서 *Local*로 SKU를 변경할 수 없습니다.
+   * **SKU 계층** 은 express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, * Standard 또는 *Premium*을 지정할 수 있습니다. SKU를 *표준/프리미엄*에서 *로컬*로 변경할 수 없습니다.
    * **SKU 제품군** 은 청구 유형을 결정 합니다. 데이터 요금제에 대해 *unlimiteddata* 를 지정 하 고 무제한 데이터 요금제의 경우 *unlimiteddata로* 을 지정할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다. *로컬* 회로는 *unlimiteddata로* 뿐입니다.
    * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 

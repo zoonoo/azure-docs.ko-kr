@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087357"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성
@@ -207,7 +207,7 @@ Azure Portal에서 하나 이상의 기존 컨테이너에 대 한 공용 액세
 
 저장소 계정에 대 한 공용 액세스가 허용 되지 않는 경우 컨테이너의 공용 액세스 수준을 설정할 수 없습니다. 컨테이너의 공용 액세스 수준을 설정 하려고 하면 계정에 대 한 공용 액세스가 허용 되지 않기 때문에 설정이 비활성화 된 것을 볼 수 있습니다.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="공용 액세스를 허용 하지 않을 때 컨테이너 공용 액세스 수준 설정이 차단 됨을 보여 주는 스크린샷":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="계정에 대 한 blob 공용 액세스를 허용 하거나 허용 하지 않는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

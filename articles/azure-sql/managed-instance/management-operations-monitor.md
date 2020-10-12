@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996843"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 모니터링
@@ -43,10 +43,10 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 다음 표에서는 관리 작업 모니터링 옵션을 비교 합니다. 
 
-| 옵션 | 보존 | 취소 지원 | 만들기 | 업데이트 | 삭제 | 취소 | 단계 |
+| 옵션 | 보존 | 취소 지원 | 생성 | 업데이트 | DELETE | 취소 | 단계 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 리소스 그룹 배포 | 무한<sup>1</sup> | 아니요<sup>2</sup> | 표시 | 표시 | 표시되지 않음 | 표시 | 표시되지 않음 |
-| 활동 로그 | 90일 | 예 | 표시 | 표시 | 표시 | 표시 |  표시되지 않음 |
+| 활동 로그 | 90일 | 아니요 | 표시 | 표시 | 표시 | 표시 |  표시되지 않음 |
 | 관리 되는 인스턴스 작업 API | 24시간 | [예](management-operations-cancel.md) | 표시 | 표시 | 표시 | 표시 | 표시 |
 |  |  |  |  |  |  |  | |
 
@@ -88,7 +88,7 @@ Azure Portal에서 관리 되는 인스턴스 **개요** 페이지를 사용 하
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-AzSqlInstanceOperation cmdlet은 관리 되는 인스턴스의 작업에 대 한 정보를 가져옵니다. 관리 되는 인스턴스의 모든 작업을 보거나 작업 이름을 제공 하 여 특정 작업을 볼 수 있습니다.
+Get-AzSqlInstanceOperation cmdlet은 관리 되는 인스턴스의 작업에 대 한 정보를 가져옵니다. 관리 되는 인스턴스의 모든 작업을 보거나 작업 이름을 제공 하 여 특정 작업을 볼 수 있습니다.
 
 ```powershell-interactive
 $managedInstance = "yourInstanceName"
@@ -114,8 +114,8 @@ az sql mi op list -g yourResourceGroupName --mi yourInstanceName
 
 ## <a name="next-steps"></a>다음 단계
 
-- 첫 번째 관리 되는 인스턴스를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조 하세요.
+- 첫 번째 Managed Instance를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조하세요.
 - 기능 및 비교 목록은 [일반적인 SQL 기능](../database/features-comparison.md)을 참조 하세요.
-- VNet 구성에 대 한 자세한 내용은 [SQL Managed Instance vnet 구성](connectivity-architecture-overview.md)을 참조 하세요.
-- 관리 되는 인스턴스를 만들고 백업 파일에서 데이터베이스를 복원 하는 빠른 시작은 [관리 되는 인스턴스 만들기](instance-create-quickstart.md)를 참조 하세요.
-- 마이그레이션을 위해 Azure Database Migration Service를 사용 하는 방법에 대 한 자습서는 [Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조 하세요.
+- VNet 구성에 대한 자세한 내용은 [SQL Managed Instance VNet 구성](connectivity-architecture-overview.md)을 참조하세요.
+- 백업 파일에서 관리형 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
+- Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자습서는 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.

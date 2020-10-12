@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924209"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용 하 여 DPS와 통신
@@ -48,7 +48,7 @@ DPS와의 모든 장치 통신은 TLS/SSL을 사용 하 여 보호 해야 합니
 
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`ResourceURI는 형식 이어야 합니다 `{idScope}/registrations/{registration_id}` . 정책 이름은 이어야 합니다 `registration` .
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration` ResourceURI는 형식 이어야 합니다 `{idScope}/registrations/{registration_id}` . 정책 이름은 이어야 합니다 `registration` .
 
   > [!NOTE]
   > X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다.

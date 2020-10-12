@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: dead71d08b5a7a16871816580107c8aed8a0a77c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405108"
 ---
 # <a name="restore-an-existing-sql-pool"></a>기존 SQL 풀 복원
@@ -97,7 +97,7 @@ $RestoredDatabase.status
 
     ![ 복원 개요](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. **자동 복원 지점** 또는 **사용자 정의 복원 지점** 중 하나를 선택합니다. SQL 풀에 자동 복원 지점이 없는 경우 몇 시간을 기다리거나 복원 하기 전에 사용자 정의 복원 지점을 만듭니다. 사용자 정의 복원 지점의 경우 기존 항목을 선택 하거나 새로 만듭니다. **서버의**경우 다른 리소스 그룹 및 지역에서 서버를 선택 하거나 새 서버를 만들 수 있습니다. 모든 매개 변수를 제공한 후 **검토 + 복원**을 클릭 합니다.
+4. **자동 복원 지점** 또는 **사용자 정의 복원 지점** 중 하나를 선택합니다. SQL 풀에 자동 복원 지점이 없는 경우 몇 시간을 기다리거나 복원 하기 전에 사용자 정의 복원 지점을 만듭니다. User-Defined 복원 지점의 경우 기존 항목을 선택 하거나 새로 만듭니다. **서버의**경우 다른 리소스 그룹 및 지역에서 서버를 선택 하거나 새 서버를 만들 수 있습니다. 모든 매개 변수를 제공한 후 **검토 + 복원**을 클릭 합니다.
 
     ![자동 복원 지점](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
