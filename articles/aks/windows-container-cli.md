@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421232"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
@@ -71,7 +71,7 @@ Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 �
 
 * 클러스터는 두 개의 노드로 구성 됩니다.
 * *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows server 컨테이너에 대 한 관리자 자격 증명을 설정 하며 [windows server 암호 요구 사항을][windows-server-password]충족 해야 합니다.
-* 노드 풀은 다음을 사용 합니다.`VirtualMachineScaleSets`
+* 노드 풀은 다음을 사용 합니다. `VirtualMachineScaleSets`
 
 > [!NOTE]
 > 클러스터가 안정적으로 작동 되도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.

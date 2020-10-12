@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965050"
 ---
 # <a name="workbook-drop-down-parameters"></a>통합 문서 드롭다운 매개 변수
@@ -28,11 +28,11 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`Environment`
-    2. 매개 변수 유형:`Drop down`
-    3. 필수:`checked`
-    4. 허용 `multiple selection` :`unchecked`
-    5. 데이터 가져오기:`JSON`
+    1. 매개 변수 이름: `Environment`
+    2. 매개 변수 유형: `Drop down`
+    3. 필수: `checked`
+    4. 허용 `multiple selection` : `unchecked`
+    5. 데이터 가져오기: `JSON`
 5. JSON 입력 텍스트 블록에서 다음 json 코드 조각을 삽입 합니다.
     ```json
     [
@@ -70,11 +70,11 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`RequestName`
-    2. 매개 변수 유형:`Drop down`
-    3. 필수:`checked`
-    4. 허용 `multiple selection` :`unchecked`
-    5. 데이터 가져오기:`Query`
+    1. 매개 변수 이름: `RequestName`
+    2. 매개 변수 유형: `Drop down`
+    3. 필수: `checked`
+    4. 허용 `multiple selection` : `unchecked`
+    5. 데이터 가져오기: `Query`
 5. JSON 입력 텍스트 블록에서 다음 json 코드 조각을 삽입 합니다.
 
     ```kusto
@@ -131,7 +131,7 @@ dependencies
 
 
 ## <a name="drop-down-parameter-options"></a>드롭다운 매개 변수 옵션
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `{DependencyName}` | 선택한 값 | Fabrikamaccount 가져오기 |
 | `{DependencyName:label}` | 선택한 레이블 | fabrikamaccount 가져오기 🌐 |

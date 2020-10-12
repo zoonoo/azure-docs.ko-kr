@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bbcc60070a05155a6143d3f1ff4689d44de7b3c7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88944416"
 ---
 :::row:::
@@ -38,6 +38,6 @@ dotnet add package Microsoft.CognitiveServices.Speech
 Install-Package Microsoft.CognitiveServices.Speech
 ```
 
-#### <a name="additional-resources"></a>추가 자료
+#### <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET Core, .NET Framework, Unity, UWP 및 Xamarin 빠른 시작 c # 소스 코드 <span class="docon docon-navigate-external x-hidden-focus"></span></a>

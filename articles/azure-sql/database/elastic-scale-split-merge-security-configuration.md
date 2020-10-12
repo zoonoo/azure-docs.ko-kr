@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829437"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
@@ -59,8 +59,8 @@ ms.locfileid: "85829437"
 
 ### <a name="create-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 만들기
 
-1. [자체 서명 된 인증서 만들기](#create-a-self-signed-certificate)
-2. [자체 서명 된 TLS/SSL 인증서에 대 한 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Self-Signed 인증서 만들기](#create-a-self-signed-certificate)
+2. [Self-Signed TLS/SSL 인증서에 대 한 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [클라우드 서비스에 TLS/SSL 인증서 업로드](#upload-tlsssl-certificate-to-cloud-service)
 4. [서비스 구성 파일에서 TLS/SSL 인증서 업데이트](#update-tlsssl-certificate-in-service-configuration-file)
 5. [TLS/SSL 인증 기관 가져오기](#import-tlsssl-certification-authority)
@@ -105,7 +105,7 @@ ms.locfileid: "85829437"
 메타데이터 저장소에 저장된 자격 증명을 암호화하려면 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
 ### <a name="use-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 사용
-1. [자체 서명 된 인증서 만들기](#create-a-self-signed-certificate)
+1. [Self-Signed 인증서 만들기](#create-a-self-signed-certificate)
 2. [자체 서명된 암호화 인증서용 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [클라우드 서비스에 암호화 인증서 업로드](#upload-encryption-certificate-to-cloud-service)
 4. [서비스 구성 파일에서 암호화 인증서 업데이트](#update-encryption-certificate-in-service-configuration-file)
@@ -437,7 +437,7 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 * 클라이언트 인증서 구성
 
 ## <a name="find-certificate"></a>인증서를 찾습니다.
-아래 단계를 수행합니다.
+다음 단계를 수행합니다.
 
 1. Mmc.exe를 실행합니다.
 2. 파일-> 스냅인 추가/제거로 이동합니다.

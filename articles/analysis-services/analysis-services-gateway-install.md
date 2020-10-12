@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438970"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
@@ -20,14 +20,14 @@ ms.locfileid: "87438970"
 
 Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자세히 알아보려면 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요. 일반적인 고급 설치 시나리오 및 게이트웨이에 대 한 자세한 내용은 [온-프레미스 데이터 게이트웨이 설명서](/data-integration/gateway/service-gateway-onprem)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 **최소 요구 사항:**
 
 * .NET 4.5 Framework
 * 64 비트 버전의 Windows 8/Windows Server 2012 R2 (이상)
 
-**바람직하지**
+**권장:**
 
 * 8 코어 CPU
 * 8GB 메모리
@@ -54,7 +54,7 @@ Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자
 
 2. **온-프레미스 데이터 게이트웨이를**선택 합니다.
 
-   ![선택](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![새 페이지를 추가하기 위해](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. 위치를 선택하고 조건에 동의한 다음 **설치**를 클릭합니다.
 
@@ -151,7 +151,7 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+이것으로 끝입니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

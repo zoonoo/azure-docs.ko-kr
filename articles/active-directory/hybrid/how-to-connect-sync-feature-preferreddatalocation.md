@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319897"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성
@@ -44,7 +44,7 @@ Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있�
 | --- | --- |
 | 아시아 태평양 | APC |
 | 오스트레일리아 | AUS |
-| Canada | CAN |
+| 캐나다 | CAN |
 | 유럽 연합 | EUR |
 | 프랑스 | FRA |
 | 인도 | IND |
@@ -143,7 +143,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
     | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
     | 속성 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
-    | Description | *사용자 지정 설명 제공* |  |
+    | 설명 | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **사용자** |  |
     | 메타버스 개체 유형 | **Person** |  |

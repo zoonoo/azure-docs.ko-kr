@@ -15,10 +15,10 @@ manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077851"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
@@ -27,7 +27,7 @@ ms.locfileid: "89077851"
 
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -251,7 +251,7 @@ SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 다음 단계를 
 
       예를 들어 SSDT에서 원래 패키지를 수정 하지 않으면 런타임에 기존 연결 관리자에서 **Connectbyproxy**, **ConnectionString**및 **ConnectUsingManagedIdentity** 속성의 값을 재정의 하 여 SQL Server에서 실행 되는 온-프레미스-온-프레미스 데이터 흐름을 ADF의 SSIS IR에서 실행 되는 온-프레미스-클라우드 데이터 흐름으로 변환할 수 있습니다.
       
-      이러한 런타임 재정의는 온-프레미스 데이터에 액세스할 때 SSIS IR에 대 한 프록시로 SHIR (자체 호스팅 IR)을 사용 하도록 설정할 수 있습니다. MSOLEDBSQL 드라이버를 사용 하 여 [SSIS ir에 대 한 프록시로 Shir 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)Managed Instance AZURE SQL DATABASE 및 adf 관리 id를 사용 하 여 aad (Azure Active Directory) 인증을 사용 하는 [aad 인증 구성](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)을 참조 하세요.
+      이러한 런타임 재정의는 온-프레미스 데이터에 액세스할 때 SSIS IR에 대 한 프록시로 Self-Hosted IR (SHIR)을 사용 하도록 설정할 수 있습니다. 최신 MSOLEDBSQL Azure Active Directory 드라이버를 사용 하 여 Azure SQL Database/Managed Instance 연결을 사용 하 여 온-프레미스에 [대 한 프록시로 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)하 고 adf 관리 id를 사용 하 여 Aad [인증 구성](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)을 참조 하세요.
 
       ![연결 관리자 탭에서 SSDT의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

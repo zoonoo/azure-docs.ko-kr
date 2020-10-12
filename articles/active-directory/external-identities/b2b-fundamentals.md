@@ -13,10 +13,10 @@ ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909688"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory B2B 모범 사례
@@ -28,7 +28,7 @@ ms.locfileid: "87909688"
 ## <a name="b2b-recommendations"></a>B2B 권장 사항
 | 권장 | 주석 |
 | --- | --- |
-| 최적의 로그인 환경을 위해 id 공급자와 페더레이션 | 가능 하면 언제 든 지 id 공급자와 직접 페더레이션 하 여 초대 된 사용자가 Microsoft 계정 (MSAs) 또는 Azure AD 계정을 만들지 않고도 공유 앱 및 리소스에 로그인 할 수 있도록 합니다. [Google 페더레이션 기능](google-federation.md) 을 사용 하 여 B2B 게스트 사용자가 google 계정으로 로그인 할 수 있습니다. 또는 [직접 페더레이션 (미리 보기) 기능](direct-federation.md) 을 사용 하 여 IdP (id 공급자)가 SAML 2.0 또는 WS-급지됨 프로토콜을 지 원하는 조직과 직접 페더레이션을 설정할 수 있습니다. |
+| 최적의 로그인 환경을 위해 id 공급자와 페더레이션 | 가능 하면 언제 든 지 id 공급자와 직접 페더레이션 하 여 초대 된 사용자가 Microsoft 계정 (MSAs) 또는 Azure AD 계정을 만들지 않고도 공유 앱 및 리소스에 로그인 할 수 있도록 합니다. [Google 페더레이션 기능](google-federation.md) 을 사용 하 여 B2B 게스트 사용자가 google 계정으로 로그인 할 수 있습니다. 또는 IdP (id 공급자)가 SAML 2.0 또는 WS-Fed 프로토콜을 지 원하는 조직과 직접 페더레이션 [(미리 보기) 기능](direct-federation.md) 을 사용 하 여 직접 페더레이션을 설정할 수 있습니다. |
 | 다른 방법으로 인증할 수 없는 B2B 게스트에 대해 전자 메일 일회용 암호 (미리 보기) 기능을 사용 합니다. | [전자 메일 일회용 암호 (미리 보기)](one-time-passcode.md) 기능은 Azure AD, MICROSOFT 계정 (MSA) 또는 Google 페더레이션의 다른 방법으로 인증 될 수 없는 B2B 게스트 사용자를 인증 합니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다. |
 | 로그인 페이지에 회사 브랜딩 추가 | B2B 게스트 사용자에 게 보다 직관적인 로그인 페이지를 사용자 지정할 수 있습니다. [로그인 및 액세스 패널 페이지에 회사 브랜딩을 추가](../fundamentals/customize-branding.md)하는 방법을 참조 하세요. |
 | B2B 게스트 사용자 상환 환경에 개인 정보 취급 방침 추가 | 초대 된 사용자가 계속 하려면 개인 정보 취급 방침에 동의 해야 하도록 조직의 개인 정보 취급 방침에 대 한 URL을 첫 번째 시간 초대 상환 프로세스에 추가할 수 있습니다. [방법: Azure Active Directory에서 조직의 개인 정보에 대 한 추가](https://aka.ms/adprivacystatement)정보를 참조 하세요. |

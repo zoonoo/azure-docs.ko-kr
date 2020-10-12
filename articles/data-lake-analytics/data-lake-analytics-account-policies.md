@@ -8,10 +8,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: cf64424d1d422e599585b76fc068c940f9311b05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127709"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>계정 정책을 사용 하 여 Azure Data Lake Analytics 관리
@@ -75,7 +75,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 개의 �
     3. **Set the Job AU Limit**(작업 AU 한도 설정): 선택한 사용자 또는 그룹에 적용되는 AU 한도를 설정합니다.
     4. **Set the Priority Limit**(우선 순위 한도 설정): 선택한 사용자 또는 그룹에 적용되는 우선 순위 한도를 설정합니다.
 
-4. **확인**을 클릭합니다.
+4. **Ok**를 클릭합니다.
 
 5. 새 정책은 **기본** 정책 테이블에서 **작업 제출 한도** 아래에 나열됩니다. # # # 기존 정책 삭제 또는 편집
 

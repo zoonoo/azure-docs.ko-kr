@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936132"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예: Python을 사용 하 여 사용자 지정 기술 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "88936132"
   + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Visual Studio Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-## <a name="create-an-azure-function"></a>Azure Function 만들기
+## <a name="create-an-azure-function"></a>Azure Functions 만들기
 
 이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하는 개념을 보여 주지만 다른 방법이 가능 합니다. [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 

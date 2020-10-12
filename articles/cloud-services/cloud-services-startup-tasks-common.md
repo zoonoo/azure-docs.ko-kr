@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85920066"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
@@ -377,7 +377,7 @@ EXIT /B 0
 웹 또는 작업자 역할에 대한 작업을 구성할 때 따라야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
 ### <a name="always-log-startup-activities"></a>항상 시작 작업 기록
-Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다.`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다. `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다.
 

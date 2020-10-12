@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386047"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
@@ -39,7 +39,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -131,7 +131,7 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 * 에서 서비스를 제거한 다음 가상 네트워크에 다시 추가 하면 공용 및 개인 액세스용으로 할당 된 IP 주소가 변경 될 수 있습니다. 이 문제가 발생 하는 경우 가상 네트워크 내에서 DNS 등록, 라우팅 규칙 및 IP 제한 목록을 업데이트 해야 할 수 있습니다.
 
 ## <a name="related-content"></a><a name="related-content"> </a>관련 콘텐츠
-자세히 알아보려면 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 * [가상 네트워크에서 Azure API Management를 설정하는 동안 발생하는 공통 네트워크 구성 문제][Common network configuration problems]
 * [가상 네트워크 Faq](../virtual-network/virtual-networks-faq.md)
 * [DNS에 레코드 만들기](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))

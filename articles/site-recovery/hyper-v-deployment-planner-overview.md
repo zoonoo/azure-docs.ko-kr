@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528947"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
@@ -79,7 +79,7 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 
 *이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V에서 보조 사이트로 재해 복구에 대하여, 필요한 네트워크 대역폭, 각 원본 Hyper-V 서버에 필요한 사용 가능한 스토리지 공간 및 초기 복제 일괄 처리 번호 및 일괄 처리 정의와 같은 원본 측 권장 사항을 이해하는 데에만 사용할 수 있습니다.  보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 처리량 가져오기 작업은 Hyper-V에서 보조 사이트로 재해 복구 시나리오에는 적용할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 도구에는 VM 목록 가져오기, 프로파일링 및 보고서 생성이라는 Hyper-V의 세 가지 주요 단계가 있습니다. 또한 처리량만 계산하는 네 번째 옵션도 있습니다. 서로 다른 단계가 실행되어야 하는 서버에 대한 요구 사항은 다음 테이블에 있습니다.
 
 | 서버 요구 사항 | 설명 |

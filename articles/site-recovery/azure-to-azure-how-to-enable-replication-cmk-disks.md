@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528998"
 ---
-# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>CMK (고객이 관리 하는 키)가 설정 된 디스크를 사용 하 여 컴퓨터 복제
+# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>CMK(고객 관리형 키) 사용 가능 디스크를 사용하여 컴퓨터 복제
 
-이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm을 CMK (고객이 관리 하는 키)로 설정 된 관리 디스크로 복제 하는 방법을 설명 합니다.
+이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm을 Customer-Managed 키 (CMK)로 설정 된 관리 디스크로 복제 하는 방법을 설명 합니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 CMK를 사용 하는 관리 디스크가 있는 가상 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 대상 구독에 대 한 대상 지역에서 디스크 암호화 집합을 만들어야 합니다.
 
 ## <a name="enable-replication"></a>복제 사용
@@ -70,9 +70,9 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 ![CMK를 사용 하는 디스크가 있는 컴퓨터에 대 한 복제 사용](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
->초기 복제 중에는 상태를 명확 하 게 진행 하지 않고 새로 고치는 데 시간이 걸릴 수 있습니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭 합니다.
+>초기 복제 중에는 상태를 명확 하 게 진행 하지 않고 새로 고치는 데 시간이 걸릴 수 있습니다. 최신 상태를 가져오려면 **새로 고침**  을 클릭 합니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * 기존 복제 된 항목에 CMK를 사용 하도록 설정 했습니다. CMK가 대상 지역에도 적용 되도록 하려면 어떻게 해야 하나요?
 

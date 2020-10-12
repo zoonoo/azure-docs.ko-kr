@@ -11,10 +11,10 @@ ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87428122"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
@@ -239,10 +239,10 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Restful service 끝점에 대 한 연결을 설정 하지 못했습니다. Restful 서비스 URL:{0} |
-|UserMessageIfCircuitOpen | {0}Restful 서비스 URL:{1} |
-|UserMessageIfDnsResolutionFailed | Restful 서비스 끝점의 호스트 이름을 확인 하지 못했습니다. Restful 서비스 URL:{0} |
-|UserMessageIfRequestTimeout | 제한 시간 (초) 내에 restful 서비스 끝점에 대 한 연결을 설정 하지 못했습니다 {0} . Restful 서비스 URL:{1} |
+|DefaultUserMessageIfRequestFailed | Restful service 끝점에 대 한 연결을 설정 하지 못했습니다. Restful 서비스 URL: {0} |
+|UserMessageIfCircuitOpen | {0} Restful 서비스 URL: {1} |
+|UserMessageIfDnsResolutionFailed | Restful 서비스 끝점의 호스트 이름을 확인 하지 못했습니다. Restful 서비스 URL: {0} |
+|UserMessageIfRequestTimeout | 제한 시간 (초) 내에 restful 서비스 끝점에 대 한 연결을 설정 하지 못했습니다 {0} . Restful 서비스 URL: {1} |
 
 
 ### <a name="example"></a>예제

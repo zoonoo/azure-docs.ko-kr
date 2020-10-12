@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927557"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS의 Windows Server 노드 풀에 대 한 질문과 대답
@@ -58,7 +58,7 @@ Windows 노드 풀을 사용 하는 AKS 클러스터는 Azure CNI (고급) 네�
 
 지금은 Windows 노드에서 [클라이언트 원본 IP 유지][client-source-ip] 가 지원 되지 않습니다.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>최대를 변경할 수 있습니다. 노드당 pod 수?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>노드당 pod의 최대 수를 변경할 수 있나요?
 
 예. 사용할 수 있는 의미 및 옵션은 [최대 pod 수][maximum-number-of-pods]를 참조 하세요.
 

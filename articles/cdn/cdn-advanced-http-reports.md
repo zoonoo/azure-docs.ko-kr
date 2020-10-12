@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84886065"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석
@@ -199,7 +199,7 @@ ms.locfileid: "84886065"
 
 가로 막대형 차트 바로 아래에는 상위 250개 요청된 자산에 대해 상대 경로(파일 이름 포함), 404 찾을 수 없음 상태 코드가 발생한 요청 수, 자산이 요청된 총 횟수, 404 찾을 수 없음 상태 코드가 발생한 요청의 백분율 등의 정보가 나열됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)

@@ -11,10 +11,10 @@ ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897508"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
@@ -24,7 +24,7 @@ ms.locfileid: "90897508"
 
 로그를 한 번에 배치 하면 예외 및 오류 메시지에 대 한 기록이 제공 됩니다. Application Insights는 Azure 경고와 통합 되기 때문에 Application Insights 쿼리를 기반으로 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 단계에 따라 [Azure Machine Learning](./how-to-manage-workspace.md) 작업 영역을 만들고 [첫 번째 파이프라인을 만듭니다](./how-to-create-your-first-pipeline.md) .
 * [개발 환경을 구성](./how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.
