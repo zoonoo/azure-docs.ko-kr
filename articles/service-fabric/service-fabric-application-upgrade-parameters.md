@@ -4,10 +4,10 @@ description: 수행할 상태 확인 및 업그레이드를 자동으로 실행 
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247968"
 ---
 # <a name="application-upgrade-parameters"></a>애플리케이션 업그레이드 매개 변수
@@ -51,7 +51,7 @@ UnmonitoredManual | PS | 업그레이드 모드가 수동으로 모니터링되�
 > | 매개 변수 | 적용 대상 | 설명 |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| 애플리케이션 매개 변수에 대한 재정의를 지정합니다.<br>PowerShell 애플리케이션 매개 변수는 해시 테이블 이름/값 쌍으로 지정합니다. 예를 들어 @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }입니다.<br>Visual Studio 애플리케이션 매개 변수는 **애플리케이션 매개 변수 파일** 필드의 [Service Fabric 애플리케이션 게시] 대화 상자에서 지정할 수 있습니다.
-> | Confirm |PS| 허용 되는 값은 **True** 및 **False**입니다. cmdlet를 실행하기 전에 확인 메시지를 표시합니다. |
+> | 확인 |PS| 허용 되는 값은 **True** 및 **False**입니다. cmdlet를 실행하기 전에 확인 메시지를 표시합니다. |
 > | ConsiderWarningAsError |PS, VS |허용 되는 값은 **True** 및 **False**입니다. 기본값은 **False**입니다. 업그레이드하는 동안 애플리케이션의 상태를 평가할 때 애플리케이션에 대한 경고 상태 이벤트를 오류로 처리합니다. 기본적으로 서비스 패브릭은 경고 상태 이벤트를 실패(오류)로 평가하지 않으므로 경고 이벤트가 발생해도 업그레이드를 진행할 수 있습니다. |
 > | DefaultServiceTypeHealthPolicy | PS, VS |모니터링되는 업그레이드에 사용할 기본 서비스 유형에 대한 상태 정책을 MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices 형식으로 지정합니다. 예를 들어 5,10,15는 MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15의 값을 나타냅니다. |
 > | Force | PS, VS | 허용 되는 값은 **True** 및 **False**입니다. 업그레이드 프로세스에서 경고 메시지를 건너뛰고, 버전 번호가 변경되지 않은 경우에도 업그레이드를 강제 적용한다는 것을 나타냅니다. 로컬 테스트에는 유용하지만, 가동 중단 및 잠재적인 데이터 손실을 유발하는 기존 배포를 제거해야 하므로 프로덕션 환경에서는 사용하지 않는 것이 좋습니다. |

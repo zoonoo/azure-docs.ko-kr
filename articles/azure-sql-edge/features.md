@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886531"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Azure SQL Edge의 지원 되는 기능 
@@ -52,7 +52,7 @@ Azure SQL Edge는 데이터베이스 엔진만 지원 합니다. Windows의 SQL 
 Azure SQL Edge는 SQL Server on Linux 기능 하위 집합을 지 원하는 것 외에도 다음과 같은 새로운 기능을 지원 합니다. 
 
 - Azure Stream Analytics를 지 원하는 것과 동일한 엔진을 기반으로 하는 SQL streaming은 Azure SQL Edge의 실시간 데이터 스트리밍 기능을 제공 합니다. 
-- `Date_Bucket`시계열 데이터 분석에 대 한 t-sql 함수 호출입니다.
+- `Date_Bucket`Time-Series 데이터 분석에 대 한 t-sql 함수 호출입니다.
 - SQL 엔진과 함께 제공 되는 ONNX 런타임을 통해 기계 학습 기능을 제공 합니다.
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능

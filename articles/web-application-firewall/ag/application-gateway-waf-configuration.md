@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84752483"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록
@@ -24,7 +24,7 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 
 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다. 이러한 특성은 WAF 규칙에서 가양성을 트리거할 수 있는 특수 문자를 포함하는 경우가 많습니다. WAF 제외 목록에 추가된 특성은 구성된 활성 WAF 규칙에서 고려되지 않습니다. 제외 목록의 범위는 전역입니다.
 
-다음 특성은 이름으로 제외 목록에 추가할 수 있습니다. 선택한 필드의 값은 WAF 규칙에 대해 평가 되지 않지만 해당 이름은 여전히입니다 (아래 예 1 참조, 사용자 에이전트 헤더의 값은 WAF 계산에서 제외 됨). 제외 목록은 필드 값 검사를 제거 합니다.
+다음 특성은 이름으로 제외 목록에 추가할 수 있습니다. 선택한 필드의 값은 WAF 규칙에 대해 평가 되지 않지만 해당 이름은 여전히입니다. 아래 예제 1을 참조 하십시오. User-Agent 헤더의 값은 WAF 계산에서 제외 됩니다. 제외 목록은 필드 값 검사를 제거 합니다.
 
 * 요청 헤더
 * 요청 쿠키
@@ -55,7 +55,7 @@ WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 �
 
 다음 예에서는 제외를 사용 하는 방법을 보여 줍니다.
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 
 이 예에서는 사용자 에이전트 헤더를 제외 하려고 합니다. 사용자 에이전트 요청 헤더에는 네트워크 프로토콜 피어에서 요청 하는 소프트웨어 사용자 에이전트의 응용 프로그램 종류, 운영 체제, 소프트웨어 공급 업체 또는 소프트웨어 버전을 식별할 수 있도록 하는 특성 문자열이 포함 되어 있습니다. 자세한 내용은 [사용자 에이전트](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)를 참조 하세요.
 
@@ -69,7 +69,7 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "User-Agent"
 ```
-#### <a name="example-2"></a>예제 2
+#### <a name="example-2"></a>예 2
 
 이 예에서는 URL을 통해 요청에 전달 되는 *user* 매개 변수에서 값을 제외 합니다. 예를 들어 사용자의 사용자 필드에는 WAF가 악의적인 콘텐츠로 보고 하는 문자열을 포함 하는 것이 일반적 이라고 가정 합니다.  이 경우 WAF가 필드에서 아무것도 계산 하지 않도록 사용자 매개 변수를 제외할 수 있습니다.
 

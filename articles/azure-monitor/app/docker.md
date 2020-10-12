@@ -4,10 +4,10 @@ description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 �
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977582"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)

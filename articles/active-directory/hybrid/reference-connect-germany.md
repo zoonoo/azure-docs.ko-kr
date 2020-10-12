@@ -1,6 +1,6 @@
 ---
 title: Microsoft Cloud 독일의 Azure AD Connect
-description: Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합합니다. 이렇게 하면 Azure AD와 통합 된 Microsoft 365, Azure 및 SaaS 응용 프로그램에 대 한 공통 id를 제공할 수 있습니다.
+description: Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합 된 Microsoft 365, Azure 및 SaaS 응용 프로그램에 대 한 공통 id를 제공할 수 있습니다.
 keywords: Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, Active Directory 설치, 독일, Black Forest
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 246f8326f7112825de98ee824cf4bab7952a7878
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90014590"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud 독일의 Azure AD Connect - 공개 미리 보기
@@ -54,7 +54,7 @@ Azure Portal에 로그인된 상태에서 다음을 수행합니다.
 
 다음 테이블에서는 블레이드에 표시된 기능을 설명합니다.
 
-| 제목 | Description |
+| 제목 | 설명 |
 | --- | --- |
 | 동기화 상태 |동기화가 활성화되었는지 아니면 비활성화되었는지 여부를 알려줍니다. |
 | 최신 동기화 |마지막으로 성공한 동기화가 완료된 시점입니다. |

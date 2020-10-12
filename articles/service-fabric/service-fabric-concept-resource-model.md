@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
 ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258737"
 ---
 # <a name="service-fabric-application-resource-model"></a>응용 프로그램 리소스 모델 Service Fabric
@@ -87,7 +87,7 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 샘플 응용 프로그램에는 응용 프로그램을 배포 하는 데 사용할 수 있는 [Azure Resource Manager 템플릿이](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) 포함 되어 있습니다. 템플릿 파일 이름은 *UserApp.js설정* 되 고 *UserApp.Parameters.js*됩니다.
 
 > [!NOTE]
-> 파일 *의UserApp.Parameters.js* 은 클러스터의 이름으로 업데이트 해야 합니다.
+> 파일 * 의UserApp.Parameters.js* 은 클러스터의 이름으로 업데이트 해야 합니다.
 >
 >
 

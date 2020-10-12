@@ -4,10 +4,10 @@ description: GDPR(일반 데이터 보호 규정)에 따라 사용자의 의무�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483519"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Azure DevTest Labs에서 개인 데이터 내보내기 또는 삭제
@@ -137,7 +137,7 @@ else
 
 위의 샘플에서 주요 구성 요소는 다음과 같습니다.
 
-- AzureRmResourceAction 명령입니다.
+- Invoke-AzureRmResourceAction 명령입니다.
    
     ```
     Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
@@ -160,7 +160,7 @@ else
 | ResourceGroupName | VM을 포함 하는 리소스 그룹의 이름 | 
 | ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
 | ResourceUId | VM에 대 한 GUID |
-| 이름 | 가상 컴퓨터 이름입니다. |
+| 속성 | 가상 컴퓨터 이름입니다. |
 | CreatedTime | VM을 만든 날짜/시간입니다. |
 | DeletedDate | VM이 삭제 된 날짜/시간입니다. 비어 있는 경우 삭제는 아직 발생 하지 않았습니다. |
 | ResourceOwner | VM의 소유자입니다. 값이 비어 있으면 클레임 할 수 있는 VM 이거나 서비스 사용자가 만든 것입니다. |
@@ -188,7 +188,7 @@ else
 | ResourceGroupName | 랩을 포함 하는 리소스 그룹의 이름 | 
 | ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
 | ResourceUId | VM에 대 한 GUID |
- |이름 | 연결 된 디스크의 이름 |
+ |속성 | 연결 된 디스크의 이름 |
 | CreatedTime |데이터 디스크를 만든 날짜와 시간입니다. |
 | DeletedDate | 데이터 디스크가 삭제 된 날짜 및 시간입니다. |
 | ResourceStatus | 리소스의 상태입니다. 리소스가 있으면 활성 상태입니다. 비활성, 삭제 된 경우 |
@@ -207,4 +207,4 @@ SQL Server, Power BI 등과 같은 도구를 사용 하 여 내보낸 데이터�
 다음 문서를 참조하세요. 
 
 - [랩에 대한 정책 설정](devtest-lab-set-lab-policy.md)
-- [질문과 대답](devtest-lab-faq.md)
+- [자주 묻는 질문](devtest-lab-faq.md)

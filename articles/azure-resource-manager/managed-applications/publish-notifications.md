@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054528"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>알림을 사용 하는 Azure 관리 되는 응용 프로그램
@@ -71,11 +71,11 @@ EventType | ProvisioningState | 알림에 대 한 트리거
 ---|---|---
 PUT | 수락됨 | 관리 되는 리소스 그룹을 만들고 응용 프로그램을 넣은 후 (관리 되는 리소스 그룹 내 배포를 시작 하기 전에) 성공적으로 프로젝션 했습니다.
 PUT | 성공 | PUT 후에 관리 되는 응용 프로그램의 전체 프로 비전이 성공 했습니다.
-PUT | 실패 | 어떤 지점에서 든 응용 프로그램 인스턴스 프로 비전의 실패.
+PUT | Failed | 어떤 지점에서 든 응용 프로그램 인스턴스 프로 비전의 실패.
 패치 | 성공 | 관리 되는 응용 프로그램 인스턴스에 성공적으로 패치 한 후 태그, JIT 액세스 정책 또는 관리 id를 업데이트 합니다.
 Delete | 삭제 중 | 사용자가 관리 되는 앱 인스턴스의 삭제를 시작 하는 즉시
 Delete | 삭제됨 | 관리 되는 응용 프로그램을 모두 삭제 하 고 성공적으로 삭제 한 후
-Delete | 실패 | 프로 비전 해제 프로세스 중에 삭제를 차단 하는 오류가 발생 한 후
+Delete | Failed | 프로 비전 해제 프로세스 중에 삭제를 차단 하는 오류가 발생 한 후
 ## <a name="notification-schema"></a>알림 스키마
 알림을 처리 하기 위해 webhook 끝점을 실행 하는 경우 페이로드를 구문 분석 하 여 중요 한 속성을 가져온 다음 알림에 대 한 동작을 수행 해야 합니다. 서비스 카탈로그와 Azure Marketplace 관리 되는 응용 프로그램 알림은 동일한 속성을 많이 제공 합니다. 샘플 다음에 나오는 표에는 두 가지 작은 차이점이 설명 되어 있습니다.
 
@@ -182,7 +182,7 @@ eventType | 알림을 트리거한 이벤트의 유형입니다. (예: PUT, PATC
 applicationId | 알림이 트리거된 관리 되는 응용 프로그램의 정규화 된 리소스 식별자입니다.
 eventTime | 알림을 트리거한 이벤트의 타임 스탬프입니다. (UTC ISO 8601 형식의 날짜 및 시간)
 provisioningState | 관리 되는 응용 프로그램 인스턴스의 프로 비전 상태입니다. (예: 성공, 실패, 삭제, 삭제)
-오류 | *ProvisioningState가 실패 한 경우에만 지정*됩니다. 오류 코드, 메시지 및 오류의 원인이 되는 문제에 대 한 세부 정보를 포함 합니다.
+error | *ProvisioningState가 실패 한 경우에만 지정*됩니다. 오류 코드, 메시지 및 오류의 원인이 되는 문제에 대 한 세부 정보를 포함 합니다.
 applicationDefinitionId | *서비스 카탈로그 관리 되는 응용 프로그램에만 지정*됩니다. 관리 되는 응용 프로그램 인스턴스가 프로 비전 된 응용 프로그램 정의의 정규화 된 리소스 식별자를 나타냅니다.
 계획 | *관리 되는 응용 프로그램 Azure Marketplace에만 지정*됩니다. 관리 되는 응용 프로그램 인스턴스의 게시자, 제품, SKU 및 버전을 나타냅니다.
 billingDetails | *관리 되는 응용 프로그램 Azure Marketplace에만 지정 됩니다.* 관리 되는 응용 프로그램 인스턴스의 청구 정보입니다. 사용 세부 정보에 대 한 Azure Marketplace를 쿼리 하는 데 사용할 수 있는 resourceUsageId을 포함 합니다.

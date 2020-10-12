@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888172"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM(Transact-SQL)
@@ -96,7 +96,7 @@ WITH  ( <with_options> )
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
 - **위치**: 데이터 원본에서 실제 데이터 또는 위치의 이름을 지정합니다. 
    - Edge Hub 또는 Kafka 스트림 개체의 경우 location은 읽기 또는 쓰기에 대 한 Edge 허브 또는 Kafka 토픽의 이름을 지정 합니다.
-   - SQL 스트림 개체 (SQL Server, Azure SQL Database 또는 Azure SQL Edge) 위치에 대해 테이블의 이름을 지정 합니다. 스트림이 대상 테이블과 동일한 데이터베이스 및 스키마에 생성 된 경우에는 테이블 이름 접미사 합니다. 그렇지 않으면 테이블 이름을 정규화 해야 합니다 (<database_name. schema_name table_name).
+   - SQL 스트림 개체 (SQL Server, Azure SQL Database 또는 Azure SQL Edge) 위치에 대해 테이블의 이름을 지정 합니다. 스트림이 대상 테이블과 동일한 데이터베이스 및 스키마에 생성 된 경우에는 테이블 이름 접미사 합니다. 그렇지 않으면 테이블 이름을 정규화 해야 합니다 (<database_name. schema_name).
    - Azure Blob Storage stream 개체 위치는 Blob 컨테이너 내에서 사용할 경로 패턴을 참조 합니다. 이 기능에 대 한 자세한 내용은 (/articles/stream-analytics/stream-analytics-define-outputs.md # blob-storage-gen2)를 참조 하세요.
 
 - **INPUT_OPTIONS**: 옵션을 키-값 쌍으로 지정 합니다 (예: Kafka, 스트리밍 쿼리를 입력 하는 IoT Edge 허브).

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253680"
 ---
-# <a name="infrastructure-as-code"></a>코드로서의 인프라
+# <a name="infrastructure-as-code"></a>코드 제공 인프라(Infrastructure as code)
 
 프로덕션 시나리오에서 Resource Manager 템플릿을 사용하여 Azure Service Fabric 클러스터를 만듭니다. Resource Manager 템플릿은 리소스 속성을 더 효율적으로 제어하고 일관된 리소스 모델을 갖출 수 있도록 합니다.
 
@@ -104,7 +104,7 @@ microservices_sfpkg.close()
 ```
 Service Fabric와 함께 자동 OS 업그레이드를 사용 하는 경우 새 OS 이미지는 Service Fabric에서 실행 되는 서비스의 고가용성을 유지 하기 위해 한 번에 하나의 업데이트 도메인에 롤오버 됩니다. Service Fabric에서 자동 OS 업그레이드를 활용하려면 실버 내구성 계층 이상을 사용하도록 클러스터가 구성되어야 합니다.
 
-Windows 호스트 컴퓨터가 조정 되지 않은 업데이트를 시작 하지 않도록 하려면 다음 레지스트리 키가 false로 설정 되어 있는지 확인 합니다. HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Windows 호스트 컴퓨터가 조정 되지 않은 업데이트: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU를 시작 하지 않도록 하려면 다음 레지스트리 키가 false로 설정 되어 있는지 확인 합니다.
 
 Windowsupdate.log 레지스트리 키를 false로 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 ```json

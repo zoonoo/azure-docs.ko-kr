@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
 ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017118"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
@@ -22,7 +22,7 @@ ms.locfileid: "90017118"
 
 [패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)  |  [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)  |  [API 참조](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -96,7 +96,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너는 파일에 대 한 파일 시스템 역할을 합니다. **Create_file_system FileSystemDataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
+컨테이너는 파일에 대 한 파일 시스템 역할을 합니다. **FileSystemDataLakeServiceClient.create_file_system** 메서드를 호출 하 여 만들 수 있습니다.
 
 이 예제에서는 라는 컨테이너를 만듭니다 `my-file-system` .
 
@@ -114,7 +114,7 @@ def create_file_system():
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-**Create_directory FileSystemClient** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
+**FileSystemClient.create_directory** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
 이 예제에서는 라는 디렉터리를 `my-directory` 컨테이너에 추가 합니다. 
 
@@ -129,7 +129,7 @@ def create_directory():
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
-**Rename_directory DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
+**DataLakeDirectoryClient.rename_directory** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
 
 이 예에서는 하위 디렉터리의 이름을로 바꿉니다 `my-subdirectory-renamed` .
 
@@ -149,7 +149,7 @@ def rename_directory():
 
 ## <a name="delete-a-directory"></a>디렉터리 삭제
 
-**Delete_directory DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
+**DataLakeDirectoryClient.delete_directory** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
 
 다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.  
 
@@ -166,7 +166,7 @@ def delete_directory():
 
 ## <a name="manage-directory-permissions"></a>디렉터리 권한 관리
 
-**Get_access_control DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리의 acl (액세스 제어 목록)을 가져오고 **set_access_control DataLakeDirectoryClient** 메서드를 호출 하 여 acl을 설정 합니다.
+**DataLakeDirectoryClient.get_access_control** 메서드를 호출 하 여 디렉터리의 acl (액세스 제어 목록)을 가져오고 **DataLakeDirectoryClient.set_access_control** 메서드를 호출 하 여 acl을 설정 합니다.
 
 > [!NOTE]
 > 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
@@ -196,11 +196,11 @@ def manage_directory_permissions():
      print(e) 
 ```
 
-컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 **_Get_root_directory_client FileSystemClient** 메서드를 호출 합니다.
+컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 **FileSystemClient._get_root_directory_client** 메서드를 호출 합니다.
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드 
 
-먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **Append_data DataLakeFileClient** 메서드를 호출 하 여 파일을 업로드 합니다. **Flush_data DataLakeFileClient** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
+먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **DataLakeFileClient.append_data** 메서드를 호출 하 여 파일을 업로드 합니다. **DataLakeFileClient.flush_data** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
 
 이 예제에서는 라는 디렉터리에 텍스트 파일을 업로드 `my-directory` 합니다.   
 
@@ -226,11 +226,11 @@ def upload_file_to_directory():
 ```
 
 > [!TIP]
-> 파일 크기가 큰 경우 코드는 **Append_data DataLakeFileClient** 메서드를 여러 번 호출 해야 합니다. 대신 **Upload_data DataLakeFileClient** 메서드를 사용 하는 것이 좋습니다. 이렇게 하면 단일 호출에서 전체 파일을 업로드할 수 있습니다. 
+> 파일 크기가 클 경우 코드에서 **DataLakeFileClient.append_data** 메서드를 여러 번 호출 해야 합니다. 대신 **DataLakeFileClient.upload_data** 메서드를 사용 하는 것이 좋습니다. 이렇게 하면 단일 호출에서 전체 파일을 업로드할 수 있습니다. 
 
 ## <a name="upload-a-large-file-to-a-directory"></a>디렉터리에 용량이 많은 파일 업로드
 
-DataLakeFileClient 메서드를 사용 하 여 **Append_data DataLakeFileClient** 메서드를 여러 번 호출 하지 않고도 **upload_data** 메서드를 사용 하 여 많은 파일을 업로드할 수 있습니다.
+**DataLakeFileClient.append_data** 메서드를 여러 번 호출 하지 않고도 **DataLakeFileClient.upload_data** 메서드를 사용 하 여 많은 파일을 업로드할 수 있습니다.
 
 ```python
 def upload_file_to_directory_bulk():
@@ -254,7 +254,7 @@ def upload_file_to_directory_bulk():
 
 ## <a name="manage-file-permissions"></a>파일 사용 권한 관리
 
-**Get_access_control DataLakeFileClient** 메서드를 호출 하 여 파일의 acl (액세스 제어 목록)을 가져오고 **set_access_control DataLakeFileClient** 메서드를 호출 하 여 acl을 설정 합니다.
+**DataLakeFileClient.get_access_control** 메서드를 호출 하 여 파일의 acl (액세스 제어 목록)을 가져오고 **DataLakeFileClient.set_access_control** 메서드를 호출 하 여 acl을 설정 합니다.
 
 > [!NOTE]
 > 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
@@ -288,7 +288,7 @@ def manage_file_permissions():
 
 ## <a name="download-from-a-directory"></a>디렉터리에서 다운로드 
 
-쓰기용 로컬 파일을 엽니다. 그런 다음 다운로드 하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **Read_file DataLakeFileClient** 를 호출 하 여 파일에서 바이트를 읽은 다음 해당 바이트를 로컬 파일에 기록 합니다. 
+쓰기용 로컬 파일을 엽니다. 그런 다음 다운로드 하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **DataLakeFileClient.read_file** 를 호출 하 여 파일에서 바이트를 읽은 다음 로컬 파일에 바이트를 씁니다. 
 
 ```python
 def download_file_from_directory():
@@ -314,7 +314,7 @@ def download_file_from_directory():
 ```
 ## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
-**Get_paths FileSystemClient** 메서드를 호출 하 고 결과를 열거 하 여 디렉터리 내용을 나열 합니다.
+**FileSystemClient.get_paths** 메서드를 호출한 다음 결과를 열거 하 여 디렉터리 내용을 나열 합니다.
 
 이 예에서는 라는 디렉터리에 있는 각 하위 디렉터리 및 파일의 경로를 출력 합니다 `my-directory` .
 

@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707444"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>NFS 파일 공유를 탑재 하는 방법
@@ -55,7 +55,7 @@ ms.locfileid: "90707444"
 1. 사용할 탑재 경로를 입력 한 다음 스크립트를 복사 합니다.
 1. 클라이언트에 연결 하 고 제공 된 탑재 스크립트를 사용 합니다.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="파일 공유 연결 블레이드의 스크린샷":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="보안 전송이 사용 하지 않도록 설정 된 저장소 계정 구성 화면의 스크린샷":::
 
 이제 NFS 공유를 탑재 했습니다.
 

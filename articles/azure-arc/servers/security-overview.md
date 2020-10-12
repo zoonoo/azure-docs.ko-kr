@@ -4,10 +4,10 @@ description: Azure Arc 사용 서버에 대 한 보안 정보입니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329043"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>서버용 Azure Arc 보안 개요

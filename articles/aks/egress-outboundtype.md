@@ -7,13 +7,13 @@ ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
 ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975294"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route"></a>사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>User-Defined 경로를 사용 하 여 클러스터 송신 사용자 지정
 
 AKS 클러스터에서 송신은 특정 시나리오에 맞게 사용자 지정할 수 있습니다. 기본적으로 AKS는 설정 하 고 송신에 사용할 표준 SKU Load Balancer를 프로 비전 합니다. 그러나 공용 IP가 허용되지 않거나 송신에 대한 추가 홉이 필요한 경우에는 기본 설정이 모든 시나리오의 요구 사항을 충족하지 못할 수 있습니다.
 
