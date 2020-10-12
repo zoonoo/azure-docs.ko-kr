@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 고객이 관리 하는 키를 사용 하 
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489843"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Azure DevTest Labs에서 고객 관리 키를 사용 하 여 운영 체제 (OS) 디스크 암호화
@@ -39,14 +39,14 @@ DevTest Labs 내에서 랩의 일부로 생성 된 모든 OS 디스크 및 데�
     1. **디스크 암호화 집합** 페이지의 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 선택 합니다. 
     1. 도구 모음에서 **+ 추가** 를 선택 하 고 **역할 할당 추가**를 선택 합니다.  
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="역할 관리 추가-메뉴":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="관리 키":::
     1. **역할 할당 추가** 페이지에서 **읽기 권한자** 역할 또는 추가 액세스를 허용 하는 역할을 선택 합니다. 
     1. 디스크 암호화 집합이 사용 될 랩 이름을 입력 하 고 드롭다운 목록에서 랩 이름 (랩에 대 한 시스템 할당 id)을 선택 합니다. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="랩의 시스템 관리 id를 선택 합니다.":::        
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="관리 키":::        
     1. 도구 모음에서 **저장**을 선택합니다. 
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="역할 할당 저장":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="관리 키":::
 3. **구독**액세스 제어 (IAM) 페이지를 사용 하 여 랩의 **시스템 할당 id** 를 **가상 머신 참가자** 역할에 추가  ->  **Access control (IAM)** 합니다. 단계는 이전 단계에서 설명한 것과 비슷합니다. 
 
     
@@ -54,7 +54,7 @@ DevTest Labs 내에서 랩의 일부로 생성 된 모든 OS 디스크 및 데�
     1. **액세스 제어(IAM)** 를 선택합니다. 
     1. 도구 모음에서 **+ 추가** 를 선택 하 고 **역할 할당 추가**를 선택 합니다. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="구독-> Access control (IAM) 페이지":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="관리 키":::
     1. **역할 할당 추가** 페이지에서 역할에 대 한 **가상 컴퓨터 참가자** 를 선택 합니다.
     1. 랩 이름을 입력 하 고 드롭다운 목록에서 랩 **이름** (랩에 대 한 시스템 할당 id)을 선택 합니다. 
     1. 도구 모음에서 **저장**을 선택합니다. 
@@ -64,12 +64,12 @@ DevTest Labs 내에서 랩의 일부로 생성 된 모든 OS 디스크 및 데�
 1. Azure Portal의 랩 홈 페이지에서 왼쪽 메뉴의 **구성 및 정책** 을 선택 합니다. 
 1. **구성 및 정책** 페이지의 **암호화** 섹션에서 **디스크 (미리 보기)** 를 선택 합니다. 기본적으로 **암호화 유형은** **플랫폼 관리 키를 사용 하 여 미사용 암호화**로 설정 됩니다.
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="구성 및 정책 페이지의 디스크 탭":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="관리 키":::
 1. **암호화 유형**의 경우 드롭다운 목록에서 **고객 관리 키를 사용 하 여 미사용 암호화** 를 선택 합니다. 
 1. **디스크 암호화 설정**에 대해 이전에 만든 디스크 암호화 집합을 선택 합니다. 시스템에 할당 된 랩에서 액세스할 수 있는 것과 동일한 디스크 암호화 집합입니다.
 1. 도구 모음에서 **저장**을 선택합니다. 
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="고객이 관리 하는 키로 암호화 사용":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="관리 키":::
 1. 다음 텍스트를 포함 하는 메시지 상자: *이 설정은 랩에서 새로 만든 컴퓨터에 적용 됩니다. 이전 OS 디스크는 이전 디스크 암호화 집합으로 암호화 된 상태를 유지*하 고 **확인**을 선택 합니다. 
 
     구성 되 면 랩 OS 디스크는 디스크 암호화 집합을 사용 하 여 제공 되는 고객 관리 키를 사용 하 여 암호화 됩니다. 
@@ -79,15 +79,15 @@ DevTest Labs 내에서 랩의 일부로 생성 된 모든 OS 디스크 및 데�
 1. 랩에서 고객이 관리 하는 키를 사용 하 여 디스크 암호화를 사용 하도록 설정한 후 만든 랩 가상 머신으로 이동 합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="디스크 암호화를 사용 하도록 설정 된 VM":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="관리 키":::
 1. VM의 리소스 그룹을 클릭 하 고 OS 디스크를 클릭 합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="VM 리소스 그룹":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="관리 키":::
 1. 암호화로 이동 하 여 선택한 디스크 암호화로 암호화가 고객 관리 키로 설정 되어 있는지 확인 합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="암호화 유효성 검사":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="관리 키":::
   
 ## <a name="next-steps"></a>다음 단계
 

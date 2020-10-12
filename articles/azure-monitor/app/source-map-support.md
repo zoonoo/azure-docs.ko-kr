@@ -7,10 +7,10 @@ ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335134"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 응용 프로그램에 대 한 소스 맵 지원
@@ -24,7 +24,7 @@ Application Insights는 사용자 고유의 저장소 계정 Blob 컨테이너�
 
 기존 저장소 계정 또는 blob 컨테이너가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
 
-1. [새 저장소 계정 만들기][create storage account]
+1. [새 스토리지 계정 만들기][create storage account]
 2. 저장소 계정 내에 [blob 컨테이너를 만듭니다][create blob container] . 원본 맵에 공개적으로 액세스할 수 없도록 하려면 "공용 액세스 수준"을로 설정 해야 `Private` 합니다.
 
 > [!div class="mx-imgBorder"]

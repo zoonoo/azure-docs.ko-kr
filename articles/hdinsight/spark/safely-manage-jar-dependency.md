@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064153"
 ---
-# <a name="safely-manage-jar-dependencies"></a>Jar 종속성을 안전 하 게 관리
+# <a name="safely-manage-jar-dependencies"></a>안전하게 jar 종속성 관리
 
 HDInsight 클러스터에 설치 된 구성 요소에는 타사 라이브러리에 대 한 종속성이 있습니다. 일반적으로는이 기본 제공 구성 요소에서 참조 하는 공용 모듈의 특정 버전 (예: 가드 Ava)입니다. 해당 종속성을 사용 하 여 응용 프로그램을 제출 하면 동일한 모듈의 서로 다른 버전 간에 충돌이 발생할 수 있습니다. 먼저 classpath에서 참조 하는 구성 요소 버전이 있는 경우 기본 제공 구성 요소는 버전 비 호환성으로 인해 예외를 throw 할 수 있습니다. 그러나 기본 제공 구성 요소가 클래스 경로에 대 한 종속성을 먼저 주입 하는 경우 응용 프로그램에서와 같은 오류를 throw 할 수 있습니다 `NoSuchMethod` .
 
@@ -27,7 +27,7 @@ HDInsight 클러스터에 설치 된 구성 요소에는 타사 라이브러리�
 ## <a name="how-to-shade-a-package"></a>패키지를 음영 처리 하는 방법
 
 ### <a name="use-uber-jar"></a>Uber 사용-jar
-Uber-jar는 응용 프로그램 jar 및 해당 종속성을 모두 포함 하는 단일 jar 파일입니다. Uber-jar의 종속성은 기본적으로 음영이 적용 되지 않습니다. 경우에 따라 다른 구성 요소나 응용 프로그램이 다른 버전의 라이브러리를 참조 하는 경우 버전 충돌이 발생할 수 있습니다. 이 문제를 방지 하려면 종속성의 일부 (또는 모두)가 회색으로 표시 된 Uber Jar 파일을 빌드할 수 있습니다.
+Uber-jar는 응용 프로그램 jar 및 해당 종속성을 모두 포함 하는 단일 jar 파일입니다. Uber-jar의 종속성은 기본적으로 음영이 적용 되지 않습니다. 경우에 따라 다른 구성 요소나 응용 프로그램이 다른 버전의 라이브러리를 참조 하는 경우 버전 충돌이 발생할 수 있습니다. 이 문제를 방지 하려면 종속성의 일부 (또는 모두)가 회색으로 표시 된 Uber-Jar 파일을 빌드할 수 있습니다.
 
 ### <a name="shade-package-using-maven"></a>Maven를 사용 하 여 패키지 음영 처리
 Maven는 Java 및 Scala 둘 다에서 작성 된 응용 프로그램을 빌드할 수 있습니다. Maven-플러그 인을 통해 음영으로 된 uber를 쉽게 만들 수 있습니다.

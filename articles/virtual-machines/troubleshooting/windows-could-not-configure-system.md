@@ -1,5 +1,5 @@
 ---
-title: Windows 문제 해결에서 시스템 구성을 완료할 수 없습니다.
+title: Windows에서 시스템 구성을 완료할 수 없는 문제 해결
 titlesuffix: Azure Virtual Machines
 description: 이 문서에서는 Sysprep 프로세스가 Azure VM의 부팅을 방지 하는 문제를 해결 하는 단계를 제공 합니다.
 services: virtual-machines-windows, azure-resource-manager
@@ -16,13 +16,13 @@ ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
 ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90078811"
 ---
-# <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Windows 문제 해결에서 시스템 구성을 완료할 수 없습니다.
+# <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Windows에서 시스템 구성을 완료할 수 없는 문제 해결
 
 이 문서에서는 Sysprep 프로세스에서 Azure VM (가상 머신)의 부팅을 방지 하는 문제를 해결 하는 단계를 제공 합니다.
 

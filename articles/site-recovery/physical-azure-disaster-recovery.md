@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927286"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
@@ -32,7 +32,7 @@ ms.locfileid: "87927286"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 이 시나리오에 대한 [아키텍처 및 구성 요소](physical-azure-architecture.md)를 이해해야 합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](vmware-physical-secondary-support-matrix.md) 검토 합니다.
+- 모든 구성 요소에 대한 [지원 요구 사항](vmware-physical-secondary-support-matrix.md)을 검토합니다.
 - 복제할 서버가 [Azure VM 요구 사항](vmware-physical-secondary-support-matrix.md#replicated-vm-support)을 준수해야 합니다.
 - Azure를 준비합니다. Azure 구독, Azure Virtual Network 및 스토리지 계정이 필요합니다.
 - 복제하려는 각 서버에서 모바일 서비스를 자동으로 설치하기 위해 계정을 준비합니다.
@@ -58,8 +58,8 @@ Microsoft [Azure 계정을](https://azure.microsoft.com/)가져옵니다.
 
 Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합니다.
 
-- Azure에 컴퓨터를 복제 하는 데 필요한 [권한을](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) 검토 합니다.
-- Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한을 확인 하 고 수정 합니다. 
+- Azure에 컴퓨터를 복제하는 데 필요한 [권한](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)을 검토합니다.
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한을 확인하고 수정합니다. 
 
 
 
@@ -73,7 +73,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 ## <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정을 설정
 
-[Azure storage 계정을](../storage/common/storage-account-create.md)설정 합니다.
+[Azure Storage 계정](../storage/common/storage-account-create.md)을 설정합니다.
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
 - 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
@@ -84,7 +84,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 복제하려는 각 서버에 모바일 서비스가 설치되어야 합니다. Site Recovery는 사용자가 서버에 대해 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동으로 설치하려는 경우 Site Recovery가 서버에 액세스하는 데 사용할 계정을 준비해야 합니다.
 
 - 도메인 또는 로컬 계정을 사용할 수 있습니다.
-- Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 이렇게 하려면 **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**아래 등록에서 DWORD 항목 **LocalAccountTokenFilterPolicy**를 추가 합니다. 여기서 값은 1입니다.
+- Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 그러려면 레지스터의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
 - CLI에서 설정을 사용하지 않도록 설정하기 위한 레지스트리 항목을 추가하려면 다음을 입력합니다. ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Linux에서 계정은 원본 Linux 서버의 루트여야 합니다.
 
@@ -105,7 +105,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 구성 서버를 설정하고 자격 증명 모음에 등록한 후 VM을 검색합니다.
 
-1. **Site Recovery**  >  **인프라 준비**  >  **원본**을 클릭 합니다.
+1. **Site Recovery** > **인프라 준비** > **원본**을 클릭합니다.
 2. 구성 서버가 없는 경우 **+구성 서버**를 클릭합니다.
 3. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
 4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
@@ -119,7 +119,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 시작하기 전에 다음을 수행하세요. 
 
 #### <a name="verify-time-accuracy"></a>시간 정확도 확인
-구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top)와 동기화 되었는지 확인 합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
+구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
 
 #### <a name="verify-connectivity"></a>연결 확인
 컴퓨터에서 사용자 환경을 기반으로 다음 URL에 액세스할 수 있는지 확인합니다. 
@@ -170,19 +170,19 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 
 1. **애플리케이션 복제** > **원본**을 클릭합니다.
 2. **원본**에서 구성 서버를 선택합니다.
-3. **컴퓨터 종류**에서 **물리적 컴퓨터**를 선택 합니다.
-4. 프로세스 서버(구성 서버)를 선택합니다. 그런 다음, **확인**을 클릭합니다.
-5. **대상**에서 장애 조치 (failover) 후 Azure vm을 만들 구독 및 리소스 그룹을 선택 합니다. Azure(클래식 또는 리소스 관리)에서 사용할 배포 모델을 선택합니다.
+3. **컴퓨터 형식**에서 **물리적 컴퓨터**를 선택합니다.
+4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
+5. **대상**에서 장애 조치(failover) 후 Azure VM을 만들 구독 및 리소스 그룹을 선택합니다. Azure(클래식 또는 리소스 관리)에서 사용할 배포 모델을 선택합니다.
 6. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다. 
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 
 9. **물리적 컴퓨터**에서 **+물리적 컴퓨터**를 클릭합니다. 이름 및 IP 주소를 지정합니다. 복제하려는 컴퓨터의 운영 체제를 선택합니다. 서버가 검색된 후 나열되는 데 몇 분 정도 걸립니다. 
-10. 속성 **Properties**  >  **속성 구성**에서 프로세스 서버가 컴퓨터에 모바일 서비스를 자동으로 설치 하는 데 사용할 계정을 선택 합니다.
+10. **속성** > **속성 구성** 에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
 11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다. 
-12. **복제 사용**을 클릭 합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행 된 후 컴퓨터는 장애 조치 (failover)를 수행할 준비가 됩니다.
+12. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 
-추가한 서버를 모니터링 하려면 **구성 서버**  >  **마지막 연락**에서 마지막으로 검색 한 시간을 확인할 수 있습니다. 예약된 검색 시간 동안 기다리지 않고 컴퓨터를 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 클릭합니다.
+추가하는 서버를 모니터링하려면 **구성 서버** > **마지막 연락**에서 마지막으로 검색한 시간을 확인할 수 있습니다. 예약된 검색 시간 동안 기다리지 않고 컴퓨터를 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

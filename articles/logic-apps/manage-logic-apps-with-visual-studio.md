@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87280769"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
@@ -51,13 +51,13 @@ ms.locfileid: "87280769"
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
-    Visual Studio Marketplace에서 Azure Logic Apps 도구를 직접 다운로드 하 여 설치 하거나 [Visual Studio 내에서이 확장을 설치 하는 방법을](/visualstudio/ide/finding-and-using-visual-studio-extensions)배울 수 있습니다. 설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
+    Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 [Visual Studio 내에서 이 확장을 설치하는 방법](/visualstudio/ide/finding-and-using-visual-studio-extensions)을 알아볼 수 있습니다. 설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
 
-  * Visual Studio에서 Azure Government 구독을 사용 하려면 추가 설치에 대 한 다음 항목을 참조 하세요.
+  * Visual Studio에서 Azure Government 구독을 사용하려면 추가 설치에 대한 다음 항목을 참조하세요.
 
-    * Visual Studio 2019: [빠른 시작: Visual studio를 사용 하 여 Azure Government에 연결](../azure-government/documentation-government-connect-vs.md)
+    * Visual Studio 2019: [빠른 시작: Visual Studio를 사용하여 Azure Government에 연결](../azure-government/documentation-government-connect-vs.md)
 
-    * Visual Studio 2017: [Azure 환경 선택기 Visual studio 확장 소개](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).이 확장은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector)에서 다운로드 하 여 설치할 수 있습니다.
+    * Visual Studio 2017: [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector)에서 다운로드하여 설치할 수 있는 [Azure 환경 선택기 Visual Studio 확장 소개](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
 
 * 포함된 Logic Apps 디자이너를 사용하는 동안 웹에 액세스
 
@@ -127,7 +127,7 @@ B2B (기업 간) 엔터프라이즈 통합 시나리오에 대 한 논리 앱을
 
 1. Visual Studio에서 논리 앱을 포함 하는 Azure 리소스 그룹 프로젝트를 엽니다.
 
-1. 솔루션 탐색기에서 파일의 바로 가기 메뉴 **에서<논리-앱-이름 # C1.js** 을 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl + L)
+1. 솔루션 탐색기에서 파일의 바로 가기 메뉴 ** 에서<논리-앱-이름 # C1.js** 을 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl + L)
 
    ![논리 앱 디자이너를 사용 하 여 논리 앱의 json 파일 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 

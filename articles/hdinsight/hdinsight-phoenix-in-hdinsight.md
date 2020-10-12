@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504335"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
@@ -39,7 +39,7 @@ CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) IN
 
 이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스**입니다. 따라서 테이블 조회가 필요 하지 않으며 인덱스는 전체 쿼리를 만족 합니다.
 
-### <a name="views"></a>보기
+### <a name="views"></a>뷰
 
 Phoenix 뷰는 물리적 테이블을 100개 이상 만들 때 성능이 저하되기 시작하는 HBase 제한을 극복하는 방법을 제공합니다. Phoenix 뷰를 사용하면 여러 *가상 테이블*이 하나의 기본 실제 HBase 테이블을 공유할 수 있습니다.
 

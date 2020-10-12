@@ -6,10 +6,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282615"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
@@ -17,7 +17,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
 
 기본적으로 Data Lake Analytics 서비스는 작업을 30일간 보존합니다. 만료 기간은 Azure Portal에서 사용자 지정 만료 정책을 구성하여 구성할 수 있습니다. 만료 후에는 작업 정보에 액세스할 수 없습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 [Data Lake Tools for Visual Studio 필수 구성 요소](data-lake-analytics-data-lake-tools-get-started.md#prerequisites)를 참조하세요.
 
 ## <a name="open-the-job-browser"></a>작업 브라우저 열기

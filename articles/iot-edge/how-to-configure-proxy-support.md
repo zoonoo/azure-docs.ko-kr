@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - contperfq1
 ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500371"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
@@ -73,13 +73,13 @@ Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를
 
 다음 단계에서는 인수를 사용 하 여 windows를 설치 하는 예를 보여 줍니다 `-proxy` .
 
-1. 호출 WebRequest 명령에는 설치 관리자 스크립트에 액세스 하는 프록시 정보가 필요 합니다. 그런 다음 배포-IoTEdge 명령에 설치 파일을 다운로드 하기 위한 프록시 정보가 필요 합니다.
+1. Invoke-WebRequest 명령에는 설치 관리자 스크립트에 액세스 하는 프록시 정보가 필요 합니다. 그런 다음 설치 파일을 다운로드 하려면 Deploy-IoTEdge 명령에 프록시 정보가 필요 합니다.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
    ```
 
-2. Initialize-IoTEdge 명령은 프록시 서버를 통과할 필요가 없으므로 두 번째 단계에는 Invoke WebRequest에 대 한 프록시 정보만 필요 합니다.
+2. Initialize-IoTEdge 명령은 프록시 서버를 통해 이동할 필요가 없으므로 두 번째 단계에서는 호출 WebRequest에 대 한 프록시 정보만 필요 합니다.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge

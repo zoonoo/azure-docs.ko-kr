@@ -8,10 +8,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: how-to
 ms.date: 06/29/2018
 ms.openlocfilehash: 70a251db6c08f353f9c50512c41551e7a909a059
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87125652"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -19,7 +19,7 @@ ms.locfileid: "87125652"
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -119,7 +119,7 @@ Test-AdlAnalyticsAccount -Name $adla
 ## <a name="manage-data-sources"></a>데이터 원본 관리
 Azure Data Lake Analytics는 현재 다음 데이터 원본을 지원합니다.
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다. 기본 Data Lake Store 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 
@@ -241,8 +241,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 `-Result` 매개 변수를 사용하여 종료된 작업이 성공적으로 완료되었는지 여부를 검색합니다. 다음 값을 포함합니다.
 
 * Cancelled
-* 실패
-* None
+* Failed
+* 없음
 * 성공
 
 ``` powershell

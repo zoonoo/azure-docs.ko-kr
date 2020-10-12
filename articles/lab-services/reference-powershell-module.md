@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Lab Services에서 아티팩트를 관리
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6f5809dcf981a1ecf30cda06af03d2b8a06d3694
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078822"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Az.LabServices PowerShell 모듈(미리 보기)
@@ -23,7 +23,7 @@ PowerShell 명령을 사용 하 여 모든 랩에서 실행 중인 모든 Vm을 
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 1. 컴퓨터에 존재 하지 않는 경우 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 를 설치 합니다. 
 2. [.Psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) 를 컴퓨터에 다운로드 합니다.
 3. 모듈을 가져옵니다.

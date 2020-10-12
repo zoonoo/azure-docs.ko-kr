@@ -11,17 +11,17 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086575"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 차단
 
-Azure Storage의 컨테이너 및 blob에 대 한 익명 공용 읽기 액세스는 데이터를 공유 하는 편리한 방법 이지만 보안 위험이 있을 수 있습니다. 익명 액세스를 신중 하 게 관리 하 고 데이터에 대 한 익명 액세스를 평가 하는 방법을 이해 하는 것이 중요 합니다. 공개적으로 액세스할 수 있는 데이터에 대 한 운영 복잡성, 인간 오류 또는 악의적인 공격으로 인해 비용이 많이 들 수 있습니다. 응용 프로그램 시나리오에 필요한 경우에만 익명 액세스를 사용 하도록 설정 하는 것이 좋습니다.
+Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 익명 액세스를 신중 하 게 관리 하 고 데이터에 대 한 익명 액세스를 평가 하는 방법을 이해 하는 것이 중요 합니다. 공개적으로 액세스할 수 있는 데이터에 대 한 운영 복잡성, 인간 오류 또는 악의적인 공격으로 인해 비용이 많이 들 수 있습니다. 응용 프로그램 시나리오에 필요한 경우에만 익명 액세스를 사용 하도록 설정 하는 것이 좋습니다.
 
-기본적으로 blob 데이터에 대 한 공용 액세스는 항상 금지 됩니다. 그러나 저장소 계정의 기본 구성에서는 적절 한 권한이 있는 사용자가 저장소 계정의 컨테이너 및 blob에 대 한 공용 액세스를 구성할 수 있습니다. 보안 강화를 위해 개별 컨테이너의 공용 액세스 설정에 관계 없이 저장소 계정에 대 한 모든 공용 액세스를 허용 하지 않을 수 있습니다. 저장소 계정에 대 한 공용 액세스를 허용 하지 않으면 사용자가 계정의 컨테이너에 대 한 공용 액세스를 사용 하도록 설정할 수 없습니다. 시나리오에 필요한 경우를 제외 하 고 저장소 계정에 대 한 공용 액세스를 허용 하지 않는 것이 좋습니다. 공용 액세스를 허용 하지 않으면 원치 않는 익명 액세스로 인 한 데이터 위반을 방지할 수 있습니다.
+기본적으로 blob 데이터에 대 한 공용 액세스는 항상 금지 됩니다. 그러나 저장소 계정의 기본 구성에서는 적절 한 권한이 있는 사용자가 저장소 계정의 컨테이너 및 blob에 대 한 공용 액세스를 구성할 수 있습니다. 보안 강화를 위해 개별 컨테이너의 공용 액세스 설정에 관계 없이 저장소 계정에 대 한 모든 공용 액세스를 허용 하지 않을 수 있습니다. 스토리지 계정에 대한 공용 액세스를 허용하지 않으면 사용자가 계정의 컨테이너에 대한 공용 액세스를 사용하도록 설정할 수 없습니다. Microsoft는 시나리오에 필요한 경우를 제외하고 스토리지 계정에 대한 공용 액세스를 허용하지 않는 것을 권장합니다. 공용 액세스를 허용하지 않으면 원치 않는 익명 액세스로 인한 데이터 위반을 방지할 수 있습니다.
 
 저장소 계정에 대 한 공용 blob 액세스를 허용 하지 않을 경우 Azure Storage는 해당 계정에 대 한 모든 익명 요청을 거부 합니다. 계정에 대 한 공용 액세스를 허용 하지 않으면 해당 계정의 컨테이너는 나중에 공용 액세스를 사용 하도록 구성할 수 없습니다. 이미 공용 액세스를 사용 하도록 구성 된 모든 컨테이너는 더 이상 익명 요청을 수락 하지 않습니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.
 
@@ -59,7 +59,7 @@ Azure Storage의 컨테이너 및 blob에 대 한 익명 공용 읽기 액세스
 
 메트릭을 구성한 후에는 익명 요청이 그래프에 표시 되기 시작 합니다. 다음 이미지는 지난 30 분 동안 집계 된 익명 요청을 보여 줍니다.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Blob 저장소에 대 한 집계 된 익명 요청을 보여 주는 스크린샷":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 또한 저장소 계정에 대해 특정 수의 익명 요청이 수행 되는 경우 사용자에 게 알리도록 경고 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
@@ -85,7 +85,7 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. **범주 세부 정보**의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 모든 익명 요청은 읽기 요청이 되므로 익명 요청을 캡처하려면 **StorageRead** 를 선택 합니다.
 1. **대상 세부 정보**에서 **Log Analytics 보내기를**선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 진단 설정을 만든 후에는 해당 설정에 따라 저장소 계정에 대 한 요청이 나중에 기록 됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
 
@@ -241,7 +241,7 @@ Azure Portal에서 준수 보고서를 보려면 다음 단계를 수행 합니�
 1. 이전 단계에서 만든 정책 할당의 이름에 대 한 결과를 필터링 합니다. 이 보고서에는 정책을 준수 하지 않는 리소스의 수가 표시 됩니다.
 1. 정책을 준수 하지 않는 저장소 계정 목록을 포함 하 여 추가 세부 정보에 대 한 보고서를 드릴 다운할 수 있습니다.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Blob 공용 액세스에 대 한 감사 정책에 대 한 준수 보고서를 보여 주는 스크린샷":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Azure Policy를 사용 하 여 권한 있는 액세스 적용
 
@@ -277,7 +277,7 @@ Azure Policy는 Azure 리소스가 요구 사항 및 표준을 준수 하도록 
 
 다음 이미지는 거부 효과가 있는 정책에서 공용 액세스가 허용 되지 않는 경우 공용 액세스를 허용 하는 저장소 계정 (새 계정에 대 한 기본값)을 만들려고 할 때 발생 하는 오류를 보여 줍니다.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Blob 트랜잭션을 합산 하는 메트릭을 구성 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
