@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987594"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Azure Portal로 Azure Monitor 로그 업데이트 배포 마이그레이션
@@ -43,7 +43,7 @@ OMS(Operations Management Suite) 포털은 [더 이상 사용되지 않습니다
 
 OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이트 배포와 동일한 이름을 가진 [저장된 검색](../azure-monitor/platform/computer-groups.md)이 있으며, 이를 컴퓨터 그룹이라고도 합니다. 저장된 검색에는 업데이트 배포에서 예약된 머신 목록이 포함되어 있습니다.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="이름 및 서버 필드가 강조 표시 된 업데이트 배포 페이지의 스크린샷":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="업데이트 관리 페이지의 스크린샷":::
 
 이 기존의 저장된 검색을 사용하려면 다음 단계를 따르세요.
 

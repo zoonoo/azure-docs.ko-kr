@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006299"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
@@ -33,7 +33,7 @@ ms.locfileid: "87006299"
 
 설정 및 구성 프로세스를 완료하는 데 10분 정도가 소요됩니다. 이 문서의 정보는 StorSimple 가상 배열의 배포에만 적용됩니다. StorSimple 8000 시리즈 디바이스를 배포하는 경우 [업데이트 2를 실행하는 StorSimple 8000 시리즈 디바이스 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
-## <a name="setup-prerequisites"></a>설정 필수 조건
+## <a name="setup-prerequisites"></a>Setup prerequisites
 StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
 * [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md) 또는 [VMware에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)에 설명된 대로 가상 배열을 프로비전하고 연결했습니다.
@@ -45,7 +45,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>1단계: 로컬 웹 UI 설정을 완료하고 디바이스를 등록
 #### <a name="to-complete-the-setup-and-register-the-device"></a>설정을 완료하고 디바이스를 등록하려면
-1. 브라우저 창을 열고 로컬 웹 UI에 연결합니다. 유형:
+1. 브라우저 창을 열고 로컬 웹 UI에 연결합니다. 형식:
    
    `https://<ip-address of network interface>`
    
@@ -124,7 +124,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 필요한 디바이스 설정을 완료하려면 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 
 #### <a name="to-configure-the-device-as-file-server"></a>파일 서버로 디바이스를 구성하려면
-1. StorSimple Device Manager 서비스로 이동한 다음 **관리 > 장치로**이동 합니다. **디바이스** 블레이드에서 방금 만든 디바이스를 선택합니다. 이 디바이스는 **설정할 준비 완료**로 표시됩니다.
+1. StorSimple Device Manager 서비스로 이동한 다음  **관리 > 장치로**이동 합니다. **디바이스** 블레이드에서 방금 만든 디바이스를 선택합니다. 이 디바이스는 **설정할 준비 완료**로 표시됩니다.
    
    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. 디바이스를 클릭하고 디바이스를 설치할 준비가 되었음을 나타내는 배너 메시지가 표시됩니다.
@@ -155,7 +155,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
         ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
-5. 스토리지 계정 자격 증명이 성공적으로 만들어지면 **구성** 블레이드가 업데이트되어 지정된 스토리지 계정 자격 증명을 표시합니다. **구성**을 클릭합니다.
+5. 스토리지 계정 자격 증명이 성공적으로 만들어지면 **구성** 블레이드가 업데이트되어 지정된 스토리지 계정 자격 증명을 표시합니다. **Configure**를 클릭합니다.
    
    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    

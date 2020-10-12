@@ -11,10 +11,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284485"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
@@ -25,7 +25,7 @@ ms.locfileid: "91284485"
 
 ### <a name="sql-engine-build-number---15020001552"></a>SQL 엔진 빌드 번호-15.0.2000.1552
 
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. Ubuntu 18.04 기반 컨테이너 이미지입니다. 
 2. 및 `IGNORE NULL` 함수로 및 `RESPECT NULL` 구문을 지원 `LAST_VALUE()` `FIRST_VALUE()` 합니다. 
 3. ONNX를 사용 하 여 예측 하기 위한 안정성 향상.
@@ -58,7 +58,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-23"></a>CTP 2.3
 ### <a name="sql-engine-build-number---15020001549"></a>SQL 엔진 빌드 번호-15.0.2000.1549
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. Date_Bucket () 함수에서 사용자 지정 원본을 지원 합니다. 
 2. SQL 배포의 일부로 BacPac 파일 지원.
 3. 데이터 보존 정책 기반 정리에 대 한 지원.      
@@ -76,7 +76,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-22"></a>CTP 2.2
 ### <a name="sql-engine-build-number---15020001546"></a>SQL 엔진 빌드 번호-15.0.2000.1546
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. 루트가 아닌 컨테이너 지원 
 2. 사용 현황 및 진단 데이터 수집에 대 한 지원 
 3. T-sql 스트리밍 업데이트
@@ -98,7 +98,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-20"></a>CTP 2.0 
 ### <a name="sql-engine-build-number---15020001401"></a>SQL 엔진 빌드 번호-15.0.2000.1401
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1.  ' Azure SQL Edge '로 업데이트 된 제품 이름
 1.  Date_bucket 함수
 
@@ -127,7 +127,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-15"></a>CTP 1.5
 ### <a name="sql-engine-build-number---15020001331"></a>SQL 엔진 빌드 번호-15.0.2000.1331
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. Date_bucket 함수
     
     i. DateTimeOffset 형식에 대 한 지원
@@ -137,7 +137,7 @@ ms.locfileid: "91284485"
  
 ## <a name="ctp-14"></a>CTP 1.4
 ### <a name="sql-engine-build-number---15020001247"></a>SQL 엔진 빌드 번호-15.0.2000.1247
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1.  ONNX 모델을 사용 하 여 예측
  
     i.  Varchar 지원
@@ -157,7 +157,7 @@ ms.locfileid: "91284485"
  
 ## <a name="ctp-13"></a>CTP 1.3
 ### <a name="sql-engine-build-number---15020001147"></a>SQL 엔진 빌드 번호-15.0.2000.1147
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. Azure IOT 포털 배포 
 
     i.   AMD64 및 ARM 이미지 배포 지원

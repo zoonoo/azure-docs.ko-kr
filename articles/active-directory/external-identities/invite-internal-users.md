@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909325"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>내부 사용자를 B2B 공동 작업에 초대
@@ -51,7 +51,7 @@ PowerShell 또는 초대 API를 사용 하 여 내부 사용자에 게 B2B 초�
 기본적으로 초대는 사용자에 게 초대를 알리는 전자 메일을 전송 하지만,이 전자 메일을 표시 하지 않고 사용자 고유의 전자 메일을 보낼 수 있습니다.
 
 > [!NOTE]
-> 사용자 고유의 전자 메일 또는 기타 통신을 보내려면-SendInvitationMessage: $false와 함께 AzureADMSInvitation를 사용 하 여 사용자를 자동으로 초대 한 다음 변환 된 사용자에 게 고유한 전자 메일 메시지를 보낼 수 있습니다. [AZURE AD B2B 공동 작업 API 및 사용자 지정을](customize-invitation-api.md)참조 하세요.
+> 전자 메일 또는 기타 통신을 보내려면-SendInvitationMessage: $false와 함께 New-AzureADMSInvitation를 사용 하 여 사용자를 자동으로 초대 한 다음 변환 된 사용자에 게 고유한 전자 메일 메시지를 보낼 수 있습니다. [AZURE AD B2B 공동 작업 API 및 사용자 지정을](customize-invitation-api.md)참조 하세요.
 
 ## <a name="use-powershell-to-send-a-b2b-invitation"></a>PowerShell을 사용 하 여 B2B 초대 보내기
 

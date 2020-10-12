@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092544"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용 하 여 Azure Machine Learning Studio (클래식) 모델 업데이트
@@ -63,7 +63,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 만드는 모델은 
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | 파이프라인의 작업 이름입니다.     | 예      |
 | description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type                          | Azure Machine Learning Studio (클래식) 리소스 업데이트 작업의 경우 활동 형식은 **AzureMLUpdateResource**입니다. | 예      |
+| type                          | Azure Machine Learning Studio (클래식) 리소스 업데이트 작업의 경우 활동 형식은  **AzureMLUpdateResource**입니다. | 예      |
 | linkedServiceName             | UpdateResourceEndpoint 속성을 포함 하는 Azure Machine Learning Studio (클래식) 연결 된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
 | trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |

@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934755"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
@@ -43,7 +43,7 @@ ms.locfileid: "88934755"
 
 ![성능 탭은 예측 URL 단추 주위에 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![성능 탭은 이미지 파일 및 예측 키 값을 사용 하기 위한 예측 URL 값을 둘러싼 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
+![성능 탭은 이미지 파일 및 Prediction-Key 값을 사용 하기 위한 예측 URL 값을 둘러싼 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
 
 이 가이드에서는 로컬 이미지를 사용 하므로 임시 위치에 **이미지 파일이 있는 경우** URL을 복사 합니다. 해당 하는 __예측 키__ 값도 복사 합니다.

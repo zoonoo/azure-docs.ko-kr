@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88948133"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 서명 키 롤오버
@@ -37,7 +37,7 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * [리소스에 액세스하는 네이티브 클라이언트 애플리케이션](#nativeclient)
 * [리소스에 액세스하는 웹 애플리케이션/API](#webclient)
 * [리소스를 보호하고 Azure App Services를 사용하여 빌드된 웹 애플리케이션/API](#appservices)
-* [.NET OWIN Openid connect Connect, WS-급지됨 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용 하 여 리소스를 보호 하는 웹 응용 프로그램/a p i](#owin)
+* [.NET OWIN Openid connect Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용 하 여 리소스를 보호 하는 웹 응용 프로그램/a p i](#owin)
 * [.NET Core OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 애플리케이션/API](#owincore)
 * [Node.js passport-azure-ad 모듈을 사용하여 리소스를 보호하는 웹 애플리케이션/API](#passport)
 * [리소스를 보호 하 고 Visual Studio 2015 이상으로 만든 웹 응용 프로그램/a p i](#vs2015)
@@ -284,7 +284,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
           </keys>
    ```
 2. 설정에서 **\<add thumbprint="">** 모든 문자를 다른 문자로 바꿔서 지문 값을 변경 합니다. **Web.config** 파일을 저장합니다.
-3. 애플리케이션을 빌드하고 실행합니다. 로그인 프로세스를 완료할 수 있으면 애플리케이션은 디렉터리의 페더레이션 메타데이터 문서에서 필요한 정보를 다운로드하여 키를 성공적으로 업데이트합니다. 로그인 하는 데 문제가 있는 경우 [Microsoft id 플랫폼을 사용 하 여 웹 응용 프로그램에 로그온 추가](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) 문서를 읽거나 응용 프로그램의 변경 내용이 올바른지 확인 하 고, [Azure Active Directory에 대 한 다중 테 넌 트 클라우드 응용 프로그램](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b)코드 샘플을 다운로드 및 검사 합니다.
+3. 애플리케이션을 빌드하고 실행합니다. 로그인 프로세스를 완료할 수 있으면 애플리케이션은 디렉터리의 페더레이션 메타데이터 문서에서 필요한 정보를 다운로드하여 키를 성공적으로 업데이트합니다. 로그인 하는 데 문제가 있는 경우 [Microsoft id 플랫폼을 사용 하 여 웹 응용 프로그램에 Sign-On 추가](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) 문서를 참조 하거나 [Azure Active Directory에 대 한 다중 테 넌 트 클라우드 응용 프로그램](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b)코드 샘플을 다운로드 및 검사 하 여 응용 프로그램의 변경 내용이 올바른지 확인 합니다.
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 애플리케이션
 WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록 애플리케이션의 구성을 자동으로 새로 고치는 데 제공된 메커니즘이 없습니다.

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284366"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Azure SQL Database에 대 한 Database Advisor 성능 권장 사항
@@ -40,10 +40,10 @@ Azure SQL Database에서 사용할 수 있는 성능 권장 옵션은 다음과 
 
 | 성능 권장 사항 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :----------------------------- | ----- | ----- |
-| **인덱스 만들기 권장 사항** -작업의 성능을 향상 시킬 수 있는 인덱스를 만드는 것이 좋습니다. | 예 | 예 |
-| **Drop index 권장 사항** -긴 시간 (>90 일) 동안 사용 되지 않은 인덱스 및 고유 인덱스를 제외 하 고 매일 중복 인덱스 및 중복 인덱스를 제거 하는 것이 좋습니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 예 |
-| **쿼리 매개 변수화 권장 구성 (미리 보기)** -지속적으로 다시 컴파일되는 하나 이상의 쿼리가 있고 동일한 쿼리 실행 계획으로 끝나는 경우 강제 매개 변수화를 권장 합니다. | 예 | 예 |
-| **스키마 문제 해결 권장 사항 (미리 보기)** -데이터베이스에서 발생 하는 스키마 관련 SQL 오류 수가 비정상으로 Azure SQL Database 경우 스키마 수정에 대 한 권장 사항이 표시 됩니다. Microsoft는 현재 “스키마 문제 해결” 권장 사항을 사용하지 않습니다. | 예 | 예 |
+| **인덱스 만들기 권장 사항** -작업의 성능을 향상 시킬 수 있는 인덱스를 만드는 것이 좋습니다. | 예 | 아니요 |
+| **Drop index 권장 사항** -긴 시간 (>90 일) 동안 사용 되지 않은 인덱스 및 고유 인덱스를 제외 하 고 매일 중복 인덱스 및 중복 인덱스를 제거 하는 것이 좋습니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 아니요 |
+| **쿼리 매개 변수화 권장 구성 (미리 보기)** -지속적으로 다시 컴파일되는 하나 이상의 쿼리가 있고 동일한 쿼리 실행 계획으로 끝나는 경우 강제 매개 변수화를 권장 합니다. | 예 | 아니요 |
+| **스키마 문제 해결 권장 사항 (미리 보기)** -데이터베이스에서 발생 하는 스키마 관련 SQL 오류 수가 비정상으로 Azure SQL Database 경우 스키마 수정에 대 한 권장 사항이 표시 됩니다. Microsoft는 현재 “스키마 문제 해결” 권장 사항을 사용하지 않습니다. | 예 | 아니요 |
 
 ![Azure SQL Database에 대 한 성능 권장 사항](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 

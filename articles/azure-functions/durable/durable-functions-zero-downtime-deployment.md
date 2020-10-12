@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093071"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
@@ -62,7 +62,7 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 
 ### <a name="hostjson-examples"></a>예 host.js
 
-다음 JSON 조각은 파일 *의host.js* 에 있는 연결 문자열 설정의 예입니다.
+다음 JSON 조각은 파일 * 의host.js* 에 있는 연결 문자열 설정의 예입니다.
 
 #### <a name="functions-20"></a>함수 2.0
 

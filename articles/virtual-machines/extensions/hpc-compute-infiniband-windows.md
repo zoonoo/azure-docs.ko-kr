@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097836"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Windows 용 InfiniBand 드라이버 확장
@@ -25,7 +25,7 @@ ms.locfileid: "87097836"
 
 [Linux vm](hpc-compute-infiniband-linux.md)에 대 한 InfiniBand 드라이버를 설치 하는 데에도 확장을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -33,7 +33,7 @@ ms.locfileid: "87097836"
 
 | 배포 | 버전 |
 |---|---|
-| Windows 10 | 핵심 |
+| 윈도우 10 | 핵심 |
 | Windows Server 2019 | 핵심 |
 | Windows Server 2016 | 핵심 |
 | Windows Server 2012 R2 | 핵심 |

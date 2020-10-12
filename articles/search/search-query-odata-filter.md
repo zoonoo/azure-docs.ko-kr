@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934857"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $filter 구문
@@ -32,7 +32,7 @@ Azure Cognitive Search는 [OData 필터 식을](query-odata-filter-orderby-synta
 
 ## <a name="syntax"></a>구문
 
-OData 언어의 필터는 부울 식입니다 .이 식은 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에 표시 된 것과 같이 식의 여러 유형 중 하나일 수 있습니다.
+OData 언어의 필터는 부울 식이 며, 다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에 표시 된 것과 같이 식의 여러 유형 중 하나일 수 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -75,7 +75,7 @@ variable ::= identifier | field_path
 
 하위 식 주위에 괄호를 사용 하지 않고 필터 식을 작성 하는 경우 Azure Cognitive Search는 연산자 우선 순위 규칙 집합에 따라 계산 합니다. 이러한 규칙은 하위 식을 결합 하는 데 사용 되는 연산자를 기반으로 합니다. 다음 표에서는 연산자 그룹을 최고 우선 순위부터 최하위 순서로 나열 합니다.
 
-| 그룹화 | 연산자 |
+| 그룹 | 연산자 |
 | --- | --- |
 | 논리 연산자 | `not` |
 | 비교 연산자 | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

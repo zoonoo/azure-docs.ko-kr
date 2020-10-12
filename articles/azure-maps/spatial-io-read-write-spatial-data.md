@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333327"
 ---
 # <a name="read-and-write-spatial-data"></a>공간 데이터 읽기 및 쓰기
@@ -29,7 +29,7 @@ ms.locfileid: "91333327"
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | 공간 CSV       | ✓  |  ✓  |
-| 잘 알려진 텍스트   | ✓  |  ✓  |
+| Well-Known 텍스트   | ✓  |  ✓  |
 
 다음 섹션에서는 공간 IO 모듈을 사용 하 여 공간 데이터를 읽고 쓰기 위한 다양 한 도구를 모두 간략하게 설명 합니다.
 
@@ -41,7 +41,7 @@ Zip 또는 KMZ 압축 된 파일을 읽을 때 압축을 푼 후 첫 번째 유�
 
 Read 함수의 결과는 `SpatialDataSet` 개체입니다. 이 개체는 GeoJSON FeatureCollection 클래스를 확장 합니다. 이를 그대로에 쉽게 전달 `DataSource` 하 여 지도에 기능을 렌더링할 수 있습니다. 는 `SpatialDataSet` 기능 정보를 포함할 뿐만 아니라 다음 표에 설명 된 대로 KML 그라운드 오버레이, 처리 메트릭 및 기타 세부 정보를 포함할 수도 있습니다.
 
-| 속성 이름 | Type | Description | 
+| 속성 이름 | Type | 설명 | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | 데이터 집합에 있는 모든 데이터의 경계 상자입니다. |
 | `features` | `Feature[]` | 데이터 집합 내의 기능을 GeoJSON 합니다. |
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>잘 알려진 텍스트 읽기 및 쓰기 (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>읽기 및 쓰기 Well-Known 텍스트 (WKT)
 
 WKT ( [잘 알려진 텍스트](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) )는 공간 기 하 도형을 텍스트로 나타내는 OGC (Open Geospatial Consortium) 표준입니다. 많은 지리 공간적 시스템은 PostGIS 플러그 인을 사용 하는 azure SQL 및 Azure PostgreSQL와 같은 WKT을 지원 합니다. 대부분의 OGC 표준과 마찬가지로 좌표는 "x y" 규칙에 맞게 "경도 위도"로 서식 지정 됩니다. 예를 들어 경도-110 및 위도 45의 지점은 `POINT(-110 45)` WKT 형식을 사용 하 여 작성할 수 있습니다.
 
 함수를 사용 하 여 잘 알려진 텍스트를 읽고 `atlas.io.ogc.WKT.read` 함수를 사용 하 여 쓸 수 있습니다 `atlas.io.ogc.WKT.write` .
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>잘 알려진 텍스트 읽기 및 쓰기 예 (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Well-Known 텍스트 읽기 및 쓰기 예 (WKT)
 
 다음 코드는 잘 알려진 텍스트 문자열을 읽고 `POINT(-122.34009 47.60995)` 거품형 계층을 사용 하 여 지도에서 렌더링 하는 방법을 보여 줍니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='잘 알려진 텍스트 읽기' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 펜으로 <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>잘 알려진 텍스트 읽기</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='Well-Known 텍스트 읽기' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>읽기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 다음 코드는 잘 알려진 텍스트를 앞뒤로 읽고 쓰는 방법을 보여 줍니다.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='잘 알려진 텍스트 읽기 및 쓰기' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>읽기 및 쓰기 잘 알려진 텍스트</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='700' scrolling='no' title='Well-Known 텍스트 읽기 및 쓰기' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>읽기 및 쓰기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 ## <a name="read-and-write-gml"></a>읽기 및 쓰기 GML

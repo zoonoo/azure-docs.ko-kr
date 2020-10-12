@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538724"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS에 대 한 반복적인 앱 디자인
@@ -68,7 +68,7 @@ LUIS에는 각각의 **의도**에 몇 가지 예 길이 발언가 필요 합니
 
 각 예제 utterance는 **엔터티**를 사용 하 여 디자인 하 고 레이블을 지정 **하는 데 필요한 데이터** 를 포함 해야 합니다.
 
-|Key 요소|용도|
+|Key 요소|목적|
 |--|--|
 |Intent|사용자 길이 발언를 단일 의도 또는 작업으로 **분류** 합니다. 예에는 `BookFlight` 및 `GetWeather`가 포함됩니다.|
 |엔터티|Utterance에서 데이터를 **추출** 하 여 의도를 완료 해야 합니다. 예를 들면 여행 날짜와 시간 및 위치를 포함 합니다.|

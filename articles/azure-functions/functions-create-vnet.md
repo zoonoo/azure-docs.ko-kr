@@ -4,10 +4,10 @@ description: Azure 가상 네트워크에 함수를 연결 하는 방법을 보�
 ms.topic: article
 ms.date: 4/23/2020
 ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387526"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>자습서: Azure Virtual Network에 Azure Functions 통합
@@ -70,11 +70,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![VM 만들기의 네트워킹 탭](./media/functions-create-vnet/create-vm-2.png)
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **이름** | myResourceGroup-vnet | 가상 네트워크에 대해 생성된 기본 이름을 사용할 수 있습니다. |
     | **주소 범위** | 10.10.0.0/16 | 가상 네트워크에 단일 주소 범위를 사용합니다. |
-    | **서브넷 이름** | 자습서-Net | 서브넷 이름입니다. |
+    | **서브넷 이름** | Tutorial-Net | 서브넷 이름입니다. |
     | **주소 범위**(서브넷) | 10.10.1.0/24   | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의합니다. 이 서브넷은 WordPress 사이트에서 사용 됩니다.  `/24`서브넷은 254 호스트 주소를 제공 합니다. |
 
 1. **확인**을 선택하여 가상 네트워크를 만듭니다.
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. **VNET 통합** 페이지에서 **VNET 추가**를 선택 합니다.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="VNet 통합 미리 보기 추가":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="함수 앱에서 네트워킹 선택":::
 
 1. **네트워크 기능 상태**에서 이미지 아래 표의 설정을 사용 합니다.
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | MyResourceGroup-vnet | 이 가상 네트워크는 이전에 만든 가상 네트워크입니다. |
     | **서브넷** | 새 서브넷 만들기 | 사용할 함수 앱에 대 한 가상 네트워크의 서브넷을 만듭니다. 빈 서브넷을 사용 하도록 VNet 통합을 구성 해야 합니다. 함수에서 VM과 다른 서브넷을 사용 하는 것은 중요 하지 않습니다. 가상 네트워크는 두 서브넷 간에 트래픽을 자동으로 라우팅합니다. |
-    | **서브넷 이름** | 함수-Net | 새 서브넷의 이름입니다. |
+    | **서브넷 이름** | Function-Net | 새 서브넷의 이름입니다. |
     | **Virtual network 주소 블록** | 10.10.0.0/16 | WordPress 사이트에서 사용 하는 것과 동일한 주소 블록을 선택 합니다. 하나의 주소 블록만 정의 해야 합니다. |
     | **주소 범위** | 10.10.2.0/24   | 서브넷 크기는 프리미엄 계획 함수 앱이 확장할 수 있는 총 인스턴스 수를 제한 합니다. 이 예제에서는 `/24` 254 사용 가능한 호스트 주소를 사용 하는 서브넷을 사용 합니다. 이 서브넷은 과도 하 게 프로 비전 되었지만 계산 하기 쉽습니다. |
 
@@ -127,9 +127,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만들어 가상 네트워크에서 실행 중인 VM에 요청을 전달할 수 있습니다.
 
-1. 함수 앱의 왼쪽 메뉴에서 **프록시** 를 선택 하 고 **추가**를 선택 합니다. 이미지 아래 테이블의 프록시 설정을 사용 합니다.
+1. 함수 앱의 왼쪽 메뉴에서  **프록시** 를 선택 하 고 **추가**를 선택 합니다. 이미지 아래 테이블의 프록시 설정을 사용 합니다.
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="프록시 설정 정의":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="함수 앱에서 네트워킹 선택":::
 
     | 설정  | 제안 값  | 설명      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만�
 
 1. **만들기** 를 선택 하 여 함수 앱에 프록시를 추가 합니다.
 
-## <a name="try-it-out"></a>사용해 보기
+## <a name="try-it-out"></a>체험
 
 1. 브라우저에서 **백 엔드 url**로 사용한 url에 액세스를 시도 합니다. 예상 대로 요청 시간이 초과 됩니다. WordPress 사이트는 인터넷이 아닌 가상 네트워크에만 연결 되므로 시간 초과가 발생 합니다.
 

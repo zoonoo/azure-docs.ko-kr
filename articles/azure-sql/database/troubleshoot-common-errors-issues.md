@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284128"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 연결 문제 및 기타 오류 해결
@@ -185,7 +185,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
   > [!NOTE]
   > 이는 문제를 해결 하지 못할 수 있는 전적 방법입니다.
 
-1. 다음 SQL 쿼리를 실행 하 여 [dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 보기를 확인 하 고 차단 요청을 확인 합니다.
+1. 다음 SQL 쿼리를 실행 하 여 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 보기를 확인 하 고 차단 요청을 확인 합니다.
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -250,7 +250,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 
 이 오류가 반복적으로 발생 하는 경우 다음 단계를 수행 하 여 문제를 해결 해 보십시오.
 
-1. Total_elapsed_time 열에 대해 값이 높은 열려 있는 세션을 보려면 dm_exec_requests 뷰를 확인 합니다. 다음 SQL 스크립트를 실행 하 여이 확인을 수행 합니다.
+1. Sys.dm_exec_requests 뷰를 확인 하 여 total_elapsed_time 열에 대해 값이 높은 열려 있는 세션을 확인 합니다. 다음 SQL 스크립트를 실행 하 여이 확인을 수행 합니다.
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -315,7 +315,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |탄력적 풀이 스토리지 용량 한도에 도달했습니다. 탄력적 풀의 스토리지 사용량은 (%d)MB를 초과할 수 없습니다. 탄력적 풀이 스토리지 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 스토리지를 추가하여 스토리지 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 스토리지를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. 탄력적 풀 크기 조정에 대해서는 [탄력적 풀 리소스 크기 조정](elastic-pool-scale.md)을 참조 하세요.|
 | 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>&bull;&nbsp; [탄력적 풀에 대 한 DTU 기반 제한](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [탄력적 풀에 대 한 vcore 기반 제한](resource-limits-vcore-elastic-pools.md)입니다. <br/> 그렇지 않은 경우 나중에 다시 시도하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
-| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |해당 없음 |
+| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |N/A |
 | 40857 | 16 |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. 지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. | 유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 | 16 |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. 지정한 탄력적 풀이 지정한 서버에 이미 있습니다. | 새 탄력적 풀 이름을 입력하세요. |
 | 40859 | 16 |탄력적 풀이 서비스 계층 '%ls'을(를) 지원하지 않습니다. 지정한 서비스 계층은 탄력적 풀 프로비저닝에 대해 지원되지 않습니다. |기본 서비스 계층을 사용하려면 오류를 수정하거나 서비스 계층을 빈 상태로 두세요. |
