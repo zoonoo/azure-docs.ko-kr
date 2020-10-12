@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970234"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
@@ -255,7 +255,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Dat
    > Windows 업데이트에 Microsoft 업데이트를 리디렉션하는 것이 좋으며 이는 Windows 및 Microsoft Azure Backup 서버와 같은 다른 제품에 대한 보안 및 중요 업데이트를 제공합니다.
    >
 
-    ![Microsoft 업데이트 옵트인 화면](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Microsoft 업데이트 Opt-In 화면](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
 8. *설정 요약* 을 검토 하 고 **설치**를 선택 합니다.
 

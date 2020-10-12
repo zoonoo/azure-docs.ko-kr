@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133815"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
@@ -25,7 +25,7 @@ ms.locfileid: "86133815"
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 복구를 구현하려면 다음과 같은 필수 조건을 완료해야 합니다.
 
@@ -45,7 +45,7 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 �
 --- | --- | ---
 **Hyper-V** | 예 | 예
 **VMware** | 예 | 예
-**물리적 서버** | 예 | 예
+**실제 서버** | 예 | 예
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 애플리케이션 재해 복구 활성화
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 애플리케이션 보호

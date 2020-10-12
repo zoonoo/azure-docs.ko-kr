@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77084062"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
@@ -46,8 +46,8 @@ MSAL 공용 API는 다음과 같은 중요 한 변경 사항을 소개 합니다
   - 런타임에는 더 이상 인증 기관의 유효성이 검사 되지 않습니다. 대신 개발자는 개발 중에 ' 알려진 인증 기관 ' 목록을 선언 합니다.
 - 토큰 API 변경:
   - ADAL에서는 `AcquireToken()` 먼저 자동 요청을 수행 합니다. 실패 하면 대화형 요청이 발생 합니다. 이 동작으로 인해 일부 개발자가에만 의존 하 `AcquireToken` 여 때때로 사용자가 예기치 않게 자격 증명을 입력 하 라는 메시지가 표시 됩니다. MSAL을 사용 하려면 사용자에 게 UI 프롬프트가 표시 될 때 개발자가 의도적인 것을 요구 합니다.
-    - `AcquireTokenSilent`성공 또는 실패 하는 자동 요청이 항상 발생 합니다.
-    - `AcquireToken`항상 UI를 통해 사용자에 게 메시지를 표시 하는 요청을 생성 합니다.
+    - `AcquireTokenSilent` 성공 또는 실패 하는 자동 요청이 항상 발생 합니다.
+    - `AcquireToken` 항상 UI를 통해 사용자에 게 메시지를 표시 하는 요청을 생성 합니다.
 - MSAL은 기본 브라우저 또는 포함 된 웹 보기에서 로그인을 지원 합니다.
   - 기본적으로 장치의 기본 브라우저가 사용 됩니다. 이를 통해 MSAL은 하나 이상의 로그인 된 계정에 이미 있을 수 있는 인증 상태 (쿠키)를 사용할 수 있습니다. 인증 상태가 없는 경우 MSAL을 통해 권한 부여 중에 인증 하면 동일한 브라우저에서 사용 되는 다른 웹 응용 프로그램의 혜택에 대 한 인증 상태 (쿠키)가 생성 됩니다.
 - 새 예외 모델:
@@ -65,7 +65,7 @@ MSAL을 사용 하도록 기존 앱 등록을 변경할 필요가 없습니다. 
 
 포털의 앱 등록에 **API 사용 권한** 탭이 표시 됩니다. 그러면 앱이 현재 액세스를 요청 하도록 구성 된 Api 및 사용 권한 (범위) 목록이 제공 됩니다. 또한 각 API 권한과 연결 된 범위 이름 목록을 표시 합니다.
 
-### <a name="user-consent"></a>사용자 동의
+### <a name="user-consent"></a>사용자 승인
 
 ADAL 및 AAD v1 끝점을 사용 하는 경우 자신이 소유한 리소스에 대 한 사용자 동의가 처음 사용 시 부여 되었습니다. MSAL 및 Microsoft id 플랫폼을 사용 하는 경우에는 동의가 점진적으로 요청 될 수 있습니다. 증분 동의는 사용자가 높은 권한을 고려할 수 있는 권한 또는 권한이 필요한 이유를 명확 하 게 설명 하는 경우에는 그렇지 않을 수 있는 경우에 유용 합니다. ADAL에서 이러한 사용 권한은 사용자가 앱에 로그인 하는 것을 중단 한 것일 수 있습니다.
 
@@ -150,7 +150,7 @@ Microsoft id 플랫폼은 금융 기관과 차이가 있는 경우, Microsoft id
 
 Sam은 Contoso.com에 대해 작동 하지만 Fabrikam.com에 속한 Azure virtual machines를 관리 합니다. Sam의 가상 컴퓨터를 관리 하려면 해당 컴퓨터에 액세스할 수 있는 권한이 있어야 합니다. Fabrikam.com에 Sam 계정을 추가 하 고 해당 계정에 가상 컴퓨터를 사용할 수 있도록 허용 하는 역할을 부여 하 여이 액세스 권한을 부여할 수 있습니다. 이 작업은 Azure Portal를 통해 수행 됩니다.
 
-Sam의 Contoso.com 계정을 Fabrikam.com의 멤버로 추가 하면 Sam에 대 한 Fabrikam의 Azure Active Directory에 새 레코드가 생성 됩니다. Azure Active Directory의 Sam 레코드를 사용자 개체 라고 합니다. 이 경우 해당 사용자 개체가 Contoso.com의 Sam 사용자 개체를 다시 가리킵니다. Sam의 Fabrikam 사용자 개체는 Sam의 로컬 표현이 며 Fabrikam.com의 컨텍스트에서 Sam과 연결 된 계정에 대 한 정보를 저장 하는 데 사용 됩니다. Contoso.com의 Sam 제목은 수석 DevOps 컨설턴트입니다. Fabrikam에서 Sam 제목은 계약자-Virtual Machines입니다. Contoso.com에서 Sam은 가상 컴퓨터를 관리 하는 것을 담당 하거나 권한을 부여 받지 않습니다. Fabrikam.com에서 유일한 작업 함수입니다. 아직 Sam에는 Contoso.com에서 발급 한 자격 증명을 추적 하는 자격 증명 집합만 하나 있습니다.
+Sam의 Contoso.com 계정을 Fabrikam.com의 멤버로 추가 하면 Sam에 대 한 Fabrikam의 Azure Active Directory에 새 레코드가 생성 됩니다. Azure Active Directory의 Sam 레코드를 사용자 개체 라고 합니다. 이 경우 해당 사용자 개체가 Contoso.com의 Sam 사용자 개체를 다시 가리킵니다. Sam의 Fabrikam 사용자 개체는 Sam의 로컬 표현이 며 Fabrikam.com의 컨텍스트에서 Sam과 연결 된 계정에 대 한 정보를 저장 하는 데 사용 됩니다. Contoso.com의 Sam 제목은 수석 DevOps 컨설턴트입니다. Fabrikam에서 Sam의 제목은 컴퓨터 Contractor-Virtual입니다. Contoso.com에서 Sam은 가상 컴퓨터를 관리 하는 것을 담당 하거나 권한을 부여 받지 않습니다. Fabrikam.com에서 유일한 작업 함수입니다. 아직 Sam에는 Contoso.com에서 발급 한 자격 증명을 추적 하는 자격 증명 집합만 하나 있습니다.
 
 호출이 성공적으로 `acquireToken` 수행 되 면 `IAccount` 이후 요청에서 사용할 수 있는 개체에 대 한 참조가 표시 됩니다 `acquireTokenSilent` .
 

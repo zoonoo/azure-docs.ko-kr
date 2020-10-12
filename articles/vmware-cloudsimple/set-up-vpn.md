@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77087137"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 대 한 VPN 연결 구성
@@ -37,7 +37,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 1. CloudSimple 포털을 시작 하 고 **네트워크**를 선택 합니다.
 2. **VPN Gateway**를 선택 합니다.
 3. VPN gateway 목록에서 지점 및 사이트 간 VPN gateway를 클릭 합니다.
-4. **사용자**를 선택 합니다.
+4. **사용자**를 선택합니다.
 5. **내 VPN 구성 다운로드** 를 클릭 합니다.
 
     ![VPN 구성 다운로드](media/download-p2s-vpn-configuration.png)

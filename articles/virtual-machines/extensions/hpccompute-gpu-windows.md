@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
 ms.openlocfilehash: 4491171062e582db8388c3eff380d67ea1a0c51c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085659"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
@@ -29,7 +29,7 @@ ms.locfileid: "87085659"
 드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-driver-setup.md)에서 확인할 수 있습니다.
 또한 [Linux N 시리즈 VM](hpccompute-gpu-linux.md)에 NVIDIA GPU 드라이버를 설치할 수 있는 확장도 제공됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -37,7 +37,7 @@ ms.locfileid: "87085659"
 
 | 배포 | 버전 |
 |---|---|
-| Windows 10 | 핵심 |
+| 윈도우 10 | 핵심 |
 | Windows Server 2016 | 핵심 |
 | Windows Server 2012 R2 | 핵심 |
 

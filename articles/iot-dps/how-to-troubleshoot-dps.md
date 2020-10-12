@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75646475"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 문제 해결
@@ -27,12 +27,12 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 2. IoT Hub Device Provisioning Service로 이동 합니다.
 
-3. **메트릭**을 선택 합니다.
+3. **메트릭**을 선택합니다.
 
 4. 원하는 메트릭을 선택 합니다. 
    <br />현재 DPS에는 세 가지 메트릭이 있습니다.
 
-    | 메트릭 이름 | 설명 |
+    | 메트릭 이름 | Description |
     |-------|------------|
     | 증명 시도 | 장치 프로 비전 서비스를 사용 하 여 인증을 시도한 장치 수|
     | 등록 시도 | 인증에 성공한 후 IoT Hub에 등록 하려고 시도한 장치 수|

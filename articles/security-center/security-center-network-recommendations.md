@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90883889"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
@@ -48,7 +48,7 @@ Security Center **네트워킹** 기능에는 다음이 포함 됩니다.
 
 1. Security Center의 메뉴에서 Azure Defender 대시보드를 열고 **네트워크 맵**을 선택 합니다.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Azure Defender 대시보드에서 네트워크 맵 열기" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Asset inventory network 리소스 유형" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. **계층** 메뉴를 선택 하 여 **토폴로지**를 선택 합니다.
  

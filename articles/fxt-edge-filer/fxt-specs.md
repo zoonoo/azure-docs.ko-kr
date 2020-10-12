@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184689"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Azure FXT Edge Filer 사양
@@ -148,7 +148,7 @@ Azure FXT Edge Filer 노드는 가변 속도 팬을 사용하므로 전원은 �
 
 ### <a name="airflow-shock-and-vibration"></a>기류, 감전 및 진동 
 
-| 특성         | 규격 |
+| attribute         | 규격 |
 |-------------------|---------------|
 | 기류                    | 시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. |
 | 충격, 작동         | 11밀리초 동안 6G(6개 방향으로 테스트됨) |
@@ -160,7 +160,7 @@ Azure FXT Edge Filer 노드는 가변 속도 팬을 사용하므로 전원은 �
 
 Azure FXT Edge Filer는 나열된 규정을 준수합니다. 
 
-| Category       | 규정 사양 | 
+| 범주       | 규정 사양 | 
 |----------------|--------------------------|
 | 일반 안전 | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014(Class D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |

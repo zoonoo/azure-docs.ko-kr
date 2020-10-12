@@ -8,10 +8,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556374"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>장치에서 클라우드로 파일 업로드
@@ -20,7 +20,7 @@ ms.locfileid: "88556374"
 
 IoT Central를 사용 하 여 연결 된 장치에서 클라우드 저장소로 미디어 및 기타 파일을 업로드할 수 있습니다. IoT Central 응용 프로그램에서 파일 업로드 기능을 구성 하 고 장치 코드에서 파일 업로드를 구현 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 파일 업로드를 구성 하려면 IoT Central 응용 프로그램의 관리자 여야 합니다.
 

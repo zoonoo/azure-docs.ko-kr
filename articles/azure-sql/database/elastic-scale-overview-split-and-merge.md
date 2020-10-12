@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84034654"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
@@ -43,7 +43,7 @@ ms.locfileid: "84034654"
 
 ## <a name="why-use-the-split-merge-tool"></a>분할-병합 도구를 사용하는 이유
 
-- **수행할**
+- **유연성**
 
   응용 프로그램은 Azure SQL Database에서 단일 데이터베이스의 제한을 초과 하 여 유연 하 게 확장 해야 합니다. 무결성을 유지하면서 필요에 따라 데이터를 새 데이터베이스로 이동하기 위해 이 도구를 사용합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "84034654"
 
 - **축소하는 병합**
 
-  비즈니스의 계절별 특성으로 인해 용량을 축소해야 합니다. 비즈니스 활동이 줄어들면 이 도구를 사용하여 더 적은 규모로 축소할 수 있습니다. 탄력적 확장 분할/병합 서비스의 ' 병합 ' 기능은 이러한 요구 사항을 다룹니다.
+  비즈니스의 계절별 특성으로 인해 용량을 축소해야 합니다. 비즈니스 활동이 줄어들면 이 도구를 사용하여 더 적은 규모로 축소할 수 있습니다. 탄력적 확장 Split-Merge 서비스의 ' 병합 ' 기능은 이러한 요구 사항을 다룹니다.
 
 - **shardlet 이동으로 핫스팟 관리**
 
@@ -167,7 +167,7 @@ ms.locfileid: "84034654"
 
   더 이상 필요하지 않은 진행 중인 작업이 있는 경우 이 필드에서 해당 작업 ID를 제공하여 작업을 취소할 수 있습니다. 요청을 제출한 웹 브라우저의 출력이나 요청 상태 테이블(섹션 8.1 참조)에서 작업 ID를 검색할 수 있습니다.
 
-## <a name="requirements-and-limitations"></a>요구 사항 및 제한 사항
+## <a name="requirements-and-limitations"></a>요구 사항 및 제한 사항:
 
 분할/병합 서비스의 현재 구현에는 다음 요구 사항 및 제한 사항이 적용됩니다.
 
@@ -195,7 +195,7 @@ ms.locfileid: "84034654"
 
   요청을 고유하게 식별하는 GUID입니다. 이 요청을 사용하여 아직 진행 중인 작업을 취소할 수도 있습니다.
 
-- **Status**
+- **상태**
 
   요청의 현재 상태입니다. 진행 중인 요청의 경우 요청이 있는 현재 단계도 나열됩니다.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 4c3a141525f650d6e254f79ce9e3396f2c35a95f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84040884"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
@@ -32,11 +32,11 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. **복제 또는 다운로드**를 클릭합니다.
-3. **zip 다운로드**를 클릭하고 파일을 저장합니다.
+3. **Zip 다운로드** 를 클릭 하 고 파일을 저장 합니다.
 4. 해당 zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. zip 파일 이름은 리포지토리 이름에 해당합니다. 예: _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. **일반** 탭에서 **차단 해제**를 선택합니다.
 6. **확인**을 클릭합니다.
-7. 파일의 압축을 풉니다.
+7. 파일을 추출합니다.
 
 스크립트는에 있습니다 *. \\ 학습 모듈* 폴더입니다.
 

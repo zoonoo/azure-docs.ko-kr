@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291469"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services에서 라이브 이벤트 및 라이브 출력
@@ -60,7 +60,7 @@ H.264/AVC 또는 H.265/HEVC 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-
 
 ![Media Services 예제 다이어그램을 사용한 라이브 인코딩](./media/live-streaming/live-encoding.svg)
 
-Media Services에서 라이브 인코딩을 사용 하는 경우 라이브 이벤트에 기여 피드로 단일 비트 전송률 비디오를 보내도록 온-프레미스 라이브 인코더를 구성 합니다 (RTMP 또는 조각화 된 Mp4 프로토콜 사용). 그런 다음 들어오는 단일 비트 전송률 스트림을 [다중 비트 전송률 비디오 스트림으로](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)인코드 하도록 라이브 이벤트를 설정 하 고, MPEG-2, HLS 및 부드러운 스트리밍 같은 프로토콜을 통해 장치를 재생 하기 위해 출력을 배달할 수 있도록 합니다.
+Media Services에서 라이브 인코딩을 사용 하는 경우 온-프레미스 라이브 인코더를 구성 하 여 라이브 이벤트에 기여 피드로 단일 비트 전송률 비디오를 보냅니다 (RTMP 또는 Fragmented-Mp4 프로토콜 사용). 그런 다음 들어오는 단일 비트 전송률 스트림을 [다중 비트 전송률 비디오 스트림으로](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)인코드 하도록 라이브 이벤트를 설정 하 고, MPEG-2, HLS 및 부드러운 스트리밍 같은 프로토콜을 통해 장치를 재생 하기 위해 출력을 배달할 수 있도록 합니다.
 
 Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aacv1 또는 He-aacv2) 오디오 코덱을 사용 하 여 프레임 속도로 30 프레임/초 프레임 속도로 최대 1080p 해상도로만 기여 피드를 보낼 수 있습니다. 통과 라이브 이벤트는 60 프레임/초에 최대 4K의 해상도를 지원할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison.md)를 참조 하세요.
 
@@ -124,16 +124,16 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
     다음 Api를 사용 하 여 베 니 티 URL을 사용 하도록 설정 하 고 액세스 토큰을 유효한 GUID (예: `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` )로 설정 합니다.  
 
-    |언어|베 니 티 URL 사용|액세스 토큰 설정|
+    |Language|베 니 티 URL 사용|액세스 토큰 설정|
     |---|---|---|
-    |REST (영문)|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
+    |REST|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--베 니 티](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
     |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
 * *스트림 이름*: 특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-vanity-url"></a>비베니티 URL

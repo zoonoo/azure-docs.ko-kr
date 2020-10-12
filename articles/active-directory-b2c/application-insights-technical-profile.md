@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201415"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Application Insights 기술 프로필 정의
@@ -34,7 +34,7 @@ Azure AD B2C (Azure Active Directory B2C)는 Azure AD B2C에 제공 된 계측 �
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **Handler** 특성은 Application Insights에 대해 Azure AD B2C에서 사용 하는 프로토콜 처리기 어셈블리의 정규화 된 이름을 포함 해야 합니다.`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-다음 예제에서는 일반적인 Application Insights 기술 프로필을 보여 줍니다. 기타 Application Insights 기술 프로필에는 해당 구성을 활용 하기 위한 AzureInsights-공통이 포함 됩니다.  
+다음 예제에서는 일반적인 Application Insights 기술 프로필을 보여 줍니다. 기타 Application Insights 기술 프로필에는 구성을 활용 하는 AzureInsights-Common 포함 되어 있습니다.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">
@@ -73,7 +73,7 @@ CryptographicKeys 요소는 사용되지 않습니다.
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | InstrumentationKey| 예 | 이벤트를 기록 하는 데 사용 되는 Application Insights [계측 키](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)입니다. | 
 | DeveloperMode| 아니요 | 개발자 모드를 사용 하는지 여부를 나타내는 부울입니다. 가능한 값: `true` 또는 `false` (기본값) 이 메타 데이터는 이벤트가 버퍼링 되는 방식을 제어 합니다. 최소 이벤트 볼륨이 있는 개발 환경에서 개발자 모드를 사용 하도록 설정 하면 이벤트가 즉시 Application Insights 전송 됩니다.|  

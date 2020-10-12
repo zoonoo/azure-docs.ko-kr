@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086220"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
@@ -20,10 +20,10 @@ ms.locfileid: "87086220"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-secondary-support-matrix.md) 검토 합니다.
+- 모든 구성 요소에 대한 [지원 요구 사항](./vmware-physical-secondary-support-matrix.md)을 검토합니다.
 - Virtual Machine Manager 서버 및 Hyper-V 호스트가 [지원 요구 사항](./vmware-physical-secondary-support-matrix.md)을 준수하는지 확인합니다.
 - 복제하려는 VM에서 [복제된 컴퓨터 지원](./vmware-physical-secondary-support-matrix.md)을 준수하는지 확인합니다.
 

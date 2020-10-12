@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
 ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90883821"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>고급 보안이 포함 된 Windows Defender 방화벽을 Azure 센티널에 연결
@@ -33,7 +33,7 @@ ms.locfileid: "90883821"
 >
 > - Azure Security Center의 Azure Defender 경고가 이미 Azure 센티널 작업 영역에 수집 된 경우이 커넥터를 통해 Windows 방화벽 솔루션을 사용 하도록 설정할 필요가 없습니다. 그러나이 기능을 사용 하도록 설정 하면 중복 된 데이터가 발생 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 모니터링할 컴퓨터가 연결 된 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

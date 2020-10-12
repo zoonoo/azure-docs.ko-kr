@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77083141"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>클라우드를 온-프레미스 VMware 워크 로드에 대 한 재해 복구 사이트로 설정
@@ -41,7 +41,7 @@ CloudSimple 솔루션:
 
 다음 섹션에서는 사설 클라우드에서 Zerto 가상 복제를 사용 하 여 DR 솔루션을 배포 하는 방법을 설명 합니다.
 
-1. [전제 조건](#prerequisites)
+1. [필수 구성 요소](#prerequisites)
 2. [CloudSimple 사설 클라우드의 선택적 구성](#optional-configuration-on-your-private-cloud)
 3. [CloudSimple 사설 클라우드에서 ZVM 및 VRA 설정](#set-up-zvm-and-vra-on-your-private-cloud)
 4. [Zerto 가상 보호 그룹 설정](#set-up-zerto-virtual-protection-group)
@@ -93,6 +93,6 @@ CloudSimple 솔루션:
 6. 필요한 경우 개별 Vm에 대 한 네트워크 설정을 사용자 지정 하 고 VPG를 만듭니다.
 7. 복제가 완료 되 면 테스트 장애 조치 (failover)
 
-## <a name="reference"></a>참고
+## <a name="reference"></a>참조
 
 [Zerto 설명서](https://www.zerto.com/myzerto/technical-documentation/)

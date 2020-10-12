@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90882662"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
@@ -43,7 +43,7 @@ Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는
 > **Azure 서비스에 대 한 액세스 허용** 옵션은 다른 고객의 구독에서 연결을 포함 하 여 azure에서 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="포털에서 Azure 서비스 방문 허용 구성":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="방화벽 작동 방식을 보여 주는 예제 흐름":::
 
 ### <a name="connecting-from-a-vnet"></a>VNet에서 연결
 VNet에서 Azure Database for MySQL 서버에 안전 하 게 연결 하려면 [vnet 서비스 끝점](./concepts-data-access-and-security-vnet.md)을 사용 하는 것이 좋습니다. 

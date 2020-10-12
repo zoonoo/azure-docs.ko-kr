@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84034684"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database를 사용하여 규모 확장
@@ -67,7 +67,7 @@ ms.locfileid: "84034684"
 
 ## <a name="sharding"></a>분할
 
-*분할*이란 동일하게 구조화된 대량의 데이터를 여러 독립적인 데이터베이스에 분산하는 기술입니다. 특히 최종 고객 또는 비즈니스에 대한 SAAS(Software as a Service) 제품을 만드는 클라우드 개발자가 이 기법을 많이 사용합니다. 이러한 최종 고객을 종종 "테 넌 트" 라고 합니다. 분할은 다음과 같은 여러 가지 이유로 필요할 수 있습니다.  
+*분할* 는 여러 독립 데이터베이스에서 동일 하 게 구조화 된 대량의 데이터를 분산 하는 기술입니다. 특히 최종 고객 또는 비즈니스에 대한 SAAS(Software as a Service) 제품을 만드는 클라우드 개발자가 이 기법을 많이 사용합니다. 이러한 최종 고객을 종종 "테 넌 트" 라고 합니다. 분할은 다음과 같은 여러 가지 이유로 필요할 수 있습니다.  
 
 * 총 데이터양이 너무 커서 개별 데이터베이스의 제약 조건에 맞지 않습니다.
 * 전반적인 워크로드의 트랜잭션 처리량이 개별 데이터베이스의 기능을 초과합니다.

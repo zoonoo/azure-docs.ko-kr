@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.author: Zhchia
 ms.openlocfilehash: 7fde4a82ff3a9e0cfa67e8ce5afeebc000757b7c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462057"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 InVision 구성
@@ -34,7 +34,7 @@ ms.locfileid: "89462057"
 > * Azure AD와 InVision 간에 사용자 특성을 동기화 상태로 유지
 > * InVision에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/invision-tutorial) (필수)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "89462057"
    ![SCIM 액세스 토큰](./media/invision-provisioning-tutorial/invision-access-token.png)
 
 
-## <a name="step-3-add-invision-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 InVision 추가
+## <a name="step-3-add-invision-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 InVision 추가
 
 Azure AD 응용 프로그램 갤러리에서 InVision을 추가 하 여 InVision에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 InVision을 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

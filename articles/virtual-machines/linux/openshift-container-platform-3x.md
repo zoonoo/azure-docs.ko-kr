@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368152"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
@@ -277,13 +277,13 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `enableAzure` | Azure Cloud Provider 사용 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 응용 프로그램 ID 라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
 | `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | 없음 |
-| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | 기본값 <br> 사용자 지정 | 기본값 |
-| `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다.`masterClusterDnsType` |  | console.contoso.com |
+| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | default <br> 사용자 지정 | default |
+| `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다. `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | ' Nipio '로 설정 되 면 `routingSubDomain` 는 nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 사용자 지정 | nipio |
-| `routingSubDomain` | ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름`routingSubDomainType` |  | apps.contoso.com |
+| `routingSubDomain` | ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름 `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | 기존 Virtual Network를 사용할지 아니면 새 Virtual Network를 만들지를 선택 합니다. | 기존 <br> new | new |
-| `virtualNetworkResourceGroupName` | ' N e w '를 선택한 경우 새 Virtual Network에 대 한 리소스 그룹의 이름`virtualNetworkNewOrExisting` |  | resourceGroup (). 이름 |
-| `virtualNetworkName` | ' N e w '를 선택한 경우 만들 새 Virtual Network의 이름`virtualNetworkNewOrExisting` |  | openshiftvnet |
+| `virtualNetworkResourceGroupName` | ' N e w '를 선택한 경우 새 Virtual Network에 대 한 리소스 그룹의 이름 `virtualNetworkNewOrExisting` |  | resourceGroup (). 이름 |
+| `virtualNetworkName` | ' N e w '를 선택한 경우 만들 새 Virtual Network의 이름 `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | 새 가상 네트워크의 주소 접두사 |  | 10.0.0.0/14 |
 | `masterSubnetName` | 마스터 서브넷의 이름입니다. |  | mastersubnet |
 | `masterSubnetPrefix` | 마스터 서브넷에 사용 되는 CIDR-addressPrefix의 하위 집합 이어야 합니다. |  | 10.1.0.0/16 |
@@ -295,9 +295,9 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `existingInfraSubnetReference` | 인프라 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingCnsSubnetReference` | CN 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingNodeSubnetReference` | 계산 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
-| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`masterPrivateClusterIp` | 공공 <br> private | 공공 |
+| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다. `masterPrivateClusterIp` | public <br> private | public |
 | `masterPrivateClusterIp` | 개인 마스터 노드를 선택 하는 경우에는 마스터 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 마스터 서브넷의 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. 공용 마스터 노드를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.1.0.200 |
-| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`routerPrivateClusterIp` | 공공 <br> private | 공공 |
+| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다. `routerPrivateClusterIp` | public <br> private | public |
 | `routerPrivateClusterIp` | 개인 인프라 노드가 선택 된 경우 인프라 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 인프라 서브넷에 대 한 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. Public 인프라 nodes를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.2.0.200 |
 | `routingCertType` | 라우팅 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 사용자 지정 | selfsigned |
 | `masterCertType` | 마스터 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 사용자 지정 | selfsigned |

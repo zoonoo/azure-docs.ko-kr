@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970083"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer 편집기를 사용 하 여 프로젝트 만들기
@@ -55,7 +55,7 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
 
     결과 **필터링**을 선택 하 여 결과를 추가로 필터링 할 수 있습니다. 필터링 하 여 특정 사용자가 있는 비디오를 표시 하거나 특정 언어로 된 비디오 결과만 표시 하거나 특정 소유자가 있는 비디오 결과만 표시 하도록 지정할 수 있습니다. <br/> 쿼리의 범위를 지정할 수도 있습니다. 예를 들어 OCR에서 "GitHub"를 검색 하려면 **시각적 텍스트**를 선택 합니다.
 
-    ![필터](./media/video-indexer-view-edit/visual-text.png)
+    ![Assert](./media/video-indexer-view-edit/visual-text.png)
 
     여러 필터를 쿼리에 계층화 할 수 있습니다. 단추를 사용 **+** / **-** 하 여 필터를 추가/제거 합니다. 필터 **지우기** 를 사용 하 여 모든 필터를 제거 합니다.
 1. 비디오를 추가 하려면 해당 비디오를 선택 하 고 **추가**를 선택 합니다.

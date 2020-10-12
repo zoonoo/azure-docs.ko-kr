@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 05b0572c89a29fddc881f9977ee437d1319e6254
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86518931"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Webhook를 사용 하 여 문제 관리 시스템에 대 한 상태 알림 구성
@@ -96,7 +96,7 @@ Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 webhook 통합 테스트
 
-다음 단계를 수행하세요.
+다음 단계를 수행합니다.
 
 1. 보내려는 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/platform/activity-log-alerts-webhook.md)서비스 상태 webhook 페이로드의 예를 참조 하세요.
 

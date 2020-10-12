@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84022217"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
@@ -190,7 +190,7 @@ Vm을 도메인에 가입 시키려면 도메인 컨트롤러가 있어야 합�
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>내 클러스터에서 사용 하지 않도록 설정할 수 `Clamscan` 있나요?
 
-`Clamscan`는 HDInsight 클러스터에서 실행 되 고 Azure security (azsecd)에서 클러스터를 바이러스 공격 으로부터 보호 하기 위해 사용 하는 바이러스 백신 소프트웨어입니다. 사용자가 기본 구성을 변경 하지 않는 것이 좋습니다 `Clamscan` .
+`Clamscan` 는 HDInsight 클러스터에서 실행 되 고 Azure security (azsecd)에서 클러스터를 바이러스 공격 으로부터 보호 하기 위해 사용 하는 바이러스 백신 소프트웨어입니다. 사용자가 기본 구성을 변경 하지 않는 것이 좋습니다 `Clamscan` .
 
 이 프로세스는 다른 프로세스를 방해 하거나 다른 프로세스를 벗어나지 않습니다. 항상 다른 프로세스로 생성 됩니다. CPU 급증은 `Clamscan` 시스템이 유휴 상태일 때만 표시 되어야 합니다.  
 
@@ -229,7 +229,7 @@ Azure Portal의 클러스터 속성에서 **Data Lake Storage Gen1 액세스** �
 
 - [PowerShell 사용](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
-- /User/hive/.의 크기를 확인 합니다. * *다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
+- /User/hive/.의 크기를 확인 합니다. * * 다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
   
   `hdfs dfs -du -h /user/hive/.Trash/`
 

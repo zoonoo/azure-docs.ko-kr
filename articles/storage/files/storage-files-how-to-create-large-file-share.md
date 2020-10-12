@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069139"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
@@ -37,7 +37,7 @@ ms.locfileid: "89069139"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 
-1. 리소스 목록에서 **저장소 계정**을 입력 합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **저장소 계정**을 선택 합니다.
+1. 리소스 목록에서 **저장소 계정**을 입력 합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Storage 계정**을 선택합니다.
 1. 표시 되는 **저장소 계정** 창에서 **추가**를 선택 합니다.
 1. 저장소 계정을 만드는 데 사용할 구독을 선택 합니다.
 1. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 새 리소스 그룹의 이름을 입력 합니다.

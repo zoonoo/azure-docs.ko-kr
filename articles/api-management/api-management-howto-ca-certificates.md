@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852075"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
@@ -47,7 +47,7 @@ Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 
 
     ![CA 인증서 추가](media/api-management-howto-ca-certificates/02.png)  
 
-5. **저장**을 클릭합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+5. **Save**을 클릭합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
     ![CA 인증서 추가](media/api-management-howto-ca-certificates/03.png)  
 

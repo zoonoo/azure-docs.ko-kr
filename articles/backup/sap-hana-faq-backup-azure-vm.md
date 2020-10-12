@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86513509"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>자주 묻는 질문 – Azure VM의 SAP HANA 데이터베이스 백업
@@ -77,7 +77,7 @@ SAP HANA 인스턴스에서 데이터베이스를 삭제해도 해당 데이터�
 
 현재 Azure Backup에는 HSR 설정을 이해할 수 있는 기능이 없습니다. 즉, HSR의 기본 및 보조 노드는 관련이 없는 두 개의 개별 Vm으로 처리 됩니다. 먼저 주 노드에서 백업을 구성 해야 합니다. 장애 조치 (failover)가 발생 하면 보조 노드 (이제 주 노드가 됨)에 백업을 구성 해야 합니다. 다른 노드에 대 한 백업 자동 장애 조치 (failover)는 수행 되지 않습니다.
 
-지정 된 시점에 활성 (주) 노드의 데이터를 백업 하려면 장애 조치 (failover) 후 주 노드로 **보호를 전환할** 수 있습니다.
+지정 된 시점에 활성 (주) 노드의 데이터를 백업 하려면 장애 조치 (failover) 후 주 노드로 **보호를 전환할**  수 있습니다.
 
 이 **스위치 보호**를 수행 하려면 다음 단계를 수행 합니다.
 
