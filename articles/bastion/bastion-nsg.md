@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
 ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987694"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
@@ -42,7 +42,7 @@ Azure 방호는 특히 ***AzureBastionSubnet***에 배포 됩니다.
    * **Azure 방호 제어 평면의 수신 트래픽:** 제어 평면 연결의 경우 **Gmanager** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 제어 평면, 즉 게이트웨이 관리자가 Azure 방호와 통신할 수 있습니다.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 인바운드 보안 규칙을 보여 줍니다.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
 
 * **송신 트래픽:**
 
@@ -50,7 +50,7 @@ Azure 방호는 특히 ***AzureBastionSubnet***에 배포 됩니다.
    * **Azure의 다른 공용 끝점에 대 한 송신 트래픽:** Azure 방호는 Azure 내에서 다양 한 공용 끝점 (예: 진단 로그 저장 및 계량 로그)에 연결할 수 있어야 합니다. 이러한 이유로 Azure 방호에는 443 ~ **Azurecloud** service 태그의 아웃 바운드가 필요 합니다.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 아웃 바운드 보안 규칙을 보여 줍니다.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
 
 ### <a name="target-vm-subnet"></a>대상 VM 서브넷
 이 서브넷은 RDP/SSH 하려는 대상 가상 머신을 포함 하는 서브넷입니다.

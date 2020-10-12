@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116299"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
@@ -24,7 +24,7 @@ ms.locfileid: "87116299"
 
 이 문서에서는 Azure AD B2C의 [사용자 지정 정책](custom-policy-overview.md)을 통해 Azure AD(Azure Active Directory)에 다중 테넌트 엔드포인트를 사용하여 사용자 로그인을 활성화하는 방법을 설명합니다. 이렇게 하면 여러 Azure AD 테 넌 트의 사용자가 각 테 넌 트에 대해 id 공급자를 구성 하지 않고도 Azure AD B2C를 사용 하 여 로그인 할 수 있습니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 이렇게 하려면 [각 테넌트를 개별적으로 구성](identity-provider-azure-ad-single-tenant-custom.md)해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "87116299"
 1. 조직 Azure AD 테 넌 트를 포함 하는 디렉터리 (예: contoso.com)를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독 필터** 를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 1. **새 등록**을 선택합니다.
-1. 애플리케이션의 **이름**을 입력합니다. 예: `Azure AD B2C App`.
+1. 애플리케이션의 **이름**을 입력합니다. 예: `Azure AD B2C App`
 1. 이 응용 프로그램의 **모든 조직 디렉터리에서 계정을** 선택 합니다.
 1. **리디렉션 URI**의 경우 **웹**의 값을 그대로 사용 하 고 다음 URL을 소문자로 입력 합니다 `your-B2C-tenant-name` . 여기서은 Azure AD B2C 테 넌 트의 이름으로 바뀝니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "87116299"
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    예: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+    예: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`
 
 1. **등록**을 선택합니다. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 1. **인증서 & 암호**를 선택 하 고 **새 클라이언트 암호**를 선택 합니다.
@@ -72,7 +72,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **정책**에서 **Identity Experience Framework**를 선택합니다.
 1. **정책 키** 를 선택 하 고 **추가**를 선택 합니다.
 1. **옵션**으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름**을 입력합니다. `AADAppSecret`)을 입력합니다.  접두사는 `B2C_1A_` 생성 될 때 키의 이름에 자동으로 추가 되므로 다음 섹션의 XML 참조는 *B2C_1A_AADAppSecret*하는 것입니다.
+1. 정책 키의 **이름**을 입력합니다. 예들 들어 `AADAppSecret`입니다.  접두사는 `B2C_1A_` 생성 될 때 키의 이름에 자동으로 추가 되므로 다음 섹션의 XML 참조는 *B2C_1A_AADAppSecret*하는 것입니다.
 1. **비밀**에서 이전에 기록한 클라이언트 암호를 입력 합니다.
 1. **키 사용**에서 `Signature`를 선택합니다.
 1. **만들기**를 선택합니다.
@@ -138,7 +138,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **ClaimsProvider** 요소 아래의 **Domain** 값을 다른 ID 공급자와 구분하는 데 사용할 수 있는 고유한 값으로 업데이트합니다.
 1. **TechnicalProfile** 요소 아래에서 **DisplayName**의 값을 업데이트 합니다 (예:) `Contoso Employee` . 이 값은 로그인 페이지의 로그인 단추에 표시됩니다.
 1. **Client_id** 를 이전에 등록 한 Azure AD 다중 테 넌 트 응용 프로그램의 응용 프로그램 id로 설정 합니다.
-1. **CryptographicKeys**에서 **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_AADAppSecret`.
+1. **CryptographicKeys**에서 **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_AADAppSecret`
 
 ### <a name="restrict-access"></a>액세스 제한
 
@@ -196,7 +196,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 
-    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 **Id** 로 업데이트 합니다. `Common-AAD`)을 입력합니다.
+    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 **Id** 로 업데이트 합니다. 예들 들어 `Common-AAD`입니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
@@ -212,7 +212,7 @@ Azure AD B2C와의 통신은 B2C 테넌트에서 등록하는 애플리케이션
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어, 파일 이름을 *SignUpSignContoso.xml*로 바꿉니다.
 1. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInContoso`입니다.
-1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`.
+1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`
 1. **Defaultuserjourney** 에서 **ReferenceId** 특성의 값을 이전에 만든 사용자 경험의 ID와 일치 하도록 업데이트 합니다. 예를 들면 *SignUpSignInContoso*입니다.
 1. 변경 내용을 저장하고 파일을 업로드합니다.
 1. 업로드 된 **사용자 지정 정책**에서 목록에서 새로 만든 정책을 선택 합니다.

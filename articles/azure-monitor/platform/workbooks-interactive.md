@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: mbullwin
 ms.openlocfilehash: 33da3cd8a72bb4d93011c348db65c5b4d9e687ed
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461466"
 ---
 # <a name="interactive-workbooks"></a>대화형 Workbooks
@@ -45,12 +45,12 @@ ms.locfileid: "87461466"
     | order by AllRequests desc
     ```
 
-5. `Run query`결과를 보려면
+5. `Run query` 결과를 보려면
 6. 쿼리 바닥글에서 _고급 설정_ 아이콘을 선택 합니다 (아이콘은 기어 처럼 보임). 그러면 고급 설정 창이 열립니다.
 7. 설정을 확인 `When an item is selected, export a parameter` 합니다.
 8. 선택한 설정에서 *매개 변수 추가* 를 선택 하 고 아래 정보를 입력 합니다.
-    1. 내보낼 필드:`Request`
-    2. 매개 변수 이름:`SelectedRequest`
+    1. 내보낼 필드: `Request`
+    2. 매개 변수 이름: `SelectedRequest`
     3. 기본값: `All requests`
 9. 저장 선택
 
@@ -64,7 +64,7 @@ ms.locfileid: "87461466"
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-13. `Run query`결과를 확인 합니다.
+13. `Run query` 결과를 확인 합니다.
 14. _시각화_ 를로 변경 `Area chart` 합니다.
 15. 첫 번째 모눈에서 선택할 행을 선택 합니다. 아래 영역 차트에서 선택한 요청을 필터링 하는 방법을 확인 합니다.
 
@@ -99,12 +99,12 @@ ms.locfileid: "87461466"
     | order by Count desc
     ```
 
-5. `Run query`결과를 보려면
+5. `Run query` 결과를 보려면
 6. _열 설정_ 을 선택 하 여 설정 창을 엽니다.
 7. _열_ 섹션에서 다음을 설정 합니다.
-    1. _샘플_ 열 렌더러: `Link` , 보기 열기: `Cell Details` , 링크 레이블:`Sample`
-    2. _개수_ 열 렌더러: `Bar` , 색상표: `Blue` , 최소 값:`0`
-    3. _요청_ -열 렌더러:`Automatic`
+    1. _샘플_ 열 렌더러: `Link` , 보기 열기: `Cell Details` , 링크 레이블: `Sample`
+    2. _개수_ 열 렌더러: `Bar` , 색상표: `Blue` , 최소 값: `0`
+    3. _요청_ -열 렌더러: `Automatic`
     4. _저장 후 닫기_ 를 선택 하 여 변경 내용을 적용 합니다.
 
     ![열 설정 탭의 스크린샷](./media/workbooks-interactive/column-settings.png)
@@ -118,8 +118,8 @@ ms.locfileid: "87461466"
 | 링크 작업 | 클릭에 대 한 작업 |
 |:------------- |:-------------|
 | `Generic Details` | 속성 표 컨텍스트 탭의 행 값을 표시 합니다. |
-| `Cell Details` | 속성 표 컨텍스트 탭의 셀 값을 표시 합니다. 셀에 정보가 있는 동적 형식 (예: 위치, 역할 인스턴스 등의 요청 속성이 있는 json)이 포함 된 경우에 유용 합니다. |
-| `Cell Details` | 속성 표 컨텍스트 탭의 셀 값을 표시 합니다. 셀에 정보가 있는 동적 형식 (예: 위치, 역할 인스턴스 등의 요청 속성이 있는 json)이 포함 된 경우에 유용 합니다. |
+| `Cell Details` | 속성 표 컨텍스트 탭에 셀 값을 표시 합니다. 정보를 포함 하는 동적 형식 (예: 위치, 역할 인스턴스 등의 요청 속성이 있는 json)이 셀에 포함 된 경우에 유용 합니다. |
+| `Cell Details` | 속성 표 컨텍스트 탭에 셀 값을 표시 합니다. 정보를 포함 하는 동적 형식 (예: 위치, 역할 인스턴스 등의 요청 속성이 있는 json)이 셀에 포함 된 경우에 유용 합니다. |
 | `Custom Event Details` | 셀에서 사용자 지정 이벤트 ID ()를 사용 하 여 Application Insights 검색 세부 정보를 엽니다. `itemId` |
 | `* Details` | 종속성, 예외, 페이지 보기, 요청 및 추적을 제외 하 고 사용자 지정 이벤트 세부 정보와 유사 합니다. |
 | `Custom Event User Flows` | 셀의 사용자 지정 이벤트 이름에서 피벗 된 Application Insights 사용자 흐름 환경을 엽니다. |
@@ -137,21 +137,21 @@ ms.locfileid: "87461466"
 1. [표 형태 창의 행에 대화형 작업 설정](#setting-up-interactivity-on-grid-row-click) 섹션의 단계에 따라 두 개의 대화형 컨트롤을 설정 합니다.
 2. 맨 위에 새 매개 변수를 추가 합니다.
     1. 이름: `ShowDetails`
-    2. 매개 변수 유형:`Drop down`
-    3. 필수:`checked`
-    4. 데이터 가져오기:`JSON`
-    5. JSON 입력:`["Yes", "No"]`
+    2. 매개 변수 유형: `Drop down`
+    3. 필수: `checked`
+    4. 데이터 가져오기: `JSON`
+    5. JSON 입력: `["Yes", "No"]`
     6. 저장을 수행 하 여 변경 내용을 커밋합니다.
 
     ![매개 변수 추가 단추를 선택 하면 매개 변수 편집 창이 표시 됩니다.](./media/workbooks-interactive/edit-parameter.png)
 
-3. 매개 변수 값을로 설정 합니다.`Yes`
+3. 매개 변수 값을로 설정 합니다. `Yes`
 
     ![완료 편집 단추 위에는 매개 변수 값을 설정할 수 있는 드롭다운이 표시 됩니다.](./media/workbooks-interactive/set-parameter.png)
 
 4. 영역형 차트를 사용 하는 쿼리 컨트롤에서 _고급 설정_ 아이콘 (기어 아이콘)을 선택 합니다.
-5. 설정을 확인 합니다.`Make this item conditionally visible`
-    1. 이 항목은 `ShowDetails` 매개 변수 값 `equals` 에 표시 됩니다.`Yes`
+5. 설정을 확인 합니다. `Make this item conditionally visible`
+    1. 이 항목은 `ShowDetails` 매개 변수 값 `equals` 에 표시 됩니다. `Yes`
 6. _편집 완료_ 를 선택 하 여 변경 내용을 커밋합니다.
 7. 통합 문서 도구 모음에서 _편집 완료_ 를 선택 하 여 읽기 모드로 전환 합니다.
 8. 매개 변수 값을 `ShowDetails` 로 전환 `No` 합니다. 아래 차트가 사라집니다.

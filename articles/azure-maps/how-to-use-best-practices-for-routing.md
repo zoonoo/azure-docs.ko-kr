@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086405"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
@@ -21,7 +21,7 @@ Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 �
 
 > [!div class="checklist"]
 > * 경로 방향 Api와 Matrix 라우팅 API 중에서 선택
-> * 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측 된 이동 시간을 요청 합니다.
+> * 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측된 이동 시간 요청
 > * 경로의 전체 경로 및 각 레그에 대 한 시간 및 거리와 같은 경로 세부 정보를 요청 합니다.
 > * 트럭과 같은 상업 차량에 대 한 경로 요청
 > * 용지를 통한 트래픽 정보 (예: 용지 걸림 및 요금 정보) 요청
@@ -75,7 +75,7 @@ Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사]
 
 요청에 **computeTravelTimeFor = all** 매개 변수를 포함 하는 경우 응답의 요약 요소에는 기록 트래픽 상태를 포함 하 여 다음과 같은 추가 필드가 포함 됩니다.
 
-| 요소 | 설명|
+| 요소 | Description|
 | :--- | :--- |
 | noTrafficTravelTimeInSeconds | 트래픽 조건으로 인해 경로에 지연이 발생 하지 않는 경우 처럼 계산 된 예상 이동 시간 (예: 정체 때문) |
 | historicTrafficTravelTimeInSeconds | 시간 종속 기록 트래픽 데이터를 사용 하 여 계산 된 예상 이동 시간 |
@@ -205,7 +205,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 ![지도에 렌더링 된 색이 지정 된 섹션](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>다중 중지 경로 계산 및 최적화
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>다중 경유 경로 계산 및 최적화
 
 현재 Azure Maps는 다음과 같은 두 가지 형식의 경로 최적화를 제공 합니다.
 
@@ -282,7 +282,7 @@ Azure Maps 웹 SDK는 [서비스 모듈](https://docs.microsoft.com/javascript/a
 자세히 알아보려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Maps 경로 서비스](https://docs.microsoft.com/rest/api/maps/route)
+> [Azure Maps Route Service](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [서비스 모듈을 사용 하는 방법](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

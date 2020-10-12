@@ -14,10 +14,10 @@ ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
 ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404904"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
@@ -287,13 +287,13 @@ ms.locfileid: "91404904"
 
 폴더를 검색 하 여 `Az.Accounts` 올바른 경로를 찾을 수도 있습니다.
 
-**오류: AzKeyVaultSecret 또는 AzKeyVaultSecret는 cmdlet의 이름으로 인식 되지 않습니다.**
+**오류: Get-AzKeyVaultSecret 또는 Get-AzKeyVaultSecret cmdlet의 이름으로 인식 되지 않습니다.**
 
 이전 AZ PowerShell 모듈을 사용 하는 경우 두 개의 명령을 및로 변경 해야 합니다 `Get-AzureKeyVaultSecret` `Get-AzureKeyVaultSecret` .
 
 **매개 변수 샘플**
 
-| 매개 변수  | 값 샘플  |의견   |
+| 매개 변수  | 값 샘플  |주석   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
 |$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|

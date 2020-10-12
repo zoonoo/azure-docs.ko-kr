@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: albecker1
@@ -9,15 +9,15 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102833"
 ---
 ## <a name="common-scenarios"></a>일반적인 시나리오
 다음 시나리오는 버스트에서 크게 이점을 누릴 수 있습니다.
-- **부팅 시간 개선** – 버스트를 사용 하면 인스턴스가 매우 빠른 속도로 부팅 됩니다. 예를 들어 premium 사용 Vm에 대 한 기본 OS 디스크는 P4 디스크 이며, 최대 120 IOPS 및 250MB/s의 프로 비전 된 성능입니다. 버스트를 사용 하는 경우 P4는 최대 3500 IOPS 및 170 m b/s로 이동 하 여 부팅 시간을 6X으로 가속화할 수 있습니다.
+- **부팅 시간 개선**  – 버스트를 사용 하면 인스턴스가 매우 빠른 속도로 부팅 됩니다. 예를 들어 premium 사용 Vm에 대 한 기본 OS 디스크는 P4 디스크 이며, 최대 120 IOPS 및 250MB/s의 프로 비전 된 성능입니다. 버스트를 사용 하는 경우 P4는 최대 3500 IOPS 및 170 m b/s로 이동 하 여 부팅 시간을 6X으로 가속화할 수 있습니다.
 - **일괄 작업 처리** – 일부 응용 프로그램의 작업은 기본적으로 순환 되며 대부분의 시간에 대 한 기준 성능이 필요 하며 짧은 시간 동안 성능이 더 높습니다. 이에 대 한 예는 매일 적은 양의 디스크 트래픽이 필요한 트랜잭션을 처리 하는 회계 프로그램입니다. 그런 다음이 월의 끝에는 훨씬 더 많은 양의 디스크 트래픽이 필요한 보고서를 조정 합니다.
 - **트래픽 급증에 대 한 준비** – 웹 서버 및 해당 응용 프로그램은 언제 든 지 트래픽이 발생 될 수 있습니다. 웹 서버가 버스트를 사용 하는 Vm 또는 디스크에 의해 지원 되는 경우 서버는 트래픽 급증을 처리 하는 데 더 적합 합니다. 
 

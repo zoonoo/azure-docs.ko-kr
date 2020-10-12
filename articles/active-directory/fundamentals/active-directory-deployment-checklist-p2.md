@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318412"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
@@ -26,7 +26,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 또한 고객은 해당 [ID 보안 점수](identity-secure-score.md)를 확인하여 Microsoft 모범 사례에 얼마나 잘 맞는지 알 수 있습니다. 이러한 권장 사항을 구현하기 전과 후에 보안 점수를 확인하여 업계의 다른 기업 및 같은 규모의 다른 조직과 비교할 때 얼마나 잘 하고 있는지 파악합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 많은 권장 사항은 Azure AD Free 하거나 라이선스 없이 구현할 수 있습니다. 필요한 라이선스는 작업 완료를 위해 최소한으로 필요한 라이선스를 나타냅니다.
 

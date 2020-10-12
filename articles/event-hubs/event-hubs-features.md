@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936234"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
@@ -39,7 +39,7 @@ AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. �
 
 ![파티션 키](./media/event-hubs-features/partition_keys.png)
 
-Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않으면 오류가 발생합니다.
+Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않은 경우 오류가 발생합니다.
 
 ### <a name="publisher-policy"></a>게시자 정책
 
@@ -113,7 +113,7 @@ Azure Sdk에서 제공 하는 일부 클라이언트는 각 파티션에 단일 
 
 #### <a name="connect-to-a-partition"></a>파티션에 연결
 
-파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 해당 경고는 다음과 같습니다.
+파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 이러한 항목은 다음과 같습니다.
 
 - .NET 용 [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient)
 - Java 용 [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient)

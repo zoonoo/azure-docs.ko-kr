@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 랩에서 사용 되는 Azure storage의 �
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87433593"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에서 사용 되는 Azure storage 암호화
@@ -28,10 +28,10 @@ Azure DevTest Labs에서 생성 되는 모든 랩은 연결 된 Azure storage �
     :::image type="content" source="./media/encrypt-storage/overview-resource-group-link.png" alt-text="개요 페이지에서 리소스 그룹을 선택 합니다.":::
 1. 랩의 Azure storage 계정을 선택 합니다. 랩 저장소 계정에 대 한 명명 규칙은 `a<labNameWithoutInvalidCharacters><4-digit number>` 입니다. 예를 들어 랩 이름이 이면 `contosolab` 저장소 계정 이름은 일 수 있습니다 `acontosolab7576` . 
 
-    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="랩의 리소스 그룹에서 저장소 계정 선택":::
+    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="개요 페이지에서 리소스 그룹을 선택 합니다.":::
 3. **저장소 계정** 페이지의 왼쪽 메뉴에서 **Storage 탐색기 (미리 보기)** 를 선택 하 고 **BLOB 컨테이너** 를 선택 하 여 관련 랩 관련 콘텐츠를 찾습니다. 
 
-   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Storage Explorer(미리 보기)" lightbox="./media/encrypt-storage/storage-explorer.png":::
+   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="개요 페이지에서 리소스 그룹을 선택 합니다." lightbox="./media/encrypt-storage/storage-explorer.png":::
 
 ## <a name="encrypt-the-lab-storage-account"></a>랩 저장소 계정 암호화
 Azure Storage은 클라우드에 유지 될 때 데이터를 자동으로 암호화 합니다. Azure Storage 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.

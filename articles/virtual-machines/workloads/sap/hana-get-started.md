@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509963"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Azure virtual machines에 SAP HANA 설치
@@ -29,7 +29,7 @@ ms.locfileid: "88509963"
 > [!NOTE]
 > 이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA large instances에 SAP HANA를 배포 하는 방법에 대 한 자세한 내용은 [Azure에서 SAP HANA (Large instances)를 설치 및 구성 하는 방법](./hana-installation.md)을 참조 하세요.
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 또한이 가이드에서는 다음에 대해 잘 알고 있다고 가정 합니다.
 * SAP HANA, SAP NetWeaver 및 온-프레미스에 설치하는 방법
 * Azure에서 SAP HANA 및 SAP 응용 프로그램 인스턴스를 설치 하 고 작동 하는 방법입니다.
@@ -61,7 +61,7 @@ ms.locfileid: "88509963"
 3. VM을 배포 하 고 등록 한 후 운영 체제에 최신 패치를 적용 합니다. 사용자 고유의 구독으로 등록 됩니다. 또는 운영 체제 지원을 포함 하는 이미지를 선택한 경우 VM은 이미 패치에 액세스할 수 있어야 합니다. 
 4. SAP HANA에 필요한 튜닝을 적용 합니다. 이러한 튜닝은 이러한 SAP 지원 정보에 나와 있습니다.
 
-    - [SAP support note #2694118-Azure의 Red Hat Enterprise Linux HA 추가 기능](https://launchpad.support.sap.com/#/notes/2694118)
+    - [SAP support note #2694118-Azure의 Red Hat Enterprise Linux HA Add-On](https://launchpad.support.sap.com/#/notes/2694118)
     - [SAP support note #1984787-SUSE LINUX Enterprise Server 12: 설치 참고 사항](https://launchpad.support.sap.com/#/notes/1984787) 
     - [SAP support note #2578899-SUSE Linux Enterprise Server 15: 설치 참고](https://launchpad.support.sap.com/#/notes/2578899)
     - [SAP support note #2002167-Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/0002002167)
@@ -72,7 +72,7 @@ ms.locfileid: "88509963"
     -  [SAP support note #2382421-HANA 및 OS 수준에서 네트워크 구성 최적화](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. SAP HANA에 대 한 Azure storage 유형을 선택 합니다. 이 단계에서는 SAP HANA 설치용 저장소 레이아웃을 결정 해야 합니다. 연결 된 Azure 디스크 또는 기본 Azure NFS 공유를 사용 하 게 됩니다. 사용할 수 있는 azure storage 유형 또는 지원 되는 Azure storage 유형은 [azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)에 설명 되어 있습니다. 시작 지점으로 문서화 된 구성을 수행 합니다. 비프로덕션 시스템의 경우 낮은 처리량 또는 IOPS를 구성할 수 있습니다. 프로덕션 용도로 더 많은 처리량 및 IOPS를 구성 해야 할 수 있습니다.
-2. M 시리즈 또는 Mv2 시리즈 Vm을 사용 하는 경우 DBMS 트랜잭션 로그 또는 다시 실행 로그를 포함 하는 볼륨에 대해 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 구성 했는지 확인 합니다. 문서화 된 쓰기 가속기에 대 한 제한 사항을 알고 있어야 합니다.
+2. M 시리즈 또는 Mv2-Series Vm을 사용 하는 경우 DBMS 트랜잭션 로그 또는 다시 실행 로그를 포함 하는 볼륨에 대해 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 구성 했는지 확인 합니다. 문서화 된 쓰기 가속기에 대 한 제한 사항을 알고 있어야 합니다.
 2. 배포 된 VM에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용 하도록 설정 했는지 확인 합니다.
 
 > [!NOTE]

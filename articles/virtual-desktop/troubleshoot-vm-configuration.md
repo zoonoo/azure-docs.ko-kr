@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005223"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
@@ -114,7 +114,7 @@ Vm을 프로 비전 하는 권장 방법은 Azure Portal 만들기 템플릿을 
 
 Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource Manager 템플릿 및 PowerShell DSC를 통해 세션 호스트 Vm에 설치 되 면 등록 토큰을 제공 합니다. 다음 섹션에서는 Windows 가상 데스크톱 에이전트 및 토큰에 적용 되는 문제를 해결 하는 방법에 대해 설명 합니다.
 
-### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>오류: AzWvdSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 합니다.
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>오류: Get-AzWvdSessionHost cmdlet에 표시 된 상태는 상태를 사용할 수 없음으로 표시 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![AzWvdSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 2. **AzWvdRegistrationInfo** cmdlet을 실행 하 여 새 토큰을 생성 합니다.
 3. *-Expriationtime* 매개 변수가 3 일로 설정 되었는지 확인 합니다.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>오류: Windows 가상 데스크톱 에이전트가 AzWvdSessionHost을 실행 하는 경우 하트 비트를 보고 하지 않습니다.
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>오류: Windows 가상 데스크톱 에이전트가 Get-AzWvdSessionHost를 실행 하는 동안 하트 비트를 보고 하지 않습니다.
 
 **원인 1:** RDAgentBootLoader 서비스가 중지 되었습니다.
 

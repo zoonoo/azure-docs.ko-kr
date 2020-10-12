@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87448333"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
@@ -48,7 +48,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 �
 
 - **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 로그를 지속적으로 저장할 책임이 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Azure Blob Storage용 변경 불가능한 스토리지는 두 가지 유형의 WORM 또는 변경 불가능한 정책인 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 컨테이너에 시간 기반 보존 정책 또는 법적 보류가 적용 되 면 모든 기존 blob이 30 초 이내에 변경할 수 없는 웜 상태로 이동 합니다. 해당 정책으로 보호 된 컨테이너에 업로드 된 모든 새 blob도 변경할 수 없는 상태로 전환 됩니다. 모든 blob이 변경할 수 없는 상태가 되 면 변경할 수 없는 정책이 확인 되 고 변경할 수 없는 컨테이너에서 덮어쓰기 또는 삭제 작업이 허용 되지 않습니다.
 

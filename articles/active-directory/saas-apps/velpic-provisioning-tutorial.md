@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532367"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Velpic 구성
@@ -52,7 +52,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 섹션에서는 Azure AD를 Velpic의 사용자 계정 프로 비전 API에 연결 하 고, Azure AD의 사용자 및 그룹 할당을 기반으로 Velpic에서 할당 된 사용자 계정을 만들고 업데이트 하 고 비활성화 하도록 프로 비전 서비스를 구성 하는 과정을 안내 합니다.
 
 > [!TIP]
-> [Azure Portal](https://portal.azure.com)에 제공 된 지침에 따라 Velpic에 대해 SAML 기반 Single sign-on을 사용 하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
+> [Azure Portal](https://portal.azure.com)에 제공 된 지침에 따라 Velpic에 대해 SAML 기반 Single Sign-On을 사용 하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Azure AD에서 Velpic에 자동 사용자 계정 프로 비전을 구성 하려면:
 
@@ -74,7 +74,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 7. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일** 필드에 입력하고 아래 확인란을 선택합니다.
 
-8. **저장**을 클릭합니다.
+8. **Save**을 클릭합니다.
 
 9. 매핑 섹션 아래에서 **Velpic에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
@@ -82,7 +82,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 11. Velpic에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-12. **저장**을 클릭합니다.
+12. **Save**을 클릭합니다.
 
 사용자 및 그룹 섹션에서 Velpic에 할당 된 모든 사용자 및/또는 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 수행하는 데 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 보고서를 확인할 수 있습니다.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/13/2020
 ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076791"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Salesforce 서비스 클라우드에서 데이터 복사
@@ -39,7 +39,7 @@ Salesforce 서비스 클라우드에서 지원 되는 모든 싱크 데이터 �
 
 Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 여 salesforce에서 데이터를 복사 하 고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 를 사용 하 여 salesforce에 데이터를 복사 합니다. 또한 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Salesforce에서 API 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)을 참조하세요.
 
@@ -52,7 +52,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) 문서의 "API 요청 제한" 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -62,7 +62,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |Type 속성은 **SalesforceServiceCloud**로 설정 해야 합니다. |예 |
 | environmentUrl | Salesforce 서비스 클라우드 인스턴스의 URL을 지정 합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아니요 |
@@ -141,7 +141,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **SalesforceServiceCloudObject**로 설정 해야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -170,7 +170,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 }
 ```
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
 | tableName | Salesforce 서비스 클라우드의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -183,7 +183,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SalesforceServiceCloudSource**로 설정 해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. Query를 지정 하지 않으면 데이터 집합의 "objectApiName"에 지정 된 Salesforce 서비스 클라우드 개체의 모든 데이터가 검색 됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
@@ -230,7 +230,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사
 
 Salesforce 서비스 클라우드로 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션에서 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **SalesforceServiceCloudSink**로 설정 해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert**입니다. | 아니요(기본값: 삽입) |
@@ -289,7 +289,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL �
 
 | 구문 | SOQL 모드 | SQL 모드 |
 |:--- |:--- |:--- |
-| 열 선택 | 쿼리에서 복사할 필드를 열거 해야 합니다 (예:).`SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
+| 열 선택 | 쿼리에서 복사할 필드를 열거 해야 합니다 (예:). `SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
 | 따옴표 | 필드/개체 이름은 따옴표로 묶을 수 없습니다. | 필드/개체 이름은 따옴표로 묶을 수 있습니다. 예: `SELECT "id" FROM "Account"` |
 | 날짜/시간 형식 |  자세한 내용은 [여기](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) 및 다음 섹션의 샘플을 참조하세요. | 자세한 내용은 [여기](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) 및 다음 섹션의 샘플을 참조하세요. |
 | 부울 값 | `False` 및 `True`로 표시됩니다. 예: `SELECT … WHERE IsDeleted=True` | 0 또는 1로 표시됩니다. 예: `SELECT … WHERE IsDeleted=1` |
@@ -300,8 +300,8 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL �
 
 SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들면 다음과 같습니다.
 
-* **SOQL 샘플**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL 샘플**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **SOQL 샘플**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **SQL 샘플**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>MALFORMED_QUERY 오류: 잘렸습니다.
 
@@ -314,19 +314,19 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 Salesf
 | Salesforce 서비스 클라우드 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | 자동 번호 |String |
-| 확인란 |Boolean |
-| Currency |Decimal |
-| 날짜 |DateTime |
+| 확인란 |부울 |
+| 통화 |Decimal |
+| Date |DateTime |
 | 날짜/시간 |DateTime |
 | 메일 |String |
 | ID |String |
 | 관계 조회 |String |
 | 다중 선택 선택 목록 |String |
-| Number |Decimal |
+| 숫자 |Decimal |
 | 백분율 |Decimal |
-| Phone |String |
+| 전화 |String |
 | 선택 목록 |String |
-| 텍스트 |String |
+| 텍스트 |문자열 |
 | 텍스트 영역 |String |
 | 텍스트 영역(Long) |String |
 | 텍스트 영역(Rich) |String |

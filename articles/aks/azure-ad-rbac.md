@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/21/2020
 ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006845"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어
@@ -28,7 +28,7 @@ Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다.
 
 이 문서에서는 Kubernetes RBAC 및 Azure AD에서 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 주는 데 사용할 수 있는 두 개의 사용자 역할을 만들어 보겠습니다. 다음 두 가지 예제 역할이 사용 됩니다.
 
-* **응용 프로그램 개발자**
+* **애플리케이션 개발자**
     * *Appdev* 그룹의 일부인 *aksdev* 이라는 사용자입니다.
 * **사이트 안정성 엔지니어**
     * *Opssre* 그룹의 일부인 *akssre* 이라는 사용자입니다.
@@ -164,7 +164,7 @@ kubectl apply -f role-dev-namespace.yaml
 az ad group show --group appdev --query objectId -o tsv
 ```
 
-이제 네임 스페이스 액세스에 대해 이전에 만든 역할을 사용 하는 *appdev* 그룹에 대해 rolebinding을 만듭니다. `rolebinding-dev-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄에서 *groupObjectId* 을 이전 명령의 그룹 개체 ID 출력으로 바꿉니다.
+이제 네임 스페이스 액세스에 대해 이전에 만든 역할을 사용 하는 *appdev* 그룹에 대해 rolebinding을 만듭니다. `rolebinding-dev-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄에서 *groupObjectId*  을 이전 명령의 그룹 개체 ID 출력으로 바꿉니다.
 
 ```yaml
 kind: RoleBinding
@@ -229,7 +229,7 @@ kubectl apply -f role-sre-namespace.yaml
 az ad group show --group opssre --query objectId -o tsv
 ```
 
-네임 스페이스 액세스에 이전에 만든 역할을 사용 하려면 *opssre* 그룹에 대해 rolebinding을 만듭니다. `rolebinding-sre-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄에서 *groupObjectId* 을 이전 명령의 그룹 개체 ID 출력으로 바꿉니다.
+네임 스페이스 액세스에 이전에 만든 역할을 사용 하려면 *opssre* 그룹에 대해 rolebinding을 만듭니다. `rolebinding-sre-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄에서 *groupObjectId*  을 이전 명령의 그룹 개체 ID 출력으로 바꿉니다.
 
 ```yaml
 kind: RoleBinding

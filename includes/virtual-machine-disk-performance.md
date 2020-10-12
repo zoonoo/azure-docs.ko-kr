@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 9f5a1010959658e75dcc809b2ee1d6d9222af056
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540013"
 ---
 이 문서는 Azure Virtual Machines와 Azure 디스크를 결합 하는 경우 디스크 성능 및 작동 방식을 설명 하는 데 도움이 됩니다. 또한 디스크 IO 및 성능 최적화를 위해 수행할 수 있는 변경에 대 한 병목 상태를 진단 하는 방법에 대해서도 설명 합니다.
