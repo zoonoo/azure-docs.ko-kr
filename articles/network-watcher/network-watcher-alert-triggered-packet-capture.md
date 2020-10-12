@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975065"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
@@ -35,7 +35,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
@@ -344,12 +344,12 @@ $Encryptedpassword
 
   |**설정** | **값** | **세부 정보** |
   |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
+  |**이름**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
   |**설명**|전송된 TCP 세그먼트가 임계값을 초과함|경고 규칙에 대한 설명입니다.|
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
   |**Condition**|초과| 메트릭을 평가할 때 사용할 조건입니다.|
   |**임계값**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
-  |**기간**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
+  |**간격이**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
   |**웹후크**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|
 
 > [!NOTE]

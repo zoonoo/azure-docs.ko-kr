@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261515"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
@@ -95,7 +95,7 @@ ms.locfileid: "89261515"
 | 이름 | 유형 | Description |
 | --- | --- | --- |
 | **프로필**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |**xs: string** 값으로, **Auto**, **Baseline**, **Main**, **High** 중 하나일 수 있습니다. |
-| **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
+| **수준**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |이 비디오 레이어에 사용되는 비트 전송률이며, Kbps 단위로 지정됩니다. |
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |이 비디오 레이어에 사용되는 최대 비트 전송률이며, Kbps 단위로 지정됩니다. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |비디오 버퍼의 길이입니다. |
@@ -156,7 +156,7 @@ ms.locfileid: "89261515"
 | Name | 유형 | 설명 |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |프레젠테이션 시작 시간을 지정합니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. |
-| **Duration** |**xs:duration** |프레젠테이션 지속 시간을 지정합니다 (예: 비디오의 오버레이 모양). |
+| **기간** |**xs:duration** |프레젠테이션 지속 시간을 지정합니다 (예: 비디오의 오버레이 모양). |
 
 ## <a name="output"></a><a name="Output"></a> Output
 ### <a name="attributes"></a>특성
@@ -185,7 +185,7 @@ ms.locfileid: "89261515"
 | --- | --- | --- |
 | **시작** |**xs:string** | |
 | **Step** |**xs:string** | |
-| **Range** |**xs:string** | |
+| **범위** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs: boolean** |자세한 내용은 [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation)을 참조하세요. |
 
 ### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
@@ -297,7 +297,7 @@ ms.locfileid: "89261515"
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 이 스키마에 기반하여 작성된 XML 기본 설정 예제를 보려면 [MES(Media Encoder Standard)의 작업 기본 설정](media-services-mes-presets-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2bd5a1598448722f46a91b889b0778e80ad4e140
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012061"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
@@ -181,7 +181,7 @@ Service Bus는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 �
 
 기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
 
-일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예를 들어:
+일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 var settings = new MessagingFactorySettings

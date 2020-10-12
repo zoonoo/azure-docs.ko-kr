@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331202"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
@@ -97,9 +97,9 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 * 비즈니스 요구를 충족 하는 솔루션에 필요 합니다.
 * 비즈니스 요구를 충족 하는 데 유용 합니다.
-* 해당 없음
+* 적용할 수 없음
 
-|영역 |Description |
+|영역 |설명 |
 |-|-|
 |보존| **30 일 넘게 로그 보존** 법률 또는 비즈니스 요구 사항으로 인해 Azure AD의 감사 로그 및 로그인 로그를 30 일 보다 길게 저장 해야 합니다. |
 |분석| **로그를 검색할 수 있어야**합니다. 저장 된 로그는 분석 도구를 사용 하 여 검색할 수 있어야 합니다. |

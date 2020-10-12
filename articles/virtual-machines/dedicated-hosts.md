@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91373129"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
@@ -172,7 +172,7 @@ SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅
 
 Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트를 쿼리할 때 반환 되는 상태는 다음과 같습니다.
 
-| 성능 상태   | Description       |
+| 성능 상태   | 설명       |
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |

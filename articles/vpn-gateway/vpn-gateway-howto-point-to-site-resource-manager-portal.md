@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 03dbc481950ed2a020a26dc3af8668c516b66115
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436017"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
@@ -148,7 +148,7 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 
 2. **연결** 상태 페이지에서 **연결**을 선택하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용 하 여 올바른 인증서를 선택한 다음 **확인**을 선택 합니다.
 
-   ![VPN 클라이언트에서 Azure에 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "연결")
+   ![VPN 클라이언트에서 Azure에 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "connect")
 3. 연결이 설정되었습니다.
 
    ![설정된 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png "연결 설정")

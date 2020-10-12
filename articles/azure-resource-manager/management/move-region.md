@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007641"
 ---
 # <a name="moving-azure-resources-across-regions"></a>지역 간에 Azure 리소스 이동
@@ -22,42 +22,42 @@ Azure 지역, 지역 및 가용성 영역은 Azure 글로벌 인프라의 토대
 특정 Azure 지역에 리소스를 배포한 후에는 리소스를 다른 지역으로 이동 해야 하는 여러 가지 이유가 있습니다.
 
 - **영역 시작에 맞추기**: 이전에는 사용할 수 없었던 새로 도입 된 Azure 지역으로 리소스를 이동 합니다.
-- **서비스/기능에 맞게 맞춤**: 특정 지역에서 사용할 수 있는 서비스 또는 기능을 활용 하도록 리소스를 이동 합니다.
-- **비즈니스 개발에 대응**: 합병 또는 인수 등의 비즈니스 변화에 대 한 응답으로 영역으로 리소스를 이동 합니다.
-- **근접에 맞게 맞춤**: 리소스를 비즈니스 지역으로 이동 합니다.
-- **데이터 요구 사항 충족**: 데이터 상주 요구 사항 또는 데이터 분류 요구 사항에 맞게 리소스를 이동 합니다. [자세한 정보를 알아보세요](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
-- **배포 요구 사항에 대응**: 오류가 발생 하 여 배포 된 리소스를 이동 하거나 용량 요구 사항에 대 한 응답으로 이동 합니다. 
+- **서비스/기능에 맞추기**: 리소스를 이동하여 특정 지역에서 사용할 수 있는 서비스 또는 기능을 활용합니다.
+- **비즈니스 개발에 대응**: 합병 또는 인수 등의 비즈니스 변화에 대응하여 리소스를 지역으로 이동합니다.
+- **근접성에 맞추기**: 리소스를 비즈니스 지역으로 이동합니다.
+- **데이터 요구 사항 충족**: 데이터 상주 요구 사항 또는 데이터 분류 요구 사항에 맞게 리소스를 이동 합니다. [자세히 알아봅니다](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
+- **배포 요구 사항에 대응**: 오류로 배포된 리소스를 이동하거나 용량 요구 사항에 따라 이동합니다. 
 - **서비스 해제에 응답**: 영역 서비스 해제로 인해 리소스를 이동 합니다.
 
 ## <a name="move-resources-with-resource-mover"></a>리소스 이동 기를 사용 하 여 리소스 이동
 
-[Azure 리소스](../../resource-mover/overview.md)이동 기를 사용 하 여 리소스를 다른 지역으로 이동할 수 있습니다. 리소스 이동 기는 다음을 제공 합니다.
+[Azure 리소스](../../resource-mover/overview.md)이동 기를 사용 하 여 리소스를 다른 지역으로 이동할 수 있습니다. Resource Mover는 다음을 제공합니다.
 
-- 여러 지역에서 리소스를 이동 하기 위한 단일 허브입니다.
+- 지역 간에 리소스를 이동하기 위한 단일 허브입니다.
 - 이동 시간과 복잡성이 줄어듭니다. 필요한 모든 항목은 단일 위치에 있습니다.
-- 여러 유형의 Azure 리소스를 이동 하는 데 있어 간단 하 고 일관 된 환경을 제공 합니다.
-- 이동 하려는 리소스 간의 종속성을 식별 하는 쉬운 방법입니다. 이를 통해 관련 된 리소스를 함께 이동 하 여 이동 후 대상 영역에서 모든 것이 예상 대로 작동 하도록 할 수 있습니다.
-- 원본 영역에서 이동 후 리소스를 삭제 하려는 경우 해당 리소스를 자동으로 정리 합니다.
-- 테스트 이동을 시도한 다음 전체 이동을 수행 하지 않으려는 경우 삭제할 수 있습니다.
+- 다양한 유형의 Azure 리소스를 이동할 수 있는 간단하고 일관된 환경을 제공합니다.
+- 이동하려는 리소스 간의 종속성을 쉽게 식별할 수 있는 방법입니다. 이를 통해 관련 리소스를 함께 이동함으로써 이동 후 대상 지역에서 모든 것이 예상대로 작동하도록 할 수 있습니다.
+- 이동 후 리소스를 삭제하려는 경우 원본 지역의 리소스를 자동으로 정리합니다.
+- 테스트 이동을 시도한 다음, 전체 이동을 수행하지 않으려면 취소할 수 있습니다.
 
 여러 가지 방법을 사용 하 여 리소스를 다른 지역으로 이동할 수 있습니다.
 
-- 리소스 **그룹에서 리소스 이동 시작**:이 방법을 사용 하 여 리소스 그룹 내에서 영역 이동을 시작 합니다. 이동 하려는 리소스를 선택한 후에는 리소스 이동 기 허브에서 프로세스가 계속 진행 되 고, 리소스 종속성을 확인 하 고, 이동 프로세스를 오케스트레이션 합니다. [자세한 정보를 알아보세요](../../resource-mover/move-region-within-resource-group.md).
-- **리소스 이동 기 허브에서 직접 리소스 이동 시작**:이 방법을 사용 하면 허브에서 직접 지역 이동 프로세스를 시작 합니다. [자세한 정보를 알아보세요](../../resource-mover/tutorial-move-region-virtual-machines.md).
+- 리소스 **그룹에서 리소스 이동 시작**:이 방법을 사용 하 여 리소스 그룹 내에서 영역 이동을 시작 합니다. 이동 하려는 리소스를 선택한 후에는 리소스 이동 기 허브에서 프로세스가 계속 진행 되 고, 리소스 종속성을 확인 하 고, 이동 프로세스를 오케스트레이션 합니다. [자세히 알아봅니다](../../resource-mover/move-region-within-resource-group.md).
+- **리소스 이동 기 허브에서 직접 리소스 이동 시작**:이 방법을 사용 하면 허브에서 직접 지역 이동 프로세스를 시작 합니다. [자세히 알아봅니다](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 
 ## <a name="support-for-region-move"></a>영역 이동 지원
 
 현재 리소스 이동 기를 사용 하 여 이러한 리소스를 다른 지역으로 이동할 수 있습니다.
 
-- Azure Vm 및 연결 된 디스크
+- Azure VM 및 연결된 디스크
 - NIC
 - 가용성 집합
 - Azure 가상 네트워크
 - 공용 IP 주소
-- NSG(네트워크 보안 그룹)
+- NSG(네트워크 보안 그룹)::
 - 내부 및 공용 부하 분산 장치
-- Azure SQL database 및 탄력적 풀
+- Azure SQL 데이터베이스 및 탄력적 풀
 
 ## <a name="region-move-process"></a>영역 이동 프로세스
 

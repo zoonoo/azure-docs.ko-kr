@@ -11,11 +11,11 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5ac32c41bd6b30c3edce68d67adc376e066d0bf5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797601"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 인덱싱
@@ -142,9 +142,6 @@ GROUP BY
 ,       t.[name]
 ;
 ```
-
->[!TIP]
-> Synapse SQL의 성능 향상을 위해 영구 사용자 테이블에서 **pdw_table_mappings** 대신 **pdw_permanent_table_mappings** 를 사용 하는 것이 좋습니다. 자세한 내용은 **[pdw_permanent_table_mappings &#40;transact-sql&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** 을 참조 하십시오.
 
 뷰를 만들었으므로 이제 다음 쿼리를 실행하여 행 수가 100,000개 미만인 행 그룹이 있는 테이블을 식별합니다. 물론 좀 더 최적 상태의 세그먼트 품질을 원할 경우 임계값인 100,000개를 늘릴 수도 있습니다.
 

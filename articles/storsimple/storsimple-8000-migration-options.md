@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514664"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
@@ -63,7 +63,7 @@ Cohesity를 사용하면 현재 StorSimple 5000-7000에서 Azure의 Cohesity 데
 
 Nasuni를 사용 하면 StorSimple 5000-7000 고객이 Azure에서 데이터를 쉽게 마이그레이션하고 보관할 수 있습니다.  Nasuni는 Azure 기반 NAS 저장소 솔루션으로, 고객에 게 온-프레미스 솔루션에서 제공 하는 성능 및 보안을 클라우드 경제성 및 규모와 함께 제공 합니다.  Nasuni 및 Azure는 고성능 파일 저장소 외에도, 중앙 집중식 파일 저장소 관리를 사용 하 여 전 세계 데이터를 공유 하 고 공동 작업할 수 있도록 하는 동시에 백업 및 DR을 처리 합니다. 
 
-Nasuni은 마이그레이션을 쉽게 만드는 환경을 제공 합니다. 지금 시작 하세요.https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni은 마이그레이션을 쉽게 만드는 환경을 제공 합니다. 지금 시작 하세요. https://info.nasuni.com/nasuni-storsimple-migration
 
 #### <a name="migrate-to-talon-fast"></a>Talon FAST로 마이그레이션
 

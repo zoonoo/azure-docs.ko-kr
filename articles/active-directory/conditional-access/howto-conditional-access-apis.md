@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33f3766e02316eccb519bea15246541531750ed1
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90008028"
 ---
 # <a name="conditional-access-programmatic-access"></a>조건부 액세스: 프로그래밍 방식 액세스
@@ -62,7 +62,7 @@ Microsoft Graph는 조직에서 Microsoft 365, Windows 10 및 Enterprise Mobilit
 
 - [승인 워크플로를 사용 하 여 프로덕션 환경에 조건부 액세스 정책 배포](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>모니터
 
 이 예제에서는 시간에 따라 조건부 액세스 정책 변경을 모니터링 하 고 키 정책이 변경 될 때 경고를 트리거할 수 있는 메커니즘을 제공 합니다.
 

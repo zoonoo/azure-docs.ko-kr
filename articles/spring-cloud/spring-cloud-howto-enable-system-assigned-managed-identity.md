@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888572"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 Azure 리소스에 대 한 관리 되는 id는 Azure 스프링 클라우드 응용 프로그램과 같은 Azure 리소스에 Azure Active Directory 자동으로 관리 되는 id를 제공 합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Portal 및 CLI (버전 0.2.4에서 사용 가능)를 사용 하 여 Azure 스프링 클라우드 앱에 대 한 시스템 할당 관리 id를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure 리소스에 대 한 관리 id에 익숙하지 않은 경우 [개요 섹션](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)을 참조 하세요.
 배포 된 Azure 스프링 클라우드 인스턴스가 필요 합니다. Azure CLI를 [사용 하 여 배포 하는 빠른 시작을](spring-cloud-quickstart.md)따르세요.
 

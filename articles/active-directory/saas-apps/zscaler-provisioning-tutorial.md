@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 52c18f8d51f18b9bc167a99fbafda2365824dfc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312127"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Zscaler 구성
@@ -26,7 +26,7 @@ ms.locfileid: "91312127"
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -108,7 +108,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![기본 U R L 및 전달자 토큰 입력란이 out 인 구성 S A M L 대화 상자의 스크린샷](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    **SCIM 기반 프로 비전 사용** 을 선택 하 여 **기본 URL** 및 **전달자 토큰**을 검색 한 다음 설정을 저장 합니다. **테 넌 트 url**에 대 한 **기준 Url** 및 **전달자 토큰** 을 Azure Portal의 **비밀 토큰** 에 복사 합니다.
+    **SCIM-Based 프로 비전 사용** 을 선택 하 여 **기본 URL** 및 **전달자 토큰**을 검색 한 다음 설정을 저장 합니다. **테 넌 트 url**에 대 한 **기준 Url** 및 **전달자 토큰** 을 Azure Portal의 **비밀 토큰** 에 복사 합니다.
 
 7. 5 단계에 표시 된 필드를 채우면 **연결 테스트** 를 클릭 하 여 Azure AD가 Zscaler에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Zscaler 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
@@ -118,7 +118,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![알림 전자 메일 텍스트 상자의 스크린샷](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. **저장**을 클릭합니다.
+9. **Save**을 클릭합니다.
 
 10. **매핑** 섹션 아래에서 **Zscaler에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
@@ -126,7 +126,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Zscaler로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Zscaler의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![7 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
+    ![7개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
 
 12. **매핑** 섹션 아래에서 **Zscaler에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
@@ -134,7 +134,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 13. **특성 매핑** 섹션에서 Azure AD에서 Zscaler로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Zscaler의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![3 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
+    ![3개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
 
 14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](./../active-directory-saas-scoping-filters.md)에서 제공하는 다음 지침을 참조합니다.
 

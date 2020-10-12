@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
 ms.openlocfilehash: 7ec49ee4f07aff6e9b9f9d6fc43e37742d7e163a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085126"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
@@ -27,7 +27,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
 1. 애플리케이션을 실행하고 디버그합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 * **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
@@ -100,7 +100,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
-    b. **새로 만들기**를 선택합니다.
+    b. **다음**을 선택합니다.
 1. 다음 **새 프로젝트** 대화 상자에서 다음을 수행한 후 **마침**을 선택합니다.
 
     - 프로젝트 이름 및 위치를 입력합니다.
@@ -259,7 +259,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![IntelliJ 아이디어 원격 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
-1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind**를 **테스트 이름**으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용** 및 **확인**을 차례로 선택합니다.
+1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind**를 **테스트 이름**으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용**을 선택한 다음 **확인**을 선택합니다.
 
     ![고 remoteclusterdebugging 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 

@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513471"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Azure 데이터 공유의 기존 데이터 공유에 받는 사람을 추가 하는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "87513471"
 
 ## <a name="navigate-to-a-sent-data-share"></a>전송 된 데이터 공유로 이동 합니다.
 
-Azure 데이터 공유에서 보낸 공유로 이동 하 여 **초대** 탭을 선택 합니다. 여기에는이 데이터 공유에 대 한 초대의 모든 받는 사람이 나열 됩니다. 새 항목을 추가 하려면 **받는 사람 추가**를 클릭 합니다.
+Azure 데이터 공유에서 보낸 공유로 이동 하 고 **초대** 탭을 선택 합니다. 여기에 나열 된 것은이 데이터 공유에 대 한 초대의 모든 받는 사람입니다. 새 항목을 추가 하려면 **받는 사람 추가**를 클릭 합니다.
 
 ![받는 사람 추가](./media/how-to/how-to-add-recipients/add-recipient.png)
 

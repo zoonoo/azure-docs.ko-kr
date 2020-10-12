@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80258297"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
 이 방법 가이드에서는 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. CLI를 사용하여 솔루션을 배포합니다. Azureiotsolutions.com에서 웹 기반 UI를 사용 하 여 솔루션을 배포할 수도 있습니다 .이 옵션에 대 한 자세한 내용은 [원격 모니터링 솔루션 가속기 배포](quickstart-remote-monitoring-deploy.md) 빠른 시작을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 원격 모니터링 솔루션 가속기를 배포하려면 활성 Azure 구독이 필요합니다.
 
@@ -68,7 +68,7 @@ pcs login
 
 기본 배포는 Azure 구독에 다음 서비스를 만듭니다.
 
-| 개수 | 리소스                       | 형식         | 용도 |
+| 개수 | 리소스                       | 유형         | 용도 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 가상 머신](https://azure.microsoft.com/services/virtual-machines/) | 표준 D1 V2  | 마이크로 서비스 호스트 |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 디바이스 관리 및 통신 |

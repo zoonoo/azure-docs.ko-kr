@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15312159bc0487f7d03c06fa947f69b1f6f9600c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513403"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 역할 할당 제거
@@ -108,4 +108,4 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ## <a name="next-steps"></a>다음 단계
 
 - [클라우드 그룹을 사용 하 여 역할 할당 관리](roles-groups-concept.md)
-- [클라우드 그룹에 할당 된 역할 문제 해결](roles-groups-faq-troubleshooting.md)
+- [클라우드 그룹에 할당된 역할 문제 해결](roles-groups-faq-troubleshooting.md)

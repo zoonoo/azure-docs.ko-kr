@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>자습서: Printix와 Azure Active Directory 통합
@@ -29,7 +29,7 @@ Printix를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자세한 내용은 [응용 프로그램 액세스 및 Azure Active Directory Single Sign-On](../manage-apps/what-is-single-sign-on.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Printix와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -108,7 +108,7 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_url.png)
 
-    **로그온 url** 텍스트 상자에 다음 패턴을 사용 하 여 URL을 입력 합니다.`https://<subdomain>.printix.net`
+    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.printix.net`
 
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Printix 클라이언트 지원 팀](mailto:support@printix.net)에 문의하세요. 

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
 ms.openlocfilehash: 4c2faa6f015a8c1ce8f360155abdc14367d3057b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330743"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 자동 조정
@@ -63,8 +63,8 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용할 수 있는 자
 
 | 자동 조정 옵션 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :----------------------------- | ----- | ----- |
-| **인덱스 만들기** -작업의 성능을 향상 시키고 인덱스를 만들며 쿼리 성능이 향상 되었는지 자동으로 확인할 수 있는 인덱스를 식별 합니다. | 예 | 예 |
-| **DROP INDEX** -고유 인덱스를 제외 하 고 매일 중복 인덱스와 중복 인덱스를 식별 하 고 오랜 시간 동안 사용 되지 않은 인덱스 (90 일 >)를 식별 합니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 예 |
+| **인덱스 만들기** -작업의 성능을 향상 시키고 인덱스를 만들며 쿼리 성능이 향상 되었는지 자동으로 확인할 수 있는 인덱스를 식별 합니다. | 예 | 아니요 |
+| **DROP INDEX** -고유 인덱스를 제외 하 고 매일 중복 인덱스와 중복 인덱스를 식별 하 고 오랜 시간 동안 사용 되지 않은 인덱스 (90 일 >)를 식별 합니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 아니요 |
 | **마지막으로 성공한 계획 강제 적용** (자동 계획 수정)-이전 좋은 계획 보다 느린 실행 계획을 사용 하 여 Azure SQL 쿼리를 식별 하 고 회귀 된 계획 대신 마지막으로 알려진 좋은 계획을 사용 하 여 쿼리 합니다. | 예 | 예 |
 
 ### <a name="automatic-tuning-for-sql-database"></a>SQL Database 자동 조정

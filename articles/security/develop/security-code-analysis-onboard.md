@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543030"
 ---
 # <a name="onboarding-and-installing"></a>온보딩 및 설치
@@ -48,9 +48,9 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
 >**귀사**
 
-- 영역 – 연락처 세부 정보:cloudsupport@zones.com
-- Wortell – 연락처 세부 정보:info@wortell.nl
-- Logicalis – 연락처 세부 정보:logicalisleads@us.logicalis.com
+- 영역 – 연락처 세부 정보: cloudsupport@zones.com
+- Wortell – 연락처 세부 정보: info@wortell.nl
+- Logicalis – 연락처 세부 정보: logicalisleads@us.logicalis.com
 
 ### <a name="become-a-partner"></a>파트너 되기
 

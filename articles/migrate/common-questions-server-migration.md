@@ -4,10 +4,10 @@ description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275543"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
@@ -199,7 +199,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
 
-VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아보기](migrate-support-matrix-physical-migration.md).
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
 
 ## <a name="can-i-upgrade-my-os-while-migrating"></a>마이그레이션하는 동안 OS를 업그레이드할 수 있나요?
 

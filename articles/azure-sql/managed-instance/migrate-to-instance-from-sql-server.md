@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887653"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
@@ -70,7 +70,7 @@ SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 �
 
 - [SQL Server 인스턴스의 cpu 사용량을 모니터링](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) 하 고 평균 및 최대 cpu 사용량을 기록 합니다.
 - [SQL Server 인스턴스의 메모리 사용량을 모니터링](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) 하 고 버퍼 풀, 계획 캐시, 열 저장소 풀, [메모리 내 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)등의 여러 구성 요소에서 사용 하는 메모리 양을 확인 합니다. 또한 페이지 수명 예상 메모리 성능 카운터의 평균 및 피크 값을 찾아야 합니다.
-- [Dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 뷰 또는 [성능 카운터](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)를 사용 하 여 원본 SQL Server 인스턴스에서 디스크 IO 사용량을 모니터링 합니다.
+- [Sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 뷰 또는 [성능 카운터](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)를 사용 하 여 원본 SQL Server 인스턴스에서 디스크 IO 사용량을 모니터링 합니다.
 - SQL Server 2016 이상 버전에서 마이그레이션하는 경우 동적 관리 뷰 또는 쿼리 저장소를 검토 하 여 워크 로드 및 쿼리 성능 또는 SQL Server 인스턴스를 모니터링할 수 있습니다. 작업에서 가장 중요 한 쿼리의 평균 기간 및 CPU 사용량을 확인 하 여 관리 되는 인스턴스에서 실행 되는 쿼리와 비교 합니다.
 
 > [!Note]
@@ -139,7 +139,7 @@ SQL Server 온-프레미스에서 SSIS (SQL Server Integration Services)를 사�
 
 > [!IMPORTANT]
 >
-> - [투명한 데이터 암호화](../database/transparent-data-encryption-tde-overview.md) 로 보호 되는 데이터베이스를 네이티브 복원 옵션을 사용 하 여 관리 되는 인스턴스로 마이그레이션하려는 경우에는 온-프레미스 또는 Azure VM SQL Server의 해당 인증서를 데이터베이스 복원 전에 마이그레이션해야 합니다. 자세한 단계는 [TDE 인증서를 관리 되는 인스턴스로 마이그레이션](tde-certificate-migrate.md)을 참조 하세요.
+> - [투명한 데이터 암호화](../database/transparent-data-encryption-tde-overview.md) 로 보호 되는 데이터베이스를 네이티브 복원 옵션을 사용 하 여 관리 되는 인스턴스로 마이그레이션하려는 경우에는 온-프레미스 또는 Azure VM SQL Server의 해당 인증서를 데이터베이스 복원 전에 마이그레이션해야 합니다. 자세한 단계는 [TDE 인증서를 관리형 인스턴스로 마이그레이션](tde-certificate-migrate.md)을 참조하세요.
 > - 시스템 데이터베이스의 복원은 지원되지 않습니다. Master 또는 msdb 데이터베이스에 저장 된 인스턴스 수준 개체를 마이그레이션하려면 대상 인스턴스에서 T-sql 스크립트를 실행 하 고 실행 하는 것이 좋습니다.
 
 SAS 자격 증명을 사용하여 데이터베이스 백업을 관리되는 인스턴스에 복원하는 방법을 보여주는 빠른 시작은 [백업에서 관리되는 인스턴스로 복원](restore-sample-database-quickstart.md)을 참조하세요.

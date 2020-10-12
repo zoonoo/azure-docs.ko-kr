@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513281"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
@@ -79,7 +79,7 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 이름                                                  | Type  | 값                                                 |
+| 속성                                                  | 유형  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -89,7 +89,7 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| 이름                                                  | Type  | 값                                                 |
+| 속성                                                  | 유형  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |

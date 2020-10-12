@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707313"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
@@ -61,7 +61,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Teradata 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesTeradata** |예 |
 | 서버 |Teradata 서버의 이름입니다. |예 |
@@ -297,10 +297,10 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | Decimal |Decimal |
 | Double |Double |
 | 정수 |Int32 |
-| number |Double |
+| 숫자 |Double |
 | SmallInt |Int16 |
-| 날짜 |DateTime |
-| Time |TimeSpan |
+| Date |DateTime |
+| 시간 |TimeSpan |
 | Time With Time Zone |String |
 | 타임스탬프 |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |

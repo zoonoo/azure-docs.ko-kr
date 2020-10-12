@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780398"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
@@ -67,7 +67,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 데이터 흐름 매개 변수가 `stringParam` 값이 인 파이프라인 매개 변수를 참조 하는 경우 `upper(column1)` 
 
 - Expression이 선택 된 경우는 `$stringParam` column1 all 대문자 값으로 평가 됩니다.
-- 식이 선택 되지 않은 경우 (기본 동작)는 `$stringParam` 로 평가 됩니다.`'upper(column1)'`
+- 식이 선택 되지 않은 경우 (기본 동작)는  `$stringParam` 로 평가 됩니다. `'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>타임 스탬프 전달
 
@@ -84,7 +84,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-2.png "데이터 흐름 매개 변수 설정")
 
-`@pipeline.parameters.pipelineParam`런타임에의 값이 할당 됩니다 `abs(1)` .
+`@pipeline.parameters.pipelineParam` 런타임에의 값이 할당 됩니다 `abs(1)` .
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-4.png "데이터 흐름 매개 변수 설정")
 

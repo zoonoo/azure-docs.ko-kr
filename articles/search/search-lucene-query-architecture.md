@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329485"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 전체 텍스트 검색
@@ -286,7 +286,7 @@ Spacious,||air-condition*+"Ocean view"
 | shore | 2
 | spacious | 1
 | the | 1, 2
-| 을 | 1
+| to | 1
 | view | 1, 2, 3
 | walking | 1
 | 다음과 같이 바꿉니다. | 3
@@ -393,7 +393,7 @@ Azure Cognitive Search의 모든 인덱스는 자동으로 여러 분할 분할 
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [문서 검색 REST API](/rest/api/searchservice/search-documents) 
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
 ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588618"
 ---
 # <a name="translator-v20"></a>Translator v2.0
@@ -52,7 +52,7 @@ ms.locfileid: "83588618"
 |ProfanityAction    |작업 |예제 소스 (일본어)  |변환 예 (영어)  |
 |:--|:--|:--|:--|
 |NoAction   |기본값 옵션을 설정하지 않는 것과 같습니다. 욕설이 원본에서 대상으로 전달됩니다.        |彼はジャッカスです。     |He is a jackass.   |
-|Marked     |비 속한 단어는 XML 태그 \<> 및 \< /ss>로 둘러싸여 있습니다.       |彼はジャッカスです。 |그는 \<>jackass \< /vs>입니다.  |
+|Marked     |욕설 단어에 XML 태그 \<profanity> 및 \</profanity>가 지정됩니다.       |彼はジャッカスです。 |He is a \<profanity>jackass\</profanity>.  |
 |삭제됨    |욕설 단어가 바뀌지 않고 출력에서 제거됩니다.     |彼はジャッカスです。 |He is a.   |
 
     
@@ -83,16 +83,16 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명    |매개 변수 유형|데이터 형식|
+|매개 변수|값|설명    |매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId  |(비어 있음)    |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(비어 있음)   |필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트는 1만 자를 초과할 수 없습니다.|Query|문자열|
-|원본|(비어 있음)   |(선택 사항) 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|Query|문자열|
-|다음으로 변경:|(비어 있음) |필수 사항입니다. 텍스트를 변환할 언어의 코드를 나타내는 문자열입니다.|Query|문자열|
-|contentType|(비어 있음)    |(선택 사항) 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` (기본값) 및 `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.|Query|문자열|
-|category|(비어 있음)   |(선택 사항) 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
-|권한 부여|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId  |(empty)    |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|text|(empty)   |필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트는 1만 자를 초과할 수 없습니다.|Query|문자열|
+|원본|(empty)   |(선택 사항) 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|Query|문자열|
+|to|(empty) |필수 사항입니다. 텍스트를 변환할 언어의 코드를 나타내는 문자열입니다.|Query|문자열|
+|contentType|(empty)    |(선택 사항) 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` (기본값) 및  `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.|Query|문자열|
+|category|(empty)   |(선택 사항) 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
+|권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 
 ### <a name="response-messages"></a>응답 메시지
@@ -188,10 +188,10 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -209,7 +209,7 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
 
 요청 URI는 `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`입니다.
 
-요청 본문에는 이름을 검색할 ISO 639-1 언어 코드를 나타내는 문자열 배열이 포함 되어 있습니다. 예는 다음과 같습니다.
+요청 본문에는 이름을 검색할 ISO 639-1 언어 코드를 나타내는 문자열 배열이 포함 되어 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -229,12 +229,12 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|locale|(비어 있음) |필수 사항입니다. 언어 이름을 지역화 하는 데 사용 되는 다음 중 하나를 나타내는 문자열입니다. <ul><li>언어 및 ISO 3166 2 문자 대문자 하위 문화권 코드와 관련 된 ISO 639 2 문자 소문자 문화권 코드의 조합입니다. <li>ISO 639 소문자 문화권 코드 자체입니다.|Query|문자열|
-|권한 부여|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|locale|(empty) |필수 사항입니다. 언어 이름을 지역화 하는 데 사용 되는 다음 중 하나를 나타내는 문자열입니다. <ul><li>언어 및 ISO 3166 2 문자 대문자 하위 문화권 코드와 관련 된 ISO 639 2 문자 소문자 문화권 코드의 조합입니다. <li>ISO 639 소문자 문화권 코드 자체입니다.|Query|문자열|
+|권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -263,11 +263,11 @@ Translator 서비스에서 지 원하는 언어 코드를 포함 하는 문자�
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|권한 부여|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -296,11 +296,11 @@ Translator 서비스의 음성 합성에 대해 지원 되는 언어 코드를 �
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
  
 ### <a name="response-messages"></a>응답 메시지
 
@@ -328,15 +328,15 @@ binary
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(비어 있음)   |필수 사항입니다. 지정 된 언어로 스트림에 대해 말할 문장이 하나 이상 포함 된 문자열입니다. 텍스트는 2000 자를 초과 하면 안 됩니다.|Query|문자열|
-|언어|(비어 있음)   |필수 사항입니다. 텍스트를 말할 언어의 지원 되는 언어 코드를 나타내는 문자열입니다. 코드는 메서드에서 반환 되는 코드 중 하나 여야 합니다 `GetLanguagesForSpeak` .|Query|문자열|
-|format|(비어 있음)|(선택 사항) Content-type ID를 지정 하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|Query|문자열|
-|옵션|(비어 있음)    |(선택 사항) 합성 된 음성의 속성을 지정 하는 문자열입니다.<ul><li>`MaxQuality`및는 `MinSize` 오디오 신호의 품질을 지정 합니다. `MaxQuality`최고 품질을 제공 합니다. `MinSize`가장 작은 파일 크기를 제공 합니다. 기본값은 `MinSize` 입니다.</li><li>`female`및 `male` 원하는 음성의 성별을 지정 합니다. 기본값은 `female`입니다. 세로 막대 ( <code>\|</code> )를 사용 하 여 여러 옵션을 포함 합니다. 예: `MaxQuality|Male`.</li></li></ul>  |Query|문자열|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|text|(empty)   |필수 사항입니다. 지정 된 언어로 스트림에 대해 말할 문장이 하나 이상 포함 된 문자열입니다. 텍스트는 2000 자를 초과 하면 안 됩니다.|Query|문자열|
+|언어|(empty)   |필수 사항입니다. 텍스트를 말할 언어의 지원 되는 언어 코드를 나타내는 문자열입니다. 코드는 메서드에서 반환 되는 코드 중 하나 여야 합니다 `GetLanguagesForSpeak` .|Query|문자열|
+|format|(empty)|(선택 사항) Content-type ID를 지정 하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|Query|문자열|
+|옵션|(empty)    |(선택 사항) 합성 된 음성의 속성을 지정 하는 문자열입니다.<ul><li>`MaxQuality` 및는 `MinSize` 오디오 신호의 품질을 지정 합니다. `MaxQuality` 최고 품질을 제공 합니다. `MinSize` 가장 작은 파일 크기를 제공 합니다. 기본값은  `MinSize` 입니다.</li><li>`female` 및 `male` 원하는 음성의 성별을 지정 합니다. 기본값은 `female`입니다. 세로 막대 ( <code>\|</code> )를 사용 하 여 여러 옵션을 포함 합니다. 예: `MaxQuality|Male`.</li></li></ul>  |Query|문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -364,12 +364,12 @@ binary
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)  |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(비어 있음)|필수 사항입니다. 해당 언어를 식별할 텍스트가 포함 된 문자열입니다. 텍스트는 1만 자를 초과 하면 안 됩니다.|Query|  문자열|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key  |(비어 있음)    |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)  |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|text|(empty)|필수 사항입니다. 해당 언어를 식별할 텍스트가 포함 된 문자열입니다. 텍스트는 1만 자를 초과 하면 안 됩니다.|Query|  문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key  |(empty)    |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -412,7 +412,7 @@ binary
 ```
 
 ### <a name="response-class-status-200"></a>Response 클래스 (상태 200)
-`DetectArray`성공 했습니다. 입력 배열의 각 행에 대 한 2 자 언어 코드를 포함 하는 문자열 배열을 반환 합니다.
+`DetectArray` 성공 했습니다. 입력 배열의 각 행에 대 한 2 자 언어 코드를 포함 하는 문자열 배열을 반환 합니다.
 
 문자열
 
@@ -420,11 +420,11 @@ binary
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -454,20 +454,20 @@ binary
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식   |
+|매개 변수|값|설명|매개 변수 형식|데이터 형식   |
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|originalText|(비어 있음)|필수 사항입니다. 변환할 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 1000 자입니다.|Query|문자열|
-|translatedText|(비어 있음) |필수 사항입니다. 대상 언어로 번역 된 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 2000 자입니다.|Query|문자열|
-|원본|(비어 있음)   |필수 사항입니다. 텍스트의 원래 언어에 대 한 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우 en, 독일의 경우 de입니다.|Query|문자열|
-|다음으로 변경:|(비어 있음)|필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|rating|(비어 있음) |(선택 사항) 문자열의 품질 등급을 나타내는 정수입니다. 값은-10에서 10 사이입니다. 기본값은 1입니다.|Query|integer|
-|contentType|(비어 있음)    |(선택 사항) 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` 및 `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.    |Query|문자열|
-|category|(비어 있음)|(선택 사항) 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
-|사용자|(비어 있음)|필수 사항입니다. 제출 작성기를 추적 하는 데 사용 되는 문자열입니다.|Query|문자열|
-|uri|(비어 있음)|(선택 사항) 변환의 콘텐츠 위치를 포함 하는 문자열입니다.|Query|문자열|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.  |header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|originalText|(empty)|필수 사항입니다. 변환할 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 1000 자입니다.|Query|문자열|
+|translatedText|(empty) |필수 사항입니다. 대상 언어로 번역 된 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 2000 자입니다.|Query|문자열|
+|원본|(empty)   |필수 사항입니다. 텍스트의 원래 언어에 대 한 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우 en, 독일의 경우 de입니다.|Query|문자열|
+|to|(empty)|필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|rating|(empty) |(선택 사항) 문자열의 품질 등급을 나타내는 정수입니다. 값은-10에서 10 사이입니다. 기본값은 1입니다.|Query|정수|
+|contentType|(empty)    |(선택 사항) 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` 및 `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.    |Query|문자열|
+|category|(empty)|(선택 사항) 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
+|사용자|(empty)|필수 사항입니다. 제출 작성기를 추적 하는 데 사용 되는 문자열입니다.|Query|문자열|
+|uri|(empty)|(선택 사항) 변환의 콘텐츠 위치를 포함 하는 문자열입니다.|Query|문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.  |header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -523,7 +523,7 @@ binary
 * `Options`: 필수 사항입니다. ,, 및를 포함 한 옵션 집합입니다 `Category` `ContentType` `Uri` `User` . `User`은 필수입니다. `Category`, `ContentType` 및 `Uri` 는 선택 사항입니다. 지정된 요소는 사전순으로 나열되어야 합니다.
 
 ### <a name="response-class-status-200"></a>Response 클래스 (상태 200)
-`AddTranslationArray`메서드가 성공 했습니다. 
+`AddTranslationArray` 메서드가 성공 했습니다. 
 
 2018 년 1 월 31 일 이후에는 문장 제출이 허용 되지 않습니다. 이 서비스는 오류 코드 410으로 응답합니다.
 
@@ -533,10 +533,10 @@ binary
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -560,19 +560,19 @@ binary
 ### <a name="response-class-status-200"></a>Response 클래스 (상태 200)
 문장의 길이를 나타내는 정수의 배열입니다. 배열의 길이는 문장의 수를 나타냅니다. 값은 각 문장의 길이를 나타냅니다.
 
-integer
+정수
 
 응답 콘텐츠 형식: application/xml
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)  |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query| 문자열|
-|text|(비어 있음)   |필수 사항입니다. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
-|언어   |(비어 있음)    |필수 사항입니다. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|권한 부여|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.   |header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)  |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query| 문자열|
+|text|(empty)   |필수 사항입니다. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
+|언어   |(empty)    |필수 사항입니다. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.   |header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -663,15 +663,15 @@ integer
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(비어 있음)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(비어 있음)|필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
-|원본|(비어 있음)|필수 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|다음으로 변경: |(비어 있음)    |필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|maxTranslations|(비어 있음)|필수 사항입니다. 반환할 최대 번역 수를 나타내는 정수입니다.|Query|integer|
-|권한 부여| (비어 있음)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|문자열|  header|
-|Ocp-Apim-Subscription-Key|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|text|(empty)|필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
+|원본|(empty)|필수 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|to |(empty)    |필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|maxTranslations|(empty)|필수 사항입니다. 반환할 최대 번역 수를 나타내는 정수입니다.|Query|정수|
+|권한 부여| (empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|문자열|  header|
+|Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 
@@ -711,7 +711,7 @@ integer
 </GetTranslationsArrayRequest>
 ```
 
-`GetTranslationsArrayRequest`다음 요소를 포함 합니다.
+`GetTranslationsArrayRequest` 다음 요소를 포함 합니다.
 
 * `AppId`: 필수 사항입니다. 헤더를 `Authorization` 사용 하는 경우 필드를 `AppId` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.
 * `From`: 필수 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다.
@@ -786,10 +786,10 @@ integer
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 유형|데이터 형식|
+|매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여  |(비어 있음)    |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
-|Ocp-Apim-Subscription-Key|(비어 있음)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
+|권한 부여  |(empty)    |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
+|Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
 ### <a name="response-messages"></a>응답 메시지
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
 ms.openlocfilehash: 95abf403dfd4abd4c0533b6e8b4a2f83b33fa18b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045555"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Visual Studio를 사용하여 Azure Stream Analytics 작업 보기
@@ -82,5 +82,5 @@ Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 B
 
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 모니터링 및 관리](stream-analytics-monitor-jobs-use-vs.md)
 * [빠른 시작: Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [자습서: Azure Pipelines를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [자습서: Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

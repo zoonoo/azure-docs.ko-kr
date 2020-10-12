@@ -4,10 +4,10 @@ description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064539"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
@@ -73,7 +73,7 @@ Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 �
 
 ### <a name="amqp-outbound-port-requirements"></a>AMQP 아웃 바운드 포트 요구 사항
 
-TCP를 통해 AMQP 연결을 사용 하는 클라이언트에는 로컬 방화벽에서 포트 5671 및 5672을 열어야 합니다. 이러한 포트와 함께 [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) 기능을 사용 하는 경우 추가 포트를 열어야 할 수도 있습니다. `EnableLinkRedirect`는 메시지를 수신 하는 동안 1 홉을 건너뛰어 처리량을 높이는 데 도움이 되는 새로운 메시징 기능입니다. 클라이언트는 다음 그림에 표시 된 것 처럼 포트 범위 104XX를 통해 백 엔드 서비스와 직접 통신을 시작 합니다. 
+TCP를 통해 AMQP 연결을 사용 하는 클라이언트에는 로컬 방화벽에서 포트 5671 및 5672을 열어야 합니다. 이러한 포트와 함께 [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) 기능을 사용 하는 경우 추가 포트를 열어야 할 수도 있습니다. `EnableLinkRedirect` 는 메시지를 수신 하는 동안 1 홉을 건너뛰어 처리량을 높이는 데 도움이 되는 새로운 메시징 기능입니다. 클라이언트는 다음 그림에 표시 된 것 처럼 포트 범위 104XX를 통해 백 엔드 서비스와 직접 통신을 시작 합니다. 
 
 ![대상 포트 목록][4]
 
@@ -182,7 +182,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
 | 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
-#### <a name="receive"></a>수신
+#### <a name="receive"></a>Receive
 
 | 클라이언트 | Service Bus |
 | --- | --- |
@@ -212,7 +212,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | --- | --- | --- |
 | 지속성 |- |- |
 | priority |- |- |
-| ttl |이 메시지에 대한 TTL(Time to live) |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |이 메시지에 대한 TTL(Time to live) |[timeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,7 +222,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | --- | --- | --- |
 | message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[있어](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| 다음으로 변경: |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[수행할 작업](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[수행할 작업](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[레이블](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Service Bus에서 해석되지 않는 애플리케이션 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -357,16 +357,16 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 요청 메시지에는 다음과 같은 애플리케이션 속성이 적용됩니다.
 
-| 키 | 선택 사항 | 값 형식 | 값 내용 |
+| Key | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| operation(작업) |예 |문자열 |**put-token** |
+| operation |예 |문자열 |**put-token** |
 | type |예 |문자열 |배치되는 토큰의 형식입니다. |
 | name |예 |문자열 |토큰이 적용되는 "대상"입니다. |
 | expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
-| 토큰 형식 | 토큰 설명 | 본문 형식 | 메모 |
+| 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
 | amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
@@ -376,7 +376,7 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
-| 키 | 선택 사항 | 값 형식 | 값 내용 |
+| Key | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
 | status-description |예 |문자열 |상태에 대한 설명입니다. |

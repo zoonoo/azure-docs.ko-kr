@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084718"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널
@@ -25,7 +25,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
 
 이 문서에서는 이러한 커널의 사용 방법과 사용 시의 이점에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -72,13 +72,13 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
    | 매직 | 예제 | 설명 |
    | --- | --- | --- |
-   | 도움말 |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
+   | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
    | 정보 |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
    | 구성 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |세션 만들기에 대한 매개 변수를 구성합니다. Force 플래그 ()는 세션이 `-f` 이미 생성 된 경우 필수 이며 세션을 삭제 하 고 다시 만듭니다. 유효한 매개 변수 목록은 [Livy의 POST /sessions Request Body](https://github.com/cloudera/livy#request-body) 를 참조하세요. 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |sqlContext에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 [Pandas](https://pandas.pydata.org/) 데이터 프레임으로 유지됩니다. |
    | 로컬 |`%%local`<br>`a=1` |이후 줄의 모든 코드는 로컬로 실행 됩니다. 코드는 사용 중인 커널에 관계 없이 유효한 Python2 코드 여야 합니다. 따라서 노트북을 만들 때 **PySpark3** 또는 **Spark** 커널을 선택한 경우에도 셀에서 매직을 사용 하는 경우 `%%local` 해당 셀에는 유효한 Python2 코드만 있어야 합니다. |
    | 로그 |`%%logs` |현재 Livy 세션에 대한 로그를 출력합니다. |
-   | delete |`%%delete -f -s <session number>` |현재 Livy 엔드포인트의 특정 세션을 삭제합니다. 커널 자체에 대해 시작 된 세션은 삭제할 수 없습니다. |
+   | 삭제 |`%%delete -f -s <session number>` |현재 Livy 엔드포인트의 특정 세션을 삭제합니다. 커널 자체에 대해 시작 된 세션은 삭제할 수 없습니다. |
    | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 엔드포인트에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
 
    > [!NOTE]  
@@ -98,7 +98,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 | -r |`-r <FRACTION>` |여기서 **FRACTION**은 0.0과 1.0 사이의 부동 소수점 숫자입니다. SQL 쿼리의 샘플 메서드가 `sample`인 경우 커널은 결과 집합 요소의 지정된 부분을 무작위로 샘플링합니다. 예를 들어 `-m sample -r 0.01` 인수를 포함하여 SQL 쿼리를 실행할 경우 결과 행의 1%가 무작위로 샘플링됩니다. |
 | -n |`-n <MAXROWS>` |**MAXROWS** 는 정수 값입니다. 커널은 출력 행 수를 **MAXROWS**로 제한합니다. **MAXROWS** 가 **-1**과 같은 음수인 경우에는 결과 집합의 행 수가 제한 되지 않습니다. |
 
-**예제:**
+**예:**
 
 ```sql
 %%sql -q -m sample -r 0.1 -n 500 -o query2

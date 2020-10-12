@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: sideeksh
 ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007794"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>가용성 영역 간에 Azure VM 재해 복구 사용
@@ -106,7 +106,7 @@ Azure 포털에 로그인합니다.
 
 7. ' 다음: 검토 + 복제 시작 '을 클릭 한 다음 ' 복제 시작 '을 클릭 합니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 **1. 지역에서 영역 재해 복구에 대 한 가격은 어떻게 작동 하나요?**
 영역 및 영역 재해 복구에 대 한 가격은 Azure에서 Azure로 재해 복구에 대 한 가격 책정과 동일 합니다. 가격 책정 페이지에 대 한 자세한 [내용은 여기에서](https://azure.microsoft.com/pricing/details/site-recovery/) 찾을 수 [있습니다.](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) 영역 재해 복구 영역에 표시 되는 송신 요금은 지역에서 지역 재해 복구 보다 낮습니다.

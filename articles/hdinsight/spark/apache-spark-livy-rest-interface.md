@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084616"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
@@ -33,7 +33,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 * Jar 파일이 클러스터 저장소 (WASBS)에 있는 경우
 
@@ -55,7 +55,7 @@ curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -
 curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 * 클러스터에서 실행 중인 모든 Livy Spark 배치를 검색하려는 경우:
 
@@ -75,7 +75,7 @@ curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdi
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 일괄 처리 ID를 사용 하 여 일괄 처리 작업을 삭제 `5` 합니다.
 

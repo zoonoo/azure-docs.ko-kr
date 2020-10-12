@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511521"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 로컬로 고정된 볼륨: 질문과 대답(FAQ)
@@ -178,7 +178,7 @@ StorSimple 디바이스 관리자 서비스의 **작업** 블레이드에서 이
 
 **Q.**  로컬로 고정된 볼륨을 복제할 수 있나요?
 
-**A.**  예, 할 수 있습니다. 그러나 로컬로 고정된 볼륨은 기본적으로 계층화된 볼륨으로 복제됩니다. [로컬로 고정 된 볼륨을 복제](storsimple-8000-clone-volume-u2.md) 하는 방법에 대 한 자세한 정보
+**A.** 예, 할 수 있습니다. 그러나 로컬로 고정된 볼륨은 기본적으로 계층화된 볼륨으로 복제됩니다. [로컬로 고정 된 볼륨을 복제](storsimple-8000-clone-volume-u2.md) 하는 방법에 대 한 자세한 정보
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>로컬로 고정된 볼륨 장애 조치에 대한 질문
 **Q.**  내 디바이스를 다른 실제 디바이스로 장애 조치해야 합니다. 내 로컬로 고정된 볼륨이 로컬로 고정되거나 계층화되어 실패하나요?
@@ -201,5 +201,5 @@ StorSimple 디바이스 관리자 서비스의 **작업** 블레이드에서 이
 
 **Q.**  클라우드 장비에 로컬로 고정된 볼륨을 사용하여 볼륨 컨테이너를 장애 조치할 수 있나요?
 
-**A.**  예, 할 수 있습니다. 로컬로 고정된 볼륨은 계층화된 볼륨으로 장애 조치됩니다. 자세한 내용은 [버전에 걸쳐 로컬로 고정된 볼륨의 장애 조치 및 DR](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**A.** 예, 할 수 있습니다. 로컬로 고정된 볼륨은 계층화된 볼륨으로 장애 조치됩니다. 자세한 내용은 [버전에 걸쳐 로컬로 고정된 볼륨의 장애 조치 및 DR](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

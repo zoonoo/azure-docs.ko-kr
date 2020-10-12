@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 68ea876d9951b49a6683cc74df8b9107fd942e51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245673"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
@@ -20,7 +20,7 @@ ms.locfileid: "86245673"
 |명령|설명|
 | --- | --- |
 | list | 모든 서비스 리소스를 나열합니다. |
-| 표시 | 지정된 이름의 서비스 리소스를 가져옵니다. |
+| show | 지정된 이름의 서비스 리소스를 가져옵니다. |
 
 ## <a name="sfctl-mesh-service-list"></a>sfctl mesh service list
 모든 서비스 리소스를 나열합니다.

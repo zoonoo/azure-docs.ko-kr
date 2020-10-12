@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797822"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
@@ -62,7 +62,7 @@ Azure Cosmos DB는 다른 Azure 리소스와 동일한 종류의 모니터링 �
 
 각 Azure Cosmos 데이터베이스에 대한 Azure Portal의 **개요** 페이지에는 요청 및 시간별 청구 사용량을 비롯하여 데이터베이스 사용량에 대한 간략한 보기가 포함되어 있습니다. 이 정보는 유용하지만 적은 양의 모니터링 데이터만 사용할 수 있습니다. 이러한 데이터 중 일부는 일부 구성에서 추가 데이터 수집을 사용하도록 설정하는 동안 데이터베이스를 만드는 즉시 자동으로 수집되어 분석에 사용할 수 있습니다.
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="개요 페이지":::
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> 메트릭 데이터 분석
 
@@ -82,27 +82,27 @@ Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 �
 
 1. 왼쪽 탐색 모음에서 **모니터**를 선택하고 **메트릭**을 선택합니다.
 
-   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Azure Monitor의 메트릭 창":::
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 1. **메트릭** 창 > **리소스 선택**에서 필요한 **구독** 및 **리소스 그룹**을 선택합니다. **리소스 유형**으로 **Azure Cosmos DB 계정**을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용**을 선택합니다.
 
-   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="메트릭을 볼 Cosmos DB 계정 선택":::
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 1. 다음에는 사용 가능한 메트릭 목록에서 메트릭을 선택할 수 있습니다. 요청 단위, 스토리지, 대기 시간, 가용성, Cassandra 등과 관련된 메트릭을 선택할 수 있습니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **요청 단위**를 선택하고 **Avg**를 집계 값으로 하겠습니다.
 
    이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
 
-   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Azure Portal에서 메트릭 선택":::
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 ### <a name="add-filters-to-metrics"></a>메트릭에 필터 추가
 
 특정 **CollectionName**, **DatabaseName**, **OperationType**, **Region** 및 **StatusCode**별로 표시되는 메트릭 및 차트를 필터링할 수도 있습니다. 메트릭을 필터링하려면 **필터 추가**를 선택하고 필요한 속성(예: **OperationType**)을 선택하며 **쿼리**와 같은 값을 선택합니다. 그러면 선택한 기간에 쿼리 작업에 소비된 요청 단위가 그래프에 표시됩니다. 저장 프로시저를 통해 실행되는 작업은 기록되지 않으므로 OperationType 메트릭 아래에서 사용할 수 없습니다.
 
-:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="메트릭 세분성을 선택하는 필터 추가":::
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 **분할 적용** 옵션을 사용하여 메트릭을 그룹화할 수 있습니다. 예를 들어 다음 이미지에 표시된 것처럼 작업 유형별 요청 단위를 그룹화하고 모든 작업의 그래프를 한 번에 볼 수 있습니다.
 
-:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="분할 적용 필터 추가":::
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a> 로그 데이터 분석
 

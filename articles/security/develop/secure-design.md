@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246812"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
@@ -25,11 +25,11 @@ ms.locfileid: "86246812"
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
-- 학습
+- 교육
 - 요구 사항
 - 디자인
 
-## <a name="training"></a>학습
+## <a name="training"></a>교육
 클라우드 응용 프로그램 개발을 시작 하기 전에 Azure에서 보안 및 개인 정보를 이해 하는 데 시간이 걸립니다. 이 단계를 수행 하 여 응용 프로그램에서 악용 가능한 취약점의 수 및 심각도를 줄일 수 있습니다. 지속적으로 변화 하는 위협 환경에 적절 하 게 대응할 수 있도록 준비 하는 것이 좋습니다.
 
 학습 단계 중에 다음 리소스를 사용 하 여 개발자가 사용할 수 있는 Azure 서비스와 Azure에 대 한 보안 모범 사례를 숙지 합니다.
@@ -260,7 +260,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 데이터 형식을 디자인할 때 적용 가능한 모든 데이터에 중요 한 레이블을 지정 합니다. 응용 프로그램에서 적용 가능한 데이터를 중요 한 것으로 취급 하는지 확인 합니다. 이러한 사례는 중요 한 데이터를 보호 하는 데 도움이 됩니다.
 
-- 암호화를 사용 합니다.
+- 암호화를 사용합니다.
 - 키 및 암호와 같은 암호를 하드 코딩 하지 마십시오.
 - 액세스 제어 및 감사가 준비 되어 있는지 확인 합니다.
 

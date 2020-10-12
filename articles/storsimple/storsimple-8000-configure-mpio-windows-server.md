@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514338"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 다중 경로 I/O 구성
@@ -66,7 +66,7 @@ Windows Server 호스트에 이 기능을 설치하려면 다음 절차를 완�
    5. **기능 선택** 페이지에서 **다중 경로 I/O**를 선택하고 **다음**을 클릭합니다.
    
        ![역할 및 기능 추가 마법사 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-   6. **설치 선택 확인** 페이지에서 선택 사항을 확인 하 고 아래와 같이 **필요한 경우 자동으로 대상 서버 다시 시작**을 선택 합니다. **설치**를 클릭합니다.
+   6. **설치 선택 확인** 페이지에서 선택 사항을 확인 하 고 아래와 같이 **필요한 경우 자동으로 대상 서버 다시 시작**을 선택 합니다. **Install**을 클릭합니다.
    
        ![역할 및 기능 추가 마법사 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
    7. 설치가 완료되면 알림이 표시됩니다. **닫기**를 클릭하여 마법사를 닫습니다.

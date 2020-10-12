@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709201"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트

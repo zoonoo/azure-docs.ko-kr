@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012078"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
@@ -181,7 +181,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>공유 액세스 서명(AMQP 수준) 사용
 
-이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP를 사용 하는 SAS 토큰 사용에 대 한 자세한 내용은 2013부터 초안으로 작동 하는 [Amqp 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 문서에 설명 되어 있지만 현재 Azure에서 지원 됩니다.
+이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP를 사용 하는 SAS 토큰 사용에 대 한 자세한 내용은 2013 이후 초안으로 작동 하는 [Claim-Based 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 문서에 설명 되어 있지만 현재 Azure에서 지원 됩니다.
 
 Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 

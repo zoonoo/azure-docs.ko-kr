@@ -4,10 +4,10 @@ description: 템플릿의 인증서 일반 이름을 사용하여 Service Fabric
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246438"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438826"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Azure Data Factory 버전 1에서 지 원하는 계산 환경
@@ -29,8 +29,8 @@ ms.locfileid: "89438826"
 | 컴퓨팅 환경                      | 활동                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [주문형 Azure HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 자신의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) | [투명](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [AZURE SQL](#azure-sql-linked-service), [azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저 작업](data-factory-stored-proc-activity.md) |
 
@@ -119,7 +119,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 > 
 
 ### <a name="properties"></a>속성
-| 속성                     | Description                              | 필수 |
+| 속성                     | 설명                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | type 속성을 **HDInsightOnDemand**로 설정합니다. | 예      |
 | clusterSize                  | 클러스터의 작업자 및 데이터 노드 수입니다. HDInsight 클러스터는 속성에 대해 지정하는 작업자 노드 수 외에 2개의 헤드 노드로 생성됩니다. 노드의 크기는 Standard_D3이며 4개의 코어가 있습니다. 4개 작업자 노드 클러스터는 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. Standard_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. | 예      |
@@ -142,7 +142,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 ### <a name="advanced-properties"></a>고급 속성
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
 
-| 속성               | Description                              | 필수 |
+| 속성               | 설명                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml)를 지정합니다. | 예       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 예       |
@@ -195,7 +195,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 ### <a name="node-sizes"></a>노드 크기
 헤드, 데이터 및 ZooKeeper 노드의 크기를 지정하려면 다음 속성을 사용합니다. 
 
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 헤드 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. 자세한 내용은 [노드 크기 지정](#specify-node-sizes)을 참조하세요. | 예       |
 | dataNodeSize      | 데이터 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 예       |
@@ -255,7 +255,7 @@ HDInsight 연결된 서비스를 만들어서 데이터 팩터리로 사용자�
 ```
 
 ### <a name="properties"></a>속성
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | type 속성을 **HDInsight**로 설정합니다. | 예      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.        | 예      |
@@ -272,7 +272,7 @@ Batch 서비스를 처음 사용하는 경우:
 * [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet에 대해 알아봅니다. 이 cmdlet을 사용하여 Batch 계정을 만듭니다. 또는 [Azure Portal](../../batch/batch-account-create-portal.md)을 사용하여 Batch 계정을 만들 수 있습니다. cmdlet 사용에 대한 자세한 내용은 [PowerShell을 사용하여 Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)를 참조하세요.
 * [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet에 대해 자세히 알아봅니다. 이 cmdlet을 사용하여 Batch 풀을 만듭니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```json
 {
@@ -289,13 +289,13 @@ Batch 서비스를 처음 사용하는 경우:
 }
 ```
 
-**AccountName** 속성의 경우를 추가 **합니다 \<region name\> .** 배치 계정의 이름. 다음은 그 예입니다. 
+**AccountName** 속성의 경우를 추가 **합니다 \<region name\> .** 배치 계정의 이름. 예를 들면 다음과 같습니다.
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 다음은 그 예입니다. 
+또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예를 들면 다음과 같습니다.
 
 ```json
 "accountName": "adfteam",
@@ -303,7 +303,7 @@ Batch 서비스를 처음 사용하는 경우:
 ```
 
 ### <a name="properties"></a>속성
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | type 속성을 **AzureBatch**로 설정합니다. | 예      |
 | accountName       | Batch 계정의 이름입니다.         | 예      |
@@ -330,7 +330,7 @@ Machine Learning 연결된 서비스를 만들어서 Machine Learning 일괄 처
 ```
 
 ### <a name="properties"></a>속성
-| 속성   | Description                              | 필수 |
+| 속성   | 설명                              | 필수 |
 | ---------- | ---------------------------------------- | -------- |
 | Type       | type 속성을 **AzureML**로 설정합니다. | 예      |
 | mlEndpoint | 일괄 처리 점수 매기기 URL입니다.                   | 예      |
@@ -341,7 +341,7 @@ Data Lake Analytics 연결된 서비스를 만들어서 Data Lake Analytics 컴�
 
 다음 표에서는 JSON 정의에서 사용되는 일반 속성을 설명합니다.
 
-| 속성                 | Description                              | 필수                                 |
+| 속성                 | 설명                              | 필수                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | type                 | type 속성을 **AzureDataLakeAnalytics**로 설정합니다. | 예                                      |
 | accountName          | Data Lake Analytics 계정 이름입니다.  | 예                                      |
@@ -360,7 +360,7 @@ Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | Description                              | 필수 |
+| 속성                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | 애플리케이션의 클라이언트 ID입니다.     | 예      |
 | servicePrincipalKey | 애플리케이션의 키입니다.           | 예      |
@@ -388,7 +388,7 @@ Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용
 #### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
 Data Lake Analytics에 대한 사용자 자격 증명 인증의 경우 다음 속성을 지정합니다.
 
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | 권한 부여 | Data Factory Editor에서 **권한 부여** 단추를 선택합니다. 이 속성에 자동 생성된 권한 부여 URL을 할당하는 자격 증명을 입력합니다. | 예      |
 | sessionID     | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예      |

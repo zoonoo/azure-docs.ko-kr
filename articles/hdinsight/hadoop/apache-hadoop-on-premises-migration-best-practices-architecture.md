@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 7a76ac3bbe62d48de67815d09e1c8d75f03caa36
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86077901"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
@@ -36,7 +36,7 @@ Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되�
 
 다음 표는 HDInsight 클러스터를 만드는 데 사용할 수 있는 다양한 방법을 보여 줍니다.
 
-|도구|브라우저 기반|명령줄|REST API|SDK)|
+|도구|브라우저 기반|명령줄|REST API|SDK|
 |---|---|---|---|---|
 |[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
@@ -103,7 +103,7 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Monitor 로그와 같은 Azure SQL Database 모니터링 도구를 사용 하 여 성능 및 가용성에 대 한 metastore를 모니터링 합니다.
-- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
 
 ## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 

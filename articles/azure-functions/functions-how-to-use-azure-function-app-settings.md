@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122303"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
@@ -35,7 +35,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 개요 페이지, 특히 **[응용 프로그램 설정](#settings)** 및 **[플랫폼 기능](#platform-features)** 에서 함수 앱을 관리 하는 데 필요한 모든 항목으로 이동할 수 있습니다.
 
-## <a name="application-settings"></a><a name="settings"></a>애플리케이션 설정
+## <a name="application-settings"></a><a name="settings"></a>응용 프로그램 설정
 
 **응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다. 이러한 설정은 암호화 되어 저장 되므로 **값 표시** 를 선택 하 여 포털에서 값을 확인 해야 합니다. Azure CLI를 사용 하 여 응용 프로그램 설정에 액세스할 수도 있습니다.
 
@@ -95,7 +95,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 로컬 컴퓨터에서 함수를 개발 하는 것이 좋습니다. 로컬로 개발 하 고 Azure에 게시 하는 경우 프로젝트 파일은 포털에서 읽기 전용입니다. 자세히 알아보려면 [로컬에서 코드 및 테스트 Azure Functions](functions-develop-local.md)를 참조 하세요.
 
-### <a name="console"></a><a name="console"></a>Console
+### <a name="console"></a><a name="console"></a>콘솔
 
 ![함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
