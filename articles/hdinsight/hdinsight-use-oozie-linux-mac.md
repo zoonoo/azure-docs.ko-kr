@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085942"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
@@ -29,7 +29,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 > [!NOTE]  
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대해 자세히 알아보려면 [Data Factory에서 Apache Pig 및 Apache Hive 사용](../data-factory/transform-data.md)을 참조하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -37,7 +37,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 * **Azure SQL Database**입니다.  [Azure Portal에서 Azure SQL Database에서 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조 하세요.  이 문서에서는 **oozietest**라는 데이터베이스를 사용 합니다.
 
-* 클러스터 기본 스토리지에 대한 URI 체계입니다. `wasb://`Azure Storage Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1에 대 한입니다 `abfs://` `adl://` . Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 클러스터 기본 스토리지에 대한 URI 체계입니다. `wasb://` Azure Storage Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1에 대 한입니다 `abfs://` `adl://` . Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="example-workflow"></a>예제 워크플로
 
@@ -491,7 +491,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
 
 * **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들어:
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들면 다음과 같습니다.
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions

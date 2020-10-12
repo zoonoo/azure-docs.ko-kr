@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084531"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
@@ -159,7 +159,7 @@ Zeppelin Notebook은 클러스터 헤드 노드에 저장됩니다. 따라서 �
 
 권한 있는 도메인 사용자는 파일을 사용 `Shiro.ini` 하 여 인터프리터 UI에 대 한 액세스를 제어할 수 있습니다. 이러한 사용자만 새 인터프리터 `%sh` 를 만들고 각 새 인터프리터에 대 한 사용 권한을 설정할 수 있습니다 `%sh` . 파일을 사용 하 여 액세스를 제어 하려면 `shiro.ini` 다음 단계를 사용 합니다.
 
-1. 기존 도메인 그룹 이름을 사용 하 여 새 역할을 정의 합니다. 다음 예제에서 `adminGroupName` 는 AAD의 권한 있는 사용자 그룹입니다. 그룹 이름에 특수 문자나 공백을 사용 하지 마십시오. 뒤의 문자는 `=` 이 역할에 대 한 사용 권한을 부여 합니다. `*`그룹에 모든 권한이 있음을 의미 합니다.
+1. 기존 도메인 그룹 이름을 사용 하 여 새 역할을 정의 합니다. 다음 예제에서 `adminGroupName` 는 AAD의 권한 있는 사용자 그룹입니다. 그룹 이름에 특수 문자나 공백을 사용 하지 마십시오. 뒤의 문자는 `=` 이 역할에 대 한 사용 권한을 부여 합니다. `*` 그룹에 모든 권한이 있음을 의미 합니다.
 
     ```
     [roles]
