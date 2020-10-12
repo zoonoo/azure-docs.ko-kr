@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113074"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
@@ -97,9 +97,9 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-설정 | 세부 정보
+Setting | 세부 정보
 --- | ---
-사용량 | UnifiedAgentConfigurator.exe  /CSEndPoint <구성 서버 IP 주소\> /PassphraseFilePath <암호 파일 경로\>
+사용 | UnifiedAgentConfigurator.exe  /CSEndPoint <구성 서버 IP 주소\> /PassphraseFilePath <암호 파일 경로\>
 에이전트 구성 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log 아래에 있습니다.
 /CSEndPoint | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 /PassphraseFilePath |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -112,9 +112,9 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-설정 | 세부 정보
+Setting | 세부 정보
 --- | ---
-사용량 | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <구성 서버 IP 주소\> -P <암호 파일 경로\>
+사용 | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <구성 서버 IP 주소\> -P <암호 파일 경로\>
 -i | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
@@ -175,7 +175,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 2018-06-28 14:38:12.971   Upgrade has failed.
 ```
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 다음 서비스를 수동으로 중지합니다.
 
@@ -220,7 +220,7 @@ MT 에이전트 로그에 다음과 유사한 추적이 있으면 MT 에이전�
  
 이 오류는 다른 애플리케이션에서도 포트 443을 사용하고 있거나 방화벽 설정으로 인해 해당 포트가 차단될 경우에 발생할 수 있습니다.
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 - 방화벽이 포트 443을 차단하지 않는지 확인합니다.
 - 해당 포트를 사용하는 다른 애플리케이션으로 인해 포트에 연결할 수 없으면 앱을 중지한 후 제거합니다.
@@ -232,7 +232,7 @@ MT 에이전트 로그에 다음과 유사한 추적이 있으면 MT 에이전�
 
 이 오류는 데이터베이스에 여러 CS(구성 서버) 인스턴스 UUID 항목이 있을 때 발생할 수 있습니다. 이 문제는 구성 서버 VM을 복제하는 경우에 자주 발생합니다.
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 1. vCenter에서 부실/이전 CS VM을 제거합니다. 자세한 내용은 [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)을 참조하세요.
 2. 구성 서버 VM에 로그인하고 MySQL svsdb1 데이터베이스에 연결합니다. 
@@ -255,7 +255,7 @@ MT 에이전트 로그에 다음과 유사한 추적이 있으면 MT 에이전�
 
 이 문제는 시스템 시간이 올바르지 않을 때 발생할 수 있습니다.
 
-이 문제를 해결하려면
+문제를 해결하려면:
 
 컴퓨터에서 올바른 시간을 설정하고 로그인을 다시 시도하세요. 
  

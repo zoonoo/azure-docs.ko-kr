@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079203"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>미사용 데이터의 변환기 암호화
@@ -37,7 +37,7 @@ Microsoft에서 관리 하는 암호화 키만 지 원하는 구독의 경우에
 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. CMK (고객이 관리 하는 키) 라고 하는 고유한 키를 사용 하 여 구독을 관리 하는 옵션도 있습니다. CMK는 액세스 제어를 만들고, 회전 하 고, 비활성화 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다. CMK가 구독에 대해 구성 된 경우 두 번째 보안 계층을 제공 하는 동시에 두 번째 암호화가 제공 되며,이를 통해 Azure Key Vault를 통해 암호화 키를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 고객 관리 키는 Translator 서비스의 모든 가격 책정 계층에서 사용할 수 있습니다. 고객 관리 키를 사용 하 고 [고객 관리 키 요청 양식을](https://aka.ms/cogsvc-cmk) 작성 하 고 제출 하는 기능을 요청 하려면 요청 상태를 확인 하는 데 약 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. Translator 서비스를 사용 하 여 CMK를 승인한 후에는 새 변환기 리소스를 만들어야 합니다. 변환기 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
+> 고객 관리 키는 Translator 서비스의 모든 가격 책정 계층에서 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [Customer-Managed 키 요청 양식을](https://aka.ms/cogsvc-cmk) 작성 하 고 제출 합니다. 요청 상태를 확인 하는 데 약 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. Translator 서비스를 사용 하 여 CMK를 승인한 후에는 새 변환기 리소스를 만들어야 합니다. 변환기 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
 
 번역기에 대 한 고객이 관리 하는 키를 사용 하도록 설정 하려면 다음 단계를 따르세요.
 
@@ -47,7 +47,7 @@ Microsoft에서 관리 하는 암호화 키만 지 원하는 구독의 경우에
 
 ### <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
 
-Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
+고객 관리형 키를 저장하려면 Azure Key Vault를 사용해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
 
 새 Cognitive Services 리소스는 항상 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 리소스를 만들 때 고객 관리 키를 사용 하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장 되며, 키 자격 증명 모음은 Cognitive Services 리소스와 연결 된 관리 되는 id에 대 한 키 사용 권한을 부여 하는 액세스 정책을 사용 하 여 프로 비전 되어야 합니다. 관리 id는 리소스가 생성 되는 즉시 사용할 수 있습니다.
 

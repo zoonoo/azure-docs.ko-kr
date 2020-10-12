@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936948"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리

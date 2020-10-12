@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285386"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>작업자 노드를 더 추가 하 여 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 확장
@@ -152,7 +152,7 @@ azdata arc postgres server edit -n <server group name> -w <target number of work
 ```
 
 > [!CAUTION]
-> 미리 보기 릴리스에서는 크기 조정을 지원 하지 않습니다. 예를 들어 아직 작업자 노드 수를 줄일 수는 없습니다. 이 작업을 수행 해야 하는 경우 데이터를 추출/백업 하 고, 서버 그룹을 삭제 하 고, 작업자 노드가 더 적고 새 서버 그룹을 만든 후 데이터를 가져와야 합니다.
+> 미리 보기 릴리스에서는 크기 조정을 지원하지 않습니다. 예를 들어 아직 작업자 노드 수를 줄일 수는 없습니다. 이 작업을 수행해야 하는 경우 데이터를 추출/백업하고, 서버 그룹을 삭제하고, 작업자 노드가 더 적은 새 서버 그룹을 만든 다음 데이터를 가져와야 합니다.
 
 이 예제에서는 다음 명령을 실행 하 여 작업자 노드 수를 2에서 4로 늘립니다.
 

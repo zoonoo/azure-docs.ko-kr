@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: azfuncdf
 ms.openlocfilehash: bb5c6ee15a5a445b4b762bd9eaf8919e1396f8ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081834"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
@@ -53,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence`orchestrator 함수:
+`E1_HelloSequence` orchestrator 함수:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello`작업 함수:
+`E1_SayHello` 작업 함수:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -82,7 +82,7 @@ module.exports = async function(context, name) {
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence`Orchestrator 함수
+### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence` Orchestrator 함수
 ```python
 import azure.functions as func
 import azure.durable_functions as df
@@ -102,7 +102,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-### <a name="e1_sayhello-activity-function"></a>`E1_SayHello`작업 함수
+### <a name="e1_sayhello-activity-function"></a>`E1_SayHello` 작업 함수
 ```python
 def main(name: str) -> str:
     return f"Hello {name}!"
@@ -249,7 +249,7 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`orchestrator
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` orchestrator
 
 ```javascript
 const df = require("durable-functions");
@@ -284,7 +284,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`orchestrator
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` orchestrator
 
 ```python
 import azure.functions as func

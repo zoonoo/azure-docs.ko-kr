@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88691414"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows 가상 데스크톱 (클래식) 진단 도구 배포
@@ -171,8 +171,8 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 1.  [GitHub Azure RDS 템플릿 페이지](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy)로 이동합니다.
 2.  템플릿을 Azure에 배포 하 고 템플릿의 지침을 따릅니다. 다음 정보를 사용할 수 있는지 확인 합니다.
 
-    -   클라이언트 Id
-    -   클라이언트-비밀
+    -   Client-Id
+    -   Client-Secret
     -   Log Analytics 작업 영역 ID
 
 3.  입력 매개 변수가 제공 되 면 사용 약관에 동의한 다음 **구매**를 선택 합니다.
@@ -191,7 +191,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 4.  왼쪽 패널의 관리 섹션에서 **인증**을 선택 합니다.
 5.  **리디렉션 uri** 텍스트 상자에 원하는 리디렉션 uri를 입력 한 다음 메뉴의 왼쪽 위 모서리에서 **저장** 을 선택 합니다.
 6. 유형 아래의 드롭다운 메뉴에서 **웹** 을 선택 합니다.
-7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예를 들어 `https://<yourappname>.azurewebsites.net/security/signin-callback`을 참조하십시오.
+7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예: `https://<yourappname>.azurewebsites.net/security/signin-callback`
 
    > [!div class="mx-imgBorder"]
    > ![URI 리디렉션 페이지](../media/redirect-uri-page.png)

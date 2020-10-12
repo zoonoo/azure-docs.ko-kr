@@ -15,10 +15,10 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076443"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
@@ -52,7 +52,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
     ![공동 관리자를 추가하는 스크린샷](./media/classic-administrators/add-coadmin.png)
 
-## <a name="add-a-guest-user-as-a-co-administrator"></a>게스트 사용자를 공동 관리자로 추가
+## <a name="add-a-guest-user-as-a-co-administrator"></a>게스트 사용자를 Co-Administrator으로 추가
 
 게스트 사용자를 공동 관리자로 추가 하려면 이전 [공동 관리자 추가](#add-a-co-administrator) 섹션과 동일한 단계를 수행 합니다. 게스트 사용자는 다음 조건을 충족 해야 합니다.
 
@@ -62,7 +62,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
 ### <a name="differences-for-guest-users"></a>게스트 사용자의 차이점
 
-공동 관리자 역할이 할당 된 게스트 사용자는 공동 관리자 역할을 사용 하는 멤버 사용자에 비해 몇 가지 차이점을 확인할 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
+Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administrator 역할의 멤버 사용자에 비해 몇 가지 차이점이 표시 될 수 있습니다. 다음 시나리오를 고려하세요.
 
 - Azure AD 계정 (회사 또는 학교 계정)을 사용 하는 사용자 A는 Azure 구독에 대 한 서비스 관리자입니다.
 - 사용자 B에게는 Microsoft 계정이 있습니다.

@@ -12,10 +12,10 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ms.custom: devx-track-js
 ms.openlocfilehash: 0e67d0ae4d875699b26fdcd30093b0c2bf373458
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282989"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용 하 여 오디오 입력 장치 선택
@@ -390,7 +390,7 @@ JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.
 > [!div class="nextstepaction"]
 > [GitHub에서 샘플 살펴보기](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949544"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
@@ -49,7 +49,7 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 
 다음 표에서는 LDAP 구성 설정을 설명합니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
 | 서버 |LDAP 디렉터리를 실행하는 서버의 호스트 이름 또는 IP 주소를 입력합니다.  세미콜론으로 구분하여 백업 서버를 지정할 수도 있습니다. <br>참고: Bind 형식이 SSL (TLS) 인 경우 정규화 된 호스트 이름이 필요 합니다. |
 | 기본 DN |모든 디렉터리 쿼리가 시작되는 기본 디렉터리 개체의 고유 이름을 입력합니다.  예를 들어 dc=abc,dc=com입니다. |
@@ -90,7 +90,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 사용자 이름 |사용자 레코드에 사용자 이름을 포함하는 특성의 이름을 입력합니다.  이 특성의 값은 Multi-Factor Auth 서버의 사용자 이름으로 사용됩니다.  두 번째 특성은 첫 번째 특성에 대한 백업으로 지정할 수 있습니다.  두 번째 특성은 첫 번째 특성에 사용자에 대한 값이 없는 경우에만 사용됩니다.  기본값은 userPrincipalName 및 sAMAccountName입니다. |
 | 이름 |사용자 레코드에 이름을 포함하는 특성의 이름을 입력합니다.  기본값은 givenName입니다. |
 | 성 |사용자 레코드에 성을 포함하는 특성의 이름을 입력합니다.  기본값은 sn입니다. |
-| 메일 주소 |사용자 레코드에 메일 주소를 포함하는 특성의 이름을 입력합니다.  메일 주소는 사용자에게 시작 및 업데이트 메일을 보낼 때 사용됩니다.  기본값은 mail입니다. |
+| 전자 메일 주소 |사용자 레코드에 메일 주소를 포함하는 특성의 이름을 입력합니다.  메일 주소는 사용자에게 시작 및 업데이트 메일을 보낼 때 사용됩니다.  기본값은 mail입니다. |
 | 사용자 그룹 |사용자 레코드에 사용자 그룹을 포함하는 특성의 이름을 입력합니다.  사용자 그룹은 에이전트 및 Multi-Factor Auth 서버 관리 포털의 보고서에서 사용자를 필터링할 때 사용됩니다. |
 | 설명 |사용자 레코드에 대한 설명을 포함하는 특성의 이름을 입력합니다.  설명은 검색을 위해서만 사용됩니다.  기본값은 description입니다. |
 | 전화 통화 언어 |사용자에 대한 음성 통화에 사용할 언어의 짧은 이름을 포함하는 특성의 이름을 입력합니다. |

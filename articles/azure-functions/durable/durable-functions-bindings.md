@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081851"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
@@ -32,7 +32,7 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 }
 ```
 
-* `orchestration`클라이언트에서이 오 케 스트레이 터 함수의 새 인스턴스를 시작 하려는 경우 사용 해야 하는 오케스트레이션의 이름입니다. 선택적 속성입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
+* `orchestration` 클라이언트에서이 오 케 스트레이 터 함수의 새 인스턴스를 시작 하려는 경우 사용 해야 하는 오케스트레이션의 이름입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 일련의 큐를 폴링합니다. 이러한 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -139,7 +139,7 @@ Visual Studio를 사용 하는 경우 작업 트리거는 .Net 특성을 사용 
 }
 ```
 
-* `activity`은 작업의 이름입니다. 이 값은 오 케 스트레이 터 함수가이 작업 함수를 호출 하는 데 사용 하는 이름입니다. 선택적 속성입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
+* `activity`은 작업의 이름입니다. 이 값은 오 케 스트레이 터 함수가이 작업 함수를 호출 하는 데 사용 하는 이름입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 큐를 폴링합니다. 이 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 

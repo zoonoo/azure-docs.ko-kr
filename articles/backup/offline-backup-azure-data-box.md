@@ -4,10 +4,10 @@ description: Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery S
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180935"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
@@ -32,7 +32,7 @@ Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하
 | Windows 8.1 64비트                    | Enterprise, Pro                                             |
 | Windows 8 64비트                      | Enterprise, Pro                                             |
 | Windows 7 64비트                      | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| **Server**                             |                                                              |
+| **서버**                             |                                                              |
 | Windows Server 2019 64비트            | Standard, Datacenter, Essentials                            |
 | Windows Server 2016 64비트            | Standard, Datacenter, Essentials                            |
 | Windows Server 2012 R2 64비트         | Standard, Datacenter, Foundation                            |
@@ -302,7 +302,7 @@ MARS (Microsoft Azure Recovery Services) 에이전트가 테 넌 트에서 사�
 
 4. 서버에서 실행 창에 **regedit** 를 입력 하 여 레지스트리를 엽니다.
 
-5. 레지스트리 *컴퓨터 \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.로 이동 합니다.* **Cloudbackupprovider**를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>` 합니다.
+5. 레지스트리Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider로 이동 * 합니다.* **Cloudbackupprovider**를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>` 합니다.
 
     >[!NOTE]
     > Azure 사용자 ID를 가져오려면 다음 작업 중 하나를 수행합니다.
