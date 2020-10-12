@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689319"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure NSG (네트워크 보안 그룹)를 다른 지역으로 이동
@@ -124,7 +124,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             }
         ```
 
-      대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식으로 파일 **에 대 한template.js** 의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
+      대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식으로 파일 ** 에 대 한template.js** 의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
 
       ```json
            {

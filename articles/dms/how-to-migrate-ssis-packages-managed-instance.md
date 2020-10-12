@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: 7f7bc16658733a7200d29fae22d96a2157b73065
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292135"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>SQL Server Integration Services 패키지를 Azure SQL Managed Instance로 마이그레이션
@@ -33,12 +33,12 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 > * 원본 SSIS 프로젝트/패키지를 평가합니다.
 > * Azure에 SSIS 프로젝트/패키지를 마이그레이션합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
-* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 자세한 내용은 [Azure Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션의 네트워크 토폴로지]( https://aka.ms/dmsnetworkformi)문서를 참조 하세요. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
-* Virtual network 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 인바운드 통신 포트 (443, 53, 9354, 445, 12000)를 차단 하지 않도록 하려면 다음을 수행 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)문서를 참조 하세요.
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 자세한 내용은 [Azure Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션의 네트워크 토폴로지]( https://aka.ms/dmsnetworkformi)문서를 참조 하세요. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* Virtual network 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 인바운드 통신 포트 (443, 53, 9354, 445, 12000)를 차단 하지 않도록 하려면 다음을 수행 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
 * [원본 데이터베이스 엔진 액세스를 위해 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017)을 구성 하려면
 * Azure Database Migration Service에서 원본 SQL Server에 액세스할 수 있도록 Windows 방화벽을 열려면 (기본값은 TCP 포트 1433입니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우, SQL Browser 서비스를 사용하도록 설정하고 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
@@ -67,7 +67,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Azure Database Migration Service 인스턴스 만들기
 
-1. Azure Portal에서 + **리소스 만들기**를 선택 하 **Azure Database Migration Service**를 검색 한 후 드롭다운 목록에서 **Azure Database Migration Service** 을 선택 합니다.
+1. Azure Portal에서 **+ 리소스 만들기**를 선택하고, **Azure Database Migration Service**를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service**를 선택합니다.
 
      ![Azure Marketplace](media/how-to-migrate-ssis-packages-mi/portal-marketplace.png)
 
@@ -79,17 +79,17 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
 4. DMS 인스턴스를 만들려는 위치를 선택합니다.
 
-5. 기존 가상 네트워크를 선택 하거나 새로 만듭니다.
+5. 기존 가상 네트워크를 선택하거나 새로 만듭니다.
 
     가상 네트워크는 원본 SQL Server 및 대상 Azure SQL Managed Instance에 대 한 액세스 권한이 있는 Azure Database Migration Service 제공 합니다.
 
-    Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
 
     자세한 내용은 [Azure Database Migration Service를 사용 하 여 AZURE SQL Managed Instance 마이그레이션의 네트워크 토폴로지](https://aka.ms/dmsnetworkformi)문서를 참조 하세요.
 
 6. 가격 책정 계층을 선택합니다.
 
-    비용 및 가격 책정 계층에 대 한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조 하세요.
+    비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
 
     ![DMS 서비스 만들기](media/how-to-migrate-ssis-packages-mi/dms-create-service2.png)
 
@@ -103,7 +103,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
     ![Azure Database Migration Service의 모든 인스턴스 찾기](media/how-to-migrate-ssis-packages-mi/dms-search.png)
 
-2. **Azure Database Migration Service** 화면에서 만든 인스턴스의 이름을 검색 한 다음 인스턴스를 선택 합니다.
+2. **Azure Database Migration Services** 화면에서 직접 만든 인스턴스의 이름을 검색한 다음, 인스턴스를 선택합니다.
 
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 
@@ -122,7 +122,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
     신뢰할 수 있는 인증서가 설치되어 있지 않으면 인스턴스가 시작될 때 SQL Server에서 자체 서명 인증서를 생성합니다. 이 인증서는 클라이언트 연결에 대한 자격 증명을 암호화하는 데 사용됩니다.
 
     > [!CAUTION]
-    > 자체 서명 된 인증서를 사용 하 여 암호화 된 TLS 연결은 강력한 보안을 제공 하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이 나 인터넷에 연결 된 서버에서는 자체 서명 된 인증서를 사용 하 여 TLS를 사용 하면 안 됩니다.
+    > 자체 서명 인증서를 사용하여 암호화된 TLS 연결은 강력한 보안을 제공하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서는 자체 서명된 인증서를 사용한 TLS에 의존해서는 안 됩니다.
 
    ![원본 세부 정보](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 

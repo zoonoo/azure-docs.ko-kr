@@ -4,10 +4,10 @@ description: 보존 정책을 구성 하 고, 팩터리를 정리 하 고, DevTe
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476056"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Azure DevTest Labs에서 보존 정책 설정
@@ -47,7 +47,7 @@ ms.locfileid: "85476056"
 
 ![이전 이미지 PowerShell 작업 사용 중지](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-스크립트 매개 변수는 다음과 같습니다.`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
+스크립트 매개 변수는 다음과 같습니다. `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
 ## <a name="queue-the-build"></a>빌드 큐 대기
 이제 빌드 정의를 완료 했으므로 새 빌드를 큐에 대기 하 여 모든 것이 작동 하는지 확인 합니다. 빌드가 성공적으로 완료 되 면 새 사용자 지정 이미지가 대상 랩에서 표시 되 고 이미지 팩터리 랩을 확인 하는 경우 프로 비전 된 Vm이 표시 되지 않습니다. 또한 추가 빌드를 큐에 대기 하는 경우 빌드 변수에 설정 된 보존 값에 따라 DevTest Labs에서 이전 사용자 지정 이미지를 사용 중지 하는 정리 작업이 표시 됩니다.

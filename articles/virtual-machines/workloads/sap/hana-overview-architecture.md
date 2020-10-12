@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171123"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
@@ -56,7 +56,7 @@ HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹�
 - [Azure에서 SAP HANA (규모가 많은 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [STONITH를 사용하여 SUSE에서 고가용성 설정](./ha-setup-with-stonith.md)
 - [수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원](./os-backup-type-ii-skus.md)
-- [Azure 예약을 사용 하 여 SAP HANA(대규모 인스턴스)에 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
+- [Azure 예약을 사용하여 SAP HANA(대규모 인스턴스) 비용 절감](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **다음 단계**
 - [Know the terms(용어 알아보기)](hana-know-terms.md) 참조

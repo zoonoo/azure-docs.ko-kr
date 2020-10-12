@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689990"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
@@ -31,7 +31,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="string-resources"></a><a name="strings"></a>문자열 리소스  
+##  <a name="string-resources"></a><a name="strings"></a> 문자열 리소스  
  API Management는 개발자 포털에서 사용할 포괄적인 문자열 리소스 집합을 제공합니다. 이러한 리소스는 API Management에서 지원하는 모든 언어로 지역화되어 있습니다. 기본 템플릿 집합은 개발자 포털에 표시되는 페이지 머리글, 레이블 및 상수 문자열에 대해 이러한 리소스를 사용합니다. 템플릿에서 문자열 리소스를 사용하려면 다음 예제와 같이 문자열 이름 뒤에 리소스 문자열 접두사를 제공합니다.  
   
 ```  
@@ -83,7 +83,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [CommonStrings](#CommonStrings)  
   
--   [문서](#Documentation)  
+-   [설명서](#Documentation)  
   
 -   [ErrorPageStrings](#ErrorPageStrings)  
   
@@ -111,30 +111,30 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |PageTitleApis|API|  
   
-###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a>AppDetailsStrings  
+###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|애플리케이션 미리 보기|  
 |WebApplicationsRequirementsHeader|요구 사항|  
 |WebApplicationsScreenshotAlt|스크린샷|  
 |WebApplicationsScreenshotsHeader|스크린샷|  
   
-###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a>ApplicationListStrings  
+###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|애플리케이션을 제거하시겠습니까?|  
 |WebDevelopersAppNotPublished|게시되지 않음|  
 |WebDevelopersAppNotSubmitted|제출되지 않음|  
-|WebDevelopersAppTableCategoryHeader|범주|  
-|WebDevelopersAppTableNameHeader|이름|  
+|WebDevelopersAppTableCategoryHeader|Category|  
+|WebDevelopersAppTableNameHeader|속성|  
 |WebDevelopersAppTableStateHeader|시스템 상태|  
 |WebDevelopersEditLink|편집|  
 |WebDevelopersRegisterAppLink|애플리케이션 등록|  
@@ -142,15 +142,15 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebDevelopersSubmitLink|전송|  
 |WebDevelopersYourApplicationsHeader|애플리케이션|  
   
-###  <a name="appstrings"></a><a name="AppStrings"></a>AppStrings  
+###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |WebApplicationsHeader|애플리케이션|  
   
-###  <a name="commonresources"></a><a name="CommonResources"></a>CommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |NoItemsToDisplay|결과를 찾을 수 없습니다.|  
 |GeneralExceptionMessage|오류가 발생했습니다. 일시적인 결함이나 버그일 수 있습니다. 다시 시도하세요.|  
@@ -159,9 +159,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Http 요청 본문이 너무 큽니다.|  
   
-###  <a name="commonstrings"></a><a name="CommonStrings"></a>CommonStrings  
+###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |ButtonLabelCancel|취소|  
 |ButtonLabelSave|저장|  
@@ -181,11 +181,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |PagerLabelPageSize|페이지 크기|  
 |CurtainLabelLoading|로딩...|  
 |TablePlaceholderNothingToDisplay|선택한 기간과 범위에 대한 데이터가 없습니다.|  
-|ButtonLabelClose|닫기|  
+|ButtonLabelClose|닫습니다|  
   
-###  <a name="documentation"></a><a name="Documentation"></a>설명을  
+###  <a name="documentation"></a><a name="Documentation"></a> 설명을  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|잘못된 헤더 ‘{0}’|  
 |WebDocumentationInvalidRequestErrorMessage|잘못된 요청 URL|  
@@ -329,11 +329,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |SectionHeadingRequestHeaders|요청 헤더|  
 |FormLabelSubtextOptional|선택 사항|  
 |SectionHeadingCodeSamples|코드 샘플|  
-|TextblockOpenidConnectHeaderDescription|<i</I에서 가져온 Openid connect Connect ID 토큰 \> {0} \> 입니다. 지원되는 권한 부여 유형: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|<i</i에서 가져온 Openid connect Connect ID 토큰 \> {0} \> 입니다. 지원되는 권한 부여 유형: <i\>{1}</i\>.|  
   
-###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |LinkLabelBack|뒤로|  
 |LinkLabelHomePage|홈페이지|  
@@ -349,20 +349,20 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TitlePotentialCause|가능한 원인|  
 |TitlePotentialSolution|단지 일시적인 문제일 수도 있고 몇 가지 작업을 시도해 볼 수도 있습니다.|  
   
-###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>IssuesStrings  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
-|WebIssuesIndexTitle|Issues|  
+|WebIssuesIndexTitle|문제|  
 |WebIssuesNoActiveSubscriptions|활성 구독이 없습니다. 문제를 보고하려면 제품을 구독해야 합니다.|  
 |WebIssuesNotSignin|로그인하지 않습니다. {0}하여 문제를 보고하거나 의견을 게시해 주세요.|  
 |WebIssuesReportIssueButton|보고서 문제|  
 |WebIssuesSignIn|로그인|  
 |WebIssuesStatusReportedBy|상태: {0} &#124; {1}이(가) 보고함|  
   
-###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a>NotFoundStrings  
+###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |LinkLabelHomePage|홈페이지|  
 |LinkLabelSendUsEmail|전자 메일 보내기|  
@@ -375,9 +375,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TitlePotentialCause|가능한 원인|  
 |TitlePotentialSolution|잠재적 솔루션|  
   
-###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a>ProductDetailsStrings  
+###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |WebProductsAgreement|{0} 제품을 구독하면 `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`에 동의하는 것입니다.|  
 |WebProductsLegalTermsLink|사용 조건|  
@@ -388,7 +388,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ErrorYouNeedToAgreeWithLegalTerms|계속하려면 먼저 사용 약관에 동의해야 합니다.|  
 |ButtonLabelAddSubscription|구독 추가|  
 |LinkLabelChangeSubscriptionName|변경|  
-|ButtonLabelConfirm|Confirm|  
+|ButtonLabelConfirm|확인|  
 |TextblockMultipleSubscriptionsCount|이 제품에 {0}개 구독이 있습니다.|  
 |TextblockSingleSubscriptionsCount|이 제품에 {0}개 구독이 있습니다.|  
 |TextblockSingleApisCount|이 제품에는 {0}개 API가 포함되어 있습니다.|  
@@ -397,23 +397,23 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TextblockSubscriptionDescription|새 구독은 다음과 같이 만들어집니다.|  
 |TextblockSubscriptionLimitReached|구독 제한에 도달했습니다.|  
   
-###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProductsStrings  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |PageTitleProducts|제품|  
   
-###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a>ProviderInfoStrings  
+###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|로그인은 현재 관리자에 의해 사용할 수 없도록 설정되어 있습니다.|  
 |TextboxExternalIdentitiesSigninInvitation|또는 다음 계정으로 로그인합니다.|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|로그인에 사용할 계정:|  
   
-###  <a name="signinresources"></a><a name="SigninResources"></a>SigninResources  
+###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |PrincipalNotFound|주체가 없거나 서명이 유효하지 않습니다.|  
 |ErrorSsoAuthenticationFailed|SSO 인증에 실패했습니다.|  
@@ -507,9 +507,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |DialogHeadingTermsOfUse|사용 조건|  
 |ValidationMessageConsentNotAccepted|계속하려면 먼저 사용 약관에 동의해야 합니다.|  
   
-###  <a name="signinstrings"></a><a name="SigninStrings"></a>SigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|암호를 잊으셨습니까?|  
 |WebAuthenticationIfAdministrator|관리자이면 `<a href="{0}"\>here</a\>`에 로그인해야 합니다.|  
@@ -519,9 +519,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationSigninTitle|로그인|  
 |WebAuthenticationSignUpNow|지금 등록하십시오.|  
   
-###  <a name="signupstrings"></a><a name="SignupStrings"></a>SignupStrings  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |PageTitleSignup|등록|  
 |WebAuthenticationAlreadyAMember|이미 회원이십니까?|  
@@ -529,9 +529,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationSigninNow|지금 로그인|  
 |ButtonLabelSignup|등록|  
   
-###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>SubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|이 구독을 취소하시겠습니까?|  
 |SubscriptionRenewConfirmation|이 구독을 갱신하시겠습니까?|  
@@ -543,7 +543,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ButtonLabelRenewSubscription|갱신|  
 |WebDevelopersSubscriptionRequested|{0}에 요청됨|  
 |WebDevelopersSubscriptionRequestedState|요청됨|  
-|WebDevelopersSubscriptionTableNameHeader|이름|  
+|WebDevelopersSubscriptionTableNameHeader|속성|  
 |WebDevelopersSubscriptionTableStateHeader|시스템 상태|  
 |WebDevelopersUsageStatisticsLink|분석 보고서|  
 |WebDevelopersYourSubscriptions|구독|  
@@ -552,9 +552,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |PageTitleRenameSubscription|구독 이름 바꾸기|  
 |SubscriptionPropertyLabelName|구독 이름|  
   
-###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>SubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |SectionHeadingCloseAccount|계정을 사용 중지하시겠습니까?|  
 |PageTitleDeveloperProfile|프로필|  
@@ -563,16 +563,16 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |InformationMessageKeyWasRegenerated|이 키를 다시 생성하시겠습니까?|  
 |ButtonLabelShowKey|표시|  
   
-###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|프로필 업데이트|  
 |PageTitleUpdateProfile|계정 정보 업데이트|  
   
-###  <a name="userprofile"></a><a name="UserProfile"></a>UserProfile  
+###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|이름|텍스트|  
+|속성|텍스트|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|계정 정보 변경|  
 |ButtonLabelChangePassword|암호 변경|  
@@ -582,7 +582,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TextboxLabelEmailLastName|성|  
 |TextboxLabelNotificationsSenderEmail|알림 보낸 사람 전자 메일|  
 |TextboxLabelOrganizationName|조직 이름|  
-|SubscriptionStateActive|Active|  
+|SubscriptionStateActive|활성|  
 |SubscriptionStateCancelled|Cancelled|  
 |SubscriptionStateExpired|만료됨|  
 |SubscriptionStateRejected|거부됨|  
@@ -594,7 +594,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationMessageSubscriptionNameRequired|구독 이름은 비워 둘 수 없습니다.|  
 |ApiManagementUserLimitReached|이 서비스는 허용되는 최대 사용자 수에 도달했습니다. 더 높은 가격 책정 계층으로 업그레이드하세요.|  
   
-##  <a name="glyph-resources"></a><a name="glyphs"></a>문자 모양 리소스  
+##  <a name="glyph-resources"></a><a name="glyphs"></a> 문자 모양 리소스  
  API Management 개발자 포털 템플릿에서는 [부트스트랩의 문자 모양 아이콘](https://getbootstrap.com/components/#glyphicons)(영문)의 문자 표시를 사용할 수 있습니다. 이 문자 표시 집합에는 [Glyphicon](https://glyphicons.com/) Halflings 집합의 글꼴 서식으로 250개 이상의 문자 표시가 포함되어 있습니다. 이 집합의 문자 표시를 사용하려면 다음 구문을 사용합니다.  
   
 ```html  

@@ -7,10 +7,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: d8f0a5697a128deb75537f3d48a3830dc7ba9df9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132537"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
@@ -18,7 +18,7 @@ ms.locfileid: "87132537"
 
 이 문서에서는 Azure Portal을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 작업을 정의하고, 작업을 Data Lake Analytics 서비스에 제출하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작 하기 전에 **Azure 구독이**있어야 합니다. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -61,7 +61,7 @@ OUTPUT @a
 2. 이전 U-SQL 스크립트의 텍스트에 붙여넣습니다. 작업의 이름을 지정합니다. 
 3. **전송** 단추를 선택하여 작업을 시작합니다.   
 4. 작업의 **상태**를 모니터링하고, 작업 상태가 **성공**으로 변경될 때까지 기다립니다.
-5. **데이터** 탭을 선택 하 고 **출력 탭을** 선택 합니다. 라는 출력 파일을 선택 `data.csv` 하 고 출력 데이터를 확인 합니다.
+5. **데이터** 탭을 선택 하 고 **출력** 탭을 선택 합니다. 이라는 출력 파일을 선택 `data.csv` 하 고 출력 데이터를 확인 합니다.
 
 ## <a name="see-also"></a>참고 항목
 

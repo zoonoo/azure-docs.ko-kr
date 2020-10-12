@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509861"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
@@ -80,7 +80,7 @@ SAS 토큰은 클라이언트 쪽에서 생성 하는 문자열입니다. 예를
 
 클라이언트 응용 프로그램이 요청의 일부로 Azure Storage SAS URI를 제공 하는 경우 서비스는 SAS 매개 변수 및 서명을 검사 하 여 요청에 대 한 권한을 부여 하는 데 유효한 지 확인 합니다. 서비스에서 서명이 유효하다고 확인한 경우 요청이 승인됩니다. 그렇지 않은 경우 오류 코드 403(금지됨) 요청이 거부됩니다.
 
-다음은 리소스 URI 및 SAS 토큰을 표시 하는 서비스 SAS URI의 예입니다.
+다음은 리소스 URI와 SAS 토큰을 보여 주는 서비스 SAS URI의 예입니다.
 
 ![서비스 SAS URI의 구성 요소](./media/storage-sas-overview/sas-storage-uri.png)
 

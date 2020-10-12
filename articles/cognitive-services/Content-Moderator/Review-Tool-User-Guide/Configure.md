@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689846"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
@@ -64,7 +64,7 @@ ms.locfileid: "84689846"
 
 ![하위 팀 간에 전환](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>태그
 
 **태그** 탭에서는 두 개의 기본 중재 태그 &mdash; **isadult** (**a**) 및 **isracy** (**r**)와 함께 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
 
@@ -94,10 +94,10 @@ ms.locfileid: "84689846"
 
 [검토 도구](./human-in-the-loop.md) 에는 다음 커넥터가 포함 되어 있습니다.
 
-- Emotion
+- 감정
 - Face
 - PhotoDNA 클라우드 서비스
-- Text Analytics
+- 텍스트 분석
 
 ### <a name="add-a-connector"></a>커넥터 추가
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
 ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227902"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 웹 후크를 사용 하 여 자동화 된 이벤트 기반 워크플로 만들기 및 실행
@@ -72,7 +72,7 @@ ms.locfileid: "89227902"
 
    ![HTTP Webhook 트리거 매개 변수 입력](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **Subscription-메서드** | 예 | 대상 끝점을 구독할 때 사용할 메서드입니다. |
    | **구독-URI** | 예 | 대상 끝점을 구독 하는 데 사용할 URL입니다. |
@@ -118,7 +118,7 @@ ms.locfileid: "89227902"
 
    ![HTTP Webhook 작업 매개 변수 입력](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **Subscription-메서드** | 예 | 대상 끝점을 구독할 때 사용할 메서드입니다. |
    | **구독-URI** | 예 | 대상 끝점을 구독 하는 데 사용할 URL입니다. |

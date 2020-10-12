@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure DevTest Labs에서 현재 랩으로 다�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0f664a0ae399575ee936565adaf7364fd1c5ce5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85475937"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 다른 랩에서 가상 컴퓨터 가져오기
@@ -53,7 +53,7 @@ ms.locfileid: "85475937"
 ```
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>PowerShell을 사용 하 여 원본 랩에서 모든 Vm 가져오기
-원본 가상 컴퓨터를 지정 하지 않으면 스크립트는 DevTest Labs의 모든 Vm을 자동으로 가져옵니다.  예를 들어:
+원본 가상 컴퓨터를 지정 하지 않으면 스크립트는 DevTest Labs의 모든 Vm을 자동으로 가져옵니다.  예를 들면 다음과 같습니다.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
@@ -77,4 +77,4 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 다음 문서를 참조하세요.
 
 - [랩에 대한 정책 설정](devtest-lab-set-lab-policy.md)
-- [질문과 대답](devtest-lab-faq.md)
+- [자주 묻는 질문](devtest-lab-faq.md)

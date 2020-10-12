@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252836"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
@@ -24,12 +24,12 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Eventroutes api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - 리소스 그룹
+    - Resource group
 
 인스턴스를 설정한 후 [Azure Portal](https://portal.azure.com) 에서 이러한 세부 정보를 찾을 수 있습니다. 포털에 로그인 하 고 포털 검색 표시줄에서 인스턴스 이름을 검색 합니다.
  
@@ -37,7 +37,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 결과에서 인스턴스를 선택 하 여 인스턴스에 대 한 세부 정보 페이지를 표시 합니다.
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="ADT 인스턴스 정보의 스크린샷" border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Azure Portal 검색 표시줄의 스크린샷" border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Azure Digital Twins에 대 한 끝점 만들기
 
@@ -62,11 +62,11 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 그런 다음 _저장_을 눌러서 끝점을 만듭니다.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Event Grid 형식의 끝점을 만드는 스크린샷":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Azure Portal 검색 표시줄의 스크린샷":::
 
 위쪽 Azure Portal 표시줄의 알림 아이콘을 선택 하 여 끝점이 성공적으로 만들어졌는지 확인할 수 있습니다. 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="끝점 생성을 확인 하는 알림 스크린샷" border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Azure Portal 검색 표시줄의 스크린샷" border="false":::
 
 또한 Azure Digital Twins 인스턴스의 *끝점* 페이지에서 다시 만들어진 끝점을 볼 수 있습니다.
 
@@ -88,7 +88,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 그런 다음 _저장_을 눌러서 끝점을 만듭니다.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Event Hubs 형식의 끝점을 만드는 스크린샷":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Azure Portal 검색 표시줄의 스크린샷":::
 
 위쪽 Azure Portal 표시줄의 알림 아이콘을 선택 하 여 끝점이 성공적으로 만들어졌는지 확인할 수 있습니다. 
 
@@ -110,7 +110,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 그런 다음 _저장_을 눌러서 끝점을 만듭니다.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Service Bus 형식의 끝점을 만드는 스크린샷":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Azure Portal 검색 표시줄의 스크린샷":::
 
 위쪽 Azure Portal 표시줄의 알림 아이콘을 선택 하 여 끝점이 성공적으로 만들어졌는지 확인할 수 있습니다. 
 
@@ -149,7 +149,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 경로를 사용 하려면 최소한의 **이벤트 경로 필터도 추가** 해야 합니다 `true` . 의 기본값을 그대로 두면 `false` 경로가 만들어지지만 이벤트는 전달 되지 않습니다. 이렇게 하려면 _고급 편집기_ 의 스위치를 설정 하 여 사용 하도록 설정 하 고 `true` *필터* 상자에를 작성 합니다.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="인스턴스에 대 한 이벤트 경로를 만드는 스크린샷" lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Azure Portal 검색 표시줄의 스크린샷" lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 완료 되 면 _저장_ 단추를 눌러 이벤트 경로를 만듭니다.
 
@@ -175,7 +175,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="기본 필터를 사용 하 여 이벤트 경로를 만드는 스크린샷 이벤트의 확인란을 선택 합니다.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Azure Portal 검색 표시줄의 스크린샷":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="기본 필터를 사용 하 여 이벤트 경로를 만드는 스크린샷 이벤트를 선택한 후 자동으로 채워진 필터 텍스트를 표시 합니다.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Azure Portal 검색 표시줄의 스크린샷":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="고급 필터를 사용 하 여 이벤트 경로를 만드는 스크린샷":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Azure Portal 검색 표시줄의 스크린샷":::
     :::column-end:::
     :::column:::
     :::column-end:::

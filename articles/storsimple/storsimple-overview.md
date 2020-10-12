@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006027"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
@@ -208,7 +208,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 ## <a name="storsimple-workload-summary"></a>StorSimple 워크로드 요약
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-| 시나리오 | 워크로드 | 지원 여부 | 제한 사항 | 버전 |
+| 시나리오 | 작업 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
 | 협업 |파일 공유 |예 | |모든 버전 |
 | 협업 |분산 파일 공유 |예 | |모든 버전 |
@@ -235,7 +235,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 다음은 StorSimple 지원 인프라 구성 요소의 목록입니다.
 
-| 시나리오 | 워크로드 | 지원 여부 | 제한 사항 | 버전 |
+| 시나리오 | 작업 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
 | 일반 |Express 경로 |예 | |모든 버전 |
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
@@ -258,7 +258,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정의를 검토하는 것이 좋습니다.
 
 ### <a name="key-terms-and-definitions"></a>주요 용어 및 정의
-| 용어(머리글자어 또는 약어) | Description |
+| 용어(머리글자어 또는 약어) | 설명 |
 | --- | --- |
 | 액세스 제어 레코드(ACR) |연결할 수 있는 호스트를 결정하는, Microsoft Azure StorSimple 디바이스의 볼륨과 연결된 레코드입니다. 이 결정은 StorSimple 디바이스에 연결하는 호스트의 IQN(iSCSI 정규화된 이름)(ACR에 포함됨)을 기반으로 합니다. |
 | AES-256 |클라우드에 출입할 때 데이터를 암호화하기 위한 256비트 AES(Advanced Encryption Standard) 알고리즘입니다. |

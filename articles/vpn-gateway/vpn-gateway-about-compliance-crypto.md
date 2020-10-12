@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032427"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>암호화 요구 사항 및 Azure VPN Gateway 정보
@@ -36,7 +36,7 @@ Azure VPN gateway에 대 한 기본 정책 집합은 [사이트 간 VPN Gateway 
 
 일반적으로 규정 준수 또는 보안 요구 사항으로 인해 특정 암호화 알고리즘 또는 매개 변수를 요구 하는 통신의 경우, 이제 Azure 기본 정책 집합 대신 특정 암호화 알고리즘 및 키 강도로 사용자 지정 IPsec/IKE 정책을 사용 하도록 Azure VPN gateway를 구성할 수 있습니다.
 
-예를 들면 Azure VPN gateway에 대 한 IKEv2 기본 모드 정책은 Diffie-hellman 그룹 2 (1024 비트)만 사용 하는 반면, IKE에서 사용할 더 강력한 그룹 (예: 그룹 14 (2048 비트), 그룹 24 (2048-비트 MODP 그룹) 또는 ECP (타원 curve groups) 256 또는 384 비트 (각각 19 및 Group 20))을 지정 해야 할 수도 있습니다. 유사한 요구 사항은 IPsec 빠른 모드 정책에도 적용됩니다.
+예를 들어 Azure VPN gateway에 대 한 IKEv2 기본 모드 정책은 Diffie-Hellman 그룹 2 (1024 비트)만 사용 하는 반면, IKE에서 사용할 더 강력한 그룹 (예: 그룹 14 (2048 비트), 그룹 24 (2048-비트 MODP 그룹) 또는 ECP (타원 curve groups) 256 또는 384 비트 (각각 19 및 Group 20))을 지정 해야 할 수 있습니다. 유사한 요구 사항은 IPsec 빠른 모드 정책에도 적용됩니다.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Azure VPN Gateway의 사용자 지정 IPsec/IKE 정책
 

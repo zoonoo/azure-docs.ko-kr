@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
 manager: nitinme
@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87133876"
 ---
 Cognitive Services는 두 가지 자연어 처리 서비스, [Language Understanding](../luis/what-is-luis.md) 및 [QnA Maker](../qnamaker/overview/overview.md)를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.
@@ -33,7 +33,7 @@ Language Understanding (LUIS) 및 QnA Maker는 다른 문제를 해결 합니다
 |서비스|클라이언트 응용 프로그램 확인|
 |--|--|
 |LUIS|**사용자의 텍스트 의도를 결정** 합니다. 서비스에서 질문에 대 한 답을 반환 하지 않습니다. 예를 들어이 텍스트는 의도와 일치 하는 것으로 분류 됩니다 `FindLocation` .<br>|
-|QnA Maker|사용자 지정 기술 자료에서 **질문에 대 한 답변을 반환** 합니다. 예를 들어이 텍스트는의 정적 텍스트 대답이 있는 질문으로 결정 됩니다 `Get on the #9 bus and get off at Franklin street` .|
+|QnA Maker|사용자 지정 기술 자료에서 **질문에 대 한 답변을 반환** 합니다. 예를 들어이 텍스트는의 정적 텍스트 대답이 있는 질문으로 결정 됩니다  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]
@@ -75,16 +75,16 @@ Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools
 
 **NLP와 함께**봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 각 서비스에 대 한 모범 사례 구현:
 
 * [LUIS](../luis/luis-concept-best-practices.md) 모범 사례
 * [QnA Maker](../qnamaker/concepts/best-practices.md) 모범 사례
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-* [Language Understanding (LUIS)](../luis/what-is-luis.md)
+* [언어 이해(LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework 샘플](https://github.com/Microsoft/BotBuilder-Samples)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032563"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
@@ -161,7 +161,7 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
 Data Box 장치를 준비 하 고 Microsoft에 제공 하려면 다음 단계를 수행 합니다.
 
-1. 먼저 [Data Box 또는 Data Box Heavy에서 배송 준비](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)합니다.
+1. 먼저  [Data Box 또는 Data Box Heavy에서 배송 준비](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)합니다.
 
 2. 장치 준비가 완료 되 면 BOM 파일을 다운로드 합니다. 이러한 BOM 또는 매니페스트 파일을 나중에 사용 하 여 Azure에 업로드 된 데이터를 확인 합니다.
 

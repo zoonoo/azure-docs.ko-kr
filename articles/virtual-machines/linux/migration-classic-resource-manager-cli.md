@@ -10,10 +10,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7537d4c19d6e196aeaa30f8c542e7b3e4e8702c1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88505969"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
@@ -165,7 +165,7 @@ azure service deployment commit-migration <serviceName> <deploymentName>
 azure network vnet list
 ```
 
-출력은 다음과 비슷할 것입니다.
+출력은 다음과 같이 표시됩니다.
 
 ![전체 가상 네트워크 이름이 강조 표시된 명령줄의 스크린샷.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
