@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
 ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88650556"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역
@@ -47,7 +47,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 |:--- |:--- |
 | 미국 서부 |미국 동부 |
 | 북유럽 |서유럽 |
-| 동남아시아 |동아시아 |
+| 동남 아시아 |동아시아 |
 
 [여기에서 지역 쌍의 전체 목록을](../best-practices-availability-paired-regions.md#what-are-paired-regions)볼 수 있습니다.
 

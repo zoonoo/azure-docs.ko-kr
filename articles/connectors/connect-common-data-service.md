@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334585"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service에서 레코드 만들기 및 관리
@@ -20,7 +20,7 @@ ms.locfileid: "91334585"
 
 이 문서에서는 새 잠재 고객 레코드를 만들 때마다 작업 레코드를 만드는 논리 앱을 빌드하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "91334585"
 
    ![모니터링할 환경에 대 한 트리거 정보](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
    | **엔터티 이름** | 예 | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
@@ -70,7 +70,7 @@ ms.locfileid: "91334585"
 
    ![레코드를 만들 환경에 대 한 작업 정보](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **조직 이름** | 예 | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
    | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
@@ -87,7 +87,7 @@ ms.locfileid: "91334585"
 
       ![작업 레코드에서 사용할 트리거 출력 선택](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | 트리거 출력 | Description |
+      | 트리거 출력 | 설명 |
       |----------------|-------------|
       | **First Name** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 첫 번째 이름입니다. |
       | **성** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 성입니다. |

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887712"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Microsoft Azure CDN에서 에지 노드 성능 분석
@@ -81,7 +81,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 
 * 원본 서버에서 부하를 감소시켜 다음과 같은 이점을 얻을 수 있습니다.
   * 웹 서버 성능 향상
-  * 운영 비용 절감
+  * 운영 비용이 절감됩니다.
 * 더 많은 요청이 CDN에서 직접 제공되므로 데이터 배달 가속화가 향상됩니다.
 
 | 필드 | 설명 |
@@ -183,7 +183,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 | 502 오류 |502 잘못된 게이트웨이 응답 코드가 발생하는 상위 10개 요청을 확인할 수 있는 막대 그래프를 포함합니다. 502 잘못된 게이트웨이 응답 코드는 서버와 HTTP 프록시 사이 HTTP 프로토콜 오류가 발생하는 경우 발생합니다. CDN의 경우 502 잘못된 게이트웨이 응답 코드는 일반적으로 고객 원본 서버가 에지 서버로 유효하지 않은 응답을 반환하는 경우 발생합니다. 구문 분석할 수 없거나 완료되지 않은 응답은 유효하지 않습니다. |
 | 5xx 오류 |500 범위의 응답 코드가 발생하는 상위 10개 요청을 확인할 수 있는 막대 그래프를 포함합니다.  이 보고서에서 제외되는 항목은 502 잘못된 게이트웨이 및 504 게이트웨이 시간 초과 응답 코드입니다. |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)

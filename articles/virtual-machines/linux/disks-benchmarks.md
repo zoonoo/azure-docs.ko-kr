@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.openlocfilehash: cc17ce49517a7af22dcc357fa5f050d28a8ed551
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279691"
 ---
 # <a name="benchmark-your-application-on-azure-disk-storage"></a>Azure 디스크 저장소에서 응용 프로그램 벤치 마크

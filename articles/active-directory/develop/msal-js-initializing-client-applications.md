@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027039"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용 하 여 클라이언트 응용 프로그램 초기화
@@ -28,13 +28,13 @@ ms.locfileid: "87027039"
 
 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [MSAL의 공용 및 기밀 클라이언트 앱](msal-client-applications.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 응용 프로그램을 초기화 하기 전에 먼저 Azure Portal에 [등록](scenario-spa-app-registration.md)하 여 응용 프로그램과 Microsoft id 플랫폼 간의 트러스트 관계를 설정 해야 합니다.
 
 앱을 등록 한 후 Azure Portal에서 찾을 수 있는 다음 값의 일부 또는 모두가 필요 합니다.
 
-| 값 | 필수 | Description |
+| 값 | 필수 | 설명 |
 |:----- | :------: | :---------- |
 | 애플리케이션(클라이언트) ID | 필수 | Microsoft id 플랫폼 내에서 응용 프로그램을 고유 하 게 식별 하는 GUID입니다. |
 | Authority | 선택 사항 | 응용 프로그램에 대 한 id 공급자 URL ( *인스턴스*) 및 *로그인 대상* 입니다. 인스턴스와 로그인 대상이 연결 되 면 *인증 기관*을 구성 합니다. |
@@ -107,9 +107,9 @@ msalInstance.handleRedirectPromise().then((tokenResponse) => {
 
 약속의 세 가지 가능한 결과는 다음과 같습니다.
 
-- `.then`가 호출 되 고 `tokenResponse` truthy: 응용 프로그램이 성공한 리디렉션 작업에서 반환 됩니다.
-- `.then`가 호출 되 고 `tokenResponse` 가 falsey ( `null` ): 응용 프로그램이 리디렉션 작업에서 반환 되지 않습니다.
-- `.catch`호출 됨: 응용 프로그램이 리디렉션 작업에서 반환 되 고 오류가 발생 했습니다.
+- `.then` 가 호출 되 고 `tokenResponse` truthy: 응용 프로그램이 성공한 리디렉션 작업에서 반환 됩니다.
+- `.then` 가 호출 되 고 `tokenResponse` 가 falsey ( `null` ): 응용 프로그램이 리디렉션 작업에서 반환 되지 않습니다.
+- `.catch` 호출 됨: 응용 프로그램이 리디렉션 작업에서 반환 되 고 오류가 발생 했습니다.
 
 ## <a name="initialize-msaljs-1x-apps"></a>1.x 앱 MSAL.js 초기화
 

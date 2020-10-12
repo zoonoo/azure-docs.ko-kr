@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023469"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
@@ -58,7 +58,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 VS Code에서 디바이스 및 Azure IoT Hub 관리에 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. IoT 개발자는 Azure IoT Tools를 사용하여 손쉽게 VS Code에서 IoT 프로젝트를 개발할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure portal
 
 [Microsoft Azure portal](https://portal.azure.com) 은 Azure 리소스를 프로 비전 하 고 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
 
@@ -66,7 +66,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 [Azure PowerShell](/powershell/azure/)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -94,7 +94,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세요. 대개 이러한 메시지는 디바이스에 작업을 수행하도록 하는 명령입니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 [자동 디바이스 구성](iot-hub-auto-device-config.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
@@ -194,7 +194,7 @@ IoT hub로 전송 되는 [장치-클라우드](#device-to-cloud) 메시지를 �
 
 필드 게이트웨이는 [IoT Hub](#iot-hub) 에 직접 연결할 수 없는 장치에 대 한 연결을 가능 하 게 하며 일반적으로 장치와 함께 로컬로 배포 됩니다. 자세한 내용은 [Azure IoT Hub 란?](about-iot-hub.md) 을 참조 하세요.
 
-## <a name="free-account"></a>평가판 계정
+## <a name="free-account"></a>무료 계정
 
 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들어 IoT Hub 자습서를 완료하고 IoT Hub 서비스(및 기타 Azure 서비스)를 연습해볼 수 있습니다
 
@@ -290,7 +290,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 
 [Azure Resource Manager](#azure-resource-manager)는 리소스 그룹을 사용하여 관련 리소스를 함께 그룹화합니다. 그룹에 있는 모든 리소스에 대해 작업을 동시에 수행하는 데 리소스 그룹을 사용할 수 있습니다.
 
-## <a name="retry-policy"></a>다시 시도 정책
+## <a name="retry-policy"></a>재시도 정책
 
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](/azure/architecture/best-practices/transient-faults)를 처리합니다.
 

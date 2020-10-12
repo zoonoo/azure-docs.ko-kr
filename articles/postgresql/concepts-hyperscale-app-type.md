@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895956"
 ---
 # <a name="determining-application-type"></a>응용 프로그램 유형 결정
@@ -22,7 +22,7 @@ Citus (Hyperscale)에서 잘 작동 하는 두 가지 종류의 응용 프로그
 
 ## <a name="at-a-glance"></a>한눈에 보기
 
-| 다중 테 넌 트 응용 프로그램                                 | 실시간 응용 프로그램                                |
+| 다중 테 넌 트 응용 프로그램                                 | 응용 프로그램 Real-Time                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
 | 경우에 따라 스키마에 수십 개 또는 수백 개의 테이블이 있습니다.          | 적은 수의 테이블                                |
 | 한 번에 하나의 테 넌 트 (회사/저장소)와 관련 된 쿼리 | 집계를 사용 하는 비교적 단순 분석 쿼리 |

@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922952"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
@@ -54,4 +54,4 @@ ms.locfileid: "87922952"
 
 [인증 및 사용자 권한](analysis-services-manage-users.md)  
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
-[Azure 역할 기반 access control (Azure RBAC)](../role-based-access-control/overview.md)  
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)  

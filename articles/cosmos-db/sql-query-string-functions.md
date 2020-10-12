@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 192f015b37eadb57b8e4a5c83ce3adf94c8bf038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85549519"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>문자열 함수 (Azure Cosmos DB)
@@ -23,16 +23,16 @@ ms.locfileid: "85549519"
 다음 스칼라 함수는 문자열 입력 값에 대 한 작업을 수행 하 고 문자열, 숫자 또는 부울 값을 반환 합니다.
   
 * [CONCAT](sql-query-concat.md)
-* [에서는](sql-query-contains.md)
+* [CONTAINS](sql-query-contains.md)
 * [ENDSWITH](sql-query-endswith.md)
 * [INDEX_OF](sql-query-index-of.md)
 * [LEFT](sql-query-left.md)
 * [LENGTH](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
-* [바꾸십시오](sql-query-replace.md)
+* [REPLACE](sql-query-replace.md)
 * [REPLICATE](sql-query-replicate.md)
-* [되돌립니다](sql-query-reverse.md)
+* [REVERSE](sql-query-reverse.md)
 * [RIGHT](sql-query-right.md)
 * [RTRIM](sql-query-rtrim.md)
 * [STARTSWITH](sql-query-startswith.md)
@@ -41,8 +41,8 @@ ms.locfileid: "85549519"
 * [StringToNull](sql-query-stringtonull.md)
 * [StringToNumber](sql-query-stringtonumber.md)
 * [StringToObject](sql-query-stringtoobject.md)
-* [부분](sql-query-substring.md)
-* [앞서](sql-query-tostring.md)
+* [SUBSTRING](sql-query-substring.md)
+* [ToString](sql-query-tostring.md)
 * [TRIM](sql-query-trim.md)
 * [UPPER](sql-query-upper.md)
 

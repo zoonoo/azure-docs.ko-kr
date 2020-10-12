@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87089552"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
@@ -111,11 +111,11 @@ VM을 수동으로 추가하려면:
 
     b. **IaaS 크기(선택)**
 
-    c. **스토리지 유형(표준/프리미엄)**
+    다. **스토리지 유형(표준/프리미엄)**
 
     d. **VM 총 스토리지 크기(GB)**
 
-    e. **한 해의 DR 드릴 수**
+    e. **한 해의 DR-Drills 수**
 
     f. **각 DR 드릴 기간(일)**
 
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|Currency|Name|Currency|Name|Currency|Name|
+|통화|Name|통화|Name|통화|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)|AUD|호주 달러($)|BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)|CHF|스위스 프랑(chf)|DKK|덴마크 크로네(kr)|

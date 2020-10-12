@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068390"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
@@ -180,7 +180,7 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
 
 `SELECT location FROM location IN company.locations WHERE location.country = 'France'` 쿼리를 예로 들어 보겠습니다. 쿼리 조건자(항목에 대한 필터링, 해당 국가/지역이 "프랑스"인 모든 위치)는 아래 빨간색으로 강조 표시된 경로와 일치합니다.
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="트리 내의 특정 경로 일치" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="트리로 표시된 이전 항목" border="false":::
 
 > [!NOTE]
 > 단일 속성을 기준으로 정렬하는 `ORDER BY` 절에는 *항상* 범위 인덱스가 필요하며 참조하는 경로에 이 항목이 없으면 실패합니다. 마찬가지로, 여러 속성을 기준으로 정렬하는 `ORDER BY` 쿼리는 *항상* 복합 인덱스가 필요합니다.

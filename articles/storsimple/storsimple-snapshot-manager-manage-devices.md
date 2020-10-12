@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054853"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리
@@ -31,7 +31,7 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
 
 **뷰** 선택 항목에 따라 **결과** 창에 각 장치에 대해 다음과 같은 정보를 표시합니다. (보기 구성에 대한 자세한 내용은 [보기 메뉴](storsimple-use-snapshot-manager.md#view-menu)를 참조하세요.)
 
-| 결과 열 | Description |
+| 결과 열 | 설명 |
 |:--- |:--- |
 | Name |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
 | 모델 |디바이스의 모델 번호 |
