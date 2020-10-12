@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511639"
 ---
 # <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
@@ -324,7 +324,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 역할을 할당에 사용할 수 있습니다. | 예제 |
+> | 역할을 할당에 사용할 수 있습니다. | 예 |
 > |----------|---------|
 > | 구독 하나 사용 | `"/subscriptions/{subscriptionId1}"` |
 > | 두 구독 | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |

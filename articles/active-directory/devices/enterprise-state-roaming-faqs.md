@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268539"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
@@ -29,7 +29,7 @@ ms.locfileid: "89268539"
 * '테마' - 바탕 화면 테마, 작업 표시줄 설정 등의 기능이 포함됩니다.
 * *Internet Explorer 설정* - 최근에 열어 본 탭, 즐겨찾기 등이 있습니다.
 * *Microsoft Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
-* *암호*(인터넷 암호, wi-fi 프로필 등)를 포함 합니다.
+* *암호*(인터넷 암호, Wi-Fi 프로필 및 기타)를 포함 합니다.
 * '언어 기본 설정' - 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정이 포함됩니다.
 * *접근성 기능* - 고대비 테마, 내레이터, 돋보기 등이 있습니다.
 * *기타 Windows 설정* - 예를 들어 마우스 설정이 있습니다.
@@ -77,7 +77,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 여러 Azure AD 테넌트의 여러 Azure 계정이 동일한 디바이스에 있는 경우 각 Azure AD 테넌트의 Azure Rights Management 서비스와 통신하도록 디바이스 레지스트리를 업데이트해야 합니다.  
 
 1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 **Directory ID**에 대한 속성 페이지(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있습니다. 
-2. GUID를 받은 후에는 **\software\microsoft\windows\settingsync\winmsipc \<tenant ID GUID> HKEY_LOCAL_MACHINE**레지스트리 키를 추가 해야 합니다.
+2. GUID를 받은 후에는 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **레지스트리 키를 추가 해야 합니다.
    **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890656"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
@@ -21,13 +21,13 @@ ms.locfileid: "90890656"
 
 이 자습서에서는 Azure PowerShell 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM 만들기 및 관리를 시작 하기 전에 다음 단계에 나열 된 필수 구성 요소를 완료 했는지 확인 해야 합니다.
 
 ### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>로컬 웹 UI를 통해 Azure Stack Edge Pro 장치
 
-1. [1 단계: Azure Stack Edge pro 장치 구성](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device)에 설명 된 대로 Azure Stack edge pro 장치에서 네트워크 설정을 완료 했습니다.
+1. [1단계: Azure Stack Edge Pro 디바이스 구성](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device)의 설명대로 Azure Stack Edge Pro 디바이스에서 네트워크 설정을 완료했습니다.
 
 2. 컴퓨팅을 위한 네트워크 인터페이스를 사용하도록 설정했습니다. 이 네트워크 인터페이스 IP는 VM 배포를 위한 가상 스위치를 만드는 데 사용됩니다. 이 프로세스를 안내하는 단계는 다음과 같습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "90890656"
         > [!IMPORTANT] 
         > 컴퓨팅용 포트는 하나만 구성할 수 있습니다.
 
-    2. 네트워크 인터페이스에서 컴퓨팅을 사용하도록 설정합니다. Azure Stack Edge Pro는 해당 네트워크 인터페이스에 해당 하는 가상 스위치를 만들고 관리 합니다.
+    2. 네트워크 인터페이스에서 컴퓨팅을 사용하도록 설정합니다. 이 네트워크 인터페이스에 해당하는 가상 스위치를 Azure Stack Edge Pro가 만들고 관리합니다.
 
 3. Azure Stack Edge Pro 장치 및 클라이언트의 신뢰할 수 있는 루트 저장소에 모든 인증서를 만들고 설치 했습니다. [2단계: 인증서 만들기 및 설치](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates)에 설명된 절차를 따릅니다.
 

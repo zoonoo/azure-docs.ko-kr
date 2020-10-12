@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
 ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89447887"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Windows 부팅 관리자 오류-0xC0000428 상태 잘못 된 이미지 해시
@@ -58,7 +58,7 @@ VM을 빌드하는 데 사용 된 이미지는 RTM (Release to Manufacturing) �
 
 `a699494373c04fc0bc8f2bb1389d6106__Windows-Server-Technical-Preview-201505.01-en.us-127GB.vhd`
 
-미리 보기 이미지의 만료 날짜를 연장할 수 없습니다. 미리 보기가 만료 되 면 VM은 더 이상 부팅할 수 없게 됩니다.
+미리 보기 이미지의 만료 날짜를 연장할 수 없습니다. 미리 보기가 만료되면 VM은 더 이상 부팅할 수 없게 됩니다.
 
 - 제품에 따라 평가 기간이 달라질 수 있습니다. 예를 들어 Windows 미리 보기 이미지에는 180 일의 평가 기간이 있습니다.
 
@@ -73,7 +73,7 @@ VM을 빌드하는 데 사용 된 이미지는 RTM (Release to Manufacturing) �
 ### <a name="query-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 쿼리
 
 1. Windows PowerShell 응용 프로그램을 엽니다.
-1. 다음 명령을 실행 합니다.
+1. 다음 명령을 실행합니다.
 
    ```powershell
    $locName = "<LOCATION>" 

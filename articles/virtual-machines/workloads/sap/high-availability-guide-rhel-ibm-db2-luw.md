@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077393"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
@@ -41,7 +41,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 | [2191498] | Azure 포함 Linux의 SAP: 고급 모니터링 |
 | [2243692] | Azure의 Linux (IaaS) VM: SAP 라이선스 문제 |
 | [2002167] | Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
-| [2694118] | Azure에서 HA 추가 기능 Red Hat Enterprise Linux |
+| [2694118] | Azure의 Red Hat Enterprise Linux HA Add-On |
 | [1999351] | SAP용 고급 Azure 모니터링 문제 해결 |
 | [2233094] | DB6: Linux, UNIX 및 Windows 용 IBM Db2를 사용 하는 Azure의 SAP 응용 프로그램-추가 정보 |
 | [1612105] | DB6: d b 2에서 HADR에 대 한 FAQ |
@@ -54,7 +54,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 | [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide] (이 문서) |
 | [Linux에서 SAP 용 Azure VIRTUAL MACHINES DBMS (데이터베이스 관리 시스템) 배포][dbms-guide] 가이드 |
 | [Azure의 SAP 워크로드 계획 및 배포 검사 목록][azr-sap-plancheck] |
-| [Red Hat Enterprise Linux 7에 대 한 고가용성 추가 기능 개요][rhel-ha-addon] |
+| [Red Hat Enterprise Linux 7에 대 한 고가용성 Add-On 개요][rhel-ha-addon] |
 | [High Availability Add-On Administration][rhel-ha-admin](고가용성 추가 기능 관리) |
 | [High Availability Add-On Reference][rhel-ha-ref](고가용성 추가 기능 참조) |
 | [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members][rhel-azr-supp](RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
@@ -106,7 +106,7 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 
 배포를 실행 하기 전에 계획 프로세스를 완료 합니다. 계획은 Azure에서 HADR을 사용 하 여 Db2 구성을 배포 하기 위한 토대를 구축 합니다. IMB Db2 LUW (SAP 환경의 데이터베이스 부분) 계획에 포함 해야 하는 주요 요소는 다음 표에 나와 있습니다.
 
-| 토픽 | 간단한 설명 |
+| 항목 | 간단한 설명 |
 | --- | --- |
 | Azure 리소스 그룹 정의 | VM, VNet, Azure Load Balancer 및 기타 리소스를 배포 하는 리소스 그룹입니다. 기존 또는 신규 일 수 있습니다. |
 | 가상 네트워크/서브넷 정의 | IBM Db2 및 Azure Load Balancer에 대 한 Vm이 배포 되 고 있습니다. 기존 또는 새로 만들 수 있습니다. |
@@ -411,7 +411,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   c. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   다. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -423,7 +423,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백**엔드)을 입력 합니다.
 
-   c. **가상 머신 추가**를 선택합니다.
+   다. **가상 머신 추가**를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -437,7 +437,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
+   다. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -447,7 +447,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP**로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트*를 입력 합니다.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266785"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
@@ -82,14 +82,14 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
       하이브리드 Azure AD에 가입 된 Windows 10 및 Windows Server 2016/2019 장치를 다시 등록 하려면 다음 단계를 수행 합니다.
 
       1. 관리자 권한으로 명령 프롬프트를 엽니다.
-      1. `dsregcmd.exe /debug /leave`를 입력합니다.
+      1. `dsregcmd.exe /debug /leave`을 입력합니다.
       1. 로그아웃했다가 다시 로그인하여 디바이스를 Azure AD에 다시 등록하는 예약된 작업을 트리거합니다. 
 
       하이브리드 Azure AD에 가입 된 하위 수준 Windows OS 버전의 경우 다음 단계를 수행 합니다.
 
       1. 관리자 권한으로 명령 프롬프트를 엽니다.
-      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`를 입력합니다.
-      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`를 입력합니다.
+      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`을 입력합니다.
+      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
 
       Azure AD 조인 장치 Windows 10 장치에 대해 다음 단계를 수행 합니다.
 

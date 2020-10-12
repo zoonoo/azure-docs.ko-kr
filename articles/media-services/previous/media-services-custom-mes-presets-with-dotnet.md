@@ -16,10 +16,10 @@ ms.date: 03/26/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 260616b9dc11a45524842edf0d8f2989746a1d3d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268743"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Media Encoder Standard 사전 설정 사용자 지정
@@ -269,7 +269,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [CLI를 사용 하 여 사용자 지정 변환을 사용 하 여 인코딩하는 방법](../latest/custom-preset-cli-howto.md)
 - [Media Services v3를 사용하여 인코딩](../latest/encoding-concept.md)

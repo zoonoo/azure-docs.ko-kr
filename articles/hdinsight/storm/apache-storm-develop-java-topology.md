@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
 ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322876"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
@@ -24,7 +24,7 @@ Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅
 > [!NOTE]  
 > 이 문서에서 만든 스톰 토폴로지 예제의 전체 버전은에서 사용할 수 있습니다 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) .
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 

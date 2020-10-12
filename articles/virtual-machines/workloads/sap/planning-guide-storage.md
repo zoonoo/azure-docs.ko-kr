@@ -17,10 +17,10 @@ ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653616"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
@@ -90,10 +90,10 @@ S/4HANA의 SAP NetWeaver/응용 프로그램 계층에 대 한 Azure storage 형
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| 처리량/IOPS SLA | no | 아니요 | 예 | 예 | 예 |
+| 처리량/IOPS SLA | 아니요 | 아니요 | 예 | 예 | 예 |
 | 대기 시간 읽기 | high | 중간에서 높음 | low | 하위 밀리초 | 하위 밀리초 |
 | 대기 시간 쓰기 | high | 중간에서 높음  | 낮음 (1-밀리초<sup>1</sup>) | 하위 밀리초 | 하위 밀리초 |
-| HANA 지원 | no | 아니요 | 예<sup>1</sup> | 예 | 예 |
+| HANA 지원 | 아니요 | 아니요 | 예<sup>1</sup> | 예 | 예 |
 | 디스크 스냅숏 가능 | 예 | 예 | 예 | 아니요 | 예 |
 | 가용성 집합을 사용 하는 경우 다른 저장소 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포 된 Vm에서 지원 되지 않는 디스크 유형 | 아니요<sup>3</sup> |
 | 가용성 영역 정렬 | 예 | 예 | 예 | 예 | Microsoft 참여 요구 |
@@ -284,7 +284,7 @@ Azure standard HDD 저장소에 비해 Azure standard SSD 저장소는 더 나�
 | --- | --- | --- | 
 | OS 기본 VHD | 적절 한 제한 됨 | 비프로덕션 시스템 |
 | 데이터 디스크 | 적절 한 제한 됨 | 낮은 IOPS 및 대기 시간 요구가 있는 일부 비프로덕션 시스템 |
-| SAP 전역 전송 디렉터리 | 아니요 | [지원 안 됨](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP 전역 전송 디렉터리 | 아니요 | [지원되지 않음](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | 적절 한 제한 됨 | 비프로덕션 시스템 |
 | 백업 저장소 | 낫지만 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | 타사 필요 |
@@ -311,7 +311,7 @@ Azure 표준 HDD 저장소는 2014 년에 SAP NetWeaver 워크 로드에 대 한
 | --- | --- | --- | 
 | OS 기본 VHD | 적합 하지 않음 | - |
 | 데이터 디스크 | 적합 하지 않음 | - |
-| SAP 전역 전송 디렉터리 | 아니요 | [지원 안 됨](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP 전역 전송 디렉터리 | 아니요 | [지원되지 않음](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | 아니요 | 지원되지 않음 |
 | 백업 저장소 | 낫지만 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | Azure Files 또는 타사 필요 |

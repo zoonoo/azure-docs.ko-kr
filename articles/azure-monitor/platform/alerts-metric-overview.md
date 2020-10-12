@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578073"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
@@ -137,7 +137,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 | 서비스 | 공용 Azure | 정부 | 중국 |
 |:--------|:--------|:--------|:--------|
-| 가상 컴퓨터<sup>1</sup>  | **예** | 예 | 예 |
+| 가상 컴퓨터<sup>1</sup>  | **예** | 아니요 | 아니요 |
 | SQL server 데이터베이스 | **예** | **예** | **예** |
 | SQL server 탄력적 풀 | **예** | **예** | **예** |
 | NetApp 파일 용량 풀 | **예** | **예** | **예** |

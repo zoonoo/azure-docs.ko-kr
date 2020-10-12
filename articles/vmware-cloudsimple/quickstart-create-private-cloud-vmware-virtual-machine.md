@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140856"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
@@ -102,7 +102,7 @@ CloudSimple은 사용자 이름으로 기본 vCenter 사용자 계정을 할당 
 
 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
 
-사전 요구 사항
+필수 구성 요소
 
 * VLAN이 구성 된 분산 포트 그룹
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
 ms.openlocfilehash: dcbb82c1315e6150ddcfadbb52b2976447329b87
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441836"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터 (미리 보기)로 마이그레이션
@@ -38,7 +38,7 @@ ms.locfileid: "89441836"
    * **Log Analytics 데이터**: 마이그레이션 전에는 networkmonitoring 테이블에 NPM가 구성 된 작업 영역에 데이터가 남아 있습니다. 마이그레이션 후에 데이터는 동일한 작업 영역에 있는 NetworkMonitoring 테이블 및 ConnectionMonitor_CL 테이블로 이동 됩니다. NPM에서 테스트를 사용 하지 않도록 설정 하면 데이터는 ConnectionMonitor_CL 테이블에만 저장 됩니다.
    * **로그 기반 경고, 대시보드 및 통합**: 새 ConnectionMonitor_CL 테이블을 기반으로 쿼리를 수동으로 편집 해야 합니다. 메트릭에 대 한 경고를 다시 만들려면 [연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor)을 참조 하세요.
     
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 했는지 확인 합니다.
 * Log Analytics 에이전트가 설치 된 Azure 가상 머신은 Network Watcher 확장을 사용 하 여 사용 하도록 설정 해야 합니다.

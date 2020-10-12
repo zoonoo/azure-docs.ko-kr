@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
 ms.openlocfilehash: f9f7b3b64cf91019ed4e40d5d52b859419b74836
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86107634"
 ---
 # <a name="contoso-migration-series"></a>Contoso 마이그레이션 시리즈
@@ -26,7 +26,7 @@ ms.locfileid: "86107634"
 - 각 배포 시나리오에 대해 비즈니스 드라이버 및 목표, 제안 된 아키텍처, 마이그레이션을 수행 하는 단계, 마이그레이션 완료 후 정리 및 다음 단계에 대 한 권장 사항에 대 한 정보를 제공 합니다.
 
 
-**자료** | **세부 정보** 
+**아티클** | **세부 정보** 
 --- | --- 
 [문서 1: 개요](/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. 
 [문서 2: Azure 인프라 배포](/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso는 마이그레이션에 대 한 온-프레미스 인프라와 Azure 인프라를 준비 합니다. 이 시리즈의 모든 문서에서 동일한 인프라가 사용됩니다. 

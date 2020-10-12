@@ -8,10 +8,10 @@ ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022482"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>대량 실행자 라이브러리에서 Azure Cosmos DB .NET V3 SDK의 대량 지원으로 마이그레이션
@@ -34,15 +34,15 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-대량 가져오기를 수행 하려면 (BulkImportAsync를 사용 하는 것과 유사)를 동시에 호출 해야 `CreateItemAsync` 합니다. 예를 들어:
+대량 가져오기를 수행 하려면 (BulkImportAsync를 사용 하는 것과 유사)를 동시에 호출 해야 `CreateItemAsync` 합니다. 예를 들면 다음과 같습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-대량 *업데이트* 를 수행 하려는 경우 ( [BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)사용과 유사) `ReplaceItemAsync` 항목 값을 업데이트 한 후 메서드를 동시에 호출 해야 합니다. 예를 들어:
+대량 *업데이트* 를 수행 하려는 경우 ( [BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)사용과 유사) `ReplaceItemAsync` 항목 값을 업데이트 한 후 메서드를 동시에 호출 해야 합니다. 예를 들면 다음과 같습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-대량 *삭제* ( [BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)사용과 유사)를 수행 하려는 경우에는 `DeleteItemAsync` `id` 각 항목의 및 파티션 키를 사용 하 여 동시에 호출 해야 합니다. 예를 들어:
+대량 *삭제* ( [BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)사용과 유사)를 수행 하려는 경우에는 `DeleteItemAsync` `id` 각 항목의 및 파티션 키를 사용 하 여 동시에 호출 해야 합니다. 예를 들면 다음과 같습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 

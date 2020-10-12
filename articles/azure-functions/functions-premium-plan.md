@@ -9,10 +9,10 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578039"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
@@ -141,7 +141,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 여기에서 함수의 전체 지역 가용성을 참조 하세요. [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Azure 지역| Windows | Linux |
+|지역| Windows | Linux |
 |--| -- | -- |
 |오스트레일리아 중부| 100 | 사용할 수 없음 |
 |오스트레일리아 중부 2| 100 | 사용할 수 없음 |

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266734"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure Portal를 사용 하 여 온-프레미스 인코더에서 라이브 스트리밍 수행
@@ -114,7 +114,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
 2. **설정** 창에서 **라이브 스트리밍**을 클릭합니다. 
    
-    ![시작하기](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+    ![시작](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     **라이브 스트리밍** 창이 나타납니다.
 3. **빠른 생성** 을 클릭하여 RTMP 수집 프로토콜로 통과 채널을 만듭니다.

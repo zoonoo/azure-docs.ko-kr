@@ -1,5 +1,5 @@
 ---
-title: IoT 플러그 앤 플레이 디지털 쌍 이해
+title: IoT 플러그 앤 플레이 디지털 트윈 이해
 description: IoT 플러그 앤 플레이에서 디지털 쌍을 사용 하는 방법 이해
 author: prashmo
 ms.author: prashmo
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578056"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 이해
+# <a name="understand-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 트윈 이해
 
 IoT 플러그 앤 플레이 장치는 [DTDL (디지털 Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 스키마에서 설명 하는 모델을 구현 합니다. 모델은 특정 장치에 포함 될 수 있는 구성 요소, 속성, 명령 및 원격 분석 메시지 집합을 설명 합니다. IoT 플러그 앤 플레이 장치가 IoT hub에 처음 연결할 때 장치 쌍과 디지털 쌍이 초기화 됩니다.
 
@@ -22,7 +22,7 @@ IoT 플러그 앤 플레이는 DTDL 버전 2를 사용 합니다. 이 버전에 
 
 DTDL은 IoT 플러그 앤 플레이에만 국한 되지 않습니다. [Azure Digital Twins](../digital-twins/overview.md)와 같은 다른 IoT 서비스는이를 사용 하 여 건물 및 에너지 네트워크와 같은 전체 환경을 나타냅니다. 자세히 알아보려면 [Azure Digital Twins의 쌍 모델 이해](../digital-twins/concepts-models.md)를 참조 하세요.
 
-이 문서에서는 구성 요소 및 속성이 장치 쌍의 *원하는* 및 *보고* 된 섹션에 어떻게 표시 되는지 설명 합니다. 또한 이러한 개념이 해당 디지털 쌍에 매핑되는 방식을 설명 합니다.
+이 문서에서는 구성 요소 및 속성이 장치 쌍의 *원하는* 및 *보고* 된 섹션에 어떻게 표시 되는지 설명 합니다. 또한 이러한 개념이 해당 디지털 트윈에 매핑되는 방식을 설명합니다.
 
 이 문서의 IoT 플러그 앤 플레이 장치는 [자동 온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) 구성 요소를 사용 하 여 [온도 컨트롤러 모델](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) 을 구현 합니다.
 
@@ -311,7 +311,7 @@ Azure Digital Twins는 디지털 쌍 **가져오기**, 디지털 쌍 **업데이
 
 ## <a name="digital-twin-change-events"></a>디지털 쌍 변경 이벤트
 
-디지털 쌍 변경 이벤트를 사용 하도록 설정 하면 현재 또는 원하는 구성 요소나 속성 값이 변경 될 때마다 이벤트가 트리거됩니다. 디지털 쌍 변경 이벤트는 [JSON 패치](http://jsonpatch.com/) 형식으로 생성 됩니다. 쌍 변경 이벤트를 사용 하도록 설정 하면 장치 쌍 형식으로 해당 이벤트가 생성 됩니다.
+디지털 트윈 변경 이벤트를 사용하도록 설정하면 현재 또는 원하는 구성 요소나 속성 값이 변경될 때마다 이벤트가 트리거됩니다. 디지털 쌍 변경 이벤트는 [JSON 패치](http://jsonpatch.com/) 형식으로 생성 됩니다. 쌍 변경 이벤트를 사용 하도록 설정 하면 장치 쌍 형식으로 해당 이벤트가 생성 됩니다.
 
 장치 및 디지털 쌍 이벤트에 대해 라우팅을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [IoT Hub 메시지 라우팅을 사용 하 여 여러 끝점으로 장치-클라우드 메시지 보내기를](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)참조 하세요. 메시지 형식을 이해 하려면 [IoT Hub 메시지 만들기 및 읽기](../iot-hub/iot-hub-devguide-messages-construct.md)를 참조 하세요.
 

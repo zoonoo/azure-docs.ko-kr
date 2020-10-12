@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077916"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
@@ -191,7 +191,7 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
-프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 - [.Net을 사용 하 여 Azure Monitor 메트릭을 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면 [다음 예제](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)와 같이 FromServicePrincipal 메서드를 오버 로드 하 여 인증서를 제공 합니다. 
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)

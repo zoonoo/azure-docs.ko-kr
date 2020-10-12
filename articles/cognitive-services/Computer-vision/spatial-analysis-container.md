@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277294"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
 공간 분석 컨테이너를 사용 하 여 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 이해할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
@@ -65,7 +65,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
 
 | 요구 사항 | Description |
 |--|--|
-| 카메라 | 공간 분석 컨테이너는 특정 카메라 브랜드에 연결 되지 않습니다. 카메라 장치는 RTSP (실시간 스트리밍 프로토콜) 및 h.264 인코딩을 지원 하 고, 호스트 컴퓨터에서 액세스할 수 있어야 하며, 15FPS 및 1080p 해상도로 스트리밍할 수 있어야 합니다. |
+| 카메라 | 공간 분석 컨테이너는 특정 카메라 브랜드에 연결 되지 않습니다. 카메라 장치는 RTSP (Real-Time 스트리밍 프로토콜) 및 h.264 인코딩을 지원 하 고, 호스트 컴퓨터에서 액세스할 수 있어야 하며, 15FPS 및 1080p 해상도로 스트리밍할 수 있어야 합니다. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) 가 호스트 컴퓨터에 설치 되어 있어야 합니다.  |
 
 
@@ -318,7 +318,7 @@ sudo systemctl restart iotedge
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
-| 설정 이름 | 값 | Description|
+| 설정 이름 | 값 | 설명|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 나타납니다 구문 | 로깅 수준에서 두 값 중 하나를 선택 합니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 수정 안 함|
@@ -343,7 +343,7 @@ az extension add --name azure-iot
 az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
-|매개 변수  |Description  |
+|매개 변수  |설명  |
 |---------|---------|
 | `--deployment-id` | 배포의 새 이름입니다. |
 | `--hub-name` | Azure IoT Hub 이름입니다. |

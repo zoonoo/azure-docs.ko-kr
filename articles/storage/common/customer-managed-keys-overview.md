@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b7a6584b1566d1fa2e1e250938212a01d845e113
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578226"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화를 위한 고객 관리 키
@@ -27,8 +27,6 @@ Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?
 
 > [!NOTE]
 > Azure Key Vault 및 Azure Key Vault 관리 HSM은 구성에 대해 동일한 Api 및 관리 인터페이스를 지원 합니다.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-customer-managed-keys"></a>고객 관리형 키 정보
 

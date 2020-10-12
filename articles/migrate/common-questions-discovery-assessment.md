@@ -4,10 +4,10 @@ description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577274"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
@@ -33,7 +33,7 @@ ms.locfileid: "91577274"
 
 - Azure vm으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가 하려는 경우 **azure vm 평가** 를 사용 합니다. [자세한 내용](concepts-assessment-calculation.md)
 
-- 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+- 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - 두 가지 유형의 평가를 실행하는 경우에만 VMware 컴퓨터에서 공통 그룹을 사용할 수 있습니다. Azure Migrate에서 AVS 평가를 처음 실행하는 경우 새 VMware 컴퓨터 그룹을 만드는 것이 좋습니다.
  
@@ -129,7 +129,7 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 
 ## <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
-종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아보기](concepts-dependency-visualization.md).
+종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아봅니다](concepts-dependency-visualization.md).
 
 > [!NOTE]
 > 에이전트 기반 종속성 분석은 Azure Government에서 사용할 수 없습니다. 에이전트 없는 종속성 분석을 사용할 수 있습니다.
@@ -142,9 +142,9 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 --- | --- | ---
 지원 | 이 옵션은 현재 미리 보기 상태 이며 VMware Vm에 대해서만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 에이전트 | 교차 확인 하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | [MMA (Microsoft Monitoring agent)](../azure-monitor/platform/agent-windows.md)및 [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent)를 분석 하려는 각 온-프레미스 컴퓨터에 설치 되는 에이전트입니다. 
-사전 요구 사항 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
-Log Analytics | 필요하지 않습니다. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
-작동 방식 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
+필수 구성 요소 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
+Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용합니다. [자세히 알아봅니다](concepts-dependency-visualization.md#agent-based-analysis).
+작동 방법 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
 데이터 | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 시각화 | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
 데이터 내보내기 | 지난 30 일간의 데이터는 CSV 형식으로 다운로드할 수 있습니다. | Log Analytics를 사용 하 여 데이터를 쿼리할 수 있습니다.

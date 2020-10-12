@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87827455"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
@@ -270,7 +270,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 이 속성을 설정하려면 네트워크 인터페이스가 있어야 합니다. 따라서 종속성이 필요합니다. 또한 하나의 리소스(자식)가 다른 리소스(부모) 내에서 정의될 때에도 종속성을 설정해야 합니다. 예를 들어 진단 설정 및 사용자 지정 스크립트 확장 모두는 가상 머신의 자식 리소스로 정의됩니다. 가상 머신이 있을 때까지 만들 수 없습니다. 따라서 두 리소스는 가상 머신에 따라 표시됩니다.
 
-## <a name="profiles"></a>프로필
+## <a name="profiles"></a>Profiles
 
 몇 가지 프로필 요소는 가상 머신 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    

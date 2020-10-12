@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782815"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
@@ -28,7 +28,7 @@ ms.locfileid: "84782815"
 
 - 여러 테 넌 트가 있는 조직의 보안 팀은 단일 위치에서 보안 상태를 보고 관리할 수 있습니다.
 
-## <a name="set-up-cross-tenant-management"></a>교차 테 넌 트 관리 설정
+## <a name="set-up-cross-tenant-management"></a>교차 테넌트 관리 설정
 
 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하 여 자체 테 넌 트에 관리 되는 테 넌 트 리소스에 대 한 액세스 권한을 위임 하 여 교차 테 넌 트 관리
 
@@ -43,7 +43,7 @@ ms.locfileid: "84782815"
 
   ![테 넌 트 필터링](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-뷰와 작업은 기본적으로 동일 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+뷰와 작업은 기본적으로 동일 합니다. 몇 가지 예제는 다음과 같습니다.
 
 - **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다.
 - **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 가시성을 통해 모든 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](secure-score-security-controls.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 향상 시킬 수 있습니다.

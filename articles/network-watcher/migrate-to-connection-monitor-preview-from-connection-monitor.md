@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
 ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441819"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>연결 모니터에서 연결 모니터 (미리 보기)로 마이그레이션
@@ -34,7 +34,7 @@ ms.locfileid: "89441819"
    * **경고**: 새 메트릭에 자동으로 마이그레이션됩니다.
    * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집 해야 합니다. 
     
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 사용자 지정 작업 영역을 사용 하는 경우 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 해야 합니다. 
 

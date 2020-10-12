@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84806791"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>수신 끝점에 대 한 내부 라우팅에 개인 IP 사용 
@@ -26,7 +26,7 @@ ms.locfileid: "84806791"
 ## <a name="assign-to-a-particular-ingress"></a>특정 수신에 할당
 개인 IP를 통해 특정 수신을 노출 하려면 [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) 수신에 주석을 사용 합니다.
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
@@ -53,7 +53,7 @@ appgw.ingress.kubernetes.io/use-private-ip: "true"
 ## <a name="assign-globally"></a>전역 할당
 경우에 따라 개인 IP를 통해 모든 조절기 노출 되도록 제한 하는 것이 좋습니다 `appgw.usePrivateIP: true` . 구성에서를 사용 `helm` 합니다.
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 ```yaml
 appgw:
     subscriptionId: <subscriptionId>
