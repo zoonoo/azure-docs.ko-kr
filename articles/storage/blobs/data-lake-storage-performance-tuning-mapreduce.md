@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030523"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: MapReduce, HDInsight & Azure Data Lake Storage Gen2
@@ -65,7 +65,7 @@ Total YARN memory = nodes * 노드당 YARN memory
 
 YARN 컨테이너는 작업에 사용 가능한 동시성의 양을 결정합니다.  총 YARN 메모리를 가져와 mapreduce.map.memory로 나눕니다.  
 
-\#of YARN 컨테이너 = total YARN memory/mapreduce.
+\# of YARN 컨테이너 = total YARN memory/mapreduce.
 
 **5단계: mapreduce.job.maps/mapreduce.job.reduces 설정**
 
@@ -93,7 +93,7 @@ mapreduce. 메모리 = 3GB
 
 **4단계: YARN 컨테이너 수 결정**
 
-\#YARN 컨테이너 = 768GB의 사용 가능한 메모리/3gb 메모리 = 256
+\# YARN 컨테이너 = 768GB의 사용 가능한 메모리/3gb 메모리 = 256
 
 **5단계: mapreduce.job.maps/mapreduce.job.reduces 설정**
 

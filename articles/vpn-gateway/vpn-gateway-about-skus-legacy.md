@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84687789"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
@@ -47,7 +47,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 또한 Azure Portal에서 게이트웨이 크기를 조정할 수도 있습니다.
 
-### <a name="classic"></a><a name="classicresize"></a>기존
+### <a name="classic"></a><a name="classicresize"></a>Classic
 
 클래식 배포 모델에 대 한 게이트웨이 크기를 조정 하려면 서비스 관리 PowerShell cmdlet을 사용 해야 합니다. 다음 명령을 사용합니다.
 

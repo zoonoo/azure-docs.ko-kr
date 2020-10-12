@@ -5,10 +5,10 @@ ms.date: 4/2/2019
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 379560b73c38558fe0b712ed5e036c7a3736b600
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500711"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
@@ -201,7 +201,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 **template-file** 또는 **template-uri** 중 하나를 전달합니다(둘 다는 안 됨).
 
-예:
+예를 들면 다음과 같습니다.
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - az 메시 deployment create--https: \/ /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

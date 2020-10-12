@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598473"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
@@ -98,58 +98,58 @@ ms.locfileid: "82598473"
 
 HDInsight SDK for .NET의 [2.1.0 버전](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/2.1.0) 으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- `ClusterOperationsExtensions.GetClusterConfigurations`는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+- `ClusterOperationsExtensions.GetClusterConfigurations` 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
     - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 `ClusterOperationsExtensions.ListConfigurations` 앞으로를 사용 합니다.  ' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다.
     - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 `ClusterOperationsExtensions.GetGatewaySettings` 합니다.
 
-- `ClusterOperationsExtensions.GetConnectivitySettings`는 이제 사용 되지 않으며로 대체 되었습니다 `ClusterOperationsExtensions.GetGatewaySettings` .
+- `ClusterOperationsExtensions.GetConnectivitySettings` 는 이제 사용 되지 않으며로 대체 되었습니다 `ClusterOperationsExtensions.GetGatewaySettings` .
 
-- `ClusterOperationsExtensions.ConfigureHttpSettings`는 이제 사용 되지 않으며로 대체 되었습니다 `ClusterOperationsExtensions.UpdateGatewaySettings` .
+- `ClusterOperationsExtensions.ConfigureHttpSettings` 는 이제 사용 되지 않으며로 대체 되었습니다 `ClusterOperationsExtensions.UpdateGatewaySettings` .
 
-- `ConfigurationsOperationsExtensions.EnableHttp`및 `DisableHttp` 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로 이러한 메서드는 더 이상 필요 하지 않습니다.
+- `ConfigurationsOperationsExtensions.EnableHttp` 및 `DisableHttp` 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로 이러한 메서드는 더 이상 필요 하지 않습니다.
 
 #### <a name="versions-3x-and-up"></a>버전 3(sp3) 이상
 
 .NET 용 HDInsight SDK [버전 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet)는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
     - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationOperationsExtensions.List`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
     - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClusterOperationsExtensions.GetGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet) 합니다. 
-- [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet)는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperationsExtensions.UpdateGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet) . 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet)및 [`DisableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet) 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로 이러한 메서드는 더 이상 필요 하지 않습니다.
+- [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperationsExtensions.UpdateGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet) . 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet) 및 [`DisableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet) 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로 이러한 메서드는 더 이상 필요 하지 않습니다.
 
 ### <a name="sdk-for-python"></a>Python용 SDK
 
 Python 용 HDInsight SDK의 [버전 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-)는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
     - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationsOperations.list`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
     - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClusterOperations.get_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 합니다.
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperations.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) .
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperations.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) .
 
 ### <a name="sdk-for-java"></a>Java 용 SDK
 
 Java 용 HDInsight SDK의 [버전 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- `ConfigurationsInner.get`는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
-- `ConfigurationsInner.update`는 이제 사용 되지 않습니다.
+- `ConfigurationsInner.get` 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+- `ConfigurationsInner.update` 는 이제 사용 되지 않습니다.
 
 ### <a name="sdk-for-go"></a>Go 용 SDK
 
 Go 용 HDInsight SDK [버전 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get)는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
     - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
     - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings) 합니다.
-- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update)는 이제 사용 되지 않으며로 대체 되었습니다 [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
+- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
 
 ### <a name="azhdinsight-powershell"></a>Az. HDInsight PowerShell
 중단을 방지 하려면 [Az PowerShell version 2.0.0](https://www.powershellgallery.com/packages/Az) 이상으로 업데이트 합니다.  이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
-- `Grant-AzHDInsightHttpServicesAccess`는 이제 사용 되지 않으며 새 cmdlet으로 대체 되었습니다 `Set-AzHDInsightGatewayCredential` .
-- `Get-AzHDInsightJobOutput`는 저장소 키에 대 한 세분화 된 역할 기반 액세스를 지원 하도록 업데이트 되었습니다.
+- `Grant-AzHDInsightHttpServicesAccess` 는 이제 사용 되지 않으며 새 cmdlet으로 대체 되었습니다 `Set-AzHDInsightGatewayCredential` .
+- `Get-AzHDInsightJobOutput` 는 저장소 키에 대 한 세분화 된 역할 기반 액세스를 지원 하도록 업데이트 되었습니다.
     - HDInsight 클러스터 운영자, 기여자 또는 소유자 역할이 있는 사용자는 영향을 받지 않습니다.
     - 읽기 권한자 역할만 있는 사용자는 `DefaultStorageAccountKey` 매개 변수를 명시적으로 지정 해야 합니다.
-- `Revoke-AzHDInsightHttpServicesAccess`는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로이 cmdlet은 더 이상 필요 하지 않습니다.
+- `Revoke-AzHDInsightHttpServicesAccess` 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로이 cmdlet은 더 이상 필요 하지 않습니다.
  Az를 참조 하십시오 [. 자세한 내용은 HDInsight 마이그레이션 가이드를 참조](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) 하세요.
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>사용자에 게 HDInsight 클러스터 운영자 역할 할당 추가

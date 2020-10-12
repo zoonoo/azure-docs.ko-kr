@@ -7,17 +7,17 @@ ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84676848"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서 .NET 앱에 대 한 스냅숏 디버거 사용
 
 스냅숏 디버거 현재 Windows 서비스 계획에서 Azure App Service 실행 되는 ASP.NET 및 ASP.NET Core 앱에 대해 작동 합니다.
 
-## <a name="enable-snapshot-debugger"></a><a id="installation"></a>스냅숏 디버거 사용
+## <a name="enable-snapshot-debugger"></a><a id="installation"></a> 스냅숏 디버거 사용
 앱에 대 한 스냅숏 디버거를 사용 하도록 설정 하려면 아래 지침을 따르세요. 다른 유형의 Azure 서비스를 실행 하는 경우 지원 되는 다른 플랫폼에서 스냅숏 디버거를 사용 하도록 설정 하는 지침은 다음과 같습니다.
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

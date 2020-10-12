@@ -4,10 +4,10 @@ description: 이 문서에서는 해커 톤 행사를 실행 하는 데 사용�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445885"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>다음 해커 톤 Azure Lab Services 사용
@@ -49,7 +49,7 @@ Azure Lab Services는 해커 톤에 대 한 Vm (가상 머신)의 새 랩을 신
 
     **할당량**: [할당량](how-to-configure-student-usage.md#set-quotas-for-users) 은 참가자가 예약 된 시간 외에 가상 컴퓨터에 액세스할 수 있는 시간을 제어 합니다. 참가자가 사용 하는 동안 할당량에 도달 하면 컴퓨터가 자동으로 종료 되 고 할당량이 증가 하지 않는 한 참가자가 다시 시작할 수 없습니다. 기본적으로 랩을 만들 때 할당량은 10 시간으로 설정 됩니다. 해커 톤에 충분 한 시간을 허용 하도록 할당량을 설정 해야 합니다 .이는 일정을 만들지 않은 경우에 특히 중요 합니다.
 
-    **자동 종료**: 사용 하도록 설정 하면 학생이 RDP 세션과의 연결을 끊은 후 일정 기간 후 Windows 가상 컴퓨터가 자동 [으로 종료 됩니다](how-to-enable-shutdown-disconnect.md) . 이 설정은 기본적으로 사용하지 않도록 설정됩니다.
+    **자동 종료**: 사용 하도록 설정 하면 학생이 RDP 세션과의 연결을 끊은 후 일정 기간 후 Windows 가상 컴퓨터가 자동 [으로 종료 됩니다](how-to-enable-shutdown-disconnect.md) . 기본적으로 이 설정은 사용하지 않도록 설정되어 있습니다.
 
 - **랩 vm에 대 한 연결을 허용 하도록 방화벽 설정을 구성**합니다. 
 

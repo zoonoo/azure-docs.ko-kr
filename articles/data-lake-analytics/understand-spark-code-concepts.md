@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132350"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
@@ -104,7 +104,7 @@ U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하 고 Spark
 
 다음 표에서는 지정 된 Scala 및 PySpark에서 지정 된 U SQL 형식에 해당 하는 형식에 대해 설명 합니다.
 
-| U-SQL | Spark |  Scala | PySpark |
+| U-SQL | Spark |  스칼라 | PySpark |
 | ------ | ------ | ------ | ------ |
 |`byte`       ||||
 |`sbyte`      |`ByteType` |`Byte` | `ByteType`|
@@ -160,14 +160,14 @@ U-SQL의 핵심 언어가 행 집합을 변환 하 고 있으며 SQL을 기반�
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ 집계 +`HAVING`/`ORDER BY`+`FETCH`
 - `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`식
 - `CROSS`/`OUTER``APPLY`식
-- `PIVOT`/`UNPIVOT`산술식
-- `VALUES`행 집합 생성자
+- `PIVOT`/`UNPIVOT` 산술식
+- `VALUES` 행 집합 생성자
 
-- 식 설정`UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- 식 설정 `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
 또한 U-SQL은와 같은 다양 한 SQL 기반 스칼라 식을 제공 합니다.
 
-- `OVER`창 화 식
+- `OVER` 창 화 식
 - 다양 한 기본 제공 집계 및 순위 함수 ( `SUM` 등 `FIRST` )
 - 가장 익숙한 SQL 스칼라 식 중 일부는 `CASE` , `LIKE` , ( `NOT` ), 등 `IN` `AND` `OR` 입니다.
 

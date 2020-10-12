@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
 ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86224590"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 생성 도구를 사용 하 여 합성 향상
@@ -100,7 +100,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ### <a name="supported-audio-formats"></a>지원되는 오디오 형식
 
-| 서식 | 16Khz 샘플 주기 | 24khz 샘플 요금 |
+| 형식 | 16Khz 샘플 주기 | 24khz 샘플 요금 |
 |--------|--------------------|--------------------|
 | wav | riff-16khz-16 비트 | riff-24khz-16 비트 |
 | mp3 | 오디오-16khz-128kbitrate 전송률-mono-mp3 | 오디오-24khz-160kbitrate 전송률-mono-mp3 |

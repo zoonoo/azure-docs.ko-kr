@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613667"
 ---
 # <a name="pbr-materials"></a>PBR 재질
@@ -76,7 +76,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 ## <a name="technical-details"></a>기술 세부 정보
 
-Azure 원격 렌더링은 GGX .NDF, Schlick 프레스 넬 대칭 및 GGX Smith 상관 관계 표시 용어와 램버트 확산 용어를 사용 하 여 Torrance 마이크로 패싯 BRDF를 사용 합니다. 이 모델은 현재 업계 표준입니다. 자세한 내용은 [물리적 기반 렌더링-쿡 Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx) 문서를 참조 하세요.
+Azure 원격 렌더링은 GGX .NDF, Schlick 프레스 넬 대칭 및 GGX Smith 상관 관계 표시 용어와 램버트 확산 용어를 사용 하 여 Cook-Torrance 마이크로 패싯 BRDF를 사용 합니다. 이 모델은 현재 업계 표준입니다. 자세한 내용은 [물리적 기반 렌더링-쿡 Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx) 문서를 참조 하세요.
 
  Azure 원격 렌더링에 사용 되는 *Metalness-황삭* .pbr 모델에 대 한 대안은 *Glossiness* .pbr 모델입니다. 이 모델은 다양 한 자료를 나타낼 수 있습니다. 그러나 비용이 더 많이 들고, 일반적으로 실시간 사례에서 제대로 작동 하지 않습니다.
 ( *확산, 반사)* 값 쌍 *(BaseColor, Metalness)* 으로 변환할 수 없기 때문에 *Glossiness* 에서 *Metalness* 로 변환 하는 것이 항상 가능 하지는 않습니다. 모든 *(BaseColor, Metalness)* 쌍이 잘 정의 된 *(확산, 반사)* 쌍에 해당 하므로 다른 방향으로 변환 하는 것이 더 간단 하 고 정확 합니다.

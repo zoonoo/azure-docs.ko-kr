@@ -4,10 +4,10 @@ description: Azure VMware 솔루션의 id 및 액세스 개념에 대해 알아�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750579"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Azure VMware 솔루션 id 개념
@@ -24,7 +24,7 @@ CloudAdmin 및 CloudGlobalAdmin 권한은 아래 표에 나와 있습니다.
 
 |  권한 집합           | CloudAdmin | CloudGlobalAdmin | 의견 |
 | :---                     |    :---:   |       :---:      |   :--:  |
-|  알람                  | CloudAdmin 사용자에 게는 ResourcePool 및 Vm에서 알람에 대 한 모든 경보 권한이 있습니다.     |          --        |  -- |
+|  알람                  | CloudAdmin 사용자는 Compute-ResourcePool 및 Vm에서 알람에 대 한 모든 경보 권한을 가집니다.     |          --        |  -- |
 |  자동 배포             |  --  |        --        |  Microsoft는 호스트 관리를 수행 합니다.  |
 |  인증서            |  --  |        --       |  Microsoft는 인증서 관리를 수행 합니다.  |
 |  콘텐츠 라이브러리         | CloudAdmin 사용자에 게는 콘텐츠 라이브러리에서 파일을 만들고 사용할 수 있는 권한이 있습니다.    |         SSO를 사용 하도록 설정 합니다.         |  Microsoft는 콘텐츠 라이브러리의 파일을 ESXi 호스트에 배포 합니다.  |
@@ -35,7 +35,7 @@ CloudAdmin 및 CloudGlobalAdmin 권한은 아래 표에 나와 있습니다.
 |  전역                  |  전역 CancelTask, Global.asax 태그, Global.asax, Global. LogEvent, ManageCustomFields, ServiceManagers, 전역 SetCustomField, Global.SystemTag         |                  |    |
 |  호스트                    |  호스트. Hbr. HbrManagement      |        --          |  Microsoft는 다른 모든 호스트 작업을 수행 합니다.  |
 |  InventoryService        |  InventoryService      |        --          |  --  |
-|  Network (네트워크)                 |  Network.Assign    |                  |  Microsoft는 다른 모든 네트워크 작업을 수행 합니다.  |
+|  네트워크                 |  Network.Assign    |                  |  Microsoft는 다른 모든 네트워크 작업을 수행 합니다.  |
 |  사용 권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
 |  프로필 기반 저장소  |  --  |        --       |  Microsoft는 모든 프로필 작업을 수행 합니다.  |
 |  리소스                |  CloudAdmin 사용자에 게 모든 리소스 권한이 있습니다.        |      --       | --   |

@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010262"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
@@ -39,7 +39,7 @@ AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액�
 
 1. 개발자는 Azure AD로 인증합니다.
 1. Azure AD 토큰 발급 엔드포인트가 액세스 토큰을 발급합니다.
-1. 개발자는 Azure AD 토큰을 사용 하 여 작업을 수행 합니다 (예:).`kubectl create pod`
+1. 개발자는 Azure AD 토큰을 사용 하 여 작업을 수행 합니다 (예:). `kubectl create pod`
 1. Kubernetes는 Azure Active Directory를 사용하여 토큰의 유효성을 검사하고 개발자의 그룹 멤버 자격을 가져옵니다.
 1. Kubernetes RBAC(역할 기반 액세스 제어) 및 클러스터 정책이 적용됩니다.
 1. 개발자 요청의 성공 여부는 Azure AD 그룹 멤버 자격 및 Kubernetes RBAC/정책의 이전 유효성 검사에 따라 결정됩니다.

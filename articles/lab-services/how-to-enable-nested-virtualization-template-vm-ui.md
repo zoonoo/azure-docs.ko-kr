@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445732"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>수동으로 Azure Lab Services의 템플릿 가상 머신에서 중첩 된 가상화 사용
@@ -39,7 +39,7 @@ ms.locfileid: "85445732"
 12. **기본 저장소** 페이지에서 기본값을 그대로 적용 하 고 **다음**을 클릭 합니다.
 13. **설치 선택 확인** 페이지에서 **필요한 경우 자동으로 대상 서버 다시 시작**을 선택 합니다.
 14. **역할 및 기능 추가 마법사** 팝업이 나타나면 **예**를 클릭 합니다.
-15. **설치**를 클릭합니다.
+15. **Install**을 클릭합니다.
 16. **설치 진행률** 페이지에서 hyper-v 역할이 완료 되었음을 나타낼 때까지 기다립니다.  설치 도중에 컴퓨터가 다시 시작 될 수 있습니다.
 17. **닫기**를 클릭합니다.
 

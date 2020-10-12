@@ -13,10 +13,10 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
 ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88751196"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
@@ -82,7 +82,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![로고-하네스](./media/tutorial-list/active-directory-saas-harness-tutorial.png)| [Harness](harness-tutorial.md)|
 | ![로고-Help 정찰](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
 | ![로고-Hightail](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
-| ![로고-HRworks Single Sign-on](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
+| ![로고-HRworks 단일 Sign-On](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
 | ![로고-Jamf Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
 | ![로고-Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![로고-지식 있는 모든 LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/20/2020
 ms.custom: ''
 ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88755010"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
@@ -31,7 +31,7 @@ ms.locfileid: "88755010"
 > [!IMPORTANT]
 > Azure Container Instances에 대 한 GitHub 동작은 현재 미리 보기 상태입니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **GitHub 계정** -아직 계정이 없는 경우에 계정을 만듭니다 https://github.com .
 * **Azure CLI** -Azure CLI의 Azure Cloud Shell 또는 로컬 설치를 사용 하 여 Azure CLI 단계를 완료할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
@@ -220,7 +220,7 @@ az extension add \
 
 확장을 찾고, 설치 하 고, 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI에 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조 하세요.
 
-### <a name="run-az-container-app-up"></a>`az container app up`을 실행합니다.
+### <a name="run-az-container-app-up"></a>`az container app up`를 실행합니다.
 
 [Az container app up][az-container-app-up] 명령을 실행 하려면 최소한 다음을 제공 합니다.
 

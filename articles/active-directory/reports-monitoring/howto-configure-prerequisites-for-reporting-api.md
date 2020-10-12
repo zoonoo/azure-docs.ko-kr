@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226967"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
@@ -85,7 +85,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     b. **지원 되는 계정 유형**으로 **이 조직 에서만 계정을**선택 합니다.
 
-    c. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost` 합니다.
+    다. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost` 합니다.
 
     d. **등록**을 선택합니다. 
 

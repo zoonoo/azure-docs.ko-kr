@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 59b05fcd7fbaf9b0fd9b4083c884edadb4bfef4e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88505583"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
@@ -35,7 +35,7 @@ DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI
 - Linux VM에 사용자 지정 DSC 모듈을 설치 합니다 (ExtensionAction 설치).
 - Linux VM에서 사용자 지정 DSC 모듈을 제거 합니다 (ExtensionAction 제거).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 

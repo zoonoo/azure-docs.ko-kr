@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227715"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Service Fabric에 대 한 Azure 보안 기준
@@ -1038,7 +1038,7 @@ Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어
 
 **지침**: Service Fabric 백업 복원 서비스에서의 백업은 구독의 Azure Storage 계정을 사용 합니다. Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 고객이 관리 하는 키를 제공 하 여 저장소 데이터를 암호화할 수 있습니다.
 
-고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault에서 일시 삭제를 사용 하도록 설정 해야 합니다.
+고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault의 Soft-Delete을 사용 하도록 설정 해야 합니다.
 
 * [Azure Storage 미사용 데이터 암호화](../storage/common/storage-service-encryption.md)
 

@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
 ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85982313"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database 및 Managed Instance Import/Export 서비스는 데이터베이스를 가져오거나 내보내는 데 시간이 오래 걸립니다.
@@ -42,7 +42,7 @@ Azure SQL Database 가져오기/내보내기 서비스는 가져오기 및 내�
 
 * [SQLPackage 유틸리티를 사용 하 여 BACPAC 파일로 내보냅니다](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
 * [SSMS (SQL Server Management Studio)를 사용 하 여 BACPAC 파일로 내보냅니다](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
-* Microsoft SQL Server Data-Tier Application Framework (DacFx) API를 사용 하 여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행 합니다. 자세한 내용은 다음을 참조하세요.
+* DacFx (Microsoft SQL Server Data-Tier 응용 프로그램 프레임 워크) API를 사용 하 여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행 합니다. 자세한 내용은 다음을 참조하세요.
   * [데이터 계층 응용 프로그램 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
   * [Microsoft SqlServer 네임 스페이스](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [다운로드 DACFx](https://www.microsoft.com/download/details.aspx?id=55713)

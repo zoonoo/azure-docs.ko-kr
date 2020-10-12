@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005619"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Azure Front 도어 용 웹 응용 프로그램 방화벽을 사용 하 여 IP 제한 규칙 구성
 
 이 문서에서는 Azure Portal, Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 Azure Front 문에 대해 WAF (웹 응용 프로그램 방화벽)에서 IP 제한 규칙을 구성 하는 방법을 보여 줍니다.
 
-IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 액세스를 제어할 수 있는 사용자 지정 WAF 규칙입니다. 이를 위해 CIDR (클래스 간 라우팅) 형식으로 IP 주소 또는 ip 주소 범위 목록을 지정 합니다.
+IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 액세스를 제어할 수 있는 사용자 지정 WAF 규칙입니다. 이를 위해 CIDR (클래스 형식 Inter-Domain 라우팅) 형식으로 IP 주소 또는 ip 주소 범위 목록을 지정 합니다.
 
 기본적으로 웹 응용 프로그램은 인터넷에서 액세스할 수 있습니다. 알려진 IP 주소 또는 IP 주소 범위 목록에서 클라이언트에 대 한 액세스를 제한 하려는 경우 IP 주소 목록을 일치 하는 값으로 포함 하 고 연산자를 "Not" (부정이 true)로 설정 하 고 **차단할**작업을 설정 하는 ip 일치 규칙을 만들 수 있습니다. IP 제한 규칙이 적용 된 후이 허용 목록 외부의 주소에서 발생 한 요청은 403 금지 된 응답을 수신 합니다.
 
 ## <a name="configure-a-waf-policy-with-the-azure-portal"></a>Azure Portal를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: 항상 사용 가능한 글로벌 웹 응용 프로그램에 대 한 프런트 도어 만들기](../../frontdoor/quickstart-create-front-door.md)에 설명 된 지침에 따라 Azure Front 도어 프로필을 만듭니다.
 
 ### <a name="create-a-waf-policy"></a>WAF 정책 만들기
 
-1. Azure Portal에서 **리소스 만들기**를 선택 하 고 검색 상자에 **웹 응용 프로그램 방화벽** 을 입력 한 다음 **Waf (웹 응용 프로그램 방화벽)** 를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기**를 선택 하 고 검색 상자에  **웹 응용 프로그램 방화벽** 을 입력 한 다음 **Waf (웹 응용 프로그램 방화벽)** 를 선택 합니다.
 2. **만들기**를 선택합니다.
 3. **WAF 정책 만들기** 페이지에서 다음 값을 사용 하 여 **기본** 탭을 완료 합니다.
    
@@ -58,7 +58,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
    |우선 순위    |100|
    |일치 유형     |IP 주소|
    |일치 변수|RemoteAddr|
-   |작업|포함하지 않음|
+   |작업(Operation)|포함하지 않음|
    |IP 주소 또는 범위|10.10.10.0/24|
    |결과|트래픽 거부|
 
@@ -76,14 +76,14 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 1. WAF 정책 배포가 완료 되 면 Front 도어 프런트 엔드 호스트 이름으로 이동 합니다.
 2. 사용자 지정 블록 메시지가 표시 됩니다.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="WAF 규칙 테스트":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="사용자 지정 규칙":::
 
    > [!NOTE]
    > 사용자 지정 규칙에서 의도적으로 개인 IP 주소를 사용 하 여 규칙이 트리거되도록 보장 했습니다. 실제 배포에서는 특정 상황에 대해 IP 주소를 사용 하 여 *허용* 및 *거부* 규칙을 만듭니다.
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Azure CLI를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 IP 제한 정책 구성을 시작 하기 전에 CLI 환경을 설정 하 고 Azure Front 도어 프로필을 만듭니다.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Azure CLI 환경 설정
@@ -162,7 +162,7 @@ az network front-door waf-policy rule match-condition add \
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 IP 제한 정책 구성을 시작 하기 전에 PowerShell 환경을 설정 하 고 Azure Front 도어 프로필을 만듭니다.
 
 #### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정

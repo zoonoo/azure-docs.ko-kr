@@ -4,10 +4,10 @@ description: 이 가이드를 통해 관리자는 학교 내에서 사용할 랩
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445426"
 ---
 # <a name="lab-account-setup-guide"></a>랩 계정 설정 가이드
@@ -70,7 +70,7 @@ Azure Marketplace는 랩 작성자가 랩을 만들기 위해 이미지를 사�
 
 1. **랩 계정을 만듭니다.** 지침은 [랩 계정 만들기](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) 에 대 한 자습서를 참조 하세요.
 
-   랩 계정을 만들 때 관련 된 Azure 리소스를 숙지 하는 것이 도움이 될 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+   랩 계정을 만들 때 관련 된 Azure 리소스를 숙지 하는 것이 도움이 될 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
    - [구독](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
    - [리소스 그룹](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)

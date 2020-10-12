@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 배포 정보를 검색하�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677817"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배포 함수
@@ -15,7 +15,7 @@ ms.locfileid: "84677817"
 리소스 관리자는 ARM (Azure Resource Manager) 템플릿의 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
 
 * [배포가](#deployment)
-* [개발](#environment)
+* [environment](#environment)(환경)
 * [parameters](#parameters)
 * [variables](#variables)
 
@@ -115,7 +115,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 포털의 배포 기록에서 템플릿을 다시 배포하는 경우 템플릿은 로컬 파일로 배포됩니다. `templateLink` 속성은 배포 함수에 반환되지 않습니다. 템플릿이 `templateLink`를 사용하여 다른 템플릿과의 링크를 설정하는 경우 포털을 사용하여 다시 배포하지 마세요. 대신 처음에 템플릿을 배포하는 데 사용한 명령을 사용하세요.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json)에서는 배포 개체를 반환합니다.
 
@@ -158,7 +158,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 }
 ```
 
-## <a name="environment"></a>환경
+## <a name="environment"></a>environment
 
 `environment()`
 
@@ -202,7 +202,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 예제 템플릿에서는 환경 개체를 반환 합니다.
 
@@ -264,7 +264,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | Description |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | parameterName |예 |문자열 |반환할 매개 변수의 이름입니다. |
 
@@ -292,7 +292,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 ]
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)에서는 매개 변수 함수의 간소화된 사용을 보여줍니다.
 
@@ -351,7 +351,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
@@ -369,7 +369,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | variableName |예 |String |반환할 변수의 이름입니다. |
 
@@ -401,7 +401,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 ],
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)은 각기 다른 변수 값을 반환합니다.
 
@@ -443,7 +443,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | 배열 | [1, 2, 3, 4] |

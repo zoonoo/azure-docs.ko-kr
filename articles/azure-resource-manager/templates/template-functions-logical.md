@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 �
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677392"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대 한 논리 함수
@@ -28,7 +28,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
@@ -66,7 +66,7 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -80,7 +80,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
@@ -119,7 +119,7 @@ ms.locfileid: "84677392"
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -134,7 +134,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | condition(조건) |예 |boolean |True 인지 false 인지 확인 하는 값입니다. |
 | trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
@@ -177,10 +177,10 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
-| noOutput | String | no |
+| noOutput | String | 아니요 |
 | objectOutput | Object | { "test": "value1" } |
 
 다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
@@ -239,7 +239,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |변환할 값입니다. |
 
@@ -275,7 +275,7 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -300,7 +300,7 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -312,7 +312,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
@@ -350,7 +350,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

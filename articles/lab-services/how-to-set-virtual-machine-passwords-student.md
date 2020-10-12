@@ -4,10 +4,10 @@ description: Azure Lab Services의 교실 랩에서 가상 머신 (Vm)에 대 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d63d14da8859c12fa797a04fa9a3c3230219adab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445341"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>교실 랩의 가상 컴퓨터에 대 한 암호 설정 또는 다시 설정 (학생용)

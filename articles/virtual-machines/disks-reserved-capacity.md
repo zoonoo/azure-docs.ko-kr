@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752069"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용 하 여 비용 절감
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용하여 비용 절감
 
 예약 된 용량으로 Azure 디스크 저장소 사용량을 절약 하세요. Azure Reserved Virtual Machine Instances와 결합 된 Azure 디스크 저장소 예약을 사용 하면 총 VM (가상 머신) 비용을 낮출 수 있습니다. 예약 할인은 선택한 예약 범위에서 일치 하는 디스크에 자동으로 적용 됩니다. 이 자동 응용 프로그램 때문에 할인을 얻기 위해 예약을 관리 디스크에 할당할 필요가 없습니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "88752069"
 
 1. 다음 표에서 설명 하는 필수 값을 지정 합니다.
 
-   |요소  |Description  |
+   |요소  |설명  |
    |---------|---------|
    |**범위**   |  예약과 관련 된 청구 혜택을 사용할 수 있는 구독 수입니다. 또한이 값은 특정 구독에 예약이 적용 되는 방법을 지정 합니다. <br/><br/> **공유**를 선택 하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용 됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위에는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독이 포함 됩니다.  <br/><br/>  **단일 구독**을 선택 하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용 됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 선택한 구독의 Azure Storage 용량과 해당 구독의 선택 된 리소스 그룹에 예약 할인이 적용 됩니다. <br/><br/> 예약을 구매한 후 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약에 대해 지불 하는 데 사용 하는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다.<br/><ul><li> 기업계약 (제품 번호 MS-AZR-0017P-0017P 및 MS-AZR-0017P-Ms-azr-0148p). Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다.</li><br/><li>종 량 제 요금이 있는 개별 구독 (제품 번호 MS-AZR-0017P-0003P 및 MS-AZR-0017P-0023P). 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.</li></ul>    |
@@ -104,4 +104,4 @@ ms.locfileid: "88752069"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Azure Disk Storage에 예약 할인이 적용되는 방식 이해](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Azure 디스크 저장소에 예약 할인이 적용 되는 방식을 이해 합니다.](../cost-management-billing/reservations/understand-disk-reservations.md)

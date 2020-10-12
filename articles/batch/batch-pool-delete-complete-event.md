@@ -4,10 +4,10 @@ description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다. 이 �
 ms.topic: reference
 ms.date: 04/20/2017
 ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85962461"
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트

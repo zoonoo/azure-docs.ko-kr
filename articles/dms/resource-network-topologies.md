@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
 ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291574"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 Azure SQL Managed Instance 마이그레이션에 대 한 네트워크 토폴로지
@@ -29,7 +29,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 
 ![하이브리드 워크로드에 대한 네트워크 토폴로지](media/resource-network-topologies/hybrid-workloads.png)
 
-**요구 사항**
+**Requirements**
 
 - 이 시나리오에서는 SQL Managed Instance와 Azure Database Migration Service 인스턴스가 동일한 Microsoft Azure Virtual Network에서 만들어지지만 다른 서브넷을 사용 합니다.  
 - 이 시나리오에서 사용 되는 가상 네트워크는 [express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 네트워크에도 연결 됩니다.
@@ -44,7 +44,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 
 ![온-프레미스 네트워크에서 격리된 Managed Instance의 네트워크 토폴로지](media/resource-network-topologies/mi-isolated-workload.png)
 
-**요구 사항**
+**Requirements**
 
 - 이 시나리오에 사용 하 Azure Database Migration Service는 가상 네트워크는 (또는 VPN)를 사용 하 여 온-프레미스 네트워크에도 연결 해야 합니다 https://docs.microsoft.com/azure/expressroute/expressroute-introduction) . [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - SQL Managed Instance 및 Azure Database Migration Service에 사용 되는 가상 네트워크 간에 [VNet 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 합니다.
@@ -55,7 +55,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 
 ![공유 VNet을 사용 하 여 클라우드-클라우드 마이그레이션에 대 한 네트워크 토폴로지](media/resource-network-topologies/cloud-to-cloud.png)
 
-**요구 사항**
+**Requirements**
 
 - 추가 요구 사항 없음
 
@@ -69,7 +69,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 
 ![Isolated VNet을 사용 하 여 클라우드-클라우드 마이그레이션에 대 한 네트워크 토폴로지](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
-**요구 사항**
+**Requirements**
 
 - SQL Managed Instance 및 Azure Database Migration Service에 사용 되는 가상 네트워크 간에 [VNet 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 합니다.
 
@@ -90,7 +90,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 | SMB 공유                 | 445                                                   | TCP          | 모두        | 온-프레미스 주소 공간 | 허용      | Azure SQL Database MI 및 Azure VM의 SQL Server로 마이그레이션할 데이터베이스 백업 파일을 저장하는 DMS용 SMB 네트워크 공유 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.) |
 | DMS_subnet                | 모두                                                   | 모두          | 모두        | DMS_Subnet                | 허용      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [SQL Managed Instance SQL Server 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](https://docs.microsoft.com/azure/dms/pre-reqs)

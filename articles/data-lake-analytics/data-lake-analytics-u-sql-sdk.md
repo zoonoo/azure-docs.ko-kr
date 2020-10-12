@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132418"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
@@ -35,7 +35,7 @@ Data Lake U-SQL SDK에는 다음과 같은 종속성이 필요합니다.
 
     ![Data Lake Tools for Visual Studio의 Windows 10 SDK 로컬 실행](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지 된 Visual C++ 및 Windows SDK 파일을 찾을 수 있습니다.`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지 된 Visual C++ 및 Windows SDK 파일을 찾을 수 있습니다. `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     이 경우 U-SQL 로컬 컴파일러는 이러한 종속성을 자동으로 찾을 수 없습니다. 이에 대한 CppSDK 경로를 지정해야 합니다. 파일을 다른 위치로 복사하거나 그대로 사용할 수 있습니다.
 
@@ -64,7 +64,7 @@ U-SQL 스크립트의 상대 경로 및 로컬 절대 경로를 사용할 수 �
 
 U-SQL 스크립트를 로컬로 실행하면 컴파일 중에 현재 실행 중인 디렉터리 아래에 작업 디렉터리가 만들어집니다. 컴파일 결과 외에도 로컬 실행에 필요한 런타임 파일이 이 작업 디렉터리에 섀도 복사됩니다. 작업 디렉터리 루트 폴더를 "ScopeWorkDir"이라고 하고 작업 디렉터리 아래의 파일은 다음과 같습니다.
 
-|디렉터리/파일|디렉터리/파일|디렉터리/파일|정의|설명|
+|디렉터리/파일|디렉터리/파일|디렉터리/파일|정의|Description|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |런타임 버전의 해시 문자열|로컬 실행에 필요한 런타임 파일의 섀도 복사본|
 | |Script_66AE4909AA0ED06C| |스크립트 이름 + 스크립트 경로의 해시 문자열|컴파일 출력 및 실행 단계 로깅|
@@ -143,15 +143,15 @@ LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 
 |인수|기본값|설명|
 |--------|-------------|-----------|
-|-CodeBehind|거짓|스크립트에는 .cs 코드 숨김이 있습니다.|
+|-CodeBehind|False|스크립트에는 .cs 코드 숨김이 있습니다.|
 |-CppSDK| |CppSDK 디렉터리입니다.|
 |-DataRoot| DataRoot 환경 변수|로컬 실행을 위한 데이터 루트이며, 기본값은 'LOCALRUN_DATAROOT' 환경 변수입니다.|
 |-MessageOut| |콘솔의 메시지를 파일에 덤프합니다.|
 |-Parallel|1|지정된 병렬 처리로 계획을 실행합니다.|
 |-References| |';'(세미콜론)으로 구분된 코드 참조의 추가 참조 어셈블리 또는 데이터 파일의 경로 목록입니다.|
-|-UdoRedirect|거짓|Udo 어셈블리 리디렉션 구성을 생성합니다.|
+|-UdoRedirect|False|Udo 어셈블리 리디렉션 구성을 생성합니다.|
 |-UseDatabase|master|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
-|-Verbose|거짓|런타임의 자세한 출력을 표시합니다.|
+|-Verbose|False|런타임의 자세한 출력을 표시합니다.|
 |-WorkDir|현재 디렉터리|컴파일러 사용 및 출력을 위한 디렉터리입니다.|
 |-RunScopeCEP|0|사용할 ScopeCEP 모드입니다.|
 |-ScopeCEPTempPath|temp|데이터 스트리밍에 사용할 임시 경로입니다.|
@@ -331,7 +331,7 @@ LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래�
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|매개 변수|Type|설명|
+|매개 변수|형식|설명|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|출력 메시지의 경우 콘솔을 사용하도록 null로 설정|
 
@@ -360,9 +360,9 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |UseDataBase|문자열|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스를 지정합니다. 기본값은 master입니다.|
 |WorkDir|문자열|기본 설정 작업 디렉터리입니다.|
 
-### <a name="method"></a>메서드
+### <a name="method"></a>방법
 
-|메서드|설명|반환 값|매개 변수|
+|방법|설명|반환 값|매개 변수|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL 스크립트를 컴파일합니다.|성공 시 True입니다.| |
 |public bool DoExec()|컴파일된 결과를 실행합니다.|성공 시 True입니다.| |

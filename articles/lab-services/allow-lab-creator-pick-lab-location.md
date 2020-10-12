@@ -4,10 +4,10 @@ description: 이 문서에서는 랩 계정 관리자가 랩 작성자가 랩의
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444202"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>랩 작성자가 Azure Lab Services에서 랩의 위치를 선택 하도록 허용
@@ -57,7 +57,7 @@ Azure Lab Services 랩 계정 소유자는 랩 작성자 (교육자)가 만든 �
 
 ![사용할 수 없는 위치 표시](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 이전에는 랩에 대해 선택한 VM 크기를 기준으로 가격 책정을 사용 했습니다. 이제 가격은 OS (운영 체제), 크기 및 위치의 조합을 기반으로 합니다. 
 
 ## <a name="next-steps"></a>다음 단계

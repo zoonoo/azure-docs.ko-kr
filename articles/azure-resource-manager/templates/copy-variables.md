@@ -4,10 +4,10 @@ description: 변수를 만들 때 Azure Resource Manager 템플릿에서 복사 
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84678446"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>ARM 템플릿의 변수 반복
@@ -16,7 +16,7 @@ ms.locfileid: "84678446"
 
 [리소스](copy-resources.md), [리소스의 속성](copy-properties.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -314,7 +314,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 
 다음 예에서는 변수에 대 한 값을 두 개 이상 만드는 일반적인 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |변수를 반복하는 다양한 방법을 보여 줍니다. |
 |[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |

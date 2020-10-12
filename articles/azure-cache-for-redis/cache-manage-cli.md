@@ -8,10 +8,10 @@ ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500507"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
@@ -50,9 +50,9 @@ Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용
 | 분할된 데이터베이스 수 |-r, --shard-count |클러스터링을 사용하는 프리미엄 클러스터 캐시에서 만드는 분할된 데이터베이스 수입니다. |
 | Virtual Network |-v, --virtual-network |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 키 유형 |-t, --key-type |갱신하는 키의 유형입니다. 유효한 값: [주, 보조] |
-| StaticIP |-p,--고정-ip\<static-ip\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
+| StaticIP |-p,--고정-ip \<static-ip\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
 | 서브넷 |t, --subnet \<subnet\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
-| VirtualNetwork |-v,--virtual-네트워크\<virtual-network\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v,--virtual-네트워크 \<virtual-network\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |구독 식별자입니다. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>모든 Azure Cache for Redis 명령 보기

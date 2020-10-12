@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
 ms.openlocfilehash: d6bcb5485833fbfaa3eb72191ee54b1ee69bab04
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82594298"
 ---
 # <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Windows ML을 통해 Custom Vision에서 ONNX 모델 사용(미리 보기)
@@ -23,7 +23,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 이 가이드에서는 Windows ML을 사용 하 여 Custom Vision Service에서 내보낸 ONNX 파일을 사용 하는 방법을 알아봅니다. 예제 UWP 응용 프로그램을 학습 된 이미지 분류자와 함께 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 10 버전 1809 이상
 * 빌드 17763 이상용 Windows SDK
@@ -55,7 +55,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 1. 솔루션 탐색기에서 ONNX 파일을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. 파일의 다음 속성을 변경합니다.
    * __빌드 작업__ -> __콘텐츠__
    * __출력 디렉터리로 복사__ -> __변경된 내용만 복사__
-1. 그런 다음 _MainPage.xaml.cs_ 를 열고의 `_ourOnnxFileName` 값을 onnx 파일의 이름으로 변경 합니다.
+1. 그런 다음 _MainPage.xaml.cs_ 를 열고의 값 `_ourOnnxFileName` 을 onnx 파일의 이름으로 변경 합니다.
 1. 를 사용 `F5` 하 여 프로젝트를 빌드하고 실행 합니다.
 1. 단추를 클릭하여 평가할 이미지를 선택합니다.
 

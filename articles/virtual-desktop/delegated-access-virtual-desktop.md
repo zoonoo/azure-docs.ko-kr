@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2aa2c74704cf89c082d2837b39e82902efa0a62
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010058"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
@@ -29,7 +29,7 @@ Windows 가상 데스크톱 위임 된 액세스는 역할 할당의 각 요소�
 * 역할 정의
     * 기본 제공 역할
     * 사용자 지정 역할
-* Scope
+* 범위
     * 호스트 풀
     * 앱 그룹
     * 작업 영역

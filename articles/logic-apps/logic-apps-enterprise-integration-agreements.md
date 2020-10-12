@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82612336"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 업체 규약 만들기 및 관리
@@ -28,7 +28,7 @@ ms.locfileid: "82612336"
 
 RosettaNet 메시지 교환에 대 한 규약을 만들려면 [Exchange RosettaNet 메시지](../logic-apps/logic-apps-enterprise-integration-rosettanet.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -57,7 +57,7 @@ Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에
 
    !["추가" 선택](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **이름** | 예 | <*계약 이름*> | 규약의 이름 |
    | **계약 유형** | 예 | **AS2**, **X12**또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  

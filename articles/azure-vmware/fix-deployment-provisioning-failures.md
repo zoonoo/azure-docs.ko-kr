@@ -4,10 +4,10 @@ description: Azure vmware 솔루션 사설 클라우드에서 필요한 정보�
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752228"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Azure VMware 솔루션 배포 또는 프로 비전 오류에 대 한 도움말 보기
@@ -37,7 +37,7 @@ ms.locfileid: "88752228"
 
 오류에 대 한 세부 정보는 문제를 해결 하는 데 도움이 될 수도 있습니다. 위의 화면에서 **세부 정보를 보려면 여기를 클릭** 하십시오 (강조 표시 됨)를 선택 하 고 다음 스크린샷에 표시 된 것 처럼 오류 요약이 열립니다.
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="오류 요약":::
+ :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="상관 관계 ID를 사용 하 여 사설 클라우드를 배포 하지 못했습니다.":::
 
 이 요약을 다시 복사 하 고 저장 하 여 SR에 포함 합니다.
  
@@ -45,15 +45,15 @@ ms.locfileid: "88752228"
 
 알림 아이콘을 선택 하 여 액세스 한 배포 활동 로그에서 검색 하 여 실패 한 배포를 비롯 한 이전 배포를 검색할 수 있습니다.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="알림을 엽니다.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="상관 관계 ID를 사용 하 여 사설 클라우드를 배포 하지 못했습니다.":::
 
 알림에서 **활동 로그의 더 많은 이벤트**를 선택 합니다.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Link: 활동 로그에 더 많은 이벤트가 있습니다.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="상관 관계 ID를 사용 하 여 사설 클라우드를 배포 하지 못했습니다.":::
 
 그런 다음 리소스 이름 또는 리소스를 만드는 데 사용한 다른 고유한 정보를 검색 하 여 실패 한 배포와 해당 상관 관계 ID를 찾습니다. 다음 예제에서는 사설 클라우드 리소스 (pc03)에 대 한 검색 결과를 보여 줍니다.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="실패 한 이전 Azure VMware 솔루션 배포를 찾습니다.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="상관 관계 ID를 사용 하 여 사설 클라우드를 배포 하지 못했습니다.":::
  
 실패 한 배포의 작업 이름을 선택 하면 세부 정보가 포함 된 창이 열립니다. JSON 탭을 선택 하 고 correlationId를 찾습니다. 를 복사 하 여 SR에 포함 합니다. 
  
@@ -63,7 +63,7 @@ ms.locfileid: "88752228"
 
 포털에서 사설 클라우드를 볼 때 **연결 > express** 경로를 선택 하 고 **express 경로 ID** 를 클립보드에 복사 합니다.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Express 경로 ID를 클립보드로 복사 합니다."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="상관 관계 ID를 사용 하 여 사설 클라우드를 배포 하지 못했습니다."::: 
  
 새 지원 요청의 해당 필드에 Express 경로 ID를 붙여 넣습니다. 자세한 내용은 다음 섹션의 [지원 요청 만들기](#create-your-support-request)섹션을 참조 하세요.
  
@@ -78,7 +78,7 @@ Azure VMware 솔루션 배포 또는 프로 비전 실패를 위한 SR 만들기
 
 1. **도움말** 아이콘을 선택 하 고 **+ 새 지원 요청**을 선택 합니다.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="SR의 Express 경로 ID를 수집 합니다.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="상관 관계 ID를 사용 하 여 사설 클라우드를 배포 하지 못했습니다.":::
 
 2. 모든 필수 필드를 입력 하 고 **기본 사항** 탭에서 다음을 수행 합니다.
 

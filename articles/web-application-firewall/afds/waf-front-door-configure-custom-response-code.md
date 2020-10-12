@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005602"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Azure WAF (웹 응용 프로그램 방화벽)에 대 한 사용자 지정 응답 구성
@@ -23,11 +23,13 @@ ms.locfileid: "87005602"
 
 WAF 포털의 "정책 설정" 아래에서 사용자 지정 응답 상태 코드 및 본문을 구성할 수 있습니다.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="WAF 정책 설정":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="WAF 정책 설정&quot;:::
 
-위의 예제에서 응답 코드를 403으로 유지 하 고 아래 이미지에 나와 있는 것 처럼 짧은 "문의처" 메시지를 구성 했습니다.
+위의 예제에서 응답 코드를 403으로 유지 하 고 아래 이미지에 나와 있는 것 처럼 짧은 &quot;문의처" 메시지를 구성 했습니다.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="사용자 지정 응답 예제":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="WAF 정책 설정&quot;:::
+
+위의 예제에서 응답 코드를 403으로 유지 하 고 아래 이미지에 나와 있는 것 처럼 짧은 &quot;문의처":::
 
 "{{azure-ref}}"는 응답 본문에 고유한 참조 문자열을 삽입 합니다. 값은 및 로그의 TrackingReference 필드와 일치 합니다 `FrontdoorAccessLog` `FrontdoorWebApplicationFirewallLog` .
 

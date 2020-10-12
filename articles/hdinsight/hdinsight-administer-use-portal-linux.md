@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598501"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
@@ -21,15 +21,15 @@ ms.locfileid: "82598501"
 
 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
-## <a name="list-and-show-clusters"></a><a name="showClusters"></a>클러스터 나열 및 표시
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> 클러스터 나열 및 표시
 
 **HDInsight 클러스터** 페이지에는 기존 클러스터가 나열됩니다.  포털에서 다음을 수행합니다.
 1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
@@ -43,10 +43,10 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
 **상단 메뉴:**  
 
-| 항목| Description |
+| 항목| 설명 |
 |---|---|
 |이동|클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.|
-|삭제|클러스터를 삭제합니다. |
+|DELETE|클러스터를 삭제합니다. |
 |새로 고침|뷰를 새로 고칩니다.|
 
 **왼쪽 메뉴:**  
@@ -65,7 +65,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **설정 메뉴**  
 
-    | 항목| Description |
+    | 항목| 설명 |
     |---|---|
     |클러스터 크기|클러스터 작업자 노드의 수를 확인하고, 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)을 참조하세요.|
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
@@ -82,7 +82,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **모니터링 메뉴**
 
-    | 항목| Description |
+    | 항목| 설명 |
     |---|---|
     |경고|경고와 작업을 관리합니다.|
     |메트릭|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
@@ -91,16 +91,16 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **지원 + 문제 해결 메뉴**
 
-    | 항목| Description |
+    | 항목| 설명 |
     |---|---|
     |리소스 상태|[Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.|
     |새 지원 요청|Microsoft 지원에 지원 티켓을 만들 수 있습니다.|
 
-## <a name="cluster-properties"></a><a name="properties"></a>클러스터 속성
+## <a name="cluster-properties"></a><a name="properties"></a> 클러스터 속성
 
 [클러스터 홈 페이지](#homePage)에 있는 **설정**에서 **속성**을 선택합니다.
 
-|항목 | Description |
+|항목 | 설명 |
 |---|---|
 |N|클러스터 이름입니다.|
 |클러스터 URL|Ambari 웹 인터페이스에 대한 URL입니다.|
@@ -228,7 +228,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
    | 필드 | 값 |
    | --- | --- |
    | 스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
-   | Name |"Ssh 자격 증명 변경" |
+   | 속성 |"Ssh 자격 증명 변경" |
    | Bash 스크립트 URI |Changecredentials.sh 파일에 대 한 URI입니다. |
    | 노드 유형: (헤드, 작업자, Nimbus, 감독자 또는 사육 사) |나열된 모든 노드 형식에 대한 ✓ |
    | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. |
@@ -266,7 +266,7 @@ HDInsight 클러스터는 Azure Storage 계정 또는 Azure Data Lake Storage를
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 몇 가지 기본 관리 기능을 배웠습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 몇 가지 기본 관리 기능을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 - [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
