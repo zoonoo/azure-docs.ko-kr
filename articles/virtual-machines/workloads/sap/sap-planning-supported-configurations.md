@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88648992"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
@@ -102,7 +102,7 @@ Azure Vm의 경우 다음과 같은 고가용성 구성이 DBMS 수준에서 지
 - SUSE 및 Red Hat의 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 를 사용 하 여 n + m 구성 SAP HANA 확장 합니다. 세부 정보는 다음 문서에 나와 있습니다.
     - [SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포](./sap-hana-scale-out-standby-netapp-files-suse.md)
     - [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포](./sap-hana-scale-out-standby-netapp-files-rhel.md)
-- Windows 스케일 아웃 파일 서비스를 기반으로 장애 조치 (Failover) 클러스터를 SQL Server 합니다. 프로덕션 시스템에 대 한 권장 사항은 클러스터링 대신 SQL Server Always On를 사용 하는 것입니다. SQL Server Always On 별도의 저장소를 사용 하 여 더 나은 가용성을 제공 합니다. 세부 정보는이 문서에 설명 되어 있습니다. 
+- Windows Scale-Out 파일 서비스에 따라 장애 조치 (Failover) 클러스터를 SQL Server 합니다. 프로덕션 시스템에 대 한 권장 사항은 클러스터링 대신 SQL Server Always On를 사용 하는 것입니다. SQL Server Always On 별도의 저장소를 사용 하 여 더 나은 가용성을 제공 합니다. 세부 정보는이 문서에 설명 되어 있습니다. 
     - [Azure 가상 머신에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 - SQL Server Always On는 Azure의 SQL Server에 대 한 Windows 운영 체제에서 지원 됩니다. Azure의 프로덕션 SQL Server 인스턴스에 대 한 기본 권장 사항입니다. 자세한 내용은 다음 문서에서 설명 합니다.
     - [Azure Virtual Machines의 SQL Server Always On 가용성 그룹 소개](../../../azure-sql/virtual-machines/windows/availability-group-overview.md)

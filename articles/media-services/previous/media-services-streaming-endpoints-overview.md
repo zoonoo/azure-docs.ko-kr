@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265918"
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 엔드포인트 개요  
@@ -79,7 +79,7 @@ Media Services 1 월 2017 릴리스부터 **표준** (미리 보기) 및 **프�
 
 |유형|StreamingEndpointVersion|ScaleUnits|CDN|결제|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Classic|1.0|0|해당 없음|Free|
+|Classic|1.0|0|해당 없음|무료|
 |표준 스트리밍 끝점 (미리 보기)|2.0|0|예|유료|
 |프리미엄 스트리밍 단위|1.0|>0|예|유료|
 |프리미엄 스트리밍 단위|2.0|>0|예|유료|

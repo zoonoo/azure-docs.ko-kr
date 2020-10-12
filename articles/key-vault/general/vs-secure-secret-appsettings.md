@@ -1,5 +1,5 @@
 ---
-title: 웹 애플리케이션의 애플리케이션 비밀 설정을 안전하게 저장 - Azure Key Vault | Microsoft Docs
+title: 웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장 - Azure Key Vault | Microsoft Docs
 description: ASP.NET Core Key Vault Provider, 사용자 비밀 또는 .NET 4.7.1을 사용하여 Azure 자격 증명 또는 타사 API와 같은 비밀 애플리케이션 설정을 안전하게 저장하는 방법
 services: visualstudio
 author: cawaMS
@@ -12,29 +12,29 @@ ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 79fa01e53b53f3066e55736c105d6489ccbd96e7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019847"
 ---
-# <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 애플리케이션 비밀 설정을 안전하게 저장
+# <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure 애플리케이션의 비밀 애플리케이션 구성 설정을 안전하게 저장하는 방법에 대해 설명합니다.
+이 문서에서는 Azure 애플리케이션의 보안 애플리케이션 구성 설정을 안전하게 저장하는 방법에 대해 설명합니다.
 
-일반적으로 모든 웹 응용 프로그램 구성 설정은 Web.config와 같은 구성 파일에 저장 됩니다. 이 연습에서는 클라우드 자격 증명과 같은 비밀 설정을 GitHub와 같은 공용 소스 제어 시스템에 체크인합니다. 한편 소스 코드를 변경하고 개발 설정을 재구성하는데 필요한 오버헤드로 인해 보안 모범 사례를 따르기 어려울 수 있습니다.
+일반적으로 모든 웹 응용 프로그램 구성 설정은 Web.config와 같은 구성 파일에 저장 됩니다. 이 연습에서는 GitHub와 같은 공용 소스 제어 시스템에 대 한 클라우드 자격 증명과 같은 비밀 설정을 체크 인 합니다. 한편 소스 코드를 변경하고 개발 설정을 재구성하는 데 필요한 오버헤드로 인해 보안 모범 사례를 따르기 어려울 수 있습니다.
 
-개발 프로세스를 안전하게 유지하기 위해, 최소한의 코드 수정만으로 어플리케이션 비밀 구성 설정을 지킬 수 있는 도구 및 프레임워크 라이브러리들이 준비되어 있습니다.
+개발 프로세스를 안전 하 게 유지 하기 위해 도구 및 프레임 워크 라이브러리는 소스 코드를 변경 하거나 최소한으로 변경 하 여 응용 프로그램 비밀 설정을 안전 하 게 저장 하기 위해 만들어집니다.
 
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 및 .NET Core 응용 프로그램
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>소스 제어 폴더 외부의 사용자 비밀 저장소에 비밀 설정 저장
-빠른 프로토타이핑을 수행 중이거나 인터넷에 액세스할 수 없는 경우, 비밀 세팅을 소스 제어 폴더 외부의 사용자 비밀 저장소로 이동하는 것부터 시작합니다. 사용자 비밀 저장소는 사용자 프로필 폴더 아래에 저장된 파일이므로 비밀이 소스 제어로 체크인되지 않습니다. 다음 다이어그램은 [사용자 비밀](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)의 작동 원리를 보여줍니다.
+빠른 프로토타입을 수행 중이거나 인터넷에 액세스할 수 없는 경우 소스 제어 폴더 외부의 비밀 설정을 User Secret 저장소로 이동하는 것부터 시작합니다. 사용자 비밀 저장소는 사용자 프로필 폴더 아래에 저장된 파일이므로 비밀이 소스 제어로 체크 인되지 않습니다. 다음 다이어그램은 [사용자 비밀](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)의 작동 원리를 보여줍니다.
 
 ![사용자 비밀은 비밀 설정을 소스 컨트롤 외부에 유지합니다.](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
-.NET Core 콘솔 애플리케이션을 실행하는 경우 Key Vault를 사용하여 비밀을 안전하게 저장하세요.
+.NET Core 콘솔 애플리케이션을 실행하는 경우 Key Vault를 사용하여 비밀을 안전하게 저장합니다.
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Azure Key Vault에 비밀 설정 저장
 프로젝트를 개발하면서 소스 코드를 안전하게 공유해야 하는 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용합니다.

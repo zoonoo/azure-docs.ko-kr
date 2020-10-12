@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317364"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
@@ -78,7 +78,7 @@ VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하�
 
 VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 앞 섹션에서 정의된 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
 
-- 구독에 대 한 공동 관리자입니다. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
+- 구독에 대 한 Co-Administrator입니다. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
 - [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](manage-runas-account.md#permissions)을 참조하세요.
 - 구독에 대한 기여자 또는 다음과 같은 권한.
 

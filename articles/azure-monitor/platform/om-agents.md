@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318354"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
@@ -33,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](./gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -163,7 +163,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 연결이 생성 되 고 로그 데이터를 수집 하 고 보고 하는 에이전트를 구성 하 고 Azure Monitor 다음 구성이 관리 그룹에 적용 되며 반드시 순서 대로 적용 되는 것은 아닙니다.
 
 * 실행 계정 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 가 만들어집니다. 이 계정은 실행 프로필 **Microsoft System Center Advisor Run As Profile Blob**과 연결되고 두 개의 클래스 **수집 서버** 및 **Operations Manager 관리 그룹**을 대상으로 합니다.
-* 두 개의 커넥터가 생성됩니다.  첫 번째는 이름이 **temCenter로Microsoft.Sys** 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor으로 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
+* 두 개의 커넥터가 생성됩니다.  첫 번째는 이름이 ** temCenter로Microsoft.Sys** 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor으로 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
 * 관리 그룹에서 데이터를 수집하도록 선택한 에이전트 및 그룹은 **Microsoft System Center Advisor 모니터링 서버 그룹**에 추가됩니다.
 
 ## <a name="management-pack-updates"></a>관리 팩 업데이트

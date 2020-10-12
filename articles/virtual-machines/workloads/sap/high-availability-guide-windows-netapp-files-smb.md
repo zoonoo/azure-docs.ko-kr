@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88853105"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
@@ -143,7 +143,7 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>첫 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
 
-1. 첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > 고가용성 시스템 > ascs/SCS 인스턴스 > 첫 번째 클러스터 노드로 이동 합니다.  
+1. 첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > High-Availability System > ascs/SCS 인스턴스 > 첫 번째 클러스터 노드로 이동 합니다.  
 
 2. SWPM에서 클러스터 공유 구성으로 **파일 공유 클러스터** 를 선택 합니다.  
 3. **SAP 시스템 클러스터 매개 변수**단계에서 메시지가 표시 되 면 **파일 공유 호스트 이름**으로 이미 만든 Azure NetApp Files SMB 공유의 호스트 이름을 입력 합니다.  이 예제에서 SMB 공유 호스트 이름은 **anfsmb-9562**입니다. 
@@ -158,7 +158,7 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>두 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
 
-1. 두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > 고가용성 시스템 > ascs/SCS 인스턴스 > 추가 클러스터 노드로 이동 합니다.  
+1. 두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > High-Availability System > ascs/SCS 인스턴스 > 추가 클러스터 노드로 이동 합니다.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 

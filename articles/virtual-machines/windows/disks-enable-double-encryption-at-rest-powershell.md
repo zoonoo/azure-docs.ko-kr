@@ -9,10 +9,10 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 6cb0bf9ae12169f9431cf221431f442b5870d932
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816510"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure PowerShell 모듈을 사용 하 여 관리 디스크에 대 한 미사용 암호화를 사용 하도록 설정 합니다.
@@ -23,11 +23,11 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치 하 고 [AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0)을 사용 하 여 Azure 계정에 로그인 합니다.
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 1. Azure Key Vault 및 암호화 키의 인스턴스를 만듭니다.
 

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140720"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple 사설 클라우드 개요
@@ -45,7 +45,7 @@ CloudSimple은 인프라와 필요한 모든 네트워킹 및 관리 서비스�
 * 비즈니스 가치
 * 애플리케이션 프로비저닝
 * 비즈니스 연속성
-* 고객 지원팀
+* 지원
 * 정책 적용
 
 ## <a name="private-cloud-environment-overview"></a>사설 클라우드 환경 개요

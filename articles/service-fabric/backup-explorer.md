@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: atsenthi
 ms.openlocfilehash: 1da70c37c8a6ed93e7abe1b5d329e808c592e43a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86034985"
 ---
 # <a name="read-and-update-a-reliable-collections-backup-by-using-backup-explorer"></a>Backup 탐색기를 사용 하 여 신뢰할 수 있는 컬렉션 백업 읽기 및 업데이트

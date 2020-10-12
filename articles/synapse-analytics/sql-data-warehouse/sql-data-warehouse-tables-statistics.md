@@ -11,11 +11,11 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 914c3128805c9875249bb1998fcdb6e456e73b16
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799318"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 통계
@@ -70,7 +70,7 @@ SET AUTO_CREATE_STATISTICS ON
 체감될 정도의 성능 저하를 방지하려면 시스템을 프로파일링하기 전에 벤치마크 워크로드를 실행하여 통계가 생성되도록 해야 합니다.
 
 > [!NOTE]
-> 통계 만들기는 다른 사용자 컨텍스트에서 [dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 에 기록 됩니다.
+> 통계 만들기는 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 에 기록 됩니다.
 
 자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 실행 하 여 이미 생성 된 통계를 볼 수 있습니다.
 
@@ -149,9 +149,6 @@ left join
 on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
-
->[!TIP]
-> Synapse SQL의 성능 향상을 위해 영구 사용자 테이블에서 **pdw_table_mappings** 대신 **pdw_permanent_table_mappings** 를 사용 하는 것이 좋습니다. 자세한 내용은 **[pdw_permanent_table_mappings &#40;transact-sql&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** 을 참조 하십시오.
 
 **쿼리 2:** 각 테이블에서 통계가 마지막으로 업데이트 된 시간을 확인 하 여 통계 기간을 확인 합니다. 
 

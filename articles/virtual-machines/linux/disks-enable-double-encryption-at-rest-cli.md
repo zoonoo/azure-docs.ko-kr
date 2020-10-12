@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 76e5ab49e354faac085be533fed1ff16c0315a5e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816833"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure CLI를 사용 하 여 관리 디스크에 대 한 미사용 암호화를 사용 하도록 설정 합니다.
@@ -23,11 +23,11 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 최신 [Azure CLI](/cli/azure/install-az-cli2) 를 설치 하 고 [az login](/cli/azure/reference-index)을 사용 하 여 Azure 계정에 로그인 합니다.
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 1. Azure Key Vault 및 암호화 키의 인스턴스를 만듭니다.
 

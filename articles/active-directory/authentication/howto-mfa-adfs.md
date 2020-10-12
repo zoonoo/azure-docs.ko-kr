@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531244"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
@@ -97,4 +97,4 @@ ms.locfileid: "91531244"
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP**에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택합니다.  
 5. **저장**을 클릭합니다.
 
-이것으로 끝입니다. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.
+간단하죠. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.

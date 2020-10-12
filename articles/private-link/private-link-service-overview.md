@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760953"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
@@ -91,7 +91,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 - GUID는 플랫폼에서 제공 됩니다. 이렇게 하면 이름을 전역적으로 고유 하 게 만들 수 있습니다. 
 - Azure: privatelinkservice에서 접미사를 추가 *합니다.* 
 
-전체 별칭: *접두사*입니다. {GUID}. *region*privatelinkservice  
+전체 별칭:  *접두사*입니다. {GUID}. *region*privatelinkservice  
 
 ## <a name="control-service-exposure"></a>제어 서비스 노출
 
@@ -113,7 +113,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 
 |필드 |길이 (8 진수)  |설명  |
 |---------|---------|----------|
-|형식  |1        |PP2_TYPE_AZURE (0xEE)|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
 |길이  |2      |값의 길이|
 |값  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 바이트)-개인 끝점의 LINKID을 나타냅니다. Little endian 형식으로 인코딩됩니다.|

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
 ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440561"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
@@ -173,7 +173,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 다음 표에서는 Windows 방화벽에 대한 인바운드 포트 요구 사항을 제공합니다.
 
-| 인바운드 포트 | Description                              |
+| 인바운드 포트 | 설명                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 

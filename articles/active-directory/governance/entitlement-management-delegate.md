@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979872"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
@@ -92,7 +92,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| 작업 | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
+| Task | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |

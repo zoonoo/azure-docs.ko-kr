@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ff56654981ef69648b1fa7ad11a8681c887289f6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816969"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure CLI를 사용 하 여 호스트에서 암호화를 사용 하 여 종단 간 암호화를 사용 하도록 설정 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "88816969"
 
 VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. 프로그래밍 방식으로 검색 하는 방법에 대 한 자세한 내용은 [지원 되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 Id를 사용 하 여에 전자 메일을 보내 encryptionAtHost@microsoft.com 구독에 대해 사용 하도록 설정 된 기능을 가져옵니다.
 
@@ -43,7 +43,7 @@ VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. 프로그�
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>고객이 관리 하는 키를 사용 하 여 호스트에서 암호화를 사용 하 여 VM을 만듭니다. 
 

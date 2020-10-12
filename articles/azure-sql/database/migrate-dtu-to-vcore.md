@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
 ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333157"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 Azure SQL Database 마이그레이션
@@ -94,7 +94,7 @@ FROM dtu_vcore_map;
 Vcores (논리 Cpu) 수와 하드웨어 생성 외에도 몇 가지 다른 요인이 Vcores 서비스 목표의 선택에 영향을 줄 수 있습니다.
 
 - 매핑 T-sql 쿼리는 CPU 용량 측면에서 DTU 및 vCore 서비스 목적과 일치 하므로 CPU 바인딩된 작업에 대 한 결과는 더 정확 합니다.
-- 동일한 하드웨어 생성과 동일한 수의 Vcores에 대해, Vcores 데이터베이스에 대 한 IOPS 및 트랜잭션 로그 처리량 리소스 제한은 DTU 데이터베이스 보다 높습니다. IO 바운드 워크 로드의 경우 동일한 수준의 성능을 얻기 위해 Vcores 모델에서 vCores 수를 낮출 수 있습니다. DTU 및 vCore 데이터베이스에 대 한 리소스 한도 (절대값)는 [dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에서 제공 됩니다. 마이그레이션할 DTU 데이터베이스와 약 일치 하는 서비스 목표를 사용 하는 vCore 데이터베이스 간에 이러한 값을 비교 하면 vCore 서비스 목표를 보다 정확 하 게 선택할 수 있습니다.
+- 동일한 하드웨어 생성과 동일한 수의 Vcores에 대해, Vcores 데이터베이스에 대 한 IOPS 및 트랜잭션 로그 처리량 리소스 제한은 DTU 데이터베이스 보다 높습니다. IO 바운드 워크 로드의 경우 동일한 수준의 성능을 얻기 위해 Vcores 모델에서 vCores 수를 낮출 수 있습니다. DTU 및 vCore 데이터베이스에 대 한 리소스 제한은 절대 값으로 [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에 표시 됩니다. 마이그레이션할 DTU 데이터베이스와 약 일치 하는 서비스 목표를 사용 하는 vCore 데이터베이스 간에 이러한 값을 비교 하면 vCore 서비스 목표를 보다 정확 하 게 선택할 수 있습니다.
 - 또한 매핑 쿼리는 마이그레이션할 DTU 데이터베이스 또는 탄력적 풀에 대 한 코어 당 메모리 양과 vCore 모델의 각 하드웨어 생성을 반환 합니다. VCore로 마이그레이션한 후에도 전체 메모리를 더 많이 또는 더 높게 유지 하는 것은 충분 한 성능을 얻기 위해 큰 메모리 데이터 캐시가 필요한 작업 또는 쿼리 처리를 위한 큰 메모리 부여가 필요한 워크 로드에 중요 합니다. 이러한 워크 로드의 경우 실제 성능에 따라 충분 한 총 메모리를 얻기 위해 vCores 수를 늘려야 할 수 있습니다.
 - VCore 서비스 목표를 선택할 때 DTU 데이터베이스의 [과거 리소스 사용률](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 을 고려해 야 합니다. 일관 되 게 사용 되는 CPU 리소스를 사용 하는 DTU 데이터베이스는 매핑 쿼리에서 반환 된 수보다 많은 vCores가 필요할 수 있습니다. 반대로, 지속적으로 높은 CPU 사용률이 있는 DTU 데이터베이스는 쿼리에 의해 반환 되는 것 보다 더 많은 vCores가 필요할 수 있습니다.
 - 간헐적 이거나 예측할 수 없는 사용 패턴을 사용 하 여 데이터베이스를 마이그레이션하는 경우 [서버](serverless-tier-overview.md) 리스 계산 계층을 사용 하는 것이 좋습니다.  서버를 사용 하지 않는 동시 작업자 (요청)의 최대 수는 구성 된 동일한 수의 최대 vcore 수에 대해 프로 비전 된 계산의 한도를 75%입니다.  또한 서버 리스에서 사용할 수 있는 최대 메모리는 구성 된 최대 vcore 수의 3 GB입니다. 예를 들어 최대 메모리는 40 최대 vcore 구성 될 때 120 GB입니다.   
@@ -167,10 +167,10 @@ DTU 기반 모델에서 vCore 기반 구매 모델로 마이그레이션하는 �
 
 |현재 서비스 계층|대상 서비스 계층|마이그레이션 유형|사용자 작업|
 |---|---|---|---|
-|Standard|범용 가상 컴퓨터|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
+|표준|범용 가상 컴퓨터|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
 |Premium|중요 비즈니스용|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
-|Standard|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
-|중요 비즈니스용|Standard|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
+|표준|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
+|중요 비즈니스용|표준|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
 |Premium|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
 |범용 가상 컴퓨터|Premium|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 |중요 비즈니스용|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|

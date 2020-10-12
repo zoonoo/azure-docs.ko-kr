@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847571"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 OData 원본에서 데이터 이동
@@ -145,9 +145,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **ODataResource** 형식(OData 데이터 세트 포함)의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| 경로 |OData 리소스에 대한 경로 |아니요 |
+| path |OData 리소스에 대한 경로 |아니요 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -156,7 +156,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 원본이 **RelationalSource** (OData 포함) 형식인 경우 typeProperties섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 예제 | 필요한 공간 |
+| 속성 | 설명 | 예 | 필수 |
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아니요 |
 

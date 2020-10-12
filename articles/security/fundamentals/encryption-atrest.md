@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397252"
 ---
 # <a name="azure-data-encryption-at-rest"></a>휴지 상태의 Azure 데이터 암호화

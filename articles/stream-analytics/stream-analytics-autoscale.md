@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037565"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Azure Automation를 사용 하 여 Stream Analytics 작업 자동 크기 조정
@@ -29,15 +29,15 @@ ms.locfileid: "86037565"
 ### <a name="configure-variables"></a>변수 구성
 Azure Automation 계정 내에 다음 변수를 추가 합니다. 이러한 변수는 다음 단계에서 설명 하는 runbook에 사용 됩니다.
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | --- | --- | --- |
 | **jobName** | String | 자동 크기 조정 하려는 Stream Analytics 작업의 이름입니다. |
 | **resourceGroupName** | String | 작업이 있는 리소스 그룹의 이름입니다. |
 | **subId** | String | 작업이 있는 구독 ID입니다. |
-| **increasedSU** | 정수 | 작업을 일정에 따라 크기를 조정 하려는 상위 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
-| **decreasedSU** | 정수 | 일정에 따라 작업의 크기를 조정 하려는 하위 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
-| **maxSU** | 정수 | 부하가 자동으로 조정 될 때 작업을 수행 하려는 작업의 최대 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
-| **minSU** | 정수 | 부하가 자동으로 조정 될 때 작업을 수행 하려는 작업의 최소 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
+| **increasedSU** | Integer | 작업을 일정에 따라 크기를 조정 하려는 상위 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
+| **decreasedSU** | Integer | 일정에 따라 작업의 크기를 조정 하려는 하위 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
+| **maxSU** | Integer | 부하가 자동으로 조정 될 때 작업을 수행 하려는 작업의 최대 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
+| **minSU** | Integer | 부하가 자동으로 조정 될 때 작업을 수행 하려는 작업의 최소 SU 값입니다. 이 값은 실행 중인 작업의 **크기 조정** 설정에 표시 되는 유효한 SU 옵션 중 하나 여야 합니다. |
 
 ![Azure Automation에서 변수 추가](./media/autoscale/variables.png)
 

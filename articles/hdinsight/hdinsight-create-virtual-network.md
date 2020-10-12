@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
 ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074768"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
@@ -289,7 +289,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
     
     * `192.168.0.1` 값을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 다른 모든 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
 
-1. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`.
+1. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`
 
 1. 온-프레미스 DNS 서버에 조건부 전달자를 추가합니다. 1단계에서 DNS 접미사에 대한 요청을 사용자 지정 DNS 서버에 보내도록 조건부 전달자를 구성합니다.
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Stack에서 SQL Server 데이터베이스
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332817"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
@@ -76,7 +76,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![데이터 보호 방법 - 단기 디스크 및 온라인 Azure](./media/backup-azure-backup-sql/pg-name.png)
 
-6. **단기 목표 지정** 화면에서 디스크에 대 한 백업 위치를 만드는 데 필요한 입력을 포함 하 고 **다음**을 선택 합니다.
+6. **Short-Term 목표 지정** 화면에서 디스크에 백업 위치를 만드는 데 필요한 입력을 포함 하 고 **다음**을 선택 합니다.
 
     이 예제에서 **보존 범위**는 **5일**, **동기화 빈도**는 백업 빈도인 **15분**입니다. **빠른 전체 Backup** 을 **오후 8시**로 설정합니다.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
 ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319799"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
@@ -43,7 +43,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | --- | --- | --- |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
-| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
+| Windows Server 2012 - 2016 | 지원되며 기본적으로 사용하도록 설정됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 
 ## <a name="data-segregation"></a>데이터 분리
@@ -56,7 +56,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 
 다음 표에는 사용할 수 있는 솔루션 및 각 솔루션이 수집하는 데이터 형식의 예가 나와 있습니다.
 
-| **해결 방법** | **데이터 형식** |
+| **솔루션** | **데이터 형식** |
 | --- | --- |
 | 용량 및 성능 |성능 데이터 및 메타데이터 |
 | 업데이트 관리 |메타데이터 및 상태 데이터 |
@@ -69,11 +69,11 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 | **데이터 형식** | **필드** |
 | --- | --- |
 | 경고 |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| 구성 |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Configuration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | 이벤트 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
 | 메타데이터 |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | 성능 |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| 시스템 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>물리적 보안
 Log Analytics 서비스는 Microsoft 담당자가 관리하며 모든 활동을 기록하여 감사할 수 있습니다. Log Analytics는 Azure 서비스로 작동하며 모든 Azure 준수 및 보안 요구 사항을 충족합니다. Azure 자산의 물리적 보안에 대한 자세한 내용은 [Microsoft Azure 보안 개요](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)의 18페이지에서 확인할 수 있습니다. 더 이상 Log Analytics 서비스에 대한 전송, 종료 등의 책임이 없는 사용자는 영업일 기준 1일 이내에 보안 영역에 대한 물리적 액세스 권한이 변경됩니다. [Microsoft 데이터 센터](https://azure.microsoft.com/global-infrastructure/)에서 사용하는 글로벌 물리적 인프라에 대해 읽을 수 있습니다.

@@ -17,10 +17,10 @@ ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760892"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
@@ -199,7 +199,7 @@ ms.locfileid: "87760892"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 WSFC(Windows Server 장애 조치(failover) 클러스터) 및 스케일 아웃 파일 서버를 사용하여 Azure에 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 

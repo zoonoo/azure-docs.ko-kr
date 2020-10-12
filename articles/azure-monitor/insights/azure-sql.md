@@ -8,10 +8,10 @@ ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397082"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
@@ -34,27 +34,27 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
 | [진단 설정](../platform/diagnostic-settings.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에서 직접 Azure Monitor 로그에 전송 됩니다. |
-| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 예 | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](../platform/agent-windows.md) | 예 | 직접 Windows 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 예 | 직접 Linux 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 Azure SQL 분석에서 사용 되지 않습니다. |
+| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아니요 | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 Azure SQL 분석에서 사용 되지 않습니다. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL 분석 옵션
 
 아래 표에서는 두 가지 버전의 Azure SQL 분석 대시보드의 지원 되는 옵션, Azure SQL Database 용 및 Azure SQL Managed Instance 데이터베이스용으로 지원 되는 옵션을 간략하게 설명 합니다.
 
-| Azure SQL 분석 옵션 | Description | 지원 SQL Database | SQL Managed Instance 지원 |
+| Azure SQL 분석 옵션 | 설명 | 지원 SQL Database | SQL Managed Instance 지원 |
 | --- | ------- | ----- | ----- |
 | 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | 예 | 예 |
 | 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 예 |
+| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
+| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
+| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 아니요 |
 | 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure SQL 분석 (미리 보기)를 추가 합니다.
 

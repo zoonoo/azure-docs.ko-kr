@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86496182"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
@@ -80,7 +80,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 메모리 | 128GiB |
 | 디스크 | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
 | 네트워크 | 1Gbps 네트워크 |
-| 워크로드 | 범용 파일 서버|
+| 작업 | 범용 파일 서버|
 
 | 일회성 초기 프로비전  | 세부 정보 |
 |-|-|
@@ -112,5 +112,5 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Files 배포 계획](storage-files-planning.md)
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

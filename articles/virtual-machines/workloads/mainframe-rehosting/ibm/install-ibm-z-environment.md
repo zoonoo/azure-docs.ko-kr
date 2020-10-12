@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499922"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD&T 개발/테스트 환경 설치
@@ -39,7 +39,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 이 문서에서는 Azure에서 Z 개발 및 테스트 환경 (zD&T) Enterprise Edition을 설정 하는 방법을 보여 줍니다. 그런 다음 zD&T Enterprise Edition 웹 서버를 사용 하 여 Azure에서 Z 기반 환경을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
 > IBM에서는 zD&T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수*없습니다* .

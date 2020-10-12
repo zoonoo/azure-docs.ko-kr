@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817621"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure Portal를 사용 하 여 관리 디스크에 대해 고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화를 사용 하도록 설정 합니다.

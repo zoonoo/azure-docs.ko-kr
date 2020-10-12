@@ -4,10 +4,10 @@ description: Azure Event Grid를 사용하여 리소스 그룹 이벤트에 제�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105917"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Event Grid 소스로 서의 Azure 리소스 그룹
@@ -31,7 +31,7 @@ Azure 구독 및 리소스 그룹은 동일한 이벤트 유형을 내보냅니�
 
 VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그룹은 Azure Resource Manager에서 관리 이벤트를 내보냅니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | 리소스에서 작업이 취소되면 발생합니다. |
 | Microsoft.Resources.ResourceActionFailure | 리소스에서 작업이 실패하면 발생합니다. |
@@ -231,10 +231,10 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
@@ -244,21 +244,21 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| 권한 부여 | 개체 | 작업에 대해 요청된 권한입니다. |
-| claims | 개체 | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
+| 권한 부여 | object | 작업에 대해 요청된 권한입니다. |
+| claims | object | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
 | correlationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
-| httpRequest | 개체 | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
+| httpRequest | object | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
 | resourceProvider | 문자열 | 작업에 대한 리소스 공급자입니다. |
 | resourceUri | 문자열 | 작업에서 리소스의 URI입니다. |
 | operationName | 문자열 | 수행된 작업입니다. |
-| 상태 | 문자열 | 작업의 상태. |
+| 상태 | 문자열 | 작업의 상태입니다. |
 | subscriptionId | 문자열 | 리소스의 구독 ID입니다. |
 | tenantId | 문자열 | 리소스의 테넌트 ID입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [자습서: Azure Event Grid 및 Logic Apps를 사용 하 여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
 | [Azure CLI: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-cli-resource-group.md)| 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |

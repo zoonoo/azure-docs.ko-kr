@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
 ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121870"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
@@ -88,7 +88,7 @@ ms.locfileid: "88121870"
 
 시험 사용 리드를 사용 하 여 처리를 종료 하는 경우 [Microsoft 파트너 판매 연결](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect)에 등록 해야 합니다. 또한 테스트 드라이브가 역할을 수행 하는 고객의 wins에 대해 알아보겠습니다.
 
-## <a name="other-resources"></a>기타 리소스
+## <a name="other-resources"></a>관련 자료
 
 추가 시험 사용 리소스:
 

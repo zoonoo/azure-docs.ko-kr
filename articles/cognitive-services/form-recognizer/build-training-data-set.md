@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
 ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276947"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018580"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 결과에는 각 TLS 버전을 사용한 요청 수가 표시 됩니다.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="TLS 버전을 반환 하는 log analytics 쿼리 결과를 보여 주는 스크린샷":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>호출자 IP 주소 및 사용자 에이전트 헤더에 의해 기록 된 요청 쿼리
 
@@ -104,7 +104,7 @@ Azure Portal를 사용 하 여 기존 저장소 계정에 대 한 최소 TLS 버
 1. **구성** 설정을 선택 합니다.
 1. **최소 tls 버전**에서 다음 이미지에 표시 된 것 처럼 드롭다운을 사용 하 여이 저장소 계정의 데이터에 액세스 하는 데 필요한 최소 버전의 tls를 선택 합니다.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Azure Portal에서 TLS의 최소 버전을 구성 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -307,7 +307,7 @@ Azure Portal에서 준수 보고서를 보려면 다음 단계를 수행 합니�
 1. 이전 단계에서 만든 정책 할당의 이름에 대 한 결과를 필터링 합니다. 이 보고서에는 정책을 준수 하지 않는 리소스의 수가 표시 됩니다.
 1. 정책을 준수 하지 않는 저장소 계정 목록을 포함 하 여 추가 세부 정보에 대 한 보고서를 드릴 다운할 수 있습니다.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="최소 TLS 버전의 감사 정책에 대 한 준수 보고서를 보여 주는 스크린샷":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Azure Policy를 사용 하 여 최소 TLS 버전을 적용 합니다.
 
@@ -343,7 +343,7 @@ TLS 1.2 보다 작은 최소 TLS 버전에 대해 거부 효과가 적용 된 �
 
 다음 이미지는 거부 효과가 있는 정책에서 최소 tls 버전을 TLS 1.2로 설정 해야 하는 경우 최소 TLS 버전을 TLS 1.0 (새 계정에 대 한 기본값)로 설정 하 여 저장소 계정을 만들려는 경우 발생 하는 오류를 보여 줍니다.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 

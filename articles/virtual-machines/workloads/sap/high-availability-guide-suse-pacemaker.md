@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797749"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
@@ -419,7 +419,7 @@ o- / ...........................................................................
    </code></pre>
 
    >[!IMPORTANT]
-   > 클러스터 노드를 친 해야 하는 경우 설치 된 버전의 패키지 **fence-에이전트** 는 Azure fence 에이전트를 사용 하 여 더 빠른 장애 조치 (failover) 시간을 활용 하기 위해 **4.4.0** 이상 이어야 합니다. 더 낮은 버전을 실행 하는 경우 패키지를 업데이트 하는 것이 좋습니다.  
+   > 클러스터 노드를 친 해야 하는 경우 설치 된 버전의 패키지 **fence-에이전트** 는 Azure fence 에이전트를 사용 하 여 더 빠른 장애 조치 (failover) 시간을 활용 하기 위해 **4.4.0**  이상 이어야 합니다. 더 낮은 버전을 실행 하는 경우 패키지를 업데이트 하는 것이 좋습니다.  
 
 
 1. **[A]** AZURE Python SDK 설치 

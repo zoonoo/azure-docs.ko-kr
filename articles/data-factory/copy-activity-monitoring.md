@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440612"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
@@ -50,7 +50,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 복사 작업 실행 세부 정보 및 성능 특성도 UI 모니터링 보기를 렌더링 하는 데 사용 되는 **복사 작업 실행 결과**  >  **출력** 섹션에도 반환 됩니다. 다음은 반환 될 수 있는 속성의 전체 목록입니다. 복사 시나리오에 적용 되는 속성만 볼 수 있습니다. 일반적인 방법으로 작업 실행을 모니터링 하는 방법에 대 한 자세한 내용은 [Azure data factory를 프로그래밍 방식으로 모니터링](monitor-programmatically.md)을 참조 하세요.
 
-| 속성 이름  | Description | 출력 단위 |
+| 속성 이름  | 설명 | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽은 실제 데이터 양입니다. | Int64 값 (바이트) |
 | DataWritten | 싱크에 기록/커밋된 데이터의 실제 탑재입니다. 크기는 `dataRead` 각 데이터 저장소에서 데이터를 저장 하는 방법과 관련 되므로 크기와 다를 수 있습니다. | Int64 값 (바이트) |
