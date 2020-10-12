@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 �
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985391"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
@@ -23,7 +23,7 @@ ms.locfileid: "90985391"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 

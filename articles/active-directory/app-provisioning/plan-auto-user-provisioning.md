@@ -12,10 +12,10 @@ ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235707"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
@@ -83,7 +83,7 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 이 예에서는 사용자 및 또는 그룹이 온-프레미스 디렉터리에 연결 된 HR 데이터베이스에 생성 됩니다. Azure AD 프로 비전 서비스는 대상 SaaS 응용 프로그램에 대 한 자동 사용자 프로 비전을 관리 합니다.
 
- ![사용자 프로 비전](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![사용자 프로비저닝](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **워크플로 설명:**
 
@@ -207,7 +207,7 @@ Azure AD 포털을 사용 하 여 프로 비전을 지 원하는 모든 응용 �
 
 Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 하거나 [특성 매핑에 대 한 식을 작성](../app-provisioning/functions-for-customizing-application-data.md)하 여를 지원 합니다. 이러한 유연성을 통해 대상 시스템의 특성에서 채워지는 항목을 세밀 하 게 제어할 수 있습니다. [MICROSOFT GRAPH API](../app-provisioning/export-import-provisioning-configuration.md) 및 Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다.
 
-자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대 한 사용자 프로 비전 특성 매핑 사용자 지정](../app-provisioning/customize-application-attributes.md)을 참조 하세요.
+자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대 한 사용자 프로 비전 Attribute-Mappings 사용자 지정](../app-provisioning/customize-application-attributes.md)을 참조 하세요.
 
 ### <a name="special-considerations-for-user-provisioning"></a>사용자 프로 비전에 대 한 특별 고려 사항
 

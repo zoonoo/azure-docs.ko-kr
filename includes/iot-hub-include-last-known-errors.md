@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: d03579f704879bd8d012bb0bb326659d1f778dee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84793294"
 ---
 REST API에서 끝점 상태 [가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 는 끝점의 상태 및 마지막으로 알려진 오류를 제공 하 여 끝점이 정상이 아닌 이유를 식별 합니다. 다음 표에는 가장 일반적인 오류가 나열 되어 있습니다.

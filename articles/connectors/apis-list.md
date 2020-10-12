@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
 ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400811"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
@@ -50,7 +50,7 @@ Logic Apps는 [수백 개의 커넥터](/connectors)를 제공 하지만,이 문
 
   또한 이러한 범주를 사용 하 여 커넥터를 식별할 수 있습니다. 하지만 일부 커넥터는 여러 범주에 있을 수 있습니다. 예를 들어 SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터입니다.
 
-  | Category | Description |
+  | 범주 | 설명 |
   |----------|-------------|
   | [**관리 되는 커넥터**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online 등과 같은 서비스를 사용하는 논리 앱을 만듭니다. |
   | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. |
@@ -66,7 +66,7 @@ Azure 가상 네트워크의 리소스에 직접 액세스 해야 하는 논리 
 > [!NOTE]
 > ISE와 해당 커넥터에서 실행 되는 논리 앱은 이러한 커넥터가 실행 되는 위치에 관계 없이 고정 요금제 및 소비 기반 요금제를 따릅니다. 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)를 참조 하세요.
 
-| 레이블 | 예제 | Description |
+| 레이블 | 예제 | 설명 |
 |-------|---------|-------------|
 | **CORE** | ![핵심 커넥터 예](./media/apis-list/example-core-connector.png) | 이 레이블을 사용 하는 기본 제공 트리거 및 동작은 논리 앱과 동일한 ISE에서 실행 됩니다. |
 | **ISE** | ![ISE 커넥터 예](./media/apis-list/example-ise-connector.png) | 이 레이블이 있는 관리 커넥터는 논리 앱과 동일한 ISE에서 실행 됩니다. Azure 가상 네트워크에 연결 된 온-프레미스 시스템이 있는 경우 ISE를 사용 하면 논리 앱 [에서 온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)없이 해당 시스템에 직접 액세스할 수 있습니다. 대신, 사용 가능한 경우 해당 시스템의 **ISE** 커넥터를 사용 하거나, HTTP 작업을 사용 하거나, [사용자 지정 커넥터](#custom)를 사용할 수 있습니다. **ISE** 커넥터가 없는 온-프레미스 시스템의 경우 온-프레미스 데이터 게이트웨이를 사용 합니다. 사용 가능한 ISE 커넥터를 검토 하려면 [ise 커넥터](#ise-connectors)를 참조 하세요. |
@@ -79,7 +79,7 @@ Azure 가상 네트워크의 리소스에 직접 액세스 해야 하는 논리 
 
 Logic Apps는 일정 기반 워크플로를 만들고, 논리 앱이 다른 앱 및 서비스와 통신 하 고, 논리 앱을 통해 워크플로를 제어 하 고, 데이터를 관리 또는 조작 하는 데 사용할 수 있도록 기본 제공 트리거와 작업을 제공 합니다.
 
-| Name | Description |
+| Name | 설명 |
 |------|-------------|
 | [![기본 제공 커넥터 ][schedule-icon]<br> **일정** 예약][schedule-doc] | - [ **되풀이** 트리거][schedule-recurrence-doc]를 사용 하 여 기본부터 고급 일정까지 지정 된 되풀이에서 논리 앱을 실행 합니다. <br>- [ **슬라이딩 윈도우** 트리거][schedule-sliding-window-doc]를 사용 하 여 연속 청크의 데이터를 처리 해야 하는 논리 앱을 실행 합니다. <br>- [ **지연** 작업][schedule-delay-doc]을 사용 하 여 지정 된 기간 동안 논리 앱을 일시 중지 합니다. <br>-지정 된 날짜 및 시간까지 [ **지연** 된 작업까지][schedule-delay-until-doc]논리 앱을 일시 중지 합니다. |
 | [![기본 제공 커넥터 ][batch-icon]<br> **일괄 처리**][batch-doc] | - **일괄 처리 메시지** 트리거를 사용하여 메시지를 일괄적으로 처리합니다. <br>- **일괄 처리로 메시지 보내기** 작업을 사용하여 기존 일괄 처리 트리거가 있는 논리 앱을 호출합니다. |
@@ -94,7 +94,7 @@ Logic Apps는 일정 기반 워크플로를 만들고, 논리 앱이 다른 앱 
 
 Logic Apps는 논리 앱의 워크플로에서 사용자 고유의 코드를 실행 하기 위한 기본 제공 작업을 제공 합니다.
 
-| Name | Description |
+| Name | 설명 |
 |------|-------------|
 | [![Azure Functions 기본 제공 커넥터 ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | 논리 앱에서 사용자 지정 코드 조각(C# 또는 Node.js)을 실행하는 Azure 함수를 호출합니다. |
 | [![인라인 코드 기본 제공 커넥터 ][inline-code-icon]<br> **인라인 코드**][inline-code-doc] | 논리 앱에서 JavaScript 코드 조각을 추가 하 고 실행 합니다. |
@@ -104,7 +104,7 @@ Logic Apps는 논리 앱의 워크플로에서 사용자 고유의 코드를 실
 
 Logic Apps는 논리 앱의 워크플로에서 작업을 구성 하 고 제어 하기 위한 기본 제공 작업을 제공 합니다.
 
-| Name | Description |
+| Name | 설명 |
 |------|-------------|
 | [![조건 기본 제공 작업 ][condition-icon]<br> **조건**][condition-doc] | 조건을 평가하고, 조건이 true 또는 false인지에 따라 별도의 작업을 실행합니다. |
 | [![][for-each-icon]<br>**For each** 각 기본 제공 작업에 대해][for-each-doc] | 배열의 모든 항목에 대해 동일한 작업을 수행합니다. |
@@ -118,7 +118,7 @@ Logic Apps는 논리 앱의 워크플로에서 작업을 구성 하 고 제어 �
 
 Logic Apps는 데이터 출력 및 해당 형식으로 작업 하기 위한 기본 제공 작업을 제공 합니다.
 
-| Name | Description |
+| Name | 설명 |
 |------|-------------|
 | [![데이터 작업 기본 제공 작업 ][data-operations-icon]<br> **데이터 작업**][data-operations-doc] | 데이터를 사용하여 수행하는 작업: <p>- **작성**: 다양한 형식의 여러 입력에서 하나의 출력을 만듭니다. <br>- **CSV 테이블 만들기**: JSON 개체를 사용하여 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. <br>- **HTML 테이블 만들기**: JSON 개체를 사용하여 배열에서 HTML 테이블을 만듭니다. <br>- **배열 필터링**: 조건을 충족하는 다른 배열의 항목에서 배열을 만듭니다. <br>- **조인**: 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. <br>- **Json 구문 분석**: 워크플로에서 이러한 속성을 사용할 수 있도록 json 콘텐츠에서 속성 및 해당 값에서 사용자에 게 친숙 한 토큰을 만듭니다. <br>- **선택**: 다른 배열의 항목이나 값을 변환하고 해당 항목을 지정한 속성에 매핑하여 JSON 개체가 포함된 배열을 만듭니다. |
 | ![날짜 시간 기본 제공 작업][date-time-icon]<br>**날짜 시간** | 타임스탬프를 사용하여 수행하는 작업: <p>- **시간에 추가**: 타임스탬프에 지정한 단위 수를 추가합니다. <br>- **표준 시간대 변환**: 타임스탬프를 원본 표준 시간대에서 대상 표준 시간대로 변환합니다. <br>- **현재 시간**: 현재 타임스탬프를 문자열로 반환합니다. <br>- **미래 시간 가져오기**: 현재 타임스탬프에 지정한 시간 단위를 더한 값을 반환합니다. <br>- **과거 시간 가져오기**: 현재 타임스탬프에서 지정한 시간 단위를 뺀 값을 반환합니다. <br>- **시간에서 빼기**: 타임스탬프에서 시간 단위 수를 뺍니다. |
@@ -131,7 +131,7 @@ Logic Apps는 데이터 출력 및 해당 형식으로 작업 하기 위한 기�
 
 Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프로세스 및 워크플로를 자동화 하는 데 널리 사용 되는 표준 커넥터를 제공 합니다.
 
-| Name | Description |
+| Name | 설명 |
 |------|-------------|
 | [![Azure Service Bus 관리 커넥터 ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다. |
 | [![SQL Server 관리 커넥터 ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | 레코드를 관리 하거나 저장 프로시저를 실행 하거나 쿼리를 수행할 수 있도록 클라우드의 SQL Server 온-프레미스 또는 Azure SQL Database에 연결 합니다. |

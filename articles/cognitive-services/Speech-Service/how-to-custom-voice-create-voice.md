@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319064"
 ---
 # <a name="create-a-custom-voice"></a>사용자 지정 음성 만들기
@@ -44,7 +44,7 @@ ms.locfileid: "91319064"
 
 다음 표에서는 가져온 데이터 세트에 대한 처리 상태를 보여 줍니다.
 
-| 상태 | 의미 |
+| 시스템 상태 | 의미 |
 | ----- | ------- |
 | 처리 중 | 데이터 집합을 수신 하 여 처리 하 고 있습니다. |
 | 성공 | 데이터 집합의 유효성을 검사 하 고 이제 음성 모델을 빌드하는 데 사용할 수 있습니다. |
@@ -86,7 +86,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
 표시 된 상태는 여기에 표시 된 것 처럼 데이터 집합을 음성 모델로 변환 하는 프로세스를 반영 합니다.
 
-| 상태 | 의미 |
+| 시스템 상태 | 의미 |
 | ----- | ------- |
 | 처리 중 | 음성 모델을 만들고 있습니다. |
 | 성공 | 음성 모델을 만들고 배포할 수 있습니다. |

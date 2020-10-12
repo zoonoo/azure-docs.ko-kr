@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099633"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure Cosmos DB에 대 한 경고 만들기
@@ -83,7 +83,7 @@ Azure Cosmos DB 창이 나 Azure Portal의 Azure Monitor 서비스에서 경고�
 
    * 작업 이름을 입력 하 고 **메일/SMS 메시지/푸시/음성** 을 **작업 유형**으로 선택 합니다. 다음 스크린샷은 작업 유형에 대 한 세부 정보를 보여줍니다.
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="경고를 수신 하는 전자 메일 알림과 같은 작업 유형을 구성 합니다.":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Rate 제한/429 요청에 대 한 경고를 받도록 논리 구성":::
 
 1. **경고 규칙 세부 정보** 섹션을 작성 합니다.
 

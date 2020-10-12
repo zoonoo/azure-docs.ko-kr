@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143837"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Azure WAF (웹 응용 프로그램 방화벽) 정책 개요
@@ -33,9 +33,9 @@ WAF 정책을 전역적으로 연결 하는 경우 Application Gateway WAF의 �
 
 ## <a name="per-site-waf-policy"></a>사이트별 WAF 정책
 
-사이트별 WAF 정책을 사용 하면 사이트별 정책을 사용 하 여 단일 WAF 뒤에 다른 보안 요구 사항을 사용 하 여 여러 사이트를 보호할 수 있습니다. 예를 들어 WAF 뒤에 5 개의 사이트가 있는 경우 각 사이트에 대 한 제외, 사용자 지정 규칙, 관리 규칙 집합 및 기타 모든 WAF 설정을 사용자 지정 하는 5 개의 개별 WAF 정책 (각 수신기에 대해 하나)을 사용할 수 있습니다.
+사이트별 WAF 정책을 사용하면 사이트별 정책을 사용하여 단일 WAF 뒤에 서로 다른 보안 요구 사항으로 여러 사이트를 보호할 수 있습니다. 예를 들어 WAF 뒤에 5개의 사이트가 있는 경우 5개의 개별 WAF 정책(각 수신기에 대해 하나)을 사용하여 각 사이트에 대한 제외, 사용자 지정 규칙, 관리 규칙 집합 및 기타 모든 WAF 설정을 사용자 지정할 수 있습니다.
 
-응용 프로그램 게이트웨이에 글로벌 정책이 적용 되는 경우를 예로 들어 보겠습니다. 그런 다음 해당 응용 프로그램 게이트웨이의 수신기에 다른 정책을 적용 합니다. 이제 수신기의 정책이 해당 수신기에만 적용 됩니다. Application gateway의 글로벌 정책은 특정 정책이 할당 되지 않은 다른 모든 수신기 및 경로 기반 규칙에도 적용 됩니다.
+Application Gateway에 글로벌 정책이 적용되었다고 가정해 보겠습니다. 그런 다음 해당 Application Gateway의 수신기에 다른 정책을 적용합니다. 이제 수신기의 정책이 해당 수신기에만 적용됩니다. Application Gateway의 글로벌 정책은 특정 정책이 할당되지 않은 다른 모든 수신기 및 경로 기반 규칙에 계속 적용됩니다.
 
 ## <a name="per-uri-policy"></a>URI 별 정책
 

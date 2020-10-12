@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132499"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
@@ -20,7 +20,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 아래 표에는 온-프레미스 구성 서버 컴퓨터 배포를 위한 필수 구성 요소가 요약되어 있습니다.
 
@@ -33,7 +33,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | 사용 가능한 디스크 공간(보존 디스크) | 600GB|
 | 운영 체제  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | 운영 체제 로케일 | 영어(미국)|
-| VMware vSphere PowerCLI 버전 | 필요하지 않음|
+| VMware vSphere PowerCLI 버전 | 필요 없음|
 | Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V |
 | 그룹 정책| 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음<br>|
@@ -69,9 +69,9 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
     - 공급자를 직접 연결하려면 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
     - 기존 프록시에 인증이 필요하거나 공급자 연결에 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정으로 연결**을 선택하고 주소, 포트 및 자격 증명을 지정합니다.
      ![방화벽](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. **필수 조건 확인**에서 설치 프로그램은 설치를 실행할 수 있는지 확인 하는 검사를 실행 합니다. **글로벌 시간 동기화 확인**에 대 한 경고가 표시 되 면 시스템 클록의 시간 (**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인 합니다.
+6. **필수 조건 확인**에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인**에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
 
-    ![필수 구성 요소](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![사전 요구 사항](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -87,7 +87,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 11. **요약**에서 정보를 검토하고 **설치**를 클릭합니다. 설치가 완료되면 암호가 생성됩니다. 복제를 사용하도록 설정할 때 필요하므로 암호를 복사하고 안전한 위치에 보관합니다.
 
 
-등록이 완료 되 면 **Settings**  >  자격 증명 모음의 설정**서버** 블레이드에 서버가 표시 됩니다.
+등록이 완료되면 자격 증명 모음의 **설정** > **서버** 블레이드에 서버가 표시됩니다.
 
 
 ## <a name="install-from-the-command-line"></a>명령줄에서 설치
@@ -108,7 +108,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | 설명| 값|
+|매개 변수 이름| 형식 | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -288,7 +288,7 @@ ProxyPassword="Password"
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> AzSiteRecoveryFabric의 **-force** 옵션을 사용 하 여 구성 서버를 강제로 제거 하거나 삭제할 수 있습니다.
+> Remove-AzSiteRecoveryFabric의 **-force** 옵션을 사용 하 여 구성 서버를 강제로 제거 하거나 삭제할 수 있습니다.
 
 ## <a name="renew-tlsssl-certificates"></a>TLS/SSL 인증서 갱신
 구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용 하 여 클라이언트를 인증 합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.

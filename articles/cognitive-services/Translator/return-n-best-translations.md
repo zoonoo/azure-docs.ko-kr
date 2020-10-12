@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592681"
 ---
 # <a name="how-to-return-n-best-translations"></a>N-Best 번역 반환 방법
@@ -41,7 +41,7 @@ ms.locfileid: "83592681"
 | appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + 액세스 토큰을 포함하는 문자열을 지정합니다.|
 | text | **필수** 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|
 | 원본 | **필수** 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. |
-| 다음으로 변경: | **필수** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다. |
+| to | **필수** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다. |
 | maxTranslations | **필수** 반환할 번역의 최대 수를 나타내는 int입니다. |
 | 옵션 | **선택 사항** 아래에 나열된 값을 포함하는 TranslateOptions 개체입니다. 모두 선택 사항이며 가장 일반적인 설정이 기본값이 됩니다.
 

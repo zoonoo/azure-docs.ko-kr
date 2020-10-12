@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208355"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>가상 WAN 파트너에 대 한 자동화 지침
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Virtual WAN 파트너를 위한 자동화 지침
 
 이 문서는 Azure Virtual WAN의 분기 디바이스(고객 온-프레미스 VPN 디바이스 또는 SDWAN CPE)를 연결 및 구성하기 위해 자동화 환경을 설정하는 방법을 이해하는 데 도움이 됩니다. 이 문서는 IPsec/IKEv2 또는 IPsec/IKEv1을 통해 VPN 연결을 수용할 수 있는 분기 디바이스를 제공하는 공급자를 대상으로 합니다.
 
@@ -81,7 +81,7 @@ Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용�
 * **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 디바이스 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션에서는 다음 정보를 제공합니다.
 
-    * 가상 허브 VNet의 **주소 공간** 입니다.<br>예:
+    * 가상 허브 VNet의 **주소 공간** 입니다.<br>예제:
  
         ```
         "AddressSpace":"10.1.0.0/24"

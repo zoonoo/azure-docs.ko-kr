@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129915"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
@@ -31,22 +31,22 @@ ms.locfileid: "86129915"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 
 - [시나리오 아키텍처 및 구성 요소](vmware-azure-architecture.md)를 이해해야 합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-azure-support-matrix.md) 검토 합니다.
-- Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+- 모든 구성 요소에 대한 [지원 요구 사항](./vmware-physical-azure-support-matrix.md)을 검토합니다.
+- Azure PowerShell `Az`  모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="log-into-azure"></a>Azure에 로그인
 
-AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+Connect-AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. AzSubscription cmdlet을 사용 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
+VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzSubscription cmdlet을 사용 하 여 액세스할 수 있는 Azure 구독 목록을 가져올 수 있습니다. Select-AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -118,7 +118,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예를 들면 다음과 같습니다.
+Set-ASRVaultContext cmdlet에 대 한 대 안으로 Import-AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. 자격 증명 모음 등록 키 파일이 Import-AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 있는 경로를 지정 합니다. 예를 들면 다음과 같습니다.
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"

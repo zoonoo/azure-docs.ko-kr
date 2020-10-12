@@ -11,15 +11,15 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400182"
 ---
 # <a name="azure-peering-service-overview"></a>Azure 피어 링 서비스 개요
 
-Azure 피어 링 서비스는 Microsoft 365, Dynamics 365, SaaS (software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대 한 고객의 연결을 향상 시키는 네트워킹 서비스입니다. Microsoft는 Isp (인터넷 서비스 공급자), IXPs (인터넷 교환 파트너) 및 전 세계적 SDCI (소프트웨어 정의 클라우드 상호 연결) 공급자와 협력 하 여 고객 으로부터 Microsoft 네트워크로의 최적 라우팅을 통해 안정적이 고 성능이 뛰어난 공용 연결을 제공 합니다.
+Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. Microsoft는 Isp (인터넷 서비스 공급자), IXPs (인터넷 교환 파트너) 및 전 세계적 SDCI (소프트웨어 정의 클라우드 상호 연결) 공급자와 협력 하 여 고객 으로부터 Microsoft 네트워크로의 최적 라우팅을 통해 안정적이 고 성능이 뛰어난 공용 연결을 제공 합니다.
 
 피어 링 서비스를 사용 하는 경우 고객은 지정 된 지역에서 잘 연결 된 파트너 서비스 공급자를 선택할 수 있습니다. 공용 연결은 클라우드 서비스에서 최종 사용자 위치로의 높은 안정성 및 최소 대기 시간에 최적화 되어 있습니다.
 

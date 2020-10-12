@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319081"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>음성 컨테이너 용 Batch 처리 키트
@@ -25,7 +25,7 @@ ms.locfileid: "91319081"
 
 Batch 키트 컨테이너는 [GitHub](https://github.com/microsoft/batch-processing-kit) 및   [Docker 허브](https://hub.docker.com/r/batchkit/speech-batch-kit/tags)에서 무료로 제공 됩니다. 사용 중인 음성 컨테이너에 대해서만 [요금이 청구](speech-container-howto.md#billing) 됩니다.
 
-| 기능  | Description  |
+| 기능  | 설명  |
 |---------|---------|
 | Batch 오디오 파일 배포     | 많은 수의 파일을 온-프레미스 또는 클라우드 기반 음성 컨테이너 끝점으로 자동으로 디스패치합니다. 파일은 네트워크 파일 시스템을 비롯 한 모든 POSIX 규격 볼륨에 있을 수 있습니다.       |
 | Speech SDK 통합 | N-best 가설, diarization, language, 비속어 마스킹을 포함 하 여 일반 플래그를 음성 SDK에 전달 합니다.  |
@@ -118,7 +118,7 @@ docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch
 
 `ONESHOT` 모드는 입력 디렉터리 및 선택적 파일 목록에서 하나의 오디오 파일 일괄 처리를 출력 폴더로 speech 합니다.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Oneshot 모드에서 일괄 처리 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="일괄 처리 키트 컨테이너 워크플로 예제를 보여 주는 다이어그램입니다.":::
 
 1. Batch 클라이언트가 파일에서 사용할 음성 컨테이너 끝점을 정의 합니다 `config.yaml` . 
 2. 입력 디렉터리에 기록을 위한 오디오 파일을 저장 합니다.  
@@ -133,7 +133,7 @@ docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch
 
 `DAEMON` 모드는 지정 된 폴더에 있는 기존 파일을 speech 새 오디오 파일이 추가 될 때 지속적으로 speech 합니다.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="디먼 모드의 batch 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="일괄 처리 키트 컨테이너 워크플로 예제를 보여 주는 다이어그램입니다.":::
 
 1. Batch 클라이언트가 파일에서 사용할 음성 컨테이너 끝점을 정의 합니다 `config.yaml` . 
 2. 입력 디렉터리에서 컨테이너를 호출 합니다. Batch 클라이언트는 들어오는 파일의 디렉터리 모니터링을 시작 합니다. 
@@ -146,7 +146,7 @@ docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch
 
 `REST` 모드는 오디오 파일 일괄 처리 전송, 상태 검사 및 긴 폴링을 위한 기본 HTTP 끝점 집합을 제공 하는 API 서버 모드입니다. 또한 python 모듈 확장을 사용 하 여 프로그래밍 방식으로 사용 하거나 하위 모듈로 가져올 수 있습니다.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="디먼 모드의 batch 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="일괄 처리 키트 컨테이너 워크플로 예제를 보여 주는 다이어그램입니다.":::
 
 1. Batch 클라이언트가 파일에서 사용할 음성 컨테이너 끝점을 정의 합니다 `config.yaml` . 
 2. API 서버 끝점 중 하나로 HTTP 요청 요청을 보냅니다. 

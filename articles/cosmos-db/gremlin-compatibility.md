@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092510"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB Gremlin 호환성
@@ -33,7 +33,7 @@ Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/
 
 * ***배열 속성*** `order().by(<array property>)` 으로 정렬 지원 되지 않습니다. 정렬은 기본 형식만 지원됩니다.
 
-* ***기본이 아닌 JSON 형식은*** 지원 되지 않습니다. `string`, `number` 또는 형식을 사용 `true` / `false` 합니다. `null`값은 지원 되지 않습니다. 
+* ***기본이 아닌 JSON 형식은*** 지원 되지 않습니다. `string`, `number` 또는 형식을 사용 `true` / `false` 합니다. `null` 값은 지원 되지 않습니다. 
 
 * ***GraphSONv3*** serializer는 현재 지원 되지 않습니다. `GraphSONv2`연결 구성에서 Serializer, 판독기 및 작성기 클래스를 사용 합니다. Azure Cosmos DB Gremlin API에서 반환 된 결과는 GraphSON 형식과 형식이 다릅니다. 
 

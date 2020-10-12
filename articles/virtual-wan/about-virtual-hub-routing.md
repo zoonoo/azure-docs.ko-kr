@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983718"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
@@ -55,7 +55,7 @@ ms.locfileid: "90983718"
 
 **None 경로 테이블** 은 각 가상 허브에도 사용할 수 있습니다. None 경로 테이블에 전파 하는 것은 연결에서 전파 해야 하는 경로가 없음을 의미 합니다. VPN, Express 경로 및 사용자 VPN 연결은 경로를 동일한 경로 테이블 집합으로 전파 합니다.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="전파":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="연결":::
 
 ### <a name="labels"></a><a name="static"></a>레이블
 레이블은 경로 테이블을 논리적으로 그룹화 하는 메커니즘을 제공 합니다. 이는 연결에서 여러 경로 테이블로 경로를 전파 하는 동안 특히 유용 합니다. 예를 들어 기본 경로 테이블에는 ' Default ' 라는 기본 제공 레이블이 있습니다. 사용자가 연결 경로를 ' Default ' 레이블에 전파 하면 가상 WAN의 모든 허브에서 모든 기본 경로 테이블에 자동으로 적용 됩니다. 

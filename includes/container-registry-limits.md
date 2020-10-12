@@ -9,17 +9,17 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512619"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
-| 포함 된 저장소<sup>1</sup> (GiB) | 10 | 100 | 500 |
-| 저장소 제한 (TiB) | 20| 20 | 20 |
-| 최대 이미지 계층 크기 (GiB) | 200 | 200 | 200 |
+| 포함된 스토리지<sup>1</sup>(GiB) | 10 | 100 | 500 |
+| 스토리지 한도(TiB) | 20| 20 | 20 |
+| 최대 이미지 레이어 크기(GiB) | 200 | 200 | 200 |
 | 분당 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10000 |
 | 분당 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 다운로드 대역폭 MBps<sup>2</sup> | 30 | 60 | 100 |
@@ -28,16 +28,16 @@ ms.locfileid: "86512619"
 | 지역에서 복제 | 해당 없음 | 해당 없음 | [지원됨][geo-replication] |
 | 콘텐츠 신뢰 | 해당 없음 | 해당 없음 | [지원됨][content-trust] |
 | 프라이빗 엔드포인트가 있는 프라이빗 링크 | 해당 없음 | 해당 없음 | [지원됨][plink] |
-| &bull;전용 끝점 | 해당 없음 | 해당 없음 | 10 |
+| &bull; 프라이빗 엔드포인트 | 해당 없음 | 해당 없음 | 10 |
 | 서비스 엔드포인트 VNet 액세스 | 해당 없음 | 해당 없음 | [미리 보기][vnet] |
 | 고객 관리형 키 | 해당 없음 | 해당 없음 | [지원됨][cmk] |
 | 리포지토리 범위 권한 | 해당 없음 | 해당 없음 | [미리 보기][token]|
 | &bull; 토큰 | 해당 없음 | 해당 없음 | 20,000 |
-| &bull; 범위 맵 | N/A | N/A | 20,000 |
+| &bull; 범위 맵 | 해당 없음 | 해당 없음 | 20,000 |
 | &bull; 범위 맵당 리포지토리 | 해당 없음 | 해당 없음 | 500 |
 
 
-<sup>1 개의</sup> 저장소는 각 계층에 대 한 일일 요금으로 포함 됩니다. 추가 저장소의 경우 저장소 제한까지 GiB 당 추가 일일 요금이 청구 됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
+<sup>1</sup> 각 계층의 일별 요금에 포함된 스토리지입니다. 추가 스토리지의 경우 스토리지 한도까지 GiB당 추가 일일 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
 
 <sup>2</sup>*ReadOps*, *WriteOps* 및 *Bandwidth*는 최소 추정치입니다. Azure Container Registry는 필요한 사용량에 따라 성능을 개선하려고 합니다.
 

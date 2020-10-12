@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212253"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Active Directory 사용할 vCenter id 원본 설정
@@ -45,9 +45,9 @@ VMware vCenter는 vCenter에 액세스 하는 사용자를 인증 하는 데 다
 > [!IMPORTANT]
 > **Active Directory (Windows 통합 인증)은 지원 되지 않습니다.** LDAP 옵션만 Active Directory id 원본으로 지원 됩니다.
 
-## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>온-프레미스 Active Directory을 Single Sign-on Id 원본으로 추가
+## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>온-프레미스 Active Directory을 단일 Sign-On Id 원본으로 추가
 
-온-프레미스 Active Directory Single Sign-on id 원본으로 설정 하려면 다음이 필요 합니다.
+온-프레미스 Active Directory을 단일 Sign-On id 원본으로 설정 하려면 다음이 필요 합니다.
 
 * 온-프레미스 데이터 센터에서 사설 클라우드로의 [사이트 간 VPN 연결](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) .
 * VCenter 및 플랫폼 서비스 컨트롤러 (PSC)에 추가 된 온-프레미스 DNS 서버 IP
@@ -67,10 +67,10 @@ Active Directory 도메인을 설정할 때 다음 표의 정보를 사용 합�
 | **사용자 이름** | 도메인에서 사용자 및 그룹의 기본 DN에 대 한 읽기 전용 액세스 권한이 있는 사용자의 ID입니다. |
 | **암호** | 사용자 이름으로 지정 된 사용자의 암호입니다. |
 
-위의 표에 나와 있는 정보를 사용할 경우 온-프레미스 Active Directory를 vCenter의 Single Sign-on id 원본으로 추가할 수 있습니다.
+위의 표에 나와 있는 정보를 사용할 경우 온-프레미스 Active Directory를 vCenter의 단일 Sign-On id 원본으로 추가할 수 있습니다.
 
 > [!TIP]
-> [VMware 설명서 페이지](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html)에서 Single sign-on id 소스에 대 한 자세한 내용을 확인할 수 있습니다.
+> [VMware 설명서 페이지](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html)에서 단일 Sign-On id 원본에 대 한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>사설 클라우드에서 새 Active Directory 설정
 
@@ -103,9 +103,9 @@ Active Directory 도메인을 설정한 후 새 Active Directory의 [vCenter에 
 
 ## <a name="set-up-active-directory-on-azure"></a>Azure에서 Active Directory 설정
 
-Azure에서 실행 되는 Active Directory 온-프레미스에서 실행 되는 Active Directory와 비슷합니다.  VCenter의 Single Sign-on id 원본으로 Azure에서 실행 되는 Active Directory을 설정 하려면 vCenter 서버와 PSC에 Active Directory 서비스가 실행 되는 Azure Virtual Network에 대 한 네트워크 연결이 있어야 합니다.  Active Directory 서비스가 CloudSimple 사설 클라우드를 실행 하는 Azure 가상 네트워크에서 Express 경로를 [사용 하 여 azure Virtual Network 연결](azure-expressroute-connection.md) 을 사용 하 여이 연결을 설정할 수 있습니다.
+Azure에서 실행 되는 Active Directory 온-프레미스에서 실행 되는 Active Directory와 비슷합니다.  VCenter에서 단일 Sign-On id 원본으로 Azure에서 실행 되는 Active Directory를 설정 하려면 vCenter 서버와 PSC에 Active Directory 서비스가 실행 되는 Azure Virtual Network에 대 한 네트워크 연결이 있어야 합니다.  Active Directory 서비스가 CloudSimple 사설 클라우드를 실행 하는 Azure 가상 네트워크에서 Express 경로를 [사용 하 여 azure Virtual Network 연결](azure-expressroute-connection.md) 을 사용 하 여이 연결을 설정할 수 있습니다.
 
-네트워크 연결이 설정 된 후 [온-프레미스 Active Directory을 Single Sign-on Id 원본으로 추가](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) 의 단계에 따라 id 원본으로 추가 합니다.  
+네트워크 연결이 설정 된 후 [온-프레미스 Active Directory을 단일 Sign-On Id 원본으로 추가](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) 의 단계에 따라 id 원본으로 추가 합니다.  
 
 ## <a name="add-an-identity-source-on-vcenter"></a>VCenter에서 id 원본 추가
 

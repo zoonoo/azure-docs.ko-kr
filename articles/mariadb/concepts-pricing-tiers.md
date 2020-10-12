@@ -7,17 +7,17 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
 ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225719"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
 Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 MariaDB 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-| 리소스 | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
+| 리소스 | **기본** | **범용** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 5세대 |5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |

@@ -8,17 +8,17 @@ ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653999"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
 AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케이션 가동 시간이 중요합니다. 기본적으로 AKS는 [VMSS (가상 머신 확장 집합)](../virtual-machine-scale-sets/overview.md)에서 여러 노드를 사용 하 여 고가용성을 제공 합니다. 그러나 이러한 여러 노드는 지역 장애 로부터 시스템을 보호 하지 않습니다. 가동 시간을 최대화 하려면 비즈니스 연속성을 유지 하 고 재해 복구를 준비 하기 위해 미리 계획을 세워야 합니다.
 
-이 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획 하는 방법에 중점을 둔 문서입니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획 하는 방법에 중점을 둔 문서입니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 여러 지역에서 AKS 클러스터를 계획 합니다.

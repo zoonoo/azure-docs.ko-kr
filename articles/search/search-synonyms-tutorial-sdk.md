@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538809"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>예: C에 Azure Cognitive Search에 대 한 동의어 추가 #
 
 동의어는 입력 용어와 의미상 동일하다고 간주되는 용어를 비교하여 쿼리를 확장합니다. 예를 들어 "car"를 "automobile" 또는 "vehicle"이라는 용어를 포함하는 문서와 비교합니다. 
 
-Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매핑 규칙* 을 통해 *동의어 맵에*정의 됩니다. 이 예에서는 기존 인덱스와 동의어를 추가 하 고 사용 하는 데 필요한 단계에 대해 설명 합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매핑 규칙* 을 통해 *동의어 맵에*정의 됩니다. 이 예에서는 기존 인덱스와 동의어를 추가 하 고 사용 하는 데 필요한 단계에 대해 설명 합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) 클래스를 사용 하 여 동의어 맵을 만듭니다. 
@@ -33,7 +33,7 @@ Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매
 > [!NOTE]
 > 동의어는 프로그래밍 방식으로 만들 수 있지만 포털에서는 만들 수 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서 요구 사항은 다음과 같습니다.
 

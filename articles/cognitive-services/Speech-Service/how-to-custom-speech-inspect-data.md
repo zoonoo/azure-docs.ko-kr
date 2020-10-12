@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
 ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319128"
 ---
 # <a name="inspect-custom-speech-data"></a>Custom Speech 데이터 검사
@@ -102,6 +102,6 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 - [모델 개선](how-to-custom-speech-improve-accuracy.md)
 - [모델 배포](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Custom Speech에 대 한 테스트 데이터 준비](how-to-custom-speech-test-data.md)

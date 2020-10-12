@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780439"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
@@ -22,7 +22,7 @@ ms.locfileid: "82780439"
 
 ## <a name="hostname-resolution-failed"></a>"호스트 이름을 확인 하지 못했습니다."
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 오류 설명에 "호스트 이름 확인에 실패 했습니다."가 포함 되어 있습니다.
 
@@ -48,13 +48,13 @@ ms.locfileid: "82780439"
 
 ## <a name="failed-to-connect-to-azure-storage-account"></a>"Azure Storage 계정에 연결 하지 못했습니다."
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 오류 설명에 "Azure Storage 계정에 연결 하지 못했습니다." 또는 "Azure SQL에 연결 하지 못했습니다."가 포함 되어 있습니다.
 
 ### <a name="cause"></a>원인
 
-Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 대 한 액세스를 허용 하려면 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (사용자 정의 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../control-network-traffic.md) 섹션을 참조 하세요.
+Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 대 한 액세스를 허용 하려면 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (User-Defined 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../control-network-traffic.md) 섹션을 참조 하세요.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -72,7 +72,7 @@ Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"가상 네트워크 구성이 HDInsight 요구 사항과 호환 되지 않습니다."
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 오류 설명에는 다음과 비슷한 메시지가 포함 됩니다.
 
@@ -95,13 +95,13 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령을 실행하십시오.
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*
     ```
 
-    다음과 유사한 결과가 표시됩니다.
+    다음과 비슷한 결과가 표시됩니다.
 
     ```output
     nameserver 168.63.129.16

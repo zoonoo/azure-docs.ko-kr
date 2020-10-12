@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: a6ffcbf5a8c36958dd3ea74de4d826fe25a1139c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87126461"
 ---
 Azure Portal에서 Azure Maps 계정 인증 세부 정보를 볼 수 있습니다. 계정에서 **설정** 메뉴의 **인증**을 선택 합니다.

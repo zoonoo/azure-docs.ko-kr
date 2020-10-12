@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9e20b7a92d054a6664a00064fa7263b1150c3df9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282581"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
@@ -82,12 +82,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
 | type |HDinsightPig |예 |
-| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |예 |
+| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
 | 스크립트 |Pig 스크립트 인라인 지정 |예 |

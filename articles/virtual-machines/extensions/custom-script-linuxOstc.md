@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085710"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
@@ -125,7 +125,7 @@ ms.locfileid: "87085710"
 | type | CustomScriptForLinux | 문자열 |
 | typeHandlerVersion | 1.5 | int |
 | fileUris(예) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute(예) | python MyPythonScript.py\<my-param1\> | 문자열 |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | 문자열 |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName(예) | examplestorageacct | 문자열 |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
@@ -295,7 +295,7 @@ az vm extension set
 
 1. 사용은 명령이 실행하기 시작할 때입니다.
 1. 다운로드는 fileUris에 지정된 스크립트 파일이 아니라 Azure의 CustomScript 확장 패키지의 다운로드에 관련됩니다.
-1. 기록 하는 로그 파일을 확인할 수도 있습니다.`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. 기록 하는 로그 파일을 확인할 수도 있습니다. `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 다음 단계는 로그 파일 검사로 이동하는 것입니다. 다음과 같은 형식입니다.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537721"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Azure Cognitive Search의 쿼리 유형 및 컴퍼지션
@@ -165,7 +165,7 @@ Azure Cognitive Search 검색 점수 이외의 값으로 정렬 된 결과를 �
 ### <a name="hit-highlighting"></a>적중 항목 강조 표시
 Azure Cognitive Search에서는 **`highlight`** , 및 매개 변수를 사용 하 여 검색 쿼리와 일치 하는 검색 결과의 정확한 부분을 쉽게 강조할 수 **`highlightPreTag`** **`highlightPostTag`** 있습니다. 일치 하는 텍스트를 강조 표시 하는 *검색 가능한* 필드를 지정 하 고, Azure Cognitive Search에서 반환 하는 일치 하는 텍스트의 시작과 끝에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식 (쿼리 구문 분석 아키텍처)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

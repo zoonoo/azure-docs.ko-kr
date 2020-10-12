@@ -4,10 +4,10 @@ description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방�
 ms.date: 08/22/2020
 ms.topic: article
 ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334245"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>개인 끝점을 통해 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
@@ -64,7 +64,7 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 1. 페이지 위쪽에서 **프라이빗 엔드포인트 연결** 탭을 선택합니다. 
 1. 페이지 위쪽에서 **+ 프라이빗 엔드포인트** 단추를 선택합니다.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="네트워킹 페이지-개인 끝점 연결 탭-개인 끝점 추가 링크":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="네트워크 탭-선택한 네트워크 옵션":::
 7. **기본** 페이지에서 다음 단계를 수행합니다. 
     1. 프라이빗 엔드포인트를 만들려는 **Azure 구독**을 선택합니다. 
     2. 프라이빗 엔드포인트 리소스에 대한 **리소스 그룹**을 선택합니다.

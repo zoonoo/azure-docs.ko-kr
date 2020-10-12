@@ -6,17 +6,17 @@ ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333344"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
 이 가이드에서는 클래식 Application Insights 리소스를 작업 영역 기반 리소스로 마이그레이션하는 과정을 안내 합니다. 작업 영역 기반 리소스는 Application Insights와 Log Analytics 간의 완전한 통합을 지원합니다. 작업 영역 기반 리소스는 일반적인 Log Analytics 작업 영역에 Application Insights 원격 분석을 보냅니다 .이를 통해 응용 프로그램, 인프라 및 플랫폼 로그를 통합 된 단일 위치에 유지 하면서 [Azure Monitor의 최신 기능](#new-capabilities) 에 액세스할 수 있습니다.
 
-작업 영역 기반 리소스를 사용 하면 리소스에서 일반적인 RBAC (역할 기반 Access Control)를 사용할 수 있으며 앱 간/작업 영역 쿼리가 필요 하지 않습니다.
+작업 영역 기반 리소스를 사용 하면 리소스에서 RBAC (common Role-Based Access Control)를 사용할 수 있으며 앱 간/작업 영역 쿼리가 필요 하지 않습니다.
 
 **작업 영역 기반 리소스는 현재 모든 상용 지역 및 Azure 미국 정부에서 사용할 수 있습니다.**
 

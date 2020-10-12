@@ -4,10 +4,10 @@ description: Azure Service Fabric를 사용 하 여 응용 프로그램 및 서�
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: ddf846e9e3ac6add7cf3f584b702de5accfb22af
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538501"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric 응용 프로그램 디자인 모범 사례

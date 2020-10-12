@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092748"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
@@ -55,7 +55,7 @@ ms.locfileid: "87092748"
 - [Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [RDP 파일을 사용 하 여 클라우드 서비스 VM에 대 한 원격 데스크톱을 만들 수 없습니다. 다음 오류가 발생 했습니다. 인증 오류가 발생 했습니다 (코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**확장**
+**크기 조정**
 
 - [X 인스턴스 이상 확장할 수 없습니다.](#i-cannot-scale-beyond-x-instances)
 - [메모리 메트릭을 기반으로 자동 크기 조정을 구성하려면 어떻게 해야 하나요?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
@@ -113,7 +113,7 @@ Get-AzurePublishSettingsFile
 
 이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 - [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [일반적인 클라우드 서비스 시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 

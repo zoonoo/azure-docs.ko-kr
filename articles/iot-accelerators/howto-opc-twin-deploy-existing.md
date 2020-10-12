@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282122"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC 쌍을 기존 프로젝트에 배포
 
 > [!IMPORTANT]
-> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 OPC 쌍 모듈은 IoT Edge에서 실행 되며 OPC 쌍 및 레지스트리 서비스에 대 한 몇 가지 Edge 서비스를 제공 합니다.
 
@@ -31,7 +31,7 @@ OPC UA 장치 레지스트리 마이크로 서비스는 등록 된 OPC UA 응용
 > [!NOTE]
 > 배포 세부 정보 및 지침에 대 한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/azure-iiot-opc-twin-module)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 PowerShell 및 [AzureRM powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 확장이 설치 되어 있는지 확인 합니다. 아직 수행 하지 않은 경우이 GitHub 리포지토리를 복제 합니다. PowerShell에서 다음 명령을 실행합니다.
 

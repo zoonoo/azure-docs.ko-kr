@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
 ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400777"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
@@ -27,7 +27,7 @@ ms.locfileid: "91400777"
 > [!NOTE]
 > 또는 계정에 대 한 작업을 자동화 하려면 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md)를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다. 
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 컨테이너용 Azure Monitor의 문제를 해�
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092833"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
@@ -23,7 +23,7 @@ ms.locfileid: "87092833"
 다음 단계를 수행 하 여 Azure Portal에서이 역할을 수동으로 부여할 수도 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Kubernetes**을 입력 합니다. 입력을 시작하면 입력 내용에 따라 목록이 필터링됩니다. **Azure Kubernetes**를 선택 합니다.
+2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Kubernetes**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Azure Kubernetes**를 선택 합니다.
 3. Kubernetes 클러스터 목록에서 목록 중 하나를 선택 합니다.
 2. 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 클릭 합니다.
 3. **+ 추가** 를 선택 하 여 역할 할당을 추가 하 고, **모니터링 메트릭 게시자** 역할을 선택 하 고, **선택** 상자에서 **AKS** 를 입력 하 여 구독에 정의 된 클러스터 서비스 사용자만 결과를 필터링 합니다. 해당 클러스터에 해당 하는 목록에서 하나를 선택 합니다.

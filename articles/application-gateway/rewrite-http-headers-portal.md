@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807890"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 HTTP 요청 및 응답 헤더 재작성-Azure Portal
@@ -67,7 +67,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    - **이름** 상자에 재작성 집합의 이름을 입력 합니다.
    - **연결 된 라우팅 규칙** 목록에 나열 된 규칙을 하나 이상 선택 합니다. 다른 재작성 집합과 연결 되지 않은 규칙만 선택할 수 있습니다. 다른 재작성 집합과 이미 연결 된 규칙은 흐리게 표시 됩니다.
-   - **새로 만들기**를 선택합니다.
+   - **다음**을 선택합니다.
    
      ![이름 및 연결 추가](media/rewrite-http-headers-portal/name-and-association.png)
 
@@ -99,7 +99,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    - **연산자** 목록에서 **같음 (=)** 을 선택 합니다.
 
-   - 정규식 패턴을 입력 합니다. 이 예제에서는 패턴을 사용 `(https?):\/\/.*azurewebsites\.net(.*)$` 합니다.
+   - 정규식 패턴을 입력 합니다. 이 예제에서는 패턴을 사용  `(https?):\/\/.*azurewebsites\.net(.*)$` 합니다.
 
    - **확인**을 선택합니다.
 

@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
 ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333956"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집
@@ -21,7 +21,7 @@ ms.locfileid: "91333956"
 
 이 문서에서는 새 논리 앱과 기존 논리 앱에 대 한 Log Analytics를 사용 하도록 설정 하는 방법, Logic Apps 관리 솔루션을 설치 및 설정 하는 방법, Azure Monitor 로그에 대 한 쿼리를 설정 하 고 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 [Log Analytics 작업 영역이](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)필요 합니다. 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)에 대해 알아봅니다.
 

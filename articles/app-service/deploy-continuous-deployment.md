@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984395"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
@@ -92,7 +92,7 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
 
 계정에 필요한 권한이 있는 경우 GitHub 또는 Azure Repos에서 지속적으로 배포 하도록 Azure Pipelines를 설정할 수 있습니다. Azure Pipelines를 통해 배포 하는 방법에 대 한 자세한 내용은 [Azure 앱 서비스에 웹 앱 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)를 참조 하세요.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azure DevOps 조직에 다음 권한이 있어야 합니다. Azure App Service 
 
@@ -114,7 +114,7 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
    
 1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속**을 선택 합니다.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Azure Pipelines (미리 보기)가 선택 된 배포 센터 페이지를 보여 주는 스크린샷":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
    
 1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리**및 **분기** 를 선택 하 고 **계속**을 선택 합니다.
      
@@ -123,11 +123,11 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
        
     **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="필드의 예제 텍스트를 사용 하는 빌드 섹션의 스크린샷":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
 
 1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침**을 선택 합니다.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="새로 고침 단추가 강조 표시 된 커밋 및 배포를 보여 주는 배포 센터 페이지의 스크린샷":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
    
 1. 선택한 리포지토리 및 분기의 새 커밋이 이제 App Service에 지속적으로 배포 됩니다. 커밋과 배포는 **배포 센터** 페이지에서 추적할 수 있습니다.
    
@@ -141,11 +141,11 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
 
 1. **Deployment Center** 페이지에서 원본 제어 공급자로 **Azure Repos** 를 선택 하 고 **계속**을 선택 합니다.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="CI/CD (연속 배포) 선택 항목을 보여 주는 배포 센터 페이지의 스크린샷":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
 
 1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속**을 선택 합니다.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Azure Pipelines (미리 보기)를 보여 주는 배포 센터의 스크린샷":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
 
 1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리**및 **분기** 를 선택 하 고 **계속**을 선택 합니다.
 
@@ -154,11 +154,11 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
 
    **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="예제로 채워진 Azure DevOps 조직 및 프로젝트 필드를 보여주는 빌드 섹션의 스크린샷":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
 
 1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침**을 선택 합니다.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="요약 페이지에서 선택한 설정을 보여 주는 스크린샷":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
 
 1. 선택한 리포지토리 및 분기의 새 커밋이 이제 App Service에 지속적으로 배포 됩니다. 커밋과 배포는 **배포 센터** 페이지에서 추적할 수 있습니다.
 

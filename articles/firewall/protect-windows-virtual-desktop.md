@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400165"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure 방화벽을 사용하여 Windows 가상 데스크톱 배포 보호
@@ -22,7 +22,7 @@ Windows 가상 데스크톱은 Azure에서 실행 되는 데스크톱 및 앱 �
 
 이 문서의 지침에 따라 Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 호스트 풀에 대 한 추가 보호를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 
  - 배포 된 Windows 가상 데스크톱 환경 및 호스트 풀.

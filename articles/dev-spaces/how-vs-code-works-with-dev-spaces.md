@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Kubernetes 응용 프로그램을 디버그 하 고 신속 하 게 반복 하는 데 도움이 되는 Visual Studio Code 및 Azure Dev Spaces 방법을 알아보세요.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88209875"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Azure Dev Spaces에서 Visual Studio Code 작동 하는 방법
@@ -45,7 +45,7 @@ AKS 클러스터를 만들고 Visual Studio Code 외부에서 클러스터의 Az
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](how-dev-spaces-works.md)

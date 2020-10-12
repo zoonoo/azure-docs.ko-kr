@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807026"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>AKS 클러스터에 대 한 Application Gateway에 LetsEncrypt.org에서 인증서 사용
@@ -58,7 +58,7 @@ ms.locfileid: "84807026"
 
     리소스를 만듭니다 `ClusterIssuer` . 에서 `cert-manager` `Lets Encrypt` 서명 된 인증서를 가져올 인증 기관을 나타내는 데 필요 합니다.
 
-    Namespaced이 아닌 리소스를 사용 하 여 인증서 `ClusterIssuer` 관리자는 여러 네임 스페이스에서 사용할 수 있는 인증서를 발급 합니다. `Let’s Encrypt`ACME 프로토콜을 사용 하 여 지정 된 도메인 이름을 제어 하 고 인증서를 발급 하는지 확인 합니다. 여기에서 속성을 구성 하는 방법에 대해 자세히 설명 `ClusterIssuer` 합니다. [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer`는 `cert-manager` 테스트에 사용 되는 스테이징 환경을 사용 하 여 인증서를 발급 하도록 지시 `Lets Encrypt` 합니다 (루트 인증서가 브라우저/클라이언트 신뢰 저장소에 없음).
+    Namespaced이 아닌 리소스를 사용 하 여 인증서 `ClusterIssuer` 관리자는 여러 네임 스페이스에서 사용할 수 있는 인증서를 발급 합니다. `Let’s Encrypt` ACME 프로토콜을 사용 하 여 지정 된 도메인 이름을 제어 하 고 인증서를 발급 하는지 확인 합니다. 여기에서 속성을 구성 하는 방법에 대해 자세히 설명 `ClusterIssuer` 합니다. [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer` 는 `cert-manager` 테스트에 사용 되는 스테이징 환경을 사용 하 여 인증서를 발급 하도록 지시 `Lets Encrypt` 합니다 (루트 인증서가 브라우저/클라이언트 신뢰 저장소에 없음).
 
     아래 YAML의 기본 챌린지 형식은 `http01` 입니다. 다른 문제는 [letsencrypt.org](https://letsencrypt.org/docs/challenge-types/) 에 설명 되어 있습니다.
 
@@ -133,7 +133,7 @@ ms.locfileid: "84807026"
 4. 프로덕션 인증서
 
     스테이징 인증서가 성공적으로 설정 되 면 프로덕션 ACME 서버로 전환할 수 있습니다.
-    1. 수신 리소스에서 준비 주석을 다음으로 바꿉니다.`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. 수신 리소스에서 준비 주석을 다음으로 바꿉니다. `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
     1. `ClusterIssuer`이전 단계에서 만든 기존 준비를 삭제 하 고 위의 ClusterIssuer YAML에서 ACME 서버를 대체 하 여 새로 만듭니다.`https://acme-v02.api.letsencrypt.org/directory`
 
 5. 인증서 만료 및 갱신

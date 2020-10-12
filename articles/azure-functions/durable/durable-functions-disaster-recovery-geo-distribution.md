@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071213"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Azure Durable Functions의 재해 복구 및 지역 배포
@@ -20,7 +20,7 @@ Durable Functions 모든 상태는 기본적으로 Azure Storage에서 유지 �
 
 오케스트레이션과 엔터티는 HTTP를 통해 자체적으로 트리거된 [클라이언트 함수](durable-functions-types-features-overview.md#client-functions) 를 사용 하 여 트리거하거나 다른 지원 되는 Azure Functions 트리거 형식 중 하나를 사용 하 여 트리거될 수 있습니다. [기본 제공 HTTP api](durable-functions-http-features.md#built-in-http-apis)를 사용 하 여 트리거될 수도 있습니다. 간단히 하기 위해이 문서에서는 Azure Storage 및 HTTP 기반 기능 트리거와 관련 된 시나리오와 가용성을 높이고 재해 복구 작업을 수행 하는 동안 가동 중지 시간을 최소화 하는 옵션에 대해 집중적으로 설명 합니다. Service Bus 또는 Cosmos DB 트리거와 같은 다른 트리거 형식은 명시적으로 검사 되지 않습니다.
 
-다음 시나리오는 Azure Storage의 사용을 안내 하므로 활성-수동 구성을 기반으로 합니다. 이 패턴은 다른 지역으로의 백업(수동) 함수 앱 배포로 구성됩니다. Traffic Manager는 기본 (활성) 함수 앱에서 HTTP 가용성을 모니터링 합니다. 기본 함수 앱이 실패하면 백업 함수 앱으로 장애 조치(Failover)됩니다. 자세한 내용은 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)의 [우선 순위 트래픽 라우팅 방법](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) 을 참조 하세요.
+다음 시나리오는 Azure Storage 사용을 기반으로 하기 때문에 Active-Passive 구성을 기반으로 합니다. 이 패턴은 다른 지역으로의 백업(수동) 함수 앱 배포로 구성됩니다. Traffic Manager는 기본 (활성) 함수 앱에서 HTTP 가용성을 모니터링 합니다. 기본 함수 앱이 실패하면 백업 함수 앱으로 장애 조치(Failover)됩니다. 자세한 내용은 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)의 [우선 순위 Traffic-Routing 방법](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) 을 참조 하세요.
 
 > [!NOTE]
 > - 제안된 활성-수동 구성은 클라이언트가 항상 HTTP를 통해 새 오케스트레이션을 트리거할 수 있도록 합니다. 그러나 두 개의 함수 앱이 저장소에서 동일한 작업 허브를 공유 하는 것으로 인해 일부 백그라운드 저장소 트랜잭션이 둘 간에 배포 됩니다. 따라서이 구성은 보조 함수 앱에 대 한 몇 가지 추가 송신 비용이 발생 합니다.

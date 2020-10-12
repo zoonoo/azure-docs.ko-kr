@@ -8,10 +8,10 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282377"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
@@ -166,7 +166,7 @@ object result = await client.GetDigitalTwin(id);
 디지털 쌍의 정의 된 속성은 디지털 쌍의 최상위 속성으로 반환 됩니다. DTDL 정의의 일부가 아닌 메타 데이터 또는 시스템 정보는 접두사와 함께 반환 됩니다 `$` . 메타 데이터 속성은 다음과 같습니다.
 * 이 Azure Digital Twins 인스턴스의 디지털 쌍 ID `$dtId` 입니다.
 * `$etag`-웹 서버에서 할당 한 표준 HTTP 필드인
-* 섹션의 기타 속성 `$metadata` 여기에는 다음이 포함됩니다.
+* 섹션의 기타 속성 `$metadata` 내용은 다음과 같습니다.
     - 디지털 쌍 모델의 DTMI입니다.
     - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.
     - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타 데이터. 

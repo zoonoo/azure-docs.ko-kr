@@ -4,10 +4,10 @@ description: 가상 머신에서 Azure Resource Manager 템플릿을 사용하�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282496"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 가상 머신 만들기 
