@@ -12,10 +12,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
 ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319336"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용 하 여 실시간 빅 데이터 분석 가속화
@@ -35,7 +35,7 @@ Spark 커넥터를 사용 하면 Azure SQL Database, Azure SQL Managed Instance 
 | 구성 요소                             | 버전                  |
 | :-----------------------------------  | :----------------------- |
 | Apache Spark                          | 2.0.2 이상           |
-| Scala                                 | 2.10 이상            |
+| 스칼라                                 | 2.10 이상            |
 | SQL Server용 Microsoft JDBC Driver  | 6.2 이상             |
 | Microsoft SQL Server                  | SQL Server 2008 이상 |
 | Azure SQL Database                    | 지원됨                |

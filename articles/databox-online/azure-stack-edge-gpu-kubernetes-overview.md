@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899248"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes
@@ -106,7 +106,7 @@ IoT Edge를 통해 Kubernetes 클러스터에 응용 프로그램을 배포 하�
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes 및 Azure Arc
 
-Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)을 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
+Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure-Arc Enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)를 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336244"
 ---
 # <a name="server-parameters"></a>서버 매개 변수
@@ -345,7 +345,7 @@ Citus (hyperscale)를 사용 하면 두 개의 대규모 테이블이 조인 될
 * [parallel_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-TUPLE-COST) -작업자에서 마스터 백 엔드로 각 튜플 (행)을 전달 하는 계획의 예상 비용을 설정 합니다.
 * [pg_stat_statements 저장](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) -서버 종료 간에 pg_stat_statements 통계를 저장 합니다.
 * [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) -추적 되는 문을 선택 pg_stat_statements
-* [pg_stat_statements. track_utility](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) -유틸리티 명령을 pg_stat_statements 의해 추적 되는지 여부를 선택 합니다.
+* [pg_stat_statements track_utility](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) -유틸리티 명령을 pg_stat_statements로 추적할지 여부를 선택 합니다.
 * [quote_all_identifiers](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS) -SQL 조각 생성 시 모든 식별자 따옴표
 * [random_page_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST) -nonsequentially 인출 된 디스크 페이지에 대 한 planner의 예상 비용을 설정 합니다.
 * [row_security](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY) -행 보안을 사용 합니다.

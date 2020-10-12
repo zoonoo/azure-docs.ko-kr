@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287257"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
@@ -81,7 +81,7 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 | ----- | ----- | ---- |
 | uploadOn | true, false | `false`기본적으로로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 설정 `true` 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. `OldestFirst`기본적으로로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key` ,를 지정 `End point suffix` 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key` ,를 지정 `End point suffix` 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 자동 할당 됩니다 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15 자로 트리밍됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | `false`기본적으로로 설정 됩니다. 로 설정 되 면 `true` 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 성공적으로 업로드 한 후 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램이 드물게 추가 작업을 수행 하거나 연속 추가 작업을 지원 하지 않는 경우이 설정을 사용 하지 않도록 주의 하십시오.<br><br> 환경 `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` 변수: |
 
@@ -187,7 +187,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Python SDK의 V 2.1 이전 버전에는 모듈이 blob 생성 시간을 반환 하지 않는 알려진 문제가 있습니다. 이러한 문제로 인해 blob 나열과 같은 일부 메서드는 작동 하지 않습니다. 해결 방법으로 blob 클라이언트의 API 버전을 ' 2017-04-17 '로 명시적으로 설정 합니다. 예제: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Blob 추가 샘플](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)
@@ -201,7 +201,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 
 1. 연결 문자열을 사용 하 여 Azure Storage에 연결
 
-1. 연결 문자열 제공:`DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. 연결 문자열 제공: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
 1. 연결 단계를 진행 합니다.
 
@@ -298,7 +298,7 @@ IoT Edge 모듈의이 Azure Blob Storage은 이제 IoT Edge의 Event Grid와의 
 
 사용자 의견은이 모듈과 기능을 유용 하 고 사용 하기 쉽도록 하는 데 중요 합니다. 피드백을 공유 하 고 개선할 수 있는 방법을 알려주세요.
 
-다음에 연결할 수 있습니다.absiotfeedback@microsoft.com
+다음에 연결할 수 있습니다. absiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>다음 단계
 

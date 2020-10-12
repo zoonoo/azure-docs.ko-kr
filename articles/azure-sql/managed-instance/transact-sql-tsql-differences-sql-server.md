@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617879"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
@@ -165,7 +165,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
     - SQL Managed Instance에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 SQL Database으로 가져옵니다. 
     - SQL Database에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 SQL Managed Instance으로 가져옵니다.
     - SQL Managed Instance에서 데이터베이스를 내보내고 SQL Server (버전 2012 이상)로 가져옵니다.
-      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL Server 데이터베이스 보안 주체 (사용자)로 생성 됩니다. 사용자의 유형은로 나열 되며 `SQL` , `SQL_USER` database_principals)에 표시 됩니다. 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타데이터에 남아 있으며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용하여 SQL Server에 액세스하고 로그인하는 데는 사용할 수 없습니다.
+      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL Server 데이터베이스 보안 주체 (사용자)로 생성 됩니다. 사용자의 유형은로 나열 되며 `SQL` `SQL_USER` sys.database_principals)에서 볼 수 있습니다. 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타데이터에 남아 있으며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용하여 SQL Server에 액세스하고 로그인하는 데는 사용할 수 없습니다.
 
 - SQL Managed Instance 프로 비전 프로세스에서 생성 된 서버 수준 보안 주체 로그인, 서버 역할의 멤버 (예: `securityadmin` 또는) `sysadmin` 또는 서버 수준에서 ALTER ANY login 권한이 있는 기타 로그인만 sql Managed Instance의 master 데이터베이스에 Azure AD 서버 보안 주체 (로그인)를 만들 수 있습니다.
 - 로그인이 SQL 보안 주체인 경우 `sysadmin` 역할에 포함된 로그인만 create 명령을 사용하여 Azure AD 계정에 대한 로그인을 만들 수 있습니다.

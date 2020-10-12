@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 3a11f77384c520bed9824841269be4ad998adba4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056203"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 플러그 인 반응
@@ -30,7 +30,7 @@ npm install @microsoft/applicationinsights-react-js
 
 ```
 
-## <a name="basic-usage"></a>기본적인 사용 방법
+## <a name="basic-usage"></a>기본 사용법
 
 ```javascript
 import React from 'react';
@@ -62,7 +62,7 @@ export default withAITracking(reactPlugin,appInsights, MyComponent);
 
 ```
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 | 속성    | 기본값 | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|

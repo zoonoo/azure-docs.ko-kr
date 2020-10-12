@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707857"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Azure Portal를 사용 하 여 VM에 대 한 개인 IP 주소 구성
@@ -30,12 +30,12 @@ ms.locfileid: "84707857"
 
 다음 샘플 단계에서는 간단한 환경이 이미 생성 된 것으로 간주 합니다. 이 문서에 표시 된 대로 단계를 실행 하려면 먼저 [가상 네트워크를 만듭니다](quick-create-portal.md#create-a-virtual-network). 그러나 3 단계에서 다음 값을 대신 사용 합니다.
 
-| Setting | Value |
+| 설정 | 값 |
 | ------- | ----- |
-| Name | *TestVNet* |
+| 속성 | *TestVNet* |
 | 주소 공간 | *192.168.0.0/16* |
 | Resource group | **TestRG** (필요한 경우 새로 만들기를 선택 하 여 **새로** 만듭니다.) |
-| 서브넷 - 이름 | *엔드* |
+| 서브넷 - 이름 | *FrontEnd* |
 | 서브넷 - 주소 범위 | *192.168.1.0/24* |
 
 ## <a name="create-a-vm-for-testing-static-private-ip-addresses"></a>정적 개인 IP 주소를 테스트 하기 위한 VM 만들기
@@ -43,7 +43,7 @@ ms.locfileid: "84707857"
 
 *Testvnet*이라는 가상 네트워크의 *프런트 엔드* 서브넷에 *DNS01* 이라는 VM을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기**를 선택합니다.
 
     ![리소스 만들기, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
 2. **계산**  >  **가상 머신**를 선택 합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "84707857"
     | 항목 | 값 |
     | --- | --- |
     | **가상 네트워크** | **TestVNet** |
-    | **서브넷** | **엔드** |
+    | **서브넷** | **FrontEnd** |
 
     ![네트워킹 탭, 가상 컴퓨터 만들기, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
 5. **관리**의 **진단 저장소 계정**에서 **vnetstorage**를 선택 합니다. 해당 저장소 계정이 목록에 표시 되지 않으면 **새로 만들기**를 선택 하 고, *Vnetstorage*의 **이름을** 지정 하 고, **확인**을 선택 합니다. 마지막으로 **검토 &nbsp; + &nbsp; 만들기**를 선택 합니다.

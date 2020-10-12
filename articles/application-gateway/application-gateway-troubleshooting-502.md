@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808150"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
@@ -82,7 +82,7 @@ DhcpOptions            : {
 
 다음 표에서는 기본 상태 프로브와 관련 된 값을 나열 합니다.
 
-| 프로브 속성 | 값 | 설명 |
+| 프로브 속성 | 값 | Description |
 | --- | --- | --- |
 | 프로브 URL |`http://127.0.0.1/` |URL 경로 |
 | 간격 |30 |프로브 간격(초) |
@@ -106,7 +106,7 @@ DhcpOptions            : {
 
 다음과 같은 추가 속성이 추가 됩니다.
 
-| 프로브 속성 | 설명 |
+| 프로브 속성 | Description |
 | --- | --- |
 | 속성 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |

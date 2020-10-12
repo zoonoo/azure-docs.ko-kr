@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087850"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
@@ -20,7 +20,7 @@ ms.locfileid: "90087850"
 
 이 문서는 Azure CLI를 사용하여 IoT Hub를 만드는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 문서를 완료하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -72,14 +72,14 @@ Azure CLI를 사용하여 리소스 그룹을 만든 다음 IoT Hub를 추가합
 
 Azure CLI를 사용하여 IoT Hub와 같은 [개별 리소스를 삭제](https://docs.microsoft.com/cli/azure/resource)하거나 IoT Hub를 포함한 리소스 그룹 및 모든 해당 리소스를 삭제할 수 있습니다.
 
-[IoT Hub를 삭제](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)하려면 다음 명령을 실행합니다.
+[IoT hub를 삭제](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)하려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-모든 해당 리소스 및 [리소스 그룹을 삭제](https://docs.microsoft.com/cli/azure/group#az-group-delete)하려면 다음 명령을 실행합니다.
+[리소스 그룹](https://docs.microsoft.com/cli/azure/group#az-group-delete) 및 모든 해당 리소스를 삭제 하려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119932"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
@@ -53,7 +53,7 @@ MSAL 공용 API는 Azure AD v 1.0과 Microsoft id 플랫폼 간의 몇 가지 �
 
 ### <a name="msalpublicclientapplication-instead-of-adauthenticationcontext"></a>ADAuthenticationContext 대신 MSALPublicClientApplication
 
-`ADAuthenticationContext`는 ADAL 앱에서 만드는 첫 번째 개체입니다. ADAL의 인스턴스화를 나타냅니다. 앱은 `ADAuthenticationContext` 각 Azure Active Directory 클라우드 및 테 넌 트 (기관) 조합에 대 한의 새 인스턴스를 만듭니다. 동일한를 `ADAuthenticationContext` 사용 하 여 여러 공용 클라이언트 응용 프로그램에 대 한 토큰을 가져올 수 있습니다.
+`ADAuthenticationContext` 는 ADAL 앱에서 만드는 첫 번째 개체입니다. ADAL의 인스턴스화를 나타냅니다. 앱은 `ADAuthenticationContext` 각 Azure Active Directory 클라우드 및 테 넌 트 (기관) 조합에 대 한의 새 인스턴스를 만듭니다. 동일한를 `ADAuthenticationContext` 사용 하 여 여러 공용 클라이언트 응용 프로그램에 대 한 토큰을 가져올 수 있습니다.
 
 MSAL에서 기본 상호 작용은 `MSALPublicClientApplication` [OAuth 2.0 공용 클라이언트](https://tools.ietf.org/html/rfc6749#section-2.1)를 통해 모델링 되는 개체를 통해 진행 됩니다. 의 인스턴스 하나를 사용 하 여 `MSALPublicClientApplication` 각 기관에 대 한 새 인스턴스를 만들 필요 없이 여러 AAD 클라우드 및 테 넌 트와 상호 작용할 수 있습니다. 대부분의 앱에 `MSALPublicClientApplication` 는 하나의 인스턴스만 있으면 충분 합니다.
 
@@ -61,7 +61,7 @@ MSAL에서 기본 상호 작용은 `MSALPublicClientApplication` [OAuth 2.0 공�
 
 ADAL에서 앱은 *resource* `https://graph.microsoft.com` Azure Active Directory v 1.0 끝점에서 토큰을 획득 하는 등의 리소스 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
 
-MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예를 들어 `https://graph.microsoft.com/user.read`
+MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예, `https://graph.microsoft.com/user.read`
 
 MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
@@ -75,7 +75,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 의 동작은의 동작과 유사 `resource` 합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default`. 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
+범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default` 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
 
 여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](./v2-permissions-and-consent.md#the-default-scope) .
 
@@ -83,7 +83,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 ADAL은 iOS 용 UIWebView 보기/WKWebView 및 macOS에 대 한 웹 보기만 지원 합니다. IOS 용 MSAL은 권한 부여 코드를 요청할 때 웹 콘텐츠를 표시 하기 위한 더 많은 옵션을 지원 하 고 더 이상 지원 하지 않으므로 `UIWebView` 사용자 환경 및 보안을 향상 시킬 수 있습니다.
 
-기본적으로 iOS의 MSAL은 iOS 12 이상 장치에서 인증을 위해 Apple에서 권장 하는 웹 구성 요소인 [Aswebauthenticationsession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)을 사용 합니다. 앱과 Safari 브라우저 간에 쿠키를 공유 하 여 SSO (Single Sign-on) 혜택을 제공 합니다.
+기본적으로 iOS의 MSAL은 iOS 12 이상 장치에서 인증을 위해 Apple에서 권장 하는 웹 구성 요소인 [Aswebauthenticationsession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)을 사용 합니다. 앱과 Safari 브라우저 간에 쿠키를 공유 하 여 SSO (Single Sign-On) 혜택을 제공 합니다.
 
 앱 요구 사항 및 원하는 최종 사용자 환경에 따라 다른 웹 구성 요소를 사용 하도록 선택할 수 있습니다. 자세한 옵션은 [지원 되는 웹 보기 형식](customize-webviews.md) 을 참조 하세요.
 
@@ -226,7 +226,7 @@ MSAL으로 전환 하 고 AAD 계정을 사용 하도록 설정 하기 위해 �
 
 리디렉션 URI는 형식 이어야 `msauth.<app.bundle.id>://auth` 합니다. `<app.bundle.id>`을 응용 프로그램의 번들 ID로 바꿉니다. [Azure Portal](https://aka.ms/MobileAppReg)에서 리디렉션 URI를 지정 합니다.
 
-IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 `msauth://code/<broker-redirect-uri-in-url-encoded-form>` 합니다. 예를 들어 `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 `msauth://code/<broker-redirect-uri-in-url-encoded-form>` 합니다. 예, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 모든 앱에서 리디렉션 Uri를 모두 등록 하는 것이 좋습니다.
 

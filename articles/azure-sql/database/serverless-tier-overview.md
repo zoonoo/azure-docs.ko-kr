@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
 ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321410"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-서버를 사용 하지 않는 Azure SQL Database의 단일 데이터베이스에 대 한 계산 계층으로, 워크 로드 요구 사항에 따라 자동으로 계산을 확장 하 고 초당 사용 된 계산 양에 대 한 요금을 청구 합니다. 서버를 사용 하지 않는 계산 계층은 저장소가 청구 될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 합니다.
+서버를 사용 하지 않는 Azure SQL Database의 단일 데이터베이스에 대 한 계산 계층으로, 워크 로드 요구 사항에 따라 자동으로 계산을 확장 하 고 초당 사용 된 계산 양에 대 한 요금을 청구 합니다. 또한 서버리스 컴퓨팅 계층은 스토리지 비용만 청구될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지하고 활동이 반환되면 데이터베이스를 자동으로 다시 시작합니다.
 
 ## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
@@ -275,7 +275,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|Description|단위|
+|엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
@@ -367,5 +367,5 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작 하려면 [퀵 스타트: Azure Portal를 사용 하 여 Azure SQL Database에서 단일 데이터베이스 만들기](single-database-create-quickstart.md)를 참조 하세요.
+- 시작하려면 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](single-database-create-quickstart.md)를 참조하세요.
 - 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)을 참조하세요.

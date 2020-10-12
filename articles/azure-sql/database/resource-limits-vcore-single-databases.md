@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/21/2020
 ms.openlocfilehash: 1d9fc9f50ac21e2ea621e26ad2b1fe0f146116de
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618491"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
@@ -525,7 +525,7 @@ ms.locfileid: "91618491"
 |최대 동시 로그인|800|1,000|1,200|1,400|1,600|1,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|예|
+|다중 AZ|아니요|아니요|아니요|아니요|아니요|아니요|
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -554,7 +554,7 @@ ms.locfileid: "91618491"
 |최대 동시 로그인|2,000|2,400|3,200|6,400|12,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|
+|다중 AZ|아니요|아니요|아니요|아니요|아니요|
 |읽기 확장|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 

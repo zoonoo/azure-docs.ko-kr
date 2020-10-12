@@ -9,10 +9,10 @@ ms.author: kecheung
 author: kcheeeung
 ms.date: 08/12/2020
 ms.openlocfilehash: d0a0df4791492c1c9f0d600630d723024c46c1b8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227398"
 ---
 # <a name="scale-hiveserver2-on-azure-hdinsight-clusters-for-high-availability"></a>고가용성을 위해 Azure HDInsight 클러스터에서 HiveServer2 크기 조정
@@ -22,7 +22,7 @@ ms.locfileid: "88227398"
 > [!NOTE]
 > 사용량에 따라 HiveServer2 수를 늘리면 Hive metastore 연결 수가 증가할 수 있습니다. 또한 Azure SQL database의 크기가 적절 하 게 조정 되었는지 확인 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 사용 하려면 다음 문서를 이해 해야 합니다.
 - [HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)
@@ -37,13 +37,13 @@ ms.locfileid: "88227398"
 
 2. 추가 단추를 클릭 하 고 HiveServer2를 클릭 합니다.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="호스트의 HiveServer2 panel을 추가 합니다.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Ambari의 호스트 메뉴입니다.":::
 
 3. 를 확인 하 고 프로세스를 실행 합니다. 모든 원하는 호스트에 대해 1-3을 반복 합니다.
 
 4. 설치가 완료 되 면 오래 된 configs를 사용 하 여 모든 서비스를 다시 시작 하 고 HiveServer2를 시작 합니다.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="HiveServer2 패널을 시작 합니다.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="Ambari의 호스트 메뉴입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

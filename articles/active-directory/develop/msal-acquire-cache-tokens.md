@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119898"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
@@ -42,8 +42,8 @@ MSAL은 획득 된 토큰을 캐시 합니다. 응용 프로그램 코드는 먼
 
 다른 리소스에 대 한 몇 가지 예제 범위 값은 다음과 같습니다.
 
-- Microsoft Graph API:`https://graph.microsoft.com/User.Read`
-- 사용자 지정 web API:`api://11111111-1111-1111-1111-111111111111/api.read`
+- Microsoft Graph API: `https://graph.microsoft.com/User.Read`
+- 사용자 지정 web API: `api://11111111-1111-1111-1111-111111111111/api.read`
 
 범위 값의 형식은 액세스 토큰을 받는 리소스 (API) 및 허용 하는 클레임 값에 따라 달라 집니다 `aud` .
 

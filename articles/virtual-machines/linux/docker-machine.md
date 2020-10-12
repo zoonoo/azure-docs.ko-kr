@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 83799940f8c98952a435f582a9160585e9dbdfd4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289794"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker Machine을 사용하여 Azure에서 호스트를 만드는 방법
@@ -37,7 +37,7 @@ docker-machine create -d azure \
     myvm
 ```
 
-출력은 다음 예제와 유사합니다.
+출력은 다음 예제와 같이 표시됩니다.
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem

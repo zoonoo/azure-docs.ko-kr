@@ -10,10 +10,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df8560bec3671a9f05628ee6ed8ea95c31e9b16f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998053"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>IOS 13의 Azure Notification Hubs 업데이트
@@ -65,7 +65,7 @@ request.Headers.Add("apns-push-type", "alert");
 
 또 다른 사소한 변경은 있지만 알림을 보내는 백 엔드 응용 프로그램을 변경 해야 하는 경우, `apns-priority` 이제 헤더를 5로 설정 해야 한다는 요구 사항이 있습니다. 많은 응용 프로그램 `apns-priority` 에서 헤더를 10으로 설정 하 여 (즉시 배달 표시), 설정 하지 않고 기본 값 (도 10)을 가져옵니다.
 
-이 값을 10으로 설정 하면 백그라운드 알림에 더 이상 사용할 수 없으며 각 요청에 대 한 값을 설정 해야 합니다. 이 값이 없는 경우 Apple은 백그라운드 알림을 배달 하지 않습니다. 예를 들어:
+이 값을 10으로 설정 하면 백그라운드 알림에 더 이상 사용할 수 없으며 각 요청에 대 한 값을 설정 해야 합니다. 이 값이 없는 경우 Apple은 백그라운드 알림을 배달 하지 않습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);

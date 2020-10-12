@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: d8c6b79dca97de3dd46eb9c677f2c94191f276b0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89304045"
 ---
 함수 트리거를 사용하여 이벤트 허브 이벤트 스트림으로 보내진 이벤트에 응답합니다. 트리거를 설정하려면 기본 이벤트 허브에 대한 읽기 액세스 권한이 있어야 합니다. 함수가 트리거되면 함수에 전달된 메시지가 문자열로 입력됩니다.

@@ -8,13 +8,13 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105135"
 ---
-# <a name="co-sell-country-and-region-codes"></a>국가 및 지역 코드 공동 판매
+# <a name="co-sell-country-and-region-codes"></a>공동 판매 국가 및 지역 코드
 
 [제품의 공동 판매 페이지에서 연락처 정보를 제공할](commercial-marketplace-co-sell.md)때 이러한 두 문자로 이루어진 국가/지역 코드를 사용 합니다.
 

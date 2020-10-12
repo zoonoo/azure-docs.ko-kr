@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84434377"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
@@ -73,8 +73,8 @@ DRA (Microsoft Azure Site Recovery 공급자)를 업그레이드 하는 경우 �
 
 레지스트리 키의 매개 변수에 대 한 null 값 때문일 수 있습니다. 문제를 해결 하려면
 
-1. 레지스트리 편집기 (regedit.exe)를 시작 하 고 HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed 된 제품 \ 4 분기를 엽니다.
+1. 레지스트리 편집기 (regedit.exe)를 시작 하 고 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4 분기를 엽니다.
 1. ' InstallDirectory ' 키 값을 검사 합니다.Null 인 경우 현재 설치 디렉터리 값을 추가 합니다.
-1. 마찬가지로 레지스트리 편집기에서 HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed 된 제품 \ 5 분기를 엽니다.
+1. 마찬가지로 레지스트리 편집기에서 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed 된 제품 \ 5 분기를 엽니다.
 1. ' InstallDirectory ' 키 값을 검사 하 고 현재 설치 디렉터리 값을 추가 합니다.
 1. 통합 설치 관리자를 다시 실행 합니다.

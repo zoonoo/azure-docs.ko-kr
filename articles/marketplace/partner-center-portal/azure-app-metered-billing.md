@@ -8,10 +8,10 @@ ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320054"
 ---
 # <a name="managed-application-metered-billing"></a>관리 되는 응용 프로그램 요금제 청구 
@@ -66,7 +66,7 @@ CoA 서비스를 구독 하는 Azure 고객은 선택한 계획에 따라 월 �
 
 차원 자체를 정의 하는 특성은 제품에 대 한 모든 계획에서 공유 됩니다. 제품을 게시 하기 전에 계획의 컨텍스트에서 이러한 특성에 대 한 변경 사항은 모든 계획의 차원 정의에 영향을 줍니다. 제품을 게시 한 후에는 이러한 특성을 더 이상 편집할 수 없습니다. 특성은 다음과 같습니다.
 
-* 식별자
+* ID
 * Name
 * 측정 단위
 
@@ -92,7 +92,7 @@ Marketplace 계량 서비스에 사용 되는 차원은 고객이 서비스를 �
 
 차원이 포함 된 제품을 게시 한 후에는 해당 차원에 대 한 제품 수준 세부 정보를 더 이상 변경할 수 없습니다.
 
-* 식별자
+* ID
 * Name
 * 측정 단위
 

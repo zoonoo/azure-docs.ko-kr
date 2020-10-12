@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319557"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
@@ -178,11 +178,11 @@ Authorization: Bearer <access-token>
 
 이동 옵션을 사용 하도록 설정 하려면 이동 하려는 리소스를 선택 합니다. 모든 리소스를 선택 하려면 목록의 맨 위에 있는 확인란을 선택 합니다. 또는 리소스를 개별적으로 선택 합니다. 리소스를 선택한 후에는 이동 옵션을 사용할 수 있습니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="리소스 선택":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="move 옵션 사용 안 함":::
 
 **이동** 단추를 선택 합니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="이동 옵션":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="move 옵션 사용 안 함":::
 
 이 단추는 세 가지 옵션을 제공 합니다.
 
@@ -194,11 +194,11 @@ Authorization: Bearer <access-token>
 
 대상 리소스 그룹을 선택 합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인**을 선택합니다. 새 구독으로 이동 하도록 선택한 경우에도 대상 구독을 선택 해야 합니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="대상 선택":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="move 옵션 사용 안 함":::
 
 리소스를 이동할 수 있는지 확인 한 후 이동 작업이 실행 중임을 확인할 수 있습니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="알림":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="move 옵션 사용 안 함":::
 
 완료되면 결과를 알려 줍니다.
 
