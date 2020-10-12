@@ -12,10 +12,10 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: f81af557242503c6380d0ff7bc1dfaed852cd908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89070686"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
@@ -100,7 +100,7 @@ Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -124,7 +124,7 @@ Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <S
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -321,7 +321,7 @@ Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -554,7 +554,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 #Required Parameters
 ```
 
-$sourcePath = 읽기-호스트 프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = 읽기-호스트-프롬프트 "파일 이름" # "을 (를) 사용 하 여 출력 파일 경로 입력 \<Out_Path\>
+$sourcePath = Read-Host-프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = Read-Host-프롬프트 "파일 이름이" # "인 파일 경로를 입력 합니다. \<Out_Path\>
  
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
@@ -679,7 +679,7 @@ Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] 
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -849,7 +849,7 @@ Resolve-ADSyncHostAddress [[-hostName] <String>]
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```
@@ -977,7 +977,7 @@ Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 
 ### <a name="examples"></a>예제
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 ```powershell
 PS C:\> {{ Add example code here }}
 ```

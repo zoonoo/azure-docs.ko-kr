@@ -8,10 +8,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071706"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 방화벽 배포 및 구성
@@ -45,7 +45,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 원하는 경우 [Azure Portal](tutorial-firewall-deploy-portal.md)를 사용 하 여이 절차를 완료할 수 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 이제 점프 및 워크로드 가상 머신을 만들어 적절한 서브넷에 배치합니다.
 메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
 
-Srv 점프 가상 머신을 만듭니다.
+Srv-Jump 가상 컴퓨터를 만듭니다.
 
 ```azurepowershell
 New-AzVm `

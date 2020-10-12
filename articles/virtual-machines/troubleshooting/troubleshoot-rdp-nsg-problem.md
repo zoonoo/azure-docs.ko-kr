@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77918175"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>NSG에서 사용하도록 설정하지 않은 RDP 포트로 인해 Azure VM에 연결할 수 없음
@@ -28,7 +28,7 @@ ms.locfileid: "77918175"
 
 RDP 포트가 네트워크 보안 그룹에서 열려 있지 않으므로 Azure에서 VM에 대한 RDP 연결을 만들 수 없습니다.
 
-## <a name="solution"></a>솔루션 
+## <a name="solution"></a>해결 방법 
 
 새 VM을 만들면 기본적으로 인터넷의 모든 트래픽이 차단됩니다. 
 

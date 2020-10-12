@@ -9,10 +9,10 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78196028"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼
@@ -29,7 +29,7 @@ ms.locfileid: "78196028"
 | 플랫폼 |  지원되는 버전 | 추가 정보 |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 이상 | [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2F2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop은](https://hadoop.apache.org/) | 3.2 이상 | [Apache Hadoop 릴리스 보관 파일](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2 이상 | [Apache Hadoop 릴리스 보관 파일](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1 이상 | [Cloudera Enterprise 6.x 릴리스 정보](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 이상 | [Databricks Runtime 버전](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x 이상 | [클라우드 데이터 액세스 구성](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |

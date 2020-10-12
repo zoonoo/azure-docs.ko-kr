@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884428"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL의 테이블 공동 위치 – Hyperscale (Citus)
@@ -47,7 +47,7 @@ CREATE TABLE page (
 
 이제 고객 지향 대시보드에서 발급 될 수 있는 쿼리에 응답 하려고 합니다. 예제 쿼리는 "테 넌 트 6에서 '/블로그 '로 시작 하는 모든 페이지에 대 한 지난 주의 방문 횟수를 반환 합니다."
 
-데이터가 단일 서버 배포 옵션에 있는 경우 SQL에서 제공 하는 다양 한 관계형 작업 집합을 사용 하 여 쿼리를 쉽게 표현할 수 있습니다.
+데이터가 Single-Server 배포 옵션에 있는 경우 SQL에서 제공 하는 다양 한 관계형 작업 집합을 사용 하 여 쿼리를 쉽게 표현할 수 있습니다.
 
 ```sql
 SELECT page_id, count(event_id)
@@ -96,7 +96,7 @@ GROUP BY page_id ORDER BY count DESC LIMIT 10;
 
 쿼리를 실행 하려면 여러 노드에 분산 된 분할의 데이터를 참조 해야 합니다.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="비효율적인 쿼리":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="분할":::
 
 이 경우 데이터 배포는 상당한 단점을 만듭니다.
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Tenant_id에 대 한 필터 및 조인 때문에 Citus (Hyperscale)는 특정 테 넌 트에 대 한 데이터를 포함 하는 공동 배치 분할 집합을 사용 하 여 전체 쿼리에 대 한 답변을 받을 수 있음을 알고 있습니다. 단일 PostgreSQL 노드는 단일 단계에서 쿼리에 응답할 수 있습니다.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="향상 쿼리":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="분할":::
 
 경우에 따라 테 넌 트 ID를 고유한 제약 조건 및 조인 조건에 포함 하도록 쿼리와 테이블 스키마를 변경 해야 합니다. 이 변경은 일반적으로 간단 합니다.
 

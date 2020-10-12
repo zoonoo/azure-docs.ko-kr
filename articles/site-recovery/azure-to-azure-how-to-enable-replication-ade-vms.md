@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135788"
 ---
-# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
+# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 Azure Disk Encryption 사용 가능 가상 머신 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm (ADE)을 사용 하도록 설정 Azure Disk Encryption 된 Azure Vm을 복제 하는 방법을 설명 합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "86135788"
 > 현재 Site Recovery는 Windows 운영 체제를 실행하는 VM에 대해 AAD(Azure Active Directory) 유무에 관계없이 ADE를 지원합니다. Linux 운영 체제의 경우 AAD가 없는 ADE만 지원합니다. 또한 AAD 없이 ADE 1.1을 실행하는 머신의 경우 VM은 관리 디스크를 사용해야 합니다. 비관리 디스크가 있는 VM은 지원되지 않습니다. ADE 0.1(AAD 포함)에서 1.1로 전환하는 경우에는 1.1을 사용하도록 설정한 후 복제를 비활성화하고 VM에 대한 복제를 활성화해야 합니다.
 
 
-## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>필요한 사용자 권한
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> 필요한 사용자 권한
 Site Recovery를 사용 하려면 사용자에 게 대상 지역에서 키 자격 증명 모음을 만들고 원본 지역 key vault에서 대상 지역 key vault로 키를 복사할 수 있는 권한이 있어야 합니다.
 
 Azure Portal에서 디스크 암호화 사용 Vm의 복제를 사용 하도록 설정 하려면 사용자에 게 **원본 지역과 대상 지역** 키 자격 증명 모음에 대 한 다음 권한이 있어야 합니다.
@@ -122,7 +122,7 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 4. Vm이 복제를 사용 하도록 설정 된 후 복제 된 **항목**에서 vm의 상태를 확인할 수 있습니다.
 
 >[!NOTE]
->초기 복제 중에는 상태를 명확 하 게 진행 하지 않고 새로 고치는 데 시간이 걸릴 수 있습니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭 합니다.
+>초기 복제 중에는 상태를 명확 하 게 진행 하지 않고 새로 고치는 데 시간이 걸릴 수 있습니다. 최신 상태를 가져오려면 **새로 고침**  을 클릭 합니다.
 
 ## <a name="update-target-vm-encryption-settings"></a>대상 VM 암호화 설정 업데이트
 다음 시나리오에서는 대상 VM 암호화 설정을 업데이트 해야 합니다.

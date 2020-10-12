@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885181"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
@@ -228,12 +228,12 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - SQL 데이터베이스:
   - 세부적인 권한 및 사용자 정의 데이터베이스 역할 (또는 Managed Instance의 서버 역할)을 사용 합니다.
     1. 필요한 역할 만들기
-       - [역할 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
        - [사용자 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. 사용자를 역할에 멤버로 추가
-       - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
+       - [ALTER_ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
     1. 그런 다음 역할에 사용 권한을 할당 합니다.
        - [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql)
@@ -461,7 +461,7 @@ CLE를 사용 하는 경우:
 
 - 3DES를 사용 하지 않도록 비대칭 키/인증서 (암호 아님)를 사용 하 여 대칭 키를 보호 합니다.
 
-- 내보내기/가져오기 (bacpac 파일)를 통해 셀 수준 암호화를 사용 하 여 데이터베이스를 마이그레이션할 때는 주의 해야 합니다.
+- 내보내기/가져오기 (bacpac 파일)를 통해 Cell-Level 암호화를 사용 하 여 데이터베이스를 마이그레이션할 때는 주의 해야 합니다.
   - 데이터를 마이그레이션할 때 키 손실을 방지 하는 방법에 대 한 [Azure SQL Database에서 셀 수준 암호화 사용에 대 한 권장 사항](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) 및 기타 모범 사례 지침을 참조 하세요.
 
 Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 높은 권한 사용자가 사용 하는 중요 한 데이터를 보호 하기 위해 설계 되었습니다. 권한이 [높은 권한이 없는 사용자의 중요 한 데이터 보호](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)를 참조 하세요. Always Encrypted를 사용 하 여 응용 프로그램 사용자 로부터 데이터를 보호 하는 경우 다음과 같은 문제를 고려해 야 합니다.

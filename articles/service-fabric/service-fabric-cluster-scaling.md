@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610203"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 크기 조정
@@ -28,7 +28,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 - 프로덕션 워크로드를 실행하는 주 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
 - 상태 저장 프로덕션 워크로드를 실행하는 주가 아닌 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
 - 상태 비저장 프로덕션 워크로드를 실행하는 주가 아닌 노드 형식에는 항상 2개 이상의 노드가 있어야 합니다.
-- [내구성 수준](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)이 Gold 또는 Silver인 모든 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
+- [내구성 수준](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)이 골드 또는 실버인 모든 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
 - 노드 유형에 서 임의 VM 인스턴스/노드를 제거 하지 마세요. 항상 가상 머신 확장 집합 크기 조정 기능을 사용 합니다. 임의 VM 인스턴스를 삭제하면 부하를 적절히 분산하는 시스템 기능에 부정적인 영향을 줄 수 있습니다.
 - 자동 크기 조정 규칙을 사용하는 경우 스케일 인(VM 인스턴스 제거)을 한 번에 한 노드에서 수행하도록 규칙을 설정합니다. 한 번에 여러 인스턴스의 규모를 축소하는 방식은 안전하지 않습니다.
 

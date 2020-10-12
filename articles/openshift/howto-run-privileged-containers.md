@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78271369"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 권한 있는 컨테이너 실행
@@ -115,7 +115,7 @@ Enforcers를 배포할 때 다음 필드를 설정 합니다.
 | -------------- | ------------- |
 | 오케스트레이터   | OpenShift     |
 | ServiceAccount | 바다색-계정  |
-| Project        | 바다색-보안 |
+| 프로젝트        | 바다색-보안 |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Twistlock Sma Cloud/에 대 한 제품별 단계
 
@@ -169,7 +169,7 @@ spec:
 oc create -f twistlock_route.yaml
 ```
 
-다음 명령을 사용 하 여 Twistlock 콘솔에 할당 된 URL을 가져올 수 있습니다.`oc get route twistlock-console -n twistlock`
+다음 명령을 사용 하 여 Twistlock 콘솔에 할당 된 URL을 가져올 수 있습니다. `oc get route twistlock-console -n twistlock`
 
 ### <a name="configure-console"></a>콘솔 구성
 

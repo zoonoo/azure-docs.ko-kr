@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972192"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>암호화 범위 만들기 및 관리 (미리 보기)
@@ -130,7 +130,7 @@ az storage account encryption-scope create \
 
 Microsoft에서 관리 하는 키로 보호 되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) 명령을 호출 하 고 `--key-source` 매개 변수를로 지정 합니다 `Microsoft.Storage` . 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
-주요 자격 증명 모음 또는 관리 되는 HSM에서 고객 관리 키로 보호 되는 새 암호화 범위를 만들려면 먼저 저장소 계정에 대 한 고객 관리 키를 구성 합니다. 저장소 계정에 관리 되는 id를 할당 하 고 관리 되는 id를 사용 하 여 저장소 계정에 액세스할 수 있는 권한을 갖도록 키 자격 증명 모음에 대 한 액세스 정책을 구성 해야 합니다. 자세한 내용은 [Azure Storage 암호화를 위한 고객 관리 키](../common/customer-managed-keys-overview.md)를 참조 하세요.
+주요 자격 증명 모음 또는 관리 되는 HSM에서 고객 관리 키로 보호 되는 새 암호화 범위를 만들려면 먼저 저장소 계정에 대 한 고객 관리 키를 구성 합니다. 저장소 계정에 관리 되는 id를 할당 하 고 관리 되는 id를 사용 하 여 저장소 계정에 액세스할 수 있는 권한을 갖도록 키 자격 증명 모음에 대 한 액세스 정책을 구성 해야 합니다. 자세한 내용은 [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)를 참조하세요.
 
 암호화 범위에서 사용 하기 위해 고객 관리 키를 구성 하려면 키 자격 증명 모음 또는 관리 되는 HSM에서 보호 제거를 사용 하도록 설정 해야 합니다. 키 자격 증명 모음 또는 관리 되는 HSM은 저장소 계정과 동일한 지역에 있어야 합니다.
 
@@ -179,7 +179,7 @@ az storage account encryption-scope create \
 
 Azure Portal에서 저장소 계정에 대 한 암호화 범위를 보려면 저장소 계정에 대 한 **암호화 범위** 설정으로 이동 합니다. 이 창에서 암호화 범위를 사용 하거나 사용 하지 않도록 설정 하거나 암호화 범위에 대 한 키를 변경할 수 있습니다.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Azure Portal의 암호화 범위 목록을 보여 주는 스크린샷":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Azure Portal에서 암호화 범위를 만드는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Azure Portal에서 기본 암호화 범위를 사용 하 여 컨테이너를 만
 1. **암호화 범위** 드롭다운에서 컨테이너의 기본 암호화 범위를 선택 합니다.
 1. 컨테이너의 모든 blob이 기본 암호화 범위를 사용 하도록 요구 하려면 **컨테이너의 모든 blob에 대해이 암호화 범위를 사용**하려면 확인란을 선택 합니다. 이 확인란을 선택 하면 컨테이너의 개별 blob에서 기본 암호화 범위를 재정의할 수 없습니다.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="기본 암호화 범위를 사용 하는 컨테이너를 보여 주는 스크린샷":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Azure Portal에서 암호화 범위를 만드는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -277,7 +277,7 @@ Azure Portal에 지정 된 암호화 범위를 사용 하 여 blob을 업로드 
 1. **암호화 범위** 드롭다운 섹션을 찾습니다. 기본적으로 blob는 컨테이너에 대 한 기본 암호화 범위 (지정 된 경우)를 사용 하 여 만들어집니다. 컨테이너에서 blob이 기본 암호화 범위를 사용 해야 하는 경우에는이 섹션을 사용할 수 없습니다.
 1. 업로드할 blob에 대해 다른 범위를 지정 하려면 **기존 범위 선택**을 선택한 다음 드롭다운에서 원하는 범위를 선택 합니다.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="암호화 범위를 사용 하 여 blob을 업로드 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Azure Portal에서 암호화 범위를 만드는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -380,7 +380,7 @@ Azure Portal에서 암호화 범위를 사용 하지 않도록 설정 하려면 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell에서 암호화 범위를 사용 하지 않도록 설정 하려면 `-State` `disabled` 다음 예제와 같이 AzStorageEncryptionScope 명령을 호출 하 고 값을 사용 하 여 매개 변수를 포함 합니다. 암호화 범위를 다시 사용 하도록 `-State` 설정 하려면 매개 변수를로 설정 하 여 동일한 명령을 호출 합니다 `enabled` . 예제의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
+PowerShell에서 암호화 범위를 사용 하지 않도록 설정 하려면 `-State` `disabled` 다음 예제와 같이 Update-AzStorageEncryptionScope 명령을 호출 하 고 값을 사용 하 여 매개 변수를 포함 합니다. 암호화 범위를 다시 사용 하도록 `-State` 설정 하려면 매개 변수를로 설정 하 여 동일한 명령을 호출 합니다 `enabled` . 예제의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527832"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>백업 세트에서 StorSimple 볼륨 복원
@@ -121,7 +121,7 @@ ms.locfileid: "86527832"
    
     ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7. **복원**을 클릭 합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
+7. **복원**을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
 
    ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 

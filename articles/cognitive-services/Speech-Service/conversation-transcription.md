@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81402506"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>모임의 대화 내용 (미리 보기)은 무엇입니까?
 
 대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 ( _diarization_라고도 함)와 결합 하 여 대화에 대 한 실시간 및/또는 비동기 기록을 제공 하는 [음성-텍스트](speech-to-text.md) 솔루션입니다. 대화 기록을 통해 대화에서 스피커를 구분 하 여 및 시기를 확인 하 고 개발자가 다중 스피커 diarization을 수행 하는 응용 프로그램에 음성 텍스트를 쉽게 추가할 수 있습니다.
 
-## <a name="key-features"></a>주요 기능
+## <a name="key-features"></a>주요 특징
 
 - **타임 스탬프** -각 스피커 utterance에는 타임 스탬프가 있으므로 구가 표시 되는 시기를 쉽게 찾을 수 있습니다.
 - **읽을 수 있는 성적 증명서** -텍스트의 일치 항목이 무엇 인지를 확인 하기 위해 서식 지정 및 문장 부호가 자동으로 추가 됩니다.
@@ -44,7 +44,7 @@ ms.locfileid: "81402506"
 
 모임 참가자는 회의에 집중할 수 있으며, 메모를 대화로 가져갈 수 있습니다. 참가자가 회의에 적극적으로 참여할 수 있으며, 회의 중에 메모를 작성 하는 대신 기록을 사용 하 여 다음 단계를 빠르게 진행할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 이는 대화 기록을 작동 하는 방법에 대 한 개략적인 개요입니다.
 

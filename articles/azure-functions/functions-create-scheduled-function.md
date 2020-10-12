@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973101"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
@@ -36,15 +36,15 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 1. 함수 앱에서 **Functions**를 선택한 다음, **+ 추가**를 선택합니다. 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Azure Portal에서 함수 앱을 추가합니다." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
 
 1. **타이머 트리거** 템플릿을 선택합니다. 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Azure Portal에서 타이머 트리거를 선택합니다." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
 
 1. 이미지 아래 표에 지정된 설정을 사용하여 새 트리거를 구성한 후 **함수 만들기**를 선택합니다.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="타이머 트리거 템플릿이 선택 된 새 함수 페이지를 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
     
     | 설정 | 제안 값 | Description |
     |---|---|---|
@@ -55,11 +55,11 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 1. 함수에서 **코드 + 테스트**를 선택하고 로그를 확장합니다.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Azure Portal에서 타이머 트리거를 테스트합니다." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
 
 1. 로그에 기록된 정보를 확인하여 실행을 확인합니다.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Azure Portal에서 타이머 트리거를 확인합니다." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
 
 이제 함수의 일정을 변경하여 1분이 아니라 1시간에 한 번 실행되도록 합니다.
 
@@ -69,11 +69,11 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 1. **타이머(myTimer)** 를 선택합니다.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Azure Portal에서 타이머 일정을 업데이트합니다." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
 
 1. **일정** 값을 `0 0 */1 * * *`로 업데이트한 후 **저장**을 선택합니다.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Azure Portal에서 함수 업데이트 타이머 일정" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="함수 앱을 성공적으로 만들었습니다." border="true":::
 
 함수는 이제 한 시간마다 한 번씩 실행됩니다.
 

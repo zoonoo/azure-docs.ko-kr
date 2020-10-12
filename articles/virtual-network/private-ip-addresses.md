@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84172258"
 ---
 # <a name="private-ip-addresses"></a>개인 IP 주소
@@ -97,7 +97,7 @@ Azure 관리 DNS로 구성 된 Vm은 동일한 가상 네트워크 내에서 호
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 정적 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예 |예 |
+| 가상 머신 |네트워크 인터페이스 |예 |예 |
 | 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
 | 프런트 엔드 |프런트 엔드 구성 |예 |예 |
 

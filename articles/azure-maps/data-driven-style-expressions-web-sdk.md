@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311379"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
@@ -41,7 +41,7 @@ ms.locfileid: "91311379"
 
 Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자체적으로 사용 하거나 다른 식과 함께 사용할 수 있습니다.
 
-| 식 형식 | Description |
+| 식 형식 | 설명 |
 |---------------------|-------------|
 | [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고의 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다 `clusterProperties` `DataSource` . |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |

@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78184251"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Azure AD B2C에 사용할 수 있는 Microsoft Graph 작업
@@ -88,11 +88,11 @@ Microsoft Graph API의 정책 키에 대 한 최상위 리소스는 [신뢰할 �
 ## <a name="applications"></a>애플리케이션
 
 - [애플리케이션 나열](https://docs.microsoft.com/graph/api/application-list)
-- [애플리케이션 만들기](https://docs.microsoft.com/graph/api/resources/application)
+- [응용 프로그램 만들기](https://docs.microsoft.com/graph/api/resources/application)
 - [애플리케이션 업데이트](https://docs.microsoft.com/graph/api/application-update)
 - [ServicePrincipal 만들기](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
 - [Oauth2Permission Grant 만들기](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [응용 프로그램 삭제](https://docs.microsoft.com/graph/api/application-delete)
+- [애플리케이션 삭제](https://docs.microsoft.com/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>응용 프로그램 확장 속성
 

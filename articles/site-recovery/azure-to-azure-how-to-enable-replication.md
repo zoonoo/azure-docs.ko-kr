@@ -6,13 +6,13 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
 ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135772"
 ---
-# <a name="replicate-azure-vms-to-another-azure-region"></a>Azure Vm을 다른 Azure 지역에 복제
+# <a name="replicate-azure-vms-to-another-azure-region"></a>Azure VM을 다른 Azure 지역에 복제
 
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure VM 복제를 사용하는 방법을 설명합니다.

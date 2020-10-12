@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81413686"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 결합 변환
@@ -68,7 +68,7 @@ ms.locfileid: "81413686"
 
 | 언 롤 | 언 롤 루트 | 프로젝션 |
 | --------- | ----------- | ---------- |
-| 상품. 고객 | None | name <br> customer = 상품 |
+| 상품. 고객 | 없음 | name <br> customer = 상품 |
 
 #### <a name="output"></a>출력
 
@@ -86,7 +86,7 @@ ms.locfileid: "81413686"
 
 | 언 롤 | 언 롤 루트 | 프로젝션 |
 | --------- | ----------- | ---------- |
-| 상품. 주문 된 주문 항목 | None | name <br> orderId = 상품. 주문 주문 <br> itemName = 상품. orderItems. itemName <br> itemQty = 상품. orderItems. itemQty <br> location = location |
+| 상품. 주문 된 주문 항목 | 없음 | name <br> orderId = 상품. 주문 주문 <br> itemName = 상품. orderItems. itemName <br> itemQty = 상품. orderItems. itemQty <br> location = location |
 
 #### <a name="output"></a>출력
 

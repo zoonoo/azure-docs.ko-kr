@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071162"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| 이름 | 유형 | 위치 | Description |
+| Name | 유형 | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -145,7 +145,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 자세한 내용은 [About CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216)을 (를) 참조 하세요.
 
-#### <a name="push-outputbinding-example-http-responses"></a>푸시 OutputBinding 예: HTTP 응답
+#### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding 예제: HTTP 응답
 
 HTTP 트리거는 이라는 출력 바인딩을 사용 하 여 응답을 반환 `response` 합니다. 다음 예제에서의 출력 바인딩에는 `response` "output #1" 값이 있습니다.
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>푸시 OutputBinding 예: 큐 출력 바인딩
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding 예제: 큐 출력 바인딩
 
 `Push-OutputBinding` 는 [Azure Queue storage 출력 바인딩과](functions-bindings-storage-queue-output.md)같은 출력 바인딩에 데이터를 전송 하는 데 사용 됩니다. 다음 예제에서는 큐에 기록 된 메시지의 값이 "output #1"입니다.
 
@@ -233,8 +233,8 @@ PowerShell 함수의 로깅은 일반적인 PowerShell 로깅과 같은 방식�
 
 | 함수 로깅 수준 | 로깅 cmdlet |
 | ------------- | -------------- |
-| 오류 | **`Write-Error`** |
-| 경고 | **`Write-Warning`**  | 
+| Error | **`Write-Error`** |
+| Warning | **`Write-Warning`**  | 
 | 정보 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 정보 | _정보_ 수준 로깅에 씁니다. |
 | 디버그 | **`Write-Debug`** |
 | 추적 | **`Write-Progress`** <br /> **`Write-Verbose`** |
@@ -297,7 +297,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 속성  | 설명                                                    | 형식                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | 개체 |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
 | **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
 | **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | 사전<문자열, 문자열><sup>*</sup> |
@@ -312,7 +312,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 속성      | 설명                                                 | 형식                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
+| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
 | **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 또는 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |
