@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085279"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
@@ -34,7 +34,7 @@ HDInsight는 Azure Virtual Network에서 실행 되는 여러 Azure Virtual Mach
 
 HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다. 인터넷에서 노드를 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
 
-| 서비스 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |기본 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | sshd |22 |SSH |에지 노드에서 클라이언트를 sshd에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
@@ -47,7 +47,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 다음은 특정 클러스터 유형에 대해 사용할 수 있습니다.
 
-| 서비스 | 포트 | 프로토콜 | 클러스터 유형 | 설명 |
+| 서비스 | 포트 | 프로토콜 | 클러스터 유형 | Description |
 | --- | --- | --- | --- | --- |
 | `Stargate` |443 |HTTPS |HBase |HBase REST API. [Apache HBase 사용 시작](hbase/apache-hbase-tutorial-get-started-linux.md)을 참조하세요. |
 | Livy |443 |HTTPS |Spark |Spark REST API. [Apache Livy를 사용하여 원격으로 Apache Spark 작업 제출](spark/apache-spark-livy-rest-interface.md)을 참조하세요. |
@@ -79,13 +79,13 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | Ambari 웹 UI | 헤드 노드 | 8080 | / | HTTP |
 | Ambari REST API | 헤드 노드 | 8080 | /api/v1 | HTTP |
 
-예:
+예제:
 
 * Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>HDFS 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | NameNode 웹 UI |헤드 노드 |30070 |HTTPS |상태를 보기 위한 웹 UI |
 | NameNode 메타데이터 서비스 |헤드 노드 |8020 |IPC |파일 시스템 메타데이터 |
@@ -96,7 +96,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="yarn-ports"></a>YARN 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | Resource Manager 웹 UI |헤드 노드 |8088 |HTTP |Resource Manager용 웹 UI |
 | Resource Manager 웹 UI |헤드 노드 |8090 |HTTPS |Resource Manager용 웹 UI |
@@ -110,20 +110,20 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="hive-ports"></a>Hive 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |헤드 노드 |10001 |Thrift |Hive에 연결하기 위한 서비스(Thrift/JDBC) |
 | Hive 메타스토어 |헤드 노드 |9083 |Thrift |Hive 메타데이터에 연결하기 위한 서비스(Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | WebHCat 서버 |헤드 노드 |30111 |HTTP |HCatalog 및 기타 Hadoop 서비스 맨 위의 웹 API |
 
 ### <a name="mapreduce-ports"></a>MapReduce 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | JobHistory |헤드 노드 |19888 |HTTP |MapReduce JobHistory 웹 UI |
 | JobHistory |헤드 노드 |10020 |&nbsp; |MapReduce JobHistory 서버 |
@@ -131,21 +131,21 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="oozie"></a>Oozie
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | Oozie 서버 |헤드 노드 |11000 |HTTP |Oozie 서비스에 대한 URL |
 | Oozie 서버 |헤드 노드 |11001 |HTTP |Oozie 관리자에 대한 포트 |
 
 ### <a name="ambari-metrics"></a>Ambari 메트릭
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | 타임라인(애플리케이션 기록) |헤드 노드 |6188 |HTTP |타임라인 서비스 웹 UI |
 | 타임라인(애플리케이션 기록) |헤드 노드 |30200 |RPC |타임라인 서비스 웹 UI |
 
 ### <a name="hbase-ports"></a>HBase 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | HMaster |헤드 노드 |16000 |&nbsp; |&nbsp; |
 | HMaster 정보 웹 UI |헤드 노드 |16010 |HTTP |HBase 마스터 웹 UI에 대한 포트 |
@@ -154,7 +154,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="kafka-ports"></a>Kafka 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | Broker |작업자 노드 |9092 |Kafka 유선 프로토콜 |클라이언트 통신에 사용됨 |
 | &nbsp; |Zookeeper 노드 |2181 |&nbsp; |클라이언트가 ZooKeeper 연결에 사용하는 포트 |
@@ -168,6 +168,6 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | Livy 서버 | 헤드 노드 | 8998 | HTTP | &nbsp; | 문, 작업 및 애플리케이션을 실행하기 위한 서비스 |
 | Jupyter Notebook | 헤드 노드 | 8001 | HTTP | &nbsp; | Jupyter Notebook 웹 사이트 |
 
-예:
+예제:
 
 * Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. 이 예제에서 `10.0.0.11`은 Livy 서비스를 호스트하는 헤드 노드의 IP 주소입니다.

@@ -13,10 +13,10 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052403"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.
@@ -27,7 +27,7 @@ Azure Virtual Machines (Vm)에서 IBM Z (zD&T) 환경을 실행할 수 있습니
 
 ZD&T와 같이 ADCDs는 IBM 고객 및 파트너만 사용할 수 있으며 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션 환경에는 사용 되지 않습니다. 수많은 IBM 설치 패키지는 [Passport 혜택](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) 또는 [IBM 지역](https://www.ibm.com/partnerworld/public)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
@@ -184,7 +184,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 > [!NOTE]
 > 디스크 공간이 부족 하다는 오류 메시지가 표시 되 면 지역에 151 Gb가 필요 합니다.
 
-지금까지 이제 Azure에서 IBM 메인프레임 환경을 실행 하 고 있습니다.
+축하합니다. 이제 Azure에서 IBM 메인프레임 환경을 실행 하 고 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

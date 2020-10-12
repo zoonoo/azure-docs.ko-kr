@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085551"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행
@@ -48,7 +48,7 @@ WebHCat에서 cURL 또는 다른 모든 REST 통신을 사용하는 경우 HDIns
 export password='PASSWORD'
 ```  
 
-**B. PowerShell** 아래 코드를 실행 하 고 팝업 창에 자격 증명을 입력 합니다.
+**B. PowerShell** 아래 코드를 실행 하 고 팝업 창에서 자격 증명을 입력 합니다.
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -146,7 +146,7 @@ $clusterName
 
    이러한 문은 다음 작업을 수행합니다.
 
-   * `DROP TABLE`-테이블이 이미 있는 경우 삭제 됩니다.
+   * `DROP TABLE` -테이블이 이미 있는 경우 삭제 됩니다.
    * `CREATE EXTERNAL TABLE` - Hive에서 새 "외부" 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
      > [!NOTE]  
@@ -155,8 +155,8 @@ $clusterName
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
    * `ROW FORMAT` - 데이터의 형식을 지정하는 방식입니다. 각 로그의 필드는 공백으로 구분됩니다.
-   * `STORED AS TEXTFILE LOCATION`-데이터가 저장 되는 위치 (example/data 디렉터리) 및 텍스트로 저장 됩니다.
-   * `SELECT`- **T4** 열에 **[ERROR]** 값이 포함 된 모든 행의 수를 선택 합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
+   * `STORED AS TEXTFILE LOCATION` -데이터가 저장 되는 위치 (example/data 디렉터리) 및 텍스트로 저장 됩니다.
+   * `SELECT` - **T4** 열에 **[ERROR]** 값이 포함 된 모든 행의 수를 선택 합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
 
      > [!NOTE]  
      > Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.

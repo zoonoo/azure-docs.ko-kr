@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079295"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Apache Spark 기록 서버의 확장 기능을 사용 하 여 Spark 응용 프로그램 디버그 및 진단
@@ -97,13 +97,13 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
    ![Spark 응용 프로그램 & 작업 그래프 페이지의 열 지도입니다.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 
-    |색상 |설명 |
+    |색 |Description |
     |---|---|
     |녹색|작업이 완료되었습니다.|
     |Orange|태스크가 실패 했지만 작업의 최종 결과에는 영향을 주지 않습니다. 이러한 작업에는 나중에 성공할 수 있는 중복 또는 다시 시도 인스턴스가 있습니다.|
     |파랑|작업이 실행 중입니다.|
     |흰색|작업이 실행 대기 중이거나 단계를 건너뛰었습니다.|
-    |빨강|작업이 실패했습니다.|
+    |빨간색|작업이 실패했습니다.|
 
      ![Spark 응용 프로그램 & 작업 그래프 페이지에서 작업을 실행 합니다.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 

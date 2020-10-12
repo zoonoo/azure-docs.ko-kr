@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2ec0bf460a73f95e18e2e9221e8cbd8d4e14ff77
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086214"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
@@ -21,7 +21,7 @@ ms.locfileid: "86086214"
 
 Spark 스트리밍은 데이터에 변환을 적용 한 다음 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 결과를 푸시할 수 있는 장기 실행 작업을 만듭니다. Spark Streaming은 정의된 시간 간격 동안 이벤트 일괄 처리를 우선 수집하여 데이터를 마이크로 단위로 일괄로 처리합니다. 다음으로, 처리 및 출력을 위해 해당 일괄 처리가 전송됩니다. 일괄 처리 시간 간격은 일반적으로 소수 초 단위로 정의됩니다.
 
-![Spark 스트리밍](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 

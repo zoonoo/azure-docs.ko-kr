@@ -4,10 +4,10 @@ description: 이 항목에서는 IoT Edge에서 라이브 비디오 분석의 �
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053062"
 ---
 # <a name="module-twin-json-schema"></a>모듈 쌍 JSON 스키마
@@ -25,21 +25,21 @@ IoT Edge의 Live Video Analytics는 다음 모듈 쌍 속성을 노출 합니다
 
 |속성 |필수 |동적 |설명 |
 |---|---|---|---|
-|applicationDataDirectory |예 |예 |구성을 유지 하기 위한 탑재 된 볼륨의 경로입니다. |
-|azureMediaServicesArmId |예 |예 |Media Services 계정의 고유한 Azure 리소스 관리 식별자입니다.|
-|aadTenantId |예 |예 |고객 Azure AD 테 넌 트 ID입니다.|
+|applicationDataDirectory |예 |아니요 |구성을 유지 하기 위한 탑재 된 볼륨의 경로입니다. |
+|azureMediaServicesArmId |예 |아니요 |Media Services 계정의 고유한 Azure 리소스 관리 식별자입니다.|
+|aadTenantId |예 |아니요 |고객 Azure AD 테 넌 트 ID입니다.|
 |aadServicePrincipalAppId |예 |예 |고객이 Azure AD AppId를 만들었습니다.|
 |aadServicePrincipalCertificate |예로<sup>*</sup>  |예 |고객이 Azure AD AppId 인증서를 만들었습니다.|
 |aadServicePrincipalPassword |예로<sup>*</sup>  |예 |고객이 Azure AD AppId 암호를 만들었습니다.|
-|aadEndpoint |아니요 |예 |클라우드 별 Azure AD 끝점. <br/>기본값: `https://login.microsoftonline.com` |
-|aadResourceId |아니요 |예 |클라우드 별 Azure AD 사용자/리소스 ID <br/>기본값: `https://management.core.windows.net/` |
-|armEndpoint |아니요 |예 |클라우드 별 Azure 리소스 관리 끝점입니다. <br/>기본값: `https://management.azure.com/` |
-|diagnosticsLevel |예 |예 |이벤트의 자세한 정도: <br/>정보 & # x02758; 경고 & # x02758; 오류 & # x02758; 중요 & # x02758; 없음을 |
-|diagnosticsEventsOutputName |예 |예 |진단 이벤트에 대 한 허브 출력입니다. <br/>(Empty는 진단이 게시 되지 않았음을 의미 함)|
-|operationalEventsOutputName|예|예|작업 이벤트에 대 한 허브 출력입니다.<br/>(Empty는 운영 이벤트가 게시 되지 않음을 의미 함)
-|logLevel|예|예|다음 중 하나 <br/>& # x000B7; 구문<br/>& # x000B7; 정보 (기본값)<br/>& # x000B7; 내용의<br/>& # x000B7; 메시지가<br/>& # x000B7; 없음을|
-|logCategories|예|예|응용 프로그램, MediaPipeline, 이벤트를 쉼표로 구분한 목록입니다. <br/>기본값: 응용 프로그램, 이벤트|
-|debugLogsDirectory|예|예|디버그 로그의 디렉터리입니다. 존재 로그가 생성 된 경우에는 없는 경우 디버그 로그를 사용할 수 없습니다.
+|aadEndpoint |아니요 |아니요 |클라우드 별 Azure AD 끝점. <br/>기본값: `https://login.microsoftonline.com` |
+|aadResourceId |아니요 |아니요 |클라우드 별 Azure AD 사용자/리소스 ID <br/>기본값: `https://management.core.windows.net/` |
+|armEndpoint |아니요 |아니요 |클라우드 별 Azure 리소스 관리 끝점입니다. <br/>기본값: `https://management.azure.com/` |
+|diagnosticsLevel |아니요 |예 |이벤트의 자세한 정도: <br/>정보 & # x02758; 경고 & # x02758; 오류 & # x02758; 중요 & # x02758; 없음을 |
+|diagnosticsEventsOutputName |아니요 |예 |진단 이벤트에 대 한 허브 출력입니다. <br/>(Empty는 진단이 게시 되지 않았음을 의미 함)|
+|operationalEventsOutputName|아니요|예|작업 이벤트에 대 한 허브 출력입니다.<br/>(Empty는 운영 이벤트가 게시 되지 않음을 의미 함)
+|logLevel|아니요|예|다음 중 하나 <br/>& # x000B7; 구문<br/>& # x000B7; 정보 (기본값)<br/>& # x000B7; 내용의<br/>& # x000B7; 메시지가<br/>& # x000B7; 없음을|
+|logCategories|아니요|예|응용 프로그램, MediaPipeline, 이벤트를 쉼표로 구분한 목록입니다. <br/>기본값: 응용 프로그램, 이벤트|
+|debugLogsDirectory|아니요|예|디버그 로그의 디렉터리입니다. 존재 로그가 생성 된 경우에는 없는 경우 디버그 로그를 사용할 수 없습니다.
 
 <sup>*</sup>서비스 사용자 인증서 또는 암호를 제공 해야 합니다. 
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513692"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍 만들기 및 사용
@@ -37,7 +37,7 @@ Windows 컴퓨터에서 SSH 키를 생성하고 사용하는 추가적인 방법
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-[Azure CLI](/cli/azure)를 사용하여 [az vm create](/cli/azure/vm#az-vm-create) 명령으로 VM을 만드는 경우 `--generate-ssh-keys` 옵션을 사용하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키 파일은 `--ssh-dest-key-path` 옵션으로 달리 지정하지 않는 한 ~/.ssh 디렉터리에 저장됩니다. Ssh 키 쌍이 이미 존재 하 고 옵션을 사용 하는 경우 `--generate-ssh-keys` 새 키 쌍이 생성 되지 않고 대신 기존 키 쌍이 사용 됩니다. 다음 명령에서 *VMname*과 *RGname*을 자신의 값으로 바꿉니다.
+[Azure CLI](/cli/azure)를 사용하여 [az vm create](/cli/azure/vm#az-vm-create) 명령으로 VM을 만드는 경우 `--generate-ssh-keys` 옵션을 사용하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키 파일은 `--ssh-dest-key-path` 옵션으로 달리 지정하지 않는 한 ~/.ssh 디렉터리에 저장됩니다. Ssh 키 쌍이 이미 존재 하 고 옵션을 사용 하는 경우  `--generate-ssh-keys` 새 키 쌍이 생성 되지 않고 대신 기존 키 쌍이 사용 됩니다. 다음 명령에서 *VMname*과 *RGname*을 자신의 값으로 바꿉니다.
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 

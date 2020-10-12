@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330318"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>PostgreSQL에서 PostgreSQL에 대 한 Azure DB로의 온라인 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항
@@ -30,7 +30,7 @@ ms.locfileid: "91330318"
 - 원본 PostgreSQL 서버에서 버전 9.4, 9.5, 9.6, 10 또는 11을 실행 해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
 - 동일한 버전 또는 더 높은 버전으로의 마이그레이션만 지원 됩니다. 예를 들어 Azure Database for PostgreSQL 9.6 또는 10으로 PostgreSQL 9.5를 마이그레이션하는 것은 지원 되지만 PostgreSQL 11에서 PostgreSQL 9.6로의 마이그레이션은 지원 되지 않습니다.
 - **원본 PostgreSQL postgresql.conf** 파일에서 논리 복제를 사용하도록 설정하려면 다음 매개 변수를 설정합니다.
-  - **wal_level** = logical
+  - **wal_level** = 논리적
   - **max_replication_slots** = [마이그레이션에 대 한 최대 데이터베이스 수 이상]; 4 개의 데이터베이스를 마이그레이션하려면 값을 4 이상으로 설정 합니다.
   - **max_wal_senders** = [동시에 실행되는 데이터베이스 수]. 권장 값은 10입니다.
 - PostgreSQL pg_hba 원본에 DMS 에이전트 IP를 추가 합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "91330318"
 
 - 사용자는 원본 데이터베이스를 호스트 하는 서버에 대 한 복제 역할이 있어야 합니다.
 - 원본 및 대상 데이터베이스 스키마가 일치 해야 합니다.
-- 대상 Azure Database for PostgreSQL의 스키마에는 외래 키가 없어야 합니다. 외래 키를 삭제하려면 다음 쿼리를 사용합니다.
+- 대상 Azure Database for PostgreSQL-Single 서버에서 스키마에 외래 키가 없어야 합니다. 외래 키를 삭제하려면 다음 쿼리를 사용합니다.
 
     ```
                                 SELECT Queries.tablename
@@ -75,7 +75,7 @@ ms.locfileid: "91330318"
 
     쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
 
-- 대상 Azure Database for PostgreSQL의 스키마는 단일 서버에 트리거가 없어야 합니다. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
+- 대상 Azure Database for PostgreSQL-Single 서버에서 스키마는 트리거를 포함 하지 않아야 합니다. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

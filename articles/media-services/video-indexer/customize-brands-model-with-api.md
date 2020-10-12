@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
 ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047291"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
@@ -94,7 +94,7 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 ```
 
 > [!NOTE]
-> `enabled`로 설정 하는 `true` 것은 Video Indexer 검색할 수 있도록 브랜드가 *포함* 목록에 있음을 나타내며 false 인 경우에는 `enabled` 해당 브랜드가 *제외* 목록에 있음을 의미 하므로 Video Indexer는 검색 하지 않습니다.
+> `enabled` 로 설정 하는 `true` 것은 Video Indexer 검색할 수 있도록 브랜드가 *포함* 목록에 있음을 나타내며 false 인 경우에는 `enabled` 해당 브랜드가 *제외* 목록에 있음을 의미 하므로 Video Indexer는 검색 하지 않습니다.
 
 ## <a name="update-a-specific-brand"></a>특정 브랜드 업데이트
 
@@ -178,7 +178,7 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 ```
 
 > [!NOTE]
-> `useBuiltIn`true로 설정 하면 Bing 브랜드가 사용 됨을 나타냅니다. `useBuiltin`이 false 이면 Bing 브랜드가 사용 되지 않습니다. `state`이 값은 더 이상 사용 되지 않으므로 무시할 수 있습니다.
+> `useBuiltIn` true로 설정 하면 Bing 브랜드가 사용 됨을 나타냅니다. `useBuiltin`이 false 이면 Bing 브랜드가 사용 되지 않습니다. `state`이 값은 더 이상 사용 되지 않으므로 무시할 수 있습니다.
 
 ## <a name="update-brands-model-settings"></a>브랜드 모델 설정 업데이트
 

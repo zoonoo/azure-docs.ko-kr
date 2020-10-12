@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763621"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>관리자 동의 워크플로 구성 (미리 보기)
@@ -33,7 +33,7 @@ ms.locfileid: "84763621"
 
 관리자 동의 워크플로를 사용 하도록 설정 하 고 검토자를 선택 하려면:
 
-1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색 메뉴의 맨 위에 있는 **모든 서비스**를 클릭합니다. **Azure Active Directory 확장**이 열립니다.
 3. 필터 검색 상자에 "**Azure Active Directory**"를 입력 하 고 **Azure Active Directory** 항목을 선택 합니다.
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다. 

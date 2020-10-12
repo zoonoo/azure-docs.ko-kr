@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460733"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
@@ -121,10 +121,10 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 |                                           | **프리미엄 성능**   | **핫 계층** | **쿨 계층**       | **보관 계층**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **가용성**                          | 99.9%                     | 99.9%        | 99%                 | 오프라인           |
-| **가용성** <br> **(RA-GRS 읽기)**  | 해당 없음                       | 99.99%       | 99.9%               | 오프라인           |
+| **가용성** <br> **(RA-GRS 읽기)**  | N/A                       | 99.99%       | 99.9%               | 오프라인           |
 | **사용 요금**                         | 더 높은 저장소 비용, 낮은 액세스 및 트랜잭션 비용 | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
-| **최소 개체 크기**                   | 해당 없음                       | 해당 없음          | 해당 없음                 | 해당 없음               |
-| **최소 스토리지 기간**              | 해당 없음                       | 해당 없음          | 30 일<sup>1</sup> | 180일
+| **최소 개체 크기**                   | N/A                       | N/A          | N/A                 | N/A               |
+| **최소 스토리지 기간**              | N/A                       | N/A          | 30 일<sup>1</sup> | 180일
 | **대기 시간** <br> **(첫 번째 바이트 까지의 시간)** | 1 자리 밀리초 | 밀리초 | 밀리초        | 시간<sup>2</sup> |
 
 <sup>1</sup> GPv2 계정의 쿨 계층에 있는 개체의 최소 보존 기간은 30 일입니다. Blob storage 계정에는 쿨 계층에 대 한 최소 보존 기간이 없습니다.

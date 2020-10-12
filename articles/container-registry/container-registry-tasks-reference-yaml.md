@@ -4,10 +4,10 @@ description: 작업 속성, 단계 유형, 단계 속성 및 기본 제공 변�
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067586"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
@@ -75,11 +75,11 @@ az configure --defaults acr=myregistry
 
 태스크 속성은 일반적으로 파일의 맨 위에 나타나며 `acr-task.yaml` , 작업 단계 전체 실행 전체에 적용 되는 전역 속성입니다. 이러한 전역 속성 중 일부는 개별 단계에서 재정의할 수 있습니다.
 
-| 속성 | Type | 옵션 | Description | 재정의 지원 여부 | 기본값 |
+| 속성 | 형식 | 옵션 | Description | 재정의 지원 여부 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 기본값은 최신 버전입니다. | 예 | None |
 | `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `timeout` . `timeout`단계에서 속성을 지정 하는 경우이 속성은 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | 600(10분) |
-| `workingDirectory` | 문자열 | 예 | 런타임 중에 컨테이너의 작업 디렉터리입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `workingDirectory` . 단계에서 지정 하는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | `c:\workspace`Windows 또는 `/workspace` Linux |
+| `workingDirectory` | 문자열 | 예 | 런타임 중에 컨테이너의 작업 디렉터리입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `workingDirectory` . 단계에서 지정 하는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | `c:\workspace` Windows 또는 `/workspace` Linux |
 | `env` | [string, string, ...] | 예 |  `key=value`태스크에 대 한 환경 변수를 정의 하는 형식의 문자열 배열입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `env` . 단계에 지정 된 경우 태스크에서 상속 된 모든 환경 변수를 재정의 합니다. | 예 | 없음 |
 | `secrets` | [비밀, 비밀, ...] | 예 | [비밀](#secret) 개체의 배열입니다. | 예 | None |
 | `networks` | [네트워크, 네트워크, ...] | 예 | [네트워크](#network) 개체의 배열입니다. | 예 | None |
@@ -89,7 +89,7 @@ az configure --defaults acr=myregistry
 
 Secret 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | Type | 옵션 | Description | 기본값 |
+| 속성 | 형식 | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | 문자열 | No | 비밀의 식별자입니다. | 없음 |
 | `keyvault` | 문자열 | 예 | Azure Key Vault 비밀 URL입니다. | 없음 |
@@ -99,7 +99,7 @@ Secret 개체에는 다음과 같은 속성이 있습니다.
 
 네트워크 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | Type | 옵션 | Description | 기본값 |
+| 속성 | 형식 | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 네트워크의 이름입니다. | 없음 |
 | `driver` | 문자열 | 예 | 네트워크를 관리 하는 드라이버입니다. | 없음 |
@@ -111,7 +111,7 @@ Secret 개체에는 다음과 같은 속성이 있습니다.
 
 볼륨 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | Type | 옵션 | Description | 기본값 |
+| 속성 | 형식 | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 탑재할 볼륨의 이름입니다. 영숫자 문자, '-' 및 ' _ '만 포함할 수 있습니다. | 없음 |
 | `secret` | map [string] 문자열 | 아니요 | 맵의 각 키는 볼륨에서 만들어지고 채워진 파일의 이름입니다. 각 값은 암호의 문자열 버전입니다. 비밀 값은 b a s e 64로 인코딩해야 합니다. | 없음 |
@@ -151,7 +151,7 @@ steps:
 
 `build` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인 합니다.
 
-| 속성 | Type | 필수 |
+| 속성 | 형식 | 필수 |
 | -------- | ---- | -------- |
 | `detach` | bool | 선택 사항 |
 | `disableWorkingDirectoryOverride` | bool | 선택 사항 |
@@ -224,7 +224,7 @@ steps:
 
 `push` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인 합니다.
 
-| 속성 | Type | 필수 |
+| 속성 | 형식 | 필수 |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | 선택 사항 |
 | `id` | 문자열 | 옵션 |
@@ -269,7 +269,7 @@ steps:
 
 `cmd` 단계 유형은 다음 속성을 지원합니다.
 
-| 속성 | Type | 필수 |
+| 속성 | 형식 | 필수 |
 | -------- | ---- | -------- |
 | `detach` | bool | 선택 사항 |
 | `disableWorkingDirectoryOverride` | bool | 선택 사항 |
@@ -381,7 +381,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 각 단계 유형은 해당 유형에 적합한 몇 가지 속성을 지원합니다. 다음 표에서는 사용 가능한 모든 단계 속성을 정의합니다. 모든 단계 유형이 모든 속성을 지원하는 것은 아닙니다. 각 단계 유형에 사용 가능한 속성을 보려면 [cmd](#cmd), [build](#build) 및 [push](#push) 단계 유형 참조 섹션을 참조하세요.
 
-| 속성 | Type | 옵션 | Description | 기본값 |
+| 속성 | 형식 | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | 예 | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. | `false` |
 | `disableWorkingDirectoryOverride` | bool | 예 | 재정의 기능을 사용 하지 않을 지 여부 `workingDirectory` 입니다. 이를와 함께 사용 `workingDirectory` 하 여 컨테이너의 작업 디렉터리를 완전히 제어할 수 있습니다. | `false` |
@@ -392,28 +392,28 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 | `ignoreErrors` | bool | 예 | 컨테이너를 실행 하는 동안 오류가 발생 했는지 여부에 관계 없이 단계를 성공으로 표시할지 여부입니다. | `false` |
 | `isolation` | 문자열 | 예 | 컨테이너의 격리 수준입니다. | `default` |
 | `keep` | bool | 예 | 실행 후 단계 컨테이너를 유지할지 여부입니다. | `false` |
-| `network` | 개체 | 예 | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
+| `network` | object | 예 | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
 | `ports` | [string, string, ...] | 예 | 컨테이너에서 호스트로 게시 되는 포트의 배열입니다. |  없음 |
 | `pull` | bool | 예 | 캐싱 동작을 방지 하기 위해 실행 하기 전에 컨테이너를 강제로 풀 할지 여부를 지정 합니다. | `false` |
 | `privileged` | bool | 예 | 컨테이너를 특권 모드에서 실행할지 여부를 지정 합니다. | `false` |
 | `repeat` | int | 예 | 컨테이너 실행을 반복 하기 위한 다시 시도 횟수입니다. | 0 |
 | `retries` | int | 예 | 컨테이너의 실행이 실패 한 경우 다시 시도 하는 횟수입니다. 컨테이너의 종료 코드가 0이 아닌 경우에만 재시도를 시도 합니다. | 0 |
 | `retryDelay` | int(초) | 예 | 컨테이너 실행 재시도 사이의 지연 시간 (초)입니다. | 0 |
-| `secret` | 개체 | 예 | [Azure 리소스에 대 한](container-registry-tasks-authentication-managed-identity.md)Azure Key Vault 암호 또는 관리 되는 id를 식별 합니다. | 없음 |
+| `secret` | object | 예 | [Azure 리소스에 대 한](container-registry-tasks-authentication-managed-identity.md)Azure Key Vault 암호 또는 관리 되는 id를 식별 합니다. | 없음 |
 | `startDelay` | int(초) | 예 | 컨테이너 실행을 지연 하는 시간 (초)입니다. | 0 |
 | `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
 | [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
 | `user` | 문자열 | 예 | 컨테이너의 사용자 이름 또는 UID | 없음 |
-| `workingDirectory` | 문자열 | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `c:\workspace`Windows 또는 `/workspace` Linux |
+| `workingDirectory` | 문자열 | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `c:\workspace` Windows 또는 `/workspace` Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
 VolumeMount 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | Type | 옵션 | Description | 기본값 |
+| 속성 | 형식 | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 탑재할 볼륨의 이름입니다. 속성의 이름과 정확히 일치 해야 합니다 `volumes` . | 없음 |
-| `mountPath`   | 문자열 | no | 컨테이너에 파일을 탑재 하는 절대 경로입니다.  | 없음 |
+| `mountPath`   | 문자열 | 아니요 | 컨테이너에 파일을 탑재 하는 절대 경로입니다.  | 없음 |
 
 ### <a name="examples-task-step-properties"></a>예: 작업 단계 속성
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372598"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
@@ -33,7 +33,7 @@ ms.locfileid: "91372598"
 - [**Datastores**](../how-to-access-data.md)를 통한 Azure 클라우드 저장소)
     - Azure Blob 컨테이너
     - Azure 파일 공유
-    - Azure Data Lake
+    - Azure 데이터 레이크
     - Azure Data Lake Gen2
     - Azure SQL Database
     - Azure PostgreSQL    

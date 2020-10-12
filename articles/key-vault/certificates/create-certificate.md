@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88606667"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
@@ -91,6 +91,6 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 
  권한 부여: 인증서/만들기 권한이 필요합니다.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
  - [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)

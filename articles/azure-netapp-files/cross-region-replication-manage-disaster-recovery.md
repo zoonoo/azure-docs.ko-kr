@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708790"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>지역 간 복제를 사용 하 여 재해 복구 관리 
@@ -87,7 +87,7 @@ ms.locfileid: "90708790"
 
         [복제 관계의 상태 표시를](cross-region-replication-display-health-status.md)참조 하세요. 
 
-    c. **피어 링 끊기**를 클릭 합니다.   
+    다. **피어 링 끊기**를 클릭 합니다.   
     d. 메시지가 표시 되 면 **예** 를 입력 하 고 **중단** 단추를 클릭 합니다.  
 
 2. 원본 볼륨을 대상 볼륨으로 다시 동기화 합니다.  
@@ -101,7 +101,7 @@ ms.locfileid: "90708790"
 
 * [지역 간 복제](cross-region-replication-introduction.md)
 * [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)
-* [복제 관계의 상태를 표시 합니다.](cross-region-replication-display-health-status.md)
+* [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
 

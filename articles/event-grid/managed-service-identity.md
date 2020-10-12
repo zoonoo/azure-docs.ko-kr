@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534246"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 id를 사용 하 여 이벤트 배달
@@ -42,7 +42,7 @@ az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCAT
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 다음 절차에서는 항목에 대해 시스템 관리 id를 사용 하도록 설정 하는 방법을 보여 줍니다. 도메인에 대 한 id를 설정 하는 단계는 유사 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 위쪽의 검색 창에서 **event grid 항목** 을 검색 합니다.
 3. 관리 ID를 사용하도록 설정할 **토픽**을 선택합니다. 
 4. **ID** 탭으로 전환합니다. 

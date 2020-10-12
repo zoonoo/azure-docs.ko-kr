@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: d994df4d56f4958784256ff9cd92ce1e6f3b3e50
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642166"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대 한 VM용 Azure Monitor 사용
@@ -19,7 +19,7 @@ ms.locfileid: "88642166"
 > [!IMPORTANT]
 > 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대해 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 azure vm과 유사한 프로세스를 사용 하 VM용 Azure Monitor vm을 사용할 수 있도록 하는 것입니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -80,7 +80,7 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
 | -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |

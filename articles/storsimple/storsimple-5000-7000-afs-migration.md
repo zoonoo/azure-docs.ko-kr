@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514056"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
@@ -56,7 +56,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 - StorSimple 볼륨은 호스트에 탑재되고 파일 공유를 포함합니다.
 - 호스트에는 로컬로 캐시된 데이터를 저장할 수 있을 만큼 충분한 로컬 스토리지가 있습니다.
 - Azure File Sync를 배포 하는 데 사용할 Azure 구독에 대 한 소유자 수준 액세스입니다. 소유자 또는 관리 수준 권한이 없는 경우 동기화 그룹에 대 한 클라우드 끝점을 만들 때 문제가 발생할 수 있습니다.
-- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 참조 하세요.
+- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 를 참조하세요.
   - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
 ## <a name="migration-process"></a>마이그레이션 프로세스
@@ -73,8 +73,8 @@ StorSimple 볼륨에 구성된 Windows 파일 공유를 Azure 파일 동기화 �
     - [Azure File Sync 에이전트를 설치](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent)합니다.
     - [저장소 동기화 서비스를 배포](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service)합니다. 
     - [저장소 동기화 서비스에 Windows Server를 등록](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service)합니다. 
-    - [동기화 그룹 및 클라우드 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint) 호스트에서 마이그레이션해야 하는 각 Windows 파일 공유에 대한 동기화 그룹을 만들어야 합니다.
-    - [서버 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). 경로를 파일 공유 데이터가 포함된 StorSimple 볼륨의 경로로 지정합니다. 예를 들어 StorSimple 볼륨이 `J` 드라이브이고 데이터가 `J:/<myafsshare>`에 있는 경우 이 경로를 서버 엔드포인트로 추가합니다. **계층화**는 **사용 안 함**으로 둡니다.
+    - [동기화 그룹 및 클라우드 끝점을 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). 호스트에서 마이그레이션해야 하는 각 Windows 파일 공유에 대한 동기화 그룹을 만들어야 합니다.
+    - [서버 끝점을 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). 경로를 파일 공유 데이터가 포함된 StorSimple 볼륨의 경로로 지정합니다. 예를 들어 StorSimple 볼륨이 `J` 드라이브이고 데이터가 `J:/<myafsshare>`에 있는 경우 이 경로를 서버 엔드포인트로 추가합니다. **계층화**는 **사용 안 함**으로 둡니다.
 2.  파일 서버 동기화가 완료될 때까지 기다립니다. 특정 동기화 그룹의 각 서버에 대해 다음 사항을 확인합니다.
     - 업로드 및 다운로드에 대한 마지막 동기화 시도 타임스탬프가 최근입니다.
     - 업로드 및 다운로드의 상태가 모두 녹색입니다.

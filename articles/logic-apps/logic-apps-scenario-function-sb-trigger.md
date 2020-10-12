@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89013778"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
@@ -124,7 +124,7 @@ ms.locfileid: "89013778"
    
    * 가능 하면 HTTP 클라이언트의 인스턴스를 다시 사용 합니다. 자세한 내용은 [Azure Functions에서 연결 관리](../azure-functions/manage-connections.md)를 참조 하세요.
 
-   이 예제에서는 [비동기](/dotnet/csharp/language-reference/keywords/async) 모드에서 [ `Task.Run` 메서드](/dotnet/api/system.threading.tasks.task.run) 를 사용 합니다. 자세한 내용은 [async 및 wait를 사용한 비동기 프로그래밍](/dotnet/csharp/programming-guide/concepts/async/)을 참조 하세요.
+   이 예제에서는 [비동기](/dotnet/csharp/language-reference/keywords/async) 모드에서 [ `Task.Run` 메서드](/dotnet/api/system.threading.tasks.task.run) 를 사용 합니다. 자세한 내용은 [async 및 await를 사용한 비동기 프로그래밍](/dotnet/csharp/programming-guide/concepts/async/)을 참조하세요.
 
    ```csharp
    using System;

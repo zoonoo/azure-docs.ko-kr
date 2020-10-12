@@ -8,10 +8,10 @@ ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007709"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
@@ -138,7 +138,7 @@ SSMS를 사용 하 여 고급 속성에서 ReplicaSyncMode를 설정 합니다. 
 |-1     |  올바르지 않음       |
 |0     | Replicating        |
 |1     |  리하이드레이션       |
-|2     |   완료됨       |
+|2     |   Completed       |
 |3     |   Failed      |
 |4     |    중     |
 |||

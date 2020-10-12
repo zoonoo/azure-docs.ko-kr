@@ -4,10 +4,10 @@ description: RDP 포트를 노출 하지 않고도 랩 Vm에 안전 하 게 액�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288075"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 하도록 랩 구성
@@ -21,9 +21,9 @@ Azure DevTest Labs에서 랩에 대 한 원격 데스크톱 게이트웨이를 �
 
 1. **연결** 단추를 선택 하면 [RDP 파일 콘텐츠 가져오기](/rest/api/dtl/virtualmachines/getrdpfilecontents) 작업을 호출 합니다. 1. 
 1. RDP 파일 콘텐츠 가져오기 작업은 `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` 을 호출 하 여 인증 토큰을 요청 합니다.
-    1. `{gateway-hostname}`Azure Portal 랩의 랩 **설정** 페이지에서 지정 된 게이트웨이 호스트 이름입니다. 
-    1. `{lab-machine-name}`연결 하려는 컴퓨터의 이름입니다.
-    1. `{port-number}`연결을 설정 해야 하는 포트입니다. 일반적으로이 포트는 3389입니다. 랩 VM이 DevTest Labs에서 [공유 IP](devtest-lab-shared-ip.md) 기능을 사용 하는 경우 포트는 달라 집니다.
+    1. `{gateway-hostname}` Azure Portal 랩의 랩 **설정** 페이지에서 지정 된 게이트웨이 호스트 이름입니다. 
+    1. `{lab-machine-name}` 연결 하려는 컴퓨터의 이름입니다.
+    1. `{port-number}` 연결을 설정 해야 하는 포트입니다. 일반적으로이 포트는 3389입니다. 랩 VM이 DevTest Labs에서 [공유 IP](devtest-lab-shared-ip.md) 기능을 사용 하는 경우 포트는 달라 집니다.
 1. 원격 데스크톱 게이트웨이는에서 Azure 함수로의 호출을 지연 `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` 하 여 인증 토큰을 생성 합니다. DevTest Labs 서비스는 요청 헤더에 함수 키를 자동으로 포함 합니다. 함수 키는 랩의 키 자격 증명 모음에 저장 됩니다. 랩에 대 한 **랩 설정** 페이지에서 **게이트웨이 토큰 비밀로** 표시할 비밀의 이름입니다.
 1. Azure 함수는 게이트웨이 컴퓨터에 대해 인증서 기반 토큰 인증에 대 한 토큰을 반환 합니다.  
 1. 그러면 RDP 파일 콘텐츠 가져오기 작업에서 인증 정보를 포함 하 여 전체 RDP 파일을 반환 합니다.

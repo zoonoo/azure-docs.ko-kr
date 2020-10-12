@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.openlocfilehash: 34e9ef3ab46f2ce11500aa87db9676635d3e9b4f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90016285"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB-시리즈 가상 머신 크기
@@ -22,7 +22,7 @@ ms.locfileid: "90016285"
 | 작업                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | 스트림 조로 묶어                                    | 260 g b/초 (CCX 당 32-33 g b/초)  |
-| HPL (고성능 Linpack)                  | 1000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rpeak) |
+| High-Performance Linpack (HPL)                  | 1000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rpeak) |
 | RDMA 대기 시간 & 대역폭                        | 1.27 마이크로초, 99.1 g b/초   |
 | 로컬 NVMe SSD의 FIO                           | 1.7 m b/초 읽기, 1.0 g b/초 쓰기      |  
 | IOR on 4 * Azure 프리미엄 SSD (P30 Managed Disks, RAID0) * *  | 725 m b/초 읽기, 780 m b/쓰기   |
@@ -46,7 +46,7 @@ OSU 마이크로 벤치 마크 제품군의 MPI 대역폭 테스트가 실행 �
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hb.png" alt-text="Azure HB의 MPI 대역폭.":::
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="Azure HB의 MPI 대기 시간.":::
 
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest

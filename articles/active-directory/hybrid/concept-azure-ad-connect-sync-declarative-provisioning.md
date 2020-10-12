@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313623"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
@@ -42,13 +42,13 @@ ms.locfileid: "91313623"
 * [우선 순위](#precedence), 특성 기여의 충돌을 해결합니다.
 * 대상, 대상 개체
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>범위
 범위 모듈은 개체를 평가하고 범위 내에서 처리에 포함되어야 하는 규칙을 결정합니다. 개체에 대한 특성 값에 따라 다른 동기화 규칙이 범위에 있다고 평가됩니다. 예를 들어 사서함이 없는 비활성화된 사용자에게는 사서함이 있는 활성화된 사용자보다 다양한 규칙이 적용됩니다.  
 ![개체의 범위 모듈을 보여 주는 다이어그램입니다.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 범위는 그룹 및 절로 정의됩니다. 절은 그룹 내에 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 예를 들어 (부서 = IT AND 국가 = 덴마크). 논리 OR은 그룹 간에 사용됩니다.
 
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![범위](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
  이 그림의 범위는 (부서 = IT AND 국가 = 덴마크) OR (국가 = 스웨덴)으로 읽혀야 합니다. 그룹 1 또는 그룹 2가 true로 평가되는 경우 규칙은 범위 내에 있습니다.
 
 범위 모듈은 다음 작업을 지원합니다.

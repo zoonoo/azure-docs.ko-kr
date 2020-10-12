@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
 ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639905"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭 (미리 보기)
@@ -54,7 +54,7 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 > [!TIP]  
 > 사용자 지정 메트릭을 내보내기 위해 Azure AD 토큰을 요청하는 경우 토큰이 요청되는 대상 그룹 또는 리소스가 `https://monitoring.azure.com/`이어야 합니다. 후행 슬래시(‘/’)를 포함해야 합니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>주체
 이 속성은 사용자 지정 메트릭이 보고되는 Azure 리소스 ID를 캡처합니다. 이 정보는 수행되는 API 호출의 URL에 인코딩됩니다. 각 API는 단일 Azure 리소스에 대한 메트릭 값만 전송할 수 있습니다.
 
 > [!NOTE]  
@@ -75,7 +75,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 ### <a name="namespace"></a>네임스페이스
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로 파일링 하는 메모리 사용 메트릭을 추적 하는 **contosomemorymetrics** 라는 네임 스페이스가 있을 수 있습니다. **Contosoapptransaction** 라는 다른 네임 스페이스는 응용 프로그램의 사용자 트랜잭션에 대 한 모든 메트릭을 추적할 수 있습니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>Name
 **이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
@@ -177,7 +177,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 > 사용자 지정 메트릭을 보려면 독자 또는 참가자 역할을 수행 해야 합니다.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Azure Portal을 통해 사용자 지정 메트릭 찾아보기
-1.    [Azure Portal](https://portal.azure.com)로 이동합니다.
+1.    [Azure 포털](https://portal.azure.com)로 이동합니다.
 2.    **모니터** 창을 선택합니다.
 3.    **메트릭**을 선택합니다.
 4.    사용자 지정 메트릭을 내보낸 리소스를 선택합니다.
@@ -209,7 +209,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 |인도 중부 | https: \/ /centralindia.monitoring.azure.com |
 |오스트레일리아 동부 | https: \/ /australiaeast.monitoring.azure.com |
 |일본 동부 | https: \/ /japaneast.monitoring.azure.com |
-|동남아시아  | https: \/ /southeastasia.monitoring.azure.com |
+|동남 아시아  | https: \/ /southeastasia.monitoring.azure.com |
 |동아시아 | https: \/ /eastasia.monitoring.azure.com |
 |한국 중부   | https: \/ /koreacentral.monitoring.azure.com |
 

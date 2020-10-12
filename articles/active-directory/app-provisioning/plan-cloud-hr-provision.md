@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706349"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
@@ -52,7 +52,7 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 - 클라우드 HR 앱에서 검색 된 변경 정보만 기반으로 하나 이상의 Active Directory 포리스트, 도메인 및 Ou로 사용자를 동기화 할 수 있어야 합니다.
 - 전자 메일에 Microsoft 365를 사용 합니다.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>배우기
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만듭니다. 이를 통해 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킬 수 있습니다.
 
@@ -79,7 +79,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  입니다.
 - Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) 역할
