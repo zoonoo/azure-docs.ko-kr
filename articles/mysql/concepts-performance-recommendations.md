@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485238"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 성능 권장 사항
@@ -35,7 +35,7 @@ MySQL 서버에 대한 Azure Portal 페이지의 메뉴 표시줄에 있는 **�
 
 **권장 사항** 창에는 권장 사항이 있는 경우 그 목록과 해당 권장 사항을 생성한 관련 쿼리 ID가 표시됩니다. 쿼리 ID를 사용하여 [mysql.query_store](concepts-query-store.md#mysqlquery_store) 보기를 사용하여 쿼리에 대한 자세한 내용을 확인할 수 있습니다.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="성능 권장 사항 새 페이지":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="성능 권장 사항 방문 페이지":::
 
 이러한 권장 사항은 자동으로 적용되지 않습니다. 권장 사항을 적용하려면 쿼리 텍스트를 복사하고 선택한 클라이언트에서 실행합니다. 테스트 및 모니터링을 통해 권장 사항을 평가해야 합니다.
 

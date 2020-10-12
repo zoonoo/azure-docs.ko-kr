@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
 ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606289"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 서로게이트 키 변환 
@@ -41,7 +41,7 @@ ms.locfileid: "81606289"
 
 #### <a name="database-sources"></a>데이터베이스 원본
 
-SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예를 들어`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예를 들어 `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![서로게이트 키 쿼리](media/data-flow/sk002.png "서로게이트 키 변환 쿼리")
 

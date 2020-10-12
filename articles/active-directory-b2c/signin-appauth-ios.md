@@ -12,10 +12,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85384943"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 애플리케이션을 사용하여 로그인
@@ -92,7 +92,7 @@ OIDServiceConfiguration *configuration =
 
 권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.
 
-* 이전에 기록한 클라이언트 ID(애플리케이션 ID). 예: `00000000-0000-0000-0000-000000000000`.
+* 이전에 기록한 클라이언트 ID(애플리케이션 ID). 예들 들어 `00000000-0000-0000-0000-000000000000`입니다.
 * 이전에 기록한 사용자 지정 리디렉션 URI. 예들 들어 `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`입니다.
 
 두 항목 모두 [앱을 등록](#create-an-application)할 때 저장해야 합니다.

@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385742"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>OWIN 기반 web API를 b2clogin.com로 마이그레이션
@@ -107,7 +107,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     };
     ```
 
-`TokenValidationParameters`는 MSAL.NET에서 제공 되 고 *Startup.Auth.cs*의 다음 코드 섹션에 있는 OWIN 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
+`TokenValidationParameters` 는 MSAL.NET에서 제공 되 고 *Startup.Auth.cs*의 다음 코드 섹션에 있는 OWIN 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions

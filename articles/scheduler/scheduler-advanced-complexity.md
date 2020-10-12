@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78898597"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Azure Scheduler에서 고급 일정과 되풀이 작업 작성
@@ -64,7 +64,7 @@ ms.locfileid: "78898597"
 
 아래 테이블은 작업의 되풀이 및 일정을 설정하는 데 사용할 수 있는 주요 JSON 요소에 대한 대략적인 개요를 제공합니다. 
 
-| 요소 | 필수 | 설명 | 
+| 요소 | 필수 | Description | 
 |---------|----------|-------------|
 | **startTime** | 아니요 | 기본 일정에서 작업이 처음 시작되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜/시간 문자열 값입니다. <p>복잡한 일정의 경우 작업은 **startTime** 이후에 시작됩니다. | 
 | **방법** | 아니요 | 작업이 실행되는 시기에 대한 되풀이 규칙입니다. **recurrence** 개체는 **frequency**, **interval**, **schedule**, **count** 및 **endTime** 요소를 지원합니다. <p>**recurrence** 요소를 사용하는 경우에는 **frequency** 요소도 사용해야 하며 다른 **recurrence** 요소는 선택 사항입니다. |
@@ -160,12 +160,12 @@ ms.locfileid: "78898597"
 
 다음 테이블은 schedule 요소의 세부 정보입니다.
 
-| JSON 이름 | 설명 | 유효한 값 |
+| JSON 이름 | Description | 유효한 값 |
 |:--- |:--- |:--- |
 | **내** |작업이 실행되는 시간(분)입니다. |정수 배열입니다. |
 | **시간의** |작업이 실행되는 일의 시간(시)입니다. |정수 배열입니다. |
 | **평일** |작업이 실행되는 요일입니다. 주 단위 빈도로만 지정할 수 있습니다. |다음 값 중 하나의 배열입니다(최대 배열 크기: 7).<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />대/소문자를 구분하지 않습니다. |
-| **monthlyOccurrences** |작업이 실행되는 월의 일을 결정합니다. 월 단위 빈도로만 지정할 수 있습니다. |**monthlyOccurrences** 개체의 배열입니다.<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day**는 작업이 실행되는 주의 요일입니다. 예를 들어 *{Sunday}* 는 월의 매주 일요일입니다. 필수 요소.<br /><br />**occurrence**는 월 중 일의 되풀이 항목입니다. 예를 들어 *{Sunday, -1}* 은 월의 마지막 일요일입니다. 선택 사항입니다. |
+| **monthlyOccurrences** |작업이 실행되는 월의 일을 결정합니다. 월 단위 빈도로만 지정할 수 있습니다. |**monthlyOccurrences** 개체의 배열입니다.<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day**는 작업이 실행되는 주의 요일입니다. 예를 들어 *{Sunday}* 는 월의 매주 일요일입니다. 필수 사항입니다.<br /><br />**occurrence**는 월 중 일의 되풀이 항목입니다. 예를 들어 *{Sunday, -1}* 은 월의 마지막 일요일입니다. (선택 사항) |
 | **monthDays** |작업이 실행되는 월의 일입니다. 월 단위 빈도로만 지정할 수 있습니다. |다음 값의 배열입니다.<br />- 1 이상 및 31 이하의 모든 값<br />- 1 이하 및 31 이상의 모든 값|
 
 ## <a name="examples-recurrence-schedules"></a>예제: 되풀이 일정
@@ -174,7 +174,7 @@ ms.locfileid: "78898597"
 
 이러한 일정은 **interval**이 1로 설정되어 있다고 가정합니다\. 또한 예제에서는 **schedule**의 값에 대해 올바른 **frequency** 값이 있다고 가정합니다. 예를 들어 "day"를 **frequency** 값으로 사용할 수 없으며, **schedule**에 **monthDays** 수정 내용이 있을 수 없습니다. 이러한 제한 사항은 이 문서의 앞 부분에서 설명하고 있습니다.
 
-| 예제 | 설명 |
+| 예제 | Description |
 |:--- |:--- |
 | `{"hours":[5]}` |매일 오전 5시에 실행됩니다.<br /><br />Scheduler에서 "hours"의 각 값을 "minutes"의 각 값과 하나씩 일치시켜 작업이 실행되는 모든 시간의 목록을 만듭니다. |
 | `{"minutes":[15], "hours":[5]}` |매일 오전 5시 15분에 실행됩니다. |

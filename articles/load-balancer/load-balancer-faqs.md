@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
 ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207542"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer 질문과 대답
@@ -25,7 +25,7 @@ ms.locfileid: "86207542"
 자동화 된 스크립트에 대 한 [기본에서 표준으로 업그레이드](upgrade-basic-standard.md) 문서와 Load Balancer SKU 업그레이드에 대 한 지침은을 참조 하세요.
 
  ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Azure의 다양 한 부하 분산 옵션은 무엇 인가요?
-사용할 수 있는 부하 분산 서비스 및 권장 사용에 대 한 [부하 분산 장치 기술 가이드](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) 를 참조 하세요.
+사용할 수 있는 부하 분산 서비스 및 권장 사용에 대 한 [부하 분산 장치 기술 가이드](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)  를 참조 하세요.
 
 ## <a name="where-can-i-find-load-balancer-arm-templates"></a>Load Balancer ARM 템플릿은 어디에서 찾을 수 있나요?
 일반적인 배포의 ARM 템플릿에 대 한 [Azure Load Balancer 빠른 시작 템플릿 목록을](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates) 참조 하세요.

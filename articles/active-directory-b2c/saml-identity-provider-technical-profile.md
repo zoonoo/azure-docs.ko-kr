@@ -12,10 +12,10 @@ ms.date: 09/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611646"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML id 공급자 기술 프로필 정의
@@ -144,7 +144,7 @@ SAML 어설션:
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | PartnerEntity | 예 | SAML ID 공급자의 메타데이터 URL입니다. ID 공급자 메타데이터를 복사하여 CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내에 추가합니다. |
 | WantsSignedRequests | 아니요 | 기술 프로필에서 모든 발신 인증 요청에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우에는 **SamlMessageSigning** 암호화 키를 지정하고 모든 발신 인증 요청에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 **SigAlg** 및 **Signature** 매개 변수(쿼리 문자열 또는 게시 매개 변수)가 요청에서 생략됩니다. 이 메타데이터는 메타데이터 **AuthnRequestsSigned** 특성도 제어합니다. 해당 특성은 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 기술 프로필 메타 데이터의 **WantsSignedRequests** 값이로 설정 되 `false` 고 id 공급자 메타 데이터 **WantAuthnRequestsSigned** 가로 설정 `false` 되었거나 지정 되지 않은 경우 Azure AD B2C는 요청에 서명 하지 않습니다. |
@@ -163,7 +163,7 @@ SAML 어설션:
 
 **CryptographicKeys** 요소는 다음 특성을 포함 합니다.
 
-| attribute |필수 | Description |
+| attribute |필수 | 설명 |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |예 | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
 | SamlAssertionDecryption |예 | SAML 메시지의 암호를 해독하는 데 사용할 X509 인증서(RSA 키 집합)입니다. ID 공급자가 이 인증서를 제공해야 합니다. Azure AD B2C는 이 인증서를 사용하여 ID 공급자가 전송하는 데이터의 암호를 해독합니다. |
@@ -176,7 +176,7 @@ SAML 어설션:
 > [!TIP]
 > `<ClaimsProviders>`기본에서 섹션을 복사 하 고 클레임 공급자 (, 및) 내에서 이러한 요소 `<DisplayName>Token Issuer</DisplayName>` 를 유지 `<TechnicalProfile Id="Saml2AssertionIssuer">` `<DisplayName>Token Issuer</DisplayName>` 합니다.
  
-예:
+예제:
 
 ```xml
    <ClaimsProviders>   

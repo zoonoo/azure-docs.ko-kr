@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687338"
 ---
 # <a name="workbook-text-parameters"></a>통합 문서 텍스트 매개 변수
@@ -27,10 +27,10 @@ ms.locfileid: "81687338"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`SlowRequestThreshold`
-    2. 매개 변수 유형:`Text`
-    3. 필수:`checked`
-    4. 쿼리에서 기본값 가져오기:`unchecked`
+    1. 매개 변수 이름: `SlowRequestThreshold`
+    2. 매개 변수 유형: `Text`
+    3. 필수: `checked`
+    4. 쿼리에서 기본값 가져오기: `unchecked`
 5. 도구 모음에서 ' 저장 '을 선택 하 여 매개 변수를 만듭니다.
 
     ![텍스트 매개 변수 생성을 보여 주는 이미지](./media/workbooks-text/text-create.png)
@@ -67,10 +67,10 @@ ms.locfileid: "81687338"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`SlowRequestThreshold`
-    2. 매개 변수 유형:`Text`
-    3. 필수:`checked`
-    4. 쿼리에서 기본값 가져오기:`checked`
+    1. 매개 변수 이름: `SlowRequestThreshold`
+    2. 매개 변수 유형: `Text`
+    3. 필수: `checked`
+    4. 쿼리에서 기본값 가져오기: `checked`
 5. KQL 상자에 다음 코드 조각을 추가 합니다.
     ```kusto
     requests

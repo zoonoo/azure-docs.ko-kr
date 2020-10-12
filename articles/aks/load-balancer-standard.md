@@ -8,10 +8,10 @@ ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182125"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
@@ -229,7 +229,7 @@ az aks update \
 > [!IMPORTANT]
 > 연결 또는 크기 조정 문제를 방지 하려면 필요한 할당량을 계산 하 고 *allocatedOutboundPorts* 을 사용자 지정 하기 전에 [요구 사항을 확인][requirements] 해야 합니다.
 
-**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예:
+**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az aks create \
@@ -317,7 +317,7 @@ spec:
 
 다음은 유형으로 Kubernetes services에 대해 지원 되는 주석의 목록입니다 `LoadBalancer` . 이러한 주석은 **인바운드** 흐름에만 적용 됩니다.
 
-| 주석 | 값 | 설명
+| Annotation | 값 | 설명
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` 또는 `false`                     | 부하 분산 장치가 내부 인지 여부를 지정 합니다. 설정 하지 않은 경우 기본적으로 public이 됩니다.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | 서브넷의 이름입니다.                    | 내부 부하 분산 장치가 바인딩되어야 하는 서브넷을 지정 합니다. 설정 하지 않은 경우 클라우드 구성 파일에 구성 된 서브넷을 기본값으로 설정 합니다.

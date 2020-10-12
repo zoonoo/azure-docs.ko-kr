@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393896"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Cognitive Services에 대 한 Azure 보안 기준
@@ -948,7 +948,7 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 수명 주기 관리 기능을 사용 하 여 데이터를 보관 계층으로 백업할 수도 있습니다. 또한 저장소 계정에 저장 된 백업에 대해 일시 삭제를 사용 하도록 설정 합니다.
 
-* [중복성 및 서비스 수준 계약 Azure Storage 이해](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Azure Storage 중복성 및 Service-Level 계약 이해](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 * [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 
@@ -992,13 +992,13 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: Azure devops를 사용 하 여 Azure Resource Manager 템플릿을 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.  역할 기반 액세스 제어를 사용 하 여 고객 관리 키를 보호 합니다. Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 
+**지침**: Azure devops를 사용 하 여 Azure Resource Manager 템플릿을 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.  역할 기반 액세스 제어를 사용 하 여 고객 관리 키를 보호 합니다. Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 
 
 * [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 * [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-* [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 

@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 �
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182516"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>MARS (질문과 대답 Microsoft Azure Recovery Services) 에이전트
@@ -80,7 +80,7 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 * 백업 자격 증명 모음에 새 컴퓨터 이름을 등록 해야 합니다.
 * 자격 증명 모음에 새 이름을 등록 하는 경우 첫 번째 작업은 *전체* 백업입니다.
-* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세한 정보를 알아보세요](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아봅니다](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업의 최대 파일 경로 길이는 얼마 인가요?
 
@@ -163,7 +163,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이 있나요?
 
-예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세한 정보를 알아보세요](backup-windows-with-mars-agent.md#enable-network-throttling).
+예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아봅니다](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 

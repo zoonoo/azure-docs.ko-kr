@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394094"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
@@ -1031,7 +1031,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능을 사용 하 여 앱의 정기 백업을 예약 합니다. 프리미엄 계획에서 실행 되는 함수 앱은 "백업 및 복원" 기능을 포함 하는 Azure App Service의 웹 앱과 동일한 호스팅 기능을 제공 합니다.
 
-또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure storage 기능을 활용 하 여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장 합니다. 또한 Azure DevOps 팀은 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하는 절차를 따릅니다.
+또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure Storage 기능을 활용하여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장합니다. 또한 Azure DevOps 팀은 데이터를 실수로 삭제하거나 악의적으로 삭제하지 않도록 보호하는 절차를 따릅니다.
 
 - [Azure에서 앱 백업](../app-service/manage-backup.md)
 
@@ -1049,7 +1049,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능을 사용 하 여 앱의 정기 백업을 예약 합니다. 프리미엄 계획에서 실행 되는 함수 앱은 "백업 및 복원" 기능을 포함 하는 Azure App Service의 웹 앱과 동일한 호스팅 기능을 제공 합니다. Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
-또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure storage 기능을 활용 하 여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장 합니다. 또한 Azure DevOps 팀은 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하는 절차를 따릅니다.
+또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure Storage 기능을 활용하여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장합니다. 또한 Azure DevOps 팀은 데이터를 실수로 삭제하거나 악의적으로 삭제하지 않도록 보호하는 절차를 따릅니다.
 
 - [Azure에서 앱 백업](../app-service/manage-backup.md)
 
@@ -1083,7 +1083,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능의 백업은 구독의 Azure Storage 계정을 사용 합니다. Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 고객이 관리 하는 키를 제공 하 여 저장소 데이터를 암호화할 수 있습니다.
 
-고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault에서 일시 삭제를 사용 하도록 설정 해야 합니다.
+고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault의 Soft-Delete을 사용 하도록 설정 해야 합니다.
 
 - [Azure Storage 미사용 데이터 암호화](../storage/common/storage-service-encryption.md)
 

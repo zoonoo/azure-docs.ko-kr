@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
 ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465561"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
-Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
+Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. 디바이스가 IoT Edge 런타임을 사용하여 구성되면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
 
 IoT Edge 런타임에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
@@ -109,7 +109,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 6. 메시지가 표시 되 면 1 단계에서 검색 한 장치 연결 문자열을 제공 합니다. 장치 연결 문자열은 물리적 장치를 IoT Hub의 장치 ID와 연결 합니다.
 
-   장치 연결 문자열은 다음 형식을 사용 하며 따옴표를 포함 하지 않아야 합니다.`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   장치 연결 문자열은 다음 형식을 사용 하며 따옴표를 포함 하지 않아야 합니다. `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 7. [설치 성공 확인](#verify-successful-installation) 의 단계를 사용 하 여 장치에서 IoT Edge 상태를 확인 합니다.
 
@@ -164,7 +164,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 4. 필요에 따라 Visual C++ 재배포 가능 패키지에 대 한 설치 관리자를 다운로드 합니다. 예를 들어 PowerShell 스크립트는 [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe)버전을 사용 합니다. 설치 관리자를 IoT 장치의 동일한 폴더에 IoT Edge 파일로 저장 합니다.
 
-5. 오프 라인 구성 요소를 사용 하 여 설치 하려면 [도트 원본](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 명령의 일부로 사용 `Deploy-IoTEdge` 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예제:
+5. 오프 라인 구성 요소를 사용 하 여 설치 하려면 [도트 원본](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 명령의 일부로 사용 `Deploy-IoTEdge` 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1
@@ -244,13 +244,13 @@ Windows 디바이스에서 IoT Edge 설치를 제거하려는 경우 관리 Powe
 Uninstall-IoTEdge
 ```
 
-제거-IoTEdge 명령은 Windows IoT Core에서 작동 하지 않습니다. Windows IoT Core 장치에서 IoT Edge를 제거 하려면 Windows IoT 핵심 이미지를 다시 배포 해야 합니다.
+Uninstall-IoTEdge 명령은 Windows IoT Core에서 작동 하지 않습니다. Windows IoT Core 장치에서 IoT Edge를 제거 하려면 Windows IoT 핵심 이미지를 다시 배포 해야 합니다.
 
 제거 옵션에 대 한 자세한 내용을 보려면 명령을 사용 `Get-Help Uninstall-IoTEdge -full` 하세요.
 
 ## <a name="verify-installation-script"></a>설치 스크립트 확인
 
-이 문서에 제공 된 설치 명령은 Invoke WebRequest cmdlet을 사용 하 여에서 설치 스크립트를 요청 합니다 `aka.ms/iotedge-win` . 이 링크는 `IoTEdgeSecurityDaemon.ps1` 최신 [IoT Edge 릴리스의](https://github.com/Azure/azure-iotedge/releases)스크립트를 가리킵니다. 또한이 스크립트나 특정 릴리스의 스크립트 버전을 다운로드 하 여 IoT Edge 장치에서 설치 명령을 실행할 수 있습니다.
+이 문서에 제공 된 설치 명령은 Invoke-WebRequest cmdlet을 사용 하 여에서 설치 스크립트를 요청 합니다 `aka.ms/iotedge-win` . 이 링크는 `IoTEdgeSecurityDaemon.ps1` 최신 [IoT Edge 릴리스의](https://github.com/Azure/azure-iotedge/releases)스크립트를 가리킵니다. 또한이 스크립트나 특정 릴리스의 스크립트 버전을 다운로드 하 여 IoT Edge 장치에서 설치 명령을 실행할 수 있습니다.
 
 제공 된 스크립트는 보안을 강화 하기 위해 서명 됩니다. 장치에 스크립트를 다운로드 하 고 다음 PowerShell 명령을 실행 하 여 서명을 확인할 수 있습니다.
 
@@ -264,9 +264,9 @@ Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
 
 이전 섹션에서는 매개 변수를 사용하여 설치 스크립트를 수정하는 방법의 예제와 함께 일반적인 설치 시나리오를 소개했습니다. 이 섹션에서는 IoT Edge를 설치, 업데이트 또는 제거 하는 데 사용 되는 일반 매개 변수의 참조 테이블을 제공 합니다.
 
-### <a name="deploy-iotedge"></a>배포-IoTEdge
+### <a name="deploy-iotedge"></a>Deploy-IoTEdge
 
-배포-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운로드 하 고 배포 합니다. 배포 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Deploy-IoTEdge -full` 합니다.  
+Deploy-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운로드 하 고 배포 합니다. 배포 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Deploy-IoTEdge -full` 합니다.  
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
@@ -278,7 +278,7 @@ Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를 사용 하 여 IoT Edge를 구성 합니다. 이 명령에 의해 생성 된 대부분의 정보는 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Initialize-IoTEdge -full` 합니다.
+Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를 사용 하 여 IoT Edge를 구성 합니다. 이 명령에 의해 생성 된 대부분의 정보는 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Initialize-IoTEdge -full` 합니다.
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
@@ -296,7 +296,7 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **사용자 이름** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
 | **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. |
 
-### <a name="update-iotedge"></a>업데이트-IoTEdge
+### <a name="update-iotedge"></a>Update-IoTEdge
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
@@ -306,7 +306,7 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **OfflineInstallationPath** | 디렉터리 경로 | 이 매개 변수를 포함 하는 경우 설치 관리자는 설치에 필요한 IoT Edge cab 및 VC Runtime MSI 파일에 대해 나열 된 디렉터리를 확인 합니다. 디렉터리에서 찾을 수 없는 파일이 다운로드 됩니다. 두 파일이 모두 디렉터리에 있으면 인터넷에 연결 하지 않고 IoT Edge를 설치할 수 있습니다. 이 매개 변수를 사용 하 여 특정 버전을 사용할 수도 있습니다. |
 | **RestartIfNeeded** | 없음 | 이 플래그를 사용 하면 필요에 따라 메시지를 표시 하지 않고 배포 스크립트에서 컴퓨터를 다시 시작할 수 있습니다. |
 
-### <a name="uninstall-iotedge"></a>제거-IoTEdge
+### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |

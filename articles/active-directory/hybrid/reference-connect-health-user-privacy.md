@@ -16,10 +16,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182363"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>사용자 개인 정보 및 Azure AD Connect Health 
@@ -89,7 +89,7 @@ Azure AD Connect Health에서 테넌트 범위 데이터 수집을 다시 시작
 1. 주 블레이드의 구성 아래에서 **일반 설정**을 클릭합니다. 
 2. 블레이드의 맨 위에서 **데이터 수집 사용** 단추를 클릭합니다. 
  
-   ![데이터 컬렉션 활성화](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![데이터 수집 사용](./media/reference-connect-health-user-privacy/gdpr6.png)
  
 3. 정확한 테넌트 이름을 입력하여 **사용** 단추를 활성화합니다.
 4. **사용** 단추를 클릭하여 Connect Health 서비스의 데이터 수집 권한을 부여합니다. 변경 내용은 즉시 적용됩니다. 

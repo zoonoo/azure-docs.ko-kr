@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79281133"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
@@ -66,7 +66,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블에서는 Salesforce 연결된 서비스에 지정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **Salesforce**로 설정 되어야 합니다. |예 |
 | environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https: \/ /login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
@@ -79,7 +79,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **RelationalTable** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |Salesforce에 있는 테이블의 이름입니다. |아니요(**RelationalSource**의 **query**가 지정된 경우) |
 
@@ -106,9 +106,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 ## <a name="query-tips"></a>쿼리 팁
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>DateTime 열에서 where 절을 사용하여 데이터 검색
-SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들어:
+SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들면 다음과 같습니다.
 
-* **SOQL 샘플**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **SOQL 샘플**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL 샘플**:
     * **복사 마법사를 사용하여 쿼리 지정:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **JSON 편집을 사용하여 쿼리 지정(적절하게 문자 이스케이프):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
@@ -117,7 +117,7 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 `{call "<report name>"}`과 같이 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있으며 그 예는 다음과 같습니다. `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Salesforce 휴지통에서 삭제된 레코드 검색
-임시 삭제된 쿼리를 Salesforce 휴지통에서 쿼리하려면 쿼리에 **"IsDeleted = 1"** 을 지정하면 됩니다. 예제:
+임시 삭제된 쿼리를 Salesforce 휴지통에서 쿼리하려면 쿼리에 **"IsDeleted = 1"** 을 지정하면 됩니다. 예를 들면 다음과 같습니다.
 
 * 삭제 된 레코드만 쿼리하려면 "select * from MyTable__c **Where IsDeleted = 1**"을 지정 합니다.
 * 기존 레코드와 삭제 된 레코드를 포함 하 여 모든 레코드를 쿼리하려면 "select * from MyTable__c **Where isdeleted = 0 Or isdeleted = 1**"을 지정 합니다.
@@ -285,25 +285,25 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 | Salesforce 형식 | .NET 기반 형식 |
 | --- | --- |
-| 자동 번호 |String |
+| 자동 번호 |문자열 |
 | 확인란 |부울 |
-| Currency |Decimal |
-| 날짜 |DateTime |
+| 통화 |Decimal |
+| Date |DateTime |
 | 날짜/시간 |DateTime |
-| 메일 |String |
-| Id |String |
-| 관계 조회 |String |
-| 다중 선택 선택 목록 |String |
-| number |Decimal |
+| 메일 |문자열 |
+| Id |문자열 |
+| 관계 조회 |문자열 |
+| 다중 선택 선택 목록 |문자열 |
+| 숫자 |Decimal |
 | 백분율 |Decimal |
-| Phone |String |
-| 선택 목록 |String |
-| 텍스트 |String |
-| 텍스트 영역 |String |
-| 텍스트 영역(Long) |String |
-| 텍스트 영역(Rich) |String |
-| 텍스트(암호화됨) |String |
-| URL |String |
+| 전화 |문자열 |
+| 선택 목록 |문자열 |
+| 텍스트 |문자열 |
+| 텍스트 영역 |문자열 |
+| 텍스트 영역(Long) |문자열 |
+| 텍스트 영역(Rich) |문자열 |
+| 텍스트(암호화됨) |문자열 |
+| URL |문자열 |
 
 > [!NOTE]
 > 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하려면 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.

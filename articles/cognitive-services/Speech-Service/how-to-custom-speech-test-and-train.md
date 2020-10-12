@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84628048"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
@@ -46,9 +46,9 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 | 데이터 형식 | 테스트에 사용 됨 | 권장 수량 | 학습에 사용 됨 | 권장 수량 |
 |-----------|-----------------|----------|-------------------|----------|
-| [비디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 예 | 해당 없음 |
+| [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
 | [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1 ~ 1000 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | 예 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 

@@ -4,10 +4,10 @@ description: 프리미엄 레지스트리에서 특정 리포지토리로 범위
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509409"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
@@ -159,7 +159,7 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
     1. 범위 맵에 대한 이름 및 설명을 입력합니다. 
     1. **리포지토리** 아래에서 `samples/hello-world`를 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가**를 선택합니다.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="포털에서 범위 맵 만들기":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="포털에서 토큰 만들기":::
 
     1. 리포지토리 및 권한이 추가되면 **추가**를 선택하여 범위 맵을 추가합니다.
 1. 기본 토큰 **상태**를 **사용**으로 적용한 다음, **만들기**를 선택합니다.
@@ -176,7 +176,7 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 1. 암호 화면에서 필요에 따라 암호의 만료 날짜를 설정하고, **생성**을 선택합니다. 만료 날짜를 설정 하는 것이 좋습니다.
 1. 암호가 생성되면 이를 복사하여 안전한 위치에 저장합니다. 화면을 닫으면 생성된 암호를 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="포털에서 토큰 암호 만들기":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="포털에서 토큰 만들기":::
 
 ## <a name="authenticate-with-token"></a>토큰을 사용하여 인증
 
@@ -361,14 +361,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>토큰 세부 정보 표시
 
-상태 및 암호 만료 날짜와 같은 토큰 세부 정보를 보려면 [az acr token show][az-acr-token-show] 명령을 실행하거나 포털의 **토큰(미리 보기)** 화면에서 토큰을 선택합니다. 예를 들어:
+상태 및 암호 만료 날짜와 같은 토큰 세부 정보를 보려면 [az acr token show][az-acr-token-show] 명령을 실행하거나 포털의 **토큰(미리 보기)** 화면에서 토큰을 선택합니다. 다음은 그 예입니다.
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-[az acr token list][az-acr-token-list] 명령 또는 포털의 **토큰(미리 보기)** 화면을 사용하여 레지스트리에 구성된 모든 토큰을 나열합니다. 예를 들어:
+[az acr token list][az-acr-token-list] 명령 또는 포털의 **토큰(미리 보기)** 화면을 사용하여 레지스트리에 구성된 모든 토큰을 나열합니다. 다음은 그 예입니다.
 
 ```azurecli
 az acr token list --registry myregistry --output table

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606277"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
@@ -27,7 +27,7 @@ ms.locfileid: "81606277"
 | [조건부 분할](data-flow-conditional-split.md) | 여러 입력/출력 | 일치 조건에 따라 데이터 행을 서로 다른 스트림으로 라우팅합니다. |
 | [파생 열](data-flow-derived-column.md) | Schema 한정자 | 데이터 흐름 식 언어를 사용 하 여 새 열을 생성 하거나 기존 필드를 수정 합니다. | 
 | [Exists](data-flow-exists.md) | 여러 입력/출력 | 데이터가 다른 원본 또는 스트림에 있는지 확인 합니다. | 
-| [필터](data-flow-filter.md) | Row 한정자 | 조건에 따라 행을 필터링 합니다. |
+| [Filter](data-flow-filter.md) | Row 한정자 | 조건에 따라 행을 필터링 합니다. |
 | [평면화(flatten)](data-flow-flatten.md) | Schema 한정자 |  JSON과 같은 계층 구조 내에서 배열 값을 가져와 개별 행으로 언 롤. |
 | [Join](data-flow-join.md) | 여러 입력/출력 |  두 원본 또는 스트림의 데이터를 결합 합니다. |
 | [조회](data-flow-lookup.md) | 여러 입력/출력 | 다른 소스에서 데이터를 참조 합니다. |
@@ -35,8 +35,8 @@ ms.locfileid: "81606277"
 | [피벗](data-flow-pivot.md) | Schema 한정자 | 하나 이상의 그룹화 열에 개별 열로 변환 된 고유 행 값이 있는 집계입니다. |
 | [Select](data-flow-select.md) | Schema 한정자 | 열 및 스트림 이름 별칭을 만들고 열을 삭제 하거나 순서를 변경 합니다. |
 | [싱크](data-flow-sink.md) | - | 데이터의 최종 대상 |
-| [정렬](data-flow-sort.md) | Row 한정자 | 현재 데이터 스트림의 들어오는 행 정렬 |
-| [소스](data-flow-source.md) | - | 데이터 흐름에 대 한 데이터 원본 |
+| [Sort](data-flow-sort.md) | Row 한정자 | 현재 데이터 스트림의 들어오는 행 정렬 |
+| [원본](data-flow-source.md) | - | 데이터 흐름에 대 한 데이터 원본 |
 | [서로게이트 키](data-flow-surrogate-key.md) | Schema 한정자 | 비즈니스에 대 한 증분이 아닌 임의 키 값 추가 |
 | [Union](data-flow-union.md) | 여러 입력/출력 | 여러 데이터 스트림을 세로로 결합 |
 | [피벗 해제](data-flow-unpivot.md) | Schema 한정자 | 열을 행 값으로 피벗 |

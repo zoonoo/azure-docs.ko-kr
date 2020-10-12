@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385266"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 세션 동작 구성
@@ -59,7 +59,7 @@ Azure Active Directory B2C (Azure AD B2C)의 [sso (Single sign-on) 세션](sessi
 
 단일 로그 아웃을 지원 하려면 JWT 및 SAML 토큰 발급자 기술 프로필은 다음을 지정 해야 합니다.
 
-- 프로토콜 이름 (예:)`<Protocol Name="OpenIdConnect" />`
+- 프로토콜 이름 (예:) `<Protocol Name="OpenIdConnect" />`
 - 세션 기술 프로필에 대 한 참조입니다 (예:) `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 다음 예제에서는 단일 로그 아웃으로 JWT 및 SAML 토큰 발급자를 보여 줍니다.

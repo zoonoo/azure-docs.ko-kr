@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 titleSuffix: Azure
 description: 포함 파일
 services: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81678863"
 ---
 1. **피어 링 만들기** 페이지의 **구성** 탭에서 여기에 표시 된 대로 상자를 입력 합니다.

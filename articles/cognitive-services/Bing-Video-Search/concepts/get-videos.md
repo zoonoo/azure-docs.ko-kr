@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79221386"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
@@ -120,10 +120,10 @@ Bing Video Search API에서 반환되는 비디오 썸네일의 전체 또는 �
 
 기본적으로 Video Search API는 쿼리와 관련된 모든 비디오를 반환합니다. 무료 비디오 또는 길이가 5분 이내 비디오만 원하는 경우 다음 필터 쿼리 매개 변수를 사용하면 됩니다.
 
-- [가격 책정 별 가격 책정](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;필터 비디오 (예: 무료 이거나 요금을 지불 해야 하는 비디오)
-- [해상도에](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)&mdash;따라 비디오를 필터링 합니다 (예: 720p 이상이 해상도 인 비디오).
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;비디오 길이로 비디오를 필터링 하는 videoLength (예: 길이가 5 분 미만인 비디오)
-- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;보존 기간을 기준으로 비디오를 필터링 합니다 (예: 지난 주에 Bing에서 검색 한 비디오).
+- [가격 책정](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; 가격 기준으로 비디오 필터링 (예: 무료 이거나 요금을 지불 해야 하는 비디오)
+- [해결 방법](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; 해상도로 비디오 필터링 (예: 720p 이상이 해상도 인 비디오)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; 비디오 길이로 비디오 필터링 (예: 길이가 5 분 미만인 비디오)
+- [최신](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; 사용 기간을 기준으로 비디오 필터링 (예: 지난 주에 Bing에서 검색 한 비디오)
 
 특정 도메인에서 비디오를 가져오려면 쿼리 문자열에 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 포함합니다.
 

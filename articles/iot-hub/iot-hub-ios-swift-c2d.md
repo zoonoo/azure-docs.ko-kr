@@ -9,10 +9,10 @@ ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
 ms.openlocfilehash: d8552391e8e8c389a44174595305b8f28224a833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81732529"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IoT Hub(iOS)를 사용하여 클라우드-디바이스 메시지 보내기
@@ -100,7 +100,7 @@ pod install
 
 5. 변경 내용을 저장합니다. 
 
-6. **빌드 및 실행** 단추나 키 콤보 **명령 + r**을 사용 하 여 장치 에뮬레이터에서 프로젝트를 실행 합니다.
+6. **빌드 및 실행** 단추 또는 **명령 + r** 키 콤보를 사용하여 디바이스 에뮬레이터에서 프로젝트를 실행합니다.
 
    ![프로젝트 실행](media/iot-hub-ios-swift-c2d/run-sample.png)
 
@@ -152,7 +152,7 @@ pod install
 
    ![에뮬레이터 디바이스 변경](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. **빌드 및 실행** 단추 또는 **명령 + r** 키 콤보를 사용하여 디바이스 에뮬레이터에서 프로젝트를 실행합니다.
+7. **빌드 및 실행** 단추나 키 콤보 **명령 + r**을 사용 하 여 장치 에뮬레이터에서 프로젝트를 실행 합니다.
 
    ![프로젝트 실행](media/iot-hub-ios-swift-c2d/run-app.png)
 

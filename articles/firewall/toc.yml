@@ -106,7 +106,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: /rest/api/firewall
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

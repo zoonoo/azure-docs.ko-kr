@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84484331"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. `ASC`가장 낮은 값에서 가장 높은 값 순으로 정렬 합니다. `DESC`가장 큰 값에서 가장 작은 값으로 정렬 합니다. `ASC`는 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
+   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. `ASC` 가장 낮은 값에서 가장 높은 값 순으로 정렬 합니다. `DESC` 가장 큰 값에서 가장 작은 값으로 정렬 합니다. `ASC` 는 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
   
 ## <a name="remarks"></a>설명  
   
@@ -102,7 +102,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-또한 여러 속성을 기준으로 순서를 지정할 수 있습니다. 여러 속성으로 정렬 하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요 합니다. 다음 쿼리를 고려해 보세요.
+또한 여러 속성을 기준으로 순서를 지정할 수 있습니다. 여러 속성으로 정렬 하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요 합니다. 다음과 같은 쿼리를 고려해 보세요.
 
 ```sql
     SELECT f.id, f.creationDate

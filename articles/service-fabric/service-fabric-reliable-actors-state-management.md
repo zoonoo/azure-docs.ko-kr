@@ -7,10 +7,10 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611717"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 상태 관리
@@ -106,7 +106,7 @@ class MyActorImpl extends FabricActor implements MyActor
 
 행위자 상태 관리의 예제는 [Reliable Actors 상태 액세스, 저장 및 제거](service-fabric-reliable-actors-access-save-remove-state.md)를 참조하세요.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 다음은 행위자 상태를 관리하는 권장 사례 및 문제 해결 팁입니다.
 
 ### <a name="make-the-actor-state-as-granular-as-possible"></a>행위자 상태를 최대한 세분화합니다.

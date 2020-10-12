@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465646"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
@@ -146,7 +146,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 예를 들어:
+PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 ---
@@ -178,7 +178,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 예를 들어:
+PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -208,7 +208,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Pod를 사용 하 여 탑재
 
-PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 예를 들어:
+PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 kind: Pod

@@ -4,10 +4,10 @@ description: Azure Container Instances에서 현재 실행 중인 컨테이너�
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79247203"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
@@ -80,7 +80,7 @@ Bye.
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
 ```
 
-## <a name="restrictions"></a>제한 사항
+## <a name="restrictions"></a>제한
 
 현재 Azure Container Instances에서는 [az container exec][az-container-exec]를 사용하여 단일 프로세스를 시작하도록 지원합니다. 또한 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
 

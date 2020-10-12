@@ -8,15 +8,15 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: d58827632a36a69bc9b9592c607364daa6ef7d97
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904225"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Azure Spring Cloud 개발자 리소스
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 개발자에게는 다음과 같은 Azure Spring Cloud 리소스가 유용할 수 있습니다.
 

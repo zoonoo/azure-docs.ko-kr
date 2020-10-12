@@ -4,10 +4,10 @@ description: Azure Site Recovery 서비스를 사용한 재해 복구를 위한 
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485333"
 ---
 # <a name="create-and-customize-recovery-plans"></a>복구 계획 만들기 및 사용자 지정
@@ -20,7 +20,7 @@ ms.locfileid: "84485333"
 2. **복구 계획 만들기**에서 계획의 이름을 지정합니다.
 3. 계획의 머신을 기반으로 하여 원본 및 대상을 선택하고 배포 모델에 대한 **리소스 관리자**를 선택합니다. 원본 위치에는 장애 조치(failover) 및 복구를 사용하도록 설정한 머신이 있어야 합니다. 
 
-    **장애 조치(Failover)** | **소스** | **Target** 
+    **장애 조치(Failover)** | **원본** | **대상** 
    --- | --- | ---
    Azure 간 | Azure 지역 선택 | Azure 지역 선택
    VMware에서 Azure로 | 구성 서버 선택 | Azure 선택
@@ -51,9 +51,9 @@ ms.locfileid: "84485333"
 
 ## <a name="add-a-script-or-manual-action"></a>스크립트 또는 수동 작업 추가
 
-스크립트 또는 수동 작업을 추가하여 복구 계획을 사용자 지정할 수 있습니다. 다음 사항에 유의합니다.
+스크립트 또는 수동 작업을 추가하여 복구 계획을 사용자 지정할 수 있습니다. 다음 사항에 유의하세요.
 
-- Azure에 복제하는 경우, Azure Automation Runbook을 복구 계획에 통합할 수 있습니다. [자세히 알아보기](site-recovery-runbook-automation.md).
+- Azure에 복제하는 경우, Azure Automation Runbook을 복구 계획에 통합할 수 있습니다. [자세히 알아봅니다](site-recovery-runbook-automation.md).
 - System Center VMM에서 관리하는 Hyper-V VM을 복제하는 경우, 온-프레미스 VMM 서버에서 스크립트를 만들고 복구 계획에 포함할 수 있습니다.
 - 스크립트를 추가하면 해당 그룹에 대해 새로운 작업 집합이 추가됩니다. 예를 들어, 그룹 1에 대한 사전 단계 집합이 *Group 1: pre-steps*라는 이름으로 생성됩니다. 모든 사전 단계가 이 집합 내에 나열됩니다. VMM 서버가 배포된 경우에만 주 사이트에 스크립트를 추가할 수 있습니다.
 - 수동 작업을 추가 하는 경우 복구 계획이 실행 될 때 수동 작업을 삽입 한 지점에서 중지 됩니다. 대화 상자는 수동 작업이 완료되도록 지정하라는 메시지를 표시합니다.

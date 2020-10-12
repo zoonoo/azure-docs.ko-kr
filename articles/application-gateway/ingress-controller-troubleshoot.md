@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207167"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>수신 컨트롤러에 대 한 일반적인 질문 및 문제 해결
 
 [Azure Cloud Shell](https://shell.azure.com/) 은 AKS 및 AGIC 설치와 관련 된 문제를 해결 하는 가장 편리한 방법입니다. [Shell.azure.com](https://shell.azure.com/) 에서 또는 링크를 클릭 하 여 셸을 시작 합니다.
 
-[![시작 포함](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 
 ## <a name="test-with-a-simple-kubernetes-app"></a>간단한 Kubernetes 앱을 사용 하 여 테스트
@@ -95,7 +95,7 @@ AKS 클러스터 위에 응용 프로그램을 성공적으로 배포한 후에�
 
 ![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Pod 중 하나는 AGIC가 됩니다. `kubectl get pods`pod 목록이 표시 되며, 그 중 하나는 ' 수신-azure '로 시작 됩니다. 이 pod의 모든 로그를 가져와서 `kubectl logs <name-of-ingress-controller-pod>` 성공적으로 배포 되었는지 확인 합니다. 성공적으로 배포 되 면 로그에 다음 줄이 추가 됩니다.
+Pod 중 하나는 AGIC가 됩니다. `kubectl get pods` pod 목록이 표시 되며, 그 중 하나는 ' 수신-azure '로 시작 됩니다. 이 pod의 모든 로그를 가져와서 `kubectl logs <name-of-ingress-controller-pod>` 성공적으로 배포 되었는지 확인 합니다. 성공적으로 배포 되 면 로그에 다음 줄이 추가 됩니다.
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -199,9 +199,9 @@ AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
 
 
 * AGIC pod가 정상이 아닌 경우 ( `STATUS` 위 명령의 열이이 아닌 경우 `Running` ):
-  - 다음 이유를 이해 하기 위해 로그를 가져옵니다.`kubectl logs <pod-name>`
-  - pod의 이전 인스턴스에 대해 다음을 수행 합니다.`kubectl logs <pod-name> --previous`
-  - 추가 컨텍스트를 얻기 위해 pod에 대해 설명 합니다.`kubectl describe pod <pod-name>`
+  - 다음 이유를 이해 하기 위해 로그를 가져옵니다. `kubectl logs <pod-name>`
+  - pod의 이전 인스턴스에 대해 다음을 수행 합니다. `kubectl logs <pod-name> --previous`
+  - 추가 컨텍스트를 얻기 위해 pod에 대해 설명 합니다. `kubectl describe pod <pod-name>`
 
 
 * Kubernetes [서비스](https://kubernetes.io/docs/concepts/services-networking/service/) 와 [수신](https://kubernetes.io/docs/concepts/services-networking/ingress/) 리소스가 있나요?
@@ -224,7 +224,7 @@ AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
 
 
 * AGIC는 특정 심각한 오류에 대 한 Kubernetes 이벤트를 내보냅니다. 다음을 볼 수 있습니다.
-  - 다음을 통해 터미널에서`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - 다음을 통해 터미널에서 `kubectl get events --sort-by=.metadata.creationTimestamp`
   - [Kubernetes 웹 UI (대시보드)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 를 사용 하 여 브라우저에서
 
 
@@ -245,7 +245,7 @@ Kubernetes 커뮤니티는 [kubectl](https://kubernetes.io/docs/reference/kubect
 
 세부 정보 표시 수준은 `verbosityLevel` [투구-.config](#sample-helm-config-file) 파일의 변수를 통해 조정할 수 있습니다. 세부 정보 표시 수준을로 늘려 `5` [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 디스패치 된 JSON 구성을 가져옵니다.
   - `verbosityLevel: 5`투구에서 한 줄에 단독으로 추가 하 고 다시 설치 [합니다.](#sample-helm-config-file)
-  - 로그 가져오기`kubectl logs <pod-name>`
+  - 로그 가져오기 `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>샘플 투구 구성 파일
 ```yaml

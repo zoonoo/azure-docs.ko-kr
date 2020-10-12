@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182040"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
@@ -57,7 +57,7 @@ Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세한 정보를 알아보세요](../virtual-machines/extensions/features-windows.md#network-access).
+- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세히 알아봅니다](../virtual-machines/extensions/features-windows.md#network-access).
   - 지원 되지 않는 버전의 에이전트를 사용 하는 경우 VM에서 해당 지역에 있는 Azure storage에 대 한 아웃 바운드 액세스를 허용 해야 합니다.
   - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](../virtual-machines/extensions/features-windows.md#network-access).
 
@@ -249,10 +249,10 @@ Waagent에 대 한 자세한 정보 로깅이 필요한 경우 다음 단계를 
 2. **Logs.Verbose** 값을 *n*에서 *y*로 변경합니다.
 3. 변경 내용을 저장하고 이 섹션 앞부분에 설명된 단계를 완료하여 waagent를 다시 시작합니다.
 
-### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>VM-에이전트 구성 옵션이 설정 되지 않음 (Linux Vm의 경우)
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>VM-Agent 구성 옵션이 설정 되지 않았습니다 (Linux Vm의 경우).
 
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 구성 파일 옵션 **확장명. Enable** 을 **y** 로 설정 하 고 **프로 비전 해야 합니다.** 백업이 작동 하려면 에이전트를 **auto** 로 설정 해야 합니다.
-VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세요. <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+VM-Agent 구성 파일 옵션의 전체 목록은 다음을 참조 하세요. <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>응용 프로그램 제어 솔루션이 차단 IaaSBcdrExtension.exe
 

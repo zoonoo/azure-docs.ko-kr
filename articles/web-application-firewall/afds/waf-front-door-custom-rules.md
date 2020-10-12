@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79475827"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Azure Front 도어를 사용 하는 웹 응용 프로그램 방화벽에 대 한 사용자 지정 규칙
@@ -69,7 +69,7 @@ ms.locfileid: "79475827"
   - **Transform [선택 사항]:** 일치를 시도 하기 전에 변환 이름이 포함 된 문자열의 목록입니다. 이러한 변환은 다음과 같을 수 있습니다.
      - 대문자 
      - 소문자
-     - Trim
+     - 공백 제거
      - RemoveNulls
      - UrlDecode
      - UrlEncode

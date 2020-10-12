@@ -7,15 +7,15 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81727256"
 ---
 # <a name="error-codes"></a>오류 코드 #
 
-재생을 시작 하거나 중지할 수 없는 경우 오류 이벤트가 발생 하 고 `error()` 함수에서 코드 및 선택적 메시지를 반환 하 여 앱 개발자가 자세한 정보를 얻을 수 있도록 합니다. `error().message`사용자에 게 표시 되는 메시지가 아닙니다.  사용자에 게 표시 되는 메시지는 `error().code` bits 27-20을 기반으로 합니다. 아래 표를 참조 하십시오.
+재생을 시작 하거나 중지할 수 없는 경우 오류 이벤트가 발생 하 고 `error()` 함수에서 코드 및 선택적 메시지를 반환 하 여 앱 개발자가 자세한 정보를 얻을 수 있도록 합니다. `error().message` 사용자에 게 표시 되는 메시지가 아닙니다.  사용자에 게 표시 되는 메시지는 `error().code` bits 27-20을 기반으로 합니다. 아래 표를 참조 하십시오.
 
 ```javascript
 
