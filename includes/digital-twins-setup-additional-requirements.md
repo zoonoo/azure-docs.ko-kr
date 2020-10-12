@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009663"
 ---
 조직에서 구독 소유자/관리자의 추가 작업을 수행 하 여 앱 등록을 성공적으로 설정 하 고, 따라서 사용 가능한 Azure 디지털 Twins 인스턴스 설정을 완료할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 달라질 수 있습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "88009663"
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="API 권한 아래의 ' 관리자 동의 허용 ' 단추의 포털 보기":::
   - 동의가 성공적으로 부여 된 경우 Azure Digital Twins의 항목에는 _ **(회사)** 에 대해 부여_ 된 *상태* 값이 표시 되어야 합니다.
    
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="API 권한에서 회사에 대해 부여 된 관리자 동의의 포털 보기":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="API 권한 아래의 ' 관리자 동의 허용 ' 단추의 포털 보기":::
 * 공용 클라이언트 액세스 활성화
 * 웹 및 데스크톱 액세스에 대 한 특정 회신 Url 설정
 * 암시적 OAuth2 인증 흐름 허용

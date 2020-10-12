@@ -12,10 +12,10 @@ ms.date: 07/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 53d41b5024b29a8c6c394d65a3ce36f8bb878fc2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90524983"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
@@ -82,7 +82,7 @@ B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있�
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-두 번째 옵션은 형식의 테 넌 트 도메인 이름을 사용 합니다 `your-tenant-name.onmicrosoft.com` . 예를 들어:
+두 번째 옵션은 형식의 테 넌 트 도메인 이름을 사용 합니다 `your-tenant-name.onmicrosoft.com` . 예를 들면 다음과 같습니다.
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp

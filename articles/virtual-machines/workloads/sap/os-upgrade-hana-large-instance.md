@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82192419"
 ---
 # <a name="operating-system-upgrade"></a>운영 체제 업그레이드
@@ -95,7 +95,7 @@ Azure HANA Large Instances (유형 I)의 SAP는 업그레이드 후 부팅할 �
 
 
 *   `multipath -ll`명령을 실행 합니다.
-*   크기가 약 50G 인 LUN ID를 가져오거나 명령을 사용 합니다.`fdisk -l | grep mapper`
+*   크기가 약 50G 인 LUN ID를 가져오거나 명령을 사용 합니다. `fdisk -l | grep mapper`
 *   `/etc/default/grub_installdevice`줄을 사용 하 여 파일을 업데이트 `/dev/mapper/<LUN ID>` 합니다. 예:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >LUN ID는 서버 마다 다릅니다.
@@ -110,7 +110,7 @@ Azure HANA Large Instances (유형 I)의 SAP는 업그레이드 후 부팅할 �
 ```
 lsmod | grep -i edac 
 ```
-* 파일에 다음 줄을 추가 하 여 모듈을 사용 하지 않도록 설정 합니다.`/etc/modprobe.d/blacklist.conf`
+* 파일에 다음 줄을 추가 하 여 모듈을 사용 하지 않도록 설정 합니다. `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
@@ -121,8 +121,8 @@ blacklist edac_core
 ### <a name="kernel-parameters"></a>커널 매개 변수
    ,, 및에 대 한 올바른 설정이 적용 되었는지 확인 `transparent_hugepage` `numa_balancing` `processor.max_cstate` `ignore_ce` `intel_idle.max_cstate` 합니다.
 
-* intel_idle max_cstate = 1
-* 프로세서. max_cstate = 1
+* intel_idle intel_idle.max_cstate = 1
+* processor.max_cstate = 1
 * transparent_hugepage = 안 함
 * numa_balancing = 사용 안 함
 * mce = ignore_ce

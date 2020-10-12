@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86219966"
 ---
 # <a name="notification-hubs-templates"></a>Notification Hubs 템플릿
@@ -145,7 +145,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 위의 모든 형태가 식이 될 수 있습니다.
 
-연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 정의합니다(예: `{$(prop) + ‘ - ’ + $(prop2)}`).
+연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 예: `{$(prop) + ‘ - ’ + $(prop2)}`
 
 예를 들어 다음 템플릿은 올바른 XML 템플릿이 아닙니다.
 

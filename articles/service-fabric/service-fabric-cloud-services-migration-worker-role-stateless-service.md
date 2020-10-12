@@ -7,10 +7,10 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002286"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
@@ -44,9 +44,9 @@ ms.locfileid: "89002286"
 | **진입점** | **작업자 역할** | **Service Fabric 서비스** |
 | --- | --- | --- |
 | 처리 중 |`Run()` |`RunAsync()` |
-| VM 시작 |`OnStart()` |N/A |
-| VM 중지 |`OnStop()` |N/A |
-| 클라이언트 요청에 대한 수신기 열기 |N/A |<ul><li> 상태 비저장인 경우 `CreateServiceInstanceListener()`</li><li>상태 저장인 경우 `CreateServiceReplicaListener()`</li></ul> |
+| VM 시작 |`OnStart()` |해당 없음 |
+| VM 중지 |`OnStop()` |해당 없음 |
+| 클라이언트 요청에 대한 수신기 열기 |해당 없음 |<ul><li> 상태 비저장인 경우 `CreateServiceInstanceListener()`</li><li>상태 저장인 경우 `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>작업자 역할
 ```csharp
@@ -115,8 +115,8 @@ Cloud Services 환경 API는 현재 VM 인스턴스에 대한 정보 및 기능 
 | 구성 설정 및 변경 알림 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 로컬 스토리지 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 엔드포인트 정보 |`RoleInstance` <ul><li>현재 인스턴스: `RoleEnvironment.CurrentRoleInstance`</li><li>다른 역할 및 인스턴스: `RoleEnvironment.Roles`</li> |<ul><li>현재 노드 주소의 경우 `NodeContext`</li><li>서비스 엔드포인트 검색의 경우 `FabricClient` 및 `ServicePartitionResolver`</li> |
-| 환경 에뮬레이션 |`RoleEnvironment.IsEmulated` |N/A |
-| 동시 변경 이벤트 |`RoleEnvironment` |N/A |
+| 환경 에뮬레이션 |`RoleEnvironment.IsEmulated` |해당 없음 |
+| 동시 변경 이벤트 |`RoleEnvironment` |해당 없음 |
 
 ## <a name="configuration-settings"></a>구성 설정
 Cloud Services의 구성 설정은 VM 역할에 대해 설정되고 해당 VM 역할의 모든 인스턴스에 적용합니다. 이러한 설정은 ServiceConfiguration.*.cscfg 파일에서 설정된 키-값 쌍이며 RoleEnvironment를 통해 직접 액세스할 수 있습니다. Service Fabric에서 VM은 여러 서비스 및 애플리케이션을 호스팅할 수 있으므로 설정은 VM이 아닌 각 서비스 및 각 애플리케이션에 개별적으로 적용됩니다. 서비스는 세 가지 패키지로 구성됩니다.

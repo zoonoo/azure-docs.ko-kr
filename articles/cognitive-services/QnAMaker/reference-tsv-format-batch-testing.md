@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
 ms.openlocfilehash: 0ed948b4bf69fc672a59a7825279a12868d10521
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132129"
 ---
 # <a name="batch-testing-tsv-format"></a>일괄 처리 테스트 TSV 형식
@@ -46,7 +46,7 @@ batchtesting.exe input.tsv https://YOUR-HOST.azurewebsites.net ENDPOINT-KEY out.
 
 ## <a name="tsv-output-fields"></a>TSV 출력 필드 
 
-|TSV 출력 파일 매개 변수|참고|
+|TSV 출력 파일 매개 변수|메모|
 |--|--|
 |KBID|게시 페이지에 KB ID가 있습니다.|
 |질문|입력 파일에서 입력 한 질문입니다.|

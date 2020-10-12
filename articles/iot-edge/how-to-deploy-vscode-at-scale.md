@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82134365"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Visual Studio Code를 사용 하 여 규모에 IoT Edge 모듈 배포
@@ -220,11 +220,11 @@ Visual Studio Code에서 장치 쌍을 편집 하 여 태그를 구성할 수 �
 
    다음 매개 변수에 대 한 값을 지정 합니다.
 
-  | 매개 변수 | Description |
+  | 매개 변수 | 설명 |
   | --- | --- |
   | 배포 ID | IoT hub에서 생성 될 배포의 이름입니다. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다. |
   | 대상 조건 | 대상 조건을 입력 하 여이 배포의 대상으로 지정할 장치를 결정 합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 들면 `tags.environment='test' and properties.reported.devicemodel='4000x'` 입니다. |
-  | 우선 순위 |  양의 정수입니다. 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우 우선 순위 값이 가장 높은 배포가 적용 됩니다. |
+  | 우선 순위 |  양의 정수 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우 우선 순위 값이 가장 높은 배포가 적용 됩니다. |
 
   우선 순위를 지정 하면 터미널은 다음 표시와 유사한 출력을 표시 합니다.
 

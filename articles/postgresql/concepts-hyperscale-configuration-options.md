@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/1/2020
 ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964518"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database for PostgreSQL – Citus (Hyperscale) 구성 옵션
@@ -84,7 +84,7 @@ Citus (hyperscale) 서버 그룹은 다음 Azure 지역에서 제공 됩니다.
     * 오스트레일리아 동부
     * 일본 동부
     * 한국 중부
-    * 동남아시아
+    * 동남 아시아
 * 유럽
     * 북유럽
     * 영국 남부

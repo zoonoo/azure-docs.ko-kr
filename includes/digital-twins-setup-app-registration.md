@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: 45f55e6c18d7cc551a6b96504ad2ce2ec3f84d86
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009665"
 ---
 Azure Digital Twins 인스턴스를 설정 하 고 나면 클라이언트 응용 프로그램을 통해 해당 인스턴스와 상호 작용 하는 것이 일반적입니다. 작업 중인 클라이언트 응용 프로그램을 만들려면 클라이언트 앱이 Azure Digital Twins에 대해 인증할 수 있는지 확인 해야 합니다. 클라이언트 앱에서 사용할 [Azure Active Directory (AZURE AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) **앱 등록** 을 설정 하 여 수행 합니다.

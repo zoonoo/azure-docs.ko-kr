@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904491"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치 Azure Stack에서 Azure Resource Manager 암호를 설정 합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "90904491"
     ![Cloud Shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/cloud-shell.png)   
 
 
-5. 컨텍스트를 설정 합니다. 유형:
+5. 컨텍스트를 설정 합니다. 형식:
 
     `Set-AzContext -SubscriptionId <Subscription ID>`
 
@@ -122,7 +122,7 @@ ms.locfileid: "90904491"
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    위의 생성 된 보안 문자열을 AzDataBoxEdgeUser cmdlet의 매개 변수로 사용 하 여 암호를 다시 설정 합니다. Azure Stack Edge Pro/Data Box Gateway 리소스를 만들 때 사용한 것과 동일한 리소스 그룹을 사용 합니다.
+    위의 생성 된 보안 문자열을 Set-AzDataBoxEdgeUser cmdlet의 매개 변수로 사용 하 여 암호를 다시 설정 합니다. Azure Stack Edge Pro/Data Box Gateway 리소스를 만들 때 사용한 것과 동일한 리소스 그룹을 사용 합니다.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

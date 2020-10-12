@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86223400"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 성능 상태를 이해 하 고 일시 중단 된 도메인을 해결 합니다.
@@ -34,14 +34,14 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 * [실행 중](#running-state)
 * [주의가 필요 함](#needs-attention-state)
-* [일시 중단](#suspended-state)
+* [일시 중지됨](#suspended-state)
 * [삭제됨](#deleted-state)
 
 ## <a name="running-state"></a>실행 상태
 
 올바르게 구성 되 고 문제가 없는 관리 되는 도메인은 *실행 중* 상태입니다. 이는 관리 되는 도메인에 대 한 원하는 상태입니다.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 * Azure 플랫폼은 관리 되는 도메인의 상태를 정기적으로 모니터링할 수 있습니다.
 * 관리 되는 도메인의 도메인 컨트롤러는 패치 및 정기적으로 업데이트 됩니다.
@@ -58,7 +58,7 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 자세한 내용은 [관리 되는 도메인에 대 한 경고 문제를 해결 하는 방법][resolve-alerts]을 참조 하세요.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 관리 되는 도메인이 *주의 필요* 상태에 있는 경우 Azure 플랫폼에서 정기적으로 데이터를 모니터링, 패치, 업데이트 또는 백업 하지 못할 수 있습니다. 잘못 된 네트워크 구성과 마찬가지로 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 없는 경우도 있습니다.
 
@@ -79,7 +79,7 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 관리 되는 도메인은 Azure 플랫폼에서 도메인을 관리, 모니터링, 패치 또는 백업할 수 없을 때 일시 중단 됩니다. 관리 되는 도메인은 15 일 동안 *일시 중단* 된 상태로 유지 됩니다. 관리 되는 도메인에 대 한 액세스를 유지 하려면 중요 한 경고를 즉시 해결 합니다.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 관리 되는 도메인이 *일시 중단* 상태에 있는 경우 다음과 같은 동작이 발생 합니다.
 
@@ -110,7 +110,7 @@ Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 �
 
 관리 되는 도메인은 15 일 동안 *일시 중단* 된 상태로 유지 되는 경우 삭제 됩니다. 이 프로세스는 복구할 수 없습니다.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 관리 되는 도메인이 *삭제 됨* 상태가 되 면 다음과 같은 동작이 나타납니다.
 

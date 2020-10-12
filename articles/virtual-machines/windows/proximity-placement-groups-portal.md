@@ -1,5 +1,5 @@
 ---
-title: 포털을 사용 하 여 근접 배치 그룹 만들기
+title: 포털을 사용하여 근접 배치 그룹 만들기
 description: Azure Portal를 사용 하 여 근접 배치 그룹을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190404"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>포털을 사용 하 여 근접 배치 그룹 만들기
+# <a name="create-a-proximity-placement-group-using-the-portal"></a>포털을 사용하여 근접 배치 그룹 만들기
 
 가능한 한 가까운 시간 내에 Vm을 가져오기 위해 가장 낮은 대기 시간을 달성 하려면 [근접 배치 그룹](co-location.md#proximity-placement-groups)내에 배포 해야 합니다.
 
@@ -58,7 +58,7 @@ VM이 가용성 집합의 일부인 경우 Vm을 추가 하기 전에 가용성 
 1. [포털](https://portal.azure.com) 에서 *가용성* 집합을 검색 하 고 결과에서 가용성 집합을 선택 합니다.
 1. Vm을 선택한 다음 vm에 대 한 페이지에서 **중지** 를 선택 하 여 가용성 집합에서 각 vm의 할당을 취소 하 고 **확인** 을 선택 하 여 vm을 중지 합니다.
 1. 가용성 집합에 대 한 페이지에서 모든 Vm의 **상태가** **중지 됨 (할당 취소 됨)** 으로 표시 되어 있는지 확인 합니다.
-1. 왼쪽 메뉴에서 **구성**을 선택 합니다.
+1. 왼쪽 메뉴에서 **구성**을 선택합니다.
 1. **근접 배치 그룹**의 드롭다운에서 배치 그룹을 선택 하 고 **저장**을 선택 합니다.
 1. 왼쪽 메뉴에서 **개요** 를 선택 하 여 vm 목록을 다시 표시 합니다. 
 1. 가용성 집합에서 각 VM을 선택 하 고 각 VM에 대 한 페이지에서 **시작** 을 선택 합니다. 

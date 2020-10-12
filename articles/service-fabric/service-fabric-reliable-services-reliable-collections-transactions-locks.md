@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500285"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
@@ -37,7 +37,7 @@ ms.locfileid: "87500285"
 신뢰할 수 있는 컬렉션은 트랜잭션을 만들 당시의 작업 및 복제본의 역할에 따라 자동으로 특정 읽기 작업에 사용할 격리 수준을 선택합니다.
 다음 테이블에는 신뢰할 수 있는 사전 및 큐 작업에 대한 기본 격리 수준이 나와 있습니다.
 
-| 작업 \ 역할 | 기본 | 보조 |
+| 작업 \ 역할 | 주 | 보조 |
 | --- |:--- |:--- |
 | 단일 엔터티 읽기 |반복 가능한 읽기 |스냅샷 |
 | 열거형, 개수 |스냅샷 |스냅샷 |
@@ -49,7 +49,7 @@ ms.locfileid: "87500285"
 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 *쓰기를 읽도록*지원 합니다.
 즉, 특정 트랜잭션 내 모든 쓰기가 동일한 트랜잭션에 속하는 다음 읽기에 표시됩니다.
 
-## <a name="locks"></a>Locks
+## <a name="locks"></a>잠금
 
 신뢰할 수 있는 컬렉션의 모든 트랜잭션은 엄격한 2단계 잠금을 구현합니다. 트랜잭션은 중단 또는 커밋으로 인해 종료되어야만 확보한 잠금을 해제합니다.
 
@@ -68,9 +68,9 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 
 잠금 호환성 매트릭스는 다음 테이블에서 확인할 수 있습니다.
 
-| 요청 \ 부여 | 없음 | 공유 | 업데이트 | 단독 |
+| 요청 \ 부여 | 없음 | 공유됨 | 업데이트 | 단독 |
 | --- |:--- |:--- |:--- |:--- |
-| 공유 |충돌 없음 |충돌 없음 |충돌 |충돌 |
+| 공유됨 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 업데이트 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 단독 |충돌 없음 |충돌 |충돌 |충돌 |
 

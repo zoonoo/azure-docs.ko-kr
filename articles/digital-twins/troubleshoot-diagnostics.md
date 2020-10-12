@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723931"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
@@ -49,7 +49,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
     
 4. 새 설정을 저장합니다. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="사용자가 진단 설정 이름을 입력 한 진단 설정 페이지를 보여 주는 스크린샷 및 범주 세부 정보 및 대상 세부 정보에 대 한 몇 가지 확인란을 선택 했습니다. 저장 단추가 강조 표시 됩니다.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
 
 새 설정은 약 10분 후에 적용됩니다. 그 후에는 해당 인스턴스에 대 한 **진단 설정** 페이지에서 로그가 구성 된 대상에 다시 표시 됩니다. 
 

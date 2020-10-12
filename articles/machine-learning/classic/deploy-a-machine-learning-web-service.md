@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91342958"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
@@ -27,7 +27,7 @@ Machine Learning Studio (클래식) 웹 서비스는 응용 프로그램과 Mach
 
 Azure Machine Learning Studio (클래식)에는 두 가지 유형의 웹 서비스가 있습니다.
 
-* RR (요청-응답 서비스): 단일 데이터 레코드를 점수가 낮은 대기 시간, 확장성이 뛰어난 서비스입니다.
+* RR (Request-Response 서비스): 단일 데이터 레코드를 점수가 낮은 대기 시간, 확장성이 뛰어난 서비스입니다.
 * BES (batch 실행 서비스): 데이터 레코드 일괄 처리의 점수를 나타내는 비동기 서비스입니다.
 
 BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니다. 가장 중요한 차이는 BES에서는 Azure Blob Storage 및 Azure Table Storage, Azure SQL Database, HDInsight(Hive 쿼리), HTTP 소스 등의 다양한 소스에서 레코드 블록을 읽는다는 점입니다.

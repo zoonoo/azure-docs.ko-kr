@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002711"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK 버전 9로 업그레이드
@@ -152,7 +152,7 @@ var index = new Index()
 
 ### <a name="removed-facetresults-and-hithighlights"></a>FacetResults 및 HitHighlights 제거 됨
 
-`FacetResults`및 `HitHighlights` 클래스가 제거 되었습니다. 패싯 결과는 이제로 형식화 `IDictionary<string, IList<FacetResult>>` 되며는로 강조 표시 됩니다 `IDictionary<string, IList<string>>` . 이러한 변경으로 인해 발생 하는 빌드 오류를 신속 하 게 해결 하는 방법은 `using` 제거 된 형식을 사용 하는 각 파일의 맨 위에 별칭을 추가 하는 것입니다. 예를 들어:
+`FacetResults`및 `HitHighlights` 클래스가 제거 되었습니다. 패싯 결과는 이제로 형식화 `IDictionary<string, IList<FacetResult>>` 되며는로 강조 표시 됩니다 `IDictionary<string, IList<string>>` . 이러한 변경으로 인해 발생 하는 빌드 오류를 신속 하 게 해결 하는 방법은 `using` 제거 된 형식을 사용 하는 각 파일의 맨 위에 별칭을 추가 하는 것입니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

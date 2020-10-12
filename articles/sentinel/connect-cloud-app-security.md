@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
 ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904560"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
 Mcas ( [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) ) 커넥터를 사용 하면 mcas의 경고 및 [Cloud Discovery 로그](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) 를 Azure 센티널로 스트리밍할 수 있습니다. 이렇게 하면 클라우드 앱에 대 한 가시성을 확보 하 고 정교한 분석을 통해 사이버 위협 대를 식별 및 공격 하 고 데이터가 이동 하는 방식을 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 사용자에 게 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 - 사용자에 게 작업 영역의 테 넌 트에 대 한 전역 관리자 또는 보안 관리자 권한이 있어야 합니다.

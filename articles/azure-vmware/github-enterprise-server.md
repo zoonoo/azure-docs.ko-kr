@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 53e5264eed761909217c2e3a902c9fee9faaffaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91343062"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
@@ -24,13 +24,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 :::image type="content" source="media/github-enterprise-server/github-options.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::  
 
-:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="OVA 템플릿을 배포 합니다.":::  
-
-새 가상 머신 (예: Gid Thubenterpriseserver)에 대해 인식할 때 사용할 이름을 제공 합니다. 인스턴스가 업그레이드 될 때 이러한 세부 정보가 부실 해지기 때문에 VM 이름에 릴리스 정보를 포함할 필요가 없습니다. 지금은 모든 기본값을 선택 하 고 (곧 이러한 세부 정보를 편집 함) OVA를 가져올 때까지 기다립니다.
-
-가져온 후에는 요구 사항에 따라 [하드웨어 구성을 조정](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) 합니다. 예제 시나리오에서는 다음과 같은 구성이 필요 합니다.
-
-| 리소스 | 표준 설정 | 표준 설치 + "베타 기능" (작업) |
+:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다." (작업) |
 | --- | --- | --- |
 | vCPU | 4 | 8 |
 | 메모리 | 32GB | 61 GB |
@@ -41,11 +35,11 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 ## <a name="configuring-the-github-enterprise-server-instance"></a>GitHub Enterprise Server 인스턴스 구성
 
-:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="GitHub Enterprise를 설치 합니다.":::  
+:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::  
 
 새로 프로 비전 된 VM (가상 머신)이 켜진 후 [브라우저를 통해 구성](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#configuring-the-github-enterprise-server-instance)합니다. 라이선스 파일을 업로드 하 고 관리 콘솔 암호를 설정 해야 합니다. 이 암호는 안전한 위치에 기록해 두어야 합니다.
 
-:::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="SSH를 통해 관리 셸에 액세스 합니다.":::    
+:::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::    
 
 최소한 다음 단계를 수행 하는 것이 좋습니다.
 
@@ -53,11 +47,11 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 2. 신뢰할 수 있는 인증 기관에서 서명한 인증서를 사용할 수 있도록 [인스턴스에서 TLS를 구성](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) 합니다.
 
-:::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="인스턴스 구성":::
+:::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 설정을 적용 합니다.  인스턴스를 다시 시작 하는 동안 **GitHub 동작에 대 한 Blob Storage를 구성**하는 다음 단계를 계속 진행할 수 있습니다.
 
-:::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="관리자 계정을 만듭니다.":::
+:::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 인스턴스가 다시 시작 되 면 인스턴스에 새 관리자 계정을 만듭니다. 이 사용자의 암호를 기록해 두어야 합니다.
 
@@ -82,7 +76,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 GitHub Enterprise 서버 (현재 "베타" 기능으로 제공)에서 GitHub 작업을 사용 하려면 외부 blob 저장소가 필요 합니다. 이 외부 blob 저장소는 아티팩트 및 로그를 저장 하는 작업에서 사용 됩니다. GitHub Enterprise Server에 대 한 작업 [은 Azure Blob Storage를 저장소 공급자로 지원](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) 합니다 (기타 일부). 따라서 [저장소 계정 유형](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) blobstorage를 사용 하 여 새 Azure storage 계정을 프로 비전 합니다.
 
-:::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Azure Blob Storage 계정을 프로 비전 합니다.":::
+:::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 새 BlobStorage 리소스가 성공적으로 배포 되 면 액세스 키에서 사용할 수 있는 연결 문자열을 복사 하 여 적어 둡니다. 이 문자열은 곧 필요 합니다.
 
@@ -97,9 +91,9 @@ GitHub Enterprise 서버 (현재 "베타" 기능으로 제공)에서 GitHub 작�
 
 먼저 클러스터에 새 VM을 프로 비전 하겠습니다. [최신 버전의 Ubuntu 서버](http://releases.ubuntu.com/20.04.1/)에서 VM을 기반으로 합니다.
 
-:::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="새 VM을 프로 비전 합니다.":::
+:::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
-:::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="새 VM 프로 비전 2 단계.":::
+:::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 VM을 만든 후에는 전원을 켜고 SSH를 통해 연결 합니다.
 
@@ -168,15 +162,15 @@ VM을 만든 후에는 전원을 켜고 SSH를 통해 연결 합니다.
 
 명령을 복사 `config.sh` 하 여 Actions runner의 세션에 붙여넣습니다 (이전에 만듦).
 
-:::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Actions runner.":::
+:::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 Run.sh 명령을 사용 하 여 runner를 *실행* 합니다.
 
-:::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="Runner를 실행 합니다.":::
+:::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 엔터프라이즈의 조직에서이 runner를 사용할 수 있도록 하려면 해당 조직 액세스를 편집 합니다.
 
-:::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Runner 액세스를 편집 합니다.":::
+:::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 여기서는 모든 조직에서 사용할 수 있도록 하지만 조직의 하위 집합 및 특정 리포지토리에 대 한 액세스를 제한할 수도 있습니다.
 
@@ -188,7 +182,7 @@ GitHub 연결을 사용 하도록 설정 하려면 [Github connect를 사용 하
 
 GitHub 연결이 사용 하도록 설정 되 면 **GitHub.com에서 작업을 사용할 서버** 를 선택 합니다.
 
-:::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="워크플로 실행에서 GitHub.com의 작업을 사용 하도록 설정 합니다.":::
+:::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 ## <a name="setting-up-and-running-your-first-workflow"></a>첫 번째 워크플로 설정 및 실행
 
@@ -196,30 +190,28 @@ GitHub 연결이 사용 하도록 설정 되 면 **GitHub.com에서 작업을 �
 
 이 기본 워크플로에서는를 사용 하 여 `octokit/request-action` API를 사용 하 여 GitHub에서 문제를 열기만 합니다.
 
-:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="예 워크플로.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 >[!NOTE]
 >GitHub.com는 작업을 호스트 하지만 GitHub Enterprise 서버에서 실행 되는 경우 *자동으로* Github ENTERPRISE server API를 사용 합니다.
 
 GitHub 연결을 사용 하지 않도록 선택한 경우 다음과 같은 대체 워크플로를 사용할 수 있습니다.
 
-:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="다른 예제 워크플로.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 인스턴스의 리포지토리로 이동 하 고 위의 워크플로를 다음과 같이 추가 합니다. `.github/workflows/hello-world.yml`
 
-:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="또 다른 예 워크플로.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 리포지토리의 **작업** 탭에서 워크플로가 실행 될 때까지 기다립니다.
 
-:::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="예제 워크플로를 실행 했습니다.":::
+:::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 또한 runner에서 처리 되는 것을 볼 수 있습니다.
 
-:::image type="content" source="media/github-enterprise-server/workflow-processed-by-runner.png" alt-text="Runner에서 처리 한 워크플로입니다.":::
+:::image type="content" source="media/github-enterprise-server/workflow-processed-by-runner.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다." 라는 새 문제가 리포지토리에 표시 되어야 합니다.
 
-모든 항목이 성공적으로 실행 되 면 "Hello 세계" 라는 새 문제가 리포지토리에 표시 되어야 합니다.
-
-:::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="리포지토리의 예":::
+:::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 
 축하합니다! Azure VMware 솔루션 사설 클라우드에서 실행 되는 GitHub Enterprise 서버에서 첫 번째 작업 워크플로를 완료 했습니다.
 

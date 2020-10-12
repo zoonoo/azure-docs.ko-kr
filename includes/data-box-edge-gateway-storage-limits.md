@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 51fde73565c9c4cdb21e998b8d43d303ceef062e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82561378"
 ---
 이 섹션에서는 Azure Storage 서비스에 대 한 제한 및 Azure Files, Azure 블록 blob 및 Azure 페이지 blob에 대 한 필수 명명 규칙 (Azure Stack Edge/Data Box Gateway 서비스에 해당)에 대해 설명 합니다. 스토리지 제한을 신중히 검토하고 모든 권장 사항을 수행합니다.

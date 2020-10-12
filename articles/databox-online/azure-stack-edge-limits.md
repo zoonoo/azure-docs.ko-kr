@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904457"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Azure Stack Edge Pro 제한 사항
@@ -27,7 +27,7 @@ Microsoft Azure Stack Edge Pro 솔루션을 배포 하 고 작동할 때 이러�
 
 다음 표에서는 Azure Stack Edge Pro 장치에 대 한 제한을 설명 합니다. 
 
-| 설명 | 값 |
+| Description | 값 |
 |---|---|
 |아니요. 디바이스당 파일 수 |1억 |
 |아니요. 디바이스당 공유 수 |24 |

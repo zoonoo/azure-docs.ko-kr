@@ -4,10 +4,10 @@ description: v2 런타임을 사용하는 Azure Functions host.json 파일에 �
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321852"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
@@ -145,7 +145,7 @@ ms.locfileid: "91321852"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 방지 하려면 `excludedTypes: "Request"` 값에를 추가 `samplingSettings` 합니다.
 
-| 속성 | 기본값 | Description |
+| 속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | samplingSettings | 해당 없음 | [Applicationinsights. samplingSettings](#applicationinsightssamplingsettings)를 참조 하세요. |
 | enableLiveMetrics | true | 라이브 메트릭 수집을 사용 하도록 설정 합니다. |
@@ -157,7 +157,7 @@ ms.locfileid: "91321852"
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|속성 | 기본값 | Description |
+|속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | isEnabled | true | 샘플링을 사용 여부를 설정합니다. | 
 | maxTelemetryItemsPerSecond | 20 | 각 서버 호스트에서 초당 기록한 원격 분석 항목의 수입니다. 앱이 여러 호스트에서 실행 되는 경우이 값을 줄여서 전체 대상 트래픽 요금 내에 유지 합니다. | 
@@ -173,7 +173,7 @@ ms.locfileid: "91321852"
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>httpAutoCollectionOptions
 
-|속성 | 기본값 | Description |
+|속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | HTTP 트리거에 대 한 확장 된 HTTP 요청 정보를 사용 하거나 사용 하지 않도록 설정 합니다. 들어오는 요청 상관 관계 헤더, 다중 계측 키 지원, HTTP 메서드, 경로 및 응답입니다. |
 | enableW3CDistributedTracing | true | W3C 분산 추적 프로토콜을 지원 하거나 사용 하지 않도록 설정 하 고 레거시 상관 관계 스키마를 설정 합니다. 이 true 인 경우 기본적으로 사용 하도록 설정 `enableHttpTriggerExtendedInfoCollection` 됩니다. 이 `enableHttpTriggerExtendedInfoCollection` false 인 경우이 플래그는 들어오는 요청에만 적용 되 고 들어오는 요청에는 적용 되지 않습니다. |
@@ -183,7 +183,7 @@ ms.locfileid: "91321852"
 
 스냅숏에 대 한 자세한 내용은 [.net 앱의 예외에 대 한 스냅숏 디버그](../azure-monitor/app/snapshot-debugger.md) 및 [Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결](../azure-monitor/app/snapshot-debugger-troubleshoot.md)을 참조 하세요.
 
-|속성 | 기본값 | Description |
+|속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Application Insights 스냅숏 디버거 서비스에 연결 하는 데 사용 되는 끝점입니다. Null 인 경우 기본 끝점이 사용 됩니다. |
 | captureSnapshotMemoryWeight | 0.5 | 스냅숏을 만들기에 충분 한 메모리가 있는지 확인할 때 현재 프로세스 메모리 크기에 지정 된 가중치입니다. 예상 값은 적절 한 소수 부분 (0 < CaptureSnapshotMemoryWeight < 1) 보다 큽니다. |
@@ -275,7 +275,7 @@ ms.locfileid: "91321852"
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -307,7 +307,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이상에서는 로그 범주 필터링을 위한 ASP.NET Core 레이아웃을 따릅니다. 이 설정을 통해 특정 함수에 대 한 로깅을 필터링 할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
@@ -330,7 +330,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
@@ -374,7 +374,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82188160"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
@@ -29,7 +29,7 @@ HDInsight 클러스터의 노드에 대 한 vm 수 및 VM 크기는 Spark 구성
 
 클러스터에 최적의 Spark 버전을 사용합니다.  HDInsight 서비스에는 여러 버전의 Spark 및 HDInsight가 포함되어 있습니다.  Spark의 각 버전에는 기본 클러스터 설정 집합이 포함됩니다.  
 
-새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록은 [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)을 참조 하세요.
+새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록은  [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)을 참조 하세요.
 
 > [!NOTE]  
 > HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure 클래식 CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.
@@ -90,7 +90,7 @@ Spark 작업은 작업자 리소스, 특히 메모리를 사용하므로, 작업
 > [!NOTE]  
 > 이러한 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 애플리케이션의 경우) 클러스터 수준에서 구성될 수도 있고, 각 개별 애플리케이션에 대해 지정될 수도 있습니다.
 
-Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본은 Spark 응용 프로그램 UI입니다.  UI에서 **실행자** 는 구성 및 사용 된 리소스의 요약 및 세부 정보 보기를 표시 합니다.  전체 클러스터 또는 특정 작업 실행에 대 한 실행자 값을 변경할 것인지 여부를 결정 합니다.
+Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본은 Spark 응용 프로그램 UI입니다.  UI에서  **실행자** 는 구성 및 사용 된 리소스의 요약 및 세부 정보 보기를 표시 합니다.  전체 클러스터 또는 특정 작업 실행에 대 한 실행자 값을 변경할 것인지 여부를 결정 합니다.
 
 ![Spark 실행기](./media/apache-spark-settings/apache-spark-executors.png)
 
@@ -110,7 +110,7 @@ Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보�
 
 다음 목록에서는 핵심 Spark 실행기 메모리 매개 변수를 보여 줍니다.
 
-|매개 변수 |Description|
+|매개 변수 |설명|
 |---|---|
 |spark.executor.memory|실행자에 사용할 수 있는 총 메모리 양을 정의 합니다.|
 |spark. 저장소. memoryFraction|(기본 ~60%)은 지속된 RDD를 저장하는 데 사용할 수 있는 메모리 양을 정의합니다.|
@@ -125,7 +125,7 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 
 기본적으로 HDInsight의 Spark 클러스터에는 다양한 구성 요소가 포함되어 있습니다. 이러한 각 구성 요소에는 필요에 따라 재정의될 수 있는 기본 구성 값이 포함되어 있습니다.
 
-|구성 요소 |Description|
+|구성 요소 |설명|
 |---|---|
 |Spark 코어|Spark Core, Spark SQL, Spark 스트리밍 Api, GraphX 및 Apache Spark MLlib.|
 |Anaconda|Python 패키지 관리자입니다.|

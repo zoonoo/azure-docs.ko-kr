@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
 ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395165"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
@@ -97,5 +97,5 @@ ExpressRoute 회로는 클래식 및 리소스 관리자 배포 모델 간의 �
   
   * [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)
   * [라우팅 구성](expressroute-howto-routing-arm.md)
-  * [가상 네트워크를 ExpressRoute 회로에 연결합니다.](expressroute-howto-linkvnet-arm.md)
+  * [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md)
 
