@@ -4,10 +4,10 @@ description: Azure Backup Server를 사용 하 여 시스템 상태를 백업 �
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86538703"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Azure Backup Server를 사용 하 여 시스템 상태 백업 및 운영 체제 미 설치로 복원
@@ -23,25 +23,25 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 
 다음 표에는 백업 및 복구할 수 있는 항목이 요약되어 있습니다. 시스템 상태 및 BMR에서 보호할 수 있는 앱 버전에 대 한 자세한 내용은 [Azure Backup Server 백업 방법](backup-mabs-protection-matrix.md)을 참조 하세요.
 
-|Backup|문제|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
+|백업|문제|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|지원|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|Y|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|N|Y<br /><br />BMR, 백업 된 파일 데이터 일반 복구|
+|**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|지원|N|N|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실 또는 손상된 운영 체제|N|Y|지원|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|지원|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|지원|N|Y<br /><br />BMR, 백업 된 파일 데이터 일반 복구|
 |**SharePoint 데이터**<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 사이트, 목록, 목록 항목, 문서|Y|N|N|
-|**SharePoint 데이터**<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|지원|
+|**SharePoint 데이터**<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실 또는 손상된 운영 체제|N|Y|Y|
 |**SharePoint 데이터**<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|재해 복구|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실된 VM|Y|N|N|
-|Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|지원|
-|Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실된 Hyper-V 호스트(VM 그대로 유지)|N|N|Y|
+|Windows Server 2012 R2 Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실된 VM|지원|N|N|
+|Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실 또는 손상된 운영 체제|N|Y|지원|
+|Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실된 Hyper-V 호스트(VM은 그대로 유지)|N|N|지원|
 |Hyper-V<br /><br />Hyper-V 호스트 또는 게스트의 Azure Backup Server 백업<br /><br />호스트의 BMR/시스템 상태 백업|손실된 Hyper-V 호스트(VM 손실)|N|N|Y<br /><br />BMR, 이후 정기적인 Azure Backup Server 복구 수행|
-|SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실된 앱 데이터|Y|N|N|
-|SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|지원|
-|SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터베이스/트랜잭션 로그 그대로 유지)|N|N|Y|
+|SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실된 앱 데이터|지원|N|N|
+|SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실 또는 손상된 운영 체제|N|Y|지원|
+|SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터베이스/트랜잭션 로그는 그대로 유지)|N|N|지원|
 |SQL Server/Exchange<br /><br />Azure Backup Server 앱 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터베이스/트랜잭션 로그 손실)|N|N|Y<br /><br />BMR 복구, 이후 정기적인 Azure Backup Server 복구 수행|
 
-## <a name="how-system-state-backup-works"></a>시스템 상태 백업의 작동 방식
+## <a name="how-system-state-backup-works"></a>시스템 상태 백업 작동 방식
 
 시스템 상태 백업이 실행되면 Backup Server에서는 Windows Server 백업과 통신하여 서버의 시스템 상태 백업을 요청합니다. 기본적으로 Backup Server 및 Windows Server 백업에서는 최대 사용 가능한 공간이 있는 드라이브를 사용합니다. 이 드라이브에 대 한 정보는 *PSDataSourceConfig.xml* 파일에 저장 됩니다.
 
@@ -73,7 +73,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 * Windows Server 2003을 실행하는 컴퓨터나 클라이언트 운영 체제를 실행하는 컴퓨터에서는 BMR이 지원되지 않습니다.
 
-* 서로 다른 보호 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 보호할 수는 없습니다.
+* 여러 보호 그룹에서 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 보호할 수 없습니다.
 
 * Backup Server 컴퓨터에서는 BMR을 위해 자체적으로 보호할 수 없습니다.
 
@@ -83,13 +83,13 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 * BMR 보호의 경우 시스템 상태 보호와 달리 백업 서버에는 보호 된 컴퓨터에 대 한 공간 요구 사항이 없습니다. Windows Server 백업은 백업을 직접 Backup Server 컴퓨터로 전송합니다. 백업 전송 작업은 Backup Server **작업** 보기에 나타나지 않습니다.
 
-* Backup Server에서는 BMR을 위해 복제본 볼륨의 30GB 공간을 예약합니다. 이 공간 서비스는 보호 그룹 수정 마법사의 **디스크 할당** 페이지에서 변경할 수 있습니다. 또는 Get DatasourceDiskAllocation Set-DatasourceDiskAllocation PowerShell cmdlet을 사용할 수 있습니다. 복구 지점 볼륨의 BMR 보호에는 5일 간 보존을 위해 6GB 정도가 필요합니다.
+* Backup Server에서는 BMR을 위해 복제본 볼륨의 30GB 공간을 예약합니다. 이 공간 서비스는 보호 그룹 수정 마법사의 **디스크 할당** 페이지에서 변경할 수 있습니다. 또는 Get-DatasourceDiskAllocation 및 Set-DatasourceDiskAllocation PowerShell cmdlet을 사용할 수 있습니다. 복구 지점 볼륨의 BMR 보호에는 5일 간 보존을 위해 6GB 정도가 필요합니다.
   * 복제 볼륨 크기는 15gb 미만으로 줄일 수 없습니다.
   * Backup Server에서는 BMR 데이터 원본의 크기를 계산하지 않습니다. 모든 서버에 대해 30GB를 가정합니다. 사용자 환경에서 예상하는 BMR 백업 크기에 따라 값을 변경하세요. BMR 백업의 크기는 모든 중요 한 볼륨에서 사용 되는 공간의 합계로 대략적으로 계산할 수 있습니다. 중요한 볼륨 = 부팅 볼륨 + 시스템 볼륨 + 시스템 상태 데이터 호스트 볼륨(예: Active Directory).
 
-* 시스템 상태 보호에서 BMR 보호로 변경 하는 경우 BMR 보호는 *복구 지점 볼륨*에 더 많은 공간이 필요 합니다. 그러나 볼륨의 추가 공간은 회수 되지 않습니다. 보호 그룹 수정 마법사의 **디스크 할당 수정** 페이지에서 볼륨 크기를 수동으로 축소할 수 있습니다. 또는 Get DatasourceDiskAllocation Set-DatasourceDiskAllocation PowerShell cmdlet을 사용할 수 있습니다.
+* 시스템 상태 보호에서 BMR 보호로 변경 하는 경우 BMR 보호는 *복구 지점 볼륨*에 더 많은 공간이 필요 합니다. 그러나 볼륨의 추가 공간은 회수 되지 않습니다. 보호 그룹 수정 마법사의 **디스크 할당 수정** 페이지에서 볼륨 크기를 수동으로 축소할 수 있습니다. 또는 Get-DatasourceDiskAllocation 및 Set-DatasourceDiskAllocation PowerShell cmdlet을 사용할 수 있습니다.
 
-    시스템 상태 보호에서 BMR 보호로 변경 하는 경우 BMR 보호는 *복제본 볼륨*에 더 많은 공간이 필요 합니다. 볼륨이 자동으로 확장됩니다. 기본 공간 할당을 변경 하려면 DiskAllocation 수정 PowerShell cmdlet을 사용 합니다.
+    시스템 상태 보호에서 BMR 보호로 변경 하는 경우 BMR 보호는 *복제본 볼륨*에 더 많은 공간이 필요 합니다. 볼륨이 자동으로 확장됩니다. 기본 공간 할당을 변경 하려면 Modify-DiskAllocation PowerShell cmdlet을 사용 합니다.
 
 * BMR 보호에서 시스템 상태 보호로 변경 하는 경우 복구 지점 볼륨에 더 많은 공간이 필요 합니다. Backup Server에서는 자동으로 볼륨을 늘리려고 시도합니다. 저장소 풀에 공간이 충분 하지 않으면 오류가 발생 합니다.
 
@@ -105,7 +105,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 1. **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
 
-## <a name="back-up-system-state-and-bare-metal"></a>시스템 상태 백업 및 완전 복구 백업
+## <a name="back-up-system-state-and-bare-metal"></a>시스템 상태 및 완전 복구 백업
 
 시스템 상태 및 운영 체제 미 설치를 백업 하려면 다음을 수행 합니다.
 
@@ -121,11 +121,11 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
     단기 백업은 항상 디스크에 먼저 사용 되며 Azure Backup (단기 또는 장기)를 사용 하 여 디스크에서 Azure로 백업 하는 옵션을 사용 합니다. 클라우드에 대한 장기 백업 대신 Backup Server에 연결되지 않은 독립 실행형 테이프 디바이스 또는 테이프 라이브러리에 대한 장기 백업을 설정할 수도 있습니다.
 
-1. **단기 목표 선택** 페이지에서 디스크의 단기 저장소에 백업 하는 방법을 선택 합니다.
+1. **Short-Term 목표 선택** 페이지에서 디스크의 단기 저장소에 백업 하는 방법을 선택 합니다.
     * **보존 범위**에서 디스크에 데이터를 보관할 기간을 선택 합니다.
     * **동기화 빈도**에서 디스크에 증분 백업을 실행할 빈도를 선택 합니다. 백업 간격을 설정 하지 않으려면 **복구 지점 직전**을 선택할 수 있습니다. Backup Server는 각 복구 지점이 예약 되기 직전에 빠른 전체 백업을 실행 합니다.
 
-1. 장기 저장을 위해 테이프에 데이터를 저장 하려는 경우 **장기 목표 지정** 페이지에서 테이프 데이터를 보관할 기간을 선택 합니다 (1 ~ 99 년).
+1. 장기 저장을 위해 테이프에 데이터를 저장 하려면 **Long-Term 목표 지정** 페이지에서 테이프 데이터를 보관할 기간을 선택 합니다 (1 ~ 99 년).
     1. **백업 빈도**에 대해 테이프에 백업을 실행할 빈도를 선택 합니다. 빈도는 선택한 보존 범위를 기준으로 합니다.
         * 보존 범위가 1 ~ 99 년 인 경우 매일, 매주, 격주, 매월, 분기별, 반기 또는 매년 백업할 수 있습니다.
         * 보존 범위가 1-11 개월 일 경우 매일, 매주, 격주 또는 매월 백업할 수 있습니다.
@@ -137,7 +137,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
     * **총 데이터 크기**는 백업할 데이터의 크기입니다.
     * **Disk space to be provisioned on Azure Backup Server**(Azure Backup Server에 프로비전할 디스크 공간)는 Backup Server에서 보호 그룹용으로 권장하는 공간입니다. 백업 서버는 이러한 설정을 사용 하 여 이상적인 백업 볼륨을 선택 합니다. **디스크 할당 세부 정보**에서 백업 볼륨 선택을 편집할 수 있습니다.
-    * 워크로드의 경우 드롭다운 메뉴에서 원하는 스토리지를 선택합니다. 편집을 통해 **사용 가능한 디스크 스토리지** 창에서 **총 스토리지** 및 **사용 가능한 스토리지**의 값을 변경합니다. 프로 비전 된 공간 미달은 백업 서버에서 부드러운 백업을 위해 볼륨에 추가 하도록 제안 하는 저장소의 양입니다.
+    * 워크로드의 경우 드롭다운 메뉴에서 원하는 스토리지를 선택합니다. 사용자가 편집한 내용에 따라 **사용 가능한 디스크 스토리지** 창의 **총 스토리지** 및 **사용 가능한 스토리지** 값이 변경됩니다. 프로 비전 된 공간 미달은 백업 서버에서 부드러운 백업을 위해 볼륨에 추가 하도록 제안 하는 저장소의 양입니다.
 
 1. **복제본 만들기 방법 선택** 페이지에서 초기 전체 데이터 복제를 처리 하는 방법을 선택 합니다.
 
@@ -151,7 +151,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 1. **온라인 백업 일정 지정** 페이지에서 Azure에 증분 백업 하는 빈도를 선택 합니다.
 
-    매일, 매주, 매월 및 매년 실행 되도록 백업을 예약할 수 있습니다. 백업이 실행 되는 시간 및 날짜를 선택할 수도 있습니다. Backup은 하루 두 번까지 수행할 수 있습니다. 백업이 실행 될 때마다 Backup Server 디스크에 저장 된 백업 데이터의 복사본에서 데이터 복구 지점이 Azure에 만들어집니다.
+    매일, 매주, 매월 및 매년 실행 되도록 백업을 예약할 수 있습니다. 백업이 실행 되는 시간 및 날짜를 선택할 수도 있습니다. 백업은 하루에 두 번까지 발생할 수 있습니다. 백업이 실행 될 때마다 Backup Server 디스크에 저장 된 백업 데이터의 복사본에서 데이터 복구 지점이 Azure에 만들어집니다.
 
 1. **온라인 보존 정책 지정** 페이지에서 매일, 매주, 매월 및 매년 백업에서 만들어진 복구 지점이 Azure에 유지 되는 방식을 선택 합니다.
 
@@ -163,7 +163,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 ## <a name="recover-system-state-or-bmr"></a>시스템 상태 또는 BMR 복구
 
-네트워크 위치에서 BMR 또는 시스템 상태를 복구할 수 있습니다. BMR을 백업한 경우 WinRE (Windows 복구 환경)를 사용 하 여 시스템을 시작 하 고 네트워크에 연결 합니다. 그런 다음 Windows Server 백업을 사용하여 네트워크 위치에서 복구합니다. 시스템 상태를 백업한 경우 Windows Server 백업를 사용 하 여 네트워크 위치에서 복구 합니다.
+네트워크 위치로 BMR 또는 시스템 상태를 복구할 수 있습니다. BMR을 백업한 경우 WinRE (Windows 복구 환경)를 사용 하 여 시스템을 시작 하 고 네트워크에 연결 합니다. 그런 다음 Windows Server 백업을 사용하여 네트워크 위치에서 복구합니다. 시스템 상태를 백업한 경우 Windows Server 백업를 사용 하 여 네트워크 위치에서 복구 합니다.
 
 ### <a name="restore-bmr"></a>BMR 복원
 
@@ -201,9 +201,9 @@ Backup Server 컴퓨터에서 복구를 실행 하려면 다음을 수행 합니
 
 1. 첫 번째 페이지에서 언어 및 로캘에 대 한 설정을 확인 합니다. **설치** 페이지에서 **컴퓨터 복구**를 선택합니다.
 
-1. **시스템 복구 옵션** 페이지에서 **이전에 만든 시스템 이미지를 사용하여 컴퓨터를 복구합니다.** 를 선택합니다.
+1. **시스템 복구 옵션** 페이지에서 **이전에 만든 시스템 이미지를 사용 하 여 컴퓨터 복원**을 선택 합니다.
 
-1. **시스템 이미지 백업 선택** 페이지에서 **시스템 이미지 선택** > **고급** > **네트워크에서 시스템 이미지 검색**을 선택합니다. 경고가 나타나면 **예**를 선택합니다. 공유 경로로 이동하여 자격 증명을 입력하고 나서 복구 지점을 선택합니다. 시스템은 해당 복구 지점에서 사용할 수 있는 특정 백업을 검색 합니다. 사용할 복구 지점을 선택합니다.
+1. **시스템 이미지 백업 선택** 페이지에서 **시스템 이미지 선택**  >  **고급**  >  **네트워크에서 시스템 이미지 검색**을 선택 합니다. 경고가 나타나면 **예**를 선택합니다. 공유 경로로 이동하여 자격 증명을 입력하고 나서 복구 지점을 선택합니다. 시스템은 해당 복구 지점에서 사용할 수 있는 특정 백업을 검색 합니다. 사용할 복구 지점을 선택합니다.
 
 1. **백업 복원 방법을 선택** 하십시오. 페이지에서 **디스크 포맷 및 다시 분할**을 선택 합니다. 다음 페이지에서 설정을 확인 합니다.
 
@@ -257,6 +257,6 @@ Windows Server 백업를 실행 하려면:
 
     ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
-1. 복구를 시작할지 확인합니다. 명령 프롬프트 창에서 프로세스를 확인할 수 있습니다. 복원 로그가 생성됩니다.
+1. 복구를 시작할지 확인합니다. 명령 프롬프트 창에서 프로세스를 확인할 수 있습니다. 복원 로그가 만들어집니다.
 
 1. 복원한 후 서버를 다시 시작합니다.

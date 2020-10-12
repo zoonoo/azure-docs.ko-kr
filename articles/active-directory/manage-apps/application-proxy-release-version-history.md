@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210859"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
@@ -83,7 +83,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 - QlikSense 응용 프로그램에 대 한 WebSocket 지원을 추가 했습니다. QlikSense를 응용 프로그램 프록시와 통합 하는 방법에 대 한 자세한 내용은이 [연습](application-proxy-qlik.md)을 참조 하세요. 
 - 아웃 바운드 프록시를 쉽게 구성할 수 있도록 설치 마법사가 개선 되었습니다. 
 - 커넥터의 기본 프로토콜로 TLS 1.2을 설정 합니다. 
-- 새 최종 사용자 사용권 계약 (EULA)을 추가 했습니다.  
+- 새 EULA (End-User 사용권 계약)를 추가 했습니다.  
 
 ### <a name="fixed-issues"></a>해결된 문제
 

@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: aa10cb207011051c30866a3a3ed693e7113b5882
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297716"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Media Services v3 REST API 호출에 대해 Postman 구성
@@ -99,7 +99,7 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 * 응용 프로그램이 "HTTP 504: 게이트웨이 시간 초과"로 인해 실패 하는 경우 위치 변수가 Media Services 계정의 예상 위치 이외의 값으로 명시적으로 설정 되지 않았는지 확인 합니다. 
 * "계정을 찾을 수 없음" 오류가 발생 하는 경우 본문 JSON 메시지의 location 속성이 Media Services 계정이 있는 위치로 설정 되었는지 확인 합니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Media Services로 필터 만들기 - REST](filters-dynamic-manifest-rest-howto.md)
 - [Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)

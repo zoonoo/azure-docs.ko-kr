@@ -4,10 +4,10 @@ description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120095"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
@@ -117,13 +117,13 @@ ms.locfileid: "86120095"
 
 모든 문자열 비교는 대/소문자를 구분 **하지 않습니다** .
 
-### <a name="key"></a>키
+### <a name="key"></a>Key
 
 Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용합니다.
 
 * ID
 * 항목
-* 제목
+* 주체
 * EventType
 * DataVersion
 * 이벤트 데이터(예: Data.key1)
@@ -158,7 +158,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ### <a name="stringcontains"></a>StringContains
 

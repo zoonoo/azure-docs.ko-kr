@@ -8,10 +8,10 @@ ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 673e6a8cb86986ff24e3ee55589d13e8a9e4fdc5
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88608825"
 ---
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
@@ -29,7 +29,7 @@ DateTimeToTimestamp (<DateTime>)
 *DateTime*  
    UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
   
-  |서식|설명|
+  |형식|설명|
   |-|-|
   |YYYY|네 자리 연도|
   |MM|두 자리 월 (01 = 1 월 등)|
@@ -51,7 +51,7 @@ DateTimeToTimestamp (<DateTime>)
 
 `undefined`지정 된 DateTime 값이 잘못 된 경우 DateTimeToTimestamp에서를 반환 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
 다음 예에서는 DateTime을 타임 스탬프로 변환 합니다.
 
@@ -67,7 +67,7 @@ SELECT DateTimeToTimestamp("2020-07-09T23:20:13.4575530Z") AS Timestamp
 ]
 ```  
 
-다른 예제는 다음과 같습니다.
+다음은 또 다른 예제입니다.
 
 ```sql
 SELECT DateTimeToTimestamp("2020-07-09") AS Timestamp

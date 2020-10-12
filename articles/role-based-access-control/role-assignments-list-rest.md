@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790979"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 나열
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 REST API를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 이 문서에서는 REST API를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
@@ -42,7 +42,7 @@ Azure RBAC에서 액세스를 나열 하려면 역할 할당을 나열 합니다
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 형식 |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -92,5 +92,5 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
 
 ## <a name="next-steps"></a>다음 단계
 
-- [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
+- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)

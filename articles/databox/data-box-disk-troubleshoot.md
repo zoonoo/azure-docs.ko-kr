@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925545"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>로그를 사용 하 여 Azure Data Box Disk 유효성 검사 문제 해결
@@ -21,7 +21,7 @@ ms.locfileid: "87925545"
 
 ## <a name="validation-tool-log-files"></a>유효성 검사 도구 로그 파일
 
-[유효성 검사 도구](data-box-disk-deploy-copy-data.md#validate-data)를 사용 하 여 디스크에서 데이터의 유효성을 검사 하는 경우 오류를 기록 하는 *error.xml* 생성 됩니다. 로그 파일은 `Drive:\DataBoxDiskImport\logs` 드라이브의 폴더에 있습니다. 유효성 검사를 실행할 때 오류 로그에 대 한 링크가 제공 됩니다.
+[유효성 검사 도구](data-box-disk-deploy-copy-data.md#validate-data)를 사용 하 여 디스크에서 데이터의 유효성을 검사 하는 경우 오류를 기록 하는 *error.xml* 생성 됩니다. 로그 파일은  `Drive:\DataBoxDiskImport\logs` 드라이브의 폴더에 있습니다. 유효성 검사를 실행할 때 오류 로그에 대 한 링크가 제공 됩니다.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 

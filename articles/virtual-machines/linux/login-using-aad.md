@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
 ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002321"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
@@ -158,7 +158,7 @@ ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 
 메시지가 표시되면 로그인 페이지에서 Azure AD 로그인 자격 증명을 입력합니다. 
 
-성공적으로 인증 되 면 웹 브라우저에 다음 메시지가 표시 됩니다.`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+성공적으로 인증 되 면 웹 브라우저에 다음 메시지가 표시 됩니다. `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 
 

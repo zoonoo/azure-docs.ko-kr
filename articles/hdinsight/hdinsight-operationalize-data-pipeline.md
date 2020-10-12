@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
 ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504421"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
@@ -244,7 +244,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     | hiveDataFolder | 준비 테이블에 포함된 데이터에 대한 Azure Storage 경로입니다. |
     | sqlDatabaseConnectionString | Azure SQL Database에 대한 JDBC 구문 연결 문자열입니다. |
     | sqlDatabaseTableName | 요약 행이 삽입되는 Azure SQL Database의 테이블 이름입니다. `dailyflights`로 둡니다. |
-    | year | 항공편 요약이 계산되는 날짜의 연도 구성 요소입니다. 있는 그대로 둡니다. |
+    | 연도 | 항공편 요약이 계산되는 날짜의 연도 구성 요소입니다. 있는 그대로 둡니다. |
     | month | 항공편 요약이 계산되는 날짜의 월 구성 요소입니다. 있는 그대로 둡니다. |
     | 일 | 항공편 요약이 계산되는 날짜의 일 구성 요소입니다. 있는 그대로 둡니다. |
 

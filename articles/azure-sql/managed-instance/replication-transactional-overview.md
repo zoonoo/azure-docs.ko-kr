@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283211"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제 (미리 보기)
@@ -45,9 +45,9 @@ ms.locfileid: "91283211"
 
 | 역할 | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| **게시자** | 예 | 예 |
-| **배포자** | 예 | 예|
-| **끌어오기 구독자** | 예 | 예|
+| **게시자** | 아니요 | 예 |
+| **배포자** | 아니요 | 예|
+| **끌어오기 구독자** | 아니요 | 예|
 | **밀어넣기 구독자**| 예 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -76,10 +76,10 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 | :----| :------------- | :--------------- |
 | [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 |
 | [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
-| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 예 | 예|
-| [**피어 투 피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 예 | 예|
-| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 예 | 예|
-| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 예 | 예|
+| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
+| [**피어 투 피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
+| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
+| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 아니요|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>지원 가능성 매트릭스
@@ -106,7 +106,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>트랜잭션 복제와 데이터 동기화 비교
 
-| Category | 데이터 동기화 | 트랜잭션 복제 |
+| 범주 | 데이터 동기화 | 트랜잭션 복제 |
 |---|---|---|
 | 장점 | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 |
 | 단점 | - 5분 이상의 대기 시간<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
@@ -199,7 +199,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 - [게시를 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 - 서버 이름을 구독자로 사용 하 여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) (예 `N'azuresqldbdns.database.windows.net` : **Adventureworks**와 같이 Azure SQL Database 이름의 데이터베이스를 대상 데이터베이스로 사용 합니다. )
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 - [SQL Managed Instance 및 장애 조치 (failover) 그룹으로 복제](transact-sql-tsql-differences-sql-server.md#replication)
 - [SQL Database로 복제](../database/replication-to-sql-database.md)

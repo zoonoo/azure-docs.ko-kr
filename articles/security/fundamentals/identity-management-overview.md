@@ -17,10 +17,10 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400318"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 
 문서는 다음과 같은 핵심 Azure ID 관리 기능에 중점을 둡니다.
 
-* SSO(Single sign-on)
+* Single Sign-On
 * 역방향 프록시
 * Multi-Factor Authentication
 * Azure RBAC(Azure 역할 기반 액세스 제어)
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 * 하이브리드 ID 관리/Azure AD Connect
 * Azure AD 액세스 검토
 
-## <a name="single-sign-on"></a>SSO(Single sign-on)
+## <a name="single-sign-on"></a>Single Sign-On
 
 SSO란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 

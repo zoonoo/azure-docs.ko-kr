@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090300"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
@@ -120,7 +120,7 @@ ms.locfileid: "87090300"
     
     ![원본, 이름, 리포지토리 및 분기 정보](./media/code-test/fill_in_build_info.PNG)
 
-    c. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
+    다. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
 
     ![템플릿 목록 및 “빈 프로세스” 단추](./media/code-test/start_empty_process_template.PNG)
 

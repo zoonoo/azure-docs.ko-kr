@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Resource Manager 템플릿, PowerShell �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483825"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 사용자를 랩에 추가 자동화
@@ -15,9 +15,9 @@ Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비
 
 랩에 사용자를 추가 하려면 랩에 대 한 **DevTest Labs 사용자** 역할에 사용자를 추가 합니다. 이 문서에서는 다음 방법 중 하나를 사용 하 여 랩에 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 
-- Azure 리소스 관리자 템플릿
+- Azure Resource Manager 템플릿
 - Azure PowerShell cmdlet 
-- Azure CLI.
+- Azure CLI
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 다음 샘플 리소스 관리자 템플릿에서는 랩의 **DevTest Labs 사용자** 역할에 추가할 사용자를 지정 합니다. 
@@ -123,7 +123,7 @@ $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 
 [Set-msoluser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0), [get-msolgroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)및 [new-msolserviceprincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0)를 포함 하는 Azure Active Directory PowerShell cmdlet을 사용할 수도 있습니다.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 범위 역할 할당을 적용 해야 하는 리소스 또는 리소스 그룹을 지정 합니다. 리소스의 경우 범위는 형식입니다 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}` . 템플릿은 함수를 사용 하 여 파트를 채우고 템플릿 함수를 사용 하 여 `subscription().subscriptionId` `subscription-id` 파트를 `resourceGroup().name` 채웁니다 `resource-group-name` . 이러한 함수를 사용 하면 역할을 할당 하는 랩이 현재 구독에 존재 하 고 템플릿 배포가 수행 되는 동일한 리소스 그룹에 있어야 합니다. 마지막 부분인는 `resource-name` 랩의 이름입니다. 이 값은이 예제에서 템플릿 매개 변수를 통해 수신 됩니다. 
 
 템플릿의 역할 범위: 

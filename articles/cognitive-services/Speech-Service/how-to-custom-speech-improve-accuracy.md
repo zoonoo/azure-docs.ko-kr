@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-demjoh
 ms.openlocfilehash: bb904482f3cb5900b724803816269f1b10ab3720
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83727896"
 ---
-# <a name="improve-custom-speech-accuracy"></a>Custom Speech 정확도 향상
+# <a name="improve-custom-speech-accuracy"></a>Custom Speech 정확도 개선
 
 이 문서에서는 오디오, 사람 레이블 성적 증명서 및 관련 텍스트를 추가 하 여 사용자 지정 모델의 품질을 향상 시키는 방법을 알아봅니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "83727896"
 |----------|----------------------------|------------------|-----------------|---------------------|
 | 콜 센터 | 보통 (< 30% WER) | 낮음 (다른 사람이 배경에서 말하는 경우 제외) | 높을 수 있습니다. 콜 센터는 잡음이 있을 수 있으며 겹치는 스피커가 모델을 혼동할 수 있습니다. | 중간. 제품 및 사람의 이름을 통해 이러한 오류가 발생할 수 있습니다. |
 | 음성 도우미 | 높음 (< 10% WER) | 낮음 | 낮음 | 중간, 곡 제목, 제품 이름 또는 위치로 인해 |
-| 받아쓰기 | 높음 (< 10% WER) | 낮음 | 낮음 | 높은 |
+| 받아쓰기 | 높음 (< 10% WER) | 낮음 | 낮음 | 높음 |
 | 비디오 폐쇄 캡션 | 비디오 유형에 따라 달라 집니다 (50% WER < 가능). | 낮음 | 음악, 소음, 마이크 품질으로 인해 높을 수 있습니다. | 전문 용어로 이러한 오류가 발생할 수 있음 |
 
 WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모델 개선을 위해 추가할 데이터의 종류를 결정 하는 데 도움이 됩니다. [Custom Speech 포털](https://speech.microsoft.com/customspeech) 을 사용 하 여 기준 모델의 품질을 확인할 수 있습니다. 이 포털은 WER 품질 비율로 결합 된 삽입, 대체 및 삭제 오류 비율을 보고 합니다.
@@ -91,7 +91,7 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 
 - [모델 학습](how-to-custom-speech-train-model.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)

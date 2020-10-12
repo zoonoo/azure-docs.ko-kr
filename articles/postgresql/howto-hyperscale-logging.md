@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
 ms.openlocfilehash: 1dc7bc8e119de7c8fdcf09713286be2633457486
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895872"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 로그
@@ -26,11 +26,11 @@ Citus (Hyperscale) 코디네이터 또는 작업자 노드에 대 한 PostgreSQL
 
 선택한 노드에 대해 **진단 설정**을 열고 **+ 진단 설정 추가**를 클릭 합니다.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="진단 설정 추가 단추":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="노드 목록":::
 
 새 진단 설정의 이름을 선택 하 고 **PostgreSQLLogs** 상자를 선택 합니다.  로그를 받을 대상을 선택 합니다.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="PostgreSQL 로그 선택":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="노드 목록":::
 
 ## <a name="next-steps"></a>다음 단계
 

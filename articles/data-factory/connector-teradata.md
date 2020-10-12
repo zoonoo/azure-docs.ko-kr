@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926895"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사
@@ -173,7 +173,7 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 > [!NOTE]
 >
-> `RelationalTable`형식 데이터 집합은 계속 지원 됩니다. 그러나 새 데이터 집합을 사용 하는 것이 좋습니다.
+> `RelationalTable` 형식 데이터 집합은 계속 지원 됩니다. 그러나 새 데이터 집합을 사용 하는 것이 좋습니다.
 
 **이전 페이로드:**
 
@@ -208,13 +208,13 @@ Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 (데이터 집합의 테이블이 지정 된 경우) |
 | partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 값은 **None** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Teradata에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 `None`이 아닌 경우에 적용합니다. | 예 |
-| partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되어 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 인 경우에 적용 됩니다 `Hash` `DynamicRange` . 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 예 |
+| partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되어 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 인 경우에 적용 됩니다 `Hash` `DynamicRange` . 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는  `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용합니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`을 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 예 |
 | partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
 
 > [!NOTE]
 >
-> `RelationalSource`형식 복사 원본은 여전히 지원 되지만 Teradata (파티션 옵션)에서 새 기본 제공 병렬 로드를 지원 하지 않습니다. 그러나 새 데이터 집합을 사용 하는 것이 좋습니다.
+> `RelationalSource` 형식 복사 원본은 여전히 지원 되지만 Teradata (파티션 옵션)에서 새 기본 제공 병렬 로드를 지원 하지 않습니다. 그러나 새 데이터 집합을 사용 하는 것이 좋습니다.
 
 **예: 파티션이 없는 기본 쿼리를 사용 하 여 데이터 복사**
 
@@ -307,27 +307,27 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Graphic |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | 정수 |Int32 |
-| Interval Day |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Day To Hour |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Day To Minute |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Day To Second |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Hour |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Hour To Minute |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Hour To Second |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Minute |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Minute To Second |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Month |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Second |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Year |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Interval Year To Month |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| 번호 |Double |
-| 기간 (Date) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| 기간 (시간) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| 기간 (표준 시간대가 포함 된 시간) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| Period (Timestamp) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| 기간 (표준 시간대를 사용 하는 타임 스탬프) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Day |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Day To Hour |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Day To Minute |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Day To Second |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Hour |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Hour To Minute |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Hour To Second |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Minute |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Minute To Second |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Month |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Second |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Year |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Interval Year To Month |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| 숫자 |Double |
+| 기간 (Date) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| 기간 (시간) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| 기간 (표준 시간대가 포함 된 시간) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Period (Timestamp) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| 기간 (표준 시간대를 사용 하는 타임 스탬프) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Time With Time Zone |TimeSpan |
@@ -335,8 +335,8 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
 | VarChar |String |
-| VarGraphic |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| xml |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| VarGraphic |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+| Xml |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성

@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89076160"
 ---
 # <a name="get-service-access-tokens"></a>서비스 액세스 토큰 가져오기
@@ -19,7 +19,7 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 이 문서에서는 이러한 액세스 토큰을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 없는 경우 [ARR 계정을 만듭니다](create-an-account.md).
 
@@ -29,7 +29,7 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 ### <a name="get-token-request"></a>' 토큰 가져오기 ' 요청
 
-| URI | 메서드 |
+| URI | 방법 |
 |-----------|:-----------|
 | /accounts/**accountId**/토큰 | GET |
 
@@ -45,7 +45,7 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: 문자열 | 성공 |
 
-| header | 목적 |
+| 헤더 | 목적 |
 |--------|:------|
 | MS-CV | 이 값은 서비스 내에서 호출을 추적 하는 데 사용할 수 있습니다. |
 

@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: f0aaa82db61b5f40e42d6dad641bc09d5add9d0f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078336"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
@@ -132,7 +132,7 @@ Service Bus 네임 스페이스로 이동한 다음, **액세스 제어 (IAM)** 
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 지침
 
-먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](/cli/azure/install-azure-cli?view=azure-cli-latest). **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 관리자를 다운로드](/cli/azure/install-azure-cli?view=azure-cli-latest)합니다. **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 다음 코드를 실행합니다.
 
@@ -150,7 +150,7 @@ BASH를 사용 하는 경우
 
 ## <a name="powershell-instructions"></a>PowerShell 지침
 
-Azure PowerShell이 설치되어 있는지 확인합니다. [설치 프로그램을 다운로드합니다](/powershell/azure/install-Az-ps). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+Azure PowerShell이 설치되어 있는지 확인합니다. [설치 관리자를 다운로드](/powershell/azure/install-Az-ps)합니다. 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 ```powershell-interactive
 Connect-AzAccount

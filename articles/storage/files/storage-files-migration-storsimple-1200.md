@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510340"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 1200 마이그레이션
@@ -210,7 +210,7 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> StorSimple의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 되 면 Azure Portal의 ***모든*** 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 백분율 값을 캐시 사용률 (20%)에 더 적합 한 값으로 조정 합니다. 
+> StorSimple의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 되 면 Azure Portal의 ***모든***  동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 백분율 값을 캐시 사용률 (20%)에 더 적합 한 값으로 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우, 동기화는 가장 제한적인 규칙을 계속 적용 하 고 99%의 사용 가능한 디스크 공간을 유지 하 여 로컬 캐시가 정상적으로 작동 하지 않도록 합니다. 드물게 액세스 하는 볼륨에 대 한 네임 스페이스만 보유 하 고 있는 경우를 제외 하 고는 보관 데이터를 포함 합니다.
 

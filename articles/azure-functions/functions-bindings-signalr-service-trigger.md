@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212595"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Azure Functions에 대 한 SignalR Service 트리거 바인딩
@@ -188,16 +188,16 @@ def main(invocation) -> None:
 
 InvocationContext는 SignalR 서비스에서 보내는 메시지의 모든 콘텐츠를 포함 합니다.
 
-|InvocationContext의 속성 | 설명|
+|InvocationContext의 속성 | Description|
 |------------------------------|------------|
 |인수| *메시지* 범주에 사용할 수 있습니다. [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) 의 *인수* 를 포함 합니다.|
-|오류| *연결* 되지 않은 이벤트에 사용할 수 있습니다. 오류가 없는 연결을 닫거나 오류 메시지를 포함 하는 경우 비워 둘 수 있습니다.|
+|Error| *연결* 되지 않은 이벤트에 사용할 수 있습니다. 오류가 없는 연결을 닫거나 오류 메시지를 포함 하는 경우 비워 둘 수 있습니다.|
 |허브| 메시지가 속한 허브 이름입니다.|
-|Category| 메시지의 범주입니다.|
+|범주| 메시지의 범주입니다.|
 |이벤트| 메시지의 이벤트입니다.|
 |ConnectionId| 메시지를 보내는 클라이언트의 연결 ID입니다.|
 |UserId| 메시지를 보내는 클라이언트의 사용자 id입니다.|
-|헤더| 요청의 헤더입니다.|
+|headers| 요청의 헤더입니다.|
 |쿼리| 클라이언트가 서비스에 연결 하는 경우 요청에 대 한 쿼리입니다.|
 |클레임| 클라이언트의 클레임입니다.|
 

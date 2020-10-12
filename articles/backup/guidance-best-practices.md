@@ -4,10 +4,10 @@ description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985522"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
@@ -240,7 +240,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
 * 기타
   * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)하세요.
   * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs)하세요.
-  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아보기](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아봅니다](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 
