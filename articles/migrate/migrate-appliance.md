@@ -4,10 +4,10 @@ description: Azure Migrate 어플라이언스에 대 한 지원 요약을 제공
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450037"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
@@ -85,7 +85,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
 **PowerShell 스크립트** | 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 폴더의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
-**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs가 있는 컴퓨터에서 실행 되어야 하며, 80 GB의 디스크 저장소에 해당 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스의 배포는 Windows Server 2016 에서만 지원 됩니다.)_
+**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs가 있는 컴퓨터에서 실행 되어야 하며, 80 GB의 디스크 저장소에 해당 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
 **해시 값** | PowerShell 스크립트 해시 값을 [확인](tutorial-discover-physical.md#verify-security)합니다.
 
 ## <a name="url-access"></a>URL 액세스
@@ -219,7 +219,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 --- | --- | ---
 애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | 게시자
 
 #### <a name="windows-vm-features-data"></a>Windows VM 기능 데이터
 
@@ -227,9 +227,9 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 **Data**  | **PowerShell cmdlet** | **속성**
 --- | --- | ---
-속성  | Get Add-windowsfeature  | 속성
-기능 유형 | Get Add-windowsfeature  | FeatureType
-Parent  | Get Add-windowsfeature  | Parent
+Name  | Get-WindowsFeature  | Name
+기능 유형 | Get-WindowsFeature  | FeatureType
+Parent  | Get-WindowsFeature  | Parent
 
 #### <a name="windows-vm-sql-server-metadata"></a>Windows VM SQL Server 메타 데이터
 
@@ -237,7 +237,7 @@ Parent  | Get Add-windowsfeature  | Parent
 
 **Data**  | **레지스트리 위치**  | **Key**
 --- | --- | ---
-속성  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
 서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
@@ -248,7 +248,7 @@ Parent  | Get Add-windowsfeature  | Parent
 
 데이터  | WMI 클래스(WMI class)  | WMI 클래스 속성
 --- | --- | ---
-속성  | Win32_operatingsystem  | 캡션
+Name  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 데이터  | 명령
 --- | --- 
-속성 | rpm, dpkg, snap
+Name | rpm, dpkg, snap
 버전 | rpm, dpkg, snap
 공급자 | rpm, dpkg, snap
 
@@ -268,7 +268,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 **Data**  | **명령** 
 --- | --- | ---
-속성 <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architecture | uname
 
 

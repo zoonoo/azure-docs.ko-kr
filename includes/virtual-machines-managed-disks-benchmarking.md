@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91451501"
 ---
 *캐시 준비 중*  
@@ -62,18 +62,18 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
 
-   | 속성 | 요청 크기 | 임의 % | 읽기 % |
+   | Name | 요청 크기 | 임의 % | 읽기 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 1. 다음 매개 변수로 캐시 디스크 초기화를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | 속성 | 기간 |
+   | 시나리오 | 대상 볼륨 | Name | 기간 |
    | --- | --- | --- | --- |
    | 디스크 캐시 초기화 |CacheReads |RandomWrites\_1MB |2시간 |
 1. 다음 매개 변수로 캐시 디스크 준비를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | 속성 | 기간 |
+   | 시나리오 | 대상 볼륨 | Name | 기간 |
    | --- | --- | --- | --- |
    | 캐시 디스크 준비 |CacheReads |RandomReads\_1MB |2시간 |
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91451485"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -68,7 +68,7 @@ import AVFoundation
 다음 클래스와 인터페이스는 iOS 용 클라이언트 라이브러리를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
 
-| 속성                                  | 설명                                                  |
+| Name                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | ACSCallClient는 호출 하는 클라이언트 라이브러리에 대 한 주 진입점입니다.|
 | ACSCallAgent | ACSCallAgent는 호출을 시작 하 고 관리 하는 데 사용 됩니다. |

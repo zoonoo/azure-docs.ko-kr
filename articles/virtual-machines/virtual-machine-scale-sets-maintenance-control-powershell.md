@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 62b2fd0554c218b733501805779745049d3b8c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8acab17e9d8dfc078b46f6a279cc671a70b0a50
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532710"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974841"
 ---
 # <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 가상 머신 확장 집합에서 OS 이미지 업그레이드에 대 한 유지 관리 제어
 
@@ -44,7 +44,7 @@ Install-Module -Name Az.Maintenance
 
 ## <a name="connect-to-an-azure-account"></a>Azure 계정에 연결
 
-[AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 및 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext)를 사용 하 여 원하는 Azure 계정에 연결 합니다.
+[AzAccount](/powershell/module/az.accounts/connect-azaccount) 및 [AzAccount](/powershell/module/az.accounts/set-azcontext)를 사용 하 여 원하는 Azure 계정에 연결 합니다.
 
 ```azurepowershell-interactive
 Connect-AzAccount
