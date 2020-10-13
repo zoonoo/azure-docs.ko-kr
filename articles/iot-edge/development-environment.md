@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300377"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IoT Edge를 위한 개발 및 테스트 환경 준비
@@ -49,7 +49,7 @@ Visual Studio Code용 Azure IoT Edge 확장은 C#의 Azure 함수뿐만 아니�
 
 IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용할 수 있습니다. 예를 들어 [Visual Studio Code용 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 사용하여 이미지, 컨테이너 및 레지스트리를 관리할 수 있습니다. 또한 지원되는 모든 주요 언어 모듈에는 개발 시 도움이 될 수 있는 Visual Studio Code용 확장이 있습니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>필수 구성 요소
 
 일부 언어 및 서비스용 모듈 템플릿에는 Visual Studio Code를 사용하여 개발 컴퓨터에서 프로젝트 폴더를 빌드하는 데 필요한 필수 구성 요소가 있습니다.
 
@@ -59,7 +59,7 @@ IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용�
 | C | [Git](https://git-scm.com/) |
 | C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [JAVA_HOME 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
-| Node.js | <ul><li>[Node.JS](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js 모듈 생성기](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
+| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js 모듈 생성기](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019 확장

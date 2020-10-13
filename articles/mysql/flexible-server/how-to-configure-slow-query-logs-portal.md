@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565739"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 느리게 쿼리 로그 구성 및 액세스
@@ -20,7 +20,7 @@ ms.locfileid: "91565739"
 
 Azure Portal에서 Azure Database for MySQL 유연한 서버 [저속 쿼리 로그](concepts-slow-query-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 단계를 수행 하려면 [유연한 서버가](quickstart-create-server-portal.md)필요 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성

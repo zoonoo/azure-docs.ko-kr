@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d2e61533016de7417446ba4111116e9749ac74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e661cb3c3bafa92a060b0fdfd899aa152b46a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507877"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977462"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>StorSimple 가상 배열에 업데이트 설치 - Azure Portal
 
@@ -77,26 +77,26 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
 
 1. 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![장치 업데이트 1](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. **업데이트 파일 경로**에 업데이트 또는 핫픽스의 파일 이름을 입력합니다. 네트워크 공유에 있는 경우 업데이트 또는 핫픽스 설치 파일로 이동할 수 있습니다. **적용**을 클릭합니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![장치 업데이트 2](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. 경고가 표시됩니다. 단일 노드 디바이스인 경우 업데이트가 적용된 후 디바이스를 다시 시작하고 가동 중지 시간이 발생합니다. 확인 아이콘을 클릭합니다.
    
-   ![디바이스 업데이트](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![장치 업데이트 3](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![업데이트 장치 4](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 0.3의 경우 **10.0.0.0.0.10288.0** 입니다.
    
    > [!NOTE]
    > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10288**, Azure Portal은 **10.0.10288.0**을 보고합니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![업데이트 장치 5](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
