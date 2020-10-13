@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776156"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978665"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -130,7 +130,7 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 | **최대 메모리** |애플리케이션을 원활하게 실행하는데 필요한 메모리의 양 |% 사용 중인 커밋된 바이트 |vmstat 사용 |
 | **최대 CPU** |애플리케이션을 원활하게 실행하는데 필요한 CPU 양 |% 프로세서 시간 |%util |
 
-[iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)에 대해 자세히 알아봅니다.
+[iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](/windows/win32/perfctrs/performance-counters-portal)에 대해 자세히 알아봅니다.
 
 
 
@@ -343,7 +343,7 @@ Azure는 대규모로 병렬되도록 Premium Storage 플랫폼을 설계합니�
 
 예를 들어 SQL Server를 사용하는 애플리케이션이 큰 쿼리와 인덱스 작업을 동시에 실행한다고 가정합니다. 인덱스 작업이 큰 쿼리보다 성능이 높아지길 원한다고 가정해 보겠습니다. 이러한 경우 쿼리에 대한 MAXDOP 값보다 높도록 인덱스 작업의 MAXDOP 값을 설정할 수 있습니다. 이러한 방식으로 SQL Server는 더 큰 쿼리에 사용할 수는 프로세서 수에 비해 인덱스 작업에 활용할 수 있는 더 많은 프로세서 수를 가집니다. SQL Server에서 각 작업에 사용할 스레드 수를 제어하지 않습니다. 다중 스레딩에 사용되는 프로세서의 최대 수를 제어할 수 있습니다.
 
-SQL Server에 [병렬 처리의 정도](https://technet.microsoft.com/library/ms188611.aspx) 에 대한 자세한 정보가 있습니다. 성능을 최적화하도록 애플리케이션의 다중 스레딩 및 해당 구성에 영향을 주는 설정을 확인합니다.
+SQL Server에 [병렬 처리의 정도](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) 에 대한 자세한 정보가 있습니다. 성능을 최적화하도록 애플리케이션의 다중 스레딩 및 해당 구성에 영향을 주는 설정을 확인합니다.
 
 ## <a name="queue-depth"></a>큐 크기
 

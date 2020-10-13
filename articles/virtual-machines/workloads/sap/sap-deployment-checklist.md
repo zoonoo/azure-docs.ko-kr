@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650687"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978223"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -60,8 +60,8 @@ ms.locfileid: "89650687"
     - SAP Central Services에 다중 SID 클러스터 구성을 사용 하는 것은 Azure의 Windows, SLES 및 RHEL 게스트 운영 체제에서 지원 됩니다. 이러한 다중 SID 클러스터에 대해 더 많은 ASCS/SCS를 향상 시킬 수 있다는 점에 유의 하세요. 각 게스트 OS 시나리오에 대 한 설명서는 다음 문서에서 찾을 수 있습니다.
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-        - [SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-        - [SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+        - [SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](./high-availability-guide-suse-multi-sid.md)
+        - [SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](./high-availability-guide-rhel-multi-sid.md)
     - 고가용성 및 재해 복구 아키텍처.
         - RTO 및 RPO에 따라 고가용성 및 재해 복구 아키텍처가 어떻게 표시 되어야 하는지 정의 합니다.
         - 영역 내에서 고가용성을 위해 원하는 DBMS가 Azure에서 제공 해야 하는 항목을 확인 합니다. 대부분의 DBMS 패키지는 프로덕션 시스템에 권장 되는 동기 상시 대기의 동기 메서드를 제공 합니다. [Sap 워크 로드 및 관련 문서에 대 한 Azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항](./dbms_guide_general.md) 부터 시작 하 여 다른 데이터베이스에 대 한 sap 관련 설명서도 확인 하세요.
@@ -109,7 +109,7 @@ ms.locfileid: "89650687"
            -  [Azure의 Windows 가상 머신에 대 한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
            -  [Azure의 Linux 가상 머신에 대 한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
    2. 저장할.
-        - [SAP 워크 로드의 문서 Azure Storage 유형을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 확인 하세요.
+        - [SAP 워크 로드의 문서 Azure Storage 유형을](./planning-guide-storage.md) 확인 하세요.
         - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](../../disks-types.md#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
         - 일반적으로 [Azure 표준 HDD 디스크](../../disks-types.md#standard-hdd)를 사용 하지 않는 것이 좋습니다.
         - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](../../disks-types.md#premium-ssd) 를 사용 합니다.
@@ -127,7 +127,7 @@ ms.locfileid: "89650687"
         - SAP 응용 프로그램 계층과 SAP DBMS 계층 간의 데이터 경로를 평가 하 고 테스트 합니다.
             -  Sap 응용 프로그램과 sap NetWeaver, Hybris 또는 S/4HANA를 기반으로 하는 SAP 시스템의 DBMS 계층 간 통신 경로에 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 를 배치 하는 것은 지원 되지 않습니다.
             -  SAP 응용 프로그램 계층 및 SAP DBMS를 피어 링 아닌 다른 Azure virtual network에 배치 하는 것은 지원 되지 않습니다.
-            -  [응용 프로그램 보안 그룹 및 네트워크 보안 그룹 규칙](../../../virtual-network/security-overview.md) 을 사용 하 여 sap 응용 프로그램 계층과 sap DBMS 계층 간의 경로를 정의할 수 있습니다.
+            -  [응용 프로그램 보안 그룹 및 네트워크 보안 그룹 규칙](../../../virtual-network/network-security-groups-overview.md) 을 사용 하 여 sap 응용 프로그램 계층과 sap DBMS 계층 간의 경로를 정의할 수 있습니다.
         - SAP 응용 프로그램 계층 및 SAP DBMS 계층에 사용 되는 Vm에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용 하도록 설정 했는지 확인 합니다. Azure에서 가속화된 네트워킹을 지원하려면 다음과 같은 여러 OS 수준이 필요합니다.
             - Windows Server 2012 R2 이상
             - SUSE Linux 12 SP3 이상
@@ -138,7 +138,7 @@ ms.locfileid: "89650687"
         - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.ipv4.tcp_timestamps** **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
         - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](../../linux/co-location.md) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
    4. 고가용성 및 재해 복구 배포.
-        - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../windows/manage-availability.md)에 배포 되었는지 확인 합니다.
+        - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../manage-availability.md)에 배포 되었는지 확인 합니다.
         - SAP Central Services 및 DBMS에 대 한 고가용성이 필요 하지 않은 경우 SAP 응용 프로그램 계층과 동일한 가용성 집합에 이러한 Vm을 배포할 수 있습니다.
         - 수동 복제를 사용 하 여 고가용성을 위해 SAP Central Services와 DBMS 계층을 보호 하는 경우 SAP Central Services에 대 한 두 노드를 별도의 하나의 가용성 집합과 다른 가용성 집합의 두 DBMS 노드에 저장 합니다.
         - Azure 가용성 영역에 배포 하는 경우 가용성 집합을 사용할 수 없습니다. 하지만 활성 및 수동 중앙 서비스 노드를 서로 다른 두 가용성 영역에 배포 해야 합니다. 대기 시간이 가장 짧은 가용성 영역를 사용 합니다.
@@ -179,7 +179,7 @@ ms.locfileid: "89650687"
    4. 지역 간 DR 기능 및 아키텍처를 테스트 합니다.
 1. 보안 검사.
    1. Azure RBAC (역할 기반 액세스 제어) 아키텍처의 유효성을 테스트 합니다. 목표는 다른 팀의 액세스 및 사용 권한을 분리 하 고 제한 하는 것입니다. 예를 들어 SAP 기본 팀 구성원은 Vm을 배포 하 고 Azure Storage에서 지정 된 Azure virtual network로 디스크를 할당할 수 있어야 합니다. 하지만 SAP 기반 팀은 자신의 가상 네트워크를 만들거나 기존 가상 네트워크의 설정을 변경할 수 없어야 합니다. 네트워크 팀의 구성원은 SAP 응용 프로그램 및 DBMS Vm이 실행 되는 가상 네트워크에 Vm을 배포할 수 없습니다. 이 팀의 구성원이 Vm의 특성을 변경 하거나 Vm 또는 디스크를 삭제할 수도 없어야 합니다.  
-   1.  [네트워크 보안 그룹 및 ASC](../../../virtual-network/security-overview.md) 규칙이 예상 대로 작동 하는지 확인 하 고 보호 된 리소스를 보호 합니다.
+   1.  [네트워크 보안 그룹 및 ASC](../../../virtual-network/network-security-groups-overview.md) 규칙이 예상 대로 작동 하는지 확인 하 고 보호 된 리소스를 보호 합니다.
    1.  암호화해야 하는 모든 리소스가 암호화되는지 확인합니다. 인증서를 백업 하 고, 이러한 인증서를 저장 및 액세스 하 고, 암호화 된 엔터티를 복원 하는 프로세스를 정의 하 고 구현 합니다.
    1.  OS 지원 관점에서 가능한 경우 OS 디스크에 대해 [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) 를 사용 합니다.
    1.  너무 많은 암호화 계층을 사용 하 고 있지 않아야 합니다. 경우에 따라 DBMS 투명한 데이터 암호화 방법 중 하 나와 함께 Azure Disk Encryption를 사용 하 여 동일한 서버에 있는 다른 디스크나 구성 요소를 보호 하는 것이 좋습니다.  예를 들어 SAP DBMS 서버에서 운영 체제 부팅 디스크 (운영 체제에서 ADE를 지 원하는 경우) 및 DBMS 데이터 지 속성 파일에서 사용 하지 않는 데이터 디스크에 대 한 Azure Disk Encryption (ADE)를 사용할 수 있습니다.  예를 들어 DBMS TDE 암호화 키를 보유 하는 디스크에서 ADE를 사용 합니다.

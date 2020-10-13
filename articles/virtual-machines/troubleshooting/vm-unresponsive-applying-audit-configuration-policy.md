@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299527"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977955"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>감사 정책 구성 정책을 적용 하는 동안 가상 컴퓨터가 응답 하지 않습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "89299527"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 **감사 정책 구성 정책을 적용**하는 메시지를 사용 하 여 부팅 하는 동안 운영 체제 (OS)가 응답 하지 않는 것이 스크린샷에 표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 **감사 정책 구성 정책을 적용**하는 메시지를 사용 하 여 부팅 하는 동안 운영 체제 (OS)가 응답 하지 않는 것이 스크린샷에 표시 되는 것을 볼 수 있습니다.
 
   !["감사 정책 구성 정책 적용" 메시지를 사용 하 여 OS를 부팅 합니다.](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "89299527"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="disable-the-policy"></a>정책 사용 안 함
@@ -153,7 +153,7 @@ ms.locfileid: "89299527"
    
 ### <a name="rebuild-the-virtual-machine"></a>가상 컴퓨터 다시 빌드
 
-1. [VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+1. [VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
 
 1. VM이 정상적으로 부팅 되는지 테스트 하 여 문제가 해결 되었는지 확인 합니다.
 
@@ -175,11 +175,11 @@ VM을 테스트 하 여 평소와 같이 작동 하는지 확인 합니다. 여�
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>새 복구 VM에 OS 디스크를 연결 합니다.
 
-1. [Vm 복구 명령의](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 1-3 단계를 사용 하 여 새 복구 vm을 준비 합니다.
+1. [Vm 복구 명령의](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) 1-3 단계를 사용 하 여 새 복구 vm을 준비 합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾고 지원 티켓을 제출 합니다.
 
 1. 복구 VM에서 연결 된 OS 디스크의 windows 폴더로 이동 합니다. 연결 된 OS 디스크에 할당 된 드라이버 문자에 *F*레이블이 지정 된 경우으로 이동 해야 `F:\Windows` 합니다.
 1. `memory.dmp`파일을 찾은 다음 메모리 덤프 파일을 사용 하 여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 합니다.
-1. 파일을 찾는 데 문제가 있는 경우 `memory.dmp` 대신 [직렬 콘솔에서 비 마스크 인터럽트 (NMI) 호출](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) 을 사용 합니다. [여기에서 NMI 통화를 사용 하 여 크래시 덤프 파일을 생성](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)하려면 가이드를 따르세요.
+1. 파일을 찾는 데 문제가 있는 경우 `memory.dmp` 대신 [직렬 콘솔에서 비 마스크 인터럽트 (NMI) 호출](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) 을 사용 합니다. [여기에서 NMI 통화를 사용 하 여 크래시 덤프 파일을 생성](/windows/client-management/generate-kernel-or-complete-crash-dump)하려면 가이드를 따르세요.

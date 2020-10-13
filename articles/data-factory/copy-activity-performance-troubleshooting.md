@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440527"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951091"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -40,7 +40,7 @@ ms.locfileid: "89440527"
 | 데이터 저장소 관련   | **Azure Synpase 분석 (이전의 SQL DW)** 에 데이터를 로드 하는 중입니다. 사용 되지 않는 경우 POLYBASE 또는 COPY 문을 사용 하는 것이 좋습니다. |
 | &nbsp;                | **Azure SQL Database**간 데이터 복사: DTU가 높은 사용률을 사용 하는 경우 더 높은 계층으로 업그레이드 하는 것이 좋습니다. |
 | &nbsp;                | **Azure Cosmos DB**에서/로 데이터 복사: 높은 사용률을 사용 중인 경우에는 더 큰 사용으로 업그레이드 하는 것이 좋습니다. |
-|                       | **Sap 테이블**에서 데이터 복사: 많은 양의 데이터를 복사 하는 경우 sap 커넥터의 파티션 옵션을 활용 하 여 병렬 로드를 사용 하도록 설정 하 고 최대 파티션 수를 늘리는 것이 좋습니다. |
+|                       | **Sap 테이블**에서 데이터 복사: 많은 양의 데이터를 복사 하는 경우 sap 커넥터의 파티션 옵션을 활용 하 여 병렬 로드를 사용 하도록 설정 하 고 최대 파티션 번호를 늘리는 것이 좋습니다. |
 | &nbsp;                | **Amazon Redshift**의 데이터 수집: 사용 되지 않는 경우 UNLOAD를 사용 하는 것이 좋습니다. |
 | 데이터 저장소 제한 | 복사 하는 동안 데이터 저장소에서 읽기/쓰기 작업을 제한 하는 경우 데이터 저장소에 대해 허용 되는 요청 빈도를 확인 하 고 늘리는 것이 좋습니다. 그렇지 않으면 동시 작업을 줄일 수 있습니다. |
 | Integration runtime  | Ir **(자체 호스팅 Integration Runtime)** 및 복사 작업을 사용 하는 경우 ir에 사용할 수 있는 리소스를 사용할 수 있을 때까지 큐에서 대기 하는 경우 ir 확장/축소를 제안 합니다. |
@@ -74,7 +74,7 @@ ms.locfileid: "89440527"
 
     - [Datetime 분할 파일 경로 또는 이름에 따라 파일을 복사할](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)수 있는지 여부를 확인 합니다. 이러한 방식으로 원본 측을 나열 하는 것은 부담 하지 않습니다.
 
-    - 대신 데이터 저장소의 기본 필터를 사용할 수 있는지 확인 합니다. 특히 Amazon S3 및 Azure Blob의 경우 "**prefix**"를 사용 합니다. 접두사 필터는 데이터 저장소 서버 쪽 필터 이며 성능이 훨씬 향상 됩니다.
+    - 데이터 저장소의 기본 필터를 대신 사용할 수 있는지 확인 합니다. 특히 Amazon S3/Azure Blob/Azure File Storage의 경우 "**prefix**", ADLS Gen1의 경우 "**Listafter/listafter**"를 확인 합니다. 이러한 필터는 데이터 저장소 서버 쪽 필터 이며 성능이 훨씬 향상 됩니다.
 
     - 단일 대량 데이터 집합을 여러 개의 작은 데이터 집합으로 분할 하는 것이 좋습니다. 이러한 복사 작업은 있는지 데이터의 각 부분에서 동시에 실행 될 수 있습니다. Lookup/GetMetadata + ForEach + Copy를 사용 하 여이 작업을 수행할 수 있습니다. 일반적인 예제와 같이 [여러 컨테이너의 파일 복사](solution-template-copy-files-multiple-containers.md) 또는 Amazon s 3 [에서 ADLS Gen2 솔루션 템플릿으로 데이터 마이그레이션](solution-template-migration-s3-azure.md) 을 참조 하세요.
 
@@ -128,7 +128,7 @@ ms.locfileid: "89440527"
 
     - [Datetime 분할 파일 경로 또는 이름에 따라 파일을 복사할](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)수 있는지 여부를 확인 합니다. 이러한 방식으로 원본 측을 나열 하는 것은 부담 하지 않습니다.
 
-    - 대신 데이터 저장소의 기본 필터를 사용할 수 있는지 확인 합니다. 특히 Amazon S3 및 Azure Blob의 경우 "**prefix**"를 사용 합니다. 접두사 필터는 데이터 저장소 서버 쪽 필터 이며 성능이 훨씬 향상 됩니다.
+    - 데이터 저장소의 기본 필터를 대신 사용할 수 있는지 확인 합니다. 특히 Amazon S3/Azure Blob/Azure File Storage의 경우 "**prefix**", ADLS Gen1의 경우 "**Listafter/listafter**"를 확인 합니다. 이러한 필터는 데이터 저장소 서버 쪽 필터 이며 성능이 훨씬 향상 됩니다.
 
     - 단일 대량 데이터 집합을 여러 개의 작은 데이터 집합으로 분할 하는 것이 좋습니다. 이러한 복사 작업은 있는지 데이터의 각 부분에서 동시에 실행 될 수 있습니다. Lookup/GetMetadata + ForEach + Copy를 사용 하 여이 작업을 수행할 수 있습니다. 일반적인 예제와 같이 [여러 컨테이너의 파일 복사](solution-template-copy-files-multiple-containers.md) 또는 Amazon s 3 [에서 ADLS Gen2 솔루션 템플릿으로 데이터 마이그레이션](solution-template-migration-s3-azure.md) 을 참조 하세요.
 

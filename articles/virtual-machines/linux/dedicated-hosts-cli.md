@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370202"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975284"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Azure CLI를 사용 하 여 전용 호스트에 배포
  
 
-이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](dedicated-hosts.md)를 만드는 방법을 안내합니다. 
+이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](../dedicated-hosts.md)를 만드는 방법을 안내합니다. 
 
 Azure CLI 2.0.70 이상 버전을 설치했고 `az login`을 사용하여 Azure 계정에 로그인했는지 확인합니다. 
 
@@ -319,8 +319,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 내용은 [전용 호스트](dedicated-hosts.md) 개요를 참조하세요.
+- 자세한 내용은 [전용 호스트](../dedicated-hosts.md) 개요를 참조하세요.
 
-- 또한 [Azure Portal](dedicated-hosts-portal.md)을 사용하여 전용 호스트를 만들 수도 있습니다.
+- 또한 [Azure Portal](../dedicated-hosts-portal.md)을 사용하여 전용 호스트를 만들 수도 있습니다.
 
 - 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.

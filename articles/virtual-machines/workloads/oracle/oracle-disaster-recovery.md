@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 5a162c0683a953399b48aaf627bbff5bc674e9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96bb0892b1bc35d1eef34cffc798cf33c837acdc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274564"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976643"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 
@@ -100,7 +100,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 - [Azure에서 Oracle 데이터베이스 설계 및 구현](oracle-design.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)
 - [Oracle Golden Gate 구성](configure-oracle-golden-gate.md)
-- [Oracle 백업 및 복구](oracle-backup-recovery.md)
+- [Oracle 백업 및 복구](./oracle-overview.md)
 
 
 ## <a name="next-steps"></a>다음 단계

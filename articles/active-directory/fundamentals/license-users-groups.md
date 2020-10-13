@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319528"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977017"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 라이선스 할당 또는 제거
 
@@ -102,11 +102,11 @@ ms.locfileid: "89319528"
 
 1. **할당** 페이지에서 **사용자 및 그룹**을 선택한 다음, 라이선스를 할당하려는 그룹을 검색하여 선택합니다.
 
-    ![검색 및 선택 옵션이 강조 표시된 라이선스 할당 페이지](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![강조 표시 된 검색을 사용 하 여 라이선스 할당 페이지에서 옵션 2를 선택 합니다.](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. **할당 옵션**을 선택하고, 적절한 라이선스 옵션이 설정되어 있는지 확인한 다음, **확인**을 선택합니다.
 
-    ![라이선스 옵션 페이지, 라이선스 계획에서 사용할 수 있는 모든 옵션](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![라이선스 옵션 페이지, 라이선스 계획 2에서 사용할 수 있는 모든 옵션](media/license-users-groups/license-option-blade-group-assignments.png)
 
     **라이선스 할당** 페이지가 업데이트되어 사용자가 선택되고 할당이 구성되었음을 보여 줍니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "89319528"
 
 1. **라이선스 제거**를 선택합니다.
 
-    ![라이선스 제거 옵션이 강조 표시된 허가된 그룹 페이지](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![라이선스 제거 옵션이 강조 표시 된 사용이 허가 된 그룹 페이지 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > Azure AD에 동기화 된 온-프레미스 사용자 계정이 동기화 범위를 벗어나는 경우 또는 동기화가 제거 될 때 사용자는 Azure AD에서 일시 삭제 됩니다. 이 문제가 발생 하면 사용자에 게 직접 할당 된 라이선스 또는 그룹 기반 라이선스를 통해 사용자에 게 할당 된 라이선스는 **삭제**되지 않고 **일시 중단** 됨으로 표시 됩니다.

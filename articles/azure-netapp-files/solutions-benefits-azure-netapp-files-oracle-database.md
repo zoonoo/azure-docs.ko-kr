@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 56322dc8def288ed388713e143f6b77816360ba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f431015caf5bb3364fe5628a599f760c6318c47
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117049"
+ms.locfileid: "91932501"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점
 
@@ -62,4 +62,4 @@ Azure NetApp Files 서비스를 사용 하 여 Oracle dNFS의 성능을 향상 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure NetApp Files를 사용하는 솔루션 아키텍처](azure-netapp-files-solution-architectures.md)
-- [Azure의 Oracle 애플리케이션 및 솔루션 개요](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview)
+- [Azure의 Oracle 애플리케이션 및 솔루션 개요](../virtual-machines/workloads/oracle/oracle-overview.md)

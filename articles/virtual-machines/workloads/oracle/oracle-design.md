@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84d97a86dd1dc912964b78d488c460faa744dd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274710"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977343"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -49,7 +49,7 @@ ms.locfileid: "91274710"
 | **네트워킹** |LAN/WAN  |SDN(소프트웨어 방식 네트워킹)|
 | **보안 그룹** |IP/포트 제한 도구 |[NSG (네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
 | **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
-| **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](../../windows/infrastructure-example.md)(Azure에서 관리되는 패치/업그레이드) |
+| **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](/previous-versions/azure/virtual-machines/windows/infrastructure-example)(Azure에서 관리되는 패치/업그레이드) |
 | **리소스** |전용  |다른 클라이언트와 공유|
 | **지역** |데이터 센터 |[지역 쌍](../../regions.md#region-pairs)|
 | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -230,7 +230,7 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 - [Oracle ASM 구성](configure-oracle-asm.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)
 - [Oracle Golden Gate 구성](configure-oracle-golden-gate.md)
-- [Oracle 백업 및 복구](oracle-backup-recovery.md)
+- [Oracle 백업 및 복구](./oracle-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652851"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977275"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>메인프레임 저장소를 Azure로 이동
 
@@ -51,13 +51,13 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 <table>
 <thead>
-    <tr><th>형식</th><th>설명</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
+    <tr><th>유형</th><th>Description</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure 파일
 </td>
 <td>
-어디에서 나 저장 된 파일에 액세스할 수 있는 SMB 인터페이스, 클라이언트 라이브러리 및 <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> 인터페이스를 제공 합니다.
+어디에서 나 저장 된 파일에 액세스할 수 있는 SMB 인터페이스, 클라이언트 라이브러리 및 <a href="/rest/api/storageservices/file-service-rest-api">REST</a> 인터페이스를 제공 합니다.
 </td>
 <td><ul>
 <li>응용 프로그램에서 네이티브 파일 시스템 Api를 사용 하 여 Azure에서 실행 되는 응용 프로그램과 다른 응용 프로그램 간에 데이터를 공유 하는 경우 응용 프로그램을 클라우드로 리프트 앤 시프트 합니다.</li>
@@ -67,7 +67,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 </tr>
 <tr><td>Azure Blob
 </td>
-<td>는 구조화 되지 않은 데이터를 블록 blob에서 대규모로 저장 하 고 액세스할 수 있는 클라이언트 라이브러리 및 <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> 인터페이스를 제공 합니다. 엔터프라이즈 빅 데이터 분석 솔루션을 위한 <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a>도 지원합니다.
+<td>는 구조화 되지 않은 데이터를 블록 blob에서 대규모로 저장 하 고 액세스할 수 있는 클라이언트 라이브러리 및 <a href="/rest/api/storageservices/blob-service-rest-api">REST</a> 인터페이스를 제공 합니다. 엔터프라이즈 빅 데이터 분석 솔루션을 위한 <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a>도 지원합니다.
 </td>
 <td><ul>
 <li>응용 프로그램에서 스트리밍 및 임의 액세스 시나리오를 지원 합니다.</li>
@@ -77,7 +77,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 </tr>
 <tr><td>Azure 디스크
 </td>
-<td>연결 된 가상 하드 디스크에서 데이터를 영구적으로 저장 하 고 액세스할 수 있는 클라이언트 라이브러리 및 <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a> 인터페이스를 제공 합니다.
+<td>연결 된 가상 하드 디스크에서 데이터를 영구적으로 저장 하 고 액세스할 수 있는 클라이언트 라이브러리 및 <a href="/rest/api/compute/disks">REST</a> 인터페이스를 제공 합니다.
 </td>
 <td><ul>
 <li>네이티브 파일 시스템 Api를 사용 하는 응용 프로그램을 이동 하 여 영구적 디스크에서 데이터를 읽고 씁니다.</li>
@@ -94,7 +94,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 Ssd는 Azure에서 가장 높은 저장소 성능을 제공 합니다. 이 문서를 작성할 때 사용할 수 있는 옵션은 다음과 같습니다.
 
-| 형식         | 크기           | IOPS                  |
+| 유형         | 크기           | IOPS                  |
 |--------------|----------------|-----------------------|
 | 울트라 SSD    | 4gb ~ 64 TB  | 1200 ~ 16만 IOPS |
 | 프리미엄 SSD  | 32 g b-32 TB | 12 ~ 15000 IOPS     |

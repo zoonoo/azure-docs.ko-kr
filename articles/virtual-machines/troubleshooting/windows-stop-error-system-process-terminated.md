@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347771"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977000"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Windows 중지 오류-0xC000021A 상태 시스템 프로세스가 종료 되었습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "91347771"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 부팅 하는 동안 OS에 오류가 발생 하는 메시지가 스크린샷에 표시 되 고 다음과 같은 메시지가 표시 됩니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 부팅 하는 동안 OS에 오류가 발생 하는 메시지가 스크린샷에 표시 되 고 다음과 같은 메시지가 표시 됩니다.
 
 **PC에서 문제가 발생 하 여 컴퓨터를 다시 시작 해야 합니다. 일부 오류 정보를 수집 하는 중 이므로 다시 시작할 수 있습니다. (# #% 완료) 자세히 알아보려면 나중에이 오류에 대해 온라인으로 검색할 수 있습니다. 0xC000021a**.
 
@@ -52,17 +52,17 @@ ms.locfileid: "91347771"
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>새 복구 VM에 OS 디스크를 연결 합니다.
 
-1.  [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
+1.  [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
 2.  **원격 데스크톱 연결**를 사용 하 여 복구 VM에 연결 합니다.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾고 지원 티켓을 제출 합니다.
 
 1.  복구 VM에서 연결 된 OS 디스크의 windows 폴더로 이동 합니다. 연결 된 OS 디스크에 할당 된 드라이버 문자가 F 인 경우 F:\Windows.로 이동 합니다.
 2.  Memory.dmp 파일을 찾은 다음 메모리 덤프 파일을 사용 하 여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 합니다.
-3.  Memory.dmp 파일을 찾는 데 문제가 있는 경우 대신 [직렬 콘솔에서 비 마스크 인터럽트 (NMI) 호출](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) 을 사용 하는 것이 좋습니다. 가이드에 따라 [여기에서 NMI 호출을 사용하여 크래시 덤프 파일을 생성](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)할 수 있습니다.
+3.  Memory.dmp 파일을 찾는 데 문제가 있는 경우 대신 [직렬 콘솔에서 비 마스크 인터럽트 (NMI) 호출](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) 을 사용 하는 것이 좋습니다. 가이드에 따라 [여기에서 NMI 호출을 사용하여 크래시 덤프 파일을 생성](/windows/client-management/generate-kernel-or-complete-crash-dump)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가 문제 해결 정보는 [일반적인 부팅 오류 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-error-troubleshoot) 또는 [OS 디스크를 복구 VM에 연결 하 여 Windows VM 문제를 해결 하는 방법](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows)을 참조 하세요. 또한 [부팅 진단을 사용 하 여 가상 컴퓨터의 문제를 해결 하는 방법을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)숙지 해야 합니다.
-- Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)를 참조하세요.
-- VM에 연결할 수 없는 경우 [AZURE vm에 대 한 RDP 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection)을 참조 하세요.
+- 추가 문제 해결 정보는 [일반적인 부팅 오류 문제 해결](./boot-error-troubleshoot.md) 또는 [OS 디스크를 복구 VM에 연결 하 여 Windows VM 문제를 해결 하는 방법](./troubleshoot-recovery-disks-windows.md)을 참조 하세요. 또한 [부팅 진단을 사용 하 여 가상 컴퓨터의 문제를 해결 하는 방법을](./boot-diagnostics.md)숙지 해야 합니다.
+- Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
+- VM에 연결할 수 없는 경우 [AZURE vm에 대 한 RDP 연결 문제 해결](./troubleshoot-rdp-connection.md)을 참조 하세요.

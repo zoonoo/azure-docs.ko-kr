@@ -2,13 +2,13 @@
 title: 템플릿 함수-논리적
 description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677392"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978512"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대 한 논리 함수
 
@@ -16,11 +16,13 @@ ms.locfileid: "84677392"
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
-## <a name="and"></a>및
+## <a name="and"></a>그리고
 
 `and(arg1, arg2, ...)`
 
@@ -28,7 +30,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
@@ -66,11 +68,11 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 ## <a name="bool"></a>bool
 
@@ -80,12 +82,17 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
+
 변환된 값의 부울입니다.
+
+### <a name="remarks"></a>설명
+
+[True ()](#true) 및 [false ()](#false) 를 사용 하 여 부울 값을 가져올 수도 있습니다.
 
 ### <a name="examples"></a>예
 
@@ -122,9 +129,47 @@ ms.locfileid: "84677392"
 | 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
-| falseString | Bool | False |
+| falseString | Bool | 거짓 |
 | trueInt | Bool | True |
-| falseInt | Bool | False |
+| falseInt | Bool | 거짓 |
+
+## <a name="false"></a>false
+
+`false()`
+
+false를 반환합니다.
+
+### <a name="parameters"></a>매개 변수
+
+False 함수는 매개 변수를 허용 하지 않습니다.
+
+### <a name="return-value"></a>반환 값
+
+항상 false 인 부울입니다.
+
+### <a name="example"></a>예제
+
+다음 예에서는 false 출력 값을 반환 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+위 예제의 출력은 다음과 같습니다.
+
+| Name | 유형 | 값 |
+| ---- | ---- | ----- |
+| falseOutput | Bool | 거짓 |
 
 ## <a name="if"></a>if
 
@@ -134,7 +179,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | condition(조건) |예 |boolean |True 인지 false 인지 확인 하는 값입니다. |
 | trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
@@ -177,7 +222,7 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
 | noOutput | String | 아니요 |
@@ -239,7 +284,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |변환할 값입니다. |
 
@@ -275,11 +320,11 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](template-functions-comparison.md#equals)에 **not**을 사용합니다.
 
@@ -300,7 +345,7 @@ ms.locfileid: "84677392"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -312,7 +357,7 @@ ms.locfileid: "84677392"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
@@ -350,11 +395,49 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
+
+## <a name="true"></a>true
+
+`true()`
+
+true를 반환합니다.
+
+### <a name="parameters"></a>매개 변수
+
+True 함수는 매개 변수를 허용 하지 않습니다.
+
+### <a name="return-value"></a>반환 값
+
+항상 true 인 부울입니다.
+
+### <a name="example"></a>예제
+
+다음 예에서는 실제 출력 값을 반환 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+위 예제의 출력은 다음과 같습니다.
+
+| Name | 유형 | 값 |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320101"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975555"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
-[Azure 프리미엄 SSD](disks-types.md)는 I/O 사용량이 많은 작업을 실행하는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 이 가이드에서는 사용자가 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하여 표준 스토리지 계정의 VM 디스크를 Premium Storage 계정으로 마이그레이션할 수 있도록 합니다.
+[Azure 프리미엄 SSD](../disks-types.md)는 I/O 사용량이 많은 작업을 실행하는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 이 가이드에서는 사용자가 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하여 표준 스토리지 계정의 VM 디스크를 Premium Storage 계정으로 마이그레이션할 수 있도록 합니다.
 
 Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 비즈니스 연속성 및 재해 복구에 대한 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치(failover)하여 애플리케이션과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. 
 
@@ -167,7 +167,7 @@ Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 �
 
    ![선택한 원본과 복제 창 사용][13]
 
-Azure Storage 환경을 디자인할 때 가용성 집합의 각 VM에 대해 별도의 스토리지 계정을 사용하는 것이 좋습니다. [각 가용성 집합에 여러 스토리지 계정 사용](../linux/manage-availability.md)을 위해서는 스토리지 계층의 모범 사례를 따는 것이 좋습니다. 여러 스토리지 계정에 VM 디스크를 배포하면 스토리지의 가용성이 향상되고 Azure Storage 인프라 전반에 걸쳐 I/O가 배포됩니다.
+Azure Storage 환경을 디자인할 때 가용성 집합의 각 VM에 대해 별도의 스토리지 계정을 사용하는 것이 좋습니다. [각 가용성 집합에 여러 스토리지 계정 사용](../manage-availability.md)을 위해서는 스토리지 계층의 모범 사례를 따는 것이 좋습니다. 여러 스토리지 계정에 VM 디스크를 배포하면 스토리지의 가용성이 향상되고 Azure Storage 인프라 전반에 걸쳐 I/O가 배포됩니다.
 
 VM이 모든 VM의 디스크를 하나의 스토리지 계정으로 복제하는 대신 가용성 집합에 있는 경우 여러 VM을 여러 번 마이그레이션하는 것이 좋습니다. 그러면 동일한 가용성 집합에 있는 VM이 단일 스토리지 계정을 공유하지 않습니다. **복제 사용** 창을 사용하여 한 번에 하나씩 각 VM에 대해 대상 스토리지 계정을 설정합니다.
  

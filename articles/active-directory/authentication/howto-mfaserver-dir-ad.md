@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9d8970387982e293d3c8495079e7529fac2ccaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949544"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966936"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
@@ -39,7 +39,7 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 > [!NOTE]
 > 디렉터리 통합은 Active Directory Domain Services 이외의 디렉터리에서 작동 하지 않을 수 있습니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
 | Active Directory 사용 |Active Directory 사용 옵션을 선택하면 가져오기 및 동기화를 위해 Active Directory를 사용합니다.  이 값은 기본 설정입니다. <br>참고: Active Directory 통합이 제대로 작동하려면 컴퓨터를 도메인에 가입하고 도메인 계정으로 로그인합니다. |
 | 트러스트된 도메인 포함 |**트러스트된 도메인 포함**을 선택하면 에이전트가 현재 도메인, 포리스트의 다른 도메인 또는 포리스트 트러스트와 관련된 도메인에서 트러스트된 도메인에 연결을 시도합니다.  트러스트된 도메인에서 사용자를 가져오거나 동기화하지 않을 때는 확인란을 선택 취소하여 성능을 향상시킵니다.  기본적으로 선택되어 있습니다. |
@@ -80,7 +80,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 
 ![MFA 서버에서 디렉터리 통합 특성 사용자 지정](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
 | 고유 식별자 |컨테이너, 보안 그룹 및 사용자 레코드의 고유 식별자 역할을 하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 objectGUID입니다. 다른 LDAP 구현은 entryUUID 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 objectGUID입니다. |
 | 고유 식별자 형식 |고유 식별자 특성의 형식을 선택합니다.  Active Directory에서 objectGUID 특성은 GUID 형식입니다. 다른 LDAP 구현은 ASCII 바이트 배열 또는 문자열 형식을 사용할 수 있습니다.  기본값은 GUID입니다. <br><br>동기화 항목은 해당 고유 식별자에서 참조되므로 이 형식을 올바르게 설정하는 것이 중요합니다. 고유 식별자 형식은 디렉터리에서 개체를 직접 찾는 데 사용됩니다.  디렉터리에서 ASCII 문자의 바이트 배열로 값을 실제로 저장할 때 이 형식을 문자열로 설정하게 되면 동기화가 제대로 기능하지 않게 됩니다. |
@@ -92,7 +92,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 성 |사용자 레코드에 성을 포함하는 특성의 이름을 입력합니다.  기본값은 sn입니다. |
 | 전자 메일 주소 |사용자 레코드에 메일 주소를 포함하는 특성의 이름을 입력합니다.  메일 주소는 사용자에게 시작 및 업데이트 메일을 보낼 때 사용됩니다.  기본값은 mail입니다. |
 | 사용자 그룹 |사용자 레코드에 사용자 그룹을 포함하는 특성의 이름을 입력합니다.  사용자 그룹은 에이전트 및 Multi-Factor Auth 서버 관리 포털의 보고서에서 사용자를 필터링할 때 사용됩니다. |
-| 설명 |사용자 레코드에 대한 설명을 포함하는 특성의 이름을 입력합니다.  설명은 검색을 위해서만 사용됩니다.  기본값은 description입니다. |
+| Description |사용자 레코드에 대한 설명을 포함하는 특성의 이름을 입력합니다.  설명은 검색을 위해서만 사용됩니다.  기본값은 description입니다. |
 | 전화 통화 언어 |사용자에 대한 음성 통화에 사용할 언어의 짧은 이름을 포함하는 특성의 이름을 입력합니다. |
 | 문자 메시지 언어 |사용자에 대한 SMS 문자 메시지에 사용할 언어의 짧은 이름을 포함하는 특성의 이름을 입력합니다. |
 | 모바일 앱 언어 |사용자에 대한 휴대폰 앱 문자 메시지에 사용할 언어의 짧은 이름을 포함하는 특성의 이름을 입력합니다. |
@@ -104,7 +104,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 팩스 |사용자 레코드에 팩스 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 facsimileTelephoneNumber입니다. |
 | IP 전화 |사용자 레코드에 IP 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 ipphone입니다. |
 | 사용자 지정 |사용자 레코드에 사용자 지정 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 없습니다. |
-| 내선 번호 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
+| 확장명 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
 | 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원**을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
 
 특성을 편집 하려면 특성 탭에서 **편집** 을 클릭 합니다.  그러면 특성을 편집할 수 있는 창이 표시 됩니다. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
@@ -125,7 +125,7 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 
 다음 표는 각 동기화 탭 설정에 대한 추가 정보를 포함합니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
 | Active Directory와 동기화 사용 |이것을 선택하면 Multi-Factor Auth 서버 서비스가 변경 사항에 대해 Active Directory를 정기적으로 폴링합니다. <br><br>참고: 하나 이상의 동기화 항목이 추가되고 지금 동기화를 실행해야만 Multi-Factor Auth 서버 서비스가 변경 사항을 처리하기 시작합니다. |
 | 동기화 간격 |변경 사항을 폴링한 상태에서 Multi-Factor Auth 서버 서비스가 변경 사항을 처리하기 시작할 때까지 대기하는 시간 간격을 지정합니다. <br><br> 참고: 지정된 간격은 한 주기를 시작한 후 다음 주기를 시작할 때까지 대기하는 시간입니다.  변경 사항을 처리하는 시간이 이 간격을 초과하게 되면 서비스가 즉시 다시 폴링합니다. |

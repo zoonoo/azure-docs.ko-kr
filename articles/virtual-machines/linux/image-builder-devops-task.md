@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068274"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968670"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
 
@@ -31,8 +31,8 @@ ms.locfileid: "88068274"
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.
 * 파이프라인에서 사용 하는 구독에서 이미지 작성기 기능 요구 사항을 등록 하 고 사용 하도록 설정 합니다.
-    * [Az PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#register-features)
-    * [Az CLI](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder#register-the-features)
+    * [Az PowerShell](../windows/image-builder-powershell.md#register-features)
+    * [Az CLI](../windows/image-builder.md#register-the-features)
     
 * 원본 이미지 리소스 그룹에서 표준 Azure Storage 계정을 만들어 다른 리소스 그룹/저장소 계정을 사용할 수 있습니다. 저장소 계정은 DevOps 작업에서 이미지로 빌드 아티팩트를 전송 하는 데 사용 됩니다.
 
@@ -65,20 +65,20 @@ ms.locfileid: "88068274"
 
 드롭다운 메뉴에서 이미지 작성기를 실행 하는 데 사용할 구독을 선택 합니다. 원본 이미지가 있고 이미지를 배포할 위치와 동일한 구독을 사용 합니다. 구독 또는 리소스 그룹에 대 한 이미지 작성기 참가자 액세스 권한을 부여 해야 합니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource Group
 
 임시 이미지 템플릿 아티팩트가 저장 될 리소스 그룹을 사용 합니다. 템플릿 아티팩트를 만들 때 추가 임시 이미지 작성기 리소스 그룹이 `IT_<DestinationResourceGroup>_<TemplateName>_guid` 만들어집니다. 임시 리소스 그룹은 스크립트와 같은 이미지 메타 데이터를 저장 합니다. 작업이 끝나면 이미지 템플릿 아티팩트와 임시 이미지 작성기 리소스 그룹이 삭제 됩니다.
  
 ### <a name="location"></a>위치
 
-위치는 이미지 작성기가 실행 될 지역입니다. 집합 수의 [지역](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) 만 지원 됩니다. 원본 이미지가이 위치에 있어야 합니다. 예를 들어 공유 이미지 갤러리를 사용 하는 경우 복제본이 해당 지역에 있어야 합니다.
+위치는 이미지 작성기가 실행 될 지역입니다. 집합 수의 [지역](../windows/image-builder-overview.md#regions) 만 지원 됩니다. 원본 이미지가이 위치에 있어야 합니다. 예를 들어 공유 이미지 갤러리를 사용 하는 경우 복제본이 해당 지역에 있어야 합니다.
 
 ### <a name="managed-identity-required"></a>관리 Id (필수)
-이미지 작성기를 사용 하려면 원본 사용자 지정 이미지를 읽고, Azure Storage에 연결 하 고, 사용자 지정 이미지를 만드는 데 사용 하는 관리 Id가 필요 합니다. 자세한 내용은 [여기](https://aka.ms/azvmimagebuilder#permissions)를 참조하세요.
+이미지 작성기를 사용 하려면 원본 사용자 지정 이미지를 읽고, Azure Storage에 연결 하 고, 사용자 지정 이미지를 만드는 데 사용 하는 관리 Id가 필요 합니다. 자세한 내용은 [여기](./image-builder-overview.md#permissions)를 참조하세요.
 
 ### <a name="vnet-support"></a>VNET 지원
 
-현재 DevOps 태스크는 기존 서브넷을 지정 하는 것을 지원 하지 않습니다 .이는 로드맵에 있지만, 기존 VNET을 활용 하려는 경우에는 포함 된 이미지 작성기 템플릿을 사용 하 여 ARM 템플릿을 사용 하거나,이 작업을 수행 하는 방법에 대 한 Windows 이미지 빌더 템플릿 예제를 참조 하거나 [AZ AIB PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell)을 사용 하십시오.
+현재 DevOps 태스크는 기존 서브넷을 지정 하는 것을 지원 하지 않습니다 .이는 로드맵에 있지만, 기존 VNET을 활용 하려는 경우에는 포함 된 이미지 작성기 템플릿을 사용 하 여 ARM 템플릿을 사용 하거나,이 작업을 수행 하는 방법에 대 한 Windows 이미지 빌더 템플릿 예제를 참조 하거나 [AZ AIB PowerShell](../windows/image-builder-powershell.md)을 사용 하십시오.
 
 ### <a name="source"></a>원본
 
@@ -194,7 +194,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     
 #### <a name="total-length-of-image-build"></a>이미지 빌드의 총 길이
 
-DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다. 240 분의 기본값을 사용 합니다. [BuildTimeoutInMinutes](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#properties-buildtimeoutinminutes)를 증가 시키려면 릴리스 파이프라인에서 AZ CLI 작업을 사용할 수 있습니다. 템플릿을 복사 하 고 제출 하도록 태스크를 구성 합니다. 예제는이 [솔루션](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)을 참조 하거나 Az PowerShell을 사용 합니다.
+DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다. 240 분의 기본값을 사용 합니다. [BuildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes)를 증가 시키려면 릴리스 파이프라인에서 AZ CLI 작업을 사용할 수 있습니다. 템플릿을 복사 하 고 제출 하도록 태스크를 구성 합니다. 예제는이 [솔루션](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)을 참조 하거나 Az PowerShell을 사용 합니다.
 
 
 #### <a name="storage-account"></a>스토리지 계정

@@ -2,14 +2,14 @@
 title: 아티팩트 전송
 description: Azure storage 계정을 사용 하 여 전송 파이프라인을 만들어 한 컨테이너 레지스트리에서 다른 컨테이너로 이미지 또는 기타 아티팩트의 컬렉션 전송
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253414"
+ms.locfileid: "91932603"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -21,7 +21,7 @@ ms.locfileid: "91253414"
 * Blob이 원본 저장소 계정에서 대상 저장소 계정으로 복사 됩니다.
 * 대상 저장소 계정의 blob을 대상 레지스트리에서 아티팩트로 가져옵니다. 대상 저장소에서 아티팩트 blob이 업데이트 될 때마다 트리거되도록 가져오기 파이프라인을 설정할 수 있습니다.
 
-전송은 물리적으로 연결이 끊어진 클라우드의 두 Azure 컨테이너 레지스트리 간에 콘텐츠를 복사 하는 데 이상적 이며 각 클라우드의 저장소 계정으로 조정. Docker 허브 및 기타 클라우드 공급 업체를 포함 하 여 연결 된 클라우드의 컨테이너 레지스트리에서 이미지를 복사 하는 경우 대신 [이미지 가져오기를](container-registry-import-images.md) 권장 합니다.
+전송은 물리적으로 연결이 끊어진 클라우드의 두 Azure 컨테이너 레지스트리 간에 콘텐츠를 복사 하는 데 이상적 이며 각 클라우드의 저장소 계정으로 조정. Docker 허브 및 기타 클라우드 공급 업체를 포함 하 여 연결 된 클라우드의 컨테이너 레지스트리에서 이미지를 복사 하려는 경우 [이미지 가져오기를](container-registry-import-images.md) 권장 합니다.
 
 이 문서에서는 Azure Resource Manager 템플릿 배포를 사용 하 여 전송 파이프라인을 만들고 실행 합니다. Azure CLI는 저장소 암호와 같은 연결 된 리소스를 프로 비전 하는 데 사용 됩니다. Azure CLI 버전 2.2.0 이상을 권장 합니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
@@ -32,11 +32,18 @@ ms.locfileid: "91253414"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **컨테이너 레지스트리** -전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요 합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동 하기 위한 것입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일 하거나 다른 Azure 구독, Active Directory 테 넌 트 또는 클라우드에 있을 수 있습니다. 레지스트리를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 
-* **저장소 계정** -구독 및 사용자가 선택한 위치에 원본 및 대상 저장소 계정을 만듭니다. 테스트를 위해 원본 및 대상 레지스트리로 동일한 구독 또는 구독을 사용할 수 있습니다. 클라우드 간 시나리오의 경우 일반적으로 각 클라우드에서 별도의 저장소 계정을 만듭니다. 필요한 경우 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) 또는 다른 도구를 사용 하 여 저장소 계정을 만듭니다. 
+* **컨테이너 레지스트리** -전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요 합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동 하기 위한 것입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일 하거나 다른 Azure 구독, Active Directory 테 넌 트 또는 클라우드에 있을 수 있습니다. 
+
+   레지스트리를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 
+* **저장소 계정** -구독 및 사용자가 선택한 위치에 원본 및 대상 저장소 계정을 만듭니다. 테스트를 위해 원본 및 대상 레지스트리로 동일한 구독 또는 구독을 사용할 수 있습니다. 클라우드 간 시나리오의 경우 일반적으로 각 클라우드에서 별도의 저장소 계정을 만듭니다. 
+
+  필요한 경우 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) 또는 다른 도구를 사용 하 여 저장소 계정을 만듭니다. 
 
   각 계정에서 아티팩트 전송을 위한 blob 컨테이너를 만듭니다. 예를 들어 *transfer*라는 컨테이너를 만듭니다. 두 개 이상의 전송 파이프라인이 동일한 저장소 계정을 공유할 수 있지만 다른 저장소 컨테이너 범위를 사용 해야 합니다.
-* **키 자격 증명 모음** -키 자격 증명 모음은 원본 및 대상 저장소 계정에 액세스 하는 데 사용 되는 SAS 토큰 암호를 저장 하는 데 필요 원본 및 대상 레지스트리와 동일한 Azure 구독 또는 구독에 원본 및 대상 키 자격 증명 모음을 만듭니다. 필요한 경우 [Azure CLI](../key-vault/secrets/quick-create-cli.md) 또는 다른 도구를 사용 하 여 키 자격 증명 모음을 만듭니다.
+* **키 자격 증명 모음** -키 자격 증명 모음은 원본 및 대상 저장소 계정에 액세스 하는 데 사용 되는 SAS 토큰 암호를 저장 하는 데 필요 원본 및 대상 레지스트리와 동일한 Azure 구독 또는 구독에 원본 및 대상 키 자격 증명 모음을 만듭니다. 데모용으로이 문서에 사용 된 템플릿과 명령은 원본 및 대상 키 자격 증명 모음이 각각 원본 및 대상 레지스트리와 동일한 리소스 그룹에 있는 것으로 가정 합니다. 이러한 공용 리소스 그룹 사용은 필요 하지 않지만이 문서에서 사용 되는 템플릿 및 명령을 단순화 합니다.
+
+   필요한 경우 [Azure CLI](../key-vault/secrets/quick-create-cli.md) 또는 다른 도구를 사용 하 여 키 자격 증명 모음을 만듭니다.
+
 * **환경 변수** -이 문서의 예에는 원본 및 대상 환경에 대해 다음과 같은 환경 변수를 설정 합니다. 모든 예제는 Bash 셸에 대해 서식 지정 됩니다.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -62,7 +69,7 @@ ms.locfileid: "91253414"
 
 ### <a name="things-to-know"></a>알아야 할 사항
 * ExportPipeline 및 ImportPipeline은 일반적으로 원본 및 대상 클라우드와 연결 된 다른 Active Directory 테 넌 트에 있습니다. 이 시나리오에는 내보내기 및 가져오기 리소스에 대 한 별도의 관리 되는 id 및 키 자격 증명 모음이 필요 합니다. 이러한 리소스는 테스트 목적으로 동일한 클라우드에서 id를 공유 하 여 배치할 수 있습니다.
-* 파이프라인 예제에서는 시스템 할당 관리 되는 id를 만들어 키 자격 증명 모음 비밀에 액세스 합니다. ExportPipelines ImportPipelines은 사용자 할당 id도 지원 합니다. 이 경우 id에 대 한 액세스 정책을 사용 하 여 키 자격 증명 모음을 구성 해야 합니다. 
+* 기본적으로 ExportPipeline 및 ImportPipeline 템플릿은 각각 시스템 할당 관리 id를 사용 하 여 키 자격 증명 모음 비밀에 액세스 합니다. ExportPipeline 및 ImportPipeline 템플릿은 사용자가 제공한 id도 지원 합니다. 
 
 ## <a name="create-and-store-sas-keys"></a>SAS 키 만들기 및 저장
 
@@ -152,7 +159,13 @@ ExportPipeline 리소스 관리자 [템플릿 파일](https://github.com/Azure/a
 
 ### <a name="create-the-resource"></a>리소스 만들기
 
-[Az deployment group create][az-deployment-group-create] 를 실행 하 여 리소스를 만듭니다. 다음 예제에서는 배포 *Exportpipeline*의 이름을로 합니다.
+다음 예제와 같이 [az deployment group create][az-deployment-group-create] 를 실행 하 여 *exportpipeline* 이라는 리소스를 만듭니다. 기본적으로 첫 번째 옵션을 사용 하면 예제 템플릿이 ExportPipeline 리소스에서 시스템 할당 id를 사용 하도록 설정 합니다. 
+
+두 번째 옵션을 사용 하 여 리소스에 사용자 할당 id를 제공할 수 있습니다. 사용자 할당 id 생성은 표시 되지 않습니다.
+
+두 옵션 중 하나를 사용 하는 경우 템플릿은 내보내기 키 자격 증명 모음에서 SAS 토큰에 액세스 하는 id를 구성 합니다. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>옵션 1: 리소스 만들기 및 시스템 할당 id 사용
 
 ```azurecli
 az deployment group create \
@@ -162,10 +175,23 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>옵션 2: 리소스 만들기 및 사용자 할당 id 제공
+
+이 명령에서 사용자 할당 id의 리소스 ID를 추가 매개 변수로 제공 합니다.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 명령 출력에서 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
@@ -198,20 +224,39 @@ ImportPipeline 리소스 관리자 [템플릿 파일](https://github.com/Azure/a
 
 ### <a name="create-the-resource"></a>리소스 만들기
 
-[Az deployment group create][az-deployment-group-create] 를 실행 하 여 리소스를 만듭니다.
+다음 예제와 같이 [az deployment group create][az-deployment-group-create] 를 실행 하 여 *importpipeline* 이라는 리소스를 만듭니다. 기본적으로 첫 번째 옵션을 사용 하면 예제 템플릿이 ImportPipeline 리소스에서 시스템 할당 id를 사용 하도록 설정 합니다. 
+
+두 번째 옵션을 사용 하 여 리소스에 사용자 할당 id를 제공할 수 있습니다. 사용자 할당 id 생성은 표시 되지 않습니다.
+
+두 옵션 중 하나를 사용 하는 경우 템플릿은 가져오기 키 자격 증명 모음에서 SAS 토큰에 액세스 하는 id를 구성 합니다. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>옵션 1: 리소스 만들기 및 시스템 할당 id 사용
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>옵션 2: 리소스 만들기 및 사용자 할당 id 제공
+
+이 명령에서 사용자 할당 id의 리소스 ID를 추가 매개 변수로 제공 합니다.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show] 명령을 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
@@ -246,12 +291,22 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+나중에 사용 하려면 파이프라인 실행의 리소스 ID를 환경 변수에 저장 합니다.
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 아티팩트를 내보내는 데 몇 분 정도 걸릴 수 있습니다. 배포가 성공적으로 완료 되 면 원본 저장소 계정의 *전송* 컨테이너에서 내보낸 blob을 나열 하 여 아티팩트 내보내기를 확인 합니다. 예를 들어 [az storage blob list][az-storage-blob-list] 명령을 실행 합니다.
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
@@ -300,11 +355,21 @@ PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
 
-배포가 성공적으로 완료 되 면 대상 컨테이너 레지스트리의 리포지토리를 나열 하 여 아티팩트 가져오기를 확인 합니다. 예를 들어 [az acr repository list][az-acr-repository-list]를 실행 합니다.
+나중에 사용 하려면 파이프라인 실행의 리소스 ID를 환경 변수에 저장 합니다.
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+
+When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -329,20 +394,20 @@ az deployment group create \
 
 ## <a name="delete-pipeline-resources"></a>파이프라인 리소스 삭제
 
-파이프라인 리소스를 삭제 하려면 [az deployment group delete][az-deployment-group-delete] 명령을 사용 하 여 해당 리소스 관리자 배포를 삭제 합니다. 다음 예에서는이 문서에서 만든 파이프라인 리소스를 삭제 합니다.
+다음 명령 예제에서는 [az resource delete][az-resource-delete] 를 사용 하 여이 문서에서 만든 파이프라인 리소스를 삭제 합니다. 리소스 Id는 이전에 환경 변수에 저장 되었습니다.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -374,8 +439,6 @@ az deployment group delete \
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
@@ -387,3 +450,4 @@ az deployment group delete \
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

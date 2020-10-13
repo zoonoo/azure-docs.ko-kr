@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: f8a40f87b8fdaa2adf445392bd598dd8133aae4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4182b983b976949103d4eae7dbbf6b08bc164c53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335904"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979005"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-가용성 집합 만들기는 선택 사항이지만 만드는 것이 좋습니다. 자세한 내용은 [Azure 가용성 집합 지침](../../windows/infrastructure-example.md)을 참조하세요.
+가용성 집합 만들기는 선택 사항이지만 만드는 것이 좋습니다. 자세한 내용은 [Azure 가용성 집합 지침](/previous-versions/azure/virtual-machines/windows/infrastructure-example)을 참조하세요.
 
 ```azurecli
 az vm availability-set create \

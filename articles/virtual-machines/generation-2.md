@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322973"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977598"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -89,7 +89,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 |---------|--------------|--------------|
 | 부팅             | PCAT                      | UEFI                               |
 | 디스크 컨트롤러 | IDE                       | SCSI                               |
-| VM 크기         | 모든 VM 크기 | [사용 가능한 크기 보기](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
+| VM 크기         | 모든 VM 크기 | [사용 가능한 크기 보기](#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>1세대와 2세대 간 기능 비교
 
@@ -222,4 +222,3 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 ## <a name="next-steps"></a>다음 단계
 
 [Hyper-V의 2세대 가상 머신](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.
-

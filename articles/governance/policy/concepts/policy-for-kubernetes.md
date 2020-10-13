@@ -3,12 +3,12 @@ title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540254"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951539"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -57,6 +57,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 - Azure Policy 추가 기능 외부에서 게이트 키퍼 설치가 지원 되지 않습니다. Azure Policy 추가 기능을 사용 하도록 설정 하기 전에 이전 게이트 키퍼 설치를 통해 설치 된 모든 구성 요소를 제거 합니다.
 - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) `Microsoft.Kubernetes.Data` 
    [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 비호환의 원인을 사용할 수 없습니다. [구성 요소 세부 정보](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes)를 사용 합니다.
+- [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 [예외가](./exemption-structure.md) 지원 되지 않습니다.
 
 다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
 

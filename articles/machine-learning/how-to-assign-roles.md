@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: ab94af9ec172a3e88d523024c1e00d3a0d944798
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873084"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966409"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -66,6 +66,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Azure Machine Learning 작업
 
 많은 작업 및 작업에 대 한 기본 제공 작업을 Azure Machine Learning 합니다. 전체 목록은 [Azure 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)을 참조 하세요.
+
+## <a name="mlflow-operations-in-azure-machine-learning"></a>Azure Machine learning의 MLflow 작업
+
+이 표에서는 MLflow 작업을 수행 하기 위해 만든 사용자 지정 역할의 작업에 추가 해야 하는 권한 범위에 대해 설명 합니다.
+
+| MLflow 작업 | 범위 |
+| --- | --- |
+| 작업 영역 추적 저장소의 모든 실험을 나열 하 고, id로 실험을 가져오고, 이름별로 실험을 가져옵니다. | MachineLearningServices/작업 영역/실험/읽기 |
+| 이름으로 실험을 만들고, 실험에서 태그를 설정 하 고, 삭제 하도록 표시 된 실험을 복원 합니다.| MachineLearningServices/작업 영역/실험/쓰기 | 
+| 실험 삭제 | MachineLearningServices/작업 영역/실험/삭제 |
+| 실행 및 관련 데이터 및 메타 데이터를 가져오고, 지정 된 실행에 대해 지정 된 메트릭에 대 한 모든 값의 목록을 가져오고, 실행에 대 한 아티팩트를 나열 합니다. | MachineLearningServices/작업 영역/실험/실행/읽기 |
+| 실험 내에서 새 실행을 만들고, 실행을 삭제 하 고, 삭제 된 실행을 복원 하 고, 현재 실행에 대 한 태그를 설정 하 고, 실행에 사용 되는 실행에 대 한 태그를 삭제 하 고, 실행에 사용 되는 로그 매개 변수 (키-값 쌍)를 삭제 합니다. | MachineLearningServices/작업 영역/실험/실행/쓰기 |
+| 이름으로 등록 된 모델을 가져오고, 레지스트리에서 등록 된 모든 모델의 목록을 가져오고, 등록 된 모델을 검색 하 고, 각 요청에 대 한 최신 버전 모델을 검색 하 고, 등록 된 모델 버전을 가져오고, 모델 버전을 검색 하 고, 모델 버전의 아티팩트가 저장 된 URI를 가져오고, 실험 id로 실행을 검색 합니다. | MachineLearningServices/작업 영역/모델/읽기 |
+| 새 등록 된 모델 만들기, 등록 된 모델의 이름/설명 업데이트, 기존 등록 된 모델 이름 바꾸기, 새 버전의 모델 만들기, 모델 버전 설명 업데이트, 등록 된 모델을 단계 중 하나로 전환 | MachineLearningServices/작업 영역/모델/쓰기 |
+| 등록 된 모델을 모든 버전과 함께 삭제 하 고 등록 된 모델의 특정 버전을 삭제 합니다. | MachineLearningServices/작업 영역/모델/삭제 |
+
 
 ## <a name="create-custom-role"></a>사용자 지정 역할 만들기
 
@@ -253,6 +269,46 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
         ]
     }
     ```
+     
+* __Mlflow Data 과학자 Custom__: 데이터 과학자가 다음을 **제외한**모든 mlflow AzureML 지원 작업을 수행할 수 있도록 허용 합니다.
+
+   * 계산 만들기
+   * 프로덕션 AKS 클러스터에 모델 배포
+   * 프로덕션 환경에 파이프라인 끝점 배포
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __Mlops 사용자 지정__: 서비스 주체에 역할을 할당 하 고이를 사용 하 여 mlops 파이프라인을 자동화할 수 있습니다. 예를 들어 이미 게시 된 파이프라인에 대해 실행을 제출 하려면 다음을 수행 합니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598072"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978172"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 SAP HANA 확장의 고가용성
 
@@ -93,9 +93,9 @@ ms.locfileid: "91598072"
 
 ## <a name="overview"></a>개요
 
-일반적으로 수직 확장 환경에서는 SAP HANA의 모든 파일 시스템이 로컬 저장소에서 탑재 됩니다. Red Hat Enterprise Linux에서 SAP HANA 시스템 복제의 고가용성을 설정 하는 기능은 [RHEL에서 SAP HANA 시스템 복제 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) 가이드에 게시 됩니다.
+일반적으로 수직 확장 환경에서는 SAP HANA의 모든 파일 시스템이 로컬 저장소에서 탑재 됩니다. Red Hat Enterprise Linux에서 SAP HANA 시스템 복제의 고가용성을 설정 하는 기능은 [RHEL에서 SAP HANA 시스템 복제 설정](./sap-hana-high-availability-rhel.md) 가이드에 게시 됩니다.
 
-[Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) nfs 공유에 대 한 확장 시스템의 고가용성을 SAP HANA 하려면 클러스터에 몇 가지 추가 리소스 구성이 필요 합니다 .이 경우 HANA 리소스를 복구 하려면 한 노드가 ANF의 NFS 공유에 대 한 액세스 권한을 잃게 됩니다.  클러스터는 NFS 탑재를 관리 하 여 리소스의 상태를 모니터링할 수 있도록 합니다. 파일 시스템 탑재와 SAP HANA 리소스 간의 종속성이 적용 됩니다.  
+[Azure NetApp Files](../../../azure-netapp-files/index.yml) nfs 공유에 대 한 확장 시스템의 고가용성을 SAP HANA 하려면 클러스터에 몇 가지 추가 리소스 구성이 필요 합니다 .이 경우 HANA 리소스를 복구 하려면 한 노드가 ANF의 NFS 공유에 대 한 액세스 권한을 잃게 됩니다.  클러스터는 NFS 탑재를 관리 하 여 리소스의 상태를 모니터링할 수 있도록 합니다. 파일 시스템 탑재와 SAP HANA 리소스 간의 종속성이 적용 됩니다.  
 
 ![ANF의 SAP HANA HA 확장](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
 
@@ -125,29 +125,29 @@ SAP HANA 시스템 복제 구성은 전용 가상 호스트 이름 및 가상 IP
 
 ## <a name="set-up-the-azure-netapp-file-infrastructure"></a>Azure NetApp 파일 인프라 설정
 
-Azure NetApp Files 인프라를 설정 하는 과정을 진행 하기 전에 Azure [Netapp 파일 설명서](https://docs.microsoft.com/azure/azure-netapp-files/)를 숙지 하세요.
+Azure NetApp Files 인프라를 설정 하는 과정을 진행 하기 전에 Azure [Netapp 파일 설명서](../../../azure-netapp-files/index.yml)를 숙지 하세요.
 
 Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용할 수 있습니다. 선택한 Azure 지역에서 Azure NetApp Files를 제공 하는지 확인 합니다.
 
 Azure 지역에서 Azure NetApp Files 가용성에 대 한 자세한 내용은 [Azure 지역별 가용성 Azure NetApp Files](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)을 참조 하세요.
 
-Azure NetApp Files를 배포 하기 전에 [Azure NetApp Files 지침에 등록](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)하 여 Azure NetApp Files에 대 한 온 보 딩을 요청 합니다.
+Azure NetApp Files를 배포 하기 전에 [Azure NetApp Files 지침에 등록](../../../azure-netapp-files/azure-netapp-files-register.md)하 여 Azure NetApp Files에 대 한 온 보 딩을 요청 합니다.
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포
 
-다음 지침에서는 이미 [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 배포 했다고 가정 합니다. Azure NetApp Files 리소스가 탑재 되는 Azure NetApp Files 리소스 및 Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual networks에 배포 되어야 합니다.
+다음 지침에서는 이미 [Azure virtual network](../../../virtual-network/virtual-networks-overview.md)를 배포 했다고 가정 합니다. Azure NetApp Files 리소스가 탑재 되는 Azure NetApp Files 리소스 및 Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual networks에 배포 되어야 합니다.
 
-1. 리소스를 아직 배포 하지 않은 경우 [Azure NetApp Files에 대 한 온 보 딩](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)을 요청 합니다.
+1. 리소스를 아직 배포 하지 않은 경우 [Azure NetApp Files에 대 한 온 보 딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청 합니다.
 
-2. [Netapp 계정 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)의 지침에 따라 선택한 Azure 지역에서 netapp 계정을 만듭니다.
+2. [Netapp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 netapp 계정을 만듭니다.
 
-3.  [Azure NetApp Files 용량 풀 설정](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)의 지침에 따라 Azure NetApp Files 용량 풀을 설정 합니다.
+3.  [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정 합니다.
 
-    이 문서에 제공 된 HANA 아키텍처는 *Ultra* Service 수준에서 단일 Azure NetApp Files 용량 풀을 사용 합니다. Azure의 HANA 워크 로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)사용 하는 것이 좋습니다.
+    이 문서에 제공 된 HANA 아키텍처는 *Ultra* Service 수준에서 단일 Azure NetApp Files 용량 풀을 사용 합니다. Azure의 HANA 워크 로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준을](../../../azure-netapp-files/azure-netapp-files-service-levels.md)사용 하는 것이 좋습니다.
 
-4.  [Azure NetApp Files에 서브넷 위임](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)의 지침에 설명 된 대로 Azure NetApp Files에 서브넷을 위임 합니다.
+4.  [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 설명 된 대로 Azure NetApp Files에 서브넷을 위임 합니다.
 
-5.  [Azure NetApp Files에 대 한 NFS 볼륨 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)의 지침에 따라 Azure NetApp Files 볼륨을 배포 합니다.
+5.  [Azure NetApp Files에 대 한 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)의 지침에 따라 Azure NetApp Files 볼륨을 배포 합니다.
 
     볼륨을 배포할 때 NFSv 4.1 버전을 선택 해야 합니다. 지정된 Azure NetApp Files 서브넷에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다.
 
@@ -171,10 +171,10 @@ SAP HANA 확장 시스템에 대 한 Azure NetApp Files를 만들 때 다음 사
 
 - 최소 용량 풀은 4 tebibytes (TiB)입니다.
 - 최소 볼륨 크기는 100 GiB (바이트)입니다.
-- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 될 모든 가상 머신은 동일한 지역의 동일한 Azure 가상 네트워크 또는 [피어 링 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 에 있어야 합니다.
+- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 될 모든 가상 머신은 동일한 지역의 동일한 Azure 가상 네트워크 또는 [피어 링 가상 네트워크](../../../virtual-network/virtual-network-peering-overview.md) 에 있어야 합니다.
 - 선택한 가상 네트워크에 Azure NetApp Files로 위임 된 서브넷이 있어야 합니다.
-- Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명 된 볼륨 할당량 및 서비스 수준의 기능입니다. HANA Azure NetApp 볼륨의 크기를 조정 하는 경우 결과 처리량이 HANA 시스템 요구 사항을 충족 하는지 확인 합니다.
-- Azure NetApp Files [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)사용 하면 허용 되는 클라이언트, 액세스 유형 (읽기-쓰기, 읽기 전용 등)을 제어할 수 있습니다.
+- Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명 된 볼륨 할당량 및 서비스 수준의 기능입니다. HANA Azure NetApp 볼륨의 크기를 조정 하는 경우 결과 처리량이 HANA 시스템 요구 사항을 충족 하는지 확인 합니다.
+- Azure NetApp Files [내보내기 정책을](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)사용 하면 허용 되는 클라이언트, 액세스 유형 (읽기-쓰기, 읽기 전용 등)을 제어할 수 있습니다.
 - Azure NetApp Files 기능이 아직 영역을 인식 하지 않습니다. 현재이 기능은 Azure 지역의 모든 가용성 영역에 배포 되지 않습니다. 일부 Azure 지역에서 잠재적 대기 시간 영향을 염두에 두어야 합니다.
 
 > [!IMPORTANT]
@@ -182,7 +182,7 @@ SAP HANA 확장 시스템에 대 한 Azure NetApp Files를 만들 때 다음 사
 
 ### <a name="sizing-of-hana-database-on-azure-netapp-files"></a>Azure NetApp Files HANA 데이터베이스 크기 조정
 
-Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명 된 대로 볼륨 크기 및 서비스 수준의 기능입니다.
+Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명 된 대로 볼륨 크기 및 서비스 수준의 기능입니다.
 
 Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변환 되는 SAP의 최소 저장소 요구 사항에 주의 해야 합니다.
 
@@ -190,7 +190,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 - 16mb 및 64 MB i/o 크기에 대 한/hana/data에 대 한 최소 400 m b/초 읽기 작업입니다.
 - 16mb 및 64 MB i/o 크기를 사용 하는/hana/data에 대 한 최소 250 m b/s의 쓰기 작업입니다.
 
-볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)는 다음과 같습니다.
+볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](../../../azure-netapp-files/azure-netapp-files-service-levels.md)는 다음과 같습니다.
 
 - Premium Storage 계층-64 MiB/s.
 - Ultra Storage 계층-128 MiB/s.
@@ -256,7 +256,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
         1.  **확인**을 선택합니다.
 
 > [!NOTE] 
-> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 공용 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하여 Virtual Machines에 대한 공용 엔드포인트 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조하세요.
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 공용 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하여 Virtual Machines에 대한 공용 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.
 
 9. 또는 시나리오에서 기본 부하 분산 장치를 사용하는 경우 다음 구성 단계를 수행합니다.
     1.  부하 분산 장치를 구성합니다. 먼저 프런트 엔드 IP 풀을 만듭니다.
@@ -308,7 +308,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694)에 있는 [테 넌 트 데이터베이스에](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 대 한 연결 챕터를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요. 또한 SAP 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요. 또한 SAP 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Azure NetApp Files 볼륨 탑재
 
@@ -457,7 +457,7 @@ SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 �
 
 ## <a name="configure-sap-hana-system-replication"></a>SAP HANA 시스템 복제 구성
 
-[SAP HANA 시스템 복제](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) 설정의 단계에 따라 SAP HANA 시스템 복제를 구성 합니다. 
+[SAP HANA 시스템 복제](./sap-hana-high-availability-rhel.md#configure-sap-hana-20-system-replication) 설정의 단계에 따라 SAP HANA 시스템 복제를 구성 합니다. 
 
 ## <a name="cluster-configuration"></a>클러스터 구성
 
@@ -465,7 +465,7 @@ SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 �
 
 ### <a name="create-a-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
-Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 의 단계에 따라이 HANA 서버에 대 한 기본 Pacemaker 클러스터를 만듭니다.
+Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](./high-availability-guide-rhel-pacemaker.md) 의 단계에 따라이 HANA 서버에 대 한 기본 Pacemaker 클러스터를 만듭니다.
 
 ### <a name="configure-filesystem-resources"></a>파일 시스템 리소스 구성
 
@@ -540,7 +540,7 @@ Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](https://docs.microsoft.c
 
 ### <a name="configure-sap-hana-cluster-resources"></a>클러스터 리소스 SAP HANA 구성
 
-1. 클러스터 [리소스 만들기 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-sap-hana-cluster-resources) 의 단계에 따라 클러스터에 SAP HANA 리소스를 만듭니다. SAP HANA 리소스가 만들어지면 SAP HANA 리소스와 파일 시스템 (NFS 탑재) 간에 위치 규칙 제약 조건을 만들어야 합니다.
+1. 클러스터 [리소스 만들기 SAP HANA](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) 의 단계에 따라 클러스터에 SAP HANA 리소스를 만듭니다. SAP HANA 리소스가 만들어지면 SAP HANA 리소스와 파일 시스템 (NFS 탑재) 간에 위치 규칙 제약 조건을 만들어야 합니다.
 
 2. **[1]** SAP HANA 리소스와 NFS 탑재 간의 제약 조건 구성
 
@@ -687,4 +687,4 @@ Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](https://docs.microsoft.c
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb2
     ```
 
-   [RHEL의 SAP HANA 시스템 복제 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup)에 설명 된 테스트를 수행 하 여 SAP HANA 클러스터 구성을 철저히 테스트 하는 것이 좋습니다.   
+   [RHEL의 SAP HANA 시스템 복제 설정](./sap-hana-high-availability-rhel.md#test-the-cluster-setup)에 설명 된 테스트를 수행 하 여 SAP HANA 클러스터 구성을 철저히 테스트 하는 것이 좋습니다.

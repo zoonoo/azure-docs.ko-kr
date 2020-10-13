@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449376"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978257"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -229,7 +229,7 @@ Ultra Disk를 사용하면 원하는 크기, IOPS 및 디스크 처리량 범위
 울트라 디스크의 다른 이점은 premium storage와 비교할 때 읽기 대기 시간이 더 좋을 수 있습니다. 더 빠른 읽기 대기 시간은 HANA 시작 시간과 이후 데이터를 메모리로 로드하는 시간을 단축하려는 경우에 이점이 될 수 있습니다. HANA가 저장점을 작성하는 경우에도 Ultra Disk 스토리지의 이점을 느낄 수 있습니다. 
 
 > [!NOTE]
-> Ultra Disk는 아직 모든 Azure 지역에 출시되지 않았고 아직 아래 나열된 모든 VM 유형을 지원하지 않습니다. Ultra Disk를 사용할 수 있는 지역 및 지원되는 VM 제품군에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](../../windows/disks-types.md#ultra-disk) 문서를 참조하세요.
+> Ultra Disk는 아직 모든 Azure 지역에 출시되지 않았고 아직 아래 나열된 모든 VM 유형을 지원하지 않습니다. Ultra Disk를 사용할 수 있는 지역 및 지원되는 VM 제품군에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](../../disks-types.md#ultra-disk) 문서를 참조하세요.
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>순수 Ultra Disk 구성을 사용하는 프로덕션 권장 스토리지 솔루션
 이 구성에서는 **/hana/data** 및 **/hana/log** 볼륨을 별도로 유지 합니다. 제안된 값은 SAP가 [SAP TDI 스토리지 백서](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)에서 권장하는 대로 SAP HANA 및 스토리지 구성에 대한 VM 유형을 인증하는 KPI에서 도출된 것입니다.
@@ -272,7 +272,7 @@ HANA 용 ANF에 대 한 자세한 내용은 Azure NetApp Files의 [NFS v 4.1 볼
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Azure premium storage를 사용 하는 비용에 민감한 솔루션
-지금까지이 문서에 설명 된 azure premium storage 솔루션은 [premium storage를 사용 하는 솔루션 섹션의 Azure M 시리즈 가상 컴퓨터에 대 한 azure 쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) 에 설명 되어 SAP HANA 프로덕션 지원 시나리오를 위한 것입니다. 프로덕션 지원 가능 구성의 특성 중 하나는 SAP HANA 데이터에 대 한 볼륨을 분리 하 고 두 개의 서로 다른 볼륨으로 다시 실행 하는 것입니다. 이러한 분리의 이유는 볼륨의 워크 로드 특성이 서로 다르기 때문입니다. 그리고 제안 된 프로덕션 구성을 사용 하는 경우 다양 한 유형의 캐싱 또는 다양 한 유형의 Azure 블록 저장소가 필요할 수 있습니다. Azure 블록 저장소 대상을 사용 하는 프로덕션 지원 구성은 [azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 를 준수 합니다.  비프로덕션 시나리오의 경우 프로덕션 시스템에 대해 수행 되는 몇 가지 고려 사항은 더 낮은 프로덕션 이외의 시스템에 적용 되지 않을 수 있습니다. 따라서 HANA 데이터 및 로그 볼륨을 결합할 수 있습니다. 궁극적으로는 궁극적으로는 프로덕션 시스템에 필요한 특정 처리량 또는 대기 시간 Kpi를 충족 하지 원인 합니다. 이러한 환경에서 비용을 절감 하는 또 다른 측면은 [Azure 표준 SSD storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage)를 사용 하는 것입니다. 그러나 [Azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 무효화 하는 선택이 있습니다. 
+지금까지이 문서에 설명 된 azure premium storage 솔루션은 [premium storage를 사용 하는 솔루션 섹션의 Azure M 시리즈 가상 컴퓨터에 대 한 azure 쓰기 가속기](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) 에 설명 되어 SAP HANA 프로덕션 지원 시나리오를 위한 것입니다. 프로덕션 지원 가능 구성의 특성 중 하나는 SAP HANA 데이터에 대 한 볼륨을 분리 하 고 두 개의 서로 다른 볼륨으로 다시 실행 하는 것입니다. 이러한 분리의 이유는 볼륨의 워크 로드 특성이 서로 다르기 때문입니다. 그리고 제안 된 프로덕션 구성을 사용 하는 경우 다양 한 유형의 캐싱 또는 다양 한 유형의 Azure 블록 저장소가 필요할 수 있습니다. Azure 블록 저장소 대상을 사용 하는 프로덕션 지원 구성은 [azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 를 준수 합니다.  비프로덕션 시나리오의 경우 프로덕션 시스템에 대해 수행 되는 몇 가지 고려 사항은 더 낮은 프로덕션 이외의 시스템에 적용 되지 않을 수 있습니다. 따라서 HANA 데이터 및 로그 볼륨을 결합할 수 있습니다. 궁극적으로는 궁극적으로는 프로덕션 시스템에 필요한 특정 처리량 또는 대기 시간 Kpi를 충족 하지 원인 합니다. 이러한 환경에서 비용을 절감 하는 또 다른 측면은 [Azure 표준 SSD storage](./planning-guide-storage.md#azure-standard-ssd-storage)를 사용 하는 것입니다. 그러나 [Azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 무효화 하는 선택이 있습니다. 
 
 이러한 구성에 대 한 비용이 저렴 한 대안은 다음과 같습니다.
 
