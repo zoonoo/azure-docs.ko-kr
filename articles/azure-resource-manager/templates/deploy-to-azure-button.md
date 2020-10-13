@@ -4,10 +4,10 @@ description: GitHub 리포지토리에서 Azure Resource Manager 템플릿을 �
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079449"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포

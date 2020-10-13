@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737379"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 만들기
@@ -100,7 +100,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 ## <a name="create-a-logical-sql-server"></a>논리 SQL 서버 만들기 
 
-AzSqlServer 명령을 사용 하 여 논리 SQL server를 만듭니다. 서버의 이름은 Azure 전체에서 고유해야 하므로 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꿉니다.
+New-AzSqlServer 명령을 사용 하 여 논리 SQL server를 만듭니다. 서버의 이름은 Azure 전체에서 고유해야 하므로 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꿉니다.
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -190,7 +190,7 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-privately-from-the-vm"></a>VM에서 비공개로 SQL Database에 액세스
 
 1. myVM의 원격 데스크톱에서 PowerShell을 엽니다.
-2. `nslookup myserver.database.windows.net`를 입력합니다. 을 `myserver` SQL server 이름으로 바꾸어야 합니다.
+2. `nslookup myserver.database.windows.net`을 입력합니다. 을 `myserver` SQL server 이름으로 바꾸어야 합니다.
 
     다음과 유사한 메시지가 표시됩니다.
     

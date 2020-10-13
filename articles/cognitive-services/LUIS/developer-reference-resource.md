@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 05/19/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e4e43ead957bb6feca09fc8b2a8c16e37821c9b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327173"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
@@ -47,7 +47,7 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 작성 및 예측 끝점 API는 REST Api에서 사용할 수 있습니다.
 
-|형식|버전|
+|유형|버전|
 |--|--|
 |작성|[[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |예측|[[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -88,11 +88,11 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 |언어 |참조 설명서|패키지|빠른 시작|
 |--|--|--|--|
-|C#|[만들](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[만들](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[쿼리 예측](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
+|C#|[작성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[쿼리 예측](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[작성 및 예측](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[만들](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[만들](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
-|Python|[작성 및 예측](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[만들](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-python)|
+|JavaScript|[작성](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
+|Python|[작성 및 예측](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-python)|
 
 
 ### <a name="containers"></a>컨테이너
@@ -109,7 +109,7 @@ Language Understanding은 JSON 형식, `.LU` ([ludown](https://github.com/micros
 
 * GitHub: (워크숍) [대화형-AI: NLU USING LUIS](https://github.com/GlobalAICommunity/Workshop-Conversational-AI)
 
-## <a name="continuous-integration-tools"></a>연속 통합 도구
+## <a name="continuous-integration-tools"></a>지속적인 통합 도구
 
 * GitHub: (미리 보기) [DevOps를 사용 하 여 LUIS 앱 개발 방법](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 * GitHub: [Nlu. DevOps](https://github.com/microsoft/NLU.DevOps) -NLU 서비스에 대 한 지속적인 통합 및 배포를 지 원하는 도구입니다.

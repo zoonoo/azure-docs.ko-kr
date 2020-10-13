@@ -6,18 +6,18 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-keywords: 인식 서비스, 인식 인텔리전스, 인식 솔루션, ai 서비스
+keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비스
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262436"
 ---
-# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: CLI (Azure Command-Line Interface)를 사용 하 여 Cognitive Services 리소스 만들기
 
 [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 azure Cognitive Services를 시작 하려면이 빠른 시작을 사용 하세요.
 
@@ -29,7 +29,7 @@ Cognitive Services은 Azure 구독에서 만든 Azure [리소스로](https://doc
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/cognitive-services) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -160,7 +160,7 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>리소스의 키를 가져옵니다.
 
-CLI (명령줄 인터페이스)의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용 합니다.
+CLI (Command-Line 인터페이스)의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az login

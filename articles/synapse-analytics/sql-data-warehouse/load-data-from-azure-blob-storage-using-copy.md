@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371527"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
@@ -56,7 +56,7 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 3. 다음 정보로 양식을 작성합니다.
 
-   | 설정            | 제안 값       | Description                                                  |
+   | 설정            | 제안 값       | 설명                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
    | *Name**            | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요. |
    | **구독**   | 사용자의 구독     | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |

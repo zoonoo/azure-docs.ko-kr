@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326055"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
@@ -209,7 +209,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택 합니다.
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 3. Log Analytics 구독 창에서 작업 영역을 선택한 다음, **작업 영역 요약** 메뉴 항목을 클릭합니다.  
 4. **개요** 페이지에서 **System Center Operations Manager Health Check** 타일을 클릭합니다.
 5. **System Center Operations Manager Health Check** 페이지에서 주요 영역 블레이드 중 하나의 요약 정보를 검토한 다음 주요 영역 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.

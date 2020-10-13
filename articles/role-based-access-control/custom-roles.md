@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87124156"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
@@ -122,9 +122,9 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 | `IsCustom`</br>`roleType` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. `true` `CustomRole` 사용자 지정 역할에 대해 또는로 설정 합니다. `false` `BuiltInRole` 기본 제공 역할에 대해 또는로 설정 합니다. |
 | `Description`</br>`description` | 예 | String | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
 | `Actions`</br>`actions` | 예 | String[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
-| `NotActions`</br>`notActions` | 예 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
-| `DataActions`</br>`dataActions` | 예 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 하 여 사용자 지정 역할을 만드는 경우 `DataActions` 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
-| `NotDataActions`</br>`notDataActions` | 예 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
+| `NotActions`</br>`notActions` | 아니요 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
+| `DataActions`</br>`dataActions` | 아니요 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 하 여 사용자 지정 역할을 만드는 경우 `DataActions` 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
+| `NotDataActions`</br>`notDataActions` | 아니요 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
 | `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
 
 ## <a name="wildcard-permissions"></a>와일드 카드 사용 권한
@@ -175,7 +175,7 @@ Microsoft.CostManagement/*/query/*
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
 
-| 작업 | 작업(Operation) | Description |
+| Task | 작업(Operation) | Description |
 | --- | --- | --- |
 | 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
 | 사용자 지정 역할 업데이트 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 업데이트할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |

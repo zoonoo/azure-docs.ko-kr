@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327364"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션 개발
@@ -22,7 +22,7 @@ ms.locfileid: "87327364"
 > [!IMPORTANT]
 > Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 애플리케이션을 디버그할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 VS Code, VS Code용 Service Fabric Reliable Services 확장 및 개발 환경에 필요한 모든 종속성을 설치했다고 가정합니다. 자세한 내용은 [시작](./service-fabric-get-started-vs-code.md#prerequisites)을 참조하세요.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081182"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
@@ -107,7 +107,7 @@ SparkSession 인스턴스에 액세스하려면 `spark`를 입력합니다. Spar
 
 Spark Shell 명령 ( `spark-shell` 또는)은 `pyspark` 많은 명령줄 매개 변수를 지원 합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸이 래핑하는에만 적용 될 수 있습니다 `spark-submit` .
 
-| 스위치 | description | 예제 |
+| switch | description | 예제 |
 | --- | --- | --- |
 | --master MASTER_URL | 마스터 URL을 지정합니다. HDInsight에서 이 값은 항상 `yarn`입니다. | `--master yarn`|
 | --jars JAR_LIST | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 로컬 jar의 목록입니다. HDInsight에서 이 목록은 Azure Storage 또는 Data Lake Storage에서 기본 파일 시스템에 대한 경로로 구성됩니다. | `--jars /path/to/examples.jar` |

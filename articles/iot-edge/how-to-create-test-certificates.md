@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84430671"
 ---
-# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 장치 기능 테스트
+# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
 IoT Edge 장치에는 런타임, 모듈 및 다운스트림 장치 간의 보안 통신용 인증서가 필요 합니다.
 필요한 인증서를 만들 수 있는 인증 기관이 없는 경우 데모 인증서를 사용 하 여 테스트 환경에서 IoT Edge 기능을 사용해 볼 수 있습니다.
@@ -293,7 +293,7 @@ IoT 장치에는 IoT Hub를 사용 하 여 인증할 수 있도록 장치 인증
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동 합니다.
 
-2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들어:
+2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들면 다음과 같습니다.
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +323,7 @@ IoT 장치에는 IoT Hub를 사용 하 여 인증할 수 있도록 장치 인증
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동 합니다.
 
-2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들어:
+2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들면 다음과 같습니다.
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

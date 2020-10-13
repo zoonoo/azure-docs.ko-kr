@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118453"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
@@ -46,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 매개 변수 | Type | Description |
+| 매개 변수 | 형식 | Description |
 | --- | --- | --- |
 | ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0**으로 설정해야 합니다. |

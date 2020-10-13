@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
 ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085347"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
@@ -92,7 +92,7 @@ Scala 플러그 인을 설치 하는 단계:
 
    b. **프로젝트 구조** 창에서 **아티팩트**를 선택합니다.  
 
-   다. 아티팩트를 본 후에 **취소** 를 선택 합니다.
+   다. 아티팩트를 본 후에 **취소**  를 선택 합니다.
 
       ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
 
@@ -205,7 +205,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
         |링크 리소스 유형|드롭다운 목록에서 **Livy 서비스**를 선택합니다.|
         |Livy 엔드포인트| Livy 엔드포인트를 입력합니다.|
         |클러스터 이름| 클러스터 이름을 입력합니다.|
-        |Yarn 엔드포인트|선택 사항입니다.|
+        |Yarn 엔드포인트|(선택 사항)|
         |인증 유형| **기본 인증** 상태로 유지|
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|

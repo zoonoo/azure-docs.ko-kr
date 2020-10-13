@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
 ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371571"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청

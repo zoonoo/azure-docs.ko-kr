@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949034"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Azure Cognitive Search에서 최신 REST API로 업그레이드
@@ -61,7 +61,7 @@ ms.locfileid: "88949034"
 * Azure Blob 인덱싱의 일부인 [JsonLines 구문 분석 모드](search-howto-index-json-blobs.md)는 JSON 엔터티 마다 줄 바꿈으로 구분 된 하나의 검색 문서를 만듭니다.
 * [Ai 보강](cognitive-search-concept-intro.md) 는 Cognitive Services ai 보강 엔진을 활용 하는 인덱싱을 제공 합니다.
 
-### <a name="breaking-changes"></a>호환성이 손상되는 변경
+### <a name="breaking-changes"></a>주요 변경 내용
 
 이전 API 버전에 대해 작성 된 기존 코드는 api-version = 2019-05-06 이상에서 중단 됩니다. 코드에는 다음 기능이 포함 되어 있습니다.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Azure Dev Spaces 작업을 사용 하 여 프로젝트를 준비 하는 방법을 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: 61351072494b51d02a1d6c31399208b9e9b54fce
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213429"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Azure Dev Spaces 작동을 위해 프로젝트를 준비 하는 방법

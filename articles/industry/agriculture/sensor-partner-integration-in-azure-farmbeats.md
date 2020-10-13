@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078924"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
@@ -137,8 +137,8 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
   제조업체  | 제조업체의 이름입니다. |
   ProductCode  | 디바이스 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor#6800. |
   포트  | 포트 이름 및 유형(디지털 또는 아날로그)입니다.  |
-  이름  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
-  설명  | 모델에 대한 의미 있는 설명을 제공합니다. |
+  속성  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
+  Description  | 모델에 대한 의미 있는 설명을 제공합니다. |
   속성  | 제조업체로부터의 추가 속성입니다. |
   **디바이스** | **설명** |
   DeviceModelId  |연결된 디바이스 모델의 ID입니다. |
@@ -160,8 +160,8 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
   SensorMeasures > AggregationType  | 없음, 평균, 최대값, 최소값 또는 표준편차 중 하나입니다.
   SensorMeasures > Depth  | 센서의 깊이(센티미터)입니다. 예를 들어 지하 10cm에서 수분을 측정합니다.
   SensorMeasures > Description  | 측정에 대한 의미 있는 설명을 제공합니다.
-  이름  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-  설명  | 모델에 대한 의미 있는 설명을 제공합니다.
+  속성  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+  Description  | 모델에 대한 의미 있는 설명을 제공합니다.
   속성  | 제조업체로부터의 추가 속성입니다.
   **Sensor**  | **설명** |
   HardwareId  | 제조업체에서 설정한 센서의 고유 ID입니다.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: victorh
 ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83758965"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 규칙으로 Application 게이트웨이에서 웹 애플리케이션 방화벽 v2 구성

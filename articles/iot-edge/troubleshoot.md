@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902459"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
@@ -71,7 +71,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>IoT Edge 버전 확인
 
-이전 버전의 IoT Edge를 실행 하는 경우 업그레이드 하면 문제가 해결 될 수 있습니다. `iotedge check`이 도구는 IoT Edge 보안 데몬이 최신 버전 인지 확인 하지만 IoT Edge 허브 및 에이전트 모듈의 버전을 확인 하지는 않습니다. 장치에서 런타임 모듈의 버전을 확인 하려면 및 명령을 사용 `iotedge logs edgeAgent` `iotedge logs edgeHub` 합니다. 버전 번호는 모듈이 시작 될 때 로그에 선언 됩니다.
+이전 버전의 IoT Edge를 실행하는 경우 업그레이드하면 문제가 해결될 수 있습니다. `iotedge check`이 도구는 IoT Edge 보안 데몬이 최신 버전 인지 확인 하지만 IoT Edge 허브 및 에이전트 모듈의 버전을 확인 하지는 않습니다. 장치에서 런타임 모듈의 버전을 확인 하려면 및 명령을 사용 `iotedge logs edgeAgent` `iotedge logs edgeHub` 합니다. 버전 번호는 모듈이 시작될 때 로그에서 선언됩니다.
 
 장치를 업데이트 하는 방법에 대 한 지침은 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조 하세요.
 
@@ -255,7 +255,7 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 적절 한 네트워크 및 방화벽 규칙이 안전한 edge에서 클라우드 통신에 대해 설정 되었는지 확인 해야 합니다. 다음 표는 Azure IoT Edge 런타임이 호스트 되는 기본 서버에 대 한 구성 방화벽 규칙을 사용 하는 경우 지침으로 사용할 수 있습니다.
 
-|프로토콜|포트|수신|나가는 포트|지침|
+|프로토콜|포트|수신 중|나가는 포트|지침|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|

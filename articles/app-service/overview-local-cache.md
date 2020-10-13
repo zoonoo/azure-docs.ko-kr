@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080714"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
@@ -102,7 +102,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>사이트가 로컬 캐시를 사용하도록 전환되었는지 어떻게 알 수 있나요?
 스테이징 환경에서 로컬 캐시 기능을 사용하는 경우 로컬 캐시가 준비될 때까지 교환 작업이 완료되지 않습니다. 사이트가 로컬 캐시에 대해 실행되고 있는지 알아보려면 작업자 프로세스 환경 변수 `WEBSITE_LOCALCACHE_READY`를 확인하세요. [작업자 프로세스 환경 변수](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) 페이지의 지침을 사용하여 여러 인스턴스에서 작업자 프로세스 환경 변수에 액세스할 수 있습니다.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 이유
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 그 이유는
 앱에서 로컬 캐시를 사용하는 경우 최신 변경 내용을 가져오려면 사이트를 다시 시작해야 합니다. 프로덕션 사이트에 변경 내용을 게시하고 싶지 않으신가요? 이전 모범 사례 섹션에서 슬롯 옵션을 참조하세요.
 
 > [!NOTE]

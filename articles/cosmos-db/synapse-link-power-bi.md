@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
 ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937978"
 ---
 # <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 Synapse SQL server 서버를 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기)
@@ -22,7 +22,7 @@ ms.locfileid: "90937978"
 
 이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 리소스를 만들어야 합니다.
 
@@ -46,7 +46,7 @@ Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 아이콘을 선
 
 모든 작업 영역에는 Synapse SQL 서버 리스 끝점이 제공 됩니다. SQL 스크립트를 만든 후 맨 위에 있는 도구 모음에서 **요청 시 sql**에 연결 합니다.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="작업 영역에서 Synapse SQL 서버를 사용 하지 않는 끝점을 사용 하도록 SQL 스크립트를 설정 합니다.":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
 **RetailCosmosDB**라는 새 데이터베이스와 Synapse 링크를 사용 하도록 설정 된 컨테이너에 대 한 SQL 뷰를 만듭니다. 다음 명령은 데이터베이스를 만드는 방법을 보여 줍니다.
 
@@ -106,7 +106,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 다음 테이블을 결과로 제공 하는 **실행** 을 선택 합니다.
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="RetailSales 및 뷰를 조인한 후의 쿼리 결과":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Power BI를 사용 하 여 컨테이너에 대 한 모델 뷰
 
@@ -141,7 +141,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 1. **RetailSales** 보기의 **productCode** 를 범례에 끌어서 놓고 특정 제품 라인을 선택 합니다.
 이러한 옵션을 선택 하면 다음 스크린샷 처럼 그래프가 표시 됩니다.
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="가사 크기의 상대적 중요도와 매장 당 평균 수익을 비교 하는 보고서":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
 ## <a name="next-steps"></a>다음 단계
 

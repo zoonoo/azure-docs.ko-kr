@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하고 클라이언트 쪽 도구를 설치하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 ms.openlocfilehash: eb7c9b4d3d03b6f4f1f21e6fb2b2a60aa303b181
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212437"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>AKS 클러스터에서 Azure Dev Spaces 사용 및 클라이언트 쪽 도구 설치
@@ -78,7 +78,7 @@ Azure Dev Spaces를 사용하여 만든 네임스페이스는 워크로드와 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](../how-dev-spaces-works.md)

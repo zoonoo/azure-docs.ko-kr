@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80239357"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
@@ -25,7 +25,7 @@ ms.locfileid: "80239357"
 
 시간당 기본 제한 제한은 다음 표에 나와 있습니다.
 
-| Scope | 작업 | 제한 |
+| 범위 | 작업 | 제한 |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -51,7 +51,7 @@ ms.locfileid: "80239357"
 
 Microsoft. Network 리소스 공급자는 다음과 같은 제한 제한을 적용 합니다.
 
-| 작업 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
 | 쓰기/삭제 (PUT) | 5 분당 1000 |
 | 읽기(GET) | 5 분당 1만 |

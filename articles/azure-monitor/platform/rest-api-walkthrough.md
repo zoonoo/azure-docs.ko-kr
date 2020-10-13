@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
 ms.openlocfilehash: 500d5242d5185a8014283918c1f3a22c5c22cf48
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325596"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
@@ -464,7 +464,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**요청 URI**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 예를 들어, 주어진 범위와 시간 조직 1시간에 대해 RunsSucceeded 메트릭 데이터를 검색하려면 요청은 다음과 같습니다.
 

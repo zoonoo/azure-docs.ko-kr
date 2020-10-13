@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925314"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
@@ -68,7 +68,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 - [셀프 서비스 암호 관리](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [셀프 서비스 그룹 관리](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [권한 있는 계정 관리](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Azure 역할 기반 access control (Azure RBAC)](/azure/role-based-access-control/overview)
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](/azure/role-based-access-control/overview)
 - [애플리케이션 사용 현황 모니터링](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [풍부한 감사](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [보안 모니터링 및 경고](/azure/operations-management-suite/oms-security-responding-alerts)

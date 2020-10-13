@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa7e8089fbbf2ee653100a05383fdbdc877ffda4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84742219"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토를 완료 합니다.
@@ -53,7 +53,7 @@ ms.locfileid: "84742219"
 
 액세스 검토 결과를 수동으로 적용하려는 경우 검토를 내보낼 수 있습니다. **내보내기** 단추는 CSV 파일 다운로드를 시작합니다. Excel 또는 CSV 파일을 여는 다른 프로그램에서 결과를 관리할 수 있습니다.
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 더 이상 검토가 필요 없는 경우 검토를 삭제합니다. **삭제** 단추는 Privileged Identity Management 서비스에서 검토를 제거 합니다.
 

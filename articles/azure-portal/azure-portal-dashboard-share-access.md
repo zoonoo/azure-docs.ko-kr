@@ -1,5 +1,5 @@
 ---
-title: 역할 기반 Access Control를 사용 하 여 Azure Portal 대시보드 공유
+title: Role-Based를 사용 하 여 Azure Portal 대시보드 공유 Access Control
 description: 이 문서에서는 역할 기반 Access Control을 사용하여 Azure Portal에서 대시보드를 공유하는 방법을 설명합니다.
 services: azure-portal
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87923886"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유

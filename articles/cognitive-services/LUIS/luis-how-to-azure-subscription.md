@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327224"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
@@ -109,7 +109,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 소유자와 모든 참가자는 앱을 제작할 수 있는 권한이 있습니다.
 
-|작성 액세스에 포함된 작업|메모|
+|작성 액세스에 포함된 작업|참고|
 |--|--|
 |엔드포인트 키 추가 또는 제거||
 |버전 내보내기||
@@ -254,7 +254,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |형식|설정|값|
+    |유형|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization` 값이 `Bearer {token}`인 경우 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|작성 키|

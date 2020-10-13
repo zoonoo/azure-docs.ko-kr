@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b941084c8a196081c2443364ed3fb52868386670
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465060"
 ---
 프라이빗 엔드포인트를 만들려는 스토리지 계정으로 이동합니다. 스토리지 계정의 목차에서 **프라이빗 엔드포인트 연결**을 선택한 다음, **+ 프라이빗 엔드포인트** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다. 

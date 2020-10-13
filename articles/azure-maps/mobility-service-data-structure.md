@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033226"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스의 데이터 구조
@@ -25,7 +25,7 @@ ms.locfileid: "88033226"
 
 는 `metroID` [Metro 영역 정보 가져오기 API](https://aka.ms/AzureMapsMobilityMetroAreaInfo)를 호출 하는 데 사용할 수 있는 metro 영역 ID입니다. Azure Maps ' "Metro 가져오기" API를 사용 하 여 전송 유형, 전송 기관, 활성 경고 및 선택한 Metro에 대 한 추가 세부 정보를 요청 합니다. 지원 되는 metro 영역 및 metroIDs를 요청할 수도 있습니다. Metro 영역 Id는 변경 될 수 있습니다.
 
-**metroID:** 522 **이름:** 시애틀-Tacoma-Bellevue
+**metroID:** 522   **이름:** 시애틀-Tacoma-Bellevue
 
 ![시애틀-지하철-지역](./media/mobility-service-data-structure/seattle-metro.png)
 

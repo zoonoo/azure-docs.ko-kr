@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 15ddf9392fffb8a9ed196b75b1c5e80d4484b0ad
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837247"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
@@ -172,7 +172,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 서버 유형| **PostgreSQL**를 선택 합니다.|
     | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |

@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530700"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)
@@ -125,7 +125,7 @@ Frontline Worker 시나리오용 응용 프로그램을 빌드하는 경우 기�
 
 ## <a name="how-the-sso-plug-in-works"></a>SSO 플러그 인의 작동 방법
 
-Microsoft Enterprise SSO 플러그 인은 [Apple의 Enterprise Single Sign-On 프레임 워크](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc)에 의존 합니다. 프레임 워크에 등록 하는 id 공급자는 해당 도메인에 대 한 네트워크 트래픽을 가로채 해당 요청을 처리 하는 방법을 개선 하거나 변경할 수 있습니다. 예를 들어, SSO 플러그 인은 최종 사용자 자격 증명을 안전 하 게 수집 하거나, MFA를 요구 하거나, 응용 프로그램에 토큰을 자동으로 제공 하는 추가 UI를 표시할 수 있습니다.
+Microsoft Enterprise SSO 플러그 인은 [Apple의 엔터프라이즈 단일 Sign-On 프레임 워크](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc)에 의존 합니다. 프레임 워크에 등록 하는 id 공급자는 해당 도메인에 대 한 네트워크 트래픽을 가로채 해당 요청을 처리 하는 방법을 개선 하거나 변경할 수 있습니다. 예를 들어, SSO 플러그 인은 최종 사용자 자격 증명을 안전 하 게 수집 하거나, MFA를 요구 하거나, 응용 프로그램에 토큰을 자동으로 제공 하는 추가 UI를 표시할 수 있습니다.
 
 또한 네이티브 응용 프로그램은 사용자 지정 작업을 구현 하 고 SSO 플러그 인과 직접 통신할 수 있습니다.
 [Apple의이 2019 WWDC 비디오](https://developer.apple.com/videos/play/tech-talks/301/) 에서 Single sign-on 프레임 워크에 대해 알아볼 수 있습니다.

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306568"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
@@ -246,7 +246,7 @@ ms.locfileid: "91306568"
 | **검토할 리소스**| Microsoft Dynamics에 대 한 액세스 |
 | **검토 빈도**| 매월 |
 | **검토를 수행 하는 사람**| Dynamics 비즈니스 그룹 프로그램 관리자 |
-| **알림**| Pms 별칭을 검토 하기 전에 24 시간 동안 전자 메일로 보내기<p>검토자에 게 사용자 지정 메시지를 포함 하 여 자신의 구매 보호 |
+| **알림**| 별칭을 검토 하기 전에 24 시간 동안 전자 메일 Dynamics-Pms<p>검토자에 게 사용자 지정 메시지를 포함 하 여 자신의 구매 보호 |
 | **타임라인**| 48 시간 (알림) |
 |**자동 작업**| 보안 그룹 dynamics 액세스에서 사용자를 제거 하 여 90 일 이내에 대화형 로그인이 없는 모든 계정에서 액세스 권한을 제거 합니다. <p>*타임 라인 내에서 검토 되지 않은 경우 작업을 수행 합니다.* |
 | **수동 작업**| 검토자는 원하는 경우 자동화 된 작업 전에 승인 제거를 수행할 수 있습니다. |
@@ -310,7 +310,7 @@ ms.locfileid: "91306568"
 
 다음을 통해 그룹 멤버 자격을 검토할 수 있습니다. 
 
-* 관리자
+* Administrators
 
 * 그룹 소유자
 
@@ -361,7 +361,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 * Microsoft Graph를 사용 하 여 완료 된 액세스 검토에서 결과 및 결정 사항에 프로그래밍 방식으로 액세스 합니다.
 
-예를 들어 Windows AD 관리 그룹에 대 한 결과에 액세스 하려면이 [PowerShell 샘플 스크립트](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)를 사용 합니다. 이 스크립트는 필요한 그래프 호출을 간략하게 설명 하 고 변경 내용을 수행 하기 위해 Windows AD-PowerShell 명령을 내보냅니다.
+예를 들어 Windows AD 관리 그룹에 대 한 결과에 액세스 하려면이 [PowerShell 샘플 스크립트](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)를 사용 합니다. 이 스크립트는 필요한 그래프 호출을 간략하게 설명 하 고 변경 내용을 수행 하는 Windows AD-PowerShell 명령을 내보냅니다.
 
 ## <a name="plan-access-reviews-for-applications"></a>응용 프로그램에 대 한 액세스 검토 계획 
 
@@ -419,7 +419,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 관리자는 부실 액세스의 위험을 줄이기 위해 액세스 패키지에 대 한 활성 할당을 가진 사용자를 정기적으로 검토할 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](entitlement-management-access-reviews-create.md)| 액세스 패키지의 검토를 사용 하도록 설정 합니다. |
 | [액세스 검토 수행](entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -433,7 +433,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 직원 및 게스트의 그룹 및 응용 프로그램에 대 한 액세스는 시간이 지남에 따라 변경 될 수 있습니다. 오래 된 액세스 할당과 관련 된 위험을 줄이기 위해 관리자는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 만들 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](create-access-review.md)| 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만듭니다. |
 | [액세스 검토 수행](perform-access-review.md)| 응용 프로그램에 대 한 액세스 권한이 있는 그룹 구성원 또는 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -450,7 +450,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서 | Description |
+| 방법 문서 | 설명 |
 | - | - |
  [액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure AD 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
@@ -465,7 +465,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | -|
 | [액세스 검토 만들기](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure 리소스 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
@@ -496,7 +496,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 액세스 검토 작업은 [AZURE AD의 감사 로그](../reports-monitoring/concept-audit-logs.md)에서 기록 되 고 사용할 수 있습니다. 범주, 활동 유형 및 날짜 범위에서 감사 데이터를 필터링 할 수 있습니다. 예제 쿼리는 다음과 같습니다.
 
-| Category| 정책 |
+| 범주| 정책 |
 | - | - |
 | 활동 유형| 액세스 검토 만들기 |
 | | 액세스 검토 업데이트 |
