@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362200"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Hyper-v 복제는 어떻게 작동 하나요?
@@ -80,7 +80,7 @@ I
 복제에 대 한 스페어 대역폭이 있고 업로드를 늘리려면 업로드 작업에 할당 된 스레드 수를 다음과 같이 늘릴 수 있습니다.
 
 1. Regedit를 사용 하 여 레지스트리를 엽니다.
-2. 키 HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM로 이동 합니다.
+2. 키로 이동 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
 3. 복제 하는 각 VM에 대 한 데이터 업로드에 사용 되는 스레드 수의 값을 늘립니다. 기본값은 4이 고 최대값은 32입니다. 
 
 

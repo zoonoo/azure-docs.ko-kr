@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761926"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
@@ -54,7 +54,7 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크*로 이동합니다.
     1. *Azure 서비스 및 리소스가이 서버에 액세스할 수 있도록 허용*에 대해 **예** 를 클릭 합니다.
     1. **+ 클라이언트 IP 추가**를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
-    1. **저장**을 클릭합니다. 
+    1. **Save**을 클릭합니다. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -169,7 +169,7 @@ Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synap
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크*로 이동합니다.
     1. *Azure 서비스 및 리소스가이 서버에 액세스할 수 있도록 허용*에 대해 **예** 를 클릭 합니다.
     1. **+ 클라이언트 IP 추가**를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
-    1. **저장**을 클릭합니다. 
+    1. **Save**을 클릭합니다. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -263,7 +263,7 @@ SQL 원본에서 데이터를 공유 하는 경우 스냅숏 프로세스 중에
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |개체 |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |

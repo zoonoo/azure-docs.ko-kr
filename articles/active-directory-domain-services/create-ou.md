@@ -2,7 +2,7 @@
 title: Azure AD Domain Services |에서 조직 구성 단위 (OU) 만들기 Microsoft Docs '
 description: Azure AD Domain Services 관리 되는 도메인에서 사용자 지정 OU (조직 구성 단위)를 만들고 관리 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 1e3546239dfcfd4c6ef23ad16f3340f34f958901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: df8d32fb38d9ea6750ef47651e4f660428fd1fbe
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723217"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961003"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 OU (조직 구성 단위) 만들기
 

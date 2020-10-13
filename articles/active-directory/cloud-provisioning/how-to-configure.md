@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8b18629a776dd98950f49b1f607cbc876abcd9c
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628900"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Azure AD Connect 클라우드 기반 프로 비전을 위한 새 구성 만들기
@@ -62,7 +62,7 @@ ms.locfileid: "91628900"
 ## <a name="attribute-mapping"></a>특성 매핑
 Azure AD Connect 클라우드 프로 비전을 사용 하면 온-프레미스 사용자/그룹 개체와 Azure AD의 개체 간에 특성을 쉽게 매핑할 수 있습니다.  비즈니스 요구 사항에 따라 기본 특성 매핑을 사용자 지정할 수 있습니다. 따라서 기존의 특성 매핑을 변경 또는 삭제하거나 새 특성 매핑을 만들 수 있습니다.  자세한 내용은 [특성 매핑](how-to-attribute-mapping.md)을 참조 하세요.
 
-## <a name="on-demand-provisioning"></a>주문형 프로 비전
+## <a name="on-demand-provisioning"></a>주문형 프로비저닝
 Azure AD Connect 클라우드 프로 비전을 사용 하면 이러한 변경 사항을 단일 사용자 또는 그룹에 적용 하 여 구성 변경을 테스트할 수 있습니다.  이를 사용 하 여 구성에 대 한 변경 내용이 제대로 적용 되었으며 Azure AD에 올바르게 동기화 되었는지 확인할 수 있습니다.  자세한 내용은 [주문형 프로 비전을](how-to-on-demand-provision.md)참조 하세요.
 
 ## <a name="restart-provisioning"></a>프로 비전 다시 시작 
