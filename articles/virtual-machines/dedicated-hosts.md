@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373129"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979022"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
 
@@ -122,7 +122,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 
 **유지 관리 제어** 는 고객에 게 전용 호스트에서 예약 된 일반 플랫폼 업데이트를 건너뛰고 35 일의 시작 기간 내에 선택할 때 적용할 수 있는 옵션을 제공 합니다.
 
-자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](https://docs.microsoft.com/azure/virtual-machines/maintenance-control)를 참조 하세요.
+자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](./maintenance-control.md)를 참조 하세요.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
@@ -142,7 +142,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 
 ![포털에서 사용 및 할당량 페이지의 스크린샷](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-자세한 내용은 [가상 컴퓨터 vCPU 할당량](/azure/virtual-machines/windows/quotas)을 참조 하세요.
+자세한 내용은 [가상 컴퓨터 vCPU 할당량](./windows/quotas.md)을 참조 하세요.
 
 무료 평가판 및 MSDN 구독에는 Azure 전용 호스트에 대 한 할당량이 없습니다.
 
@@ -172,7 +172,7 @@ SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅
 
 Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트를 쿼리할 때 반환 되는 상태는 다음과 같습니다.
 
-| 성능 상태   | 설명       |
+| 성능 상태   | Description       |
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |
@@ -182,7 +182,7 @@ Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [포털](./windows/dedicated-hosts-portal.md)및 [Azure CLI](./linux/dedicated-hosts-cli.md)를 사용 하 여 전용 호스트를 배포할 수 있습니다.
+- [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [포털](./dedicated-hosts-portal.md)및 [Azure CLI](./linux/dedicated-hosts-cli.md)를 사용 하 여 전용 호스트를 배포할 수 있습니다.
 
 - 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.
 

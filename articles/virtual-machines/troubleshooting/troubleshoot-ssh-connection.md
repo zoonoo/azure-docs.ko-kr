@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43e2f1c304a2ede10445fa656dbdd16a4b60ca3c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371459"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978954"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 이 문서는 Linux VM(가상 머신)에 연결하려고 할 때 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제로 인해 발생하는 문제를 찾고 수정하도록 돕습니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "91371459"
 다음 방법 중 하나를 사용하여 자격 증명 또는 SSH 구성을 다시 설정할 수 있습니다.
 
 * [Azure Portal](#use-the-azure-portal) - SSH 구성 또는 SSH 키를 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
-* [AZURE Vm 직렬 콘솔](https://aka.ms/serialconsolelinux) -vm 직렬 콘솔은 SSH 구성에 관계 없이 작동 하며 vm에 대 한 대화형 콘솔을 제공 합니다. 실제로 "SSH 불가능" 상황은 특히 해결을 돕기 위해 직렬 콘솔이 설계 된 것입니다. 아래 세부 정보를 참조하세요.
+* [AZURE Vm 직렬 콘솔](./serial-console-linux.md) -vm 직렬 콘솔은 SSH 구성에 관계 없이 작동 하며 vm에 대 한 대화형 콘솔을 제공 합니다. 실제로 "SSH 불가능" 상황은 특히 해결을 돕기 위해 직렬 콘솔이 설계 된 것입니다. 아래 세부 정보를 참조하세요.
 * [Azure CLI](#use-the-azure-cli) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다. 클래식 VM을 사용하는 경우 [Azure 클래식 CLI](#use-the-azure-classic-cli)를 사용할 수 있습니다.
 * [Azure VMAccessForLinux 확장](#use-the-vmaccess-extension) - json 정의 파일을 만들고 다시 사용하여 SSH 구성 또는 사용자 자격 증명을 다시 설정합니다.
 

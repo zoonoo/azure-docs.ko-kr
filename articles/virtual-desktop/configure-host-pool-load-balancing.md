@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 부하 분산 구성-Azure
 description: Windows 가상 데스크톱 환경에 대 한 부하 분산 방법을 구성 하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010109"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951658"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Windows Virtual Desktop 부하 분산 방법 구성
 
@@ -51,13 +51,19 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## <a name="configure-depth-first-load-balancing"></a>깊이 우선 부하 분산 구성
 
-깊이 우선 부하 분산은 연결 수가 가장 많은 사용 가능한 세션 호스트에 새 사용자 세션을 배포 하지만 최대 세션 제한 임계값에 도달 하지 않았습니다. 깊이 우선 부하 분산을 구성 하는 경우 호스트 풀에서 세션당 최대 세션 제한을 설정 해야 합니다.
+깊이 우선 부하 분산은 연결 수가 가장 많은 사용 가능한 세션 호스트에 새 사용자 세션을 배포 하지만 최대 세션 제한 임계값에 도달 하지 않았습니다.
+
+>[!IMPORTANT]
+>깊이 우선 부하 분산을 구성 하는 경우 호스트 풀에서 세션당 최대 세션 제한을 설정 해야 합니다.
 
 깊이 우선 부하 분산을 수행 하도록 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
+
+>[!NOTE]
+> 깊이 우선 부하 분산 알고리즘은 최대 세션 호스트 제한 ()을 기반으로 세션 호스트에 세션을 배포 합니다 `-MaxSessionLimit` . 이 매개 변수의 기본값은입니다 `999999` .이 값은이 변수를 설정할 수 있는 가장 높은 수 이기도 합니다. 이 매개 변수는 깊이 우선 부하 분산 알고리즘을 사용 하는 경우에 필요 합니다. 가능한 최상의 사용자 환경을 위해 사용자 환경에 가장 적합 한 숫자로 최대 세션 호스트 제한 매개 변수를 변경 해야 합니다.
 
 설정이 업데이트 되었는지 확인 하려면 다음 cmdlet을 실행 합니다.
 

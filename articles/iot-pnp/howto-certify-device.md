@@ -9,23 +9,23 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577648"
 ---
-# <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 장치를 인증 하는 방법
+# <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 디바이스를 인증하는 방법
 
-IoT 플러그 앤 플레이 장치 인증 프로그램에는 장치가 IoT 플러그 앤 플레이 인증 요구 사항을 충족 하는지 확인 하는 도구가 포함 되어 있습니다. 또한이 도구를 통해 조직에서는 IoT 플러그 앤 플레이 장치의 가용성에 대 한 인식을 지원할 수 있습니다. 이러한 인증 된 장치는 IoT 솔루션에 맞게 조정 되 고 출시 시간을 단축 하는 데 도움이 됩니다.
+IoT 플러그 앤 플레이 디바이스 인증 프로그램에는 디바이스가 IoT 플러그 앤 플레이 인증 요구 사항을 충족하는지 확인하는 도구가 포함되어 있습니다. 또한이 도구를 통해 조직에서는 IoT 플러그 앤 플레이 장치의 가용성에 대 한 인식을 지원할 수 있습니다. 이러한 인증 된 장치는 IoT 솔루션에 맞게 조정 되 고 출시 시간을 단축 하는 데 도움이 됩니다.
 
-이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
+이 문서에서는 다음 방법을 보여 줍니다.
 
 - Azure CLI에 대 한 Azure IoT 명령줄 도구 확장을 설치 합니다.
 - IoT 플러그 앤 플레이 테스트를 실행 하 여 개발 단계에서 장치 응용 프로그램의 유효성을 검사 합니다.  
 - Azure 인증 장치 포털을 사용 하 여 장치 응용 프로그램의 유효성 검사
 
-## <a name="prepare-your-device"></a>장치 준비
+## <a name="prepare-your-device"></a>디바이스 준비
 
 IoT 플러그 앤 플레이에서 실행 되는 응용 프로그램 코드는 다음을 수행 해야 합니다.
 
@@ -45,7 +45,7 @@ IoT 플러그 앤 플레이에서 실행 되는 응용 프로그램 코드는 �
 - Dps 프로 비전 페이로드의 [dps 등록](concepts-developer-guide-device-csharp.md#dps-payload) 중에 모델 ID를 보냅니다.
 - [Mqtt 연결](concepts-developer-guide-device-csharp.md#model-id-announcement)중에 모델 ID를 알립니다.
 
-## <a name="test-with-the-azure-iot-extension-cli"></a>Azure IoT 확장 CLI를 사용 하 여 테스트
+## <a name="test-with-the-azure-iot-extension-cli"></a>Azure IoT 확장 CLI를 사용하여 테스트
 
 Azure [IOT CLI 확장](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) 을 사용 하면 Azure 인증 장치 포털을 통해 인증을 위해 장치를 제출 하기 전에 장치 구현이 모델과 일치 하는지 확인할 수 있습니다.
 
@@ -162,7 +162,7 @@ az iot product test task create --type QueueTestRun --test-id d45d53d9-656d-4be7
             },
 ```
 
-## <a name="test-using-the-azure-certified-device-portal"></a>Azure 인증 장치 포털을 사용 하 여 테스트
+## <a name="test-using-the-azure-certified-device-portal"></a>Azure Certified Device 포털을 사용하여 테스트
 
 다음 단계에서는 [Azure 인증 장치 포털](https://aka.ms/acdp) 을 사용 하 여 등록 하 고, 제품 세부 정보를 등록 하 고, 시작 가이드를 제출 하 고, 인증 테스트를 실행 하는 방법을 보여 줍니다.
 

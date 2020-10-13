@@ -8,18 +8,20 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629083"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975912"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Azure Active Directory에서 공용 클라이언트 응용 프로그램 등록
 
 이 문서에서는 Azure Active Directory에서 공용 응용 프로그램을 등록 하는 방법에 대해 알아봅니다.  
 
 클라이언트 응용 프로그램 등록은 사용자를 대신 하 여 API 권한을 인증 하 고 요청할 수 있는 응용 프로그램의 Azure Active Directory 표현입니다. 공용 클라이언트는 비밀을 비밀으로 유지할 수 없는 모바일 응용 프로그램 및 단일 페이지 JavaScript 응용 프로그램과 같은 응용 프로그램입니다. 이 절차는 [기밀 클라이언트를 등록](register-confidential-azure-ad-client-app.md)하는 것과 유사 하지만 공용 클라이언트는 응용 프로그램 암호를 저장 하기 위해 신뢰할 수 없기 때문에 추가할 필요가 없습니다.
+
+빠른 시작에서는 [Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)하는 방법에 대 한 일반적인 정보를 제공 합니다.
 
 ## <a name="app-registrations-in-azure-portal"></a>Azure Portal 앱 등록
 
@@ -38,6 +40,18 @@ ms.locfileid: "91629083"
 2. 회신 URL을 제공 합니다. 회신 URL은 클라이언트 응용 프로그램에 인증 코드가 반환 되는 위치입니다. 더 많은 회신 Url을 추가 하 고 나중에 기존 항목을 편집할 수 있습니다.
 
     ![Azure Portal. 새 공용 앱 등록.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+
+
+[데스크톱](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [모바일](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) 또는 [단일 페이지](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) 응용 프로그램을 공용 응용 프로그램으로 구성 하려면 다음을 수행 합니다.
+
+1. [Azure Portal](https://portal.azure.com)의 **앱 등록**에서 앱을 선택한 다음 **인증**을 선택 합니다.
+
+2. **고급 설정**  >  **기본 클라이언트 유형**을 선택 합니다. **응용 프로그램을 공용 클라이언트로 처리**에 대해 **예**를 선택 합니다.
+
+3. 단일 페이지 응용 프로그램의 경우 **액세스 토큰** 및 **ID 토큰** 을 선택 하 여 암시적 흐름을 사용 하도록 설정 합니다.
+
+   - 애플리케이션에서 사용자를 로그인하는 경우 **ID 토큰**을 선택합니다.
+   - 애플리케이션에서 보호된 웹 API를 호출해야 하는 경우에는 **액세스 토큰**을 선택합니다.
 
 ## <a name="api-permissions"></a>API 사용 권한
 

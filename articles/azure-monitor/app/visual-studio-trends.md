@@ -2,17 +2,14 @@
 title: Visual Studio에서 추세 분석 | Microsoft Docs
 description: Visual Studio의 Application Insights 원격 분석에서 추세를 분석, 시각화 및 탐색합니다.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
 ms.date: 03/17/2017
-ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b78dceed3c2a25d6afedf5fca348726d7aafd3d
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318167"
+ms.locfileid: "91932246"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio에서 추세 분석
 Application Insights 추세 도구는 웹 애플리케이션의 중요한 원격 분석 이벤트가 시간이 지남에 따라 어떻게 변했는지 시각화하여, 문제와 잘못된 부분을 신속하게 식별하는 데 도움을 줍니다. 더 자세한 진단 정보에 연결하면 추세를 통해 앱의 성능을 향상시키고 예외의 원인을 추적하며 사용자 지정 이벤트로부터 새로운 정보를 발견할 수 있습니다.
@@ -96,9 +93,6 @@ Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각
 > 
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
-|  |  |
-| --- | --- |
-| **[Visual Studio Online에서 Application Insights로 작업](./visual-studio.md)**<br/>원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. |![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/visual-studio-trends/34.png) |
-| **[더 많은 데이터 추가](./asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/visual-studio-trends/64.png) |
-| **[Application Insights 포털 사용](./overview-dashboard.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/visual-studio-trends/62.png) |
+* **[Visual Studio에서 Application Insights 사용](./visual-studio.md)** 원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. 
+* **[Application Insights 포털을 사용 하 여 작업](./overview-dashboard.md)** 합니다. 대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기입니다. 
 

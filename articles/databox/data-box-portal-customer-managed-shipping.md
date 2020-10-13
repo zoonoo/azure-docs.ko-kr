@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142539"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951913"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Azure Portal에서 Azure Data Box용 자체 관리형 배송 사용
 
@@ -41,7 +41,7 @@ Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습
 2. 배송 유형을 선택할 때 **자체 관리형 배송** 옵션을 선택합니다. 이 옵션은 필수 구성 요소에 설명된 대로 지원되는 지역에서만 사용할 수 있습니다.
 
 3. 배송 주소를 입력한 후에는 유효한지 검사하고 주문을 완료해야 합니다.
-   ![자체 관리형 배송](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![자체 관리 배송 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. 장치를 준비 하 고 해당 장치에 대 한 전자 메일 알림을 받으면 픽업을 예약할 수 있습니다.
 
@@ -78,7 +78,7 @@ Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습
 
 9. 반납 약속을 받은 경우에는 Azure Portal에서 주문이 **Azure 데이터 센터에서 수신 준비 완료** 상태여야 합니다. **반납 예약**의 지침에 따라 디바이스를 반환합니다.
 
-   ![인증 코드 보기](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![권한 부여 코드 2 보기](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. ID 및 인증 코드를 확인하고 데이터 센터에서 디바이스를 반납한 후에는 주문 상태가 **수신됨**이 됩니다.
 

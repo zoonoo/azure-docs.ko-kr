@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2020
+ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141791"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951488"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
-
 
 이 문서에서는 Azure Sentinel에 대한 CMK(고객 관리형 키)를 구성하는 단계 및 배경 정보를 제공합니다. CMK를 사용하면 사용자가 만들거나 소유한 Azure Key Vault 키로 Azure Sentinel에 저장되거나 전송된 모든 데이터를 모든 관련 스토리지 리소스에서 암호화할 수 있습니다.
 
 > [!NOTE]
-> -   Azure Sentinel CMK 기능은 **신규** 고객에게만 제공되며 이 기능에 대한 액세스는 Azure 기능 등록을 통해 제어됩니다. azuresentinelCMK@microsoft.com에 문의하여 액세스 권한을 요청할 수 있으며, 자격이 되면 보류 중인 요청이 승인됩니다.
-> -   Azure Sentinel CMK 기능은 미국 동부, 미국 서부 2 및 미국 중남부 지역에서만 사용할 수 있습니다.
-> -   CMK 기능은 매일 1TB 이상을 전송하는 고객만 사용할 수 있습니다. Microsoft에 적용하여 Azure 구독의 CMK를 프로비저닝할 때 가격 책정에 대한 추가 정보를 받게 됩니다. [Log Analytics 가격 책정](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters)에 대해 자세히 알아보세요.
+> - Azure 센티널 CMK 기능은 **새 고객**에게만 제공 됩니다.
+>
+> - 이 기능에 대 한 액세스는 Azure 기능 등록을 통해 제어 됩니다.에 연락 하 여 액세스를 요청할 수 있습니다 azuresentinelCMK@microsoft.com . 보류 중인 요청은 사용 가능한 용량에 따라 승인 됩니다.
+>
+> - CMK 기능은 매일 1TB 이상을 전송하는 고객만 사용할 수 있습니다. Microsoft에 적용하여 Azure 구독의 CMK를 프로비저닝할 때 가격 책정에 대한 추가 정보를 받게 됩니다. [Log Analytics 가격 책정](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters)에 대해 자세히 알아보세요.
 
 ## <a name="how-cmk-works"></a>CMK 작동 방법 
 
@@ -58,7 +59,7 @@ CMK를 프로비저닝하려면 다음 단계를 수행합니다. 
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>1단계: Azure Key Vault 만들기 및 키 저장
 
-1.  [Azure Key Vault 리소스를 만든](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910) 다음 데이터 암호화에 사용할 키를 생성하거나 가져옵니다.
+1.  [Azure Key Vault 리소스를 만든](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) 다음 데이터 암호화에 사용할 키를 생성하거나 가져옵니다.
     > [!NOTE]
     >  키와 액세스를 보호하기 위해 Azure Key Vault를 복구 가능으로 구성해야 합니다.
 

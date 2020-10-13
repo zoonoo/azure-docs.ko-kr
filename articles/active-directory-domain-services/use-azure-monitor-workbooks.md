@@ -1,20 +1,20 @@
 ---
 title: Azure AD Domain Services에서 Azure Monitor 통합 문서 사용 | Microsoft Docs
 description: Azure Monitor 통합 문서를 사용 하 여 보안 감사를 검토 하 고 관리 되는 Azure Active Directory Domain Services 도메인의 문제를 이해 하는 방법을 알아봅니다.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704602"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967072"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 

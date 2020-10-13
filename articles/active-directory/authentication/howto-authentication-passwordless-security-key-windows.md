@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 01/30/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526989"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964743"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 Windows 10 장치에 암호 없는 보안 키 로그인 사용
 
@@ -91,12 +91,12 @@ Intune을 사용 하 여 보안 키를 사용 하도록 설정 하려면 다음 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Microsoft Intune**  >  **장치 구성**  >  **프로필**  >  **프로필 만들기**로 이동 합니다.
 1. 다음 설정을 사용 하 여 새 프로필을 구성 합니다.
-   - 이름: Windows 로그인에 대 한 보안 키
+   - 이름: Windows Sign-In 보안 키
    - 설명: Windows 로그인 중에 FIDO 보안 키를 사용할 수 있습니다.
    - 플랫폼: Windows 10 이상
    - 프로필 유형: 사용자 지정
    - 사용자 지정 OMA-URI 설정:
-      - 이름: Windows 로그인에 대 한 FIDO 보안 키를 설정 합니다.
+      - 이름: Windows Sign-In에 대 한 FIDO 보안 키를 설정 합니다.
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - 데이터 형식: Integer
       - 값: 1

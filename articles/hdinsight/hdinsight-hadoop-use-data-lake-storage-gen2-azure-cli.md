@@ -12,14 +12,14 @@ ms.openlocfilehash: e8cfe55f4843439743535b978483d8518bd020fa
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858784"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Azure CLI를 사용 하 여 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
 
 저장소에 Data Lake Storage Gen2를 사용 하는 HDInsight 클러스터를 만들려면 다음 단계를 수행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Data Lake Storage Gen2에 대해 잘 모르겠으면 [개요 섹션](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 확인 하세요. 
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.

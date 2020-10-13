@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49a51886f921c9d37a33229b6db78479d7198bc
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857812"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938324"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Cognitive Services docs: 2020 년 9 월 1 일-9 월 30 2020 일의 새로운 기능
 
@@ -42,51 +42,51 @@ ms.locfileid: "91857812"
 
 ### <a name="new-articles"></a>새 문서
 
-- [공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.](/azure/cognitive-services/computer-vision/spatial-analysis-container.md)
+- [공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Azure Cognitive Services 컨테이너 이미지 태그](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services 컨테이너 이미지 태그](https://docs.microsoft.com/azure/cognitive-services/containers/container-image-tags)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Form Recognizer에 대한 언어 지원](/azure/cognitive-services/form-recognizer/language-support.md)
-- [사용자 지정 모델에 대 한 학습 데이터 집합 작성](/azure/cognitive-services/form-recognizer/build-training-data-set.md)
-- [수신 개념](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [미사용 데이터의 폼 인식기 암호화](/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
-- [Form Recognizer의 새로운 기능](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [명함 개념](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [Form Recognizer란?](/azure/cognitive-services/form-recognizer/overview.md)
-- [빠른 시작: Form Recognizer 클라이언트 라이브러리 사용](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+- [Form Recognizer에 대한 언어 지원](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
+- [사용자 지정 모델에 대 한 학습 데이터 집합 작성](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/build-training-data-set)
+- [수신 개념](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-receipts)
+- [미사용 데이터의 폼 인식기 암호화](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)
+- [Form Recognizer의 새로운 기능](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/whats-new)
+- [명함 개념](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [Form Recognizer란?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/overview)
+- [빠른 시작: Form Recognizer 클라이언트 라이브러리 사용](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/client-library)
 
 ## <a name="immersive-reader"></a>몰입형 리더
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [몰입형 리더를 위한 언어 지원](/azure/cognitive-services/immersive-reader/language-support.md)
-- [몰입 형 판독기 JavaScript SDK 참조 (v. 1.1)](/azure/cognitive-services/immersive-reader/reference.md)
-- [빠른 시작: 몰입형 리더 시작](/azure/cognitive-services/immersive-reader/quickstarts/client-libraries.md)
-- [자습서: Python 샘플 프로젝트를 사용하여 몰입형 리더 시작](/azure/cognitive-services/immersive-reader/tutorial-python.md)
-- [몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [몰입형 리더를 위한 언어 지원](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
+- [몰입 형 판독기 JavaScript SDK 참조 (v. 1.1)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)
+- [빠른 시작: 몰입형 리더 시작](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
+- [자습서: Python 샘플 프로젝트를 사용하여 몰입형 리더 시작](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/tutorial-python)
+- [몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="new-articles"></a>새 문서
 
-- [방법: 메트릭을 구성 하 고 미세 조정 하 여 구성 검색](/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics.md)
-- [다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [빠른 시작: REST API를 사용하여 솔루션 사용자 지정](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
-- [방법: 후크를 사용 하 여 경고 구성 및 알림 가져오기](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
+- [방법: 메트릭을 구성 하 고 미세 조정 하 여 구성 검색](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics)
+- [다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources)
+- [빠른 시작: REST API를 사용하여 솔루션 사용자 지정](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/rest-api)
+- [방법: 후크를 사용 하 여 경고 구성 및 알림 가져오기](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts)
 
 ## <a name="text-analytics"></a>텍스트 분석
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [텍스트 분석 API의 모델 버전 관리](/azure/cognitive-services/text-analytics/concepts/model-versioning.md)
-- [빠른 시작: Text Analytics 클라이언트 라이브러리 사용](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
+- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [텍스트 분석 API의 모델 버전 관리](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/model-versioning)
+- [빠른 시작: Text Analytics 클라이언트 라이브러리 사용](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
 
 ## <a name="community-contributors"></a>커뮤니티 기여자
 

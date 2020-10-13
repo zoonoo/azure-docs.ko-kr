@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804132"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Azure Cosmos DB 및 Power BI를 사용 하 여 실시간 대시보드 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "91804132"
 Azure Cosmos DB에 저장 된 데이터에 대 한 보고 대시보드를 설정 하는 방법에는 여러 가지가 있습니다. 다음 표에서는 부실 요구 사항 및 데이터의 크기에 따라 각 시나리오에 대 한 보고 설정에 대해 설명 합니다.
 
 
-|시나리오 |설치 프로그램 |
+|시나리오 |설정 |
 |---------|---------|
 |1. 임시 보고서 생성 (새로 고침 안 함)    |  [가져오기 모드를 사용 하는 Power BI Azure Cosmos DB 커넥터](powerbi-visualize.md)       |
 |2. 정기적인 새로 고침을 사용 하 여 임시 보고서 생성   |  [가져오기 모드를 사용 하 Azure Cosmos DB 커넥터 Power BI (정기 새로 고침 예약 됨)](powerbi-visualize.md)       |
@@ -66,8 +66,8 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
    |속성  |데이터 형식  |Assert  |
    |---------|---------|---------|
    |_ts     |   숫자      |  [_ts] > Duration. TotalSeconds #datetime (TotalSeconds (1970, 1, 1, 0, 0, 0)) 및 [_ts] < Duration. (범위 종료-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |날짜 (예:-2019-08-19)     |   문자열      | [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd")        |
-   |날짜 (예:-2019-08-11 12:00:00)   |  문자열       |  [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd HH: mm: ss") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd HH: mm: ss")       |
+   |날짜 (예:-2019-08-19)     |   String      | [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd")        |
+   |날짜 (예:-2019-08-11 12:00:00)   |  String       |  [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd HH: mm: ss") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd HH: mm: ss")       |
 
 
 1. **새로 고침 정책 정의** -테이블에 대 한 **상황에 맞는** 메뉴의 **증분 새로 고침** 탭으로 이동 하 여 새로 고침 정책을 정의 합니다. **매일** 새로 고치도록 새로 고침 정책을 설정 하 고 마지막 달 데이터를 저장 합니다.

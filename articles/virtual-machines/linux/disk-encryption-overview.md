@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f23e2c58ae25fefb8508474921e476163b33e79
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830447"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978427"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -26,7 +26,7 @@ Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 
 > [!WARNING]
 > - 이전에 VM을 암호화하기 위해 Azure AD에서 Azure Disk Encryption을 사용한 적이 있다면 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 자세한 내용은 [Azure AD(이전 릴리스)를 포함한 Azure Disk Encryption](disk-encryption-overview-aad.md)을 참조하세요. 
 > - 특정 권장 사항으로 인해 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
-> - 현재 2세대 VM은 Azure Disk Encryption을 지원하지 않습니다. 자세한 내용은 [Azure의 2세대용 VM 지원](../windows/generation-2.md)을 참조하세요.
+> - 현재 2세대 VM은 Azure Disk Encryption을 지원하지 않습니다. 자세한 내용은 [Azure의 2세대용 VM 지원](../generation-2.md)을 참조하세요.
 
 [Azure CLI를 사용하여 Linux VM 만들기 및 암호화 빠른 시작](disk-encryption-cli-quickstart.md) 또는 [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화 빠른 시작](disk-encryption-powershell-quickstart.md)을 사용하여 몇 분 만에 Linux용 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
 
@@ -46,7 +46,7 @@ Linux 가상 머신에서 OS 디스크 암호화 프로세스가 완료되면 VM
 
 Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-Azure Disk Encryption은 [2세대 VM](generation-2.md#generation-1-vs-generation-2-capabilities)) 및 [Lsv2 시리즈 VM](../lsv2-series.md))에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-linux.md#unsupported-scenarios)를 참조하세요.
+Azure Disk Encryption [2 세대 vm](../generation-2.md#generation-1-vs-generation-2-capabilities) 및 [Lsv2 시리즈 vm](../lsv2-series.md)에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-linux.md#unsupported-scenarios)를 참조하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 

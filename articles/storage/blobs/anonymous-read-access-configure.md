@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087357"
+ms.locfileid: "91931073"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성
 
@@ -56,7 +56,7 @@ Azure Storage는 컨테이너 및 blob에 대 한 선택적 익명 공용 읽기
 > [!NOTE]
 > **Allowblobpublicaccess** 속성은 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 이거나 **true**일 때 공용 액세스를 허용 합니다.
 >
-> **Allowblobpublicaccess** 속성은 현재 Azure 공용 클라우드의 저장소 계정에 대해서만 사용할 수 있습니다.
+> **Allowblobpublicaccess** 속성은 Azure 공용 클라우드의 모든 저장소 계정 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 

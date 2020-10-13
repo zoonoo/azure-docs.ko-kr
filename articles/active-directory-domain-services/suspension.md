@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에서 일시 중단 된 도메인 | Microsoft Docs
 description: Azure AD DS 관리 되는 도메인에 대 한 다양 한 상태와 일시 중단 된 도메인을 복원 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 9bcecdfaf3121ea024fee567dbe83544229373be
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86223400"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967701"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 성능 상태를 이해 하 고 일시 중단 된 도메인을 해결 합니다.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 71862bedc009d560adc8131eacc37c0afba25d81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761722"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951582"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -41,7 +41,7 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Cognitive Search 
 
 이 날짜 이후에는 더 이상 사용 되지 않는 REST API 또는 SDK 버전 중 하나를 사용 하는 응용 프로그램이 더 이상 작동 하지 않으므로 업그레이드 해야 합니다. 이 유형을 변경 하는 경우와 마찬가지로 12 개월의 통지를 제공 하므로 적절 한 시간을 조정할 수 있습니다.
 
-Azure Cognitive Search을 계속 사용 하려면 [REST API](search-api-migration.md) 를 대상으로 하는 기존 코드를 [REST API 버전 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) 또는 2020 년 10 월 15 일까 지 최신 SDK로 마이그레이션 하세요.  최신 버전으로 업데이트 하는 방법에 대 한 질문이 있는 경우 azuresearch_contact@microsoft.com 코드를 업데이트 하는 데 충분 한 시간을 갖도록 2020 년 5 월 15 일에 메일을 보내 주시기 바랍니다.
+Azure Cognitive Search을 계속 사용 하려면 [REST API](search-api-migration.md) 를 대상으로 하는 기존 코드를 [REST API 버전 2020-06-30](/rest/api/searchservice/) 또는 2020 년 10 월 15 일까 지 최신 SDK로 마이그레이션 하세요.  최신 버전으로 업데이트 하는 방법에 대 한 질문이 있는 경우 azuresearch_contact@microsoft.com 코드를 업데이트 하는 데 충분 한 시간을 갖도록 2020 년 5 월 15 일에 메일을 보내 주시기 바랍니다.
 
 ## <a name="rest-apis"></a>REST API
 
@@ -74,8 +74,8 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 | 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | 설명 |
 |-------------------------|--------|------------------------------|
-| [관리 2020-08-01](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | 안정적인 최신 버전의 관리 REST Api. 미리 보기 버전에 명시 된 리소스를 제외 하 고 모든 아웃 바운드 액세스 리소스에 대해 일반적으로 사용 가능한 공유 개인 링크 리소스 지원을 추가 합니다. |
-| [관리 2020-08-01-미리 보기](https://docs.microsoft.com/rest/api/searchmanagement/index-preview) | 미리 보기  | 현재 미리 보기 상태: Azure Functions 및 Azure Database for MySQL에 대 한 공유 개인 링크 리소스 지원. |
+| [관리 2020-08-01](/rest/api/searchmanagement/) | Stable | 안정적인 최신 버전의 관리 REST Api. 미리 보기 버전에 명시 된 리소스를 제외 하 고 모든 아웃 바운드 액세스 리소스에 대해 일반적으로 사용 가능한 공유 개인 링크 리소스 지원을 추가 합니다. |
+| [관리 2020-08-01-미리 보기](/rest/api/searchmanagement/index-preview) | 미리 보기  | 현재 미리 보기 상태: Azure Functions 및 Azure Database for MySQL에 대 한 공유 개인 링크 리소스 지원. |
 | 관리 2020-03-13  | Stable | 개인 링크를 통해 [개인 끝점](service-create-private-endpoint.md) 을 추가 하 고 새 서비스에 대 한 [네트워크 IP 규칙](service-configure-firewall.md) 을 추가 합니다. 자세한 내용은이 [swagger 사양을](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01)참조 하십시오. |
 | 관리 2019-10-01-미리 보기 | 미리 보기  | 이 목록에는 미리 보기 기능이 도입 되지 않았습니다. 이 미리 보기는 2020-03-13와 기능적으로 동일 합니다. 자세한 내용은이 [swagger 사양을](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview)참조 하십시오. |
 | 관리 2015-08-19  | Stable | 관리 REST Api의 첫 번째 일반적으로 사용할 수 있는 버전입니다. 서비스 프로 비전, 확장 및 api 키 관리를 제공 합니다. 자세한 내용은이 [swagger 사양을](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19)참조 하십시오. |

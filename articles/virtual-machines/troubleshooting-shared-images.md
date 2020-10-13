@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328066"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978546"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Azure에서 공유 이미지 갤러리 문제 해결
 
@@ -79,7 +79,7 @@ ms.locfileid: "91328066"
 
 *VM 또는 가상 머신 확장 집합을 만들려고 시도하는 사용자가 이미지 버전에 대한 읽기 권한을 갖고 있지 않습니다.*
 
-구독 소유자에 게 문의 하 고 azure [역할 기반 액세스 제어 (AZURE RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)를 통해 이미지 버전 또는 부모 리소스 (예: 공유 이미지 갤러리 또는 이미지 정의)에 대 한 읽기 액세스 권한을 부여 하도록 요청 합니다. 
+구독 소유자에 게 문의 하 고 azure [역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md)를 통해 이미지 버전 또는 부모 리소스 (예: 공유 이미지 갤러리 또는 이미지 정의)에 대 한 읽기 액세스 권한을 부여 하도록 요청 합니다. 
 
 *이미지 버전이 없습니다.*
 
@@ -91,7 +91,7 @@ VM 또는 가상 머신 확장 집합을 만들려는 이미지 버전의 **OSTy
 
 ## <a name="unable-to-share-resources"></a>리소스를 공유할 수 없음
 
-Azure [역할 기반 액세스 제어 (AZURE RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)를 사용 하 여 구독 간에 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스를 공유할 수 있습니다. 
+Azure [역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md)를 사용 하 여 구독 간에 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스를 공유할 수 있습니다. 
 
 ## <a name="replication-is-slow"></a>복제 속도가 느림
 
@@ -99,7 +99,7 @@ Azure [역할 기반 액세스 제어 (AZURE RBAC)](https://docs.microsoft.com/a
 
 ## <a name="azure-limits-and-quotas"></a>Azure 한도 및 할당량 
 
-[Azure 한도 및 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)은 모든 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스에 적용됩니다. 구독의 한도 내에 있는지 확인하세요. 
+[Azure 한도 및 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)은 모든 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스에 적용됩니다. 구독의 한도 내에 있는지 확인하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

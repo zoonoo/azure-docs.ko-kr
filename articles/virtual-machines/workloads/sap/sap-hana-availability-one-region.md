@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833320"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978206"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
 이 문서에서는 한 Azure 지역 내의 여러 가용성 시나리오에 대해 설명합니다. Azure에는 전 세계에 걸쳐 많은 지역이 있습니다. Azure 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. Azure 지역 내의 VM에 SAP HANA를 배포하는 경우 Microsoft는 HANA 인스턴스가 있는 단일 VM의 배포를 제공합니다. 가용성을 높이기 위해 HANA 시스템 복제를 가용성 용도로 사용하는 [Azure 가용성 집합](../../windows/tutorial-availability-sets.md) 내에 두 개의 HANA 인스턴스가 있는 두 개의 VM을 배포할 수 있습니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "87833320"
 
 가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 애플리케이션을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 애플리케이션 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
  
-Azure 가용성 집합은 가용성 집합 내에 배치한 VM 리소스를 Azure 데이터 센터에 배포할 때 서로 간에 오류가 격리되도록 하는 데 도움이 되는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 일부 Azure 문서에서 이 구성은 다른 [업데이트 및 장애 도메인](../../windows/manage-availability.md)의 배치라고 합니다. 이러한 배치는 일반적으로 Azure 데이터 센터 내에 있습니다. 전원 및 네트워크 문제가 배포하는 데이터 센터에 영향을 준다고 가정하면, 한 Azure 지역의 모든 용량에 영향을 줍니다.
+Azure 가용성 집합은 가용성 집합 내에 배치한 VM 리소스를 Azure 데이터 센터에 배포할 때 서로 간에 오류가 격리되도록 하는 데 도움이 되는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 일부 Azure 문서에서 이 구성은 다른 [업데이트 및 장애 도메인](../../manage-availability.md)의 배치라고 합니다. 이러한 배치는 일반적으로 Azure 데이터 센터 내에 있습니다. 전원 및 네트워크 문제가 배포하는 데이터 센터에 영향을 준다고 가정하면, 한 Azure 지역의 모든 용량에 영향을 줍니다.
 
 Azure 가용성 영역을 나타내는 데이터 센터의 배치는 여러 영역에 배포된 서비스 간 배달 네트워크 대기 시간과 데이터 센터 간 특정 거리 사이의 절충안입니다. 이상적으로 자연 재해는 이 지역의 모든 가용성 영역에 대한 전원, 네트워크 공급 및 인프라에 영향을 주지 않습니다. 그러나 엄청난 자연 재해가 발생하면 가용성 영역이 한 지역 내에서 필요한 가용성을 제공하지 못할 수도 있습니다. 2017년 9월 20일 푸에르토리코 섬에 발생한 Maria 허리케인에 대해 생각해 보세요. 기본적으로 이 허리케인으로 인해 90마일 너비의 섬에서 거의 100%에 이르는 정전이 발생했습니다.
 
@@ -127,4 +127,4 @@ Azure에서 이러한 설정을 구성하는 단계별 지침은 다음을 참�
 
 Azure 지역 간 SAP HANA 가용성에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 지역 간 SAP HANA 가용성](./sap-hana-availability-across-regions.md) 
+- [Azure 지역 간 SAP HANA 가용성](./sap-hana-availability-across-regions.md)

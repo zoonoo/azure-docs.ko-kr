@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904437"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952151"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 계산 관리
 
@@ -107,7 +107,7 @@ Azure Portal를 사용 하 여 계산 구성을 보거나, 기존 계산 구성�
 
 2. 컴퓨팅 구성을 제거한 경우 컴퓨팅을 다시 사용해야 할 때 디바이스를 다시 구성해야 합니다. 확인하라는 메시지가 표시되면 **예**를 선택합니다.
 
-    ![컴퓨팅 제거 선택](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![계산 제거 2 선택](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>IoT 디바이스 및 IoT Edge 디바이스 액세스 키 동기화
 

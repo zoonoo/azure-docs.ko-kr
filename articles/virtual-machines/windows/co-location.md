@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: b5a3c0a582b1e9dfbcf81968ebc9d0c7a0a4f75e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c981e9b829fa10f094370e1e1ffd8b6df967d4b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288323"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965780"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>대기 시간 향상을 위한 리소스 배치
 
@@ -27,7 +27,7 @@ Azure에서 응용 프로그램을 배포할 때 지역 또는 가용성 영역�
 
 Azure PowerShell를 사용 하 여 [근접 배치 그룹](proximity-placement-groups.md) 에 VM을 배포 합니다.
 
-[네트워크 대기 시간을 테스트](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 알아봅니다.
+[네트워크 대기 시간을 테스트](../../virtual-network/virtual-network-test-latency.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)하는 방법을 알아봅니다.
 
 [네트워크 처리량을 최적화](../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 알아봅니다.  
 

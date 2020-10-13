@@ -12,17 +12,17 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91257132"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
 
 Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다음 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 시나리오 [에서는 사용자에 게 로그인 하는 웹 앱 시나리오](scenario-web-app-sign-user-overview.md)를 이미 완료 했다고 가정 합니다.
 
