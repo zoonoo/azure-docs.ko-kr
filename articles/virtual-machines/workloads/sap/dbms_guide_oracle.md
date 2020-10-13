@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72c9d64a71fceb90d0a6ae9984997f73c1b5c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540713"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963536"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>SAP 워크 로드에 대 한 Azure Virtual Machines Oracle DBMS 배포
 
@@ -444,7 +444,7 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 
 ### <a name="storage-configuration"></a>스토리지 구성
 
-ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다.
+ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다.
 
 Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../premium-storage-performance.md#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
 
@@ -508,7 +508,7 @@ Azure M 시리즈 Vm의 경우 azure 쓰기 가속기를 사용 하는 경우 Az
 ### <a name="backuprestore"></a>백업/복원
 백업/복원 기능의 경우 SAP BR*Tools for Oracle은 완전 복구 및 Hyper-V와 동일한 방법으로 지원됩니다. Oracle RMAN(Recovery Manager)에서도 디스크에 백업 및 디스크에서 복원이 지원됩니다.
 
-또한 Azure 백업 및 복구 서비스를 사용하여 Oracle 데이터베이스를 백업하고 복구하는 방법에 대한 자세한 내용은 [Azure Linux 가상 머신의 Oracle Database 12c 데이터베이스 백업 및 복구](../oracle/oracle-backup-recovery.md)를 참조하세요.
+또한 Azure 백업 및 복구 서비스를 사용하여 Oracle 데이터베이스를 백업하고 복구하는 방법에 대한 자세한 내용은 [Azure Linux 가상 머신의 Oracle Database 12c 데이터베이스 백업 및 복구](../oracle/oracle-overview.md)를 참조하세요.
 
 ### <a name="high-availability"></a>고가용성
 높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. Data Guard에서 자동 장애 조치(failover)를 완수하려면 FSFA(Fast-Start Failover)를 사용해야 합니다. 관찰자 기능(FSFA)이 장애 조치(failover)를 트리거합니다. FSFA를 사용하지 않는 경우 수동 장애 조치(failover) 구성만 사용할 수 있습니다. 자세한 내용은 [Azure Linux 가상 머신에서 Oracle Data Guard 구현](../oracle/configure-oracle-dataguard.md)을 참조하세요.
@@ -531,5 +531,3 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 기사 읽기 
 
 - [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)
- 
-

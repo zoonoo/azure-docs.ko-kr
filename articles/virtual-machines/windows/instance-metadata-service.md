@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975538"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -47,13 +47,15 @@ IMDS를 쿼리하는 방법에 대한 추가 예제는 [Azure 인스턴스 메�
 **요청**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
+> [!NOTE]
+> `-NoProxy`플래그는 PowerShell 6 이상 에서만 사용할 수 있습니다. 프록시 설정이 없는 경우 플래그를 생략할 수 있습니다.
 
 **응답**
 
 > [!NOTE]
-> 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
+> 응답은 JSON 문자열입니다. Microsoft는이 cmdlet을 통해 `ConvertTo-Json` 예쁜 인쇄를 위해 REST 쿼리를 파이프 합니다.
 
 ```json
 {
@@ -228,7 +230,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 Metadata Service에는 서로 다른 데이터 원본을 나타내는 여러 Api가 포함 되어 있습니다.
 
-API | 설명 | 도입된 버전
+API | Description | 도입된 버전
 ----|-------------|-----------------------
 /attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 /identity | [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) 참조 | 2018-02-01
@@ -250,8 +252,8 @@ name | VM의 이름 | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 계획 | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
-platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
-platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
+platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](../manage-availability.md) | 2017-04-02
+platformFaultDomain | VM을 실행 중인 [장애 도메인](../manage-availability.md) | 2017-04-02
 provider | VM의 공급자 | 2018-10-01
 publicKeys | VM 및 경로에 할당된 [공개 키 컬렉션](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 이미지 게시자 | 2017-04-02

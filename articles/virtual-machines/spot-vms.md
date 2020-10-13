@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827810"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963366"
 ---
 # <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
 
@@ -99,17 +99,17 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 
 **Q:** 별색 Vm의 할당량은 어떻게 관리 되나요?
 
-**A:** 지점 Vm에는 별도의 할당량 풀이 있습니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요.
+**A:** 지점 Vm에는 별도의 할당량 풀이 있습니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
 
 
 **Q:** 추가 할당량을 요청할 수 있나요?
 
-**A:** 예, [표준 할당량 요청 프로세스](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
+**A:** 예, [표준 할당량 요청 프로세스](../azure-portal/supportability/per-vm-quota-requests.md)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
 
 
 **Q:** 어디에서 질문을 게시할 수 있나요?
 
-**A:** `azure-spot` [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다. 
+**A:** `azure-spot` [Q&A](/answers/topics/azure-spot.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [CLI](./linux/spot-cli.md), [포털](spot-portal.md), [ARM 템플릿](./linux/spot-template.md)또는 [PowerShell](./windows/spot-powershell.md) 을 사용 하 여 스폿 vm을 배포 합니다.

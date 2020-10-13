@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7105597ec34e804c2f2b85b01feb4824d63005c5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578124"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Intune 프로필을 만들어 VPN 클라이언트 프로필 배포
@@ -22,7 +22,7 @@ Microsoft Intune를 사용 하 여 Azure VPN 클라이언트 (Windows 10)에 대
 > 이 메서드는 클라이언트 인증을 위해 Azure Active Directory 또는 일반 인증서를 사용 하는 프로필을 배포 하는 경우에만 작동 합니다. 고유한 클라이언트 인증서를 사용 하는 경우 각 사용자는 Azure VPN 클라이언트 내에서 수동으로 올바른 인증서를 선택 해야 합니다.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 장치가 Intune MDM에 이미 등록 되어 있습니다.
 * Windows 10 용 Azure VPN 클라이언트가 클라이언트 컴퓨터에 이미 배포 되어 있습니다.

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849846"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975164"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -108,7 +108,7 @@ Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.
 * **사용자 지정 커넥터**
     - API 끝점: REST (기본값 유지)
     - 가져오기 모드: OpenAPI 파일 (기본값 유지)
-    - 파일: 앞에서 다운로드 한 사용자 지정 Swagger 파일입니다. *가져오기*를 눌러 컴퓨터에서 파일 (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.js*)을 찾고 *열기*를 누릅니다.
+    - 파일: 앞에서 다운로드 한 사용자 지정 Swagger 파일입니다. *가져오기*를 누르고 컴퓨터 (*Azure_Digital_Twins_Custom_Swaggers \logicapps \...\digitaltwins.js*)에서 파일을 찾은 다음 *열기*를 누릅니다.
 * **일반 정보**
     - 아이콘: 원하는 아이콘을 업로드 합니다.
     - 아이콘 배경색: 16 진수 코드를 색의 ' #xxxxxx ' 형식으로 입력 합니다.
@@ -201,7 +201,7 @@ _검토 + 만들기_ 단추를 누릅니다.
 새 *DigitalTwinsAdd* 상자에서 다음과 같이 필드를 채웁니다.
 * _id_: 논리 앱을 업데이트 하려는 인스턴스에서 디지털 쌍의 쌍 *id* 를 채웁니다.
 * 쌍:이 필드는 선택한 API 요청에 필요한 본문을 입력 _합니다._ *DigitalTwinsUpdate*의 경우이 본문은 JSON 패치 코드 형식입니다. 쌍을 업데이트 하는 JSON 패치를 구조화 하는 방법에 대 한 자세한 내용은 *방법: 디지털 쌍 관리*의 디지털 쌍 [업데이트](how-to-manage-twin.md#update-a-digital-twin) 섹션을 참조 하십시오.
-* _api-version_: 현재 공개 미리 보기에서이 값은 *2020-05-31-미리 보기* 입니다.
+* _api-version_: 최신 api 버전입니다. 현재 공개 미리 보기에서이 값은 *2020-05-31-미리 보기* 입니다.
 
 Logic Apps 디자이너에서 *저장* 을 누릅니다.
 

@@ -4,10 +4,10 @@ description: Azure Lighthouse를 통해 관리 하는 고객 리소스에서 파
 ms.date: 10/05/2020
 ms.topic: how-to
 ms.openlocfilehash: 5caa205ce74152c7ec047952f66c1bf9188ddf02
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776173"
 ---
 # <a name="link-your-partner-id-to-enable-partner-earned-credit-on-delegated-resources"></a>파트너 ID를 연결 하 여 위임 된 리소스에서 파트너 획득 크레딧을 사용 하도록 설정

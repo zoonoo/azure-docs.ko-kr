@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577852"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
@@ -31,9 +31,9 @@ ms.locfileid: "91577852"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|미리 보기|
-|결정|**컴퓨터의 SQL server에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
-|보호 된 SQL 버전:|Azure SQL Server (Microsoft 지원에 포함 된 모든 버전)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|가격 책정:|**컴퓨터의 SQL server에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
+|보호되는 SQL 버전:|Azure SQL Server (Microsoft 지원에 포함 된 모든 버전)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL server에 대 한 Azure Defender 설정
@@ -46,7 +46,7 @@ ms.locfileid: "91577852"
 
 이러한 두 가지 방법에 대해서는 아래에서 설명 합니다.
 
-### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계: SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
+### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계. SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
 
 - **AZURE vm에서 SQL Server** -SQL 컴퓨터가 azure vm에서 호스트 되는 경우 [Log Analytics 에이전트를 자동으로 프로 비전](security-center-enable-data-collection.md#workspace-configuration)할 수 있습니다. 또는 [Azure Stack vm](quickstart-onboard-machines.md#onboard-your-azure-stack-vms)을 등록 하는 수동 절차를 따를 수 있습니다.
 - **Azure arc에 SQL Server** -SQL Server [azure arc](https://docs.microsoft.com/azure/azure-arc/) 컴퓨터에서 호스트 되는 경우 Security Center 권장 사항을 사용 하 여 Log Analytics 에이전트를 배포할 수 있습니다. "Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다. 또는 [Azure Arc 설명서](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal)의 수동 절차를 따를 수도 있습니다.
@@ -129,6 +129,6 @@ Azure Defender 경고는 Security Center의 경고 페이지, 리소스의 보�
 관련 자료는 다음 문서를 참조 하세요.
 
 - [SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 보안 경고](alerts-reference.md#alerts-sql-db-and-warehouse)
-- [보안 경고에 대 한 전자 메일 알림 설정](security-center-provide-security-contact-details.md)
+- [보안 경고에 대한 이메일 알림 설정](security-center-provide-security-contact-details.md)
 - [Azure 센티널에 대해 자세히 알아보기](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Security Center의 데이터 보안 패키지](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

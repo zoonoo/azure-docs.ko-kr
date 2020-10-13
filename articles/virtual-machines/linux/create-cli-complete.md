@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829019"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975385"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
 Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다.
@@ -434,7 +434,7 @@ az network nic create \
 
 업데이트 도메인은 동시에 다시 부팅할 수 있는 가상 머신 그룹과 기본 물리적 하드웨어를 나타냅니다. 계획된 유지 보수 중에 업데이트 도메인의 재부팅 순서는 순차적으로 진행되지 않을 수 있으며, 한 번에 하나의 업데이트 도메인만 재부팅됩니다.
 
-Azure는 가용성 집합에 VM을 배치할 때 VM을 전체 장애 및 업데이트 도메인에 자동으로 분산합니다. 자세한 내용은 [VM의 가용성 관리](manage-availability.md)를 참조하세요.
+Azure는 가용성 집합에 VM을 배치할 때 VM을 전체 장애 및 업데이트 도메인에 자동으로 분산합니다. 자세한 내용은 [VM의 가용성 관리](../manage-availability.md)를 참조하세요.
 
 [az vm availability-set create](/cli/azure/vm/availability-set)를 사용하여 VM에 대한 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
 

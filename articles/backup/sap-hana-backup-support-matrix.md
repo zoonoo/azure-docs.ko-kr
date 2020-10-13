@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm에서 S
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ad68fcaaa820daca842d567ecd40f011df729f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022329"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946368"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 
@@ -32,7 +32,7 @@ Azure Backup은 Azure에 SAP HANA 데이터베이스 백업을 지원합니다. 
 | **HANA 데이터베이스 크기**     | Size <= 2tb의 HANA 데이터베이스 (HANA 시스템의 메모리 크기가 아님)               |                                                              |
 | **백업 유형**           | 전체, 차등 및 로그 백업                          | 증분, 스냅샷                                       |
 | **복원 유형**          | 지원되는 복원 유형에 대한 자세한 내용은 SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148)을 참조하세요. |                                                              |
-| **백업 제한**          | 2TB(SAP HANA 인스턴스당 최대 전체 백업 크기)         |                                                              |
+| **백업 제한**          | SAP HANA 인스턴스당 최대 2tb의 전체 백업 크기 (소프트 제한)         |                                                              |
 | **특수 구성** |                                                              | SAP HANA + Dynamic Tiering <br>  LaMa를 통한 복제        |
 
 ------

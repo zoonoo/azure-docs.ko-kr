@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
 ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649799"
 ---
 # <a name="outbound-connections"></a>아웃바운드 연결
@@ -37,7 +37,7 @@ Azure Load Balancer는 다른 메커니즘을 통해 아웃 바운드 연결을 
 | ---------- | ------ | ------------ |
 | 공용 부하 분산 장치 또는 독립 실행형 | [SNAT (원본 네트워크 주소 변환)](#snat) </br> [PAT (포트 가장)](#pat) 를 사용 하지 않았습니다. | TCP (전송 제어 프로토콜) </br> UDP (사용자 데이터 그램 프로토콜) </br> ICMP (Internet Control Message Protocol) </br> ESP (보안 페이로드 캡슐화) |
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 
 Azure는 모든 아웃 바운드 흐름에 대해 인스턴스의 NIC IP 구성에 할당 된 공용 IP를 사용 합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. VM이 부하 분산 되었는지 여부는 중요 하지 않습니다. 이 시나리오는 다른 시나리오에 우선합니다. 
 
@@ -49,7 +49,7 @@ VM에 할당된 공용 IP는 1:다가 아닌 1:1 관계이며 상태 비저장 1
 | ------------ | ------ | ------------ |
 | 공용 부하 분산 장치 | [PAT (포트 가장)](#pat)로 [SNAT](#snat) 에 부하 분산 장치 프런트 엔드를 사용 합니다.| TCP </br> UDP |
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 
 부하 분산 장치 리소스는 부하 분산 장치 규칙을 사용 하 여 구성 됩니다. 이 규칙은 백 엔드 풀을 사용 하 여 공용 IP 프런트 엔드 간에 링크를 만드는 데 사용 됩니다. 
 
@@ -69,7 +69,7 @@ VM이 아웃 바운드 흐름을 만들 때 Azure는 원본 IP 주소를 공용 
 | ------------ | ------ | ------------ |
 |없음 </br> 기본 부하 분산 장치 | 포트를 가장 하는 [SNAT](#snat) [(PAT)](#pat)| TCP </br> UDP | 
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 
 VM이 아웃 바운드 흐름을 만들 때 Azure는 원본 IP 주소를 공용 원본 IP 주소로 변환 합니다. 이 공용 IP 주소는 **구성할** 수 없으며 예약할 수 없습니다. 이 주소는 구독의 공용 IP 리소스 제한에 대해 계산 되지 않습니다. 
 

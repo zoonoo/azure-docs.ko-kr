@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
 ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326782"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
@@ -71,7 +71,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. **인증 유형**의 경우 Azure SQL Database 또는 Azure SQL Managed Instance에서 데이터베이스에 대해 필수 및 활성화 된 인증을 선택 합니다.
 
-   | 인증 | Description |
+   | 인증 | 설명 |
    |----------------|-------------|
    | [**Azure AD 통합**](../azure-sql/database/authentication-aad-overview.md) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 액세스할 수 있는 유효한 Azure Active Directory (Azure AD) id가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD 통합 인증](../azure-sql/database/authentication-aad-overview.md) |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -115,7 +115,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. **인증 유형**에 대해 필요한 인증을 선택 하 고 SQL Server에 사용 하도록 설정 합니다.
 
-   | 인증 | Description |
+   | 인증 | 설명 |
    |----------------|-------------|
    | [**Windows 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -다중 테 넌 트 Azure 또는 ISE를 사용 하는지 여부에 관계 없이 Azure에서 이전에 만든 데이터 게이트웨이 리소스를 필요로 하는 비 ISE SQL Server 커넥터만 지원 합니다. <p><p>-Windows 계정을 통해 id를 확인 하려면 올바른 Windows 사용자 이름 및 암호가 필요 합니다. <p>자세한 내용은 [Windows 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) 을 참조 하세요. |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-SQL Server에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 [SQL Server 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)을 참조 하세요. |
@@ -127,7 +127,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. SQL 데이터베이스에 대해 다음 값을 선택 하거나 제공 합니다.
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **SQL server 이름** | 예 | SQL server의 주소입니다 (예:). `Fabrikam-Azure-SQL.database.windows.net` |
    | **SQL 데이터베이스 이름** | 예 | SQL Server 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |

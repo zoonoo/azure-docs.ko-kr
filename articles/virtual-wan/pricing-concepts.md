@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
 ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327960"
 ---
 # <a name="about-virtual-wan-pricing"></a>가상 WAN 가격 정보
@@ -56,7 +56,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 **대륙 내 가격 (*)**
 
-| 대륙 내| 가격 ($/GB)|
+| Intra-Continent| 가격 ($/GB)|
 |---|---|
 | 베트남에서 베트남로|$0.02 |
 | EU에서 EU로 |$0.02 |
@@ -67,7 +67,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 **본토 가격 책정 (*)**
 
-| 상호 본토| 가격 ($/GB)|
+| Inter-Continental| 가격 ($/GB)|
 |---|---|
 | 베트남에서 EU 또는 EU에서 베트남으로 |$0.07 |
 | LATAM에서 모든 위치로 |$0.17 |

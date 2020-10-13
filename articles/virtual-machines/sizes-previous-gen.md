@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 05da5a21fb558b7d936b7569a69578eda06e11cf
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 175d572e69dd34a09787f44cf14ae0336c8e95e0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875277"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975606"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -205,7 +205,7 @@ DC 시리즈는 SGX 기술이 포함 된 최신 버전의 3.7 g h z Intel XEON E
 
 > [!IMPORTANT]
 >
-> DC 시리즈 Vm은 [2 세대 vm](./linux/generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
+> DC 시리즈 Vm은 [2 세대 vm](./generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
 
 
 ### <a name="ds-series"></a>DS 시리즈  

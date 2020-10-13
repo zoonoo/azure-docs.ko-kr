@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201789"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776632"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>빅 데이터용 Azure Cognitive Services
 
@@ -125,12 +125,14 @@ Spark의 기본은 DataFrame입니다. 이는 Apache Spark 작업자 노드에 �
 - [Cognitive Services가 Apache Spark에서 작동하는 방법에 대해 자세히 알아보기&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Spark에서 Deep Learning 및 Computer Vision을 사용하여 눈표범 구조](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Microsoft Research 팟캐스트: MMLSpark, AI for Good 강화 - Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [교육용 백서: 대규모 인텔리전트 마이크로서비스](https://arxiv.org/abs/2009.08044)
 
 ## <a name="webinars-and-videos"></a>웨비나 및 비디오
 
 - [Spark의 Azure Cognitive Services: 임베디드 인텔리전트 서비스를 사용하는 클러스터](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Spark Summit 기조 연설: 확장 가능한 AI for Good](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Cosmos DB의 빅 데이터용 Cognitive Services](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [대규모 인텔리전트 마이크로서비스에 대한 Lightning Talk](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## <a name="next-steps"></a>다음 단계
 

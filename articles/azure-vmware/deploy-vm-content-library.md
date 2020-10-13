@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 사설 클라우드에 VM을 배포 하는 �
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575808"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리 만들기
