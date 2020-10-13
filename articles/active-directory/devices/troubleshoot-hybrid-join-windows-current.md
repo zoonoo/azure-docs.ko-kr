@@ -13,10 +13,10 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433656"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 조인 디바이스 문제 해결
@@ -246,7 +246,7 @@ WamDefaultAuthority: organizations
 실패 이유:
 
 - DRS 리소스에 대 한 액세스 토큰을 자동으로 가져올 수 없습니다.
-   - Windows 10 장치는 활성 WS-TRUST 끝점에 Windows 통합 인증을 사용 하 여 페더레이션 서비스에서 인증 토큰을 가져옵니다. 세부 정보: [페더레이션 서비스 구성](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
+   - Windows 10 장치는 active WS-Trust 끝점에 Windows 통합 인증을 사용 하 여 페더레이션 서비스에서 인증 토큰을 가져옵니다. 세부 정보: [페더레이션 서비스 구성](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **일반적인 오류 코드:**
 
@@ -261,13 +261,13 @@ WamDefaultAuthority: organizations
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - 원인: 인증 프로토콜이 WS-TRUST가 아닙니다.
-   - 해결 방법: 온-프레미스 id 공급자는 WS-TRUST를 지원 해야 합니다.
+   - 해결 방법: 온-프레미스 id 공급자는 WS-Trust을 지원 해야 합니다.
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - 원인: 온-프레미스 페더레이션 서비스에서 XML 응답을 반환 하지 않았습니다.
    - 해결 방법: MEX 끝점이 유효한 XML을 반환 하는지 확인 합니다. 프록시가 방해 하지 않고 비 xml 응답을 반환 하는지 확인 합니다.
 - **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
    - 원인: 사용자 이름/암호 인증에 대 한 끝점을 검색할 수 없습니다.
-   - 해결 방법: 온-프레미스 id 공급자 설정을 확인 합니다. WS-TRUST 끝점을 사용 하도록 설정 하 고 MEX 응답에 이러한 올바른 끝점이 포함 되어 있는지 확인 합니다.
+   - 해결 방법: 온-프레미스 id 공급자 설정을 확인 합니다. WS-Trust 끝점을 사용 하도록 설정 하 고 MEX 응답에 이러한 올바른 끝점이 포함 되어 있는지 확인 합니다.
 
 ##### <a name="network-errors"></a>네트워크 오류
 
@@ -290,7 +290,7 @@ WamDefaultAuthority: organizations
    - 원인: Azure AD에서 온-프레미스 id 공급자의 SAML 토큰을 수락 하지 않았습니다.
    - 해결 방법: 페더레이션 서버 설정을 확인 합니다. 인증 로그에서 서버 오류 코드를 찾습니다.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - 원인: 서버 WS-TRUST 응답이 오류 예외를 보고 했으며 어설션을 가져오지 못했습니다.
+   - 원인: 서버 WS-Trust 응답이 오류 예외를 보고 했으며 어설션을 가져오지 못했습니다.
    - 해결 방법: 페더레이션 서버 설정을 확인 합니다. 인증 로그에서 서버 오류 코드를 찾습니다.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - 원인: 토큰 끝점에서 액세스 토큰을 가져오려고 할 때 오류가 발생 했습니다.

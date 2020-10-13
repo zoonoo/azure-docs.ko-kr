@@ -4,10 +4,10 @@ description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541274"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
@@ -30,7 +30,7 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
 
 준수 세부 정보를 보려면 다음 단계를 수행합니다.
 
-1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
+1. **모든 서비스**를 선택한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
 1. **개요** 또는 **준수** 페이지에서 _규정 비준수_인 **준수 상태**에서 정책을 선택합니다.
 
@@ -197,7 +197,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/templates/complete-mode-deletion.md)를 지원하는 모든 Azure 리소스에 대해 지난 14일 간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 Azure Resource Manager 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 
-1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
+1. **모든 서비스**를 선택한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
 1. **개요** 또는 **준수** 페이지에서 **준수 상태**에 있는 정책을 선택합니다.
 

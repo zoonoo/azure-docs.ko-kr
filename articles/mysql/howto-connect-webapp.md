@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905855"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
@@ -29,18 +29,18 @@ Azure Database for MySQL은 데이터를 보호하는 방화벽을 사용하여 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 2. **Azure 서비스에 대한 액세스 허용**에서 **설정**, **저장**을 차례로 선택합니다.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal - Azure 액세스 허용":::
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>솔루션 2 - 아웃바운드 IP를 명시적으로 허용하는 방화벽 규칙 만들기
 Azure App Service의 모든 아웃바운드 IP를 명시적으로 추가할 수 있습니다.
 
 1. App Service 속성 블레이드에서 **아웃바운드 IP 주소**를 확인합니다.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal - 아웃바운드 IP 확인":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 2. MySQL 연결 보안 블레이드에서 아웃바운드 IP를 하나씩 추가합니다.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal - 명시적 IP 추가":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 3. 잊지 말고 방화벽 규칙을 **저장**하세요.
 

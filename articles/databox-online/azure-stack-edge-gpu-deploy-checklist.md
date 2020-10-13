@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 251b15f72c3216ad3ff4b2983c8cbbd2d9ec6579
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618253"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에 대 한 배포 검사 목록  
@@ -37,7 +37,7 @@ ms.locfileid: "91618253"
 | 바람직하지 시간 설정       | 표준 시간대, 기본 NTP 서버, 보조 NTP 서버를 구성 합니다. | 로컬 네트워크에서 기본 및 보조 NTP 서버를 구성 합니다.<br>로컬 서버를 사용할 수 없는 경우 공용 NTP 서버를 구성할 수 있습니다.                                                    |
 | 필드 서버 설정 업데이트 | <li>로컬 네트워크의 업데이트 서버 IP 주소, WSUS 서버에 대 한 경로를 설정 해야 합니다. </li> | 기본적으로 공용 windows 업데이트 서버가 사용 됩니다.|
 | 디바이스 설정 | <li>장치 정규화 된 도메인 이름 (FQDN) </li><li>DNS 도메인</li> | |
-| 필드 인증서  | 비프로덕션 작업을 테스트 하려면 [인증서 생성 옵션](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) 을 사용 합니다. <br><br> 서명 체인을 포함 하 여 자체 인증서를 가져오는 경우 인증서를 적절 한 형식으로 [추가](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) 합니다.| 장치 이름 및/또는 DNS 도메인을 변경 하는 경우에만 인증서를 구성 합니다. |
+| 필드 인증서  | 비프로덕션 작업을 테스트 하려면 [인증서 생성 옵션](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) 을 사용 합니다. <br><br> 서명 체인을 포함하여 자체 인증서를 가져오는 경우 [인증서를 적절한 형식으로 추가](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)합니다.| 장치 이름 및/또는 DNS 도메인을 변경 하는 경우에만 인증서를 구성 합니다. |
 | 정품 인증  | Azure Stack Edge Pro/Data Box Gateway 리소스의 정품 인증 키가 필요 합니다.    | 생성 된 키는 3 일 후에 만료 됩니다. |
 
 <!--

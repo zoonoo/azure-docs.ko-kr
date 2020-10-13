@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906395"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>적용/거부 권장 구성으로 잘못 된 구성 방지
 
-보안 오류는 보안 문제의 주요 원인입니다. 이제 Security Center는 특정 권장 사항에 대 한 새로운 리소스의 잘못 된 구성을 *방지* 하는 기능을 제공 합니다. 
+보안 구성 오류는 보안 인시던트의 주요 원인입니다. 이제 Security Center에는 특정 추천 사항과 관련하여 새 리소스의 구성 오류를 *방지*하는 데 도움이 되는 기능이 있습니다. 
 
-이 기능을 통해 워크 로드를 안전 하 게 유지 하 고 보안 점수를 안정화 시킬 수 있습니다.
+이 기능을 통해 워크로드를 안전하게 유지하고 보안 점수를 안정화할 수 있습니다.
 
-특정 권장 사항에 따라 보안 구성을 강제 적용 하는 것은 다음 두 가지 모드로 제공 됩니다.
+특정 추천 사항에 따라 보안 구성을 적용하는 방법은 다음 두 가지 모드로 제공됩니다.
 
-- Azure Policy **거부** 효과를 사용 하 여 비정상 리소스 생성을 중지할 수 있습니다.
-- **적용** 옵션을 사용 하면 Azure 정책의 **Deployifnotexist** 효과를 활용 하 고 만들 때 비호환 리소스를 자동으로 수정할 수 있습니다.
+- Azure Policy의 **거부** 효과를 사용하여 비정상 리소스가 만들어지는 것을 중지할 수 있습니다.
+- **적용** 옵션을 사용하여 Azure Policy의 **DeployIfNotExist** 효과를 활용하고, 비준수 리소스를 만들 때 자동으로 수정할 수 있습니다.
 
 이는 선택한 보안 권장 사항에 대 한 리소스 세부 정보 페이지의 맨 위에 있습니다 ( [거부/적용 옵션을 사용 하는 권장 사항](#recommendations-with-denyenforce-options)참조).
 
@@ -41,18 +41,18 @@ ms.locfileid: "90906395"
     > [!TIP]
     > 행의 끝에 있는 세 개의 점을 사용 하 여 단일 구독을 변경 하거나 확인란을 사용 하 여 여러 구독 또는 그룹을 선택한 후 **거부로 변경**을 선택할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부에 대 한 범위 설정":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="거부 단추가 강조 표시 된 권장 사항 페이지":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>보안 구성 적용
 
 1. 새 리소스가 충족 하지 않는 경우 템플릿 배포를 배포할 권장 사항을 열고 페이지 맨 위에 있는 **적용** 단추를 선택 합니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시 된 권장 사항 페이지":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="거부 단추가 강조 표시 된 권장 사항 페이지":::
 
     구성 창이 열리고 모든 정책 구성 옵션이 나타납니다. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="구성 옵션 적용":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="거부 단추가 강조 표시 된 권장 사항 페이지":::
 
 1. 범위, 할당 이름 및 기타 관련 옵션을 설정 합니다.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
 ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245855"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Azure 가상 머신의 솔루션
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>전용 호스트 요구 사항
-DCSv2 시리즈 VM 제품군에서 **Standard_DC8_v2** 가상 머신 크기를 배포 하는 것은 전체 호스트를 차지 하 고 다른 테 넌 트 또는 구독과 공유 되지 않습니다. 이 VM SKU 제품군은 전용 호스트 서비스를 통해 일반적으로 충족 되는 규정 준수 및 보안 규정 요구 사항을 충족 하기 위해 필요할 수 있는 격리를 제공 합니다. **Standard_DC8_v2** SKU를 선택 하면 실제 호스트 서버는 사용 가능한 모든 하드웨어 리소스 (예를 들어, 가상 컴퓨터에 대 한 EPC 메모리 포함)를 할당 합니다. 이 기능은 인프라 설계에 의해 존재 하며 **Standard_DC8_v2** 의 모든 기능이 지원 될 예정입니다. 이 배포는 다른 Azure VM 제품군에서 제공 하는 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) 서비스와 동일 하지 않습니다.
+DCSv2-Series VM 제품군에 **Standard_DC8_v2** 가상 컴퓨터 크기를 배포 하는 것은 전체 호스트를 차지 하 고 다른 테 넌 트 또는 구독과 공유 되지 않습니다. 이 VM SKU 제품군은 전용 호스트 서비스를 통해 일반적으로 충족 되는 규정 준수 및 보안 규정 요구 사항을 충족 하기 위해 필요할 수 있는 격리를 제공 합니다. **Standard_DC8_v2** SKU를 선택 하면 실제 호스트 서버는 사용 가능한 모든 하드웨어 리소스 (예를 들어, 가상 컴퓨터에 대 한 EPC 메모리 포함)를 할당 합니다. 이 기능은 인프라 설계에 의해 존재 하며 **Standard_DC8_v2** 의 모든 기능이 지원 될 예정입니다. 이 배포는 다른 Azure VM 제품군에서 제공 하는 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) 서비스와 동일 하지 않습니다.
 
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
@@ -84,7 +84,7 @@ Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure �
 
 ARM 템플릿에 대 한 자세한 내용은 [템플릿 배포 개요](../azure-resource-manager/templates/overview.md)를 참조 하세요.
 
-ARM 템플릿에서 DCsv2 시리즈 VM을 배포 하려면 [가상 머신 리소스](../virtual-machines/windows/template-description.md)를 활용 합니다. **vmSize** 및 **imageReference**에 대한 올바른 속성을 지정해야 합니다.
+ARM 템플릿에서 DCsv2-Series VM을 배포 하려면 [가상 머신 리소스](../virtual-machines/windows/template-description.md)를 활용 합니다. **vmSize** 및 **imageReference**에 대한 올바른 속성을 지정해야 합니다.
 
 ### <a name="vm-size"></a>VM 크기
 

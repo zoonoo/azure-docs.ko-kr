@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
 ms.openlocfilehash: d514460f3cd80b5b85604251743abbbbcd1adc8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906990"
 ---
 ### <a name="container-repositories-and-images"></a>컨테이너 리포지토리 및 이미지
@@ -56,7 +56,7 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 일반적으�
 
 자세한 내용은 [변칙 탐지기 컨테이너를 실행 하 고 설치 하는 방법](../../anomaly-detector/anomaly-detector-container-howto.md) 을 참조 하세요.
 
-**음성 서비스**
+**Speech Service**
 
 > [!NOTE]
 > 음성 컨테이너를 사용 하려면 [온라인 요청 양식을](https://aka.ms/csgate)작성 해야 합니다.

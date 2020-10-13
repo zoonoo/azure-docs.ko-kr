@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 90691fda7b0bf58768c7e9be6a78fb27a7807186
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400369"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Power BI를 사용 하 여 Azure Cognitive Search 로그 및 메트릭 시각화
@@ -32,7 +32,7 @@ Azure Cognitive Search: [Power BI Apps marketplace](https://appsource.microsoft.
     1. **+ 진단 설정 추가** 를 선택 합니다.
     1. **저장소 계정에 보관**을 선택 하 고, 저장소 계정 정보를 제공 하 고, **Operationlogs** 및 **allmetrics** 확인 합니다.
 
-        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="진단 설정 페이지에서 메트릭 및 리소스 로깅을 선택 하는 방법을 보여 주는 스크린샷":::
+        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
     1. **저장**을 선택합니다.
 
 1. 로깅을 사용 하도록 설정한 후에는 검색 서비스를 사용 하 여 로그 및 메트릭 생성을 시작 합니다. 컨테이너가 이러한 로그를 사용 하 여 Blob storage에 표시 되기까지 최대 한 시간이 소요 됩니다. 검색 트래픽 로그에 대 한 pt1m **-operationlogs** 컨테이너와 메트릭에 대 한 통찰력- **메트릭-** 컨테이너가 표시 됩니다.
@@ -41,48 +41,48 @@ Azure Cognitive Search: [Power BI Apps marketplace](https://appsource.microsoft.
 
 1. 앱을 설치한 후 Power BI의 앱 목록에서 앱을 선택 합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="앱 목록에서 선택할 Azure Cognitive Search 앱을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. **연결** 을 선택 하 여 데이터를 연결 합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Azure Cognitive Search 앱에서 데이터에 연결 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. 로그 및 메트릭이 포함 된 저장소 계정의 이름을 입력 합니다. 기본적으로 앱은 지난 10 일간의 데이터를 확인 하지만이 값은 **days** 매개 변수를 사용 하 여 변경할 수 있습니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Azure Cognitive Search에 연결 페이지에서 저장소 계정 이름 및 쿼리할 일 수를 입력 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. **키** 를 인증 방법으로 선택 하 고 저장소 계정 키를 제공 합니다. 개인 정보 수준으로 **개인** 을 선택 합니다. 로그인 을 클릭하여 로드 프로세스를 시작합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Azure Cognitive Search에 연결 페이지에서 인증 방법, 계정 키 및 개인 정보 수준을 입력 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. 데이터를 새로 고칠 때까지 기다립니다. 보유 한 데이터 양에 따라 다소 시간이 걸릴 수 있습니다. 아래 표시기를 기준으로 데이터를 아직 새로 고치는 중인지 확인할 수 있습니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="데이터 새로 고침 페이지에서 정보를 읽는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. 데이터 새로 고침이 완료 되 면 **Azure Cognitive Search 보고서** 를 선택 하 여 보고서를 봅니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="데이터 새로 고침 페이지에서 Azure Cognitive Search 보고서를 선택 하는 방법을 보여 주는 스크린샷":::![]()
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::![]()
 
 1. 보고서를 연 후 데이터와 함께 열리도록 페이지를 새로 고쳐야 합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Azure Cognitive Search Power BI 보고서의 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="how-to-change-the-app-parameters"></a>앱 매개 변수를 변경 하는 방법
 다른 저장소 계정에서 데이터를 시각화 하거나 쿼리할 데이터의 일 수를 변경 하려는 경우 아래 단계에 따라 **일** 및 **storageaccount** 매개 변수를 변경 합니다.
 
 1. Power BI apps로 이동 하 여 Azure Cognitive Search 앱을 찾고 **앱 편집** 단추를 선택 하 여 작업 영역을 확인 합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Azure Cognitive Search 앱에 대 한 앱 편집 단추를 선택 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. 데이터 집합 옵션에서 **설정을** 선택 합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Azure Cognitive Search 데이터 집합 옵션에서 설정을 선택 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. 데이터 집합 탭에서 매개 변수 값을 변경 하 고 **적용**을 선택 합니다. 연결에 문제가 있는 경우 동일한 페이지에서 데이터 원본 자격 증명을 업데이트 합니다.
 
 1. 작업 영역으로 다시 이동 하 고 데이터 집합 옵션에서 **지금 새로 고침** 을 선택 합니다.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Azure Cognitive Search 데이터 집합 옵션에서 지금 새로 고침을 선택 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Azure Cognitive Search 서비스의 모니터링 섹션에서 진단 설정을 선택 하는 방법을 보여 주는 스크린샷":::
 
 1. 업데이트 된 데이터를 보려면 보고서를 엽니다. 최신 데이터를 보려면 보고서를 새로 고쳐야 할 수도 있습니다.
 

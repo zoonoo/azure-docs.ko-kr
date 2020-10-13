@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330318"
+ms.locfileid: "91893733"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>PostgreSQL에서 PostgreSQL에 대 한 Azure DB로의 온라인 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항
 
@@ -81,6 +81,8 @@ ms.locfileid: "91330318"
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
+## <a name="size-limitations"></a>크기 제한
+- 단일 DMS 서비스를 사용 하 여 PostgreSQL에서 Azure DB PostgreSQL로 최대 2tb의 데이터를 마이그레이션할 수 있습니다.
 ## <a name="datatype-limitations"></a>데이터 형식 제한 사항
 
   **제한**사항: 테이블에 기본 키가 없는 경우 변경 내용이 대상 데이터베이스와 동기화 되지 않을 수 있습니다.

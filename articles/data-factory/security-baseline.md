@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437941"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
@@ -30,7 +30,7 @@ Azure Data Factory에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 **지침**: IR (Azure-SSIS Integration Runtime)을 만들 때 가상 네트워크와 연결 하는 옵션이 있습니다. 이렇게 하면 Azure Data Factory NSG (네트워크 보안 그룹) 및 부하 분산 장치 등의 특정 네트워크 리소스를 만들 수 있습니다. 또한 사용자 고유의 고정 공용 IP 주소를 제공 하거나 사용자에 게 해당 주소를 만들도록 Azure Data Factory 수 있습니다. Azure Data Factory에 의해 자동으로 생성 되는 NSG에서 포트 3389는 기본적으로 모든 트래픽에 대해 열려 있습니다. 관리자만 액세스할 수 있도록 하려면이 잠금을 해제 합니다.
 
-자체 호스팅 IRs는 온-프레미스 컴퓨터 또는 가상 네트워크 내의 Azure 가상 머신에 배포할 수 있습니다. 가상 네트워크 서브넷 배포에 관리 액세스만 허용 하도록 구성 된 NSG가 있는지 확인 합니다. Azure-SSIS IR는 보호를 위해 각 IR 노드의 windows 방화벽 규칙에서 포트 3389 아웃 바운드를 기본적으로 허용 하지 않습니다. NSG를 서브넷에 연결 하 고 엄격한 규칙을 설정 하 여 가상 네트워크 구성 리소스를 보호할 수 있습니다.
+Self-Hosted IRs는 온-프레미스 컴퓨터 또는 가상 네트워크 내의 Azure 가상 컴퓨터에 배포할 수 있습니다. 가상 네트워크 서브넷 배포에 관리 액세스만 허용 하도록 구성 된 NSG가 있는지 확인 합니다. Azure-SSIS IR는 보호를 위해 각 IR 노드의 windows 방화벽 규칙에서 포트 3389 아웃 바운드를 기본적으로 허용 하지 않습니다. NSG를 서브넷에 연결 하 고 엄격한 규칙을 설정 하 여 가상 네트워크 구성 리소스를 보호할 수 있습니다.
 
 개인 링크를 사용할 수 있는 경우 개인 끝점을 사용 하 여 Azure SQL Server와 같은 Azure Data Factory 파이프라인에 연결 되는 모든 리소스를 보호 합니다. 개인 링크를 사용 하면 가상 네트워크와 서비스 간의 트래픽이 Microsoft 백본 네트워크를 통해 이동 하 여 공용 인터넷에서 노출을 제거 합니다.
 
@@ -331,7 +331,7 @@ Azure Data Factory에 대 한 진단 설정을 구성 하 고 Log Analytics 작�
 
 Azure AD는 사용자 액세스를 관리할 수 있는 권장 되는 방법 이지만, Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 VM에도 로컬 계정이 있을 수 있습니다. 로컬 및 도메인 계정은 일반적으로 최소한의 공간을 사용 하 여 검토 하 고 관리 해야 합니다. 또한 Just-in-time 기능에 대해 권한 있는 Id 관리자를 검토 하 여 관리 권한의 가용성을 줄이도록 권고 합니다.
 
-* [Azure Data Factory용 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Azure Data Factory에 대한 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 * [권한 있는 Id 관리자에 대 한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
@@ -370,7 +370,7 @@ Azure 가상 머신에서 Integration Runtime를 실행 하는 경우 azure Virt
 
 * [권한 있는 Id 관리자에 대 한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
-* [Azure Data Factory용 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Azure Data Factory에 대한 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 **Azure Security Center 모니터링**: 예
 
@@ -608,7 +608,7 @@ Azure SQL Database와 같은 Data Factory 데이터 원본의 경우 Azure RBAC�
 
 * [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Azure Data Factory용 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Azure Data Factory에 대한 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -896,7 +896,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Firewall이란?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Azure 웹 응용 프로그램 방화벽 이란?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Azure 웹 애플리케이션 방화벽이란?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
@@ -994,7 +994,7 @@ Data Factory 참여자 역할을 사용 하 여 데이터 팩터리를 만들고
 
 * [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-* [Azure Data Factory용 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Azure Data Factory에 대한 역할 및 권한](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

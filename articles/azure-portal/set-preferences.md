@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205719"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Azure Portal 설정 및 기본 설정 관리
@@ -33,7 +33,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 구독을 변경할 
 
 1. 포털을 시작할 때 기본 구독으로 사용할 구독을 선택 합니다. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="포털을 시작할 때 기본 구독으로 사용할 구독을 선택 합니다."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="구독 별로 리소스 목록을 필터링 합니다."::: 
 
 
 ## <a name="choose-your-default-view"></a>기본 보기 선택 

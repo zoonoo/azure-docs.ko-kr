@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
 ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207142"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>앱 구성 저장소 자동 백업
@@ -40,7 +40,7 @@ ms.locfileid: "88207142"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 동작합니다. [체험 계정 만들기](https://azure.microsoft.com/free/) 
-- Azure 개발 워크 로드가 포함 된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) .
+- Azure 개발 워크로드를 사용하는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 - 최신 버전의 Azure CLI (2.3.1 이상) 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI 사용 하는 경우 먼저를 사용 하 여 로그인 해야 합니다 `az login` . 필요에 따라 Azure Cloud Shell를 사용할 수 있습니다.
 
