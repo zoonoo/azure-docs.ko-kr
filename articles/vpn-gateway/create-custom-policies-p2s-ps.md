@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743695"
 ---
 # <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>지점 및 사이트 간 (미리 보기)에 대 한 사용자 지정 IPsec 정책 만들기 및 설정
@@ -21,7 +21,7 @@ ms.locfileid: "91743695"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 사용자 환경이 다음과 같은 필수 구성 요소를 충족 하는지 확인 합니다.
 

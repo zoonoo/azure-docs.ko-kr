@@ -4,10 +4,10 @@ description: 이 문서에서는 응용 프로그램 암호에 대 한 service f
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261144"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
@@ -20,7 +20,7 @@ ms.locfileid: "91261144"
 > [!NOTE]
 > KeyVault 참조 미리 보기 기능은 [버전이](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) 지정 된 암호만 지원 합니다. Versionless 비밀은 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 응용 프로그램에 대 한 관리 Id (MIT)
     

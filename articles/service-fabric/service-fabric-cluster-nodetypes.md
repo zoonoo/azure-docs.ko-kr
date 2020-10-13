@@ -6,10 +6,10 @@ ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90561893"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
@@ -72,7 +72,7 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 
 속성 설명은 다음과 같습니다.
 
-| **Name** | **허용되는 값** | **지침 또는 간단한 설명** |
+| **이름** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 | name | 문자열 | 확장의 고유한 이름 |
 | type | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode" | Service Fabric OS를 식별 합니다. |

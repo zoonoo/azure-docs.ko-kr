@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
 ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836513"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
@@ -28,11 +28,11 @@ Azure Cosmos 계정에 저장된 데이터는 Microsoft 에서 관리하는 키(
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure 구독으로 이동하여 **설정** 탭에서 **리소스 공급자**를 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="왼쪽 메뉴의 리소스 공급자 항목":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 1. **Microsoft.DocumentDB** 리소스 공급자를 검색합니다. 리소스 공급자가 이미 등록된 것으로 표시되어 있는지 확인합니다. 그렇지 않으면 리소스 공급자를 선택하고 **등록**을 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Microsoft.DocumentDB 리소스 공급자 등록":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Azure Key Vault 인스턴스 구성
 
@@ -40,9 +40,7 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
 
 새 Azure Key Vault 인스턴스를 만드는 경우 생성 중에 이러한 속성을 사용하도록 설정합니다.
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="새 Azure Key Vault 인스턴스에 대해 일시 삭제 및 제거 보호를 사용하도록 설정":::
-
-기존 Azure Key Vault 인스턴스를 사용하는 경우 Azure Portal에서 **속성** 섹션을 보면 이러한 속성을 사용하도록 설정되어 있는지 확인할 수 있습니다. 이러한 속성 중 하나라도 사용하도록 설정되어 있지 않으면 다음 문서 중 하나에서 "일시 삭제를 사용하도록 설정" 및 "제거 보호 활성화" 섹션을 참조하세요.
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="고객 데이터 주위의 암호화 계층" 섹션을 참조하세요.
 
 - [PowerShell에서 일시 삭제를 사용하는 방법](../key-vault/general/soft-delete-powershell.md)
 - [Azure CLI에서 일시 삭제를 사용하는 방법](../key-vault/general/soft-delete-cli.md)
@@ -51,17 +49,17 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
 
 1. Azure Portal에서 암호화 키를 호스트하는 데 사용할 Azure Key Vault 인스턴스로 이동합니다. 왼쪽 메뉴에서 **액세스 정책**을 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="왼쪽 메뉴에서 액세스 정책":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 1. **+ 액세스 정책 추가**를 선택합니다.
 
 1. **키 권한** 드롭다운 메뉴에서 **가져오기**, **키 래핑 해제**, **키 래핑** 권한을 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="올바른 권한 선택":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 1. **주체 선택**에서 **선택된 항목 없음**을 선택합니다. 그런 다음, **Azure Cosmos DB** 보안 주체를 검색하여 선택합니다. (쉽게 찾을 수 있도록 보안 주체 ID가 `57506a73-e302-42a9-b869-6f12d9ec29e9`인 Azure Government 지역을 제외하고 보안 주체 ID: `a232010e-820c-4083-83bb-3ace5fc29d0b`로 검색할 수도 있습니다.) 마지막으로 아래쪽에서 **선택**을 선택합니다. **Azure Cosmos DB** 보안 주체가 목록에 없으면, 이 문서에서 [리소스 공급자 등록](#register-resource-provider) 섹션의 설명을 참고하여 **Microsoft.DocumentDB** 리소스 공급자를 다시 등록해야 할 수도 있습니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Azure Cosmos DB 보안 주체 선택":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 1. **추가**를 선택하여 새로운 액세스 정책을 추가합니다.
 
@@ -71,17 +69,17 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
 
 1. Azure Portal에서 암호화 키를 호스트하는 데 사용할 Azure Key Vault 인스턴스로 이동합니다. 그런 다음, 왼쪽 메뉴에서 **키**를 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="왼쪽 메뉴의 키 항목":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 1. **생성/가져오기**를 선택하고 새 키의 이름을 제공하고 RSA 키 크기를 선택합니다. 최상의 보안을 위해 3072 이상을 사용하는 것이 좋습니다. **만들기**를 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="새 키 만들기":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 1. 키가 생성되면 새로 생성된 키를 선택한 다음, 현재 버전을 선택합니다.
 
 1. 마지막 슬래시 뒷 부분을 제외하고 키의 **키 식별자**를 복사합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="키의 키 식별자 복사":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>새 Azure Cosmos 계정 만들기
 
@@ -89,7 +87,7 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
 
 Azure Portal에서 새 Azure Cosmos DB 계정을 생성할 때 **암호화** 단계에서 **고객 관리형 키**를 선택합니다. **키 URI** 필드에 이전 단계에서 복사한 Azure Key Vault 키의 URI/키 식별자를 붙여넣습니다.
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Azure Portal에서 CMK 매개 변수 설정":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 ### <a name="using-azure-powershell"></a><a id="using-powershell"></a> Azure PowerShell 사용
 
@@ -228,15 +226,15 @@ Azure Cosmos 계정에서 사용 하는 고객 관리 키 회전은 두 가지 �
 
 - Azure Key Vault에서 현재 사용 되는 키의 새 버전을 만듭니다.
 
-  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="새로운 키 버전 만들기":::
+  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 - 계정에 대 한 키 URI를 업데이트 하 여 현재 사용 되는 키를 완전히 다른 키로 바꿉니다. Azure Portal에서 Azure Cosmos 계정으로 이동 하 고 왼쪽 메뉴에서 **데이터 암호화** 를 선택 합니다.
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="데이터 암호화 메뉴 항목":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
     그런 다음 **키 URI** 를 사용 하려는 새 키로 바꾸고 **저장**을 선택 합니다.
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="키 URI 업데이트":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
     PowerShell에서 동일한 결과를 얻기 위해 수행 하는 방법은 다음과 같습니다.
 
@@ -257,7 +255,7 @@ Azure Cosmos 계정에서 사용 하는 고객 관리 키 회전은 두 가지 �
     
 ## <a name="error-handling"></a>오류 처리
 
-Azure Cosmos DB에서 CMK (고객 관리 키)를 사용 하는 경우 오류가 발생 하는 경우 Azure Cosmos DB 응답에 HTTP 하위 상태 코드와 함께 오류 정보를 반환 합니다. 이 하위 상태 코드를 사용 하 여 문제의 근본 원인을 디버그할 수 있습니다. 지원 되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대 한 Http 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조 하세요.
+Azure Cosmos DB에서 CMK (Customer-Managed 키)를 사용 하는 경우 오류가 발생 하면 Azure Cosmos DB 응답에 HTTP 하위 상태 코드와 함께 오류 정보를 반환 합니다. 이 하위 상태 코드를 사용 하 여 문제의 근본 원인을 디버그할 수 있습니다. 지원 되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대 한 Http 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조 하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -299,7 +297,7 @@ Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암
 
 Azure Portal에서 Azure Cosmos 계정으로 이동 하 고 왼쪽 메뉴에서 **데이터 암호화** 항목을 시청 합니다. 이 항목이 있으면 계정에서 고객 관리 키를 사용할 수 있습니다.
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="데이터 암호화 메뉴 항목":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 Azure Cosmos 계정에 대 한 세부 정보를 프로그래밍 방식으로 가져오고 속성이 있는지 확인할 수도 있습니다 `keyVaultKeyUri` . [PowerShell에서](#using-powershell) 그리고 [Azure CLI를 사용하여](#using-azure-cli) 수행하는 방법은 위를 참조하십시오.
 
@@ -311,11 +309,11 @@ Azure Cosmos DB는 계정에 저장된 데이터를 [정기적으로 자동 백�
 
 키 해지는 최신 버전의 키를 사용하지 않도록 설정하여 수행됩니다.
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="키 버전을 사용하지 않도록 설정":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 또는 Azure Key Vault 인스턴스에서 모든 키를 해지하려면 Azure Cosmos DB 보안 주체에 부여된 액세스 정책을 삭제하면 됩니다.
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Azure Cosmos DB 보안 주체에 대한 액세스 정책 삭제하기":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="고객 데이터 주위의 암호화 계층":::
 
 ### <a name="what-operations-are-available-after-a-customer-managed-key-is-revoked"></a>고객 관리형 키가 해지되면 어떤 작업을 수행할 수 있나요?
 

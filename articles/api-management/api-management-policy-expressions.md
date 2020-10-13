@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844243"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 c # 7의 정책 식 구문에 대해 설명 합니다. 각 식에서는 암시적으로 제공된 [context](api-management-policy-expressions.md#ContextVariables) 변수 및 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스할 수 있습니다.
 
-추가 정보
+자세한 내용은 다음을 참조하세요.
 
 - 백 엔드 서비스에 컨텍스트 정보를 제공하는 방법을 참조합니다. [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) 및 [HTTP 헤더 설정](api-management-transformation-policies.md#SetHTTPheader) 정책을 사용하여 이 정보를 제공합니다.
 - [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임에 따라 작업에 대한 액세스 권한을 미리 부여하는 방법을 참조합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "87844243"
 }
 ```
 
-## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>보려면
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>사용
 정책 참조에서 다르게 지정하지 않는 한, 식은 어떤 API Management [정책](api-management-policies.md)에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다.
 
 > [!IMPORTANT]
@@ -74,7 +74,7 @@ ms.locfileid: "87844243"
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식
 다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.
 
-|Type|지원되는 멤버|
+|유형|지원되는 멤버|
 |--------------|-----------------------|
 |Newtonsoft.Js합니다. 서식 지정|모두|
 |Newtonsoft.Json.JsonConvert|SerializeObject,는 deserializeobject|
@@ -156,7 +156,7 @@ ms.locfileid: "87844243"
 |System.security.cryptography.symmetricalgorithm.|모두|
 |System.security.cryptography.x509certificates.x509certificate2입니다.|모두|
 |System.security.cryptography.x509certificates.x509certificate2. RSACertificateExtensions|모두|
-|System.security.cryptography.x509certificates.x509certificate2. System.security.cryptography.x509certificates.x500distinguishedname|이름|
+|System.security.cryptography.x509certificates.x509certificate2. System.security.cryptography.x509certificates.x500distinguishedname|Name|
 |System.security.cryptography.x509certificates.x509certificate2입니다.|모두|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|모두|
 |System.security.cryptography.x509certificates.x509certificate2. X509ContentType|모두|
@@ -205,7 +205,7 @@ ms.locfileid: "87844243"
 |System.Xml.Linq.XText|모두|
 |System.Xml.XmlNodeType|모두|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>컨텍스트 변수
+## <a name="context-variable"></a><a name="ContextVariables"></a> 컨텍스트 변수
 `context`라는 변수는 모든 [식](api-management-policy-expressions.md#Syntax)에서 암시적으로 사용할 수 있습니다. 해당 멤버는 `\request`와 관련된 정보를 제공합니다. 모든 `context` 멤버는 읽기 전용입니다.
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|

@@ -12,17 +12,17 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259325"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 IDology 구성에 대 한 자습서 
 
 이 샘플 자습서에서는 [IDology](https://www.idology.com/solutions/)와 Azure AD B2C를 통합 하는 방법에 대 한 지침을 제공 합니다. IDology는 여러 솔루션을 포함 하는 id 확인 및 교정 공급자입니다. 이 샘플에서는 IDology에서 제공 하는 모든 문제를 해결 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -41,7 +41,7 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![IDology 아키텍처 다이어그램](media/partner-idology/idology-architecture-diagram.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 |1     | 사용자가 로그인 페이지에 도착 합니다. |
 |2     | 사용자가 등록 옵션을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다. |
@@ -75,7 +75,7 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 [Azure의 App Service에서](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)응용 프로그램 설정을 구성할 수 있습니다. 이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |IdologySettings: ApiUsername | IDology 계정 구성 |     |
 |IdologySettings: ApiPassword | IDology 계정 구성 |     |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440527"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
@@ -53,7 +53,7 @@ ms.locfileid: "89440527"
 
 복사 작업 모니터링 보기의 아래쪽에 있는 실행 세부 정보 및 기간은 복사 작업의 핵심 단계에 대해 설명 합니다 .이는 복사 성능 문제를 해결 하는 데 특히 유용 합니다. 복사 실행에 대 한 병목 상태는 기간이 가장 긴 것입니다. 각 단계의 정의에서 다음 표를 참조 하 고, [Azure IR의 복사 작업 문제를 해결](#troubleshoot-copy-activity-on-azure-ir) 하 고 [자체 호스팅 IR에서](#troubleshoot-copy-activity-on-self-hosted-ir) 이러한 정보를 사용 하 여 복사 작업의 문제를 해결 하는 방법을 알아봅니다.
 
-| 단계           | Description                                                  |
+| 단계           | 설명                                                  |
 | --------------- | ------------------------------------------------------------ |
 | 큐           | 통합 런타임에 복사 작업이 실제로 시작 될 때까지 경과 된 시간입니다. |
 | 사전 복사 스크립트 | IR에서 시작 하는 복사 작업과 복사 작업에서 싱크 데이터 저장소의 사전 복사 스크립트 실행을 완료 하는 데 걸리는 시간입니다. 데이터베이스 싱크에 대해 사전 복사 스크립트를 구성할 때 적용 됩니다. 예를 들어 Azure SQL Database에 데이터를 쓸 때 새 데이터를 복사 하기 전에 정리 작업을 수행할 수 있습니다. |
@@ -142,7 +142,7 @@ ms.locfileid: "89440527"
 
   - Azure Portal > 데이터 팩터리-> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인 합니다. CPU 사용량이 크거나 사용 가능한 메모리가 부족 한 경우 [IR을 확장/축소](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 하는 것이 좋습니다.
 
-  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 다음은 그 예입니다. 
+  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 예를 들면 다음과 같습니다.
 
     - [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)에서 데이터를 복사 하는 경우 데이터를 병렬로 복사 하도록 데이터 파티션 옵션을 사용 하도록 설정 합니다.
 

@@ -8,10 +8,10 @@ ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90561434"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
@@ -52,7 +52,7 @@ _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모�
 
 이 섹션에서는 장치 프로 비전 서비스를 Azure Digital Twins에 연결 하 여 아래 경로를 통해 장치를 자동으로 프로 비전 합니다. 이는 [앞](#solution-architecture)에서 설명한 전체 아키텍처에서 발췌 한 것입니다.
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="프로 비전 흐름-흐름의 레이블이 지정 된 숫자 레이블 섹션의 솔루션 아키텍처 다이어그램에 대 한 발췌 한 것입니다. 자동 온도 조절기 장치와 DPS 간에 데이터 흐름이 전달 됩니다 (장치 > DPS의 경우 1, DPS > 장치의 경우 5). 또한 데이터는 DPS에서 IoT Hub (4)로 이동 하 고 ' 할당 ' 이라는 레이블이 지정 된 Azure 함수 (2)를 통해 Azure Digital Twins (3)로 흐릅니다.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="종단 간 시나리오에서 장치 및 여러 Azure 서비스의 뷰입니다. 데이터는 자동 온도 조절기 장치와 DPS 사이에서 앞뒤로 흐릅니다. 또한 데이터는 DPS에서 IoT Hub로, ' 할당 ' 레이블이 지정 된 Azure 함수를 통해 Azure Digital Twins로 흐릅니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub > Event Hubs > Azure Functions Azure Digital Twins를 통해 흐릅니다.":::
 
 프로세스 흐름에 대 한 설명은 다음과 같습니다.
 1. 장치는 DPS 끝점에 연결 하 고 식별 정보를 전달 하 여 id를 증명 합니다.
@@ -287,7 +287,7 @@ node .\adt_custom_register.js
 ```
 
 장치를 등록 하 고 IoT Hub에 연결한 다음 메시지 보내기를 시작 해야 합니다.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="장치 등록 및 메시지 보내기를 보여 주는 명령 창":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="종단 간 시나리오에서 장치 및 여러 Azure 서비스의 뷰입니다. 데이터는 자동 온도 조절기 장치와 DPS 사이에서 앞뒤로 흐릅니다. 또한 데이터는 DPS에서 IoT Hub로, ' 할당 ' 레이블이 지정 된 Azure 함수를 통해 Azure Digital Twins로 흐릅니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub > Event Hubs > Azure Functions Azure Digital Twins를 통해 흐릅니다.":::
 
 ### <a name="validate"></a>유효성 검사
 
@@ -298,13 +298,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Azure Digital Twins 인스턴스에서 발견 되는 장치의 쌍이 표시 되어야 합니다.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="새로 만든 쌍을 보여 주는 명령 창":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="종단 간 시나리오에서 장치 및 여러 Azure 서비스의 뷰입니다. 데이터는 자동 온도 조절기 장치와 DPS 사이에서 앞뒤로 흐릅니다. 또한 데이터는 DPS에서 IoT Hub로, ' 할당 ' 레이블이 지정 된 Azure 함수를 통해 Azure Digital Twins로 흐릅니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub > Event Hubs > Azure Functions Azure Digital Twins를 통해 흐릅니다.":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>IoT Hub 수명 주기 이벤트를 사용 하 여 장치 자동 사용 중지
 
 이 섹션에서는 Azure Digital Twins에 IoT Hub 수명 주기 이벤트를 연결 하 여 아래 경로를 통해 장치의 자동 사용을 중지 합니다. 이는 [앞](#solution-architecture)에서 설명한 전체 아키텍처에서 발췌 한 것입니다.
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="사용 중지 장치 흐름-흐름의 숫자 레이블 지정 섹션을 포함 하는 솔루션 아키텍처 다이어그램의 발췌 한 부분입니다. 자동 온도 조절기 장치는 다이어그램의 Azure 서비스에 연결 되지 않은 상태로 표시 됩니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital Twins (3)를 통해 흐릅니다.":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="종단 간 시나리오에서 장치 및 여러 Azure 서비스의 뷰입니다. 데이터는 자동 온도 조절기 장치와 DPS 사이에서 앞뒤로 흐릅니다. 또한 데이터는 DPS에서 IoT Hub로, ' 할당 ' 레이블이 지정 된 Azure 함수를 통해 Azure Digital Twins로 흐릅니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub > Event Hubs > Azure Functions Azure Digital Twins를 통해 흐릅니다.":::
 
 프로세스 흐름에 대 한 설명은 다음과 같습니다.
 1. 외부 또는 수동 프로세스는 IoT Hub에서 장치 삭제를 트리거합니다.
@@ -470,7 +470,7 @@ IoT Hub 경로 만들기에 대 한 지침은이 문서에 설명 되어 있습�
 이 설정에 대해 수행 해야 하는 단계는 다음과 같습니다.
 1. 사용자 지정 IoT Hub 이벤트 허브 끝점을 만듭니다. 이 끝점은 [*event Hub 만들기*](#create-an-event-hub) 섹션에서 만든 이벤트 허브를 대상으로 해야 합니다.
 2. *장치 수명 주기 이벤트* 경로를 추가 합니다. 이전 단계에서 만든 끝점을 사용 합니다. 라우팅 쿼리를 추가 하 여 삭제 이벤트만 전송 하도록 장치 수명 주기 이벤트를 제한할 수 있습니다 `opType='deleteDeviceIdentity'` .
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="경로 추가":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="종단 간 시나리오에서 장치 및 여러 Azure 서비스의 뷰입니다. 데이터는 자동 온도 조절기 장치와 DPS 사이에서 앞뒤로 흐릅니다. 또한 데이터는 DPS에서 IoT Hub로, ' 할당 ' 레이블이 지정 된 Azure 함수를 통해 Azure Digital Twins로 흐릅니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub > Event Hubs > Azure Functions Azure Digital Twins를 통해 흐릅니다.":::
 
 이 흐름을 완료 한 후에는 모든 것이 종단 간 장치 사용 중지로 설정 됩니다.
 
@@ -491,7 +491,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 장치 쌍이 더 이상 Azure Digital Twins 인스턴스에서 검색 되지 않는 것을 볼 수 있습니다.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="쌍을 찾을 수 없는 명령 창 표시":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="종단 간 시나리오에서 장치 및 여러 Azure 서비스의 뷰입니다. 데이터는 자동 온도 조절기 장치와 DPS 사이에서 앞뒤로 흐릅니다. 또한 데이터는 DPS에서 IoT Hub로, ' 할당 ' 레이블이 지정 된 Azure 함수를 통해 Azure Digital Twins로 흐릅니다. 수동 ' 장치 삭제 ' 작업의 데이터는 IoT Hub > Event Hubs > Azure Functions Azure Digital Twins를 통해 흐릅니다.":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

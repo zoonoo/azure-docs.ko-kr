@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259639"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
@@ -46,7 +46,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 ### <a name="culture"></a>문화권
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
@@ -55,7 +55,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 ### <a name="policy"></a>정책
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | 신뢰 당사자 정책 이름입니다. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |
@@ -64,24 +64,24 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |`domain_hint` 쿼리 문자열 매개 변수입니다. | facebook.com |
 | {OIDC:LoginHint} |  `login_hint` 쿼리 문자열 매개 변수입니다. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age` | 해당 없음 |
+| {OIDC:MaxAge} | `max_age` | N/A |
 | {OIDC:Nonce} |`Nonce` 쿼리 문자열 매개 변수입니다. | defaultNonce |
 | {OIDC: Password}| [리소스 소유자 암호 자격 증명](ropc-custom.md) 은 사용자의 암호를 전달 합니다.| password1| 
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
 | {OIDC: RedirectUri} |`redirect_uri` 쿼리 문자열 매개 변수입니다. | https://jwt.ms |
-| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC: Scope} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
 | {OIDC: Username}| [리소스 소유자 암호 자격 증명](ropc-custom.md) 은 사용자의 사용자 이름을 전달 합니다.| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
@@ -92,7 +92,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 ### <a name="claims"></a>클레임 
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {클레임: 클레임 유형} | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 클레임 유형의 식별자입니다.  예를 들면 `{Claim:displayName}` , 또는 `{Claim:objectId}` 입니다. | 클레임 유형 값입니다.|
 
@@ -101,30 +101,30 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | Hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |
 | {OAUTH-KV:loyalty_number} | 쿼리 문자열 매개 변수입니다. | 1234 |
-| {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | N/A |
 
 ### <a name="oauth2"></a>OAuth2
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | 액세스 토큰. | 해당 없음 |
-| {oauth2: refresh_token} | 토큰 새로 고침. | 해당 없음 |
+| {oauth2:access_token} | 액세스 토큰. | N/A |
+| {oauth2: refresh_token} | 토큰 새로 고침. | N/A |
 
 
 ### <a name="saml"></a>SAML
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`SAML 요청의 요소 값입니다. | urn: oasis: names: tc: SAML: 2.0: ac: 클래스: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | `Format` `NameIDPolicy` SAML 요청의 요소에 있는 특성입니다. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: 발급자} |  `Issuer`Saml 요청의 saml 요소 값입니다.| `https://contoso.com` |
-| {SAML: AllowCreate} | `AllowCreate`SAML 요청의 요소에 있는 특성 값 `NameIDPolicy` 입니다. | 참 |
-| {SAML: ForceAuthn} | `ForceAuthN`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다. | 참 |
+| {SAML: AllowCreate} | `AllowCreate`SAML 요청의 요소에 있는 특성 값 `NameIDPolicy` 입니다. | True |
+| {SAML: ForceAuthn} | `ForceAuthN`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다. | True |
 | {SAML: ProviderName} | `ProviderName`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다.| Contoso.com |
 | {SAML: RelayState} | `RelayState` 쿼리 문자열 매개 변수입니다.| 
 

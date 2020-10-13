@@ -5,10 +5,10 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372241"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
@@ -50,7 +50,7 @@ ms.locfileid: "91372241"
 | InvalidSubscriptionRegistrationState | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](error-register-resource-provider.md) |
 | InvalidTemplate | 템플릿 구문에 오류가 있는지 확인합니다. | [잘못된 템플릿 오류 해결](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](error-invalid-template.md#circular-dependency) |
-| JobSizeExceeded 됨 | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
+| JobSizeExceeded | 크기를 줄이기 위해 템플릿을 단순화 합니다. | [템플릿 크기 오류 해결](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | 계정이 배포 하는 리소스 그룹과 동일한 테 넌 트에 속하는지 확인 합니다. | |
 | LinkedInvalidPropertyId | 리소스에 대한 리소스 ID가 올바르게 해석되지 않습니다. 구독 ID, 리소스 그룹 이름, 리소스 종류, 부모 리소스 이름(필요한 경우) 및 리소스 이름을 포함하여 리소스 ID에 필요한 모든 값을 제공했는지 확인합니다. | |
 | LocationRequired | 리소스의 위치를 제공 합니다. | [위치 설정](resource-location.md) |

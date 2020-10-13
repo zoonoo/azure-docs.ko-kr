@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359616"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
@@ -1057,16 +1057,16 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 Id를 사용 하 여 VM의 모�
    az login
    ```
 
-1. [Azure CLI를 사용 하 여 AZURE vm에서 azure 리소스에 대 한 관리 되는 Id 구성][qs-configure-cli-windows-vm] 문서에 나오는 단계에 따라 VM에 대 한 시스템 할당 관리 id를 사용 하도록 설정 합니다. 사용자 할당 관리 Id는 SAP 용 VM 확장에서 지원 되지 않습니다. 그러나 시스템에 할당 된 id와 사용자 할당 id를 모두 사용 하도록 설정할 수 있습니다.
+1. [Azure CLI를 사용 하 여 AZURE vm에서 azure 리소스에 대 한 관리 되][qs-configure-cli-windows-vm] 는 id 구성 문서에 나오는 단계에 따라 VM에 대 한 System-Assigned 관리 id를 사용 하도록 설정 합니다. User-Assigned 관리 Id는 SAP 용 VM 확장에서 지원 되지 않습니다. 그러나 시스템에 할당 된 id와 사용자 할당 id를 모두 사용 하도록 설정할 수 있습니다.
 
-   예:
+   예제:
    ```azurecli
    az vm identity assign -g <resource-group-name> -n <vm name>
    ```
 
 1. 관리 id를 VM의 리소스 그룹 또는 모든 네트워크 인터페이스, 관리 디스크 및 VM 자체에 할당 합니다. 여기에 설명 된 대로 [Azure CLI를 사용 하 여 리소스에 대 한 관리 id 액세스 권한을 할당][howto-assign-access-cli] 합니다.
 
-    예:
+    예제:
 
     ```azurecli
     spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)

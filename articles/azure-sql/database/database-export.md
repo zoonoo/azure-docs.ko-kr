@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
 ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443811"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일 Azure SQL Database 및 Azure SQL Managed Instance로 내보내기
@@ -44,7 +44,7 @@ ms.locfileid: "91443811"
 Azure Portal를 사용 하 여 [AZURE SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 에서 데이터베이스 BACPAC를 내보내는 것은 현재 지원 되지 않습니다. 대신 SQL Server Management Studio 또는 SQLPackage를 사용 해야 합니다.
 
 > [!NOTE]
-> Azure Portal 또는 PowerShell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 BACPAC 파일 뿐만 아니라 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 달라 지 며, 데이터베이스 크기의 최대 3 배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 오류와 함께 실패할 수 있습니다 `There is not enough space on the disk` . 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage.exe를 실행 하는 것입니다. 이 문제를 방지 하기 위해 [SqlPackage](#sqlpackage-utility) 를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
+> Azure Portal 또는 PowerShell을 통해 제출된 가져오기/내보내기 요청을 처리하는 머신은 BACPAC 파일뿐만 아니라 DacFX(데이터 계층 애플리케이션 프레임워크)에서 생성한 임시 파일도 저장해야 합니다. 필요한 디스크 공간은 동일한 크기의 데이터베이스 간에도 크게 다르며, 데이터베이스 크기의 최대 3배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 `There is not enough space on the disk` 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분한 로컬 디스크 공간이 있는 머신에서 sqlpackage.exe를 실행하는 것입니다. 이 문제를 방지 하기 위해 [SqlPackage](#sqlpackage-utility) 를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다.
 

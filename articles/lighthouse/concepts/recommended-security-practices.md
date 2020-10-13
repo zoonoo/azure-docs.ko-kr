@@ -4,10 +4,10 @@ description: Azure Lighthouse를 사용 하는 경우 보안 및 액세스 제�
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399383"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
@@ -34,7 +34,7 @@ ms.locfileid: "91399383"
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |형식  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |유형  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
 |설계자     |사용자 그룹         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

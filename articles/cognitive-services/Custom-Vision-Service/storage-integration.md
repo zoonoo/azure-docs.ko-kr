@@ -10,22 +10,22 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: f4d9cc4c02ab062c73e9dbd977d9ea9e6ccdb60d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532784"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>알림 및 백업을 위해 Azure storage 통합
 
-Custom Vision 프로젝트를 Azure blob storage 큐와 통합 하 여 프로젝트의 학습/내보내기 작업 및 게시 된 모델의 백업 복사본에 대 한 푸시 알림을 받을 수 있습니다. 이 기능은 긴 작업이 실행 될 때 서비스에서 결과를 지속적으로 폴링하는 것을 방지 하는 데 유용 합니다. 대신 저장소 큐 알림을 워크플로에 통합할 수 있습니다.
+Custom Vision 프로젝트를 Azure Blob Storage 큐와 통합하여 프로젝트 학습/내보내기 작업 및 게시된 모델의 백업 복사본에 대한 푸시 알림을 받을 수 있습니다. 이 기능은 작업이 오래 실행될 때 결과를 위해 서비스를 지속적으로 폴링하는 것을 방지하는 데 유용합니다. 대신 스토리지 큐 알림을 워크플로에 통합할 수 있습니다.
 
 이 가이드에서는 이러한 REST Api를 사용 하는 방법을 보여 줍니다. Postman과 같은 HTTP 요청 서비스를 사용 하 여 요청을 실행할 수도 있습니다.
 
 > [!NOTE]
 > 푸시 알림은 **Createproject** API의 선택적 _notificationqueueuri_ 매개 변수에 따라 달라 지 며, 모델 백업에도 선택적 _exportModelContainerUri_ 매개 변수를 사용 해야 합니다. 이 가이드에서는 전체 기능 집합에 대해 모두를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure의 Custom Vision 리소스입니다. 없는 경우 Azure Portal으로 이동 하 여 [새 Custom Vision 리소스를 만듭니다](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). 이 기능은 현재 단일 키로 인식 서비스 리소스를 지원 하지 않습니다.
 - Blob 컨테이너를 사용 하는 Azure Storage 계정 이 단계에 대 한 도움이 필요한 경우 [Azure Storage 랩의 연습 1을](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 따릅니다.

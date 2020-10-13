@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
 ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167762"
 ---
 # <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
@@ -285,7 +285,7 @@ ID : xxx , Name : xxx : Succeeded
 
 긴 오디오 API는 고유한 끝점을 사용 하 여 여러 지역에서 사용할 수 있습니다.
 
-| Azure 지역 | 엔드포인트 |
+| 지역 | 엔드포인트 |
 |--------|----------|
 | 오스트레일리아 동부 | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | 캐나다 중부 | `https://canadacentral.customvoice.api.speech.microsoft.com` |

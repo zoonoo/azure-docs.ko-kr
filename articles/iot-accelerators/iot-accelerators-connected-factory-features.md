@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261603"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>연결된 팩터리 IoT 솔루션 가속기란?
 
 > [!IMPORTANT]
-> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 연결된 팩터리는 Microsoft의 Azure Industrial IoT 참조 아키텍처를 구현한 것으로, 오픈 소스 솔루션으로 패키징됩니다. 연결된 팩터리는 상용 제품 개발을 위한 시작점으로 사용할 수 있습니다. 미리 빌드된 버전의 연결된 팩터리 솔루션을 [Azure IoT Solution Accelerator](https://www.azureiotsolutions.com/#solutions/types/CF)에서 Azure 구독에 배포할 수 있습니다.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306891"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
@@ -320,7 +320,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `test-netconnection`
 
 > [!NOTE]
-> 쓰기 진행률 cmdlet은이 명령에서 작동 하지 않을 수 있습니다. 완화를 `$ProgressPreference = "SilentlyContinue"` 위해 PowerShell에서를 실행 하 여 진행률 표시줄을 사용 하지 않도록 설정할 수 있습니다.
+> Write-Progress cmdlet은이 명령에서 작동 하지 않을 수 있습니다. 완화를 `$ProgressPreference = "SilentlyContinue"` 위해 PowerShell에서를 실행 하 여 진행률 표시줄을 사용 하지 않도록 설정할 수 있습니다.
 
 또는
 

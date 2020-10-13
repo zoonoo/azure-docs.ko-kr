@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580470"
 ---
 # <a name="iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지
@@ -29,8 +29,8 @@ IoT 플러그 앤 플레이 브리지는 어댑터 설명서에 대 한 링크�
 
 |파악|Windows|Linux|
 |---------|---------|---------|
-|[Bluetooth LE](https://aka.ms/iot-pnp-bridge-bluetooth)       |예|예|
-|[카메라](https://aka.ms/iot-pnp-bridge-camera)               |예|예|
+|[Bluetooth LE](https://aka.ms/iot-pnp-bridge-bluetooth)       |예|아니요|
+|[카메라](https://aka.ms/iot-pnp-bridge-camera)               |예|아니요|
 |[Modbus](https://aka.ms/iot-pnp-bridge-modbus)                |예|예|
 |[MQTT](https://aka.ms/iot-pnp-bridge-mqtt)                    |예|예|
 |[연속적인](https://aka.ms/iot-pnp-bridge-serial)                |예|예|
@@ -39,7 +39,7 @@ IoT 플러그 앤 플레이 브리지는 어댑터 설명서에 대 한 링크�
 >[!Important]
 >개발자는 iot 플러그 앤 플레이 브리지를 확장 하 여 **[iot 플러그 앤 플레이 bridge 개발자 설명서](https://aka.ms/iot-pnp-bridge-dev-doc)** 의 지침을 통해 추가 장치 프로토콜을 지원할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="os-platform"></a>OS 플랫폼
 

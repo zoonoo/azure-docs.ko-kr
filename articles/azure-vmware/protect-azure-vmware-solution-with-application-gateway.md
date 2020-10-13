@@ -4,10 +4,10 @@ description: Azure VMware 솔루션에서 실행 되는 웹 앱을 안전 하 �
 ms.topic: how-to
 ms.date: 07/31/2020
 ms.openlocfilehash: ad7cd36d77da41d75ea9dcc18a51d0ffc5540d2a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580109"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션에서 웹 앱 보호
@@ -30,7 +30,7 @@ ms.locfileid: "91580109"
 
 Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니다. Azure 공용 IP 주소를 포함 합니다. 가상 네트워크에 대 한 표준 DDoS 보호를 활성화 하는 것이 좋습니다. 웹 서버는 NSX T0 및 T1 라우터 뒤에 있는 Azure VMware 솔루션 사설 클라우드에서 호스팅됩니다. Azure VMware 솔루션은 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여 허브 및 온-프레미스 시스템과의 통신을 사용 하도록 설정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정.
 - Azure VMware 솔루션 사설 클라우드를 배포 하 고 실행 합니다.

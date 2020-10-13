@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167405"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
@@ -45,7 +45,7 @@ ms.locfileid: "88167405"
 
 다음 단계는 인증서를 만들어 게이트웨이의 올바른 위치에 설치 하는 과정을 안내 합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
@@ -87,7 +87,7 @@ IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
    * **device_ca_pk**: 장치 ca 개인 키
    * **trusted_ca_certs**: 루트 ca 인증서
 
-5. 파일을 저장한 후 닫습니다.
+5. 파일을 저장하고 닫습니다.
 
 6. IoT Edge를 다시 시작 합니다.
    * Windows: `Restart-Service iotedge`
@@ -117,7 +117,7 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
 5. **다음: 경로**를 선택 합니다.
 
-6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 다음은 그 예입니다. 
+6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 
    * 모듈이 나 다운스트림 장치에서 IoT Hub 하 여 모든 메시지를 보내는 경로입니다.
        * **이름**: `allMessagesToHub`

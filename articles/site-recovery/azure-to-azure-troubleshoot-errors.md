@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397966"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
@@ -281,14 +281,14 @@ VM의 복제 상태를 다시 정상으로 설정 하려면 디스크를 보호 
 1. 복제 된 **항목**  >  _VM 이름_  >  **디스크**로 이동 합니다.
 1. 보호 되지 않은 디스크를 선택한 다음 **복제 사용**을 선택 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="VM 디스크에서 복제를 사용 하도록 설정 합니다.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-오류입니다.":::
 
 #### <a name="to-dismiss-the-warning"></a>경고를 해제 하려면
 
 1. 복제 된 **항목**  >  _VM 이름_으로 이동 합니다.
 1. **개요** 섹션에서 경고를 선택 하 고 **확인**을 선택 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="새 디스크 경고를 해제 합니다.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-오류입니다.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>자격 증명 모음에서 제거 된 VM이 정보를 사용 하 여 완료 됨 (오류 코드 150225)
 
@@ -309,7 +309,7 @@ Site Recovery에서 가상 컴퓨터를 보호 하는 경우 원본 가상 컴�
 
 1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-오류입니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
 1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
@@ -334,7 +334,7 @@ Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 �
 
 1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-오류입니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
 1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
@@ -367,7 +367,7 @@ Azure VM에 오래 된 Site Recovery 구성이 있는 경우 복제에 사용할
 
 1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다 (있는 경우). 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-오류입니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
 1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
@@ -404,17 +404,17 @@ VM에서 복제를 사용 하도록 설정 하려면 해당 프로 비전 상태
 
 재해 복구를 구성 하는 동안 원본 VM이 가상 네트워크의 일부이 고 동일한 가상 네트워크의 다른 VM이 이미 대상 리소스 그룹의 네트워크에 매핑된 경우 네트워크 선택 드롭다운 목록 상자는 기본적으로 사용할 수 없습니다 (흐리게 표시 됨).
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="네트워크 선택 목록을 사용할 수 없습니다.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-오류입니다.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>문제 2: 이전에 VM을 보호 한 후 복제를 사용 하지 않도록 설정 했습니다.
 
 VM의 복제를 사용 하지 않도록 설정 해도 네트워크 매핑이 삭제 되지 않습니다. 이 매핑은 VM이 보호 된 Recovery Services 자격 증명 모음에서 삭제 해야 합니다. **Recovery Services 자격 증명 모음** 을 선택 하 **Manage**고  >  **Site Recovery Infrastructure**  >  **Azure virtual machines에 대 한**Site Recovery 인프라 관리  >  **네트워크 매핑을**이동 합니다.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="네트워크 매핑을 삭제 합니다.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-오류입니다.":::
 
 재해 복구를 설정 하는 동안 구성 된 대상 네트워크는 초기 설치 후 및 VM이 보호 된 후에 변경할 수 있습니다. **네트워크 매핑을 수정** 하려면 네트워크 이름을 선택 합니다.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="네트워크 매핑을 수정 합니다.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-오류입니다.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM + 또는 VSS (오류 코드 151025)
@@ -437,7 +437,7 @@ COM + 시스템 응용 프로그램을 설정 하 고 볼륨 섀도 복사본 �
 1. Windows에서 서비스 콘솔을 엽니다.
 1. COM + 시스템 응용 프로그램 및 볼륨 섀도 복사본 서비스 **시작 유형**으로 **사용 안 함으로** 설정 되지 않았는지 확인 합니다.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="COM과 시스템 응용 프로그램의 시작 유형을 확인 하 고 볼륨 섀도 복사본 서비스 합니다.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-오류입니다.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>지원 되지 않는 관리 디스크 크기 (오류 코드 150172)
 

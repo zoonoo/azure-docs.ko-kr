@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434472"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
@@ -62,7 +62,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
 - 이 기능은 Azure Resource Manager 배포 모델을 통해 배포된 가상 네트워크에만 사용할 수 있습니다.
 - 엔드포인트는 Azure 가상 네트워크에서 구성된 서브넷에서 활성화됩니다. 온-프레미스에서 Azure 서비스로의 트래픽에 끝점을 사용할 수 없습니다. 자세한 내용은 [온-프레미스에서 Azure 서비스 액세스 보호](#secure-azure-services-to-virtual-networks) 를 참조 하세요.
-- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage의 경우 끝점은 가상 네트워크를 배포 하 여 GRS (읽기 액세스 지역 중복 저장소) 및 GRS (지역 중복 저장소) 트래픽을 지원 하기 위해 쌍을 이루는 지역을 포함 하도록 확장 됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)을 참조하세요.
+- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage의 경우 끝점은 가상 네트워크를 배포 하 여 GRS (Read-Access Geo-Redundant 저장소 (RA-GRS) 및 Geo-Redundant 저장소 () 트래픽을 지원 하기 위해 쌍을 이루는 지역을 포함 하도록 확장 됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)을 참조하세요.
 - Azure Data Lake Storage (ADLS) Gen 1의 경우 동일한 지역 내의 가상 네트워크에 대해서만 VNet 통합 기능을 사용할 수 있습니다. 또한 ADLS Gen1의 가상 네트워크 통합은 가상 네트워크와 Azure Active Directory (Azure AD) 간의 가상 네트워크 서비스 끝점 보안을 사용 하 여 액세스 토큰에 추가 보안 클레임을 생성 합니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. 서비스 끝점 지원 서비스에 나열 된 *AzureActiveDirectory* 태그는 서비스 끝점을 ADLS Gen 1에 지 원하는 데만 사용 됩니다. Azure AD는 서비스 끝점을 기본적으로 지원 하지 않습니다. Azure Data Lake Store Gen 1 VNet 통합에 대 한 자세한 내용은 [Azure Data Lake Storage Gen1의 네트워크 보안](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요.
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>가상 네트워크에 대 한 Azure 서비스 보안 유지
@@ -120,7 +120,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 >[!NOTE]
 > 서비스 엔드포인트 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. 자세한 내용은 [유효 경로를 사용 하 여 문제 해결](diagnose-network-routing-problem.md)을 참조 하세요.
 
-## <a name="provisioning"></a>프로비저닝
+## <a name="provisioning"></a>프로비전
 
 가상 네트워크에서 가상 네트워크에 대 한 쓰기 권한이 있는 사용자가 독립적으로 서비스 끝점을 구성할 수 있습니다. VNet에 대 한 Azure 서비스 리소스를 보호 하려면 사용자는 추가 된 서브넷에 대해 *Microsoft. Network/virtualNetworks/서브넷/joinViaServiceEndpoint/action* 에 대 한 사용 권한이 있어야 합니다. 기본 제공 서비스 관리자 역할은 기본적으로이 권한을 포함 합니다. 사용자 지정 역할을 만들어 사용 권한을 수정할 수 있습니다.
 
@@ -140,7 +140,7 @@ Azure Storage 계정과 같은 특정 Azure 서비스는 리소스를 보호 하
 
 VNet 서비스 끝점 정책을 통해 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있습니다. 이 필터는 서비스 끝점에 대 한 특정 Azure 서비스 리소스만 허용 합니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 내용은 [Virtual Network 서비스 끝점 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)을 참조 하세요.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 Faq는 [Virtual Network 서비스 끝점 faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)를 참조 하세요.
 
