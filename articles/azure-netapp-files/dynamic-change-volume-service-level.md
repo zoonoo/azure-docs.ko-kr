@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: 9050982338c4a6096ef180b34c0d0a0dca931427
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3f5627f4bd0d62a70ef9d7809f0bf1441141f4c6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278314"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931248"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 
-볼륨에 대해 원하는 [서비스 수준을](azure-netapp-files-service-levels.md) 사용 하는 다른 용량 풀로 볼륨을 이동 하 여 기존 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대 한이 내부 서비스 수준 변경에는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대 한 액세스에는 영향을 주지 않습니다.  
+볼륨에 대해 원하는 [서비스 수준을](azure-netapp-files-service-levels.md) 사용 하는 다른 용량 풀로 볼륨을 이동 하 여 기존 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대한 이러한 내부 서비스 수준 변경에서는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대 한 액세스에는 영향을 주지 않습니다.  
 
-이 기능을 사용 하면 요구에 따라 워크 로드 요구 사항을 충족할 수 있습니다.  성능 향상을 위해 더 높은 서비스 수준을 사용 하도록 기존 볼륨을 변경 하거나 비용 최적화를 위해 더 낮은 서비스 수준을 사용할 수 있습니다. 예를 들어 볼륨이 현재 *표준* 서비스 수준을 사용 하는 용량 풀에 있고 해당 볼륨에서 *프리미엄* 서비스 수준을 사용 하려는 경우 *프리미엄* 서비스 수준을 사용 하는 용량 풀로 볼륨을 동적으로 이동할 수 있습니다.  
+이 기능을 사용 하면 요구에 따라 워크 로드 요구 사항을 충족할 수 있습니다.  더 높은 서비스 수준을 사용하여 성능을 향상시키거나 더 낮은 서비스 수준을 사용하여 비용을 최적화하도록 기존 볼륨을 변경할 수 있습니다. 예를 들어 볼륨이 현재 *표준* 서비스 수준을 사용 하는 용량 풀에 있고 해당 볼륨에서 *프리미엄* 서비스 수준을 사용 하려는 경우 *프리미엄* 서비스 수준을 사용 하는 용량 풀로 볼륨을 동적으로 이동할 수 있습니다.  
 
 볼륨을 이동할 용량 풀이 이미 있어야 합니다. 용량 풀에는 다른 볼륨이 포함 될 수 있습니다.  볼륨을 새 용량 풀로 이동 하려는 경우 볼륨을 이동 하기 전에 [용량 풀을 만들어야](azure-netapp-files-set-up-capacity-pool.md) 합니다.  
 
@@ -53,7 +53,7 @@ ms.locfileid: "91278314"
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-[Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+[Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>볼륨을 다른 용량 풀로 이동
 

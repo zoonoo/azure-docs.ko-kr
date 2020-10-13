@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331270"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974739"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
 
@@ -55,9 +55,9 @@ Microsoft Azure Virtual Machine 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 Linux, UNIX 및 Windows용 IBM DB2 구성 지침
 ### <a name="storage-configuration"></a>스토리지 구성
-SAP 워크 로드에 대 한 Azure storage 유형 개요는 [sap 워크 로드에 대 한 Azure Storage 유형](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 문서를 참조 하세요. 모든 데이터베이스 파일은 Azure 블록 저장소의 탑재 된 디스크에 저장 되어야 합니다 (WINDOWS: NFFS, Linux: xfs, ext4 또는 ext3). 다음 Azure 서비스와 같은 모든 종류의 네트워크 드라이브 또는 원격 공유는 데이터베이스 파일에 대해 지원 **되지 않습니다** . 
+SAP 워크 로드에 대 한 Azure storage 유형 개요는 [sap 워크 로드에 대 한 Azure Storage 유형](./planning-guide-storage.md) 문서를 참조 하세요. 모든 데이터베이스 파일은 Azure 블록 저장소의 탑재 된 디스크에 저장 되어야 합니다 (WINDOWS: NFFS, Linux: xfs, ext4 또는 ext3). 다음 Azure 서비스와 같은 모든 종류의 네트워크 드라이브 또는 원격 공유는 데이터베이스 파일에 대해 지원 **되지 않습니다** . 
 
-* [Microsoft Azure 파일 서비스](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Microsoft Azure 파일 서비스](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 

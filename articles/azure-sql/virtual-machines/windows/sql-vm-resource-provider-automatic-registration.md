@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 45285f2f26f1f17408f97bfede2b97e4c4752a5c
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 75f68a4de2db0c4c9102a58da12d80cc273a6e80
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762468"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931175"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,7 +53,7 @@ Azure Portal에서 SQL Server Vm의 자동 등록을 사용 하도록 설정 하
 1. 약관을 읽고 동의 하면 동의 **함**을 선택 합니다. 
 1. **등록** 을 선택 하 여 기능을 사용 하도록 설정 하 고 SQL vm 리소스 공급자를 사용 하 여 현재 및 미래의 모든 SQL Server vm을 자동으로 등록 합니다. 이는 Vm에서 SQL Server 서비스를 다시 시작 하지 않습니다. 
 
-## <a name="disable"></a>사용 중지
+## <a name="disable"></a>사용 안 함
 
 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps) 를 사용 하 여 자동 등록 기능을 사용 하지 않도록 설정 합니다. 자동 등록 기능을 사용 하지 않도록 설정 하면 구독에 추가 된 SQL Server Vm을 SQL VM 리소스 공급자에 수동으로 등록 해야 합니다. 이미 등록 된 기존 SQL Server Vm의 등록은 취소 되지 않습니다.
 

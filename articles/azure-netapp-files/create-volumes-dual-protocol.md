@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 9266a5efb7156367dfa0d6036f5876337098c143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743933"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963519"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -28,7 +28,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
-* 용량 풀을 설정해야 합니다.  
+* 용량 풀이 이미 만들어져 있어야 합니다.  
     [용량 풀 설정을](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.   
 * Azure NetApp Files에 서브넷을 위임해야 합니다.  
     [Azure NetApp Files에 서브넷 위임을](azure-netapp-files-delegate-subnet.md)참조 하세요.
@@ -38,9 +38,19 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 * [Active Directory 연결에 대 한 요구 사항을](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)충족 하는지 확인 합니다. 
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
 * NFS 클라이언트가 최신 상태 이며 운영 체제에 대 한 최신 업데이트를 실행 중인지 확인 합니다.
-* Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. 이 작업은 AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여 수행 됩니다.
-* Ad [CS (Active Directory 인증서 서비스](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 AD에서 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
+* Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여이 작업을 수행할 수 있습니다.
+* Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 AD에서 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
 * 이중 프로토콜 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다.  
+* 이중 프로토콜 볼륨에서 사용 하는 NFS 버전은 NFSv3입니다. 따라서 다음과 같은 고려 사항이 적용 됩니다.
+    * 이중 프로토콜은 NFS 클라이언트의 Windows ACL 확장 특성을 지원 하지 않습니다 `set/get` .
+    * NFS 클라이언트는 NTFS 보안 스타일에 대 한 권한을 변경할 수 없으며 Windows 클라이언트는 UNIX 스타일의 이중 프로토콜 볼륨에 대 한 권한을 변경할 수 없습니다.   
+
+    다음 표에서는 보안 스타일 및 그에 대 한 영향을 설명 합니다.  
+    
+    | 보안 스타일    | 사용 권한을 수정할 수 있는 클라이언트   | 클라이언트에서 사용할 수 있는 사용 권한  | 결과 유효 보안 스타일    | 파일에 액세스할 수 있는 클라이언트     |
+    |-  |-  |-  |-  |-  |
+    | UNIX  | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
+    | NTFS  | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
 
 ## <a name="create-a-dual-protocol-volume"></a>이중 프로토콜 볼륨 만들기
 
@@ -113,9 +123,9 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
 ## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Active Directory 인증 기관 공용 루트 인증서 업로드  
 
-1.  [인증 기관 설치](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) 를 따라 추가 인증 기관을 설치 및 구성 합니다. 
+1.  [인증 기관 설치](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) 를 따라 추가 인증 기관을 설치 및 구성 합니다. 
 
-2.  Mmc 스냅인을 사용 하 여 [인증서 보기](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) 를 따라 mmc 스냅인 및 인증서 관리자 도구를 사용 합니다.  
+2.  Mmc 스냅인을 사용 하 여 [인증서 보기](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) 를 따라 mmc 스냅인 및 인증서 관리자 도구를 사용 합니다.  
     인증서 관리자 스냅인을 사용 하 여 로컬 장치에 대 한 루트 또는 발급 인증서를 찾습니다. 다음 설정 중 하나에서 인증서 관리 스냅인 명령을 실행 해야 합니다.  
     * 도메인에 가입 하 고 루트 인증서가 설치 된 Windows 기반 클라이언트 
     * 루트 인증서를 포함 하는 도메인의 다른 컴퓨터  
@@ -152,4 +162,4 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 ## <a name="next-steps"></a>다음 단계  
 
 * [이중 프로토콜 Faq](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Azure NetApp Files에 대한 NFS 클라이언트 구성](configure-nfs-clients.md) 
+* [Azure NetApp Files에 대한 NFS 클라이언트 구성](configure-nfs-clients.md)

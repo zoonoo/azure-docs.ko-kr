@@ -3,16 +3,16 @@ title: Azure Marketplace에 관리 서비스 제품 게시
 description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 제품을 게시 하는 방법에 대해 알아봅니다.
 ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589727"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974365"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 
-이 문서에서는 파트너 센터에서 [상업적 Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) 프로그램을 사용 하 여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 에 공용 또는 개인 관리 서비스 제품을 게시 하는 방법을 알아봅니다. 제품을 구매한 고객은 구독 또는 리소스 그룹을 위임 하 여 [Azure Lighthouse](../overview.md)를 통해 관리할 수 있습니다.
+이 문서에서는 파트너 센터에서 [상업적 Marketplace](../../marketplace/overview.md) 프로그램을 사용 하 여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 에 공용 또는 개인 관리 서비스 제품을 게시 하는 방법을 알아봅니다. 제품을 구매한 고객은 구독 또는 리소스 그룹을 위임 하 여 [Azure Lighthouse](../overview.md)를 통해 관리할 수 있습니다.
 
 ## <a name="publishing-requirements"></a>게시 요구 사항
 
@@ -40,7 +40,7 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 
 제공 해야 하는 모든 정보 및 자산을 포함 하 여 제품을 만드는 방법에 대 한 자세한 지침은 [관리 서비스 제안 만들기](../../marketplace/partner-center-portal/create-new-managed-service-offer.md)를 참조 하세요.
 
-일반 게시 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](../../marketplace/marketplace-publishers-guide.md)를 참조 하세요. [상업 마켓플레이스 인증 정책](/legal/marketplace/certification-policies), 특히 [관리 서비스](/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
+일반 게시 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](../../marketplace/overview.md)를 참조 하세요. [상업 마켓플레이스 인증 정책](/legal/marketplace/certification-policies), 특히 [관리 서비스](/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
 
 고객이 제품을 추가한 후에는 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있으며, 그러면 [Azure Lighthouse에 등록](#the-customer-onboarding-process)됩니다.
 
@@ -64,6 +64,6 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md)에 대해 알아보세요.
+- [상업적 Marketplace](../../marketplace/overview.md)에 대해 알아보세요.
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
 - Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.

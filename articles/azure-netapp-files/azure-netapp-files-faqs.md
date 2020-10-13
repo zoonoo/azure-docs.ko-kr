@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa33106f200b2edb3b710c6b0e08208bd4da8ace
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653624"
+ms.locfileid: "91932263"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -31,13 +31,13 @@ ms.locfileid: "91653624"
 
 아니요. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
 
-자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 을 참조 하세요.  
+자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](./azure-netapp-files-network-topologies.md) 을 참조 하세요.  
 
 ### <a name="can-i-connect-a-vnet-that-i-already-created-to-the-azure-netapp-files-service"></a>이미 만든 VNet을 Azure NetApp Files 서비스에 연결할 수 있나요?
 
 예, 만든 Vnet을 서비스에 연결할 수 있습니다. 
 
-자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 을 참조 하세요.  
+자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](./azure-netapp-files-network-topologies.md) 을 참조 하세요.  
 
 ### <a name="can-i-mount-an-nfs-volume-of-azure-netapp-files-using-dns-fqdn-name"></a>DNS FQDN 이름을 사용 하 여 Azure NetApp Files의 NFS 볼륨을 탑재할 수 있나요?
 
@@ -146,7 +146,7 @@ Azure NetApp Files smb 2.1 및 smb 3.1 (SMB 3.0에 대 한 지원 포함)을 지
 
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>SMB 액세스에 Active Directory 연결이 필요 한가요? 
 
-예, SMB 볼륨을 배포 하기 전에 Active Directory 연결을 만들어야 합니다. 연결에 성공 하려면 Azure NetApp Files의 위임 된 서브넷에서 지정 된 도메인 컨트롤러에 액세스할 수 있어야 합니다.  자세한 내용은 [SMB 볼륨 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) 를 참조 하세요. 
+예, SMB 볼륨을 배포 하기 전에 Active Directory 연결을 만들어야 합니다. 연결에 성공 하려면 Azure NetApp Files의 위임 된 서브넷에서 지정 된 도메인 컨트롤러에 액세스할 수 있어야 합니다.  자세한 내용은 [SMB 볼륨 만들기](./azure-netapp-files-create-volumes-smb.md) 를 참조 하세요. 
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>지원 되는 Active Directory 연결은 몇 개입니까?
 
@@ -156,7 +156,7 @@ AD 연결은 NetApp 계정에 따라 구성 됩니다. AD 연결은 생성 된 N
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure Active Directory 지원 Azure NetApp Files? 
 
-[AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 Azure에서 가상 머신으로 또는 Express 경로 또는 S2S VPN을 통해 온-프레미스에 상주할 수 있습니다. Azure NetApp Files은 현재 [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) 에 대 한 AD 조인을 지원 하지 않습니다.
+[AD (Azure Active Directory) 도메인 서비스](../active-directory-domain-services/overview.md) 와 [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 Azure에서 가상 머신으로 또는 Express 경로 또는 S2S VPN을 통해 온-프레미스에 상주할 수 있습니다. Azure NetApp Files은 현재 [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) 에 대 한 AD 조인을 지원 하지 않습니다.
 
 Azure Active Directory Domain Services와 함께 Azure NetApp Files를 사용하는 경우 NetApp 계정에 대해 Active Directory를 구성할 때 조직 구성 단위 경로는 `OU=AADDC Computers`입니다.
 
@@ -171,7 +171,7 @@ SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼�
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
-Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
 
 ## <a name="dual-protocol-faqs"></a>이중 프로토콜 Faq
@@ -224,7 +224,7 @@ Azure NetApp Files는 NFS 및 SMB 볼륨을 제공 합니다.  모든 파일 기
 
 NetApp은 SaaS 기반 솔루션인 [Netapp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)를 제공 합니다.  이 솔루션을 사용 하면 nfs 또는 SMB 데이터를 Azure NetApp Files NFS 내보내기 또는 SMB 공유에 복제할 수 있습니다. 
 
-광범위 한 무료 도구를 사용 하 여 데이터를 복사할 수도 있습니다. NFS의 경우 [rsync](https://rsync.samba.org/examples.html) 와 같은 작업 도구를 사용 하 여 원본 데이터를 Azure NetApp Files 볼륨에 복사 하 고 동기화 할 수 있습니다. SMB의 경우 동일한 방식으로 워크 로드 [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 를 사용할 수 있습니다.  이러한 도구는 파일 또는 폴더 사용 권한을 복제할 수도 있습니다. 
+광범위 한 무료 도구를 사용 하 여 데이터를 복사할 수도 있습니다. NFS의 경우 [rsync](https://rsync.samba.org/examples.html) 와 같은 작업 도구를 사용 하 여 원본 데이터를 Azure NetApp Files 볼륨에 복사 하 고 동기화 할 수 있습니다. SMB의 경우 동일한 방식으로 워크 로드 [robocopy](/windows-server/administration/windows-commands/robocopy) 를 사용할 수 있습니다.  이러한 도구는 파일 또는 폴더 사용 권한을 복제할 수도 있습니다. 
 
 온-프레미스에서 Azure NetApp Files로 데이터 마이그레이션에 대 한 요구 사항은 다음과 같습니다. 
 
@@ -239,7 +239,7 @@ Azure NetApp Files는 NFS 및 SMB 볼륨을 제공 합니다.  모든 파일 기
 
 NetApp은 SaaS 기반 솔루션인 [Netapp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)를 제공 합니다.  이 솔루션을 사용 하면 nfs 또는 SMB 데이터를 Azure NetApp Files NFS 내보내기 또는 SMB 공유에 복제할 수 있습니다. 
 
-광범위 한 무료 도구를 사용 하 여 데이터를 복사할 수도 있습니다. NFS의 경우 [rsync](https://rsync.samba.org/examples.html) 와 같은 작업 도구를 사용 하 여 원본 데이터를 Azure NetApp Files 볼륨에 복사 하 고 동기화 할 수 있습니다. SMB의 경우 동일한 방식으로 워크 로드 [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 를 사용할 수 있습니다.  이러한 도구는 파일 또는 폴더 사용 권한을 복제할 수도 있습니다. 
+광범위 한 무료 도구를 사용 하 여 데이터를 복사할 수도 있습니다. NFS의 경우 [rsync](https://rsync.samba.org/examples.html) 와 같은 작업 도구를 사용 하 여 원본 데이터를 Azure NetApp Files 볼륨에 복사 하 고 동기화 할 수 있습니다. SMB의 경우 동일한 방식으로 워크 로드 [robocopy](/windows-server/administration/windows-commands/robocopy) 를 사용할 수 있습니다.  이러한 도구는 파일 또는 폴더 사용 권한을 복제할 수도 있습니다. 
 
 Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요구 사항은 다음과 같습니다. 
 - 대상 Azure 지역에서 Azure NetApp Files를 사용할 수 있는지 확인 합니다.
@@ -257,8 +257,8 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Microsoft Azure ExpressRoute Faq](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
-- [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
-- [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox)
+- [Microsoft Azure ExpressRoute Faq](../expressroute/expressroute-faqs.md)
+- [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
+- [Azure 지원 요청을 만드는 방법](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [Azure Data Box](../databox/index.yml)
 - [Azure NetApp Files의 SMB 성능에 대 한 Faq](azure-netapp-files-smb-performance.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f8f5d7ddf25b2df6b2e07818e1b2ed7e90fb867
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280029"
+ms.locfileid: "91932120"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -123,12 +123,13 @@ Azure Portal에서 [Azure Active Directory](https://portal.azure.com/#blade/Micr
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
-다음에 나오는 *api 권한 요청* 페이지에서 *내 조직* 에서 tab 키를 사용 하 고 *azure digital 쌍*를 검색 하는 api로 전환 합니다. Azure Digital Twins Api에 대 한 권한 할당을 진행 하려면 검색 결과에서 *Azure Digital Twins* 를 선택 합니다.
+다음에 나오는 *api 권한 요청* 페이지에서 *내 조직* 에서 tab 키를 사용 하 고 *azure digital 쌍*를 검색 하는 api로 전환 합니다. Azure Digital Twins Api에 대 한 권한 할당을 진행 하려면 검색 결과에서 _**Azure Digital Twins**_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
 >[!NOTE]
-> 서비스의 이전 공개 미리 보기 (7 월 2020 이전)에서 기존 Azure Digital Twins 인스턴스가 아직 구독에 있는 경우 *Azure 스마트 공간 서비스* 를 대신 찾아야 합니다. 이는 동일한 Api 집합의 이전 이름 이며이 단계를 벗어나 사용자 환경을 변경 하지 않습니다.
+> 구독에 서비스의 이전 공개 미리 보기 (7 월 2020 일 이전)에서 기존 Azure Digital Twins 인스턴스가 있는 경우 대신 _**Azure 스마트 공간 서비스**_ 를 검색 하 고 선택 해야 합니다. 동일한 Api 집합의 이전 이름입니다. *응용 프로그램 (클라이언트) ID* 는 위의 스크린샷에서와 동일 하며,이 단계를 벗어나 사용자 환경이 변경 되지 않습니다.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
 다음으로 이러한 Api에 부여할 사용 권한을 선택 합니다. **읽기 (1)** 권한을 확장 하 고 *읽기. 쓰기* 확인란을 선택 하 여이 앱 등록 판독기 및 작성기 권한을 부여 합니다.
 
@@ -163,7 +164,7 @@ API 사용 권한을 추가할 때 Azure Digital Twins 정보를 사용 하 여 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins CLI 명령을 사용 하 여 인스턴스에서 개별 REST API 호출을 테스트 합니다. 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
 
 또는 클라이언트 앱의 인증 코드를 작성 하 여 클라이언트 응용 프로그램을 인스턴스에 연결 하는 방법을 참조 하세요.

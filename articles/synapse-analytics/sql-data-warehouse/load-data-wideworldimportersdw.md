@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369096"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀에 데이터 로드
@@ -58,7 +58,7 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 1. 다음 정보를 사용 하 여 **프로젝트 세부 정보** 섹션을 작성 합니다.
 
-   | 설정 | 예제 | Description |
+   | 설정 | 예제 | 설명 |
    | ------- | --------------- | ----------- |
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
@@ -83,7 +83,7 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 1. **검토 + 만들기** 를 선택 하 여 설정을 검토 한 후 **만들기** 를 선택 하 여 데이터 웨어하우스를 만듭니다. **알림** 메뉴에서 **진행 중인 배포** 페이지를 열어 진행 상황을 모니터링할 수 있습니다.
 
-     ![배포가 진행 중인 알림을 보여 주는 스크린샷](./media/load-data-wideworldimportersdw/notification.png)
+     ![스크린샷은 배포가 진행 중인 알림을 보여줍니다.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
@@ -536,7 +536,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. Select 문이 외부 테이블에서 선택 하는 경우 데이터 웨어하우스의 관계형 테이블로 데이터를 가져옵니다.
 
-이 스크립트는 wwi. dimension_Date 및 wwi. fact_Sale 테이블로 데이터를 로드 하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
+이 스크립트는 wwi.dimension_Date 및 wwi.fact_Sale 테이블에 데이터를 로드 하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
 
 1. 다음 스크립트를 실행하여 데이터를 데이터 웨어하우스의 새 테이블로 로드합니다.
 
@@ -732,7 +732,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>테이블 및 프로시저를 만들어 Date 및 Sales 테이블 생성
 
-이 섹션은 wwi. dimension_Date 및 wwi. fact_Sale 테이블을 만듭니다. 또한 wwi. dimension_Date 및 wwi. fact_Sale 테이블에 수백만 개의 행을 생성할 수 있는 저장 프로시저를 만듭니다.
+이 섹션에서는 wwi.dimension_Date 및 wwi.fact_Sale 테이블을 만듭니다. 또한 wwi.dimension_Date 및 wwi.fact_Sale 테이블에 수백만 개의 행을 생성할 수 있는 저장 프로시저를 만듭니다.
 
 1. dimension_Date 및 fact_Sale 테이블을 만듭니다.  
 
@@ -876,7 +876,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
     END;
     ```
 
-4. Dimension_Date 및 wwi. fact_Sale 테이블을 채우는이 프로시저를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
+4. Wwi.dimension_Date 및 wwi.fact_Sale 테이블을 채우는이 프로시저를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
 ## <a name="generate-millions-of-rows"></a>수백만 개의 행 생성
 
-만든 저장 프로시저를 사용 하 여 wwi. fact_Sale 테이블 및 wwi. dimension_Date 테이블에 있는 해당 데이터에 수백만 개의 행을 생성 합니다.
+만든 저장 프로시저를 사용 하 여 wwi.fact_Sale 테이블에 수백만 개의 행을 생성 하 고 wwi.dimension_Date 테이블에 해당 데이터를 생성 합니다.
 
 1. 이 절차를 실행하여 더 많은 행으로 [wwi].[seed_Sale]을 시드합니다.
 
@@ -941,7 +941,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. 이 프로시저를 실행 하 여 2000 년의 각 날짜에 대해 하루에 10만 행으로 wwi. fact_Sale을 채웁니다.
+2. 이 절차를 실행 하 여 2000 년의 각 날짜에 대해 하루에 10만 행으로 wwi.fact_Sale를 채웁니다.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000

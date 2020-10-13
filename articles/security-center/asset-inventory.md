@@ -8,20 +8,20 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302046"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950740"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Asset inventory 및 관리 도구를 사용 하 여 리소스 탐색 및 관리
+# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>자산 인벤토리 및 관리 도구를 사용하여 리소스 검색 및 관리
 
-Azure Security Center의 자산 인벤토리 페이지에서는 Security Center 연결 된 리소스의 보안 상태를 볼 수 있는 단일 페이지를 제공 합니다. 
+Azure Security Center의 자산 인벤토리 페이지는 Security Center에 연결한 리소스의 보안 상태를 확인할 수 있는 단일 페이지를 제공합니다. 
 
-Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이러한 취약성을 해결 하는 방법에 대 한 권장 사항을 제공 합니다.
+Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다.
 
-리소스에 해결 되지 않은 권장 사항이 있는 경우 인벤토리에 표시 됩니다.
+리소스에 수정되지 않은 추천 사항이 있으면 인벤토리에 표시됩니다.
 
 이 뷰와 해당 필터를 사용 하 여 다음과 같은 질문을 해결 합니다.
 
@@ -33,7 +33,7 @@ Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 �
 이 도구에 대 한 자산 관리 가능성은 상당히 늘어나고 계속 증가 합니다. 
 
 > [!TIP]
-> 보안 권장 사항은 **권장 사항** 페이지의 경우와 동일 하지만 여기서는 선택한 특정 리소스 종류에 따라 필터링 됩니다. 권장 사항을 해결 하는 방법에 대 한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조 하세요.
+> 자산 인벤토리 페이지의 보안 권장 사항은 **권장 사항** 페이지의 보안 권장 사항과 동일 하지만 여기에는 영향을 받는 리소스에 따라 표시 됩니다. 권장 사항을 해결 하는 방법에 대 한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조 하세요.
 
 
 ## <a name="availability"></a>가용성
@@ -41,9 +41,9 @@ Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 �
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|Free|
-|필요한 역할 및 사용 권한:|모든 사용자가 액세스할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|가격 책정:|Free|
+|필요한 역할 및 권한:|모든 사용자가 액세스할 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 
@@ -94,7 +94,7 @@ KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kus
 
 1. 필터에서 관련 옵션을 선택 하 여 수행 하려는 특정 쿼리를 만듭니다.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="인벤토리에 대 한 필터링 옵션" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="모니터링 되지 않는 프로덕션 리소스로 필터링" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     기본적으로 리소스는 활성 보안 권장 사항의 수를 기준으로 정렬 됩니다.
 
@@ -114,12 +114,12 @@ KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kus
 
     - **외부** -Azure Defender 계획으로 보호 되지 않는 리소스입니다. 이러한 항목 중 하나를 마우스 오른쪽 단추로 클릭 하 고 업그레이드할 수 있습니다.
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="리소스를 마우스 오른쪽 단추로 클릭 하 여 Azure Defender로 업그레이드" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="모니터링 되지 않는 프로덕션 리소스로 필터링" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - Azure Defender 계획 **에** 의해 보호 되는 리소스
     - **부분** -일부 Azure Defender 계획을 사용 하지 않도록 설정 하는 **구독** 에 적용 됩니다. 예를 들어 다음 구독에는 5 개의 Azure Defender 계획이 사용 하지 않도록 설정 되어 있습니다. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Azure Defender에서 부분적으로 구독":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="모니터링 되지 않는 프로덕션 리소스로 필터링":::
 
 1. 쿼리 결과를 자세히 검토 하려면 원하는 리소스를 선택 합니다.
 
@@ -140,7 +140,7 @@ KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kus
 
 예를 들어 다음 스크린샷은 38 구독에 대 한 액세스 권한이 있는 사용자를 보여 주지만 현재 10 개만 권장 됩니다. 따라서 **리소스 유형 = 구독**을 기준으로 필터링 하는 경우 활성 권장 사항이 있는 10 개의 구독만 인벤토리에 표시 됩니다.
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="활성 권장 구성이 없는 경우 일부 sub가 반환 되지 않음":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="모니터링 되지 않는 프로덕션 리소스로 필터링":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>일부 리소스가 Azure Defender 또는 에이전트 모니터링 열에서 빈 값을 표시 하는 이유는 무엇 인가요?
 
@@ -148,7 +148,7 @@ KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kus
 
 가격 책정 또는 에이전트 모니터링이 리소스와 관련이 없는 경우 해당 인벤토리의 열에는 아무것도 표시 되지 않습니다.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="일부 리소스는 에이전트 모니터링 또는 Azure Defender 열에서 빈 정보를 표시 합니다.":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="모니터링 되지 않는 프로덕션 리소스로 필터링":::
 
 ## <a name="next-steps"></a>다음 단계
 

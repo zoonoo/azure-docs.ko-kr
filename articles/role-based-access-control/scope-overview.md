@@ -13,7 +13,7 @@ ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856156"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Azure RBAC의 범위 이해
@@ -66,7 +66,7 @@ Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독
 ## <a name="scope-examples"></a>범위 예
 
 > [!div class="mx-tableFixed"]
-> | 범위 | 예 |
+> | 범위 | 예제 |
 > | --- | --- |
 > | 관리 그룹 | `/providers/Microsoft.Management/managementGroups/marketing-group` |
 > | Subscription | `/subscriptions/00000000-0000-0000-0000-000000000000` |

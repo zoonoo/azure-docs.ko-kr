@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743610"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
@@ -22,7 +22,7 @@ ms.locfileid: "91743610"
  
 이 문서에서는 Azure Automation Runbook을 만든 후 사용하여 데이터 변환 작업을 시작하는 방법을 자세히 설명합니다. .NET SDK를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용은 [.NET SDK를 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-dotnet-jobs.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있어야 합니다.
 

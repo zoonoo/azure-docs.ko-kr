@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447850"
+ms.locfileid: "91932144"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -59,7 +59,7 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
 
 * 인증 유형으로 **대칭 키**를 선택합니다.
 
-* 필요에 따라 **부모 디바이스 설정**을 선택하고 이 다운스트림 디바이스가 통과할 IoT Edge 게이트웨이 디바이스를 선택합니다. 이 단계는 대칭 키 인증 시 선택 사항이지만, 부모 디바이스를 설정하면 다운스트림 디바이스에 [오프라인 기능](offline-capabilities.md)을 사용할 수 있으므로 권장됩니다. 언제든지 디바이스 세부 정보를 업데이트하여 나중에 부모를 추가하거나 변경할 수 있습니다.
+* **부모 장치 설정** 을 선택 하 고이 다운스트림 장치에서 연결할 IoT Edge 게이트웨이 장치를 선택 합니다. 이 단계에서는 다운스트림 장치에 대 한 [오프 라인 기능](offline-capabilities.md) 을 사용 하도록 설정 합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
 
    ![포털에서 대칭 키 인증을 사용하여 디바이스 ID 만들기](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -201,7 +201,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-이 다운스트림 디바이스에 부모/자식 관계를 설정한 경우 게이트웨이를 연결 호스트로 직접 호출하여 연결 문자열을 단순화할 수 있습니다. 부모/자식 관계는 X.509 인증에서는 필수이지만 대칭 키 인증의 경우 선택 사항입니다. 다음은 그 예입니다.
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182018"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973872"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 
@@ -108,7 +108,7 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![지원 패키지 편집](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![지원 패키지 2 편집](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. 메시지가 표시되면 수정된 지원 패키지에 암호화 암호를 제공합니다.
    
     ```powershell

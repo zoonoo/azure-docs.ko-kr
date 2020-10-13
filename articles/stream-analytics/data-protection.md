@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812865"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
@@ -33,7 +33,7 @@ Azure Stream Analytics를 실행 하기 위해 다음 메타 데이터와 데이
 
 규정을 준수 하는 산업 또는 환경에서 규정 준수 의무를 충족 하는 데 도움이 되도록 [Microsoft의 규정 준수 제품](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)에 대해 자세히 알아볼 수 있습니다. 
 
-## <a name="in-region-data-residency"></a>지역 내 데이터 상주
+## <a name="in-region-data-residency"></a>In-Region 데이터 상주
 Azure Stream Analytics은 위에 설명 된 고객 데이터 및 기타 메타 데이터를 저장 합니다. 고객 데이터는 기본적으로 단일 지역에 Azure Stream Analytics 의해 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 요구 사항을 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
 또한 사용자가 선택한 저장소 계정으로 암호화 하 여 단일 지역에 stream analytics 작업과 관련 된 모든 데이터 자산 (고객 데이터 및 기타 메타 데이터)을 저장 하도록 선택할 수 있습니다.
 

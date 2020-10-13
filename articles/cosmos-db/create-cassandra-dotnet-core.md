@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017471"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743156"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>빠른 시작: .NET Core 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -156,6 +156,12 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
+1. 포털로 돌아가서 CONTACT POINT 값을 복사합니다. 포털의 CONTACT POINT 값을 줄 16의 `<PROVIDE>`에 붙여넣습니다.
+
+    이제 Program.cs의 줄 16은 다음과 유사합니다. 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
+
 1. Program.cs 파일을 저장합니다.
     
 ## <a name="run-the-net-core-app"></a>.NET Core 앱 실행
@@ -169,13 +175,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ```
 3. Ctrl+F5를 눌러 애플리케이션을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="출력 보기 및 확인":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사":::
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
     
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 61620a8497765c4d8f90a3d616bd2f4b932f8dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629032"
+ms.locfileid: "91930920"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure Load Balancer 알고리즘
 
@@ -54,16 +54,6 @@ ms.locfileid: "91629032"
 - 모든 엔드포인트는 VM을 통해 응답합니다. 예를 들어 TCP 핸드셰이크는 클라이언트와 선택한 백 엔드 VM 간에 발생합니다. 프런트 엔드에 요청에 대한 응답은 백 엔드 VM에서 생성한 응답입니다. 프런트 엔드에 대한 연결의 유효성을 성공적으로 검사하는 경우 하나 이상의 백 엔드 가상 머신에 대한 전체 연결의 유효성을 검사하게 됩니다.
 - 애플리케이션 페이로드는 부하 분산 장치에 투명합니다. 모든 UDP 또는 TCP 애플리케이션을 지원할 수 있습니다.
 - 부하 분산 장치는 TCP 페이로드와 상호 작용하지 않고 TLS 오프로드를 제공하므로 포괄적인 암호화 시나리오를 구축할 수 있습니다. 부하 분산 장치를 사용하면 VM 자체에서 TLS 연결을 종료하여 TLS 애플리케이션에 대한 대규모 확장이 구현됩니다. 예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.
-
-## <a name="limitations"></a><a name = "limitations"></a>제한 사항
-
-- 부하 분산 장치 규칙은 두 개의 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트 엔드 및 해당 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
-
-- 부하 분산 장치는 특정 TCP 또는 UDP 프로토콜에 대한 부하 분산 및 포트 전달을 제공합니다. 부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP를 지원하지만 ICMP를 비롯한 다른 IP 프로토콜은 지원하지 않습니다.
-
-- 백 엔드 VM에서 내부 Load Balancer의 프런트 엔드로의 아웃바운드 흐름이 실패합니다.
-
-- 부하 분산 규칙에서는 IP 조각 전달이 지원되지 않습니다. UDP 및 TCP 패킷의 IP 조각화는 부하 분산 규칙에서 지원되지 않습니다. HA 포트 부하 분산 규칙을 사용하여 기존 IP 조각을 전달할 수 있습니다. 자세한 내용은 [고가용성 포트 개요](load-balancer-ha-ports-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

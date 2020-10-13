@@ -10,7 +10,7 @@ ms.openlocfilehash: 8d0ffb008258c586a5965b0741b848f1cef319f7
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857060"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
@@ -25,7 +25,7 @@ ms.locfileid: "91857060"
 
 Azure Portal를 사용 하 여 기본 저장소 또는 추가 저장소로 Azure Data Lake Storage Gen1를 사용 하 여 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. 추가 저장소는 HDInsight 클러스터에 대 한 선택 사항 이지만 추가 저장소 계정에 비즈니스 데이터를 저장 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -158,7 +158,7 @@ Data Lake Storage Gen1을 추가 스토리지로 사용하는 경우 HDInsight �
 
     ![서비스 사용자 확인](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png)
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 저장소로 Data Lake Storage Gen1를 사용 하 여 클러스터를 설정한 후에는 HDInsight 클러스터를 사용 하 여 Data Lake Storage Gen1에 저장 된 데이터를 분석 하는 방법에 대 한 다음 예제를 참조 하세요.
 
@@ -197,7 +197,7 @@ Spark 클러스터를 사용 하 여 Data Lake Storage Gen1에 저장 된 데이
 
 Data Lake Storage Gen1와 함께 저장소 계정을 사용 하 여 스톰 토폴로지에서 데이터를 쓸 수 있습니다. 이 시나리오를 수행하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm에 Azure Data Lake Storage Gen1 사용](../hdinsight/storm/apache-storm-write-data-lake-store.md)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [PowerShell: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)

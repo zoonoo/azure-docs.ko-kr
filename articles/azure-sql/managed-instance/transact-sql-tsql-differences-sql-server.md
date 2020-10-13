@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617879"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973311"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -353,7 +353,11 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
-MSDTC 및 [탄력적 트랜잭션은](../database/elastic-transactions-overview.md) 현재 SQL Managed Instance에서 지원 되지 않습니다.
+[분산 트랜잭션에](../database/elastic-transactions-overview.md) 대 한 부분 지원은 현재 공개 미리 보기 상태입니다. 지원 되는 시나리오는 다음과 같습니다.
+* 참가자가 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)의 일부인 Azure SQL 관리 인스턴스인 경우
+* .NET (TransactionScope 클래스) 및 Transact-sql에서 시작 된 트랜잭션입니다.
+
+현재 azure SQL Managed Instance는 MSDTC 온-프레미스 또는 Azure Virtual Machines에서 정기적으로 지원 되는 다른 시나리오를 지원 하지 않습니다.
 
 ### <a name="extended-events"></a>확장 이벤트
 

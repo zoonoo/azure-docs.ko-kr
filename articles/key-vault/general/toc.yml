@@ -106,6 +106,8 @@
       items:
         - name: Azure Key Vault 개발자 가이드
           href: developers-guide.md
+        - name: Azure Resource Manager를 사용하여 Key Vault 배포
+          href: vault-create-template.md
         - name: 웹앱 비밀 저장
           href: vs-secure-secret-appsettings.md
         - name: .NET을 사용하여 서비스 간 인증

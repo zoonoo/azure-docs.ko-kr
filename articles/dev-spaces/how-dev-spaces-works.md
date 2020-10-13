@@ -5,14 +5,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스를 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8de2c27ce03c871e60b6437656ad630fc8de8408
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981267"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963706"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Azure Dev Spaces의 작동 원리
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Kubernetes 응용 프로그램을 개발 하는 것은 어려울 수 있습니다. Docker 및 Kubernetes 구성 파일이 필요 합니다. 응용 프로그램을 로컬로 테스트 하 고 다른 종속 서비스와 상호 작용 하는 방법을 파악 해야 합니다. 한 번에 여러 서비스를 개발 하 고 테스트 하는 것을 개발자 팀과 함께 처리 해야 할 수 있습니다.
 

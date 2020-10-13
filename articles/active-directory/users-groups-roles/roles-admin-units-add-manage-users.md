@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818217"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
@@ -66,7 +66,7 @@ $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.o
 Add-AzureADMSAdministrativeUnitMember -Id $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
 ```
 
-위의 예에서는 AzureADAdministrativeUnitMember cmdlet을 사용 하 여 관리 단위에 사용자를 추가 합니다. 사용자를 추가할 관리 단위의 개체 ID 이며 추가 될 사용자의 개체 ID는 인수로 사용 됩니다. 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
+위의 예제에서 cmdlet Add-AzureADAdministrativeUnitMember는 관리 단위에 사용자를 추가 하는 데 사용 됩니다. 사용자를 추가할 관리 단위의 개체 ID 이며 추가 될 사용자의 개체 ID는 인수로 사용 됩니다. 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -106,7 +106,7 @@ Azure Portal에서 다음을 수행 하 여 사용자의 프로필을 열 수 �
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
-참고: 기본적으로 AzureADAdministrativeUnitMember는 100 멤버만 반환 하 고, "-All $true"을 추가 하 여 더 많은 멤버를 검색할 수 있습니다.
+참고: 기본적으로 Get-AzureADAdministrativeUnitMember는 100 멤버만 반환 하 고, "-All $true"를 추가 하 여 더 많은 멤버를 검색할 수 있습니다.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

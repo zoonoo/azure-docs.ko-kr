@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 �
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.openlocfilehash: dd040715cc8fb1339c6054c53007dbcd08e2cbdb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91816806"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
@@ -410,7 +410,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 이전 예제의 출력은 세 개의 배열을 반환 합니다.
 
-| 이름 | 유형 | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | ["1"] |
 | notSupportedRegion | array | [] |

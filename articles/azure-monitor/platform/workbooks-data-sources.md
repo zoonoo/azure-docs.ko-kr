@@ -3,19 +3,17 @@ title: 통합 문서 데이터 원본 Azure Monitor | Microsoft 문서
 description: 여러 데이터 원본에서 빌드된 미리 작성 된 사용자 지정 매개 변수화 된 Azure Monitor 통합 문서를 사용 하 여 복잡 한 보고 간소화
 services: azure-monitor
 documentationcenter: ''
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: mbullwin
-ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 049a7348b803d12b66974bb9a9b50c12059171a2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825741"
+ms.locfileid: "91931124"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 
