@@ -64,8 +64,14 @@
           href: ./hdinsight-capacity-planning.md
         - name: 클러스터 관리 모범 사례
           href: ./cluster-management-best-practices.md
-        - name: 가용성 및 안정성
-          href: ./hdinsight-high-availability-linux.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 비즈니스 연속성 개요
+              href: hdinsight-business-continuity.md
+            - name: 비즈니스 연속성 아키텍처
+              href: ./hdinsight-business-continuity-architecture.md
+            - name: 고가용성 사례 연구
+              href: ./hdinsight-high-availability-case-study.md
         - name: 관리형 ID 이해
           href: ./hdinsight-managed-identities.md
         - name: 스토리지 옵션 비교
@@ -102,10 +108,14 @@
           items:
             - name: Azure Storage 사용
               href: hdinsight-hadoop-use-blob-storage.md
-            - name: Azure Data Lake Storage Gen2 사용
+            - name: Data Lake Storage Gen2 사용
               href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Azure Data Lake Storage Gen1 사용
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: 포털에서 Data Lake Store Gen2 사용
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+            - name: Azure CLI에서 Data Lake Store Gen2 사용
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+            - name: Data Lake Storage Gen1 사용
+              href: hdinsight-hadoop-use-data-lake-storage-gen1.md
         - name: 클러스터 확장
           items:
             - name: HDInsight 앱 설치
@@ -757,6 +767,8 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: 크기 조정 지침
           href: ./interactive-query/sizing-guidelines.md
+        - name: Hive 복제
+          href: ./interactive-query/apache-hive-replication.md
     - name: 방법 가이드
       items:
         - name: 개발

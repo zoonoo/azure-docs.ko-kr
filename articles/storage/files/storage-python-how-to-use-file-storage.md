@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 11c31b9ce3c5a8d8fba18d8e7c46ac38b0559aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876100"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 
@@ -95,7 +95,7 @@ from azure.storage.file import FileService
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-개체를 사용 `FileService` 하면 공유, 디렉터리 및 파일을 사용할 수 있습니다. 다음 코드는 스토리지 계정 이름 및 계정 키를 사용하는 `FileService` 개체를 만듭니다. `<myaccount>` 및 `<mykey>`를 사용자의 계정 이름 및 키로 바꾸세요.
+[FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) 개체를 사용 하면 공유, 디렉터리 및 파일을 사용할 수 있습니다. 다음 코드는 스토리지 계정 이름 및 계정 키를 사용하는 `FileService` 개체를 만듭니다. `<myaccount>` 및 `<mykey>`를 사용자의 계정 이름 및 키로 바꾸세요.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -113,7 +113,7 @@ file_service = FileService(account_name='myaccount', account_key='mykey')
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-다음 코드 예제에서는 개체를 사용 하 여 `FileService` 존재 하지 않는 경우 공유를 만듭니다.
+다음 코드 예제에서는 [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) 개체를 사용 하 여 공유가 없는 경우 새로 만듭니다.
 
 ```python
 file_service.create_share('myshare')
@@ -153,7 +153,7 @@ file_service.create_directory('myshare', 'sampledir')
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함 되어 있습니다. 파일을 만들고 데이터를 업로드 하려면 `create_file_from_path` ,, `create_file_from_stream` 또는 메서드를 사용 `create_file_from_bytes` `create_file_from_text` 합니다. 데이터의 크기가 64를 초과 하는 경우 필요한 청크를 수행 하는 상위 수준 메서드입니다.
+Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함 되어 있습니다. 파일을 만들고 데이터를 업로드 하려면 [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-path-share-name--directory-name--file-name--local-file-path--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object---timeout-none-), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-stream-share-name--directory-name--file-name--stream--count--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-bytes-share-name--directory-name--file-name--file--index-0--count-none--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--)또는 [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-text-share-name--directory-name--file-name--text--encoding--utf-8---content-settings-none--metadata-none--validate-content-false--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--) 메서드를 사용 합니다. 데이터의 크기가 64를 초과 하는 경우 필요한 청크를 수행 하는 상위 수준 메서드입니다.
 
 `create_file_from_path`는 지정된 경로에서 파일의 콘텐츠를 업로드하고, `create_file_from_stream`은 이미 열려 있는 파일/스트림에서 콘텐츠를 업로드합니다. `create_file_from_bytes`는 바이트 배열을 업로드하고, `create_file_from_text`는 지정된 인코딩(기본값: UTF-8)을 사용하여 지정된 텍스트 값을 업로드합니다.
 
@@ -181,7 +181,7 @@ file_service.create_file_from_path(
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-공유의 파일 및 디렉터리를 나열하려면 **list\_directories\_and\_files** 메서드를 사용합니다. 이 메서드는 생성기를 반환합니다. 다음 코드는 공유에 있는 각 파일 및 디렉터리의 **이름** 을 콘솔에 출력합니다.
+공유의 파일 및 디렉터리를 나열 하려면 [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#list-directories-and-files-share-name--directory-name-none--num-results-none--marker-none--timeout-none--prefix-none--snapshot-none-) 메서드를 사용 합니다. 이 메서드는 생성기를 반환합니다. 다음 코드는 공유에 있는 각 파일 및 디렉터리의 **이름** 을 콘솔에 출력합니다.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -203,7 +203,7 @@ for file_or_dir in generator:
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-파일에서 데이터를 다운로드하려면 `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes` 또는 `get_file_to_text`를 사용합니다. 데이터의 크기가 64를 초과 하는 경우 필요한 청크를 수행 하는 상위 수준 메서드입니다.
+파일에서 데이터를 다운로드 하려면 [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-path-share-name--directory-name--file-name--file-path--open-mode--wb---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-bytes-share-name--directory-name--file-name--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-)또는 [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-text-share-name--directory-name--file-name--encoding--utf-8---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-)를 사용 합니다. 데이터의 크기가 64를 초과 하는 경우 필요한 청크를 수행 하는 상위 수준 메서드입니다.
 
 다음 예제에서는 `get_file_to_path`를 사용하여 **myfile** 파일의 콘텐츠를 다운로드한 다음 *out-sunset.png* 파일에 저장하는 방법을 보여 줍니다.
 
@@ -313,7 +313,7 @@ file_service.delete_share(share_name, snapshot=snapshot_id)
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-파일을 삭제 하려면를 호출 `delete_file` 합니다.
+파일을 삭제 하려면 [delete_file](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#delete-file-share-name--directory-name--file-name--timeout-none-)를 호출 합니다.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')

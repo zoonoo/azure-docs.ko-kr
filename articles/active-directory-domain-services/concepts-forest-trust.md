@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 대 한 트러스트 작동 방식 | Microsoft Docs
 description: 포리스트 트러스트가 Azure AD Domain Services와 작동 하는 방식에 대 한 자세한 정보
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.author: joflore
+ms.openlocfilehash: 50b400ffa047d3865a9df77912da187de1ce9cc9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258782"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962618"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 리소스 포리스트에 대해 트러스트 관계가 작동 하는 방법
 

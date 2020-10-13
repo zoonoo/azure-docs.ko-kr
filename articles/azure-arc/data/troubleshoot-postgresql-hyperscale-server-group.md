@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570010"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>PostgreSQL Hyperscale 서버 그룹 문제 해결
@@ -31,7 +31,7 @@ azdata arc postgres server create -n postgres01 -w 2 --debug
 azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
 ```
 
-또한 azdata 명령에 대해 매개 변수--help를 사용 하 여 특정 명령에 대 한 일부 도움말, 매개 변수 목록을 표시할 수 있습니다. 다음은 그 예입니다.
+또한 azdata 명령에 대해 매개 변수--help를 사용 하 여 특정 명령에 대 한 일부 도움말, 매개 변수 목록을 표시할 수 있습니다. 예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres server create --help
 ```

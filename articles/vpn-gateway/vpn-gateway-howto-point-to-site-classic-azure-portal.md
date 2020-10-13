@@ -1,18 +1,18 @@
 ---
-title: '지점 및 사이트 간 연결과 인증서 인증을 사용하여 가상 네트워크에 컴퓨터 연결: Azure Portal 클래식 | Microsoft Docs'
+title: '지점 및 사이트 간 및 인증서 인증을 사용 하 여 가상 네트워크에 컴퓨터 연결: Azure Portal 클래식 | Microsoft Docs'
 description: Azure Portal을 사용하여 클래식 지점 및 사이트 간 VPN 게이트웨이 연결을 만듭니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0618c120a7fe572aa55b423d36dce3ef5656da
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984785"
+ms.locfileid: "91876195"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>인증서 인증을 사용하여 지점 및 사이트 간 연결 구성(클래식)
 
@@ -35,7 +35,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 지점 및 사이트 간 인증서 인증 연결을 사용하려면 다음 필수 조건이 필요합니다.
 
@@ -79,31 +79,11 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 ### <a name="part-1-create-a-virtual-network"></a>1부: 가상 네트워크 만들기
 
-VNet(가상 네트워크)이 아직 없는 경우 만듭니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다. Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 사용하세요.
+VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되는지 확인합니다. 다른 네트워크와 겹칠 수 있는 서브넷에 특히 주의합니다.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. **새로 만들기** 페이지가 열립니다.
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
-2. **Marketplace 검색** 필드에 *가상 네트워크*를 입력하고 반환된 목록에서 **가상 네트워크**를 선택합니다. **가상 네트워크** 페이지가 열립니다.
-
-3. **배포 모델 선택** 목록에서 **클래식**을 선택한 다음, **만들기**를 선택합니다. **가상 네트워크 만들기** 페이지가 열립니다.
-
-4. **가상 네트워크 만들기** 페이지에서 VNet 설정을 구성합니다. 이 페이지에서 첫 번째 주소 공간과 단일 서브넷 주소 범위를 추가합니다. VNet 만들기를 완료한 후에 다시 돌아와서 추가 서브넷 및 주소 공간을 추가합니다.
-
-   ![가상 네트워크 만들기 페이지](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-
-5. 드롭다운 목록에서 사용할 **구독**을 선택합니다.
-
-6. 기존 **리소스 그룹**을 선택 합니다. 또는 **새로 만들기**를 선택하고 이름을 입력하여 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
-
-7. VNet의 **위치**를 선택합니다. 이 설정은 이 VNet에 배포하는 리소스의 지리적 위치를 결정합니다.
-
-8. **만들기**를 선택하여 VNet을 만듭니다. **알림** 페이지에 **배포 진행 중** 메시지가 표시됩니다.
-
-8. 가상 네트워크가 생성되면 **알림** 페이지의 메시지가 **배포 성공**으로 바뀝니다. 대시보드에서 VNet을 쉽게 찾으려면 **대시보드에 고정**을 선택합니다. 
-
-10. DNS 서버를 추가합니다(선택 사항). 가상 네트워크를 만든 후에 이름 확인을 위해 DNS 서버의 IP 주소를 추가할 수 있습니다. 지정한 DNS 서버 IP 주소는 VNet에서 리소스의 이름을 확인할 수 있는 DNS 서버의 주소여야 합니다.
-
-    DNS 서버를 추가하려면 VNet 페이지에서 **DNS 서버**를 선택합니다. 그런 다음, 사용할 DNS 서버의 IP 주소를 입력하고 **저장**을 선택합니다.
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>2 부: 게이트웨이 서브넷 및 동적 라우팅 게이트웨이 만들기
 

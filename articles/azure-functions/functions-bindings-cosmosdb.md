@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531579"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876042"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -214,6 +214,8 @@ JavaScript에서는 특성을 지원하지 않습니다.
 ## <a name="input"></a>입력
 
 Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다.
+
+## <a name="input---example"></a>입력 - 예제
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1143,9 +1145,11 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 ---
 
-## <a name="output"></a>결과
+## <a name="output"></a>출력
 
 Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다.
+
+## <a name="output---example"></a>출력 - 예제
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1475,7 +1479,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

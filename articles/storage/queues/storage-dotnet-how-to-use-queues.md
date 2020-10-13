@@ -13,7 +13,7 @@ ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855925"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
@@ -30,7 +30,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 
 **예상 완료 시간:** 45분
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [Azure storage 계정](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)

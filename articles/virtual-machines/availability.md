@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815609"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972529"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 가용성 옵션
 
@@ -51,7 +51,7 @@ Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹�
 
 **장애 도메인 및 업데이트 도메인**
 
-가상 머신 확장 집합은 장애 도메인 및 업데이트 도메인을 정렬 하 여 고가용성을 위한 설계를 간소화 합니다. 확장 집합에 대 한 장애 도메인 수를 정의 하기만 하면 됩니다. 확장 집합에 사용할 수 있는 장애 도메인 수는 지역에 따라 다를 수 있습니다. [Azure에서 가상 머신의 가용성 관리](./windows/manage-availability.md)를 참조 하세요.
+가상 머신 확장 집합은 장애 도메인 및 업데이트 도메인을 정렬 하 여 고가용성을 위한 설계를 간소화 합니다. 확장 집합에 대 한 장애 도메인 수를 정의 하기만 하면 됩니다. 확장 집합에 사용할 수 있는 장애 도메인 수는 지역에 따라 다를 수 있습니다. [Azure에서 가상 머신의 가용성 관리](./manage-availability.md)를 참조 하세요.
 
 
 ## <a name="availability-sets"></a>가용성 집합
@@ -61,7 +61,7 @@ Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹�
 
 [Azure Managed Disks](./faq-for-disks.md)를 사용하는 VM의 경우, 관리 가용성 집합을 사용할 때 VM은 관리 디스크 장애 도메인에 맞춰집니다. 이러한 정렬은 VM에 연결된 모든 관리 디스크가 동일한 관리 디스크 장애 도메인 내에 있도록 합니다. 
 
-관리 디스크의 VM만 관리 가용성 집합에서 만들어질 수 있습니다. 관리 디스크 장애 도메인의 수는 지역에 따라 다릅니다. 즉, 지역당 2개 또는 3개의 관리 디스크 장애 도메인이 있을 수 있습니다. 이러한 [Linux VM](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 또는 [Windows VM](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set)용 관리 디스크 장애 도메인에 대한 자세한 내용을 참조할 수 있습니다.
+관리 디스크의 VM만 관리 가용성 집합에서 만들어질 수 있습니다. 관리 디스크 장애 도메인의 수는 지역에 따라 다릅니다. 즉, 지역당 2개 또는 3개의 관리 디스크 장애 도메인이 있을 수 있습니다. 이러한 [Linux VM](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 또는 [Windows VM](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)용 관리 디스크 장애 도메인에 대한 자세한 내용을 참조할 수 있습니다.
 
 ![관리 가용성 집합](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802933"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live)
@@ -48,11 +48,11 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
 * 컨테이너에서 TTL이 -1로 설정된 경우 TTL(Time to Live)이 n으로 설정된 이 컨테이너의 항목은 n초 후에 만료되고 나머지 항목은 만료되지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이 섹션에서는 컨테이너와 항목에 할당 된 ttl (time to live) 값이 다른 몇 가지 예를 보여 줍니다.
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 
 컨테이너의 TTL이 null (DefaultTimeToLive = null)로 설정 되어 있습니다.
 
@@ -63,7 +63,7 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 |ttl = 2000 |TTL을 사용할 수 없습니다. 항목이 만료 되지 않습니다.|
 
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 컨테이너의 TTL이-1 (DefaultTimeToLive =-1)로 설정 되어 있습니다.
 

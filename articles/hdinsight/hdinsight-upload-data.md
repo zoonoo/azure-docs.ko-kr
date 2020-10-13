@@ -12,14 +12,14 @@ ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855636"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
 HDInsight는 Azure Storage 및 Azure Data Lake Storage에 대 한 HDFS (Hadoop 분산 파일 시스템)를 제공 합니다. 이 저장소는 Gen1 및 Gen2를 포함 합니다. Azure Storage 및 Data Lake Storage Gen1 및 Gen2는 HDFS 확장으로 설계 되었습니다. 이를 통해 Hadoop 환경에서 구성 요소의 전체 집합이 관리 하는 데이터에 대해 직접 작동할 수 있습니다. Azure Storage, Data Lake Storage Gen1 및 Gen2는 별개의 파일 시스템입니다. 시스템은 데이터를 저장 하 고 해당 데이터를 계산 하는 데 최적화 되어 있습니다. Azure Storage 사용의 이점에 대 한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조 하세요. 또한 HDInsight에서 [Data Lake Storage Gen1 사용](hdinsight-hadoop-use-data-lake-storage-gen1.md)및 [Hdinsight에서 Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 요구 사항을 확인하세요.
 

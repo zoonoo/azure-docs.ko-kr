@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 라�
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569922"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
@@ -64,7 +64,7 @@ Service Bus 큐, 토픽 및 구독을 임시 엔터티로 생성할 수 있습�
     - 전송 없음  
     - 토픽 업데이트 없음  
     - 예약된 메시지 없음 
-- 구독
+- Subscriptions
     - 수신 없음  
     - 구독 업데이트 없음  
     - 구독에 추가된 새 규칙 없음  
