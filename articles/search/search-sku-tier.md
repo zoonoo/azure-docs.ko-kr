@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661101"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948088"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -130,7 +130,7 @@ SU는 서비스에서 사용 하는 *복제본* 및 *파티션* **(R x P = SU)**
 
 + 인덱싱 등의 리소스를 많이 사용 하는 작업을 확장 한 다음 일반 쿼리 워크 로드에 대해 다시 조정 합니다. Azure Cognitive Search에 대 한 최소 구성 (하나의 파티션과 하나의 복제본으로 구성 된 SU)부터 시작 하 여 더 많은 용량이 필요한 경우를 나타내는 사용 패턴을 식별 하는 사용자 활동을 모니터링 합니다. 예측 가능한 패턴이 있는 경우 크기 조정을 활동과 동기화 할 수 있습니다 .이를 자동화 하는 코드를 작성 해야 합니다.
 
-또한 기본 제공 도구 및 지출 관련 기능에 대 한 [청구 및 비용 관리](../cost-management-billing/manage/getting-started.md) 를 방문해 보세요.
+또한 기본 제공 도구 및 지출 관련 기능에 대 한 [청구 및 비용 관리](../cost-management-billing/cost-management-billing-overview.md) 를 방문해 보세요.
 
 임시 방식으로 검색 서비스를 종료 하는 것은 불가능 합니다. 전용 리소스는 항상 작동 하며 서비스 수명 동안 독점적으로 사용 하도록 할당 됩니다. 서비스 삭제는 영구적 이며 연결 된 데이터도 삭제 합니다.
 

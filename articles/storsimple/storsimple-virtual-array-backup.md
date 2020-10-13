@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742250"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
@@ -58,7 +58,7 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
    
     ![백업 정책으로 이동](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 ### <a name="take-a-manual-backup"></a>수동 백업 수행
 

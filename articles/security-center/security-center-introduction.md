@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323677"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742080"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -43,7 +43,8 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 -   **보다 신속한 보안 설정**: Security Center에서는 모든 작업이 클라우드 속도로 수행됩니다. 네이티브 통합이 제공되므로 Security Center를 쉽게 배포하여 Azure 서비스를 통해 자동 프로비저닝 및 보호 기능을 이용할 수 있습니다.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> 이 서비스는 서비스 공급자가 자체 테넌트에 로그인하여 고객이 위임한 구독과 리소스 그룹을 관리할 수 있도록 하는 [Azure Lighthouse](../lighthouse/overview.md)를 지원합니다. Azure Security Center 시나리오의 경우 개별 리소스 그룹이 아니라 구독을 위임해야 합니다.
 
 ## <a name="architecture"></a>Architecture
 
