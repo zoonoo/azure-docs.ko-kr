@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center |의 경고 유효성 검사 (EICAR 테스트 파일) Microsoft Docs
-description: 이 문서에서는 Azure Security Center에서 보안 경고를 유효성 검사하는 방법을 설명합니다.
+title: Azure Security Center의 경고 유효성 검사 | Microsoft Docs
+description: 에서 보안 경고가 올바르게 구성 되었는지 확인 하는 방법에 대해 알아봅니다 Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0c777c2461047f21e8fb413faec6d5f1140fc75f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438807"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971611"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -26,12 +26,6 @@ ms.locfileid: "91438807"
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 경고는 리소스에 대한 위협을 탐지할 때 Security Center에서 생성하는 알림입니다. 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 우선 순위를 정하여 나열 합니다. Security Center는 공격을 해결하는 방법에 대한 권장 사항도 제공합니다.
 자세한 내용은 [Security Center의 보안 경고](security-center-alerts-overview.md) 및 [보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 을 참조 하세요.
-
-## <a name="alert-validation"></a>경고 유효성 검사
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>Windows Vm에서 경고 유효성 검사 <a name="validate-windows"></a>
 

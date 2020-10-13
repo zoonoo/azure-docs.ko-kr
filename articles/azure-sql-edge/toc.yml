@@ -142,3 +142,9 @@
   items:
     - name: Transact-SQL(T-SQL) 참조
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+- name: 리소스
+  items:
+    - name: 파트너
+      items:
+        - name: 보안
+          href: resources-partners-security.md

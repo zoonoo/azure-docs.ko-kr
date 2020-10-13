@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514251"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960323"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 
@@ -39,7 +39,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
    3. 구독과 관련된 여러 계획이 있는 경우 드롭다운에서 **지원 계획**을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
    4. **다음**을 클릭합니다.
 
-       ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![새 포털 2를 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. **새 지원 요청** 블레이드에서 **2단계 문제**를 선택합니다. **문제** 블레이드에서 다음 단계를 수행합니다.
     
@@ -51,7 +51,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
     6. **진단 정보 공유**를 선택합니다.
     7. **다음**을 클릭합니다.
 
-       ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![새 포털 3을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. **새 지원 요청** 블레이드에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보** 블레이드에서 다음 단계를 수행합니다.
 
@@ -59,7 +59,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
    2. 연락처 정보에서 이름, 메일, 선택적 연락처, 국가/지역을 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
    3. **만들기**를 클릭합니다.
    
-       ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![새 포털 4를 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
       요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
@@ -76,11 +76,11 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
 2. 모든 지원 요청을 표시하는 테이블이 **도움말 + 지원** 블레이드에 표시됩니다.
 
-    ![지원 요청 관리](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![지원 요청 관리 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. 지원 요청을 클릭하여 선택합니다. 이 요청의 상태 및 세부 정보를 볼 수 있습니다. 이 요청에 대해 후속 작업을 수행하려는 경우 **+ 새 메시지**를 클릭합니다.
 
-    ![지원 요청 관리](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![지원 요청 관리 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell에서 지원 세션 시작
 

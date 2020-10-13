@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891190"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952202"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Edge Pro Azure Stack 파일을 이동 하는 c # IoT Edge 모듈 개발
 
@@ -259,7 +259,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
  
 3. 자격 증명이 제공되면 Azure 컨테이너 레지스트리에 모듈 이미지를 푸시할 수 있습니다. VS Code 탐색기에서**module.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 
-    ![IoT Edge 솔루션 빌드 및 푸시](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![빌드 및 푸시 IoT Edge 솔루션 2](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Visual Studio Code에 솔루션을 빌드하도록 지정하는 경우 통합 터미널에서 두 개의 명령을 실행합니다. docker 빌드 및 docker 푸시 이 두 명령은 코드를 빌드하고, CSharpModule.dll을 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06a84621c4d6abbf361eba232c776c167dc46265
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374044"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970612"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Linux 가상 머신용 Azure Disk Encryption FAQ
 
@@ -164,5 +164,5 @@ Azure Backup은 동일한 구독 및 지역 내에서 암호화된 VM을 백업 
 이 문서에서는 Azure Disk Encryption와 관련하여 가장 자주 묻는 질문에 대해 자세히 알아 보았습니다. 이 서비스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Disk Encryption 개요](disk-encryption-overview.md)
-- [Azure Security Center에서 디스크 암호화 적용](../../security-center/security-center-virtual-machine-protection.md)
+- [Azure Security Center에서 디스크 암호화 적용](../../security-center/asset-inventory.md)
 - [휴지 상태의 Azure 데이터 암호화](../../security/fundamentals/encryption-atrest.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949789"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970438"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -232,18 +232,18 @@ _예_ 단추를 선택 합니다.
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Azure Portal를 사용 하 여 액세스 역할 할당
 
-Azure _역할 할당 선택 단추_ 를 선택 하면 azure 역할 할당 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
+Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-열리는 _역할 할당 추가 (미리 보기)_ 창에서 다음을 선택 합니다.
+열리는 _역할 할당 추가 (미리 보기)_ 페이지에서 다음을 선택 합니다.
 
 * _범위_: 리소스 그룹
 * _구독_: Azure 구독을 선택 합니다.
 * _리소스 그룹_: 드롭다운에서 리소스 그룹을 선택 합니다.
 * _역할_: 드롭다운에서 _Azure Digital twins 소유자 (미리 보기)_ 를 선택 합니다.
 
-_저장_ 단추를 선택 하 여 세부 정보를 저장 합니다.
+_저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 

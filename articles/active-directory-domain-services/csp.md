@@ -2,20 +2,20 @@
 title: 클라우드 솔루션 공급자에 대 한 Azure AD Domain Services | Microsoft Docs
 description: Azure 클라우드 솔루션 공급자에 대 한 Azure Active Directory Domain Services 관리 되는 도메인을 사용 하도록 설정 하 고 관리 하는 방법 알아보기
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 524e3682e39b6d9153beeef781deeb20e6ea8750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: fae04d929be7ae6f266ff136b4fbd90f7d8a4e02
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749656"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960969"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Azure 클라우드 솔루션 공급자에 대 한 Azure Active Directory Domain Services 배포 및 관리
 

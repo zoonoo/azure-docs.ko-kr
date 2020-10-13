@@ -1,21 +1,21 @@
 ---
 title: 서비스 공급자 작업 보기
 description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공급자가 수행한 작업을 확인 하기 위해 기록 된 활동을 볼 수 있습니다.
-ms.date: 07/07/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131461"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974314"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
 [Azure Lighthouse](../overview.md) 에 대 한 구독을 위임 받은 고객은 [azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 데이터를 보고 수행 된 모든 작업을 볼 수 있습니다. 이렇게 하면 고객의 azure AD (Azure Active Directory) 테 넌 트 내에서 사용자가 수행 하는 작업과 함께, 서비스 공급자가 [azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 수행 하는 작업을 완벽 하 게 파악할 수 있습니다.
 
 > [!TIP]
-> 또한 관리 테 넌 트에 대 한 범위 위임을 감사 하는 Azure Policy 기본 제공 정책 정의를 제공 합니다. 자세한 내용은 [사용자 환경에서 위임 감사](view-manage-service-providers.md#audit-delegations-in-your-environment)를 참조 하세요.
+> 또한 Azure Policy 기본 제공 정책 정의를 제공 하 여 [특정 관리 테 넌 트로 위임을 제한](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) 하 고 [관리 테 넌 트로의 범위 위임을 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)합니다. 자세한 내용은 [사용자 환경에서 위임 감사](view-manage-service-providers.md#audit-delegations-in-your-environment)를 참조 하세요.
 
 ## <a name="view-activity-log-data"></a>활동 로그 데이터 보기
 

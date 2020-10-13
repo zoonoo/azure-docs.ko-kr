@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418588"
+ms.locfileid: "91876535"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -71,7 +71,7 @@ Azure Database for MySQL 복원 작업을 수행 하면 원래 서버의 백업�
 예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 크기, 네트워크 대역폭 및 동일한 지역에서 동시에 복구되는 데이터베이스의 총 수를 포함한 여러 요소에 따라 달라집니다. 복구 시간은 일반적으로 12시간 미만입니다.
 
 > [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)을 활용할 수 있습니다.
+> 삭제 된 서버는 백업이 삭제 된 후 **5 일** 이내에만 복원할 수 있습니다. 데이터베이스 백업은 서버를 호스트 하는 Azure 구독 에서만 액세스 하 고 복원할 수 있습니다. 삭제 된 서버를 복원 하려면 [문서화 된 단계](howto-restore-dropped-server.md)를 참조 하세요. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)을 활용할 수 있습니다.
 
 ### <a name="point-in-time-restore"></a>지정 시간 복원
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575863"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973703"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -136,7 +136,7 @@ Azure Managed Disks에서는 현재 로컬 중복 스토리지 Managed Disks만 
 
 1세대 이미지는 데이터 디스크에만 GPT 분할을 사용할 수 있고 OS 디스크에는 사용할 수 없습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
 
-[2세대 이미지](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)는 OS 디스크와 데이터 디스크 둘 다에서 GPT 분할을 사용할 수 있습니다.
+[2세대 이미지](./generation-2.md)는 OS 디스크와 데이터 디스크 둘 다에서 GPT 분할을 사용할 수 있습니다.
 
 **스냅샷을 지원하는 디스크 유형은 무엇입니까?**
 
@@ -241,7 +241,7 @@ API 버전 2019-07-01 이상으로 만든 모든 관리 디스크는 공유 디�
 
 **관리 디스크에 업로드하려면 어떻게 할까요?**
 
-[creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata)의 [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) 속성이 "Upload"로 설정된 관리 디스크를 만든 다음, 데이터를 업로드할 수 있습니다.
+[creationData](/rest/api/compute/disks/createorupdate#creationdata)의 [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) 속성이 "Upload"로 설정된 관리 디스크를 만든 다음, 데이터를 업로드할 수 있습니다.
 
 **업로드 상태인 VM에 디스크를 연결할 수 있나요?**
 
@@ -427,7 +427,7 @@ Azure에서 지원하는 페이지 Blob 크기는 8TiB(8,191GiB)입니다. VM에
 
 **P4 및 P6 디스크 크기가 관리되지 않는 디스크 또는 페이지 Blob에 지원되나요?**
 
-P4(32GiB) 및 P6(64GiB) 디스크 크기는 관리되지 않는 디스크 및 페이지 Blob에 대한 기본 디스크 계층으로 지원되지 않습니다. 디스크를 이러한 계층에 매핑하려면 P4 및 P6로 명시적으로 [Blob 계층을 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier)해야 합니다. Blob 계층을 설정하지 않고 디스크 크기 또는 콘텐츠 길이가 32GiB 미만이거나 32GiB에서 64GiB 사이인 관리되지 않는 디스크 또는 페이지 Blob를 배포하는 경우 500IOPS 및 100MiB/초, 매핑된 가격 책정 계층을 포함하는 P10에 계속해서 이르게 됩니다.
+P4(32GiB) 및 P6(64GiB) 디스크 크기는 관리되지 않는 디스크 및 페이지 Blob에 대한 기본 디스크 계층으로 지원되지 않습니다. 디스크를 이러한 계층에 매핑하려면 P4 및 P6로 명시적으로 [Blob 계층을 설정](/rest/api/storageservices/set-blob-tier)해야 합니다. Blob 계층을 설정하지 않고 디스크 크기 또는 콘텐츠 길이가 32GiB 미만이거나 32GiB에서 64GiB 사이인 관리되지 않는 디스크 또는 페이지 Blob를 배포하는 경우 500IOPS 및 100MiB/초, 매핑된 가격 책정 계층을 포함하는 P10에 계속해서 이르게 됩니다.
 
 **작은 디스크를 사용하도록 설정하기 전에 64GiB 미만인 기존 프리미엄 관리 디스크를 만든 경우(2017년 6월 15일경) 어떻게 청구되나요?**
 
@@ -497,6 +497,6 @@ Azure 가상 네트워크 에서만 Managed Disks 내보내기 및 가져오기�
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 
-질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다. 설명에 있는 이 문서의 끝에 질문을 게시할 수 있습니다. 이 문서에 대 한 Azure Storage 팀 및 기타 커뮤니티 구성원과 연계 하려면 [Microsoft Q&Azure Storage에 대 한 질문 페이지](https://docs.microsoft.com/answers/products/azure?product=storage)를 사용 하세요.
+질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다. 설명에 있는 이 문서의 끝에 질문을 게시할 수 있습니다. 이 문서에 대 한 Azure Storage 팀 및 기타 커뮤니티 구성원과 연계 하려면 [Microsoft Q&Azure Storage에 대 한 질문 페이지](/answers/products/azure?product=storage)를 사용 하세요.
 
 기능을 요청하려면 요청 내용과 아이디어를 [Azure Storage 피드백 포럼](https://feedback.azure.com/forums/217298-storage)으로 제출해 주세요.

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207798"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961836"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
@@ -75,7 +75,7 @@ StorSimple 디바이스는 다양한 조건에 대한 응답으로 경고를 생
 
 5. 구성 작업을 완료하면 **저장**을 클릭합니다. 확인 메시지가 표시되면 **예**를 클릭합니다.
 
-     ![전송된 경고 테스트 알림 메일](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![보낸 경고 테스트 알림 전자 메일 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## <a name="view-and-track-alerts"></a>경고 보기 및 추적
 

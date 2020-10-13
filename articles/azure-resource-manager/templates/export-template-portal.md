@@ -3,12 +3,12 @@ title: Azure Portal에서 템플릿 내보내기
 description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Resource Manager 템플릿을 내보냅니다.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423238"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951760"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
 
@@ -49,11 +49,13 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 리소스 그룹 또는 리소스에서 내보내는 경우 내보낸 템플릿은 각 리소스 유형에 대해 [게시 된 스키마](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) 에서 생성 됩니다. 스키마에 리소스 종류에 대 한 최신 버전이 없는 경우도 있습니다. 내보낸 템플릿을 확인 하 여 필요한 속성이 포함 되어 있는지 확인 합니다. 필요한 경우 내보낸 템플릿을 편집 하 여 필요한 API 버전을 사용 합니다.
 
-템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](https://aka.ms/exportTemplateViaAdf)를 참조 하세요.
+템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](../../data-factory/copy-clone-data-factory.md)를 참조 하세요.
 
-클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](https://aka.ms/migrateclassicresourcetoarm)합니다.
+클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)합니다.
 
 리소스 형식을 내보내지 못했음을 나타내는 템플릿을 내보낼 때 경고가 표시 되 면 해당 리소스에 대 한 속성을 계속 검색할 수 있습니다. 리소스 속성을 볼 수 있는 다양 한 옵션에 대 한 자세한 내용은 [리소스 속성 검색](view-resources.md)을 참조 하세요. 리소스 종류에 대 한 [Azure REST API](/rest/api/azure/) 를 살펴볼 수도 있습니다.
+
+내보낸 템플릿을 만든 리소스 그룹의 리소스는 200 개로 제한 됩니다. 200 개 이상의 리소스가 있는 리소스 그룹을 내보내려는 경우 오류 메시지가 `Export template is not supported for resource groups more than 200 resources` 표시 됩니다.
 
 ## <a name="export-template-from-a-resource-group"></a>리소스 그룹에서 템플릿 내보내기
 

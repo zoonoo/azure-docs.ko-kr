@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501707"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972070"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure에서 가상 머신 유지 관리
 
@@ -23,7 +23,7 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 - 업데이트에 재부팅이 필요하지 않으면, 호스트가 업데이트되는 동안 VM이 일시 중지되거나, VM이 이미 업데이트된 호스트로 실시간 마이그레이션됩니다. 
 - 유지 관리에 재부팅이 필요한 경우 계획된 유지 관리에 대한 알림이 제공됩니다. Azure는 사용자가 편리한 시간에 유지 관리를 직접 시작할 수 있는 시간 범위도 제공합니다. 유지 관리가 긴급한 경우를 제외하고 셀프 유지 관리 기간은 일반적으로 35일입니다. Azure는 계획된 플랫폼 유지 관리를 위해 VM을 다시 부팅해야 하는 경우를 줄이기 위해 기술에 투자하고 있습니다. 계획된 유지 관리를 관리하는 방법에 대한 지침은 Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) 또는 [포털](maintenance-notifications-portal.md)을 사용하여 계획된 유지 관리 알림 처리를 참조하세요.
 
-이 페이지에서는 Azure에서 두 가지 유형의 유지 관리를 모두 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은  [Windows용 VM의 가용성 관리](./windows/manage-availability.md) 또는 [Linux](./linux/manage-availability.md)용 해당 문서를 참조하세요.
+이 페이지에서는 Azure에서 두 가지 유형의 유지 관리를 모두 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은  [Windows용 VM의 가용성 관리](./manage-availability.md) 또는 [Linux](./manage-availability.md)용 해당 문서를 참조하세요.
 
 VM 내에서 [Linux](./linux/scheduled-events.md)용 또는 [Windows용 Scheduled Events를 사용](./windows/scheduled-events.md)하여 예정된 유지 관리에 대한 알림을 받을 수 있습니다.
 
@@ -41,7 +41,7 @@ VM 내에서 [Linux](./linux/scheduled-events.md)용 또는 [Windows용 Schedule
 
 이러한 종류의 업데이트는 일부 애플리케이션에 영향을 줄 수 있습니다. VM을 다른 호스트로 실시간 마이그레이션하는 경우 일부 중요한 워크로드는 VM 일시 중지까지 몇 분간 성능이 약간 저하될 수 있습니다. VM 유지 관리를 준비하고 Azure 유지 관리 중 영향을 줄이려면 해당 애플리케이션에 [Linux](./linux/scheduled-events.md) 또는 [Windows용 Scheduled Events를 사용](./windows/scheduled-events.md)해보십시오. 
 
-영향을 주지 않고 재부팅 없는 업데이트를 비롯한 모든 유지 관리 활동을 보다 효과적으로 제어하려면 유지 관리 제어 기능을 사용하면 됩니다. [Azure Dedicated Hosts](./linux/dedicated-hosts.md) 또는 [격리된 VM](../security/fundamentals/isolation-choices.md)을 사용해야 합니다. 유지 관리 제어는 모든 플랫폼 업데이트를 건너뛰고 35일 롤링 기간 내에 사용자가 원하는 시간에 업데이트를 적용할 수 있는 옵션을 제공합니다. 자세한 내용은 [유지 관리 제어 및 Azure CLI를 사용하여 업데이트 제어](maintenance-control.md)를 참조 하세요.
+영향을 주지 않고 재부팅 없는 업데이트를 비롯한 모든 유지 관리 활동을 보다 효과적으로 제어하려면 유지 관리 제어 기능을 사용하면 됩니다. [Azure Dedicated Hosts](./dedicated-hosts.md) 또는 [격리된 VM](../security/fundamentals/isolation-choices.md)을 사용해야 합니다. 유지 관리 제어는 모든 플랫폼 업데이트를 건너뛰고 35일 롤링 기간 내에 사용자가 원하는 시간에 업데이트를 적용할 수 있는 옵션을 제공합니다. 자세한 내용은 [유지 관리 제어 및 Azure CLI를 사용하여 업데이트 제어](maintenance-control.md)를 참조 하세요.
 
 
 ### <a name="live-migration"></a>실시간 마이그레이션
@@ -87,7 +87,7 @@ Azure VM에서 워크로드를 배포할 때 애플리케이션에 고가용성�
 
 가상 머신 확장 집합은 동일한 VM 세트를 단일 리소스로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. 확장 집합은 가용성 집합의 VM과 같은 UD에 걸쳐 자동으로 배포됩니다. 가용성 집합과 마찬가지로 확장 집합을 사용하면 예약된 유지 관리 중 주어진 시간에 UD가 하나만 업데이트됩니다.
 
-고가용성을 위한 VM 설정에 대한 자세한 내용은  [Windows용 VM의 가용성 관리](./windows/manage-availability.md) 또는 [Linux](./linux/manage-availability.md)용 해당 문서를 참조하세요.
+고가용성을 위한 VM 설정에 대한 자세한 내용은  [Windows용 VM의 가용성 관리](./manage-availability.md) 또는 [Linux](./manage-availability.md)용 해당 문서를 참조하세요.
 
 #### <a name="availability-zones"></a>가용성 영역
 
@@ -99,4 +99,4 @@ Azure VM에서 워크로드를 배포할 때 애플리케이션에 고가용성�
 
 ## <a name="next-steps"></a>다음 단계 
 
-[Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) 또는 [포털](maintenance-notifications-portal.md)을 사용하여 계획된 유지 관리를 관리할 수 있습니다. 
+[Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) 또는 [포털](maintenance-notifications-portal.md)을 사용하여 계획된 유지 관리를 관리할 수 있습니다.

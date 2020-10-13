@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: fee727e16909355fe614b875ff61d4d38f7a98ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 516989e37e8c9eb0c4ab35ea6add4f5b6526ee6d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804383"
+ms.locfileid: "91893461"
 ---
 # <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
 
@@ -117,10 +117,7 @@ ID가 "microsoft-"로 시작 하는 앱 승인 정책은 기본 제공 정책입
 1. 다음은 사용자 지정 앱 동의 정책을 삭제 하는 방법을 보여 줍니다. **이 작업은 취소할 수 없습니다.**
 
    ```powershell
-   New-AzureADMSPermissionGrantPolicy `
-       -Id "my-custom-policy" `
-       -DisplayName "My first custom consent policy" `
-       -Description "This is a sample custom app consent policy."
+   Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
    ```
 
 > [!WARNING]

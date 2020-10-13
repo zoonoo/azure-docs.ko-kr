@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759073"
+ms.locfileid: "91932586"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -52,8 +52,11 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비
 
 이 종류의 권한 부여는 개인 Microsoft 계정을 가진 소비자 사용자가 소유한 데이터에 액세스해야 하는 디먼 및 서비스 계정에 일반적입니다. 조직에서 소유한 데이터의 경우 애플리케이션 사용 권한을 통해 필요한 권한 부여를 획득하는 것이 좋습니다.
 
-> [!NOTE]
-> 이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않으므로 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `roles` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
+#### <a name="controlling-tokens-without-the-roles-claim"></a>클레임 없이 토큰 제어 `roles`
+
+이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않습니다. 따라서 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `roles` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
+
+응용 프로그램에서 응용 프로그램에 대 한 역할 없는 앱 전용 액세스 토큰을 가져오지 못하게 하려면 [앱에 대 한 사용자 할당 요구 사항을 사용 하도록 설정](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment)해야 합니다. 이렇게 하면 할당 된 역할이 없는 사용자와 응용 프로그램이이 응용 프로그램에 대 한 토큰을 가져올 수 없게 됩니다. 
 
 ### <a name="application-permissions"></a>애플리케이션 사용 권한
 

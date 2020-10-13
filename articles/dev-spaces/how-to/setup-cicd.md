@@ -8,14 +8,16 @@ ms.topic: conceptual
 manager: gwallace
 description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080269"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960391"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 이 문서에서는 CI/CD(연속 통합/연속 배포)-Dev Spaces가 설정된 AKS(Azure Kubernetes Service)를 설정하는 과정을 안내합니다. CI/CD-AKS를 사용하면 커밋된 코드를 소스 리포지토리에 푸시할 때마다 앱 업데이트가 자동으로 배포될 수 있습니다. CI/CD를 Dev Spaces 지원 클러스터와 함께 사용하면 팀이 작업하는 애플리케이션의 기준선을 최신 상태로 유지할 수 있으므로 유용합니다.
 

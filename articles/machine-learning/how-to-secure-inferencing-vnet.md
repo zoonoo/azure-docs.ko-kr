@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630851"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972512"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -81,11 +81,17 @@ ms.locfileid: "91630851"
 
    ![Azure Machine Learning: Machine Learning 컴퓨팅 가상 네트워크 설정](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. 가상 네트워크를 제어하는 NSG 그룹에 채점 엔드포인트에 대한 인바운드 보안 규칙이 활성화되어 있어야 합니다. 그래야 가상 네트워크 외부에서 호출될 수 있습니다.
+1. AKS에 웹 서비스로 모델을 배포 하는 경우 추론 요청을 처리 하는 점수 매기기 끝점이 만들어집니다. 가상 네트워크 외부에서 호출 하려는 경우 가상 네트워크를 제어 하는 NSG 그룹에 점수 매기기 끝점의 IP 주소에 대해 사용 하도록 설정 된 인바운드 보안 규칙이 있는지 확인 합니다.
+
+    점수 매기기 끝점의 IP 주소를 찾으려면 배포 된 서비스에 대 한 점수 매기기 URI를 확인 합니다. 점수 매기기 URI를 보는 방법에 대 한 자세한 내용은 [웹 서비스로 배포 된 모델 사용](how-to-consume-web-service.md#connection-information)을 참조 하세요.
+
    > [!IMPORTANT]
    > NSG에 대한 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
 
    [![인바운드 보안 규칙](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+    > [!IMPORTANT]
+    > 점수 매기기 끝점의 이미지에 표시 되는 IP 주소는 배포에 대해 다릅니다. 동일한 IP가 하나의 AKS 클러스터에 대 한 모든 배포에서 공유 되는 동안 각 AKS 클러스터는 서로 다른 IP 주소를 갖게 됩니다.
 
 Azure Machine Learning SDK를 사용하여 가상 네트워크에 Azure Kubernetes Service를 추가할 수도 있습니다. 가상 네트워크에 AKS 클러스터가 이미 있는 경우 [AKS에 배포하는 방법](how-to-deploy-and-where.md)의 설명에 따라 작업 영역에 연결할 수 있습니다. 다음 코드는 `mynetwork`라는 가상 네트워크의 `default` 서브넷에 새 AKS 인스턴스를 만듭니다.
 

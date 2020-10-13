@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85299010"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971752"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -117,7 +117,7 @@ Update-IoTEdge 명령을 실행 하면 두 개의 런타임 컨테이너 이미�
 >[!NOTE]
 >`-OfflineInstallationPath`매개 변수는 제공 된 디렉터리에서 **Microsoft-Azure-IoTEdge.cab** 라는 파일을 찾습니다. IoT Edge 버전 1.0.9부터 사용 가능한 두 개의 .cab 파일 (AMD64 장치와 ARM32 용)이 있습니다. 장치에 맞는 파일을 다운로드 한 다음 파일 이름을 변경 하 여 아키텍처 접미사를 제거 합니다.
 
-업데이트 옵션에 대 한 자세한 내용을 보려면 명령을 사용 `Get-Help Update-IoTEdge -full` 하거나 [모든 설치 매개 변수](how-to-install-iot-edge-windows.md#all-installation-parameters)를 참조 하십시오.
+업데이트 옵션에 대 한 자세한 내용은 명령을 사용 `Get-Help Update-IoTEdge -full` 하거나 [Windows의 IoT Edge에 대 한 PowerShell 스크립트](reference-windows-scripts.md)를 참조 하세요.
 
 ## <a name="update-the-runtime-containers"></a>런타임 컨테이너 업데이트
 
@@ -213,10 +213,7 @@ IoT Edge 에이전트 및 허브 모듈에는 동일한 규칙으로 태그가 �
 
 이 문서의 섹션을 사용 하 여 IoT Edge 장치를 특정 버전의 보안 데몬 또는 런타임 모듈로 업데이트 하는 방법을 알아봅니다.
 
-새 컴퓨터에 IoT Edge을 설치 하는 경우 다음 링크를 사용 하 여 장치 운영 체제에 따라 특정 버전을 설치 하는 방법을 알아봅니다.
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+기존 설치를 업그레이드 하는 대신 IoT Edge를 설치 하는 경우 [오프 라인 또는 특정 버전 설치](how-to-install-iot-edge.md#offline-or-specific-version-installation)의 단계를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

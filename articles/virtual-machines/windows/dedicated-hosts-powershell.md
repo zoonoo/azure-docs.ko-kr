@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370490"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974178"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Azure PowerShell를 사용 하 여 전용 호스트에 Vm 배포
 
-이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](dedicated-hosts.md)를 만드는 방법을 안내합니다. 
+이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](../dedicated-hosts.md)를 만드는 방법을 안내합니다. 
 
 Azure PowerShell 버전 2.8.0 이상을 설치 했는지 확인 하 고를 사용 하 여의 Azure 계정에 로그인 `Connect-AzAccount` 합니다. 
 
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.
 
-- [Azure Portal](dedicated-hosts-portal.md)를 사용 하 여 전용 호스트를 배포할 수도 있습니다.
+- [Azure Portal](../dedicated-hosts-portal.md)를 사용 하 여 전용 호스트를 배포할 수도 있습니다.

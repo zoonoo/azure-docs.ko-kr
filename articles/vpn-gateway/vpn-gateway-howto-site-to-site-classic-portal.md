@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: aae05c89cd56ffa16994cb5696054457f1d32bc3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876144"
+ms.locfileid: "91892824"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -109,11 +109,11 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 
 ## <a name="create-the-connection"></a><a name="CreateConnection"></a>연결 만들기
 
-이 단계에서는 이전 단계의 값을 사용 하 여 공유 키를 설정 하 고 연결을 만듭니다. 설정한 키는 VPN 디바이스 구성에 사용된 동일한 키여야 합니다.
-
 > [!NOTE]
 > 클래식 배포 모델의 경우에는 Azure Portal 또는 Azure Cloud Shell를 통해이 단계를 수행할 수 없습니다. 데스크톱에서 로컬로 Azure PowerShell cmdlet의 SM (서비스 관리) 버전을 사용 해야 합니다.
 >
+
+이 단계에서는 이전 단계의 값을 사용 하 여 공유 키를 설정 하 고 연결을 만듭니다. 설정한 키는 VPN 디바이스 구성에 사용된 동일한 키여야 합니다.
 
 1. 공유 키를 설정하고 연결을 만듭니다.
 

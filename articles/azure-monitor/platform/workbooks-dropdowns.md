@@ -2,19 +2,17 @@
 title: Azure Monitor 통합 문서 드롭다운 매개 변수
 description: 드롭다운 매개 변수를 포함 하는 미리 작성 된 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고 간소화
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad1e09a0f9d1e0f9e4a748220edf5eced96123f8
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85965050"
+ms.locfileid: "91932569"
 ---
 # <a name="workbook-drop-down-parameters"></a>통합 문서 드롭다운 매개 변수
 
@@ -131,7 +129,7 @@ dependencies
 
 
 ## <a name="drop-down-parameter-options"></a>드롭다운 매개 변수 옵션
-| 매개 변수 | 설명 | 예 |
+| 매개 변수 | 설명 | 예제 |
 | ------------- |:-------------|:-------------|
 | `{DependencyName}` | 선택한 값 | Fabrikamaccount 가져오기 |
 | `{DependencyName:label}` | 선택한 레이블 | fabrikamaccount 가져오기 🌐 |

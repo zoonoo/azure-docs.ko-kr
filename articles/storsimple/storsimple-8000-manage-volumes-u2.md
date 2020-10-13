@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fcadb8bdd4862dd95625228e3c190e5fe19a9a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86204447"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961683"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 
@@ -51,14 +51,14 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 
 각 디바이스 및 볼륨 유형에 대한 최대 프로비전된 용량에 대해 다음 표를 참조하세요. (로컬로 고정된 볼륨은 가상 디바이스에서 사용할 수 없습니다.)
 
-| 형식 | 최대 계층화된 볼륨 크기 | 최대 로컬로 고정된 볼륨 크기 |
+| 유형 | 최대 계층화된 볼륨 크기 | 최대 로컬로 고정된 볼륨 크기 |
 | --- | --- | --- |
 | **물리적 디바이스** | | |
 | 8100 |64TB |8 TB |
 | 8600 |64TB |20TB |
 | **가상 디바이스** | | |
-| 8010 |30TB |해당 없음 |
-| 8020 |64TB |해당 없음 |
+| 8010 |30TB |N/A |
+| 8020 |64TB |N/A |
 
 ## <a name="the-volumes-blade"></a>볼륨 블레이드
 
@@ -155,11 +155,11 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
    3. **프로비전된 용량**을 늘립니다. **프로비전된 용량**은 늘릴 수만 있으며 만든 후에는 볼륨을 축소할 수 없습니다.
    4. **연결된 호스트**에서 ACR을 수정할 수 있습니다. ACR을 수정하려면 볼륨은 오프라인 상태여야 합니다.
 
-       ![볼륨을 오프라인으로 전환하는 영향 검토](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![볼륨을 오프 라인 상태로 만드는 경우의 영향 검토 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
 5. **저장**을 클릭하여 변경 내용을 저장합니다. 확인 메시지가 표시되면 **예**를 클릭합니다. Azure 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
-    ![볼륨을 오프라인으로 전환하는 영향 검토](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![볼륨을 오프 라인 상태로 만들기의 영향 검토 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
    
@@ -215,7 +215,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스**를 클릭합니다. 디바이스의 테이블 형식 목록에서 수정하려는 볼륨이 있는 디바이스를 선택합니다. **설정 > 볼륨**을 클릭합니다.
 
-    ![볼륨 블레이드로 이동](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![볼륨 블레이드 2로 이동](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. 볼륨의 테이블 형식 목록에서 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴 호출합니다. **수정**을 선택합니다.
 
@@ -249,7 +249,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
    
     1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스**를 클릭합니다. 디바이스의 테이블 형식 목록에서 수정하려는 볼륨이 있는 디바이스를 선택합니다. **설정 > 볼륨**을 클릭합니다.
 
-        ![볼륨 블레이드로 이동](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![볼륨 블레이드 3으로 이동](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
     2. 볼륨의 테이블 형식 목록에서 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴 호출합니다. **오프라인으로 전환**을 선택하여 오프라인 상태를 수정할 볼륨을 선택합니다.
 
@@ -257,7 +257,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 3. **오프라인으로 전환** 블레이드에서 볼륨을 오프라인으로 전환하는 영향을 검토하고 해당하는 확인란을 선택합니다. **오프라인으로 전환**을 클릭합니다. 
 
-    ![볼륨을 오프라인으로 전환하는 영향 검토](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![볼륨을 오프 라인으로 전환 하는 경우의 영향 검토 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
       
       볼륨이 오프라인 상태가 되면 알림이 표시됩니다. 볼륨 상태도 오프라인으로 업데이트됩니다.
       
@@ -277,7 +277,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스**를 클릭합니다. 디바이스의 테이블 형식 목록에서 수정하려는 볼륨이 있는 디바이스를 선택합니다. **설정 > 볼륨**을 클릭합니다.
 
-    ![볼륨 블레이드로 이동](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![볼륨 블레이드 4로 이동](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. 삭제하려는 볼륨의 상태를 확인합니다. 삭제하려는 볼륨이 오프라인 상태가 아니면 먼저 오프라인으로 전환합니다. [볼륨을 오프라인으로 전환](#take-a-volume-offline)단계를 따릅니다.
 4. 볼륨이 오프라인 상태가 된 후에 볼륨을 선택하고, 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 호출하고, **삭제**를 선택합니다.

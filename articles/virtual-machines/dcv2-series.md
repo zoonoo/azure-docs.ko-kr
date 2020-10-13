@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653012"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972376"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -36,7 +36,7 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- DCsv2 시리즈 VM은 [2세대 VM](./linux/generation-2.md#creating-a-generation-2-vm)이며 `Gen2` 이미지만 지원합니다.
+- DCsv2 시리즈 VM은 [2세대 VM](./generation-2.md#creating-a-generation-2-vm)이며 `Gen2` 이미지만 지원합니다.
 - 현재 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)에 나열 된 지역에서 사용할 수 있습니다.
 - 이전 세대의 기밀 컴퓨팅 VM: [DC 시리즈](sizes-previous-gen.md#preview-dc-series)
 - [Azure Portal](./linux/quick-create-portal.md) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)를 사용하여 DCsv2 VM 만들기

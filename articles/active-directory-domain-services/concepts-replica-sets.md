@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 대 한 복제본 집합 개념 Microsoft Docs
 description: Azure Active Directory Domain Services 된 복제본 집합 및 id 서비스를 필요로 하는 응용 프로그램에 중복성을 제공 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505732"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961071"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>복제본이 Azure Active Directory Domain Services (미리 보기)에 대 한 개념 및 기능을 설정 합니다.
 
@@ -60,7 +60,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인을 
 
 각 복제본 세트에 대 한 청구는 도메인 구성 SKU를 기반으로 합니다. 예를 들어 *Enterprise* SKU를 사용 하는 관리 되는 도메인이 있고 3 개의 복제본 집합을 사용 하는 경우 세 개의 복제본 집합 각각에 대해 구독이 시간당 청구 됩니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>이 미리 보기에서 내 프로덕션 관리 되는 도메인을 사용할 수 있나요?
 

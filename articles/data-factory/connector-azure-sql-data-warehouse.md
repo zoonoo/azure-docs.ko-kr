@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332154"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951981"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터 복사 및 변환
 
@@ -564,7 +564,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
 
 원본 데이터가 PolyBase와 기본적으로 호환 되지 않는 경우 임시 스테이징 Azure Blob 또는 Azure Data Lake Storage Gen2을 통해 데이터 복사를 사용 하도록 설정 합니다 (Azure Premium Storage 일 수 없음). 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. 마지막으로 저장소에서 임시 데이터를 정리 합니다. 스테이징을 통해 데이터를 복사 하는 방법에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 참조 하세요.
 
-이 기능을 사용 하려면 임시 저장소를 사용 하 여 Azure storage 계정을 참조 하는 [Azure Blob Storage 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2 연결 된 서비스](connector-azure-data-lake-storage.md#linked-service-properties) 를 만듭니다. 그런 다음, 복사 작업의 `enableStaging` 및 `stagingSettings` 속성을 다음 코드에 표시된 대로 지정합니다.
+이 기능을 사용 하려면 Azure storage 계정을 임시 저장소로 참조 하는 **계정 키 또는 관리 id 인증** 을 사용 하 여 [Azure Blob Storage 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2 연결 된 서비스](connector-azure-data-lake-storage.md#linked-service-properties) 를 만듭니다.
 
 >[!IMPORTANT]
 >준비 Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조하세요. [Azure Blob 관리 id 인증](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2 관리 id 인증](connector-azure-data-lake-storage.md#managed-identity)에서 Data Factory에 필요한 구성을 알아봅니다.

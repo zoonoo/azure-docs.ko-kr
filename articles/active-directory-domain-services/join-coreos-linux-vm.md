@@ -2,7 +2,7 @@
 title: CoreOS VM을 Azure AD Domain Services에 조인 | Microsoft Docs
 description: CoreOS 가상 머신을 구성 하 고 관리 되는 Azure AD Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: c3a88f96f7391fedd973b7965a7c469ce1805d76
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005109"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962414"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>CoreOS 가상 컴퓨터를 관리 되는 Azure Active Directory Domain Services 도메인에 가입
 
@@ -24,7 +24,7 @@ ms.locfileid: "87005109"
 
 이 문서에서는 관리 되는 도메인에 CoreOS VM을 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 

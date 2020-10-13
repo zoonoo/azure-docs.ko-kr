@@ -3,12 +3,12 @@ title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533982"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951896"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
@@ -115,5 +115,5 @@ REST API를 사용 하 여이 설정을 구성 하려면 [계층 설정](/rest/a
 
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [관리 그룹을 만들어 Azure 리소스 구성](../create.md)
+- [관리 그룹을 만들어 Azure 리소스 구성](../create-management-group-portal.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](../manage.md)
