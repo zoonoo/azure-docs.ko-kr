@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Azure Dev Spaces 작동을 위해 Azure Kubernetes Service 클러스터를 설정하는 방법을 설명
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 41b955fac7abcc700d73d8ace601f80982b2253d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 841e67b96e95aa251fa5bf1ef469b68de30f54d9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207955"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972682"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Azure Dev Spaces 작동을 위해 클러스터를 설정하는 방법
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces를 사용하면 여러 가지 방법을 통해 Kubernetes 애플리케이션을 신속하게 반복하고 디버그할 수 있으며, AKS(Azure Kubernetes Service) 클러스터에서 팀과 공동 작업이 가능합니다. 한 가지 방법은 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하는 것입니다. 그러면 [클러스터에서 직접 서비스를 실행][how-it-works-up]하고 [추가 네트워킹 및 라우팅 기능][how-it-works-routing]을 사용할 수 있습니다. 이 문서에서는 클러스터를 준비하고 Azure Dev Spaces를 사용하도록 설정할 때 어떻게 되는지 설명합니다.
 

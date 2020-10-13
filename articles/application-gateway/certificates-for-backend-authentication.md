@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362715"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 백 엔드를 허용 하는 인증서 만들기
@@ -25,7 +25,7 @@ ms.locfileid: "91362715"
 - 백 엔드 인증서에서 인증 인증서 내보내기 (v1 SKU의 경우)
 - 백 엔드 인증서에서 신뢰할 수 있는 루트 인증서 내보내기 (v2 SKU 용)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Application Gateway를 사용 하 여 백 엔드 인스턴스를 허용 하는 데 필요한 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 생성 하려면 기존 백엔드 인증서가 필요 합니다. 백 엔드 인증서는 TLS/SSL 인증서와 동일 하거나 보안을 강화 하는 데 사용할 수 있습니다. Application Gateway는 TLS/SSL 인증서를 만들거나 구입 하는 메커니즘을 제공 하지 않습니다. 테스트를 위해 자체 서명 된 인증서를 만들 수 있지만 프로덕션 워크 로드에는 사용 하지 않아야 합니다. 
 

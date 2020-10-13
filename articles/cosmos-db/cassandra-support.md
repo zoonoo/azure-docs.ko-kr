@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602815"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803503"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -71,6 +71,8 @@ Azure Cosmos DB Cassandra API는 다음 CQL 데이터 형식을 지원합니다.
 | tuples | 예 | 
 | udts  | 예 |
 | map | 예 |
+
+데이터 형식 선언에 정적이 지원됩니다.
 
 ## <a name="cql-functions"></a>CQL 함수
 
@@ -273,7 +275,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## <a name="secondary-index"></a>보조 인덱스
+Cassandra API는 고정 컬렉션 형식, 10진수 및 변형 형식을 제외한 모든 데이터 형식에 대한 보조 인덱스를 지원합니다. 
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Cassandra 다시 시도 연결 정책 사용
 

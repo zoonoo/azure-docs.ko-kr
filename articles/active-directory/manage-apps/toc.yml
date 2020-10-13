@@ -110,18 +110,26 @@
   items:
     - name: 사용자 할당 및 앱에 대한 액세스 관리
       items:
-        - name: 사용자 동의 구성
-          href: configure-user-consent.md
-        - name: 동의 요청 관리 및 평가
-          href: manage-consent-requests.md
-        - name: 테넌트 전체 관리자 동의 부여
-          href: grant-admin-consent.md
-        - name: 관리자 동의 워크플로 구성(미리 보기)
-          href: configure-admin-consent-workflow.md
+        - name: 동의 및 사용 권한
+          items:
+            - name: 사용자 동의 구성
+              href: configure-user-consent.md
+            - name: 그룹 소유자 동의 구성
+              href: configure-user-consent-groups.md
+            - name: 권한 분류 구성
+              href: configure-permission-classifications.md
+            - name: 앱 동의 정책 관리
+              href: manage-app-consent-policies.md
+            - name: 관리자 동의 워크플로 구성(미리 보기)
+              href: configure-admin-consent-workflow.md
+            - name: 동의 요청 관리 및 평가
+              href: manage-consent-requests.md
+            - name: 테넌트 전체 관리자 동의 부여
+              href: grant-admin-consent.md
+            - name: 앱에 부여된 사용 권한 검토
+              href: manage-application-permissions.md
         - name: 앱에 대한 사용자 할당 관리
           href: assign-user-or-group-access-portal.md
-        - name: 앱에 부여된 사용 권한 검토
-          href: manage-application-permissions.md
         - name: 내 앱에서 컬렉션 만들기
           href: access-panel-collections.md
         - name: 셀프 서비스 앱 액세스 사용

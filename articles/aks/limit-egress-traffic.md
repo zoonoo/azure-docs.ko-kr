@@ -8,10 +8,10 @@ ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
 ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570380"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
@@ -184,7 +184,7 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | 이 끝점은 log analytics 서비스를 인증 하는 데 사용 되는 omsagent에서 사용 됩니다. |
 | *.monitoring.azure.com | **`HTTPS:443`** | 이 끝점은 Azure Monitor에 메트릭 데이터를 전송 하는 데 사용 됩니다. |
 
-### <a name="azure-dev-spaces"></a>Azure Dev 공간
+### <a name="azure-dev-spaces"></a>Azure Dev Spaces
 
 아래 Fqdn 및 [Azure Dev Spaces 인프라 서비스][dev-spaces-service-tags]에 대 한 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다.
 
@@ -779,7 +779,7 @@ az group delete -g $RG
 
 필요한 경우 위의 단계를 일반화 하 여 [아웃 바운드 유형 `userDefinedRoute` 설명서](egress-outboundtype.md)에 따라 선호 하는 송신 솔루션으로 트래픽을 전달할 수 있습니다.
 
-Pod가 클러스터 내에서 자신과 동-서 트래픽 제한 간에 통신 하는 방법을 제한 하려는 경우 [AKS의 네트워크 정책을 사용 하 여 pod 간의 트래픽 보안][network-policy]을 참조 하세요.
+Pod 통신 하는 방법을 제한 하 고 클러스터 내에서 East-West 트래픽 제한을 설정 하려면 [AKS에서 네트워크 정책을 사용 하 여 pod 간의 트래픽 보안][network-policy]을 참조 하세요.
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

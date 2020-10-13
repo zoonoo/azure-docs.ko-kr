@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: d2abb66684738e97ade2a2e67309a4e7b53c4734
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442089"
+ms.locfileid: "91929220"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀 관리
 
@@ -44,7 +44,7 @@ QoS 유형에 대 한 고려 사항을 이해 하려면 [Azure NetApp Files의 �
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
     ```
-[Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+[Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
 ## <a name="set-up-a-new-manual-qos-capacity-pool"></a>새 수동 QoS 용량 풀 설정 
 
@@ -97,5 +97,3 @@ QoS 유형에 대 한 고려 사항을 이해 하려면 [Azure NetApp Files의 �
 * [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [SMB 볼륨 만들기](azure-netapp-files-create-volumes-smb.md)
 * [이중 프로토콜 볼륨 만들기](create-volumes-dual-protocol.md)
-
-

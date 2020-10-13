@@ -4,17 +4,17 @@ description: 연결 된 배포에 기존 템플릿 사양을 배포 하는 방�
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369113"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결 된 템플릿으로 배포 (미리 보기)
 
 [연결 된 배포](linked-templates.md#linked-template)를 사용 하 여 기존 [템플릿 사양을](template-specs.md) 배포 하는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 템플릿 사양을 만든 후 Azure PowerShell 또는 Azure CLI를 사용 하 여 템플릿 사양을 배포할 수 있습니다. 연결 된 템플릿을 사용 하 여 솔루션의 일부로 템플릿 사양을 배포할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

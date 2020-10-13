@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653692"
+ms.locfileid: "91929459"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Azure NetApp Files의 SMB 성능에 대 한 Faq
 
@@ -39,7 +39,7 @@ SMB 다중 채널을 사용 하도록 설정 하면 SMB3 client는 단일 RSS를
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>어떤 Windows 버전에서 SMB 다중 채널을 지원 하나요?
 
-Windows는 최상의 성능을 사용할 수 있도록 Windows 2012 이후 SMB 다중 채널을 지원 합니다.  자세한 내용은 [Smb 다중 채널 배포](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) 및 [smb 다중 채널의 기본 사항](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) 을 참조 하세요. 
+Windows는 최상의 성능을 사용할 수 있도록 Windows 2012 이후 SMB 다중 채널을 지원 합니다.  자세한 내용은 [Smb 다중 채널 배포](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) 및 [smb 다중 채널의 기본 사항](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0) 을 참조 하세요. 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Azure virtual machine에서 RSS를 지원 하나요?
@@ -132,7 +132,7 @@ FIO로 테스트 하는 데 사용 되는 한 가지 전략은를 설정 하는 
 
 ## <a name="is-accelerated-networking-recommended"></a>가속화 된 네트워킹을 권장 하나요?
 
-최대 성능을 위해 가능한 경우 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) 을 구성 하는 것이 좋습니다. 다음 사항을 염두에 두어야 합니다.  
+최대 성능을 위해 가능한 경우 [가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-powershell.md) 을 구성 하는 것이 좋습니다. 다음 사항을 염두에 두어야 합니다.  
 
 * Azure Portal이 기능을 지 원하는 가상 컴퓨터에 대해 기본적으로 가속화 된 네트워킹을 사용 하도록 설정 합니다.  그러나 Ansible 및 유사한 구성 도구와 같은 다른 배포 방법은 그렇지 않을 수 있습니다.  가속화 된 네트워킹을 사용 하지 않으면 컴퓨터의 성능이 hobble 수 있습니다.  
 * 가상 컴퓨터의 네트워크 인터페이스에서 가속화 된 네트워킹을 사용 하도록 설정 하지 않은 경우 인스턴스 유형이 나 크기에 대 한 지원이 부족 하기 때문에 더 큰 인스턴스 유형에 서 사용 하지 않도록 설정 된 상태로 유지 됩니다. 이러한 경우 수동 작업을 수행 해야 합니다.

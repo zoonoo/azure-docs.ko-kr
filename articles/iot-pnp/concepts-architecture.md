@@ -10,15 +10,15 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574327"
 ---
 # <a name="iot-plug-and-play-architecture"></a>IoT 플러그 앤 플레이 아키텍처
 
-IoT 플러그 앤 플레이를 사용 하면 솔루션 빌더가 수동 구성 없이 스마트 장치를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 IoT 플러그 앤 플레이 사용 응용 프로그램에 대 한 장치의 기능을 설명 하는 장치 _모델_ 입니다. 이 모델은 다음을 정의 하는 인터페이스 집합으로 구성 됩니다.
+IoT 플러그 앤 플레이를 사용하면 솔루션 빌더가 수동으로 구성하지 않고 스마트 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 IoT 플러그 앤 플레이 사용 응용 프로그램에 대 한 장치의 기능을 설명 하는 장치 _모델_ 입니다. 이 모델은 다음을 정의 하는 인터페이스 집합으로 구성 됩니다.
 
 - 속성 - 디바이스 또는 다른 엔터티의 읽기 전용 또는 쓰기 가능 상태를 나타냅니다. 예를 들어 디바이스 일련 번호는 읽기 전용 속성일 수 있으며, 자동 온도 조절기의 목표 온도는 쓰기 가능 속성일 수 있습니다.
 - 원격 분석 - 데이터가 규칙적인 센서 판독 스트림, 가끔 발생하는 오류 또는 정보 메시지인지 여부에 관계 없이 디바이스가 내보내는 데이터입니다.

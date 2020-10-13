@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575523"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
@@ -87,7 +87,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST (영문)**
 
-*전화할* 
+*호출* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -116,7 +116,7 @@ Content-type: application/json
 
 Log Analytics 클러스터를 프로 비전 하는 작업은 완료 하는 데 시간이 걸립니다. 여러 가지 방법으로 프로 비전 상태를 확인할 수 있습니다.
 
-- 리소스 그룹 이름을 사용 하 여 AzOperationalInsightsCluster PowerShell 명령을 실행 하 고 ProvisioningState 속성을 확인 합니다. 값은 프로 비전 중에 *ProvisioningAccount* 완료 되 면 *성공* 합니다.
+- 리소스 그룹 이름을 사용 하 여 Get-AzOperationalInsightsCluster PowerShell 명령을 실행 하 고 ProvisioningState 속성을 확인 합니다. 값은 프로 비전 중에 *ProvisioningAccount* 완료 되 면 *성공* 합니다.
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
@@ -184,7 +184,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 
 예를 들면 다음과 같습니다. 
 
-*전화할*
+*호출*
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview

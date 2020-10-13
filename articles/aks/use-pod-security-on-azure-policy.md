@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 09/22/2020
 author: jluk
 ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91368858"
 ---
-# <a name="secure-pods-with-azure-policy"></a>Azure Policy를 사용 하 여 pod 보호
+# <a name="secure-pods-with-azure-policy"></a>Azure Policy로 포드 보안
 
 AKS 클러스터의 보안을 강화 하기 위해 pod에 부여 된 기능과 회사 정책에 대해 실행 중인 항목이 무엇 인지 제어할 수 있습니다. 이 액세스는 [AKS 용 Azure Policy 추가 기능][kubernetes-policy-reference]에서 제공 하는 기본 제공 정책을 통해 정의 됩니다. 루트 권한과 같이 pod 사양의 보안 측면에 대 한 추가 제어 기능을 제공 하 여 클러스터에 배포 된 항목을 보다 엄격 하 게 보안을 준수 하 고 볼 수 있습니다. Pod가 정책에 지정 된 조건을 충족 하지 않는 경우 pod가 위반을 시작 하거나 플래그를 지정 하지 못하게 할 수 Azure Policy. 이 문서에서는 Azure Policy를 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 

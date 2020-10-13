@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/10/2020
-ms.openlocfilehash: dff5e73f9bb02357a6a6f74f5d0db08eee13e76e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332273"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948429"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -242,6 +242,9 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
 
 >[!NOTE]
+>Blob 계정에서 [일시 삭제](../storage/blobs/soft-delete-blob-overview.md)를 사용 하는 경우 서비스 주체 인증이 데이터 흐름에서 지원 되지 않습니다.
+
+>[!NOTE]
 >서비스 사용자 인증은 이전 "AzureStorage" 형식 연결 된 서비스가 아닌 "AzureBlobStorage" 유형의 연결 된 서비스 에서만 지원 됩니다.
 
 **예:**
@@ -287,12 +290,15 @@ Azure Storage 인증에 대 한 일반 정보는 [Azure Active Directory를 사�
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **azureblobstorage**로 설정 해야 합니다. |예 |
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. |예 |
 | accountKind | 저장소 계정의 종류를 지정 합니다. 허용 되는 값은 **저장소** (범용 v1), **StorageV2** (범용 V2), **blobstorage**또는 **blockblobstorage**입니다. <br/> 데이터 흐름에서 Azure Blob 연결 된 서비스를 사용 하는 경우 계정 종류가 비어 있거나 "저장소" 인 경우 관리 id 또는 서비스 주체 인증이 지원 되지 않습니다. 적절 한 계정 종류를 지정 하거나 다른 인증을 선택 하거나 storage 계정을 범용 v2로 업그레이드 합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+
+> [!NOTE]
+> Blob 계정에서 [일시 삭제](../storage/blobs/soft-delete-blob-overview.md)를 사용 하는 경우 관리 되는 Id 인증은 데이터 흐름에서 지원 되지 않습니다.
 
 > [!NOTE]
 > Azure 리소스 인증에 대 한 관리 되는 id는 이전의 "AzureStorage" 형식 연결 된 서비스가 아닌 "AzureBlobStorage" 유형의 연결 된 서비스 에서만 지원 됩니다.

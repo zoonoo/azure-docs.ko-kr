@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 개요
 description: Azure Arc란 무엇이며 고객이 다른 Azure 서비스 및 기능을 사용하여 하이브리드 리소스의 관리 및 거버넌스를 활성화하는 데 어떤 도움이 되는지 알아봅니다.
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 46bd2089dbc2794d0fb98ceb9a5e97011e36d6ea
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052047"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714144"
 ---
 # <a name="azure-arc-overview"></a>Azure Arc 개요
 
@@ -34,7 +34,7 @@ Azure Arc의 핵심 기능은 다음과 같습니다.
 
 * Azure 관리 서비스를 사용하여 서버를 모니터링하고, 보안을 설정하고, 업데이트하도록 [Azure VM 확장](./servers/manage-vm-extensions.md)을 구성합니다.
 
-* 대규모로 Kubernetes 클러스터를 관리하고 제어합니다. 
+* 대규모로 Kubernetes 클러스터를 관리하고 제어합니다.
 
 * GitOps 기반 구성을 코드 관리로 사용하여 GitHub와 같은 원본 제어에서 직접 하나 이상의 클러스터에 애플리케이션 및 구성을 배포합니다.
 
@@ -50,7 +50,17 @@ Azure Arc의 핵심 기능은 다음과 같습니다.
 
 ### <a name="arc-enabled-servers"></a>Arc 지원 서버
 
-현재 미리 보기 단계에서 Azure Arc 지원 서버는 추가 비용 없이 제공됩니다.
+Azure Arc 컨트롤 플레인 기능은 추가 비용 없이 제공됩니다.다음 내용이 포함됩니다.
+
+* Azure 관리 그룹 및 태그 태그를 통한 리소스 구성.
+
+* Azure Resource Graph를 통한 검색 및 인덱싱.
+
+* Azure RBAC 및 구독을 통한 액세스 및 보안.
+
+* 템플릿과 확장을 통한 환경 및 자동화.
+
+* 업데이트 관리
 
 Azure Security Center 또는 Azure Monitor와 같이 Arc 지원 서버에서 사용되는 모든 Azure 서비스는 해당 서비스에 대한 가격 책정에 따라 요금이 청구됩니다. 자세한 내용은 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/)를 참조하세요.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
 ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575166"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Azure Portal에서 Azure Data Box Disk용 자체 관리형 배송 사용
@@ -43,7 +43,7 @@ Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 �
 
 3. 배송 주소를 입력한 후에는 유효한지 검사하고 주문을 완료해야 합니다.
 
-   ![배송 사용 옵션 및 추가 된 배송 주소 추가 옵션이 있는 배송 주소 추가 대화 상자의 스크린샷](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![배송 사용 옵션 및 배송 주소 추가 옵션이 호출된 배송 주소 추가 대화 상자의 스크린샷](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. 장치가 준비 되 고 전자 메일 알림을 받으면 픽업을 예약할 수 있습니다. Azure Data Box Disk 주문에서 **개요**로 이동한 후 **픽업 예약**을 선택합니다.
 

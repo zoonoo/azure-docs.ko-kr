@@ -1,14 +1,14 @@
 ---
 title: 이니셔티브 정의 구조의 세부 정보
 description: 정책 이니셔티브 정의를 사용 하 여 조직의 Azure 리소스에 배포 하기 위한 정책 정의를 그룹화 하는 방법을 설명 합니다.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048502"
+ms.locfileid: "91876178"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Azure Policy 이니셔티브 정의 구조
 
@@ -248,19 +248,18 @@ Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지�
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>정책 정의 그룹 (미리 보기)
+## <a name="policy-definition-groups"></a>정책 정의 그룹
 
-Azure Policy의 [규정 준수](./regulatory-compliance.md) (미리 보기) 기능의 일부로 이니셔티브 정의의 정책 정의를 그룹화 할 수 있습니다. 이 정보는 `policyDefinitionGroups` _배열_ 속성에서 정의 됩니다. 이러한 그룹에는 정책 정의에서 제공 하는 **제어** 및 **규정 준수 도메인과** 같은 추가 정보가 포함 됩니다.
-Microsoft에서 만든 **Policymetadata** 개체에서 추가 그룹화 세부 정보를 찾을 수 있습니다. 자세한 내용은 [메타 데이터 개체](#metadata-objects)를 참조 하세요.
+이니셔티브 정의의 정책 정의를 그룹화 하 고 분류할 수 있습니다. Azure Policy의 [규정 준수](./regulatory-compliance.md) (미리 보기) 기능은이 속성을 사용 하 여 정의를 **컨트롤** 및 **규정 준수 도메인**으로 그룹화 합니다. 이 정보는 `policyDefinitionGroups` _배열_ 속성에서 정의 됩니다. Microsoft에서 만든 **Policymetadata** 개체에서 추가 그룹화 세부 정보를 찾을 수 있습니다. 자세한 내용은 [메타 데이터 개체](#metadata-objects)를 참조 하세요.
 
 ### <a name="policy-definition-groups-parameters"></a>정책 정의 그룹 매개 변수
 
 의 각 _배열_ 요소에 `policyDefinitionGroups` 는 다음 속성이 모두 있어야 합니다.
 
-- `name` (문자열) \[ 필수 \] : **컨트롤**의 약식 이름입니다. 이 속성의 값은에서 사용 됩니다 `groupNames` `policyDefinitions` .
-- `category` (string): 컨트롤의 **규정 준수 도메인** 입니다.
-- `displayName` (string): **컨트롤**의 이름입니다. 포털에서 사용 됩니다.
-- `description` (string): **컨트롤** 의 용도에 대 한 설명입니다.
+- `name` (문자열) \[ 필수 \] : **그룹**의 짧은 이름입니다. 규정 준수에서 **컨트롤**입니다. 이 속성의 값은에서 사용 됩니다 `groupNames` `policyDefinitions` .
+- `category` (string): 그룹이 속하는 계층입니다. 규정 준수에서 컨트롤의 **규정 준수 도메인** 입니다.
+- `displayName` (string): **그룹** 또는 **컨트롤**의 이름입니다. 포털에서 사용 됩니다.
+- `description` (string): **그룹** 또는 **컨트롤이** 다루는 내용에 대 한 설명입니다.
 - `additionalMetadataId`(string): **제어** 및 **준수 도메인**에 대 한 추가 정보를 포함 하는 [policymetadata](#metadata-objects) 개체의 위치입니다.
 
   > [!NOTE]

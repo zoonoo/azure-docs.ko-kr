@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945166"
+ms.locfileid: "91948530"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>지역 간 Azure 리소스 이동에 대 한 지원
 
@@ -1134,11 +1134,11 @@ ms.locfileid: "91945166"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | instancepools | 예 | 
-> | managedinstances | 예 <br/><br/> 여러 지역에서 관리 되는 인스턴스를 이동 하는 방법에 [대해 자세히 알아보세요](/azure/azure-sql/database/move-resources-across-regions) . | 
+> | managedinstances | 예 <br/><br/> 여러 지역에서 관리 되는 인스턴스를 이동 하는 방법에 [대해 자세히 알아보세요](../../azure-sql/database/move-resources-across-regions.md) . | 
 > | managedinstances / databases | 예 | 
 > | servers | 예 | 
-> | servers / databases | 예 <br/><br/> 여러 지역에서 데이터베이스를 이동 하는 방법에 [대해 자세히 알아보세요](/azure/azure-sql/database/move-resources-across-regions) .<br/><br/> Azure 리소스 이동 기를 사용 하 여 Azure SQL database를 이동 하는 방법에 [대해 자세히 알아보세요](../../resource-mover/tutorial-move-region-sql.md) .  | 
-> | servers / elasticpools | 예 <br/><br/> 여러 지역에서 탄력적 풀을 이동 하는 방법에 [대해 자세히 알아보세요](/azure/azure-sql/database/move-resources-across-regions) .<br/><br/> Azure 리소스 이동 기를 사용 하 여 Azure SQL 탄력적 풀을 이동 하는 방법에 [대해 자세히 알아보세요](../../resource-mover/tutorial-move-region-sql.md) .  | 
+> | servers / databases | 예 <br/><br/> 여러 지역에서 데이터베이스를 이동 하는 방법에 [대해 자세히 알아보세요](../../azure-sql/database/move-resources-across-regions.md) .<br/><br/> Azure 리소스 이동 기를 사용 하 여 Azure SQL database를 이동 하는 방법에 [대해 자세히 알아보세요](../../resource-mover/tutorial-move-region-sql.md) .  | 
+> | servers / elasticpools | 예 <br/><br/> 여러 지역에서 탄력적 풀을 이동 하는 방법에 [대해 자세히 알아보세요](../../azure-sql/database/move-resources-across-regions.md) .<br/><br/> Azure 리소스 이동 기를 사용 하 여 Azure SQL 탄력적 풀을 이동 하는 방법에 [대해 자세히 알아보세요](../../resource-mover/tutorial-move-region-sql.md) .  | 
 > | virtualclusters | 예 | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

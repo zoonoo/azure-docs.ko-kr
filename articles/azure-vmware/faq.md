@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530479"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948717"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -101,6 +101,10 @@ VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기*
 
 이러한 백업 솔루션은 고객에 의해 설치 되 고 관리 되므로 지원 하기 위해 각 ISV에 게 연락할 수 있습니다. 
 
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>중복 제거 설정에 대 한 올바른 저장소 정책은 무엇 인가요?
+
+VM 템플릿에 대 한 *thin_provision* 저장소 정책을 사용 합니다.  기본값은 *thick_provision*입니다.
+
 ## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 프라이빗 클라우드
 
 #### <a name="is-the-underlying-infrastructure-shared"></a>기본 인프라를 공유하나요?
@@ -174,6 +178,8 @@ Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도
 
 예. NSX-T 관리자를 사용하여 VM의 인터넷 액세스를 제한하는 방화벽을 만들어야 합니다.
 
+
+
 ## <a name="accounts-and-privileges"></a>계정 및 권한
 
 #### <a name="what-accounts-and-privileges-will-i-get-with-my-new-azure-vmware-solution-private-cloud"></a>새 Azure VMware 솔루션 사설 클라우드를 사용 하 여 얻을 수 있는 계정과 권한은 무엇 인가요?
@@ -211,7 +217,7 @@ Azure 구독의 Azure 계정이 필요합니다.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 
-* Microsoft와 함께 [Azure 기업계약 (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) 가 필요 합니다.
+* Microsoft와 함께 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) 가 필요 합니다.
 * Azure 구독의 Azure 계정이 필요합니다.
 
 Azure VMware Solution 리소스를 만들기 전에 노드가 할당되도록 지원 티켓을 제출해야 합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.

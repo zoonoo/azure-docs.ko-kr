@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버
 description: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 53e5264eed761909217c2e3a902c9fee9faaffaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afce212416c7c12631a7f8d388dc991ed957736f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343062"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949312"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
 
@@ -74,7 +74,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 > [!NOTE]
 > Github 작업은 [현재 Github Enterprise Server 릴리스 2.22에 대 한 제한 된 베타 버전으로 제공](https://docs.github.com/en/enterprise/admin/github-actions)됩니다.
 
-GitHub Enterprise 서버 (현재 "베타" 기능으로 제공)에서 GitHub 작업을 사용 하려면 외부 blob 저장소가 필요 합니다. 이 외부 blob 저장소는 아티팩트 및 로그를 저장 하는 작업에서 사용 됩니다. GitHub Enterprise Server에 대 한 작업 [은 Azure Blob Storage를 저장소 공급자로 지원](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) 합니다 (기타 일부). 따라서 [저장소 계정 유형](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) blobstorage를 사용 하 여 새 Azure storage 계정을 프로 비전 합니다.
+GitHub Enterprise 서버 (현재 "베타" 기능으로 제공)에서 GitHub 작업을 사용 하려면 외부 blob 저장소가 필요 합니다. 이 외부 blob 저장소는 아티팩트 및 로그를 저장 하는 작업에서 사용 됩니다. GitHub Enterprise Server에 대 한 작업 [은 Azure Blob Storage를 저장소 공급자로 지원](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) 합니다 (기타 일부). 따라서 [저장소 계정 유형](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) blobstorage를 사용 하 여 새 Azure storage 계정을 프로 비전 합니다.
 
 :::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="온-프레미스 또는 클라우드에서 GitHub를 실행 하도록 선택 합니다.":::
 

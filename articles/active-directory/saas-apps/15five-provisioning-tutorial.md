@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: c26a581df7ac10777687bf268027eb94862605b1
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850135"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 15Five 구성
@@ -34,7 +34,7 @@ ms.locfileid: "91850135"
 > * 15 5에서 그룹 및 그룹 멤버 자격 프로 비전
 > * 15Five에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/15five-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -110,7 +110,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **Azure Active Directory 사용자를 15Five로 동기화를**선택 합니다.
 
@@ -128,8 +128,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User: location|문자열|
-   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User::/|문자열|
+   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User: location|String|
+   |urn: ietf: params: scim: 스키마: 확장: 15Five: 2.0: User::/|String|
 
 10. **매핑** 섹션에서 **Azure Active Directory 그룹을 15Five로 동기화를**선택 합니다.
 

@@ -7,14 +7,16 @@ description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernet
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js
-ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316106"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973107"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병합 하기 전에 AKS에서 직접 끌어오기 요청의 변경을 테스트할 수 있는 GitHub 작업을 사용 하 여 워크플로를 제공 합니다. 끌어오기 요청에 대 한 변경 내용을 검토 하는 실행 중인 응용 프로그램이 있는 경우 개발자와 팀 멤버 모두의 확신도를 높일 수 있습니다. 이 실행 중인 응용 프로그램은 제품 관리자 및 디자이너와 같은 팀 멤버가 개발 초기 단계를 진행 하는 동안 검토 프로세스의 일부가 될 수도 있습니다.
 
