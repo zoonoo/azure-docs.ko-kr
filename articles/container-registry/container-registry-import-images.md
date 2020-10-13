@@ -4,10 +4,10 @@ description: Docker 명령을 실행하지 않고도 Azure API를 사용하여 �
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541580"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
@@ -36,7 +36,7 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 > 여러 Azure 지역에 동일한 컨테이너 이미지를 분산해야 하는 경우 Azure Container Registry에서 [지역 복제](container-registry-geo-replication.md)도 지원합니다. 레지스트리 (프리미엄 서비스 계층 필요)를 지리적으로 복제 하 여 단일 레지스트리에서 동일한 이미지 및 태그 이름을 가진 여러 지역을 제공할 수 있습니다.
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 

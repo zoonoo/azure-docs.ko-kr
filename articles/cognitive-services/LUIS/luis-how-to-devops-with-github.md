@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
 ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783795"
 ---
-# <a name="apply-devops-to-luis-app-development-using-github-actions"></a>GitHub 작업을 사용 하 여 LUIS 앱 개발에 DevOps 적용
+# <a name="apply-devops-to-luis-app-development-using-github-actions"></a>GitHub Actions를 사용하여 LUIS 앱 개발에 DevOps 적용
 
 LUIS에 대 한 DevOps 및 소프트웨어 엔지니어링 모범 사례를 구현 하는 전체 솔루션에 대 한 [LUIS devops 템플릿](https://github.com/Azure-Samples/LUIS-DevOps-Template) 리포지토리로 이동 합니다. 이 템플릿 리포지토리를 사용 하 여 고유한 프로젝트에 대해 [소스 제어](luis-concept-devops-sourcecontrol.md), [자동화 된 빌드](luis-concept-devops-automation.md), [테스트](luis-concept-devops-testing.md)및 [릴리스 관리](luis-concept-devops-automation.md#release-management) 를 가능 하 게 하는 CI/CD 워크플로 및 방법에 대 한 기본 제공 지원을 통해 고유한 리포지토리를 만들 수 있습니다.
 
@@ -38,6 +38,6 @@ LUIS에 대 한 DevOps 및 소프트웨어 엔지니어링 모범 사례를 구�
 ## <a name="next-steps"></a>다음 단계
 
 * [LUIS devops 템플릿 리포지토리](https://github.com/Azure-Samples/LUIS-DevOps-Template) 를 사용 하 여 devops를 고유한 프로젝트에 적용할 수 있습니다.
-* [LUIS에 대 한 소스 제어 및 분기 전략](luis-concept-devops-sourcecontrol.md)
-* [LUIS DevOps 테스트](luis-concept-devops-testing.md)
+* [LUIS에 대한 소스 제어 및 분기 전략](luis-concept-devops-sourcecontrol.md)
+* [LUIS DevOps에 대한 테스트](luis-concept-devops-testing.md)
 * [LUIS DevOps에 대 한 자동화 워크플로](luis-concept-devops-automation.md)

@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790849"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거
+# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>REST API를 사용하여 Azure 역할 할당 추가 또는 제거
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]이 문서에서는 REST API를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 REST API를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -58,7 +58,7 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가
 1. URI 내에서 *{scope}* 를 역할 할당에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 형식 |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -72,7 +72,7 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가
 1. 요청 본문 내에서 *{scope}* 를 역할 할당의 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 형식 |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -132,7 +132,7 @@ Azure RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해�
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 형식 |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |

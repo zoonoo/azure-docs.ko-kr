@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88814181"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
@@ -46,13 +46,13 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 다음 스크린샷에 표시 된 것 처럼 **Azure Portal에서 액세스 허용** 옵션을 선택 하 여 Azure Portal에 액세스 하도록 요청할 수 있습니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Azure Portal 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>글로벌 Azure 데이터 센터 또는 Azure 내 다른 원본의 요청 허용
 
 고정 IP를 제공하지 않는 서비스(예: Azure Stream Analytics 및 Azure Functions)에서 Azure Cosmos DB 계정에 액세스하는 경우 IP 방화벽을 사용하여 액세스를 제한할 수 있습니다. 다음 스크린샷에 표시 된 것 처럼 **azure 데이터 센터 내에서 연결 허용** 옵션을 선택 하 여 azure 내의 다른 원본에서 액세스를 사용 하도록 설정할 수 있습니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Azure 데이터 센터에서 연결을 허용 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 
 이 옵션을 사용 하도록 설정 하면 허용 되는 `0.0.0.0` ip 주소 목록에 ip 주소가 추가 됩니다. `0.0.0.0`Ip 주소는 Azure 데이터 센터 ip 범위에서 Azure Cosmos DB 계정에 대 한 요청을 제한 합니다. 이 설정은 Azure Cosmos DB 계정에 대해 다른 IP 범위의 액세스를 허용하지 않습니다.
 
@@ -67,7 +67,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가**를 선택합니다. 그런 다음 **저장**을 선택합니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="현재 IP의 방화벽 설정을 구성하는 방법을 보여주는 스크린샷":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 
 ### <a name="requests-from-cloud-services"></a>클라우드 서비스의 요청
 
@@ -75,7 +75,7 @@ Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계
 
 다음 스크린샷처럼 Azure Portal에서 클라우드 서비스의 IP 주소를 검색할 수 있습니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Azure Portal에 표시된 클라우드 서비스의 공용 IP 주소를 보여주는 스크린샷":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 
 역할 인스턴스를 추가하여 클라우드 서비스를 스케일 아웃할 때 이러한 새 인스턴스는 동일한 클라우드 서비스에 포함되므로 자동으로 Azure Cosmos DB 계정에 대한 액세스 권한을 갖습니다.
 
@@ -85,7 +85,7 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 
 다음 스크린샷처럼 Azure Portal에서 가상 머신의 IP 주소를 검색할 수 있습니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Azure Portal에 표시된 가상 머신의 공용 IP 주소를 보여주는 스크린샷":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 
 그룹에 가상 머신 인스턴스를 추가하면 Azure Cosmos DB 계정에 대한 액세스 권한을 자동으로 부여합니다.
 

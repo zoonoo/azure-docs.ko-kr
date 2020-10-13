@@ -4,10 +4,10 @@ description: 독립 실행형 또는 온-프레미스 Azure Service Fabric 클�
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843161"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정

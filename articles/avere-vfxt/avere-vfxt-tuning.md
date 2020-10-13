@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 5d9f81c9438cb992f81bd3e6319532d67db75552
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272385"
 ---
 # <a name="cluster-tuning"></a>클러스터 튜닝
@@ -34,7 +34,7 @@ ms.locfileid: "88272385"
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>클라우드 NAS 또는 클라우드 게이트웨이 최적화
 
-클라우드 NAS 또는 게이트웨이 시나리오에서 vFXT 클러스터는 클라우드 컨테이너에 대 한 NAS 스타일의 액세스를 제공 합니다. VFXT 클러스터와 클라우드 저장소 간의 데이터 속도를 높이려면 담당자가 캐시에서 저장소 볼륨으로 데이터를 보다 적극적으로 푸시하는 설정을 변경 하는 것이 좋습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+클라우드 NAS 또는 게이트웨이 시나리오에서 vFXT 클러스터는 클라우드 컨테이너에 대 한 NAS 스타일의 액세스를 제공 합니다. VFXT 클러스터와 클라우드 저장소 간의 데이터 속도를 높이려면 담당자가 캐시에서 저장소 볼륨으로 데이터를 보다 적극적으로 푸시하는 설정을 변경 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 * 클러스터와 스토리지 컨테이너 간의 TCP 연결 수를 늘립니다.
 

@@ -4,13 +4,13 @@ description: 사용자 지정 이미지를 공유 이미지 갤러리에 업로�
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712400"
 ---
-# <a name="upload-a-custom-image-to-shared-image-gallery"></a>공유 이미지 갤러리에 사용자 지정 이미지 업로드
+# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Shared Image Gallery에 사용자 지정 이미지 업로드
 
 공유 이미지 갤러리는 Azure Lab Services에서 랩을 만들기 위한 고유한 사용자 지정 이미지를 가져오는 데 사용할 수 있습니다. 대학 IT 부서에서는 다음과 같은 이유로 특히 유용 하 게 사용할 수 있습니다. 
 

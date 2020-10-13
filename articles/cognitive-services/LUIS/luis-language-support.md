@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541393"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
@@ -109,7 +109,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](.
 
 다음 문화권에는 사용자 지정 토크 버전이 있습니다.
 
-|문화권|버전|용도|
+|문화권|버전|목적|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 `Ich fahre einen krankenwagen` utterance으로 들어가면로 설정 됩니다 `Ich fahre einen kranken wagen` . `kranken`및를 `wagen` 다른 엔터티로 독립적으로 표시할 수 있습니다.|
 |독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 `Ich fahre einen krankenwagen` utterance으로 들어가면 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 는 단일 엔터티로 표시 됩니다. |

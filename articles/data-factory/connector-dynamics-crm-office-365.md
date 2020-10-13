@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/23/2020
 ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332103"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
@@ -61,7 +61,7 @@ Dynamics 버전 및 제품에 대해 지원 되는 인증 유형 및 구성의 �
 >[!TIP]
 >Dynamics 365 재무 및 작업에서 데이터를 복사 하려면 [DYNAMICS AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
 
@@ -77,7 +77,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM online
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics online의 경우이 값은 "Online" 이어야 합니다. | 예 |
@@ -174,7 +174,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포트**입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예. |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용 하는 Dynamics 온-프레미스의 경우이 값은 "OnPremisesWithIfd" 이어야 합니다.| 예. |
@@ -220,7 +220,7 @@ Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포
 
 Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 "DynamicsEntity", "DynamicsCrmEntity" 또는 "CommonDataServiceForAppsEntity"로 설정 해야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 작업 원본이 "query"로 지정 되 고 싱크에 대해 예로 지정 된 경우 원본에 대해 아니요 |
@@ -252,7 +252,7 @@ Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원
 
 Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션은 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 "DynamicsSource", "DynamicsCrmSource" 또는 "CommonDataServiceForAppsSource"로 설정 해야 합니다. | 예 |
 | Query | FetchXML은 Dynamics online 및 온-프레미스에서 사용 되는 전용 쿼리 언어입니다. 다음 예제를 참조하세요. 자세히 알아보려면 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조 하세요. | `entityName`데이터 집합에서이 지정 되지 않은 경우 |
@@ -320,7 +320,7 @@ Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션
 
 Dynamics에 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션은 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 "DynamicsSink", "DynamicsCrmSink" 또는 "CommonDataServiceForAppsSink"로 설정 해야 합니다. | 예. |
 | writeBehavior | 작업의 쓰기 동작입니다. 값은 "Upsert" 이어야 합니다. | 예 |

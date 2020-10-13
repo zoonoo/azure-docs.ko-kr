@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541495"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Azure 파일 동기화 서버 엔드포인트 추가/제거
@@ -21,7 +21,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 엔드투엔드 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 서버 엔드포인트를 만들려면 먼저 다음 조건이 충족되는지 확인해야 합니다. 
 - 서버에 Azure 파일 동기화 에이전트가 설치되고 등록되어 있습니다. Azure 파일 동기화 에이전트를 설치하기 위한 지침은 [Azure 파일 동기화에서 서버 등록/등록 취소](storage-sync-files-server-registration.md) 문서를 참조하세요. 
 - 스토리지 동기화 서비스가 배포되었는지 확인합니다. 스토리지 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요. 
@@ -73,5 +73,5 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화에 서버 등록/등록 취소](storage-sync-files-server-registration.md)
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

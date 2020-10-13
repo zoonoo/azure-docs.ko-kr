@@ -4,10 +4,10 @@ description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488646"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
@@ -102,7 +102,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 다음 표에서는 ACR 작업에 대해 지원 되는 컨텍스트 위치의 예를 보여 줍니다.
 
-| 컨텍스트 위치 | Description | 예제 |
+| 컨텍스트 위치 | 설명 | 예 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | 공용 또는 개인 GitHub 리포지토리의 마스터 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |

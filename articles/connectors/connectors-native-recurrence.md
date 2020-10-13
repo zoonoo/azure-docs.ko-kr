@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: 8706ae12d45b9c6667ae99078d479f0e907840fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87007558"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Azure Logic Apps 되풀이 트리거를 사용 하 여 되풀이 작업 및 워크플로를 만들고 예약 하 고 실행 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "87007558"
 > [!TIP]
 > 논리 앱을 트리거하고 나중에 한 번만 실행 하려는 경우 [한 번만 실행 작업](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 

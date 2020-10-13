@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84792095"
 ---
 REST API [Endpoint Health 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 Health 상태 를 가져올 수 있습니다. 끝점이 이러한 상태 중 하나에 있을 때 대기 시간이 더 길어질 수 있으므로, 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](../articles/iot-hub/iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다.

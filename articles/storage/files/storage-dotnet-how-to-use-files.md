@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fbfc347e1b514f9f59e2f238d2b1bfbaf59f2172
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710705"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
@@ -50,7 +50,7 @@ API | 사용 시기 | 메모
 
 Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2019에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
 
-1. Visual Studio를 시작하고, **새 프로젝트 만들기**를 선택합니다.
+1. Visual Studio를 시작하고 **새 프로젝트 만들기**를 선택합니다.
 1. **새 프로젝트 만들기**에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
 1. **새 프로젝트 구성**에서 앱의 이름을 입력 하 고 **만들기**를 선택 합니다.
 
@@ -627,7 +627,7 @@ Azure Files에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 - [AzCopy 시작](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 - [Windows에서 Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>참고
+### <a name="reference"></a>참조
 
 - [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)
 - [File Service REST API](/rest/api/storageservices/File-Service-REST-API)

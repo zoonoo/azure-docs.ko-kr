@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764046"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
@@ -78,7 +78,7 @@ ms.locfileid: "84764046"
 Azure에서 리소스를 만드는 Api에는 두 가지 방법이 있습니다.
 
 * 명령적 Api는 한 번에 하나의 리소스를 만듭니다. 자세한 내용은 [리소스](/rest/api/resources/resources)를 참조하세요.
-* 단일 API 호출을 사용 하 여 여러 종속 리소스를 만드는 템플릿 기반 배포 시스템입니다. 자세한 내용은 [리소스 관리자 템플릿 및 Azure PowerShell를 사용 하 여 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조 하세요.
+* 단일 API 호출을 사용 하 여 여러 종속 리소스를 만드는 템플릿 기반 배포 시스템입니다. 자세한 내용은  [리소스 관리자 템플릿 및 Azure PowerShell를 사용 하 여 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조 하세요.
 
 템플릿 기반 배포는 매개 변수화 및 템플릿을 지원 합니다. 이 문서에서는이 방법을 사용 합니다.
 

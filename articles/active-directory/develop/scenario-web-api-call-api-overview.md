@@ -12,17 +12,17 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91257166"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>시나리오: web Api를 호출 하는 web API
 
 Web Api를 호출 하는 web API를 빌드하기 위해 알아야 할 내용을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 보호 된 웹 API가 다른 웹 Api를 호출 하는이 시나리오는 [시나리오: 보호 된 WEB API](scenario-protected-web-api-overview.md)를 기반으로 합니다.
 

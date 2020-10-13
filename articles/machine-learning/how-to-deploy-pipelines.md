@@ -12,10 +12,10 @@ ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302386"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Machine learning 파이프라인 게시 및 추적
@@ -26,7 +26,7 @@ ms.locfileid: "91302386"
 
 Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수 있는 워크플로입니다. 파이프라인의 장점 중 하나는 공동 작업입니다. 또한 새 버전에서 작업 하는 동안 고객이 현재 모델을 사용할 수 있도록 파이프라인의 버전을 지정할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 모든 파이프라인 리소스를 저장할 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md) 을 만듭니다.
 
@@ -87,7 +87,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 `json`POST 요청에 대 한 인수에는 키의 경우 `ParameterAssignments` 파이프라인 매개 변수 및 해당 값이 포함 된 사전이 포함 되어야 합니다. 또한 인수에는 `json` 다음 키가 포함 될 수 있습니다.
 
-| 키 | Description |
+| Key | 설명 |
 | --- | --- | 
 | `ExperimentName` | 이 끝점과 연결 된 실험의 이름입니다. |
 | `Description` | 끝점을 설명 하는 자유형 텍스트 | 

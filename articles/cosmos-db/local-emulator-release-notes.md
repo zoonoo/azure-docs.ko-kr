@@ -2,16 +2,16 @@
 title: Azure Cosmos Emulator 다운로드 및 릴리스 정보
 description: 다양한 버전에 대한 Azure Cosmos 에뮬레이터 릴리스 정보를 가져오고 정보를 다운로드합니다.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/21/2020
+ms.openlocfilehash: f2a40744053ccc804b2513faf1bc2879d4fde902
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083460"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777176"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -26,11 +26,22 @@ ms.locfileid: "86083460"
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name="2112-07072020"></a>2.11.2(2020/07/07)
+### <a name="2116-6-october-2020"></a>2.11.6(2020년 10월 6일)
+
+ - 이 릴리스는 동시에 여러 컨테이너를 만들 수 있는 경우 동시성 관련 문제를 해결합니다. 이러한 경우 에뮬레이터의 데이터가 손상된 상태로 유지되고 에뮬레이터의 엔드포인트에 대한 후속 API 요청이 "서비스 사용 불가" 오류와 함께 실패할 수 있으며 에뮬레이터의 로컬 데이터를 다시 시작하고 재설정해야 할 수 있습니다.
+
+### <a name="2115-23-august-2020"></a>2.11.5(2020년 8월 23일)
+
+이 릴리스에는 다음과 같은 두 개의 새로운 Cosmos 에뮬레이터 시작 옵션이 추가되었습니다. 
+
+* "/EnablePreview" - 에뮬레이터의 미리 보기 기능을 사용하도록 설정합니다. 아직 개발 중인 미리 보기 기능은 CI 및 샘플 작성을 통해 액세스할 수 있습니다.
+* "/EnableAadAuthentication" - 에뮬레이터에서 Azure Cosmos 기본 키에 대한 대안으로 사용자 지정 Azure Active Directory 토큰을 허용할 수 있습니다. 이 기능은 아직 개발 중입니다. 특정 역할 할당 및 기타 권한 관련 설정은 현재 지원되지 않습니다.
+
+### <a name="2112-07-july-2020"></a>2.11.2(2020년 7월 7일)
 
 - 이 릴리스는 Cosmos 에뮬레이터 문제를 해결할 때 필요한 ETL 추적을 수집하는 방법을 변경합니다. 이제 ETL 기반 추적을 캡처하는 기본 도구는 WPR(Windows Performance Runtime 도구)이며, 이전 LOGMAN 기반 캡처는 더 이상 사용되지 않습니다. 최신 Windows 보안 업데이트가 Cosmos 에뮬레이터를 통해 실행될 때 LOGMAN 작동 방식에 예기치 않은 영향을 주기 때문에 이러한 변경이 부분적으로 필요합니다.
 
-### <a name="2111-06102020"></a>2.11.1(2020/06/10)
+### <a name="2111-10-june-2020"></a>2.11.1(2020년 6월 10일)
 
 - 이 릴리스는 에뮬레이터 데이터 탐색기와 관련된 몇 가지 버그를 수정합니다. 웹 브라우저를 통해 에뮬레이터 데이터 탐색기를 사용할 때 Cosmos 에뮬레이터 엔드포인트에 연결하지 못하고 데이터베이스 또는 컨테이너 생성과 같은 모든 관련 작업에 오류가 발생하는 경우가 있습니다. 수정된 두 번째 문제는 데이터 탐색기 업로드 동작을 사용하여 JSON 파일에서 항목을 만드는 것과 관련이 있습니다.
 
