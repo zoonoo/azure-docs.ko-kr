@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494488"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Azure Data Box 및 Azure Data Box Heavy 내보내기 주문에 대 한 추적 및 이벤트 로깅
@@ -190,7 +190,7 @@ NIST SP 800-88 수정 1 지침에 따라 Data Box 디스크에서 데이터를 �
 
 ### <a name="chain-of-custody-audit-logs"></a>관리 권의 감사 로그 체인
 
-관리 권의 감사 로그 체인에는 Azure 데이터 센터 외부에 있을 때 Data Box 또는 Data Box Heavy의 공유 전원을 켜고 액세스 하는 방법에 대 한 정보가 포함 되어 있습니다. 이러한 로그는 다음 위치에 있습니다.`storage-account/azuredatabox-chainofcustodylogs`
+관리 권의 감사 로그 체인에는 Azure 데이터 센터 외부에 있을 때 Data Box 또는 Data Box Heavy의 공유 전원을 켜고 액세스 하는 방법에 대 한 정보가 포함 되어 있습니다. 이러한 로그는 다음 위치에 있습니다. `storage-account/azuredatabox-chainofcustodylogs`
 
 다음은 Data Box의 감사 로그 샘플입니다.
 

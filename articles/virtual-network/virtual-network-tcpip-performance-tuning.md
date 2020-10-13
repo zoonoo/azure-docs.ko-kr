@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068521"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 TCP/IP 성능 튜닝
@@ -125,7 +125,7 @@ Azure의 경우 TCP MSS 고정을 1350 바이트 및 터널 인터페이스 MTU�
 
 네트워크 대기 시간은 파이버 광 네트워크에서의 빛 속도에 따라 결정 됩니다. 또한 TCP의 네트워크 처리량은 두 네트워크 장치 간의 RTT (왕복 시간)에 의해 효과적으로 관리 됩니다.
 
-| 라우팅 | 거리 | 단방향 시간 | RTT |
+| 경로 | 거리 | 단방향 시간 | RTT |
 | ----- | -------- | ------------ | --- |
 |뉴욕 ~ 샌프란시스코|4148 km|21ms|42 밀리초|
 |뉴욕 ~ 런던|5585 km|28 밀리초|56 밀리초|
@@ -210,7 +210,7 @@ Get-NetTCPConnection
 Get-NetTCPSetting
 ```
 
-PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은 [NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
+PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은  [NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
 
 ```powershell
 Set-NetTCPSetting
@@ -220,7 +220,7 @@ Set-NetTCPSetting
 
 | AutoTuningLevel | 배율 인수 | 승수 크기 조정 | 수식<br/>최대 창 크기 계산 |
 | --------------- | -------------- | ------------------ | -------------------------------------------- |
-|사용 안 함|None|None|창 크기|
+|사용 안 함|없음|없음|창 크기|
 |제한|4|2 ^ 4|창 크기 * (2 ^ 4)|
 |매우 제한|2|2 ^ 2|창 크기 * (2 ^ 2)|
 |보통|8|2 ^ 8|창 크기 * (2 ^ 8)|

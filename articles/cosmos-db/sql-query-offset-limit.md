@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432721"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 오프셋 제한 절
@@ -43,7 +43,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
   `OFFSET LIMIT`항목 전체를 건너뛰고 클라이언트 리소스를 저장 하려는 경우에는를 사용 해야 합니다. 예를 들어, `OFFSET LIMIT` 1000th 쿼리 결과로 건너뛰려면 결과 1 ~ 999을 볼 필요가 없는 경우를 사용 해야 합니다. 백 엔드에서는 `OFFSET LIMIT` 건너뛴 항목을 포함 하 여 각 항목을 로드 합니다. 성능 이점은 필요 하지 않은 처리 항목을 방지 하 여 클라이언트 리소스를 절약할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예를 들어 다음은 첫 번째 값을 건너뛰고 두 번째 값 (상주 도시 이름 순)을 반환 하는 쿼리입니다.
 

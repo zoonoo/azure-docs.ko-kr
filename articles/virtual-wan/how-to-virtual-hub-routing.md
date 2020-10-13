@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313691"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>가상 허브 라우팅을 구성하는 방법
@@ -30,9 +30,9 @@ ms.locfileid: "91313691"
 3. **+ 경로 테이블 만들기** 를 선택 하 여 **경로 테이블 만들기** 페이지를 엽니다.
 4. 경로 테이블 만들기 페이지 **기본 사항** 탭에서 다음 필드를 완료 합니다.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="기본 사항 탭":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="라우팅 페이지":::
 
-   * **Name**
+   * **이름**
    * **경로**
    * **경로 이름**
    * **대상 유형**
@@ -41,20 +41,20 @@ ms.locfileid: "91313691"
 
      가상 네트워크 연결을 선택 하는 경우 **고정 경로 구성**이 표시 됩니다. 이는 선택적 구성 설정입니다. 자세한 내용은 [정적 경로 구성](about-virtual-hub-routing.md#static)을 참조 하세요.
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="다음 홉":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="라우팅 페이지":::
 
 5. **레이블 탭을** 선택 하 여 레이블 이름을 구성 합니다. 레이블은 경로 테이블을 논리적으로 그룹화 하는 메커니즘을 제공 합니다.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="레이블 이름 구성":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="라우팅 페이지":::
 
 6. 연결 탭 **을 선택 하 여 연결** 을 경로 테이블에 연결 합니다.
 **분기**, **가상 네트워크**및 연결의 **현재 설정이** 표시 됩니다.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="경로 테이블에 대 한 연결 연결":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="라우팅 페이지":::
 
 7. **전파** 탭을 선택 하 여 연결의 경로를 경로 테이블에 전파 합니다.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="경로 전파":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="라우팅 페이지":::
 
 8. **만들기** 를 선택 하 여 경로 테이블을 만듭니다.
 
@@ -70,7 +70,7 @@ Azure Portal에서 가상 허브의 경로 테이블을 찾습니다. 기본 또
 
 Azure Portal에서 가상 허브의 경로 테이블을 찾습니다. **"..."** 를 클릭 하 고 **유효 경로** 를 선택 하 여 선택한 경로 테이블에 의해 학습 된 경로를 확인 합니다. 경로 테이블에 대 한 연결의 전파 된 경로는 경로 테이블의 **유효 경로** 에 자동으로 채워집니다. 자세한 내용은 [유효 경로 정보](effective-routes-virtual-hub.md)를 참조 하세요.
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="유효 경로 보기" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="라우팅 페이지" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>가상 네트워크 연결에 대 한 라우팅 구성을 설정 하려면
 
@@ -82,7 +82,7 @@ Azure Portal에서 가상 허브의 경로 테이블을 찾습니다. **"..."** 
 1. **고정 경로의**경우 네트워크 가상 어플라이언스에 대 한 고정 경로 (해당 하는 경우)를 구성 합니다. 가상 WAN은 가상 네트워크 연결의 고정 경로에 대 한 다음 홉 IP 하나를 지원 합니다. 예를 들어 수신 및 송신 트래픽 흐름에 대 한 별도의 가상 어플라이언스를 보유 한 경우 별도의 Vnet에 가상 어플라이언스를 포함 하 고 Vnet를 가상 허브에 연결 하는 것이 가장 좋습니다.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="라우팅 구성 설정" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="라우팅 페이지" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

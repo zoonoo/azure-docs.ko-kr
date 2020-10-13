@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85130418"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
@@ -46,7 +46,7 @@ ms.locfileid: "85130418"
 
 * [여기](how-to-specify-source-language.md)에서 사용자 지정 모델을 사용 하는 방법을 알아보세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

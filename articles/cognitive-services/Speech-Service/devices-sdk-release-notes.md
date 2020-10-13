@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
 ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212499"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
@@ -82,7 +82,7 @@ ms.locfileid: "85212499"
 
 - [키워드를 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 하는 것은 간소화 되었으므로 이제 앱의 일부 이며 장치에 별도로 설치할 필요가 없습니다.
 - 키워드 인식이 변경 되었으며 두 개의 이벤트가 지원 됩니다.
-  - `RecognizingKeyword,`음성 결과에 (확인 되지 않은) 키워드 텍스트가 포함 되어 있음을 나타냅니다.
+  - `RecognizingKeyword,` 음성 결과에 (확인 되지 않은) 키워드 텍스트가 포함 되어 있음을 나타냅니다.
   - `RecognizedKeyword`는 키워드 인식이 지정 된 키워드를 인식 하 여 완료 되었음을 나타냅니다.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>음성 장치 SDK 1.1.0:2018-11 월 릴리스

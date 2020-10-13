@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932885"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기본 검색 인덱스 만들기
@@ -169,7 +169,7 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
 
 ### <a name="data-types"></a>데이터 형식
 
-| Type | Description |
+| 형식 | Description |
 |------|-------------|
 | Edm.String |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
 | Collection(Edm.String) |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
@@ -190,7 +190,7 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
 
 문자열 필드는 "검색 가능" 및 "검색 가능"으로 표시 되는 경우가 많습니다. 검색 결과의 범위를 좁히는 데 사용 되는 필드에는 "정렬 가능한", "필터링 가능" 및 "패싯 가능"가 포함 됩니다.
 
-|특성|Description|  
+|attribute|설명|  
 |---------------|-----------------|  
 |가능한 |전체 텍스트 검색 가능하며, 인덱싱 중에 단어 분리 등의 어휘 분석이 적용됩니다. 검색 가능 필드를 “sunny day” 등의 값으로 설정하면 내부적으로 해당 필드가 개별 토큰 “sunny”와 “day”로 분할됩니다. 자세한 내용은 [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)을 참조하세요.|  
 |가능 |$filter 쿼리에서 참조됩니다. 형식이 `Edm.String` 또는 `Collection(Edm.String)`인 필터링 가능 필드의 경우 단어 분리가 수행되지 않으므로 정확하게 일치하는 항목만 비교합니다. 예를 들어 이러한 필드 f를 “sunny day”로 설정하면 `$filter=f eq 'sunny'`에서는 일치하는 항목이 발견되지 않지만 `$filter=f eq 'sunny day'`에서는 일치하는 항목이 발견됩니다. |  

@@ -4,10 +4,10 @@ description: Azure Advisor를 사용 하 여 업무상 중요 한 Azure 배포�
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405193"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 응용 프로그램의 안정성 향상
@@ -112,8 +112,8 @@ Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하�
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>최신 버전 Azure Connected Machine 에이전트로 업그레이드
 [Azure 연결 된 컴퓨터 에이전트](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) 는 버그 수정, 안정성 향상 및 새로운 기능을 통해 정기적으로 업데이트 됩니다. 최신 버전의 컴퓨터 에이전트에서 작동 하지 않는 리소스를 식별 했으며,이 Advisor 권장 사항은 최상의 Azure Arc 환경을 위해 에이전트를 최신 버전으로 업그레이드 하는 것을 제안 합니다.
 
-## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>웹 사이트 무결성을 보장 하기 위해 호스트 이름을 재정의 하지 마십시오.
-Advisor Application Gateway를 구성할 때 호스트 이름을 재정의 하지 않는 것이 좋습니다. 백 엔드에 액세스 하는 데 사용 되는 것 보다 Application Gateway 프런트 엔드에서 다른 도메인을 사용 하면 쿠키 또는 리디렉션 url이 손상 될 수 있습니다. 이는 모든 상황에서 발생 하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주 (예: REST API)가이에 대 한 중요 한 영향을 받지 않습니다. 백 엔드가이를 처리 하거나 Application Gateway 구성을 업데이트할 수 있도록 하 여 백 엔드에 대 한 호스트 이름을 덮어쓸 필요가 없는지 확인 하세요. App Service와 함께 사용 하는 경우 웹 앱에 사용자 지정 도메인 이름을 연결 하 고 *백 엔드에 대 한 azurewebsites.net 호스트 이름을* 사용 하지 않습니다. [사용자 지정 도메인에 대해 자세히 알아보세요](https://aka.ms/appgw-advisor-usecustomdomain).
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>웹 사이트 무결성을 보장하기 위해 호스트 이름을 재정의하지 마세요.
+Advisor Application Gateway를 구성할 때 호스트 이름을 재정의 하지 않는 것이 좋습니다. Application Gateway 프런트 엔드에 백 엔드에 액세스하는 데 사용되는 도메인과 다른 도메인이 있으면 쿠키 또는 리디렉션 URL이 손상될 수 있습니다. 이는 모든 상황에서 발생하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주(예: REST API)는 이에 대해 영향을 적게 받습니다. 백 엔드에 대한 호스트 이름을 덮어쓸 필요가 없도록 백 엔드가 이를 처리하거나 Application Gateway 구성을 업데이트할 수 있는지 확인하세요. App Service와 함께 사용 하는 경우 웹 앱에 사용자 지정 도메인 이름을 연결 하 고 *백 엔드에 대 한 azurewebsites.net 호스트 이름을* 사용 하지 않습니다. [사용자 지정 도메인에 대해 자세히 알아보세요](https://aka.ms/appgw-advisor-usecustomdomain).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스 하는 방법
 

@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
 ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513379"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>FHIR (미리 보기) 데이터 흐름에 대 한 Azure IoT 커넥터
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector for FHIR(미리 보기) 데이터 흐름
 
 이 문서에서는 FHIR * 용 Azure IoT 커넥터의 데이터 흐름에 대 한 개요를 제공 합니다. 장치 데이터를 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환 하는 Azure IoT 커넥터 내에서 다양 한 데이터 처리 단계에 대해 알아봅니다.
 
-![FHIR 데이터 흐름에 대 한 Azure IoT 커넥터](media/concepts-iot-data-flow/iot-connector-data-flow.png)
+![Azure IoT Connector for FHIR 데이터 흐름](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
 위의 다이어그램에서는 FHIR 용 Azure IoT 커넥터를 사용 하는 일반적인 데이터 흐름을 보여 줍니다. 
 
@@ -36,7 +36,7 @@ ms.locfileid: "87513379"
 
 정규화 프로세스는 이후 단계에서 데이터 처리를 간소화할 뿐만 아니라 하나의 입력 메시지를 여러 정규화 된 메시지로 프로젝션 하는 기능도 제공 합니다. 예를 들어 장치는 단일 메시지에서 본문 온도, 펄스 율, 혈압 및 respiration 요금에 대 한 여러 가지 중요 한 기호를 보낼 수 있습니다. 이 입력 메시지는 4 개의 별도의 FHIR 리소스를 만듭니다. 각 리소스는 서로 다른 중요 한 기호를 나타내며, 입력 메시지는 서로 다른 4 개의 정규화 된 메시지에 프로젝션 됩니다.
 
-## <a name="group"></a>그룹화
+## <a name="group"></a>그룹
 그룹은 이전 단계에서 사용할 수 있는 정규화 된 메시지가 장치 id, 측정 유형 및 기간 이라는 세 가지 매개 변수를 사용 하 여 그룹화 되는 다음 단계입니다.
 
 장치 id 및 측정 유형 그룹화에서는 [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData) 측정 유형을 사용할 수 있습니다. 이 형식은 FHIR에서 장치에 대 한 시간 기반 일련의 측정을 나타내는 간결한 방법을 제공 합니다. 및 기간은 FHIR 용 Azure IoT 커넥터에서 생성 되는 관찰 리소스가 FHIR 용 Azure API에 기록 되는 대기 시간을 제어 합니다.
@@ -62,8 +62,8 @@ ms.locfileid: "87513379"
 다음 단계를 클릭 하 여 장치 및 FHIR 매핑 템플릿을 만드는 방법을 알아봅니다.
 
 >[!div class="nextstepaction"]
->[FHIR 매핑 템플릿에 대 한 Azure IoT 커넥터](iot-mapping-templates.md)
+>[Azure IoT Connector for FHIR 매핑 템플릿](iot-mapping-templates.md)
 
-* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다.
+*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
 
 FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.

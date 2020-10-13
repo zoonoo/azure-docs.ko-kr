@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201364"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -42,13 +42,13 @@ ms.locfileid: "85201364"
 
 **ClaimType** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **ClaimType** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | 다양한 화면에서 사용자에게 표시되는 제목입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | DataType | 1:1 | 클레임의 형식입니다. |
@@ -66,16 +66,16 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DataType** 요소는 다음 값을 지원 합니다.
 
-| 형식 | 설명 |
+| 유형 | Description |
 | ------- | ----------- |
 |boolean|부울(`true` 또는 `false`) 값을 나타냅니다.|
 |date| 일반적으로 날짜로 표시 되는 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
-|dateTime|일반적으로 날짜와 시간으로 표현된 시간의 한 순간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
-|duration|년, 월, 일, 시, 분, 초의 시간 간격을 나타냅니다. 의 형식은입니다 `PnYnMnDTnHnMnS` . 여기서는 `P` 양수 또는 `N` 음수 값을 나타냅니다. `nY`리터럴 뒤에 오는 연도 수입니다 `Y` . `nMo`뒤에 리터럴이 오는 월 수입니다 `Mo` . `nD`뒤에 리터럴이 있는 일 수입니다 `D` . 예: `P21Y` 21 년을 나타냅니다. `P1Y2Mo`1 년 및 2 개월을 나타냅니다. `P1Y2Mo5D`1 년, 2 개월 및 5 일을 나타냅니다.  `P1Y2M5DT8H5M620S`1 년, 2 개월, 5 일, 8 시간, 5 분, 20 초를 나타냅니다.  |
+|dateTime|일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
+|duration|년, 월, 일, 시, 분, 초의 시간 간격을 나타냅니다. 의 형식은입니다 `PnYnMnDTnHnMnS` . 여기서는 `P` 양수 또는 `N` 음수 값을 나타냅니다. `nY` 리터럴 뒤에 오는 연도 수입니다 `Y` . `nMo` 뒤에 리터럴이 오는 월 수입니다 `Mo` . `nD` 뒤에 리터럴이 있는 일 수입니다 `D` . 예: `P21Y` 21 년을 나타냅니다. `P1Y2Mo` 1 년 및 2 개월을 나타냅니다. `P1Y2Mo5D` 1 년, 2 개월 및 5 일을 나타냅니다.  `P1Y2M5DT8H5M620S` 1 년, 2 개월, 5 일, 8 시간, 5 분, 20 초를 나타냅니다.  |
 |phoneNumber|전화 번호를 나타냅니다. |
 |int| -2147483648과 2147483647 사이의 숫자를 나타냅니다.|
 |long| -9223372036854775808에서 9223372036854775807 사이의 숫자를 나타냅니다. |
-|string| 텍스트를 UTF-16 코드 단위의 시퀀스로 나타냅니다.|
+|문자열| 텍스트를 UTF-16 코드 단위의 시퀀스로 나타냅니다.|
 |stringCollection|`string`의 컬렉션을 나타냅니다.|
 |userIdentity| 사용자 id를 나타냅니다.|
 |userIdentityCollection|`userIdentity`의 컬렉션을 나타냅니다.|
@@ -90,7 +90,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
@@ -125,7 +125,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Mask** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
 | `Regex` | 아니요 | **`Type`** 가로 설정 된 경우 `Regex` 사용할 정규식을 지정 합니다.
@@ -165,16 +165,16 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Restriction** 요소는 다음 특성을 포함할 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | MergeBehavior | 아니요 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
-| 무늬 | 1:1 | 사용할 정규식입니다. |
+| 패턴 | 1:1 | 사용할 정규식입니다. |
 
 #### <a name="enumeration"></a>열거형
 
@@ -182,7 +182,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
@@ -207,11 +207,11 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ![드롭다운 컨트롤이 브라우저에서 렌더링 되었으며 기본값을 표시 합니다.](./media/claimsschema/dropdownsingleselect.png)
 
-### <a name="pattern"></a>무늬
+### <a name="pattern"></a>패턴
 
 **Pattern** 요소는 다음 특성을 포함할 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
 | HelpText | 아니요 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
@@ -243,7 +243,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 **Userinputtype** 요소 사용 가능한 사용자 입력 형식:
 
-| UserInputType | 지원 되는 ClaimType | 설명 |
+| UserInputType | 지원 되는 ClaimType | Description |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |다중 선택 드롭다운 상자입니다. 클레임 값은 선택한 값의 쉼표 구분 기호 문자열로 표시 됩니다. |
 |DateTimeDropdown | `date`, `dateTime` |일, 월 및 연도를 선택 하는 드롭다운입니다. |

@@ -9,10 +9,10 @@ ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500303"
 ---
 # <a name="supported-authentication-methods"></a>지원 되는 인증 방법
@@ -47,7 +47,7 @@ Windows 가상 데스크톱은 세션 호스트 인증을 위해 NTLM (NT LAN Ma
 
 Windows 가상 데스크톱은 Active Directory Federation Services (ADFS)를 사용 하 여 페더레이션된를 포함 하 여 Azure Active Directory (AD)를 통해 [하이브리드 id](../active-directory/hybrid/whatis-hybrid-identity.md) 를 지원 합니다. 사용자가 Azure AD를 통해 검색할 수 있어야 하기 때문에 Windows 가상 데스크톱은 ADFS를 사용 하 여 독립 실행형 Active Directory 배포를 지원 하지 않습니다.
 
-## <a name="single-sign-on-sso"></a>SSO (Single sign-on)
+## <a name="single-sign-on-sso"></a>SSO(Single Sign-On)
 
 Windows 가상 데스크톱은 현재 SSO에 대 한 Active Directory Federation Services (ADFS)를 지원 하지 않습니다.
 

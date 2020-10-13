@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
 ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498857"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
@@ -93,7 +93,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 - **사용자 정의 함수 확장 함수**: 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 [사용자 정의 함수로](sql-query-udfs.md)의 변환을 지원 합니다.
 - **기타**: `Coalesce` 및 조건부 [연산자](sql-query-operators.md)의 변환을 지원 합니다. 는 `Contains` 컨텍스트에 따라 STRING CONTAINS, ARRAY_CONTAINS 또는 IN으로 변환할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예에서는 표준 LINQ 쿼리 연산자 중 일부가 Azure Cosmos DB의 쿼리로 변환 되는 방법을 보여 줍니다.
 

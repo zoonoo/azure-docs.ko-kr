@@ -4,10 +4,10 @@ description: Azure Portal 및 Azure 리소스 관리를 사용 하 여 구독의
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85255265"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal
@@ -95,7 +95,7 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 
 1. **GitHub 빠른 시작 템플릿 로드**에서 **101-저장소-계정 만들기**를 입력 하거나 선택 합니다.
 
-    다음 두 가지 옵션을 사용할 수 있습니다.
+    다음과 같은 두 가지 옵션이 있습니다.
 
     - **템플릿 선택**: 템플릿 배포
     - **템플릿 편집**: 빠른 시작 템플릿을 배포 하기 전에 편집 합니다.

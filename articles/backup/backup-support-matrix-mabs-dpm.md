@@ -4,10 +4,10 @@ description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 Sys
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332698"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
@@ -85,7 +85,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](/system-center/dpm/prepare-environment-for-dpm#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어 있어야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
 **스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
-**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아봅니다](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> 복원 해야 하므로 MABS 데이터베이스를 백업 해야 합니다.
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack의 MABS 지원
@@ -102,7 +102,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **MABS의 .NET Framework** | MABS VM에 .NET Framework 3.3 SP1 이상이 설치 되어 있어야 합니다.
 **MABS 도메인** | MABS VM은 도메인에 가입되어 있어야 합니다. 관리자 권한이 있는 도메인 사용자는 VM에 MABS를 설치해야 합니다.
 **Azure Stack VM 데이터 백업** | 파일, 폴더 및 앱을 백업할 수 있습니다.
-**지원되는 백업** | 이러한 운영 체제는 백업 하려는 Vm에 대해 지원 됩니다.<br/><br/> Windows Server 반기 채널 (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**지원되는 백업** | 이러한 운영 체제는 백업 하려는 Vm에 대해 지원 됩니다.<br/><br/> Windows Server Semi-Annual 채널 (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **Azure Stack Vm에 대 한 SQL Server 지원** | SQL Server 2016, SQL Server 2014 SQL Server 2012 SP1을 백업 합니다.<br/><br/> 데이터베이스 백업 및 복구
 **Azure Stack VM에 대한 SharePoint 지원** | Sharepoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> 팜, 데이터베이스, 프런트 엔드 및 웹 서버를 백업 하 고 복구 합니다.
 **백업한 VM에 대한 네트워크 요구 사항** | Azure Stack 워크 로드의 모든 Vm은 동일한 가상 네트워크에 속해야 하며 동일한 구독에 속해야 합니다.
@@ -146,7 +146,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 
 백업이 제대로 작동하고 Azure 구독이 활성화되려면 Azure Backup 서비스에 연결되어야 합니다. 다음 표에서는 이러한 두 가지 조건이 충족되지 않을 경우에 발생하는 동작을 보여 줍니다.
 
-**MABS-Azure 연결** | **구독** | **Backup/복원**
+**MABS-Azure 연결** | **구독** | **백업/복원**
 --- | --- | ---
 연결됨 | Active | DPM/MABS 디스크에 백업 합니다.<br/><br/> Azure에 백업 합니다.<br/><br/> 디스크에서 복원<br/><br/> Azure에서 복원.
 연결됨 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 된 경우 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.

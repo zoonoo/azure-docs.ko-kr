@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 90d3ff807275c74ce4495c5631ab913971ebe3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4599f4e3ca291c312c99e938b237d1eb9cd9d407
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513012"
+ms.locfileid: "91929283"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 
@@ -34,9 +34,9 @@ Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azu
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Azure NetApp Files REST API 액세스  
 
-1. 아직 설치하지 않은 경우 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
+1. 아직 설치하지 않은 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
 2. Azure AD(Azure Active Directory)에 서비스 주체를 만듭니다.
-   1. [충분한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)이 있는지 확인합니다.
+   1. [충분한 권한](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)이 있는지 확인합니다.
 
    2. Azure CLI에서 다음 명령을 입력합니다. 
     
@@ -203,4 +203,4 @@ curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure NetApp Files REST API 참조 문서 참조](https://docs.microsoft.com/rest/api/netapp/)
+[Azure NetApp Files REST API 참조 문서 참조](/rest/api/netapp/)
