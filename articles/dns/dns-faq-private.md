@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308438"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
@@ -20,7 +20,7 @@ Azure 개인 DNS에 대 한 질문과 대답은 다음과 같습니다.
 
 ## <a name="does-azure-dns-support-private-domains"></a>Azure DNS에서는 프라이빗 도메인을 지원하나요?
 
-개인 도메인은 Azure 사설 DNS 영역 기능을 사용 하 여 지원 됩니다. 사설 DNS 영역은 지정 된 가상 네트워크 내 에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
+개인 도메인은 Azure 사설 DNS 영역 기능을 사용 하 여 지원 됩니다. 사설 DNS 영역은 지정 된 가상 네트워크 내 에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조 하세요.
 
 Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 인스턴스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조 하세요.
 

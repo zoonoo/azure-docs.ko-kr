@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539200"
+ms.locfileid: "91874342"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -223,6 +223,7 @@ IP 주소는 **Azure 환경**으로 구분됩니다. **글로벌** 로 표시 �
 | Azure 공용| 캐나다 동부| 52.139.80.117|
 | Azure 공용| 아랍에미리트 북부| 20.46.144.85|
 | Azure 공용| 브라질 남부| 191.233.24.179|
+| Azure 공용| 브라질 남동쪽| 191.232.18.181|
 | Azure 공용| 동남아시아| 40.90.185.46|
 | Azure 공용| 남아프리카 북부| 102.133.130.197|
 | Azure 공용| 캐나다 중부| 52.139.20.34|

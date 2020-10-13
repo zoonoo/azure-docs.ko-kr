@@ -13,10 +13,10 @@ ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
 ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443990"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics를 사용한 조건부 액세스
@@ -27,7 +27,7 @@ ms.locfileid: "91443990"
 
 다음 단계에서는 Azure SQL Database, SQL Managed Instance 또는 Azure Synapse를 구성 하 여 조건부 액세스 (CA) 정책을 적용 하는 방법을 보여 줍니다.  
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Active Directory (Azure AD) 인증을 지원 하기 위해 Azure Synapse에서 Azure SQL Database, Azure SQL Managed Instance 또는 Azure SQL 풀을 구성 해야 합니다. 특정 단계는 [SQL Database 또는 Azure Synapse를 사용 하 여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md)를 참조 하세요.  
 - Multi-Factor Authentication 사용 하도록 설정 된 경우 최신 SQL Server Management Studio (SSMS)와 같은 지원 되는 도구를 사용 하 여 연결 해야 합니다. 자세한 내용은 [SQL Server Management Studio에 대한 Azure SQL Database 다단계 인증 구성](authentication-mfa-ssms-configure.md)을 참조하세요.  

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893789"
 ---
 # <a name="filter-based-feature-selection"></a>필터 기반 기능 선택
@@ -36,7 +36,7 @@ ms.locfileid: "90893789"
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>기능 선택 메트릭을 선택 하는 방법
 
-필터 기반 기능 선택 모듈은 각 열의 정보 값을 평가 하기 위한 다양 한 메트릭을 제공 합니다. 이 섹션에서는 각 메트릭에 대 한 일반적인 설명과이를 적용 하는 방법을 제공 합니다. [기술 정보](#technical-notes) 및 각 모듈을 구성 하는 방법에 대 한 [지침](#how-to-configure-filter-based-feature-selection) 에서 각 메트릭을 사용 하기 위한 추가 요구 사항을 찾을 수 있습니다.
+Filter-Based 기능 선택 모듈은 각 열의 정보 값을 평가 하기 위한 다양 한 메트릭을 제공 합니다. 이 섹션에서는 각 메트릭에 대 한 일반적인 설명과이를 적용 하는 방법을 제공 합니다. [기술 정보](#technical-notes) 및 각 모듈을 구성 하는 방법에 대 한 [지침](#how-to-configure-filter-based-feature-selection) 에서 각 메트릭을 사용 하기 위한 추가 요구 사항을 찾을 수 있습니다.
 
 -   **피어슨 상관 관계**  
 
@@ -52,11 +52,11 @@ ms.locfileid: "90893789"
 > [!TIP]
 > 사용자 지정 기능 선택 방법에 대해 다른 옵션을 사용 해야 하는 경우 [R 스크립트 실행](execute-r-script.md) 모듈을 사용 합니다. 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>필터 기반 기능 선택을 구성 하는 방법
+## <a name="how-to-configure-filter-based-feature-selection"></a>Filter-Based 기능 선택을 구성 하는 방법
 
 표준 통계 메트릭을 선택 합니다. 이 모듈은 열 쌍 (레이블 열 및 기능 열) 간의 상관 관계를 계산 합니다.
 
-1.  필터 기반 기능 선택 모듈을 파이프라인에 추가 합니다. 디자이너의 **기능 선택** 범주에서 찾을 수 있습니다.
+1.  파이프라인에 Filter-Based 기능 선택 모듈을 추가 합니다. 디자이너의 **기능 선택** 범주에서 찾을 수 있습니다.
 
 2. 잠재적 기능에 해당 하는 두 개 이상의 열을 포함 하는 입력 데이터 집합을 연결 합니다.  
 

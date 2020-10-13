@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894575"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
@@ -86,7 +86,7 @@ Security Center에서 보안 정책을 보려면
 
 REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털을 통해 보안 정책을 편집할 수 있습니다.
 
-Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공 하는 RBAC (역할 기반 Access Control)를 사용 합니다. 사용자가 Security Center 열면 액세스할 수 있는 리소스와 관련 된 정보만 표시 됩니다. 즉, 사용자에 게 리소스 구독에 대 한 *소유자*, *참가자*또는 *읽기 권한자* 역할이 할당 됩니다. 또한 두 가지 특정 Security Center 역할이 있습니다.
+Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공 하는 RBAC (Role-Based Access Control)를 사용 합니다. 사용자가 Security Center 열면 액세스할 수 있는 리소스와 관련 된 정보만 표시 됩니다. 즉, 사용자에 게 리소스 구독에 대 한 *소유자*, *참가자*또는 *읽기 권한자* 역할이 할당 됩니다. 또한 두 가지 특정 Security Center 역할이 있습니다.
 
 - **보안 읽기 권한자**: 권장 사항, 경고, 정책 및 상태와 같은 Security Center 항목을 볼 수 있는 권한을 가집니다. 변경할 수 없습니다.
 - **보안 관리자**: *보안 판독기*와 동일한 보기 권한을 가집니다. 보안 정책을 업데이트 하 고 경고를 해제할 수도 있습니다.

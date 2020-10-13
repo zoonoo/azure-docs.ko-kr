@@ -6,19 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2d81749e7023bdbf5353e5c8da633674ea8e8ce9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d40637b05a5d398124ee52dbca49d55b3112ec95
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945301"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758407"
 ---
 # <a name="sms-client-library-overview"></a>SMS 클라이언트 라이브러리 개요
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services SMS 클라이언트 라이브러리를 사용하여 SMS 메시징을 애플리케이션에 추가할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure Communication Services SMS 클라이언트 라이브러리를 사용하여
 | 전화 번호      | 수신자 부담 번호                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
 | 규정        | 옵트아웃 처리                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | 모니터링        | 주고 받은 메시지의 사용량 모니터링                                          | ✔️   | ✔️    | ✔️    | ✔️      |
-| PSTN 호출      | SMS 사용 가능 전화 번호에 PSTN 호출 기능 추가                    | ✔️   | ✔️    | ✔️    | ✔️      |
+| PSTN 호출      | SMS 사용 가능 수신자 부담 번호에 PSTN 통화 기능 추가                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>다음 단계
 

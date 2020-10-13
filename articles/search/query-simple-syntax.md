@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923384"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 단순 쿼리 구문
@@ -114,7 +114,7 @@ NOT 연산자는 빼기 기호입니다. 예를 들어는 `wifi –luxury` 및/�
 
 용어 검색은 하나 이상의 용어에 대 한 쿼리로 서 일치 항목으로 간주 됩니다. 구 검색은 따옴표로 묶인 정확한 구입니다 `" "` . 예를 들어, `Roach Motel` (따옴표 제외)는 `Roach` 임의의 순서로 및/또는 모든 위치를 포함 하는 문서를 검색 합니다 `Motel` `"Roach Motel"` . (따옴표 포함)은 해당 전체 구를 포함 하는 문서를 해당 순서 대로 일치 시킵니다 (어휘 분석은 여전히 적용 됨).
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 + [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [단순 검색을 위한 쿼리 예제](search-query-simple-examples.md)
