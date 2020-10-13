@@ -13,10 +13,10 @@ ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
 ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448779"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
@@ -32,7 +32,7 @@ Microsoft Azure SQL Database 및 Azure SQL Managed Instance는 세 가지 범주
 
 동적 관리 뷰에 대 한 자세한 내용은 [동적 관리 뷰 및 함수 (transact-sql)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 참조 하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Azure SQL Database에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABASE STATE** 권한이 필요 합니다. **VIEW DATABASE STATE** 권한은 현재 데이터베이스 내의 모든 개체에 대한 정보를 반환합니다.
 특정 데이터베이스 사용자에게 **VIEW DATABASE STATE** 권한을 부여하려면 다음 쿼리를 실행합니다.
@@ -252,7 +252,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>`tempdb` 성능 문제 식별
 
-IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. 경합을 추가로 확인 하려면 `tempdb` [dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 wait_resource 값이로 시작 하는지 확인 `2:x:y` 합니다. 여기서 2는 `tempdb` 데이터베이스 id이 고, `x` 는 파일 id 이며,는 `y` 페이지 id입니다.  
+IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. 경합을 추가로 확인 하려면 `tempdb` [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 wait_resource 값이로 시작 하는지 확인 `2:x:y` 합니다. 여기서 2는 `tempdb` 데이터베이스 id이 고, `x` 는 파일 id 이며, `y` 는 페이지 id입니다.  
 
 tempdb 경합의 경우 `tempdb`를 사용하는 애플리케이션 코드를 줄이거나 다시 작성하는 것이 일반적인 방법입니다.  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
 
@@ -499,7 +499,7 @@ GO
 
 ## <a name="monitoring-connections"></a>연결 모니터링
 
-[Dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) 뷰를 사용 하 여 특정 서버 및 관리 되는 인스턴스에 설정 된 연결과 각 연결의 세부 정보에 대 한 정보를 검색할 수 있습니다. 또한 [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) 뷰는 모든 활성 사용자 연결 및 내부 작업에 대한 정보를 검색할 때 유용합니다.
+[Sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) 보기를 사용 하 여 특정 서버 및 관리 되는 인스턴스에 설정 된 연결과 각 연결의 세부 정보에 대 한 정보를 검색할 수 있습니다. 또한 [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) 뷰는 모든 활성 사용자 연결 및 내부 작업에 대한 정보를 검색할 때 유용합니다.
 
 다음 쿼리는 현재 연결에 대한 정보를 검색합니다.
 
@@ -525,13 +525,13 @@ WHERE c.session_id = @@SPID;
 
 다음 뷰를 사용 하 여 사용량을 모니터링할 수도 있습니다.
 
-- Azure SQL Database: [dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
-- Azure SQL Managed Instance: [server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Azure SQL Database와 Azure SQL Managed Instance 모두: [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Azure SQL Database: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Azure SQL Managed Instance: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
+- Azure SQL Database와 Azure SQL Managed Instance 모두: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-모든 데이터베이스에서 [dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 뷰를 사용할 수 있습니다. **sys.dm_db_resource_stats** 뷰는 서비스 계층과 관련된 최근 리소스 사용 데이터를 보여 줍니다. CPU, 데이터 IO, 로그 쓰기 및 메모리의 평균 백분율을 15초마다 기록되고 1시간 동안 유지됩니다.
+모든 데이터베이스에서 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 뷰를 사용할 수 있습니다. **sys.dm_db_resource_stats** 뷰는 서비스 계층과 관련된 최근 리소스 사용 데이터를 보여 줍니다. CPU, 데이터 IO, 로그 쓰기 및 메모리의 평균 백분율을 15초마다 기록되고 1시간 동안 유지됩니다.
 
 이 뷰는 리소스 사용률에 대한 훨씬 구체적인 정보를 제공하므로 현재 상태 분석 또는 문제 해결에 **sys.dm_db_resource_stats**를 먼저 사용해야 합니다. 예를 들어 이 쿼리는 지난 시간 동안 현재 데이터베이스의 평균 및 최대 리소스 사용률을 보여 줍니다.
 
@@ -552,7 +552,7 @@ FROM sys.dm_db_resource_stats;
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
-[Server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) 를 사용 하 여 Azure SQL Managed Instance에 대 한 CPU 사용량, IO 및 저장소 데이터를 반환할 수 있습니다. 데이터는 5분 간격 이내로 수집 및 집계됩니다. 15 초 보고 마다 하나의 행이 있습니다. 반환 되는 데이터에는 CPU 사용량, 저장소 크기, IO 사용률 및 관리 되는 인스턴스 SKU가 포함 됩니다. 기록 데이터는 약 14일 동안 보존됩니다.
+[Sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) 를 사용 하 여 Azure SQL Managed Instance에 대 한 CPU 사용량, IO 및 저장소 데이터를 반환할 수 있습니다. 데이터는 5분 간격 이내로 수집 및 집계됩니다. 15 초 보고 마다 하나의 행이 있습니다. 반환 되는 데이터에는 CPU 사용량, 저장소 크기, IO 사용률 및 관리 되는 인스턴스 SKU가 포함 됩니다. 기록 데이터는 약 14일 동안 보존됩니다.
 
 ```sql
 DECLARE @s datetime;  
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-**Master** 데이터베이스의 [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰에는 특정 서비스 계층 및 계산 크기에서 데이터베이스의 성능을 모니터링 하는 데 도움이 되는 추가 정보가 있습니다. 데이터는 5분마다 수집되어 약 14일 동안 보관됩니다. 이 보기는 데이터베이스에서 리소스를 사용 하는 방법에 대 한 장기 기록 분석에 유용 합니다.
+**Master** 데이터베이스의 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰에는 특정 서비스 계층 및 계산 크기에서 데이터베이스의 성능을 모니터링 하는 데 도움이 되는 추가 정보가 있습니다. 데이터는 5분마다 수집되어 약 14일 동안 보관됩니다. 이 보기는 데이터베이스에서 리소스를 사용 하는 방법에 대 한 장기 기록 분석에 유용 합니다.
 
 다음 그래프는 한 주 동안 시간당 P2 컴퓨팅 크기의 프리미엄 데이터베이스에 사용된 CPU 리소스 사용량을 보여줍니다. 이 그래프는 월요일부터 5근무일과 애플리케이션 사용량이 훨씬 적은 주말까지 표시되어 있습니다.
 
@@ -578,10 +578,10 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 다른 애플리케이션 유형은 동일한 그래프를 다르게 해석할 수 있습니다. 예를 들어 애플리케이션에서 매일 급여 데이터를 처리하고 동일한 차트를 사용하는 경우와 같은 "일괄 처리 작업" 모델은 P1 컴퓨팅 크기로 충분할 수 있습니다. P1 컴퓨팅 크기는 DTU 100개를 제공하고 P2 컴퓨팅 크기는 DTU 200개를 제공합니다. P1 컴퓨팅 크기는 P2 컴퓨팅 크기의 절반 성능을 제공합니다. 따라서 P2에서 CPU 사용의 50%는 P1에서 100% CPU 사용과 같습니다. 애플리케이션에 시간 제한이 없는 경우 작업이 오늘 완료되기만 한다면 2시간이 소요되든 또는 2.5시간이 소요되든 중요하지 않을 수 있습니다. 이 범주의 애플리케이션은 P1 컴퓨팅 크기를 사용할 수도 있습니다. 하루 중 리소스 사용량이 낮은 시간대가 있다는 사실을 활용할 수 있습니다. 즉, "최고" 시간대의 작업을 하루 중 사용량이 낮은 시간대 중 하나로 나눌 수 있습니다. 작업을 매일 정시에 완료할 수 있는 경우 이러한 종류의 애플리케이션에는 P1 컴퓨팅 크기가 적합하며 비용도 절감할 수 있습니다.
 
-데이터베이스 엔진은 각 서버에 있는 **master** 데이터베이스의 **resource_stats** 뷰에서 각 활성 데이터베이스에 대해 사용 된 리소스 정보를 노출 합니다. 표의 데이터는 5분 간격으로 집계되어 있습니다. Basic, Standard, Premium 서비스 계층에서 데이터가 테이블에 표시될 때까지 5분 이상이 소요될 수 있어 이 데이터는 거의 실시간에 가까운 분석보다 기록 분석에 더 적합합니다. **sys.resource_stats** 뷰에 대한 쿼리는 데이터베이스의 최근 기록을 보여주며 선택한 예약이 필요 시 원하는 성능을 제공했는지 여부를 검증합니다.
+데이터베이스 엔진은 각 서버에 있는 **master** 데이터베이스의 **sys.resource_stats** 뷰에서 각 활성 데이터베이스에 대해 사용 된 리소스 정보를 노출 합니다. 표의 데이터는 5분 간격으로 집계되어 있습니다. Basic, Standard, Premium 서비스 계층에서 데이터가 테이블에 표시될 때까지 5분 이상이 소요될 수 있어 이 데이터는 거의 실시간에 가까운 분석보다 기록 분석에 더 적합합니다. **sys.resource_stats** 뷰에 대한 쿼리는 데이터베이스의 최근 기록을 보여주며 선택한 예약이 필요 시 원하는 성능을 제공했는지 여부를 검증합니다.
 
 > [!NOTE]
-> Azure SQL Database에서 다음 예제에서 **resource_stats** 를 쿼리하려면 **master** 데이터베이스에 연결 해야 합니다.
+> Azure SQL Database에서 다음 예의 **sys.resource_stats** 를 쿼리하려면 **master** 데이터베이스에 연결 해야 합니다.
 
 이 예제에서는 이 뷰의 데이터가 표시되는 방법을 보여줍니다.
 
@@ -594,7 +594,7 @@ ORDER BY start_time DESC
 
 ![sys.resource_stats 카탈로그 뷰](./media/monitoring-with-dmvs/sys_resource_stats.png)
 
-다음 예에서는 **sys. resource_stats** 카탈로그 뷰를 사용 하 여 데이터베이스에서 리소스를 사용 하는 방법에 대 한 정보를 얻을 수 있는 다양 한 방법을 보여 줍니다.
+다음 예에서는 **sys.resource_stats** 카탈로그 뷰를 사용 하 여 데이터베이스에서 리소스를 사용 하는 방법에 대 한 정보를 얻을 수 있는 다양 한 방법을 보여 줍니다.
 
 1. 데이터베이스 userdb1에 대 한 지난 주의 리소스 사용을 확인 하려면 다음 쿼리를 실행 하면 됩니다.
 
@@ -714,7 +714,7 @@ WHERE D.name = 'MyDatabase'
 
 역시 이러한 쿼리도 지정 시간 수를 반환합니다. 시간이 지남에 따라 여러 샘플을 수집 하는 경우 세션 사용을 잘 이해 하 게 됩니다.
 
-[Resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 를 쿼리하여 **active_session_count** 열을 확인 하 고 검토 하 여 세션에 대 한 기록 통계를 얻을 수 있습니다.
+[Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰를 쿼리하고 **active_session_count** 열을 검토 하 여 세션에 대 한 기록 통계를 가져올 수 있습니다.
 
 ## <a name="monitoring-query-performance"></a>쿼리 성능 모니터링
 
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>차단된 쿼리 모니터링
 
-느린 속도로 또는 장시간 실행하는 쿼리는 과도한 리소스 소비에 기여하고 차단된 쿼리에 따른 결과일 수 있습니다. 차단의 원인으로 부실한 애플리케이션 디자인, 잘못된 쿼리 계획, 유용한 인덱스 부족 등이 있습니다. Dm_tran_locks 뷰를 사용 하 여 데이터베이스의 현재 잠금 작업에 대 한 정보를 가져올 수 있습니다. 예제 코드는 [dm_tran_locks (transact-sql)](https://msdn.microsoft.com/library/ms190345.aspx)를 참조 하세요.
+느린 속도로 또는 장시간 실행하는 쿼리는 과도한 리소스 소비에 기여하고 차단된 쿼리에 따른 결과일 수 있습니다. 차단의 원인으로 부실한 애플리케이션 디자인, 잘못된 쿼리 계획, 유용한 인덱스 부족 등이 있습니다. Sys.dm_tran_locks 뷰를 사용 하 여 데이터베이스의 현재 잠금 작업에 대 한 정보를 가져올 수 있습니다. 예제 코드는 [sys.dm_tran_locks (transact-sql)](https://msdn.microsoft.com/library/ms190345.aspx)를 참조 하세요.
 
 ### <a name="monitoring-query-plans"></a>쿼리 계획 모니터링
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Azure SQL Database 및 Azure SQL Managed Instance 소개](sql-database-paas-overview.md)

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449410"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
@@ -49,7 +49,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | [SCOM 관리 그룹](./om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure storage 계정](./resource-logs.md#send-to-log-analytics-workspace) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Application Insights 커넥터 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
@@ -60,7 +60,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
 3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 애플리케이션을 선택합니다.
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 약 30분 내에 데이터가 제공되며 다음 이미지와 같이 Application Insights 타일이 데이터로 업데이트됩니다.
 
@@ -176,7 +176,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 속성 | 설명 |
 | --- | --- |
-| 형식 | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -244,7 +244,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 속성 | 설명 |
 | --- | --- |
-| 형식 | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |

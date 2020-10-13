@@ -2,15 +2,13 @@
 title: Application Insights 및 Log Analytics에서 사용되는 IP 주소 | Microsoft Docs
 description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2020
-ms.openlocfilehash: e4c5331177541c7543b386bf8c489d6315fe0bc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 755fd62482d7e453814cab5b5b617ba5eb0cc85a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299024"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932365"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](./app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.

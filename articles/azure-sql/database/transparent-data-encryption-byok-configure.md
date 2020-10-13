@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619120"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객이 관리 하는 키로 투명한 데이터 암호화 사용
@@ -45,7 +45,7 @@ Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-a
 Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [powershell에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/soft-delete-powershell.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> RM (PowerShell Azure Resource Manager) 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
+> PowerShell Azure RM(Resource Manager) 모듈은 여전히 지원되지만 향후 모든 개발은 Az.Sql 모듈을 위한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 ## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>서버에 Azure Active Directory (Azure AD) id 할당
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-필요한 버전의 Azure CLI (버전 2.0 이상)을 설치 하 고 Azure 구독에 연결 하려면 [Azure 플랫폼 간 명령줄 인터페이스 2.0 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli)을 참조 하세요.
+필요한 버전의 Azure CLI (버전 2.0 이상)을 설치 하 고 Azure 구독에 연결 하려면 [Azure 플랫폼 간 Command-Line 설치 및 구성 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)을 참조 하세요.
 
 Key Vault에 대 한 자세한 내용은 [cli 2.0를 사용 하 여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [cli에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/soft-delete-cli.md)을 참조 하세요.
 

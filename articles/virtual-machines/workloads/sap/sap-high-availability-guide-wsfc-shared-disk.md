@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b286812ba0a418d74738837fd5cfb7a7b617a9fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c580e44cc827de46c7464ba5f316e6c515de2940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977989"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링
 
@@ -119,7 +119,7 @@ _공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
 
 Azure의 windows 장애 조치 (failover) 클러스터에는 공유 디스크에 대 한 두 가지 옵션이 있습니다.
 
-- Azure [공유](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) 디스크-기능을 통해 azure 관리 디스크를 여러 vm에 동시에 연결할 수 있습니다. 
+- Azure [공유](../../windows/disks-shared.md) 디스크-기능을 통해 azure 관리 디스크를 여러 vm에 동시에 연결할 수 있습니다. 
 - 타사 소프트웨어 [Sios DataKeeper 클러스터 버전](https://us.sios.com/products/datakeeper-cluster) 을 사용 하 여 클러스터 공유 저장소를 시뮬레이트하는 미러된 저장소를 만듭니다. 
 
 공유 디스크에 대 한 기술을 선택 하는 경우 다음 사항을 고려해 야 합니다.
@@ -128,7 +128,7 @@ Azure의 windows 장애 조치 (failover) 클러스터에는 공유 디스크에
 - 유지 관리 및 운영에 추가 소프트웨어를 요구 하지 않고 Azure 관리 디스크를 여러 Vm에 동시에 연결할 수 있습니다. 
 - 하나의 저장소 클러스터에서 단일 Azure 공유 디스크로 작업 하 게 됩니다. 이는 SAP 솔루션의 안정성에 영향을 줍니다.
 - 현재 유일 하 게 지원 되는 배포는 가용성 집합의 Azure 공유 프리미엄 디스크를 사용 하는 것입니다. Azure 공유 디스크는 영역 배포에서 지원 되지 않습니다.     
-- 필요한 Vm 수에 동시에 연결할 수 있도록 [프리미엄 SSD 범위](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#disk-sizes) 에 지정 된 최소 디스크 크기를 사용 하 여 Azure Premium disk를 프로 비전 해야 합니다 (일반적으로 SAP Ascs Windows 장애 조치 (Failover) 클러스터의 경우 2). 
+- 필요한 Vm 수에 동시에 연결할 수 있도록 [프리미엄 SSD 범위](../../windows/disks-shared.md#disk-sizes) 에 지정 된 최소 디스크 크기를 사용 하 여 Azure Premium disk를 프로 비전 해야 합니다 (일반적으로 SAP Ascs Windows 장애 조치 (Failover) 클러스터의 경우 2). 
 - Azure 공유 Ultra disk는 가용성 집합 또는 영역 배포의 배포를 지원 하지 않으므로 SAP 워크 로드에 대해 지원 되지 않습니다.  
  
 **SIOS**
@@ -139,25 +139,25 @@ Azure의 windows 장애 조치 (failover) 클러스터에는 공유 디스크에
 
 ### <a name="shared-disk-using-azure-shared-disk"></a>Azure 공유 디스크를 사용 하는 공유 디스크
 
-Microsoft는 공유 디스크 옵션을 사용 하 여 SAP ASCS/SCS 고가용성을 구현 하는 데 사용할 수 있는 [Azure 공유 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)를 제공 합니다.
+Microsoft는 공유 디스크 옵션을 사용 하 여 SAP ASCS/SCS 고가용성을 구현 하는 데 사용할 수 있는 [Azure 공유 디스크](../../windows/disks-shared.md)를 제공 합니다.
 
 #### <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
 현재 SAP ASCS/SCS 인스턴스에 대 한 Azure 공유 디스크로 Azure 프리미엄 SSD 디스크를 사용할 수 있습니다. 현재 다음과 같은 제한 사항이 적용 됩니다.
 
--  [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) 는 SAP 워크 로드에 대 한 Azure 공유 디스크로 지원 되지 않습니다. 현재 가용성 집합에서 Azure Ultra Disk를 사용 하 여 Azure Vm을 사용할 수 없습니다.
--  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) 는 가용성 집합의 vm 에서만 지원 됩니다. 가용성 영역 배포에서는 지원 되지 않습니다. 
--  Azure 공유 디스크 값 [Maxshares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) 는 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 일반적으로 SAP ASCS/SCS 인스턴스의 경우 Windows 장애 조치 (Failover) 클러스터에서 두 노드를 구성 하므로의 값을 `maxShares` 2로 설정 해야 합니다.
--  모든 SAP ASCS/SCS 클러스터 Vm은 동일한 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)에 배포 되어야 합니다.   
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk) 는 SAP 워크 로드에 대 한 Azure 공유 디스크로 지원 되지 않습니다. 현재 가용성 집합에서 Azure Ultra Disk를 사용 하 여 Azure Vm을 사용할 수 없습니다.
+-  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../windows/disks-shared.md) 는 가용성 집합의 vm 에서만 지원 됩니다. 가용성 영역 배포에서는 지원 되지 않습니다. 
+-  Azure 공유 디스크 값 [Maxshares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) 는 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 일반적으로 SAP ASCS/SCS 인스턴스의 경우 Windows 장애 조치 (Failover) 클러스터에서 두 노드를 구성 하므로의 값을 `maxShares` 2로 설정 해야 합니다.
+-  모든 SAP ASCS/SCS 클러스터 Vm은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포 되어야 합니다.   
    그러나 PPG 없이 Azure 공유 디스크를 사용 하 여 가용성 집합에 Windows 클러스터 Vm을 배포할 수 있지만, PPG를 사용 하면 Azure 공유 디스크와 클러스터 Vm의 물리적인 근접 한 부분을 확보 하 여 Vm과 저장소 계층 간의 대기 시간을 줄일 수 있습니다.    
 
-Azure 공유 디스크에 대 한 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) 섹션을 참조 하세요.
+Azure 공유 디스크에 대 한 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../linux/disks-shared.md#limitations) 섹션을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure 공유 디스크를 사용 하 여 SAP ASCS/SCS Windows 장애 조치 (Failover) 클러스터를 배포 하는 경우 배포는 하나의 저장소 클러스터에서 단일 공유 디스크로 작동 한다는 점에 유의 해야 합니다. Azure 공유 디스크가 배포 되는 저장소 클러스터에 문제가 있는 경우 SAP ASCS/SCS 인스턴스가 영향을 받습니다.    
 
 > [!TIP]
-> Sap 배포를 계획할 때 중요 한 고려 사항은 [Azure 계획 가이드의 Sap Netweaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 및 [sap 워크 로드에 대 한 Azure Storage 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 를 검토 하세요.
+> Sap 배포를 계획할 때 중요 한 고려 사항은 [Azure 계획 가이드의 Sap Netweaver](./planning-guide.md) 및 [sap 워크 로드에 대 한 Azure Storage 가이드](./planning-guide-storage.md) 를 검토 하세요.
 
 ### <a name="supported-os-versions"></a>지원된 OS 버전
 

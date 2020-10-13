@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 092246da4c01aa826fd4425e5a778d567b75d9d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828456"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854361"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>등록 사용자 흐름에 API 커넥터 추가
 
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-**Azure Active Directory**  >  **외부 id**  >  **사용자 지정 사용자 특성** 환경에 나열 된 사용자 속성 및 사용자 지정 특성만 요청에서 보낼 수 있습니다.
+**Azure AD B2C**  >  **사용자 특성** 환경에 나열 된 사용자 속성 및 사용자 지정 특성만 요청에서 보낼 수 있습니다.
 
 사용자 지정 특성은 디렉터리의 **extension_ \<extensions-app-id> _CustomAttribute**  형식으로 존재 합니다. API는 동일한 직렬화 된 형식으로 클레임을 수신 해야 합니다. 사용자 지정 특성에 대 한 자세한 내용은 [Azure Active Directory B2C에서 사용자 지정 특성 정의](user-flow-custom-attributes.md)를 참조 하세요.
 
@@ -238,8 +238,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 예       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
+| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 
@@ -294,9 +294,9 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>모범 사례 및 문제 해결 방법
 
 ### <a name="using-serverless-cloud-functions"></a>서버 리스 클라우드 함수 사용
-Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥터에서 사용할 API 끝점을 만드는 간단한 방법을 제공 합니다. 서버 리스 클라우드 함수를 사용 하 여 예를 들어 유효성 검사 논리를 수행 하 고 등록을 특정 도메인으로 제한할 수 있습니다. 서버를 사용 하지 않는 클라우드 함수는 보다 복잡 한 시나리오에 대해 다른 웹 Api, 사용자 저장소 및 기타 클라우드 서비스를 호출 하 고 호출할 수도 있습니다.
+Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥터에서 사용할 API 끝점을 만드는 간단한 방법을 제공 합니다. 서버를 사용 하지 않는 클라우드 함수를 사용 하 여 유효성 검사 논리를 수행 하 고 [등록을 특정](code-samples.md#api-connectors)메일 도메인으로 제한할 수 있습니다. 서버를 사용 하지 않는 클라우드 함수는 보다 복잡 한 시나리오에 대해 다른 웹 Api, 사용자 저장소 및 기타 클라우드 서비스를 호출 하 고 호출할 수도 있습니다.
 
-### <a name="best-practices"></a>모범 사례
+### <a name="best-practices"></a>최선의 구현 방법
 다음 사항을 확인합니다.
 * API는 위에 설명 된 대로 API 요청 및 응답 계약을 따라 수행 됩니다. 
 * API 커넥터의 **끝점 URL** 은 올바른 api 끝점을 가리킵니다.
@@ -314,4 +314,4 @@ Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥�
 
 ## <a name="next-steps"></a>다음 단계
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- [Azure Function 빠른 시작 샘플](code-samples.md#api-connectors)을 사용 하 여 시작 하세요.

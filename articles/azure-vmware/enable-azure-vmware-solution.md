@@ -3,19 +3,19 @@ title: Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 노드를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 72a7aca97067ce4e9ed0e901e4016c82b3549eb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc90a322b5592ca7f400a82deca65ea753711c27
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90817902"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948734"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 노드를 요청할 수도 있습니다.
 
 ## <a name="eligibility-criteria"></a>자격 기준
 
-* Microsoft와 함께 [Azure 기업계약 (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) 가 필요 합니다.
+* Microsoft와 함께 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) 가 필요 합니다.
 * Azure 구독의 Azure 계정이 필요합니다.
 
 

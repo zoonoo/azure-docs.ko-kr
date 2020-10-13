@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448685"
 ---
 # <a name="split-image-directory"></a>이미지 디렉터리 분할
@@ -35,19 +35,19 @@ ms.locfileid: "91448685"
 
 ### <a name="expected-inputs"></a>예상 입력
 
-| 속성                  | 유형           | 설명              |
+| Name                  | 유형           | 설명              |
 | --------------------- | -------------- | ------------------------ |
 | 입력 이미지 디렉터리 | ImageDirectory | 분할할 이미지 디렉터리입니다. |
 
 ### <a name="module-parameters"></a>모듈 매개 변수
 
-| 속성                                   | Type  | 범위 | 옵션 | Description                            | 기본값 |
+| Name                                   | Type  | 범위 | 옵션 | Description                            | 기본값 |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | 첫 번째 출력에서 이미지의 비율 | Float | 0-1   | 필수 | 첫 번째 출력에서 이미지의 비율 | 0.9     |
 
-### <a name="outputs"></a>출력
+### <a name="outputs"></a>outputs
 
-| 속성                    | 유형           | 설명                              |
+| Name                    | 유형           | 설명                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | 출력 이미지 directory1 | ImageDirectory | 선택한 이미지를 포함 하는 이미지 디렉터리 |
 | 출력 이미지 directory2 | ImageDirectory | 다른 모든 이미지를 포함 하는 이미지 디렉터리 |

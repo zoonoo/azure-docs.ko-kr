@@ -4,10 +4,10 @@ description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니�
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405159"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상

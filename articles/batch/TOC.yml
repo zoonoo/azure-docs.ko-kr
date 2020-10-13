@@ -257,12 +257,16 @@
           href: batch-pool-resize-start-event.md
         - name: 풀 크기 조정 완료 이벤트
           href: batch-pool-resize-complete-event.md
+        - name: 풀 자동 크기 조정 이벤트
+          href: batch-pool-autoscale-event.md
         - name: 태스크 시작 이벤트
           href: batch-task-start-event.md
         - name: 태스크 완료 이벤트
           href: batch-task-complete-event.md
         - name: 태스크 실패 이벤트
           href: batch-task-fail-event.md
+        - name: 작업 일정 실패 이벤트
+          href: batch-task-schedule-fail-event.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

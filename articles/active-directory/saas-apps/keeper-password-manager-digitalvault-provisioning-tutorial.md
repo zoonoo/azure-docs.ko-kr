@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 26f12b18e2199fb45e6eb94f2a136d2af2b1576c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317602"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 디지털 자격 증명 모음 & 키퍼 암호 관리자 구성
@@ -27,7 +27,7 @@ ms.locfileid: "91317602"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -122,7 +122,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-9. **저장**을 클릭합니다.
+9. **Save**을 클릭합니다.
 
 10. **매핑** 섹션 아래에서 **Azure Active Directory 사용자를 키퍼 암호 관리자 & 디지털 자격 증명 모음과 동기화를**선택 합니다.
 

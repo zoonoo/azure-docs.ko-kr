@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: e8c222d7cdcdb203cd323cde38818e5b51643159
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443375"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>새 Elastic Database 작업로 마이그레이션 (미리 보기)
@@ -93,7 +93,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 이제 이전 및 새로운 탄력적 작업 cmdlet이 모두 설치되었으므로 작업 자격 증명, 대상 및 작업을 새로운 *작업 데이터베이스*로 마이그레이션합니다.
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 ```powershell
 $ErrorActionPreference = "Stop";

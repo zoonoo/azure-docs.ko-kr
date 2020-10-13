@@ -4,10 +4,10 @@ description: Batch 태스크 완료 이벤트에 대한 참조입니다. 이 이
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 11f727b07723f32cd08130b4af17e57ede3d264f
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850894"
 ---
 # <a name="task-complete-event"></a>태스크 완료 이벤트

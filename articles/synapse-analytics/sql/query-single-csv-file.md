@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288293"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
@@ -93,7 +93,7 @@ from openrowset(
 
 다음 섹션에서는 다양 한 유형의 CSV 파일을 쿼리 하는 방법을 볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 첫 번째 단계는 테이블을 만들 **데이터베이스를 만드는 것**입니다. 그런 다음 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 예에서 사용되는 데이터 원본, 데이터베이스 범위의 자격 증명 및 외부 파일 형식을 만듭니다.
 

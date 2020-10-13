@@ -4,10 +4,10 @@ description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619953"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)

@@ -14,10 +14,10 @@ ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3a715538afba181a067e4cecd8c1941a76ae36d6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298857"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
@@ -197,7 +197,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. **AlwaysOn 고가용성** > **가용성 그룹** > **가용성 그룹 수신기**로 이동합니다. 
 
-1. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 수신기 이름을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
+1. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 마우스 오른쪽 단추로 수신기 이름을 클릭하고, **속성**을 선택합니다.
 
 1. **포트** 상자에서 이전에 사용한 $EndpointPort (1433)를 사용 하 여 가용성 그룹 수신기에 대 한 포트 번호를 지정한 다음 **확인**을 선택 합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15a82fff2a40e5c6b64ef87733b8c72916f5a44
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274795"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965882"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-다음 단계는 선택 사항이지만 권장됩니다. 자세한 내용은 [Windows VM에 대한 Azure 가용성 집합 지침](../../windows/infrastructure-example.md)을 참조하세요.
+다음 단계는 선택 사항이지만 권장됩니다. 자세한 내용은 [Windows VM에 대한 Azure 가용성 집합 지침](/previous-versions/azure/virtual-machines/windows/infrastructure-example)을 참조하세요.
 
 ```azurecli
 az vm availability-set create \

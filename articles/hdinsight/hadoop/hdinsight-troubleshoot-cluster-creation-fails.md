@@ -12,7 +12,7 @@ ms.openlocfilehash: b8be230044d868cc3ec03f6dc3fc2d21e102f121
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856299"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결

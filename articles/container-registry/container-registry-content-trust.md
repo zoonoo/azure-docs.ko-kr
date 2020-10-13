@@ -4,10 +4,10 @@ description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409167"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰

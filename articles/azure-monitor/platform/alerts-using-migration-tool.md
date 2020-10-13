@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358664"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙 마이그레이션
@@ -83,7 +83,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 ### <a name="who-can-trigger-the-migration"></a>누가 마이그레이션을 트리거할 수 있나요?
 
-구독 수준에서 모니터링 참여자 역할을 할당 받은 사용자는 마이그레이션을 트리거할 수 있습니다. [마이그레이션 프로세스에 대 한 역할 기반 Access Control에 대해 자세히 알아보세요](alerts-understand-migration.md#who-can-trigger-the-migration).
+구독 수준에서 모니터링 참여자 역할을 할당 받은 사용자는 마이그레이션을 트리거할 수 있습니다. [마이그레이션 프로세스에 대 한 Role-Based Access Control에 대해 자세히 알아보세요](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>마이그레이션에 소요 되는 시간
 

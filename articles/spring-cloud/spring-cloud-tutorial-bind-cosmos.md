@@ -8,15 +8,15 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 9b7af755c7f0903787bb3798ea1f6877cae180f1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90908320"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩
 
-**이 문서는 다음에 적용 됩니다.** ✔️ Java
+**이 문서는 다음에 적용됩니다.** ✔️ Java
 
 Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring Cloud를 사용하여 선택한 Azure 서비스를 사용자 애플리케이션에 자동으로 바인딩할 수 있습니다. 이 문서에서는 Azure Cosmos DB 데이터베이스에 애플리케이션을 바인딩하는 방법을 보여 줍니다.
 

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c010fa4ea0289ed91f439a250f0b63703517f5bc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447789"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전
 
-Azure IoT Edge 장치는 [장치 프로 비전 서비스](../iot-dps/index.yml) 를 사용 하 여 자동 프로 비전 할 수 있습니다. 자동 프로 비전 프로세스에 익숙하지 않은 경우 계속 하기 전에 [프로 비전](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토 합니다.
+Azure IoT Edge 장치는 [장치 프로 비전 서비스](../iot-dps/index.yml) 를 사용 하 여 자동 프로 비전 할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
 DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 대칭 키 증명을 지원 합니다. 그룹 등록의 경우 대칭 키 증명에서 "IoT Edge 장치" 옵션을 true로 선택 하면 해당 등록 그룹에 등록 된 모든 장치가 IoT Edge 장치로 표시 됩니다.
 
@@ -31,7 +31,7 @@ DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 �
 > [!TIP]
 > 이 문서에서는 가상 장치에서 TPM 증명을 사용 하 여 자동 프로 비전 테스트에 대해 설명 하지만, 실제 TPM 하드웨어를 사용 하는 경우에도 대부분 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 * 활성 IoT Hub

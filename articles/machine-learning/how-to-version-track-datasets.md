@@ -12,10 +12,10 @@ ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 27cf60f09a8c0f149aec16dd81da0e7ce0707a15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302097"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
@@ -28,7 +28,7 @@ ms.locfileid: "91302097"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 다음이 필요합니다.
 

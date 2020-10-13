@@ -12,13 +12,13 @@ ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629015"
 ---
-# <a name="on-demand-provisioning"></a>주문형 프로 비전
+# <a name="on-demand-provisioning"></a>주문형 프로비저닝
 요청 시 프로 비전을 사용 하 여 몇 초 안에 응용 프로그램에 사용자를 프로 비전 합니다. 무엇 보다도이 기능을 사용 하 여 다음을 수행할 수 있습니다.
 
 * 구성 문제를 빠르게 해결 합니다.

@@ -12,17 +12,17 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259071"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Azure Active Directory B2C Twilio Verify 앱 통합
 
 이 연습에서는 Azure Active Directory B2C (Azure AD B2C)의 샘플 온라인 지불 앱을 Twilio Verify API와 통합 하는 방법에 대해 알아봅니다. Twilio Verify 앱 Azure AD B2C을 사용 하면 고객이 동적 링크 및 강력한 고객 인증을 통해 PSD2 (결제 서비스 지시어 2) 트랜잭션 요구 사항을 준수할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -42,10 +42,10 @@ Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 | 1     | 사용자가 PSD2 Demo 앱에 로그인 또는 등록을 시작 합니다. 사용자는 Azure AD B2C 결합 된 로그인 및 등록 정책을 통해 인증 됩니다. 응용 프로그램에 토큰이 반환 됩니다. 등록 시 사용자의 전화 번호는 SMS/Phone을 사용 하 여 확인 되 고 Azure AD B2C 계정에 기록 됩니다.     |
-| 2     | 사용자가 $50.00의 전송과 같은 높은 위험 수준 트랜잭션을 시작 합니다. 사용자의 현재 액세스 토큰은 PolicyId를 평가 하 여 사용자가 이미 단계 사용자 지정 정책을 통해 인증 되었는지 여부를 확인 합니다.     |
+| 2     | 사용자가 $50.00의 전송과 같은 높은 위험 수준 트랜잭션을 시작 합니다. 사용자의 현재 액세스 토큰은 PolicyId를 평가 하 여 사용자가 Step-Up 사용자 지정 정책을 통해 이미 인증 되었는지 여부를 확인 합니다.     |
 | 3     | 응용 프로그램은 트랜잭션 값과 수취인, $50.00 및 John Doe를 기록 하 고 서명 된 토큰을 생성 합니다. 이 토큰을 라고 `id_token_hint` 하며 클레임을 포함 `amount:$500, payee:john doe` 합니다. 는 `id_token_hint` Twilio와 통합 된 Azure AD B2C 사용자 지정 정책에 대 한 요청과 함께 전송 됩니다.     |
 | 4     | Azure AD B2C는 응용 프로그램 openid connect Connect 끝점을 확인 하 여 id_token_hint의 서명을 확인 합니다 `/.well-known` . 확인 후, 특히 및와 같은 토큰에서 클레임을 추출 합니다 `amount` `payee` . 사용자에 게 SMS 메시지를 통해 휴대폰 번호를 확인 하는 페이지가 표시 됩니다.     |
 | 5     | 사용자가 SMS 메시지를 통해 전화 번호를 확인 하도록 요청 하 고 Azure AD B2C Twilio의 Verify API 끝점에 대 한 REST API 요청을 만듭니다. 또한 `amount` `payee` PSD2 프로세스의 일부로 트랜잭션을 전송 하 여 OTP (일회용 암호)를 생성 합니다. Twilio는 사용자의 등록 된 전화 번호로 SMS 메시지를 보냅니다.     |

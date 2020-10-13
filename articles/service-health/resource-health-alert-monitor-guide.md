@@ -4,10 +4,10 @@ description: Azure 리소스를 사용할 수 없게 되 면 알리는 Azure Por
 ms.topic: conceptual
 ms.date: 6/23/2020
 ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540679"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Azure Portal을 사용하여 리소스 상태 경고 구성

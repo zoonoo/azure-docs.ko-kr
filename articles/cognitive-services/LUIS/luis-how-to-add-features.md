@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540883"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>기능을 사용 하 여 단어 목록 신호 상승
@@ -41,7 +41,7 @@ ms.locfileid: "91540883"
 
 1. 구 목록은 **전역** 설정이 있는 전체 앱 또는 특정 모델 (의도 또는 엔터티)에 적용할 수 있습니다. 의도 또는 엔터티의 _기능_ 으로 문구 목록을 만드는 경우 toggle은 global에 대해 설정 되지 않습니다. 이 경우 설정/해제의 의미는 해당 기능이 해당 모델에 대해서만 로컬 이며 응용 프로그램에 대 한 _전역이 아니라_ 는 것입니다.
 
-1. **완료**를 선택합니다. 새 기능이 **ML 기능** 페이지에 추가 됩니다.
+1. **완료** 를 선택합니다. 새 기능이 **ML 기능** 페이지에 추가 됩니다.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
