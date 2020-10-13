@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037459"
 ---
 # <a name="extended-geojson-geometries"></a>확장 된 GeoJSON 기 하 도형
@@ -26,8 +26,8 @@ Azure Maps는 내부 및 지역별 기능을 검색할 수 있는 강력한 Api 
 * MultiLineString
 * MultiPoint
 * MultiPolygon
-* 요소
-* 다각형
+* Point
+* Polygon
 
 일부 Azure Maps Api는 [GeoJSON 사양의][1]일부가 아닌 기 하 도형을 허용 합니다. 예를 들어 [Geometry API 내에서 검색](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) 은 원과 다각형을 허용 합니다.
 

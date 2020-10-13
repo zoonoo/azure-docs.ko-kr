@@ -10,10 +10,10 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939605"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
@@ -192,5 +192,5 @@ CommunicationUserCredential credential = new CommunicationUserCredential(tokenRe
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 항목을 참조하세요.
-- [클라이언트 및 서버 아키텍처에 대 한 자세한 정보](../concepts/client-and-server-architecture.md)
+자세한 내용은 다음 아티클을 참조하세요.
+- [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)

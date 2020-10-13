@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743729"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939020"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
 
@@ -42,10 +42,10 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | 없음 |
+| 4TiB | P50 | None |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | 없음 |
+| 32TiB | P80 | None |
 
 청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 
@@ -58,7 +58,7 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-관리 디스크의 성능 계층을 조정 하는 기능은 현재 미국 서 부 지역의 프리미엄 Ssd 에서만 사용할 수 있습니다. 
+관리 디스크의 성능 계층을 조정 하는 기능은 현재 미국 동부 2, 미국 동부, 미국 서 부, 미국 동부 동부 지역에 있는 premium Ssd 에서만 사용할 수 있습니다.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>계층을 기준 계층 보다 높은 빈 데이터 디스크를 만듭니다.
 
